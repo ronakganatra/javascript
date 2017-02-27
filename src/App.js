@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import getAccessToken from "./functions/getAccessToken";
+import UserStatus from './containers/UserStatus';
 
 class App extends Component {
   render() {
-    let accessToken = getAccessToken();
-
-    console.log( accessToken );
-
-    // 5K9AlqhcAH9sS75SCnovaMRjD30cEkp28GWotwjSsfkgoNFCfb3CX1AAHtzBPMWi
-
     return (
       <div className="App">
         <div className="App-header">
@@ -20,6 +14,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+
+          <UserStatus displayName="test123" />
       </div>
     );
   }

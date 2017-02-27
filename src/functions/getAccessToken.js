@@ -1,9 +1,6 @@
 import Cookies from "js-cookie";
+import removeCookieSignage from "./removeCookieSignage";
 
 export default function() {
-	let accessToken = Cookies.get( "access_token" );
-
-	accessToken = accessToken.replace( /s:([^\.]+)\..*/, '$1' );
-
-	return accessToken;
+	return removeCookieSignage( Cookies.get( "access_token" ) );
 }
