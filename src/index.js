@@ -25,8 +25,6 @@ store.dispatch( login( getAccessToken(), getUserId() ) );
 store.dispatch( fetchUser( getAccessToken(), getUserId() ) );
 
 ReactDOM.render(
-  <Provider store={store}>
-	<App />
-  </Provider>,
-  document.getElementById('root')
+	<App store={store} />,
+	document.getElementById('root')
 );

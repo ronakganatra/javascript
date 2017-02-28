@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import UserStatus from './containers/UserStatus';
 import { Layout, Sidebar, Content } from "./components/Layout";
+import { Provider} from "react-redux";
 
 class App extends Component {
-  render() {
-    return (
-        <Layout>
-            <Sidebar>
-                <UserStatus />
-            </Sidebar>
-            <Content>
-            </Content>
-        </Layout>
-    );
-  }
+	render() {
+		return (
+			<Provider store={this.props.store}>
+				<Layout>
+					<Sidebar>
+						<UserStatus />
+					</Sidebar>
+					<Content>
+					</Content>
+				</Layout>
+			</Provider>
+		);
+	}
 }
 
 export default App;
