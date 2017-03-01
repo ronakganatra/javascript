@@ -38,3 +38,11 @@ export const LargeButton = styled(Button)`
 export const GreenButton = styled(Button)`
 	background-color: ${colors.$color_green};
 `;
+
+export const LogoutButton = styled(Button)`
+	background-color: ${colors.$color_white};
+	color: ${colors.$color_black};
+	padding: 8px 20px;
+	font-size: 14px;
+	text-transform: none
+`
