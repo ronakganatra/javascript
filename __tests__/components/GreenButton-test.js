@@ -2,11 +2,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Button } from '../../src/components/Button';
+import { GreenButton } from '../../src/components/Button';
 
-test('the button matches the snapshot', () => {
+test('the green button matches the snapshot', () => {
 	const component = renderer.create(
-		<Button>ButtonValue</Button>
+		<GreenButton>ButtonValue</GreenButton>
 	);
 
 	let tree = component.toJSON();
