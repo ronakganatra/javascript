@@ -6,7 +6,7 @@ import { LargeButton } from '../../src/components/Button';
 
 test('the large button matches the snapshot', () => {
 	const component = renderer.create(
-		<LargeButton>ButtonValue</LargeButton>
+		<LargeButton value="ButtonValue"/>
 	);
 
 	let tree = component.toJSON();

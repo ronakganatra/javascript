@@ -6,7 +6,7 @@ import { Button } from '../../src/components/Button';
 
 test('the button matches the snapshot', () => {
 	const component = renderer.create(
-		<Button>ButtonValue</Button>
+		<Button value="ButtonValue" />
 	);
 
 	let tree = component.toJSON();
@@ -15,7 +15,7 @@ test('the button matches the snapshot', () => {
 
 test('the button with button type given matches the snapshot', () => {
 	const component = renderer.create(
-		<Button type="button">ButtonValue</Button>
+		<Button type="button" value="ButtonValue" />
 	);
 
 	let tree = component.toJSON();
@@ -26,7 +26,7 @@ test('the button handling an onclick event', () => {
 	const component = renderer.create(
 		<Button onClick={ () => {
 			return 'clicked';
-		} }>ButtonValue</Button>
+		} } value="ButtonValue" />
 	);
 
 	let tree = component.toJSON();
@@ -34,7 +34,7 @@ test('the button handling an onclick event', () => {
 
 	// manually trigger the callback
 	tree.props.onClick();
-	
+
 	// re-rendering
 	tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
