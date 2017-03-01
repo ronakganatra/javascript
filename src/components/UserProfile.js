@@ -1,5 +1,11 @@
 import React from "react";
 
+/**
+ * @param {Object} props Component props.
+ * @param {boolean} props.loggedIn Whether or not we are currently logged in.
+ * @returns {ReactElement} A react component.
+ * @constructor
+ */
 export default function UserProfile( props ) {
 	let loggedIn = null;
 	if ( props.loggedIn ) {
@@ -14,7 +20,7 @@ export default function UserProfile( props ) {
 		{ props.displayName }
 
 		<button type="button" onClick={props.onLogoutClick}>Logout</button>
-	</div>
+	</div>;
 }
 
 UserProfile.propTypes = {
@@ -25,5 +31,5 @@ UserProfile.propTypes = {
 
 UserProfile.defaultProps = {
 	displayName: "",
-	loggedIn: false
+	loggedIn: false,
 };

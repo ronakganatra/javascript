@@ -26,7 +26,7 @@ Button.defaultProps = {
 	type: "button",
 };
 
-export const LargeButton = styled(Button)`
+export const LargeButton = styled( Button )`
 	font-size: 16px;
 	padding: 20px 40px 20px 20px;
 	background-image: url( ${angleRight} );
@@ -35,6 +35,6 @@ export const LargeButton = styled(Button)`
 	background-repeat: no-repeat;
 `;
 
-export const GreenButton = styled(Button)`
+export const GreenButton = styled( Button )`
 	background-color: ${colors.$color_green};
 `;
