@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import colors from "yoast-components/style-guide/colors.json";
 
-import angle_right from "../icons/angle-right.svg";
+import angleRight from "../icons/angle-right.svg";
 
 export const Button = styled.button`
 	background-color: ${colors.$color_blue};
@@ -19,16 +19,20 @@ export const Button = styled.button`
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+};
+
+Button.defaultProps = {
+	type: "button",
 };
 
 export const LargeButton = styled(Button)`
 	font-size: 16px;
 	padding: 20px 40px 20px 20px;
-	background-image: url( ${angle_right} );
+	background-image: url( ${angleRight} );
 	background-size: 40px;
 	background-position: center right;
 	background-repeat: no-repeat;
-	
 `;
 
 export const GreenButton = styled(Button)`

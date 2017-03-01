@@ -13,13 +13,29 @@ test('the button matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
+test('the button with button type given matches the snapshot', () => {
+	const component = renderer.create(
+		<Button type="button">ButtonValue</Button>
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
 test('the button handling an onclick event', () => {
 	const component = renderer.create(
 		<Button onClick={ () => {
-			console.log( 'clicked' );
+			return 'clicked';
 		} }>ButtonValue</Button>
 	);
 
 	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+
+	// manually trigger the callback
+	tree.props.onClick();
+	
+	// re-rendering
+	tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });

@@ -1,14 +1,33 @@
 exports[`test the button handling an onclick event 1`] = `
 <button
   className="bvmfze"
-  onClick={[Function]}>
+  onClick={[Function]}
+  type="button">
+  ButtonValue
+</button>
+`;
+
+exports[`test the button handling an onclick event 2`] = `
+<button
+  className="bvmfze"
+  onClick={[Function]}
+  type="button">
   ButtonValue
 </button>
 `;
 
 exports[`test the button matches the snapshot 1`] = `
 <button
-  className="bvmfze">
+  className="bvmfze"
+  type="button">
+  ButtonValue
+</button>
+`;
+
+exports[`test the button with button type given matches the snapshot 1`] = `
+<button
+  className="bvmfze"
+  type="button">
   ButtonValue
 </button>
 `;
