@@ -1,6 +1,6 @@
 exports[`test the large button matches the snapshot 1`] = `
 <button
-  onClick={[Function]}
+  className="kgcbkl"
   type="button">
   ButtonValue
 </button>

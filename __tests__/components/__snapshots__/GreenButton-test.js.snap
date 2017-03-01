@@ -1,6 +1,6 @@
 exports[`test the green button matches the snapshot 1`] = `
 <button
-  onClick={[Function]}
+  className="dSafiC"
   type="button">
   ButtonValue
 </button>

@@ -6,7 +6,7 @@ import { GreenButton } from '../../src/components/Button';
 
 test('the green button matches the snapshot', () => {
 	const component = renderer.create(
-		<GreenButton value="ButtonValue" />
+		<GreenButton>ButtonValue</GreenButton>
 	);
 
 	let tree = component.toJSON();
