@@ -1,3 +1,4 @@
+import React from "react";
 
 import styled from "styled-components";
 
@@ -15,6 +16,10 @@ export const Button = styled.button`
 	padding: 15px;
 	border: 0;
 `;
+
+Button.propTypes = {
+	onClick: React.PropTypes.func,
+};
 
 export const LargeButton = styled(Button)`
 	font-size: 16px;

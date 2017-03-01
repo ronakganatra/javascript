@@ -1,3 +1,11 @@
+exports[`test the button handling an onclick event 1`] = `
+<button
+  className="dSafiC"
+  onClick={[Function]}>
+  ButtonValue
+</button>
+`;
+
 exports[`test the green button matches the snapshot 1`] = `
 <button
   className="dSafiC">

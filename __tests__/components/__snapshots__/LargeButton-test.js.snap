@@ -1,3 +1,11 @@
+exports[`test the button handling an onclick event 1`] = `
+<button
+  className="jYptWH"
+  onClick={[Function]}>
+  ButtonValue
+</button>
+`;
+
 exports[`test the large button matches the snapshot 1`] = `
 <button
   className="jYptWH">
