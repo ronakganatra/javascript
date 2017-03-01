@@ -3,8 +3,10 @@ import styled from "styled-components";
 
 import colors from "yoast-components/style-guide/colors.json";
 
+import angle_right from "../icons/angle-right.svg";
+
 export const Button = styled.button`
-	background: ${colors.$color_blue};
+	background-color: ${colors.$color_blue};
 	color: ${colors.$color_white};
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
@@ -14,6 +16,16 @@ export const Button = styled.button`
 	border: 0;
 `;
 
+export const LargeButton = styled(Button)`
+	font-size: 16px;
+	padding: 20px 40px 20px 20px;
+	background-image: url( ${angle_right} );
+	background-size: 40px;
+	background-position: center right;
+	background-repeat: no-repeat;
+	
+`;
+
 export const GreenButton = styled(Button)`
-	background: ${colors.$color_green};
+	background-color: ${colors.$color_green};
 `;
