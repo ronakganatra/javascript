@@ -6,7 +6,7 @@
     "autoprefixer": "6.7.2",
     "babel-core": "6.22.1",
     "babel-eslint": "7.1.1",
-    "babel-jest": "18.0.0",
+    "babel-jest": "^19.0.0",
     "babel-loader": "6.2.10",
     "babel-preset-react-app": "^2.1.0",
     "babel-runtime": "^6.20.0",
@@ -47,15 +47,19 @@
     "whatwg-fetch": "^2.0.2"
   },
   "dependencies": {
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
     "cookie-parser": "^1.4.3",
     "js-cookie": "^2.1.3",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
+    "react-test-renderer": "^15.4.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
-    "styled-components": "^1.4.3"
+    "styled-components": "^1.4.3",
+    "yoast-components": "^2.4.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
