@@ -18,12 +18,12 @@ export const RoundButton = styled.button`
 	height: 40px;
 `;
 
-export const RoundBackButton = styled(RoundButton)`
+export const RoundBackButton = styled( RoundButton )`
 	background-image: url( ${angleLeft} );
 	background-position: 4px center;
 `;
 
-export const RoundAddButton = styled(RoundButton)`
+export const RoundAddButton = styled( RoundButton )`
 	background-image: url( ${plus} );
 	background-position: center;
 	background-size: 20px;
