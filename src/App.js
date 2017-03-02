@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './App.css';
-import UserStatus from './containers/UserStatus';
+import React, { Component } from "react";
+import "./App.css";
+import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Content } from "./components/Layout";
-import { Provider} from "react-redux";
+import { Provider } from "react-redux";
 
 class App extends Component {
 	render() {
@@ -19,5 +19,9 @@ class App extends Component {
 		);
 	}
 }
+
+App.propTypes = {
+	store: React.PropTypes.object,
+};
 
 export default App;
