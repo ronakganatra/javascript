@@ -1,6 +1,6 @@
 exports[`test the round add button matches the snapshot 1`] = `
 <button
-  className="dXMIpq"
+  className="ekEmjF"
   type="button">
   ButtonValue
 </button>
@@ -8,7 +8,7 @@ exports[`test the round add button matches the snapshot 1`] = `
 
 exports[`test the round add button with button type given matches the snapshot 1`] = `
 <button
-  className="dXMIpq"
+  className="ekEmjF"
   type="button">
   ButtonValue
 </button>
