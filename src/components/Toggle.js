@@ -28,6 +28,7 @@ const ToggleLabel = styled.label`
 	text-align: center;
 	cursor: pointer;
 	display: inline-block;
+	margin: 0;
 `;
 
 class Toggle extends React.Component {

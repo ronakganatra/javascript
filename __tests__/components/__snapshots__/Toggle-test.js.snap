@@ -7,7 +7,7 @@ exports[`test a disabled toggle that is enabled 1`] = `
       className="eevtLb" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     Off
   </label>
 </div>
@@ -22,7 +22,7 @@ exports[`test a disabled toggle that is enabled 2`] = `
       className="lbeQtx" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     On
   </label>
 </div>
@@ -37,7 +37,7 @@ exports[`test a disabled toggle which matches the snapshot 1`] = `
       className="eevtLb" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     Off
   </label>
 </div>
@@ -52,7 +52,7 @@ exports[`test an enabled toggle that is disabled 1`] = `
       className="lbeQtx" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     On
   </label>
 </div>
@@ -67,7 +67,7 @@ exports[`test an enabled toggle that is disabled 2`] = `
       className="eevtLb" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     Off
   </label>
 </div>
@@ -82,7 +82,7 @@ exports[`test an enabled toggle which matches the snapshot 1`] = `
       className="lbeQtx" />
   </div>
   <label
-    className="kDkOmh">
+    className="gdzQSv">
     On
   </label>
 </div>
