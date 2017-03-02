@@ -8,6 +8,7 @@ const ToggleBar = styled.div`
 	height: 14px;
 	width: 30px;
 	cursor: pointer;
+	margin: 0;
 `;
 
 const ToggleBullet = styled.span`

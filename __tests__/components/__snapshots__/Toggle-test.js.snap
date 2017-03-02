@@ -2,7 +2,7 @@ exports[`test a disabled toggle that is enabled 1`] = `
 <div
   onClick={[Function]}>
   <div
-    className="caIZEt">
+    className="ceGBxN">
     <span
       className="eevtLb" />
   </div>
@@ -17,7 +17,7 @@ exports[`test a disabled toggle that is enabled 2`] = `
 <div
   onClick={[Function]}>
   <div
-    className="lkvBDq">
+    className="ffcKYZ">
     <span
       className="lbeQtx" />
   </div>
@@ -32,7 +32,7 @@ exports[`test a disabled toggle which matches the snapshot 1`] = `
 <div
   onClick={[Function]}>
   <div
-    className="caIZEt">
+    className="ceGBxN">
     <span
       className="eevtLb" />
   </div>
@@ -47,7 +47,7 @@ exports[`test an enabled toggle that is disabled 1`] = `
 <div
   onClick={[Function]}>
   <div
-    className="lkvBDq">
+    className="ffcKYZ">
     <span
       className="lbeQtx" />
   </div>
@@ -62,7 +62,7 @@ exports[`test an enabled toggle that is disabled 2`] = `
 <div
   onClick={[Function]}>
   <div
-    className="caIZEt">
+    className="ceGBxN">
     <span
       className="eevtLb" />
   </div>
@@ -77,7 +77,7 @@ exports[`test an enabled toggle which matches the snapshot 1`] = `
 <div
   onClick={[Function]}>
   <div
-    className="lkvBDq">
+    className="ffcKYZ">
     <span
       className="lbeQtx" />
   </div>
