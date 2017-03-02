@@ -22,12 +22,12 @@ const ToggleBullet = styled.span`
 `;
 
 const ToggleLabel = styled.label`
-	display: inline-block;
 	padding: 6px 0;
 	font-size: 14px;
 	width: 30px;
 	text-align: center;
 	cursor: pointer;
+	display: inline-block;
 `;
 
 class Toggle extends React.Component {
