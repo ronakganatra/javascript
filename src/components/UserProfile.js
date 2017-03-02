@@ -7,7 +7,7 @@ import { LogoutButton } from "../components/Button";
 const UserImage = styled.img`
 	border-radius: 100px;
 	float: left;
-	margin-right: 15px;
+	margin-right: 35px;
 `;
 
 const UserInfo = styled.span`
@@ -19,8 +19,8 @@ const UserName = styled.span`
 	width: 100%;
 	float: left;
 	margin-bottom: 10px;
+	font-size: 14px;
 `;
-
 
 export default function UserProfile( props ) {
 	let loggedIn = null;
@@ -48,6 +48,6 @@ UserProfile.propTypes = {
 
 UserProfile.defaultProps = {
 	displayName: "",
-	displayImage: "https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=80",
+	displayImage: "",
 	loggedIn: false
 };
