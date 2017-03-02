@@ -29,11 +29,6 @@ const UserName = styled.span`
  * @constructor
  */
 export default function UserProfile( props ) {
-	let loggedIn = null;
-	if ( props.loggedIn ) {
-		loggedIn = "You are logged in!";
-	}
-
 	return <div>
 		<UserImage src={props.displayImage} />
 
@@ -42,7 +37,7 @@ export default function UserProfile( props ) {
 
 			<LogoutButton type="button" onClick={props.onLogoutClick}>Sign out</LogoutButton>
 		</UserInfo>
-	</div>
+	</div>;
 }
 
 UserProfile.propTypes = {
@@ -55,5 +50,5 @@ UserProfile.propTypes = {
 UserProfile.defaultProps = {
 	displayName: "",
 	displayImage: "",
-	loggedIn: false
+	loggedIn: false,
 };

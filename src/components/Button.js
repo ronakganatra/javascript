@@ -39,7 +39,7 @@ export const GreenButton = styled( Button )`
 	background-color: ${colors.$color_green};
 `;
 
-export const LogoutButton = styled(Button)`
+export const LogoutButton = styled( Button )`
 	background-color: ${colors.$color_white};
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
 	color: ${colors.$color_blue};
