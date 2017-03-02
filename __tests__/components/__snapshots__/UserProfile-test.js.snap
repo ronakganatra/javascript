@@ -1,0 +1,20 @@
+exports[`test the user profile matches the snapshot 1`] = `
+<div>
+  <img
+    className="eQarwk"
+    src="Image" />
+  <span
+    className="jqqUHG">
+    <span
+      className="ckDevF">
+      This is a name
+    </span>
+    <button
+      className="kWzPdb"
+      onClick={[Function]}
+      type="button">
+      Sign out
+    </button>
+  </span>
+</div>
+`;
