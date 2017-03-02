@@ -1,0 +1,89 @@
+exports[`test a disabled toggle that is enabled 1`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="caIZEt">
+    <span
+      className="eevtLb" />
+  </div>
+  <label
+    className="dRvMf">
+    Off
+  </label>
+</div>
+`;
+
+exports[`test a disabled toggle that is enabled 2`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="lkvBDq">
+    <span
+      className="lbeQtx" />
+  </div>
+  <label
+    className="dRvMf">
+    On
+  </label>
+</div>
+`;
+
+exports[`test a disabled toggle which matches the snapshot 1`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="caIZEt">
+    <span
+      className="eevtLb" />
+  </div>
+  <label
+    className="dRvMf">
+    Off
+  </label>
+</div>
+`;
+
+exports[`test an enabled toggle that is disabled 1`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="lkvBDq">
+    <span
+      className="lbeQtx" />
+  </div>
+  <label
+    className="dRvMf">
+    On
+  </label>
+</div>
+`;
+
+exports[`test an enabled toggle that is disabled 2`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="caIZEt">
+    <span
+      className="eevtLb" />
+  </div>
+  <label
+    className="dRvMf">
+    Off
+  </label>
+</div>
+`;
+
+exports[`test an enabled toggle which matches the snapshot 1`] = `
+<div
+  onClick={[Function]}>
+  <div
+    className="lkvBDq">
+    <span
+      className="lbeQtx" />
+  </div>
+  <label
+    className="dRvMf">
+    On
+  </label>
+</div>
+`;
