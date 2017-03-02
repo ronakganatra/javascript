@@ -5,5 +5,5 @@
  * @returns {string} The raw value.
  */
 export default function removeCookieSignage( cookie ) {
-	return cookie.replace( /s:([^\.]+)\..*/, '$1' );
+	return cookie.replace( /s:([^\.]+)\..*/, "$1" );
 }
