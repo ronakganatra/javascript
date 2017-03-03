@@ -1,0 +1,22 @@
+.menu {
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+};
+
+.menuItem {
+    background-color: grey;
+    box-sizing: border-box;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 400px;
+    height: 40px;
+    line-height: 40px;
+    color: orange;
+};
+a {color: white;}
+a:active {color:white;}
+a:hover {color:white;}
+a:visited {color: white;}
