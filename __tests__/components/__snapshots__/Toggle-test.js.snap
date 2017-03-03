@@ -1,89 +1,125 @@
 exports[`test a disabled toggle that is enabled 1`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ceGBxN">
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="eevtLb" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     Off
-  </label>
+  </span>
 </div>
 `;
 
 exports[`test a disabled toggle that is enabled 2`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ffcKYZ">
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="lbeQtx" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     On
-  </label>
+  </span>
 </div>
 `;
 
 exports[`test a disabled toggle which matches the snapshot 1`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ceGBxN">
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="eevtLb" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     Off
-  </label>
+  </span>
 </div>
 `;
 
 exports[`test an enabled toggle that is disabled 1`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ffcKYZ">
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="lbeQtx" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     On
-  </label>
+  </span>
 </div>
 `;
 
 exports[`test an enabled toggle that is disabled 2`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ceGBxN">
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="eevtLb" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     Off
-  </label>
+  </span>
 </div>
 `;
 
 exports[`test an enabled toggle which matches the snapshot 1`] = `
-<div
-  onClick={[Function]}>
+<div>
   <div
-    className="ffcKYZ">
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
     <span
       className="lbeQtx" />
   </div>
-  <label
-    className="gdzQSv">
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
     On
-  </label>
+  </span>
 </div>
 `;
