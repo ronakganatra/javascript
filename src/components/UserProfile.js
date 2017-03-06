@@ -1,21 +1,33 @@
 import React from "react";
 
 import styled from "styled-components";
-
 import { LogoutButton } from "../components/Button";
+import colors from "yoast-components/style-guide/colors.json";
 
 const UserImage = styled.img`
-	border-radius: 100px;
+	height: ${ props => props.size }
+	width: ${ props => props.size }
+	border-radius: 50%;
 	float: left;
 	margin-right: 35px;
 `;
+
+UserImage.propTypes = {
+	size: React.PropTypes.string.isRequired,
+	src: React.PropTypes.string.isRequired,
+	alt: React.PropTypes.string,
+};
+
+UserImage.defaultProps = {
+	alt: "",
+};
 
 const UserInfo = styled.span`
 	float: left;
 `;
 
 const UserName = styled.span`
-	color: #FFF;
+	color: ${colors.$color_white};
 	width: 100%;
 	float: left;
 	margin-bottom: 10px;
@@ -30,7 +42,7 @@ const UserName = styled.span`
  */
 export default function UserProfile( props ) {
 	return <div>
-		<UserImage src={props.displayImage} />
+		<UserImage {...props.displayImage} />
 
 		<UserInfo>
 			<UserName>{ props.displayName }</UserName>
@@ -42,13 +54,21 @@ export default function UserProfile( props ) {
 
 UserProfile.propTypes = {
 	displayName: React.PropTypes.string.isRequired,
-	displayImage: React.PropTypes.string,
+	displayImage: React.PropTypes.shape( {
+		src: React.PropTypes.string,
+		alt: React.PropTypes.string,
+		size: React.PropTypes.string,
+	} ),
 	onLogoutClick: React.PropTypes.func.isRequired,
 	loggedIn: React.PropTypes.bool,
 };
 
 UserProfile.defaultProps = {
+	displayImage: {
+		src: "",
+		alt: "",
+		size: "60px",
+	},
 	displayName: "",
-	displayImage: "",
 	loggedIn: false,
 };
