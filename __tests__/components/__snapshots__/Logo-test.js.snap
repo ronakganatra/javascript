@@ -1,6 +1,5 @@
 exports[`test the logo matches the snapshot 1`] = `
 <div
-  className="jhzVrU"
-  height="60px"
-  width="150px" />
+  className="cniuzH"
+  />
 `;

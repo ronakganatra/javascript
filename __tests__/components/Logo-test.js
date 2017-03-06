@@ -4,7 +4,7 @@ import Logo from '../../src/components/Logo';
 
 test('the logo matches the snapshot', () => {
     const component = renderer.create(
-        <Logo width={"150px"} height={"60px"} />
+        <Logo />
     );
 
     let tree = component.toJSON();
