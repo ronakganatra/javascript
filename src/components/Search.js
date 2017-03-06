@@ -23,6 +23,9 @@ SearchLabel.defaultProps = {
 	htmlFor: "",
 };
 
+const SearchLabelText = styled.span`
+`;
+
 const SearchField = styled.input`
 	width: 85%;
 	height: 30px;
@@ -47,7 +50,7 @@ SearchField.defaultProps = {
 };
 
 const SearchDescription = styled.p`
-	display: none;
+	
 `;
 
 SearchDescription.propTypes = {
@@ -68,7 +71,9 @@ SearchDescription.defaultProps = {
  */
 export default function Search( props ) {
 	return <div>
-		<SearchLabel className="screen-reader-text" htmlFor={props.id} />
+		<SearchLabel htmlFor={props.id}>
+			<SearchLabelText className="screen-reader-text">{props.searchLabel}</SearchLabelText>
+		</SearchLabel>
 		<SearchField type="text" id={props.id} placeholder={props.placeholder} aria-describedby={props.descriptionId} />
 		<SearchDescription className="screen-reader-text" id={props.descriptionId}>
 			{props.description}
@@ -77,8 +82,13 @@ export default function Search( props ) {
 }
 
 Search.propTypes = {
+	searchLabel: React.PropTypes.string,
 	id: React.PropTypes.string.isRequired,
 	placeholder: React.PropTypes.string.isRequired,
 	description: React.PropTypes.string.isRequired,
 	descriptionId: React.PropTypes.string.isRequired,
+};
+
+Search.defaultProps = {
+	searchLabel: "Search",
 };

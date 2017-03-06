@@ -1,8 +1,13 @@
 exports[`test the search component matches the snapshot 1`] = `
 <div>
   <label
-    className="screen-reader-text itKprq"
-    htmlFor="search" />
+    className="itKprq"
+    htmlFor="search">
+    <span
+      className="screen-reader-text foqgVb">
+      Search
+    </span>
+  </label>
   <input
     aria-describedby="searchDescription"
     className="jKwvja"
@@ -10,7 +15,7 @@ exports[`test the search component matches the snapshot 1`] = `
     placeholder="Search"
     type="text" />
   <p
-    className="screen-reader-text eSdicf"
+    className="screen-reader-text fkCowi"
     id="searchDescription">
     The search results will be updated as you type.
   </p>
