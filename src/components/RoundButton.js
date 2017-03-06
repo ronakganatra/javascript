@@ -21,6 +21,7 @@ export const RoundButton = styled.button`
 RoundButton.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
+	"aria-label": React.PropTypes.string,
 };
 
 RoundButton.defaultProps = {
@@ -42,11 +43,6 @@ export const RoundAddButton = styled( RoundButton )`
 	background-position: center;
 	background-size: 20px;
 `;
-
-RoundAddButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-};
 
 RoundAddButton.defaultProps = {
 	"aria-label": "Add",
