@@ -18,17 +18,6 @@ export const RoundButton = styled.button`
 	height: 40px;
 `;
 
-export const RoundBackButton = styled( RoundButton )`
-	background-image: url( ${angleLeft} );
-	background-position: 4px center;
-`;
-
-export const RoundAddButton = styled( RoundButton )`
-	background-image: url( ${plus} );
-	background-position: center;
-	background-size: 20px;
-`;
-
 RoundButton.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
@@ -36,4 +25,29 @@ RoundButton.propTypes = {
 
 RoundButton.defaultProps = {
 	type: "button",
+	"aria-label": "",
+};
+
+export const RoundBackButton = styled( RoundButton )`
+	background-image: url( ${angleLeft} );
+	background-position: 4px center;
+`;
+
+RoundBackButton.defaultProps = {
+	"aria-label": "Back",
+};
+
+export const RoundAddButton = styled( RoundButton )`
+	background-image: url( ${plus} );
+	background-position: center;
+	background-size: 20px;
+`;
+
+RoundAddButton.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+};
+
+RoundAddButton.defaultProps = {
+	"aria-label": "Add",
 };
