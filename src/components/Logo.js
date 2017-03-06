@@ -1,14 +1,24 @@
+import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
 
 export const Logo = styled.div`
-    padding: 10px;
-    height: ${props=>props.height};
-    width: ${props=>props.width};
-    background-image: url( ${logo} );
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto;
+	height: ${props => props.divHeight};
+	width: ${props => props.divWidth};
+	background: url( ${logo} ) center center no-repeat;
+	background-size: ${props => props.logoSize};
 `;
+
+Logo.propTypes = {
+	logoSize: React.PropTypes.string,
+	divWidth: React.PropTypes.string,
+	divHeight: React.PropTypes.string,
+};
+
+Logo.defaultProps = {
+	logoSize: "175px",
+	divHeight: "90px",
+	divWidth: "300px",
+};
 
 export default Logo;
