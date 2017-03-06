@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import UserProfile from '../../src/components/UserProfile';
 
 test('the user profile matches the snapshot', () => {
