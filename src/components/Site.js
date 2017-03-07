@@ -20,7 +20,6 @@ const SiteIcon = styled.img`
 	width: 60px;
 	height: 60px;
 	background-repeat: no-repeat;
-	display: inline-block;
 	float: left;
 `;
 
@@ -33,7 +32,6 @@ const Separator = styled.div`
 	width: 2px;
 	height: 60px;
 	margin: 0px 15px;
-	display: inline-block;
 	float: left;
 `;
 
@@ -42,7 +40,6 @@ const SiteName = styled.div`
 	width: 25%;
 	height: 60px;
 	vertical-align: middle;
-	display: inline-block;
 	float: left;
 	line-height: 60px;
 `;

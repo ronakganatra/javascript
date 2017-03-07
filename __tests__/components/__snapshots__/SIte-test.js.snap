@@ -3,12 +3,12 @@ exports[`test the manage button handling an onclick event 1`] = `
   className="gCyDJO">
   <img
     aria-hidden="true"
-    className="hYnxrf"
+    className="hLowPL"
     icon="" />
   <div
-    className="kCluph" />
+    className="fSTmXs" />
   <div
-    className="cvZscS">
+    className="fwOPcr">
     yoast.com
   </div>
   <div
@@ -48,12 +48,12 @@ exports[`test the manage button handling an onclick event 2`] = `
   className="gCyDJO">
   <img
     aria-hidden="true"
-    className="hYnxrf"
+    className="hLowPL"
     icon="" />
   <div
-    className="kCluph" />
+    className="fSTmXs" />
   <div
-    className="cvZscS">
+    className="fwOPcr">
     yoast.com
   </div>
   <div
@@ -93,12 +93,12 @@ exports[`test the site component matches the snapshot 1`] = `
   className="gCyDJO">
   <img
     aria-hidden="true"
-    className="hYnxrf"
+    className="hLowPL"
     icon="" />
   <div
-    className="kCluph" />
+    className="fSTmXs" />
   <div
-    className="cvZscS">
+    className="fwOPcr">
     yoast.com
   </div>
   <div
