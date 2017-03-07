@@ -44,11 +44,14 @@ export default function Subscriptions( props ) {
 			{
 				Object.keys( YoastProducts ).map( function( productName ) {
 					let isActive = props.activeSubscriptions.includes( productName );
+					let product = YoastProducts[ productName ];
+
 					return (
 						<Subscription
-							key={productName}
-							image={ YoastProducts[ productName ].image }
+							key={ productName }
+							image={ product.image }
 							isActive={ isActive }
+							aria-label={ isActive ? product.name + " is active" : product.name + " is inactive" }
 						/>
 					);
 				} )
