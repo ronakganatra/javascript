@@ -16,22 +16,28 @@ exports[`test the manage button handling an onclick event 1`] = `
     <div>
       <div
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb" />
+        className="iGaMkb"
+        role="img" />
       <div
         aria-label="Local SEO is inactive"
-        className="pfOfD" />
+        className="pfOfD"
+        role="img" />
       <div
         aria-label="Video SEO is active"
-        className="cQWrFq" />
+        className="cQWrFq"
+        role="img" />
       <div
         aria-label="News SEO is inactive"
-        className="favXdg" />
+        className="favXdg"
+        role="img" />
       <div
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK" />
+        className="bEJBwK"
+        role="img" />
       <div
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah" />
+        className="dRReah"
+        role="img" />
     </div>
   </div>
   <button
@@ -61,22 +67,28 @@ exports[`test the manage button handling an onclick event 2`] = `
     <div>
       <div
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb" />
+        className="iGaMkb"
+        role="img" />
       <div
         aria-label="Local SEO is inactive"
-        className="pfOfD" />
+        className="pfOfD"
+        role="img" />
       <div
         aria-label="Video SEO is active"
-        className="cQWrFq" />
+        className="cQWrFq"
+        role="img" />
       <div
         aria-label="News SEO is inactive"
-        className="favXdg" />
+        className="favXdg"
+        role="img" />
       <div
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK" />
+        className="bEJBwK"
+        role="img" />
       <div
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah" />
+        className="dRReah"
+        role="img" />
     </div>
   </div>
   <button
@@ -106,22 +118,28 @@ exports[`test the site component matches the snapshot 1`] = `
     <div>
       <div
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb" />
+        className="iGaMkb"
+        role="img" />
       <div
         aria-label="Local SEO is inactive"
-        className="pfOfD" />
+        className="pfOfD"
+        role="img" />
       <div
         aria-label="Video SEO is active"
-        className="cQWrFq" />
+        className="cQWrFq"
+        role="img" />
       <div
         aria-label="News SEO is inactive"
-        className="favXdg" />
+        className="favXdg"
+        role="img" />
       <div
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK" />
+        className="bEJBwK"
+        role="img" />
       <div
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah" />
+        className="dRReah"
+        role="img" />
     </div>
   </div>
   <button
