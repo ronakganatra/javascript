@@ -4,7 +4,7 @@ exports[`test the manage button handling an onclick event 1`] = `
   <img
     aria-hidden="true"
     className="hLowPL"
-    icon="" />
+    src="" />
   <div
     className="fSTmXs" />
   <div
@@ -55,7 +55,7 @@ exports[`test the manage button handling an onclick event 2`] = `
   <img
     aria-hidden="true"
     className="hLowPL"
-    icon="" />
+    src="" />
   <div
     className="fSTmXs" />
   <div
@@ -106,7 +106,7 @@ exports[`test the site component matches the snapshot 1`] = `
   <img
     aria-hidden="true"
     className="hLowPL"
-    icon="" />
+    src="" />
   <div
     className="fSTmXs" />
   <div

@@ -16,7 +16,7 @@ const SiteContainer = styled.div`
 `;
 
 const SiteIcon = styled.img`
-	background-image: url( ${ props => props.icon } );
+	background-image: url( ${ props => props.src } );
 	width: 60px;
 	height: 60px;
 	background-repeat: no-repeat;
@@ -24,7 +24,7 @@ const SiteIcon = styled.img`
 `;
 
 SiteIcon.propTypes = {
-	icon: React.PropTypes.string.isRequired,
+	src: React.PropTypes.string.isRequired,
 };
 
 const Separator = styled.div`
@@ -62,7 +62,7 @@ const SiteSubscriptionsContainer = styled.div`
 export default function Site( props ) {
 	return (
 		<SiteContainer>
-			<SiteIcon icon={ props.siteIcon } aria-hidden="true" />
+			<SiteIcon src={ props.siteIcon } aria-hidden="true" />
 			<Separator />
 			<SiteName>{ props.siteName }</SiteName>
 			<SiteSubscriptionsContainer>
