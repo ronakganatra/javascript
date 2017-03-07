@@ -65,7 +65,7 @@ const SiteSubscriptionsContainer = styled.div`
 export default function Site( props ) {
 	return (
 		<SiteContainer>
-			<SiteIcon icon={ props.siteIcon } />
+			<SiteIcon icon={ props.siteIcon } aria-hidden="true" />
 			<Separator />
 			<SiteName>{ props.siteName }</SiteName>
 			<SiteSubscriptionsContainer>
