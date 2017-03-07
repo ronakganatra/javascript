@@ -1,6 +1,5 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-
 import NoSites from '../../src/components/NoSites';
 
 test('the nosites component matches the snapshot', () => {

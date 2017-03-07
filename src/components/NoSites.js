@@ -1,9 +1,7 @@
 import React from "react";
-
 import { RoundAddButton } from "../components/RoundButton";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-
 import noSiteImage from "../../public/images/nosites.png";
 
 const NoSitesContainer = styled.div`
@@ -28,7 +26,6 @@ export default function NoSites( props ) {
 					return <p key={key}>{ paragraph }</p>;
 				} )
 			}
-
 			<RoundAddButton onClick={ props.onClick } />
 		</NoSitesContainer>
 	);
