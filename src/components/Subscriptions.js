@@ -52,6 +52,7 @@ export default function Subscriptions( props ) {
 							image={ product.image }
 							isActive={ isActive }
 							aria-label={ isActive ? product.name + " is active" : product.name + " is inactive" }
+							role="img"
 						/>
 					);
 				} )
