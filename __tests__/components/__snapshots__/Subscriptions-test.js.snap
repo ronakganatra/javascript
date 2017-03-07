@@ -1,0 +1,33 @@
+exports[`test the subscription component matches the snapshot 1`] = `
+<div>
+  <div
+    className="iGaMkb" />
+  <div
+    className="pfOfD" />
+  <div
+    className="cQWrFq" />
+  <div
+    className="favXdg" />
+  <div
+    className="bEJBwK" />
+  <div
+    className="dRReah" />
+</div>
+`;
+
+exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
+<div>
+  <div
+    className="iGaMkb" />
+  <div
+    className="pfOfD" />
+  <div
+    className="gAaYAR" />
+  <div
+    className="favXdg" />
+  <div
+    className="dUDQWU" />
+  <div
+    className="dRReah" />
+</div>
+`;
