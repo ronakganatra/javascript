@@ -1,0 +1,113 @@
+exports[`test the manage button handling an onclick event 1`] = `
+<div
+  className="gCyDJO">
+  <img
+    className="hYnxrf"
+    icon="" />
+  <div
+    className="kCluph" />
+  <div
+    className="cvZscS">
+    yoast.com
+  </div>
+  <div
+    className="kNFhXP">
+    <div>
+      <div
+        className="iGaMkb" />
+      <div
+        className="pfOfD" />
+      <div
+        className="cQWrFq" />
+      <div
+        className="favXdg" />
+      <div
+        className="bEJBwK" />
+      <div
+        className="dRReah" />
+    </div>
+  </div>
+  <button
+    className="kgcbkl"
+    onClick={[Function]}
+    type="button">
+    Manage
+  </button>
+</div>
+`;
+
+exports[`test the manage button handling an onclick event 2`] = `
+<div
+  className="gCyDJO">
+  <img
+    className="hYnxrf"
+    icon="" />
+  <div
+    className="kCluph" />
+  <div
+    className="cvZscS">
+    yoast.com
+  </div>
+  <div
+    className="kNFhXP">
+    <div>
+      <div
+        className="iGaMkb" />
+      <div
+        className="pfOfD" />
+      <div
+        className="cQWrFq" />
+      <div
+        className="favXdg" />
+      <div
+        className="bEJBwK" />
+      <div
+        className="dRReah" />
+    </div>
+  </div>
+  <button
+    className="kgcbkl"
+    onClick={[Function]}
+    type="button">
+    Manage
+  </button>
+</div>
+`;
+
+exports[`test the site component matches the snapshot 1`] = `
+<div
+  className="gCyDJO">
+  <img
+    className="hYnxrf"
+    icon="" />
+  <div
+    className="kCluph" />
+  <div
+    className="cvZscS">
+    yoast.com
+  </div>
+  <div
+    className="kNFhXP">
+    <div>
+      <div
+        className="iGaMkb" />
+      <div
+        className="pfOfD" />
+      <div
+        className="cQWrFq" />
+      <div
+        className="favXdg" />
+      <div
+        className="bEJBwK" />
+      <div
+        className="dRReah" />
+    </div>
+  </div>
+  <button
+    className="kgcbkl"
+    onClick={undefined}
+    type="button">
+    Manage
+  </button>
+</div>
+`;
