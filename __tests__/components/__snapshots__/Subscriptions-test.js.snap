@@ -1,22 +1,22 @@
 exports[`test the subscription component matches the snapshot 1`] = `
 <div>
   <div
-    aria-label="Yoast SEO"
+    aria-label="Yoast SEO is inactive"
     className="iGaMkb" />
   <div
-    aria-label="Local SEO"
+    aria-label="Local SEO is inactive"
     className="pfOfD" />
   <div
-    aria-label="Video SEO"
+    aria-label="Video SEO is active"
     className="cQWrFq" />
   <div
-    aria-label="News SEO"
+    aria-label="News SEO is inactive"
     className="favXdg" />
   <div
-    aria-label="WooCommerce SEO"
+    aria-label="WooCommerce SEO is active"
     className="bEJBwK" />
   <div
-    aria-label="Local SEO for Woo"
+    aria-label="Local SEO for Woo is inactive"
     className="dRReah" />
 </div>
 `;
@@ -24,22 +24,22 @@ exports[`test the subscription component matches the snapshot 1`] = `
 exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
 <div>
   <div
-    aria-label="Yoast SEO"
+    aria-label="Yoast SEO is inactive"
     className="iGaMkb" />
   <div
-    aria-label="Local SEO"
+    aria-label="Local SEO is inactive"
     className="pfOfD" />
   <div
-    aria-label="Video SEO"
+    aria-label="Video SEO is inactive"
     className="gAaYAR" />
   <div
-    aria-label="News SEO"
+    aria-label="News SEO is inactive"
     className="favXdg" />
   <div
-    aria-label="WooCommerce SEO"
+    aria-label="WooCommerce SEO is inactive"
     className="dUDQWU" />
   <div
-    aria-label="Local SEO for Woo"
+    aria-label="Local SEO for Woo is inactive"
     className="dRReah" />
 </div>
 `;
