@@ -15,18 +15,15 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	padding: 15px;
 	border: 0;
-	width: ${ props => props.buttonWidth };
 `;
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
-	buttonWidth: React.PropTypes.string,
 };
 
 Button.defaultProps = {
 	type: "button",
-	buttonWidth: "auto",
 };
 
 export const LargeButton = styled( Button )`
@@ -41,3 +38,18 @@ export const LargeButton = styled( Button )`
 export const GreenButton = styled( Button )`
 	background-color: ${colors.$color_green};
 `;
+
+export const TextButton = styled( Button )`
+	width: ${ props => props.buttonWidth };
+	margin: 5px;
+`;
+
+TextButton.PropTypes = {
+	buttonWidth: React.PropTypes.string,
+};
+
+TextButton.defaultProps = {
+	buttonWidth: "auto",
+};
+
+
