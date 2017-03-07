@@ -23,7 +23,7 @@ export default function NoSites( props ) {
 			<img src={ noSiteImage } alt="" />
 			{
 				props.paragraphs.map( function( paragraph, key ) {
-					return <p key={key}>{ paragraph }</p>;
+					return <p key={ key }>{ paragraph }</p>;
 				} )
 			}
 			<RoundAddButton onClick={ props.onClick } />
