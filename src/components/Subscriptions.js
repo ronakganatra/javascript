@@ -43,11 +43,12 @@ export default function Subscriptions( props ) {
 		<div>
 			{
 				Object.keys( YoastProducts ).map( function( productName ) {
+					let isActive = props.activeSubscriptions.includes( productName );
 					return (
 						<Subscription
 							key={productName}
 							image={ YoastProducts[ productName ].image }
-							isActive={ props.activeSubscriptions.includes( productName ) }
+							isActive={ isActive }
 						/>
 					);
 				} )
@@ -58,4 +59,8 @@ export default function Subscriptions( props ) {
 
 Subscriptions.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+};
+
+Subscriptions.defaultProps = {
+	activeSubscriptions: [],
 };
