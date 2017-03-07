@@ -2,6 +2,7 @@ exports[`test the manage button handling an onclick event 1`] = `
 <div
   className="gCyDJO">
   <img
+    aria-hidden="true"
     className="hYnxrf"
     icon="" />
   <div
@@ -14,22 +15,22 @@ exports[`test the manage button handling an onclick event 1`] = `
     className="kNFhXP">
     <div>
       <div
-        aria-label="Yoast SEO"
+        aria-label="Yoast SEO is inactive"
         className="iGaMkb" />
       <div
-        aria-label="Local SEO"
+        aria-label="Local SEO is inactive"
         className="pfOfD" />
       <div
-        aria-label="Video SEO"
+        aria-label="Video SEO is active"
         className="cQWrFq" />
       <div
-        aria-label="News SEO"
+        aria-label="News SEO is inactive"
         className="favXdg" />
       <div
-        aria-label="WooCommerce SEO"
+        aria-label="WooCommerce SEO is active"
         className="bEJBwK" />
       <div
-        aria-label="Local SEO for Woo"
+        aria-label="Local SEO for Woo is inactive"
         className="dRReah" />
     </div>
   </div>
@@ -46,6 +47,7 @@ exports[`test the manage button handling an onclick event 2`] = `
 <div
   className="gCyDJO">
   <img
+    aria-hidden="true"
     className="hYnxrf"
     icon="" />
   <div
@@ -58,22 +60,22 @@ exports[`test the manage button handling an onclick event 2`] = `
     className="kNFhXP">
     <div>
       <div
-        aria-label="Yoast SEO"
+        aria-label="Yoast SEO is inactive"
         className="iGaMkb" />
       <div
-        aria-label="Local SEO"
+        aria-label="Local SEO is inactive"
         className="pfOfD" />
       <div
-        aria-label="Video SEO"
+        aria-label="Video SEO is active"
         className="cQWrFq" />
       <div
-        aria-label="News SEO"
+        aria-label="News SEO is inactive"
         className="favXdg" />
       <div
-        aria-label="WooCommerce SEO"
+        aria-label="WooCommerce SEO is active"
         className="bEJBwK" />
       <div
-        aria-label="Local SEO for Woo"
+        aria-label="Local SEO for Woo is inactive"
         className="dRReah" />
     </div>
   </div>
@@ -90,6 +92,7 @@ exports[`test the site component matches the snapshot 1`] = `
 <div
   className="gCyDJO">
   <img
+    aria-hidden="true"
     className="hYnxrf"
     icon="" />
   <div
@@ -102,22 +105,22 @@ exports[`test the site component matches the snapshot 1`] = `
     className="kNFhXP">
     <div>
       <div
-        aria-label="Yoast SEO"
+        aria-label="Yoast SEO is inactive"
         className="iGaMkb" />
       <div
-        aria-label="Local SEO"
+        aria-label="Local SEO is inactive"
         className="pfOfD" />
       <div
-        aria-label="Video SEO"
+        aria-label="Video SEO is active"
         className="cQWrFq" />
       <div
-        aria-label="News SEO"
+        aria-label="News SEO is inactive"
         className="favXdg" />
       <div
-        aria-label="WooCommerce SEO"
+        aria-label="WooCommerce SEO is active"
         className="bEJBwK" />
       <div
-        aria-label="Local SEO for Woo"
+        aria-label="Local SEO for Woo is inactive"
         className="dRReah" />
     </div>
   </div>
