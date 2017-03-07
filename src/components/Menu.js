@@ -2,31 +2,25 @@ import React from "react";
 import './Menu.css';
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { ReactRouter, Link } from 'react-router';
+import { Link } from 'react-router-dom';
+
+const items = [
+    {item:'Subscriptions'},
+    {item:'Courses'},
+    {item:'Sites'},
+    {item:'Account'}
+];
 
 
-
-
-export const MainMenu = React.createClass({
-    render: function() {
-
-        return (
-            <div className="menu">
-                    <nav>
-                        <div>
-                            <div><Link to="/" activeClassName="active">Home</Link></div>
-                            <div><Link to="/subscriptions" activeClassName="active">Subscriptions</Link></div>
-                            <div className="menuItem"><Link to="/courses" activeClassName="active">Courses</Link></div>
-                            <div className="menuItem"><Link to="/sites" activeClassName="active">Sites</Link></div>
-
-                            <div className="menuItem"><Link to="/account" activeClassName="active">Account</Link></div>
-                        </div>
-                    </nav>
-            </div>
-        )
-    }
-})
-
+export const MainMenu = () => {
+    return (
+        <div id="menu">
+            {items.map((page) => {
+                return <div className="menuItem"><Link to={page.item}>{page.item}</Link></div>}
+            )}
+        </div>
+    )
+};
 
 export const Home = React.createClass({
     render: function() {
