@@ -1,16 +1,22 @@
 exports[`test the subscription component matches the snapshot 1`] = `
 <div>
   <div
+    aria-label="Yoast SEO"
     className="iGaMkb" />
   <div
+    aria-label="Local SEO"
     className="pfOfD" />
   <div
+    aria-label="Video SEO"
     className="cQWrFq" />
   <div
+    aria-label="News SEO"
     className="favXdg" />
   <div
+    aria-label="WooCommerce SEO"
     className="bEJBwK" />
   <div
+    aria-label="Local SEO for Woo"
     className="dRReah" />
 </div>
 `;
@@ -18,16 +24,22 @@ exports[`test the subscription component matches the snapshot 1`] = `
 exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
 <div>
   <div
+    aria-label="Yoast SEO"
     className="iGaMkb" />
   <div
+    aria-label="Local SEO"
     className="pfOfD" />
   <div
+    aria-label="Video SEO"
     className="gAaYAR" />
   <div
+    aria-label="News SEO"
     className="favXdg" />
   <div
+    aria-label="WooCommerce SEO"
     className="dUDQWU" />
   <div
+    aria-label="Local SEO for Woo"
     className="dRReah" />
 </div>
 `;

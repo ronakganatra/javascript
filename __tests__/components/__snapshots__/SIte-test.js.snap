@@ -14,16 +14,22 @@ exports[`test the manage button handling an onclick event 1`] = `
     className="kNFhXP">
     <div>
       <div
+        aria-label="Yoast SEO"
         className="iGaMkb" />
       <div
+        aria-label="Local SEO"
         className="pfOfD" />
       <div
+        aria-label="Video SEO"
         className="cQWrFq" />
       <div
+        aria-label="News SEO"
         className="favXdg" />
       <div
+        aria-label="WooCommerce SEO"
         className="bEJBwK" />
       <div
+        aria-label="Local SEO for Woo"
         className="dRReah" />
     </div>
   </div>
@@ -52,16 +58,22 @@ exports[`test the manage button handling an onclick event 2`] = `
     className="kNFhXP">
     <div>
       <div
+        aria-label="Yoast SEO"
         className="iGaMkb" />
       <div
+        aria-label="Local SEO"
         className="pfOfD" />
       <div
+        aria-label="Video SEO"
         className="cQWrFq" />
       <div
+        aria-label="News SEO"
         className="favXdg" />
       <div
+        aria-label="WooCommerce SEO"
         className="bEJBwK" />
       <div
+        aria-label="Local SEO for Woo"
         className="dRReah" />
     </div>
   </div>
@@ -90,16 +102,22 @@ exports[`test the site component matches the snapshot 1`] = `
     className="kNFhXP">
     <div>
       <div
+        aria-label="Yoast SEO"
         className="iGaMkb" />
       <div
+        aria-label="Local SEO"
         className="pfOfD" />
       <div
+        aria-label="Video SEO"
         className="cQWrFq" />
       <div
+        aria-label="News SEO"
         className="favXdg" />
       <div
+        aria-label="WooCommerce SEO"
         className="bEJBwK" />
       <div
+        aria-label="Local SEO for Woo"
         className="dRReah" />
     </div>
   </div>
