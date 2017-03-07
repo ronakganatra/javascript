@@ -15,15 +15,18 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	padding: 15px;
 	border: 0;
+	width: ${ props => props.buttonWidth };
 `;
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
+	buttonWidth: React.PropTypes.string,
 };
 
 Button.defaultProps = {
 	type: "button",
+	buttonWidth: "auto",
 };
 
 export const LargeButton = styled( Button )`
