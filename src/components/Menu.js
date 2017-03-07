@@ -1,26 +1,71 @@
 import React from "react";
-import './Menu.css';
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { Link } from 'react-router-dom';
 
 const items = [
     {item:'Subscriptions'},
-    {item:'Courses'},
     {item:'Sites'},
+    {item:'Courses'},
     {item:'Account'}
 ];
 
+const rando = btoa(Math.random());
+
+
+const Menu = styled.div`
+    width: 300px;
+    height: 40px;
+    lineHeight: 40px;
+    paddingLeft: 10px;  
+    textDecoration:none;
+    color: white;
+
+`;
+
+const MenuItem = styled.div`
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    color: grey; 
+`;
+
+const StyledLink = styled(Link)`
+    text-decoration: none; 
+    color: white;
+    &:visited: red;
+    &.active {
+    text-decoration: underline red;
+    }
+    ;
+`;
 
 export const MainMenu = () => {
     return (
-        <div id="menu">
-            {items.map((page) => {
-                return <div className="menuItem"><Link to={page.item}>{page.item}</Link></div>}
+        <Menu>
+            <nav><MenuItem>{items.map((page) => {
+                return <div><StyledLink to={page.item} activeClassName="active">{page.item}</StyledLink></div>}
             )}
-        </div>
+            </MenuItem>
+            </nav>
+        </Menu>
     )
 };
+
+
+//
+// export const MainMenu = () => {
+//     return (
+//         <div id="menu">
+//             {items.map((page) => {
+//                 return <div className="menuItem"><Link to={page.item}>{page.item}</Link></div>}
+//             )}
+//         </div>
+//     )
+// };
 
 export const Home = React.createClass({
     render: function() {
