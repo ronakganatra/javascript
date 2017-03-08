@@ -3,17 +3,17 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
 export const Layout = styled.div`
-	display: flex
-	height: 100%;
+	display: flex;
+	min-height: 100%;
 `;
 
 export const Sidebar = styled.section`
-	background-color: #a22c6a;
-	width: 33%;
+	flex: 0 0 300px;
+	background-color: ${colors.$color_pink_dark};
 `;
 
 export const Content = styled.section`
-	width: 67%;
+	flex: 1 1 auto;
 	background: ${colors.$palette_grey_light};
-	padding: 25px;
+	padding: 25px 70px;
 `;
