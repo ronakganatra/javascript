@@ -3,15 +3,14 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 
 /**
- * Random.
- *
- * @param {Object} props Array size of the logo.
- * @returns {XML} Logo
+ * @param {Object} props Component props.
+ * @param {String} props.size The width of the prop, and therefore the size.
+ * @returns {ReactElement} A react component describing the logo component.
  * @constructor
  */
 export default function Logo( props ) {
 	return (
-		<header role="banner" >
+		<header role="banner">
 			<LogoImage src={logo} size={props.size}/>
 		</header>
 	);
