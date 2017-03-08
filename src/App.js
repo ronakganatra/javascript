@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import "normalize.css/normalize.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Content } from "./components/Layout";
 import { Provider } from "react-redux";

@@ -1,0 +1,47 @@
+exports[`test the nosites component handling an onclick event 1`] = `
+<div
+  className="ecRrS">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    Welcome to the sites overview.
+  </p>
+  <button
+    aria-label="Add"
+    className="ekEmjF"
+    onClick={[Function]} />
+</div>
+`;
+
+exports[`test the nosites component handling an onclick event 2`] = `
+<div
+  className="ecRrS">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    Welcome to the sites overview.
+  </p>
+  <button
+    aria-label="Add"
+    className="ekEmjF"
+    onClick={[Function]} />
+</div>
+`;
+
+exports[`test the nosites component matches the snapshot 1`] = `
+<div
+  className="ecRrS">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    Welcome to the sites overview.
+  </p>
+  <button
+    aria-label="Add"
+    className="ekEmjF"
+    onClick={[Function]} />
+</div>
+`;
