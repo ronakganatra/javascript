@@ -15,5 +15,5 @@ export const Sidebar = styled.section`
 export const Content = styled.section`
 	flex: 1 1 auto;
 	background: ${colors.$background};
-	padding: 25px 70px;
+	padding: 40px 70px;
 `;
