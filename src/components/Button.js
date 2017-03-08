@@ -12,6 +12,7 @@ export const Button = styled.button`
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 5px;
 	font-size: 14px;
+	font-family: "Open Sans";
 	text-transform: uppercase;
 	padding: 15px;
 	border: 0;
@@ -43,6 +44,8 @@ export const LogoutButton = styled( Button )`
 	background-color: ${colors.$color_white};
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
 	color: ${colors.$color_blue};
-	padding: 6px 20px;
-	font-size: 14px;
+	border-radius: 3px;
+	height: 36px;
+	width: 112px;
+	padding: 0;
 `;

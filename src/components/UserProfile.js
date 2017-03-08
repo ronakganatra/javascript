@@ -9,7 +9,7 @@ const UserImage = styled.img`
 	width: ${ props => props.size }
 	border-radius: 50%;
 	float: left;
-	margin-right: 35px;
+	margin-right: 12px;
 `;
 
 UserImage.propTypes = {
@@ -67,7 +67,7 @@ UserProfile.defaultProps = {
 	displayImage: {
 		src: "",
 		alt: "",
-		size: "60px",
+		size: "64px",
 	},
 	displayName: "",
 	loggedIn: false,
