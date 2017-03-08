@@ -17,6 +17,11 @@ const AddSiteModal = styled.div`
 
 const WebsiteURL = styled.input`
 	width: 98%
+	height: 25px;
+	background-color: ${colors.$color_grey_light};
+	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
+	text-indent: 5px;
+	font-size: 14px;
 `;
 
 const Buttons = styled.div`
@@ -69,8 +74,8 @@ export default function AddSite() {
 			</NoActiveProductText>
 		</NoActiveProduct>
 		<Buttons>
-			<TextButton buttonWidth={"80px"}> cancel </TextButton>
-			<TextButton buttonWidth={"80px"}> link </TextButton>
+			<TextButton buttonWidth={"100px"}> cancel </TextButton>
+			<TextButton buttonWidth={"100px"}> link </TextButton>
 		</Buttons>
     </AddSiteModal>;
 }
