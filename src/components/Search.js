@@ -30,8 +30,8 @@ const SearchLabelText = styled.span`
 const SearchField = styled.input`
 	width: 85%;
 	height: 60px;
-	box-shadow:inset 0 0 9px 1px ${colors.$color_grey};
-	background: ${colors.$color_background_light};
+	box-shadow:inset 0px 2px 8px 0px rgba(0,0,0,0.3);
+	background: ${colors.$color_grey};
 	border: 0;
 	padding: 0 0 0 10px;
 	font-size: 18px;
