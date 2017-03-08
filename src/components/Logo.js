@@ -2,23 +2,39 @@ import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
 
-export const Logo = styled.div`
-	height: ${ props => props.divHeight };
-	width: ${ props => props.divWidth };
-	background: url( ${ logo } ) center center no-repeat;
-	background-size: ${ props => props.logoSize };
-`;
+/**
+ * Random.
+ *
+ * @param {Object} props Array size of the logo.
+ * @returns {XML} Logo
+ * @constructor
+ */
+export default function Logo( props ) {
+	return (
+		<header role="banner" >
+			<LogoImage src={logo} size={props.size}/>
+		</header>
+	);
+}
 
 Logo.propTypes = {
-	logoSize: React.PropTypes.string,
-	divWidth: React.PropTypes.string,
-	divHeight: React.PropTypes.string,
+	size: React.PropTypes.string,
 };
 
 Logo.defaultProps = {
-	logoSize: "175px",
-	divHeight: "90px",
-	divWidth: "300px",
+	size: "200px",
 };
 
-export default Logo;
+const LogoImage = styled.img`
+	width: ${ props => props.size };
+	display: block;
+	margin: 10px auto;
+`;
+
+LogoImage.propTypes = {
+	size: React.PropTypes.string,
+};
+
+LogoImage.defaultProps = {
+	size: "200px",
+};

@@ -1,4 +1,9 @@
 exports[`test the logo matches the snapshot 1`] = `
-<div
-  className="chxGZa" />
+<header
+  role="banner">
+  <img
+    className="gFgOYk"
+    size="200px"
+    src="logo.svg" />
+</header>
 `;
