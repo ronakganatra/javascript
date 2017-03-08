@@ -9,7 +9,7 @@ import angleRight from "../icons/angle-right.svg";
 export const Button = styled.button`
 	background-color: ${colors.$color_blue};
 	color: ${colors.$color_white};
-	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
 	font-size: 14px;
 	font-family: "Open Sans";
@@ -42,7 +42,6 @@ export const GreenButton = styled( Button )`
 
 export const LogoutButton = styled( Button )`
 	background-color: ${colors.$color_white};
-	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.2);
 	color: ${colors.$color_blue};
 	border-radius: 3px;
 	height: 36px;
