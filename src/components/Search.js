@@ -5,12 +5,13 @@ import searchIcon from "../icons/search.svg";
 
 const SearchLabel = styled.label`
 	background-image: url( ${searchIcon} );
-	background-size: 16px;
+	background-size: 25px;
 	background-position: center;
 	background-repeat: no-repeat;
 	width: 30px;
-	height: 30px;
+	height: 60px;
 	float: left;
+	margin-right: 10px;
 `;
 
 SearchLabel.propTypes = {
@@ -28,12 +29,14 @@ const SearchLabelText = styled.span`
 
 const SearchField = styled.input`
 	width: 85%;
-	height: 30px;
+	height: 60px;
 	box-shadow:inset 0 0 9px 1px ${colors.$color_grey};
 	background: ${colors.$color_background_light};
 	border: 0;
-	padding-left: 5px;
-	font-size: 14px;
+	padding: 0 0 0 10px;
+	font-size: 18px;
+	font-family: "Open Sans";
+	width: calc(100% - 50px);
 `;
 
 SearchField.propTypes = {
