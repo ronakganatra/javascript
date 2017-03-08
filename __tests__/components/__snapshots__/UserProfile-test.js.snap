@@ -2,7 +2,7 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
 <div>
   <img
     alt=""
-    className="bHWksu"
+    className="cLhfOK"
     size="60px"
     src="Image" />
   <span
@@ -12,7 +12,7 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
       This is a name
     </span>
     <button
-      className="kWzPdb"
+      className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
@@ -25,7 +25,7 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
 <div>
   <img
     alt=""
-    className="bHWksu"
+    className="cLhfOK"
     size="60px"
     src="Image" />
   <span
@@ -35,7 +35,7 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
       This is a name
     </span>
     <button
-      className="kWzPdb"
+      className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
@@ -48,7 +48,7 @@ exports[`test the user profile matches the snapshot 1`] = `
 <div>
   <img
     alt=""
-    className="bHWksu"
+    className="cLhfOK"
     size="60px"
     src="Image" />
   <span
@@ -58,7 +58,7 @@ exports[`test the user profile matches the snapshot 1`] = `
       This is a name
     </span>
     <button
-      className="kWzPdb"
+      className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
@@ -71,7 +71,7 @@ exports[`test the user profile matches the snapshot 2`] = `
 <div>
   <img
     alt=""
-    className="bHWksu"
+    className="cLhfOK"
     size="60px"
     src="Image" />
   <span
@@ -81,7 +81,7 @@ exports[`test the user profile matches the snapshot 2`] = `
       This is a name
     </span>
     <button
-      className="kWzPdb"
+      className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
