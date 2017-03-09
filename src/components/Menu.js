@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { Link, NavLink } from 'react-router-dom';
 
-const rando = btoa( Math.random() );
+const activeStyle = btoa( Math.random() );
 
 const items = [
     {item:'/subscriptions', title:'Subscriptions'},
@@ -18,21 +18,22 @@ const Menu = styled.div`
 
 const MenuItem = styled(NavLink)`
     display: block;
-    width: 270px;
     height: 100px;
     line-height: 100px;
-    padding-left: 30px;
-    font-family: 'open sans 300';
+    font: "Open Sans";
     font-size: 22px;
-    color: #ccc;
+    font-weight: 300;
+    width: 250px;
+    padding-left: 25px;
+    margin-left: 25px;
+    color: ${colors.$color_pink_dark};
     text-decoration: none;
     
-    &.${rando} {
-        display: block;
-        padding-left: 0px;
-        color: purple;
+    &.${activeStyle} {
+        color: #ccc;
         box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-        font-family: 'open sans 400';
+        font: "Open Sans";
+        font-weight: 400;
     }
 `;
 
@@ -41,7 +42,7 @@ export const MainMenu = () => {
         <Menu>
             <nav>
                 {items.map((page) => {
-                    return <MenuItem activeClassName={rando} to={page.item} key={page.title}>{page.title}</MenuItem>}
+                    return <MenuItem activeClassName={activeStyle} to={page.item} key={page.title}>{page.title}</MenuItem>}
                 )}
             </nav>
         </Menu>
