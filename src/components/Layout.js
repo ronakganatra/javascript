@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 import colors from "yoast-components/style-guide/colors.json";
 
 export const Layout = styled.div`
@@ -7,14 +6,19 @@ export const Layout = styled.div`
 	min-height: 100%;
 `;
 
-export const Sidebar = styled.section`
+export const Sidebar = styled.div`
 	flex: 0 0 300px;
 	background-color: ${colors.$color_pink_dark};
 `;
 
-export const Content = styled.section`
+export const Main = styled.main`
 	flex: 1 1 auto;
-	max-width: 1200px;
 	background: ${colors.$background};
-	padding: 40px 70px;
+	margin: 0 2%;
+	padding: 40px 0;
+`;
+
+export const Content = styled.div`
+	max-width: 1200px;
+	margin: 0 auto;
 `;

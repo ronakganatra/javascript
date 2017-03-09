@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import "./App.css";
 import "normalize.css/normalize.css";
 import UserStatus from "./containers/UserStatus";
-import { Layout, Sidebar, Content } from "./components/Layout";
+import { Layout, Sidebar, Main, Content } from "./components/Layout";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -30,8 +30,10 @@ class App extends Component {
 					<Sidebar>
 						<UserStatus />
 					</Sidebar>
-					<Content>
-					</Content>
+					<Main>
+						<Content>
+						</Content>
+					</Main>
 				</Layout>
 			</Provider>
 		);
