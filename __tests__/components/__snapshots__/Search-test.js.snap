@@ -12,7 +12,6 @@ exports[`test the search component matches the snapshot 1`] = `
     aria-describedby="searchDescription"
     className="bxzeun"
     id="search"
-    placeholder="Search"
     type="text" />
   <p
     className="screen-reader-text fkCowi"
