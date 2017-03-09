@@ -5602,9 +5602,9 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-yoast-components@^2.4.0:
+"yoast-components@https://github.com/Yoast/yoast-components.git#develop":
   version "2.4.0"
-  resolved "https://registry.yarnpkg.com/yoast-components/-/yoast-components-2.4.0.tgz#13b53dddc55620a20e81109f071b39d428b4ec3c"
+  resolved "https://github.com/Yoast/yoast-components.git#5d4d62f7ac5cb12ee4aa07ce8d22c992795064af"
   dependencies:
     i18n-calypso "^1.6.2"
     interpolate-components "^1.1.0"
