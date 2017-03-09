@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-import './App.css';
-import UserStatus from './containers/UserStatus';
+import React, { Component } from "react";
+import "./App.css";
+import "normalize.css/normalize.css";
+import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Content } from "./components/Layout";
-import { MainMenu, Subscriptions, Account, Sites, Courses } from "./components/Menu";
-
-import { Provider} from "react-redux";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 
 class App extends Component {
@@ -65,5 +63,9 @@ class App extends Component {
 		);
 	}
 }
+
+App.propTypes = {
+	store: React.PropTypes.object,
+};
 
 export default App;
