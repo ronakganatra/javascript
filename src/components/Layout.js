@@ -4,11 +4,23 @@ import colors from "yoast-components/style-guide/colors.json";
 export const Layout = styled.div`
 	display: flex;
 	min-height: 100%;
+
+	@media screen and ( max-width: 1024px ) {
+		display: block;
+		min-height: 0;
+	}
 `;
 
 export const Sidebar = styled.div`
 	flex: 0 0 300px;
 	background-color: ${colors.$color_pink_dark};
+
+	@media screen and ( max-width: 1024px ) {
+		position: fixed;
+		width: 100%;
+		height: 74px;
+		bottom: 0;
+	}
 `;
 
 export const Main = styled.main`
@@ -16,6 +28,11 @@ export const Main = styled.main`
 	background: ${colors.$background};
 	margin: 0 2%;
 	padding: 40px 0;
+
+	@media screen and ( max-width: 1024px ) {
+		margin: 4% 4% 0 4%;
+		padding: 0 0 100px 0;
+	}
 `;
 
 export const Content = styled.div`
