@@ -8,12 +8,12 @@ export const Layout = styled.div`
 `;
 
 export const Sidebar = styled.section`
+	flex: 0 0 300px;
 	background-color: #a22c6a;
-	width: 33%;
 `;
 
 export const Content = styled.section`
-	width: 67%;
+	flex: 1 1 auto;
 	background: ${colors.$palette_grey_light};
-	padding: 25px;
+	padding: 30px 50px;
 `;
