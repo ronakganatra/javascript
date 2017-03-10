@@ -8,10 +8,10 @@ const SearchLabel = styled.label`
 	background-size: 25px;
 	background-position: center;
 	background-repeat: no-repeat;
-	width: 30px;
+	width: 40px;
 	height: 60px;
 	float: left;
-	margin-right: 10px;
+	background-position: left center;
 `;
 
 SearchLabel.propTypes = {
@@ -30,13 +30,13 @@ const SearchLabelText = styled.span`
 const SearchField = styled.input`
 	width: 85%;
 	height: 60px;
-	box-shadow:inset 0px 2px 8px 0px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${colors.$color_grey};
 	border: 0;
 	padding: 0 0 0 10px;
 	font-size: 18px;
-	font-family: "Open Sans";
-	width: calc(100% - 50px);
+	font-family: "Open Sans", sans-serif;
+	width: calc(100% - 40px);
 `;
 
 SearchField.propTypes = {
@@ -51,7 +51,6 @@ SearchField.defaultProps = {
 };
 
 const SearchDescription = styled.p`
-	
 `;
 
 SearchDescription.propTypes = {
