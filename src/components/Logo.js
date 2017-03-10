@@ -27,7 +27,7 @@ Logo.defaultProps = {
 const LogoImage = styled.img`
 	width: ${ props => props.size };
 	display: block;
-	margin: 25px auto;
+	margin: 30px auto 25px auto;
 `;
 
 LogoImage.propTypes = {

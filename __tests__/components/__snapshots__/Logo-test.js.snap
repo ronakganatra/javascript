@@ -3,7 +3,7 @@ exports[`test the logo matches the snapshot 1`] = `
   role="banner">
   <img
     alt="My Yoast"
-    className="hSklFH"
+    className="fPxrNQ"
     size="200px"
     src="logo.svg" />
 </header>
