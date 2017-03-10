@@ -1,0 +1,125 @@
+exports[`test a disabled toggle that is enabled 1`] = `
+<div>
+  <div
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="eevtLb" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    Off
+  </span>
+</div>
+`;
+
+exports[`test a disabled toggle that is enabled 2`] = `
+<div>
+  <div
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="lbeQtx" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    On
+  </span>
+</div>
+`;
+
+exports[`test a disabled toggle which matches the snapshot 1`] = `
+<div>
+  <div
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="eevtLb" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    Off
+  </span>
+</div>
+`;
+
+exports[`test an enabled toggle that is disabled 1`] = `
+<div>
+  <div
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="lbeQtx" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    On
+  </span>
+</div>
+`;
+
+exports[`test an enabled toggle that is disabled 2`] = `
+<div>
+  <div
+    aria-checked={false}
+    aria-label="Option"
+    className="kkgGiB"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="eevtLb" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    Off
+  </span>
+</div>
+`;
+
+exports[`test an enabled toggle which matches the snapshot 1`] = `
+<div>
+  <div
+    aria-checked={true}
+    aria-label="Option"
+    className="kIPABA"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="checkbox"
+    tabIndex="0">
+    <span
+      className="lbeQtx" />
+  </div>
+  <span
+    aria-hidden="true"
+    className="iUAAtI">
+    On
+  </span>
+</div>
+`;

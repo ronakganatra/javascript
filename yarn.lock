@@ -5610,3 +5610,12 @@ yargs@~3.10.0:
     interpolate-components "^1.1.0"
     jed "^1.1.1"
     whatwg-fetch "^1.0.0"
+
+"yoast-components@https://github.com/Yoast/yoast-components.git#AM/add-colors":
+  version "2.4.0"
+  resolved "https://github.com/Yoast/yoast-components.git#bd3d2431d09e8739a633dd81b45e703eb3d396a3"
+  dependencies:
+    i18n-calypso "^1.6.2"
+    interpolate-components "^1.1.0"
+    jed "^1.1.1"
+    whatwg-fetch "^1.0.0"
