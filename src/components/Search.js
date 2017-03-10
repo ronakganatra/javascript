@@ -6,12 +6,11 @@ import searchIcon from "../icons/search.svg";
 const SearchLabel = styled.label`
 	background-image: url( ${ searchIcon } );
 	background-size: 25px;
-	background-position: center;
+	background-position: left center;
 	background-repeat: no-repeat;
 	width: 40px;
 	height: 60px;
 	float: left;
-	background-position: left center;
 `;
 
 SearchLabel.propTypes = {
