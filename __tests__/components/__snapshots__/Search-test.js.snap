@@ -10,7 +10,7 @@ exports[`test the search component matches the snapshot 1`] = `
   </label>
   <input
     aria-describedby="searchDescription"
-    className="gdImCA"
+    className="hhtLuS"
     id="search"
     type="text" />
   <p

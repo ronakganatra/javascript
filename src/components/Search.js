@@ -4,7 +4,7 @@ import styled from "styled-components";
 import searchIcon from "../icons/search.svg";
 
 const SearchLabel = styled.label`
-	background-image: url( ${searchIcon} );
+	background-image: url( ${ searchIcon } );
 	background-size: 25px;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -28,10 +28,9 @@ const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled.input`
-	width: 85%;
 	height: 60px;
 	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
-	background: ${colors.$color_grey};
+	background: ${ colors.$color_grey };
 	border: 0;
 	padding: 0 0 0 10px;
 	font-size: 18px;
@@ -71,12 +70,12 @@ SearchDescription.defaultProps = {
  */
 export default function Search( props ) {
 	return <div>
-		<SearchLabel htmlFor={props.id}>
-			<SearchLabelText className="screen-reader-text">{props.searchLabel}</SearchLabelText>
+		<SearchLabel htmlFor={ props.id }>
+			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
 		</SearchLabel>
-		<SearchField type="text" id={props.id} aria-describedby={props.descriptionId} />
-		<SearchDescription className="screen-reader-text" id={props.descriptionId}>
-			{props.description}
+		<SearchField type="text" id={ props.id } aria-describedby={ props.descriptionId } />
+		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
+			{ props.description }
 		</SearchDescription>
 	</div>;
 }
