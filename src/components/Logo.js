@@ -11,7 +11,7 @@ import logo from "../images/logo.svg";
 export default function Logo( props ) {
 	return (
 		<header role="banner">
-			<LogoImage src={logo} size={props.size}/>
+			<LogoImage src={ logo } size={ props.size } alt="My Yoast"/>
 		</header>
 	);
 }
@@ -27,7 +27,7 @@ Logo.defaultProps = {
 const LogoImage = styled.img`
 	width: ${ props => props.size };
 	display: block;
-	margin: 10px auto;
+	margin: 25px auto;
 `;
 
 LogoImage.propTypes = {
