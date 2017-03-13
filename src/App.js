@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
-import "./App.css";
 import "normalize.css/normalize.css";
+import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
 import { Provider } from "react-redux";
