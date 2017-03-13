@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions";
+import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions/user";
 
 const initialState = {
 	// Whether or not the user is currently logged in.
