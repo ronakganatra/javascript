@@ -2,10 +2,20 @@ import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../action
 
 const initialState = {
 	user: {
+
+		// Whether or not the user is currently logged in.
 		loggedIn: false,
+
+		// Whether or not we are fetching the logged in user data.
 		isFetching: false,
+
+		// The currently active & valid access token.
 		accessToken: "",
+
+		// The user ID for fetching the user.
 		userId: null,
+
+		// The userdata as retrieved from the server.
 		data: {
 			username: "",
 			email: "",
