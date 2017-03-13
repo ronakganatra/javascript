@@ -3,8 +3,9 @@ import "./App.css";
 import "normalize.css/normalize.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Content } from "./components/Layout";
+import { MainMenu, Subscriptions, Courses, Account, Sites } from "./components/Menu";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 
 class App extends Component {
@@ -28,21 +29,6 @@ class App extends Component {
 					</Content>
 				</Layout>
 			</Router>
-			{/*<Router>*/}
-				{/*<Layout>*/}
-					{/*<Route component={Sidebar}>*/}
-						{/*<Route component={UserStatus} />*/}
-
-						{/*<Route component={MainMenu} />*/}
-					{/*</Route>*/}
-					{/*<Route>*/}
-						{/*<Route path="subscriptions" component={Subscriptions} />*/}
-						{/*<Route path="courses" component={Courses} />*/}
-						{/*<Route path="sites" component={Sites} />*/}
-						{/*<Route path="account" component={Account} />*/}
-					{/*</Route>*/}
-				{/*</Layout>*/}
-			{/*</Router>*/}
 		</Provider>
 		);
 	}

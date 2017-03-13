@@ -50,6 +50,8 @@ export const MainMenu = () => {
 	);
 };
 
+// React components below can be removed in the future. Currently they serve as dummy content, necessary to show a functioning menu.
+
 export const Home = React.createClass( {
 	render: function() {
 		return ( <h1>Welcome to the Home Page</h1> );
