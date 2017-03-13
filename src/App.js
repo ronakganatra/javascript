@@ -1,12 +1,29 @@
+/* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import "./App.css";
 import "normalize.css/normalize.css";
 import UserStatus from "./containers/UserStatus";
-import { Layout, Sidebar, Content } from "./components/Layout";
+import { Layout, Sidebar, Main, Content } from "./components/Layout";
 import menuItems from "./config/Menu";
 import { MainMenu, MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
+import { injectGlobal } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
+import colors from "yoast-components/style-guide/colors.json";
+
+/*
+ * Helper method to write global CSS.
+ * Only use it for the rare @font-face definition or body styling.
+ */
+injectGlobal`
+	body {
+		margin: 0;
+		padding: 0;
+		font-family: "Open Sans", sans-serif;
+		min-height: 100%;
+		background: ${colors.$background};
+	}
+`;
 
 class App extends Component {
 	render() {
@@ -20,10 +37,11 @@ class App extends Component {
 
 						<MainMenu menuRoutes={ menuItems }  />
 					</Sidebar>
-
-					<Content>
-						<MainMenuRoutes menuRoutes={ menuItems }  />
-					</Content>
+					<Main>
+						<Content>
+							<MainMenuRoutes menuRoutes={ menuItems }  />
+						</Content>
+					</Main>
 				</Layout>
 			</Router>
 		</Provider>

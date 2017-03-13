@@ -12,15 +12,15 @@ export default function UserProfile( props ) {
 		loggedIn = "You are logged in!";
 	}
 
-	return <div>
+	return <aside>
 		{loggedIn}
 
-		<img src="" />
+		<img src="" alt="" />
 
 		{ props.displayName }
 
 		<button type="button" onClick={props.onLogoutClick}>Logout</button>
-	</div>;
+	</aside>;
 }
 
 UserProfile.propTypes = {
