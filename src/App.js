@@ -10,6 +10,7 @@ import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
+import { IntlProvider } from "react-intl";
 
 /*
  * Helper method to write global CSS.
@@ -29,22 +30,24 @@ class App extends Component {
 	render() {
 		return (
 
-		<Provider store={this.props.store}>
-			<Router>
-				<Layout>
-					<Sidebar>
-						<UserStatus/>
+		<IntlProvider locale="en">
+			<Provider store={this.props.store}>
+				<Router>
+					<Layout>
+						<Sidebar>
+							<UserStatus/>
 
-						<MainMenu menuRoutes={ menuItems }  />
-					</Sidebar>
-					<Main>
-						<Content>
-							<MainMenuRoutes menuRoutes={ menuItems }  />
-						</Content>
-					</Main>
-				</Layout>
-			</Router>
-		</Provider>
+							<MainMenu menuRoutes={ menuItems }  />
+						</Sidebar>
+						<Main>
+							<Content>
+								<MainMenuRoutes menuRoutes={ menuItems }  />
+							</Content>
+						</Main>
+					</Layout>
+				</Router>
+			</Provider>
+		</IntlProvider>
 		);
 	}
 }
