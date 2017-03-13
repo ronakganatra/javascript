@@ -24,6 +24,7 @@ const MenuItem = styled( NavLink )`
 	font-weight: 300;
 	padding-left: 25px;
 	margin-left: 25px;
+	margin-right: 25px;
 	color: ${colors.$color_background_light};
 	text-decoration: none;
 	
