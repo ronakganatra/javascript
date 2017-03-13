@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink, Route } from "react-router-dom";
 
-const activeStyle = btoa( Math.random() );
+const activeStyle = "active-class-name";
 
 const Menu = styled.div`
 `;

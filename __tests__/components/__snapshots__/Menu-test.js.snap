@@ -4,28 +4,28 @@ exports[`test the menu matches the snapshot 1`] = `
     className="foqgVb">
     <nav>
       <a
-        className="brvycZ"
+        className="JKslI"
         href="/subscriptions"
         onClick={[Function]}
         style={undefined}>
         Subscriptions
       </a>
       <a
-        className="brvycZ"
+        className="JKslI"
         href="/sites"
         onClick={[Function]}
         style={undefined}>
         Sites
       </a>
       <a
-        className="brvycZ"
+        className="JKslI"
         href="/courses"
         onClick={[Function]}
         style={undefined}>
         Courses
       </a>
       <a
-        className="brvycZ"
+        className="JKslI"
         href="/account"
         onClick={[Function]}
         style={undefined}>
