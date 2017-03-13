@@ -3,10 +3,12 @@ import "./App.css";
 import "normalize.css/normalize.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Content } from "./components/Layout";
-import { MainMenu, Subscriptions, Courses, Account, Sites } from "./components/Menu";
+import menuItems from "./config/Menu";
+import { MainMenu, MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 
+console.log( menuItems );
 
 class App extends Component {
 	render() {
@@ -18,14 +20,11 @@ class App extends Component {
 					<Sidebar>
 						<UserStatus/>
 
-						<MainMenu/>
+						<MainMenu menuRoutes={ menuItems }  />
 					</Sidebar>
 
 					<Content>
-						<Route path="/subscriptions" component={Subscriptions} />
-						<Route path="/courses" component={Courses} />
-						<Route path="/sites" component={Sites} />
-						<Route path="/account" component={Account} />
+						<MainMenuRoutes menuRoutes={ menuItems }  />
 					</Content>
 				</Layout>
 			</Router>

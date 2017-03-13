@@ -1,16 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 
 const activeStyle = btoa( Math.random() );
-
-const items = [
-	{ item: "/subscriptions", title: "Subscriptions" },
-	{ item: "/sites", title: "Sites" },
-	{ item: "/courses", title: "Courses" },
-	{ item: "/account", title: "Account" },
-];
 
 const Menu = styled.div`
 `;
@@ -38,46 +31,47 @@ const MenuItem = styled( NavLink )`
 	}
 `;
 
-export const MainMenu = () => {
+/**
+ * The main menu.
+ *
+ * @param {Object} props The props to use.
+ * @returns {XML} The rendered component.
+ */
+export function MainMenu( props ) {
 	return (
 		<Menu>
 			<nav>
-				{ items.map( ( page ) => {
-					return <MenuItem activeClassName={ activeStyle } to={ page.item } key={ page.title }>{ page.title }</MenuItem>;
+				{ props.menuRoutes.map( function( page ) {
+					return <MenuItem activeClassName={ activeStyle } to={ page.path } key={ page.title }>{ page.title }</MenuItem>;
 				}
 				) }
 			</nav>
 		</Menu>
 	);
+}
+
+MainMenu.propTypes = {
+	menuRoutes: React.PropTypes.array.isRequired,
 };
 
-// React components below can be removed in the future. Currently they serve as dummy content, necessary to show a functioning menu.
 
-export const Home = React.createClass( {
-	render: function() {
-		return ( <h1>Welcome to the Home Page</h1> );
-	},
-} );
+/**
+ * The main menu routes.
+ *
+ * @param {Object} props The props to use.
+ * @returns {XML} The rendered component.
+ */
+export function MainMenuRoutes( props ) {
+	return (
+		<div>
+			{ props.menuRoutes.map( function( route, routeKey ) {
+				return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+			}
+			) }
+		</div>
+	);
+}
 
-export const Subscriptions = React.createClass( {
-	render: function() {
-		return ( <h1>Your subscriptions</h1> );
-	},
-} );
-
-export const Sites = React.createClass( {
-	render: function() {
-		return ( <h1>Your sites</h1> );
-	},
-} );
-
-export const Courses = React.createClass( {
-	render: function() {
-		return ( <h1>Your courses</h1> );
-	},
-} );
-export const Account = React.createClass( {
-	render: function() {
-		return ( <h1>Your account details</h1> );
-	},
-} );
+MainMenuRoutes.propTypes = {
+	menuRoutes: React.PropTypes.array.isRequired,
+};
