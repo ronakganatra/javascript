@@ -1,152 +1,152 @@
 exports[`test the manage button handling an onclick event 1`] = `
-<div
-  className="gCyDJO">
+<li
+  className="egXAfz">
   <img
     alt=""
-    className="hLowPL"
+    className="kIQXBD"
     src="" />
   <div
-    className="fSTmXs" />
-  <div
-    className="fwOPcr">
+    className="cExHXP" />
+  <span
+    className="eTSnel">
     yoast.com
-  </div>
-  <div
-    className="kNFhXP">
+  </span>
+  <span
+    className="ewETtX">
     <div>
-      <div
+      <span
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb"
+        className="gUXWlw"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO is inactive"
-        className="pfOfD"
+        className="czkLho"
         role="img" />
-      <div
+      <span
         aria-label="Video SEO is active"
-        className="cQWrFq"
+        className="kSlIAP"
         role="img" />
-      <div
+      <span
         aria-label="News SEO is inactive"
-        className="favXdg"
+        className="icqtKc"
         role="img" />
-      <div
+      <span
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK"
+        className="eXOupU"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah"
+        className="XVeDT"
         role="img" />
     </div>
-  </div>
+  </span>
   <button
-    className="kgcbkl"
+    className="kTxWZ"
     onClick={[Function]}
     type="button">
     Manage
   </button>
-</div>
+</li>
 `;
 
 exports[`test the manage button handling an onclick event 2`] = `
-<div
-  className="gCyDJO">
+<li
+  className="egXAfz">
   <img
     alt=""
-    className="hLowPL"
+    className="kIQXBD"
     src="" />
   <div
-    className="fSTmXs" />
-  <div
-    className="fwOPcr">
+    className="cExHXP" />
+  <span
+    className="eTSnel">
     yoast.com
-  </div>
-  <div
-    className="kNFhXP">
+  </span>
+  <span
+    className="ewETtX">
     <div>
-      <div
+      <span
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb"
+        className="gUXWlw"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO is inactive"
-        className="pfOfD"
+        className="czkLho"
         role="img" />
-      <div
+      <span
         aria-label="Video SEO is active"
-        className="cQWrFq"
+        className="kSlIAP"
         role="img" />
-      <div
+      <span
         aria-label="News SEO is inactive"
-        className="favXdg"
+        className="icqtKc"
         role="img" />
-      <div
+      <span
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK"
+        className="eXOupU"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah"
+        className="XVeDT"
         role="img" />
     </div>
-  </div>
+  </span>
   <button
-    className="kgcbkl"
+    className="kTxWZ"
     onClick={[Function]}
     type="button">
     Manage
   </button>
-</div>
+</li>
 `;
 
 exports[`test the site component matches the snapshot 1`] = `
-<div
-  className="gCyDJO">
+<li
+  className="egXAfz">
   <img
     alt=""
-    className="hLowPL"
+    className="kIQXBD"
     src="" />
   <div
-    className="fSTmXs" />
-  <div
-    className="fwOPcr">
+    className="cExHXP" />
+  <span
+    className="eTSnel">
     yoast.com
-  </div>
-  <div
-    className="kNFhXP">
+  </span>
+  <span
+    className="ewETtX">
     <div>
-      <div
+      <span
         aria-label="Yoast SEO is inactive"
-        className="iGaMkb"
+        className="gUXWlw"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO is inactive"
-        className="pfOfD"
+        className="czkLho"
         role="img" />
-      <div
+      <span
         aria-label="Video SEO is active"
-        className="cQWrFq"
+        className="kSlIAP"
         role="img" />
-      <div
+      <span
         aria-label="News SEO is inactive"
-        className="favXdg"
+        className="icqtKc"
         role="img" />
-      <div
+      <span
         aria-label="WooCommerce SEO is active"
-        className="bEJBwK"
+        className="eXOupU"
         role="img" />
-      <div
+      <span
         aria-label="Local SEO for Woo is inactive"
-        className="dRReah"
+        className="XVeDT"
         role="img" />
     </div>
-  </div>
+  </span>
   <button
-    className="kgcbkl"
+    className="kTxWZ"
     onClick={undefined}
     type="button">
     Manage
   </button>
-</div>
+</li>
 `;

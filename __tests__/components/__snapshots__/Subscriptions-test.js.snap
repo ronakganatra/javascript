@@ -1,57 +1,57 @@
 exports[`test the subscription component matches the snapshot 1`] = `
 <div>
-  <div
+  <span
     aria-label="Yoast SEO is inactive"
-    className="iGaMkb"
+    className="gUXWlw"
     role="img" />
-  <div
+  <span
     aria-label="Local SEO is inactive"
-    className="pfOfD"
+    className="czkLho"
     role="img" />
-  <div
+  <span
     aria-label="Video SEO is active"
-    className="cQWrFq"
+    className="kSlIAP"
     role="img" />
-  <div
+  <span
     aria-label="News SEO is inactive"
-    className="favXdg"
+    className="icqtKc"
     role="img" />
-  <div
+  <span
     aria-label="WooCommerce SEO is active"
-    className="bEJBwK"
+    className="eXOupU"
     role="img" />
-  <div
+  <span
     aria-label="Local SEO for Woo is inactive"
-    className="dRReah"
+    className="XVeDT"
     role="img" />
 </div>
 `;
 
 exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
 <div>
-  <div
+  <span
     aria-label="Yoast SEO is inactive"
-    className="iGaMkb"
+    className="gUXWlw"
     role="img" />
-  <div
+  <span
     aria-label="Local SEO is inactive"
-    className="pfOfD"
+    className="czkLho"
     role="img" />
-  <div
+  <span
     aria-label="Video SEO is inactive"
-    className="gAaYAR"
+    className="cgPUis"
     role="img" />
-  <div
+  <span
     aria-label="News SEO is inactive"
-    className="favXdg"
+    className="icqtKc"
     role="img" />
-  <div
+  <span
     aria-label="WooCommerce SEO is inactive"
-    className="dUDQWU"
+    className="dGZexo"
     role="img" />
-  <div
+  <span
     aria-label="Local SEO for Woo is inactive"
-    className="dRReah"
+    className="XVeDT"
     role="img" />
 </div>
 `;
