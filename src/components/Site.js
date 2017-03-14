@@ -46,7 +46,8 @@ const SiteSubscriptionsContainer = styled.div`
 	height: 60px;
 	line-height: 60px;
 	display: inline-flex;
-	flex: 0 0 380px
+	align-items: center;
+	flex: 0 0 360px
 `;
 
 /**
