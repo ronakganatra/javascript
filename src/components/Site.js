@@ -12,7 +12,9 @@ const SiteContainer = styled.div`
 	height: 80px;
 	padding: 10px;
 	box-sizing: border-box;
-	float: left;
+	display: flex;
+	justify-content: space-around
+	align-items: center;
 `;
 
 const SiteIcon = styled.img`
@@ -20,7 +22,6 @@ const SiteIcon = styled.img`
 	width: 60px;
 	height: 60px;
 	background-repeat: no-repeat;
-	float: left;
 `;
 
 SiteIcon.propTypes = {
@@ -31,24 +32,21 @@ const Separator = styled.div`
 	background-color: ${colors.$color_grey};
 	width: 2px;
 	height: 60px;
-	margin: 0px 15px;
-	float: left;
 `;
 
 const SiteName = styled.div`
 	font-size: 14px;
 	width: 25%;
 	height: 60px;
-	vertical-align: middle;
-	float: left;
 	line-height: 60px;
 `;
 
 const SiteSubscriptionsContainer = styled.div`
 	width: 40%;
 	height: 60px;
-	float: left;
 	line-height: 60px;
+	display: inline-flex;
+	flex: 0 0 380px
 `;
 
 /**
@@ -68,7 +66,7 @@ export default function Site( props ) {
 			<SiteSubscriptionsContainer>
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
-			<LargeButton onClick={ props.onClickManage }>Manage</LargeButton>
+			<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
 		</SiteContainer>
 	);
 }

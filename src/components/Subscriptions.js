@@ -24,7 +24,7 @@ const Subscription = styled.div`
 	width: 50px;
 	height: 50px;
 	float: left;
-	margin: 5px;
+	margin: 0 5px;
 `;
 
 Subscription.propTypes = {
