@@ -22,7 +22,7 @@ exports[`test the nosites component handling an onclick event 1`] = `
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;
@@ -51,7 +51,7 @@ exports[`test the nosites component handling an onclick event 2`] = `
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;
@@ -80,7 +80,7 @@ exports[`test the nosites component matches the snapshot 1`] = `
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;
