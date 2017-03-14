@@ -10,6 +10,7 @@ const UserInfoContainer = styled.div`
 	align-items: center;
 	justify-content: center;
 	margin: 0 auto;
+	padding-bottom: 20px;
 `;
 
 const UserImage = styled.img`
