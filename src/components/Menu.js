@@ -5,14 +5,24 @@ import { NavLink, Route } from "react-router-dom";
 
 const activeStyle = "active-class-name";
 
-const Menu = styled.div`
+const Menu = styled.nav`
+	clear: both;
+
+	& ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	& li {
+		display: inline;
+	}
 `;
 
 const MenuItem = styled( NavLink )`
 	display: block;
 	height: 100px;
 	line-height: 100px;
-	font: "Open Sans";
 	font-size: 22px;
 	font-weight: 300;
 	padding-left: 25px;
@@ -20,12 +30,11 @@ const MenuItem = styled( NavLink )`
 	margin-right: 25px;
 	color: ${colors.$color_background_light};
 	text-decoration: none;
-	
+
 	&.${ activeStyle } {
 		color: #ccc;
 		background-color: ${colors.$background};
 		box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-		font: "Open Sans";
 		font-weight: 400;
 		color: ${colors.$color_pink_dark};
 	}
@@ -35,17 +44,17 @@ const MenuItem = styled( NavLink )`
  * The main menu.
  *
  * @param {Object} props The props to use.
- * @returns {XML} The rendered component.
+ * @returns {ReactElement} The rendered component.
  */
 export function MainMenu( props ) {
 	return (
 		<Menu>
-			<nav>
+			<ul role="list">
 				{ props.menuRoutes.map( function( page ) {
-					return <MenuItem activeClassName={ activeStyle } to={ page.path } key={ page.title }>{ page.title }</MenuItem>;
+					return <li key={ page.title }><MenuItem activeClassName={ activeStyle } to={ page.path }>{ page.title }</MenuItem></li>;
 				}
 				) }
-			</nav>
+			</ul>
 		</Menu>
 	);
 }
@@ -59,7 +68,7 @@ MainMenu.propTypes = {
  * The main menu routes.
  *
  * @param {Object} props The props to use.
- * @returns {XML} The rendered component.
+ * @returns {ReactElement} The rendered component.
  */
 export function MainMenuRoutes( props ) {
 	return (
