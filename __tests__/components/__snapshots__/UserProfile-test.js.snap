@@ -1,91 +1,95 @@
 exports[`test the user profile logout button handling an onclick event 1`] = `
-<div>
+<div
+  className="dIzoEW">
   <img
     alt=""
-    className="cLhfOK"
+    className="fzWoWM"
     size="60px"
     src="Image" />
-  <span
-    className="jqqUHG">
-    <span
-      className="ebfYGR">
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
       This is a name
-    </span>
+    </div>
     <button
       className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
     </button>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`test the user profile logout button handling an onclick event 2`] = `
-<div>
+<div
+  className="dIzoEW">
   <img
     alt=""
-    className="cLhfOK"
+    className="fzWoWM"
     size="60px"
     src="Image" />
-  <span
-    className="jqqUHG">
-    <span
-      className="ebfYGR">
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
       This is a name
-    </span>
+    </div>
     <button
       className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
     </button>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`test the user profile matches the snapshot 1`] = `
-<div>
+<div
+  className="dIzoEW">
   <img
     alt=""
-    className="cLhfOK"
+    className="fzWoWM"
     size="60px"
     src="Image" />
-  <span
-    className="jqqUHG">
-    <span
-      className="ebfYGR">
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
       This is a name
-    </span>
+    </div>
     <button
       className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
     </button>
-  </span>
+  </div>
 </div>
 `;
 
 exports[`test the user profile matches the snapshot 2`] = `
-<div>
+<div
+  className="dIzoEW">
   <img
     alt=""
-    className="cLhfOK"
+    className="fzWoWM"
     size="60px"
     src="Image" />
-  <span
-    className="jqqUHG">
-    <span
-      className="ebfYGR">
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
       This is a name
-    </span>
+    </div>
     <button
       className="cvzdT"
       onClick={[Function]}
       type="button">
       Sign out
     </button>
-  </span>
+  </div>
 </div>
 `;
