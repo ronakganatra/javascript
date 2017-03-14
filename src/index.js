@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import { login, fetchUser } from "./actions";
+import { login, fetchUser } from "./actions/user";
 import getAccessToken from "./functions/getAccessToken";
 import getUserId from "./functions/getUserId";
 import thunkMiddleware from "redux-thunk";
