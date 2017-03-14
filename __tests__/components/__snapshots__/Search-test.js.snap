@@ -1,0 +1,22 @@
+exports[`test the search component matches the snapshot 1`] = `
+<div>
+  <label
+    className="bFGhCT"
+    htmlFor="search">
+    <span
+      className="screen-reader-text foqgVb">
+      Search
+    </span>
+  </label>
+  <input
+    aria-describedby="searchDescription"
+    className="hhtLuS"
+    id="search"
+    type="text" />
+  <p
+    className="screen-reader-text foqgVb"
+    id="searchDescription">
+    The search results will be updated as you type.
+  </p>
+</div>
+`;
