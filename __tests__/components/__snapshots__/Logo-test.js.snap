@@ -1,10 +1,18 @@
-exports[`test the logo matches the snapshot 1`] = `
+exports[`test the header logo matches the snapshot 1`] = `
 <header
   role="banner">
   <img
-    alt="My Yoast"
-    className="fPxrNQ"
-    size="200px"
+    alt="My header logo alt"
+    className="bJcert"
+    size="300px"
     src="logo.svg" />
 </header>
+`;
+
+exports[`test the logo matches the snapshot 1`] = `
+<img
+  alt="My logo alt"
+  className="bJcert"
+  size="300px"
+  src="logo.svg" />
 `;
