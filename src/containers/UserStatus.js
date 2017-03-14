@@ -1,4 +1,4 @@
-import { logout } from "../actions";
+import { logout } from "../actions/user";
 import { connect } from "react-redux";
 import UserProfile from "../components/UserProfile";
 
