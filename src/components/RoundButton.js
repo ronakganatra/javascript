@@ -16,6 +16,7 @@ export const RoundButton = styled.button`
 	background-size: 30px;
 	width:  40px;
 	height: 40px;
+	cursor: pointer;
 `;
 
 RoundButton.propTypes = {
