@@ -10,6 +10,10 @@ import getUserId from "./functions/getUserId";
 import thunkMiddleware from "redux-thunk";
 import createLogger from "redux-logger";
 import Cookies from "js-cookie";
+import { addLocaleData }from "react-intl";
+import en from "react-intl/locale-data/en";
+
+addLocaleData( en );
 
 const loggerMiddleware = createLogger();
 

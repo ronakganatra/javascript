@@ -1,4 +1,5 @@
 import React from "react";
+import NoSites from "../components/NoSites";
 
 const Subscriptions = React.createClass( {
 	render: function() {
@@ -8,7 +9,7 @@ const Subscriptions = React.createClass( {
 
 const Sites = React.createClass( {
 	render: function() {
-		return ( <h1>Your sites</h1> );
+		return ( <NoSites onClick={() => {}} /> );
 	},
 } );
 
