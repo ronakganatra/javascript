@@ -76,6 +76,6 @@ UserProfile.defaultProps = {
 		alt: "",
 		size: "64px",
 	},
-	displayName: "Joost de Valk",
+	displayName: "",
 	loggedIn: false,
 };

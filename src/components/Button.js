@@ -1,12 +1,11 @@
 import React from "react";
-
 import styled from "styled-components";
-
 import colors from "yoast-components/style-guide/colors.json";
 
-import angleRight from "../icons/angle-right.svg";
-
 export const Button = styled.button`
+	height: 48px;
+	padding: 0 15px;
+	border: 0;
 	background-color: ${colors.$color_blue};
 	color: ${colors.$color_white};
 	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
@@ -14,8 +13,7 @@ export const Button = styled.button`
 	font-size: 14px;
 	font-family: "Open Sans";
 	text-transform: uppercase;
-	padding: 15px;
-	border: 0;
+	cursor: pointer;
 `;
 
 Button.propTypes = {
@@ -28,12 +26,7 @@ Button.defaultProps = {
 };
 
 export const LargeButton = styled( Button )`
-	font-size: 16px;
-	padding: 20px 40px 20px 20px;
-	background-image: url( ${angleRight} );
-	background-size: 40px;
-	background-position: center right;
-	background-repeat: no-repeat;
+	min-width: 150px;
 `;
 
 export const GreenButton = styled( Button )`
@@ -47,4 +40,8 @@ export const LogoutButton = styled( Button )`
 	height: 36px;
 	width: 112px;
 	padding: 0;
+
+export const WhiteButton = styled( LargeButton )`
+	color: ${colors.$color_blue};
+	background-color: ${colors.$color_white};
 `;
