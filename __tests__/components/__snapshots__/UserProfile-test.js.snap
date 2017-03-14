@@ -1,6 +1,6 @@
 exports[`test the user profile logout button handling an onclick event 1`] = `
 <div
-  className="dIzoEW">
+  className="dIvfSQ">
   <img
     alt=""
     className="fzWoWM"
@@ -24,7 +24,7 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
 
 exports[`test the user profile logout button handling an onclick event 2`] = `
 <div
-  className="dIzoEW">
+  className="dIvfSQ">
   <img
     alt=""
     className="fzWoWM"
@@ -48,7 +48,7 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
 
 exports[`test the user profile matches the snapshot 1`] = `
 <div
-  className="dIzoEW">
+  className="dIvfSQ">
   <img
     alt=""
     className="fzWoWM"
@@ -72,7 +72,7 @@ exports[`test the user profile matches the snapshot 1`] = `
 
 exports[`test the user profile matches the snapshot 2`] = `
 <div
-  className="dIzoEW">
+  className="dIvfSQ">
   <img
     alt=""
     className="fzWoWM"
