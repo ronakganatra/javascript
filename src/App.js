@@ -11,6 +11,8 @@ import { injectGlobal } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
 
+import { Logo } from "./components/Logo";
+
 /*
  * Helper method to write global CSS.
  * Only use it for the rare @font-face definition or body styling.
@@ -33,8 +35,10 @@ class App extends Component {
 			<Router>
 				<Layout>
 					<Sidebar>
+						<header role="banner">
+							<Logo size="200px" />
+						</header>
 						<UserStatus/>
-
 						<MainMenu menuRoutes={ menuItems }  />
 					</Sidebar>
 					<Main>

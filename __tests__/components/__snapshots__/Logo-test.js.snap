@@ -1,18 +1,7 @@
-exports[`test the header logo matches the snapshot 1`] = `
-<header
-  role="banner">
-  <img
-    alt="My header logo alt"
-    className="bJcert"
-    size="300px"
-    src="logo.svg" />
-</header>
-`;
-
 exports[`test the logo matches the snapshot 1`] = `
 <img
   alt="My logo alt"
-  className="bJcert"
+  className="fFGzcR"
   size="300px"
   src="logo.svg" />
 `;
