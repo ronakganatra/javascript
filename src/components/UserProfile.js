@@ -4,12 +4,19 @@ import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
 import colors from "yoast-components/style-guide/colors.json";
 
+const UserInfoContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+`;
+
 const UserImage = styled.img`
 	height: ${ props => props.size }
 	width: ${ props => props.size }
 	border-radius: 50%;
-	float: left;
-	margin-right: 12px;
+	margin-right: 10px;
 `;
 
 UserImage.propTypes = {
@@ -22,14 +29,15 @@ UserImage.defaultProps = {
 	alt: "",
 };
 
-const UserInfo = styled.span`
-	float: left;
+const UserInfo = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 10px;
 `;
 
-const UserName = styled.span`
+const UserName = styled.div`
 	color: ${colors.$color_white};
-	width: 100%;
-	float: left;
 	margin-bottom: 10px;
 	font-size: 14px;
 `;
@@ -41,15 +49,14 @@ const UserName = styled.span`
  * @constructor
  */
 export default function UserProfile( props ) {
-	return <div>
+	return <UserInfoContainer>
 		<UserImage {...props.displayImage} />
-
 		<UserInfo>
 			<UserName>{ props.displayName }</UserName>
 
 			<LogoutButton type="button" onClick={props.onLogoutClick}>Sign out</LogoutButton>
 		</UserInfo>
-	</div>;
+	</UserInfoContainer>;
 }
 
 UserProfile.propTypes = {
@@ -69,6 +76,6 @@ UserProfile.defaultProps = {
 		alt: "",
 		size: "64px",
 	},
-	displayName: "",
+	displayName: "Joost de Valk",
 	loggedIn: false,
 };
