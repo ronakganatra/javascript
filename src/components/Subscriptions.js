@@ -18,7 +18,7 @@ let YoastProducts = {
 	localwoo: { name: "Local SEO for Woo", image: LocalWooIcon },
 };
 
-const Subscription = styled.div`
+const Subscription = styled.span`
 	background-image: url(${ props => props.image });
 	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
 	width: 50px;

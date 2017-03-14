@@ -6,7 +6,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
 
-const SiteContainer = styled.div`
+const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
 	width: 100%;
 	height: 80px;
@@ -34,14 +34,14 @@ const Separator = styled.div`
 	height: 60px;
 `;
 
-const SiteName = styled.div`
+const SiteName = styled.span`
 	font-size: 14px;
 	width: 25%;
 	height: 60px;
 	line-height: 60px;
 `;
 
-const SiteSubscriptionsContainer = styled.div`
+const SiteSubscriptionsContainer = styled.span`
 	width: 40%;
 	height: 60px;
 	line-height: 60px;
