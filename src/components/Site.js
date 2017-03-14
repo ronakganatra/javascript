@@ -18,10 +18,8 @@ const SiteContainer = styled.li`
 `;
 
 const SiteIcon = styled.img`
-	background-image: url( ${ props => props.src } );
 	width: 60px;
 	height: 60px;
-	background-repeat: no-repeat;
 `;
 
 SiteIcon.propTypes = {
