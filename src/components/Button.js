@@ -40,6 +40,7 @@ export const LogoutButton = styled( Button )`
 	height: 36px;
 	width: 112px;
 	padding: 0;
+`;
 
 export const WhiteButton = styled( LargeButton )`
 	color: ${colors.$color_blue};
