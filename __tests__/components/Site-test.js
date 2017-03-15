@@ -27,7 +27,7 @@ test('the manage button handling an onclick event', () => {
 	expect(tree).toMatchSnapshot();
 
 	// manually trigger the callback
-	tree.children[4].props.onClick();
+	tree.children[3].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();

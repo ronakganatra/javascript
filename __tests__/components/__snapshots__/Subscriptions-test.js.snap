@@ -2,27 +2,27 @@ exports[`test the subscription component matches the snapshot 1`] = `
 <div>
   <span
     aria-label="Yoast SEO is inactive"
-    className="gUXWlw"
+    className="hGymDt"
     role="img" />
   <span
     aria-label="Local SEO is inactive"
-    className="czkLho"
+    className="kswMOV"
     role="img" />
   <span
     aria-label="Video SEO is active"
-    className="kSlIAP"
+    className="jzGgcX"
     role="img" />
   <span
     aria-label="News SEO is inactive"
-    className="icqtKc"
+    className="kdRmgg"
     role="img" />
   <span
     aria-label="WooCommerce SEO is active"
-    className="eXOupU"
+    className="gKxAXd"
     role="img" />
   <span
     aria-label="Local SEO for Woo is inactive"
-    className="XVeDT"
+    className="egmryf"
     role="img" />
 </div>
 `;
@@ -31,27 +31,27 @@ exports[`test the subscription component without active subscriptions using the 
 <div>
   <span
     aria-label="Yoast SEO is inactive"
-    className="gUXWlw"
+    className="hGymDt"
     role="img" />
   <span
     aria-label="Local SEO is inactive"
-    className="czkLho"
+    className="kswMOV"
     role="img" />
   <span
     aria-label="Video SEO is inactive"
-    className="cgPUis"
+    className="icgIoi"
     role="img" />
   <span
     aria-label="News SEO is inactive"
-    className="icqtKc"
+    className="kdRmgg"
     role="img" />
   <span
     aria-label="WooCommerce SEO is inactive"
-    className="dGZexo"
+    className="dritTx"
     role="img" />
   <span
     aria-label="Local SEO for Woo is inactive"
-    className="XVeDT"
+    className="egmryf"
     role="img" />
 </div>
 `;
