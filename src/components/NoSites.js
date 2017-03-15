@@ -8,6 +8,11 @@ import { FormattedMessage } from "react-intl";
 const NoSitesContainer = styled.div`
 	color: ${colors.$color_black};
 	text-align: center;
+
+	& img {
+		max-width: 100%;
+		height: auto;
+	}
 `;
 
 /**

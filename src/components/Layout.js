@@ -21,6 +21,14 @@ export const Sidebar = styled.div`
 		height: 74px;
 		bottom: 0;
 	}
+
+
+	@media screen and ( max-width: 1024px ) {
+		& header,
+		& aside {
+		 display: none;
+		}
+	}
 `;
 
 export const Main = styled.main`

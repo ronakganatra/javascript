@@ -17,6 +17,11 @@ const Menu = styled.nav`
 	& li {
 		display: inline;
 	}
+
+	@media screen and ( max-width: 1024px ) {
+		margin: 0 4%; /* Same margin as main content. */
+		text-align: center;
+	}
 `;
 
 const MenuItem = styled( NavLink )`
@@ -32,11 +37,48 @@ const MenuItem = styled( NavLink )`
 	text-decoration: none;
 
 	&.${ activeStyle } {
-		color: #ccc;
+		color: ${colors.$color_border};
 		background-color: ${colors.$background};
 		box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
 		font-weight: 400;
 		color: ${colors.$color_pink_dark};
+	}
+
+	@media screen and ( max-width: 1024px ) {
+		display: inline-block;
+		width: 100px;
+		max-width: 25%;
+		height: 74px;
+		margin: 0;
+		padding: 8px 0 0;
+		border-bottom: 5px solid transparent;
+		background: none;
+		box-shadow: none;
+		color: ${colors.$color_white};
+		font-size: 12px;
+		font-weight: 400;
+		line-height: inherit;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		&.${ activeStyle } {
+			border-bottom: 5px solid ${colors.$color_white};
+			color: ${colors.$color_white};
+			background-color: transparent;
+			box-shadow: none;
+		}
+	}
+`;
+
+const MenuIcon = styled.img`
+	display: none;
+	width: 40px;
+	height: 40px;
+	margin: 0 auto -3px;
+
+	@media screen and ( max-width: 1024px ) {
+		display: block;
 	}
 `;
 
@@ -51,7 +93,12 @@ export function MainMenu( props ) {
 		<Menu>
 			<ul role="list">
 				{ props.menuRoutes.map( function( page ) {
-					return <li key={ page.title }><MenuItem activeClassName={ activeStyle } to={ page.path }>{ page.title }</MenuItem></li>;
+					return <li key={ page.title }>
+						<MenuItem activeClassName={ activeStyle } to={ page.path }>
+							<MenuIcon src={ page.icon } alt="" />
+							{ page.title }
+						</MenuItem>
+					</li>;
 				}
 				) }
 			</ul>
