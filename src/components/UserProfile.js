@@ -44,10 +44,11 @@ const UserName = styled.div`
 `;
 
 /**
+ * Renders the user profile component.
+ *
  * @param {Object} props Component props.
  * @param {boolean} props.loggedIn Whether or not we are currently logged in.
  * @returns {ReactElement} A react component.
- * @constructor
  */
 export default function UserProfile( props ) {
 	return <UserInfoContainer>
