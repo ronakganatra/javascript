@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
-export const SkipLink = styled.a`
+const SkipLink = styled.a`
 	position: absolute;
 	top: -1000em;
 	left: 10px;
@@ -31,3 +31,5 @@ SkipLink.propTypes = {
 SkipLink.defaultProps = {
 	href: "#content",
 };
+
+export default SkipLink;
