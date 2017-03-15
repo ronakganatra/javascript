@@ -43,7 +43,7 @@ const SiteSubscriptionsContainer = styled.span`
 	line-height: 60px;
 	display: inline-flex;
 	align-items: center;
-	flex: 1 0 300px
+	flex: 1 0 300px;
 `;
 
 /**

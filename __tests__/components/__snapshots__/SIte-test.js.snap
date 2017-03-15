@@ -10,7 +10,7 @@ exports[`test the manage button handling an onclick event 1`] = `
     yoast.com
   </span>
   <span
-    className="htaPbW">
+    className="jpBbKn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
@@ -59,7 +59,7 @@ exports[`test the manage button handling an onclick event 2`] = `
     yoast.com
   </span>
   <span
-    className="htaPbW">
+    className="jpBbKn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
@@ -108,7 +108,7 @@ exports[`test the site component matches the snapshot 1`] = `
     yoast.com
   </span>
   <span
-    className="htaPbW">
+    className="jpBbKn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
