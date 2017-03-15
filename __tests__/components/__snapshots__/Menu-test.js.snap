@@ -1,0 +1,47 @@
+exports[`test the menu matches the snapshot 1`] = `
+<div>
+  <nav
+    className="gSLRsn">
+    <ul
+      role="list">
+      <li>
+        <a
+          className="jzTsLK"
+          href="/subscriptions"
+          onClick={[Function]}
+          style={undefined}>
+          Subscriptions
+        </a>
+      </li>
+      <li>
+        <a
+          className="jzTsLK"
+          href="/sites"
+          onClick={[Function]}
+          style={undefined}>
+          Sites
+        </a>
+      </li>
+      <li>
+        <a
+          className="jzTsLK"
+          href="/courses"
+          onClick={[Function]}
+          style={undefined}>
+          Courses
+        </a>
+      </li>
+      <li>
+        <a
+          className="jzTsLK"
+          href="/account"
+          onClick={[Function]}
+          style={undefined}>
+          Account
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div />
+</div>
+`;

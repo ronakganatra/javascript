@@ -5,11 +5,24 @@ exports[`test the nosites component handling an onclick event 1`] = `
     alt=""
     src="nosites.png" />
   <p>
-    Welcome to the sites overview.
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;
@@ -21,11 +34,24 @@ exports[`test the nosites component handling an onclick event 2`] = `
     alt=""
     src="nosites.png" />
   <p>
-    Welcome to the sites overview.
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;
@@ -37,11 +63,24 @@ exports[`test the nosites component matches the snapshot 1`] = `
     alt=""
     src="nosites.png" />
   <p>
-    Welcome to the sites overview.
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
   </p>
   <button
     aria-label="Add"
-    className="ekEmjF"
+    className="fHbAvW"
     onClick={[Function]} />
 </div>
 `;

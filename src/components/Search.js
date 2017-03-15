@@ -65,7 +65,7 @@ SearchDescription.defaultProps = {
  * Renders the Search component.
  *
  * @param {Object} props The props to use.
- * @returns {XML} The rendered html.
+ * @returns {ReactElement} The rendered html.
  */
 export default function Search( props ) {
 	return <div>

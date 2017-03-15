@@ -3,6 +3,7 @@ import { RoundAddButton } from "../components/RoundButton";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import noSiteImage from "../../public/images/nosites.png";
+import { FormattedMessage } from "react-intl";
 
 const NoSitesContainer = styled.div`
 	color: ${colors.$color_black};
@@ -14,18 +15,23 @@ const NoSitesContainer = styled.div`
  *
  * @param {Object} props The props to use.
  *
- * @returns {XML} The rendered component
+ * @returns {ReactElement} The rendered component
  * @constructor
  */
 export default function NoSites( props ) {
 	return (
 		<NoSitesContainer>
 			<img src={ noSiteImage } alt="" />
-			{
-				props.paragraphs.map( function( paragraph, key ) {
-					return <p key={ key }>{ paragraph }</p>;
-				} )
-			}
+			<p>
+				<FormattedMessage id="sites.no-site.welcome" defaultMessage="Welcome to the sites overview" />
+			</p>
+			<p>
+				<FormattedMessage id="sites.no-site.manage" defaultMessage={`Here you will be able to manage all your
+sites that are running Yoast subscriptions.`} />
+			</p>
+			<p>
+				<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>
+			</p>
 			<RoundAddButton onClick={ props.onClick } />
 		</NoSitesContainer>
 	);
