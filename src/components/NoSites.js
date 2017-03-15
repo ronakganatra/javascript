@@ -15,7 +15,7 @@ const NoSitesContainer = styled.div`
  *
  * @param {Object} props The props to use.
  *
- * @returns {XML} The rendered component
+ * @returns {ReactElement} The rendered component
  * @constructor
  */
 export default function NoSites( props ) {
