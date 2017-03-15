@@ -4,7 +4,9 @@ import styled from "styled-components";
 
 import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
+import { AngleRightButton } from "../components/RoundButton.js";
 import Subscriptions from "../components/Subscriptions.js";
+import MediaQuery from "react-responsive";
 
 const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
@@ -13,6 +15,10 @@ const SiteContainer = styled.li`
 	box-sizing: border-box;
 	padding-right: 40px;
 	align-items: center;
+	
+	@media screen and ( max-width: 1355px ) {
+		justify-content: space-between;
+	}
 `;
 
 const SiteIcon = styled.img`
@@ -44,6 +50,11 @@ const SiteName = styled.span`
 	
 	@media screen and ( max-width: 1355px ) {
 	padding-left: 20px;
+	flex: 1 0 380px;
+	}
+	
+	@media screen and ( max-width: 660px ) {
+	flex: 1 1 380px;
 	}
 `;
 
@@ -52,6 +63,7 @@ const SiteSubscriptionsContainer = styled.span`
 	line-height: 60px;
 	display: inline-flex;
 	align-items: center;
+	flex: 1 0 300px;
 	
 	@media screen and ( max-width: 1355px ) {
 		display: none;
@@ -63,7 +75,7 @@ const SiteSubscriptionsContainer = styled.span`
  *
  * @param {Object} props The props to use.
  *
- * @returns {XML} The rendered Site component.
+ * @returns {ReactElement} The rendered Site component.
  * @constructor
  */
 export default function Site( props ) {
@@ -74,7 +86,12 @@ export default function Site( props ) {
 			<SiteSubscriptionsContainer>
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
-			<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
+			<MediaQuery query='(min-width: 1356px)'>
+				<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
+			</MediaQuery>
+			<MediaQuery query='(max-width: 1355px)'>
+				<AngleRightButton onClick={ props.onClickManage } />
+			</MediaQuery>
 		</SiteContainer>
 	);
 }
