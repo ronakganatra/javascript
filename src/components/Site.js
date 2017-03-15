@@ -9,7 +9,6 @@ import Subscriptions from "../components/Subscriptions.js";
 const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
 	height: 100px;
-	min-width: 1000px;
 	display: flex;
 	box-sizing: border-box;
 	padding-right: 40px;
@@ -22,6 +21,12 @@ const SiteIcon = styled.img`
 	padding-left: 40px;
 	border-right: 2px solid ${colors.$color_grey};
 	flex: 0 0 128px;
+	
+	@media screen and ( max-width: 1355px ) {
+	padding-right: 20px;
+	padding-left: 20px;
+	flex: 0 0 68px;
+	}
 `;
 
 SiteIcon.propTypes = {
@@ -36,6 +41,10 @@ const SiteName = styled.span`
 	text-overflow: ellipsis;
 	flex: 0 0 380px;
 	padding-left: 40px;
+	
+	@media screen and ( max-width: 1355px ) {
+	padding-left: 20px;
+	}
 `;
 
 const SiteSubscriptionsContainer = styled.span`
@@ -43,7 +52,10 @@ const SiteSubscriptionsContainer = styled.span`
 	line-height: 60px;
 	display: inline-flex;
 	align-items: center;
-	flex: 1 0 300px;
+	
+	@media screen and ( max-width: 1355px ) {
+		display: none;
+	}
 `;
 
 /**

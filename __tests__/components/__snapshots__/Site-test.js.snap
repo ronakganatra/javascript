@@ -1,16 +1,16 @@
 exports[`test the manage button handling an onclick event 1`] = `
 <li
-  className="jTXCtM">
+  className="UDapo">
   <img
     alt=""
-    className="khsQCf"
+    className="eqDDDY"
     src="" />
   <span
-    className="inBLcU">
+    className="bFihPt">
     yoast.com
   </span>
   <span
-    className="jpBbKn">
+    className="McqFn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
@@ -49,17 +49,17 @@ exports[`test the manage button handling an onclick event 1`] = `
 
 exports[`test the manage button handling an onclick event 2`] = `
 <li
-  className="jTXCtM">
+  className="UDapo">
   <img
     alt=""
-    className="khsQCf"
+    className="eqDDDY"
     src="" />
   <span
-    className="inBLcU">
+    className="bFihPt">
     yoast.com
   </span>
   <span
-    className="jpBbKn">
+    className="McqFn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
@@ -98,17 +98,17 @@ exports[`test the manage button handling an onclick event 2`] = `
 
 exports[`test the site component matches the snapshot 1`] = `
 <li
-  className="jTXCtM">
+  className="UDapo">
   <img
     alt=""
-    className="khsQCf"
+    className="eqDDDY"
     src="" />
   <span
-    className="inBLcU">
+    className="bFihPt">
     yoast.com
   </span>
   <span
-    className="jpBbKn">
+    className="McqFn">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
