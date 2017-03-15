@@ -1,26 +1,29 @@
 import React from "react";
 import  { TextButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
+import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 
 import styled from "styled-components";
 
 import colors from "yoast-components/style-guide/colors.json";
 
 const AddSiteModal = styled.div`
-	padding: 10px;
+	padding: 40px;
 	border: 1px solid black;
 	box-shadow: 1px 1px 3px 0.5px rgba(0, 0, 0, 1);
-	width: 600px;
+	width: 640px;
+	min-width: 200px;
 	overflow: auto;
 `;
 
-const AddSiteIMG = styled.img`
-	width: 575px;
+const AddSiteImage = styled.img`
+	width: 100%;
+	height: 200px;
 `;
 
 const WebsiteURL = styled.input`
 	width: 98%
-	height: 25px;
+	height: 60px;
 	background-color: ${ colors.$color_grey };
 	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
 	text-indent: 5px;
@@ -32,8 +35,9 @@ const Buttons = styled.div`
 `;
 
 const NoActiveProduct = styled.div`
-	margin: 5px 5px 5px 0px;
-	padding: 5px;
+	width: 98%
+	margin: 40px 40px 40px 0px;
+	padding: 40px;
 	background-color: #FCE068;
 	overflow: auto;
 `;
@@ -42,16 +46,17 @@ const PurpleLink = styled.a`
 	color: ${colors.$color_purple};
 `;
 
-const NoActiveProductIcon = styled.span`
-	width: 10%;
+const NoActiveProductIcon = styled.img`
+	width: 15%;
 	float: left;	
 	height: 100%
+	padding: 20px;
 	text-align: center;
 	vertical-align: middle;
 `;
 
 const NoActiveProductText = styled.span`
-	width: 90%;
+	width: 85%;
 	float: left;
 `;
 
@@ -64,14 +69,12 @@ const NoActiveProductText = styled.span`
 export default function AddSite( props ) {
 	return (
 	<AddSiteModal>
-		<AddSiteIMG src={addSiteImage} alt="Add Site image" aria-describedby="addSiteInfo" />
+		<AddSiteImage src={addSiteImage} alt="Add Site image" aria-describedby="addSiteInfo" />
         <h2>Add site</h2>
         <p>Please enter the URL of the site you would like to link with your account:</p>
         <WebsiteURL type="url" placeholder="example-site.com" />
         <NoActiveProduct>
-			<NoActiveProductIcon>
-				/\
-			</NoActiveProductIcon>
+			<NoActiveProductIcon src={ noActiveProductIcon } alt="exclamation-triangle" />
 			<NoActiveProductText id="addSiteInfo">
 				It looks like you don't have an active Yoast product on example-site.com yet.
 				We cannot connect to your site until you do.
@@ -90,7 +93,7 @@ AddSite.propTypes = {
 	onCancelClick: React.PropTypes.func,
 	onLinkClick: React.PropTypes.func,
 };
-
+// todo: Remove, should be part of calling AddSite instead.
 AddSite.defaultProps = {
 	onCancelClick: function() {
 		console.log( "clicked on cancel" );

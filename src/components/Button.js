@@ -34,7 +34,9 @@ export const GreenButton = styled( Button )`
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	margin: 5px;
+	height: 40px;
+	margin: 5px 10px 5px 5px;
+	border-radius: 8px;
 `;
 
 TextButton.PropTypes = {
@@ -45,7 +47,7 @@ TextButton.defaultProps = {
 	buttonWidth: "auto",
 };
 
-export const WhiteButton = styled( LargeButton )`
+export const WhiteButton = styled( Button )`
 	color: ${colors.$color_blue};
 	background-color: ${colors.$color_white};
 `;
