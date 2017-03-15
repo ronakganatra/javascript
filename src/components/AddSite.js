@@ -1,7 +1,6 @@
 import React from "react";
 import  { TextButton } from "./Button.js";
-
-// import siteLinkImage from "../images/logo.svg";
+import addSiteImage from "../images/addsite.svg";
 
 import styled from "styled-components";
 
@@ -10,15 +9,19 @@ import colors from "yoast-components/style-guide/colors.json";
 const AddSiteModal = styled.div`
 	padding: 10px;
 	border: 1px solid black;
-	box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.1);
-	width: 50%
+	box-shadow: 1px 1px 3px 0.5px rgba(0, 0, 0, 1);
+	width: 600px;
 	overflow: auto;
+`;
+
+const AddSiteIMG = styled.img`
+	width: 575px;
 `;
 
 const WebsiteURL = styled.input`
 	width: 98%
 	height: 25px;
-	background-color: ${colors.$color_grey_light};
+	background-color: ${ colors.$color_grey };
 	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
 	text-indent: 5px;
 	font-size: 14px;
@@ -53,13 +56,15 @@ const NoActiveProductText = styled.span`
 `;
 
 /**
- * Does stuff.
- *
- * @returns {XML} The greatest thing.
+ * @param {Object} props Component props.
+ * @param {Function} props.onCancelClick The function to execute when the canel button is clicked.
+ * @returns {ReactElement} A react component describing the AddSite modal.
  * @constructor
  */
-export default function AddSite() {
-	return <AddSiteModal>
+export default function AddSite( props ) {
+	return (
+	<AddSiteModal>
+		<AddSiteIMG src={addSiteImage} alt="Add Site image" aria-describedby="addSiteInfo" />
         <h2>Add site</h2>
         <p>Please enter the URL of the site you would like to link with your account:</p>
         <WebsiteURL type="url" placeholder="example-site.com" />
@@ -67,15 +72,32 @@ export default function AddSite() {
 			<NoActiveProductIcon>
 				/\
 			</NoActiveProductIcon>
-			<NoActiveProductText>
+			<NoActiveProductText id="addSiteInfo">
 				It looks like you don't have an active Yoast product on example-site.com yet.
 				We cannot connect to your site until you do.
 				Come back here once at least one Yoast plugin is activated. If you need help, <PurpleLink href="nu.nl">read this page</PurpleLink>.
 			</NoActiveProductText>
 		</NoActiveProduct>
 		<Buttons>
-			<TextButton buttonWidth={"100px"}> cancel </TextButton>
-			<TextButton buttonWidth={"100px"}> link </TextButton>
+			<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}> cancel </TextButton>
+			<TextButton type="button" onClick={ props.onLinkClick } buttonWidth={"100px"}> link </TextButton>
 		</Buttons>
-    </AddSiteModal>;
+    </AddSiteModal>
+	);
 }
+
+AddSite.propTypes = {
+	onCancelClick: React.PropTypes.func,
+	onLinkClick: React.PropTypes.func,
+};
+
+AddSite.defaultProps = {
+	onCancelClick: function() {
+		console.log( "clicked on cancel" );
+	},
+	onLinkClick: function() {
+		console.log( "clicked on link" );
+	},
+};
+
+
