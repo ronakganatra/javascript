@@ -21,8 +21,8 @@ let YoastProducts = {
 const Subscription = styled.span`
 	background-image: url(${ props => props.image });
 	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	float: left;
 	margin: 0 5px;
 `;

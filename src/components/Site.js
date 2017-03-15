@@ -8,44 +8,42 @@ import Subscriptions from "../components/Subscriptions.js";
 
 const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
-	width: 100%;
-	height: 80px;
-	padding: 10px;
-	box-sizing: border-box;
+	height: 100px;
+	min-width: 1000px;
 	display: flex;
-	justify-content: space-around
+	box-sizing: border-box;
+	padding-right: 40px;
 	align-items: center;
 `;
 
 const SiteIcon = styled.img`
-	width: 60px;
-	height: 60px;
+	height: 48px;
+	padding-right: 40px;
+	padding-left: 40px;
+	border-right: 2px solid ${colors.$color_grey};
+	flex: 0 0 128px;
 `;
 
 SiteIcon.propTypes = {
 	src: React.PropTypes.string.isRequired,
 };
 
-const Separator = styled.div`
-	background-color: ${colors.$color_grey};
-	width: 2px;
-	height: 60px;
-`;
-
 const SiteName = styled.span`
-	font-size: 14px;
-	width: 25%;
 	height: 60px;
+	font-size: 14px;
 	line-height: 60px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	flex: 0 0 380px;
+	padding-left: 40px;
 `;
 
 const SiteSubscriptionsContainer = styled.span`
-	width: 40%;
 	height: 60px;
 	line-height: 60px;
 	display: inline-flex;
 	align-items: center;
-	flex: 0 0 360px
+	flex: 1 0 300px
 `;
 
 /**
@@ -60,7 +58,6 @@ export default function Site( props ) {
 	return (
 		<SiteContainer>
 			<SiteIcon src={ props.siteIcon } alt="" />
-			<Separator />
 			<SiteName>{ props.siteName }</SiteName>
 			<SiteSubscriptionsContainer>
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
