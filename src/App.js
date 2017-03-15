@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
-import "./App.css";
 import "normalize.css/normalize.css";
+import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
 import menuItems from "./config/Menu";
@@ -22,7 +22,8 @@ injectGlobal`
 	body {
 		margin: 0;
 		padding: 0;
-		font-family: "Open Sans", sans-serif;
+		font: normal 16px/1.5 "Open Sans", sans-serif;
+		font-size: 1rem;
 		min-height: 100%;
 		background: ${colors.$background};
 	}
