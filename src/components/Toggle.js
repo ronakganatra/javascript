@@ -58,7 +58,7 @@ class Toggle extends React.Component {
 	/**
 	 * Returns the rendered html.
 	 *
-	 * @returns {XML} The rendered html.
+	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
 		return <div>
