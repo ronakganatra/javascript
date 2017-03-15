@@ -65,7 +65,8 @@
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.3",
-    "yoast-components": "https://github.com/Yoast/yoast-components.git#develop"
+    "yoast-components": "https://github.com/Yoast/yoast-components.git#develop",
+    "a11y-speak": "git+https://github.com/Yoast/a11y-speak.git#master"
   },
   "scripts": {
     "start": "node scripts/start.js",
