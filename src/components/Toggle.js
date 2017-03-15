@@ -17,7 +17,7 @@ const ToggleBar = styled.div`
 `;
 
 const ToggleBullet = styled.span`
-	background-color: ${ props => props.isEnabled ? colors.$color_blue : colors.$color_marker_disabled }
+	background-color: ${ props => props.isEnabled ? colors.$color_blue : colors.$color_chevron }
 	margin-left: ${ props => props.isEnabled ? "12px" : "-2px" }
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 100%;

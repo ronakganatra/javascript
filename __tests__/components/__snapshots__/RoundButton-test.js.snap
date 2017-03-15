@@ -1,7 +1,7 @@
 exports[`test the round button handling an onclick event 1`] = `
 <button
   aria-label=""
-  className="bcvRqZ"
+  className="efnAYk"
   onClick={[Function]}
   type="button">
   ButtonValue
@@ -11,7 +11,7 @@ exports[`test the round button handling an onclick event 1`] = `
 exports[`test the round button handling an onclick event 2`] = `
 <button
   aria-label=""
-  className="bcvRqZ"
+  className="efnAYk"
   onClick={[Function]}
   type="button">
   ButtonValue
@@ -21,7 +21,7 @@ exports[`test the round button handling an onclick event 2`] = `
 exports[`test the round button matches the snapshot 1`] = `
 <button
   aria-label=""
-  className="bcvRqZ"
+  className="efnAYk"
   type="button">
   ButtonValue
 </button>
@@ -30,7 +30,7 @@ exports[`test the round button matches the snapshot 1`] = `
 exports[`test the round button with button type given matches the snapshot 1`] = `
 <button
   aria-label=""
-  className="bcvRqZ"
+  className="efnAYk"
   type="button">
   ButtonValue
 </button>

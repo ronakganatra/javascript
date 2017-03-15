@@ -4,9 +4,15 @@ import "normalize.css/normalize.css";
 import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
+import menuItems from "./config/Menu";
+import { MainMenu, MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
+import { BrowserRouter as Router } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
+import { IntlProvider } from "react-intl";
+
+import { Logo } from "./components/Logo";
 
 /*
  * Helper method to write global CSS.
@@ -26,17 +32,26 @@ injectGlobal`
 class App extends Component {
 	render() {
 		return (
-			<Provider store={this.props.store}>
-				<Layout>
-					<Sidebar>
-						<UserStatus />
-					</Sidebar>
-					<Main>
-						<Content>
-						</Content>
-					</Main>
-				</Layout>
-			</Provider>
+			<IntlProvider locale="en">
+				<Provider store={this.props.store}>
+					<Router>
+						<Layout>
+							<Sidebar>
+								<header role="banner">
+									<Logo size="200px" />
+								</header>
+								<UserStatus/>
+								<MainMenu menuRoutes={ menuItems }  />
+							</Sidebar>
+							<Main>
+								<Content>
+									<MainMenuRoutes menuRoutes={ menuItems }  />
+								</Content>
+							</Main>
+						</Layout>
+					</Router>
+				</Provider>
+			</IntlProvider>
 		);
 	}
 }
