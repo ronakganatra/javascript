@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -39,3 +40,11 @@ export const Content = styled.div`
 	max-width: 1200px;
 	margin: 0 auto;
 `;
+
+Main.propTypes = {
+	id: React.PropTypes.string,
+};
+
+Main.defaultProps = {
+	id: "content",
+};
