@@ -12,7 +12,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="jXcJnk"
+            className="ilptYL"
             src="subscriptions.svg" />
           Subscriptions
         </a>
@@ -25,7 +25,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="jXcJnk"
+            className="ilptYL"
             src="sites.svg" />
           Sites
         </a>
@@ -38,7 +38,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="jXcJnk"
+            className="ilptYL"
             src="courses.svg" />
           Courses
         </a>
@@ -51,7 +51,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="jXcJnk"
+            className="ilptYL"
             src="user.svg" />
           Account
         </a>
