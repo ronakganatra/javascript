@@ -73,12 +73,12 @@ const MenuItem = styled( NavLink )`
 
 const MenuIcon = styled.img`
 	display: none;
-	width: 40px;
-	height: 40px;
-	margin: 0 auto -3px;
 
 	@media screen and ( max-width: 1024px ) {
 		display: block;
+		width: 40px;
+		height: 40px;
+		margin: 0 auto -3px;
 	}
 `;
 
