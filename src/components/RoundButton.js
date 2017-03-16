@@ -5,7 +5,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
 import angleLeft from "../icons/angle-left.svg";
-import angleRight from "../icons/angle-right.svg";
+import chevronRight from "../icons/chevron-right.svg";
 import plus from "../icons/plus.svg";
 
 export const RoundButton = styled.button`
@@ -50,12 +50,11 @@ RoundAddButton.defaultProps = {
 	"aria-label": "Add",
 };
 
-export const AngleRightButton = styled( RoundButton )`
-	background-color: yellow;
+export const ChevronButton = styled( RoundButton )`
+	background-color: transparent;
 	background-repeat: no-repeat;
-	background-image: url( ${angleRight} );
+	background-image: url( ${chevronRight} );
 	background-position: center;
 	background-size: 24px;
 	box-shadow: none;
-	
 `;

@@ -1,10 +1,12 @@
 import React from "react";
 
 import styled from "styled-components";
+import MediaQuery from "react-responsive";
 
 import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
+import { ChevronButton } from "../components/RoundButton.js";
 
 const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
@@ -84,7 +86,12 @@ export default function Site( props ) {
 			<SiteSubscriptionsContainer>
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
-			<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
+				<MediaQuery query='(min-width: 1356px)'>
+					<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
+				</MediaQuery>
+				<MediaQuery query='(max-width: 1355px)'>
+					<ChevronButton onClick={ props.onClickManage } />
+				</MediaQuery>
 		</SiteContainer>
 	);
 }
