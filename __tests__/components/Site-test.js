@@ -20,15 +20,17 @@ test('the manage button handling an onclick event', () => {
 			siteIcon=""
 			onClickManage={ () => {
 				return 'clicked';
-		} } />
+			} } />
 	);
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 
 	// manually trigger the callback
-	console.log(tree.children);
-	tree.children[2].children[1].props.onClick();
+	// console.log(tree.children[3].children[0]);
+	console.log(tree);
+	console.log(tree.children[3].props);
+	tree.children[3].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();

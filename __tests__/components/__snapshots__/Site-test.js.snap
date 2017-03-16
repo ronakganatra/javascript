@@ -38,22 +38,28 @@ exports[`test the manage button handling an onclick event 1`] = `
         role="img" />
     </div>
   </span>
+  <button
+    className="kTxWZ"
+    onClick={[Function]}
+    type="button">
+    Manage
+  </button>
 </li>
 `;
 
 exports[`test the manage button handling an onclick event 2`] = `
 <li
-  className="doeaz">
+  className="hNdBgG">
   <img
     alt=""
     className="eqDDDY"
     src="" />
   <span
-    className="bFihPt">
+    className="ezlIBF">
     yoast.com
   </span>
   <span
-    className="McqFn">
+    className="ldbUZ">
     <div>
       <span
         aria-label="Yoast SEO is inactive"
@@ -130,5 +136,11 @@ exports[`test the site component matches the snapshot 1`] = `
         role="img" />
     </div>
   </span>
+  <button
+    className="kTxWZ"
+    onClick={undefined}
+    type="button">
+    Manage
+  </button>
 </li>
 `;
