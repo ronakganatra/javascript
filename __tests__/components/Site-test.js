@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { shallow } from 'enzyme';
 
 import Site from '../../src/components/Site';
 
@@ -12,8 +13,8 @@ test('the site component matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-test('the manage button handling an onclick event', () => {
-	const component = renderer.create(
+test('the large manage button handling an onclick event', () => {
+	const component = shallow(
 		<Site
 			activeSubscriptions={ [ "woo", "video" ] }
 			siteName="yoast.com"
@@ -23,15 +24,19 @@ test('the manage button handling an onclick event', () => {
 			} } />
 	);
 
-	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( component.props().children[3].props.children.props.onClick() ).toEqual( 'clicked' );
+});
 
-	// manually trigger the callback
-	console.log(tree);
-	console.log(tree.children[3].props);
-	tree.children[3].props.onClick();
+test('the right arrow button handling an onclick event', () => {
+	const component = shallow(
+		<Site
+			activeSubscriptions={ [ "woo", "video" ] }
+			siteName="yoast.com"
+			siteIcon=""
+			onClickManage={ () => {
+				return 'clicked';
+			} } />
+	);
 
-	// re-rendering
-	tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( component.props().children[4].props.children.props.onClick() ).toEqual( 'clicked' );
 });
