@@ -14,17 +14,27 @@ const AddSiteModal = styled.div`
 	width: 640px;
 	min-width: 200px;
 	overflow: auto;
+	font-family: Open Sans;
+	font-weight: 300;
+	font-size: 18pt;
 `;
 
 const AddSiteImage = styled.img`
 	width: 100%;
 	height: 200px;
+	margin-bottom: 40px;
+`;
+
+const AddSiteHeading = styled.h2`
+	font-family: open sans;
+	font-weight: 300;
+	font-size: 30pt;
 `;
 
 const WebsiteURL = styled.input`
-	width: 98%
+	width: 100%
 	height: 60px;
-	background-color: ${ colors.$color_grey };
+	background-color: ${ colors.$color_grey_light };
 	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
 	text-indent: 5px;
 	font-size: 14px;
@@ -35,10 +45,10 @@ const Buttons = styled.div`
 `;
 
 const NoActiveProduct = styled.div`
-	width: 98%
+	width: 100%
 	margin: 40px 40px 40px 0px;
 	padding: 40px;
-	background-color: #FCE068;
+	background-color: #FFEB3B;
 	overflow: auto;
 `;
 
@@ -70,7 +80,7 @@ export default function AddSite( props ) {
 	return (
 	<AddSiteModal>
 		<AddSiteImage src={addSiteImage} alt="Add Site image" aria-describedby="addSiteInfo" />
-        <h2>Add site</h2>
+        <AddSiteHeading>Add site</AddSiteHeading>
         <p>Please enter the URL of the site you would like to link with your account:</p>
         <WebsiteURL type="url" placeholder="example-site.com" />
         <NoActiveProduct>
