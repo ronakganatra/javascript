@@ -1,8 +1,6 @@
 import React from "react";
-
 import styled from "styled-components";
 import MediaQuery from "react-responsive";
-
 import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
@@ -12,7 +10,6 @@ const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
 	height: 100px;
 	display: flex;
-	box-sizing: border-box;
 	padding-right: 40px;
 	align-items: center;
 	
@@ -29,9 +26,9 @@ const SiteIcon = styled.img`
 	flex: 0 0 128px;
 	
 	@media screen and ( max-width: 1355px ) {
-	padding-right: 20px;
-	padding-left: 20px;
-	flex: 0 0 68px;
+		padding-right: 20px;
+		padding-left: 20px;
+		flex: 0 0 68px;
 	}
 `;
 
@@ -47,14 +44,15 @@ const SiteName = styled.span`
 	text-overflow: ellipsis;
 	flex: 0 0 380px;
 	padding-left: 40px;
+	white-space: nowrap
 	
 	@media screen and ( max-width: 1355px ) {
-	padding-left: 20px;
-	flex: 1 0 380px;
+		padding-left: 20px;
+		flex: 1 0 380px;
 	}
 	
 	@media screen and ( max-width: 660px ) {
-	flex: 1 1 380px;
+		flex: 1 1 380px;
 	}
 `;
 
@@ -86,12 +84,12 @@ export default function Site( props ) {
 			<SiteSubscriptionsContainer>
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
-				<MediaQuery query='(min-width: 1356px)'>
-					<LargeButton onClick={ props.onClickManage } >Manage</LargeButton>
-				</MediaQuery>
-				<MediaQuery query='(max-width: 1355px)'>
-					<ChevronButton onClick={ props.onClickManage } />
-				</MediaQuery>
+			<MediaQuery query="(min-width: 1356px)">
+				<LargeButton onClick={ props.onClickManage }>Manage</LargeButton>
+			</MediaQuery>
+			<MediaQuery query="(max-width: 1355px)">
+				<ChevronButton aria-label="Manage" onClick={ props.onClickManage } />
+			</MediaQuery>
 		</SiteContainer>
 	);
 }

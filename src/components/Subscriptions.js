@@ -1,7 +1,5 @@
 import React from "react";
-
 import styled from "styled-components";
-
 import SeoIcon from "../icons/Yoast/Yoast_SEO_Icon_Small.svg";
 import LocalIcon from "../icons/Yoast/Local_SEO_Icon_Small.svg";
 import NewsIcon from "../icons/Yoast/News_Icon_Small.svg";
