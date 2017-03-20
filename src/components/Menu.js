@@ -52,7 +52,6 @@ const MenuItem = styled( NavLink )`
 		margin: 0;
 		padding: 8px 0 0;
 		border-bottom: 5px solid transparent;
-		background: none;
 		box-shadow: none;
 		color: ${colors.$color_white};
 		font-size: 12px;
