@@ -72,7 +72,11 @@ export default function SiteSubscriptionDetail( props ) {
 		<SiteSubscription>
 
 			<SubscriptionToggle>
-				<Toggle isEnabled={ props.isEnabled } ariaLabel="" onClick={ props.onToggleSubscription } />
+				<Toggle
+					onSetEnablement={ props.onToggleSubscription }
+					isEnabled={ props.isEnabled }
+					ariaLabel=""
+					onClick={ props.onToggleSubscription } />
 			</SubscriptionToggle>
 			<SubscriptionLogo image={ props.productLogo } />
 
