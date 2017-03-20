@@ -88,7 +88,7 @@ export function fetchUser( accessToken, userId ) {
 			.then( handle401 )
 			.then( response => response.json() )
 			.then( json => dispatch( receiveUser( json ) ) )
-			.catch( ( err ) => {
+			.catch( () => {
 				document.location.href = getAuthUrl();
 			} );
 	};
