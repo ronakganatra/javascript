@@ -9,10 +9,19 @@ const SiteSubscription = styled.div`
 	display: flex;
 	padding: 26px 40px;
 	background: ${colors.$color_white};
+	height: 100px;
 `;
 
 const SubscriptionToggle = styled.div` 
 	margin: 10px 0 0;
+`;
+
+const SubscriptionLogo = styled.div`
+	background: transparent url( ${ props => props.image } ) no-repeat 0 0;
+	background-size: 60px;
+	width: 60px;
+	height: 60px;
+	margin-left: 40px;
 `;
 
 const SubscriptionDetails = styled.div`
@@ -65,6 +74,7 @@ export default function SiteSubscriptionDetail( props ) {
 			<SubscriptionToggle>
 				<Toggle isEnabled={ props.isEnabled } ariaLabel="" onClick={ props.onToggleSubscription } />
 			</SubscriptionToggle>
+			<SubscriptionLogo image={ props.productLogo } />
 
 			<SubscriptionDetails>
 				<ProductName>{props.productName}</ProductName>
@@ -91,6 +101,7 @@ SiteSubscriptionDetail.propTypes = {
 	onSettingsClick: React.PropTypes.func.isRequired,
 	isEnabled: React.PropTypes.bool,
 	productName: React.PropTypes.string.isRequired,
+	productLogo: React.PropTypes.string.isRequired,
 	slots: React.PropTypes.shape( {
 		amountAvailable: React.PropTypes.number.isRequired,
 		amountUsed: React.PropTypes.number,
