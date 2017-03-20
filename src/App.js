@@ -27,6 +27,10 @@ injectGlobal`
 		min-height: 100%;
 		background: ${colors.$background};
 	}
+
+	.ReactModal__Body--open {
+		overflow: hidden;
+	}
 `;
 
 class App extends Component {

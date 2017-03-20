@@ -2,6 +2,7 @@ import React from "react";
 import NoSites from "../components/NoSites";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import AddSiteModal from "../components/AddSiteModal";
 
 const messages = defineMessages( {
 	subscriptionsPageLoaded: {
@@ -36,12 +37,23 @@ let Subscriptions = React.createClass( {
 } );
 
 let Sites = React.createClass( {
+	getInitialState: function() {
+		return { openModal: false };
+	},
 	render: function() {
-		return ( <NoSites onClick={() => {}} /> );
+		return (
+			<div>
+				<NoSites onClick={ this.openAddSiteModal } />
+				<AddSiteModal isOpen={ this.state } />
+			</div>
+		);
 	},
 	componentDidMount: function() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
+	},
+	openAddSiteModal() {
+		this.setState( { openModal: true } );
 	},
 	propTypes: {
 		intl: intlShape.isRequired,
