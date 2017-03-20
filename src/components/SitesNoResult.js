@@ -19,28 +19,22 @@ const NoSitesResultContainer = styled.div`
  * @constructor
  */
 export default function SitesNoResult( props ) {
-	const onAddSite = () => {
-	};
-
 	return (
 		<NoSitesResultContainer>
 			<img src={ SitesNoResults } alt="" />
 			<p>
-				<FormattedMessage id="sites.no-site.notfound" defaultMessage={"We could not find {this.state.website} in your account."} />
+				<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
+				{website} in your account.`}
+								  values={{ website: <strong>web.site</strong> }}/>
 			</p>
 			<p>
 				<FormattedMessage id="sites.no-site.add" defaultMessage={"Do you want to add it?"}/>
 			</p>
-			<RoundAddButton onClick={ onAddSite() } />
+			<RoundAddButton onClick={ props.onClick } />
 		</NoSitesResultContainer>
 	);
 }
 
 SitesNoResult.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
-	paragraphs: React.PropTypes.arrayOf( React.PropTypes.string ),
-};
-
-SitesNoResult.defaultProps = {
-	paragraphs: [],
 };
