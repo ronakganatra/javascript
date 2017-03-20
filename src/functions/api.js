@@ -1,4 +1,5 @@
 import { getAuthUrl, removeCookies as removeAuthCookies } from "./auth";
+import getEnv from "./getEnv";
 
 /**
  * Returns the API URL that should be used to do AJAX requests to.
@@ -6,11 +7,7 @@ import { getAuthUrl, removeCookies as removeAuthCookies } from "./auth";
  * @returns {string} The URL of the API.
  */
 export function getApiUrl() {
-	if ( typeof process.env.REACT_APP_API_URL !== "undefined" ) {
-		return process.env.REACT_APP_API_URL;
-	}
-
-	return "http://localhost:3000/api";
+	return getEnv( "API_URL", "http://localhost:3000/api" );
 }
 
 /**

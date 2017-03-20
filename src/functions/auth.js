@@ -1,4 +1,5 @@
 import Cookies from "js-cookie";
+import getEnv from "./getEnv";
 
 /**
  * Returns the auth URL where the user can authenticate themselves.
@@ -6,11 +7,7 @@ import Cookies from "js-cookie";
  * @returns {string} The URL where the user can authenticate.
  */
 export function getAuthUrl() {
-	if ( typeof process.env.REACT_APP_AUTH_URL !== "undefined" ) {
-		return process.env.REACT_APP_AUTH_URL;
-	}
-
-	return "http://localhost:3000/auth/yoast";
+	return getEnv( "AUTH_URL", "http://localhost:3000/auth/yoast" );
 }
 
 /**
@@ -19,11 +16,7 @@ export function getAuthUrl() {
  * @returns {string} The URL where the user can logout.
  */
 export function getLogoutUrl() {
-	if ( typeof process.env.REACT_APP_LOGOUT_URL !== "undefined" ) {
-		return process.env.REACT_APP_LOGOUT_URL;
-	}
-
-	return "http://yoast.dev/wp/wp-login.php?action=logout";
+	return getEnv( "LOGOUT_URL", "http://yoast.dev/wp/wp-login.php?action=logout" );
 }
 
 /**
