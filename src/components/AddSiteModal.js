@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import { LargeButton } from "../components/Button";
 
 /*
  * Makes the `aria-hidden="true"` attribute being applied on the root element
@@ -55,6 +56,10 @@ class AddSiteModal extends React.Component {
 						<button type="button">stays</button>
 						<button type="button">inside</button>
 						<button type="button">the modal</button>
+						<div className="my-yoast-modal__actions">
+							<LargeButton>Cancel</LargeButton>
+							<LargeButton>Link</LargeButton>
+						</div>
 					</form>
 				</Modal>
 			</div>

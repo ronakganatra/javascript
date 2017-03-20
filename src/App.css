@@ -131,3 +131,12 @@ textarea {
 	background-color: #fff;
 	outline: none;
 }
+
+.my-yoast-modal__actions {
+	padding-top: 1em;
+	text-align: right;
+}
+
+.my-yoast-modal__actions button {
+	margin-left: 1em;
+}
