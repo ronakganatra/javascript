@@ -1,12 +1,12 @@
 exports[`test the site component matches the snapshot 1`] = `
 <li
-  className="hNdBgG">
+  className="cVmsOO">
   <img
     alt=""
-    className="eqDDDY"
+    className="gbwjzY"
     src="" />
   <span
-    className="ezlIBF">
+    className="fsIFsM">
     yoast.com
   </span>
   <span
