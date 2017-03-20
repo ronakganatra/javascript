@@ -7,30 +7,6 @@ import Modal from "react-modal";
  */
 Modal.setAppElement( "#root" );
 
-const customStyles = {
-	overlay: {
-		position: "fixed",
-		top: 0,
-		left: 0,
-		right: 0,
-		bottom: 0,
-		backgroundColor: "rgba(0, 0, 0, 0.6)",
-	},
-	content: {
-		position: "absolute",
-		top: "50%",
-		left: "50%",
-		right: "auto",
-		bottom: "auto",
-		width: "640px",
-		border: "0",
-		borderRadius: "0",
-		marginRight: "-50%",
-		padding: "40px",
-		transform: "translate(-50%, -50%)",
-	},
-};
-
 class AddSiteModal extends React.Component {
 	constructor() {
 		super();
@@ -64,16 +40,17 @@ class AddSiteModal extends React.Component {
 					isOpen={ this.state.modalIsOpen }
 					onAfterOpen={ this.afterOpenModal }
 					onRequestClose={ this.closeModal }
-					style={ customStyles }
+					// style={ customStyles }
 					role="dialog"
 					contentLabel="Add a new site"
+					overlayClassName="my-yoast-modal__overlay"
+					className="my-yoast-modal__content"
 				>
-
 					<h1 ref="subtitle">Hello</h1>
 					<button type="button" onClick={ this.closeModal }>Close</button>
-					<p>I am a modal</p>
 					<form>
-						<input />
+						<label htmlFor="addinput">Please enter the URL of the site you would like to link with your account</label>
+						<input id="addinput" />
 						<button type="button">tab navigation</button>
 						<button type="button">stays</button>
 						<button type="button">inside</button>
