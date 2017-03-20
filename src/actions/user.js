@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { getApiUrl, handle401 } from "../functions/api";
-import { getLogoutUrl, removeCookies as removeAuthCookies } from "../functions/auth";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies } from "../functions/auth";
 
 /*
  * Action types
@@ -89,8 +89,7 @@ export function fetchUser( accessToken, userId ) {
 			.then( response => response.json() )
 			.then( json => dispatch( receiveUser( json ) ) )
 			.catch( ( err ) => {
-				console.log( err );
-				dispatch( logout() );
+				document.location.href = getAuthUrl();
 			} );
 	};
 }
