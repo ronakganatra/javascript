@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+	<!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
+	<!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
+	<!ENTITY ns_graphs "http://ns.adobe.com/Graphs/1.0/">
+]>
+<svg version="1.1" xmlns:x="&ns_extend;" xmlns:i="&ns_ai;" xmlns:graph="&ns_graphs;"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" viewBox="0 0 108 108" enable-background="new 0 0 108 108" xml:space="preserve">
+<g id="BG_1_">
+	<g>
+		<g>
+			<path fill="#7EADB9" d="M108,108H22C9.9,108,0,98.1,0,86V22C0,9.9,9.9,0,22,0h64c12.1,0,22,9.9,22,22V108z"/>
+		</g>
+	</g>
+</g>
+<g id="BG_dark">
+	<g>
+		<path fill="#568591" d="M85.9,0H57.6v108H108V22.1C108,10,98,0,85.9,0z"/>
+	</g>
+</g>
+<g id="traffic_light">
+	<path fill="#5B2942" d="M68.7,97.8H39.3c-7.1,0-12.9-5.8-12.9-12.9V23.1c0-7.1,5.8-12.9,12.9-12.9h29.4c7.1,0,12.9,5.8,12.9,12.9
+		v61.8C81.6,92,75.8,97.8,68.7,97.8z"/>
+	<path fill="none" stroke="#7EADB9" stroke-width="2.4728" stroke-miterlimit="10" d="M66.6,92.7H41.4c-5.3,0-9.7-4.3-9.7-9.7V24.9
+		c0-5.3,4.3-9.7,9.7-9.7h25.2c5.3,0,9.7,4.3,9.7,9.7v58.1C76.3,88.4,71.9,92.7,66.6,92.7z"/>
+	<g>
+		<circle fill="#F49A00" cx="54" cy="54" r="10.5"/>
+		<circle fill="#ED261F" cx="54" cy="30.5" r="10.5"/>
+		<circle fill="#77B227" cx="54" cy="77.5" r="10.5"/>
+	</g>
+	<g>
+		<path fill="#FEC228" d="M48.8,63.1c-5-2.9-6.7-9.3-3.8-14.3c2.9-5,9.3-6.7,14.3-3.8"/>
+		<path fill="#FF4E47" d="M48.8,39.6c-5-2.9-6.7-9.3-3.8-14.3c2.9-5,9.3-6.7,14.3-3.8L48.8,39.6z"/>
+		<path fill="#9FDA4F" d="M48.8,86.5c-5-2.9-6.7-9.3-3.8-14.3c2.9-5,9.3-6.7,14.3-3.8"/>
+	</g>
+</g>
+</svg>
