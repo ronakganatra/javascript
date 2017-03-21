@@ -1,44 +1,57 @@
 import React from "react";
+import MediaQuery from "react-responsive";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 
-const SiteSubscription = styled.div`
-	display: flex;
-	padding: 26px 40px;
+const SiteSubscription = styled.li`
 	background: ${colors.$color_white};
 	height: 100px;
+	display: flex;
+	padding: 26px 40px;
+	
+	@media screen and ( max-width: 1355px ) {
+		justify-content: space-between;
+	}
 `;
 
-const SubscriptionToggle = styled.div` 
-	margin: 10px 0 0;
+const SubscriptionToggle = styled.div`
+	flex: 0 0 30px;
+	margin: 10px 40px 0 0;
 `;
 
-const SubscriptionLogo = styled.div`
+const SubscriptionLogo = styled.span`
+	flex: 0 0 60px;
 	background: transparent url( ${ props => props.image } ) no-repeat 0 0;
 	background-size: 60px;
 	width: 60px;
 	height: 60px;
-	margin-left: 40px;
 `;
 
-const SubscriptionDetails = styled.div`
+const SubscriptionDetails = styled.span`
 	color: ${colors.$color_black};
-	padding: 0 40px;
+	margin: 0 40px;
 	flex: 1 0 300px;
 `;
 
-const ProductName = styled.div`
+const ProductName = styled.span`
 	font-size: 16px;
 	font-weight: 400;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+	clear: both;
+	float: left;
 `;
 
 const SubscriptionUsage = styled.span`
 	font-size: 14px;
 	font-weight: 300;
 	font-style: italic;
+	clear: left;
 `;
 
 const AddOneSlot = styled.button`
@@ -52,6 +65,12 @@ const AddOneSlot = styled.button`
 	cursor: pointer;
 	padding: 0 0 0 20px;
 	margin-left: 10px;
+	text-align: left;
+	
+	@media screen and ( max-width: 1355px ) {
+		width: 100%;
+		margin-left: 0;
+	}
 `;
 
 const Buttons = styled.span`
@@ -91,10 +110,12 @@ export default function SiteSubscriptionDetail( props ) {
 				}
 			</SubscriptionDetails>
 
-			<Buttons>
-				<LargeButton onClick={ props.onMoreInfoClick } >More info</LargeButton>
-				<LargeButton onClick={ props.onSettingsClick } >Settings</LargeButton>
-			</Buttons>
+			<MediaQuery query="(min-width: 1356px)">
+				<Buttons>
+					<LargeButton onClick={ props.onMoreInfoClick } >More info</LargeButton>
+					<LargeButton onClick={ props.onSettingsClick } >Settings</LargeButton>
+				</Buttons>
+			</MediaQuery>
 		</SiteSubscription>
 	);
 }
