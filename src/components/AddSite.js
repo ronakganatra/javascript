@@ -78,7 +78,8 @@ const NoActiveProductText = styled.span`
 
 /**
  * @param {Object} props Component props.
- * @param {Function} props.onCancelClick The function to execute when the canel button is clicked.
+ * @param {Function} props.onCancelClick The function to execute when the cancel button is clicked.
+ * @param {Function} props.onLinkClick The function to execute when the link button is clicked.
  * @returns {ReactElement} A react component describing the AddSite modal.
  * @constructor
  */
