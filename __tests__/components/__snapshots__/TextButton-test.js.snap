@@ -1,6 +1,6 @@
-exports[`test the green button matches the snapshot 1`] = `
+exports[`test the text button matches the snapshot 1`] = `
 <button
-  className="hgPEAN">
+  className="ewTAVH">
   ButtonValue
 </button>
 `;

@@ -39,14 +39,14 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   <div
     className="jdEMcw">
     <button
-      className="cgLjyV"
-      onClick={undefined}
+      className="dgFVWH"
+      onClick={[Function]}
       type="button">
        cancel 
     </button>
     <button
-      className="cgLjyV"
-      onClick={undefined}
+      className="dgFVWH"
+      onClick={[Function]}
       type="button">
        link 
     </button>

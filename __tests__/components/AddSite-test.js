@@ -4,7 +4,11 @@ import AddSite from '../../src/components/AddSite';
 
 test('The AddSite component matches the snapshot', () => {
 	const component = renderer.create(
-		<AddSite />
+		<AddSite onLinkClick={ () => {
+			console.log( "clicked on link" );
+		} } onCancelClick={ () => {
+			console.log( "clicked on cancel" );
+		} }/>
 	);
 
 	let tree = component.toJSON();
