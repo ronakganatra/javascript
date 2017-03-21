@@ -2,9 +2,7 @@ import React from "react";
 import  { TextButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
-
 import styled from "styled-components";
-
 import colors from "yoast-components/style-guide/colors.json";
 
 const AddSiteModal = styled.div`
