@@ -15,7 +15,7 @@ const NoSitesResultContainer = styled.div`
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered component
+ * @returns {ReactElement} The rendered component.
  * @constructor
  */
 export default function SitesNoResult( props ) {
@@ -24,11 +24,10 @@ export default function SitesNoResult( props ) {
 			<img src={ SitesNoResults } alt="" />
 			<p>
 				<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
-				{website} in your account.`}
-								  values={{ website: <strong>web.site</strong> }}/>
+				{website} in your account.`} values={{ website: <strong>web.site</strong> }}/>
 			</p>
 			<p>
-				<FormattedMessage id="sites.no-site.add" defaultMessage={"Do you want to add it?"}/>
+				<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?"/>
 			</p>
 			<RoundAddButton onClick={ props.onClick } />
 		</NoSitesResultContainer>

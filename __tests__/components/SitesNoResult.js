@@ -9,7 +9,7 @@ test('the nosites component matches the snapshot', () => {
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( tree ).toMatchSnapshot();
 });
 
 test('the SitesNoResult component handling an onclick event', () => {
@@ -18,12 +18,12 @@ test('the SitesNoResult component handling an onclick event', () => {
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
 	tree.children[3].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( tree ).toMatchSnapshot();
 });
