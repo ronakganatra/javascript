@@ -22,26 +22,38 @@ class BaseAddSiteModal extends React.Component {
 	/**
 	 * Sets the BaseAddSiteModal object.
 	 *
+	 * @param {Object} props The props to use.
+	 *
 	 * @returns {void}
 	 */
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
 
 		this.state = {
-			modalIsOpen: false,
+			// addSitePopupOpen: this.props.addSitePopupOpen,
+			addSitePopupOpen: false,
 		};
 
 		this.openModal = this.openModal.bind( this );
-		this.afterOpenModal = this.afterOpenModal.bind( this );
 		this.closeModal = this.closeModal.bind( this );
 	}
 
+	/**
+	 * Sets the modal state to open.
+	 *
+	 * @returns {void}
+	 */
 	openModal() {
-		this.setState( { modalIsOpen: true } );
+		this.setState( { addSitePopupOpen: true } );
 	}
 
+	/**
+	 * Sets the modal state to close.
+	 *
+	 * @returns {void}
+	 */
 	closeModal() {
-		this.setState( { modalIsOpen: false } );
+		this.setState( { addSitePopupOpen: false } );
 	}
 
 	/**
@@ -53,8 +65,7 @@ class BaseAddSiteModal extends React.Component {
 		return (
 			<div>
 				<Modal
-					isOpen={ this.state.modalIsOpen }
-					onAfterOpen={ this.afterOpenModal }
+					isOpen={ this.state.addSitePopupOpen }
 					onRequestClose={ this.closeModal }
 					role="dialog"
 					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
@@ -81,15 +92,23 @@ class BaseAddSiteModal extends React.Component {
 	}
 
 	componentWillReceiveProps( nextProps ) {
+		// if ( nextProps.addSitePopupOpen !== this.props.addSitePopupOpen ) {
 		this.setState( {
-			modalIsOpen: true,
+			// addSitePopupOpen: nextProps.addSitePopupOpen,
+			addSitePopupOpen: true,
 		} );
+		// }
 	}
 }
 
 BaseAddSiteModal.propTypes = {
 	className: React.PropTypes.string,
 	intl: intlShape.isRequired,
+	addSitePopupOpen: React.PropTypes.bool,
+};
+
+BaseAddSiteModal.defaultProps = {
+	addSitePopupOpen: false,
 };
 
 const AddSiteModal = styled( BaseAddSiteModal )`
