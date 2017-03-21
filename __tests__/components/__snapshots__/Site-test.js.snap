@@ -1,0 +1,42 @@
+exports[`test the site component matches the snapshot 1`] = `
+<li
+  className="cVmsOO">
+  <img
+    alt=""
+    className="gbwjzY"
+    src="" />
+  <span
+    className="fsIFsM">
+    yoast.com
+  </span>
+  <span
+    className="ldbUZ">
+    <div>
+      <span
+        aria-label="Yoast SEO is inactive"
+        className="hGymDt"
+        role="img" />
+      <span
+        aria-label="Local SEO is inactive"
+        className="kswMOV"
+        role="img" />
+      <span
+        aria-label="Video SEO is active"
+        className="jzGgcX"
+        role="img" />
+      <span
+        aria-label="News SEO is inactive"
+        className="kdRmgg"
+        role="img" />
+      <span
+        aria-label="WooCommerce SEO is active"
+        className="gKxAXd"
+        role="img" />
+      <span
+        aria-label="Local SEO for Woo is inactive"
+        className="egmryf"
+        role="img" />
+    </div>
+  </span>
+</li>
+`;
