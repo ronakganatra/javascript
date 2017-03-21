@@ -1,4 +1,6 @@
 import "whatwg-fetch";
+import { getApiUrl, handle401 } from "../functions/api";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies } from "../functions/auth";
 
 /*
  * Action types
@@ -37,6 +39,9 @@ export function login( accessToken, userId ) {
  * @returns {Object} A logout action.
  */
 export function logout() {
+	removeAuthCookies();
+	document.location.href = getLogoutUrl();
+
 	return {
 		type: LOGOUT,
 	};
@@ -77,8 +82,14 @@ export function fetchUser( accessToken, userId ) {
 	return ( dispatch ) => {
 		dispatch( requestUser() );
 
-		return fetch( `http://localhost:3000/api/MyYoastUsers/${userId}?access_token=${accessToken}` )
+		let apiUrl = getApiUrl();
+
+		return fetch( `${apiUrl}/MyYoastUsers/${userId}?access_token=${accessToken}` )
+			.then( handle401 )
 			.then( response => response.json() )
-			.then( json => dispatch( receiveUser( json ) ) );
+			.then( json => dispatch( receiveUser( json ) ) )
+			.catch( () => {
+				document.location.href = getAuthUrl();
+			} );
 	};
 }

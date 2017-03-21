@@ -1,0 +1,95 @@
+exports[`test the user profile logout button handling an onclick event 1`] = `
+<div
+  className="user-info dIvfSQ">
+  <img
+    alt=""
+    className="fzWoWM"
+    size="60px"
+    src="Image" />
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
+      This is a name
+    </div>
+    <button
+      className="jZckzU"
+      onClick={[Function]}
+      type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test the user profile logout button handling an onclick event 2`] = `
+<div
+  className="user-info dIvfSQ">
+  <img
+    alt=""
+    className="fzWoWM"
+    size="60px"
+    src="Image" />
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
+      This is a name
+    </div>
+    <button
+      className="jZckzU"
+      onClick={[Function]}
+      type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test the user profile matches the snapshot 1`] = `
+<div
+  className="user-info dIvfSQ">
+  <img
+    alt=""
+    className="fzWoWM"
+    size="60px"
+    src="Image" />
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
+      This is a name
+    </div>
+    <button
+      className="jZckzU"
+      onClick={[Function]}
+      type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test the user profile matches the snapshot 2`] = `
+<div
+  className="user-info dIvfSQ">
+  <img
+    alt=""
+    className="fzWoWM"
+    size="60px"
+    src="Image" />
+  <div
+    className="kfJERa">
+    <div
+      className="eBsmeD">
+      This is a name
+    </div>
+    <button
+      className="jZckzU"
+      onClick={[Function]}
+      type="button">
+      Sign out
+    </button>
+  </div>
+</div>
+`;

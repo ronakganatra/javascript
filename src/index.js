@@ -5,8 +5,8 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { login, fetchUser } from "./actions/user";
-import getAccessToken from "./functions/getAccessToken";
-import getUserId from "./functions/getUserId";
+import { getAccessToken, getUserId } from "./functions/auth";
+import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import createLogger from "redux-logger";
 import Cookies from "js-cookie";
@@ -36,11 +36,5 @@ if ( hasAccessToken ) {
 		document.getElementById( "root" )
 	);
 } else {
-	ReactDOM.render(
-		<div>
-			You need an access_token cookie to be able to view the client.
-			Go to <a href="http://localhost:3000">http://localhost:3000</a> to login.
-		</div>,
-		document.getElementById( "root" )
-	);
+	document.location.href = getAuthUrl();
 }

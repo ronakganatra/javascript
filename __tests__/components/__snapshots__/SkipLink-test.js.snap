@@ -1,0 +1,7 @@
+exports[`test the skip link matches the snapshot 1`] = `
+<a
+  className="ibLdSE"
+  href="#content">
+  LinkText
+</a>
+`;
