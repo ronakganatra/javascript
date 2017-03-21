@@ -6,34 +6,61 @@ import { LargeButton } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 
+let responsiveWidthThreshold = 1355;
+
 const SiteSubscription = styled.li`
 	background: ${colors.$color_white};
-	height: 100px;
+	height: 112px;
 	display: flex;
-	padding: 26px 40px;
+	padding: 26px 0;
 	
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		justify-content: space-between;
+		height: 170px;
 	}
 `;
 
-const SubscriptionToggle = styled.div`
-	flex: 0 0 30px;
-	margin: 10px 40px 0 0;
+const SubscriptionLeftContainer = styled.span`
+	margin: 0 40px;
+	height: 60px;
+	
+	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
+		flex: 0 0 130px;
+	}
+	
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		flex: 0 0 60px;
+	}	
 `;
 
-const SubscriptionLogo = styled.span`
-	flex: 0 0 60px;
-	background: transparent url( ${ props => props.image } ) no-repeat 0 0;
-	background-size: 60px;
+const SubscriptionLogo = styled.img`
 	width: 60px;
 	height: 60px;
+		
+	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
+		float: right;
+	}	
+`;
+
+const SubscriptionToggle = styled.span`
+	margin-top: 15px;
+	
+	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
+		float: right;
+		margin-right: 40px;
+	}
+	
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		float: left;
+		margin-left: 15px;
+	}
 `;
 
 const SubscriptionDetails = styled.span`
 	color: ${colors.$color_black};
-	margin: 0 40px;
+	margin: 0 40px 0 0;
 	flex: 1 0 300px;
+
 `;
 
 const ProductName = styled.span`
@@ -42,9 +69,12 @@ const ProductName = styled.span`
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 100%;
-	clear: both;
-	float: left;
+	display: block;
+	
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		height: 60px;
+		line-height: 60px;
+	}
 `;
 
 const SubscriptionUsage = styled.span`
@@ -52,6 +82,12 @@ const SubscriptionUsage = styled.span`
 	font-weight: 300;
 	font-style: italic;
 	clear: left;
+
+	
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		margin-top: 15px;
+		height: 48px;
+	}
 `;
 
 const AddOneSlot = styled.button`
@@ -67,14 +103,15 @@ const AddOneSlot = styled.button`
 	margin-left: 10px;
 	text-align: left;
 	
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		width: 100%;
 		margin-left: 0;
 	}
 `;
 
 const Buttons = styled.span`
-	
+	margin: 6px 40px 6px 0;
+
 	button:last-child {
 		margin-left: 40px;
 	}
@@ -89,15 +126,17 @@ const Buttons = styled.span`
 export default function SiteSubscriptionDetail( props ) {
 	return (
 		<SiteSubscription>
+			<SubscriptionLeftContainer>
+				<SubscriptionLogo src={ props.productLogo } />
+				<SubscriptionToggle>
 
-			<SubscriptionToggle>
-				<Toggle
-					onSetEnablement={ props.onToggleSubscription }
-					isEnabled={ props.isEnabled }
-					ariaLabel=""
-					onClick={ props.onToggleSubscription } />
-			</SubscriptionToggle>
-			<SubscriptionLogo image={ props.productLogo } />
+					<Toggle
+						onSetEnablement={ props.onToggleSubscription }
+						isEnabled={ props.isEnabled }
+						ariaLabel=""
+						onClick={ props.onToggleSubscription } />
+				</SubscriptionToggle>
+			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
 				<ProductName>{props.productName}</ProductName>
@@ -110,7 +149,7 @@ export default function SiteSubscriptionDetail( props ) {
 				}
 			</SubscriptionDetails>
 
-			<MediaQuery query="(min-width: 1356px)">
+			<MediaQuery query={ "(min-width: " + ( responsiveWidthThreshold + 1 ) + "px)" }>
 				<Buttons>
 					<LargeButton onClick={ props.onMoreInfoClick } >More info</LargeButton>
 					<LargeButton onClick={ props.onSettingsClick } >Settings</LargeButton>
