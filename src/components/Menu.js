@@ -33,7 +33,7 @@ const MenuItem = styled( NavLink )`
 
 	&.${ activeStyle } {
 		color: #ccc;
-		background-color: ${colors.$background};
+		background-color: ${colors.$color_grey_light};
 		box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
 		font-weight: 400;
 		color: ${colors.$color_pink_dark};
