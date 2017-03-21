@@ -35,7 +35,7 @@ export const GreenButton = styled( Button )`
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 	height: 40px;
-	margin: 5px 10px 5px 5px;
+	margin: 5px 0px 5px 10px;
 	border-radius: 8px;
 `;
 

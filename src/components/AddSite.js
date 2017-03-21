@@ -9,15 +9,13 @@ import colors from "yoast-components/style-guide/colors.json";
 
 const AddSiteModal = styled.div`
 	padding: 40px;
-	border: 1px solid black;
-	box-shadow: 1px 1px 3px 0.5px rgba(0, 0, 0, 1);
 	width: 640px;
 	margin: auto;
 	min-width: 200px;
 	overflow: auto;
 	font-family: Open Sans;
 	font-weight: 300;
-	font-size: 18pt;
+	font-size: 18px;
 `;
 
 const AddSiteImage = styled.img`
@@ -27,15 +25,16 @@ const AddSiteImage = styled.img`
 `;
 
 const AddSiteHeading = styled.h2`
-	font-family: open sans;
+	font-family: Open Sans;
 	font-weight: 300;
 	font-size: 30pt;
+	display: inline;
 `;
 
 const AddSiteText = styled.p`
-	font-family: open sans;
+	font-family: Open Sans;
 	font-weight: 300;
-	font-size: 18pt;
+	font-size: 18px;
 `;
 
 
@@ -54,7 +53,7 @@ const Buttons = styled.div`
 
 const NoActiveProduct = styled.div`
 	width: 100%
-	margin: 40px 40px 40px 0px;
+	margin: 40px 40px 10px 0px;
 	padding: 40px;
 	background-color: #FFEB3B;
 	overflow: auto;
