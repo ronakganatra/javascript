@@ -18,6 +18,12 @@ const messages = defineMessages( {
 Modal.setAppElement( "#root" );
 
 class BaseAddSiteModal extends React.Component {
+
+	/**
+	 * Sets the BaseAddSiteModal object.
+	 *
+	 * @returns {void}
+	 */
 	constructor() {
 		super();
 
@@ -34,15 +40,15 @@ class BaseAddSiteModal extends React.Component {
 		this.setState( { modalIsOpen: true } );
 	}
 
-	afterOpenModal() {
-		// References are now sync'd and can be accessed.
-		this.refs.subtitle.style.color = "#dc3232";
-	}
-
 	closeModal() {
 		this.setState( { modalIsOpen: false } );
 	}
 
+	/**
+	 * Returns the rendered html.
+	 *
+	 * @returns {ReactElement} The rendered html.
+	 */
 	render() {
 		return (
 			<div>
