@@ -39,9 +39,9 @@ const AddSiteText = styled.p`
 
 
 const WebsiteURL = styled.input`
-	width: 100%
+	width: 100%;
 	height: 60px;
-	background-color: ${ colors.$color_grey_light };
+	background-color: ${colors.$background};
 	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
 	text-indent: 5px;
 	font-size: 14px;
@@ -52,10 +52,10 @@ const Buttons = styled.div`
 `;
 
 const NoActiveProduct = styled.div`
-	width: 100%
+	width: 100%;
 	margin: 40px 40px 10px 0px;
 	padding: 40px;
-	background-color: #FFEB3B;
+	background-color: ${colors.$color_yellow};
 	overflow: auto;
 `;
 
@@ -111,14 +111,4 @@ AddSite.propTypes = {
 	onCancelClick: React.PropTypes.func,
 	onLinkClick: React.PropTypes.func,
 };
-// todo: Remove, should be part of calling AddSite instead.
-AddSite.defaultProps = {
-	onCancelClick: function() {
-		console.log( "clicked on cancel" );
-	},
-	onLinkClick: function() {
-		console.log( "clicked on link" );
-	},
-};
-
 

@@ -1,0 +1,6 @@
+exports[`test the green button matches the snapshot 1`] = `
+<button
+  className="hgPEAN">
+  ButtonValue
+</button>
+`;

@@ -46,7 +46,7 @@ TextButton.defaultProps = {
 	buttonWidth: "auto",
 };
 
-export const WhiteButton = styled( Button )`
+export const WhiteButton = styled( LargeButton )`
 	color: ${colors.$color_blue};
 	background-color: ${colors.$color_white};
 `;
