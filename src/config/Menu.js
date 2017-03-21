@@ -2,6 +2,10 @@ import React from "react";
 import NoSites from "../components/NoSites";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import subscriptionsIcon from "../icons/subscriptions.svg";
+import sitesIcon from "../icons/sites.svg";
+import coursesIcon from "../icons/courses.svg";
+import userIcon from "../icons/user.svg";
 import AddSiteModal from "../components/AddSiteModal";
 
 const messages = defineMessages( {
@@ -92,10 +96,10 @@ Courses = injectIntl( Courses );
 Account = injectIntl( Account );
 
 let menuItems = [
-	{ path: "/subscriptions", title: "Subscriptions", component: Subscriptions },
-	{ path: "/sites", title: "Sites", component: Sites },
-	{ path: "/courses", title: "Courses", component: Courses },
-	{ path: "/account", title: "Account", component: Account },
+	{ path: "/subscriptions", title: "Subscriptions", icon: subscriptionsIcon, component: Subscriptions },
+	{ path: "/sites", title: "Sites", icon: sitesIcon, component: Sites },
+	{ path: "/courses", title: "Courses", icon: coursesIcon, component: Courses },
+	{ path: "/account", title: "Account", icon: userIcon, component: Account },
 ];
 
 export default menuItems;
