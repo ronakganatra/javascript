@@ -2,6 +2,14 @@ import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
 import { LargeButton } from "../components/Button";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const messages = defineMessages( {
+	modalAriaLabel: {
+		id: "modal.arialabel.add",
+		defaultMessage: "Add a new site",
+	},
+} );
 
 /*
  * Makes the `aria-hidden="true"` attribute being applied on the root element
@@ -43,7 +51,7 @@ class BaseAddSiteModal extends React.Component {
 					onAfterOpen={ this.afterOpenModal }
 					onRequestClose={ this.closeModal }
 					role="dialog"
-					contentLabel="Add a new site"
+					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
@@ -75,6 +83,7 @@ class BaseAddSiteModal extends React.Component {
 
 BaseAddSiteModal.propTypes = {
 	className: React.PropTypes.string,
+	intl: intlShape.isRequired,
 };
 
 const AddSiteModal = styled( BaseAddSiteModal )`
@@ -113,5 +122,4 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 	}
 `;
 
-
-export default AddSiteModal;
+export default injectIntl( AddSiteModal );
