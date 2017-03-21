@@ -1,4 +1,5 @@
-import thunkMiddleware from "redux-thunk";
+import "whatwg-fetch";
+import { getApiUrl, handle401 } from "../functions/api";
 
 /**
  * Action types
@@ -39,25 +40,28 @@ export function linkSitePopupClose() {
 /**
  * An action creator for the server request action.
  *
- * @param {string} site The site to add.
+ * @param {string} url The url to add.
  *
  * @returns {Object} A server request action.
  */
-export function linkSiteRequest( site ) {
+export function linkSiteRequest( url ) {
 	return {
 		type: LINK_SITE_REQUEST,
-		site: site,
+		url: url,
 	};
 }
 
 /**
  * An action creator for the link site success action.
  *
+ * @param {Object} site The sites object.
+ *
  * @returns {Object} A link site success action.
  */
-export function linkSiteSuccess() {
+export function linkSiteSuccess( site ) {
 	return {
 		type: LINK_SITE_SUCCESS,
+		site: site,
 	};
 }
 
@@ -75,8 +79,25 @@ export function linkSiteFailure( errorText ) {
 	};
 }
 
-/*
+/**
+ * An action creator for the linkSite action.
+ *
+ * @param {string} url The url trying to be linked.
+ *
+ * @returns {Object} A link site request action.
+ */
 export function linkSite( url ) {
+	return ( dispatch ) => {
+		dispatch( linkSiteRequest( url ) );
 
+		let apiUrl = getApiUrl();
+
+		return fetch( `${apiUrl}/MyYoastUsers/{id}/sites` )
+			.then( handle401 )
+			.then( response => response.json() )
+			.then( json => dispatch( linkSiteSuccess( json ) ) )
+			.catch( ( json ) => {
+				dispatch( linkSiteFailure( json ) );
+			} );
+	};
 }
-*/

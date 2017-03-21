@@ -1,6 +1,6 @@
 import user from "./user";
 import { combineReducers } from "redux";
-import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js"
+import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 
 const uiReducer = combineReducers( {
 	uiSites: uiSitesReducer,

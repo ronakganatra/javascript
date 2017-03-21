@@ -59,7 +59,7 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 		case LINK_SITE_REQUEST:
 			return Object.assign( {}, state, {
 				linkingSite: true,
-				linkingSiteUrl: action.site,
+				linkingSiteUrl: action.url,
 			} );
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
@@ -70,6 +70,8 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 				linkingSiteFailed: true,
 				linkSiteError: action.linkSiteError,
 			} );
+		default:
+			return state;
 	}
 }
 
@@ -81,9 +83,14 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
  * @returns {Object} The updated byId object.
  */
 export function byIdReducer( state = rootState.entities.sites.byId, action ) {
-	return Object.assign( {}, state, {
-		[ action.siteId ]: action.site,
-	} );
+	switch ( action.type ) {
+		case LINK_SITE_SUCCESS:
+			return Object.assign( {}, state, {
+				[ action.site.id ]: action.site,
+			} );
+		default:
+			return state;
+	}
 }
 
 /**
@@ -94,5 +101,10 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
  * @returns {Array} The updated allIds array.
  */
 export function allIdsReducer( state = rootState.entities.sites.allIds, action ) {
-	return [ ...state, action.siteId ];
+	switch ( action.type ) {
+		case LINK_SITE_SUCCESS:
+			return [ ...state, action.site.id ];
+		default:
+			return state;
+	}
 }
