@@ -19,10 +19,10 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     placeholder="example-site.com"
     type="url" />
   <div
-    className="gDfUBt">
+    className="fOnQay">
     <img
       alt="exclamation-triangle"
-      className="hnaiEX"
+      className="hQzuHK"
       src="exclamation-triangle.svg" />
     <span
       className="cBIvfm"

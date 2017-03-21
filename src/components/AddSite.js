@@ -64,7 +64,7 @@ const PurpleLink = styled.a`
 const NoActiveProductIcon = styled.img`
 	width: 15%;
 	float: left;	
-	height: 100%
+	height: 100%;
 	padding: 20px;
 	text-align: center;
 	vertical-align: middle;
