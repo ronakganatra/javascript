@@ -11,6 +11,7 @@ import { injectGlobal } from "styled-components";
 import { BrowserRouter as Router } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
+import DebugInfo from "./components/DebugInfo";
 
 import { Logo } from "./components/Logo";
 
@@ -44,6 +45,7 @@ class App extends Component {
 								<MainMenu menuRoutes={ menuItems }  />
 							</Sidebar>
 							<Main>
+								<DebugInfo />
 								<Content>
 									<MainMenuRoutes menuRoutes={ menuItems }  />
 								</Content>
