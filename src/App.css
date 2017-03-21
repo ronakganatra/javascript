@@ -105,38 +105,3 @@ select,
 textarea {
 	font-family: "Open Sans", sans-serif;
 }
-
-/* React modal. */
-.my-yoast-modal__overlay {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.6);
-}
-
-.my-yoast-modal__content {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	right: auto;
-	bottom: auto;
-	width: 640px;
-	border: 0;
-	border-radius: 0;
-	margin-right: -50%;
-	padding: 40px;
-	transform: translate(-50%, -50%);
-	background-color: #fff;
-	outline: none;
-}
-
-.my-yoast-modal__actions {
-	padding-top: 1em;
-	text-align: right;
-}
-
-.my-yoast-modal__actions button {
-	margin-left: 1em;
-}
