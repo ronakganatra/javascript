@@ -18,7 +18,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="khNsbw"
+    className="bWobFB"
     id="addSiteInputField"
     placeholder="example-site.com"
     type="url" />
