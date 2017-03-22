@@ -19,7 +19,7 @@ const Menu = styled.nav`
 	}
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 0 4%; /* Same margin as main content. */
+		margin: 0 4%; /* Same margin as the main content. */
 		text-align: center;
 	}
 `;

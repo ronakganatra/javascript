@@ -10,7 +10,6 @@ const ToggleBar = styled.div`
 	cursor: pointer;
 	margin: 0;
 	outline: 0;
-	/* Experimental focus style. Might need rgba colors from yoast-components or a style-utils re-usable function. */
 	&:focus > span {
 		box-shadow: inset 0 0 0 1px ${colors.$color_white}, 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
 	}
