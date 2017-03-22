@@ -10,6 +10,11 @@ const NoSitesResultContainer = styled.div`
 	text-align: center;
 `;
 
+const NoSitesResultImage = styled.img`
+	max-width: 100%;
+	height: auto;
+`;
+
 /**
  * The SitesNoResult component.
  *
@@ -21,7 +26,7 @@ const NoSitesResultContainer = styled.div`
 export default function SitesNoResult( props ) {
 	return (
 		<NoSitesResultContainer>
-			<img src={ SitesNoResults } alt="" />
+			<NoSitesResultImage src={ SitesNoResults } alt="" />
 			<p>
 				<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
 				{website} in your account.`} values={{ website: <strong>web.site</strong> }}/>
