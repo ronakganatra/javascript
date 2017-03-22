@@ -1,24 +1,24 @@
-import user from "./user";
+import userReducer from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 
-const uiReducer = combineReducers( {
-	uiSites: uiSitesReducer,
+export const uiReducer = combineReducers( {
+	sites: uiSitesReducer,
 } );
 
-const entitiesSitesReducer = combineReducers( {
+export const entitiesSitesReducer = combineReducers( {
 	byId: byIdReducer,
 	allIds: allIdsReducer,
 } );
 
-const entitiesReducer = combineReducers( {
-	entitiesSites: entitiesSitesReducer,
+export const entitiesReducer = combineReducers( {
+	sites: entitiesSitesReducer,
 } );
 
-const rootReducer = combineReducers( {
+export const rootReducer = combineReducers( {
 	ui: uiReducer,
 	entities: entitiesReducer,
-	user,
+	user: userReducer,
 } );
 
 export default rootReducer;
