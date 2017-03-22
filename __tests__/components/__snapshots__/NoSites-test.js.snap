@@ -1,6 +1,6 @@
 exports[`test the nosites component handling an onclick event 1`] = `
 <div
-  className="ecRrS">
+  className="fLQomB">
   <img
     alt=""
     src="nosites.png" />
@@ -29,7 +29,7 @@ exports[`test the nosites component handling an onclick event 1`] = `
 
 exports[`test the nosites component handling an onclick event 2`] = `
 <div
-  className="ecRrS">
+  className="fLQomB">
   <img
     alt=""
     src="nosites.png" />
@@ -58,7 +58,7 @@ exports[`test the nosites component handling an onclick event 2`] = `
 
 exports[`test the nosites component matches the snapshot 1`] = `
 <div
-  className="ecRrS">
+  className="fLQomB">
   <img
     alt=""
     src="nosites.png" />
