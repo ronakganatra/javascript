@@ -12,7 +12,7 @@ const NoSitesResultContainer = styled.div`
 
 const NoSitesResultImage = styled.img`
 	max-width: 100%;
-	height:u auto;
+	height: auto;
 `;
 
 /**
