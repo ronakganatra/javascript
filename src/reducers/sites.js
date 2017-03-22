@@ -61,11 +61,11 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 			} );
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
-				linkingSiteFailed: false,
+				linkSiteFailed: false,
 			} );
 		case LINK_SITE_FAILURE:
 			return Object.assign( {}, state, {
-				linkingSiteFailed: true,
+				linkSiteFailed: true,
 				linkSiteError: action.linkSiteError,
 			} );
 		default:

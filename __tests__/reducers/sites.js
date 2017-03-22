@@ -53,13 +53,13 @@ test( 'the link site request action', () => {
 
 test( 'the link site success action in the uiSitesReducer', () => {
 	const state = {
-		linkingSiteFailed: true,
+		linkSiteFailed: true,
 	};
 	const action = {
 		type: LINK_SITE_SUCCESS,
 	};
 	const expected = {
-		linkingSiteFailed: false,
+		linkSiteFailed: false,
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -68,13 +68,12 @@ test( 'the link site success action in the uiSitesReducer', () => {
 } );
 
 test( 'the link site failure action', () => {
-	const state = {
-	};
+	const state = {};
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 	const expected = {
-		linkingSiteFailed: true,
+		linkSiteFailed: true,
 		linkSiteError: action.linkSiteError,
 	};
 
