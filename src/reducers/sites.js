@@ -5,7 +5,6 @@ import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SI
  */
 
 const rootState = {
-	// (...)
 	entities: {
 		sites: {
 			byId: {},
@@ -30,7 +29,6 @@ const rootState = {
 			linkSiteError: "",
 		},
 	},
-	// (...)
 };
 
 /**
