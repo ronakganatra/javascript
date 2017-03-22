@@ -22,7 +22,7 @@ const AddSiteImage = styled.img`
 	margin-bottom: 40px;
 `;
 
-const AddSiteHeading = styled.h2`
+const AddSiteHeading = styled.h1`
 	font-family: Open Sans;
 	font-weight: 300;
 	font-size: 30pt;
@@ -49,7 +49,7 @@ const Buttons = styled.div`
 	float: right;
 `;
 
-const NoActiveProduct = styled.div`
+const NoActiveProduct = styled.p`
 	width: 100%;
 	margin: 40px 40px 10px 0px;
 	padding: 40px;
@@ -86,16 +86,19 @@ const NoActiveProductText = styled.span`
 export default function AddSite( props ) {
 	return (
 	<AddSiteModal>
-		<AddSiteImage src={addSiteImage} alt="Add Site image" aria-describedby="addSiteInfo" />
+		<AddSiteImage src={addSiteImage} alt="Add Site image" />
         <AddSiteHeading>Add site</AddSiteHeading>
-        <AddSiteText>Please enter the URL of the site you would like to link with your account:</AddSiteText>
-        <WebsiteURL type="url" placeholder="example-site.com" />
+        <AddSiteText>
+			<label htmlFor="addSiteInputField">Please enter the URL of the site you would like to link with your account:</label>
+		</AddSiteText>
+        <WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" />
         <NoActiveProduct>
-			<NoActiveProductIcon src={ noActiveProductIcon } alt="exclamation-triangle" />
+			<NoActiveProductIcon src={ noActiveProductIcon } />
 			<NoActiveProductText id="addSiteInfo">
 				It looks like you don't have an active Yoast product on example-site.com yet.
 				We cannot connect to your site until you do.
-				Come back here once at least one Yoast plugin is activated. If you need help, <PurpleLink href="nu.nl">read this page</PurpleLink>.
+				Come back here once at least one Yoast plugin is activated. If you need help,
+				<PurpleLink href="">read this page</PurpleLink>.
 			</NoActiveProductText>
 		</NoActiveProduct>
 		<Buttons>

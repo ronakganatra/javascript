@@ -3,39 +3,42 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   className="gAGvgI">
   <img
     alt="Add Site image"
-    aria-describedby="addSiteInfo"
     className="kSZYwX"
     src="addsite.svg" />
-  <h2
+  <h1
     className="fTWzqe">
     Add site
-  </h2>
+  </h1>
   <p
     className="dMtWaU">
-    Please enter the URL of the site you would like to link with your account:
+    <label
+      htmlFor="addSiteInputField">
+      Please enter the URL of the site you would like to link with your account:
+    </label>
   </p>
   <input
-    className="bWobFB"
+    aria-describedby="addSiteInfo"
+    className="khNsbw"
+    id="addSiteInputField"
     placeholder="example-site.com"
     type="url" />
-  <div
-    className="fOnQay">
+  <p
+    className="ynjoK">
     <img
-      alt="exclamation-triangle"
       className="hQzuHK"
       src="exclamation-triangle.svg" />
     <span
       className="cBIvfm"
       id="addSiteInfo">
-      It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+      It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help,
       <a
         className="jWXgwc"
-        href="nu.nl">
+        href="">
         read this page
       </a>
       .
     </span>
-  </div>
+  </p>
   <div
     className="jdEMcw">
     <button
