@@ -39,8 +39,8 @@ const AddSiteText = styled.p`
 const WebsiteURL = styled.input`
 	width: 100%;
 	height: 60px;
-	background-color: ${colors.$background};
-	box-shadow: inset 0 0 4px ${colors.$color_grey_dark};
+	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
+	background: ${ colors.$color_grey };
 	text-indent: 5px;
 	font-size: 14px;
 `;
