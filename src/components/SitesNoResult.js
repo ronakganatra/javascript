@@ -3,7 +3,7 @@ import { RoundAddButton } from "../components/RoundButton";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
-import SitesNoResults from "../../public/images/SitesNoResults.svg";
+import SitesNoResults from "../images/SitesNoResults.svg";
 
 const NoSitesResultContainer = styled.div`
 	color: ${colors.$color_black};
@@ -12,7 +12,7 @@ const NoSitesResultContainer = styled.div`
 
 const NoSitesResultImage = styled.img`
 	max-width: 100%;
-	height: auto;
+	height:u auto;
 `;
 
 /**
