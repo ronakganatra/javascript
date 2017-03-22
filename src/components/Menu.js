@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, Redirect } from "react-router-dom";
 
 const activeStyle = "active-class-name";
 
@@ -118,12 +118,16 @@ MainMenu.propTypes = {
  */
 export function MainMenuRoutes( props ) {
 	return (
-		<div>
-			{ props.menuRoutes.map( function( route, routeKey ) {
-				return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
-			}
-			) }
-		</div>
+		<Route>
+			<div>
+				<Redirect from='/' to='/sites'/>
+				{ props.menuRoutes.map( function( route, routeKey ) {
+					return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+				}
+				) }
+			</div>
+		</Route>
+
 	);
 }
 
