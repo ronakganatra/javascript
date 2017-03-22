@@ -118,15 +118,12 @@ MainMenu.propTypes = {
  */
 export function MainMenuRoutes( props ) {
 	return (
-		<Route>
 			<div>
 				{ props.menuRoutes.map( function( route, routeKey ) {
 					return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
 				}
 				) }
 			</div>
-		</Route>
-
 	);
 }
 
