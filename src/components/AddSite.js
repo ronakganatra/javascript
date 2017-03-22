@@ -4,6 +4,7 @@ import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { FormattedMessage } from "react-intl";
 
 const AddSiteModal = styled.div`
 	padding: 40px;
@@ -89,7 +90,9 @@ export default function AddSite( props ) {
 		<AddSiteImage src={addSiteImage} alt="Add Site image" />
         <AddSiteHeading>Add site</AddSiteHeading>
         <AddSiteText>
-			<label htmlFor="addSiteInputField">Please enter the URL of the site you would like to link with your account:</label>
+			<label htmlFor="addSiteInputField">
+				<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
+			</label>
 		</AddSiteText>
         <WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" />
         <NoActiveProduct>
