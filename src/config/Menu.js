@@ -84,9 +84,9 @@ Courses = injectIntl( Courses );
 Account = injectIntl( Account );
 
 let menuItems = [
-	{ path: "/subscriptions", title: "Subscriptions", icon: subscriptionsIcon, component: Subscriptions },
 	{ path: "/sites", title: "Sites", icon: sitesIcon, component: Sites },
 	{ path: "/courses", title: "Courses", icon: coursesIcon, component: Courses },
+	{ path: "/subscriptions", title: "Subscriptions", icon: subscriptionsIcon, component: Subscriptions },
 	{ path: "/account", title: "Account", icon: userIcon, component: Account },
 ];
 
