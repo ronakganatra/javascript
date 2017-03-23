@@ -6,7 +6,7 @@ import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
 import { ChevronButton } from "../components/RoundButton.js";
 
-const SiteContainer = styled.li`
+const SiteContainer = styled.div`
 	background-color: ${colors.$color_white};
 	height: 100px;
 	display: flex;
