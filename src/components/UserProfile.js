@@ -51,7 +51,7 @@ const UserName = styled.div`
  * @returns {ReactElement} A react component.
  */
 export default function UserProfile( props ) {
-	return <UserInfoContainer>
+	return <UserInfoContainer className="user-info">
 		<UserImage {...props.displayImage} />
 		<UserInfo>
 			<UserName>{ props.displayName }</UserName>
@@ -70,6 +70,7 @@ UserProfile.propTypes = {
 	} ),
 	onLogoutClick: React.PropTypes.func.isRequired,
 	loggedIn: React.PropTypes.bool,
+	className: React.PropTypes.string,
 };
 
 UserProfile.defaultProps = {
@@ -80,4 +81,5 @@ UserProfile.defaultProps = {
 	},
 	displayName: "",
 	loggedIn: false,
+	className: "",
 };
