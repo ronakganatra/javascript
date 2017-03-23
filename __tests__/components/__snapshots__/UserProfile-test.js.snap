@@ -1,5 +1,5 @@
 exports[`test the user profile logout button handling an onclick event 1`] = `
-<div
+<aside
   className="user-info dIvfSQ">
   <img
     alt=""
@@ -8,10 +8,10 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
     src="Image" />
   <div
     className="kfJERa">
-    <div
-      className="eBsmeD">
+    <p
+      className="gruUXm">
       This is a name
-    </div>
+    </p>
     <button
       className="jZckzU"
       onClick={[Function]}
@@ -19,11 +19,11 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
       Sign out
     </button>
   </div>
-</div>
+</aside>
 `;
 
 exports[`test the user profile logout button handling an onclick event 2`] = `
-<div
+<aside
   className="user-info dIvfSQ">
   <img
     alt=""
@@ -32,10 +32,10 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
     src="Image" />
   <div
     className="kfJERa">
-    <div
-      className="eBsmeD">
+    <p
+      className="gruUXm">
       This is a name
-    </div>
+    </p>
     <button
       className="jZckzU"
       onClick={[Function]}
@@ -43,11 +43,11 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
       Sign out
     </button>
   </div>
-</div>
+</aside>
 `;
 
 exports[`test the user profile matches the snapshot 1`] = `
-<div
+<aside
   className="user-info dIvfSQ">
   <img
     alt=""
@@ -56,10 +56,10 @@ exports[`test the user profile matches the snapshot 1`] = `
     src="Image" />
   <div
     className="kfJERa">
-    <div
-      className="eBsmeD">
+    <p
+      className="gruUXm">
       This is a name
-    </div>
+    </p>
     <button
       className="jZckzU"
       onClick={[Function]}
@@ -67,11 +67,11 @@ exports[`test the user profile matches the snapshot 1`] = `
       Sign out
     </button>
   </div>
-</div>
+</aside>
 `;
 
 exports[`test the user profile matches the snapshot 2`] = `
-<div
+<aside
   className="user-info dIvfSQ">
   <img
     alt=""
@@ -80,10 +80,10 @@ exports[`test the user profile matches the snapshot 2`] = `
     src="Image" />
   <div
     className="kfJERa">
-    <div
-      className="eBsmeD">
+    <p
+      className="gruUXm">
       This is a name
-    </div>
+    </p>
     <button
       className="jZckzU"
       onClick={[Function]}
@@ -91,5 +91,5 @@ exports[`test the user profile matches the snapshot 2`] = `
       Sign out
     </button>
   </div>
-</div>
+</aside>
 `;

@@ -1,10 +1,9 @@
 import React from "react";
-
 import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
 import colors from "yoast-components/style-guide/colors.json";
 
-const UserInfoContainer = styled.div`
+const UserInfoContainer = styled.aside`
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -37,9 +36,9 @@ const UserInfo = styled.div`
 	margin-left: 10px;
 `;
 
-const UserName = styled.div`
+const UserName = styled.p`
 	color: ${colors.$color_white};
-	margin-bottom: 10px;
+	margin: 0 0 10px;
 	font-size: 14px;
 `;
 
