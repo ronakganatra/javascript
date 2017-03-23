@@ -89,19 +89,19 @@ const MenuIcon = styled.img`
  */
 export function MainMenu( props ) {
 	return (
-		<Menu>
-			<ul role="list">
-				{ props.menuRoutes.map( function( page ) {
-					return <li key={ page.title }>
-						<MenuItem activeClassName={ activeStyle } to={ page.path }>
-							<MenuIcon src={ page.icon } alt="" />
-							{ page.title }
-						</MenuItem>
-					</li>;
-				}
-				) }
-			</ul>
-		</Menu>
+	<Menu>
+		<ul role="list">
+			{ props.menuRoutes.map( function( page ) {
+				return <li key={ page.title }>
+					<MenuItem activeClassName={ activeStyle } to={ page.path }>
+						<MenuIcon src={ page.icon } alt="" />
+						{ page.title }
+					</MenuItem>
+				</li>;
+			}
+			) }
+		</ul>
+	</Menu>
 	);
 }
 
@@ -118,12 +118,12 @@ MainMenu.propTypes = {
  */
 export function MainMenuRoutes( props ) {
 	return (
-			<div>
-				{ props.menuRoutes.map( function( route, routeKey ) {
-					return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
-				}
-				) }
-			</div>
+	<div>
+		{ props.menuRoutes.map( function( route, routeKey ) {
+			return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+		}
+		) }
+	</div>
 	);
 }
 
