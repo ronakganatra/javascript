@@ -17,7 +17,6 @@ jest.mock( "../../src/reducers/user.js", () => {
 	}
 } );
 
-
 test( 'ui reducer', () => {
 	const state = { sites: {} };
 	const action = {

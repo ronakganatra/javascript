@@ -1,4 +1,4 @@
-import userReducer from "./user";
+import { userReducer as user } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 
@@ -18,7 +18,7 @@ export const entitiesReducer = combineReducers( {
 export const rootReducer = combineReducers( {
 	ui: uiReducer,
 	entities: entitiesReducer,
-	user: userReducer,
+	user,
 } );
 
 export default rootReducer;
