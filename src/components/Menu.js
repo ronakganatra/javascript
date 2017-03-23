@@ -19,7 +19,7 @@ const Menu = styled.nav`
 	}
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 0 4%; /* Same margin as main content. */
+		margin: 0 4%; /* Same margin as the main content. */
 		text-align: center;
 	}
 `;
@@ -38,7 +38,7 @@ const MenuItem = styled( NavLink )`
 
 	&.${ activeStyle } {
 		color: ${colors.$color_border};
-		background-color: ${colors.$background};
+		background-color: ${colors.$color_grey_light};
 		box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
 		font-weight: 400;
 		color: ${colors.$color_pink_dark};
