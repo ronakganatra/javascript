@@ -1,15 +1,15 @@
 exports[`test the user profile logout button handling an onclick event 1`] = `
 <aside
-  className="user-info dIvfSQ">
+  className="user-info dkZuOy">
   <img
     alt=""
-    className="fzWoWM"
+    className="ubghu"
     size="60px"
     src="Image" />
   <div
-    className="kfJERa">
+    className="foqgVb">
     <p
-      className="gruUXm">
+      className="gGQGre">
       This is a name
     </p>
     <button
@@ -24,16 +24,16 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
 
 exports[`test the user profile logout button handling an onclick event 2`] = `
 <aside
-  className="user-info dIvfSQ">
+  className="user-info dkZuOy">
   <img
     alt=""
-    className="fzWoWM"
+    className="ubghu"
     size="60px"
     src="Image" />
   <div
-    className="kfJERa">
+    className="foqgVb">
     <p
-      className="gruUXm">
+      className="gGQGre">
       This is a name
     </p>
     <button
@@ -48,16 +48,16 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
 
 exports[`test the user profile matches the snapshot 1`] = `
 <aside
-  className="user-info dIvfSQ">
+  className="user-info dkZuOy">
   <img
     alt=""
-    className="fzWoWM"
+    className="ubghu"
     size="60px"
     src="Image" />
   <div
-    className="kfJERa">
+    className="foqgVb">
     <p
-      className="gruUXm">
+      className="gGQGre">
       This is a name
     </p>
     <button
@@ -72,16 +72,16 @@ exports[`test the user profile matches the snapshot 1`] = `
 
 exports[`test the user profile matches the snapshot 2`] = `
 <aside
-  className="user-info dIvfSQ">
+  className="user-info dkZuOy">
   <img
     alt=""
-    className="fzWoWM"
+    className="ubghu"
     size="60px"
     src="Image" />
   <div
-    className="kfJERa">
+    className="foqgVb">
     <p
-      className="gruUXm">
+      className="gGQGre">
       This is a name
     </p>
     <button
