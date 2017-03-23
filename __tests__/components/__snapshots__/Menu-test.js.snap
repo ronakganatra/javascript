@@ -7,19 +7,6 @@ exports[`test the menu matches the snapshot 1`] = `
       <li>
         <a
           className="AnUHP"
-          href="/subscriptions"
-          onClick={[Function]}
-          style={undefined}>
-          <img
-            alt=""
-            className="ilptYL"
-            src="subscriptions.svg" />
-          Subscriptions
-        </a>
-      </li>
-      <li>
-        <a
-          className="AnUHP"
           href="/sites"
           onClick={[Function]}
           style={undefined}>
@@ -41,6 +28,19 @@ exports[`test the menu matches the snapshot 1`] = `
             className="ilptYL"
             src="courses.svg" />
           Courses
+        </a>
+      </li>
+      <li>
+        <a
+          className="AnUHP"
+          href="/subscriptions"
+          onClick={[Function]}
+          style={undefined}>
+          <img
+            alt=""
+            className="ilptYL"
+            src="subscriptions.svg" />
+          Subscriptions
         </a>
       </li>
       <li>
