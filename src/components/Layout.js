@@ -22,11 +22,18 @@ export const Sidebar = styled.div`
 		height: 74px;
 		bottom: 0;
 	}
+
+	@media screen and ( max-width: 1024px ) {
+		& header,
+		& .user-info {
+		 display: none;
+		}
+	}
 `;
 
 export const Main = styled.main`
 	flex: 1 1 auto;
-	background: ${colors.$background};
+	background: ${colors.$color_grey_light};
 	margin: 0 2%;
 	padding: 40px 0;
 
