@@ -11,8 +11,19 @@ const NoSitesResultContainer = styled.div`
 `;
 
 const NoSitesResultImage = styled.img`
-	max-width: 100%;
+	
+	@media screen and ( max-width: 384px ) { 
+		max-width: 250px;
+	}
+	@media screen and ( min-width: 384px ) { 
+		max-width: 384px
+	}
 	height: auto;
+`;
+
+const NoSitesDivContainer = styled.div`
+	align: middle;
+	margin: 40px 0px 0px 0px; 
 `;
 
 /**
@@ -26,15 +37,17 @@ const NoSitesResultImage = styled.img`
 export default function SitesNoResult( props ) {
 	return (
 		<NoSitesResultContainer>
+			<NoSitesDivContainer>
+				<p>
+					<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
+					{website} in your account.`} values={{ website: <strong>web.site</strong> }}/>
+				</p>
+				<p>
+					<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?"/>
+				</p>
+				<RoundAddButton onClick={ props.onClick } />
+			</NoSitesDivContainer>
 			<NoSitesResultImage src={ SitesNoResults } alt="" />
-			<p>
-				<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
-				{website} in your account.`} values={{ website: <strong>web.site</strong> }}/>
-			</p>
-			<p>
-				<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?"/>
-			</p>
-			<RoundAddButton onClick={ props.onClick } />
 		</NoSitesResultContainer>
 	);
 }
