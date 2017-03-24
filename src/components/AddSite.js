@@ -5,7 +5,7 @@ import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
-import interpolateComponents from "interpolate-components";
+import { addPlaceholderStyles } from "../styles/inputs";
 
 const AddSiteModal = styled.div`
 	
@@ -42,14 +42,14 @@ const AddSiteText = styled.p`
 `;
 
 
-const WebsiteURL = styled.input`
+const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
 	height: 60px;
 	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${ colors.$color_grey };
 	text-indent: 5px;
 	font-size: 14px;
-`;
+` );
 
 const Buttons = styled.div`
 	float: right;
@@ -92,14 +92,6 @@ const NoActiveProductText = styled.span`
 	font-size: 18px;
 `;
 
-// Using interpolate components to make the message translatable.
-const NoActiveProductMessage = interpolateComponents( {
-	mixedString: "It looks like you don't have an active Yoast product on example-site.com yet. " +
-	"We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. " +
-	"If you need help, {{PurpleLink}}read this page.{{/PurpleLink}}",
-	components: { PurpleLink: <PurpleLink href='' /> },
-} );
-
 /**
  * @param {Object} props Component props.
  * @param {Function} props.onCancelClick The function to execute when the cancel button is clicked.
@@ -121,7 +113,16 @@ export default function AddSite( props ) {
         <NoActiveProduct>
 			<NoActiveProductIcon src={ noActiveProductIcon } />
 			<NoActiveProductText id="addSiteInfo">
-				<FormattedMessage id="sites.add-site.no-acitve-product" defaultMessage={NoActiveProductMessage[ 0 ]} />
+				<FormattedMessage
+					id="sites.add-site.no-active-product"
+					defaultMessage={"It looks like you don't have an active Yoast product on " +
+					"example-site.com yet. We cannot connect to your site until you do.Come back" +
+					" here once at least one Yoast plugin is activated. If you need help, {link}"}
+					values={{
+						link: <PurpleLink href="/"><FormattedMessage
+							id="sites.add-site-no-active-product.link"
+							defaultMessage="read this page." /></PurpleLink>,
+					}} />
 			</NoActiveProductText>
 		</NoActiveProduct>
 		<Buttons>
