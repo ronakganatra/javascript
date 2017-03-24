@@ -1,5 +1,5 @@
 exports[`test the site component matches the snapshot 1`] = `
-<li
+<div
   className="cVmsOO">
   <img
     alt=""
@@ -38,5 +38,5 @@ exports[`test the site component matches the snapshot 1`] = `
         role="img" />
     </div>
   </span>
-</li>
+</div>
 `;
