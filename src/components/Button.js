@@ -30,7 +30,7 @@ export const LargeButton = styled( Button )`
 `;
 
 export const GreenButton = styled( Button )`
-	background-color: ${colors.$color_green};
+	background-color: ${colors.$color_green_medium_light};
 `;
 
 export const TextButton = styled( Button )`
