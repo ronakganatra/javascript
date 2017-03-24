@@ -12,7 +12,6 @@ const AddSiteModal = styled.div`
 	margin: auto;
 	min-width: 200px;
 	overflow: auto;
-	font-family: Open Sans;
 	font-weight: 300;
 	font-size: 18px;
 `;
@@ -24,14 +23,12 @@ const AddSiteImage = styled.img`
 `;
 
 const AddSiteHeading = styled.h1`
-	font-family: Open Sans;
 	font-weight: 300;
 	font-size: 30pt;
 	display: inline;
 `;
 
 const AddSiteText = styled.p`
-	font-family: Open Sans;
 	font-weight: 300;
 	font-size: 18px;
 `;
