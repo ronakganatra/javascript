@@ -1,0 +1,63 @@
+exports[`test the SitesNoResult component handling an onclick event 1`] = `
+<div
+  className="ecRrS">
+  <div
+    className="eeylVE">
+    <p>
+      <span>
+        We could not find
+        					
+        <strong>
+          web.site
+        </strong>
+         in your account.
+      </span>
+    </p>
+    <p>
+      <span>
+        Do you want to add it?
+      </span>
+    </p>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <img
+    alt=""
+    className="lROTy"
+    src="SitesNoResults.svg" />
+</div>
+`;
+
+exports[`test the nosites component matches the snapshot 1`] = `
+<div
+  className="ecRrS">
+  <div
+    className="eeylVE">
+    <p>
+      <span>
+        We could not find
+        					
+        <strong>
+          web.site
+        </strong>
+         in your account.
+      </span>
+    </p>
+    <p>
+      <span>
+        Do you want to add it?
+      </span>
+    </p>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <img
+    alt=""
+    className="lROTy"
+    src="SitesNoResults.svg" />
+</div>
+`;
