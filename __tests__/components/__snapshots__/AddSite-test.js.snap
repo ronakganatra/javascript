@@ -1,42 +1,49 @@
 exports[`test The AddSite component matches the snapshot 1`] = `
 <div
-  className="gAGvgI">
+  className="ejHurD">
   <img
     alt="Add Site image"
-    className="kSZYwX"
+    className="jvLWuM"
     src="addsite.svg" />
   <h1
-    className="fTWzqe">
-    Add site
+    className="igfJLe">
+    <span>
+      Add Site
+    </span>
   </h1>
   <p
-    className="dMtWaU">
+    className="kJThGH">
     <label
       htmlFor="addSiteInputField">
-      Please enter the URL of the site you would like to link with your account:
+      <span>
+        Please enter the URL of the site you would like to link with your account:
+      </span>
     </label>
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="bWobFB"
+    className="exCJLn"
     id="addSiteInputField"
     placeholder="example-site.com"
     type="url" />
   <p
-    className="ynjoK">
+    className="hrLjts">
     <img
-      className="hQzuHK"
+      className="bgHTsS"
       src="exclamation-triangle.svg" />
     <span
       className="cBIvfm"
       id="addSiteInfo">
-      It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help,
-      <a
-        className="jWXgwc"
-        href="">
-        read this page
-      </a>
-      .
+      <span>
+        It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. If you need help, 
+        <a
+          className="jWXgwc"
+          href="/">
+          <span>
+            read this page.
+          </span>
+        </a>
+      </span>
     </span>
   </p>
   <div
@@ -45,13 +52,21 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       className="dgFVWH"
       onClick={[Function]}
       type="button">
-       cancel 
+       
+      <span>
+        cancel
+      </span>
+       
     </button>
     <button
       className="dgFVWH"
       onClick={[Function]}
       type="button">
-       link 
+       
+      <span>
+        link
+      </span>
+       
     </button>
   </div>
 </div>

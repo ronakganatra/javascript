@@ -56,6 +56,7 @@ const Buttons = styled.div`
 `;
 
 const NoActiveProduct = styled.p`
+	padding: 5px;
 	width: 100%;
 	background-color: ${colors.$color_yellow};
 	overflow: auto;
