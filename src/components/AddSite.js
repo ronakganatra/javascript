@@ -5,21 +5,29 @@ import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
+import interpolateComponents from "interpolate-components";
 
 const AddSiteModal = styled.div`
-	padding: 40px;
-	width: 640px;
+	
+	max-width: 640px;
 	margin: auto;
 	min-width: 200px;
 	overflow: auto;
 	font-weight: 300;
 	font-size: 18px;
+	
+	@media screen and ( max-width: 720px ) {
+		padding: 40px;
+	}
 `;
 
 const AddSiteImage = styled.img`
 	width: 100%;
-	height: 200px;
-	margin-bottom: 40px;
+		
+	@media screen and ( min-width: 720px ) {
+		padding: 40px;
+		height: 200px;
+	}
 `;
 
 const AddSiteHeading = styled.h1`
@@ -49,10 +57,14 @@ const Buttons = styled.div`
 
 const NoActiveProduct = styled.p`
 	width: 100%;
-	margin: 40px 40px 10px 0px;
-	padding: 40px;
 	background-color: ${colors.$color_yellow};
 	overflow: auto;
+	
+	@media screen and ( min-width: 720px ) {
+		margin: 40px 40px 10px 0px;
+		padding: 40px;
+		clear: both;
+	}
 `;
 
 const PurpleLink = styled.a`
@@ -61,11 +73,17 @@ const PurpleLink = styled.a`
 
 const NoActiveProductIcon = styled.img`
 	width: 15%;
-	float: left;	
 	height: 100%;
 	padding: 20px;
 	text-align: center;
 	vertical-align: middle;
+	float: left;
+	min-width: 75px;
+	margin: auto;
+	
+	@media screen and ( min-width: 720px ) {
+		
+	}
 `;
 
 const NoActiveProductText = styled.span`
@@ -73,6 +91,14 @@ const NoActiveProductText = styled.span`
 	float: left;
 	font-size: 18px;
 `;
+
+// Using interpolate components to make the message translatable.
+const NoActiveProductMessage = interpolateComponents( {
+	mixedString: "It looks like you don't have an active Yoast product on example-site.com yet. " +
+	"We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. " +
+	"If you need help, {{PurpleLink}}read this page.{{/PurpleLink}}",
+	components: { PurpleLink: <PurpleLink href='' /> },
+} );
 
 /**
  * @param {Object} props Component props.
@@ -95,11 +121,7 @@ export default function AddSite( props ) {
         <NoActiveProduct>
 			<NoActiveProductIcon src={ noActiveProductIcon } />
 			<NoActiveProductText id="addSiteInfo">
-				<FormattedMessage id="sites.add-site.no-acitve-product" defaultMessage="
-				It looks like you don't have an active Yoast product on example-site.com yet.
-				We cannot connect to your site until you do.
-				Come back here once at least one Yoast plugin is activated. If you need help," />
-				<PurpleLink href="">read this page</PurpleLink>.
+				<FormattedMessage id="sites.add-site.no-acitve-product" defaultMessage={NoActiveProductMessage[ 0 ]} />
 			</NoActiveProductText>
 		</NoActiveProduct>
 		<Buttons>
