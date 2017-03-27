@@ -33,20 +33,10 @@ export const GreenButton = styled( Button )`
 	background-color: ${colors.$color_green_medium_light};
 `;
 
-export const LogoutButton = styled( Button )`
-	background-color: ${colors.$color_white};
-	color: ${colors.$color_blue};
-	border-radius: 3px;
-	height: 36px;
-	width: 112px;
-	padding: 0;
-`;
-
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 	height: 40px;
-	margin: 5px 10px 5px 5px;
-	border-radius: 8px;
+	margin: 5px 0px 5px 10px;
 `;
 
 TextButton.PropTypes = {
@@ -57,7 +47,16 @@ TextButton.defaultProps = {
 	buttonWidth: "auto",
 };
 
-export const WhiteButton = styled( Button )`
+export const LogoutButton = styled( Button )`
+	background-color: ${colors.$color_white};
+	color: ${colors.$color_blue};
+	border-radius: 3px;
+	height: 36px;
+	width: 112px;
+	padding: 0;
+`;
+
+export const WhiteButton = styled( LargeButton )`
 	color: ${colors.$color_blue};
 	background-color: ${colors.$color_white};
 `;

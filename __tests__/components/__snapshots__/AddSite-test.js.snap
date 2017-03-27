@@ -1,0 +1,73 @@
+exports[`test The AddSite component matches the snapshot 1`] = `
+<div
+  className="ejHurD">
+  <img
+    alt="Add Site image"
+    className="jvLWuM"
+    src="addsite.svg" />
+  <h1
+    className="igfJLe">
+    <span>
+      Add Site
+    </span>
+  </h1>
+  <p
+    className="kJThGH">
+    <label
+      htmlFor="addSiteInputField">
+      <span>
+        Please enter the URL of the site you would like to link with your account:
+      </span>
+    </label>
+  </p>
+  <input
+    aria-describedby="addSiteInfo"
+    className="exCJLn"
+    id="addSiteInputField"
+    placeholder="example-site.com"
+    type="url" />
+  <p
+    className="hrLjts">
+    <img
+      className="bgHTsS"
+      src="exclamation-triangle.svg" />
+    <span
+      className="cBIvfm"
+      id="addSiteInfo">
+      <span>
+        It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. If you need help, 
+        <a
+          className="jWXgwc"
+          href="/">
+          <span>
+            read this page.
+          </span>
+        </a>
+      </span>
+    </span>
+  </p>
+  <div
+    className="jdEMcw">
+    <button
+      className="dgFVWH"
+      onClick={[Function]}
+      type="button">
+       
+      <span>
+        cancel
+      </span>
+       
+    </button>
+    <button
+      className="dgFVWH"
+      onClick={[Function]}
+      type="button">
+       
+      <span>
+        link
+      </span>
+       
+    </button>
+  </div>
+</div>
+`;

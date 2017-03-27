@@ -1,3 +1,7 @@
 {
-  "extends": "yoast"
+  "extends": "yoast",
+  "rules": {
+    "__comment": [ 0, "Max length put on 200 because it is hard to stay under 150 with text strings." ],
+    "max-len": [ 2, 200 ]
+  }
 }
