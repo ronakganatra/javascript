@@ -32,16 +32,41 @@ const MenuItem = styled( NavLink )`
 	font-weight: 300;
 	padding-left: 25px;
 	margin-left: 25px;
-	margin-right: 25px;
+	padding-right: 25px;
 	color: ${colors.$color_background_light};
 	text-decoration: none;
 
 	&.${ activeStyle } {
 		color: ${colors.$color_border};
 		background-color: ${colors.$color_grey_light};
-		box-shadow: inset 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+		box-shadow: inset 12px 0px 6px -10px rgba(0, 0, 0, 0.3);
 		font-weight: 400;
 		color: ${colors.$color_pink_dark};
+		position: relative;
+		overflow-y: hidden;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 5px;
+			position: absolute;
+			left: 0;
+			background: transparent;
+		}
+
+		&:before {
+			border-bottom-right-radius: 20px 10px;
+			top: -5px;
+			box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+		}
+
+		&:after {
+			border-top-right-radius: 20px 10px;
+			bottom: -5px;
+			box-shadow: 0px -1px 8px 0px rgba(0, 0, 0, 0.3);
+		}
 	}
 
 	@media screen and ( max-width: 1024px ) {
@@ -66,6 +91,11 @@ const MenuItem = styled( NavLink )`
 			color: ${colors.$color_white};
 			background-color: transparent;
 			box-shadow: none;
+
+			&:before,
+			&:after {
+				content: none;
+			}
 		}
 	}
 `;
