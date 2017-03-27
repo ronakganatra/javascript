@@ -10,35 +10,37 @@ let responsiveWidthThreshold = 1355;
 
 const SiteSubscription = styled.li`
 	background: ${colors.$color_white};
-	height: 112px;
+	height: 100px;
 	display: flex;
 	padding: 26px 0;
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		justify-content: space-between;
-		height: 170px;
+		height: 150px;
 	}
 `;
 
 const SubscriptionLeftContainer = styled.span`
 	margin: 0 40px;
-	height: 60px;
+	height: 66px;
 	
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
-		flex: 0 0 130px;
+		flex: 0 0 140px;
 	}
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		flex: 0 0 60px;
+		margin: 0 10px;
 	}	
 `;
 
 const SubscriptionLogo = styled.img`
-	width: 60px;
-	height: 60px;
+	width: 66px;
+	height: 66px;
 		
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
 		float: right;
+		margin-top: -9px;
 	}	
 `;
 
@@ -52,15 +54,19 @@ const SubscriptionToggle = styled.span`
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		float: left;
-		margin-left: 15px;
+		margin-top: 5px;
+		margin-left: 20px;
 	}
 `;
 
 const SubscriptionDetails = styled.span`
 	color: ${colors.$color_black};
 	margin: 0 40px 0 0;
-	flex: 1 0 300px;
-
+	flex: 1 1 300px;
+	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		margin: 0 40px 0 10px;
+	}
+	
 `;
 
 const ProductName = styled.span`
@@ -75,6 +81,9 @@ const ProductName = styled.span`
 		height: 60px;
 		line-height: 60px;
 	}
+	@media screen and ( max-width: 350px ) {	
+			font-size: 14px;
+	}
 `;
 
 const SubscriptionUsage = styled.span`
@@ -85,8 +94,9 @@ const SubscriptionUsage = styled.span`
 
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		margin-top: 15px;
-		height: 48px;
+		margin-top: 10px;
+		float: left;
+		height: 20px;
 	}
 `;
 
@@ -105,7 +115,7 @@ const AddOneSlot = styled.button`
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		width: 100%;
-		margin-left: 0;
+		margin-left: 0px;
 	}
 `;
 
