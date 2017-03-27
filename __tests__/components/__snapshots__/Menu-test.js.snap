@@ -1,42 +1,58 @@
 exports[`test the menu matches the snapshot 1`] = `
 <div>
   <nav
-    className="gSLRsn">
+    className="sTjwg">
     <ul
       role="list">
       <li>
         <a
-          className="jzTsLK"
-          href="/subscriptions"
-          onClick={[Function]}
-          style={undefined}>
-          Subscriptions
-        </a>
-      </li>
-      <li>
-        <a
-          className="jzTsLK"
+          className="eKEZTf"
           href="/sites"
           onClick={[Function]}
           style={undefined}>
+          <img
+            alt=""
+            className="ilptYL"
+            src="sites.svg" />
           Sites
         </a>
       </li>
       <li>
         <a
-          className="jzTsLK"
+          className="eKEZTf"
           href="/courses"
           onClick={[Function]}
           style={undefined}>
+          <img
+            alt=""
+            className="ilptYL"
+            src="courses.svg" />
           Courses
         </a>
       </li>
       <li>
         <a
-          className="jzTsLK"
+          className="eKEZTf"
+          href="/subscriptions"
+          onClick={[Function]}
+          style={undefined}>
+          <img
+            alt=""
+            className="ilptYL"
+            src="subscriptions.svg" />
+          Subscriptions
+        </a>
+      </li>
+      <li>
+        <a
+          className="eKEZTf"
           href="/account"
           onClick={[Function]}
           style={undefined}>
+          <img
+            alt=""
+            className="ilptYL"
+            src="user.svg" />
           Account
         </a>
       </li>

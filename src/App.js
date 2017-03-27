@@ -8,9 +8,10 @@ import menuItems from "./config/Menu";
 import { MainMenu, MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
+import DebugInfo from "./components/DebugInfo";
 
 import { Logo } from "./components/Logo";
 
@@ -25,7 +26,7 @@ injectGlobal`
 		font: normal 16px/1.5 "Open Sans", sans-serif;
 		font-size: 1rem;
 		min-height: 100%;
-		background: ${colors.$background};
+		background: ${colors.$color_grey_light};
 	}
 `;
 
@@ -36,6 +37,7 @@ class App extends Component {
 				<Provider store={this.props.store}>
 					<Router>
 						<Layout>
+							<Redirect from='/' to='/sites'/>
 							<Sidebar>
 								<header role="banner">
 									<Logo size="200px" />
@@ -44,6 +46,7 @@ class App extends Component {
 								<MainMenu menuRoutes={ menuItems }  />
 							</Sidebar>
 							<Main>
+								<DebugInfo />
 								<Content>
 									<MainMenuRoutes menuRoutes={ menuItems }  />
 								</Content>

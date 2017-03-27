@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -21,11 +22,18 @@ export const Sidebar = styled.div`
 		height: 74px;
 		bottom: 0;
 	}
+
+	@media screen and ( max-width: 1024px ) {
+		& header,
+		& .user-info {
+		 display: none;
+		}
+	}
 `;
 
 export const Main = styled.main`
 	flex: 1 1 auto;
-	background: ${colors.$background};
+	background: ${colors.$color_grey_light};
 	margin: 0 2%;
 	padding: 40px 0;
 
@@ -39,3 +47,11 @@ export const Content = styled.div`
 	max-width: 1200px;
 	margin: 0 auto;
 `;
+
+Main.propTypes = {
+	id: React.PropTypes.string,
+};
+
+Main.defaultProps = {
+	id: "content",
+};
