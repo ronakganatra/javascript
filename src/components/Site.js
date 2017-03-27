@@ -62,6 +62,7 @@ const SiteSubscriptionsContainer = styled.span`
 	display: inline-flex;
 	align-items: center;
 	flex: 1 0 300px;
+	font-size: 14px;
 	
 	@media screen and ( max-width: 1355px ) {
 		display: none;

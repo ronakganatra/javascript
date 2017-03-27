@@ -1,6 +1,7 @@
 exports[`test the sites component matches the snapshot 1`] = `
 <ul
-  className="jVUVCb">
+  className="Ofmpl"
+  role="list">
   <li
     className="cVmsOO">
     <img
@@ -12,7 +13,7 @@ exports[`test the sites component matches the snapshot 1`] = `
       www.yoast.com
     </span>
     <span
-      className="active-subscriptions ldbUZ">
+      className="active-subscriptions jIDXxQ">
       <span>
         <span
           aria-label="Yoast SEO is inactive"
@@ -52,7 +53,7 @@ exports[`test the sites component matches the snapshot 1`] = `
       www.google.com
     </span>
     <span
-      className="active-subscriptions ldbUZ">
+      className="active-subscriptions jIDXxQ">
       <span>
         <span
           aria-label="Yoast SEO is inactive"
@@ -92,7 +93,7 @@ exports[`test the sites component matches the snapshot 1`] = `
       www.facebook.com
     </span>
     <span
-      className="active-subscriptions ldbUZ">
+      className="active-subscriptions jIDXxQ">
       <span>
         <span
           aria-label="Yoast SEO is inactive"

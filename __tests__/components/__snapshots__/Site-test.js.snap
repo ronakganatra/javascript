@@ -10,7 +10,7 @@ exports[`test the site component matches the snapshot 1`] = `
     yoast.com
   </span>
   <span
-    className="active-subscriptions ldbUZ">
+    className="active-subscriptions jIDXxQ">
     <span>
       <span
         aria-label="Yoast SEO is inactive"

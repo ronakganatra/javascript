@@ -13,28 +13,38 @@ const SitesContainer = styled.ul`
 		background-color: ${colors.$color_background_light};
 }
 
-	li:first-child {
-		& .site-name::before,
-		& .active-subscriptions::before {
-		position: absolute;
-			top: -40px;
-			font-size: 1.125em;
-		line-height: 1.5;
-	}
+	    li {
+        position: relative;
 
-	& .site-name::before {
-		content: "Site";
-				position: absolute;
-			top: -40px;
-	}
+        & .site-name::before,
+        & .active-subscriptions::before {
+            position: absolute;
+            left: -9999em;
+            top: -40px;
+            font-size: 1.286em;
+            line-height: 1.5;
+        }
+    }
 
-	& .active-subscriptions::before {
-		content: "Active subscriptions";
-				position: absolute;
-				top: -40px;
-		}
-  	}
-  `;
+    li:first-child {
+        & .site-name::before,
+        & .active-subscriptions::before {
+            left: auto;
+        }
+    }
+
+    & .site-name::before {
+        content: "Site";
+        position: absolute;
+        top: -40px;
+    }
+
+    & .active-subscriptions::before {
+        content: "Active subscriptions";
+        position: absolute;
+        top: -40px;
+    }
+`;
 
 /**
  * Returns the rendered Sites component.
@@ -46,7 +56,7 @@ const SitesContainer = styled.ul`
  */
 export default function Sites( props ) {
 	return (
-		<SitesContainer>
+		<SitesContainer role="list">
 			{ props.sites.map( function( site ) {
 				return < Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
 							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
@@ -63,5 +73,3 @@ Sites.propTypes = {
 Sites.defaultProps = {
 	sites: [],
 };
-
-
