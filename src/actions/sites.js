@@ -95,7 +95,17 @@ export function linkSite( url ) {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		return fetch( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}` )
+		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}`, {
+			method: "POST",
+			body: JSON.stringify( {
+				url,
+			} ),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
 			.then( handle401 )
 			.then( verifyStatusCode )
 			.then( response => response.json() )
