@@ -48,51 +48,20 @@ export default function Sites( props ) {
 	return (
 		<SitesContainer>
 			{ props.sites.map( function( site ) {
-				return < Site id={ site.id } siteIcon={ site.siteIcon} siteName={ site.siteName }
-							  activeSubscriptions={ site.activeSubscriptions } />;
+				return < Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
+							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
 			} ) }
 		</SitesContainer>
 	);
 }
 
 Sites.propTypes = {
-	sites: React.PropTypes.arrayOf( React.PropTypes.objects ),
-	onClickManage: React.PropTypes.func,
+	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
+	onClick: React.PropTypes.func.isRequired,
 };
 
 Sites.defaultProps = {
-	sites: [
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",
-			siteName: "www.yoast.com",
-			activeSubscriptions: [ "woo", "video" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b954",
-			siteName: "www.google.com",
-			activeSubscriptions: [ "woo", "video", "local" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",
-			siteName: "www.yoast.com",
-			activeSubscriptions: [ "woo", "video" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b954",
-			siteName: "www.google.com",
-			activeSubscriptions: [ "woo", "video", "local" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",
-			siteName: "www.yoast.com",
-			activeSubscriptions: [ "woo", "video" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-		{ id: "7e54b616-59a7-4389-af3e-c2e0c093b954",
-			siteName: "www.google.com",
-			activeSubscriptions: [ "woo", "video", "local" ],
-			siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		},
-	],
+	sites: [],
 };
 
 
