@@ -22,7 +22,7 @@ const Subscription = styled.span`
 	width: 40px;
 	height: 40px;
 	float: left;
-	margin: 0 5px;
+	margin-right: 10px;
 `;
 
 Subscription.propTypes = {
@@ -38,7 +38,7 @@ Subscription.propTypes = {
  */
 export default function Subscriptions( props ) {
 	return (
-		<div>
+		<span>
 			{
 				Object.keys( YoastProducts ).map( function( productName ) {
 					let isActive = props.activeSubscriptions.includes( productName );
@@ -55,7 +55,7 @@ export default function Subscriptions( props ) {
 					);
 				} )
 			}
-		</div>
+		</span>
 	);
 }
 

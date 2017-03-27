@@ -6,7 +6,7 @@ import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
 import { ChevronButton } from "../components/RoundButton.js";
 
-const SiteContainer = styled.div`
+const SiteContainer = styled.li`
 	background-color: ${colors.$color_white};
 	height: 100px;
 	display: flex;
@@ -80,8 +80,8 @@ export default function Site( props ) {
 	return (
 		<SiteContainer>
 			<SiteIcon src={ props.siteIcon } alt="" />
-			<SiteName>{ props.siteName }</SiteName>
-			<SiteSubscriptionsContainer>
+			<SiteName className="site-name">{ props.siteName }</SiteName>
+			<SiteSubscriptionsContainer className="active-subscriptions">
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
 			<MediaQuery query="(min-width: 1356px)">
