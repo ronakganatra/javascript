@@ -12,6 +12,7 @@ test('the nosites component matches the snapshot', () => {
 	expect( tree ).toMatchSnapshot();
 });
 
+
 test('the SitesNoResult component handling an onclick event', () => {
 	const component = createComponentWithIntl(
 		<SitesNoResult onClick={ () => { } } />
@@ -21,7 +22,7 @@ test('the SitesNoResult component handling an onclick event', () => {
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[3].props.onClick();
+	tree.children[0].children[2].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();

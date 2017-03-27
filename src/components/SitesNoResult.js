@@ -12,18 +12,18 @@ const NoSitesResultContainer = styled.div`
 
 const NoSitesResultImage = styled.img`
 	
-	@media screen and ( max-width: 384px ) { 
+	@media screen and ( max-width: 400px ) { 
 		max-width: 250px;
 	}
-	@media screen and ( min-width: 384px ) { 
-		max-width: 384px
+	@media screen and ( min-width: 400px ) { 
+		max-width: 384px;
 	}
 	height: auto;
 `;
 
 const NoSitesDivContainer = styled.div`
-	align: middle;
-	margin: 40px 0px 0px 0px; 
+	align: center;
+	margin: 0px 0px 0px 0px;
 `;
 
 /**
