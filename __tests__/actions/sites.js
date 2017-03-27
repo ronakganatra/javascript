@@ -11,6 +11,16 @@ jest.mock( "../../src/functions/auth", () => {
 
 jest.mock( "whatwg-fetch" );
 
+let expectedRequest = new Request( getApiUrl() + "/MyYoastUsers/10/sites/?access_token=access", {
+	method: "POST",
+	body: JSON.stringify( {
+		url: "http://yoast.com",
+	} ),
+	headers: {
+		"Content-Type": "application/json",
+	},
+} );
+
 test( 'opening link site pop-up action creator', () => {
 	const expected = {
 		type: actions.LINK_SITE_POPUP_OPEN,
@@ -92,7 +102,7 @@ test( 'link site action action creator with success', () => {
 
 	const dispatch = jest.fn();
 
-	const linkSiteFunc = actions.linkSite( "http://www.yoast.com" );
+	const linkSiteFunc = actions.linkSite( "http://yoast.com" );
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
@@ -104,8 +114,8 @@ test( 'link site action action creator with success', () => {
 	};
 
 	return linkSiteFunc( dispatch ).then( () => {
-		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest( "http://www.yoast.com" ) );
-		 expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/MyYoastUsers/10/sites/?access_token=access" );
+		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest( "http://yoast.com" ) );
+		 expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
 		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteSuccess( site ) );
 	} );
 } );
@@ -126,13 +136,13 @@ test( 'link site action action creator with failure', () => {
 
 	const dispatch = jest.fn();
 
-	const linkSiteFunc = actions.linkSite( );
+	const linkSiteFunc = actions.linkSite( "http://yoast.com" );
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
 	return linkSiteFunc( dispatch ).then( () => {
-		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest(  ) );
-		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/MyYoastUsers/10/sites/?access_token=access" );
+		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest( "http://yoast.com" ) );
+		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
 		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Duplicate entry for Site.id" ) );
 	} );
 } );
