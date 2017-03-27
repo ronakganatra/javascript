@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "yoast-components/style-guide/colors.json";
 
 /**
  * Adds input placeholder styles to a component
@@ -9,16 +10,16 @@ import styled from "styled-components";
 export function addPlaceholderStyles( component ) {
 	return styled( component )`
 		&::-webkit-input-placeholder {
-			color: #646464;
+			color: ${colors.$color_grey_text};
 		}
 		
 		&::-moz-placeholder {
-			color: #646464;
+			color: ${colors.$color_grey_text};
 			opacity: 1;
 		}
 		
 		&:-ms-input-placeholder {
-			color: #646464;
+			color: ${colors.$color_grey_text};
 		}
 	`;
 }

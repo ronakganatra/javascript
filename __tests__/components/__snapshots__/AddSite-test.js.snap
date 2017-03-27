@@ -1,18 +1,18 @@
 exports[`test The AddSite component matches the snapshot 1`] = `
 <div
-  className="ejHurD">
+  className="eFHXEs">
   <img
-    alt="Add Site image"
-    className="jvLWuM"
+    alt=""
+    className="kUsPTP"
     src="addsite.svg" />
   <h1
-    className="igfJLe">
+    className="bYuvwO">
     <span>
       Add Site
     </span>
   </h1>
   <p
-    className="kJThGH">
+    className="glrMsz">
     <label
       htmlFor="addSiteInputField">
       <span>
@@ -22,17 +22,18 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="exCJLn"
+    className="iUjitK"
     id="addSiteInputField"
     placeholder="example-site.com"
     type="url" />
   <p
-    className="hrLjts">
+    className="hPUMSo">
     <img
-      className="bgHTsS"
+      alt=""
+      className="gQNWCB"
       src="exclamation-triangle.svg" />
     <span
-      className="cBIvfm"
+      className="dvtOGe"
       id="addSiteInfo">
       <span>
         It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. If you need help, 
@@ -52,21 +53,17 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       className="dgFVWH"
       onClick={[Function]}
       type="button">
-       
       <span>
         cancel
       </span>
-       
     </button>
     <button
       className="dgFVWH"
       onClick={[Function]}
       type="button">
-       
       <span>
         link
       </span>
-       
     </button>
   </div>
 </div>
