@@ -1,4 +1,5 @@
 import * as actions from "../../src/actions/user";
+import { getApiUrl } from "../../src/functions/api";
 
 jest.mock( "whatwg-fetch" );
 
@@ -68,7 +69,7 @@ test( 'fetch user action creator', () => {
 
 	return fetchUserFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.requestUser() );
-		expect( global.fetch ).toHaveBeenCalledWith( "http://localhost:3000/api/MyYoastUsers/5?access_token=AccessToken" );
+		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/MyYoastUsers/5?access_token=AccessToken" );
 		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( "User data" ) );
 	} );
 } );

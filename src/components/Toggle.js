@@ -10,14 +10,13 @@ const ToggleBar = styled.div`
 	cursor: pointer;
 	margin: 0;
 	outline: 0;
-	/* Experimental focus style. Might need rgba colors from yoast-components or a style-utils re-usable function. */
 	&:focus > span {
 		box-shadow: inset 0 0 0 1px ${colors.$color_white}, 0 0 0 1px #5b9dd9, 0 0 2px 1px rgba(30, 140, 190, .8);
 	}
 `;
 
 const ToggleBullet = styled.span`
-	background-color: ${ props => props.isEnabled ? colors.$color_blue : colors.$color_chevron }
+	background-color: ${ props => props.isEnabled ? colors.$color_blue : colors.$color_grey_medium_dark }
 	margin-left: ${ props => props.isEnabled ? "12px" : "-2px" }
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 100%;

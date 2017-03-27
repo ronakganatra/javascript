@@ -1,7 +1,7 @@
 exports[`test the round back button matches the snapshot 1`] = `
 <button
   aria-label="Back"
-  className="doDlsf">
+  className="ugnwF">
   ButtonValue
 </button>
 `;
@@ -9,7 +9,7 @@ exports[`test the round back button matches the snapshot 1`] = `
 exports[`test the round back button with button type given matches the snapshot 1`] = `
 <button
   aria-label="Back"
-  className="doDlsf"
+  className="ugnwF"
   type="button">
   ButtonValue
 </button>

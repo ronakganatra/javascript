@@ -1,23 +1,19 @@
 import React from "react";
-
 import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
 import colors from "yoast-components/style-guide/colors.json";
 
-const UserInfoContainer = styled.div`
+const UserInfoContainer = styled.aside`
 	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	margin: 0 auto;
-	padding-bottom: 20px;
+	margin-left: 50px;
+	padding-bottom: 60px;
 `;
 
 const UserImage = styled.img`
-	height: ${ props => props.size }
-	width: ${ props => props.size }
+	flex: 0 0 ${ props => props.size };
+	height: ${ props => props.size };
 	border-radius: 50%;
-	margin-right: 10px;
+	margin-right: 12px;
 `;
 
 UserImage.propTypes = {
@@ -31,16 +27,16 @@ UserImage.defaultProps = {
 };
 
 const UserInfo = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-left: 10px;
 `;
 
-const UserName = styled.div`
+const UserName = styled.p`
 	color: ${colors.$color_white};
-	margin-bottom: 10px;
+	margin: 0 12px 10px 0;
 	font-size: 14px;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-word;
 `;
 
 /**
@@ -51,7 +47,7 @@ const UserName = styled.div`
  * @returns {ReactElement} A react component.
  */
 export default function UserProfile( props ) {
-	return <UserInfoContainer>
+	return <UserInfoContainer className="user-info">
 		<UserImage {...props.displayImage} />
 		<UserInfo>
 			<UserName>{ props.displayName }</UserName>
@@ -70,6 +66,7 @@ UserProfile.propTypes = {
 	} ),
 	onLogoutClick: React.PropTypes.func.isRequired,
 	loggedIn: React.PropTypes.bool,
+	className: React.PropTypes.string,
 };
 
 UserProfile.defaultProps = {
@@ -80,4 +77,5 @@ UserProfile.defaultProps = {
 	},
 	displayName: "",
 	loggedIn: false,
+	className: "",
 };
