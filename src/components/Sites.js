@@ -18,7 +18,7 @@ const SitesContainer = styled.ul`
 		& .active-subscriptions::before {
 		position: absolute;
 			top: -40px;
-			font-size: 18px;
+			font-size: 1.125em;
 		line-height: 1.5;
 	}
 
