@@ -58,7 +58,7 @@ const NoActiveProduct = styled.p`
 	
 	@media screen and ( max-width: 720px ) {
 		flex-direction: column;
-		text-align: center;
+		text-align: left;
 	}
 `;
 
@@ -70,7 +70,6 @@ const NoActiveProductIcon = styled.img`
 	display: flex;
 	
 	@media screen and ( max-width: 720px ) {
-		margin: 0 0 10px;
 		padding: 10px;
 	}
 `;
