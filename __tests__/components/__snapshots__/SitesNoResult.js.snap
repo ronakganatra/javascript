@@ -1,23 +1,22 @@
 exports[`test the SitesNoResult component handling an onclick event 1`] = `
 <div
-  className="ecRrS">
-  <div
-    className="djdIlr">
-    <p>
-      <span>
-        We could not find
-        					
-        <strong>
-          web.site
-        </strong>
-         in your account.
-      </span>
-    </p>
-    <p>
-      <span>
-        Do you want to add it?
-      </span>
-    </p>
+  className="kgXqrM">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
     <button
       aria-label="Add"
       className="hTtZiN"
@@ -25,31 +24,30 @@ exports[`test the SitesNoResult component handling an onclick event 1`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="cEpmXf"
     src="SitesNoResults.svg" />
 </div>
 `;
 
 exports[`test the SitesNoResult component handling an onclick event 2`] = `
 <div
-  className="ecRrS">
-  <div
-    className="djdIlr">
-    <p>
-      <span>
-        We could not find
-        					
-        <strong>
-          web.site
-        </strong>
-         in your account.
-      </span>
-    </p>
-    <p>
-      <span>
-        Do you want to add it?
-      </span>
-    </p>
+  className="kgXqrM">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
     <button
       aria-label="Add"
       className="hTtZiN"
@@ -57,31 +55,30 @@ exports[`test the SitesNoResult component handling an onclick event 2`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="cEpmXf"
     src="SitesNoResults.svg" />
 </div>
 `;
 
 exports[`test the nosites component matches the snapshot 1`] = `
 <div
-  className="ecRrS">
-  <div
-    className="djdIlr">
-    <p>
-      <span>
-        We could not find
-        					
-        <strong>
-          web.site
-        </strong>
-         in your account.
-      </span>
-    </p>
-    <p>
-      <span>
-        Do you want to add it?
-      </span>
-    </p>
+  className="kgXqrM">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
     <button
       aria-label="Add"
       className="hTtZiN"
@@ -89,7 +86,7 @@ exports[`test the nosites component matches the snapshot 1`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="cEpmXf"
     src="SitesNoResults.svg" />
 </div>
 `;

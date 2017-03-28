@@ -6,24 +6,22 @@ import { FormattedMessage } from "react-intl";
 import SitesNoResults from "../images/SitesNoResults.svg";
 
 const NoSitesResultContainer = styled.div`
-	color: ${colors.$color_black};
+	color: ${ colors.$color_black };
 	text-align: center;
+	align: center;
+	margin: 0;
+	
 `;
 
 const NoSitesResultImage = styled.img`
-	
+	height: auto;
+		
 	@media screen and ( max-width: 400px ) { 
 		max-width: 250px;
 	}
 	@media screen and ( min-width: 400px ) { 
 		max-width: 384px;
 	}
-	height: auto;
-`;
-
-const NoSitesDivContainer = styled.div`
-	align: center;
-	margin: 0px 0px 0px 0px;
 `;
 
 /**
@@ -32,21 +30,20 @@ const NoSitesDivContainer = styled.div`
  * @param {Object} props The props to use.
  *
  * @returns {ReactElement} The rendered component.
- * @constructor
  */
 export default function SitesNoResult( props ) {
 	return (
 		<NoSitesResultContainer>
-			<NoSitesDivContainer>
-				<p>
-					<FormattedMessage id="sites.no-site.notfound" defaultMessage={`We could not find
-					{website} in your account.`} values={{ website: <strong>web.site</strong> }}/>
-				</p>
-				<p>
-					<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?"/>
-				</p>
+			<p>
+				<FormattedMessage id="sites.no-site.notfound" defaultMessage={ `We could not find
+					{ website } in your account.` } values={ { website: <strong>web.site</strong> } } />
+			</p>
+			<p>
+				<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?" />
+			</p>
+			<div>
 				<RoundAddButton onClick={ props.onClick } />
-			</NoSitesDivContainer>
+			</div>
 			<NoSitesResultImage src={ SitesNoResults } alt="" />
 		</NoSitesResultContainer>
 	);

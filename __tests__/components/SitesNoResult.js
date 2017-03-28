@@ -22,7 +22,7 @@ test('the SitesNoResult component handling an onclick event', () => {
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[2].props.onClick();
+	tree.children[2].children[0].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
