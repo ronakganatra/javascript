@@ -9,7 +9,7 @@ import chevronRight from "../icons/chevron-right.svg";
 import plus from "../icons/plus.svg";
 
 export const RoundButton = styled.button`
-	background-color: ${colors.$color_green};
+	background-color: ${colors.$color_green_medium_light};
 	background-repeat: no-repeat;
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border: 0;
