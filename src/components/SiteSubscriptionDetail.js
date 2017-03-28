@@ -15,9 +15,10 @@ const SiteSubscription = styled.li`
 	padding: 26px 0;
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		justify-content: space-between;
 		height: 150px;
-	}
+		text-overflow: hidden;
+		padding: 13px 0;
+	}	
 `;
 
 const SubscriptionLeftContainer = styled.span`
@@ -59,14 +60,16 @@ const SubscriptionToggle = styled.span`
 	}
 `;
 
-const SubscriptionDetails = styled.span`
+const SubscriptionDetails = styled.div`
 	color: ${colors.$color_black};
 	margin: 0 40px 0 0;
-	flex: 1 1 300px;
+	flex: 1 1;
+	overflow: hidden;
+	max-width: 100%;
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		margin: 0 40px 0 10px;
+		margin: 0 10px 0 10px;
+		heigth: 150px;
 	}
-	
 `;
 
 const ProductName = styled.span`
@@ -83,6 +86,7 @@ const ProductName = styled.span`
 	}
 	@media screen and ( max-width: 350px ) {	
 			font-size: 14px;
+			text-overflow: hidden;
 	}
 `;
 
@@ -91,12 +95,15 @@ const SubscriptionUsage = styled.span`
 	font-weight: 300;
 	font-style: italic;
 	clear: left;
-
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		margin-top: 10px;
 		float: left;
 		height: 20px;
+		overflow: hidden;
+		max-width: 100%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 `;
 
@@ -116,11 +123,14 @@ const AddOneSlot = styled.button`
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		width: 100%;
 		margin-left: 0px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 `;
 
 const Buttons = styled.span`
-	margin: 6px 40px 6px 0;
+	margin: 0 40px 6px 0;
 
 	button:last-child {
 		margin-left: 40px;
