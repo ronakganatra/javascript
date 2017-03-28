@@ -25,7 +25,7 @@ const initialState = {
  * @param {Object} action The action that just occured.
  * @returns {Object} The new state for the store.
  */
-export default function userReducer( state = initialState, action ) {
+export function userReducer( state = initialState, action ) {
 	switch ( action.type ) {
 		case LOGIN:
 			return Object.assign( {}, state, {
@@ -56,3 +56,5 @@ export default function userReducer( state = initialState, action ) {
 			return state;
 	}
 }
+
+export default userReducer;
