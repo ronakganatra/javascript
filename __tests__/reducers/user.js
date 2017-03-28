@@ -70,7 +70,6 @@ test( 'the fetch user request success action', () => {
 		data: {
 			someData: "data",
 		},
-		profile: {},
 	};
 
 	const actual = userReducer( input, action );
