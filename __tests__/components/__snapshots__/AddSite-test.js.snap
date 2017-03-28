@@ -1,6 +1,6 @@
 exports[`test The AddSite component matches the snapshot 1`] = `
 <div
-  className="eFHXEs">
+  className="WUMSu">
   <img
     alt=""
     className="kUsPTP"
@@ -22,15 +22,15 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="iUjitK"
+    className="fZParA"
     id="addSiteInputField"
     placeholder="example-site.com"
     type="url" />
   <p
-    className="hPUMSo">
+    className="copsBa">
     <img
       alt=""
-      className="gQNWCB"
+      className="cEdiVB"
       src="exclamation-triangle.svg" />
     <span
       className="dvtOGe"

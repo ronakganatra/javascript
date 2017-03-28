@@ -11,6 +11,7 @@ const NoSitesResultContainer = styled.div`
 `;
 
 const NoSitesResultImage = styled.img`
+	height: auto;
 	
 	@media screen and ( max-width: 400px ) { 
 		max-width: 250px;
@@ -18,7 +19,6 @@ const NoSitesResultImage = styled.img`
 	@media screen and ( min-width: 400px ) { 
 		max-width: 384px;
 	}
-	height: auto;
 `;
 
 const NoSitesDivContainer = styled.div`

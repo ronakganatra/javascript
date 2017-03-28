@@ -25,7 +25,7 @@ exports[`test the SitesNoResult component handling an onclick event 1`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="hwMRuz"
     src="SitesNoResults.svg" />
 </div>
 `;
@@ -57,7 +57,7 @@ exports[`test the SitesNoResult component handling an onclick event 2`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="hwMRuz"
     src="SitesNoResults.svg" />
 </div>
 `;
@@ -89,7 +89,7 @@ exports[`test the nosites component matches the snapshot 1`] = `
   </div>
   <img
     alt=""
-    className="dAwXmU"
+    className="hwMRuz"
     src="SitesNoResults.svg" />
 </div>
 `;
