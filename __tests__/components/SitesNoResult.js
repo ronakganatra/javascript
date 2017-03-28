@@ -10,7 +10,7 @@ test('the nosites component matches the snapshot', () => {
 
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
-});
+} );
 
 
 test('the SitesNoResult component handling an onclick event', () => {
@@ -27,4 +27,4 @@ test('the SitesNoResult component handling an onclick event', () => {
 	// re-rendering
 	tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
-});
+} );
