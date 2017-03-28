@@ -2,6 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Site from "./Site";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
+
+const messages = defineMessages( {
+	site: {
+		id: "sites.overview.site",
+		defaultMessage: "Site",
+	},
+	activeSubscriptions: {
+		id: "sites.overview.subscriptions",
+		defaultMessage: "Active subscriptions",
+	},
+} );
 
 const SitesContainer = styled.ul`
 	margin: 50px 0 0 0;
@@ -34,13 +46,13 @@ const SitesContainer = styled.ul`
     }
 
     & .site-name::before {
-        content: "Site";
+        content: "${props => props.site}";
         position: absolute;
         top: -40px;
     }
 
     & .active-subscriptions::before {
-        content: "Active subscriptions";
+        content: "${props => props.activeSubscriptions}";
         position: absolute;
         top: -40px;
     }
@@ -54,9 +66,10 @@ const SitesContainer = styled.ul`
  * @returns {ReactElement} The rendered Sites component.
  * @constructor
  */
-export default function Sites( props ) {
+function Sites( props ) {
 	return (
-		<SitesContainer role="list">
+		<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
+						activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
 			{ props.sites.map( function( site ) {
 				return < Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
 							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
@@ -65,9 +78,12 @@ export default function Sites( props ) {
 	);
 }
 
+export default injectIntl( Sites );
+
 Sites.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onClick: React.PropTypes.func.isRequired,
+	intl: intlShape.isRequired,
 };
 
 Sites.defaultProps = {
