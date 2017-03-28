@@ -138,4 +138,3 @@ AddSite.propTypes = {
 	onLinkClick: React.PropTypes.func.isRequired,
 };
 
-
