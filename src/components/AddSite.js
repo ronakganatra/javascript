@@ -20,10 +20,6 @@ const AddSiteModal = styled.div`
 const AddSiteImage = styled.img`
 	width: 100%;
 	padding: 20px;
-	
-	@media screen and ( min-width: 720px ) {
-		padding: 40px;
-	}
 `;
 
 const AddSiteHeading = styled.h1`
