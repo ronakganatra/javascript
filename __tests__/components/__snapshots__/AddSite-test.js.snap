@@ -3,7 +3,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   className="WUMSu">
   <img
     alt=""
-    className="kUsPTP"
+    className="kcGQZf"
     src="addsite.svg" />
   <h1
     className="bYuvwO">
@@ -36,7 +36,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       className="dvtOGe"
       id="addSiteInfo">
       <span>
-        It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do.Come back here once at least one Yoast plugin is activated. If you need help, 
+        It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
         <a
           className="jWXgwc"
           href="/">

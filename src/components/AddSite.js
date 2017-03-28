@@ -23,7 +23,6 @@ const AddSiteImage = styled.img`
 	
 	@media screen and ( min-width: 720px ) {
 		padding: 40px;
-		height: 200px;
 	}
 `;
 
@@ -112,7 +111,7 @@ export default function AddSite( props ) {
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
 						defaultMessage={"It looks like you don't have an active Yoast product on " +
-						"example-site.com yet. We cannot connect to your site until you do.Come back" +
+						"example-site.com yet. We cannot connect to your site until you do. Come back" +
 						" here once at least one Yoast plugin is activated. If you need help, {link}"}
 						values={{
 							link: <PurpleLink href="/"><FormattedMessage
