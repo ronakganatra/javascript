@@ -10,7 +10,6 @@ const NoSitesResultContainer = styled.div`
 	text-align: center;
 	align: center;
 	margin: 0;
-	
 `;
 
 const NoSitesResultImage = styled.img`
