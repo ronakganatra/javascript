@@ -1,6 +1,6 @@
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -28,31 +28,31 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -80,31 +80,31 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -132,31 +132,31 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -184,31 +184,31 @@ exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -236,31 +236,31 @@ exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 1`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -288,31 +288,31 @@ exports[`test the sitesubscription onSettingsClick handling 1`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 2`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -340,31 +340,31 @@ exports[`test the sitesubscription onSettingsClick handling 2`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 1`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -392,31 +392,31 @@ exports[`test the sitesubscription onToggleSubscription handling 1`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 2`] = `
 <li
-  className="bQmrUj">
+  className="cFWmaW">
   <span
     className="ifUQbH">
     <img
@@ -444,24 +444,24 @@ exports[`test the sitesubscription onToggleSubscription handling 2`] = `
       </div>
     </span>
   </span>
-  <span
-    className="jDJkUO">
+  <div
+    className="jSArqe">
     <span
-      className="yUSON">
+      className="cCWqZS">
       Productname
     </span>
     <span
-      className="cGNQnX">
+      className="fmqwLK">
       6
        / 
       20
        remaining
     </span>
     <button
-      className="kOwkkL"
+      className="lkKvjP"
       onClick={[Function]}>
       Add more slots for $69
     </button>
-  </span>
+  </div>
 </li>
 `;
