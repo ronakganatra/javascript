@@ -1,6 +1,6 @@
 exports[`test the SitesNoResult component handling an onclick event 1`] = `
 <div
-  className="kgXqrM">
+  className="hqmxmg">
   <p>
     <span>
       We could not find
@@ -31,7 +31,7 @@ exports[`test the SitesNoResult component handling an onclick event 1`] = `
 
 exports[`test the SitesNoResult component handling an onclick event 2`] = `
 <div
-  className="kgXqrM">
+  className="hqmxmg">
   <p>
     <span>
       We could not find
@@ -62,7 +62,7 @@ exports[`test the SitesNoResult component handling an onclick event 2`] = `
 
 exports[`test the nosites component matches the snapshot 1`] = `
 <div
-  className="kgXqrM">
+  className="hqmxmg">
   <p>
     <span>
       We could not find
