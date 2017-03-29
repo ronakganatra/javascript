@@ -29,21 +29,3 @@ test('the sites component matches the snapshot', () => {
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
-
-/*
-test('the manage button handling an onclick event', () => {
-	const component = shallow(
-		<Sites onClick={ ( sitesId ) => {
-			return sitesId;
-		} } sites={[
-			{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",
-				siteName: "www.yoast.com",
-				activeSubscriptions: [ "woo", "video" ],
-				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-			},
-		] } />
-	);
-
-	expect( component.props().children[0].props.onClickManage() ).toEqual( "7e54b616-59a7-4389-af3e-c2e0c093b955" );
-});
-*/
