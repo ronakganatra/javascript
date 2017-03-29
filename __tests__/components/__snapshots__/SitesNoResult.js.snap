@@ -1,0 +1,92 @@
+exports[`test the SitesNoResult component handling an onclick event 1`] = `
+<div
+  className="hqmxmg">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <img
+    alt=""
+    className="cEpmXf"
+    src="SitesNoResults.svg" />
+</div>
+`;
+
+exports[`test the SitesNoResult component handling an onclick event 2`] = `
+<div
+  className="hqmxmg">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <img
+    alt=""
+    className="cEpmXf"
+    src="SitesNoResults.svg" />
+</div>
+`;
+
+exports[`test the nosites component matches the snapshot 1`] = `
+<div
+  className="hqmxmg">
+  <p>
+    <span>
+      We could not find
+      					
+      <strong>
+        web.site
+      </strong>
+       in your account.
+    </span>
+  </p>
+  <p>
+    <span>
+      Do you want to add it?
+    </span>
+  </p>
+  <div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <img
+    alt=""
+    className="cEpmXf"
+    src="SitesNoResults.svg" />
+</div>
+`;
