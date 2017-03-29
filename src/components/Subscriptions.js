@@ -36,7 +36,7 @@ Subscription.propTypes = {
  * @param {Object} props The props to use.
  * @returns {XML} The rendered Subscriptions component.
  */
-export default function Subscriptions( props ) {
+export default function SubscriptionIcons( props ) {
 	return (
 		<div>
 			{
@@ -45,7 +45,7 @@ export default function Subscriptions( props ) {
 					let product = YoastProducts[ productName ];
 
 					return (
-						<Subscription
+						<SubscriptionIcons
 							key={ productName }
 							image={ product.image }
 							isActive={ isActive }
@@ -59,10 +59,10 @@ export default function Subscriptions( props ) {
 	);
 }
 
-Subscriptions.propTypes = {
+SubscriptionIcons.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
 };
 
-Subscriptions.defaultProps = {
+SubscriptionIcons.defaultProps = {
 	activeSubscriptions: [],
 };

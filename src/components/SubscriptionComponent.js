@@ -5,18 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
 import Subscriptions from "../components/Subscriptions.js";
 import { ChevronButton } from "../components/RoundButton.js";
-
-const SiteContainer = styled.li`
-	background-color: ${colors.$color_white};
-	height: 100px;
-	display: flex;
-	padding-right: 40px;
-	align-items: center;
-	
-	@media screen and ( max-width: 1355px ) {
-		justify-content: space-between;
-	}
-`;
+import Table from "./Tables";
 
 const SiteIcon = styled.img`
 	height: 48px;
@@ -56,7 +45,7 @@ const SiteName = styled.span`
 	}
 `;
 
-const SiteSubscriptionsContainer = styled.span`
+const Icon = styled.Column(Icon)`
 	height: 60px;
 	line-height: 60px;
 	display: inline-flex;
@@ -78,20 +67,15 @@ const SiteSubscriptionsContainer = styled.span`
  */
 export default function Site( props ) {
 	return (
-		<SiteContainer>
-			<ColumnIcon icon={<SiteIcon src={ props.siteIcon } alt="" />}/>
-
-			<SiteName>{ props.siteName }</SiteName>
-			<SiteSubscriptionsContainer>
-				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
-			</SiteSubscriptionsContainer>
-			<MediaQuery query="(min-width: 1356px)">
-				<LargeButton onClick={ props.onClickManage }>Manage</LargeButton>
-			</MediaQuery>
-			<MediaQuery query="(max-width: 1355px)">
-				<ChevronButton aria-label="Manage" onClick={ props.onClickManage } />
-			</MediaQuery>
-		</SiteContainer>
+		<Table>
+			<Row>
+				<Columns>
+					<Icon />
+					<Column />
+					<Column />
+				</Columns>
+			</Row>
+		</Table>
 	);
 }
 
