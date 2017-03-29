@@ -6,10 +6,10 @@ exports[`test the menu matches the snapshot 1`] = `
       role="list">
       <li>
         <a
-          className="eKEZTf"
+          className="active-class-name eKEZTf"
           href="/sites"
           onClick={[Function]}
-          style={undefined}>
+          style={Object {}}>
           <img
             alt=""
             className="ilptYL"
