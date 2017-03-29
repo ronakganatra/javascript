@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Redirect } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
+import AddSiteModal from "./components/AddSiteModal";
 
 import { Logo } from "./components/Logo";
 
@@ -35,7 +36,42 @@ injectGlobal`
 `;
 
 class App extends Component {
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			modalOpen: true,
+		};
+
+		this.openModal = this.openModal.bind( this );
+		this.closeModal = this.closeModal.bind( this );
+		this.link = this.link.bind( this );
+	}
+
+	openModal() {
+		this.setState( {
+			modalOpen: true,
+		} );
+	}
+
+	closeModal() {
+		console.log( "Closing" );
+
+		this.setState( {
+			modalOpen: false,
+		} );
+	}
+
+	link() {
+		console.log( "Linking (and closing)" );
+
+		this.setState( {
+			modalOpen: false,
+		} );
+	}
+
 	render() {
+		console.log( "Modal open: " + this.state.modalOpen );
 		return (
 			<IntlProvider locale="en">
 				<Provider store={this.props.store}>
@@ -53,6 +89,12 @@ class App extends Component {
 								<DebugInfo />
 								<Content>
 									<MainMenuRoutes menuRoutes={ menuItems }  />
+									<button onClick={ () => {
+										this.openModal();
+									} }>
+										Gandalf! Give me a modal!
+									</button>
+									<AddSiteModal onClose={ this.closeModal } onLink={ this.link } isOpen={ this.state.modalOpen } />
 								</Content>
 							</Main>
 						</Layout>
@@ -60,6 +102,13 @@ class App extends Component {
 				</Provider>
 			</IntlProvider>
 		);
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		this.setState( {
+			modalOpen: true,
+		} );
+		// }
 	}
 }
 
