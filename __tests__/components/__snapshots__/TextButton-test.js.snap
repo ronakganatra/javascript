@@ -1,0 +1,6 @@
+exports[`test the text button matches the snapshot 1`] = `
+<button
+  className="ewTAVH">
+  ButtonValue
+</button>
+`;
