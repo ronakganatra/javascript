@@ -1,6 +1,6 @@
 exports[`test the sites component matches the snapshot 1`] = `
 <ul
-  className="Ofmpl"
+  className="blFOOl"
   role="list">
   <li
     className="cVmsOO">

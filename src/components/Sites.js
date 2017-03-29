@@ -20,22 +20,22 @@ const SitesContainer = styled.ul`
 	padding: 0;
 	list-style: none;
 	position: relative;
-	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	li:nth-child(even) {
 		background-color: ${colors.$color_background_light};
-}
+	}
 
-	    li {
-        position: relative;
-
-        & .site-name::before,
-        & .active-subscriptions::before {
-            position: absolute;
-            left: -9999em;
-            top: -40px;
-            font-size: 1.286em;
-            line-height: 1.5;
-        }
+	li {
+		position: relative;
+	
+		& .site-name::before,
+		& .active-subscriptions::before {
+			position: absolute;
+			left: -9999em;
+			top: -40px;
+			font-size: 1.286em;
+			line-height: 1.5;
+		}
     }
 
     li:first-child {
@@ -64,7 +64,6 @@ const SitesContainer = styled.ul`
  * @param {Object} props The props to use.
  *
  * @returns {ReactElement} The rendered Sites component.
- * @constructor
  */
 function Sites( props ) {
 	return (
