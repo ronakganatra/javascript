@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import colors from "yoast-components/style-guide/colors.json";
 
 const TableStyle = styled.ul`
 	display: flex;
@@ -118,7 +119,7 @@ Columns.propTypes = {
 export function Column( props ) {
 	return (
 		<ColumnStyle>
-			test{props.children}
+			{props.children}
 		</ColumnStyle>
 	);
 }
@@ -149,4 +150,29 @@ export function HeadingColumn( props ) {
 
 HeadingColumn.propTypes = {
 	children: React.PropTypes.any,
+};
+
+/**
+ * Returns the rendered Table component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered Table component.
+ * @constructor
+ */
+export function Zebra( props ) {
+	let zebraProps = Object.assign( {}, ...props );
+	zebraProps.children = props.children.map( ( child, key ) => {
+		return React.cloneElement( child, {
+			background: ( key % 2 === 0 ) ? colors.$palette_white : colors.$palette_grey_light,
+		} );
+	} );
+
+	return (
+		<span { ...zebraProps }/>
+	);
+}
+
+Zebra.propTypes = {
+	children: React.PropTypes.array,
 };
