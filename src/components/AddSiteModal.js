@@ -1,8 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
-import { LargeButton } from "../components/Button";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import AddSite from "../components/AddSite";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
@@ -19,41 +19,8 @@ Modal.setAppElement( "#root" );
 
 class BaseAddSiteModal extends React.Component {
 
-	/**
-	 * Sets the BaseAddSiteModal object.
-	 *
-	 * @param {Object} props The props to use.
-	 *
-	 * @returns {void}
-	 */
 	constructor( props ) {
 		super( props );
-
-		this.state = {
-			// addSitePopupOpen: this.props.addSitePopupOpen,
-			addSitePopupOpen: false,
-		};
-
-		this.openModal = this.openModal.bind( this );
-		this.closeModal = this.closeModal.bind( this );
-	}
-
-	/**
-	 * Sets the modal state to open.
-	 *
-	 * @returns {void}
-	 */
-	openModal() {
-		this.setState( { addSitePopupOpen: true } );
-	}
-
-	/**
-	 * Sets the modal state to close.
-	 *
-	 * @returns {void}
-	 */
-	closeModal() {
-		this.setState( { addSitePopupOpen: false } );
 	}
 
 	/**
@@ -65,39 +32,20 @@ class BaseAddSiteModal extends React.Component {
 		return (
 			<div>
 				<Modal
-					isOpen={ this.state.addSitePopupOpen }
-					onRequestClose={ this.closeModal }
+					isOpen={ this.props.isOpen }
+					onRequestClose={ this.props.onClose }
 					role="dialog"
 					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<h1 ref="subtitle">Hello</h1>
-					<button type="button" onClick={ this.closeModal }>Close</button>
-					<form>
-						<label htmlFor="addinput">Please enter the URL of the site you would like to link with your account</label>
-						<input id="addinput" />
-						<button type="button">tab navigation</button>
-						<button type="button">stays</button>
-						<button type="button">inside</button>
-						<button type="button">the modal</button>
-						<div className="my-yoast-modal__actions">
-							<LargeButton>Cancel</LargeButton>
-							<LargeButton>Link</LargeButton>
-						</div>
-					</form>
+					<AddSite
+						onLinkClick={ this.props.onLink }
+						onCancelClick={ this.props.onClose }
+					/>
 				</Modal>
 			</div>
 		);
-	}
-
-	componentWillReceiveProps( nextProps ) {
-		// if ( nextProps.addSitePopupOpen !== this.props.addSitePopupOpen ) {
-		this.setState( {
-			// addSitePopupOpen: nextProps.addSitePopupOpen,
-			addSitePopupOpen: true,
-		} );
-		// }
 	}
 }
 
@@ -105,10 +53,14 @@ BaseAddSiteModal.propTypes = {
 	className: React.PropTypes.string,
 	intl: intlShape.isRequired,
 	addSitePopupOpen: React.PropTypes.bool,
+	isOpen: React.PropTypes.bool,
+	onClose: React.PropTypes.func.isRequired,
+	onLink: React.PropTypes.func.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {
 	addSitePopupOpen: false,
+	isOpen: false,
 };
 
 const AddSiteModal = styled( BaseAddSiteModal )`

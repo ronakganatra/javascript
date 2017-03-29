@@ -6,7 +6,6 @@ import subscriptionsIcon from "../icons/subscriptions.svg";
 import sitesIcon from "../icons/sites.svg";
 import coursesIcon from "../icons/courses.svg";
 import userIcon from "../icons/user.svg";
-import AddSiteModal from "../components/AddSiteModal";
 
 const messages = defineMessages( {
 	subscriptionsPageLoaded: {
@@ -41,23 +40,16 @@ let Subscriptions = React.createClass( {
 } );
 
 let Sites = React.createClass( {
-	getInitialState: function() {
-		return { openModal: false };
-	},
 	render: function() {
 		return (
 			<div>
-				<NoSites onClick={ this.openAddSiteModal } />
-				<AddSiteModal isOpen={ this.state } />
+				<NoSites onClick={ () => {} } />
 			</div>
 		);
 	},
 	componentDidMount: function() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
-	},
-	openAddSiteModal() {
-		this.setState( { openModal: true } );
 	},
 	propTypes: {
 		intl: intlShape.isRequired,
