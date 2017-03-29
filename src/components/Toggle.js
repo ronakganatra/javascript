@@ -96,16 +96,20 @@ class Toggle extends React.Component {
 				isEnabled: ! this.isEnabled(),
 			}
 		);
+
+		this.props.onSetEnablement();
 	}
 }
 
 Toggle.propTypes = {
 	isEnabled: React.PropTypes.bool,
 	ariaLabel: React.PropTypes.string.isRequired,
+	onSetEnablement: React.PropTypes.func,
 };
 
 Toggle.defaultProps = {
 	isEnabled: false,
+	onSetEnablement: () => {},
 };
 
 export default Toggle;
