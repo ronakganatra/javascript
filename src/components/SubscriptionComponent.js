@@ -35,8 +35,6 @@ export default function SubscriptionComponent( props ) {
 										<LargeButton aria-label="Manage">Manage</LargeButton>
 									</Link>
 								</MediaQuery>
-							</Column>
-							<Column>
 								<MediaQuery query="(max-width: 1355px)">
 									<Link to="/subscriptions/[id]">
 										<ChevronButton aria-label="Manage" />
@@ -56,11 +54,11 @@ SubscriptionComponent.propTypes = {
 	columnIcon: React.PropTypes.string,
 	subscriptionLogo: React.PropTypes.string,
 	productName: React.PropTypes.string,
-	level: React.PropTypes.number,
-	usage: React.PropTypes.number,
-	nextBilling: React.PropTypes.date,
+	level: React.PropTypes.string,
+	usage: React.PropTypes.string,
+	nextBilling: React.PropTypes.string,
 	billingAmount: React.PropTypes.number,
-	currency: React.PropTypes.symbol,
+	currency: React.PropTypes.string,
 };
 
 SubscriptionComponent.defaultProps = {
@@ -69,7 +67,8 @@ SubscriptionComponent.defaultProps = {
 	productName: "SEO Premium for WordPress",
 	level: "20 sites",
 	usage: "14 of 20",
-	nextBilling: "14 / 03 / 2018",
+	nextBilling: "morgen",
+	// NextBilling: new Date(),
 	billingAmount: 249,
 	currency: "€",
 };

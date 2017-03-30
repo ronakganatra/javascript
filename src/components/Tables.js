@@ -98,16 +98,17 @@ Columns.propTypes = {
 };
 
 const ColumnStyle = styled.li`
-	padding: 1em 2em;
-	flex: 1 ${ props => props.ColumnWidth };
+	padding: 1em 0.5em;
+	flex: 1 1 ${ props => props.ColumnWidth };
 	height: 60px;
 	display: inline-flex;
 	align-items: center;
+	border: 1px solid red;
 	}
 `;
 
 ColumnStyle.defaultProps = {
-	children: [],
+	ColumnWidth: "auto",
 };
 
 	/**
