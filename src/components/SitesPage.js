@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Sites from "./Sites";
 import Search from "./Search";
+import NoSites from "./NoSites";
 import { RoundAddButton } from "./RoundButton";
 
 const SitesPageContainer = styled.div`
@@ -23,19 +24,26 @@ const SiteAddContainer = styled.div`
  * @returns {ReactElement} The rendered Sites component.
  */
 export default function SitesPage( props ) {
+	if ( props.sites.length > 0 ) {
+		return (
+			<SitesPageContainer sites={ props.sites } { ...props.addSite } { ...props.changeSearchQuery }>
+				<SiteAddContainer>
+					<Search
+						id="search"
+						description="The search results will be updated as you type."
+						descriptionId="searchDescription"
+					/>
+					<RoundAddButton />
+				</SiteAddContainer>
+				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
+					return sitesId;
+				} }/>
+			</SitesPageContainer>
+		);
+	}
 	return (
 		<SitesPageContainer sites={ props.sites } { ...props.addSite } { ...props.changeSearchQuery }>
-			<SiteAddContainer>
-				<Search
-					id="search"
-					description="The search results will be updated as you type."
-					descriptionId="searchDescription"
-				/>
-				<RoundAddButton />
-			</SiteAddContainer>
-			<Sites sites={ props.sites } onClick={ ( sitesId ) => {
-				return sitesId;
-			} } />
+			<NoSites />
 		</SitesPageContainer>
 	);
 }
