@@ -79,14 +79,27 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		left: 50%;
 		right: auto;
 		bottom: auto;
-		width: 640px;
+		width: auto;
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 40px;
+		padding: 40px 20px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
+		
+		@media screen and ( max-width: 500px ) {
+			height: 300px;
+			width: auto;
+			overflow: scroll;
+		}
+		
+		@media screen and ( max-height: 640px ) {
+			height: 300px;
+			width: auto;
+			overflow: scroll;
+		}
+
 	}
 
 	.my-yoast-modal__actions {
