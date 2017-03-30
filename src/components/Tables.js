@@ -14,39 +14,6 @@ const TableStyle = styled.ul`
 	}
 `;
 
-const RowStyle = styled.li`
-	background: ${props => props.background};
-`;
-
-RowStyle.propTypes = {
-	background: React.PropTypes.string,
-};
-
-RowStyle.defaultProps = {
-	background: "none",
-};
-
-const ColumnsStyle = styled.ul`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	align-content: stretch;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-`;
-
-const ColumnStyle = styled.li`
-	padding: 2em;
-	flex: 1 100%;
-`;
-
-const DescriptiveColumnStyle = styled.li`
-	font-weight: 700;
-	padding: 0.5em 2em;
-	flex: 1 100%;
-`;
-
 /**
  * Returns the rendered Table component.
  *
@@ -67,6 +34,11 @@ Table.propTypes = {
 	children: React.PropTypes.array || React.PropTypes.objectOf( Row ),
 };
 
+const RowStyle = styled.li`
+	background: ${props => props.background};
+	padding: 1em 0;
+`;
+
 /**
  * Returns the rendered Site component.
  *
@@ -76,7 +48,6 @@ Table.propTypes = {
  * @constructor
  */
 export function Row( props ) {
-	console.log( props );
 	return (
 		<RowStyle { ...props }>
 			{props.children}
@@ -84,9 +55,27 @@ export function Row( props ) {
 	);
 }
 
+RowStyle.propTypes = {
+	background: React.PropTypes.string,
+};
+
+RowStyle.defaultProps = {
+	background: "none",
+};
+
 Row.propTypes = {
 	children: React.PropTypes.objectOf( Columns ).isRequired,
 };
+
+const ColumnsStyle = styled.ul`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	align-content: stretch;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+`;
 
 /**
  * Returns the rendered Columns component.
@@ -108,8 +97,21 @@ Columns.propTypes = {
 	children: React.PropTypes.array.isRequired,
 };
 
-/**
- * Returns the rendered Column component.
+const ColumnStyle = styled.li`
+	padding: 1em 2em;
+	flex: 1 ${ props => props.ColumnWidth };
+	height: 60px;
+	display: inline-flex;
+	align-items: center;
+	}
+`;
+
+ColumnStyle.defaultProps = {
+	children: [],
+};
+
+	/**
+ * Returns the rendered ColumnIcon component.
  *
  * @param {Object} props The props to use.
  *
@@ -118,7 +120,7 @@ Columns.propTypes = {
  */
 export function Column( props ) {
 	return (
-		<ColumnStyle>
+		<ColumnStyle {...props} >
 			{props.children}
 		</ColumnStyle>
 	);
@@ -131,6 +133,11 @@ Column.propTypes = {
 Column.defaultProps = {
 	children: [],
 };
+
+const DescriptiveColumnStyle = styled( ColumnStyle )`
+	font-weight: 700;
+	padding: 0.5em 2em;
+`;
 
 /**
  * Returns the rendered DescriptiveRow component.
@@ -153,16 +160,20 @@ HeadingColumn.propTypes = {
 };
 
 /**
- * Returns the rendered Table component.
+ * Returns the rendered Zebra component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Table component.
+ * @returns {ReactElement} The rendered Zebra component.
  * @constructor
  */
 export function Zebra( props ) {
 	let zebraProps = Object.assign( {}, ...props );
-	zebraProps.children = props.children.map( ( child, key ) => {
+	let children = props.children;
+
+	children = typeof ( children ) === "object" ? [ children ] : children;
+
+	zebraProps.children = children.map( ( child, key ) => {
 		return React.cloneElement( child, {
 			background: ( key % 2 === 0 ) ? colors.$palette_white : colors.$palette_grey_light,
 		} );
@@ -174,5 +185,5 @@ export function Zebra( props ) {
 }
 
 Zebra.propTypes = {
-	children: React.PropTypes.array,
+	children: React.PropTypes.array || React.PropTypes.object,
 };

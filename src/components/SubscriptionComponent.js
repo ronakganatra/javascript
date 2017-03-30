@@ -1,61 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import MediaQuery from "react-responsive";
-import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
-import Subscriptions from "../components/Subscriptions.js";
 import { ChevronButton } from "../components/RoundButton.js";
-import Table from "./Tables";
-
-const SiteIcon = styled.img`
-	height: 48px;
-	padding-right: 40px;
-	padding-left: 40px;
-	border-right: 2px solid ${colors.$color_grey};
-	flex: 0 0 128px;
-	
-	@media screen and ( max-width: 1355px ) {
-		padding-right: 20px;
-		padding-left: 20px;
-		flex: 0 0 68px;
-	}
-`;
-
-SiteIcon.propTypes = {
-	src: React.PropTypes.string.isRequired,
-};
-
-const SiteName = styled.span`
-	height: 60px;
-	font-size: 14px;
-	line-height: 60px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	flex: 0 0 380px;
-	padding-left: 40px;
-	white-space: nowrap
-	
-	@media screen and ( max-width: 1355px ) {
-		padding-left: 20px;
-		flex: 1 0 380px;
-	}
-	
-	@media screen and ( max-width: 660px ) {
-		flex: 1 1 380px;
-	}
-`;
-
-const Icon = styled.Column(Icon)`
-	height: 60px;
-	line-height: 60px;
-	display: inline-flex;
-	align-items: center;
-	flex: 1 0 300px;
-	
-	@media screen and ( max-width: 1355px ) {
-		display: none;
-	}
-`;
+import { Table, Row, Columns, Column, Zebra } from "./Tables";
+import Paper from "./Paper";
+import ColumnIcon from "./ColumIcon";
+import SiteIcon from "./SiteIcon";
+import { Link } from "react-router-dom";
 
 /**
  * Returns the rendered Site component.
@@ -65,28 +16,60 @@ const Icon = styled.Column(Icon)`
  * @returns {ReactElement} The rendered Site component.
  * @constructor
  */
-export default function Site( props ) {
+export default function SubscriptionComponent( props ) {
 	return (
 		<Table>
-			<Row>
-				<Columns>
-					<Icon />
-					<Column />
-					<Column />
-				</Columns>
-			</Row>
+			<Paper>
+				<Zebra>
+					<Row>
+						<Columns>
+							<ColumnIcon subscriptionLogo={<SiteIcon src={ props.subscriptionLogo } alt="" />} />
+							<Column ColumnWidth="400px">{ props.productName }</Column>
+							<Column>{ props.level }</Column>
+							<Column>{ props.usage }</Column>
+							<Column>{ props.nextBilling }</Column>
+							<Column>{ props.currency} { props.billingAmount }</Column>
+							<Column>
+								<MediaQuery query="(min-width: 1356px)">
+									<Link to="/subscriptions/[id]" >
+										<LargeButton aria-label="Manage">Manage</LargeButton>
+									</Link>
+								</MediaQuery>
+							</Column>
+							<Column>
+								<MediaQuery query="(max-width: 1355px)">
+									<Link to="/subscriptions/[id]">
+										<ChevronButton aria-label="Manage" />
+									</Link>
+								</MediaQuery>
+							</Column>
+						</Columns>
+					</Row>
+				</Zebra>
+			</Paper>
 		</Table>
 	);
 }
 
-Site.propTypes = {
-	siteName: React.PropTypes.string.isRequired,
+SubscriptionComponent.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
-	siteIcon: React.PropTypes.string,
-	onClickManage: React.PropTypes.func,
+	columnIcon: React.PropTypes.string,
+	subscriptionLogo: React.PropTypes.string,
+	productName: React.PropTypes.string,
+	level: React.PropTypes.number,
+	usage: React.PropTypes.number,
+	nextBilling: React.PropTypes.date,
+	billingAmount: React.PropTypes.number,
+	currency: React.PropTypes.symbol,
 };
 
-Site.defaultProps = {
+SubscriptionComponent.defaultProps = {
 	activeSubscriptions: [],
-	siteIcon: "",
+	subscriptionLogo: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+	productName: "SEO Premium for WordPress",
+	level: "20 sites",
+	usage: "14 of 20",
+	nextBilling: "14 / 03 / 2018",
+	billingAmount: 249,
+	currency: "€",
 };

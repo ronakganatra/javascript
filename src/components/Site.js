@@ -62,6 +62,7 @@ const SiteSubscriptionsContainer = styled.span`
 	display: inline-flex;
 	align-items: center;
 	flex: 1 0 300px;
+	font-size: 14px;
 	
 	@media screen and ( max-width: 1355px ) {
 		display: none;
@@ -79,10 +80,9 @@ const SiteSubscriptionsContainer = styled.span`
 export default function Site( props ) {
 	return (
 		<SiteContainer>
-			<ColumnIcon icon={<SiteIcon src={ props.siteIcon } alt="" />}/>
-
-			<SiteName>{ props.siteName }</SiteName>
-			<SiteSubscriptionsContainer>
+			<SiteIcon src={ props.siteIcon } alt="" />
+			<SiteName className="site-name">{ props.siteName }</SiteName>
+			<SiteSubscriptionsContainer className="active-subscriptions">
 				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
 			<MediaQuery query="(min-width: 1356px)">
