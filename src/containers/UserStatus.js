@@ -4,7 +4,7 @@ import UserProfile from "../components/UserProfile";
 
 const mapStateToProps = ( state ) => {
 	return {
-		displayName: state.user.data.profile.niceName,
+		displayName: state.user.data.profile.email,
 		loggedIn: state.user.loggedIn,
 	};
 };
