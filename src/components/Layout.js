@@ -18,6 +18,7 @@ export const Sidebar = styled.div`
 
 	@media screen and ( max-width: 1024px ) {
 		position: fixed;
+		z-index: 1;
 		width: 100%;
 		height: 74px;
 		bottom: 0;
@@ -40,6 +41,8 @@ export const Main = styled.main`
 	@media screen and ( max-width: 1024px ) {
 		margin: 4% 4% 0 4%;
 		padding: 0 0 100px 0;
+		position: relative;
+		z-index: 0;
 	}
 `;
 
