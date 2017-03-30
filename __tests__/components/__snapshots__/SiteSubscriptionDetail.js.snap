@@ -1,0 +1,467 @@
+exports[`test the sitesubscription matches the snapshot 1`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onSettingsClick handling 1`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onSettingsClick handling 2`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onToggleSubscription handling 1`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;
+
+exports[`test the sitesubscription onToggleSubscription handling 2`] = `
+<li
+  className="cFWmaW">
+  <span
+    className="ifUQbH">
+    <img
+      className="dzkImt"
+      src="icon.svg" />
+    <span
+      className="RviZc">
+      <div>
+        <div
+          aria-checked={true}
+          aria-label=""
+          className="hGsRJU"
+          onClick={[Function]}
+          onKeyDown={[Function]}
+          role="checkbox"
+          tabIndex="0">
+          <span
+            className="lbeQtx" />
+        </div>
+        <span
+          aria-hidden="true"
+          className="iUAAtI">
+          On
+        </span>
+      </div>
+    </span>
+  </span>
+  <div
+    className="jSArqe">
+    <span
+      className="cCWqZS">
+      Productname
+    </span>
+    <span
+      className="fmqwLK">
+      6
+       / 
+      20
+       remaining
+    </span>
+    <button
+      className="lkKvjP"
+      onClick={[Function]}>
+      Add more slots for $69
+    </button>
+  </div>
+</li>
+`;

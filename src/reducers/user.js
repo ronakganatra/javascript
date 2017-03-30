@@ -15,8 +15,10 @@ const initialState = {
 
 	// The userdata as retrieved from the server.
 	data: {
-		username: "",
-		email: "",
+		profile: {
+			username: "",
+			email: "",
+		},
 	},
 };
 
