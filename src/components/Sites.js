@@ -21,6 +21,7 @@ const SitesContainer = styled.ul`
 	list-style: none;
 	position: relative;
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+	text-align: left;
 	li:nth-child(even) {
 		background-color: ${colors.$color_background_light};
 	}
@@ -32,9 +33,9 @@ const SitesContainer = styled.ul`
 		& .active-subscriptions::before {
 			position: absolute;
 			left: -9999em;
-			top: -40px;
+			top: -30px;
 			font-size: 1.286em;
-			line-height: 1.5;
+			line-height: 0;
 		}
     }
 
