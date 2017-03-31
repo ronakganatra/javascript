@@ -4,7 +4,6 @@ import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import subscriptionsIcon from "../icons/subscriptions.svg";
 import sitesIcon from "../icons/sites.svg";
-import coursesIcon from "../icons/courses.svg";
 import userIcon from "../icons/user.svg";
 
 const messages = defineMessages( {
@@ -15,10 +14,6 @@ const messages = defineMessages( {
 	sitesPageLoaded: {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
-	},
-	coursesPageLoaded: {
-		id: "menu.courses.loaded",
-		defaultMessage: "Courses page loaded",
 	},
 	accountPageLoaded: {
 		id: "menu.account.loaded",
@@ -52,19 +47,6 @@ let Sites = React.createClass( {
 	},
 } );
 
-let Courses = React.createClass( {
-	render: function() {
-		return ( <h1>Your courses</h1> );
-	},
-	componentDidMount: function() {
-		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
-		a11ySpeak( message );
-	},
-	propTypes: {
-		intl: intlShape.isRequired,
-	},
-} );
-
 let Account = React.createClass( {
 	render: function() {
 		return ( <h1>Your account details</h1> );
@@ -80,7 +62,6 @@ let Account = React.createClass( {
 
 Subscriptions = injectIntl( Subscriptions );
 Sites = injectIntl( Sites );
-Courses = injectIntl( Courses );
 Account = injectIntl( Account );
 
 let menuItems = [
@@ -96,12 +77,6 @@ let menuItems = [
 
 			return location.pathname === "/";
 		},
-	},
-	{
-		path: "/courses",
-		title: "Courses",
-		icon: coursesIcon,
-		component: Courses,
 	},
 	{
 		path: "/subscriptions",
