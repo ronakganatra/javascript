@@ -2,17 +2,94 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
-const TableStyle = styled.ul`
-	display: flex;
-	flex-direction: column;
-	list-style: none;
-	padding: 0;
-	margin: 0;
+/**
+ * Returns the rendered Column component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered Column component.
+ * @constructor
+ */
+export const Column = styled.span`
+	font-size: 14px;
+	padding-left: 40px;
+	
+	text-align: ${ props => props.textAlign };
 
+	 &::before {
+ 		position: absolute;
+ 		left: -9999em;
+ 		top: -30px;
+ 		font-size: 1.286em;
+ 		line-height: 0;
+ 		content: "${ props => props.label }";
+ 	}
+	
+	flex: 0 0 ${ props => props.ColumnWidth };
+	@media screen and ( max-width: 1355px ) {
+		padding-left: 20px;
+		flex: 1 0 ${ props => props.ColumnWidth };
+		${ props => props.hideOnTablet ? "display: none;" : "" }
+	}
+	@media screen and ( max-width: 660px ) {
+		flex: 1 1 ${ props => props.ColumnWidth };
+		${ props => props.hideOnMobile ? "display: none;" : "" }
+	}
+`;
+
+Column.propTypes = {
+	children: React.PropTypes.any,
+	ColumnWidth: React.PropTypes.string,
+	label: React.PropTypes.string,
+	hideOnMobile: React.PropTypes.bool,
+	hideOnTablet: React.PropTypes.bool,
+	textAlign: React.PropTypes.string,
+};
+
+Column.defaultProps = {
+	ColumnWidth: "auto",
+	label: "",
+	hideOnMobile: false,
+	hideOnTable: false,
+	textAlign: "left",
+};
+
+export const ColumnText = styled( Column )`
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+`;
+
+/**
+ * Returns the rendered Row component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered Row component.
+ * @constructor
+ */
+export const Row = styled.li`
+	background: ${ props => props.background };
+	
+	height: 100px;
+	display: flex;
+	padding-right: 40px;
+	align-items: center;
+	justify-content: space-around;
+	
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
 	}
 `;
+
+Row.propTypes = {
+//	children: React.PropTypes.objectOf( Columns ).isRequired,
+	background: React.PropTypes.string,
+};
+
+Row.defaultProps = {
+	background: "none",
+};
 
 /**
  * Returns the rendered Table component.
@@ -22,142 +99,22 @@ const TableStyle = styled.ul`
  * @returns {ReactElement} The rendered Table component.
  * @constructor
  */
-export function Table( props ) {
-	return (
-		<TableStyle>
-			{props.children}
-		</TableStyle>
-	);
-}
+export const Table = styled.ul`
+	margin: 50px 0 0 0;
+ 	padding: 0;
+ 	list-style: none;
+ 	position: relative;
+ 	width: 100%;
+ 	
+ 	li:first-child {
+        & *::before {
+            left: auto;
+        }
+    }
+`;
 
 Table.propTypes = {
 	children: React.PropTypes.array || React.PropTypes.objectOf( Row ),
-};
-
-const RowStyle = styled.li`
-	background: ${props => props.background};
-	padding: 1em 0;
-`;
-
-/**
- * Returns the rendered Site component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Site component.
- * @constructor
- */
-export function Row( props ) {
-	return (
-		<RowStyle { ...props }>
-			{props.children}
-		</RowStyle>
-	);
-}
-
-RowStyle.propTypes = {
-	background: React.PropTypes.string,
-};
-
-RowStyle.defaultProps = {
-	background: "none",
-};
-
-Row.propTypes = {
-	children: React.PropTypes.objectOf( Columns ).isRequired,
-};
-
-const ColumnsStyle = styled.ul`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	align-content: stretch;
-	list-style: none;
-	padding: 0;
-	margin: 0;
-`;
-
-/**
- * Returns the rendered Columns component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Columns component.
- * @constructor
- */
-export function Columns( props ) {
-	return (
-		<ColumnsStyle>
-			{props.children}
-		</ColumnsStyle>
-	);
-}
-
-Columns.propTypes = {
-	children: React.PropTypes.array.isRequired,
-};
-
-const ColumnStyle = styled.li`
-	padding: 1em 0.5em;
-	flex: 1 1 ${ props => props.ColumnWidth };
-	height: 60px;
-	display: inline-flex;
-	align-items: center;
-	border: 1px solid red;
-	}
-`;
-
-ColumnStyle.defaultProps = {
-	ColumnWidth: "auto",
-};
-
-	/**
- * Returns the rendered ColumnIcon component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Column component.
- * @constructor
- */
-export function Column( props ) {
-	return (
-		<ColumnStyle {...props} >
-			{props.children}
-		</ColumnStyle>
-	);
-}
-
-Column.propTypes = {
-	children: React.PropTypes.array,
-};
-
-Column.defaultProps = {
-	children: [],
-};
-
-const DescriptiveColumnStyle = styled( ColumnStyle )`
-	font-weight: 700;
-	padding: 0.5em 2em;
-`;
-
-/**
- * Returns the rendered DescriptiveRow component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Site component.
- * @constructor
- */
-export function HeadingColumn( props ) {
-	return (
-		<DescriptiveColumnStyle>
-			{props.children}
-		</DescriptiveColumnStyle>
-	);
-}
-
-HeadingColumn.propTypes = {
-	children: React.PropTypes.any,
 };
 
 /**
@@ -172,7 +129,10 @@ export function Zebra( props ) {
 	let zebraProps = Object.assign( {}, ...props );
 	let children = props.children;
 
-	children = typeof ( children ) === "object" ? [ children ] : children;
+	// Todo: improve.
+	if ( ! children.map ) {
+		children = [ children ];
+	}
 
 	zebraProps.children = children.map( ( child, key ) => {
 		return React.cloneElement( child, {
@@ -186,5 +146,5 @@ export function Zebra( props ) {
 }
 
 Zebra.propTypes = {
-	children: React.PropTypes.array || React.PropTypes.object,
+	children: React.PropTypes.any,
 };
