@@ -10,7 +10,7 @@ const SiteHeaderContainer = styled.div`
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	position: relative;
-	
+	margin: auto;
 	
 	& button {
 		position: absolute;

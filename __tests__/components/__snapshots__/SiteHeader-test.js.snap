@@ -1,0 +1,15 @@
+exports[`test the site header matches the snapshot 1`] = `
+<div
+  className="jMagbs">
+  <h1
+    className="hotMcI">
+    placehold.it
+  </h1>
+  <button
+    className="cTDpVM"
+    onClick={[Function]}
+    type="button">
+    Visit site
+  </button>
+</div>
+`;
