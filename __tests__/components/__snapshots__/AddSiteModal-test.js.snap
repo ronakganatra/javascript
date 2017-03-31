@@ -1,5 +1,409 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
-  <noscript />
+  <div
+    className="cAOCua my-yoast-modal__content"
+    contentLabel="Add a new site"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="cAOCua my-yoast-modal__overlay"
+    role="dialog">
+    <div
+      className="WUMSu">
+      <img
+        alt=""
+        className="jvPCVm"
+        src="addsite.svg" />
+      <h1
+        className="bYuvwO">
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <p
+        className="glrMsz">
+        <label
+          htmlFor="addSiteInputField">
+          <span>
+            Please enter the URL of the site you would like to link with your account:
+          </span>
+        </label>
+      </p>
+      <input
+        aria-describedby="addSiteInfo"
+        className="fZParA"
+        id="addSiteInputField"
+        placeholder="example-site.com"
+        type="url" />
+      <p
+        className="dUKOTs">
+        <img
+          alt=""
+          className="jrNDzu"
+          src="exclamation-triangle.svg" />
+        <span
+          className="dvtOGe"
+          id="addSiteInfo">
+          <span>
+            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+            <a
+              className="jWXgwc"
+              href="/">
+              <span>
+                read this page.
+              </span>
+            </a>
+          </span>
+        </span>
+      </p>
+      <div
+        className="jdEMcw">
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            cancel
+          </span>
+        </button>
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            link
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test the addSiteModal handling an onClose event 1`] = `
+<div>
+  <div
+    className="cAOCua my-yoast-modal__content"
+    contentLabel="Add a new site"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="cAOCua my-yoast-modal__overlay"
+    role="dialog">
+    <div
+      className="WUMSu">
+      <img
+        alt=""
+        className="jvPCVm"
+        src="addsite.svg" />
+      <h1
+        className="bYuvwO">
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <p
+        className="glrMsz">
+        <label
+          htmlFor="addSiteInputField">
+          <span>
+            Please enter the URL of the site you would like to link with your account:
+          </span>
+        </label>
+      </p>
+      <input
+        aria-describedby="addSiteInfo"
+        className="fZParA"
+        id="addSiteInputField"
+        placeholder="example-site.com"
+        type="url" />
+      <p
+        className="dUKOTs">
+        <img
+          alt=""
+          className="jrNDzu"
+          src="exclamation-triangle.svg" />
+        <span
+          className="dvtOGe"
+          id="addSiteInfo">
+          <span>
+            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+            <a
+              className="jWXgwc"
+              href="/">
+              <span>
+                read this page.
+              </span>
+            </a>
+          </span>
+        </span>
+      </p>
+      <div
+        className="jdEMcw">
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            cancel
+          </span>
+        </button>
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            link
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test the addSiteModal handling an onClose event 2`] = `
+<div>
+  <div
+    className="cAOCua my-yoast-modal__content"
+    contentLabel="Add a new site"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="cAOCua my-yoast-modal__overlay"
+    role="dialog">
+    <div
+      className="WUMSu">
+      <img
+        alt=""
+        className="jvPCVm"
+        src="addsite.svg" />
+      <h1
+        className="bYuvwO">
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <p
+        className="glrMsz">
+        <label
+          htmlFor="addSiteInputField">
+          <span>
+            Please enter the URL of the site you would like to link with your account:
+          </span>
+        </label>
+      </p>
+      <input
+        aria-describedby="addSiteInfo"
+        className="fZParA"
+        id="addSiteInputField"
+        placeholder="example-site.com"
+        type="url" />
+      <p
+        className="dUKOTs">
+        <img
+          alt=""
+          className="jrNDzu"
+          src="exclamation-triangle.svg" />
+        <span
+          className="dvtOGe"
+          id="addSiteInfo">
+          <span>
+            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+            <a
+              className="jWXgwc"
+              href="/">
+              <span>
+                read this page.
+              </span>
+            </a>
+          </span>
+        </span>
+      </p>
+      <div
+        className="jdEMcw">
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            cancel
+          </span>
+        </button>
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            link
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test the addSiteModal handling an onLink event 1`] = `
+<div>
+  <div
+    className="cAOCua my-yoast-modal__content"
+    contentLabel="Add a new site"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="cAOCua my-yoast-modal__overlay"
+    role="dialog">
+    <div
+      className="WUMSu">
+      <img
+        alt=""
+        className="jvPCVm"
+        src="addsite.svg" />
+      <h1
+        className="bYuvwO">
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <p
+        className="glrMsz">
+        <label
+          htmlFor="addSiteInputField">
+          <span>
+            Please enter the URL of the site you would like to link with your account:
+          </span>
+        </label>
+      </p>
+      <input
+        aria-describedby="addSiteInfo"
+        className="fZParA"
+        id="addSiteInputField"
+        placeholder="example-site.com"
+        type="url" />
+      <p
+        className="dUKOTs">
+        <img
+          alt=""
+          className="jrNDzu"
+          src="exclamation-triangle.svg" />
+        <span
+          className="dvtOGe"
+          id="addSiteInfo">
+          <span>
+            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+            <a
+              className="jWXgwc"
+              href="/">
+              <span>
+                read this page.
+              </span>
+            </a>
+          </span>
+        </span>
+      </p>
+      <div
+        className="jdEMcw">
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            cancel
+          </span>
+        </button>
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            link
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`test the addSiteModal handling an onLink event 2`] = `
+<div>
+  <div
+    className="cAOCua my-yoast-modal__content"
+    contentLabel="Add a new site"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="cAOCua my-yoast-modal__overlay"
+    role="dialog">
+    <div
+      className="WUMSu">
+      <img
+        alt=""
+        className="jvPCVm"
+        src="addsite.svg" />
+      <h1
+        className="bYuvwO">
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <p
+        className="glrMsz">
+        <label
+          htmlFor="addSiteInputField">
+          <span>
+            Please enter the URL of the site you would like to link with your account:
+          </span>
+        </label>
+      </p>
+      <input
+        aria-describedby="addSiteInfo"
+        className="fZParA"
+        id="addSiteInputField"
+        placeholder="example-site.com"
+        type="url" />
+      <p
+        className="dUKOTs">
+        <img
+          alt=""
+          className="jrNDzu"
+          src="exclamation-triangle.svg" />
+        <span
+          className="dvtOGe"
+          id="addSiteInfo">
+          <span>
+            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
+            <a
+              className="jWXgwc"
+              href="/">
+              <span>
+                read this page.
+              </span>
+            </a>
+          </span>
+        </span>
+      </p>
+      <div
+        className="jdEMcw">
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            cancel
+          </span>
+        </button>
+        <button
+          className="dgFVWH"
+          onClick={[Function]}
+          type="button">
+          <span>
+            link
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;
