@@ -6,7 +6,7 @@ import colors from "yoast-components/style-guide/colors.json";
 const SiteHeaderContainer = styled.div`
 	max-width: 1480px;
 	height: 380px;
-	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url( ${ props => props.imageUrl });
+	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url( ${ props => props.imageUrl } );
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 	position: relative;
