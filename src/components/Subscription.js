@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
  * @returns {ReactElement} The rendered Site component.
  * @constructor
  */
-export default function SubscriptionComponent( props ) {
+export default function Subscription(props ) {
 	return (
 		<Table>
 			<Paper>
@@ -49,7 +49,7 @@ export default function SubscriptionComponent( props ) {
 	);
 }
 
-SubscriptionComponent.propTypes = {
+Subscription.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
 	columnIcon: React.PropTypes.string,
 	subscriptionLogo: React.PropTypes.string,
@@ -61,7 +61,7 @@ SubscriptionComponent.propTypes = {
 	currency: React.PropTypes.string,
 };
 
-SubscriptionComponent.defaultProps = {
+Subscription.defaultProps = {
 	activeSubscriptions: [],
 	subscriptionLogo: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 	productName: "SEO Premium for WordPress",
