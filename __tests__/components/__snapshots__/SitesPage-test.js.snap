@@ -1,6 +1,5 @@
 exports[`test the sites page component with a site matches the snapshot 1`] = `
-<div
-  className="foqgVb">
+<div>
   <div
     className="jCgOYH">
     <div>
@@ -78,39 +77,35 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
 
 exports[`test the sites page component with no sites matches the snapshot 1`] = `
 <div
-  className="foqgVb">
-  <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
-    <p>
-      <span>
-        Welcome to the sites overview
-      </span>
-    </p>
-    <p>
-      <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
-      </span>
-    </p>
-    <p>
-      <span>
-        Press the button below to add your first site.
-      </span>
-    </p>
-    <button
-      aria-label="Add"
-      className="hTtZiN"
-      onClick={[Function]} />
-  </div>
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
 </div>
 `;
 
 exports[`test the sites page component with sites handling a changed search query 1`] = `
-<div
-  className="foqgVb">
+<div>
   <div
     className="jCgOYH">
     <div>
@@ -187,8 +182,7 @@ exports[`test the sites page component with sites handling a changed search quer
 `;
 
 exports[`test the sites page component with sites handling a changed search query 2`] = `
-<div
-  className="foqgVb">
+<div>
   <div
     className="jCgOYH">
     <div>
@@ -265,8 +259,7 @@ exports[`test the sites page component with sites handling a changed search quer
 `;
 
 exports[`test the sites page component with sites handling an onclick event on the add site button 1`] = `
-<div
-  className="foqgVb">
+<div>
   <div
     className="jCgOYH">
     <div>
@@ -343,8 +336,7 @@ exports[`test the sites page component with sites handling an onclick event on t
 `;
 
 exports[`test the sites page component with sites handling an onclick event on the add site button 2`] = `
-<div
-  className="foqgVb">
+<div>
   <div
     className="jCgOYH">
     <div>
@@ -422,64 +414,58 @@ exports[`test the sites page component with sites handling an onclick event on t
 
 exports[`test the sites page component without sites handling an onclick event on the add site button 1`] = `
 <div
-  className="foqgVb">
-  <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
-    <p>
-      <span>
-        Welcome to the sites overview
-      </span>
-    </p>
-    <p>
-      <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
-      </span>
-    </p>
-    <p>
-      <span>
-        Press the button below to add your first site.
-      </span>
-    </p>
-    <button
-      aria-label="Add"
-      className="hTtZiN"
-      onClick={[Function]} />
-  </div>
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
 </div>
 `;
 
 exports[`test the sites page component without sites handling an onclick event on the add site button 2`] = `
 <div
-  className="foqgVb">
-  <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
-    <p>
-      <span>
-        Welcome to the sites overview
-      </span>
-    </p>
-    <p>
-      <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
-      </span>
-    </p>
-    <p>
-      <span>
-        Press the button below to add your first site.
-      </span>
-    </p>
-    <button
-      aria-label="Add"
-      className="hTtZiN"
-      onClick={[Function]} />
-  </div>
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
 </div>
 `;

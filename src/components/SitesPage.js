@@ -6,9 +6,6 @@ import Search from "./Search";
 import NoSites from "./NoSites";
 import { RoundAddButton } from "./RoundButton";
 
-const SitesPageContainer = styled.div`
-`;
-
 const SiteAddContainer = styled.div`
 	text-align: center;
 	button {
@@ -26,7 +23,7 @@ const SiteAddContainer = styled.div`
 export default function SitesPage( props ) {
 	if ( props.sites.length > 0 ) {
 		return (
-			<SitesPageContainer sites={ props.sites }>
+			<div>
 				<SiteAddContainer>
 					<Search
 						id="search"
@@ -39,13 +36,11 @@ export default function SitesPage( props ) {
 				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 					return sitesId;
 				} }/>
-			</SitesPageContainer>
+			</div>
 		);
 	}
 	return (
-		<SitesPageContainer sites={ props.sites }>
 			<NoSites onClick={ props.addSite } />
-		</SitesPageContainer>
 	);
 }
 
