@@ -20,19 +20,6 @@ exports[`test the menu matches the snapshot 1`] = `
       <li>
         <a
           className="eKEZTf"
-          href="/courses"
-          onClick={[Function]}
-          style={undefined}>
-          <img
-            alt=""
-            className="ilptYL"
-            src="courses.svg" />
-          Courses
-        </a>
-      </li>
-      <li>
-        <a
-          className="eKEZTf"
           href="/subscriptions"
           onClick={[Function]}
           style={undefined}>
