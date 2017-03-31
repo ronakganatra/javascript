@@ -4,18 +4,34 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
 const SiteHeaderContainer = styled.div`
-	width:100%;
-	height: 200px;
-	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url(http://placehold.it/1000x150);
+	max-width: 1480px;
+	height: 380px;
+	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url( ${ props => props.imageUrl });
 	background-repeat: no-repeat;
-	background-size: 100%;
+	background-size: 100% 100%;
+	position: relative;
+	
+	
+	& button {
+		position: absolute;
+		bottom: 26px;
+		right: 30px;
+	}
 `;
 
+SiteHeaderContainer.propTypes = {
+	imageUrl: React.PropTypes.string.isRequired,
+};
+
 const SiteHeaderSitename = styled.h1`
+	color: #FFF;
+	font-weight: 300;
 	float: left;
 	padding: 5px;
 	margin: 0px;
-	color: #FFF;
+	position: absolute;
+	bottom: 26px;
+	left: 30px;
 `;
 
 /**
@@ -28,19 +44,19 @@ const SiteHeaderSitename = styled.h1`
  */
 export default function SiteHeader( props ) {
 	return (
-		<SiteHeaderContainer>
-			<WhiteButton>
-				Visit site
-			</WhiteButton>
+		<SiteHeaderContainer imageUrl={ props.imageUrl }>
 			<SiteHeaderSitename>
-				Placehold.it/
+				{ props.name }
 			</SiteHeaderSitename>
+				<WhiteButton onClick={ () => window.open(  props.url, "_blank" ) }>
+					Visit site
+				</WhiteButton>
 		</SiteHeaderContainer>
 	);
 }
 
 SiteHeader.propTypes = {
-	name: React.PropTypes.string,
-	url: React.PropTypes.string,
-	imageUrl: React.PropTypes.string,
+	name: React.PropTypes.string.isRequired,
+	url: React.PropTypes.string.isRequired,
+	imageUrl: React.PropTypes.string.isRequired,
 };
