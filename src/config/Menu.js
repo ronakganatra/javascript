@@ -65,9 +65,32 @@ Sites = injectIntl( Sites );
 Account = injectIntl( Account );
 
 let menuItems = [
-	{ path: "/sites", title: "Sites", icon: sitesIcon, component: Sites },
-	{ path: "/subscriptions", title: "Subscriptions", icon: subscriptionsIcon, component: Subscriptions },
-	{ path: "/account", title: "Account", icon: userIcon, component: Account },
+	{
+		path: "/sites",
+		title: "Sites",
+		icon: sitesIcon,
+		component: Sites,
+		isActive: ( match, location ) => {
+			if ( match ) {
+				return true;
+			}
+
+			return location.pathname === "/";
+		},
+	},
+	{
+		path: "/subscriptions",
+		title: "Subscriptions",
+		icon: subscriptionsIcon,
+		component: Subscriptions,
+	},
+	{
+		path: "/account",
+		title: "Account",
+		icon: userIcon,
+		component: Account,
+	},
 ];
 
+export { Sites };
 export default menuItems;

@@ -122,8 +122,12 @@ export function MainMenu( props ) {
 	<Menu>
 		<ul role="list">
 			{ props.menuRoutes.map( function( page ) {
+				let isActive = page.isActive || ( ( match ) => {
+					return match;
+				} );
+
 				return <li key={ page.title }>
-					<MenuItem activeClassName={ activeStyle } to={ page.path }>
+					<MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
 						<MenuIcon src={ page.icon } alt="" />
 						{ page.title }
 					</MenuItem>
