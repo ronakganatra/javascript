@@ -26,14 +26,15 @@ const SiteAddContainer = styled.div`
 export default function SitesPage( props ) {
 	if ( props.sites.length > 0 ) {
 		return (
-			<SitesPageContainer sites={ props.sites } { ...props.addSite } { ...props.changeSearchQuery }>
+			<SitesPageContainer sites={ props.sites }>
 				<SiteAddContainer>
 					<Search
 						id="search"
 						description="The search results will be updated as you type."
 						descriptionId="searchDescription"
+						onChange={ props.changeSearchQuery }
 					/>
-					<RoundAddButton />
+					<RoundAddButton onClick={ props.addSite }/>
 				</SiteAddContainer>
 				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 					return sitesId;
@@ -42,8 +43,8 @@ export default function SitesPage( props ) {
 		);
 	}
 	return (
-		<SitesPageContainer sites={ props.sites } { ...props.addSite } { ...props.changeSearchQuery }>
-			<NoSites />
+		<SitesPageContainer sites={ props.sites }>
+			<NoSites onClick={ props.addSite } />
 		</SitesPageContainer>
 	);
 }
