@@ -13,6 +13,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
+import Subscriptions from "./components/Subscriptions";
 
 /*
  * Helper method to write global CSS.
@@ -48,6 +49,7 @@ class App extends Component {
 								<Content>
 									<Route exact path="/" component={ Sites } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
+									<Subscriptions />
 								</Content>
 							</Main>
 						</Layout>
