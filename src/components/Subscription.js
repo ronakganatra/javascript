@@ -63,7 +63,7 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used } / { props.max }</ColumnText>
 			<ColumnText label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="200px">{ props.nextBilling }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
-			            ColumnWidth="100px">{ props.billingCurrency } { props.billingAmount }</ColumnText>
+			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
 					<Link to="/subscriptions/[id]">
@@ -87,7 +87,7 @@ Subscription.propTypes = {
 	used: React.PropTypes.number.isRequired,
 	max: React.PropTypes.number.isRequired,
 	nextBilling: React.PropTypes.string.isRequired,
-	billingAmount: React.PropTypes.string.isRequired,
+	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
 };
