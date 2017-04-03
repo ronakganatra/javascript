@@ -1,68 +1,63 @@
-import React from "react";
-import styled from "styled-components";
-import SeoIcon from "../icons/Yoast/Yoast_SEO_Icon_Small.svg";
-import LocalIcon from "../icons/Yoast/Local_SEO_Icon_Small.svg";
-import NewsIcon from "../icons/Yoast/News_Icon_Small.svg";
-import VideoIcon from "../icons/Yoast/Video_SEO_Icon_Small.svg";
-import WooIcon from "../icons/Yoast/Woo_Icon_Small.svg";
-import LocalWooIcon from "../icons/Yoast/Local_Woo_Icon_Small.svg";
-
-let YoastProducts = {
-	seo: { name: "Yoast SEO", image: SeoIcon },
-	local: { name: "Local SEO", image: LocalIcon },
-	video: { name: "Video SEO", image: VideoIcon },
-	news: { name: "News SEO", image: NewsIcon },
-	woo: { name: "WooCommerce SEO", image: WooIcon },
-	localwoo: { name: "Local SEO for Woo", image: LocalWooIcon },
-};
-
-const Subscription = styled.span`
-	background-image: url(${ props => props.image });
-	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
-	width: 40px;
-	height: 40px;
-	float: left;
-	margin: 0 5px;
-`;
-
-Subscription.propTypes = {
-	image: React.PropTypes.string.isRequired,
-	isActive: React.PropTypes.bool.isRequired,
-};
-
 /**
- * Renders a subscriptions component.
+ * Returns the rendered Site component.
  *
  * @param {Object} props The props to use.
- * @returns {XML} The rendered Subscriptions component.
+ *
+ * @returns {ReactElement} The rendered Site component.
+ * @constructor
  */
-export default function SubscriptionIcons( props ) {
-	return (
-		<div>
-			{
-				Object.keys( YoastProducts ).map( function( productName ) {
-					let isActive = props.activeSubscriptions.includes( productName );
-					let product = YoastProducts[ productName ];
+import React from "react";
+import { Table, Zebra } from "./Tables";
+import Paper from "./Paper";
+import Subscription from "./Subscription";
 
-					return (
-						<SubscriptionIcons
-							key={ productName }
-							image={ product.image }
-							isActive={ isActive }
-							aria-label={ isActive ? product.name + " is active" : product.name + " is inactive" }
-							role="img"
-						/>
-					);
-				} )
-			}
-		</div>
+/**
+ * Creates a subscriptions element
+ * @param {object} props Properties of the element.
+ * @returns {ReactElement} Subscriptions element.
+ * @constructor
+ */
+export default function Subscriptions( props ) {
+	return (
+		<Table>
+			<Paper>
+				<Zebra>
+					<Subscription id="a" icon={ props.subscriptionLogo } name={ props.productName }
+					              used={ props.usage } max={ props.max }
+					              nextBilling={ props.nextBilling }
+					              billingAmount={ props.billingAmount }
+					              billingCurrency={ props.currency } />
+					<Subscription id="b" icon={ props.subscriptionLogo } name={ props.productName }
+					              used={ props.usage } max={ props.max }
+					              nextBilling={ props.nextBilling }
+					              billingAmount={ props.billingAmount }
+					              billingCurrency={ props.currency } />
+				</Zebra>
+			</Paper>
+		</Table>
 	);
 }
 
-SubscriptionIcons.propTypes = {
+Subscriptions.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+	columnIcon: React.PropTypes.string,
+	subscriptionLogo: React.PropTypes.string,
+	productName: React.PropTypes.string,
+	max: React.PropTypes.number,
+	usage: React.PropTypes.number,
+	nextBilling: React.PropTypes.string,
+	billingAmount: React.PropTypes.number,
+	currency: React.PropTypes.string,
 };
 
-SubscriptionIcons.defaultProps = {
+Subscriptions.defaultProps = {
 	activeSubscriptions: [],
+	subscriptionLogo: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+	productName: "SEO Premium for WordPress",
+	max: 20,
+	usage: 14,
+	nextBilling: "February 31st, 2016",
+	// NextBilling: new Date(),
+	billingAmount: 249,
+	currency: "€",
 };

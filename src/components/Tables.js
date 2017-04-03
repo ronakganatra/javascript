@@ -16,7 +16,7 @@ export const Column = styled.span`
 	
 	text-align: ${ props => props.textAlign };
 
-	 &::before {
+	&::before {
  		position: absolute;
  		left: -9999em;
  		top: -30px;
@@ -24,6 +24,8 @@ export const Column = styled.span`
  		line-height: 0;
  		content: "${ props => props.label }";
  	}
+ 	
+ 	${ props => props.separator ? separatify() : "" }
 	
 	flex: 0 0 ${ props => props.ColumnWidth };
 	@media screen and ( max-width: 1355px ) {
@@ -44,6 +46,7 @@ Column.propTypes = {
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
 	textAlign: React.PropTypes.string,
+	separator: React.PropTypes.bool,
 };
 
 Column.defaultProps = {
@@ -52,7 +55,27 @@ Column.defaultProps = {
 	hideOnMobile: false,
 	hideOnTable: false,
 	textAlign: "left",
+	separator: false,
 };
+
+
+/**
+ * Separatifies an element
+ *
+ * @returns {String} CSS
+ */
+export function separatify() {
+	return `
+	&::after {
+		position:relative;
+		display: inline-block;
+		border-right: 2px solid ${colors.$color_grey};
+		padding-right: 40px;
+		height: 60px;
+		content: "";
+	}
+	`;
+}
 
 export const ColumnText = styled( Column )`
 	overflow: hidden;
@@ -71,7 +94,7 @@ export const ColumnText = styled( Column )`
 export const Row = styled.li`
 	background: ${ props => props.background };
 	
-	height: 100px;
+	min-height: 100px;
 	display: flex;
 	padding-right: 40px;
 	align-items: center;
@@ -83,7 +106,6 @@ export const Row = styled.li`
 `;
 
 Row.propTypes = {
-//	children: React.PropTypes.objectOf( Columns ).isRequired,
 	background: React.PropTypes.string,
 };
 
@@ -100,7 +122,7 @@ Row.defaultProps = {
  * @constructor
  */
 export const Table = styled.ul`
-	margin: 50px 0 0 0;
+	margin: 60px 0 0 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
@@ -114,7 +136,7 @@ export const Table = styled.ul`
 `;
 
 Table.propTypes = {
-	children: React.PropTypes.array || React.PropTypes.objectOf( Row ),
+	children: React.PropTypes.any,
 };
 
 /**
@@ -126,10 +148,10 @@ Table.propTypes = {
  * @constructor
  */
 export function Zebra( props ) {
-	let zebraProps = Object.assign( {}, ...props );
+	let zebraProps = Object.assign( {}, props );
 	let children = props.children;
 
-	// Todo: improve.
+	// Children could be one object or a list of objects.
 	if ( ! children.map ) {
 		children = [ children ];
 	}
