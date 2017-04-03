@@ -92,33 +92,56 @@ export default function AddSite( props ) {
 		props.onChange( event.target.value );
 	};
 
-	return (
-		<AddSiteModal>
-			<AddSiteImage src={addSiteImage} alt="" />
+	if ( props.errorFound ) {
+		return (
+			<AddSiteModal>
+				<AddSiteImage src={addSiteImage} alt="" />
 				<AddSiteHeading>
 					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
 				</AddSiteHeading>
+				<AddSiteText>
+					<label htmlFor="addSiteInputField">
+						<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
+					</label>
+				</AddSiteText>
+				<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
+				<NoActiveProduct>
+					<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
+					<NoActiveProductText id="addSiteInfo">
+						<FormattedMessage
+							id="sites.add-site.no-active-product"
+							defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
+							values={{
+								link: <PurpleLink href="/"><FormattedMessage
+									id="sites.add-site-no-active-product.link"
+									defaultMessage="read this page."/></PurpleLink>,
+								errorMessage: <i>"{ props.errorMessage }."</i>,
+							}}/>
+					</NoActiveProductText>
+				</NoActiveProduct>
+				<Buttons>
+					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
+						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
+					</TextButton>
+					<TextButton type="button" onClick={ props.onLinkClick } buttonWidth={"100px"}>
+						<FormattedMessage id="sites.add-site.link" defaultMessage="link" />
+					</TextButton>
+				</Buttons>
+			</AddSiteModal>
+		);
+	}
+	return (
+		<AddSiteModal>
+			<AddSiteImage src={addSiteImage} alt="" />
+			<AddSiteHeading>
+				<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
+			</AddSiteHeading>
 			<AddSiteText>
 				<label htmlFor="addSiteInputField">
 					<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
 				</label>
 			</AddSiteText>
 			<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
-			<NoActiveProduct>
-				<NoActiveProductIcon src={ noActiveProductIcon } alt="" />
-				<NoActiveProductText id="addSiteInfo">
-					<FormattedMessage
-						id="sites.add-site.no-active-product"
-						defaultMessage={"It looks like you don't have an active Yoast product on " +
-						"example-site.com yet. We cannot connect to your site until you do. Come back" +
-						" here once at least one Yoast plugin is activated. If you need help, {link}"}
-						values={{
-							link: <PurpleLink href="/"><FormattedMessage
-								id="sites.add-site-no-active-product.link"
-								defaultMessage="read this page." /></PurpleLink>,
-						}} />
-				</NoActiveProductText>
-			</NoActiveProduct>
 			<Buttons>
 				<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
 					<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
@@ -135,5 +158,7 @@ AddSite.propTypes = {
 	onCancelClick: React.PropTypes.func.isRequired,
 	onLinkClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
+	errorFound: React.PropTypes.bool.isRequired,
+	errorMessage: React.PropTypes.string,
 };
 

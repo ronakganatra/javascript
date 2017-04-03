@@ -38,14 +38,16 @@ export default function SitesPage( props ) {
 				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 					return sitesId;
 				} }/>
-				<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose } onChange={ props.onChange } />
+				<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
+							  onChange={ props.onChange } errorFound={ props.errorFound } errorMessage={ props.errorMessage } />
 			</div>
 		);
 	}
 	return (
 		<div>
 			<NoSites onClick={ props.addSite } />
-			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose } onChange={ props.onChange } />
+			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
+						  onChange={ props.onChange } errorFound={ props.errorFound } errorMessage={ props.errorMessage } />
 		</div>
 	);
 }
@@ -58,9 +60,12 @@ SitesPage.propTypes = {
 	onLink: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
+	errorFound: React.PropTypes.bool.isRequired,
+	errorMessage: React.PropTypes.string,
 };
 
 SitesPage.defaultProps = {
 	sites: [],
 	popupOpen: false,
+	errorMessage: "",
 };

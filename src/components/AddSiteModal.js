@@ -44,6 +44,8 @@ class BaseAddSiteModal extends React.Component {
 						onLinkClick={ this.props.onLink }
 						onCancelClick={ this.props.onClose }
 						onChange={ this.props.onChange }
+						errorFound={ this.props.errorFound }
+						errorMessage= { this.props.errorMessage }
 					/>
 				</Modal>
 			</div>
@@ -58,10 +60,13 @@ BaseAddSiteModal.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
 	onLink: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
+	errorFound: React.PropTypes.bool.isRequired,
+	errorMessage: React.PropTypes.string,
 };
 
 BaseAddSiteModal.defaultProps = {
 	isOpen: false,
+	errorMessage: "",
 };
 
 const AddSiteModal = styled( BaseAddSiteModal )`

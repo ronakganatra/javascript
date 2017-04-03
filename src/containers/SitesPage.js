@@ -38,9 +38,15 @@ const mapStateToProps = ( state ) => {
 
 	let popupOpen = state.ui.sites.addSitePopupOpen;
 
+	let errorFound = state.ui.sites.linkSiteFailed;
+
+	let errorMessage = state.ui.sites.linkSiteError;
+
 	return {
 		sites,
 		popupOpen,
+		errorFound,
+		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 	};
 };
