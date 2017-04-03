@@ -79,6 +79,33 @@ const PurpleLink = styled.a`
 `;
 
 /**
+ * Renders an error message
+ *
+ * @param {string} errorMessage The error message to render.
+ * @returns {ReactElement} The rendered element.
+ */
+function getErrorMessage( errorMessage ) {
+	if ( ! errorMessage ) {
+		return null;
+	}
+
+	return <NoActiveProduct>
+		<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
+		<NoActiveProductText id="addSiteInfo">
+			<FormattedMessage
+				id="sites.add-site.no-active-product"
+				defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
+				values={{
+					link: <PurpleLink href="/"><FormattedMessage
+						id="sites.add-site-no-active-product.link"
+						defaultMessage="read this page."/></PurpleLink>,
+					errorMessage: <i>"{ errorMessage }."</i>,
+				}}/>
+		</NoActiveProductText>
+	</NoActiveProduct>;
+}
+
+/**
  * Renders the AddSite component.
  *
  * @param {Object} props                 Component props.
@@ -105,20 +132,7 @@ export default function AddSite( props ) {
 					</label>
 				</AddSiteText>
 				<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
-				<NoActiveProduct>
-					<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-					<NoActiveProductText id="addSiteInfo">
-						<FormattedMessage
-							id="sites.add-site.no-active-product"
-							defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
-							values={{
-								link: <PurpleLink href="/"><FormattedMessage
-									id="sites.add-site-no-active-product.link"
-									defaultMessage="read this page."/></PurpleLink>,
-								errorMessage: <i>"{ props.errorMessage }."</i>,
-							}}/>
-					</NoActiveProductText>
-				</NoActiveProduct>
+				{ getErrorMessage( props.errorMessage ) }
 				<Buttons>
 					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
