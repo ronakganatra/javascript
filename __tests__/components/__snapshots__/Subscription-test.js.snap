@@ -1,8 +1,8 @@
 exports[`test The Subscription component matches the snapshot 1`] = `
 <li
-  className="yvyvi">
+  className="iYfqfc">
   <span
-    className="fgjNEY"
+    className="hUbMKa"
     label="">
     <img
       alt=""
@@ -10,38 +10,38 @@ exports[`test The Subscription component matches the snapshot 1`] = `
       src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
   </span>
   <span
-    className="dsMyXi"
+    className="cuMsox"
     label="Product">
     SEO Premium for WordPress
   </span>
   <span
-    className="jYEWmD"
+    className="cTrqWd"
     label="Level">
     20 sites
   </span>
   <span
-    className="fJdBZm"
+    className="gZvJNr"
     label="Usage">
     14
     /
     20
   </span>
   <span
-    className="gVnuUV"
+    className="eKEkfc"
     label="Next billing on">
     <span>
       4/3/2017
     </span>
   </span>
   <span
-    className="rtgKd"
+    className="cQThsy"
     label="Amount">
     $
      
     125.12
   </span>
   <span
-    className="iYMYCY"
+    className="chflUA"
     label="" />
 </li>
 `;
