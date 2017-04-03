@@ -29,6 +29,7 @@ class BaseAddSiteModal extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		console.log( this.props.onClose );
 		return (
 			<div>
 				<Modal
@@ -42,6 +43,7 @@ class BaseAddSiteModal extends React.Component {
 					<AddSite
 						onLinkClick={ this.props.onLink }
 						onCancelClick={ this.props.onClose }
+						onChange={ this.props.onChange }
 					/>
 				</Modal>
 			</div>
@@ -52,14 +54,13 @@ class BaseAddSiteModal extends React.Component {
 BaseAddSiteModal.propTypes = {
 	className: React.PropTypes.string,
 	intl: intlShape.isRequired,
-	addSitePopupOpen: React.PropTypes.bool,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
 	onLink: React.PropTypes.func.isRequired,
+	onChange: React.PropTypes.func.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {
-	addSitePopupOpen: false,
 	isOpen: false,
 };
 

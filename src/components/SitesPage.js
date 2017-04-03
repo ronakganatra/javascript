@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
+import AddSiteModal from "./AddSiteModal";
+
 import Sites from "./Sites";
 import Search from "./Search";
 import NoSites from "./NoSites";
@@ -36,11 +38,15 @@ export default function SitesPage( props ) {
 				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 					return sitesId;
 				} }/>
+				<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose } onChange={ props.onChange } />
 			</div>
 		);
 	}
 	return (
+		<div>
 			<NoSites onClick={ props.addSite } />
+			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose } onChange={ props.onChange } />
+		</div>
 	);
 }
 
@@ -48,8 +54,13 @@ SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
 	changeSearchQuery: React.PropTypes.func.isRequired,
+	popupOpen: React.PropTypes.bool,
+	onLink: React.PropTypes.func.isRequired,
+	onClose: React.PropTypes.func.isRequired,
+	onChange: React.PropTypes.func.isRequired,
 };
 
 SitesPage.defaultProps = {
 	sites: [],
+	popupOpen: false,
 };

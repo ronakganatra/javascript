@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { linkSitePopupOpen } from "../actions/sites";
+import { linkSitePopupClose, linkSitePopupOpen, linkSite, linkSiteRequest } from "../actions/sites";
 import SitesPage from "../components/SitesPage";
 
 const mapStateToProps = ( state ) => {
@@ -25,10 +25,23 @@ const mapStateToProps = ( state ) => {
 //		},
 //	];
 
-	let sites = state.ui.sites;
+	let allIds = state.entities.sites.allIds;
+
+	let sites = allIds.map( ( siteId ) => {
+		let site = state.entities.sites.byId[ siteId ];
+
+		return {
+			id: site.id,
+			siteName: site.url,
+		};
+	} );
+
+	let popupOpen = state.ui.sites.addSitePopupOpen;
 
 	return {
 		sites,
+		popupOpen,
+		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 	};
 };
 
@@ -40,12 +53,33 @@ const mapDispatchToProps = ( dispatch ) => {
 		addSite: () => {
 			dispatch( linkSitePopupOpen() );
 		},
+		changeSearchQuery: () => {},
+		onClose: () => {
+			dispatch( linkSitePopupClose() );
+		},
+		onLink: ( url ) => {
+			dispatch( linkSite( url ) );
+		},
+		onChange: ( url ) => {
+			dispatch( linkSiteRequest( url ) );
+		},
 	};
+};
+
+const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
+	let url = stateProps.linkingSiteUrl;
+
+	let onLink = () => {
+		dispatchProps.onLink( url );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink } );
 };
 
 const SitesPageContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
+	mergeProps
 )( SitesPage );
 
 export default SitesPageContainer;

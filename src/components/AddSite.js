@@ -88,6 +88,10 @@ const PurpleLink = styled.a`
  * @returns {ReactElement} A react component describing the AddSite modal.
  */
 export default function AddSite( props ) {
+	let onChange = ( event ) => {
+		props.onChange( event.target.value );
+	};
+
 	return (
 		<AddSiteModal>
 			<AddSiteImage src={addSiteImage} alt="" />
@@ -99,7 +103,7 @@ export default function AddSite( props ) {
 					<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
 				</label>
 			</AddSiteText>
-			<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" />
+			<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
 			<NoActiveProduct>
 				<NoActiveProductIcon src={ noActiveProductIcon } alt="" />
 				<NoActiveProductText id="addSiteInfo">
@@ -130,5 +134,6 @@ export default function AddSite( props ) {
 AddSite.propTypes = {
 	onCancelClick: React.PropTypes.func.isRequired,
 	onLinkClick: React.PropTypes.func.isRequired,
+	onChange: React.PropTypes.func.isRequired,
 };
 

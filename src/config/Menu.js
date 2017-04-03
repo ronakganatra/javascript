@@ -36,7 +36,7 @@ let Subscriptions = React.createClass( {
 
 let Sites = React.createClass( {
 	render: function() {
-		return ( <h1></h1> );
+		return ( SitesPageContainer );
 	},
 	componentDidMount: function() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
