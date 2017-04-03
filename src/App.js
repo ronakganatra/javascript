@@ -4,15 +4,14 @@ import "normalize.css/normalize.css";
 import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
-import menuItems from "./config/Menu";
+import menuItems, { Sites } from "./config/Menu";
 import { MainMenu, MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
-import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
-
 import { Logo } from "./components/Logo";
 
 /*
@@ -37,7 +36,6 @@ class App extends Component {
 				<Provider store={this.props.store}>
 					<Router>
 						<Layout>
-							<Redirect from='/' to='/sites'/>
 							<Sidebar>
 								<header role="banner">
 									<Logo size="200px" />
@@ -48,6 +46,7 @@ class App extends Component {
 							<Main>
 								<DebugInfo />
 								<Content>
+									<Route exact path="/" component={ Sites } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
 								</Content>
 							</Main>

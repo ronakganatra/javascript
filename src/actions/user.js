@@ -84,7 +84,7 @@ export function fetchUser( accessToken, userId ) {
 
 		let apiUrl = getApiUrl();
 
-		return fetch( `${apiUrl}/MyYoastUsers/${userId}?access_token=${accessToken}` )
+		return fetch( `${apiUrl}/MyYoastUsers/${userId}/profile?access_token=${accessToken}` )
 			.then( handle401 )
 			.then( response => response.json() )
 			.then( json => dispatch( receiveUser( json ) ) )
