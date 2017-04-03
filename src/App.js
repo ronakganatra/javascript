@@ -14,11 +14,6 @@ import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
 
-import { Table, Zebra } from "./components/Tables";
-import Paper from "./components/Paper";
-import Subscription from "./components/Subscription";
-
-
 /*
  * Helper method to write global CSS.
  * Only use it for the rare @font-face definition or body styling.
@@ -53,32 +48,6 @@ class App extends Component {
 								<Content>
 									<Route exact path="/" component={ Sites } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
-
-									<Table>
-										<Paper>
-											<Zebra>
-												<Subscription id="a" icon="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" name="SEO Premium for WordPress"
-												              used={ 14 } max={ 20 }
-												              nextBilling={ new Date() }
-												              billingAmount={ 125.12 }
-												              billingCurrency="$"
-												              onManage={ () => {
-													              console.log( "clicked on manage button" );
-												              } }
-												              />
-												<Subscription id="b" icon="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" name="SEO Premium for WordPress"
-												              used={ 4 } max={ 10 }
-												              nextBilling={ new Date() }
-												              billingAmount={ 125.12 }
-												              billingCurrency="$"
-												              onManage={ () => {
-													              console.log( "clicked on manage button" );
-												              } }
-												              />
-											</Zebra>
-										</Paper>
-									</Table>
-
 								</Content>
 							</Main>
 						</Layout>
