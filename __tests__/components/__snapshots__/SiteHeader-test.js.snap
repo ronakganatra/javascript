@@ -1,0 +1,15 @@
+exports[`test the site header matches the snapshot 1`] = `
+<div
+  className="gPDApQ">
+  <h1
+    className="ilXPZI">
+    placehold.it
+  </h1>
+  <button
+    className="cTDpVM"
+    onClick={[Function]}
+    type="button">
+    Visit site
+  </button>
+</div>
+`;
