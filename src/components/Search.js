@@ -72,7 +72,7 @@ export default function Search( props ) {
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
 		</SearchLabel>
-		<SearchField type="text" id={ props.id } aria-describedby={ props.descriptionId } />
+		<SearchField type="text" id={ props.id } aria-describedby={ props.descriptionId } onChange={ props.onChange}/>
 		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description }
 		</SearchDescription>
@@ -84,6 +84,7 @@ Search.propTypes = {
 	id: React.PropTypes.string.isRequired,
 	description: React.PropTypes.string.isRequired,
 	descriptionId: React.PropTypes.string.isRequired,
+	onChange: React.PropTypes.func.isRequired,
 };
 
 Search.defaultProps = {
