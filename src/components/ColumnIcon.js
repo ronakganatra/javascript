@@ -18,8 +18,9 @@ export const ColumnIcon = styled( Column )`
 	}
 
 	box-sizing: border-box;
-
-	@media screen and ( max-width: 1355px ) {
-		padding-right: 20px;
+	
+	@media screen and ( max-width: 800px ) {
+		height: 48px;
+		flex: 0 0 ${ props => props.ColumnWidth };
 	}
 `;

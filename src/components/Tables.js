@@ -33,7 +33,11 @@ export const Column = styled.span`
 		flex: 1 0 ${ props => props.ColumnWidth };
 		${ props => props.hideOnTablet ? "display: none;" : "" }
 	}
-	@media screen and ( max-width: 660px ) {
+	@media screen and ( max-width: 800px ) {
+		&:first-child {
+			padding-left: 20px;
+ 	    }
+ 	    padding-left: 10px;
 		flex: 1 1 ${ props => props.ColumnWidth };
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
@@ -74,6 +78,14 @@ export function separatify() {
 		height: 60px;
 		content: "";
 	}
+	
+
+	@media screen and ( max-width: 800px ) {
+		&::after {
+			padding-right: 10px;
+			height: 48px;
+		}
+	}
 	`;
 }
 
@@ -102,6 +114,7 @@ export const Row = styled.li`
 	
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
+		padding-right: 20px;
 	}
 `;
 
