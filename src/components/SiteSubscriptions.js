@@ -16,7 +16,7 @@ let YoastProducts = {
 	localwoo: { name: "Local SEO for Woo", image: LocalWooIcon },
 };
 
-const SiteSubscription = styled.span`
+const SiteSubscriptionIcons = styled.span`
 	background-image: url(${ props => props.image });
 	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
 	width: 40px;
@@ -25,7 +25,7 @@ const SiteSubscription = styled.span`
 	margin: 0 5px;
 `;
 
-SiteSubscription.propTypes = {
+SiteSubscriptionIcons.propTypes = {
 	image: React.PropTypes.string.isRequired,
 	isActive: React.PropTypes.bool.isRequired,
 };
@@ -36,7 +36,7 @@ SiteSubscription.propTypes = {
  * @param {Object} props The props to use.
  * @returns {XML} The rendered Subscriptions component.
  */
-export default function SiteSubscriptionIcons( props ) {
+export default function SiteSubscriptions( props ) {
 	return (
 		<div>
 			{
@@ -59,10 +59,10 @@ export default function SiteSubscriptionIcons( props ) {
 	);
 }
 
-SiteSubscriptionIcons.propTypes = {
+SiteSubscriptions.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
 };
 
-SiteSubscriptionIcons.defaultProps = {
+SiteSubscriptions.defaultProps = {
 	activeSubscriptions: [],
 };

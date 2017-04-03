@@ -1,11 +1,11 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Subscriptions from '../../src/components/Subscriptions';
+import SiteSubscriptions from '../../src/components/SiteSubscriptions';
 
 test('the subscription component matches the snapshot', () => {
 	const component = renderer.create(
-		<Subscriptions activeSubscriptions={ [ "woo", "video" ] } />
+		<SiteSubscriptions activeSubscriptions={ [ "woo", "video" ] } />
 	);
 
 	let tree = component.toJSON();
@@ -14,7 +14,7 @@ test('the subscription component matches the snapshot', () => {
 
 test('the subscription component without active subscriptions using the default matches the snapshot', () => {
 	const component = renderer.create(
-		<Subscriptions />
+		<SiteSubscriptions />
 	);
 
 	let tree = component.toJSON();
