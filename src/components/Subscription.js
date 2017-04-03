@@ -6,7 +6,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { Link } from "react-router-dom";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedDate } from "react-intl";
 
 const messages = defineMessages( {
 	product: {
@@ -32,6 +32,10 @@ const messages = defineMessages( {
 	manage: {
 		id: "subscriptions.overview.manage",
 		defaultMessage: "Manage",
+	},
+	sites: {
+		id: "subscriptions.overview.sites",
+		defaultMessage: "{max} sites",
 	},
 } );
 
@@ -59,9 +63,10 @@ function Subscription( props ) {
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true } hideOnMobile={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
 			<ColumnText label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) } ColumnWidth="100px">{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used } / { props.max }</ColumnText>
-			<ColumnText label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="200px">{ props.nextBilling }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
+			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
+			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
+			<ColumnText label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="200px"><FormattedDate value={ props.nextBilling }/></ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
@@ -86,7 +91,7 @@ Subscription.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	used: React.PropTypes.number.isRequired,
 	max: React.PropTypes.number.isRequired,
-	nextBilling: React.PropTypes.string.isRequired,
+	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
