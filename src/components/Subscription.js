@@ -39,10 +39,10 @@ const messages = defineMessages( {
 } );
 
 /**
- * Creates a subscription element
+ * Creates a subscription component
  *
- * @param {object} props Properties of the element.
- * @returns {JSX.Element} Subscription element.
+ * @param {object} props Properties of the component.
+ * @returns {ReactElement} Subscription component.
  * @constructor
  */
 function Subscription( props ) {

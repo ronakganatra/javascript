@@ -34,7 +34,7 @@ SiteSubscriptionIcons.propTypes = {
  * Renders a subscriptions component.
  *
  * @param {Object} props The props to use.
- * @returns {XML} The rendered Subscriptions component.
+ * @returns {ReactElement} The rendered Subscriptions component.
  */
 export default function SiteSubscriptions( props ) {
 	return (
