@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import SubNavigation, { SubNavigationItem } from "../../src/components/SubNavigation";
 import { NavigationItems } from "../../src/config/Menu";
 
-test('the subnavigation element matches the snapshot', () => {
+test('the subnavigation component matches the snapshot', () => {
 	const component = renderer.create(
 		<Router>
 			<div>
