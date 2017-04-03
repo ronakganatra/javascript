@@ -1,0 +1,471 @@
+exports[`test the sites page component with a site matches the snapshot 1`] = `
+<div>
+  <div
+    className="jCgOYH">
+    <div>
+      <label
+        className="bFGhCT"
+        htmlFor="search">
+        <span
+          className="screen-reader-text foqgVb">
+          Search
+        </span>
+      </label>
+      <input
+        aria-describedby="searchDescription"
+        className="hhtLuS"
+        id="search"
+        onChange={[Function]}
+        type="text" />
+      <p
+        className="screen-reader-text foqgVb"
+        id="searchDescription">
+        The search results will be updated as you type.
+      </p>
+    </div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <ul
+    className="gGiZgG"
+    role="list">
+    <li
+      className="cVmsOO">
+      <img
+        alt=""
+        className="gbwjzY"
+        src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      <span
+        className="site-name fsIFsM">
+        www.yoast.com
+      </span>
+      <span
+        className="active-subscriptions jIDXxQ">
+        <span>
+          <span
+            aria-label="Yoast SEO is inactive"
+            className="JSgkp"
+            role="img" />
+          <span
+            aria-label="Local SEO is inactive"
+            className="bMBoOj"
+            role="img" />
+          <span
+            aria-label="Video SEO is active"
+            className="zjvCw"
+            role="img" />
+          <span
+            aria-label="News SEO is inactive"
+            className="kmesGi"
+            role="img" />
+          <span
+            aria-label="WooCommerce SEO is active"
+            className="jyjMPB"
+            role="img" />
+          <span
+            aria-label="Local SEO for Woo is inactive"
+            className="errgXr"
+            role="img" />
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test the sites page component with no sites matches the snapshot 1`] = `
+<div
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
+</div>
+`;
+
+exports[`test the sites page component with sites handling a changed search query 1`] = `
+<div>
+  <div
+    className="jCgOYH">
+    <div>
+      <label
+        className="bFGhCT"
+        htmlFor="search">
+        <span
+          className="screen-reader-text foqgVb">
+          Search
+        </span>
+      </label>
+      <input
+        aria-describedby="searchDescription"
+        className="hhtLuS"
+        id="search"
+        onChange={[Function]}
+        type="text" />
+      <p
+        className="screen-reader-text foqgVb"
+        id="searchDescription">
+        The search results will be updated as you type.
+      </p>
+    </div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <ul
+    className="gGiZgG"
+    role="list">
+    <li
+      className="cVmsOO">
+      <img
+        alt=""
+        className="gbwjzY"
+        src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      <span
+        className="site-name fsIFsM">
+        www.yoast.com
+      </span>
+      <span
+        className="active-subscriptions jIDXxQ">
+        <span>
+          <span
+            aria-label="Yoast SEO is inactive"
+            className="JSgkp"
+            role="img" />
+          <span
+            aria-label="Local SEO is inactive"
+            className="bMBoOj"
+            role="img" />
+          <span
+            aria-label="Video SEO is active"
+            className="zjvCw"
+            role="img" />
+          <span
+            aria-label="News SEO is inactive"
+            className="kmesGi"
+            role="img" />
+          <span
+            aria-label="WooCommerce SEO is active"
+            className="jyjMPB"
+            role="img" />
+          <span
+            aria-label="Local SEO for Woo is inactive"
+            className="errgXr"
+            role="img" />
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test the sites page component with sites handling a changed search query 2`] = `
+<div>
+  <div
+    className="jCgOYH">
+    <div>
+      <label
+        className="bFGhCT"
+        htmlFor="search">
+        <span
+          className="screen-reader-text foqgVb">
+          Search
+        </span>
+      </label>
+      <input
+        aria-describedby="searchDescription"
+        className="hhtLuS"
+        id="search"
+        onChange={[Function]}
+        type="text" />
+      <p
+        className="screen-reader-text foqgVb"
+        id="searchDescription">
+        The search results will be updated as you type.
+      </p>
+    </div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <ul
+    className="gGiZgG"
+    role="list">
+    <li
+      className="cVmsOO">
+      <img
+        alt=""
+        className="gbwjzY"
+        src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      <span
+        className="site-name fsIFsM">
+        www.yoast.com
+      </span>
+      <span
+        className="active-subscriptions jIDXxQ">
+        <span>
+          <span
+            aria-label="Yoast SEO is inactive"
+            className="JSgkp"
+            role="img" />
+          <span
+            aria-label="Local SEO is inactive"
+            className="bMBoOj"
+            role="img" />
+          <span
+            aria-label="Video SEO is active"
+            className="zjvCw"
+            role="img" />
+          <span
+            aria-label="News SEO is inactive"
+            className="kmesGi"
+            role="img" />
+          <span
+            aria-label="WooCommerce SEO is active"
+            className="jyjMPB"
+            role="img" />
+          <span
+            aria-label="Local SEO for Woo is inactive"
+            className="errgXr"
+            role="img" />
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test the sites page component with sites handling an onclick event on the add site button 1`] = `
+<div>
+  <div
+    className="jCgOYH">
+    <div>
+      <label
+        className="bFGhCT"
+        htmlFor="search">
+        <span
+          className="screen-reader-text foqgVb">
+          Search
+        </span>
+      </label>
+      <input
+        aria-describedby="searchDescription"
+        className="hhtLuS"
+        id="search"
+        onChange={[Function]}
+        type="text" />
+      <p
+        className="screen-reader-text foqgVb"
+        id="searchDescription">
+        The search results will be updated as you type.
+      </p>
+    </div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <ul
+    className="gGiZgG"
+    role="list">
+    <li
+      className="cVmsOO">
+      <img
+        alt=""
+        className="gbwjzY"
+        src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      <span
+        className="site-name fsIFsM">
+        www.yoast.com
+      </span>
+      <span
+        className="active-subscriptions jIDXxQ">
+        <span>
+          <span
+            aria-label="Yoast SEO is inactive"
+            className="JSgkp"
+            role="img" />
+          <span
+            aria-label="Local SEO is inactive"
+            className="bMBoOj"
+            role="img" />
+          <span
+            aria-label="Video SEO is active"
+            className="zjvCw"
+            role="img" />
+          <span
+            aria-label="News SEO is inactive"
+            className="kmesGi"
+            role="img" />
+          <span
+            aria-label="WooCommerce SEO is active"
+            className="jyjMPB"
+            role="img" />
+          <span
+            aria-label="Local SEO for Woo is inactive"
+            className="errgXr"
+            role="img" />
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test the sites page component with sites handling an onclick event on the add site button 2`] = `
+<div>
+  <div
+    className="jCgOYH">
+    <div>
+      <label
+        className="bFGhCT"
+        htmlFor="search">
+        <span
+          className="screen-reader-text foqgVb">
+          Search
+        </span>
+      </label>
+      <input
+        aria-describedby="searchDescription"
+        className="hhtLuS"
+        id="search"
+        onChange={[Function]}
+        type="text" />
+      <p
+        className="screen-reader-text foqgVb"
+        id="searchDescription">
+        The search results will be updated as you type.
+      </p>
+    </div>
+    <button
+      aria-label="Add"
+      className="hTtZiN"
+      onClick={[Function]} />
+  </div>
+  <ul
+    className="gGiZgG"
+    role="list">
+    <li
+      className="cVmsOO">
+      <img
+        alt=""
+        className="gbwjzY"
+        src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      <span
+        className="site-name fsIFsM">
+        www.yoast.com
+      </span>
+      <span
+        className="active-subscriptions jIDXxQ">
+        <span>
+          <span
+            aria-label="Yoast SEO is inactive"
+            className="JSgkp"
+            role="img" />
+          <span
+            aria-label="Local SEO is inactive"
+            className="bMBoOj"
+            role="img" />
+          <span
+            aria-label="Video SEO is active"
+            className="zjvCw"
+            role="img" />
+          <span
+            aria-label="News SEO is inactive"
+            className="kmesGi"
+            role="img" />
+          <span
+            aria-label="WooCommerce SEO is active"
+            className="jyjMPB"
+            role="img" />
+          <span
+            aria-label="Local SEO for Woo is inactive"
+            className="errgXr"
+            role="img" />
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`test the sites page component without sites handling an onclick event on the add site button 1`] = `
+<div
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
+</div>
+`;
+
+exports[`test the sites page component without sites handling an onclick event on the add site button 2`] = `
+<div
+  className="fLQomB">
+  <img
+    alt=""
+    src="nosites.png" />
+  <p>
+    <span>
+      Welcome to the sites overview
+    </span>
+  </p>
+  <p>
+    <span>
+      Here you will be able to manage all your
+      sites that are running Yoast subscriptions.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to add your first site.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
+</div>
+`;

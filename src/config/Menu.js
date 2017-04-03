@@ -1,5 +1,5 @@
 import React from "react";
-import NoSites from "../components/NoSites";
+import SitesPage from "../components/SitesPage";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import subscriptionsIcon from "../icons/subscriptions.svg";
@@ -36,11 +36,7 @@ let Subscriptions = React.createClass( {
 
 let Sites = React.createClass( {
 	render: function() {
-		return (
-			<div>
-				<NoSites onClick={ () => {} } />
-			</div>
-		);
+		return ( <SitesPage sites={ [] } addSite={ () => {} } changeSearchQuery={ () => {} } /> );
 	},
 	componentDidMount: function() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
