@@ -5,7 +5,6 @@ import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
-import { Link } from "react-router-dom";
 import { injectIntl, intlShape, defineMessages, FormattedDate } from "react-intl";
 
 const messages = defineMessages( {
@@ -58,6 +57,7 @@ function Subscription( props ) {
 	delete rowProps.nextBilling;
 	delete rowProps.billingCurrency;
 	delete rowProps.billingAmount;
+	delete rowProps.onManage;
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
@@ -71,14 +71,12 @@ function Subscription( props ) {
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
-					<Link to="/subscriptions/[id]">
-						<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
-					</Link>
+					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
+					             onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-				<Link to="/subscriptions/[id]">
-				<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }/>
-				</Link>
+					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
+					               onClick={ props.onManage } />
 				</MediaQuery>
 			</Column>
 		</Row>
@@ -94,6 +92,7 @@ Subscription.propTypes = {
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
+	onManage: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 
