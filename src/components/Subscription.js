@@ -73,11 +73,10 @@ function Subscription( props ) {
 			<Column textAlign="right">
 				<Link to={ "/subscriptions/" + props.id }><MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
-					             onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
-					               onClick={ props.onManage } />
+					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
 				</Link>
 			</Column>
@@ -94,7 +93,6 @@ Subscription.propTypes = {
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
-	onManage: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

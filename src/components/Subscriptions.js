@@ -65,7 +65,6 @@ Subscriptions.propTypes = {
 				nextBilling: React.PropTypes.any.isRequired,
 				billingAmount: React.PropTypes.number.isRequired,
 				billingCurrency: React.PropTypes.string.isRequired,
-				onManage: React.PropTypes.any.isRequired,
 			}
 		)
 	),
