@@ -9,7 +9,7 @@ test('The Subscription component matches the snapshot', () => {
 		              name="SEO Premium for WordPress"
 		              icon="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
 		              used={ 14 } max={ 20 }
-		              nextBilling={ new Date() }
+		              nextBilling={ new Date( "4/3/2017" ) }
 		              billingAmount={ 125.12 }
 		              billingCurrency="$"
 		              onManage={ () => {
