@@ -2,6 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink, Route } from "react-router-dom";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const titles = defineMessages( {
+	sites: {
+		id: "menu.title.sites",
+		defaultMessage: "Sites",
+	},
+	subscriptions: {
+		id: "menu.title.subscriptions",
+		defaultMessage: "Subscriptions",
+	},
+	account: {
+		id: "menu.title.account",
+		defaultMessage: "Account",
+	},
+} );
 
 const activeStyle = "active-class-name";
 
@@ -117,7 +133,7 @@ const MenuIcon = styled.img`
  * @param {Object} props The props to use.
  * @returns {ReactElement} The rendered component.
  */
-export function MainMenu( props ) {
+function MainMenu( props ) {
 	return (
 	<Menu>
 		<ul role="list">
@@ -126,10 +142,12 @@ export function MainMenu( props ) {
 					return match;
 				} );
 
-				return <li key={ page.title }>
+				let title = props.intl.formatMessage( titles[ page.titleKey ] );
+
+				return <li key={ page.titleKey }>
 					<MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
 						<MenuIcon src={ page.icon } alt="" />
-						{ page.title }
+						{ title }
 					</MenuItem>
 				</li>;
 			}
@@ -139,8 +157,11 @@ export function MainMenu( props ) {
 	);
 }
 
+export default injectIntl( MainMenu );
+
 MainMenu.propTypes = {
 	menuRoutes: React.PropTypes.array.isRequired,
+	intl: intlShape.isRequired,
 };
 
 

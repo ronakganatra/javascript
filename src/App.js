@@ -5,7 +5,7 @@ import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
 import menuItems, { Sites } from "./config/Menu";
-import { MainMenu, MainMenuRoutes } from "./components/Menu";
+import MainMenu, { MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
 import { BrowserRouter as Router, Route } from "react-router-dom";
