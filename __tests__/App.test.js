@@ -1,7 +1,7 @@
 import React from "react";
-import App from "./App";
+import App from "../src/App";
 import { createStore } from "redux";
-import rootReducer from "./reducers";
+import rootReducer from "../src/reducers";
 import renderer from 'react-test-renderer';
 
 it( "renders without crashing", () => {
