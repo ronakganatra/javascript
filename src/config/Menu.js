@@ -78,4 +78,38 @@ let menuItems = [
 	},
 ];
 
+let Plugins = React.createClass( {
+	render: function() {
+		return ( <h1>Your plugins</h1> );
+	},
+} );
+
+let Services = React.createClass( {
+	render: function() {
+		return ( <h1>Your services</h1> );
+	},
+} );
+
+let NavigationItems = [
+	{
+		path: "/subscriptions/plugins",
+		title: "Plugins",
+		component: Plugins,
+		isActive: ( match, location ) => {
+			if ( match ) {
+				return true;
+			}
+
+			return location.pathname === "/subscriptions/plugins";
+		},
+	},
+	{
+		path: "/subscriptions/services",
+		title: "Services",
+		component: Services,
+	},
+];
+
+export { NavigationItems };
+
 export default menuItems;

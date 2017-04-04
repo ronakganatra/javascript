@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MediaQuery from "react-responsive";
 import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
-import Subscriptions from "../components/Subscriptions.js";
+import SiteSubscriptions from "../components/SiteSubscriptions.js";
 import { ChevronButton } from "../components/RoundButton.js";
 
 const SiteContainer = styled.li`
@@ -83,7 +83,7 @@ export default function Site( props ) {
 			<SiteIcon src={ props.siteIcon } alt="" />
 			<SiteName className="site-name">{ props.siteName }</SiteName>
 			<SiteSubscriptionsContainer className="active-subscriptions">
-				<Subscriptions activeSubscriptions={ props.activeSubscriptions } />
+				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } />
 			</SiteSubscriptionsContainer>
 			<MediaQuery query="(min-width: 1356px)">
 				<LargeButton onClick={ props.onClickManage }>Manage</LargeButton>
