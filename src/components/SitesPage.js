@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import a11ySpeak from "a11y-speak";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 import AddSiteModal from "./AddSiteModal";
 
@@ -7,6 +9,13 @@ import Sites from "./Sites";
 import Search from "./Search";
 import NoSites from "./NoSites";
 import { RoundAddButton } from "./RoundButton";
+
+const messages = defineMessages( {
+	sitesPageLoaded: {
+		id: "menu.sites.loaded",
+		defaultMessage: "Sites page loaded",
+	},
+} );
 
 const SiteAddContainer = styled.div`
 	text-align: center;
@@ -22,35 +31,48 @@ const SiteAddContainer = styled.div`
  *
  * @returns {ReactElement} The rendered Sites component.
  */
-export default function SitesPage( props ) {
-	if ( props.sites.length > 0 ) {
+class SitesPage extends React.Component {
+	componentDidMount() {
+		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
+		a11ySpeak( message );
+	}
+
+	render() {
+		let props = this.props;
+
+		if ( props.sites.length > 0 ) {
+			return (
+				<div>
+					<SiteAddContainer>
+						<Search
+							id="search"
+							description="The search results will be updated as you type."
+							descriptionId="searchDescription"
+							onChange={ props.changeSearchQuery }
+						/>
+						<RoundAddButton onClick={ props.addSite }/>
+					</SiteAddContainer>
+					<Sites sites={ props.sites } onClick={ ( sitesId ) => {
+						return sitesId;
+					} }/>
+					<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
+								  onChange={ props.onChange } errorFound={ props.errorFound }
+								  errorMessage={ props.errorMessage }/>
+				</div>
+			);
+		}
 		return (
 			<div>
-				<SiteAddContainer>
-					<Search
-						id="search"
-						description="The search results will be updated as you type."
-						descriptionId="searchDescription"
-						onChange={ props.changeSearchQuery }
-					/>
-					<RoundAddButton onClick={ props.addSite }/>
-				</SiteAddContainer>
-				<Sites sites={ props.sites } onClick={ ( sitesId ) => {
-					return sitesId;
-				} }/>
+				<NoSites onClick={ props.addSite }/>
 				<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
-							  onChange={ props.onChange } errorFound={ props.errorFound } errorMessage={ props.errorMessage } />
+							  onChange={ props.onChange } errorFound={ props.errorFound }
+							  errorMessage={ props.errorMessage }/>
 			</div>
 		);
 	}
-	return (
-		<div>
-			<NoSites onClick={ props.addSite } />
-			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
-						  onChange={ props.onChange } errorFound={ props.errorFound } errorMessage={ props.errorMessage } />
-		</div>
-	);
 }
+
+export default injectIntl( SitesPage );
 
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
@@ -62,6 +84,7 @@ SitesPage.propTypes = {
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
+	intl: intlShape.isRequired,
 };
 
 SitesPage.defaultProps = {
