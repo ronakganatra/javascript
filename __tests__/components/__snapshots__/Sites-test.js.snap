@@ -14,32 +14,32 @@ exports[`test the sites component matches the snapshot 1`] = `
     </span>
     <span
       className="active-subscriptions jIDXxQ">
-      <span>
+      <div>
         <span
           aria-label="Yoast SEO is inactive"
-          className="JSgkp"
+          className="hGymDt"
           role="img" />
         <span
           aria-label="Local SEO is inactive"
-          className="bMBoOj"
+          className="kswMOV"
           role="img" />
         <span
           aria-label="Video SEO is active"
-          className="zjvCw"
+          className="jzGgcX"
           role="img" />
         <span
           aria-label="News SEO is inactive"
-          className="kmesGi"
+          className="kdRmgg"
           role="img" />
         <span
           aria-label="WooCommerce SEO is active"
-          className="jyjMPB"
+          className="gKxAXd"
           role="img" />
         <span
           aria-label="Local SEO for Woo is inactive"
-          className="errgXr"
+          className="egmryf"
           role="img" />
-      </span>
+      </div>
     </span>
   </li>
   <li
@@ -54,32 +54,32 @@ exports[`test the sites component matches the snapshot 1`] = `
     </span>
     <span
       className="active-subscriptions jIDXxQ">
-      <span>
+      <div>
         <span
           aria-label="Yoast SEO is inactive"
-          className="JSgkp"
+          className="hGymDt"
           role="img" />
         <span
           aria-label="Local SEO is active"
-          className="cwZOre"
+          className="dQulax"
           role="img" />
         <span
           aria-label="Video SEO is active"
-          className="zjvCw"
+          className="jzGgcX"
           role="img" />
         <span
           aria-label="News SEO is inactive"
-          className="kmesGi"
+          className="kdRmgg"
           role="img" />
         <span
           aria-label="WooCommerce SEO is active"
-          className="jyjMPB"
+          className="gKxAXd"
           role="img" />
         <span
           aria-label="Local SEO for Woo is inactive"
-          className="errgXr"
+          className="egmryf"
           role="img" />
-      </span>
+      </div>
     </span>
   </li>
   <li
@@ -94,32 +94,32 @@ exports[`test the sites component matches the snapshot 1`] = `
     </span>
     <span
       className="active-subscriptions jIDXxQ">
-      <span>
+      <div>
         <span
           aria-label="Yoast SEO is inactive"
-          className="JSgkp"
+          className="hGymDt"
           role="img" />
         <span
           aria-label="Local SEO is inactive"
-          className="bMBoOj"
+          className="kswMOV"
           role="img" />
         <span
           aria-label="Video SEO is active"
-          className="zjvCw"
+          className="jzGgcX"
           role="img" />
         <span
           aria-label="News SEO is active"
-          className="ceEpVB"
+          className="kKtOgl"
           role="img" />
         <span
           aria-label="WooCommerce SEO is active"
-          className="jyjMPB"
+          className="gKxAXd"
           role="img" />
         <span
           aria-label="Local SEO for Woo is inactive"
-          className="errgXr"
+          className="egmryf"
           role="img" />
-      </span>
+      </div>
     </span>
   </li>
 </ul>

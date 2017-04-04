@@ -1,20 +1,57 @@
-exports[`test the site subscriptions component matches the snapshot 1`] = `
-<div
-  className="kfRyEM">
-  <button
-    className="ijipJx"
-    onClick={[Function]}>
-    <h2>
-      Manage subscriptions
-    </h2>
-    <svg
-      fill="#555"
-      height={40}
-      viewBox="0 0 24 24"
-      width={40}>
-      <path
-        d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-    </svg>
-  </button>
+exports[`test the subscription component matches the snapshot 1`] = `
+<div>
+  <span
+    aria-label="Yoast SEO is inactive"
+    className="hGymDt"
+    role="img" />
+  <span
+    aria-label="Local SEO is inactive"
+    className="kswMOV"
+    role="img" />
+  <span
+    aria-label="Video SEO is active"
+    className="jzGgcX"
+    role="img" />
+  <span
+    aria-label="News SEO is inactive"
+    className="kdRmgg"
+    role="img" />
+  <span
+    aria-label="WooCommerce SEO is active"
+    className="gKxAXd"
+    role="img" />
+  <span
+    aria-label="Local SEO for Woo is inactive"
+    className="egmryf"
+    role="img" />
+</div>
+`;
+
+exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
+<div>
+  <span
+    aria-label="Yoast SEO is inactive"
+    className="hGymDt"
+    role="img" />
+  <span
+    aria-label="Local SEO is inactive"
+    className="kswMOV"
+    role="img" />
+  <span
+    aria-label="Video SEO is inactive"
+    className="icgIoi"
+    role="img" />
+  <span
+    aria-label="News SEO is inactive"
+    className="kdRmgg"
+    role="img" />
+  <span
+    aria-label="WooCommerce SEO is inactive"
+    className="dritTx"
+    role="img" />
+  <span
+    aria-label="Local SEO for Woo is inactive"
+    className="egmryf"
+    role="img" />
 </div>
 `;

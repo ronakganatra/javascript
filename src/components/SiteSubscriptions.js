@@ -1,34 +1,68 @@
 import React from "react";
-import ListToggle from "./ListToggle";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import styled from "styled-components";
+import SeoIcon from "../icons/Yoast/Yoast_SEO_Icon_Small.svg";
+import LocalIcon from "../icons/Yoast/Local_SEO_Icon_Small.svg";
+import NewsIcon from "../icons/Yoast/News_Icon_Small.svg";
+import VideoIcon from "../icons/Yoast/Video_SEO_Icon_Small.svg";
+import WooIcon from "../icons/Yoast/Woo_Icon_Small.svg";
+import LocalWooIcon from "../icons/Yoast/Local_Woo_Icon_Small.svg";
 
-const messages = defineMessages( {
-	manageTitle: {
-		id: "site_subscriptions.overview.title",
-		defaultMessage: "Manage subscriptions",
-	},
-} );
+let YoastProducts = {
+	seo: { name: "Yoast SEO", image: SeoIcon },
+	local: { name: "Local SEO", image: LocalIcon },
+	video: { name: "Video SEO", image: VideoIcon },
+	news: { name: "News SEO", image: NewsIcon },
+	woo: { name: "WooCommerce SEO", image: WooIcon },
+	localwoo: { name: "Local SEO for Woo", image: LocalWooIcon },
+};
+
+const SiteSubscriptionIcons = styled.span`
+	background-image: url(${ props => props.image });
+	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 0 5px;
+`;
+
+SiteSubscriptionIcons.propTypes = {
+	image: React.PropTypes.string.isRequired,
+	isActive: React.PropTypes.bool.isRequired,
+};
 
 /**
- * Creates Site Subscriptions container element
+ * Renders a subscriptions component.
  *
- * @param {object} props Properties for this element.
- * @returns {ReactElement} SiteSubscriptions element.
- * @constructor
+ * @param {Object} props The props to use.
+ * @returns {ReactElement} The rendered Subscriptions component.
  */
-function SiteSubscriptions( props ) {
+export default function SiteSubscriptions( props ) {
 	return (
-		<ListToggle title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } />
+		<div>
+			{
+				Object.keys( YoastProducts ).map( function( productName ) {
+					let isActive = props.activeSubscriptions.includes( productName );
+					let product = YoastProducts[ productName ];
+
+					return (
+						<SiteSubscriptionIcons
+							key={ productName }
+							image={ product.image }
+							isActive={ isActive }
+							aria-label={ isActive ? product.name + " is active" : product.name + " is inactive" }
+							role="img"
+						/>
+					);
+				} )
+			}
+		</div>
 	);
 }
 
 SiteSubscriptions.propTypes = {
-	siteSubscriptions: React.PropTypes.array,
-	intl: intlShape.isRequired,
+	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
 };
 
 SiteSubscriptions.defaultProps = {
-	siteSubscriptions: [],
+	activeSubscriptions: [],
 };
-
-export default injectIntl( SiteSubscriptions );
