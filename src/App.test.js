@@ -1,12 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import App from "./App";
 import { createStore } from "redux";
 import rootReducer from "./reducers";
+import renderer from 'react-test-renderer';
 
 it( "renders without crashing", () => {
 	const store = createStore( rootReducer );
-	const div = document.createElement( "div" );
 
-	ReactDOM.render( <App store={store} />, div );
+	const component = renderer.create(
+		<App store={store} />
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
 } );

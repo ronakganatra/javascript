@@ -34,19 +34,6 @@ let Subscriptions = React.createClass( {
 	},
 } );
 
-let Sites = React.createClass( {
-	render: function() {
-		return ( SitesPageContainer );
-	},
-	componentDidMount: function() {
-		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
-		a11ySpeak( message );
-	},
-	propTypes: {
-		intl: intlShape.isRequired,
-	},
-} );
-
 let Account = React.createClass( {
 	render: function() {
 		return ( <h1>Your account details</h1> );
@@ -61,7 +48,6 @@ let Account = React.createClass( {
 } );
 
 Subscriptions = injectIntl( Subscriptions );
-Sites = injectIntl( Sites );
 Account = injectIntl( Account );
 
 let menuItems = [
@@ -92,5 +78,4 @@ let menuItems = [
 	},
 ];
 
-export { Sites };
 export default menuItems;
