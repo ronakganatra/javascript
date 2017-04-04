@@ -13,8 +13,105 @@ exports[`test the site subscription detail list component matches the snapshot 1
       viewBox="0 0 24 24"
       width={40}>
       <path
-        d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
     </svg>
   </button>
+  <ul
+    className="eJdWAs">
+    <li
+      className="cFWmaW">
+      <span
+        className="ifUQbH">
+        <img
+          className="dzkImt"
+          src="" />
+        <span
+          className="RviZc">
+          <div>
+            <div
+              aria-checked={false}
+              aria-label=""
+              className="kXYdPH"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex="0">
+              <span
+                className="bNikmV" />
+            </div>
+            <span
+              aria-hidden="true"
+              className="iUAAtI">
+              Off
+            </span>
+          </div>
+        </span>
+      </span>
+      <div
+        className="jSArqe">
+        <span
+          className="cCWqZS">
+          Yoast SEO
+        </span>
+        <span
+          className="fmqwLK">
+          NaN
+           / 
+          10
+           remaining
+        </span>
+        <button
+          className="lkKvjP"
+          onClick={undefined} />
+      </div>
+    </li>
+    <li
+      className="cFWmaW">
+      <span
+        className="ifUQbH">
+        <img
+          className="dzkImt"
+          src="" />
+        <span
+          className="RviZc">
+          <div>
+            <div
+              aria-checked={false}
+              aria-label=""
+              className="kXYdPH"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex="0">
+              <span
+                className="bNikmV" />
+            </div>
+            <span
+              aria-hidden="true"
+              className="iUAAtI">
+              Off
+            </span>
+          </div>
+        </span>
+      </span>
+      <div
+        className="jSArqe">
+        <span
+          className="cCWqZS">
+          Yoast SEO
+        </span>
+        <span
+          className="fmqwLK">
+          NaN
+           / 
+          10
+           remaining
+        </span>
+        <button
+          className="lkKvjP"
+          onClick={undefined} />
+      </div>
+    </li>
+  </ul>
 </div>
 `;

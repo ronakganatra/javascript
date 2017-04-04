@@ -18,7 +18,7 @@ const messages = defineMessages( {
  */
 function SiteSubscriptionDetailList( props ) {
 	return (
-		<ListToggle title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } />
+		<ListToggle title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true } />
 	);
 }
 
