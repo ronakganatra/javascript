@@ -81,11 +81,12 @@ const PurpleLink = styled.a`
 /**
  * Renders an error message
  *
+ * @param {boolean} errorFound Whether an error has been thrown.
  * @param {string} errorMessage The error message to render.
  * @returns {ReactElement} The rendered element.
  */
-function getErrorMessage( errorMessage ) {
-	if ( ! errorMessage ) {
+function getErrorMessage( errorFound, errorMessage ) {
+	if ( ! errorFound ) {
 		return null;
 	}
 
@@ -119,8 +120,7 @@ export default function AddSite( props ) {
 		props.onChange( event.target.value );
 	};
 
-	if ( props.errorFound ) {
-		return (
+	return (
 			<AddSiteModal>
 				<AddSiteImage src={addSiteImage} alt="" />
 				<AddSiteHeading>
@@ -132,7 +132,7 @@ export default function AddSite( props ) {
 					</label>
 				</AddSiteText>
 				<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
-				{ getErrorMessage( props.errorMessage ) }
+				{ getErrorMessage( props.errorFound, props.errorMessage ) }
 				<Buttons>
 					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
@@ -142,29 +142,6 @@ export default function AddSite( props ) {
 					</TextButton>
 				</Buttons>
 			</AddSiteModal>
-		);
-	}
-	return (
-		<AddSiteModal>
-			<AddSiteImage src={addSiteImage} alt="" />
-			<AddSiteHeading>
-				<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
-			</AddSiteHeading>
-			<AddSiteText>
-				<label htmlFor="addSiteInputField">
-					<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
-				</label>
-			</AddSiteText>
-			<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
-			<Buttons>
-				<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
-					<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
-				</TextButton>
-				<TextButton type="button" onClick={ props.onLinkClick } buttonWidth={"100px"}>
-					<FormattedMessage id="sites.add-site.link" defaultMessage="link" />
-				</TextButton>
-			</Buttons>
-		</AddSiteModal>
 	);
 }
 
