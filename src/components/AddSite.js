@@ -90,20 +90,22 @@ function getErrorMessage( errorFound, errorMessage ) {
 		return null;
 	}
 
-	return <NoActiveProduct>
-		<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-		<NoActiveProductText id="addSiteInfo">
-			<FormattedMessage
-				id="sites.add-site.no-active-product"
-				defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
-				values={{
-					link: <PurpleLink href="/"><FormattedMessage
-						id="sites.add-site-no-active-product.link"
-						defaultMessage="read this page."/></PurpleLink>,
-					errorMessage: <i>"{ errorMessage }."</i>,
-				}}/>
-		</NoActiveProductText>
-	</NoActiveProduct>;
+	return (
+		<NoActiveProduct>
+			<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
+			<NoActiveProductText id="addSiteInfo">
+				<FormattedMessage
+					id="sites.add-site.no-active-product"
+					defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
+					values={{
+						link: <PurpleLink href="/"><FormattedMessage
+							id="sites.add-site-no-active-product.link"
+							defaultMessage="read this page."/></PurpleLink>,
+						errorMessage: <i>"{ errorMessage }."</i>,
+					}}/>
+			</NoActiveProductText>
+		</NoActiveProduct>
+	);
 }
 
 /**

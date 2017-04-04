@@ -29,7 +29,6 @@ class BaseAddSiteModal extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
-		console.log( this.props.onClose );
 		return (
 			<div>
 				<Modal
@@ -45,7 +44,7 @@ class BaseAddSiteModal extends React.Component {
 						onCancelClick={ this.props.onClose }
 						onChange={ this.props.onChange }
 						errorFound={ this.props.errorFound }
-						errorMessage= { this.props.errorMessage }
+						errorMessage={ this.props.errorMessage }
 					/>
 				</Modal>
 			</div>
