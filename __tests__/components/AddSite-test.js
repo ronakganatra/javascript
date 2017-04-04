@@ -10,7 +10,11 @@ test('The AddSite component matches the snapshot', () => {
 			console.log( "clicked on link" );
 		} } onCancelClick={ () => {
 			console.log( "clicked on cancel" );
-		} }/>
+		} }
+			onChange={ () => {} }
+			errorFound={ false }
+		/>
+
 	);
 
 	let tree = component.toJSON();

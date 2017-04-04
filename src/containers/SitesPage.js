@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, linkSiteRequest } from "../actions/sites";
 import SitesPage from "../components/SitesPage";
 
-const mapStateToProps = ( state ) => {
+export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
 
 	let sites = allIds.map( ( siteId ) => {
@@ -29,7 +29,7 @@ const mapStateToProps = ( state ) => {
 	};
 };
 
-const mapDispatchToProps = ( dispatch ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );
@@ -50,7 +50,7 @@ const mapDispatchToProps = ( dispatch ) => {
 	};
 };
 
-const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
+export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let url = stateProps.linkingSiteUrl;
 
 	let onLink = () => {
