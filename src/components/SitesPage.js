@@ -40,6 +40,12 @@ class SitesPage extends React.Component {
 	render() {
 		let props = this.props;
 
+		let modal = (
+			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
+						  onChange={ props.onChange } errorFound={ props.errorFound }
+						  errorMessage={ props.errorMessage }/>
+		);
+
 		if ( props.sites.length > 0 ) {
 			return (
 				<div>
@@ -55,18 +61,14 @@ class SitesPage extends React.Component {
 					<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 						return sitesId;
 					} }/>
-					<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
-								  onChange={ props.onChange } errorFound={ props.errorFound }
-								  errorMessage={ props.errorMessage }/>
+					{ modal }
 				</div>
 			);
 		}
 		return (
 			<div>
 				<NoSites onClick={ props.addSite }/>
-				<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
-							  onChange={ props.onChange } errorFound={ props.errorFound }
-							  errorMessage={ props.errorMessage }/>
+				{ modal }
 			</div>
 		);
 	}
