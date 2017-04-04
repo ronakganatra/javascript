@@ -71,8 +71,8 @@ function Sites( props ) {
 		<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
 						activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
 			{ props.sites.map( function( site ) {
-				return <Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
-							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
+				return ( <Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
+							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } /> );
 			} ) }
 		</SitesContainer>
 	);

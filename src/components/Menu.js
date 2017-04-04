@@ -164,7 +164,6 @@ MainMenu.propTypes = {
 	intl: intlShape.isRequired,
 };
 
-
 /**
  * The main menu routes.
  *

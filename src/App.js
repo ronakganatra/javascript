@@ -4,7 +4,7 @@ import "normalize.css/normalize.css";
 import "./App.css";
 import UserStatus from "./containers/UserStatus";
 import { Layout, Sidebar, Main, Content } from "./components/Layout";
-import menuItems, { Sites } from "./config/Menu";
+import menuItems from "./config/Menu";
 import MainMenu, { MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
@@ -13,6 +13,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
+import SitesPageContainer from "./containers/SitesPage";
 
 /*
  * Helper method to write global CSS.
@@ -46,7 +47,7 @@ class App extends Component {
 							<Main>
 								<DebugInfo />
 								<Content>
-									<Route exact path="/" component={ Sites } />
+									<Route exact path="/" component={ SitesPageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
 								</Content>
 							</Main>
