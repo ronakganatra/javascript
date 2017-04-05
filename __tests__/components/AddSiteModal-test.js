@@ -19,7 +19,10 @@ test('The AddSiteModal component matches the snapshot', () => {
 			console.log( "clicked on Cancel" );
 		} } onLink={ () => {
 			console.log( "clicked on Link" );
-		} } isOpen={ true }/>
+		} } isOpen={ true }
+			onChange={ () => {} }
+			errorFound={ false }/>
+
 	);
 
 	let tree = component.toJSON();
@@ -32,7 +35,9 @@ test('the addSiteModal handling an onClose event', () => {
 			console.log( "clicked on Cancel" );
 		} } onLink={ () => {
 			console.log( "clicked on Link" );
-		} } isOpen={ true }/>
+		} } isOpen={ true }
+			onChange={ () => {} }
+			errorFound={ false }/>
 	);
 
 	let tree = component.toJSON();
@@ -52,14 +57,16 @@ test('the addSiteModal handling an onLink event', () => {
 			console.log( "clicked on Cancel" );
 		} } onLink={ () => {
 			console.log( "clicked on Link" );
-		} } isOpen={ true }/>
+		} } isOpen={ true }
+			onChange={ () => {} }
+			errorFound={ false }/>
 	);
 
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[0].children[5].children[1].props.onClick();
+	tree.children[0].children[0].children[4].children[1].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
