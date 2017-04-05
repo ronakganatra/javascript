@@ -33,12 +33,12 @@ exports[`test renders without crashing 1`] = `
       </div>
     </aside>
     <nav
-      className="sTjwg">
+      className="cLCvTA">
       <ul
         role="list">
         <li>
           <a
-            className="active-class-name eKEZTf"
+            className="active-class-name eIYKTO"
             href="/sites"
             onClick={[Function]}
             style={Object {}}>
@@ -51,7 +51,7 @@ exports[`test renders without crashing 1`] = `
         </li>
         <li>
           <a
-            className="eKEZTf"
+            className="eIYKTO"
             href="/subscriptions"
             onClick={[Function]}
             style={undefined}>
@@ -64,7 +64,7 @@ exports[`test renders without crashing 1`] = `
         </li>
         <li>
           <a
-            className="eKEZTf"
+            className="eIYKTO"
             href="/account"
             onClick={[Function]}
             style={undefined}>
