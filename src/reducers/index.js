@@ -1,9 +1,11 @@
 import { userReducer as user } from "./user";
+import { uiSiteSubscriptionsReducer } from "./subscriptions.js";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
+	site: uiSiteSubscriptionsReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
