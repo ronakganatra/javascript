@@ -1,7 +1,8 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer } from "../../src/reducers/index"
-import { uiSitesReducer, byIdReducer, allIdsReducer } from "../../src/reducers/sites"
-import { userReducer } from "../../src/reducers/user"
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer } from "../../src/reducers/index";
+import { uiSitesReducer, byIdReducer, allIdsReducer } from "../../src/reducers/sites";
+import { uiSiteSubscriptionsReducer } from "../../src/reducers/subscriptions";
+import { userReducer } from "../../src/reducers/user";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -17,12 +18,19 @@ jest.mock( "../../src/reducers/user.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/subscriptions.js", () => {
+	return {
+		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
+		site: jest.fn( ( state = {} ) => { return { name: "site" }; } ),
+	}
+} );
+
 test( 'ui reducer', () => {
 	const state = { sites: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { name: "uiSitesReducer" } };
+	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" } };
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
 	expect( uiSitesReducer ).toHaveBeenCalledWith( {}, action );
@@ -55,14 +63,16 @@ test( 'root reducer', () => {
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { entities: {
-		sites: {
-			byId: { name: "byIdReducer" },
-			allIds: { name: "allIdsReducer" },
+	const expected = {
+		entities: {
+			sites: {
+				byId: { name: "byIdReducer" },
+				allIds: { name: "allIdsReducer" },
 			}
 		},
 		ui: {
-			sites: { name: "uiSitesReducer" }
+			sites: { name: "uiSitesReducer" },
+			site: { name: "uiSiteSubscriptionsReducer" }
 		},
 		user: { name: "userReducer" }
 	};
