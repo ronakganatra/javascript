@@ -1,0 +1,121 @@
+exports[`test renders without crashing 1`] = `
+<div
+  className="dRnDAb">
+  <div
+    className="fiOhHo">
+    <header
+      role="banner">
+      <img
+        alt="My Yoast"
+        className="jEhkge"
+        size="200px"
+        src="logo.svg" />
+    </header>
+    <aside
+      className="user-info dkZuOy">
+      <img
+        alt=""
+        className="bfdaAJ"
+        size="64px"
+        src="https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=60" />
+      <div
+        className="foqgVb">
+        <p
+          className="gGQGre">
+          
+        </p>
+        <button
+          className="jZckzU"
+          onClick={[Function]}
+          type="button">
+          Sign out
+        </button>
+      </div>
+    </aside>
+    <nav
+      className="sTjwg">
+      <ul
+        role="list">
+        <li>
+          <a
+            className="active-class-name eKEZTf"
+            href="/sites"
+            onClick={[Function]}
+            style={Object {}}>
+            <img
+              alt=""
+              className="ilptYL"
+              src="sites.svg" />
+            Sites
+          </a>
+        </li>
+        <li>
+          <a
+            className="eKEZTf"
+            href="/subscriptions"
+            onClick={[Function]}
+            style={undefined}>
+            <img
+              alt=""
+              className="ilptYL"
+              src="subscriptions.svg" />
+            Subscriptions
+          </a>
+        </li>
+        <li>
+          <a
+            className="eKEZTf"
+            href="/account"
+            onClick={[Function]}
+            style={undefined}>
+            <img
+              alt=""
+              className="ilptYL"
+              src="user.svg" />
+            Account
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <main
+    className="lhxswa"
+    id="content">
+    <div
+      className="jwnvEF">
+      <div>
+        <div
+          className="fLQomB">
+          <img
+            alt=""
+            src="nosites.png" />
+          <p>
+            <span>
+              Welcome to the sites overview
+            </span>
+          </p>
+          <p>
+            <span>
+              Here you will be able to manage all your
+              sites that are running Yoast subscriptions.
+            </span>
+          </p>
+          <p>
+            <span>
+              Press the button below to add your first site.
+            </span>
+          </p>
+          <button
+            aria-label="Add"
+            className="hTtZiN"
+            onClick={[Function]} />
+        </div>
+        <div>
+          <noscript />
+        </div>
+      </div>
+      <div />
+    </div>
+  </main>
+</div>
+`;
