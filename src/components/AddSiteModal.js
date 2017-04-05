@@ -42,6 +42,9 @@ class BaseAddSiteModal extends React.Component {
 					<AddSite
 						onLinkClick={ this.props.onLink }
 						onCancelClick={ this.props.onClose }
+						onChange={ this.props.onChange }
+						errorFound={ this.props.errorFound }
+						errorMessage={ this.props.errorMessage }
 					/>
 				</Modal>
 			</div>
@@ -52,15 +55,17 @@ class BaseAddSiteModal extends React.Component {
 BaseAddSiteModal.propTypes = {
 	className: React.PropTypes.string,
 	intl: intlShape.isRequired,
-	addSitePopupOpen: React.PropTypes.bool,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
 	onLink: React.PropTypes.func.isRequired,
+	onChange: React.PropTypes.func.isRequired,
+	errorFound: React.PropTypes.bool.isRequired,
+	errorMessage: React.PropTypes.string,
 };
 
 BaseAddSiteModal.defaultProps = {
-	addSitePopupOpen: false,
 	isOpen: false,
+	errorMessage: "",
 };
 
 const AddSiteModal = styled( BaseAddSiteModal )`
