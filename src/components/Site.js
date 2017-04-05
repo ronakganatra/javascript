@@ -38,15 +38,8 @@ SiteIcon.propTypes = {
  * @constructor
  */
 function Site( props ) {
-	let rowProps = Object.assign( {}, props );
-
-	// Possibly prettify this.
-	delete rowProps.siteName;
-	delete rowProps.siteIcon;
-	delete rowProps.activeSubscriptions;
-	delete rowProps.onClickManage;
 	return (
-		<Row key={ props.id } { ...rowProps }>
+		<Row>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
 			<ColumnText label={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.activeSubscriptions ) }
@@ -66,7 +59,6 @@ function Site( props ) {
 }
 
 Site.propTypes = {
-	id: React.PropTypes.string.isRequired,
 	siteName: React.PropTypes.string.isRequired,
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
 	siteIcon: React.PropTypes.string,
