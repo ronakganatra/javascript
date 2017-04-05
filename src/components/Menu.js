@@ -8,7 +8,6 @@ const activeStyle = "active-class-name";
 const Menu = styled.nav`
 	clear: both;
 	
-
 	& ul {
 		list-style: none;
 		margin: 0;
@@ -20,18 +19,17 @@ const Menu = styled.nav`
 	}
 
 	@media screen and ( max-width: 1024px ) {
-	margin: 0 4%;
-	text-align: center;
-	
-	
-	& ul {
-		display: flex;
-	}
+		margin: 0 4%;
+		text-align: center;
 		
-	& li {
-		flex: 1 1 0%; /* Has unit measure to ensure IE compatibility */
-		min-width: 40px; /* Like the icons width. */
-	}
+		& ul {
+			display: flex;
+		}
+			
+		& li {
+			flex: 1 1 0%; /* Has unit measure to ensure IE compatibility */
+			min-width: 40px; /* Like the icons width. */
+		}
 	}
 `;
 
@@ -83,7 +81,6 @@ const MenuItem = styled( NavLink )`
 	@media screen and ( max-width: 1024px ) {
 		display: inline-block;
 		width: 100%; /* necessary for the text ellipsis */
-		
 		height: 74px;
 		margin: 0;
 		padding: 8px 0 0;
