@@ -3,30 +3,6 @@ import Subscription from "./Subscription";
 import { Table, Zebra } from "./Tables";
 import Paper from "./Paper";
 
-// Example data, should eventually be fetched from the database
-export const subscriptions = [
-	{
-		id: "3",
-		icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		name: "SEO Premium for WordPress",
-		used: 4,
-		max: 20,
-		nextBilling: "12/13/14",
-		billingAmount: 125.12,
-		billingCurrency: "$",
-	},
-	{
-		id: "4",
-		icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-		name: "SEO Premium for WordPress",
-		used: 3,
-		max: 20,
-		nextBilling: "12/13/14",
-		billingAmount: 125.12,
-		billingCurrency: "$",
-	},
-];
-
 /**
  *
  * @param {Object} props The props to use
@@ -62,7 +38,7 @@ Subscriptions.propTypes = {
 				name: React.PropTypes.string.isRequired,
 				used: React.PropTypes.number.isRequired,
 				max: React.PropTypes.number.isRequired,
-				nextBilling: React.PropTypes.any.isRequired,
+				nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: React.PropTypes.number.isRequired,
 				billingCurrency: React.PropTypes.string.isRequired,
 			}
