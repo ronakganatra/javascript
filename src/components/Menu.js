@@ -7,7 +7,7 @@ const activeStyle = "active-class-name";
 
 const Menu = styled.nav`
 	clear: both;
-	margin: 0 4%;
+	
 
 	& ul {
 		list-style: none;
@@ -20,6 +20,7 @@ const Menu = styled.nav`
 	}
 
 	@media screen and ( max-width: 1024px ) {
+	margin: 0 4%;
 	text-align: center;
 	
 	
