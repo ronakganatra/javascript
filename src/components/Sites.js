@@ -3,6 +3,8 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Site from "./Site";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { Table, Zebra } from "./Tables";
+import Paper from "./Paper";
 
 const messages = defineMessages( {
 	site: {
@@ -68,15 +70,25 @@ const SitesContainer = styled.ul`
  */
 function Sites( props ) {
 	return (
-		<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
-						activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
-			{ props.sites.map( function( site ) {
-				return <Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
-							  activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
-			} ) }
-		</SitesContainer>
+		<Table>
+			<Paper>
+				<Zebra>
+					<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
+									activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
+						{ props.sites.map( function( site ) {
+							return <Site key={ site.id } id={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
+										 activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
+						} ) }
+					</SitesContainer>
+				</Zebra>
+			</Paper>
+		</Table>
 	);
 }
+
+
+// 	);
+// }
 
 export default injectIntl( Sites );
 
