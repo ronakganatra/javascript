@@ -35,7 +35,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           className="eKEkfc"
           label="Next billing on">
           <span>
-            12/13/2014
+            10/13/2014
           </span>
         </span>
         <span
@@ -84,7 +84,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           className="eKEkfc"
           label="Next billing on">
           <span>
-            12/13/2014
+            10/13/2014
           </span>
         </span>
         <span
