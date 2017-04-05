@@ -25,7 +25,8 @@ test( 'the popup close action', () => {
 	const expected = {
 		addSitePopupOpen: false,
 		linkSiteError: "",
-		linkSiteFailed: false
+		linkSiteFailed: false,
+		linkingSiteUrl: "",
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -60,6 +61,8 @@ test( 'the link site success action in the uiSitesReducer', () => {
 	};
 	const expected = {
 		linkSiteFailed: false,
+		addSitePopupOpen: false,
+		linkingSiteUrl: "",
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -75,6 +78,7 @@ test( 'the link site failure action', () => {
 	const expected = {
 		linkSiteFailed: true,
 		linkSiteError: action.linkSiteError,
+		linkingSiteUrl: "",
 	};
 
 	const actual = uiSitesReducer( state, action );

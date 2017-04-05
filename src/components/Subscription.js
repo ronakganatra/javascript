@@ -6,6 +6,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate } from "react-intl";
+import { Link } from "react-router-dom";
 
 const messages = defineMessages( {
 	product: {
@@ -70,14 +71,14 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
-				<MediaQuery query="(min-width: 1356px)">
+				<Link to={ "/subscriptions/" + props.id }><MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
-					             onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
-					               onClick={ props.onManage } />
+					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
+				</Link>
 			</Column>
 		</Row>
 	);
@@ -92,7 +93,6 @@ Subscription.propTypes = {
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
-	onManage: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

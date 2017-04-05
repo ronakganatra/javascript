@@ -33,29 +33,9 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         aria-describedby="addSiteInfo"
         className="fZParA"
         id="addSiteInputField"
+        onChange={[Function]}
         placeholder="example-site.com"
         type="url" />
-      <p
-        className="dUKOTs">
-        <img
-          alt=""
-          className="jrNDzu"
-          src="exclamation-triangle.svg" />
-        <span
-          className="dvtOGe"
-          id="addSiteInfo">
-          <span>
-            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
-            <a
-              className="jWXgwc"
-              href="/">
-              <span>
-                read this page.
-              </span>
-            </a>
-          </span>
-        </span>
-      </p>
       <div
         className="jdEMcw">
         <button
@@ -115,29 +95,9 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         aria-describedby="addSiteInfo"
         className="fZParA"
         id="addSiteInputField"
+        onChange={[Function]}
         placeholder="example-site.com"
         type="url" />
-      <p
-        className="dUKOTs">
-        <img
-          alt=""
-          className="jrNDzu"
-          src="exclamation-triangle.svg" />
-        <span
-          className="dvtOGe"
-          id="addSiteInfo">
-          <span>
-            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
-            <a
-              className="jWXgwc"
-              href="/">
-              <span>
-                read this page.
-              </span>
-            </a>
-          </span>
-        </span>
-      </p>
       <div
         className="jdEMcw">
         <button
@@ -197,29 +157,9 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         aria-describedby="addSiteInfo"
         className="fZParA"
         id="addSiteInputField"
+        onChange={[Function]}
         placeholder="example-site.com"
         type="url" />
-      <p
-        className="dUKOTs">
-        <img
-          alt=""
-          className="jrNDzu"
-          src="exclamation-triangle.svg" />
-        <span
-          className="dvtOGe"
-          id="addSiteInfo">
-          <span>
-            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
-            <a
-              className="jWXgwc"
-              href="/">
-              <span>
-                read this page.
-              </span>
-            </a>
-          </span>
-        </span>
-      </p>
       <div
         className="jdEMcw">
         <button
@@ -279,29 +219,9 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         aria-describedby="addSiteInfo"
         className="fZParA"
         id="addSiteInputField"
+        onChange={[Function]}
         placeholder="example-site.com"
         type="url" />
-      <p
-        className="dUKOTs">
-        <img
-          alt=""
-          className="jrNDzu"
-          src="exclamation-triangle.svg" />
-        <span
-          className="dvtOGe"
-          id="addSiteInfo">
-          <span>
-            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
-            <a
-              className="jWXgwc"
-              href="/">
-              <span>
-                read this page.
-              </span>
-            </a>
-          </span>
-        </span>
-      </p>
       <div
         className="jdEMcw">
         <button
@@ -361,29 +281,9 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         aria-describedby="addSiteInfo"
         className="fZParA"
         id="addSiteInputField"
+        onChange={[Function]}
         placeholder="example-site.com"
         type="url" />
-      <p
-        className="dUKOTs">
-        <img
-          alt=""
-          className="jrNDzu"
-          src="exclamation-triangle.svg" />
-        <span
-          className="dvtOGe"
-          id="addSiteInfo">
-          <span>
-            It looks like you don\'t have an active Yoast product on example-site.com yet. We cannot connect to your site until you do. Come back here once at least one Yoast plugin is activated. If you need help, 
-            <a
-              className="jWXgwc"
-              href="/">
-              <span>
-                read this page.
-              </span>
-            </a>
-          </span>
-        </span>
-      </p>
       <div
         className="jdEMcw">
         <button
