@@ -115,6 +115,55 @@ exports[`test renders without crashing 1`] = `
         </div>
       </div>
       <div />
+      <li
+        className="hvHuek">
+        <span
+          className="galWEB">
+          <img
+            alt=""
+            className="cOhtuq"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <span
+            className="gputun">
+            <div>
+              <div
+                aria-checked={true}
+                aria-label="SEO premium for WordPress"
+                className="hGsRJU"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="checkbox"
+                tabIndex="0">
+                <span
+                  className="lbeQtx" />
+              </div>
+              <span
+                aria-hidden="true"
+                className="iUAAtI">
+                On
+              </span>
+            </div>
+          </span>
+        </span>
+        <div
+          className="drFsFv">
+          <span
+            className="gwtpew">
+            SEO premium for WordPress
+          </span>
+          <span
+            className="kaVduD">
+            <span>
+               6 / 20 remaining 
+            </span>
+          </span>
+          <button
+            className="dqWYTA"
+            onClick={[Function]}>
+            Add more slots for $69
+          </button>
+        </div>
+      </li>
     </div>
   </main>
 </div>

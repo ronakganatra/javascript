@@ -14,6 +14,8 @@ import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
 import SitesPageContainer from "./containers/SitesPage";
+import premiumIcon from "./icons/Yoast/Yoast_SEO_Icon_Small.svg";
+import SiteSubscriptionDetail from "./components/SiteSubscriptionDetail";
 
 /*
  * Helper method to write global CSS.
@@ -32,6 +34,29 @@ injectGlobal`
 
 class App extends Component {
 	render() {
+		let subscription = {
+			isEnabled: true,
+			productName: "SEO premium for WordPress",
+			productLogo: premiumIcon,
+			slots: {
+				amountAvailable: 20,
+				amountUsed: 14,
+				addMoreSlots: "Add more slots for $69",
+				onAddMoreSlotsClick: () => {
+					console.log( "Add more slots" );
+				},
+			},
+			onToggleSubscription: () => {
+				console.log( "on toggle subscription" );
+			},
+			onMoreInfoClick: () => {
+				console.log( "on more info click" );
+			},
+			onSettingsClick: () => {
+				console.log( "on settings click" );
+			},
+		};
+
 		return (
 			<IntlProvider locale="en">
 				<Provider store={this.props.store}>
@@ -49,6 +74,7 @@ class App extends Component {
 								<Content>
 									<Route exact path="/" component={ SitesPageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
+									<SiteSubscriptionDetail { ...subscription } />
 								</Content>
 							</Main>
 						</Layout>
