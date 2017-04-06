@@ -18,6 +18,7 @@ const SiteSubscription = styled.li`
 		height: 150px;
 		text-overflow: hidden;
 		padding: 13px 0;
+		padding-left: 26px;
 	}	
 `;
 

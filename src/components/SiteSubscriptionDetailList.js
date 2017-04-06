@@ -1,5 +1,5 @@
 import React from "react";
-import ListToggle from "./ListToggle";
+import CollapsibleHeader from "./CollapsibleHeader";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 const messages = defineMessages( {
@@ -18,7 +18,7 @@ const messages = defineMessages( {
  */
 function SiteSubscriptionDetailList( props ) {
 	return (
-		<ListToggle title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true } />
+		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true } />
 	);
 }
 

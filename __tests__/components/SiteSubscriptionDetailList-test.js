@@ -34,7 +34,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 					slots={
 						{ amountAvailable: 10 }
 					}
-					productName="Yoast SEO"/>,
+					productName="Local SEO"/>,
 			]
 		} ></SiteSubscriptionDetailList>
 	);

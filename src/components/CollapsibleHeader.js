@@ -15,11 +15,17 @@ const CollapsibleHeader = styled.button`
 	padding: 10px 40px;
 	border: none;
 	background-color: white;
-	cursor: pointer; ////////////////////////////////////////////// not working
+	cursor: pointer;
+	text-align: left;
 
 	h2 {
-		font-weight: 500;
+		flex: 1 1 auto;
+		font-weight: 300;
 		font-size: 1.5em;
+	}
+	
+	svg {
+		align-self: center;
 	}
 `;
 
@@ -89,11 +95,10 @@ export default class ListToggle extends React.Component {
 	 */
 	getList() {
 		let body;
-
 		if ( this.isOpen() ) {
-			body = <ListToggleBody>{ this.props.items }</ListToggleBody>;
+			body = this.props.items.map( ( item ) =>
+					<ListToggleBody key={ item.props.productName } role="list" >{ item }</ListToggleBody> );
 		}
-
 		return body;
 	}
 
@@ -105,7 +110,7 @@ export default class ListToggle extends React.Component {
 	render() {
 		return (
 			<CollapsibleHeaderContainer>
-				<CollapsibleHeader onClick={ this.toggleOpen }>
+				<CollapsibleHeader onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
 					<h2>{ this.props.title }</h2>
 					{ this.getArrow() }
 				</CollapsibleHeader>
@@ -117,7 +122,7 @@ export default class ListToggle extends React.Component {
 
 ListToggle.propTypes = {
 	title: React.PropTypes.string.isRequired,
-	items: React.PropTypes.any.isRequired
+	items: React.PropTypes.any.isRequired,
 	isOpen: React.PropTypes.bool,
 };
 
