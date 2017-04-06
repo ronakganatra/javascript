@@ -11,6 +11,9 @@ export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
 export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
+export const RETRIEVE_SITES_REQUEST = "LINK_SITE_REQUEST";
+export const RETRIEVE_SITES_SUCCESS = "RETRIEVE_SITES_SUCCESS";
+export const RETRIEVE_SITES_FAILURE = "RETRIEVE_SITES_FAILURE";
 
 /**
  * Action creators
@@ -112,6 +115,83 @@ export function linkSite( url ) {
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
 			.catch( ( error ) => {
 				dispatch( linkSiteFailure( error.message ) );
+			} );
+	};
+}
+
+/**
+ * An action creator for the server request action.
+ *
+ * @param {Array} sites The sites to be retrieved.
+ *
+ * @returns {Object} A server request action.
+ */
+export function retrieveSitesRequest( sites ) {
+	return {
+		type: RETRIEVE_SITES_REQUEST,
+		sites: sites,
+	};
+}
+
+/**
+ * An action creator for the retrieve sites success action.
+ *
+ * @param {Array} sites The sites to be retrieved.
+ *
+ * @returns {Object} A retrieve sites success action.
+ */
+export function retrieveSitesSuccess( sites ) {
+	return {
+		type: RETRIEVE_SITES_SUCCESS,
+		sites: sites,
+	};
+}
+
+/**
+ * An action creator for the retrieve sites failure action.
+ *
+ * @param {string} errorText The error message.
+ *
+ * @returns {Object} A retrieve sites failure action.
+ */
+export function retrieveSitesFailure( errorText ) {
+	return {
+		type: RETRIEVE_SITES_FAILURE,
+		retrieveSitesError: errorText,
+	};
+}
+/**
+ * An action creator for the retrieve sites action.
+ *
+ * @param {Array} sites The sites to be retrieved.
+ *
+ * @returns {Object} A retrieve sites action.
+ */
+export function retrieveSites( sites ) {
+	return ( dispatch ) => {
+		dispatch( retrieveSitesRequest( sites ) );
+
+		let apiUrl = getApiUrl();
+		let userId = getUserId();
+		let accessToken = getAccessToken();
+
+		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}`, {
+			method: "GET",
+			/* body: JSON.stringify( {
+				userId,
+			} ), */
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
+			.then( handle401 )
+			.then( verifyStatusCode )
+			.then( response => response.json() )
+			.then( json => dispatch( retrieveSitesSuccess( json ) ) )
+			.catch( ( error ) => {
+				dispatch( retrieveSitesFailure( error.message ) );
 			} );
 	};
 }

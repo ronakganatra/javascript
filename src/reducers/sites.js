@@ -1,4 +1,5 @@
-import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../actions/sites";
+import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS } from "../actions/sites";
 
 /**
  * Initial state
@@ -27,6 +28,18 @@ const rootState = {
 
 			// The error message we retrieved from the server about why the linking of the server failed.
 			linkSiteError: "",
+
+			// Whether or not we are currently doing a request to the server to retrieve the sites.
+			retrievingSites: false,
+
+			// Whether or not the retrieving of the site has failed.
+			retrievingSitesFailed: false,
+
+			// The error message we retrieved from the server about why the retrieving of the sites failed.
+			retrievingSitesError: "",
+
+			// Whether or not the connected sites are retrieved from the server.
+			sitesRetrieved: false,
 		},
 	},
 };
@@ -42,7 +55,7 @@ const rootState = {
  * @param {Object} action The current action received.
  * @returns {Object} The updated Sites object.
  */
-export function uiSitesReducer( state = rootState.ui.sites, action ) {
+export function linkSiteReducer( state = rootState.ui.sites, action ) {
 	switch ( action.type ) {
 		case LINK_SITE_POPUP_OPEN:
 			return Object.assign( {}, state, {
@@ -78,6 +91,45 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 }
 
 /**
+ * A reducer for the sites object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated Sites object.
+ */
+function retrieveSitesReducer( state = rootState.ui.sites, action ) {
+	switch ( action.type ) {
+		case RETRIEVE_SITES_REQUEST:
+			return Object.assign( {}, state, {
+				retrievingSites: true,
+			} );
+		case RETRIEVE_SITES_SUCCESS:
+			return Object.assign( {}, state, {
+				retrievingSites: false,
+				retrievingSitesFailed: false,
+			} );
+		case RETRIEVE_SITES_FAILURE:
+			return Object.assign( {}, state, {
+				retrievingSites: false,
+				retrievingSitesFailed: true,
+				retrievingSitesError: action.retrieveSitesError,
+				sitesRetrieved: true,
+			} );
+	}
+}
+
+/**
+ * A reducer for the sites object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated Sites object.
+ */
+export function uiSitesReducer( state = rootState.ui.sites, action ) {
+	return linkSiteReducer( retrieveSitesReducer( state, action ), action );
+}
+
+/**
  * A reducer for the byId object.
  *
  * @param {Object} state The current state of the byId object.
@@ -85,15 +137,24 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
  * @returns {Object} The updated byId object.
  */
 export function byIdReducer( state = rootState.entities.sites.byId, action ) {
+	let sites;
 	switch ( action.type ) {
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
 				[ action.site.id ]: action.site,
 			} );
+		case RETRIEVE_SITES_SUCCESS:
+			sites = Object.assign( {}, state );
+			console.log( action.sites );
+			action.sites.forEach( ( site ) => {
+				site[ sites.id ] = site;
+			} );
+			return sites;
 		default:
 			return state;
 	}
 }
+
 
 /**
  * A reducer for the allIds array.
