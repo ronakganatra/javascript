@@ -1,4 +1,5 @@
 import { GET_SITE_SUBSCRIPTIONS_REQUEST, GET_SITE_SUBSCRIPTIONS_SUCCESS, GET_SITE_SUBSCRIPTIONS_FAILURE } from "../actions/subscriptions";
+import _union from "lodash/union";
 
 /**
  * Initial state
@@ -87,17 +88,9 @@ export function byIdSitesSubscriptionsReducer( state = rootState.entities.subscr
  * @returns {Array} The updated allIdsSitesSubscriptions array.
  */
 export function allIdsSitesSubscriptionsReducer( state = rootState.entities.subscriptions.allIds, action ) {
-	let subscriptions;
-
 	switch ( action.type ) {
 		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
-			subscriptions = Object.assign( {}, state );
-
-			action.subscriptions.forEach( ( subscription ) => {
-				subscriptions[ subscription.id ] = subscription;
-			} );
-
-			return subscriptions;
+			return _union( state, action.subscriptions.map( subscription => subscription.id ) );
 		default:
 			return state;
 	}
