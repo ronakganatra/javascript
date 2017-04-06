@@ -53,7 +53,7 @@ Account = injectIntl( Account );
 let menuItems = [
 	{
 		path: "/sites",
-		title: "Sites",
+		titleKey: "sites",
 		icon: sitesIcon,
 		component: SitesPageContainer,
 		isActive: ( match, location ) => {
@@ -66,13 +66,13 @@ let menuItems = [
 	},
 	{
 		path: "/subscriptions",
-		title: "Subscriptions",
+		titleKey: "subscriptions",
 		icon: subscriptionsIcon,
 		component: Subscriptions,
 	},
 	{
 		path: "/account",
-		title: "Account",
+		titleKey: "account",
 		icon: userIcon,
 		component: Account,
 	},
