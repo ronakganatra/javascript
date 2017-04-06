@@ -27,12 +27,13 @@ export function getSiteSubscriptionsRequest() {
 
 /**
  * An action creator for the closing link site pop-up action.
- *
+ * @param {Object} json The json object
  * @returns {Object} A close link site pop-up action.
  */
-export function getSiteSubscriptionsSuccess() {
+export function getSiteSubscriptionsSuccess( json ) {
 	return {
 		type: GET_SITE_SUBSCRIPTIONS_SUCCESS,
+		subscriptions: json,
 	};
 }
 

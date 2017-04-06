@@ -42,12 +42,62 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
 			return Object.assign( {}, state, {
 				retrievingSiteSubscriptions: false,
+				error: "",
 			} );
 		case GET_SITE_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingSiteSubscriptions: false,
 				error: action.message,
 			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the IdSitesSubscriptions object.
+ *
+ * @param {Object} state The current state of the byId object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated byId object.
+ */
+export function byIdSitesSubscriptionsReducer( state = rootState.entities.subscriptions.byId, action ) {
+	let subscriptions;
+
+	switch ( action.type ) {
+		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
+			subscriptions = Object.assign( {}, state );
+
+			action.subscriptions.forEach( ( subscription ) => {
+				subscriptions[ subscription.id ] = subscription;
+			} );
+
+			return subscriptions;
+
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the allIdsSitesSubscriptions array.
+ *
+ * @param {Array} state The current state of the allIdsSitesSubscriptions array.
+ * @param {Object} action The current action received.
+ * @returns {Array} The updated allIdsSitesSubscriptions array.
+ */
+export function allIdsSitesSubscriptionsReducer( state = rootState.entities.subscriptions.allIds, action ) {
+	let subscriptions;
+
+	switch ( action.type ) {
+		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
+			subscriptions = Object.assign( {}, state );
+
+			action.subscriptions.forEach( ( subscription ) => {
+				subscriptions[ subscription.id ] = subscription;
+			} );
+
+			return subscriptions;
 		default:
 			return state;
 	}
