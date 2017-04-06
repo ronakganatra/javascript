@@ -1,0 +1,108 @@
+exports[`test The Subscriptions component matches the snapshot 1`] = `
+<ul
+  className="jtXnzZ">
+  <div
+    className="dnTGWH">
+    <span>
+      <li
+        className="gSUJps">
+        <span
+          className="hUbMKa"
+          label="">
+          <img
+            alt=""
+            className="bjVGHc"
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+        </span>
+        <span
+          className="cuMsox"
+          label="Product">
+          SEO Premium for WordPress
+        </span>
+        <span
+          className="cTrqWd"
+          label="Level">
+          20 sites
+        </span>
+        <span
+          className="gZvJNr"
+          label="Usage">
+          4
+          /
+          20
+        </span>
+        <span
+          className="eKEkfc"
+          label="Next billing on">
+          <span>
+            10/13/2014
+          </span>
+        </span>
+        <span
+          className="cQThsy"
+          label="Amount">
+          $
+           
+          125.12
+        </span>
+        <span
+          className="chflUA"
+          label="">
+          <a
+            href="/subscriptions/3"
+            onClick={[Function]} />
+        </span>
+      </li>
+      <li
+        className="fTADJm">
+        <span
+          className="hUbMKa"
+          label="">
+          <img
+            alt=""
+            className="bjVGHc"
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+        </span>
+        <span
+          className="cuMsox"
+          label="Product">
+          SEO Premium for WordPress
+        </span>
+        <span
+          className="cTrqWd"
+          label="Level">
+          20 sites
+        </span>
+        <span
+          className="gZvJNr"
+          label="Usage">
+          3
+          /
+          20
+        </span>
+        <span
+          className="eKEkfc"
+          label="Next billing on">
+          <span>
+            10/13/2014
+          </span>
+        </span>
+        <span
+          className="cQThsy"
+          label="Amount">
+          $
+           
+          125.12
+        </span>
+        <span
+          className="chflUA"
+          label="">
+          <a
+            href="/subscriptions/4"
+            onClick={[Function]} />
+        </span>
+      </li>
+    </span>
+  </div>
+</ul>
+`;
