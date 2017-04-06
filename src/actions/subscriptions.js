@@ -63,7 +63,7 @@ export function getSiteSubscriptions() {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		return fetch( `${apiUrl}/MyYoastUsers/${userId}/subscriptions?access_token=${accessToken}` )
+		return fetch( `${apiUrl}/Sites/{id}/subscriptions?access_token=${accessToken}` )
 		.then( handle401 )
 		.then( response => response.json() )
 		.then( json => dispatch( getSiteSubscriptionsSuccess( json ) ) )
