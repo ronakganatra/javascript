@@ -12,15 +12,15 @@ import SiteSubscriptions from "./SiteSubscriptions";
 
 const messages = defineMessages( {
 	siteName: {
-		id: "subscriptions.overview.siteName",
+		id: "site.overview.siteName",
 		defaultMessage: "Site name",
 	},
 	activeSubscriptions: {
-		id: "subscriptions.overview.activeSubscriptions",
+		id: "site.overview.activeSubscriptions",
 		defaultMessage: "Active subscriptions",
 	},
 	manage: {
-		id: "subscriptions.overview.manage",
+		id: "site.overview.manage",
 		defaultMessage: "Manage",
 	},
 } );
