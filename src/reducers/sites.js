@@ -1,6 +1,8 @@
 import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS } from "../actions/sites";
 
+import _union from "lodash/union";
+
 /**
  * Initial state
  */
@@ -38,7 +40,7 @@ const rootState = {
 			// The error message we retrieved from the server about why the retrieving of the sites failed.
 			retrievingSitesError: "",
 
-			// Whether or not the connected sites are retrieved from the server.
+			// Whether or not the connected sites have been retrieved from the server.
 			sitesRetrieved: false,
 		},
 	},
@@ -107,14 +109,16 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 			return Object.assign( {}, state, {
 				retrievingSites: false,
 				retrievingSitesFailed: false,
+				sitesRetrieved: true,
 			} );
 		case RETRIEVE_SITES_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingSites: false,
 				retrievingSitesFailed: true,
 				retrievingSitesError: action.retrieveSitesError,
-				sitesRetrieved: true,
 			} );
+		default:
+			return state;
 	}
 }
 
@@ -145,16 +149,14 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 			} );
 		case RETRIEVE_SITES_SUCCESS:
 			sites = Object.assign( {}, state );
-			console.log( action.sites );
 			action.sites.forEach( ( site ) => {
-				site[ sites.id ] = site;
+				sites[ site.id ] = site;
 			} );
 			return sites;
 		default:
 			return state;
 	}
 }
-
 
 /**
  * A reducer for the allIds array.
@@ -164,9 +166,13 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
  * @returns {Array} The updated allIds array.
  */
 export function allIdsReducer( state = rootState.entities.sites.allIds, action ) {
+	let sites;
 	switch ( action.type ) {
 		case LINK_SITE_SUCCESS:
 			return [ ...state, action.site.id ];
+		case RETRIEVE_SITES_SUCCESS:
+			sites = _union( state, action.sites.map( site => site.id ) );
+			return sites;
 		default:
 			return state;
 	}

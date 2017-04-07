@@ -23,16 +23,17 @@ test('the mapStateToProps function', () => {
 		ui: {
 			sites: {
 				addSitePopupOpen: false,
-					linkingSite: false,
-					linkingSiteUrl: "http://yoast.com",
-					linkSiteFailed: false,
-					linkSiteError: "",
+				linkingSite: false,
+				linkingSiteUrl: "http://yoast.com",
+				linkSiteFailed: false,
+				linkSiteError: "",
 			},
 		},
 	};
 	let expected = {
 		sites: [ { "id": "497490e6-eb8d-4627-be9b-bfd33fc217f1", "siteName": "http://yoast.com" } ],
 		popupOpen: false,
+		showLoader: true,
 		errorFound: false,
 		errorMessage: "",
 		linkingSiteUrl: "http://yoast.com",

@@ -11,7 +11,7 @@ export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
 export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
-export const RETRIEVE_SITES_REQUEST = "LINK_SITE_REQUEST";
+export const RETRIEVE_SITES_REQUEST = "RETRIEVE_SITE_REQUEST";
 export const RETRIEVE_SITES_SUCCESS = "RETRIEVE_SITES_SUCCESS";
 export const RETRIEVE_SITES_FAILURE = "RETRIEVE_SITES_FAILURE";
 
@@ -122,14 +122,11 @@ export function linkSite( url ) {
 /**
  * An action creator for the server request action.
  *
- * @param {Array} sites The sites to be retrieved.
- *
  * @returns {Object} A server request action.
  */
-export function retrieveSitesRequest( sites ) {
+export function retrieveSitesRequest() {
 	return {
 		type: RETRIEVE_SITES_REQUEST,
-		sites: sites,
 	};
 }
 
@@ -163,13 +160,11 @@ export function retrieveSitesFailure( errorText ) {
 /**
  * An action creator for the retrieve sites action.
  *
- * @param {Array} sites The sites to be retrieved.
- *
  * @returns {Object} A retrieve sites action.
  */
-export function retrieveSites( sites ) {
+export function retrieveSites() {
 	return ( dispatch ) => {
-		dispatch( retrieveSitesRequest( sites ) );
+		dispatch( retrieveSitesRequest() );
 
 		let apiUrl = getApiUrl();
 		let userId = getUserId();
@@ -177,9 +172,6 @@ export function retrieveSites( sites ) {
 
 		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}`, {
 			method: "GET",
-			/* body: JSON.stringify( {
-				userId,
-			} ), */
 			headers: {
 				"Content-Type": "application/json",
 			},
