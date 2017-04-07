@@ -42,6 +42,10 @@ exports[`test The Subscription component matches the snapshot 1`] = `
   </span>
   <span
     className="chflUA"
-    label="" />
+    label="">
+    <a
+      href="/subscriptions/a"
+      onClick={[Function]} />
+  </span>
 </li>
 `;

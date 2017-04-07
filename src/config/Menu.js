@@ -1,10 +1,10 @@
 import React from "react";
-import SitesPage from "../components/SitesPage";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import subscriptionsIcon from "../icons/subscriptions.svg";
 import sitesIcon from "../icons/sites.svg";
 import userIcon from "../icons/user.svg";
+import SitesPageContainer from "../containers/SitesPage";
 
 const messages = defineMessages( {
 	subscriptionsPageLoaded: {
@@ -34,19 +34,6 @@ let Subscriptions = React.createClass( {
 	},
 } );
 
-let Sites = React.createClass( {
-	render: function() {
-		return ( <SitesPage sites={ [] } addSite={ () => {} } changeSearchQuery={ () => {} } /> );
-	},
-	componentDidMount: function() {
-		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
-		a11ySpeak( message );
-	},
-	propTypes: {
-		intl: intlShape.isRequired,
-	},
-} );
-
 let Account = React.createClass( {
 	render: function() {
 		return ( <h1>Your account details</h1> );
@@ -61,15 +48,14 @@ let Account = React.createClass( {
 } );
 
 Subscriptions = injectIntl( Subscriptions );
-Sites = injectIntl( Sites );
 Account = injectIntl( Account );
 
 let menuItems = [
 	{
 		path: "/sites",
-		title: "Sites",
+		titleKey: "sites",
 		icon: sitesIcon,
-		component: Sites,
+		component: SitesPageContainer,
 		isActive: ( match, location ) => {
 			if ( match ) {
 				return true;
@@ -80,13 +66,13 @@ let menuItems = [
 	},
 	{
 		path: "/subscriptions",
-		title: "Subscriptions",
+		titleKey: "subscriptions",
 		icon: subscriptionsIcon,
 		component: Subscriptions,
 	},
 	{
 		path: "/account",
-		title: "Account",
+		titleKey: "account",
 		icon: userIcon,
 		component: Account,
 	},
@@ -124,6 +110,6 @@ let NavigationItems = [
 	},
 ];
 
+export { NavigationItems };
 
-export { Sites, NavigationItems };
 export default menuItems;

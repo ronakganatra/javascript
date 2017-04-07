@@ -86,10 +86,6 @@ function Sites( props ) {
 	);
 }
 
-
-// 	);
-// }
-
 export default injectIntl( Sites );
 
 Sites.propTypes = {
