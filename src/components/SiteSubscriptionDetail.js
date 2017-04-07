@@ -146,14 +146,14 @@ const Buttons = styled.span`
  */
 export default function SiteSubscriptionDetail( props ) {
 	return (
-		<SiteSubscription>
+		<SiteSubscription key={ props.productName } >
 			<SubscriptionLeftContainer>
 				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ props.onToggleSubscription }
 						isEnabled={ props.isEnabled }
-						ariaLabel=""
+						ariaLabel={ props.productName }
 						onClick={ props.onToggleSubscription } />
 				</SubscriptionToggle>
 			</SubscriptionLeftContainer>

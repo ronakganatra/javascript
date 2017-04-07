@@ -33,7 +33,7 @@ const ListToggleBody = styled.ul`
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	
+
 	li:nth-child(odd) {
 		background-color: ${ colors.$color_background_light };
 	}
@@ -95,11 +95,16 @@ export default class ListToggle extends React.Component {
 	 * @returns {ReactElement} The list.
 	 */
 	getList() {
-		let body;
+		let body = null;
+
 		if ( this.isOpen() ) {
-			body = this.props.items.map( ( item ) =>
-					<ListToggleBody key={ item.props.productName } role="list" >{ item }</ListToggleBody> );
+			body = (
+				<ListToggleBody role="list">
+					{ this.props.items.map( ( item ) => item ) }
+				</ListToggleBody>
+			);
 		}
+		console.log( body );
 		return body;
 	}
 
