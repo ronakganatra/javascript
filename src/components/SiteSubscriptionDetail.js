@@ -9,14 +9,14 @@ import plusIcon from "../icons/blue-plus-circle.svg";
 let responsiveWidthThreshold = 1355;
 
 const SiteSubscription = styled.li`
-	background: ${colors.$color_white};
+	background: ${ colors.$color_white };
 	height: 100px;
 	display: flex;
 	padding: 26px 0;
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		height: 150px;
-		text-overflow: hidden;
+		overflow: hidden;
 		padding: 13px 0;
 		padding-left: 26px;
 	}	
@@ -62,7 +62,7 @@ const SubscriptionToggle = styled.span`
 `;
 
 const SubscriptionDetails = styled.div`
-	color: ${colors.$color_black};
+	color: ${ colors.$color_black };
 	margin: 0 40px 0 0;
 	flex: 1 1;
 	overflow: hidden;
@@ -123,7 +123,7 @@ const AddOneSlot = styled.button`
 	
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		width: 100%;
-		margin-left: 0px;
+		margin-left: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -148,9 +148,8 @@ export default function SiteSubscriptionDetail( props ) {
 	return (
 		<SiteSubscription>
 			<SubscriptionLeftContainer>
-				<SubscriptionLogo src={ props.productLogo } />
+				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>
-
 					<Toggle
 						onSetEnablement={ props.onToggleSubscription }
 						isEnabled={ props.isEnabled }
@@ -160,12 +159,12 @@ export default function SiteSubscriptionDetail( props ) {
 			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
-				<ProductName>{props.productName}</ProductName>
+				<ProductName>{ props.productName }</ProductName>
 				<SubscriptionUsage>
-					{ props.slots.amountAvailable - props.slots.amountUsed } / { props.slots.amountAvailable } remaining
+					{ props.slots.amountAvailable - props.slots.amountUsed }/{ props.slots.amountAvailable } remaining
 				</SubscriptionUsage>
 				{
-					props.slots.addMoreSlots  !== "" &&
+					props.slots.addMoreSlots !== "" &&
 						<AddOneSlot onClick={ props.slots.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
 				}
 			</SubscriptionDetails>
@@ -200,7 +199,7 @@ SiteSubscriptionDetail.defaultProps = {
 	isEnabled: false,
 	slots: {
 		amountUsed: 0,
-		onAddMoreSlotsClick: () => { },
+		onAddMoreSlotsClick: () => {},
 		addMoreSlots: "",
 	},
 };

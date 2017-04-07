@@ -14,7 +14,7 @@ const CollapsibleHeader = styled.button`
 	width: 100%;
 	padding: 10px 40px;
 	border: none;
-	background-color: white;
+	background-color: ${ colors.$color_white };
 	cursor: pointer;
 	text-align: left;
 
@@ -32,9 +32,10 @@ const CollapsibleHeader = styled.button`
 const ListToggleBody = styled.ul`
 	padding: 0;
 	margin: 0;
+	list-style: none;
 	
 	li:nth-child(odd) {
-		background-color: ${colors.$color_background_light};
+		background-color: ${ colors.$color_background_light };
 	}
 `;
 
