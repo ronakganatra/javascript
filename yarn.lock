@@ -6215,7 +6215,7 @@ yargs@~3.10.0:
 
 "yoast-components@https://github.com/Yoast/yoast-components.git#develop":
   version "2.4.0"
-  resolved "https://github.com/Yoast/yoast-components.git#5a2b781b66447a6e38523c47d8ae4091900364c7"
+  resolved "https://github.com/Yoast/yoast-components.git#fee350b242ddb5d3211aed7a09621dd9bb245c43"
   dependencies:
     i18n-calypso "^1.6.2"
     interpolate-components "^1.1.0"
