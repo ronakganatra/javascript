@@ -33,6 +33,7 @@ const ListToggleBody = styled.ul`
 	padding: 0;
 	margin: 0;
 	list-style: none;
+	background-color: ${ colors.$color_white };
 
 	li:nth-child(odd) {
 		background-color: ${ colors.$color_background_light };

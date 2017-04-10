@@ -18,19 +18,19 @@ exports[`test the site subscription detail list component matches the snapshot 1
     </svg>
   </button>
   <ul
-    className="eOunez"
+    className="ioWGrX"
     role="list">
     <li>
       <div
-        className="MuVJK">
+        className="dKasqR">
         <span
-          className="ifUQbH">
+          className="galWEB">
           <img
             alt=""
-            className="dzkImt"
+            className="cOhtuq"
             src="" />
           <span
-            className="RviZc">
+            className="gputun">
             <div>
               <div
                 aria-checked={false}
@@ -52,35 +52,31 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
         </span>
         <div
-          className="jSArqe">
+          className="drFsFv">
           <span
-            className="cCWqZS">
+            className="gwtpew">
             Yoast SEO
           </span>
           <span
-            className="fmqwLK">
-            NaN
-            /
-            10
-             remaining
+            className="kaVduD">
+            <span>
+               NaN / 10 remaining 
+            </span>
           </span>
-          <button
-            className="bJccef"
-            onClick={undefined} />
         </div>
       </div>
     </li>
     <li>
       <div
-        className="MuVJK">
+        className="dKasqR">
         <span
-          className="ifUQbH">
+          className="galWEB">
           <img
             alt=""
-            className="dzkImt"
+            className="cOhtuq"
             src="" />
           <span
-            className="RviZc">
+            className="gputun">
             <div>
               <div
                 aria-checked={false}
@@ -102,21 +98,17 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
         </span>
         <div
-          className="jSArqe">
+          className="drFsFv">
           <span
-            className="cCWqZS">
+            className="gwtpew">
             Local SEO
           </span>
           <span
-            className="fmqwLK">
-            NaN
-            /
-            10
-             remaining
+            className="kaVduD">
+            <span>
+               NaN / 10 remaining 
+            </span>
           </span>
-          <button
-            className="bJccef"
-            onClick={undefined} />
         </div>
       </div>
     </li>

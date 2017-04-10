@@ -1,6 +1,5 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { createComponentWithIntl } from "../../utils";
 import SiteSubscriptionDetail from '../../src/components/SiteSubscriptionDetail';
 
 let subscription = {
@@ -27,7 +26,7 @@ let subscription = {
 };
 
 test('the sitesubscription matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail {...subscription} />
 	);
 
@@ -36,7 +35,7 @@ test('the sitesubscription matches the snapshot', () => {
 });
 
 test('the sitesubscription onToggleSubscription handling', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail {...subscription} />
 	);
 
@@ -52,7 +51,7 @@ test('the sitesubscription onToggleSubscription handling', () => {
 });
 
 test('the sitesubscription onMoreInfoClick handling', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail {...subscription} />
 	);
 
@@ -68,7 +67,7 @@ test('the sitesubscription onMoreInfoClick handling', () => {
 });
 
 test('the sitesubscription onSettingsClick handling', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail {...subscription} />
 	);
 
@@ -84,7 +83,7 @@ test('the sitesubscription onSettingsClick handling', () => {
 });
 
 test('the sitesubscription onAddMoreSlotsClick handling', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail {...subscription} />
 	);
 
