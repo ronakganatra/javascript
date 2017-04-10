@@ -100,7 +100,7 @@ export default class ListToggle extends React.Component {
 		if ( this.isOpen() ) {
 			body = (
 				<ListToggleBody role="list">
-					{ this.props.items.map( ( item ) => item ) }
+					{ this.props.items.map( ( item ) => <li key={ item.props.productName }>{ item }</li> ) }
 				</ListToggleBody>
 			);
 		}

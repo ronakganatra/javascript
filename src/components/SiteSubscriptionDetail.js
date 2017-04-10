@@ -8,8 +8,7 @@ import plusIcon from "../icons/blue-plus-circle.svg";
 
 let responsiveWidthThreshold = 1355;
 
-const SiteSubscription = styled.li`
-	background: ${ colors.$color_white };
+const SiteSubscription = styled.div`
 	height: 100px;
 	display: flex;
 	padding: 26px 0;
@@ -146,7 +145,7 @@ const Buttons = styled.span`
  */
 export default function SiteSubscriptionDetail( props ) {
 	return (
-		<SiteSubscription key={ props.productName } >
+		<SiteSubscription>
 			<SubscriptionLeftContainer>
 				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>

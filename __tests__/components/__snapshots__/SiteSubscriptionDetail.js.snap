@@ -1,9 +1,10 @@
 exports[`test the sitesubscription matches the snapshot 1`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -11,7 +12,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -37,25 +38,26 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -63,7 +65,7 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -89,25 +91,26 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -115,7 +118,7 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -141,25 +144,26 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -167,7 +171,7 @@ exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -193,25 +197,26 @@ exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -219,7 +224,7 @@ exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -245,25 +250,26 @@ exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 1`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -271,7 +277,7 @@ exports[`test the sitesubscription onSettingsClick handling 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -297,25 +303,26 @@ exports[`test the sitesubscription onSettingsClick handling 1`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 2`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -323,7 +330,7 @@ exports[`test the sitesubscription onSettingsClick handling 2`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -349,25 +356,26 @@ exports[`test the sitesubscription onSettingsClick handling 2`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 1`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -375,7 +383,7 @@ exports[`test the sitesubscription onToggleSubscription handling 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -401,25 +409,26 @@ exports[`test the sitesubscription onToggleSubscription handling 1`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 2`] = `
-<li
-  className="fQtord">
+<div
+  className="MuVJK">
   <span
     className="ifUQbH">
     <img
+      alt=""
       className="dzkImt"
       src="icon.svg" />
     <span
@@ -427,7 +436,7 @@ exports[`test the sitesubscription onToggleSubscription handling 2`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label=""
+          aria-label="Productname"
           className="hGsRJU"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -453,15 +462,15 @@ exports[`test the sitesubscription onToggleSubscription handling 2`] = `
     <span
       className="fmqwLK">
       6
-       / 
+      /
       20
        remaining
     </span>
     <button
-      className="lkKvjP"
+      className="bJccef"
       onClick={[Function]}>
       Add more slots for $69
     </button>
   </div>
-</li>
+</div>
 `;
