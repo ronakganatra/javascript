@@ -1,126 +1,161 @@
 exports[`test the sites component matches the snapshot 1`] = `
 <ul
-  className="gGiZgG"
-  role="list">
-  <li
-    className="cVmsOO">
-    <img
-      alt=""
-      className="gbwjzY"
-      src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-    <span
-      className="site-name fsIFsM">
-      www.yoast.com
+  className="jtXnzZ">
+  <div
+    className="dnTGWH">
+    <span>
+      <ul
+        className="gGiZgG"
+        role="list">
+        <li
+          className="iYfqfc">
+          <span
+            className="hUbMKa"
+            label="">
+            <img
+              alt=""
+              className="bjVGHc"
+              src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          </span>
+          <span
+            className="cpyTvm"
+            label="Site name">
+            www.yoast.com
+          </span>
+          <span
+            className="gtXVqi"
+            label="Active subscriptions">
+            <div>
+              <span
+                aria-label="Yoast SEO is inactive"
+                className="hGymDt"
+                role="img" />
+              <span
+                aria-label="Local SEO is inactive"
+                className="kswMOV"
+                role="img" />
+              <span
+                aria-label="Video SEO is active"
+                className="jzGgcX"
+                role="img" />
+              <span
+                aria-label="News SEO is inactive"
+                className="kdRmgg"
+                role="img" />
+              <span
+                aria-label="WooCommerce SEO is active"
+                className="gKxAXd"
+                role="img" />
+              <span
+                aria-label="Local SEO for Woo is inactive"
+                className="egmryf"
+                role="img" />
+            </div>
+          </span>
+          <span
+            className="chflUA"
+            label="" />
+        </li>
+        <li
+          className="iYfqfc">
+          <span
+            className="hUbMKa"
+            label="">
+            <img
+              alt=""
+              className="bjVGHc"
+              src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          </span>
+          <span
+            className="cpyTvm"
+            label="Site name">
+            www.google.com
+          </span>
+          <span
+            className="gtXVqi"
+            label="Active subscriptions">
+            <div>
+              <span
+                aria-label="Yoast SEO is inactive"
+                className="hGymDt"
+                role="img" />
+              <span
+                aria-label="Local SEO is active"
+                className="dQulax"
+                role="img" />
+              <span
+                aria-label="Video SEO is active"
+                className="jzGgcX"
+                role="img" />
+              <span
+                aria-label="News SEO is inactive"
+                className="kdRmgg"
+                role="img" />
+              <span
+                aria-label="WooCommerce SEO is active"
+                className="gKxAXd"
+                role="img" />
+              <span
+                aria-label="Local SEO for Woo is inactive"
+                className="egmryf"
+                role="img" />
+            </div>
+          </span>
+          <span
+            className="chflUA"
+            label="" />
+        </li>
+        <li
+          className="iYfqfc">
+          <span
+            className="hUbMKa"
+            label="">
+            <img
+              alt=""
+              className="bjVGHc"
+              src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          </span>
+          <span
+            className="cpyTvm"
+            label="Site name">
+            www.facebook.com
+          </span>
+          <span
+            className="gtXVqi"
+            label="Active subscriptions">
+            <div>
+              <span
+                aria-label="Yoast SEO is inactive"
+                className="hGymDt"
+                role="img" />
+              <span
+                aria-label="Local SEO is inactive"
+                className="kswMOV"
+                role="img" />
+              <span
+                aria-label="Video SEO is active"
+                className="jzGgcX"
+                role="img" />
+              <span
+                aria-label="News SEO is active"
+                className="kKtOgl"
+                role="img" />
+              <span
+                aria-label="WooCommerce SEO is active"
+                className="gKxAXd"
+                role="img" />
+              <span
+                aria-label="Local SEO for Woo is inactive"
+                className="egmryf"
+                role="img" />
+            </div>
+          </span>
+          <span
+            className="chflUA"
+            label="" />
+        </li>
+      </ul>
     </span>
-    <span
-      className="active-subscriptions jIDXxQ">
-      <div>
-        <span
-          aria-label="Yoast SEO is inactive"
-          className="hGymDt"
-          role="img" />
-        <span
-          aria-label="Local SEO is inactive"
-          className="kswMOV"
-          role="img" />
-        <span
-          aria-label="Video SEO is active"
-          className="jzGgcX"
-          role="img" />
-        <span
-          aria-label="News SEO is inactive"
-          className="kdRmgg"
-          role="img" />
-        <span
-          aria-label="WooCommerce SEO is active"
-          className="gKxAXd"
-          role="img" />
-        <span
-          aria-label="Local SEO for Woo is inactive"
-          className="egmryf"
-          role="img" />
-      </div>
-    </span>
-  </li>
-  <li
-    className="cVmsOO">
-    <img
-      alt=""
-      className="gbwjzY"
-      src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-    <span
-      className="site-name fsIFsM">
-      www.google.com
-    </span>
-    <span
-      className="active-subscriptions jIDXxQ">
-      <div>
-        <span
-          aria-label="Yoast SEO is inactive"
-          className="hGymDt"
-          role="img" />
-        <span
-          aria-label="Local SEO is active"
-          className="dQulax"
-          role="img" />
-        <span
-          aria-label="Video SEO is active"
-          className="jzGgcX"
-          role="img" />
-        <span
-          aria-label="News SEO is inactive"
-          className="kdRmgg"
-          role="img" />
-        <span
-          aria-label="WooCommerce SEO is active"
-          className="gKxAXd"
-          role="img" />
-        <span
-          aria-label="Local SEO for Woo is inactive"
-          className="egmryf"
-          role="img" />
-      </div>
-    </span>
-  </li>
-  <li
-    className="cVmsOO">
-    <img
-      alt=""
-      className="gbwjzY"
-      src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-    <span
-      className="site-name fsIFsM">
-      www.facebook.com
-    </span>
-    <span
-      className="active-subscriptions jIDXxQ">
-      <div>
-        <span
-          aria-label="Yoast SEO is inactive"
-          className="hGymDt"
-          role="img" />
-        <span
-          aria-label="Local SEO is inactive"
-          className="kswMOV"
-          role="img" />
-        <span
-          aria-label="Video SEO is active"
-          className="jzGgcX"
-          role="img" />
-        <span
-          aria-label="News SEO is active"
-          className="kKtOgl"
-          role="img" />
-        <span
-          aria-label="WooCommerce SEO is active"
-          className="gKxAXd"
-          role="img" />
-        <span
-          aria-label="Local SEO for Woo is inactive"
-          className="egmryf"
-          role="img" />
-      </div>
-    </span>
-  </li>
+  </div>
 </ul>
 `;

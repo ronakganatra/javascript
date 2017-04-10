@@ -65,12 +65,14 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 				linkSiteFailed: false,
 				addSitePopupOpen: false,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		case LINK_SITE_FAILURE:
 			return Object.assign( {}, state, {
 				linkSiteFailed: true,
 				linkSiteError: action.linkSiteError,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		default:
 			return state;
