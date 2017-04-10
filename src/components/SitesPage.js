@@ -38,7 +38,7 @@ let AnimatedLoader = styled( Loader )`
 	animation-timing-function: cubic-bezier(0.96, 0.02, 0.63, 0.86);
 	width: 60px;
 	height: 60px;
-	margin: calc( 50% - 30px ) 0 0 calc( 50% - 30px )
+	margin: calc( 50% - 30px ) 0 0 calc( 50% - 30px );
 `;
 
 /**
