@@ -60,11 +60,7 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		dispatchProps.onLink( url );
 	};
 
-	let query = stateProps.query;
-	let changeSearchQuery = () => {
-		dispatchProps.changeSearchQuery( query );
-	};
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { changeSearchQuery, onLink } );
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink } );
 };
 
 const SitesPageContainer = connect(

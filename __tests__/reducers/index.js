@@ -2,6 +2,7 @@ import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
 import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer } from "../../src/reducers/index"
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "../../src/reducers/sites"
 import { userReducer } from "../../src/reducers/user"
+import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -41,11 +42,22 @@ test( 'entities site reducer', () => {
 } );
 
 test( 'entities reducer', () => {
-	const state = { sites: { allIds: {}, byId: {} } };
+	const state = { sites: { allIds: {}, byId: {} }, search: { query: ""} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } } };
+	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } }, search: { query: "" }  };
+	const actual = entitiesReducer( state, action );
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'entities reducer with search input', () => {
+	const state = { sites: { allIds: {}, byId: {} }, search: { query: ""} };
+	const action = {
+		type: SEARCH_QUERY_CHANGE,
+		query: "teststring",
+	};
+	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } }, search: { query: "teststring" }  };
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
 } );
@@ -55,11 +67,15 @@ test( 'root reducer', () => {
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { entities: {
-		sites: {
-			byId: { name: "byIdReducer" },
-			allIds: { name: "allIdsReducer" },
-			}
+	const expected = {
+		entities: {
+			sites: {
+				byId: {name: "byIdReducer"},
+				allIds: {name: "allIdsReducer"},
+			},
+			search: {
+				query: "",
+			},
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" }

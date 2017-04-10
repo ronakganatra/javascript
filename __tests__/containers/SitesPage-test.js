@@ -19,6 +19,9 @@ test('the mapStateToProps function', () => {
 				} },
 				allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 			},
+			search: {
+				query: "",
+			},
 		},
 		ui: {
 			sites: {
@@ -36,6 +39,7 @@ test('the mapStateToProps function', () => {
 		errorFound: false,
 		errorMessage: "",
 		linkingSiteUrl: "http://yoast.com",
+		query: "",
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );

@@ -46,8 +46,8 @@ class SitesPage extends React.Component {
 						  errorMessage={ props.errorMessage }/>
 		);
 		if ( props.sites.length > 0 ) {
-			let changeSearchQuery = ( query ) => {
-				props.changeSearchQuery( query.target.value );
+			let changeSearchQuery = ( event ) => {
+				props.changeSearchQuery( event.target.value );
 			};
 
 			return (

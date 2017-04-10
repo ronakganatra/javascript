@@ -1,6 +1,13 @@
 import React from 'react';
 import SitesPage from '../../src/components/SitesPage';
 import { createComponentWithIntl } from "../../utils";
+import { onSearchQueryChange } from "../../src/components/Search";
+
+jest.mock( "../../src/reducers/search.js", () => {
+	return {
+		onSearchQueryChange: jest.fn( ( state = {} ) => { return { query: "onSearchQueryChange" }; } ),
+	}
+} );
 
 test('the sites page component with no sites matches the snapshot', () => {
 	const component = createComponentWithIntl(
@@ -75,14 +82,14 @@ test('the sites page component with sites handling a changed search query', () =
 				activeSubscriptions: [ "woo", "video" ],
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 			},] } addSite={ () => {} } changeSearchQuery={ () => { return 'Query changed'; } } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } />
+				   onChange={ onSearchQueryChange } errorFound={ false } />
 	);
 
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[0].children[1].props.onChange();
+	tree.children[0].children[0].children[1].props.onChange( { target: { value: "Hallo" } } );
 
 	// re-rendering
 	tree = component.toJSON();
