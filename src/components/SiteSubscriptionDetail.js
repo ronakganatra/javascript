@@ -17,8 +17,7 @@ const SiteSubscription = styled.div`
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		height: 150px;
 		overflow: hidden;
-		padding: 13px 0;
-		padding-left: 26px;
+		padding: 13px 0 13px 26px;
 	}
 `;
 
