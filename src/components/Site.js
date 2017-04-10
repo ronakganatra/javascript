@@ -1,7 +1,5 @@
 import React from "react";
-// import styled from "styled-components";
 import MediaQuery from "react-responsive";
-// import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
