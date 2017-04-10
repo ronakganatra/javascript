@@ -63,6 +63,7 @@ test( 'the link site success action in the uiSitesReducer', () => {
 		linkSiteFailed: false,
 		addSitePopupOpen: false,
 		linkingSiteUrl: "",
+		linkingSite: false,
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -79,6 +80,7 @@ test( 'the link site failure action', () => {
 		linkSiteFailed: true,
 		linkSiteError: action.linkSiteError,
 		linkingSiteUrl: "",
+		linkingSite: false,
 	};
 
 	const actual = uiSitesReducer( state, action );
