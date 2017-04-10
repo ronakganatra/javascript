@@ -36,8 +36,9 @@ let AnimatedLoader = styled( Loader )`
 	animation: ${animation} 1.15s infinite;
 	animation-direction: alternate;
 	animation-timing-function: cubic-bezier(0.96, 0.02, 0.63, 0.86);
-	width: 40px;
-	height: 40px;
+	width: 60px;
+	height: 60px;
+	margin: calc( 50% - 30px ) 0 0 calc( 50% - 30px )
 `;
 
 /**
@@ -55,7 +56,6 @@ class SitesPage extends React.Component {
 
 	render() {
 		let props = this.props;
-
 		if ( props.showLoader ) {
 			return <AnimatedLoader />;
 		}
