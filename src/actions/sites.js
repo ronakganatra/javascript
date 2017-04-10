@@ -45,7 +45,7 @@ export function linkSitePopupClose() {
  *
  * @returns {Object} A server request action.
  */
-export function updateSiteUrl(url ) {
+export function updateSiteUrl( url ) {
 	return {
 		type: UPDATE_SITE_URL,
 		url: url,
