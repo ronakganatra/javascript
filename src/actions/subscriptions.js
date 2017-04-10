@@ -6,7 +6,7 @@ import { getAccessToken, getUserId } from "../functions/auth";
  * Action types
  */
 
-export const GET_SITE_SUBSCRIPTIONS_REQUEST = " GET_SITE_SUBSCRIPTIONS_REQUEST";
+export const GET_SITE_SUBSCRIPTIONS_REQUEST = "GET_SITE_SUBSCRIPTIONS_REQUEST";
 export const GET_SITE_SUBSCRIPTIONS_SUCCESS = "GET_SITE_SUBSCRIPTIONS_SUCCESS";
 export const GET_SITE_SUBSCRIPTIONS_FAILURE = "GET_SITE_SUBSCRIPTIONS_FAILURE";
 
@@ -40,14 +40,14 @@ export function getSiteSubscriptionsSuccess( json ) {
 /**
  * An action creator for the server request action.
  *
- * @param {string} error The url to add.
+ * @param {string} errorMessage The url to add.
  *
  * @returns {Object} A server request action.
  */
-export function getSiteSubscriptionsFailure( error ) {
+export function getSiteSubscriptionsFailure( errorMessage ) {
 	return {
 		type: GET_SITE_SUBSCRIPTIONS_FAILURE,
-		message: error,
+		message: errorMessage,
 	};
 }
 
