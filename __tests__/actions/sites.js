@@ -87,7 +87,7 @@ test( 'link site failure creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'link site action action creator with success', () => {
+test( 'link site action creator with success', () => {
 	global.fetch = jest.fn( () => {
 		return Promise.resolve( {
 			status: 200,

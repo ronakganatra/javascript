@@ -1,5 +1,4 @@
 import locationChange from "../../src/actions/location";
-import { retrieveSites } from "../../src/actions/sites";
 
 jest.mock("../../src/actions/sites", () => {
 	return { retrieveSites: () => {
