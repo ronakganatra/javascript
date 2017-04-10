@@ -44,10 +44,10 @@ test( 'closing link site pop-up action creator', () => {
 
 test( 'server request action creator', () => {
 	const expected = {
-		type: actions.LINK_SITE_REQUEST,
+		type: actions.UPDATE_SITE_URL,
 	};
 
-	const actual = actions.linkSiteRequest();
+	const actual = actions.updateSiteUrl();
 
 	expect( actual ).toEqual( expected );
 } );
@@ -114,7 +114,7 @@ test( 'link site action action creator with success', () => {
 	};
 
 	return linkSiteFunc( dispatch ).then( () => {
-		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest( "http://yoast.com" ) );
+		 expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
 		 expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
 		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteSuccess( site ) );
 	} );
@@ -141,7 +141,7 @@ test( 'link site action action creator with failure', () => {
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
 	return linkSiteFunc( dispatch ).then( () => {
-		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteRequest( "http://yoast.com" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
 		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Duplicate entry for Site.id" ) );
 	} );
