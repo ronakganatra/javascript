@@ -1,4 +1,4 @@
-import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../actions/sites";
+import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../actions/sites";
 
 /**
  * Initial state
@@ -55,7 +55,7 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 				linkSiteError: "",
 				linkingSiteUrl: "",
 			} );
-		case LINK_SITE_REQUEST:
+		case UPDATE_SITE_URL:
 			return Object.assign( {}, state, {
 				linkingSite: true,
 				linkingSiteUrl: action.url,
@@ -65,12 +65,14 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 				linkSiteFailed: false,
 				addSitePopupOpen: false,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		case LINK_SITE_FAILURE:
 			return Object.assign( {}, state, {
 				linkSiteFailed: true,
 				linkSiteError: action.linkSiteError,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		default:
 			return state;
