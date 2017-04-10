@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, linkSiteRequest } from "../actions/sites";
+import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 
 export const mapStateToProps = ( state ) => {
@@ -26,6 +27,7 @@ export const mapStateToProps = ( state ) => {
 		errorFound,
 		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
+		query: state.entities.search.query,
 	};
 };
 
@@ -37,7 +39,9 @@ export const mapDispatchToProps = ( dispatch ) => {
 		addSite: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		changeSearchQuery: () => {},
+		changeSearchQuery: ( query ) => {
+			dispatch( onSearchQueryChange( query ) );
+		},
 		onClose: () => {
 			dispatch( linkSitePopupClose() );
 		},
@@ -52,12 +56,15 @@ export const mapDispatchToProps = ( dispatch ) => {
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let url = stateProps.linkingSiteUrl;
-
 	let onLink = () => {
 		dispatchProps.onLink( url );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink } );
+	let query = stateProps.query;
+	let changeSearchQuery = () => {
+		dispatchProps.changeSearchQuery( query );
+	};
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { changeSearchQuery, onLink } );
 };
 
 const SitesPageContainer = connect(

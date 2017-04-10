@@ -45,8 +45,11 @@ class SitesPage extends React.Component {
 						  onChange={ props.onChange } errorFound={ props.errorFound }
 						  errorMessage={ props.errorMessage }/>
 		);
-
 		if ( props.sites.length > 0 ) {
+			let changeSearchQuery = ( query ) => {
+				props.changeSearchQuery( query.target.value );
+			};
+
 			return (
 				<div>
 					<SiteAddContainer>
@@ -54,7 +57,7 @@ class SitesPage extends React.Component {
 							id="search"
 							description="The search results will be updated as you type."
 							descriptionId="searchDescription"
-							onChange={ props.changeSearchQuery }
+							onChange={ changeSearchQuery }
 						/>
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
