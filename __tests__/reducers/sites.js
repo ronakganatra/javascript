@@ -1,6 +1,6 @@
 import { uiSitesReducer, allIdsReducer, byIdReducer } from "../../src/reducers/sites.js";
 import {
-	LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+	LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_SUCCESS
 } from "../../src/actions/sites";
 
@@ -41,7 +41,7 @@ test( 'the link site request action', () => {
 	const state = {
 	};
 	const action = {
-		type: LINK_SITE_REQUEST,
+		type: UPDATE_SITE_URL,
 		url: "yoast.com",
 	};
 	const expected = {
@@ -66,6 +66,7 @@ test( 'the link site success action in the uiSitesReducer', () => {
 		linkSiteFailed: false,
 		addSitePopupOpen: false,
 		linkingSiteUrl: "",
+		linkingSite: false,
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -82,6 +83,7 @@ test( 'the link site failure action', () => {
 		linkSiteFailed: true,
 		linkSiteError: action.linkSiteError,
 		linkingSiteUrl: "",
+		linkingSite: false,
 	};
 
 	const actual = uiSitesReducer( state, action );

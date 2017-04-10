@@ -8,7 +8,7 @@ import { getAccessToken, getUserId } from "../functions/auth";
 
 export const LINK_SITE_POPUP_OPEN = " LINK_SITE_POPUP_OPEN";
 export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
-export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
+export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
 export const RETRIEVE_SITES_REQUEST = "RETRIEVE_SITE_REQUEST";
@@ -48,9 +48,9 @@ export function linkSitePopupClose() {
  *
  * @returns {Object} A server request action.
  */
-export function linkSiteRequest( url ) {
+export function updateSiteUrl( url ) {
 	return {
-		type: LINK_SITE_REQUEST,
+		type: UPDATE_SITE_URL,
 		url: url,
 	};
 }
@@ -92,7 +92,7 @@ export function linkSiteFailure( errorText ) {
  */
 export function linkSite( url ) {
 	return ( dispatch ) => {
-		dispatch( linkSiteRequest( url ) );
+		dispatch( updateSiteUrl( url ) );
 
 		let apiUrl = getApiUrl();
 		let userId = getUserId();

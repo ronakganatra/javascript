@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { linkSitePopupClose, linkSitePopupOpen, linkSite, linkSiteRequest } from "../actions/sites";
+import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
 import SitesPage from "../components/SitesPage";
 
 export const mapStateToProps = ( state ) => {
@@ -46,7 +46,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( linkSite( url ) );
 		},
 		onChange: ( url ) => {
-			dispatch( linkSiteRequest( url ) );
+			dispatch( updateSiteUrl( url ) );
 		},
 	};
 };

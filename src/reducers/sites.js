@@ -1,4 +1,4 @@
-import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, LINK_SITE_REQUEST, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS } from "../actions/sites";
 
 import _union from "lodash/union";
@@ -71,7 +71,7 @@ export function linkSiteReducer( state = rootState.ui.sites, action ) {
 				linkSiteError: "",
 				linkingSiteUrl: "",
 			} );
-		case LINK_SITE_REQUEST:
+		case UPDATE_SITE_URL:
 			return Object.assign( {}, state, {
 				linkingSite: true,
 				linkingSiteUrl: action.url,
@@ -81,12 +81,14 @@ export function linkSiteReducer( state = rootState.ui.sites, action ) {
 				linkSiteFailed: false,
 				addSitePopupOpen: false,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		case LINK_SITE_FAILURE:
 			return Object.assign( {}, state, {
 				linkSiteFailed: true,
 				linkSiteError: action.linkSiteError,
 				linkingSiteUrl: "",
+				linkingSite: false,
 			} );
 		default:
 			return state;
