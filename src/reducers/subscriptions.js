@@ -58,9 +58,9 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 /**
  * A reducer for the IdSitesSubscriptions object.
  *
- * @param {Object} state The current state of the byId object.
+ * @param {Object} state The current state of the IdSitesSubscriptions object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated byId object.
+ * @returns {Object} The updated IdSitesSubscriptions object.
  */
 export function byIdSitesSubscriptionsReducer( state = rootState.entities.subscriptions.byId, action ) {
 	let subscriptions;
