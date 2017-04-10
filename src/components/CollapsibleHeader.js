@@ -105,7 +105,6 @@ export default class ListToggle extends React.Component {
 				</ListToggleBody>
 			);
 		}
-		console.log( body );
 		return body;
 	}
 
