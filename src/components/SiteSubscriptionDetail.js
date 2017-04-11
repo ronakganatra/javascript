@@ -9,16 +9,15 @@ import { FormattedMessage } from "react-intl";
 
 let responsiveWidthThreshold = 1355;
 
-const SiteSubscription = styled.li`
-	background: ${ colors.$color_white };
+const SiteSubscription = styled.div`
 	height: 100px;
 	display: flex;
 	padding: 26px 0;
 
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		height: 150px;
-		text-overflow: hidden;
-		padding: 13px 0;
+		overflow: hidden;
+		padding: 13px 0 13px 26px;
 	}
 `;
 
@@ -200,7 +199,7 @@ SiteSubscriptionDetail.defaultProps = {
 	isEnabled: false,
 	slots: {
 		amountUsed: 0,
-		onAddMoreSlotsClick: () => { },
+		onAddMoreSlotsClick: () => {},
 		addMoreSlots: "",
 	},
 };

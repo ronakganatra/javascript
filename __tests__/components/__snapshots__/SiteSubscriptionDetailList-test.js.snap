@@ -1,0 +1,117 @@
+exports[`test the site subscription detail list component matches the snapshot 1`] = `
+<div
+  className="kfRyEM">
+  <button
+    aria-expanded={true}
+    className="hJpfvy"
+    onClick={[Function]}>
+    <h2>
+      Manage subscriptions
+    </h2>
+    <svg
+      fill="#555"
+      height={40}
+      viewBox="0 0 24 24"
+      width={40}>
+      <path
+        d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+    </svg>
+  </button>
+  <ul
+    className="ioWGrX"
+    role="list">
+    <li>
+      <div
+        className="iKZkMC">
+        <span
+          className="galWEB">
+          <img
+            alt=""
+            className="cOhtuq"
+            src="" />
+          <span
+            className="gputun">
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Yoast SEO"
+                className="kXYdPH"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="checkbox"
+                tabIndex="0">
+                <span
+                  className="bNikmV" />
+              </div>
+              <span
+                aria-hidden="true"
+                className="iUAAtI">
+                Off
+              </span>
+            </div>
+          </span>
+        </span>
+        <div
+          className="drFsFv">
+          <span
+            className="gwtpew">
+            Yoast SEO
+          </span>
+          <span
+            className="kaVduD">
+            <span>
+               NaN / 10 remaining 
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div
+        className="iKZkMC">
+        <span
+          className="galWEB">
+          <img
+            alt=""
+            className="cOhtuq"
+            src="" />
+          <span
+            className="gputun">
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Local SEO"
+                className="kXYdPH"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="checkbox"
+                tabIndex="0">
+                <span
+                  className="bNikmV" />
+              </div>
+              <span
+                aria-hidden="true"
+                className="iUAAtI">
+                Off
+              </span>
+            </div>
+          </span>
+        </span>
+        <div
+          className="drFsFv">
+          <span
+            className="gwtpew">
+            Local SEO
+          </span>
+          <span
+            className="kaVduD">
+            <span>
+               NaN / 10 remaining 
+            </span>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+`;
