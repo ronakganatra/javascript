@@ -59,6 +59,7 @@ class SitesPage extends React.Component {
 							description="The search results will be updated as you type."
 							descriptionId="searchDescription"
 							onChange={ changeSearchQuery }
+							query={ props.query }
 						/>
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
@@ -81,6 +82,7 @@ class SitesPage extends React.Component {
 							description="The search results will be updated as you type."
 							descriptionId="searchDescription"
 							onChange={ changeSearchQuery }
+							query={ props.query }
 						/>
 					</SiteAddContainer>
 					<SitesNoResult onClick={ props.addSite } query={ props.query } />

@@ -1,11 +1,12 @@
 import { SEARCH_QUERY_CHANGE } from "../actions/search";
+import { LINK_SITE_POPUP_CLOSE, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../actions/sites";
 
 /**
  * Initial state
  */
 
 const rootState = {
-	entities: {
+	ui: {
 		search: {
 			query: "",
 		},
@@ -23,11 +24,23 @@ const rootState = {
  * @param {Object} action The current action received.
  * @returns {Object} The updated Sites object.
  */
-export function entitiesSearch( state = rootState.entities.search, action ) {
+export function uiSearch( state = rootState.ui.search, action ) {
 	switch ( action.type ) {
 		case SEARCH_QUERY_CHANGE:
 			return Object.assign( {}, state, {
 				query: action.query,
+			} );
+		case LINK_SITE_POPUP_CLOSE:
+			return Object.assign( {}, state, {
+				query: "",
+			} );
+		case LINK_SITE_SUCCESS:
+			return Object.assign( {}, state, {
+				query: "",
+			} );
+		case LINK_SITE_FAILURE:
+			return Object.assign( {}, state, {
+				query: "",
 			} );
 		default:
 			return state;

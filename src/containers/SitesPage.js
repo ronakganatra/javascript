@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
+import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 
 export const mapStateToProps = ( state ) => {
@@ -14,7 +15,7 @@ export const mapStateToProps = ( state ) => {
 		};
 	} );
 
-	let query = state.entities.search.query;
+	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		sites = sites.filter( ( sites ) => {
 			return sites.siteName.includes( query );
@@ -33,7 +34,7 @@ export const mapStateToProps = ( state ) => {
 		errorFound,
 		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
-		query: state.entities.search.query,
+		query,
 	};
 };
 
@@ -61,7 +62,13 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let url = stateProps.linkingSiteUrl;
+	let url;
+
+	if ( stateProps.linkingSiteUrl.length === 0 ) {
+		url = stateProps.query;
+	} else {
+		url = stateProps.linkingSiteUrl;
+	}
 	let onLink = () => {
 		dispatchProps.onLink( url );
 	};
