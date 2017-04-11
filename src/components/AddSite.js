@@ -122,6 +122,14 @@ export default function AddSite( props ) {
 		props.onChange( event.target.value );
 	};
 
+	let suggestedValue;
+
+	if ( props.query.length > 0 ) {
+		suggestedValue=props.query;
+	} else {
+		suggestedValue="";
+	}
+
 	return (
 			<AddSiteModal>
 				<AddSiteImage src={addSiteImage} alt="" />
@@ -133,7 +141,7 @@ export default function AddSite( props ) {
 						<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
 					</label>
 				</AddSiteText>
-				<WebsiteURL type="url" id="addSiteInputField" placeholder="example-site.com" aria-describedby="addSiteInfo" onChange={ onChange } />
+				<WebsiteURL type="url" id="addSiteInputField" placeholder={ "example-site.com" } defaultValue={ suggestedValue } aria-describedby="addSiteInfo" onChange={ onChange } />
 				{ getErrorMessage( props.errorFound, props.errorMessage ) }
 				<Buttons>
 					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
@@ -152,6 +160,7 @@ AddSite.propTypes = {
 	onLinkClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
+	query: React.PropTypes.string.isRequired,
 	errorMessage: React.PropTypes.string,
 };
 

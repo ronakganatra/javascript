@@ -8,6 +8,7 @@ import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoSites from "./NoSites";
+import SitesNoResult from "./SitesNoResult";
 import { RoundAddButton } from "./RoundButton";
 
 const messages = defineMessages( {
@@ -43,7 +44,7 @@ class SitesPage extends React.Component {
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  errorMessage={ props.errorMessage }/>
+						  errorMessage={ props.errorMessage } query={ props.query } />
 		);
 		if ( props.sites.length > 0 ) {
 			let changeSearchQuery = ( event ) => {
@@ -64,6 +65,25 @@ class SitesPage extends React.Component {
 					<Sites sites={ props.sites } onClick={ ( sitesId ) => {
 						return sitesId;
 					} }/>
+					{ modal }
+				</div>
+			);
+		} else if ( props.query.length > 0 ) {
+			let changeSearchQuery = ( event ) => {
+				props.changeSearchQuery( event.target.value );
+			};
+
+			return (
+				<div>
+					<SiteAddContainer>
+						<Search
+							id="search"
+							description="The search results will be updated as you type."
+							descriptionId="searchDescription"
+							onChange={ changeSearchQuery }
+						/>
+					</SiteAddContainer>
+					<SitesNoResult onClick={ props.addSite } query={ props.query } />
 					{ modal }
 				</div>
 			);
@@ -90,6 +110,7 @@ SitesPage.propTypes = {
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
 	intl: intlShape.isRequired,
+	query: React.PropTypes.string,
 };
 
 SitesPage.defaultProps = {

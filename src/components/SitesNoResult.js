@@ -35,7 +35,7 @@ export default function SitesNoResult( props ) {
 		<NoSitesResultContainer>
 			<p>
 				<FormattedMessage id="sites.no-site.notfound" defaultMessage={ `We could not find
-					{ website } in your account.` } values={ { website: <strong>web.site</strong> } } />
+					{ website } in your account.` } values={ { website: <strong>{ props.query }</strong> } } />
 			</p>
 			<p>
 				<FormattedMessage id="sites.no-site.add" defaultMessage="Do you want to add it?" />
@@ -50,4 +50,5 @@ export default function SitesNoResult( props ) {
 
 SitesNoResult.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
+	query: React.PropTypes.string,
 };

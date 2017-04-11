@@ -15,6 +15,13 @@ export const mapStateToProps = ( state ) => {
 		};
 	} );
 
+	let query = state.entities.search.query;
+	if ( query.length > 0 ) {
+		sites = sites.filter( ( sites ) => {
+			return sites.siteName.includes( query );
+		} );
+	}
+
 	let popupOpen = state.ui.sites.addSitePopupOpen;
 
 	let errorFound = state.ui.sites.linkSiteFailed;
