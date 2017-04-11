@@ -32,6 +32,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
       <input
         aria-describedby="addSiteInfo"
         className="fZParA"
+        defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="example-site.com"
@@ -94,6 +95,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
       <input
         aria-describedby="addSiteInfo"
         className="fZParA"
+        defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="example-site.com"
@@ -156,6 +158,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
       <input
         aria-describedby="addSiteInfo"
         className="fZParA"
+        defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="example-site.com"
@@ -218,6 +221,7 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
       <input
         aria-describedby="addSiteInfo"
         className="fZParA"
+        defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="example-site.com"
@@ -280,6 +284,7 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
       <input
         aria-describedby="addSiteInfo"
         className="fZParA"
+        defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="example-site.com"

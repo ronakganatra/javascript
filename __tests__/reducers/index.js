@@ -1,7 +1,8 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
 import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer } from "../../src/reducers/index"
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "../../src/reducers/sites"
-import { userReducer } from "../../src/reducers/user"
+import { userReducer } from "../../src/reducers/user";
+import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 
 jest.mock( "../../src/reducers/sites.js", () => {
@@ -19,11 +20,11 @@ jest.mock( "../../src/reducers/user.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {} };
+	const state = { sites: {}, search: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { name: "uiSitesReducer" } };
+	const expected = { sites: { name: "uiSitesReducer" }, search: { query: "" } };
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
 	expect( uiSitesReducer ).toHaveBeenCalledWith( {}, action );
@@ -42,23 +43,23 @@ test( 'entities site reducer', () => {
 } );
 
 test( 'entities reducer', () => {
-	const state = { sites: { allIds: {}, byId: {} }, search: { query: ""} };
+	const state = { sites: { allIds: {}, byId: {} } };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } }, search: { query: "" }  };
+	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } } };
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'entities reducer with search input', () => {
-	const state = { sites: { allIds: {}, byId: {} }, search: { query: ""} };
+test( 'ui reducer with search input', () => {
+	const state = { query: "" };
 	const action = {
 		type: SEARCH_QUERY_CHANGE,
 		query: "teststring",
 	};
-	const expected = { sites: { allIds: { name: "allIdsReducer"}, byId: { name: "byIdReducer" } }, search: { query: "teststring" }  };
-	const actual = entitiesReducer( state, action );
+	const expected = { query: "teststring" };
+	const actual = uiSearch( state, action );
 	expect( actual ).toEqual( expected );
 } );
 
@@ -73,12 +74,12 @@ test( 'root reducer', () => {
 				byId: {name: "byIdReducer"},
 				allIds: {name: "allIdsReducer"},
 			},
+		},
+		ui: {
+			sites: { name: "uiSitesReducer" },
 			search: {
 				query: "",
 			},
-		},
-		ui: {
-			sites: { name: "uiSitesReducer" }
 		},
 		user: { name: "userReducer" }
 	};
