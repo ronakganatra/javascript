@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
 import SitesPage from "../components/SitesPage";
+import { store } from "../index.js";
+import { push } from "react-router-redux";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -30,7 +32,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch ) => {
+export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );
@@ -47,6 +49,9 @@ export const mapDispatchToProps = ( dispatch ) => {
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
+		},
+		onManage: ( siteId ) => {
+			store.dispatch( push( "/sites/" + siteId ) );
 		},
 	};
 };
