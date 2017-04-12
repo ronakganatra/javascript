@@ -5,6 +5,7 @@ import SiteSubscriptionDetail from '../../src/components/SiteSubscriptionDetail'
 let subscription = {
 	isEnabled: true,
 	productName: "Productname",
+	productId: "productId",
 	productLogo: "icon.svg",
 	slots: {
 		amountAvailable: 20,
@@ -14,20 +15,20 @@ let subscription = {
 			console.log( "Add more slots" );
 		},
 	},
-	onToggleSubscription: () => {
-		console.log( "on toggle subscription" );
-	},
-	onMoreInfoClick: () => {
-		console.log( "on more info click" );
-	},
-	onSettingsClick: () => {
-		console.log( "on settings click" );
-	},
 };
 
 test('the sitesubscription matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail {...subscription} />
+		<SiteSubscriptionDetail { ...subscription }
+								onToggleSubscription={ () => {
+									console.log( "on toggle subscription" );
+								} }
+								onMoreInfoClick={ () => {
+									console.log( "on more info click" );
+								} }
+								onSettingsClick={ () => {
+									console.log( "on settings click" );
+								} }/>
 	);
 
 	let tree = component.toJSON();
@@ -36,7 +37,16 @@ test('the sitesubscription matches the snapshot', () => {
 
 test('the sitesubscription onToggleSubscription handling', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail {...subscription} />
+		<SiteSubscriptionDetail { ...subscription }
+									onToggleSubscription={ () => {
+									console.log( "on toggle subscription" );
+								} }
+									onMoreInfoClick={ () => {
+									console.log( "on more info click" );
+								} }
+									onSettingsClick={ () => {
+									console.log( "on settings click" );
+								} } />
 	);
 
 	let tree = component.toJSON();
@@ -52,7 +62,16 @@ test('the sitesubscription onToggleSubscription handling', () => {
 
 test('the sitesubscription onMoreInfoClick handling', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail {...subscription} />
+		<SiteSubscriptionDetail { ...subscription }
+								onToggleSubscription={ () => {
+									console.log( "on toggle subscription" );
+								} }
+								onMoreInfoClick={ () => {
+									console.log( "on more info click" );
+								} }
+								onSettingsClick={ () => {
+									console.log( "on settings click" );
+								} } />
 	);
 
 	let tree = component.toJSON();
@@ -68,7 +87,16 @@ test('the sitesubscription onMoreInfoClick handling', () => {
 
 test('the sitesubscription onSettingsClick handling', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail {...subscription} />
+		<SiteSubscriptionDetail { ...subscription }
+								onToggleSubscription={ () => {
+									console.log( "on toggle subscription" );
+								} }
+								onMoreInfoClick={ () => {
+									console.log( "on more info click" );
+								} }
+								onSettingsClick={ () => {
+									console.log( "on settings click" );
+								} } />
 	);
 
 	let tree = component.toJSON();
@@ -84,7 +112,16 @@ test('the sitesubscription onSettingsClick handling', () => {
 
 test('the sitesubscription onAddMoreSlotsClick handling', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail {...subscription} />
+		<SiteSubscriptionDetail { ...subscription }
+								onToggleSubscription={ () => {
+									console.log( "on toggle subscription" );
+								} }
+								onMoreInfoClick={ () => {
+									console.log( "on more info click" );
+								} }
+								onSettingsClick={ () => {
+									console.log( "on settings click" );
+								} } />
 	);
 
 	let tree = component.toJSON();
@@ -97,3 +134,4 @@ test('the sitesubscription onAddMoreSlotsClick handling', () => {
 	tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
+
