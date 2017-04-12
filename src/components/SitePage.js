@@ -35,7 +35,6 @@ class SitePage extends React.Component {
 
 	render() {
 		let props = this.props;
-
 		return (
 			<SitePageContainer>
 				<Link to={ "/sites" } >
@@ -43,15 +42,6 @@ class SitePage extends React.Component {
 				</Link>
 				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.siteImage }/>
 				<SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
-											onToggleSubscription={ props.onToggleSubscription }
-											onMoreInfoClick={ props.onMoreInfoClick }
-											onSettingsClick={ props.onSettingsClick }
-											slots={ {
-												amountAvailable: props.slots.amountAvailable,
-												amountUsed: props.slots.amountUsed,
-												onAddMoreSlotsClick: props.slots.onAddMoreSlotsClick,
-												addMoreSlots: props.slots.addMoreSlots,
-											} }
 				/>
 			</SitePageContainer>
 		);
@@ -61,18 +51,9 @@ class SitePage extends React.Component {
 export default injectIntl( SitePage );
 
 SitePage.propTypes = {
-	onToggleSubscription: React.PropTypes.func.isRequired,
 	site: React.PropTypes.object.isRequired,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	siteImage: React.PropTypes.string.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
-	slots: React.PropTypes.shape( {
-		amountAvailable: React.PropTypes.number.isRequired,
-		amountUsed: React.PropTypes.number,
-		onAddMoreSlotsClick: React.PropTypes.func,
-		addMoreSlots: React.PropTypes.string,
-	} ).isRequired,
 	intl: intlShape.isRequired,
 };
 
