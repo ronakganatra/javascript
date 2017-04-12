@@ -78,9 +78,7 @@ class SitesPage extends React.Component {
 						/>
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
-					<Sites sites={ props.sites } onClick={ ( sitesId ) => {
-						return sitesId;
-					} }/>
+					<Sites sites={ props.sites } onClick={ props.onManage }/>
 					{ modal }
 				</div>
 			);
@@ -104,6 +102,7 @@ SitesPage.propTypes = {
 	onLink: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
+	onManage: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
 	intl: intlShape.isRequired,
