@@ -97,11 +97,10 @@ export default class ListToggle extends React.Component {
 	 */
 	getList() {
 		let body = null;
-
 		if ( this.isOpen() ) {
 			body = (
 				<ListToggleBody role="list">
-					{ this.props.items.map( ( item ) => <li key={ item.props.productName }>{ item }</li> ) }
+					{ this.props.children }
 				</ListToggleBody>
 			);
 		}
@@ -128,8 +127,11 @@ export default class ListToggle extends React.Component {
 
 ListToggle.propTypes = {
 	title: React.PropTypes.string.isRequired,
-	items: React.PropTypes.any.isRequired,
 	isOpen: React.PropTypes.bool,
+	children: React.PropTypes.oneOfType( [
+		React.PropTypes.arrayOf( React.PropTypes.node ),
+		React.PropTypes.node,
+	] ),
 };
 
 ListToggle.defaultProps = {

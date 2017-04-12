@@ -1,5 +1,6 @@
 import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
+import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 const messages = defineMessages( {
@@ -18,12 +19,28 @@ const messages = defineMessages( {
  */
 function SiteSubscriptionDetailList( props ) {
 	return (
-		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true } />
+		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+			{ props.siteSubscriptions.map( ( subscription ) => {
+				return <SiteSubscriptionDetail { ...subscription }
+											   key={ subscription.productId }
+											   onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
+											   onMoreInfoClick={ props.onMoreInfoClick }
+											   onSettingsClick={ props.onSettingsClick }
+											   onToggleSubscription={ props.onToggleSubscription }
+											   slots={ subscription.productSlots }
+											   productLogo={ subscription.productLogo }
+				/>;
+			} ) }
+		</CollapsibleHeader>
 	);
 }
 
 SiteSubscriptionDetailList.propTypes = {
 	siteSubscriptions: React.PropTypes.array,
+	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
+	onMoreInfoClick: React.PropTypes.func.isRequired,
+	onSettingsClick: React.PropTypes.func.isRequired,
+	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 
