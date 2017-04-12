@@ -1,5 +1,0 @@
-		return <Subscription key={ subscription.id } id={ subscription.id } icon={ subscription.icon }
-											 name={ subscription.name } 	used={ subscription.used }
-											 max={ subscription.max }  nextBilling={ subscription.nextBilling } 
-											 billingAmount={ subscription.billingAmount } 
-											 billingCurrency={ subscription.billingCurrency } />; }
