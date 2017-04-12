@@ -27,9 +27,6 @@ test('the site page component matches the snapshot', () => {
 						  productSlots: {
 							  amountAvailable: 10,
 							  amountUsed: 5,
-							  onAddMoreSlotsClick: () => {
-								  console.log( "add more slots" );
-							  },
 							  addMoreSlots: "Add more slots",
 						  },
 						  productLogo: SeoIcon,
@@ -44,14 +41,14 @@ test('the site page component matches the snapshot', () => {
 						  productSlots: {
 							  amountAvailable: 10,
 							  amountUsed: 7,
-							  onAddMoreSlotsClick: () => {
-								  console.log( "add more slots" );
-							  },
 							  addMoreSlots: "Add more slots",
 						  },
 						  productLogo: LocalIcon,
 					  },
 				] }
+				onAddMoreSlotsClick={ () => {
+					console.log( "add more slots" );
+				} }
 				onMoreInfoClick={ () => {
 					console.log( "more info" );
 				} }
@@ -91,9 +88,6 @@ test('the site page component handling an onclick event on the add slots button'
 						productSlots: {
 							amountAvailable: 10,
 							amountUsed: 5,
-							onAddMoreSlotsClick: () => {
-								console.log( "add more slots" );
-							},
 							addMoreSlots: "Add more slots",
 						},
 						productLogo: SeoIcon,
@@ -108,14 +102,14 @@ test('the site page component handling an onclick event on the add slots button'
 						productSlots: {
 							amountAvailable: 10,
 							amountUsed: 7,
-							onAddMoreSlotsClick: () => {
-								console.log( "add more slots" );
-							},
 							addMoreSlots: "Add more slots",
 						},
 						productLogo: LocalIcon,
 					},
 				] }
+				onAddMoreSlotsClick={ () => {
+					console.log( "add more slots" );
+				} }
 				onMoreInfoClick={ () => {
 					console.log( "more info" );
 				} }

@@ -7,42 +7,40 @@ import LocalIcon from "../../src/icons/Yoast/Local_SEO_Icon_Small.svg";
 
 test('the site subscription detail list component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetailList siteSubscriptions={ [
-			{
-				id: "bla",
-				productId: "Yoast SEO",
-				startDate: "2017-04-11T00:00:00.000Z",
-				endDate: "2017-04-11T00:00:00.000Z",
-				reoccurring: true,
-				myYoastUserId: 2,
-				productSlots: {
-					amountAvailable: 10,
-					amountUsed: 5,
-					onAddMoreSlotsClick: () => {
-						console.log( "add more slots" );
+		<SiteSubscriptionDetailList
+			siteSubscriptions={ [
+				{
+					id: "bla",
+					productId: "Yoast SEO",
+					startDate: "2017-04-11T00:00:00.000Z",
+					endDate: "2017-04-11T00:00:00.000Z",
+					reoccurring: true,
+					myYoastUserId: 2,
+					productSlots: {
+						amountAvailable: 10,
+						amountUsed: 5,
+						addMoreSlots: "Add more slots",
 					},
-					addMoreSlots: "Add more slots",
+					productLogo: SeoIcon,
 				},
-				productLogo: SeoIcon,
-			},
-			{
-				id: "bla2",
-				productId: "Local SEO",
-				startDate: "2017-04-11T00:00:00.000Z",
-				endDate: "2017-04-11T00:00:00.000Z",
-				reoccurring: true,
-				myYoastUserId: 2,
-				productSlots: {
-					amountAvailable: 10,
-					amountUsed: 7,
-					onAddMoreSlotsClick: () => {
-						console.log( "add more slots" );
+				{
+					id: "bla2",
+					productId: "Local SEO",
+					startDate: "2017-04-11T00:00:00.000Z",
+					endDate: "2017-04-11T00:00:00.000Z",
+					reoccurring: true,
+					myYoastUserId: 2,
+					productSlots: {
+						amountAvailable: 10,
+						amountUsed: 7,
+						addMoreSlots: "Add more slots",
 					},
-					addMoreSlots: "Add more slots",
+					productLogo: LocalIcon,
 				},
-				productLogo: LocalIcon,
-			},
-		] }
+			] }
+			onAddMoreSlotsClick={ () => {
+				console.log( "add more slots" );
+			} }
 			onMoreInfoClick={ () => {
 				console.log( "more info" );
 			} }

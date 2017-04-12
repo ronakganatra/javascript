@@ -11,15 +11,15 @@ let subscription = {
 		amountAvailable: 20,
 		amountUsed: 14,
 		addMoreSlots: "Add more slots for $69",
-		onAddMoreSlotsClick: () => {
-			console.log( "Add more slots" );
-		},
 	},
 };
 
 test('the sitesubscription matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail { ...subscription }
+								onAddMoreSlotsClick={ () => {
+									console.log( "Add more slots" );
+								} }
 								onToggleSubscription={ () => {
 									console.log( "on toggle subscription" );
 								} }
@@ -38,13 +38,16 @@ test('the sitesubscription matches the snapshot', () => {
 test('the sitesubscription onToggleSubscription handling', () => {
 	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail { ...subscription }
-									onToggleSubscription={ () => {
+								onAddMoreSlotsClick={ () => {
+									console.log( "Add more slots" );
+								} }
+								onToggleSubscription={ () => {
 									console.log( "on toggle subscription" );
 								} }
-									onMoreInfoClick={ () => {
+								onMoreInfoClick={ () => {
 									console.log( "on more info click" );
 								} }
-									onSettingsClick={ () => {
+								onSettingsClick={ () => {
 									console.log( "on settings click" );
 								} } />
 	);
@@ -63,6 +66,9 @@ test('the sitesubscription onToggleSubscription handling', () => {
 test('the sitesubscription onMoreInfoClick handling', () => {
 	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail { ...subscription }
+								onAddMoreSlotsClick={ () => {
+									console.log( "Add more slots" );
+								} }
 								onToggleSubscription={ () => {
 									console.log( "on toggle subscription" );
 								} }
@@ -88,6 +94,9 @@ test('the sitesubscription onMoreInfoClick handling', () => {
 test('the sitesubscription onSettingsClick handling', () => {
 	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail { ...subscription }
+								onAddMoreSlotsClick={ () => {
+									console.log( "Add more slots" );
+								} }
 								onToggleSubscription={ () => {
 									console.log( "on toggle subscription" );
 								} }
@@ -113,6 +122,9 @@ test('the sitesubscription onSettingsClick handling', () => {
 test('the sitesubscription onAddMoreSlotsClick handling', () => {
 	const component = createComponentWithIntl(
 		<SiteSubscriptionDetail { ...subscription }
+								onAddMoreSlotsClick={ () => {
+									console.log( "Add more slots" );
+								} }
 								onToggleSubscription={ () => {
 									console.log( "on toggle subscription" );
 								} }

@@ -165,7 +165,7 @@ export default function SiteSubscriptionDetail( props ) {
 				</SubscriptionUsage>
 				{
 					props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
-						<AddOneSlot onClick={ props.slots.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
+						<AddOneSlot onClick={ props.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
 				}
 			</SubscriptionDetails>
 
@@ -180,6 +180,7 @@ export default function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
+	onAddMoreSlotsClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
@@ -189,7 +190,6 @@ SiteSubscriptionDetail.propTypes = {
 	slots: React.PropTypes.shape( {
 		amountAvailable: React.PropTypes.number.isRequired,
 		amountUsed: React.PropTypes.number,
-		onAddMoreSlotsClick: React.PropTypes.func,
 		addMoreSlots: React.PropTypes.string,
 	} ).isRequired,
 };
