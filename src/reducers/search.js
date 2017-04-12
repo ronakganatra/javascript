@@ -21,7 +21,9 @@ const rootState = {
  * A reducer for the sites object within the ui object.
  *
  * @param {Object} state The current state of the object.
+ *
  * @param {Object} action The current action received.
+ *
  * @returns {Object} The updated Sites object.
  */
 export function uiSearch( state = rootState.ui.search, action ) {

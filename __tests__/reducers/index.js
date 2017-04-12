@@ -71,8 +71,8 @@ test( 'root reducer', () => {
 	const expected = {
 		entities: {
 			sites: {
-				byId: {name: "byIdReducer"},
-				allIds: {name: "allIdsReducer"},
+				byId: { name: "byIdReducer"},
+				allIds: { name: "allIdsReducer"},
 			},
 		},
 		ui: {

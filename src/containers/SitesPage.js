@@ -62,13 +62,12 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let url;
+	let url = stateProps.linkingSiteUrl;
 
 	if ( stateProps.linkingSiteUrl.length === 0 ) {
 		url = stateProps.query;
-	} else {
-		url = stateProps.linkingSiteUrl;
 	}
+
 	let onLink = () => {
 		dispatchProps.onLink( url );
 	};

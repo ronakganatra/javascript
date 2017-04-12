@@ -40,6 +40,7 @@ const rootState = {
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
+ *
  * @returns {Object} The updated sites object.
  */
 function popupReducer( state, action ) {
@@ -65,6 +66,7 @@ function popupReducer( state, action ) {
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
+ *
  * @returns {Object} The updated sites object.
  */
 function linkReducer( state, action ) {
@@ -101,6 +103,7 @@ function linkReducer( state, action ) {
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
+ *
  * @returns {Object} The updated Sites object.
  */
 export function uiSitesReducer( state = rootState.ui.sites, action ) {
@@ -112,6 +115,7 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
  *
  * @param {Object} state The current state of the byId object.
  * @param {Object} action The current action received.
+ *
  * @returns {Object} The updated byId object.
  */
 export function byIdReducer( state = rootState.entities.sites.byId, action ) {
@@ -130,6 +134,7 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
  *
  * @param {Array} state The current state of the allIds array.
  * @param {Object} action The current action received.
+ *
  * @returns {Array} The updated allIds array.
  */
 export function allIdsReducer( state = rootState.entities.sites.allIds, action ) {

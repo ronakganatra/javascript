@@ -6,7 +6,7 @@ import { getAccessToken, getUserId } from "../functions/auth";
  * Action types
  */
 
-export const LINK_SITE_POPUP_OPEN = " LINK_SITE_POPUP_OPEN";
+export const LINK_SITE_POPUP_OPEN = "LINK_SITE_POPUP_OPEN";
 export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
 export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
 export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";

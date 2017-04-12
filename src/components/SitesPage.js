@@ -16,6 +16,10 @@ const messages = defineMessages( {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
 	},
+	description: {
+		id: "search.description",
+		defaultMessage: "The search results will be updated as you type.",
+	},
 } );
 
 const SiteAddContainer = styled.div`
@@ -56,7 +60,7 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						<Search
 							id="search"
-							description="The search results will be updated as you type."
+							description={ props.intl.formatMessage( messages.description ) }
 							descriptionId="searchDescription"
 							onChange={ changeSearchQuery }
 							query={ props.query }
@@ -79,7 +83,7 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						<Search
 							id="search"
-							description="The search results will be updated as you type."
+							description={ props.intl.formatMessage( messages.description ) }
 							descriptionId="searchDescription"
 							onChange={ changeSearchQuery }
 							query={ props.query }

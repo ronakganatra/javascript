@@ -122,12 +122,10 @@ export default function AddSite( props ) {
 		props.onChange( event.target.value );
 	};
 
-	let suggestedValue;
+	let suggestedValue = "";
 
 	if ( props.query.length > 0 ) {
-		suggestedValue=props.query;
-	} else {
-		suggestedValue="";
+		suggestedValue = props.query;
 	}
 
 	return (

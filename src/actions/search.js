@@ -10,7 +10,9 @@ export const SEARCH_QUERY_CHANGE = "SEARCH_QUERY_CHANGE";
 
 /**
  * An action creator for the text that is entered in the Search bar.
+ *
  * @param {string} query Text entered in the search bar.
+ *
  * @returns {Object} The onSearchQueryChange action.
  */
 export function onSearchQueryChange( query ) {
