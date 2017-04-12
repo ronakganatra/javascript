@@ -39,11 +39,11 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 		case GET_SITE_SUBSCRIPTIONS_REQUEST:
 			return Object.assign( {}, state, {
 				retrievingSiteSubscriptions: true,
+				error: "",
 			} );
 		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
 			return Object.assign( {}, state, {
 				retrievingSiteSubscriptions: false,
-				error: "",
 			} );
 		case GET_SITE_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
