@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { Link } from "react-router-dom";
@@ -14,11 +13,6 @@ const messages = defineMessages( {
 		defaultMessage: "Site page loaded",
 	},
 } );
-
-const SitePageContainer = styled.div`
-	display: inline;
-`;
-
 
 /**
  * Returns the rendered Site Page component.
@@ -36,7 +30,7 @@ class SitePage extends React.Component {
 	render() {
 		let props = this.props;
 		return (
-			<SitePageContainer>
+			<div>
 				<Link to={ "/sites" } >
 					<RoundBackButton />
 				</Link>
@@ -46,7 +40,7 @@ class SitePage extends React.Component {
 											onSettingsClick={ props.onSettingsClick }
 											onToggleSubscription={ props.onToggleSubscription }
 				/>
-			</SitePageContainer>
+			</div>
 		);
 	}
 }
