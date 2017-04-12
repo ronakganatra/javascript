@@ -2,10 +2,9 @@ import React from 'react';
 import { mapStateToProps, mapDispatchToProps, mergeProps } from '../../src/containers/SitesPage'
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../../src/actions/sites";
 import SitesPageContainer from '../../src/containers/SitesPage';
+import { push } from "react-router-redux";
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
-
-
 
 test('the mapStateToProps function', () => {
 	let state = {
@@ -19,6 +18,9 @@ test('the mapStateToProps function', () => {
 				} },
 				allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 			},
+		},
+		router: {
+			location: "sites/thisIsAnId",
 		},
 		ui: {
 			sites: {
@@ -82,4 +84,15 @@ test('the mapDispatchToProps function to call updateSiteUrl action with onChange
 	props.onChange( url );
 
 	expect( dispatch ).toHaveBeenCalledWith( updateSiteUrl( url ) );
+} );
+
+test('the mapDispatchToProps function to call push action with onManage', () => {
+	const dispatch = jest.fn();
+
+	let props = mapDispatchToProps( dispatch );
+	let siteId = "thisIsAnId";
+
+	props.onManage( siteId );
+
+	expect( dispatch ).toHaveBeenCalledWith( push( "/sites/" + siteId ) );
 } );
