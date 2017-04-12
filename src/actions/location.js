@@ -8,6 +8,7 @@ import { retrieveSites } from "./sites";
  */
 export default function locationChange( location ) {
 	switch ( location.pathname ) {
+		case "/":
 		case "/sites":
 			return retrieveSites();
 		default:
