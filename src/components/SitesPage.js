@@ -78,7 +78,7 @@ class SitesPage extends React.Component {
 						/>
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
-					<Sites sites={ props.sites } onClick={ props.onManage }/>
+					<Sites sites={ props.sites } onManage={ props.onManage }/>
 					{ modal }
 				</div>
 			);

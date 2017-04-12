@@ -5,7 +5,7 @@ import { createComponentWithIntl } from "../../utils";
 test('the sites page component with no sites matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<SitesPage sites={ [] } addSite={ () => {} } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ true } />
+				   onChange={ () => {} } errorFound={ true } onManage={ () => {} } />
 	);
 
 	let tree = component.toJSON();
@@ -21,7 +21,7 @@ test('the sites page component with a site matches the snapshot', () => {
 	};
 	const component = createComponentWithIntl(
 		<SitesPage sites={ [ site ] } addSite={ () => {} } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } />
+				   onChange={ () => {} } errorFound={ false } onManage={ () => {} } />
 	);
 
 	let tree = component.toJSON();
@@ -31,7 +31,7 @@ test('the sites page component with a site matches the snapshot', () => {
 test('the sites page component without sites handling an onclick event on the add site button', () => {
 	const component = createComponentWithIntl(
 		<SitesPage sites={ [] } addSite={ () => { return 'Add site'; } } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ true } />
+				   onChange={ () => {} } errorFound={ true } onManage={ () => {} } />
 	);
 
 	let tree = component.toJSON();
@@ -53,7 +53,7 @@ test('the sites page component with sites handling an onclick event on the add s
 				activeSubscriptions: [ "woo", "video" ],
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 			},] } addSite={ () => { return 'Add site'; } } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } />
+				   onChange={ () => {} } errorFound={ false } onManage={ () => {} } />
 	);
 
 	let tree = component.toJSON();
@@ -75,7 +75,7 @@ test('the sites page component with sites handling a changed search query', () =
 				activeSubscriptions: [ "woo", "video" ],
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 			},] } addSite={ () => {} } changeSearchQuery={ () => { return 'Query changed'; } } onLink={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } />
+				   onChange={ () => {} } errorFound={ false } onManage={ () => {} } />
 	);
 
 	let tree = component.toJSON();

@@ -91,7 +91,6 @@ test('the mapDispatchToProps function to call push action with onManage', () => 
 
 	let props = mapDispatchToProps( dispatch );
 	let siteId = "thisIsAnId";
-
 	props.onManage( siteId );
 
 	expect( dispatch ).toHaveBeenCalledWith( push( "/sites/" + siteId ) );
