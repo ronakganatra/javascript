@@ -23,9 +23,9 @@ function SiteSubscriptionDetailList( props ) {
 			{ props.siteSubscriptions.map( ( subscription ) => {
 				return <SiteSubscriptionDetail { ...subscription }
 											   key={ subscription.productId }
-											   onMoreInfoClick={ subscription.onMoreInfoClick }
-											   onSettingsClick={ subscription.onSettingsClick }
-											   onToggleSubscription={ subscription.onToggleSubscription }
+											   onMoreInfoClick={ props.onMoreInfoClick }
+											   onSettingsClick={ props.onSettingsClick }
+											   onToggleSubscription={ props.onToggleSubscription }
 											   slots={ subscription.productSlots }
 											   productLogo={ subscription.productLogo }
 				/>;
@@ -36,6 +36,9 @@ function SiteSubscriptionDetailList( props ) {
 
 SiteSubscriptionDetailList.propTypes = {
 	siteSubscriptions: React.PropTypes.array,
+	onMoreInfoClick: React.PropTypes.func.isRequired,
+	onSettingsClick: React.PropTypes.func.isRequired,
+	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

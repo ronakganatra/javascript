@@ -42,6 +42,9 @@ class SitePage extends React.Component {
 				</Link>
 				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.siteImage }/>
 				<SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
+											onMoreInfoClick={ props.onMoreInfoClick }
+											onSettingsClick={ props.onSettingsClick }
+											onToggleSubscription={ props.onToggleSubscription }
 				/>
 			</SitePageContainer>
 		);
@@ -54,6 +57,9 @@ SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	siteImage: React.PropTypes.string.isRequired,
+	onMoreInfoClick: React.PropTypes.func.isRequired,
+	onSettingsClick: React.PropTypes.func.isRequired,
+	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 
