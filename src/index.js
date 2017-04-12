@@ -12,6 +12,8 @@ import createLogger from "redux-logger";
 import Cookies from "js-cookie";
 import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
+import locationChange from "./actions/location";
+import createHistory from "history/createBrowserHistory";
 
 addLocaleData( en );
 
@@ -25,6 +27,25 @@ let store = createStore(
 	)
 );
 
+/**
+ * Handles a URL change in our app.
+ *
+ * @param {Object} location The path that we are currently on.
+ * @returns {void}
+ */
+function handleUrlChange( location ) {
+	let action = locationChange( location );
+
+	if ( action ) {
+		store.dispatch( action );
+	}
+}
+
+let history = createHistory();
+
+handleUrlChange( history.location );
+history.listen( handleUrlChange );
+
 let hasAccessToken = !! Cookies.get( "access_token" );
 
 if ( hasAccessToken ) {
@@ -32,7 +53,7 @@ if ( hasAccessToken ) {
 	store.dispatch( fetchUser( getAccessToken(), getUserId() ) );
 
 	ReactDOM.render(
-		<App store={store}/>,
+		<App store={ store } history={ history }/>,
 		document.getElementById( "root" )
 	);
 } else {

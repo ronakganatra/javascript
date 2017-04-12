@@ -24,7 +24,7 @@ const initialState = {
 
 /**
  * @param {Object} state The previous state of the store.
- * @param {Object} action The action that just occured.
+ * @param {Object} action The action that just occurred.
  * @returns {Object} The new state for the store.
  */
 export function userReducer( state = initialState, action ) {

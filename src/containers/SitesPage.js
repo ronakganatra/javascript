@@ -26,6 +26,7 @@ export const mapStateToProps = ( state ) => {
 		errorFound,
 		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
+		showLoader: ! state.ui.sites.sitesRetrieved,
 	};
 };
 
