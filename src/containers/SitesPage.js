@@ -12,6 +12,7 @@ export const mapStateToProps = ( state ) => {
 		return {
 			id: site.id,
 			siteName: site.url,
+			siteIcon: site.icon,
 		};
 	} );
 
