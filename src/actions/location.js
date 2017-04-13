@@ -10,16 +10,12 @@ import { getSiteSubscriptions } from "./subscriptions";
 export default function locationChange( location ) {
 	let matches;
 
-	console.log( location );
 	switch ( location.pathname ) {
 		case "/":
 		case "/sites":
 			return retrieveSites();
 		default:
-
 			matches = location.pathname.match( /\/sites\/([^/]+)/ );
-
-			console.log( matches );
 
 			if ( null !== matches ) {
 				let siteId = matches[ 1 ];

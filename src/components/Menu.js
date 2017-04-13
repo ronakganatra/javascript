@@ -182,7 +182,7 @@ export function MainMenuRoutes( props ) {
 	return (
 		<div>
 			{ props.menuRoutes.map( function( route, routeKey ) {
-				return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route exact key={ routeKey } path={ route.path } component={ route.component }/>;
 			} )
 			}
 		</div>
