@@ -1,10 +1,7 @@
 import React from 'react';
-import { mapStateToProps, mapDispatchToProps, mergeProps } from '../../src/containers/SitesPage'
-import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../../src/actions/sites";
-import SitesPageContainer from '../../src/containers/SitesPage';
+import { mapStateToProps, mapDispatchToProps } from '../../src/containers/SitesPage'
+import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../../src/actions/sites";
 import { push } from "react-router-redux";
-import renderer from 'react-test-renderer';
-import { shallow } from 'enzyme';
 
 test('the mapStateToProps function', () => {
 	let state = {

@@ -118,7 +118,10 @@ test('the site page component handling an onclick event on the add slots button'
 				} }
 				onToggleSubscription={ () => {
 					console.log( "toggled" );
-				} } />
+				} }
+				loadingSubscriptions = { false }
+				loadingSite = { false }
+			/>
 		</MemoryRouter>
 	);
 

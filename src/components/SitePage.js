@@ -36,6 +36,7 @@ class SitePage extends React.Component {
 		}
 
 		let subscriptionList = <AnimatedLoader />;
+
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
 														   onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
@@ -78,8 +79,4 @@ SitePage.defaultProps = {
 	loadingSubscriptions: true,
 	site: {},
 	siteImage: "http://placehold.it/1480x380",
-	onAddMoreSlotsClick: () => {},
-	onMoreInfoClick: () => {},
-	onSettingsClick: () => {},
-	onToggleSubscription: () => {},
 };
