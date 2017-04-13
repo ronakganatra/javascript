@@ -15,6 +15,7 @@ import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
 import SitesPageContainer from "./containers/SitesPage";
+import SitePageContainer from "./containers/SitePage";
 
 /*
  * Helper method to write global CSS.
@@ -49,6 +50,7 @@ class App extends Component {
 								<DebugInfo />
 								<Content>
 									<Route exact path="/" component={ SitesPageContainer } />
+									<Route path="/sites/:id" component={ SitePageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
 								</Content>
 							</Main>
