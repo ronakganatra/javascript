@@ -9,10 +9,16 @@ export const mapStateToProps = ( state ) => {
 	let sites = allIds.map( ( siteId ) => {
 		let site = state.entities.sites.byId[ siteId ];
 
-		return {
+		let siteProps = {
 			id: site.id,
 			siteName: site.url,
 		};
+
+		if ( site.icon ) {
+			siteProps.siteIcon = site.icon;
+		}
+
+		return siteProps;
 	} );
 
 	let popupOpen = state.ui.sites.addSitePopupOpen;
