@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
+import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../actions/sites";
 import SitePage from "../components/SitePage";
 
 /*
@@ -10,37 +10,38 @@ The props that we need to connect.
  subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 
  subscriptions={ [
- {
- id: "bla",
- productId: "Yoast SEO",
- startDate: "2017-04-11T00:00:00.000Z",
- endDate: "2017-04-11T00:00:00.000Z",
- reoccurring: true,
- myYoastUserId: 2,
- productSlots: {
- amountAvailable: 10,
- amountUsed: 5,
- addMoreSlots: "Add more slots",
- },
- productLogo: SeoIcon,
- },
- {
- id: "bla2",
- productId: "Local SEO",
- startDate: "2017-04-11T00:00:00.000Z",
- endDate: "2017-04-11T00:00:00.000Z",
- reoccurring: true,
- myYoastUserId: 2,
- productSlots: {
- amountAvailable: 10,
- amountUsed: 7,
- addMoreSlots: "Add more slots",
- },
- productLogo: LocalIcon,
- },
+	{
+		id: "bla",
+		productId: "Yoast SEO",
+		startDate: "2017-04-11T00:00:00.000Z",
+		endDate: "2017-04-11T00:00:00.000Z",
+		reoccurring: true,
+		myYoastUserId: 2,
+		productSlots: {
+			amountAvailable: 10,
+		 	amountUsed: 5,
+		 	addMoreSlots: "Add more slots",
+		},
+		productLogo: SeoIcon,
+	},
+	{
+		id: "bla2",
+		productId: "Local SEO",
+		startDate: "2017-04-11T00:00:00.000Z",
+		endDate: "2017-04-11T00:00:00.000Z",
+		reoccurring: true,
+		myYoastUserId: 2,
+		productSlots: {
+			amountAvailable: 10,
+		 	amountUsed: 7,
+		 	addMoreSlots: "Add more slots",
+		},
+		productLogo: LocalIcon,
+	},
  ] }
+ siteImage: React.PropTypes.string.isRequired, // this one I have defaulted to placeholder image in sitepage. Should change later.
 
- siteImage: React.PropTypes.string.isRequired,
+
  onAddMoreSlotsClick: React.PropTypes.func.isRequired,
  onMoreInfoClick: React.PropTypes.func.isRequired,
  onSettingsClick: React.PropTypes.func.isRequired,
@@ -52,7 +53,7 @@ The props that we need to connect.
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
 
-	console.log( id );
+	console.log( "id is:, ", id );
 
 	let sites = state.entities.sites;
 
@@ -64,7 +65,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let site = sites.byId[ id ];
 
-	console.log( site );
+	console.log( "Site is: ", site );
 
 	return {
 		site,
@@ -75,18 +76,17 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		onClick: () => {
+		onMoreInfoClick: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		addSite: () => {
+		onSettingsClick: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		changeSearchQuery: () => {},
-		onClose: () => {
+		onAddMoreSlotsClick: () => {
 			dispatch( linkSitePopupClose() );
 		},
-		onLink: ( url ) => {
-			dispatch( linkSite( url ) );
+		onToggleSubscription: () => {
+			dispatch( linkSitePopupClose() );
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );

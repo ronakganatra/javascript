@@ -77,7 +77,7 @@ SitePage.defaultProps = {
 	loadingSite: false,
 	loadingSubscriptions: true,
 	site: {},
-	siteImage: "http://google.com",
+	siteImage: "http://placehold.it/1480x380",
 	onAddMoreSlotsClick: () => {},
 	onMoreInfoClick: () => {},
 	onSettingsClick: () => {},
