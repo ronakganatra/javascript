@@ -130,7 +130,7 @@ export default function AddSite( props ) {
 
 	return (
 			<AddSiteModal>
-				<AddSiteImage src={addSiteImage} alt="" />
+				<AddSiteImage src={ addSiteImage } alt="" />
 				<AddSiteHeading>
 					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
 				</AddSiteHeading>

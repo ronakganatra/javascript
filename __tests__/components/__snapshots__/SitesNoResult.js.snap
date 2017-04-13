@@ -5,7 +5,9 @@ exports[`test the SitesNoResult component handling an onclick event 1`] = `
     <span>
       We could not find
       					
-      <strong />
+      <strong>
+        
+      </strong>
        in your account.
     </span>
   </p>
@@ -34,7 +36,9 @@ exports[`test the SitesNoResult component handling an onclick event 2`] = `
     <span>
       We could not find
       					
-      <strong />
+      <strong>
+        
+      </strong>
        in your account.
     </span>
   </p>
@@ -63,7 +67,9 @@ exports[`test the nosites component matches the snapshot 1`] = `
     <span>
       We could not find
       					
-      <strong />
+      <strong>
+        
+      </strong>
        in your account.
     </span>
   </p>

@@ -8,10 +8,10 @@ import { getAccessToken, getUserId } from "../functions/auth";
 
 export const LINK_SITE_POPUP_OPEN = "LINK_SITE_POPUP_OPEN";
 export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
-export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
 export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
+export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
 
 /**
  * Action creators

@@ -33,13 +33,7 @@ export function uiSearch( state = rootState.ui.search, action ) {
 				query: action.query,
 			} );
 		case LINK_SITE_POPUP_CLOSE:
-			return Object.assign( {}, state, {
-				query: "",
-			} );
 		case LINK_SITE_SUCCESS:
-			return Object.assign( {}, state, {
-				query: "",
-			} );
 		case LINK_SITE_FAILURE:
 			return Object.assign( {}, state, {
 				query: "",

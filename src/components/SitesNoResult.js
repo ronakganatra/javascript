@@ -52,3 +52,6 @@ SitesNoResult.propTypes = {
 	onClick: React.PropTypes.func.isRequired,
 	query: React.PropTypes.string,
 };
+SitesNoResult.defaultProps = {
+	query: "",
+};
