@@ -74,7 +74,7 @@ test( 'entities reducer', () => {
 } );
 
 test( 'root reducer', () => {
-	const state = { user: {} };
+	const state = { user: {}, router: { location: "URL" } };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -88,6 +88,9 @@ test( 'root reducer', () => {
 				byId: { name: "byIdSitesSubscriptionsReducer" },
 				allIds: { name: "allIdsSitesSubscriptionsReducer" },
 			},
+		},
+		router: {
+			location: "URL",
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },

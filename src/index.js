@@ -14,16 +14,20 @@ import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
 import locationChange from "./actions/location";
 import createHistory from "history/createBrowserHistory";
+import { routerMiddleware } from "react-router-redux";
 
 addLocaleData( en );
 
+let history = createHistory();
+
 const loggerMiddleware = createLogger();
 
-let store = createStore(
+export const store = createStore(
 	rootReducer,
 	applyMiddleware(
 		thunkMiddleware,
-		loggerMiddleware
+		loggerMiddleware,
+		routerMiddleware( history )
 	)
 );
 
@@ -40,8 +44,6 @@ function handleUrlChange( location ) {
 		store.dispatch( action );
 	}
 }
-
-let history = createHistory();
 
 handleUrlChange( history.location );
 history.listen( handleUrlChange );
