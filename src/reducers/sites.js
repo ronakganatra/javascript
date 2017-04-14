@@ -1,5 +1,5 @@
 import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
-	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS } from "../actions/sites";
+	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
 
 import _union from "lodash/union";
 
@@ -84,25 +84,14 @@ function popupReducer( state, action ) {
  *
  * @returns {Object} The updated Sites object.
  */
-export function linkSiteReducer( state = rootState.ui.sites, action ) {
+export function linkReducer( state = rootState.ui.sites, action ) {
 	switch ( action.type ) {
-		case LINK_SITE_POPUP_OPEN:
-			return Object.assign( {}, state, {
-				addSitePopupOpen: true,
-			} );
-		case LINK_SITE_POPUP_CLOSE:
-			return Object.assign( {}, state, {
-				addSitePopupOpen: false,
-				linkSiteFailed: false,
-				linkSiteError: "",
-				linkingSiteUrl: "",
-			} );
 		case UPDATE_SITE_URL:
 			return Object.assign( {}, state, {
 				linkingSite: true,
 				linkingSiteUrl: action.url,
 			} );
-    case LINK_SITE_REQUEST:
+		case LINK_SITE_REQUEST:
 			return Object.assign( {}, state, {
 				linkingSite: true,
 			} );
@@ -165,7 +154,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
  * @returns {Object} The updated Sites object.
  */
 export function uiSitesReducer( state = rootState.ui.sites, action ) {
-	return linkReducer( popupReducer( state, action ), action );
+	return linkReducer( retrieveSitesReducer( popupReducer( state, action ), action ), action );
 }
 
 /**

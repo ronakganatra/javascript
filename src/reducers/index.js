@@ -8,7 +8,7 @@ import { uiSearch } from "./search.js";
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
 	search: uiSearch,
-  site: uiSiteSubscriptionsReducer,
+	site: uiSiteSubscriptionsReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {

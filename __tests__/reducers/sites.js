@@ -45,6 +45,7 @@ test( 'the update site url action', () => {
 		url: "yoast.com",
 	};
 	const expected = {
+		linkingSite: true,
 		linkingSiteUrl: "yoast.com",
 	};
 

@@ -4,6 +4,8 @@ import { uiSiteSubscriptionsReducer, byIdSitesSubscriptionsReducer, allIdsSitesS
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
+import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
+import { userReducer } from "../../src/reducers/user";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
