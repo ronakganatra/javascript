@@ -14,8 +14,9 @@ test('the site page component matches the snapshot', () => {
 					url: "yoast.com",
 					creationDate: "2017-04-11T00:00:00.000Z",
 					userId: 2,
+					header: "http://placehold.it/1480x380",
 				} }
-				siteImage="http://placehold.it/1480x380"
+				header="http://placehold.it/1480x380"
 				subscriptions={ [
 					  {
 						  id: "bla",
@@ -75,8 +76,8 @@ test('the site page component handling an onclick event on the add slots button'
 					url: "yoast.com",
 					creationDate: "2017-04-11T00:00:00.000Z",
 					userId: 2,
+					header: "http://placehold.it/1480x380",
 				} }
-				siteImage="http://placehold.it/1480x380"
 				subscriptions={ [
 					{
 						id: "bla",
