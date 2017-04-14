@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import getEnv from "./getEnv";
+import _defaultTo from "lodash/defaultTo";
 
 /**
  * Returns the auth URL where the user can authenticate themselves.
@@ -35,7 +36,7 @@ export function removeCookieSignage( cookie ) {
  * @returns {string} The available access token.
  */
 export function getAccessToken() {
-	return removeCookieSignage( Cookies.get( "access_token" ) );
+	return removeCookieSignage( _defaultTo( Cookies.get( "access_token" ), "" ) );
 }
 
 /**
@@ -44,7 +45,7 @@ export function getAccessToken() {
  * @returns {string} The known user ID
  */
 export function getUserId() {
-	return removeCookieSignage( Cookies.get( "userId" ) );
+	return removeCookieSignage( _defaultTo( Cookies.get( "userId" ), "" ) );
 }
 
 /**
