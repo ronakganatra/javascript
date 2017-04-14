@@ -1,8 +1,4 @@
-import {
-	GET_ORDERS_REQUEST,
-	GET_ORDERS_SUCCESS,
-	GET_ORDERS_FAILURE
-} from "../actions/orders";
+import { GET_ORDERS_REQUEST, GET_ORDERS_SUCCESS, GET_ORDERS_FAILURE } from "../actions/orders";
 import _union from "lodash/union";
 
 /**
@@ -13,14 +9,14 @@ const rootState = {
 		orders: {
 			byId: {},
 			allIds: [],
-		}
+		},
 	},
 	ui: {
 		orders: {
 			retrievingOrders: false,
 			error: "",
-		}
-	}
+		},
+	},
 };
 
 /**
