@@ -152,20 +152,20 @@ export default function SiteSubscriptionDetail( props ) {
 					<Toggle
 						onSetEnablement={ props.onToggleSubscription }
 						isEnabled={ props.isEnabled }
-						ariaLabel={ props.productName }
+						ariaLabel={ props.productId }
 						onClick={ props.onToggleSubscription } />
 				</SubscriptionToggle>
 			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
-				<ProductName>{ props.productName }</ProductName>
+				<ProductName>{ props.productId }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
 						values={{ howMany: ( props.slots.amountAvailable - props.slots.amountUsed ) + " / " + props.slots.amountAvailable }} />
 				</SubscriptionUsage>
 				{
 					props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
-						<AddOneSlot onClick={ props.slots.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
+						<AddOneSlot onClick={ props.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
 				}
 			</SubscriptionDetails>
 
@@ -180,16 +180,16 @@ export default function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
+	onAddMoreSlotsClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	isEnabled: React.PropTypes.bool,
-	productName: React.PropTypes.string.isRequired,
+	productId: React.PropTypes.string.isRequired,
 	productLogo: React.PropTypes.string.isRequired,
 	slots: React.PropTypes.shape( {
 		amountAvailable: React.PropTypes.number.isRequired,
 		amountUsed: React.PropTypes.number,
-		onAddMoreSlotsClick: React.PropTypes.func,
 		addMoreSlots: React.PropTypes.string,
 	} ).isRequired,
 };

@@ -5,7 +5,7 @@ import Sites from '../../src/components/Sites';
 
 test('the sites component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<Sites onClick={ ( sitesId ) => {
+		<Sites onManage={ ( sitesId ) => {
 			return sitesId;
 		} } sites={[
 			{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",

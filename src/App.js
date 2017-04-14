@@ -8,7 +8,8 @@ import menuItems from "./config/Menu";
 import MainMenu, { MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { ConnectedRouter } from "react-router-redux";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
@@ -34,8 +35,8 @@ class App extends Component {
 	render() {
 		return (
 			<IntlProvider locale="en">
-				<Provider store={this.props.store}>
-					<Router>
+				<Provider store={ this.props.store }>
+					<ConnectedRouter history={ this.props.history }>
 						<Layout>
 							<Sidebar>
 								<header role="banner">
@@ -52,7 +53,7 @@ class App extends Component {
 								</Content>
 							</Main>
 						</Layout>
-					</Router>
+					</ConnectedRouter>
 				</Provider>
 			</IntlProvider>
 		);
@@ -61,6 +62,7 @@ class App extends Component {
 
 App.propTypes = {
 	store: React.PropTypes.object,
+	history: React.PropTypes.object,
 };
 
 export default App;

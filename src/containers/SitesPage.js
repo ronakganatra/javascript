@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
+import { push } from "react-router-redux";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -9,10 +10,16 @@ export const mapStateToProps = ( state ) => {
 	let sites = allIds.map( ( siteId ) => {
 		let site = state.entities.sites.byId[ siteId ];
 
-		return {
+		let siteProps = {
 			id: site.id,
 			siteName: site.url,
 		};
+
+		if ( site.icon ) {
+			siteProps.siteIcon = site.icon;
+		}
+
+		return siteProps;
 	} );
 
 	let query = state.ui.search.query;
@@ -35,10 +42,11 @@ export const mapStateToProps = ( state ) => {
 		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 		query,
+		showLoader: ! state.ui.sites.sitesRetrieved,
 	};
 };
 
-export const mapDispatchToProps = ( dispatch ) => {
+export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );
@@ -57,6 +65,9 @@ export const mapDispatchToProps = ( dispatch ) => {
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
+		},
+		onManage: ( siteId ) => {
+			dispatch( push( "/sites/" + siteId ) );
 		},
 	};
 };

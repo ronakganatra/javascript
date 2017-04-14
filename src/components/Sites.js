@@ -76,8 +76,12 @@ function Sites( props ) {
 					<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
 									activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
 						{ props.sites.map( function( site ) {
+							let onManageHandler = () => {
+								props.onManage( site.id );
+							};
+
 							return <Site key={ site.id } siteIcon={ site.siteIcon } siteName={ site.siteName }
-										 activeSubscriptions={ site.activeSubscriptions } onClickManage={ props.onClick.bind( null, site.id ) } />;
+									activeSubscriptions={ site.activeSubscriptions } onClickManage={ onManageHandler }/>;
 						} ) }
 					</SitesContainer>
 				</Zebra>
@@ -90,7 +94,7 @@ export default injectIntl( Sites );
 
 Sites.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onClick: React.PropTypes.func.isRequired,
+	onManage: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 
