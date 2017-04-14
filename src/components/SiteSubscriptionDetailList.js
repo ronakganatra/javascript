@@ -2,6 +2,7 @@ import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { Table, Zebra } from "./Tables";
 
 const messages = defineMessages( {
 	manageTitle: {
@@ -20,17 +21,21 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-			{ props.siteSubscriptions.map( ( subscription ) => {
-				return <SiteSubscriptionDetail { ...subscription }
-											   key={ subscription.productId }
-											   onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
-											   onMoreInfoClick={ props.onMoreInfoClick }
-											   onSettingsClick={ props.onSettingsClick }
-											   onToggleSubscription={ props.onToggleSubscription }
-											   slots={ subscription.productSlots }
-											   productLogo={ subscription.productLogo }
-				/>;
-			} ) }
+			<Table headings={false} role="list">
+				<Zebra>
+					{ props.siteSubscriptions.map( ( subscription ) => {
+						return <SiteSubscriptionDetail { ...subscription }
+							key={ subscription.productId }
+							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
+							onMoreInfoClick={ props.onMoreInfoClick }
+							onSettingsClick={ props.onSettingsClick }
+							onToggleSubscription={ props.onToggleSubscription }
+							slots={ subscription.productSlots }
+							productLogo={ subscription.productLogo }
+						/>;
+					} ) }
+				</Zebra>
+			</Table>
 		</CollapsibleHeader>
 	);
 }
