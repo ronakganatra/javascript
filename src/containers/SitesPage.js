@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
+import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 
@@ -21,6 +22,13 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
+	let query = state.ui.search.query;
+	if ( query.length > 0 ) {
+		sites = sites.filter( ( sites ) => {
+			return sites.siteName.includes( query );
+		} );
+	}
+
 	let popupOpen = state.ui.sites.addSitePopupOpen;
 
 	let errorFound = state.ui.sites.linkSiteFailed;
@@ -33,6 +41,7 @@ export const mapStateToProps = ( state ) => {
 		errorFound,
 		errorMessage,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
+		query,
 		showLoader: ! state.ui.sites.sitesRetrieved,
 	};
 };
@@ -45,7 +54,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		addSite: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		changeSearchQuery: () => {},
+		changeSearchQuery: ( query ) => {
+			dispatch( onSearchQueryChange( query ) );
+		},
 		onClose: () => {
 			dispatch( linkSitePopupClose() );
 		},
@@ -63,6 +74,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let url = stateProps.linkingSiteUrl;
+
+	if ( stateProps.linkingSiteUrl.length === 0 ) {
+		url = stateProps.query;
+	}
 
 	let onLink = () => {
 		dispatchProps.onLink( url );

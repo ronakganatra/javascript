@@ -8,6 +8,7 @@ import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoSites from "./NoSites";
+import SitesNoResult from "./SitesNoResult";
 import { RoundAddButton } from "./RoundButton";
 import AnimatedLoader from "./Loader";
 
@@ -15,6 +16,10 @@ const messages = defineMessages( {
 	sitesPageLoaded: {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
+	},
+	description: {
+		id: "search.description",
+		defaultMessage: "The search results will be updated as you type.",
 	},
 } );
 
@@ -33,6 +38,25 @@ const SiteAddContainer = styled.div`
  * @returns {ReactElement} The rendered Sites component.
  */
 class SitesPage extends React.Component {
+	/**
+	 * Return the search bar.
+	 *
+	 * @returns {ReactElement} The rendered Sites component.
+	 */
+	getSearch() {
+		let changeSearchQuery = ( event ) => {
+			this.props.changeSearchQuery( event.target.value );
+		};
+
+		return <Search
+			id="search"
+			description={ this.props.intl.formatMessage( messages.description ) }
+			descriptionId="searchDescription"
+			onChange={ changeSearchQuery }
+			query={ this.props.query }
+		/>;
+	}
+
 	componentDidMount() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
@@ -47,22 +71,26 @@ class SitesPage extends React.Component {
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  errorMessage={ props.errorMessage }/>
+						  errorMessage={ props.errorMessage } query={ props.query } />
 		);
-
 		if ( props.sites.length > 0 ) {
 			return (
 				<div>
 					<SiteAddContainer>
-						<Search
-							id="search"
-							description="The search results will be updated as you type."
-							descriptionId="searchDescription"
-							onChange={ props.changeSearchQuery }
-						/>
+						{ this.getSearch() }
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } onManage={ props.onManage }/>
+					{ modal }
+				</div>
+			);
+		} else if ( props.query.length > 0 ) {
+			return (
+				<div>
+					<SiteAddContainer>
+						{ this.getSearch() }
+					</SiteAddContainer>
+					<SitesNoResult onClick={ props.addSite } query={ props.query } />
 					{ modal }
 				</div>
 			);
@@ -90,6 +118,7 @@ SitesPage.propTypes = {
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
 	intl: intlShape.isRequired,
+	query: React.PropTypes.string,
 	showLoader: React.PropTypes.bool,
 };
 

@@ -1,8 +1,10 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, entitiesSubscriptionsReducer, rootReducer } from "../../src/reducers/index";
-import { uiSitesReducer, byIdReducer, allIdsReducer } from "../../src/reducers/sites";
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSitesSubscriptionsReducer, allIdsSitesSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
+import { uiSearch } from "../../src/reducers/search";
+import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
+import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
 import { userReducer } from "../../src/reducers/user";
 
 jest.mock( "../../src/reducers/sites.js", () => {
@@ -28,11 +30,13 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {} };
+	const state = { sites: {}, search: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" } };
+
+	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" }, search: { query: "" } };
+
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
 	expect( uiSitesReducer ).toHaveBeenCalledWith( {}, action );
@@ -73,6 +77,17 @@ test( 'entities reducer', () => {
 	expect( actual ).toEqual( expected );
 } );
 
+test( 'ui reducer with search input', () => {
+	const state = { query: "" };
+	const action = {
+		type: SEARCH_QUERY_CHANGE,
+		query: "teststring",
+	};
+	const expected = { query: "teststring" };
+	const actual = uiSearch( state, action );
+	expect( actual ).toEqual( expected );
+} );
+
 test( 'root reducer', () => {
 	const state = { user: {}, router: { location: "URL" } };
 	const action = {
@@ -81,6 +96,7 @@ test( 'root reducer', () => {
 	const expected = {
 		entities: {
 			sites: {
+
 				byId: { name: "byIdReducer" },
 				allIds: { name: "allIdsReducer" },
 			},
@@ -94,6 +110,9 @@ test( 'root reducer', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
+     	search: {
+				query: "",
+			},
 			site: { name: "uiSiteSubscriptionsReducer" }
 		},
 		user: { name: "userReducer" }

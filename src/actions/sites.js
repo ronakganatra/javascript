@@ -6,14 +6,16 @@ import { getAccessToken, getUserId } from "../functions/auth";
  * Action types
  */
 
-export const LINK_SITE_POPUP_OPEN = " LINK_SITE_POPUP_OPEN";
+export const LINK_SITE_POPUP_OPEN = "LINK_SITE_POPUP_OPEN";
 export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
-export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
+export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
+export const UPDATE_SITE_URL = "UPDATE_SITE_URL";
 export const RETRIEVE_SITES_REQUEST = "RETRIEVE_SITE_REQUEST";
 export const RETRIEVE_SITES_SUCCESS = "RETRIEVE_SITES_SUCCESS";
 export const RETRIEVE_SITES_FAILURE = "RETRIEVE_SITES_FAILURE";
+
 
 /**
  * Action creators
@@ -56,6 +58,17 @@ export function updateSiteUrl( url ) {
 }
 
 /**
+ * An action creator for the link site request action.
+ *
+ * @returns {Object} A link site request action.
+ */
+export function linkSiteRequest() {
+	return {
+		type: LINK_SITE_REQUEST,
+	};
+}
+
+/**
  * An action creator for the link site success action.
  *
  * @param {Object} site The sites object.
@@ -93,6 +106,7 @@ export function linkSiteFailure( errorText ) {
 export function linkSite( url ) {
 	return ( dispatch ) => {
 		dispatch( updateSiteUrl( url ) );
+		dispatch( linkSiteRequest() );
 
 		let apiUrl = getApiUrl();
 		let userId = getUserId();

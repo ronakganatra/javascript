@@ -20,6 +20,9 @@ test('the mapStateToProps function', () => {
 			location: "sites/thisIsAnId",
 		},
 		ui: {
+			search: {
+				query: "",
+			},
 			sites: {
 				addSitePopupOpen: false,
 				linkingSite: false,
@@ -36,6 +39,7 @@ test('the mapStateToProps function', () => {
 		errorFound: false,
 		errorMessage: "",
 		linkingSiteUrl: "http://yoast.com",
+		query: "",
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
