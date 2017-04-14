@@ -37,6 +37,25 @@ const SiteAddContainer = styled.div`
  * @returns {ReactElement} The rendered Sites component.
  */
 class SitesPage extends React.Component {
+	/**
+	 * Return the search bar.
+	 *
+	 * @returns {ReactElement} The rendered Sites component.
+	 */
+	getSearch() {
+		let changeSearchQuery = ( event ) => {
+			this.props.changeSearchQuery( event.target.value );
+		};
+
+		return <Search
+			id="search"
+			description={ this.props.intl.formatMessage( messages.description ) }
+			descriptionId="searchDescription"
+			onChange={ changeSearchQuery }
+			query={ this.props.query }
+		/>;
+	}
+
 	componentDidMount() {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
@@ -51,20 +70,10 @@ class SitesPage extends React.Component {
 						  errorMessage={ props.errorMessage } query={ props.query } />
 		);
 		if ( props.sites.length > 0 ) {
-			let changeSearchQuery = ( event ) => {
-				props.changeSearchQuery( event.target.value );
-			};
-
 			return (
 				<div>
 					<SiteAddContainer>
-						<Search
-							id="search"
-							description={ props.intl.formatMessage( messages.description ) }
-							descriptionId="searchDescription"
-							onChange={ changeSearchQuery }
-							query={ props.query }
-						/>
+						{ this.getSearch() }
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } onClick={ ( sitesId ) => {
@@ -74,20 +83,10 @@ class SitesPage extends React.Component {
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {
-			let changeSearchQuery = ( event ) => {
-				props.changeSearchQuery( event.target.value );
-			};
-
 			return (
 				<div>
 					<SiteAddContainer>
-						<Search
-							id="search"
-							description={ props.intl.formatMessage( messages.description ) }
-							descriptionId="searchDescription"
-							onChange={ changeSearchQuery }
-							query={ props.query }
-						/>
+						{ this.getSearch() }
 					</SiteAddContainer>
 					<SitesNoResult onClick={ props.addSite } query={ props.query } />
 					{ modal }
