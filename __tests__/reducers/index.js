@@ -21,9 +21,16 @@ jest.mock( "../../src/reducers/user.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/site.js", () => {
+	return {
+		getSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "getSiteSubscriptionsReducer" }; } ),
+		siteAddSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "siteAddSubscriptionsReducer" }; } ),
+		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/subscriptions.js", () => {
 	return {
-		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
 		byIdSitesSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSitesSubscriptionsReducer" }; } ),
 		allIdsSitesSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSitesSubscriptionsReducer" }; } ),
 	}
