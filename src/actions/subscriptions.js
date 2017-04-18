@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401 } from "../functions/api";
+import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
 import { getAccessToken, getUserId } from "../functions/auth";
 
 /*
@@ -9,9 +9,9 @@ export const GET_SITE_SUBSCRIPTIONS_REQUEST = "GET_SITE_SUBSCRIPTIONS_REQUEST";
 export const GET_SITE_SUBSCRIPTIONS_SUCCESS = "GET_SITE_SUBSCRIPTIONS_SUCCESS";
 export const GET_SITE_SUBSCRIPTIONS_FAILURE = "GET_SITE_SUBSCRIPTIONS_FAILURE";
 
-export const GET_ALL_SUBSCRIPTIONS_REQUEST = "GET_SITE_SUBSCRIPTIONS_REQUEST";
-export const GET_ALL_SUBSCRIPTIONS_SUCCESS = "GET_SITE_SUBSCRIPTIONS_SUCCESS";
-export const GET_ALL_SUBSCRIPTIONS_FAILURE = "GET_SITE_SUBSCRIPTIONS_FAILURE";
+export const GET_ALL_SUBSCRIPTIONS_REQUEST = "GET_ALL_SUBSCRIPTIONS_REQUEST";
+export const GET_ALL_SUBSCRIPTIONS_SUCCESS = "GET_ALL_SUBSCRIPTIONS_SUCCESS";
+export const GET_ALL_SUBSCRIPTIONS_FAILURE = "GET_ALL_SUBSCRIPTIONS_FAILURE";
 
 /*
  * Action creators
@@ -128,8 +128,16 @@ export function getAllSubscriptions() {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		return fetch( `${apiUrl}/MyYoastUsers/${userId}/subscriptions?access_token=${accessToken}` )
+		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/subscriptions/?access_token=${accessToken}`, {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
 			.then( handle401 )
+			.then( verifyStatusCode )
 			.then( response => response.json() )
 			.then( json => dispatch( getAllSubscriptionsSuccess( json ) ) )
 			.catch( ( error ) => {
