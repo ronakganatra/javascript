@@ -1,6 +1,6 @@
 exports[`test the sitesubscription matches the snapshot 1`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -47,12 +47,12 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -99,12 +99,12 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -151,12 +151,12 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -203,12 +203,12 @@ exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -255,12 +255,12 @@ exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 1`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -307,12 +307,12 @@ exports[`test the sitesubscription onSettingsClick handling 1`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onSettingsClick handling 2`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -359,12 +359,12 @@ exports[`test the sitesubscription onSettingsClick handling 2`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 1`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -411,12 +411,12 @@ exports[`test the sitesubscription onToggleSubscription handling 1`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;
 
 exports[`test the sitesubscription onToggleSubscription handling 2`] = `
-<div
-  className="iKZkMC">
+<li
+  className="iYfqfc">
   <span
     className="galWEB">
     <img
@@ -463,5 +463,5 @@ exports[`test the sitesubscription onToggleSubscription handling 2`] = `
       Add more slots for $69
     </button>
   </div>
-</div>
+</li>
 `;

@@ -135,7 +135,7 @@ Row.defaultProps = {
  * @constructor
  */
 export const Table = styled.ul`
-	margin: 60px 0 0 0;
+	margin: ${ props => props.headings ? "60px" : "0" } 0 0 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
@@ -150,6 +150,11 @@ export const Table = styled.ul`
 
 Table.propTypes = {
 	children: React.PropTypes.any,
+	headings: React.PropTypes.bool,
+};
+
+Table.defaultProps = {
+	headings: true,
 };
 
 /**
@@ -181,5 +186,8 @@ export function Zebra( props ) {
 }
 
 Zebra.propTypes = {
-	children: React.PropTypes.any,
+	children: React.PropTypes.oneOfType( [
+		React.PropTypes.arrayOf( React.PropTypes.node ),
+		React.PropTypes.node,
+	] ),
 };

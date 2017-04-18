@@ -4,9 +4,11 @@ import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSitesSubscriptionsReducer, byIdSitesSubscriptionsReducer, uiSiteSubscriptionsReducer } from "./subscriptions.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
+import { uiSearch } from "./search.js";
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
+	search: uiSearch,
 	site: uiSiteSubscriptionsReducer,
 	orders: uiOrdersReducer,
 } );

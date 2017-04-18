@@ -21,7 +21,9 @@ test('The AddSiteModal component matches the snapshot', () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
-			errorFound={ false }/>
+			errorFound={ false }
+			query=""
+		/>
 
 	);
 
@@ -37,7 +39,9 @@ test('the addSiteModal handling an onClose event', () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
-			errorFound={ false }/>
+			errorFound={ false }
+			query=""
+		/>
 	);
 
 	let tree = component.toJSON();
@@ -59,7 +63,9 @@ test('the addSiteModal handling an onLink event', () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
-			errorFound={ false }/>
+			errorFound={ false }
+			query=""
+		/>
 	);
 
 	let tree = component.toJSON();

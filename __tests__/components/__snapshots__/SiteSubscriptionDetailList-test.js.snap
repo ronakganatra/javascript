@@ -18,106 +18,108 @@ exports[`test the site subscription detail list component matches the snapshot 1
     </svg>
   </button>
   <ul
-    className="ioWGrX"
+    className="iDISCd"
     role="list">
-    <div
-      className="iKZkMC">
-      <span
-        className="galWEB">
-        <img
-          alt=""
-          className="cOhtuq"
-          src="Yoast_SEO_Icon_Small.svg" />
+    <span>
+      <li
+        className="gSUJps">
         <span
-          className="gputun">
-          <div>
-            <div
-              aria-checked={false}
-              aria-label="Yoast SEO"
-              className="kXYdPH"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="checkbox"
-              tabIndex="0">
+          className="galWEB">
+          <img
+            alt=""
+            className="cOhtuq"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <span
+            className="gputun">
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Yoast SEO"
+                className="kXYdPH"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="checkbox"
+                tabIndex="0">
+                <span
+                  className="bNikmV" />
+              </div>
               <span
-                className="bNikmV" />
+                aria-hidden="true"
+                className="iUAAtI">
+                Off
+              </span>
             </div>
-            <span
-              aria-hidden="true"
-              className="iUAAtI">
-              Off
-            </span>
-          </div>
-        </span>
-      </span>
-      <div
-        className="drFsFv">
-        <span
-          className="gwtpew">
-          Yoast SEO
-        </span>
-        <span
-          className="kaVduD">
-          <span>
-             5 / 10 remaining 
           </span>
         </span>
-        <button
-          className="dqWYTA"
-          onClick={[Function]}>
-          Add more slots
-        </button>
-      </div>
-    </div>
-    <div
-      className="iKZkMC">
-      <span
-        className="galWEB">
-        <img
-          alt=""
-          className="cOhtuq"
-          src="Local_SEO_Icon_Small.svg" />
-        <span
-          className="gputun">
-          <div>
-            <div
-              aria-checked={false}
-              aria-label="Local SEO"
-              className="kXYdPH"
-              onClick={[Function]}
-              onKeyDown={[Function]}
-              role="checkbox"
-              tabIndex="0">
-              <span
-                className="bNikmV" />
-            </div>
-            <span
-              aria-hidden="true"
-              className="iUAAtI">
-              Off
+        <div
+          className="drFsFv">
+          <span
+            className="gwtpew">
+            Yoast SEO
+          </span>
+          <span
+            className="kaVduD">
+            <span>
+               5 / 10 remaining 
             </span>
-          </div>
-        </span>
-      </span>
-      <div
-        className="drFsFv">
+          </span>
+          <button
+            className="dqWYTA"
+            onClick={[Function]}>
+            Add more slots
+          </button>
+        </div>
+      </li>
+      <li
+        className="fTADJm">
         <span
-          className="gwtpew">
-          Local SEO
-        </span>
-        <span
-          className="kaVduD">
-          <span>
-             3 / 10 remaining 
+          className="galWEB">
+          <img
+            alt=""
+            className="cOhtuq"
+            src="Local_SEO_Icon_Small.svg" />
+          <span
+            className="gputun">
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Local SEO"
+                className="kXYdPH"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                role="checkbox"
+                tabIndex="0">
+                <span
+                  className="bNikmV" />
+              </div>
+              <span
+                aria-hidden="true"
+                className="iUAAtI">
+                Off
+              </span>
+            </div>
           </span>
         </span>
-        <button
-          className="dqWYTA"
-          onClick={[Function]}>
-          Add more slots
-        </button>
-      </div>
-    </div>
+        <div
+          className="drFsFv">
+          <span
+            className="gwtpew">
+            Local SEO
+          </span>
+          <span
+            className="kaVduD">
+            <span>
+               3 / 10 remaining 
+            </span>
+          </span>
+          <button
+            className="dqWYTA"
+            onClick={[Function]}>
+            Add more slots
+          </button>
+        </div>
+      </li>
+    </span>
   </ul>
 </div>
 `;

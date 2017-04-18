@@ -37,7 +37,7 @@ test( 'the popup close action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the link site request action', () => {
+test( 'the update site url action', () => {
 	const state = {
 	};
 	const action = {
@@ -47,7 +47,6 @@ test( 'the link site request action', () => {
 	const expected = {
 		linkingSite: true,
 		linkingSiteUrl: "yoast.com",
-
 	};
 
 	const actual = uiSitesReducer( state, action );
