@@ -31,12 +31,13 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {}, site: { subscriptions: {}, }, search: {} };
+
+	const state = { sites: {}, site: { subscriptions: {}, }, search: {}, orders: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 
-	const expected = { sites: { name: "uiSitesReducer" }, site: { subscriptions: { name: "uiSiteSubscriptionsReducer" }, }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" } };
+	const expected = { sites: { name: "uiSitesReducer" }, site: { subscriptions: { name: "uiSiteSubscriptionsReducer" }, }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" }, orders: {} };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -44,7 +45,7 @@ test( 'ui reducer', () => {
 } );
 
 test( 'entities site reducer', () => {
-	const state = { allIds: {}, byId: {} };
+	const state = { allIds: {}, byId: {} , orders: [] };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -72,7 +73,13 @@ test( 'entities reducer', () => {
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } }, subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} } };
+
+	const expected = {
+		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
+		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
+		orders: { allIds: [], byId: {} }
+	};
+
 
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -96,6 +103,10 @@ test( 'root reducer', () => {
 	};
 	const expected = {
 		entities: {
+			orders: {
+				byId: {},
+				allIds:[],
+			},
 			sites: {
 
 				byId: { name: "byIdReducer" },
@@ -111,13 +122,18 @@ test( 'root reducer', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
-     		search: {
+
+     	search: {
 				query: "",
 			},
 			site: {
 				subscriptions: { name: "uiSiteSubscriptionsReducer" },
 			},
 			subscriptions: { name: "uiAllSubscriptionsReducer" },
+			orders: {
+				"error": "",
+				"retrievingOrders": false,
+			},
 		},
 		user: { name: "userReducer" }
 	};
