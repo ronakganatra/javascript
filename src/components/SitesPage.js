@@ -1,4 +1,4 @@
-var util = require( "util" );
+import util from "util";
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import a11ySpeak from "a11y-speak";
