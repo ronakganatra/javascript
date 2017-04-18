@@ -73,7 +73,16 @@ export default function Search( props ) {
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
 		</SearchLabel>
-		<SearchField type="text" id={ props.id } value={ props.query } aria-describedby={ props.descriptionId } onChange={ props.onChange}/>
+		<SearchField
+			type="text"
+			id={ props.id }
+			value={ props.query }
+			aria-describedby={ props.descriptionId }
+			onChange={ props.onChange}
+			autoCorrect="off"
+			autoCapitalize="off"
+			spellCheck="false"
+		/>
 		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description }
 		</SearchDescription>
