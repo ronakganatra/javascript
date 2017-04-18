@@ -13,9 +13,12 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -145,9 +148,12 @@ exports[`test the sites page component with sites handling a changed search quer
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -243,9 +249,12 @@ exports[`test the sites page component with sites handling a changed search quer
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -341,9 +350,12 @@ exports[`test the sites page component with sites handling an onclick event on t
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -439,9 +451,12 @@ exports[`test the sites page component with sites handling an onclick event on t
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
