@@ -6,20 +6,9 @@ import { LargeButton } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
+import { Row } from "./Tables";
 
 let responsiveWidthThreshold = 1355;
-
-const SiteSubscription = styled.div`
-	height: 100px;
-	display: flex;
-	padding: 26px 0;
-
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		height: 150px;
-		overflow: hidden;
-		padding: 13px 0 13px 26px;
-	}
-`;
 
 const SubscriptionLeftContainer = styled.span`
 	margin: 0 40px;
@@ -144,8 +133,13 @@ const Buttons = styled.span`
  * @returns {ReactElement} The rendered component.
  */
 export default function SiteSubscriptionDetail( props ) {
+	let rowProps = [];
+	if ( props.background ) {
+		rowProps.background = props.background;
+	}
+
 	return (
-		<SiteSubscription>
+		<Row {...rowProps}>
 			<SubscriptionLeftContainer>
 				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>
@@ -175,7 +169,7 @@ export default function SiteSubscriptionDetail( props ) {
 					<LargeButton onClick={ props.onSettingsClick }><FormattedMessage id="subscriptions.buttons.settings" defaultMessage="Settings" /></LargeButton>
 				</Buttons>
 			</MediaQuery>
-		</SiteSubscription>
+		</Row>
 	);
 }
 
@@ -192,6 +186,7 @@ SiteSubscriptionDetail.propTypes = {
 		amountUsed: React.PropTypes.number,
 		addMoreSlots: React.PropTypes.string,
 	} ).isRequired,
+	background: React.PropTypes.string,
 };
 
 SiteSubscriptionDetail.defaultProps = {

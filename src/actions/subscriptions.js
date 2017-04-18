@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { getApiUrl, handle401 } from "../functions/api";
-import { getAccessToken, getUserId } from "../functions/auth";
+import { getAccessToken } from "../functions/auth";
 
 /**
  * Action types
@@ -54,22 +54,22 @@ export function getSiteSubscriptionsFailure( errorMessage ) {
 /**
  * An action creator for the link site action.
  *
+ * @param {string} siteId The ID of the site to retrieve subscriptions for.
  * @returns {Object} A link site request action.
  */
-export function getSiteSubscriptions() {
+export function getSiteSubscriptions( siteId ) {
 	return ( dispatch ) => {
 		dispatch( getSiteSubscriptionsRequest() );
 
 		let apiUrl = getApiUrl();
-		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		return fetch( `${apiUrl}/Sites/${userId}/subscriptions?access_token=${accessToken}` )
-		.then( handle401 )
-		.then( response => response.json() )
-		.then( json => dispatch( getSiteSubscriptionsSuccess( json ) ) )
-		.catch( ( error ) => {
-			dispatch( getSiteSubscriptionsFailure( error.message ) );
-		} );
+		return fetch( `${apiUrl}/Sites/${siteId}/subscriptions?access_token=${accessToken}` )
+			.then( handle401 )
+			.then( response => response.json() )
+			.then( json => dispatch( getSiteSubscriptionsSuccess( json ) ) )
+			.catch( ( error ) => {
+				dispatch( getSiteSubscriptionsFailure( error.message ) );
+			} );
 	};
 }

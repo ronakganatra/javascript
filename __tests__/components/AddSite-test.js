@@ -13,6 +13,7 @@ test('The AddSite component matches the snapshot', () => {
 		} }
 			onChange={ () => {} }
 			errorFound={ false }
+			query=""
 		/>
 
 	);

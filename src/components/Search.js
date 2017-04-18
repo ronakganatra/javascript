@@ -40,6 +40,7 @@ const SearchField = styled.input`
 SearchField.propTypes = {
 	id: React.PropTypes.string.isRequired,
 	type: React.PropTypes.string,
+	value: React.PropTypes.string,
 	"aria-describedby": React.PropTypes.string,
 };
 
@@ -72,7 +73,7 @@ export default function Search( props ) {
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
 		</SearchLabel>
-		<SearchField type="text" id={ props.id } aria-describedby={ props.descriptionId } onChange={ props.onChange}/>
+		<SearchField type="text" id={ props.id } value={ props.query } aria-describedby={ props.descriptionId } onChange={ props.onChange}/>
 		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description }
 		</SearchDescription>
@@ -85,6 +86,7 @@ Search.propTypes = {
 	description: React.PropTypes.string.isRequired,
 	descriptionId: React.PropTypes.string.isRequired,
 	onChange: React.PropTypes.func.isRequired,
+	query: React.PropTypes.string,
 };
 
 Search.defaultProps = {

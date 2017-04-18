@@ -14,8 +14,9 @@ test('the site page component matches the snapshot', () => {
 					url: "yoast.com",
 					creationDate: "2017-04-11T00:00:00.000Z",
 					userId: 2,
+					header: "http://placehold.it/1480x380",
 				} }
-				siteImage="http://placehold.it/1480x380"
+				header="http://placehold.it/1480x380"
 				subscriptions={ [
 					  {
 						  id: "bla",
@@ -46,89 +47,13 @@ test('the site page component matches the snapshot', () => {
 						  productLogo: LocalIcon,
 					  },
 				] }
-				onAddMoreSlotsClick={ () => {
-					console.log( "add more slots" );
-				} }
-				onMoreInfoClick={ () => {
-					console.log( "more info" );
-				} }
-				onSettingsClick={ () => {
-					console.log( "settings" );
-				} }
-				onToggleSubscription={ () => {
-					console.log( "toggled" );
-				} } />
+				onAddMoreSlotsClick={ () => {} }
+				onMoreInfoClick={ () => {} }
+				onSettingsClick={ () => {} }
+				onToggleSubscription={ () => {} } />
 		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-} );
-
-
-test('the site page component handling an onclick event on the add slots button', () => {
-	const component = createComponentWithIntl(
-		<MemoryRouter>
-			<SitePage
-				site={ {
-					id: "abcd",
-					url: "yoast.com",
-					creationDate: "2017-04-11T00:00:00.000Z",
-					userId: 2,
-				} }
-				siteImage="http://placehold.it/1480x380"
-				subscriptions={ [
-					{
-						id: "bla",
-						productId: "Yoast SEO",
-						startDate: "2017-04-11T00:00:00.000Z",
-						endDate: "2017-04-11T00:00:00.000Z",
-						reoccurring: true,
-						myYoastUserId: 2,
-						productSlots: {
-							amountAvailable: 10,
-							amountUsed: 5,
-							addMoreSlots: "Add more slots",
-						},
-						productLogo: SeoIcon,
-					},
-					{
-						id: "bla2",
-						productId: "Local SEO",
-						startDate: "2017-04-11T00:00:00.000Z",
-						endDate: "2017-04-11T00:00:00.000Z",
-						reoccurring: true,
-						myYoastUserId: 2,
-						productSlots: {
-							amountAvailable: 10,
-							amountUsed: 7,
-							addMoreSlots: "Add more slots",
-						},
-						productLogo: LocalIcon,
-					},
-				] }
-				onAddMoreSlotsClick={ () => {
-					console.log( "add more slots" );
-				} }
-				onMoreInfoClick={ () => {
-					console.log( "more info" );
-				} }
-				onSettingsClick={ () => {
-					console.log( "settings" );
-				} }
-				onToggleSubscription={ () => {
-					console.log( "toggled" );
-				} } />
-		</MemoryRouter>
-	);
-
-	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-
-	// manually trigger the callback.
-	tree.children[2].children[1].children[1].children[1].children[2].props.onClick();
-
-	// re-rendering
-	tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
 } );

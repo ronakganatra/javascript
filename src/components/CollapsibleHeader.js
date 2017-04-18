@@ -29,17 +29,6 @@ const CollapsibleHeader = styled.button`
 	}
 `;
 
-const ListToggleBody = styled.ul`
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	background-color: ${ colors.$color_white };
-
-	li:nth-child(odd) {
-		background-color: ${ colors.$color_background_light };
-	}
-`;
-
 export default class ListToggle extends React.Component {
 	/**
 	 * The constructor.
@@ -91,35 +80,23 @@ export default class ListToggle extends React.Component {
 	}
 
 	/**
-	 * Gets the list when it is collapsed.
-	 *
-	 * @returns {ReactElement} The list.
-	 */
-	getList() {
-		let body = null;
-		if ( this.isOpen() ) {
-			body = (
-				<ListToggleBody role="list">
-					{ this.props.children }
-				</ListToggleBody>
-			);
-		}
-		return body;
-	}
-
-	/**
 	 * Returns the rendered ListToggle element.
 	 *
 	 * @returns {ReactElement} The rendered ListToggle element.
 	 */
 	render() {
+		let children = null;
+		if ( this.state.isOpen ) {
+			children = this.props.children;
+		}
+
 		return (
 			<CollapsibleHeaderContainer>
 				<CollapsibleHeader onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
 					<h2>{ this.props.title }</h2>
 					{ this.getArrow() }
 				</CollapsibleHeader>
-				{ this.getList() }
+				{ children }
 			</CollapsibleHeaderContainer>
 		);
 	}

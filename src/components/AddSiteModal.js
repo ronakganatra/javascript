@@ -45,6 +45,7 @@ class BaseAddSiteModal extends React.Component {
 						onChange={ this.props.onChange }
 						errorFound={ this.props.errorFound }
 						errorMessage={ this.props.errorMessage }
+						query={ this.props.query }
 					/>
 				</Modal>
 			</div>
@@ -61,6 +62,7 @@ BaseAddSiteModal.propTypes = {
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
+	query: React.PropTypes.string.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {

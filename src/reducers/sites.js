@@ -1,5 +1,5 @@
 import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
-	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS } from "../actions/sites";
+	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
 
 import _union from "lodash/union";
 
@@ -51,14 +51,14 @@ const rootState = {
  */
 
 /**
- * A reducer for the sites object within the ui object.
+ * A reducer for the pop-up actions within the ui object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
  *
- * @returns {Object} The updated Sites object.
+ * @returns {Object} The updated sites object.
  */
-export function linkSiteReducer( state = rootState.ui.sites, action ) {
+function popupReducer( state, action ) {
 	switch ( action.type ) {
 		case LINK_SITE_POPUP_OPEN:
 			return Object.assign( {}, state, {
@@ -71,10 +71,29 @@ export function linkSiteReducer( state = rootState.ui.sites, action ) {
 				linkSiteError: "",
 				linkingSiteUrl: "",
 			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the sites object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ *
+ * @returns {Object} The updated Sites object.
+ */
+export function linkReducer( state = rootState.ui.sites, action ) {
+	switch ( action.type ) {
 		case UPDATE_SITE_URL:
 			return Object.assign( {}, state, {
 				linkingSite: true,
 				linkingSiteUrl: action.url,
+			} );
+		case LINK_SITE_REQUEST:
+			return Object.assign( {}, state, {
+				linkingSite: true,
 			} );
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
@@ -135,7 +154,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
  * @returns {Object} The updated Sites object.
  */
 export function uiSitesReducer( state = rootState.ui.sites, action ) {
-	return linkSiteReducer( retrieveSitesReducer( state, action ), action );
+	return linkReducer( retrieveSitesReducer( popupReducer( state, action ), action ), action );
 }
 
 /**

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import SiteHeader from "./SiteHeader";
 import { RoundBackButton } from "./RoundButton";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
+import AnimatedLoader from "./Loader";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -29,18 +30,29 @@ class SitePage extends React.Component {
 
 	render() {
 		let props = this.props;
+
+		if ( props.loadingSite ) {
+			return <AnimatedLoader />;
+		}
+
+		let subscriptionList = <AnimatedLoader />;
+
+		if ( ! props.loadingSubscriptions ) {
+			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
+														   onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
+														   onMoreInfoClick={ props.onMoreInfoClick }
+														   onSettingsClick={ props.onSettingsClick }
+														   onToggleSubscription={ props.onToggleSubscription }
+			/>;
+		}
+
 		return (
 			<div>
 				<Link to={ "/sites" } >
 					<RoundBackButton />
 				</Link>
-				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.siteImage }/>
-				<SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
-											onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
-											onMoreInfoClick={ props.onMoreInfoClick }
-											onSettingsClick={ props.onSettingsClick }
-											onToggleSubscription={ props.onToggleSubscription }
-				/>
+				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.site.header }/>
+				{ subscriptionList }
 			</div>
 		);
 	}
@@ -51,14 +63,18 @@ export default injectIntl( SitePage );
 SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
-	siteImage: React.PropTypes.string.isRequired,
 	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
+	loadingSite: React.PropTypes.bool,
+	loadingSubscriptions: React.PropTypes.bool,
 };
 
 SitePage.defaultProps = {
 	subscriptions: [],
+	loadingSite: false,
+	loadingSubscriptions: true,
+	site: {},
 };
