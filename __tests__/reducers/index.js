@@ -45,7 +45,7 @@ test( 'ui reducer', () => {
 } );
 
 test( 'entities site reducer', () => {
-	const state = { allIds: {}, byId: {} , orders: [] };
+	const state = { allIds: {}, byId: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -108,7 +108,6 @@ test( 'root reducer', () => {
 				allIds:[],
 			},
 			sites: {
-
 				byId: { name: "byIdReducer" },
 				allIds: { name: "allIdsReducer" },
 			},
@@ -122,8 +121,7 @@ test( 'root reducer', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
-
-     	search: {
+			search: {
 				query: "",
 			},
 			site: {
