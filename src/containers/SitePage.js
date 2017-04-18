@@ -22,7 +22,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	return {
 		site,
 		subscriptions,
-		loadingSubscriptions: state.ui.site.retrievingSiteSubscriptions,
+		loadingSubscriptions: state.ui.site.subscriptions.retrievingSiteSubscriptions,
 	};
 };
 
