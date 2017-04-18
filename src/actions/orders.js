@@ -2,7 +2,7 @@ import "whatwg-fetch";
 import { getApiUrl, handle401 } from "../functions/api";
 import { getAccessToken, getUserId } from "../functions/auth";
 
-/**
+/*
  * Action types
  */
 
@@ -10,7 +10,7 @@ export const GET_ORDERS_REQUEST = "GET_ORDERS_REQUEST";
 export const GET_ORDERS_SUCCESS = "GET_ORDERS_SUCCESS";
 export const GET_ORDERS_FAILURE = "GET_ORDERS_FAILURE";
 
-/**
+/*
  * Action creators
  */
 

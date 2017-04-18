@@ -222,27 +222,3 @@ test( "the reducers don't touch state with different actions", () => {
 
 	expect( actual ).toEqual( state );
 } );
-
-/*
- test( 'the reducers don\'t touch state with different actions', () => {
- const action = {
- type: "FETCH_USER_SUCCESS",
- user: {}
- };
- const state = {
- addSitePopupOpen: false,
- linkingSite: false,
- linkingSiteUrl: "",
- linkSiteFailed: false,
- linkSiteError: "",
- retrievingSites: false,
- retrievingSitesFailed: false,
- retrievingSitesError: "",
- sitesRetrieved: true,
- };
-
- const actual = uiSitesReducer( state, action );
-
- expect( actual ).toEqual( state );
- } );
- /*/
