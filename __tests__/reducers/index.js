@@ -30,12 +30,11 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {}, search: {} };
+	const state = { sites: {}, orders: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-
-	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" }, search: { query: "" } };
+	const expected = { search: { query: "" }, sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" }, orders: {} };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -43,7 +42,7 @@ test( 'ui reducer', () => {
 } );
 
 test( 'entities site reducer', () => {
-	const state = { allIds: {}, byId: {} };
+	const state = { allIds: {}, byId: {} , orders: [] };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -71,7 +70,11 @@ test( 'entities reducer', () => {
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } }, subscriptions: { allIds: { name: "allIdsSitesSubscriptionsReducer" }, byId: { name: "byIdSitesSubscriptionsReducer"} } };
+	const expected = {
+		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
+		subscriptions: { allIds: { name: "allIdsSitesSubscriptionsReducer" }, byId: { name: "byIdSitesSubscriptionsReducer"} },
+		orders: { allIds: [], byId: {} }
+	};
 
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -95,6 +98,10 @@ test( 'root reducer', () => {
 	};
 	const expected = {
 		entities: {
+			orders: {
+				byId: {},
+				allIds:[],
+			},
 			sites: {
 
 				byId: { name: "byIdReducer" },
@@ -110,10 +117,14 @@ test( 'root reducer', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
+			site: { name: "uiSiteSubscriptionsReducer" },
+			orders: {
+				"error": "",
+				"retrievingOrders": false,
+			},
      	search: {
 				query: "",
 			},
-			site: { name: "uiSiteSubscriptionsReducer" }
 		},
 		user: { name: "userReducer" }
 	};
