@@ -79,6 +79,7 @@ export default function Search( props ) {
 			value={ props.query }
 			aria-describedby={ props.descriptionId }
 			onChange={ props.onChange}
+			autoComplete="off"
 			autoCorrect="off"
 			autoCapitalize="off"
 			spellCheck="false"
