@@ -1,8 +1,9 @@
 import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
-import PageOrder from "./PageOrder";
+import Order from "./Order";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { Table, Zebra } from "./Tables";
+import Paper from "./Paper";
 
 const messages = defineMessages( {
 	manageOrder: {
@@ -18,39 +19,35 @@ const messages = defineMessages( {
  * @returns {ReactElement} PageOrderList element.
  * @constructor
  */
-function PageOrderList( props ) {
+function Orders( props ) {
+	console.log( props );
+
 	return (
-		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-			<Table headings={false} role="list">
-				<Zebra>
-					{ props.siteSubscriptions.map( ( subscription ) => {
-						return <SiteSubscriptionDetail { ...subscription }
-													   key={ subscription.productId }
-													   onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
-													   onMoreInfoClick={ props.onMoreInfoClick }
-													   onSettingsClick={ props.onSettingsClick }
-													   onToggleSubscription={ props.onToggleSubscription }
-													   slots={ subscription.productSlots }
-													   productLogo={ subscription.productLogo }
-						/>;
-					} ) }
-				</Zebra>
+		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageOrder ) } items={ props.orders } isOpen={ true }>
+			<Table headings={true} role="list">
+				<Paper>
+					<Zebra>
+						{ props.orders.map( ( order ) => {
+							return <Order { ...order }
+										  key={ order.productId }
+										  onClickInvoice={ props.onClickInvoice }
+							/>;
+						} ) }
+					</Zebra>
+				</Paper>
 			</Table>
 		</CollapsibleHeader>
 	);
 }
 
-SiteSubscriptionDetailList.propTypes = {
-	siteSubscriptions: React.PropTypes.array,
-	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
-	onToggleSubscription: React.PropTypes.func.isRequired,
+Orders.propTypes = {
+	orders: React.PropTypes.array,
+	onClickInvoice: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 
-SiteSubscriptionDetailList.defaultProps = {
-	siteSubscriptions: [],
+Orders.defaultProps = {
+	orders: [],
 };
 
-export default injectIntl( PageOrderList );
+export default injectIntl( Orders );

@@ -39,7 +39,7 @@ const messages = defineMessages( {
  * @param {Object} props Properties to be passed to the table.
  * @returns {ReactElement} A row of order stuff.
   */
-function PageOrder( props ) {
+function Order( props ) {
 	return (
 		<Row background={ props.background } >
 			<ColumnText label={ props.intl.formatMessage( messages.date ) }>{ props.date }</ColumnText>
@@ -60,7 +60,7 @@ function PageOrder( props ) {
 	);
 }
 
-PageOrder.propTypes = {
+Order.propTypes = {
 	date: React.PropTypes.instanceOf( Date ),
 	orderNumber: React.PropTypes.string,
 	items: React.PropTypes.string,
@@ -71,7 +71,7 @@ PageOrder.propTypes = {
 	background: React.PropTypes.string,
 };
 
-PageOrder.defaultProps = {
+Order.defaultProps = {
 	date: "17-01-2010",
 	orderNumber: "MOOIE 123 TEST",
 	items: "TEST ITEM",
@@ -80,7 +80,6 @@ PageOrder.defaultProps = {
 	onClickInvoice: () => {
 		console.log( "Invoice clicked" );
 	},
-	intl: intlShape.isRequired,
 };
 
-export default injectIntl( PageOrder );
+export default injectIntl( Order );
