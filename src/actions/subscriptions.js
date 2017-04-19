@@ -94,10 +94,10 @@ export function getAllSubscriptionsRequest() {
  * @param {Object} json The subscriptions json object
  * @returns {Object} A get all subscriptions success action.
  */
-export function getAllSubscriptionsSuccess( json ) {
+export function getAllSubscriptionsSuccess( subscriptions ) {
 	return {
 		type: GET_ALL_SUBSCRIPTIONS_SUCCESS,
-		subscriptions: json,
+		subscriptions: subscriptions,
 	};
 }
 

@@ -29,7 +29,9 @@ test( 'the get site subscription request action in the uiSiteSubscriptionsReduce
 } );
 
 test( 'the get site subscription success action in the uiSiteSubscriptionsReducer', () => {
-	const state = {};
+	const state = {
+		retrievingSiteSubscriptions: true,
+	};
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_SUCCESS,
 	};
@@ -43,7 +45,9 @@ test( 'the get site subscription success action in the uiSiteSubscriptionsReduce
 } );
 
 test( 'the get site subscription failure action in the uiSiteSubscriptionsReducer', () => {
-	const state = {};
+	const state = {
+		retrievingSiteSubscriptions: true,
+	};
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_FAILURE,
 		message: "test_errorMessage",
@@ -59,7 +63,9 @@ test( 'the get site subscription failure action in the uiSiteSubscriptionsReduce
 } );
 
 test( 'the get all subscription request action in the uiAllSubscriptionsReducer', () => {
-	const state = {};
+	const state = {
+		retrievingSiteSubscriptions: false,
+	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_REQUEST,
 	};
@@ -74,7 +80,9 @@ test( 'the get all subscription request action in the uiAllSubscriptionsReducer'
 } );
 
 test( 'the get all subscription success action in the uiAllSubscriptionsReducer', () => {
-	const state = {};
+	const state = {
+		retrievingSiteSubscriptions: true,
+	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_SUCCESS,
 	};
@@ -88,7 +96,9 @@ test( 'the get all subscription success action in the uiAllSubscriptionsReducer'
 } );
 
 test( 'the get all subscription failure action in the uiAllSubscriptionsReducer', () => {
-	const state = {};
+	const state = {
+		retrievingSiteSubscriptions: true,
+	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_FAILURE,
 		message: "test_errorMessage",
