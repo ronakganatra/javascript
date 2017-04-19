@@ -91,7 +91,7 @@ export function getAllSubscriptionsRequest() {
 
 /**
  * An action creator for the get all subscriptions success action.
- * @param {Object} json The subscriptions json object
+ * @param {Object} subscriptions The subscriptions json object
  * @returns {Object} A get all subscriptions success action.
  */
 export function getAllSubscriptionsSuccess( subscriptions ) {
