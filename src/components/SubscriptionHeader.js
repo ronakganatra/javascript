@@ -39,7 +39,7 @@ const HeaderTitle = styled.h1`
 	margin: 0;
 `;
 
-const HeaderByLine = styled.div`
+const HeaderByline = styled.div`
 	color: ${colors.$color_white};
 	font-style: italic;
 	font-weight: 400;
@@ -84,7 +84,7 @@ const HeaderDescription = styled.p`
 export default function SubscriptionHeader( props ) {
 	// Only add the image and container if provided.
 	let image = props.image ? <HeaderImageContainer><HeaderImage src={ props.image }/></HeaderImageContainer> : "";
-	let byLine = props.byLine ? <HeaderByLine>{ props.byLine }</HeaderByLine> : "";
+	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>
@@ -92,7 +92,7 @@ export default function SubscriptionHeader( props ) {
 			<HeaderContext>
 				<HeaderContainer>
 					<HeaderTitle>{ props.name }</HeaderTitle>
-					{ byLine }
+					{ byline }
 				</HeaderContainer>
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
@@ -103,12 +103,12 @@ export default function SubscriptionHeader( props ) {
 SubscriptionHeader.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	image: React.PropTypes.string,
-	byLine: React.PropTypes.string,
+	byline: React.PropTypes.string,
 	description: React.PropTypes.string,
 };
 
 SubscriptionHeader.defaultProps = {
 	image: "",
-	byLine: "",
+	byline: "",
 	desciption: "",
 };
