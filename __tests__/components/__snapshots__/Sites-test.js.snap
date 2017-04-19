@@ -18,7 +18,7 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="eirEIZ"
+            className="gghIYw"
             label="Site name">
             www.yoast.com
           </span>
@@ -67,7 +67,7 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="eirEIZ"
+            className="gghIYw"
             label="Site name">
             www.google.com
           </span>
@@ -116,7 +116,7 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="eirEIZ"
+            className="gghIYw"
             label="Site name">
             www.facebook.com
           </span>

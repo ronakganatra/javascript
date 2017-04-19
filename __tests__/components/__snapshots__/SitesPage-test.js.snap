@@ -52,7 +52,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="eirEIZ"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
@@ -188,7 +188,7 @@ exports[`test the sites page component with sites handling a changed search quer
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="eirEIZ"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
@@ -290,7 +290,7 @@ exports[`test the sites page component with sites handling a changed search quer
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="eirEIZ"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
@@ -392,7 +392,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="eirEIZ"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
@@ -494,7 +494,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="eirEIZ"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
