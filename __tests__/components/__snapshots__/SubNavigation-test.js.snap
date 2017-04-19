@@ -6,7 +6,7 @@ exports[`test the subnavigation component matches the snapshot 1`] = `
     <li>
       <a
         className="fkCRai"
-        href="/account/subscriptions"
+        href="/subscriptions/plugins"
         onClick={[Function]}
         style={undefined}>
          
