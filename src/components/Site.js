@@ -39,7 +39,7 @@ function Site( props ) {
 	return (
 		<Row>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } label={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.activeSubscriptions ) }
 						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } /></ColumnText>
 			<Column textAlign="right">

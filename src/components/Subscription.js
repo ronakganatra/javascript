@@ -63,11 +63,11 @@ function Subscription( props ) {
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
 			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="200px"><FormattedDate value={ props.nextBilling }/></ColumnText>
+			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px"><FormattedDate value={ props.nextBilling }/></ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
