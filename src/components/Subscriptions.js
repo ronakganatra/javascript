@@ -19,7 +19,7 @@ export default function Subscriptions( props ) {
 											 name={ subscription.name } used={ subscription.used }
 											 max={ subscription.max } nextBilling={ subscription.nextBilling }
 											 billingAmount={ subscription.billingAmount }
-												 billingCurrency={ subscription.billingCurrency }
+												 billingCurrency={ subscription.billingCurrency } onManage={ props.onManage }
 						/>;
 					} )
 					}
@@ -44,4 +44,5 @@ Subscriptions.propTypes = {
 			}
 		)
 	),
+	onManage: React.PropTypes.func.isRequired,
 };

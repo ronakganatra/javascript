@@ -47,11 +47,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         </span>
         <span
           className="chflUA"
-          label="">
-          <a
-            href="/subscriptions/3"
-            onClick={[Function]} />
-        </span>
+          label="" />
       </li>
       <li
         className="fTADJm">
@@ -96,11 +92,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         </span>
         <span
           className="chflUA"
-          label="">
-          <a
-            href="/subscriptions/4"
-            onClick={[Function]} />
-        </span>
+          label="" />
       </li>
     </span>
   </div>

@@ -6,7 +6,6 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate } from "react-intl";
-import { Link } from "react-router-dom";
 
 const messages = defineMessages( {
 	product: {
@@ -58,7 +57,6 @@ function Subscription( props ) {
 	delete rowProps.nextBilling;
 	delete rowProps.billingCurrency;
 	delete rowProps.billingAmount;
-	delete rowProps.onManage;
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
@@ -71,14 +69,14 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
-				<Link to={ "/subscriptions/" + props.id }><MediaQuery query="(min-width: 1356px)">
-					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
+				<MediaQuery query="(min-width: 1356px)">
+					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) } />
+					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
-				</Link>
+
 			</Column>
 		</Row>
 	);
@@ -94,6 +92,7 @@ Subscription.propTypes = {
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
+	onManage: React.PropTypes.func.isRequired,
 };
 
 export default injectIntl( Subscription );
