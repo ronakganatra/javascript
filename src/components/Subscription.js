@@ -63,7 +63,7 @@ function Subscription( props ) {
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
-			<ColumnText label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText fillSpace={ true } label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
 			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
