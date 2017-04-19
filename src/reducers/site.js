@@ -9,6 +9,7 @@ const rootState = {
 	ui: {
 		site: {
 			subscriptions: {
+				retrievingSiteSubscriptions: false,
 				addingSubscription: false,
 				error: "",
 				active: [],
@@ -42,7 +43,7 @@ export function getSiteSubscriptionsReducer( state = rootState.ui.site.subscript
 		case GET_SITE_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingSiteSubscriptions: false,
-				error: action.message,
+				error: action.getSiteSubscriptionsError,
 			} );
 		default:
 			return state;
@@ -60,12 +61,13 @@ export function siteAddSubscriptionsReducer( state = rootState.ui.site.subscript
 	switch ( action.type ) {
 		case SITE_ADD_SUBSCRIPTION_REQUEST:
 			return Object.assign( {}, state, {
-				addingSubscription: action.addingSubscription,
+				addingSubscription: true,
 				error: "",
 			} );
 		case SITE_ADD_SUBSCRIPTION_SUCCESS:
 			return Object.assign( {}, state, {
-				addingSubscription: action.addingSubscription,
+				addingSubscription: false,
+				active: state.active.concat( [ action.active ] ),
 			} );
 		case SITE_ADD_SUBSCRIPTION_FAILURE:
 			return Object.assign( {}, state, {
