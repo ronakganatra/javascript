@@ -1,9 +1,10 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { Row, ColumnText, Column } from "./Tables";
-import { LargeButton } from "./Button";
+import { IconButton } from "./Button";
 import { ChevronButton } from "./RoundButton";
 import MediaQuery from "react-responsive";
+import downloadIcon from "../icons/download.svg";
 
 const messages = defineMessages( {
 	date: {
@@ -38,9 +39,9 @@ const messages = defineMessages( {
  * @param {Object} props Properties to be passed to the table.
  * @returns {ReactElement} A row of order stuff.
   */
-function PageOrderList( props ) {
+function PageOrder( props ) {
 	return (
-		<Row>
+		<Row background={ props.background } >
 			<ColumnText label={ props.intl.formatMessage( messages.date ) }>{ props.date }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.orderNumber ) } >{ props.orderNumber }</ColumnText>
 			<ColumnText label={ props.intl.formatMessage( messages.items ) } >{ props.items }</ColumnText>
@@ -48,8 +49,7 @@ function PageOrderList( props ) {
 			<ColumnText label={ props.intl.formatMessage( messages.status ) } >{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
-					<LargeButton aria-label={ props.intl.formatMessage( messages.invoice ) }
-								 onClick={ props.onClickInvoice }>{ props.intl.formatMessage( messages.invoice ) }</LargeButton>
+					<IconButton aria-label={ props.intl.formatMessage( messages.invoice ) } onClick={ props.onClickInvoice } icon={downloadIcon} >Invoice</IconButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.invoice ) }
@@ -60,8 +60,7 @@ function PageOrderList( props ) {
 	);
 }
 
-
-PageOrderList.propTypes = {
+PageOrder.propTypes = {
 	date: React.PropTypes.instanceOf( Date ),
 	orderNumber: React.PropTypes.string,
 	items: React.PropTypes.string,
@@ -69,10 +68,11 @@ PageOrderList.propTypes = {
 	status: React.PropTypes.string,
 	onClickInvoice: React.PropTypes.func,
 	intl: intlShape.isRequired,
+	background: React.PropTypes.string,
 };
 
-PageOrderList.defaultProps = {
-	date: Date(),
+PageOrder.defaultProps = {
+	date: "17-01-2010",
 	orderNumber: "MOOIE 123 TEST",
 	items: "TEST ITEM",
 	total: "$centjes",
@@ -83,5 +83,4 @@ PageOrderList.defaultProps = {
 	intl: intlShape.isRequired,
 };
 
-export default injectIntl( PageOrderList );
-
+export default injectIntl( PageOrder );
