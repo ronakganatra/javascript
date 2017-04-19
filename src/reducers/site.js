@@ -27,7 +27,7 @@ const rootState = {
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated Site object.
+ * @returns {Object} The updated state.
  */
 export function getSiteSubscriptionsReducer( state = rootState.ui.site.subscriptions, action ) {
 	switch ( action.type ) {
@@ -55,7 +55,7 @@ export function getSiteSubscriptionsReducer( state = rootState.ui.site.subscript
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated Site object.
+ * @returns {Object} The updated state.
  */
 export function siteAddSubscriptionsReducer( state = rootState.ui.site.subscriptions, action ) {
 	switch ( action.type ) {
@@ -85,7 +85,7 @@ export function siteAddSubscriptionsReducer( state = rootState.ui.site.subscript
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
  *
- * @returns {Object} The updated Site object.
+ * @returns {Object} The updated state.
  */
 export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscriptions, action ) {
 	return siteAddSubscriptionsReducer( getSiteSubscriptionsReducer( state, action ), action );
