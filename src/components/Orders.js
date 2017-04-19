@@ -20,8 +20,6 @@ const messages = defineMessages( {
  * @constructor
  */
 function Orders( props ) {
-	console.log( props );
-
 	return (
 		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageOrder ) } items={ props.orders } isOpen={ true }>
 			<Table headings={true} role="list">

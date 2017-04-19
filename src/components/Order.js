@@ -61,12 +61,12 @@ function Order( props ) {
 }
 
 Order.propTypes = {
-	date: React.PropTypes.instanceOf( Date ),
+	date: React.PropTypes.string,
 	orderNumber: React.PropTypes.string,
 	items: React.PropTypes.string,
 	total: React.PropTypes.string,
 	status: React.PropTypes.string,
-	onClickInvoice: React.PropTypes.func,
+	onClickInvoice: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	background: React.PropTypes.string,
 };
@@ -77,9 +77,6 @@ Order.defaultProps = {
 	items: "TEST ITEM",
 	total: "$centjes",
 	status: "Failed",
-	onClickInvoice: () => {
-		console.log( "Invoice clicked" );
-	},
 };
 
 export default injectIntl( Order );
