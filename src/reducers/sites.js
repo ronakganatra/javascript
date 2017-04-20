@@ -1,12 +1,14 @@
-import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
-	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
-
-import _union from "lodash/union";
-import _isUndefined from "lodash/isUndefined";
-
 /**
  * Initial state
  */
+import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
+import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
+
+import _union from "lodash/union";
+import _isUndefined from "lodash/isUndefined";
+import _remove from "lodash/remove";
+import reducerReducers from "reduce-reducers";
 
 const rootState = {
 	entities: {
@@ -46,10 +48,6 @@ const rootState = {
 		},
 	},
 };
-
-/**
- * Reducers
- */
 
 /**
  * A reducer for the pop-up actions within the ui object.
@@ -146,6 +144,8 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 	}
 }
 
+let uiSites = reducerReducers( linkReducer, retrieveSitesReducer, popupReducer );
+
 /**
  * A reducer for the sites object within the ui object.
  *
@@ -155,7 +155,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
  * @returns {Object} The updated Sites object.
  */
 export function uiSitesReducer( state = rootState.ui.sites, action ) {
-	return linkReducer( retrieveSitesReducer( popupReducer( state, action ), action ), action );
+	return uiSites( state, action );
 }
 
 /**
@@ -181,21 +181,28 @@ function pluckSubscriptionIds( site ) {
  * @returns {Object} The updated byId object.
  */
 export function byIdReducer( state = rootState.entities.sites.byId, action ) {
-	let sites;
+	let sites = Object.assign( {}, state );
+
 	switch ( action.type ) {
 		case LINK_SITE_SUCCESS:
-			return Object.assign( {}, state, {
-				[ action.site.id ]: pluckSubscriptionIds( action.site ),
-			} );
+			sites[ action.site.id ] = pluckSubscriptionIds( action.site );
+			break;
+
 		case RETRIEVE_SITES_SUCCESS:
-			sites = Object.assign( {}, state );
 			action.sites.forEach( ( site ) => {
 				sites[ site.id ] = pluckSubscriptionIds( site );
 			} );
-			return sites;
-		default:
-			return state;
+			break;
+
+		case SITE_ADD_SUBSCRIPTION_SUCCESS:
+			sites[ action.siteId ].subscriptions.push( action.subscriptionId );
+			break;
+
+		case SITE_REMOVE_SUBSCRIPTION_SUCCESS:
+			_remove( sites[ action.siteId ].subscriptions, subscriptionId => subscriptionId === action.subscriptionId );
+			break;
 	}
+	return sites;
 }
 
 /**

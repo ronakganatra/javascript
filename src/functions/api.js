@@ -34,7 +34,7 @@ export function handle401( response ) {
  *
  */
 export function verifyStatusCode( response ) {
-	if ( response.status !== 200 ) {
+	if ( response.status !== 200 && response.status !== 204 ) {
 		throw new Error( response.json().error.message );
 	}
 
