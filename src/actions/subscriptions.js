@@ -50,7 +50,7 @@ export function getSiteSubscriptionsSuccess( json ) {
 export function getSiteSubscriptionsFailure( errorMessage ) {
 	return {
 		type: GET_SITE_SUBSCRIPTIONS_FAILURE,
-		message: errorMessage,
+		getSiteSubscriptionsError: errorMessage,
 	};
 }
 

@@ -20,6 +20,7 @@ export function handle401( response ) {
 	if ( response.status === 401 ) {
 		removeAuthCookies();
 		document.location.href = getAuthUrl();
+		throw new Error( "Authentication required" );
 	}
 
 	return response;

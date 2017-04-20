@@ -21,9 +21,18 @@ jest.mock( "../../src/reducers/user.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/site.js", () => {
+	return {
+		getSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "getSiteSubscriptionsReducer" }; } ),
+		siteAddSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "siteAddSubscriptionsReducer" }; } ),
+		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
+		byIdSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSubscriptionsReducer" }; } ),
+		allIdsSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSubscriptionsReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/subscriptions.js", () => {
 	return {
-		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
 		byIdSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSubscriptionsReducer" }; } ),
 		allIdsSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSubscriptionsReducer" }; } ),
 		uiAllSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiAllSubscriptionsReducer" }; } ),
@@ -32,7 +41,7 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 
 test( 'ui reducer', () => {
 
-	const state = { sites: {}, site: { subscriptions: {}, }, search: {}, orders: {} };
+	const state = { sites: {}, site: { subscriptions: {}, }, search: {}, orders: {}, subscriptions: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};

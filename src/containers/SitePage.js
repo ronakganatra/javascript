@@ -28,18 +28,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		onMoreInfoClick: () => {
-			console.log( "Clicked on MORE INFO" );
-		},
-		onSettingsClick: () => {
-			console.log( "Clicked on SETTINGS" );
-		},
-		onAddMoreSlotsClick: () => {
-			console.log( "Clicked on ADD MORE SLOTS" );
-		},
-		onToggleSubscription: () => {
-			console.log( "Toggled subscription ON/OFF" );
-		},
+		onMoreInfoClick: () => {},
+		onSettingsClick: () => {},
+		onAddMoreSlotsClick: () => {},
+		onToggleSubscription: () => {},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
 		},
