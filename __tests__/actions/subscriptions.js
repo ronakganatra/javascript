@@ -76,10 +76,7 @@ test( 'get all subscriptions action creator with success', () => {
 		return Promise.resolve( {
 			status: 200,
 			json: () => { return {
-				"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-				"url": "5",
-				"creationDate": "2017-03-21T15:24:34.606Z",
-				"userId": 2
+				test: "test",
 			} },
 		} );
 	});
@@ -91,10 +88,7 @@ test( 'get all subscriptions action creator with success', () => {
 	expect( getAllSubscriptionsFunc ).toBeInstanceOf( Function );
 
 	let subscription = {
-		"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-		"url": "5",
-		"creationDate": "2017-03-21T15:24:34.606Z",
-		"userId": 2
+		test: "test",
 	};
 
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
@@ -109,10 +103,7 @@ test( 'get all subscriptions action creator with failure', () => {
 		return Promise.resolve( {
 			json: () => { return {
 				"error": {
-					"statusCode": 500,
-					"name": "Error",
-					"message": "Duplicate entry for Site.id",
-					"stack": "Error: Duplicate entry for Site.id\n    at Memory._createSync (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/connectors/memory.js:224:15)\n    at Memory.create (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/connectors/memory.js:232:8)\n    at /Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/dao.js:397:23\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:122:5)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at ModelConstructor.<anonymous> (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/dao.js:393:15)"
+					"message": "error message test",
 				}
 			} },
 		} );
@@ -126,6 +117,6 @@ test( 'get all subscriptions action creator with failure', () => {
 
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsFailure( "Duplicate entry for Site.id" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsFailure( "error message test" ) );
 	} );
 } );

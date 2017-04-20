@@ -19,8 +19,8 @@ test('the mapStateToProps function', () => {
 				},
 				subscriptions: {
 					byId: {
-						"itsahgmemarijgjghostring": {
-							id: "itsahgmemarijgjghostring",
+						"subscriptiontestId": {
+							id: "subscriptiontestId",
 							productId: "SEO for Sony",
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
@@ -34,7 +34,7 @@ test('the mapStateToProps function', () => {
 							productLogo: "http://icons.iconarchive.com/icons/yellowicon/game-stars/256/Mario-icon.png",
 						},
 					},
-					allIds: [ "itsahgmemarijgjghostring" ],
+					allIds: [ "subscriptiontestId" ],
 				},
 			},
 			router: {
@@ -65,7 +65,7 @@ test('the mapStateToProps function', () => {
 			"userId": 1,
 		},
 		subscriptions: [ {
-			id: "itsahgmemarijgjghostring",
+			id: "subscriptiontestId",
 			productId: "SEO for Sony",
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",

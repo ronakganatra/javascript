@@ -13,7 +13,7 @@ import {
 	GET_ALL_SUBSCRIPTIONS_FAILURE,
 } from "../../src/actions/subscriptions";
 
-test( 'the get site subscription request action in the uiSiteSubscriptionsReducer', () => {
+test( 'The uiSiteSubscriptionsReducer processes the get site subscription request action in ', () => {
 	const state = {};
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_REQUEST,
@@ -28,7 +28,7 @@ test( 'the get site subscription request action in the uiSiteSubscriptionsReduce
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the get site subscription success action in the uiSiteSubscriptionsReducer', () => {
+test( 'The uiSiteSubscriptionsReducer processes the get site subscription success action in ', () => {
 	const state = {
 		retrievingSiteSubscriptions: true,
 	};
@@ -44,7 +44,7 @@ test( 'the get site subscription success action in the uiSiteSubscriptionsReduce
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the get site subscription failure action in the uiSiteSubscriptionsReducer', () => {
+test( 'The uiSiteSubscriptionsReducer processes the get site subscription failure action', () => {
 	const state = {
 		retrievingSiteSubscriptions: true,
 	};
@@ -62,9 +62,9 @@ test( 'the get site subscription failure action in the uiSiteSubscriptionsReduce
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the get all subscription request action in the uiAllSubscriptionsReducer', () => {
+test( 'The uiAllSubscriptionsReducer processes the get all subscription request action', () => {
 	const state = {
-		retrievingSiteSubscriptions: false,
+		retrievingAllSubscriptions: false,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_REQUEST,
@@ -79,9 +79,9 @@ test( 'the get all subscription request action in the uiAllSubscriptionsReducer'
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the get all subscription success action in the uiAllSubscriptionsReducer', () => {
+test( 'The uiAllSubscriptionsReducer processes the get all subscription success action', () => {
 	const state = {
-		retrievingSiteSubscriptions: true,
+		retrievingAllSubscriptions: true,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_SUCCESS,
@@ -95,9 +95,9 @@ test( 'the get all subscription success action in the uiAllSubscriptionsReducer'
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the get all subscription failure action in the uiAllSubscriptionsReducer', () => {
+test( 'The uiAllSubscriptionsReducer processes the get all subscription failure action', () => {
 	const state = {
-		retrievingSiteSubscriptions: true,
+		retrievingAllSubscriptions: true,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_FAILURE,

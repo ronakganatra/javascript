@@ -104,7 +104,7 @@ export function getAllSubscriptionsSuccess( subscriptions ) {
 /**
  * An action creator for the get all subscriptions failure action.
  *
- * @param {string} errorMessage The url to add.
+ * @param {string} errorMessage The error message that was returned.
  *
  * @returns {Object} A get all subscriptions failure action.
  */
