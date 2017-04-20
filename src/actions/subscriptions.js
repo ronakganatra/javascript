@@ -77,7 +77,6 @@ export function getSiteSubscriptions( siteId ) {
 	};
 }
 
-
 /**
  * An action creator for the get all subscriptions request action.
  *
