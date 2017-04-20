@@ -2,6 +2,7 @@ import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE
 	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
 
 import _union from "lodash/union";
+import _isUndefined from "lodash/isUndefined";
 
 /**
  * Initial state
@@ -158,6 +159,19 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
 }
 
 /**
+ * Returns a new site object with only subscription ids.
+ *
+ * @param {Object} site The site to pluck.
+ */
+function pluckSubscriptionIds( site ) {
+	if ( _isUndefined( site.subscriptions ) ) {
+		return site;
+	}
+
+	return Object.assign( {}, site, { subscriptions: site.subscriptions.map( subscription => subscription.id ) } );
+}
+
+/**
  * A reducer for the byId object.
  *
  * @param {Object} state The current state of the byId object.
@@ -170,12 +184,12 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 	switch ( action.type ) {
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
-				[ action.site.id ]: action.site,
+				[ action.site.id ]: pluckSubscriptionIds( action.site ),
 			} );
 		case RETRIEVE_SITES_SUCCESS:
 			sites = Object.assign( {}, state );
 			action.sites.forEach( ( site ) => {
-				sites[ site.id ] = site;
+				sites[ site.id ] = pluckSubscriptionIds( site );
 			} );
 			return sites;
 		default:
