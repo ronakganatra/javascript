@@ -19,7 +19,7 @@ test( 'The uiSiteSubscriptionsReducer processes the get site subscription reques
 		type: GET_SITE_SUBSCRIPTIONS_REQUEST,
 	};
 	const expected = {
-		retrievingSiteSubscriptions: true,
+		requestingSiteSubscriptions: true,
 		error: "",
 	};
 
@@ -30,13 +30,13 @@ test( 'The uiSiteSubscriptionsReducer processes the get site subscription reques
 
 test( 'The uiSiteSubscriptionsReducer processes the get site subscription success action in ', () => {
 	const state = {
-		retrievingSiteSubscriptions: true,
+		requestingSiteSubscriptions: true,
 	};
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_SUCCESS,
 	};
 	const expected = {
-		retrievingSiteSubscriptions: false,
+		requestingSiteSubscriptions: false,
 	};
 
 	const actual = uiSiteSubscriptionsReducer( state, action );
@@ -46,14 +46,14 @@ test( 'The uiSiteSubscriptionsReducer processes the get site subscription succes
 
 test( 'The uiSiteSubscriptionsReducer processes the get site subscription failure action', () => {
 	const state = {
-		retrievingSiteSubscriptions: true,
+		requestingSiteSubscriptions: true,
 	};
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_FAILURE,
 		message: "test_errorMessage",
 	};
 	const expected = {
-		retrievingSiteSubscriptions: false,
+		requestingSiteSubscriptions: false,
 		error: "test_errorMessage",
 	};
 
@@ -64,13 +64,13 @@ test( 'The uiSiteSubscriptionsReducer processes the get site subscription failur
 
 test( 'The uiAllSubscriptionsReducer processes the get all subscription request action', () => {
 	const state = {
-		retrievingAllSubscriptions: false,
+		requestingAllSubscriptions: false,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_REQUEST,
 	};
 	const expected = {
-		retrievingAllSubscriptions: true,
+		requestingAllSubscriptions: true,
 		error: "",
 	};
 
@@ -81,13 +81,13 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription request 
 
 test( 'The uiAllSubscriptionsReducer processes the get all subscription success action', () => {
 	const state = {
-		retrievingAllSubscriptions: true,
+		requestingAllSubscriptions: true,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_SUCCESS,
 	};
 	const expected = {
-		retrievingAllSubscriptions: false,
+		requestingAllSubscriptions: false,
 	};
 
 	const actual = uiAllSubscriptionsReducer( state, action );
@@ -97,14 +97,14 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription success 
 
 test( 'The uiAllSubscriptionsReducer processes the get all subscription failure action', () => {
 	const state = {
-		retrievingAllSubscriptions: true,
+		requestingAllSubscriptions: true,
 	};
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_FAILURE,
 		message: "test_errorMessage",
 	};
 	const expected = {
-		retrievingAllSubscriptions: false,
+		requestingAllSubscriptions: false,
 		error: "test_errorMessage",
 	};
 

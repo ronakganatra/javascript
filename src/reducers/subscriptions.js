@@ -16,13 +16,13 @@ const rootState = {
 	ui: {
 		site: {
 			subscriptions: {
-				retrievingSiteSubscriptions: false,
+				requestingSiteSubscriptions: false,
 				error: "",
 				active: [],
 			},
 		},
 		subscriptions: {
-			retrievingAllSubscriptions: false,
+			requestingAllSubscriptions: false,
 			error: "",
 		},
 	},
@@ -43,16 +43,16 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 	switch ( action.type ) {
 		case GET_SITE_SUBSCRIPTIONS_REQUEST:
 			return Object.assign( {}, state, {
-				retrievingSiteSubscriptions: true,
+				requestingSiteSubscriptions: true,
 				error: "",
 			} );
 		case GET_SITE_SUBSCRIPTIONS_SUCCESS:
 			return Object.assign( {}, state, {
-				retrievingSiteSubscriptions: false,
+				requestingSiteSubscriptions: false,
 			} );
 		case GET_SITE_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
-				retrievingSiteSubscriptions: false,
+				requestingSiteSubscriptions: false,
 				error: action.message,
 			} );
 		default:
@@ -71,16 +71,16 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
 	switch ( action.type ) {
 		case GET_ALL_SUBSCRIPTIONS_REQUEST:
 			return Object.assign( {}, state, {
-				retrievingAllSubscriptions: true,
+				requestingAllSubscriptions: true,
 				error: "",
 			} );
 		case GET_ALL_SUBSCRIPTIONS_SUCCESS:
 			return Object.assign( {}, state, {
-				retrievingAllSubscriptions: false,
+				requestingAllSubscriptions: false,
 			} );
 		case GET_ALL_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
-				retrievingAllSubscriptions: false,
+				requestingAllSubscriptions: false,
 				error: action.message,
 			} );
 		default:
