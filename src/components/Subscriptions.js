@@ -19,7 +19,8 @@ export default function Subscriptions( props ) {
 											 name={ subscription.name } used={ subscription.used }
 											 max={ subscription.max } nextBilling={ subscription.nextBilling }
 											 billingAmount={ subscription.billingAmount }
-												 billingCurrency={ subscription.billingCurrency } onManage={ props.onManage }
+												 billingCurrency={ subscription.billingCurrency } onManage={ () => {}
+											 }
 						/>;
 					} )
 					}

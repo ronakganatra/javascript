@@ -7,7 +7,7 @@ import a11ySpeak from "a11y-speak";
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
 		id: "menu.account.subscriptions.loaded",
-		defaultMessage: "Sites page loaded",
+		defaultMessage: "Subscriptions are loaded",
 	},
 	description: {
 		id: "search.description",
@@ -36,14 +36,10 @@ class PageSubscriptions extends React.Component {
 					id="search"
 					description={ this.props.intl.formatMessage( messages.description ) }
 					descriptionId="searchDescription"
-					query={ this.props.query } onChange={ () => {
-						console.log( this.props.query );
-					}
+					query={ this.props.query } onChange={ () => {}
 					}
 				/>
-				<Subscriptions { ...props } onManage={ () => {
-					console.log( "test" );
-				} }/>
+				<Subscriptions { ...props } />
 			</div>
 		);
 	}
