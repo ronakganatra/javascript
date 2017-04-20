@@ -30,7 +30,7 @@ const SitesContainer = styled.ul`
 
 	li {
 		position: relative;
-	
+
 		& .site-name::before,
 		& .active-subscriptions::before {
 			position: absolute;
@@ -70,8 +70,8 @@ const SitesContainer = styled.ul`
  */
 function Sites( props ) {
 	return (
-		<Table>
-			<Paper>
+		<Paper>
+			<Table>
 				<Zebra>
 					<SitesContainer role="list" site={props.intl.formatMessage( messages.site )}
 									activeSubscriptions={props.intl.formatMessage( messages.activeSubscriptions )}>
@@ -85,8 +85,8 @@ function Sites( props ) {
 						} ) }
 					</SitesContainer>
 				</Zebra>
-			</Paper>
-		</Table>
+			</Table>
+		</Paper>
 	);
 }
 
