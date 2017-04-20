@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { ColumnText, Row, Table, Zebra } from "./Tables";
+import { ColumnText, Row, Table, Zebra, Column } from "./Tables";
+import { injectIntl, intlShape, FormattedDate } from "react-intl";
 
 const SubscriptionDetailsContainer = styled.div`
 	div:nth-child(even) {
@@ -19,6 +20,7 @@ const ColumnContainer = styled.div`
 `;
 
 /**
+ * The SubscriptionDetails component.
  *
  * @param {Object} props The props to use
  *
@@ -26,47 +28,53 @@ const ColumnContainer = styled.div`
  *
  * @constructor
  */
-export default function SubscriptionDetails( props ) {
+function SubscriptionDetails( props ) {
 	return (
 		<SubscriptionDetailsContainer>
 			<ColumnContainer>
-				<Table  headings={ false } role="list" >
+				<Table role="list" >
 					<Zebra>
-						<Row key="1" >
-							<ColumnText>{props.startDate}</ColumnText>
-							<ColumnText>{ "7 October 2017" }</ColumnText>
+						<Row>
+							<ColumnText>{ "Start Date" }</ColumnText>
+							<ColumnText> <FormattedDate value={props.startDate} /> </ColumnText>
 						</Row>
-						<Row key="2" >
-							<ColumnText>{ "Start date" }</ColumnText>
-							<ColumnText>{ "8 October 2017" }</ColumnText>
+						<Row>
+							<ColumnText>{ "Next Billing" }</ColumnText>
+							<ColumnText> <FormattedDate value={props.nextBilling} /> </ColumnText>
 						</Row>
 					</Zebra>
 				</Table>
 			</ColumnContainer>
 			<ColumnContainer>
-				<Table  headings={ false } role="list" >
+				<Table  role="list" >
 					<Zebra>
-						<Row key="1" >
-							<ColumnText>{props.startDate}</ColumnText>
-							<ColumnText>{ "7 October 2017" }</ColumnText>
-						</Row>
-						<Row key="2" >
-							<ColumnText>{ "Start date" }</ColumnText>
-							<ColumnText>{ "8 October 2017" }</ColumnText>
-						</Row>
+						{ props.invoices.map( ( invoice ) => {
+							return <Row { ...invoice } key={ invoice.invoiceId }>
+								<ColumnText><FormattedDate value={invoice.invoiceDate} /></ColumnText>
+								<ColumnText>{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+								<ColumnText>{ props.onInvoiceDownload }</ColumnText>
+							</Row>;
+						} ) }
 					</Zebra>
 				</Table>
 			</ColumnContainer>
 			<ColumnContainer>
-				<Table  headings={ false } role="list" >
+				<Table role="list" >
 					<Zebra>
-						<Row key="1" >
-							<ColumnText>{props.startDate}</ColumnText>
-							<ColumnText>{ "7 October 2017" }</ColumnText>
+						<Row>
+							<ColumnText>{ "You can add {} {} more sites to this subscription" }</ColumnText>
+							<Column textAlign="right">
+							</Column>
 						</Row>
-						<Row key="2" >
-							<ColumnText>{ "Start date" }</ColumnText>
-							<ColumnText>{ "8 October 2017" }</ColumnText>
+						<Row>
+							<ColumnText>{ "Change subscription level" }</ColumnText>
+							<Column textAlign="right">
+							</Column>
+						</Row>
+						<Row>
+							<ColumnText>{ "Cancel subscription" }</ColumnText>
+							<Column textAlign="right">
+							</Column>
 						</Row>
 					</Zebra>
 				</Table>
@@ -76,8 +84,17 @@ export default function SubscriptionDetails( props ) {
 }
 
 SubscriptionDetails.propTypes = {
-	startDate: React.PropTypes.string,
+	startDate: React.PropTypes.instanceOf( Date ).isRequired,
+	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
+	invoices: React.PropTypes.array,
+	onAddSite: React.PropTypes.func.isRequired,
+	onShop: React.PropTypes.func.isRequired,
+	onCancel: React.PropTypes.func.isRequired,
+	onInvoiceDownload: React.PropTypes.func.isRequired,
+	intl: intlShape.isRequired,
 };
 
 SubscriptionDetails.defaultProps = {
 };
+
+export default injectIntl( SubscriptionDetails );
