@@ -1,6 +1,5 @@
 import React from "react";
 import Order from "./Order";
-import { injectIntl, intlShape } from "react-intl";
 import { Table, Zebra } from "./Tables";
 import Paper from "./Paper";
 
@@ -11,7 +10,7 @@ import Paper from "./Paper";
  * @returns {ReactElement} PageOrderList element.
  * @constructor
  */
-function Orders( props ) {
+export default function Orders( props ) {
 	return (
 		<Table headings={true} role="list">
 			<Paper>
@@ -30,12 +29,9 @@ function Orders( props ) {
 
 Orders.propTypes = {
 	onClickInvoice: React.PropTypes.func.isRequired,
-	intl: intlShape.isRequired,
 	orders: React.PropTypes.array,
 };
 
 Orders.defaultProps = {
 	orders: [],
 };
-
-export default injectIntl( Orders );
