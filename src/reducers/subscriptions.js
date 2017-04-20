@@ -70,7 +70,7 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
 		case GET_ALL_SUBSCRIPTIONS_SUCCESS:
 			return Object.assign( {}, state, {
 				requestingAllSubscriptions: false,
-	} );
+			} );
 		case GET_ALL_SUBSCRIPTIONS_FAILURE:
 			return Object.assign( {}, state, {
 				requestingAllSubscriptions: false,
