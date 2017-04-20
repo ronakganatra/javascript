@@ -1,108 +1,103 @@
 exports[`test The Subscriptions component matches the snapshot 1`] = `
-<ul
-  className="jtXnzZ">
-  <div
-    className="dnTGWH">
-    <span>
-      <li
-        className="gSUJps">
-        <span
-          className="cpfBRH"
-          label="">
-          <img
-            alt=""
-            className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+<div
+  className="dnTGWH">
+  <ul
+    className="jplRhE"
+    role="list">
+    <li
+      className="ePzAao">
+      <span
+        className="gkVmfQ">
+        <img
+          alt=""
+          className="bjVGHc"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      </span>
+      <span
+        className="bjuwUh"
+        label="Product">
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="jZlEbX"
+        label="Level">
+        20 sites
+      </span>
+      <span
+        className="jOjxPM"
+        label="Usage">
+        4
+        /
+        20
+      </span>
+      <span
+        className="gZAPXc"
+        label="Next billing on">
+        <span>
+          10/13/2014
         </span>
-        <span
-          className="hSVqo"
-          label="Product">
-          SEO Premium for WordPress
+      </span>
+      <span
+        className="jZlEbX"
+        label="Amount">
+        $
+         
+        125.12
+      </span>
+      <span
+        className="wBifc">
+        <a
+          href="/subscriptions/3"
+          onClick={[Function]} />
+      </span>
+    </li>
+    <li
+      className="dzHDCL">
+      <span
+        className="gkVmfQ">
+        <img
+          alt=""
+          className="bjVGHc"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      </span>
+      <span
+        className="bjuwUh"
+        label="Product">
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="jZlEbX"
+        label="Level">
+        20 sites
+      </span>
+      <span
+        className="jOjxPM"
+        label="Usage">
+        3
+        /
+        20
+      </span>
+      <span
+        className="gZAPXc"
+        label="Next billing on">
+        <span>
+          10/13/2014
         </span>
-        <span
-          className="gWsdrk"
-          label="Level">
-          20 sites
-        </span>
-        <span
-          className="hHZLIx"
-          label="Usage">
-          4
-          /
-          20
-        </span>
-        <span
-          className="jWNjyX"
-          label="Next billing on">
-          <span>
-            10/13/2014
-          </span>
-        </span>
-        <span
-          className="Vxkll"
-          label="Amount">
-          $
-           
-          125.12
-        </span>
-        <span
-          className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/3"
-            onClick={[Function]} />
-        </span>
-      </li>
-      <li
-        className="fTADJm">
-        <span
-          className="cpfBRH"
-          label="">
-          <img
-            alt=""
-            className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-        </span>
-        <span
-          className="hSVqo"
-          label="Product">
-          SEO Premium for WordPress
-        </span>
-        <span
-          className="gWsdrk"
-          label="Level">
-          20 sites
-        </span>
-        <span
-          className="hHZLIx"
-          label="Usage">
-          3
-          /
-          20
-        </span>
-        <span
-          className="jWNjyX"
-          label="Next billing on">
-          <span>
-            10/13/2014
-          </span>
-        </span>
-        <span
-          className="Vxkll"
-          label="Amount">
-          $
-           
-          125.12
-        </span>
-        <span
-          className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/4"
-            onClick={[Function]} />
-        </span>
-      </li>
-    </span>
-  </div>
-</ul>
+      </span>
+      <span
+        className="jZlEbX"
+        label="Amount">
+        $
+         
+        125.12
+      </span>
+      <span
+        className="wBifc">
+        <a
+          href="/subscriptions/4"
+          onClick={[Function]} />
+      </span>
+    </li>
+  </ul>
+</div>
 `;
