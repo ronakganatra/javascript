@@ -162,6 +162,7 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
  * Returns a new site object with only subscription ids.
  *
  * @param {Object} site The site to pluck.
+ * @returns {Object} New sites object with only subscription ids.
  */
 function pluckSubscriptionIds( site ) {
 	if ( _isUndefined( site.subscriptions ) ) {
