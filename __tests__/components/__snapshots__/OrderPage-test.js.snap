@@ -26,126 +26,107 @@ exports[`test The Orders component matches the snapshot 1`] = `
       I am an order search bar
     </p>
   </div>
-  <div
-    className="kfRyEM">
-    <button
-      aria-expanded={true}
-      className="hJpfvy"
-      onClick={[Function]}>
-      <h2>
-        Manage orders
-      </h2>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
-    </button>
-    <ul
-      className="jtXnzZ"
-      role="list">
-      <div
-        className="dnTGWH">
-        <span>
-          <li
-            className="gSUJps">
-            <span
-              className="ueKlU"
-              label="Date">
-              17-01-2010
-            </span>
-            <span
-              className="jFIazD"
-              label="Order number">
-              MOOIE 123 TEST
-            </span>
-            <span
-              className="fJtHkS"
-              label="Items">
-              TEST ITEM
-            </span>
-            <span
-              className="imnCzY"
-              label="Total">
-              $centjes
-            </span>
-            <span
-              className="rKryl"
-              label="Status">
-              Failed
-            </span>
-            <span
-              className="chflUA"
-              label="" />
-          </li>
-          <li
-            className="fTADJm">
-            <span
-              className="ueKlU"
-              label="Date">
-              17-01-2012
-            </span>
-            <span
-              className="jFIazD"
-              label="Order number">
-              MOOIE 456 TEST
-            </span>
-            <span
-              className="fJtHkS"
-              label="Items">
-              TEST ITEM
-            </span>
-            <span
-              className="imnCzY"
-              label="Total">
-              Ycentjes
-            </span>
-            <span
-              className="rKryl"
-              label="Status">
-              Failed
-            </span>
-            <span
-              className="chflUA"
-              label="" />
-          </li>
-          <li
-            className="gSUJps">
-            <span
-              className="ueKlU"
-              label="Date">
-              17-01-2017
-            </span>
-            <span
-              className="jFIazD"
-              label="Order number">
-              MOOIE 789 TEST
-            </span>
-            <span
-              className="fJtHkS"
-              label="Items">
-              TEST ITEM
-            </span>
-            <span
-              className="imnCzY"
-              label="Total">
-              €centjes
-            </span>
-            <span
-              className="rKryl"
-              label="Status">
-              Failed
-            </span>
-            <span
-              className="chflUA"
-              label="" />
-          </li>
-        </span>
-      </div>
-    </ul>
-  </div>
+  <ul
+    className="jtXnzZ"
+    role="list">
+    <div
+      className="dnTGWH">
+      <span>
+        <li
+          className="gSUJps">
+          <span
+            className="iEQIhL"
+            label="Date">
+            17-01-2010
+          </span>
+          <span
+            className="kobEXB"
+            label="Order number">
+            MOOIE 123 TEST
+          </span>
+          <span
+            className="kiPHFq"
+            label="Items">
+            TEST ITEM
+          </span>
+          <span
+            className="iMMwZr"
+            label="Total">
+            $centjes
+          </span>
+          <span
+            className="fkNUbp"
+            label="Status">
+            Failed
+          </span>
+          <span
+            className="iTexxv"
+            label="" />
+        </li>
+        <li
+          className="fTADJm">
+          <span
+            className="iEQIhL"
+            label="Date">
+            17-01-2012
+          </span>
+          <span
+            className="kobEXB"
+            label="Order number">
+            MOOIE 456 TEST
+          </span>
+          <span
+            className="kiPHFq"
+            label="Items">
+            TEST ITEM
+          </span>
+          <span
+            className="iMMwZr"
+            label="Total">
+            Ycentjes
+          </span>
+          <span
+            className="fkNUbp"
+            label="Status">
+            Failed
+          </span>
+          <span
+            className="iTexxv"
+            label="" />
+        </li>
+        <li
+          className="gSUJps">
+          <span
+            className="iEQIhL"
+            label="Date">
+            17-01-2017
+          </span>
+          <span
+            className="kobEXB"
+            label="Order number">
+            MOOIE 789 TEST
+          </span>
+          <span
+            className="kiPHFq"
+            label="Items">
+            TEST ITEM
+          </span>
+          <span
+            className="iMMwZr"
+            label="Total">
+            €centjes
+          </span>
+          <span
+            className="fkNUbp"
+            label="Status">
+            Failed
+          </span>
+          <span
+            className="iTexxv"
+            label="" />
+        </li>
+      </span>
+    </div>
+  </ul>
 </div>
 `;

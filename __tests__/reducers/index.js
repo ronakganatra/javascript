@@ -30,7 +30,7 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {}, orders: {}, };
+	const state = { sites: {}, orders: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -42,7 +42,7 @@ test( 'ui reducer', () => {
 } );
 
 test( 'entities site reducer', () => {
-	const state = { allIds: {}, byId: {}, };
+	const state = { allIds: {}, byId: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
