@@ -22,7 +22,7 @@ export const Column = styled.span`
  		top: -30px;
  		font-size: 1.286em;
  		line-height: 0;
- 		content: "${ props => props.label }";
+ 		content: attr(data-label);
  	}
 
  	${ props => props.separator ? separatify() : "" }
@@ -136,7 +136,7 @@ Row.defaultProps = {
  * @returns {ReactElement} The rendered Table component.
  * @constructor
  */
-export const Table = styled.ul`
+export const Zebra = styled.ul`
 	margin: ${ props => props.headings ? "60px" : "0" } 0 0 0;
  	padding: 0;
  	list-style: none;
@@ -144,18 +144,18 @@ export const Table = styled.ul`
  	width: 100%;
 
  	li:first-child {
-		& *::before {
+		& span::before {
 			left: auto;
 		}
 	}
 `;
 
-Table.propTypes = {
+Zebra.propTypes = {
 	children: React.PropTypes.any,
 	headings: React.PropTypes.bool,
 };
 
-Table.defaultProps = {
+Zebra.defaultProps = {
 	headings: true,
 };
 
@@ -167,7 +167,7 @@ Table.defaultProps = {
  * @returns {ReactElement} The rendered Zebra component.
  * @constructor
  */
-export function Zebra( props ) {
+export function Table( props ) {
 	let zebraProps = Object.assign( {}, props );
 	let children = props.children;
 
@@ -176,18 +176,23 @@ export function Zebra( props ) {
 		children = [ children ];
 	}
 
+	// Don't output an empty list.
+	if ( ! children.length ) {
+		return null;
+	}
+
 	zebraProps.children = children.map( ( child, key ) => {
 		return React.cloneElement( child, {
-			background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_grey_light,
+			background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_red,
 		} );
 	} );
 
 	return (
-		<span { ...zebraProps }/>
+		<Zebra { ...zebraProps }/>
 	);
 }
 
-Zebra.propTypes = {
+Table.propTypes = {
 	children: React.PropTypes.oneOfType( [
 		React.PropTypes.arrayOf( React.PropTypes.node ),
 		React.PropTypes.node,

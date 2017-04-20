@@ -1,6 +1,6 @@
 import React from "react";
 import Subscription from "./Subscription";
-import { Table, Zebra } from "./Tables";
+import { Table } from "./Tables";
 import Paper from "./Paper";
 
 /**
@@ -11,21 +11,24 @@ import Paper from "./Paper";
  */
 export default function Subscriptions( props ) {
 	return (
-		<Table>
-			<Paper>
-				<Zebra>
-					{ props.subscriptions.map( function( subscription ) {
-						return <Subscription key={ subscription.id } id={ subscription.id } icon={ subscription.icon }
-											 name={ subscription.name } used={ subscription.used }
-											 max={ subscription.max } nextBilling={ subscription.nextBilling }
-											 billingAmount={ subscription.billingAmount }
-												 billingCurrency={ subscription.billingCurrency }
-						/>;
-					} )
-					}
-				</Zebra>
-			</Paper>
-		</Table>
+		<Paper>
+			<Table role="list">
+				{ props.subscriptions.map( function( subscription ) {
+					return <Subscription
+						key={ subscription.id }
+						id={ subscription.id }
+						icon={ subscription.icon }
+						name={ subscription.name }
+						used={ subscription.used }
+						max={ subscription.max }
+						nextBilling={ subscription.nextBilling }
+						billingAmount={ subscription.billingAmount }
+						billingCurrency={ subscription.billingCurrency }
+					/>;
+				} )
+				}
+			</Table>
+		</Paper>
 	);
 }
 
