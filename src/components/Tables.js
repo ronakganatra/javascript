@@ -13,7 +13,7 @@ import colors from "yoast-components/style-guide/colors.json";
 export const Column = styled.span`
 	font-size: 14px;
 	padding-left: 40px;
-	
+
 	text-align: ${ props => props.textAlign };
 
 	&::before {
@@ -24,9 +24,9 @@ export const Column = styled.span`
  		line-height: 0;
  		content: "${ props => props.label }";
  	}
- 	
+
  	${ props => props.separator ? separatify() : "" }
-	
+
 	flex: 0 0 ${ props => props.ColumnWidth };
 	flex-grow: ${ props => props.fillSpace === true ? "1" : "0" };
 	@media screen and ( max-width: 1355px ) {
@@ -37,8 +37,9 @@ export const Column = styled.span`
 	@media screen and ( max-width: 800px ) {
 		&:first-child {
 			padding-left: 20px;
- 	    }
- 	    padding-left: 10px;
+		}
+
+		padding-left: 10px;
 		flex: 1 1 ${ props => props.ColumnWidth };
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
@@ -48,7 +49,6 @@ Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
 	fillSpace: React.PropTypes.bool,
-	label: React.PropTypes.string,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
 	textAlign: React.PropTypes.string,
@@ -58,7 +58,6 @@ Column.propTypes = {
 Column.defaultProps = {
 	ColumnWidth: "auto",
 	fillSpace: false,
-	label: "",
 	hideOnMobile: false,
 	hideOnTable: false,
 	textAlign: "left",
@@ -76,12 +75,12 @@ export function separatify() {
 	&::after {
 		position:relative;
 		display: inline-block;
-		border-right: 2px solid ${colors.$color_grey};
+		border-right: 2px solid ${ colors.$color_grey };
 		padding-right: 40px;
 		height: 60px;
 		content: "";
 	}
-	
+
 
 	@media screen and ( max-width: 800px ) {
 		&::after {
@@ -108,13 +107,13 @@ export const ColumnText = styled( Column )`
  */
 export const Row = styled.li`
 	background: ${ props => props.background };
-	
+
 	min-height: 100px;
 	display: flex;
 	padding-right: 40px;
 	align-items: center;
 	justify-content: space-around;
-	
+
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
 		padding-right: 20px;
@@ -143,12 +142,12 @@ export const Table = styled.ul`
  	list-style: none;
  	position: relative;
  	width: 100%;
- 	
+
  	li:first-child {
-        & *::before {
-            left: auto;
-        }
-    }
+		& *::before {
+			left: auto;
+		}
+	}
 `;
 
 Table.propTypes = {
