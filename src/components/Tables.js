@@ -28,6 +28,7 @@ export const Column = styled.span`
  	${ props => props.separator ? separatify() : "" }
 	
 	flex: 0 0 ${ props => props.ColumnWidth };
+	flex-grow: ${ props => props.fillSpace === true ? "1" : "0" };
 	@media screen and ( max-width: 1355px ) {
 		padding-left: 20px;
 		flex: 1 0 ${ props => props.ColumnWidth };
@@ -46,6 +47,7 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
+	fillSpace: React.PropTypes.bool,
 	label: React.PropTypes.string,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
@@ -55,6 +57,7 @@ Column.propTypes = {
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
+	fillSpace: false,
 	label: "",
 	hideOnMobile: false,
 	hideOnTable: false,

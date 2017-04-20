@@ -13,9 +13,13 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -40,7 +44,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
           <li
             className="iYfqfc">
             <span
-              className="hUbMKa"
+              className="cpfBRH"
               label="">
               <img
                 alt=""
@@ -48,12 +52,12 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="cpyTvm"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
             <span
-              className="gtXVqi"
+              className="cozxmw"
               label="Active subscriptions">
               <div>
                 <span
@@ -83,7 +87,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
               </div>
             </span>
             <span
-              className="chflUA"
+              className="iTexxv"
               label="" />
           </li>
         </ul>
@@ -145,9 +149,13 @@ exports[`test the sites page component with sites handling a changed search quer
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -172,7 +180,7 @@ exports[`test the sites page component with sites handling a changed search quer
           <li
             className="iYfqfc">
             <span
-              className="hUbMKa"
+              className="cpfBRH"
               label="">
               <img
                 alt=""
@@ -180,12 +188,12 @@ exports[`test the sites page component with sites handling a changed search quer
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="cpyTvm"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
             <span
-              className="gtXVqi"
+              className="cozxmw"
               label="Active subscriptions">
               <div>
                 <span
@@ -215,7 +223,7 @@ exports[`test the sites page component with sites handling a changed search quer
               </div>
             </span>
             <span
-              className="chflUA"
+              className="iTexxv"
               label="" />
           </li>
         </ul>
@@ -243,9 +251,13 @@ exports[`test the sites page component with sites handling a changed search quer
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -270,7 +282,7 @@ exports[`test the sites page component with sites handling a changed search quer
           <li
             className="iYfqfc">
             <span
-              className="hUbMKa"
+              className="cpfBRH"
               label="">
               <img
                 alt=""
@@ -278,12 +290,12 @@ exports[`test the sites page component with sites handling a changed search quer
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="cpyTvm"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
             <span
-              className="gtXVqi"
+              className="cozxmw"
               label="Active subscriptions">
               <div>
                 <span
@@ -313,7 +325,7 @@ exports[`test the sites page component with sites handling a changed search quer
               </div>
             </span>
             <span
-              className="chflUA"
+              className="iTexxv"
               label="" />
           </li>
         </ul>
@@ -341,9 +353,13 @@ exports[`test the sites page component with sites handling an onclick event on t
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -368,7 +384,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           <li
             className="iYfqfc">
             <span
-              className="hUbMKa"
+              className="cpfBRH"
               label="">
               <img
                 alt=""
@@ -376,12 +392,12 @@ exports[`test the sites page component with sites handling an onclick event on t
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="cpyTvm"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
             <span
-              className="gtXVqi"
+              className="cozxmw"
               label="Active subscriptions">
               <div>
                 <span
@@ -411,7 +427,7 @@ exports[`test the sites page component with sites handling an onclick event on t
               </div>
             </span>
             <span
-              className="chflUA"
+              className="iTexxv"
               label="" />
           </li>
         </ul>
@@ -439,9 +455,13 @@ exports[`test the sites page component with sites handling an onclick event on t
       </label>
       <input
         aria-describedby="searchDescription"
+        autoCapitalize="off"
+        autoComplete="off"
+        autoCorrect="off"
         className="hhtLuS"
         id="search"
         onChange={[Function]}
+        spellCheck="false"
         type="text"
         value="" />
       <p
@@ -466,7 +486,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           <li
             className="iYfqfc">
             <span
-              className="hUbMKa"
+              className="cpfBRH"
               label="">
               <img
                 alt=""
@@ -474,12 +494,12 @@ exports[`test the sites page component with sites handling an onclick event on t
                 src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
             </span>
             <span
-              className="cpyTvm"
+              className="gghIYw"
               label="Site name">
               www.yoast.com
             </span>
             <span
-              className="gtXVqi"
+              className="cozxmw"
               label="Active subscriptions">
               <div>
                 <span
@@ -509,7 +529,7 @@ exports[`test the sites page component with sites handling an onclick event on t
               </div>
             </span>
             <span
-              className="chflUA"
+              className="iTexxv"
               label="" />
           </li>
         </ul>
