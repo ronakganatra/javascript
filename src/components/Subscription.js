@@ -54,12 +54,12 @@ function Subscription( props ) {
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" data-label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } data-label={ props.intl.formatMessage( messages.level ) }
+			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } data-label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } data-label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px"><FormattedDate value={ props.nextBilling }/></ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } data-label={ props.intl.formatMessage( messages.billingAmount ) }
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px"><FormattedDate value={ props.nextBilling }/></ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">

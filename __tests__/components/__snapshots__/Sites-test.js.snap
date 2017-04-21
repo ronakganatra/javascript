@@ -7,20 +7,18 @@ exports[`test the sites component matches the snapshot 1`] = `
     <li
       className="ePzAao">
       <span
-        className="gkVmfQ">
+        className="cdkaQN">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="bjuwUh"
-        data-label="Site name">
+        className="keNlnt">
         www.yoast.com
       </span>
       <span
-        className="iUuMqw"
-        data-label="Active subscriptions">
+        className="dxkupl">
         <span>
           <span
             aria-label="Yoast SEO is inactive"
@@ -49,25 +47,23 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="wBifc" />
+        className="emvmXy" />
     </li>
     <li
-      className="dzHDCL">
+      className="jJQwzi">
       <span
-        className="gkVmfQ">
+        className="cdkaQN">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="bjuwUh"
-        data-label="Site name">
+        className="keNlnt">
         www.google.com
       </span>
       <span
-        className="iUuMqw"
-        data-label="Active subscriptions">
+        className="dxkupl">
         <span>
           <span
             aria-label="Yoast SEO is inactive"
@@ -96,25 +92,23 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="wBifc" />
+        className="emvmXy" />
     </li>
     <li
       className="ePzAao">
       <span
-        className="gkVmfQ">
+        className="cdkaQN">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="bjuwUh"
-        data-label="Site name">
+        className="keNlnt">
         www.facebook.com
       </span>
       <span
-        className="iUuMqw"
-        data-label="Active subscriptions">
+        className="dxkupl">
         <span>
           <span
             aria-label="Yoast SEO is inactive"
@@ -143,7 +137,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="wBifc" />
+        className="emvmXy" />
     </li>
   </ul>
 </div>

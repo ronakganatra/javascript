@@ -7,88 +7,78 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     <li
       className="ePzAao">
       <span
-        className="gkVmfQ">
+        className="cdkaQN">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="bjuwUh"
-        data-label="Product">
+        className="cHedPo">
         SEO Premium for WordPress
       </span>
       <span
-        className="jZlEbX"
-        data-label="Level">
+        className="jwyjVV">
         20 sites
       </span>
       <span
-        className="jOjxPM"
-        data-label="Usage">
+        className="eczGmx">
         4
         /
         20
       </span>
       <span
-        className="gZAPXc"
-        data-label="Next billing on">
+        className="fNfiSq">
         <span>
           10/13/2014
         </span>
       </span>
       <span
-        className="jZlEbX"
-        data-label="Amount">
+        className="bziLmx">
         $
          
         125.12
       </span>
       <span
-        className="wBifc" />
+        className="emvmXy" />
     </li>
     <li
-      className="dzHDCL">
+      className="jJQwzi">
       <span
-        className="gkVmfQ">
+        className="cdkaQN">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="bjuwUh"
-        data-label="Product">
+        className="cHedPo">
         SEO Premium for WordPress
       </span>
       <span
-        className="jZlEbX"
-        data-label="Level">
+        className="jwyjVV">
         20 sites
       </span>
       <span
-        className="jOjxPM"
-        data-label="Usage">
+        className="eczGmx">
         3
         /
         20
       </span>
       <span
-        className="gZAPXc"
-        data-label="Next billing on">
+        className="fNfiSq">
         <span>
           10/13/2014
         </span>
       </span>
       <span
-        className="jZlEbX"
-        data-label="Amount">
+        className="bziLmx">
         $
          
         125.12
       </span>
       <span
-        className="wBifc" />
+        className="emvmXy" />
     </li>
   </ul>
 </div>

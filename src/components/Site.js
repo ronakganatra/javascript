@@ -44,8 +44,8 @@ function Site( props ) {
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" data-label={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } data-label={ props.intl.formatMessage( messages.activeSubscriptions ) }
+			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
 						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } /></ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">

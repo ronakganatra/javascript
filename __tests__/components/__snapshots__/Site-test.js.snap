@@ -2,20 +2,18 @@ exports[`test the site component matches the snapshot 1`] = `
 <li
   className="eykYDz">
   <span
-    className="gkVmfQ">
+    className="cdkaQN">
     <img
       alt=""
       className="bjVGHc"
       src="" />
   </span>
   <span
-    className="bjuwUh"
-    data-label="Site name">
+    className="keNlnt">
     yoast.com
   </span>
   <span
-    className="iUuMqw"
-    data-label="Active subscriptions">
+    className="dxkupl">
     <span>
       <span
         aria-label="Yoast SEO is inactive"
@@ -44,6 +42,6 @@ exports[`test the site component matches the snapshot 1`] = `
     </span>
   </span>
   <span
-    className="wBifc" />
+    className="emvmXy" />
 </li>
 `;

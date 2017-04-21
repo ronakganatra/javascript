@@ -22,7 +22,7 @@ export const Column = styled.span`
  		top: -30px;
  		font-size: 1.286em;
  		line-height: 0;
- 		content: attr(data-label);
+ 		${ props => props.headerLabel ? `content: "${props.headerLabel}";` : "content: none;" }
  	}
 
  	${ props => props.separator ? separatify() : "" }
@@ -53,6 +53,7 @@ Column.propTypes = {
 	hideOnTablet: React.PropTypes.bool,
 	textAlign: React.PropTypes.string,
 	separator: React.PropTypes.bool,
+	headerLabel: React.PropTypes.string,
 };
 
 Column.defaultProps = {
@@ -137,7 +138,7 @@ Row.defaultProps = {
  * @constructor
  */
 export const Zebra = styled.ul`
-	margin: ${ props => props.headings ? "60px" : "0" } 0 0 0;
+	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
@@ -152,11 +153,11 @@ export const Zebra = styled.ul`
 
 Zebra.propTypes = {
 	children: React.PropTypes.any,
-	headings: React.PropTypes.bool,
+	hasHeaderLabels: React.PropTypes.bool,
 };
 
 Zebra.defaultProps = {
-	headings: true,
+	hasHeaderLabels: true,
 };
 
 /**
@@ -183,7 +184,7 @@ export function Table( props ) {
 
 	zebraProps.children = children.map( ( child, key ) => {
 		return React.cloneElement( child, {
-			background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_red,
+			background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_grey_light,
 		} );
 	} );
 
