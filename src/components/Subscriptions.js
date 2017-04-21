@@ -14,6 +14,10 @@ export default function Subscriptions( props ) {
 		<Paper>
 			<Table>
 				{ props.subscriptions.map( function( subscription ) {
+					let onManageHandler = () => {
+						props.onManage( subscription.id );
+					};
+
 					return <Subscription
 						key={ subscription.id }
 						id={ subscription.id }
@@ -24,7 +28,7 @@ export default function Subscriptions( props ) {
 						nextBilling={ subscription.nextBilling }
 						billingAmount={ subscription.billingAmount }
 						billingCurrency={ subscription.billingCurrency }
-						onManage={ () => {} }
+						onManage={ onManageHandler }
 					/>;
 				} ) }
 			</Table>
@@ -47,4 +51,5 @@ Subscriptions.propTypes = {
 			}
 		)
 	),
+	onManage: React.PropTypes.func.isRequired,
 };

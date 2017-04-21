@@ -28,16 +28,16 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         20
       </span>
       <span
-        className="fNfiSq">
+        className="cUGkua">
         <span>
-          10/13/2014
+          October 13, 2014
         </span>
       </span>
       <span
         className="bziLmx">
-        $
-         
-        125.12
+        <span>
+          $122.00
+        </span>
       </span>
       <span
         className="emvmXy" />
@@ -66,16 +66,16 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         20
       </span>
       <span
-        className="fNfiSq">
+        className="cUGkua">
         <span>
-          10/13/2014
+          October 13, 2014
         </span>
       </span>
       <span
         className="bziLmx">
-        $
-         
-        125.12
+        <span>
+          $125.12
+        </span>
       </span>
       <span
         className="emvmXy" />
