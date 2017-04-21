@@ -12,18 +12,18 @@ const CollapsibleHeader = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 10px 40px;
+	padding: 30px 40px;
 	border: none;
 	background-color: ${ colors.$color_white };
 	cursor: pointer;
 	text-align: left;
 
-	h2 {
+	span {
 		flex: 1 1 auto;
 		font-weight: 300;
 		font-size: 1.5em;
 	}
-	
+
 	svg {
 		align-self: center;
 	}
@@ -93,7 +93,7 @@ export default class ListToggle extends React.Component {
 		return (
 			<CollapsibleHeaderContainer>
 				<CollapsibleHeader onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-					<h2>{ this.props.title }</h2>
+					<span>{ this.props.title }</span>
 					{ this.getArrow() }
 				</CollapsibleHeader>
 				{ children }
