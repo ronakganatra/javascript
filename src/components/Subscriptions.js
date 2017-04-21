@@ -15,11 +15,17 @@ export default function Subscriptions( props ) {
 			<Paper>
 				<Zebra>
 					{ props.subscriptions.map( function( subscription ) {
-						return <Subscription key={ subscription.id } id={ subscription.id } icon={ subscription.icon }
-											 name={ subscription.name } used={ subscription.used }
-											 max={ subscription.max } nextBilling={ subscription.nextBilling }
-											 billingAmount={ subscription.billingAmount }
-												 billingCurrency={ subscription.billingCurrency }
+						return <Subscription
+							key={ subscription.id }
+							id={ subscription.id }
+							icon={ subscription.icon }
+							name={ subscription.name }
+							used={ subscription.used }
+							max={ subscription.max }
+							nextBilling={ subscription.nextBilling }
+							billingAmount={ subscription.billingAmount }
+							billingCurrency={ subscription.billingCurrency }
+							onManage={ () => {} }
 						/>;
 					} )
 					}

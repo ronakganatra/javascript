@@ -42,10 +42,6 @@ exports[`test The Subscription component matches the snapshot 1`] = `
   </span>
   <span
     className="iTexxv"
-    label="">
-    <a
-      href="/subscriptions/a"
-      onClick={[Function]} />
-  </span>
+    label="" />
 </li>
 `;
