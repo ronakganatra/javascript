@@ -5,9 +5,5 @@
  * @returns {number} Converted currency.
  */
 export function formatAmount( cents ) {
-	if ( cents > 0 ) {
-		cents /= 100;
-	}
-
-	return cents;
+	return cents / 100;
 }
