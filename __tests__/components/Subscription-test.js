@@ -11,8 +11,8 @@ test('The Subscription component matches the snapshot', () => {
 		              icon="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
 		              used={ 14 } max={ 20 }
 		              nextBilling={ new Date( "April 4, 2017" ) }
-		              billingAmount={ 125.12 }
-		              billingCurrency="$"
+		              billingAmount={ 12512 }
+		              billingCurrency="USD"
 		              onManage={ () => {
 			              console.log( "clicked on manage button" );
 		              } }
