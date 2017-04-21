@@ -10,31 +10,31 @@ exports[`test The Subscription component matches the snapshot 1`] = `
   </span>
   <span
     className="bjuwUh"
-    label="Product">
+    data-label="Product">
     SEO Premium for WordPress
   </span>
   <span
     className="jZlEbX"
-    label="Level">
+    data-label="Level">
     20 sites
   </span>
   <span
     className="jOjxPM"
-    label="Usage">
+    data-label="Usage">
     14
     /
     20
   </span>
   <span
     className="gZAPXc"
-    label="Next billing on">
+    data-label="Next billing on">
     <span>
       4/4/2017
     </span>
   </span>
   <span
     className="jZlEbX"
-    label="Amount">
+    data-label="Amount">
     $
      
     125.12

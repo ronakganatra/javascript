@@ -15,31 +15,31 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
       </span>
       <span
         className="bjuwUh"
-        label="Product">
+        data-label="Product">
         SEO Premium for WordPress
       </span>
       <span
         className="jZlEbX"
-        label="Level">
+        data-label="Level">
         20 sites
       </span>
       <span
         className="jOjxPM"
-        label="Usage">
+        data-label="Usage">
         4
         /
         20
       </span>
       <span
         className="gZAPXc"
-        label="Next billing on">
+        data-label="Next billing on">
         <span>
           10/13/2014
         </span>
       </span>
       <span
         className="jZlEbX"
-        label="Amount">
+        data-label="Amount">
         $
          
         125.12
@@ -62,31 +62,31 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
       </span>
       <span
         className="bjuwUh"
-        label="Product">
+        data-label="Product">
         SEO Premium for WordPress
       </span>
       <span
         className="jZlEbX"
-        label="Level">
+        data-label="Level">
         20 sites
       </span>
       <span
         className="jOjxPM"
-        label="Usage">
+        data-label="Usage">
         3
         /
         20
       </span>
       <span
         className="gZAPXc"
-        label="Next billing on">
+        data-label="Next billing on">
         <span>
           10/13/2014
         </span>
       </span>
       <span
         className="jZlEbX"
-        label="Amount">
+        data-label="Amount">
         $
          
         125.12
