@@ -16,7 +16,6 @@ import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
-import OrderPage from "./components/OrderPage";
 
 /*
  * Helper method to write global CSS.
@@ -32,44 +31,6 @@ injectGlobal`
 		background: ${colors.$color_grey_light};
 	}
 `;
-
-let orders = [
-	{
-		productId: "1",
-		date: new Date( "05/20/2012" ),
-		orderNumber: "MOOIE 123 TEST",
-		items: "TEST ITEM",
-		total: 10010,
-		currency: "EUR",
-		status: "Failed",
-	}, {
-		productId: "2",
-		date: new Date( "04/04/2012" ),
-		orderNumber: "MOOIE 456 TEST",
-		items: "TEST ITEM",
-		total: 40010,
-		currency: "USD",
-		status: "Failed",
-	}, {
-		productId: "3",
-		date: new Date( "01/17/2017" ),
-		orderNumber: "MOOIE 789 TEST",
-		items: "TEST ITEM",
-		total: 12000,
-		currency: "USD",
-		status: "Failed",
-	} ];
-
-let onClickInvoice = () => {
-	console.log( "Invoice clicked" );
-};
-
-let searchProps = {
-	id: "orderSearchBar",
-	description: "I am an order search bar",
-	descriptionId: "I am an order search bar id",
-	onChange: () => {},
-};
 
 class App extends Component {
 	render() {
@@ -91,7 +52,6 @@ class App extends Component {
 									<Route exact path="/" component={ SitesPageContainer } />
 									<Route path="/sites/:id" component={ SitePageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
-									<OrderPage orders={ orders } onClickInvoice={ onClickInvoice } searchProps={ searchProps } />
 								</Content>
 							</Main>
 						</Layout>
