@@ -24,14 +24,13 @@ function SiteSubscriptionDetailList( props ) {
 			<Table headings={false} role="list">
 				<Zebra>
 					{ props.siteSubscriptions.map( ( subscription ) => {
-						return <SiteSubscriptionDetail { ...subscription }
-							key={ subscription.productId }
+						return <SiteSubscriptionDetail
+							{ ...subscription }
+							key={ subscription.id }
 							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
-							slots={ subscription.productSlots }
-							productLogo={ subscription.productLogo }
 						/>;
 					} ) }
 				</Zebra>

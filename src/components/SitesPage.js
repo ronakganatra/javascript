@@ -1,10 +1,9 @@
+import util from "util";
 import React from "react";
 import styled from "styled-components";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-
 import AddSiteModal from "./AddSiteModal";
-
 import Sites from "./Sites";
 import Search from "./Search";
 import NoSites from "./NoSites";
@@ -20,6 +19,10 @@ const messages = defineMessages( {
 	description: {
 		id: "search.description",
 		defaultMessage: "The search results will be updated as you type.",
+	},
+	searchResults: {
+		id: "search.results",
+		defaultMessage: "Number of sites found: %d",
 	},
 } );
 
@@ -38,6 +41,21 @@ const SiteAddContainer = styled.div`
  * @returns {ReactElement} The rendered Sites component.
  */
 class SitesPage extends React.Component {
+	/**
+	 * Sets the SitesPage object.
+	 *
+	 * Used just to set the searchTimer, no need to pass props.
+	 *
+	 * @returns {void}
+	 */
+	constructor() {
+		super();
+
+		this.debounceSearchResultsMessage = this.debounceSearchResultsMessage.bind( this );
+
+		this.searchTimer = false;
+	}
+
 	/**
 	 * Return the search bar.
 	 *
@@ -101,6 +119,46 @@ class SitesPage extends React.Component {
 				{ modal }
 			</div>
 		);
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		/*
+		 * While typing or pasting in the search field, `componentWillReceiveProps()`
+		 * continously passes a new `query` props. We use this at our advantage
+		 * to debounce the call to `a11ySpeak()`.
+		 * Note: remember for <input> and <textarea>, React `onChange` behaves
+		 * like the DOM's built-in oninput event handler.
+		 */
+		this.debounceSearchResultsMessage( nextProps );
+	}
+
+	/**
+	 * Debounces `a11ySpeak()` and announces the search results to screen readers.
+	 *
+	 * @param {Object} nextProps The new props received by the component.
+	 *
+	 * @returns {void}
+	 */
+	debounceSearchResultsMessage( nextProps ) {
+		/*
+		 * Always clear any previously set timeout and then set it again. This
+		 * is equivalent to debouncing the call to `a11ySpeak()`.
+		 */
+		window.clearTimeout( this.searchTimer );
+
+		/*
+		 * Only if the search query is not empty. Also, check if the query is
+		 * different from the previous one: this ensures `a11ySpeak()` is not
+		 * called when the component re-renders for other reasons, for example
+		 * when opening the Add Site modal.
+		 */
+		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
+
+			this.searchTimer = window.setTimeout( function() {
+				a11ySpeak( message, "assertive" );
+			}, 1000 );
+		}
 	}
 }
 

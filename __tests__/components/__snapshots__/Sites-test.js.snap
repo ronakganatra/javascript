@@ -10,7 +10,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         <li
           className="iYfqfc">
           <span
-            className="hUbMKa"
+            className="cpfBRH"
             label="">
             <img
               alt=""
@@ -18,14 +18,14 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="cpyTvm"
+            className="gghIYw"
             label="Site name">
             www.yoast.com
           </span>
           <span
-            className="gtXVqi"
+            className="cozxmw"
             label="Active subscriptions">
-            <div>
+            <span>
               <span
                 aria-label="Yoast SEO is inactive"
                 className="hGymDt"
@@ -50,16 +50,16 @@ exports[`test the sites component matches the snapshot 1`] = `
                 aria-label="Local SEO for Woo is inactive"
                 className="egmryf"
                 role="img" />
-            </div>
+            </span>
           </span>
           <span
-            className="chflUA"
+            className="iTexxv"
             label="" />
         </li>
         <li
           className="iYfqfc">
           <span
-            className="hUbMKa"
+            className="cpfBRH"
             label="">
             <img
               alt=""
@@ -67,14 +67,14 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="cpyTvm"
+            className="gghIYw"
             label="Site name">
             www.google.com
           </span>
           <span
-            className="gtXVqi"
+            className="cozxmw"
             label="Active subscriptions">
-            <div>
+            <span>
               <span
                 aria-label="Yoast SEO is inactive"
                 className="hGymDt"
@@ -99,16 +99,16 @@ exports[`test the sites component matches the snapshot 1`] = `
                 aria-label="Local SEO for Woo is inactive"
                 className="egmryf"
                 role="img" />
-            </div>
+            </span>
           </span>
           <span
-            className="chflUA"
+            className="iTexxv"
             label="" />
         </li>
         <li
           className="iYfqfc">
           <span
-            className="hUbMKa"
+            className="cpfBRH"
             label="">
             <img
               alt=""
@@ -116,14 +116,14 @@ exports[`test the sites component matches the snapshot 1`] = `
               src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
           </span>
           <span
-            className="cpyTvm"
+            className="gghIYw"
             label="Site name">
             www.facebook.com
           </span>
           <span
-            className="gtXVqi"
+            className="cozxmw"
             label="Active subscriptions">
-            <div>
+            <span>
               <span
                 aria-label="Yoast SEO is inactive"
                 className="hGymDt"
@@ -148,10 +148,10 @@ exports[`test the sites component matches the snapshot 1`] = `
                 aria-label="Local SEO for Woo is inactive"
                 className="egmryf"
                 role="img" />
-            </div>
+            </span>
           </span>
           <span
-            className="chflUA"
+            className="iTexxv"
             label="" />
         </li>
       </ul>

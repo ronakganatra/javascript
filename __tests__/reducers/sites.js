@@ -168,6 +168,32 @@ test( 'the link site success action in the byIdReducer when there is already an 
 	expect( actual ).toEqual( expected );
 } );
 
+test( 'the link site success action doesn\'t include all subscription data', () => {
+	const state = {};
+	const action = {
+		type: LINK_SITE_SUCCESS,
+		site: {
+			"id": "site-id",
+			"subscriptions": [
+				{
+					"id": "subscription-id",
+					"other-data": "some other data",
+				}
+			]
+		}
+	};
+	const expected = {
+		"site-id": {
+			"id": "site-id",
+			"subscriptions": [ "subscription-id" ]
+		}
+	};
+
+	const actual = byIdReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
 test( 'the retrieve sites success action in the byIdReducer', () => {
 	const state = {};
 
@@ -230,6 +256,43 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 
 	expect( actual ).toEqual( expected );
 } );
+
+test( 'the byIdReducers puts only subscription IDs in the state', () => {
+	const action = {
+		type: RETRIEVE_SITES_SUCCESS,
+		sites: [ {
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			"url": "http://yoast.com",
+			"creationDate": "2017-03-21T08:54:09.415Z",
+			"userId": 1,
+			"subscriptions": [
+				{
+					"id": "06775ed4-d5aa-4d23-8ecc-d0f724b88b6f",
+					"productId": "01be14c4-b4f5-4141-8ce6-4f4dac59762d",
+					"startDate": "2017-04-18T15:11:19.000Z",
+					"endDate": "2017-04-18T15:11:19.000Z",
+					"reoccurring": true,
+					"myYoastUserId": 2
+				}
+			]
+		} ],
+	};
+	const state = {};
+	const expected = {
+		"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			"url": "http://yoast.com",
+			"creationDate": "2017-03-21T08:54:09.415Z",
+			"userId": 1,
+			"subscriptions": [ "06775ed4-d5aa-4d23-8ecc-d0f724b88b6f" ],
+		}
+	};
+
+	const actual = byIdReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
 
 test( 'the link site success action in the allIdsReducer', () => {
 	const state = [];

@@ -10,9 +10,13 @@ exports[`test the search component handling an on change 1`] = `
   </label>
   <input
     aria-describedby="searchDescription"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
     className="hhtLuS"
     id="search"
     onChange={[Function]}
+    spellCheck="false"
     type="text"
     value={undefined} />
   <p
@@ -35,9 +39,13 @@ exports[`test the search component handling an on change 2`] = `
   </label>
   <input
     aria-describedby="searchDescription"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
     className="hhtLuS"
     id="search"
     onChange={[Function]}
+    spellCheck="false"
     type="text"
     value={undefined} />
   <p
@@ -60,9 +68,13 @@ exports[`test the search component matches the snapshot 1`] = `
   </label>
   <input
     aria-describedby="searchDescription"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
     className="hhtLuS"
     id="search"
     onChange={[Function]}
+    spellCheck="false"
     type="text"
     value={undefined} />
   <p
