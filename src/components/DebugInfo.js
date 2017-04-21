@@ -4,7 +4,7 @@ import { getUserId, getAccessToken } from "../functions/auth";
 
 let Info = styled.div`
 	position: fixed;
-	top: 10px;
+	bottom: 10px;
 	right: 10px;
 	background: white;
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);

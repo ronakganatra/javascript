@@ -13,6 +13,7 @@ const SubNavigationContainer = styled.ul`
 	text-align: center;
 	margin: auto;
 	list-style-type: none;
+	margin-bottom: 2em;
 `;
 
 const LinkItem = styled( NavLink )`
@@ -24,7 +25,6 @@ const LinkItem = styled( NavLink )`
 		border-bottom: 3px solid ${colors.$color_pink_dark};
 		color: ${colors.$color_pink_dark};
 		font-weight: 400;
-		}
 	}
 `;
 
@@ -43,7 +43,7 @@ export default function SubNavigation( props ) {
 							return match;
 						} );
 						return <li key={ item.title }>
-							<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
+								<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
 							</li>;
 					}
 					) }
@@ -65,7 +65,7 @@ export function SubNavigationItem( props ) {
 	return (
 		<div>
 			{ props.itemRoutes.map( function( route, routeKey ) {
-				return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route exact={true} key={ routeKey } path={ route.path } component={ route.component }/>;
 			}
 			) }
 		</div>
