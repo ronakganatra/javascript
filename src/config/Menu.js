@@ -1,11 +1,11 @@
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import subscriptionsIcon from "../icons/subscriptions.svg";
 import sitesIcon from "../icons/sites.svg";
 import userIcon from "../icons/user.svg";
 import SitesPageContainer from "../containers/SitesPage";
 import SubscriptionsPageContainer from "../containers/SubscriptionsPage";
+import OrdersPageContainer from "../containers/OrdersPage";
 
 const messages = defineMessages( {
 	subscriptionsPageLoaded: {
@@ -15,6 +15,10 @@ const messages = defineMessages( {
 	sitesPageLoaded: {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
+	},
+	orderPageLoaded: {
+		id: "menu.orders.loaded",
+		defaultMessage: "Orders page loaded",
 	},
 	accountPageLoaded: {
 		id: "menu.account.loaded",
@@ -61,9 +65,12 @@ let menuItems = [
 	},
 	{
 		showInMenu: false,
+		path: "/account/orders",
+		component: OrdersPageContainer,
+	},
+	{
+		showInMenu: false,
 		path: "/account/subscriptions",
-		titleKey: "subscriptions",
-		icon: subscriptionsIcon,
 		component: SubscriptionsPageContainer,
 	},
 ];

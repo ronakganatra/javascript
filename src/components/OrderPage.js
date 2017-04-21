@@ -19,7 +19,8 @@ export default function OrderPage( props ) {
 	);
 }
 
-
 OrderPage.propTypes = {
 	searchProps: React.PropTypes.object.isRequired,
+	onClickInvoice: React.PropTypes.func.isRequired,
+	orders: React.PropTypes.array,
 };

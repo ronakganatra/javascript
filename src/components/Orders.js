@@ -15,9 +15,13 @@ export default function Orders( props ) {
 		<Paper>
 			<Table hasHeaderLabels={ true }>
 				{ props.orders.map( ( order ) => {
+					let onInvoiceManager = () => {
+						props.onClickInvoice( order.id );
+					};
+
 					return <Order { ...order }
 								  key={ order.productId }
-								  onClickInvoice={ props.onClickInvoice }
+								  onClickInvoice={ onInvoiceManager }
 					/>;
 				} ) }
 			</Table>
