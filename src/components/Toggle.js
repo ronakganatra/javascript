@@ -86,18 +86,18 @@ class Toggle extends React.Component {
 	 * @returns {void}
 	 */
 	setEnablement( evt ) {
-		// Makes the toggle ationable with the Space bar key.
+		// Makes the toggle actionable with the Space bar key.
 		if ( evt.type === "keydown" && evt.which !== 32 ) {
 			return;
 		}
 
-		this.setState(
-			{
-				isEnabled: ! this.isEnabled(),
-			}
-		);
+		let newState = ! this.isEnabled();
 
-		this.props.onSetEnablement();
+		this.setState( {
+			isEnabled: newState,
+		} );
+
+		this.props.onSetEnablement( newState );
 	}
 }
 

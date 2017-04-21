@@ -155,14 +155,6 @@ class SitesPage extends React.Component {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
 			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
 
-			/*
-			 * Clear the a11ySpeak message so VoiceOver will detect a change in 1 second and always announce the messsage.
-			 *
-			 * There is a problem in VoiceOver in which it will not announce the text if it did not change since the last message.
-			 * Clearing the message and instantly setting it again does not seem to solve the problem.
-			 * Because we can make use of the 1 second de-bounce delay we have a bigger window to play with.
-			 */
-			a11ySpeak( "", "assertive" );
 			this.searchTimer = window.setTimeout( function() {
 				a11ySpeak( message, "assertive" );
 			}, 1000 );

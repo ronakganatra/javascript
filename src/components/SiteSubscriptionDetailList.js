@@ -23,14 +23,13 @@ function SiteSubscriptionDetailList( props ) {
 		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 			<Table headings={ false }>
 				{ props.siteSubscriptions.map( ( subscription ) => {
-					return <SiteSubscriptionDetail { ...subscription }
-						key={ subscription.productId }
+					return <SiteSubscriptionDetail
+						{ ...subscription }
+						key={ subscription.id }
 						onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
 						onMoreInfoClick={ props.onMoreInfoClick }
 						onSettingsClick={ props.onSettingsClick }
 						onToggleSubscription={ props.onToggleSubscription }
-						slots={ subscription.productSlots }
-						productLogo={ subscription.productLogo }
 					/>;
 				} ) }
 			</Table>

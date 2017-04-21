@@ -24,6 +24,7 @@ export default function Subscriptions( props ) {
 						nextBilling={ subscription.nextBilling }
 						billingAmount={ subscription.billingAmount }
 						billingCurrency={ subscription.billingCurrency }
+						onManage={ () => {} }
 					/>;
 				} ) }
 			</Table>
