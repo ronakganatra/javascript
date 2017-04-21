@@ -69,6 +69,10 @@ SearchDescription.defaultProps = {
  * @returns {ReactElement} The rendered html.
  */
 export default function Search( props ) {
+	let changeSearchQuery = ( event ) => {
+		props.onChange( event.target.value );
+	};
+
 	return <div>
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
@@ -78,7 +82,7 @@ export default function Search( props ) {
 			id={ props.id }
 			value={ props.query }
 			aria-describedby={ props.descriptionId }
-			onChange={ props.onChange}
+			onChange={ changeSearchQuery }
 			autoComplete="off"
 			autoCorrect="off"
 			autoCapitalize="off"

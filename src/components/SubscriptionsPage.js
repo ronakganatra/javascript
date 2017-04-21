@@ -31,10 +31,6 @@ class SubscriptionsPage extends React.Component {
 	render() {
 		let props = this.props;
 
-		let changeSearchQuery = ( event ) => {
-			this.props.onSearchChange( event.target.value );
-		};
-
 		return (
 			<div>
 				<Search
@@ -42,7 +38,7 @@ class SubscriptionsPage extends React.Component {
 					description={ this.props.intl.formatMessage( messages.description ) }
 					descriptionId="searchDescription"
 					query={ this.props.query }
-					onChange={ changeSearchQuery }
+					onChange={ this.props.onSearchChange }
 				/>
 				<Subscriptions { ...props } />
 			</div>
