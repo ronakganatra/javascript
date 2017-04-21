@@ -46,17 +46,8 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           125.12
         </span>
         <span
-<<<<<<< HEAD
-          className="chflUA"
-          label="" />
-=======
           className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/3"
-            onClick={[Function]} />
-        </span>
->>>>>>> 9b25606fe25520122ef9ec33f6c565f5adba555b
+          label="" />
       </li>
       <li
         className="fTADJm">
@@ -100,17 +91,8 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           125.12
         </span>
         <span
-<<<<<<< HEAD
-          className="chflUA"
-          label="" />
-=======
           className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/4"
-            onClick={[Function]} />
-        </span>
->>>>>>> 9b25606fe25520122ef9ec33f6c565f5adba555b
+          label="" />
       </li>
     </span>
   </div>

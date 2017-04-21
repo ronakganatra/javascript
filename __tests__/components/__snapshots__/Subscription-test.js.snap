@@ -41,16 +41,7 @@ exports[`test The Subscription component matches the snapshot 1`] = `
     125.12
   </span>
   <span
-<<<<<<< HEAD
-    className="chflUA"
-    label="" />
-=======
     className="iTexxv"
-    label="">
-    <a
-      href="/subscriptions/a"
-      onClick={[Function]} />
-  </span>
->>>>>>> 9b25606fe25520122ef9ec33f6c565f5adba555b
+    label="" />
 </li>
 `;
