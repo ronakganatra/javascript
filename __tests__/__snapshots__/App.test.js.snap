@@ -17,7 +17,7 @@ exports[`test renders without crashing 1`] = `
         alt=""
         className="bfdaAJ"
         size="64px"
-        src="https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=60" />
+        src="https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=128" />
       <div
         className="foqgVb">
         <p
