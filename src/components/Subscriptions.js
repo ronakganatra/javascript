@@ -12,7 +12,7 @@ import Paper from "./Paper";
 export default function Subscriptions( props ) {
 	return (
 		<Paper>
-			<Table role="list">
+			<Table>
 				{ props.subscriptions.map( function( subscription ) {
 					return <Subscription
 						key={ subscription.id }
@@ -25,8 +25,7 @@ export default function Subscriptions( props ) {
 						billingAmount={ subscription.billingAmount }
 						billingCurrency={ subscription.billingCurrency }
 					/>;
-				} )
-				}
+				} ) }
 			</Table>
 		</Paper>
 	);

@@ -197,4 +197,9 @@ Table.propTypes = {
 		React.PropTypes.arrayOf( React.PropTypes.node ),
 		React.PropTypes.node,
 	] ),
+	role: React.PropTypes.string,
+};
+
+Zebra.defaultProps = {
+	role: "list",
 };

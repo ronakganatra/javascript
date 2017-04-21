@@ -36,7 +36,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
       <li
         className="ePzAao">
@@ -165,7 +165,7 @@ exports[`test the sites page component with sites handling a changed search quer
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
       <li
         className="ePzAao">
@@ -260,7 +260,7 @@ exports[`test the sites page component with sites handling a changed search quer
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
       <li
         className="ePzAao">
@@ -355,7 +355,7 @@ exports[`test the sites page component with sites handling an onclick event on t
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
       <li
         className="ePzAao">
@@ -450,7 +450,7 @@ exports[`test the sites page component with sites handling an onclick event on t
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
       <li
         className="ePzAao">

@@ -12,7 +12,7 @@ import Paper from "./Paper";
 function Sites( props ) {
 	return (
 		<Paper>
-			<Table role="list">
+			<Table>
 				{ props.sites.map( function( site ) {
 					let onManageHandler = () => {
 						props.onManage( site.id );
