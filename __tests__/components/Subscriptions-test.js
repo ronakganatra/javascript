@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-import Subscriptions, { subscriptions } from '../../src/components/Subscriptions';
+import Subscriptions from '../../src/components/Subscriptions';
 import { MemoryRouter } from "react-router-dom";
 
 test('The Subscriptions component matches the snapshot', () => {

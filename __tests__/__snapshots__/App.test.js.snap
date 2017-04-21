@@ -25,7 +25,7 @@ exports[`test renders without crashing 1`] = `
           
         </p>
         <button
-          className="jZckzU"
+          className="xjUsf"
           onClick={[Function]}
           type="button">
           Sign out
