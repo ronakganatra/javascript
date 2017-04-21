@@ -5,6 +5,7 @@ import subscriptionsIcon from "../icons/subscriptions.svg";
 import sitesIcon from "../icons/sites.svg";
 import userIcon from "../icons/user.svg";
 import SitesPageContainer from "../containers/SitesPage";
+import SubscriptionsPageContainer from "../containers/SubscriptionsPage";
 
 const messages = defineMessages( {
 	subscriptionsPageLoaded: {
@@ -21,19 +22,6 @@ const messages = defineMessages( {
 	},
 } );
 
-let Subscriptions = React.createClass( {
-	render: function() {
-		return ( <h1>Your subscriptions</h1> );
-	},
-	componentDidMount: function() {
-		let message = this.props.intl.formatMessage( messages.subscriptionsPageLoaded );
-		a11ySpeak( message );
-	},
-	propTypes: {
-		intl: intlShape.isRequired,
-	},
-} );
-
 let Account = React.createClass( {
 	render: function() {
 		return ( <h1>Your account details</h1> );
@@ -47,11 +35,11 @@ let Account = React.createClass( {
 	},
 } );
 
-Subscriptions = injectIntl( Subscriptions );
 Account = injectIntl( Account );
 
 let menuItems = [
 	{
+		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
 		icon: sitesIcon,
@@ -65,16 +53,18 @@ let menuItems = [
 		},
 	},
 	{
-		path: "/subscriptions",
-		titleKey: "subscriptions",
-		icon: subscriptionsIcon,
-		component: Subscriptions,
-	},
-	{
+		showInMenu: true,
 		path: "/account",
 		titleKey: "account",
 		icon: userIcon,
 		component: Account,
+	},
+	{
+		showInMenu: false,
+		path: "/account/subscriptions",
+		titleKey: "subscriptions",
+		icon: subscriptionsIcon,
+		component: SubscriptionsPageContainer,
 	},
 ];
 
