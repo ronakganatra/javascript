@@ -1,10 +1,11 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { Row, ColumnText, Column } from "./Tables";
 import { IconButton } from "./Button";
 import { ChevronButton } from "./RoundButton";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
+import { formatAmount } from "../functions/currency";
 
 const messages = defineMessages( {
 	date: {
@@ -13,7 +14,7 @@ const messages = defineMessages( {
 	},
 	orderNumber: {
 		id: "orders.overview.orderNumber",
-		defaultMessage: "Order number",
+		defaultMessage: "Order",
 	},
 	items: {
 		id: "orders.overview.items",
@@ -41,13 +42,17 @@ const messages = defineMessages( {
   */
 function Order( props ) {
 	return (
-		<Row background={ props.background } >
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.date ) }>{ props.date }</ColumnText>
+		<Row background={ props.background }>
+			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.date ) }>
+				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
+			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
-						label={ props.intl.formatMessage( messages.orderNumber ) } >{ props.orderNumber }</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px"label={ props.intl.formatMessage( messages.items ) } >{ props.items }</ColumnText>
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.total ) } >{ props.total }</ColumnText>
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.status ) } >{ props.status }</ColumnText>
+						label={ props.intl.formatMessage( messages.orderNumber ) }>{ props.orderNumber }</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="150px"label={ props.intl.formatMessage( messages.items ) }>{ props.items }</ColumnText>
+			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.total ) }>
+				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
+			</ColumnText>
+			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
 					<IconButton aria-label={ props.intl.formatMessage( messages.invoice ) }
@@ -66,23 +71,21 @@ function Order( props ) {
 }
 
 Order.propTypes = {
+	date: React.PropTypes.instanceOf( Date ).isRequired,
+	orderNumber: React.PropTypes.string.isRequired,
+	total: React.PropTypes.number.isRequired,
+	currency: React.PropTypes.string.isRequired,
 	onClickInvoice: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	date: React.PropTypes.string,
-	orderNumber: React.PropTypes.string,
 	items: React.PropTypes.string,
-	total: React.PropTypes.string,
 	status: React.PropTypes.string,
 	background: React.PropTypes.string,
 };
 
 Order.defaultProps = {
-	date: "N/A",
-	orderNumber: "N/A",
-	items: "N/A",
-	total: "N/A",
+	items: "",
 	status: "N/A",
-	background: "none",
+	background: "",
 };
 
 export default injectIntl( Order );
