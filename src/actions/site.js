@@ -28,11 +28,11 @@ export function siteToggleSubscriptionRequest() {
 }
 
 /**
- * asfd
+ * An action creator for the site add subscription success action.
  *
- * @param {Object} siteId as
- * @param {Object} subscriptionId adf
- * @returns {Object}}
+ * @param {string} siteId The site ID which had a subscription connected.
+ * @param {string} subscriptionId The subscription which was connected.
+ * @returns {Object} An add subscription success action.
  */
 export function siteAddSubscriptionSuccess( siteId, subscriptionId ) {
 	return {
@@ -43,11 +43,11 @@ export function siteAddSubscriptionSuccess( siteId, subscriptionId ) {
 }
 
 /**
- * asfd
+ * An action creator for the site remove subscription success action.
  *
- * @param {Object} siteId as
- * @param {Object} subscriptionId adf
- * @returns {Object}}
+ * @param {string} siteId The site ID which had a subscription connected.
+ * @param {string} subscriptionId The subscription which was connected.
+ * @returns {Object} An remove subscription success action.
  */
 export function siteRemoveSubscriptionSuccess( siteId, subscriptionId ) {
 	return {
