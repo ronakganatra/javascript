@@ -10,11 +10,13 @@ exports[`test The Orders component matches the snapshot 1`] = `
         <span
           className="iEQIhL"
           label="Date">
-          17-01-2010
+          <span>
+            May 20, 2012
+          </span>
         </span>
         <span
-          className="kobEXB"
-          label="Order number">
+          className="cydKsm"
+          label="Order">
           MOOIE 123 TEST
         </span>
         <span
@@ -25,69 +27,9 @@ exports[`test The Orders component matches the snapshot 1`] = `
         <span
           className="iMMwZr"
           label="Total">
-          $centjes
-        </span>
-        <span
-          className="fkNUbp"
-          label="Status">
-          Failed
-        </span>
-        <span
-          className="iTexxv"
-          label="" />
-      </li>
-      <li
-        className="fTADJm">
-        <span
-          className="iEQIhL"
-          label="Date">
-          17-01-2012
-        </span>
-        <span
-          className="kobEXB"
-          label="Order number">
-          MOOIE 456 TEST
-        </span>
-        <span
-          className="kiPHFq"
-          label="Items">
-          TEST ITEM
-        </span>
-        <span
-          className="iMMwZr"
-          label="Total">
-          Ycentjes
-        </span>
-        <span
-          className="fkNUbp"
-          label="Status">
-          Failed
-        </span>
-        <span
-          className="iTexxv"
-          label="" />
-      </li>
-      <li
-        className="gSUJps">
-        <span
-          className="iEQIhL"
-          label="Date">
-          17-01-2017
-        </span>
-        <span
-          className="kobEXB"
-          label="Order number">
-          MOOIE 789 TEST
-        </span>
-        <span
-          className="kiPHFq"
-          label="Items">
-          TEST ITEM
-        </span>
-        <span
-          className="iMMwZr"
-          label="Total">
-          €centjes
+          <span>
+            €100.10
+          </span>
         </span>
         <span
           className="fkNUbp"
