@@ -39,25 +39,25 @@ const messages = defineMessages( {
  *
  * @param {Object} props Properties to be passed to the table.
  * @returns {ReactElement} A row of order stuff.
-  */
+ */
 function Order( props ) {
 	return (
 		<Row background={ props.background }>
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.date ) }>
+			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
-						label={ props.intl.formatMessage( messages.orderNumber ) }>{ props.orderNumber }</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px"label={ props.intl.formatMessage( messages.items ) }>{ props.items }</ColumnText>
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.total ) }>
+						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>{ props.orderNumber }</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>{ props.items }</ColumnText>
+			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
+			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
 					<IconButton aria-label={ props.intl.formatMessage( messages.invoice ) }
 								onClick={ props.onClickInvoice }
-								icon={downloadIcon} >
+								icon={ downloadIcon }>
 						{ props.intl.formatMessage( messages.invoice ) }
 					</IconButton>
 				</MediaQuery>

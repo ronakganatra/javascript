@@ -219,6 +219,128 @@ exports[`test renders without crashing 1`] = `
         </g>
       </svg>
       <div />
+      <div>
+        <div>
+          <label
+            className="bFGhCT"
+            htmlFor="orderSearchBar">
+            <span
+              className="screen-reader-text foqgVb">
+              Search
+            </span>
+          </label>
+          <input
+            aria-describedby="I am an order search bar id"
+            autoCapitalize="off"
+            autoComplete="off"
+            autoCorrect="off"
+            className="hhtLuS"
+            id="orderSearchBar"
+            onChange={[Function]}
+            spellCheck="false"
+            type="text"
+            value={undefined} />
+          <p
+            className="screen-reader-text foqgVb"
+            id="I am an order search bar id">
+            I am an order search bar
+          </p>
+        </div>
+        <div
+          className="dnTGWH">
+          <ul
+            className="jplRhE"
+            role="list">
+            <li
+              className="ePzAao">
+              <span
+                className="ihJNsh">
+                <span>
+                  May 20, 2012
+                </span>
+              </span>
+              <span
+                className="igKvAR">
+                MOOIE 123 TEST
+              </span>
+              <span
+                className="dKSGyu">
+                TEST ITEM
+              </span>
+              <span
+                className="eSGqFF">
+                <span>
+                  €100.10
+                </span>
+              </span>
+              <span
+                className="sPQzX">
+                Failed
+              </span>
+              <span
+                className="emvmXy" />
+            </li>
+            <li
+              className="jJQwzi">
+              <span
+                className="ihJNsh">
+                <span>
+                  April 4, 2012
+                </span>
+              </span>
+              <span
+                className="igKvAR">
+                MOOIE 456 TEST
+              </span>
+              <span
+                className="dKSGyu">
+                TEST ITEM
+              </span>
+              <span
+                className="eSGqFF">
+                <span>
+                  $400.10
+                </span>
+              </span>
+              <span
+                className="sPQzX">
+                Failed
+              </span>
+              <span
+                className="emvmXy" />
+            </li>
+            <li
+              className="ePzAao">
+              <span
+                className="ihJNsh">
+                <span>
+                  January 17, 2017
+                </span>
+              </span>
+              <span
+                className="igKvAR">
+                MOOIE 789 TEST
+              </span>
+              <span
+                className="dKSGyu">
+                TEST ITEM
+              </span>
+              <span
+                className="eSGqFF">
+                <span>
+                  $120.00
+                </span>
+              </span>
+              <span
+                className="sPQzX">
+                Failed
+              </span>
+              <span
+                className="emvmXy" />
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </main>
 </div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Order from "./Order";
-import { Table, Zebra } from "./Tables";
+import { Table } from "./Tables";
 import Paper from "./Paper";
 
 /**
@@ -12,18 +12,16 @@ import Paper from "./Paper";
  */
 export default function Orders( props ) {
 	return (
-		<Table headings={true} role="list">
-			<Paper>
-				<Zebra>
-					{ props.orders.map( ( order ) => {
-						return <Order { ...order }
-									  key={ order.productId }
-									  onClickInvoice={ props.onClickInvoice }
-						/>;
-					} ) }
-				</Zebra>
-			</Paper>
-		</Table>
+		<Paper>
+			<Table hasHeaderLabels={ true }>
+				{ props.orders.map( ( order ) => {
+					return <Order { ...order }
+								  key={ order.productId }
+								  onClickInvoice={ props.onClickInvoice }
+					/>;
+				} ) }
+			</Table>
+		</Paper>
 	);
 }
 

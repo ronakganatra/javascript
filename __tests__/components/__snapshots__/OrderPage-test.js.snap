@@ -26,49 +26,41 @@ exports[`test The Orders component matches the snapshot 1`] = `
       I am an order search bar
     </p>
   </div>
-  <ul
-    className="jplRhE"
-    role="list">
-    <div
-      className="dnTGWH">
-      <ul
-        className="jplRhE">
-        <li
-          className="jxyqOz">
-          <span
-            className="liTrAd"
-            label="Date">
-            <span>
-              May 20, 2012
-            </span>
+  <div
+    className="dnTGWH">
+    <ul
+      className="jplRhE"
+      role="list">
+      <li
+        className="ePzAao">
+        <span
+          className="ihJNsh">
+          <span>
+            May 20, 2012
           </span>
-          <span
-            className="hzvoQd"
-            label="Order">
-            MOOIE 123 TEST
+        </span>
+        <span
+          className="igKvAR">
+          MOOIE 123 TEST
+        </span>
+        <span
+          className="dKSGyu">
+          TEST ITEM
+        </span>
+        <span
+          className="eSGqFF">
+          <span>
+            €100.10
           </span>
-          <span
-            className="dNIIDN"
-            label="Items">
-            TEST ITEM
-          </span>
-          <span
-            className="liTrAd"
-            label="Total">
-            <span>
-              €100.10
-            </span>
-          </span>
-          <span
-            className="liTrAd"
-            label="Status">
-            Failed
-          </span>
-          <span
-            className="emvmXy" />
-        </li>
-      </ul>
-    </div>
-  </ul>
+        </span>
+        <span
+          className="sPQzX">
+          Failed
+        </span>
+        <span
+          className="emvmXy" />
+      </li>
+    </ul>
+  </div>
 </div>
 `;
