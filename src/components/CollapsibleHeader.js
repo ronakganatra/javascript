@@ -12,7 +12,7 @@ const CollapsibleHeader = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 30px 40px;
+	padding: 16px 40px;
 	border: none;
 	background-color: ${ colors.$color_white };
 	cursor: pointer;

@@ -3,13 +3,12 @@ exports[`test the site subscription detail list component matches the snapshot 1
   className="kfRyEM">
   <button
     aria-expanded={true}
-    className="cGVFei"
+    className="hZuiiC"
     onClick={[Function]}>
     <span>
       Manage subscriptions
     </span>
     <svg
-      aria-hidden="true"
       fill="#555"
       height={40}
       viewBox="0 0 24 24"
