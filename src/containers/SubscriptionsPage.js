@@ -26,7 +26,7 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
-			return subscription.name.includes( query );
+			return subscription.name.toUpperCase().includes( query.toUpperCase() ) || subscription.max.toString() === query || subscription.used.toString() === query;
 		} );
 	}
 
@@ -38,7 +38,7 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		changeSearchQuery: ( query ) => {
+		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
 		onManage: ( subscriptionId ) => {
