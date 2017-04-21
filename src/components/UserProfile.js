@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
+import UserImage from "../components/UserImage";
 import colors from "yoast-components/style-guide/colors.json";
 
 const UserInfoContainer = styled.aside`
@@ -8,23 +9,6 @@ const UserInfoContainer = styled.aside`
 	margin-left: 50px;
 	padding-bottom: 60px;
 `;
-
-const UserImage = styled.img`
-	flex: 0 0 ${ props => props.size };
-	height: ${ props => props.size };
-	border-radius: 50%;
-	margin-right: 12px;
-`;
-
-UserImage.propTypes = {
-	size: React.PropTypes.string.isRequired,
-	src: React.PropTypes.string.isRequired,
-	alt: React.PropTypes.string,
-};
-
-UserImage.defaultProps = {
-	alt: "",
-};
 
 const UserInfo = styled.div`
 `;
