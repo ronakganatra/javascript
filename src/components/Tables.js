@@ -200,6 +200,6 @@ Table.propTypes = {
 	role: React.PropTypes.string,
 };
 
-Zebra.defaultProps = {
+Table.defaultProps = {
 	role: "list",
 };
