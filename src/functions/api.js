@@ -34,7 +34,8 @@ export function handle401( response ) {
  *
  */
 export function verifyStatusCode( response ) {
-	if ( response.status !== 200 ) {
+	// The server returns a 204 with DELETE responses.
+	if ( response.status !== 200 && response.status !== 204 ) {
 		throw new Error( response.json().error.message );
 	}
 

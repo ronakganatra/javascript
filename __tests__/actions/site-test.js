@@ -5,11 +5,10 @@ jest.mock( "whatwg-fetch" );
 
 test( 'site add subscription action creator', () => {
 	const expected = {
-		type: actions.SITE_ADD_SUBSCRIPTION_REQUEST,
-		addingSubscription: true,
+		type: actions.SITE_TOGGLE_SUBSCRIPTION_REQUEST
 	};
 
-	const actual = actions.siteAddSubscriptionRequest( );
+	const actual = actions.siteToggleSubscriptionRequest( );
 
 	expect( actual ).toEqual( expected );
 } );
@@ -17,20 +16,11 @@ test( 'site add subscription action creator', () => {
 test( 'site add subscription success creator', () => {
 	const expected = {
 		type: actions.SITE_ADD_SUBSCRIPTION_SUCCESS,
-		addingSubscription: false,
-		active: {
-			"siteId": "string",
-			"subscriptionId": "string",
-			"id": 8
-		},
-	};
-	const input = {
-		"siteId": "string",
-		"subscriptionId": "string",
-		"id": 8
+		siteId: "siteId",
+		subscriptionId: "subscriptionId",
 	};
 
-	const actual = actions.siteAddSubscriptionSuccess( input );
+	const actual = actions.siteAddSubscriptionSuccess( "siteId", "subscriptionId" );
 
 	expect( actual ).toEqual( expected );
 } );
@@ -38,13 +28,12 @@ test( 'site add subscription success creator', () => {
 
 test( 'site add subscription failure creator', () => {
 	const expected = {
-		type: actions.SITE_ADD_SUBSCRIPTION_FAILURE,
+		type: actions.SITE_TOGGLE_SUBSCRIPTION_FAILURE,
 		addingSubscriptionError: "Authorization Required",
-		addingSubscription: false,
 	};
 	const input = "Authorization Required";
 
-	const actual = actions.siteAddSubscriptionFailure( input );
+	const actual = actions.siteToggleSubscriptionFailure( input );
 
 	expect( actual ).toEqual( expected );
 } );
@@ -71,8 +60,8 @@ test( 'site add subscription action creator with success', () => {
 		return Promise.resolve( {
 			status: 200,
 			json: () => { return {
-				"siteId": "string",
-				"subscriptionId": "string",
+				"siteId": "siteId",
+				"subscriptionId": "subscriptionId",
 				"id": 8
 			} },
 		} );
@@ -84,15 +73,9 @@ test( 'site add subscription action creator with success', () => {
 
 	expect( siteAddSubscriptionFunc ).toBeInstanceOf( Function );
 
-	let subscription = {
-		"siteId": "string",
-		"subscriptionId": "string",
-		"id": 8
-	};
-
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.siteAddSubscriptionSuccess( subscription ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteAddSubscriptionSuccess( siteId, subscriptionId ) );
 	} );
 } );
 
@@ -118,6 +101,6 @@ test( 'site add subscription action creator with failure', () => {
 
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.siteAddSubscriptionFailure( "Duplicate entry for Subscription.id" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Duplicate entry for Subscription.id" ) );
 	} );
 } );

@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { updateSiteUrl } from "../actions/sites";
+import { siteAddSubscription, siteRemoveSubscription } from "../actions/site";
 import SitePage from "../components/SitePage";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -19,19 +20,44 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
 	} );
 
+	subscriptions = subscriptions.map( ( subscription ) => {
+		return Object.assign(
+			{},
+			{
+				slots: {
+					amountAvailable: 1,
+					amountUsed: 0,
+					addMoreSlots: "hi",
+				},
+			},
+			subscription,
+			{
+				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
+			}
+		);
+	} );
+
 	return {
 		site,
 		subscriptions,
-		loadingSubscriptions: state.ui.site.subscriptions.retrievingSiteSubscriptions,
+		loadingSubscriptions: state.ui.subscriptions.requesting,
 	};
 };
 
-export const mapDispatchToProps = ( dispatch ) => {
+export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	let siteId = ownProps.match.params.id;
+
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
 		onAddMoreSlotsClick: () => {},
-		onToggleSubscription: () => {},
+		onToggleSubscription: ( subscriptionId, enabled ) => {
+			if ( enabled ) {
+				dispatch( siteAddSubscription( siteId, subscriptionId ) );
+			} else {
+				dispatch( siteRemoveSubscription( siteId, subscriptionId ) );
+			}
+		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
 		},

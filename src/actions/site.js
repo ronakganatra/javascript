@@ -6,9 +6,11 @@ import { getAccessToken } from "../functions/auth";
  * Action types
  */
 
-export const SITE_ADD_SUBSCRIPTION_REQUEST = "SITE_ADD_SUBSCRIPTION_REQUEST";
+export const SITE_TOGGLE_SUBSCRIPTION_REQUEST = "SITE_TOGGLE_SUBSCRIPTION_REQUEST";
+export const SITE_TOGGLE_SUBSCRIPTION_FAILURE = "SITE_TOGGLE_SUBSCRIPTION_FAILURE";
+
 export const SITE_ADD_SUBSCRIPTION_SUCCESS = "SITE_ADD_SUBSCRIPTION_SUCCESS";
-export const SITE_ADD_SUBSCRIPTION_FAILURE = "SITE_ADD_SUBSCRIPTION_FAILURE";
+export const SITE_REMOVE_SUBSCRIPTION_SUCCESS = "SITE_REMOVE_SUBSCRIPTION_SUCCESS";
 
 /**
  * Action creators
@@ -19,25 +21,39 @@ export const SITE_ADD_SUBSCRIPTION_FAILURE = "SITE_ADD_SUBSCRIPTION_FAILURE";
  *
  * @returns {Object} An add subscription request action.
  */
-export function siteAddSubscriptionRequest() {
+export function siteToggleSubscriptionRequest() {
 	return {
-		type: SITE_ADD_SUBSCRIPTION_REQUEST,
-		addingSubscription: true,
+		type: SITE_TOGGLE_SUBSCRIPTION_REQUEST,
 	};
 }
 
 /**
- * An action creator for the site add subscription success action.
+ * asfd
  *
- * @param {Object} subscriptions The subscriptions object.
- *
- * @returns {Object} An add subscription success action.
+ * @param {Object} siteId as
+ * @param {Object} subscriptionId adf
+ * @returns {Object}}
  */
-export function siteAddSubscriptionSuccess( subscriptions ) {
+export function siteAddSubscriptionSuccess( siteId, subscriptionId ) {
 	return {
 		type: SITE_ADD_SUBSCRIPTION_SUCCESS,
-		active: subscriptions,
-		addingSubscription: false,
+		siteId,
+		subscriptionId,
+	};
+}
+
+/**
+ * asfd
+ *
+ * @param {Object} siteId as
+ * @param {Object} subscriptionId adf
+ * @returns {Object}}
+ */
+export function siteRemoveSubscriptionSuccess( siteId, subscriptionId ) {
+	return {
+		type: SITE_REMOVE_SUBSCRIPTION_SUCCESS,
+		siteId,
+		subscriptionId,
 	};
 }
 
@@ -48,11 +64,10 @@ export function siteAddSubscriptionSuccess( subscriptions ) {
  *
  * @returns {Object} An add subscription failure action.
  */
-export function siteAddSubscriptionFailure( errorText ) {
+export function siteToggleSubscriptionFailure( errorText ) {
 	return {
-		type: SITE_ADD_SUBSCRIPTION_FAILURE,
+		type: SITE_TOGGLE_SUBSCRIPTION_FAILURE,
 		addingSubscriptionError: errorText,
-		addingSubscription: false,
 	};
 }
 
@@ -66,7 +81,7 @@ export function siteAddSubscriptionFailure( errorText ) {
  */
 export function siteAddSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
-		dispatch( siteAddSubscriptionRequest() );
+		dispatch( siteToggleSubscriptionRequest() );
 
 		let apiUrl = getApiUrl();
 		let accessToken = getAccessToken();
@@ -82,9 +97,43 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 			.then( handle401 )
 			.then( verifyStatusCode )
 			.then( response => response.json() )
-			.then( json => dispatch( siteAddSubscriptionSuccess( json ) ) )
+			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
 			.catch( ( error ) => {
-				dispatch( siteAddSubscriptionFailure( error.message ) );
+				dispatch( siteToggleSubscriptionFailure( error.message ) );
+			} );
+	};
+}
+
+/**
+ * An action creator for the site add subscription action.
+ *
+ * @param {string} siteId The id of the site for which the subscription is trying to be added.
+ * @param {string} subscriptionId The subscription trying to be added.
+ *
+ * @returns {Object} A site add subscription request action.
+ */
+export function siteRemoveSubscription( siteId, subscriptionId ) {
+	return ( dispatch ) => {
+		dispatch( siteToggleSubscriptionRequest() );
+
+		let apiUrl = getApiUrl();
+		let accessToken = getAccessToken();
+
+		let request = new Request( `${apiUrl}/Sites/${siteId}/subscriptions/rel/${subscriptionId}/?access_token=${accessToken}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
+			.then( handle401 )
+			.then( verifyStatusCode )
+			.then( () => {
+				dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
+			} )
+			.catch( ( error ) => {
+				dispatch( siteToggleSubscriptionFailure( error.json().message ) );
 			} );
 	};
 }

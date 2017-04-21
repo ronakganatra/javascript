@@ -16,7 +16,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 					endDate: "2017-04-11T00:00:00.000Z",
 					reoccurring: true,
 					myYoastUserId: 2,
-					productSlots: {
+					slots: {
 						amountAvailable: 10,
 						amountUsed: 5,
 						addMoreSlots: "Add more slots",
@@ -30,7 +30,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 					endDate: "2017-04-11T00:00:00.000Z",
 					reoccurring: true,
 					myYoastUserId: 2,
-					productSlots: {
+					slots: {
 						amountAvailable: 10,
 						amountUsed: 7,
 						addMoreSlots: "Add more slots",

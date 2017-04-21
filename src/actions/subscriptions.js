@@ -5,9 +5,6 @@ import { getAccessToken, getUserId } from "../functions/auth";
 /*
  * Action types
  */
-export const GET_SITE_SUBSCRIPTIONS_REQUEST = "GET_SITE_SUBSCRIPTIONS_REQUEST";
-export const GET_SITE_SUBSCRIPTIONS_SUCCESS = "GET_SITE_SUBSCRIPTIONS_SUCCESS";
-export const GET_SITE_SUBSCRIPTIONS_FAILURE = "GET_SITE_SUBSCRIPTIONS_FAILURE";
 
 export const GET_ALL_SUBSCRIPTIONS_REQUEST = "GET_ALL_SUBSCRIPTIONS_REQUEST";
 export const GET_ALL_SUBSCRIPTIONS_SUCCESS = "GET_ALL_SUBSCRIPTIONS_SUCCESS";
@@ -16,66 +13,6 @@ export const GET_ALL_SUBSCRIPTIONS_FAILURE = "GET_ALL_SUBSCRIPTIONS_FAILURE";
 /*
  * Action creators
  */
-
-/**
- * An action creator for the get site subscriptions request action.
- *
- * @returns {Object} An get site subscriptions request action.
- */
-export function getSiteSubscriptionsRequest() {
-	return {
-		type: GET_SITE_SUBSCRIPTIONS_REQUEST,
-	};
-}
-
-/**
- * An action creator for the get site subscriptions success action.
- * @param {Object} json The subscriptions json object
- * @returns {Object} A get site subscriptions success action.
- */
-export function getSiteSubscriptionsSuccess( json ) {
-	return {
-		type: GET_SITE_SUBSCRIPTIONS_SUCCESS,
-		subscriptions: json,
-	};
-}
-
-/**
- * An action creator for the get site subscriptions failure action.
- *
- * @param {string} errorMessage The error message to send.
- *
- * @returns {Object} A get site subscriptions failure action.
- */
-export function getSiteSubscriptionsFailure( errorMessage ) {
-	return {
-		type: GET_SITE_SUBSCRIPTIONS_FAILURE,
-		getSiteSubscriptionsError: errorMessage,
-	};
-}
-
-/**
- * An action creator for the get site subscriptions action.
- *
- * @param {string} siteId The ID of the site to retrieve subscriptions for.
- * @returns {Object} A link site request action.
- */
-export function getSiteSubscriptions( siteId ) {
-	return ( dispatch ) => {
-		dispatch( getSiteSubscriptionsRequest() );
-
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
-
-		return fetch( `${apiUrl}/Sites/${siteId}/subscriptions?access_token=${accessToken}` )
-			.then( handle401 )
-			.then( response => response.json() )
-			.then( json => dispatch( getSiteSubscriptionsSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( getSiteSubscriptionsFailure( error.message ) );
-			} );
-	};
-}
 
 /**
  * An action creator for the get all subscriptions request action.
