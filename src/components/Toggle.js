@@ -49,8 +49,6 @@ class Toggle extends React.Component {
 
 		this.setEnablement = this.setEnablement.bind( this );
 
-		console.log( props.isEnabled );
-
 		this.state = {
 			isEnabled: this.props.isEnabled,
 		};

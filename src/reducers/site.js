@@ -1,4 +1,4 @@
-import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_TOGGLE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE } from "../actions/site";
+import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE } from "../actions/site";
 
 /**
  * Initial state
@@ -33,7 +33,8 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 				toggling: true,
 				error: "",
 			} );
-		case SITE_TOGGLE_SUBSCRIPTION_SUCCESS:
+		case SITE_ADD_SUBSCRIPTION_SUCCESS:
+		case SITE_REMOVE_SUBSCRIPTION_SUCCESS:
 			return Object.assign( {}, state, {
 				toggling: false,
 			} );

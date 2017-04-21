@@ -21,15 +21,20 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	subscriptions = subscriptions.map( ( subscription ) => {
-		return Object.assign( {}, subscription, {
-			isEnabled: site.subscriptions.includes( subscription.id ),
-			slots: {
-				amountAvailable: 1,
-				amountUsed: 0,
-				addMoreSlots: "hi",
+		return Object.assign(
+			{},
+			{
+				slots: {
+					amountAvailable: 1,
+					amountUsed: 0,
+					addMoreSlots: "hi",
+				},
 			},
-			productLogo: "an-image",
-		} );
+			subscription,
+			{
+				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
+			}
+		);
 	} );
 
 	return {

@@ -26,7 +26,7 @@ test('the mapStateToProps function', () => {
 							endDate: "2017-04-12T00:00:00.000Z",
 							reoccurring: true,
 							myYoastUserId: 2,
-							productSlots: {
+							slots: {
 								amountAvailable: 11,
 								amountUsed: 5,
 								addMoreSlots: "Add more slots",
@@ -41,10 +41,8 @@ test('the mapStateToProps function', () => {
 				location: "sites/497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			},
 			ui: {
-				site: {
-					subscriptions: {
-						retrievingSiteSubscriptions: false,
-					},
+				subscriptions: {
+					requesting: false,
 				},
 			},
 	};
@@ -71,12 +69,13 @@ test('the mapStateToProps function', () => {
 			endDate: "2017-04-12T00:00:00.000Z",
 			reoccurring: true,
 			myYoastUserId: 2,
-			productSlots: {
+			slots: {
 				amountAvailable: 11,
 				amountUsed: 5,
 				addMoreSlots: "Add more slots",
 			},
 			productLogo: "http://icons.iconarchive.com/icons/yellowicon/game-stars/256/Mario-icon.png",
+			isEnabled: false,
 		} ],
 		loadingSubscriptions: false,
 	};
