@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 import { createComponentWithIntl } from "../../utils";
 import { MemoryRouter } from "react-router-dom";
-import Order from '../../src/components/Order';
+import Order from "../../src/components/Order";
 
-test('The Order component matches the snapshot', () => {
-
+test( "The Order component matches the snapshot", () => {
 	let order =
 		{
-			productId: "2",
-			date: "17-01-2012",
+			date: new Date( "01/01/2012" ),
 			orderNumber: "MOOIE 456 TEST",
 			items: "TEST ITEM",
-			total: "Ycentjes",
+			total: 10000,
+			currency: "USD",
 			status: "Failed",
 		};
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<Order id="a"
-				   order={ order }
-				   onClickInvoice={ ()=>{} }
+			<Order
+				id="a"
+				onClickInvoice={ () => {} }
+				{ ...order }
 			/>
 		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
+	expect( tree ).toMatchSnapshot();
+} );
