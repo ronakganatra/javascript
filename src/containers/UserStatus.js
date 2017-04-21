@@ -14,7 +14,7 @@ const mapDispatchToProps = ( dispatch ) => {
 		onLogoutClick: () => {
 			dispatch( logout() );
 		},
-		displayImage: { src: "https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=60", size: "64px" },
+		displayImage: { src: "https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=128", size: "64px" },
 	};
 };
 
