@@ -16,18 +16,18 @@ const messages = defineMessages( {
 } );
 
 /**
- * Returns the rendered PageSubscriptions component.
+ * Returns the rendered SubscriptionsPage component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered PageSubscriptions component.
+ * @returns {ReactElement} The rendered SubscriptionsPage component.
  */
-class PageSubscriptions extends React.Component {
-
+class SubscriptionsPage extends React.Component {
 	componentDidMount() {
 		let message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
 		a11ySpeak( message );
 	}
+
 	render() {
 		let props = this.props;
 		return (
@@ -36,8 +36,7 @@ class PageSubscriptions extends React.Component {
 					id="search"
 					description={ this.props.intl.formatMessage( messages.description ) }
 					descriptionId="searchDescription"
-					query={ this.props.query } onChange={ () => {}
-					}
+					query={ this.props.query } onChange={ () => {} }
 				/>
 				<Subscriptions { ...props } />
 			</div>
@@ -45,10 +44,9 @@ class PageSubscriptions extends React.Component {
 	}
 }
 
-export default injectIntl( PageSubscriptions );
-
-PageSubscriptions.propTypes = {
+SubscriptionsPage.propTypes = {
 	intl: intlShape.isRequired,
 	query: React.PropTypes.string,
 };
 
+export default injectIntl( SubscriptionsPage );
