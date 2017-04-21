@@ -1,5 +1,5 @@
 exports[`test the subscription component matches the snapshot 1`] = `
-<div>
+<span>
   <span
     aria-label="Yoast SEO is inactive"
     className="hGymDt"
@@ -24,11 +24,11 @@ exports[`test the subscription component matches the snapshot 1`] = `
     aria-label="Local SEO for Woo is inactive"
     className="egmryf"
     role="img" />
-</div>
+</span>
 `;
 
 exports[`test the subscription component without active subscriptions using the default matches the snapshot 1`] = `
-<div>
+<span>
   <span
     aria-label="Yoast SEO is inactive"
     className="hGymDt"
@@ -53,5 +53,5 @@ exports[`test the subscription component without active subscriptions using the 
     aria-label="Local SEO for Woo is inactive"
     className="egmryf"
     role="img" />
-</div>
+</span>
 `;

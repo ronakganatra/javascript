@@ -59,7 +59,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -84,7 +84,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -195,7 +195,7 @@ exports[`test the sites page component with sites handling a changed search quer
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -220,7 +220,7 @@ exports[`test the sites page component with sites handling a changed search quer
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -297,7 +297,7 @@ exports[`test the sites page component with sites handling a changed search quer
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -322,7 +322,7 @@ exports[`test the sites page component with sites handling a changed search quer
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -399,7 +399,7 @@ exports[`test the sites page component with sites handling an onclick event on t
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -424,7 +424,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -501,7 +501,7 @@ exports[`test the sites page component with sites handling an onclick event on t
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -526,7 +526,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
