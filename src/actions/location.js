@@ -14,6 +14,8 @@ export default function locationChange( location ) {
 		case "/":
 		case "/sites":
 			return retrieveSites();
+		case "/account/subscriptions":
+			return getAllSubscriptions();
 		default:
 			matches = location.pathname.match( /\/sites\/([^/]+)/ );
 
