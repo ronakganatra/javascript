@@ -47,18 +47,10 @@ const messages = defineMessages( {
  * @constructor
  */
 function Subscription( props ) {
-	let rowProps = Object.assign( {}, props );
-
-	// Possibly prettify this.
-	delete rowProps.id;
-	delete rowProps.name;
-	delete rowProps.icon;
-	delete rowProps.used;
-	delete rowProps.max;
-	delete rowProps.nextBilling;
-	delete rowProps.billingCurrency;
-	delete rowProps.billingAmount;
-	delete rowProps.onManage;
+	let rowProps = [];
+	if ( props.background ) {
+		rowProps.background = props.background;
+	}
 
 	return (
 		<Row key={ props.id } { ...rowProps }>

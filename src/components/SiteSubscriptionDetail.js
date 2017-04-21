@@ -139,7 +139,7 @@ export default function SiteSubscriptionDetail( props ) {
 	}
 
 	return (
-		<Row {...rowProps}>
+		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
 				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>
