@@ -8,7 +8,7 @@ import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from 
 import _union from "lodash/union";
 import _isUndefined from "lodash/isUndefined";
 import _remove from "lodash/remove";
-import reducerReducers from "reduce-reducers";
+import reduceReducers from "reduce-reducers";
 
 const rootState = {
 	entities: {
@@ -144,7 +144,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 	}
 }
 
-let uiSites = reducerReducers( linkReducer, retrieveSitesReducer, popupReducer );
+let uiSites = reduceReducers( linkReducer, retrieveSitesReducer, popupReducer );
 
 /**
  * A reducer for the sites object within the ui object.
