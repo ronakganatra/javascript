@@ -30,13 +30,19 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let props = this.props;
+
+		let changeSearchQuery = ( event ) => {
+			this.props.onSearchChange( event.target.value );
+		};
+
 		return (
 			<div>
 				<Search
 					id="search"
 					description={ this.props.intl.formatMessage( messages.description ) }
 					descriptionId="searchDescription"
-					query={ this.props.query } onChange={ () => {} }
+					query={ this.props.query }
+					onChange={ changeSearchQuery }
 				/>
 				<Subscriptions { ...props } />
 			</div>
@@ -45,6 +51,7 @@ class SubscriptionsPage extends React.Component {
 }
 
 SubscriptionsPage.propTypes = {
+	onSearchChange: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	query: React.PropTypes.string,
 };
