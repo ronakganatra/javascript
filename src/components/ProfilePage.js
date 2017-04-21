@@ -310,7 +310,7 @@ class ProfilePage extends React.Component {
 		this.setState( { email: event.target.value }, callback );
 
 		// Debounce unique-address check.
-		// onBlur -> cancel debounce and do it.
+		// E.a. onBlur -> cancel debounce and do it.
 	}
 
 	/**
