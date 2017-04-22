@@ -99,13 +99,13 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 2em 1em;
+		padding: 2em 2em 0;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
 		
-		@media screen and ( max-width: 800px ) {
-			padding: 1em 0;
+		@media screen and ( max-width: 600px ) {
+			padding: 1.5em 1.5em 0;
 		}
 		
 		@media screen and ( max-width: 500px ) {
