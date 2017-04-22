@@ -1,11 +1,12 @@
 exports[`test the subnavigation component matches the snapshot 1`] = `
 <div>
   <ul
-    className="hKVxOR"
+    className="cEioFr"
     role="list">
-    <li>
+    <li
+      className="hjndSk">
       <a
-        className="imCfsc"
+        className="dnnYuj"
         href="/account/subscriptions"
         onClick={[Function]}
         style={undefined}>
@@ -14,9 +15,10 @@ exports[`test the subnavigation component matches the snapshot 1`] = `
          
       </a>
     </li>
-    <li>
+    <li
+      className="hjndSk">
       <a
-        className="imCfsc"
+        className="dnnYuj"
         href="/account/orders"
         onClick={[Function]}
         style={undefined}>
@@ -25,9 +27,10 @@ exports[`test the subnavigation component matches the snapshot 1`] = `
          
       </a>
     </li>
-    <li>
+    <li
+      className="hjndSk">
       <a
-        className="imCfsc"
+        className="dnnYuj"
         href="/account/profile"
         onClick={[Function]}
         style={undefined}>

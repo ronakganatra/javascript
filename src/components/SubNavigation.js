@@ -22,8 +22,8 @@ const SubNavigationEntry = styled.li`
 	min-width: 200px;
 `;
 
-
 const LinkItem = styled( NavLink )`
+	display: block;
 	text-decoration: none;
 	padding: 0.5em 2.5em;
 	color: ${ colors.$color_grey_dark };
@@ -57,7 +57,7 @@ export default function SubNavigation( props ) {
 							return match;
 						} );
 						return <SubNavigationEntry key={ item.title }>
-								<LinkItem style={ { display: "block" } } activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
+								<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
 							</SubNavigationEntry>;
 					}
 					) }
