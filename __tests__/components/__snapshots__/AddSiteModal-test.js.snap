@@ -1,12 +1,12 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="hotkiP my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="hotkiP my-yoast-modal__overlay"
     role="dialog">
     <div
       className="WUMSu">
@@ -64,12 +64,12 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
 exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="hotkiP my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="hotkiP my-yoast-modal__overlay"
     role="dialog">
     <div
       className="WUMSu">
@@ -127,12 +127,12 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
 exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="hotkiP my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="hotkiP my-yoast-modal__overlay"
     role="dialog">
     <div
       className="WUMSu">
@@ -190,12 +190,12 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 exports[`test the addSiteModal handling an onLink event 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="hotkiP my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="hotkiP my-yoast-modal__overlay"
     role="dialog">
     <div
       className="WUMSu">
@@ -253,12 +253,12 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
 exports[`test the addSiteModal handling an onLink event 2`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="hotkiP my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="hotkiP my-yoast-modal__overlay"
     role="dialog">
     <div
       className="WUMSu">
