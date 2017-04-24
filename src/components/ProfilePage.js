@@ -96,6 +96,7 @@ const TextInput = styled.input`
 	width: 100%;
 	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
 	border:none;
+	margin: 7px 0;
 `;
 
 const SaveContainer = styled.div`
@@ -402,9 +403,9 @@ class ProfilePage extends React.Component {
 				<Page>
 					<Column>
 						<form onSubmit={this.handleSubmit}>
-							<Label htmlFor="profile_email">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+							<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 							<TextInput
-								id="profile_email"
+								id="emailAddress"
 								autocomplete="on"
 								name="email"
 								type="text"
@@ -413,26 +414,26 @@ class ProfilePage extends React.Component {
 							{ this.displayErrors( "email" ) }
 
 							<FieldGroup>
-								<Label htmlFor="profile_oldPassword">{ this.props.intl.formatMessage( messages.labelCurrentPassword ) }</Label>
+								<Label htmlFor="oldPassword">{ this.props.intl.formatMessage( messages.labelCurrentPassword ) }</Label>
 								<TextInput
-									id="profile_oldPassword"
+									id="oldPassword"
 									type="password"
 									value={this.state.oldPassword}
 									onChange={this.handleOldPasswordChange}/>
 								{ this.displayErrors( "oldPassword" ) }
 
-								<Label htmlFor="profile_newPassword">{ this.props.intl.formatMessage( messages.labelNewPassword ) }</Label>
+								<Label htmlFor="newPassword">{ this.props.intl.formatMessage( messages.labelNewPassword ) }</Label>
 								<TextInput
-									id="profile_newPassword"
+									id="newPassword"
 									autocomplete="off"
 									type="password"
 									value={this.state.newPassword}
 									onChange={this.handleNewPasswordChange}/>
 								{ this.displayErrors( "newPassword" ) }
 
-								<Label htmlFor="profile_newPasswordCheck">{ this.props.intl.formatMessage( messages.labelNewPasswordConfirm ) }</Label>
+								<Label htmlFor="newPasswordCheck">{ this.props.intl.formatMessage( messages.labelNewPasswordConfirm ) }</Label>
 								<TextInput
-									id="profile_newPasswordCheck"
+									id="newPasswordCheck"
 									autocomplete="off"
 									type="password"
 									value={this.state.newPasswordCheck}
