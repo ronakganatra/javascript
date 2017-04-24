@@ -6,9 +6,9 @@ let locations = {
 	"/": retrieveSites(),
 	"/sites": retrieveSites(),
 	"/account/orders": getOrders(),
-	"/account/subscriptions": getAllSubscriptions(),
-	"/account/": getAllSubscriptions(),
 	"/account": getAllSubscriptions(),
+	"/account/": getAllSubscriptions(),
+	"/account/subscriptions": getAllSubscriptions(),
 };
 
 let matchingLocations = [
