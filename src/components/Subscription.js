@@ -5,8 +5,8 @@ import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
-import { injectIntl, intlShape, defineMessages, FormattedDate } from "react-intl";
-import { Link } from "react-router-dom";
+import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
+import { formatAmount } from "../functions/currency";
 
 const messages = defineMessages( {
 	product: {
@@ -23,7 +23,7 @@ const messages = defineMessages( {
 	},
 	nextBillingOn: {
 		id: "subscriptions.overview.nextBillingOn",
-		defaultMessage: "Next billing on",
+		defaultMessage: "Next billing",
 	},
 	billingAmount: {
 		id: "subscriptions.overview.billingAmount",
@@ -58,7 +58,6 @@ function Subscription( props ) {
 	delete rowProps.nextBilling;
 	delete rowProps.billingCurrency;
 	delete rowProps.billingAmount;
-	delete rowProps.onManage;
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
@@ -67,18 +66,21 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
 			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px"><FormattedDate value={ props.nextBilling }/></ColumnText>
+			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px">
+				<FormattedDate value={ props.nextBilling } day="numeric" month="long" year="numeric"/>
+			</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
-			            ColumnWidth="100px">{ props.billingCurrency } { props.intl.formatNumber( props.billingAmount ) }</ColumnText>
+			            ColumnWidth="100px">
+				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
 			<Column textAlign="right">
-				<Link to={ "/subscriptions/" + props.id }><MediaQuery query="(min-width: 1356px)">
-					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
+				<MediaQuery query="(min-width: 1356px)">
+					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) } />
+					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
-				</Link>
+
 			</Column>
 		</Row>
 	);
@@ -94,6 +96,7 @@ Subscription.propTypes = {
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
+	onManage: React.PropTypes.func.isRequired,
 };
 
 export default injectIntl( Subscription );

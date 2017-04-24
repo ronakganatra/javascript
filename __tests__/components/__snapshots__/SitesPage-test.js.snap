@@ -59,7 +59,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -84,7 +84,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -128,210 +128,6 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
       className="hTtZiN"
       onClick={[Function]} />
   </div>
-  <div>
-    <noscript />
-  </div>
-</div>
-`;
-
-exports[`test the sites page component with sites handling a changed search query 1`] = `
-<div>
-  <div
-    className="jCgOYH">
-    <div>
-      <label
-        className="bFGhCT"
-        htmlFor="search">
-        <span
-          className="screen-reader-text foqgVb">
-          Search
-        </span>
-      </label>
-      <input
-        aria-describedby="searchDescription"
-        autoCapitalize="off"
-        autoComplete="off"
-        autoCorrect="off"
-        className="hhtLuS"
-        id="search"
-        onChange={[Function]}
-        spellCheck="false"
-        type="text"
-        value="" />
-      <p
-        className="screen-reader-text foqgVb"
-        id="searchDescription">
-        The search results will be updated as you type.
-      </p>
-    </div>
-    <button
-      aria-label="Add"
-      className="hTtZiN"
-      onClick={[Function]} />
-  </div>
-  <ul
-    className="jtXnzZ">
-    <div
-      className="dnTGWH">
-      <span>
-        <ul
-          className="gGiZgG"
-          role="list">
-          <li
-            className="iYfqfc">
-            <span
-              className="cpfBRH"
-              label="">
-              <img
-                alt=""
-                className="bjVGHc"
-                src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-            </span>
-            <span
-              className="gghIYw"
-              label="Site name">
-              www.yoast.com
-            </span>
-            <span
-              className="cozxmw"
-              label="Active subscriptions">
-              <div>
-                <span
-                  aria-label="Yoast SEO is inactive"
-                  className="hGymDt"
-                  role="img" />
-                <span
-                  aria-label="Local SEO is inactive"
-                  className="kswMOV"
-                  role="img" />
-                <span
-                  aria-label="Video SEO is active"
-                  className="jzGgcX"
-                  role="img" />
-                <span
-                  aria-label="News SEO is inactive"
-                  className="kdRmgg"
-                  role="img" />
-                <span
-                  aria-label="WooCommerce SEO is active"
-                  className="gKxAXd"
-                  role="img" />
-                <span
-                  aria-label="Local SEO for Woo is inactive"
-                  className="egmryf"
-                  role="img" />
-              </div>
-            </span>
-            <span
-              className="iTexxv"
-              label="" />
-          </li>
-        </ul>
-      </span>
-    </div>
-  </ul>
-  <div>
-    <noscript />
-  </div>
-</div>
-`;
-
-exports[`test the sites page component with sites handling a changed search query 2`] = `
-<div>
-  <div
-    className="jCgOYH">
-    <div>
-      <label
-        className="bFGhCT"
-        htmlFor="search">
-        <span
-          className="screen-reader-text foqgVb">
-          Search
-        </span>
-      </label>
-      <input
-        aria-describedby="searchDescription"
-        autoCapitalize="off"
-        autoComplete="off"
-        autoCorrect="off"
-        className="hhtLuS"
-        id="search"
-        onChange={[Function]}
-        spellCheck="false"
-        type="text"
-        value="" />
-      <p
-        className="screen-reader-text foqgVb"
-        id="searchDescription">
-        The search results will be updated as you type.
-      </p>
-    </div>
-    <button
-      aria-label="Add"
-      className="hTtZiN"
-      onClick={[Function]} />
-  </div>
-  <ul
-    className="jtXnzZ">
-    <div
-      className="dnTGWH">
-      <span>
-        <ul
-          className="gGiZgG"
-          role="list">
-          <li
-            className="iYfqfc">
-            <span
-              className="cpfBRH"
-              label="">
-              <img
-                alt=""
-                className="bjVGHc"
-                src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-            </span>
-            <span
-              className="gghIYw"
-              label="Site name">
-              www.yoast.com
-            </span>
-            <span
-              className="cozxmw"
-              label="Active subscriptions">
-              <div>
-                <span
-                  aria-label="Yoast SEO is inactive"
-                  className="hGymDt"
-                  role="img" />
-                <span
-                  aria-label="Local SEO is inactive"
-                  className="kswMOV"
-                  role="img" />
-                <span
-                  aria-label="Video SEO is active"
-                  className="jzGgcX"
-                  role="img" />
-                <span
-                  aria-label="News SEO is inactive"
-                  className="kdRmgg"
-                  role="img" />
-                <span
-                  aria-label="WooCommerce SEO is active"
-                  className="gKxAXd"
-                  role="img" />
-                <span
-                  aria-label="Local SEO for Woo is inactive"
-                  className="egmryf"
-                  role="img" />
-              </div>
-            </span>
-            <span
-              className="iTexxv"
-              label="" />
-          </li>
-        </ul>
-      </span>
-    </div>
-  </ul>
   <div>
     <noscript />
   </div>
@@ -399,7 +195,7 @@ exports[`test the sites page component with sites handling an onclick event on t
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -424,7 +220,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"
@@ -501,7 +297,7 @@ exports[`test the sites page component with sites handling an onclick event on t
             <span
               className="cozxmw"
               label="Active subscriptions">
-              <div>
+              <span>
                 <span
                   aria-label="Yoast SEO is inactive"
                   className="hGymDt"
@@ -526,7 +322,7 @@ exports[`test the sites page component with sites handling an onclick event on t
                   aria-label="Local SEO for Woo is inactive"
                   className="egmryf"
                   role="img" />
-              </div>
+              </span>
             </span>
             <span
               className="iTexxv"

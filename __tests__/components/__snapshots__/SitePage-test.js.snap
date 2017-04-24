@@ -14,7 +14,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       yoast.com
     </h1>
     <button
-      className="cTDpVM"
+      className="hBZufG"
       onClick={[Function]}
       type="button">
       Visit site

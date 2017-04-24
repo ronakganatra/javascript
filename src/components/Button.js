@@ -6,8 +6,8 @@ export const Button = styled.button`
 	height: 48px;
 	padding: 0 15px;
 	border: 0;
-	background-color: ${colors.$color_blue};
-	color: ${colors.$color_white};
+	background-color: ${ colors.$color_green_medium_light };
+	color: ${ colors.$color_white };
 	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
 	border-radius: 5px;
 	font-size: 14px;
@@ -30,7 +30,7 @@ export const LargeButton = styled( Button )`
 `;
 
 export const GreenButton = styled( Button )`
-	background-color: ${colors.$color_green_medium_light};
+	background-color: ${ colors.$color_green_medium_light };
 `;
 
 export const TextButton = styled( Button )`
@@ -48,15 +48,29 @@ TextButton.defaultProps = {
 };
 
 export const LogoutButton = styled( Button )`
-	background-color: ${colors.$color_white};
-	color: ${colors.$color_blue};
+	background-color: ${ colors.$color_green_medium_light };
+	color: ${ colors.$color_white };
 	border-radius: 3px;
 	height: 36px;
 	width: 112px;
 	padding: 0;
 `;
 
+export const IconButton = styled( Button )`
+	background-repeat: no-repeat;
+	background-image: url( ${ props => props.icon } );
+	background-position: 20px 50%;
+	background-size: 24px;
+	border-radius: 3px;
+	color: ${ colors.$color_white };
+	padding: 0 20px 0 64px;
+`;
+
+IconButton.PropTypes = {
+	icon: React.PropTypes.string.isRequired,
+};
+
 export const WhiteButton = styled( LargeButton )`
-	color: ${colors.$color_blue};
-	background-color: ${colors.$color_white};
+	color: ${ colors.$color_blue };
+	background-color: ${ colors.$color_white };
 `;

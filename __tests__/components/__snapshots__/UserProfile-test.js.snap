@@ -13,7 +13,7 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
       This is a name
     </p>
     <button
-      className="jZckzU"
+      className="xjUsf"
       onClick={[Function]}
       type="button">
       Sign out
@@ -37,7 +37,7 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
       This is a name
     </p>
     <button
-      className="jZckzU"
+      className="xjUsf"
       onClick={[Function]}
       type="button">
       Sign out
@@ -61,7 +61,7 @@ exports[`test the user profile matches the snapshot 1`] = `
       This is a name
     </p>
     <button
-      className="jZckzU"
+      className="xjUsf"
       onClick={[Function]}
       type="button">
       Sign out
@@ -85,7 +85,7 @@ exports[`test the user profile matches the snapshot 2`] = `
       This is a name
     </p>
     <button
-      className="jZckzU"
+      className="xjUsf"
       onClick={[Function]}
       type="button">
       Sign out

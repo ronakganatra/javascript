@@ -70,17 +70,20 @@
     "react-router-dom": "next",
     "react-router-redux": "next",
     "react-test-renderer": "^15.4.2",
+    "reduce-reducers": "^0.1.2",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.3",
+    "validate.js": "^0.11.1",
     "yoast-components": "https://github.com/Yoast/yoast-components.git#develop"
   },
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "lint-strict": "eslint src --max-warnings=0"
   },
   "jest": {
     "collectCoverageFrom": [

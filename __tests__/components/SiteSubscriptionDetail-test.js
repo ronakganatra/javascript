@@ -3,6 +3,7 @@ import { createComponentWithIntl } from "../../utils";
 import SiteSubscriptionDetail from '../../src/components/SiteSubscriptionDetail';
 
 let subscription = {
+	id: "very-unique-sub-id",
 	isEnabled: true,
 	productName: "Productname",
 	productId: "productId",

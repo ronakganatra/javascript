@@ -1,5 +1,6 @@
 import { retrieveSites } from "./sites";
-import { getSiteSubscriptions } from "./subscriptions";
+import { getAllSubscriptions } from "./subscriptions";
+import { getOrders } from "./orders";
 
 /**
  * An action creator for a location change. Calls other action creators to actually create the actions.
@@ -14,15 +15,17 @@ export default function locationChange( location ) {
 		case "/":
 		case "/sites":
 			return retrieveSites();
+		case "/account/subscriptions":
+			return getAllSubscriptions();
+		case "/account/orders":
+			return getOrders();
 		default:
 			matches = location.pathname.match( /\/sites\/([^/]+)/ );
 
 			if ( null !== matches ) {
-				let siteId = matches[ 1 ];
-
 				return ( dispatch ) => {
-					retrieveSites()( dispatch );
-					getSiteSubscriptions( siteId )( dispatch );
+					dispatch( retrieveSites() );
+					dispatch( getAllSubscriptions() );
 				};
 			}
 

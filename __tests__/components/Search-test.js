@@ -34,7 +34,7 @@ test('the search component handling an on change', () => {
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[1].props.onChange();
+	tree.children[1].props.onChange( { target: { value: 'new value' } } );
 
 	// re-rendering
 	tree = component.toJSON();

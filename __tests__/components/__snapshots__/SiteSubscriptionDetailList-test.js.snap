@@ -3,11 +3,11 @@ exports[`test the site subscription detail list component matches the snapshot 1
   className="kfRyEM">
   <button
     aria-expanded={true}
-    className="hJpfvy"
+    className="hZuiiC"
     onClick={[Function]}>
-    <h2>
+    <span>
       Manage subscriptions
-    </h2>
+    </span>
     <svg
       fill="#555"
       height={40}
@@ -55,7 +55,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="drFsFv">
           <span
             className="gwtpew">
-            Yoast SEO
+            bla
           </span>
           <span
             className="kaVduD">
@@ -104,7 +104,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="drFsFv">
           <span
             className="gwtpew">
-            Local SEO
+            bla2
           </span>
           <span
             className="kaVduD">

@@ -32,26 +32,22 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           20
         </span>
         <span
-          className="jWNjyX"
-          label="Next billing on">
+          className="iznQZi"
+          label="Next billing">
           <span>
-            10/13/2014
+            October 13, 2014
           </span>
         </span>
         <span
           className="Vxkll"
           label="Amount">
-          $
-           
-          125.12
+          <span>
+            $122.00
+          </span>
         </span>
         <span
           className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/3"
-            onClick={[Function]} />
-        </span>
+          label="" />
       </li>
       <li
         className="fTADJm">
@@ -81,26 +77,22 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           20
         </span>
         <span
-          className="jWNjyX"
-          label="Next billing on">
+          className="iznQZi"
+          label="Next billing">
           <span>
-            10/13/2014
+            October 13, 2014
           </span>
         </span>
         <span
           className="Vxkll"
           label="Amount">
-          $
-           
-          125.12
+          <span>
+            $125.12
+          </span>
         </span>
         <span
           className="iTexxv"
-          label="">
-          <a
-            href="/subscriptions/4"
-            onClick={[Function]} />
-        </span>
+          label="" />
       </li>
     </span>
   </div>

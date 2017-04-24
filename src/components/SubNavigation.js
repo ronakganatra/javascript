@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink, Route } from "react-router-dom";
 
-const activeStyle = "active-class-name";
+const activeStyle = "activeSubMenu";
 
 const SubNavigationContainer = styled.ul`
 	width: 100%;
@@ -13,18 +13,32 @@ const SubNavigationContainer = styled.ul`
 	text-align: center;
 	margin: auto;
 	list-style-type: none;
+	margin-bottom: 2em;
+	padding: 0;
+	border-bottom: 1px solid ${ colors.$color_pink_dark };
+`;
+
+const SubNavigationEntry = styled.li`
+	min-width: 200px;
 `;
 
 const LinkItem = styled( NavLink )`
+	display: block;
 	text-decoration: none;
 	padding: 0.5em 2.5em;
-	color: ${colors.$color_grey_dark};
+	color: ${ colors.$color_grey_dark };
+	&:hover,
+	&:focus,
+	&.${ activeStyle } {
+		color: ${ colors.$color_pink_dark };
+		font-weight: 400;
+		padding-bottom: 0.4em;
+		border-bottom: 0.1em solid ${ colors.$color_pink_dark };
+	}
 
 	&.${ activeStyle } {
-		border-bottom: 3px solid ${colors.$color_pink_dark};
-		color: ${colors.$color_pink_dark};
-		font-weight: 400;
-		}
+		padding-bottom: 0.3em;
+		border-bottom: 0.2em solid ${ colors.$color_pink_dark };
 	}
 `;
 
@@ -42,9 +56,9 @@ export default function SubNavigation( props ) {
 						let isActive = item.isActive || ( ( match ) => {
 							return match;
 						} );
-						return <li key={ item.title }>
-							<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
-							</li>;
+						return <SubNavigationEntry key={ item.title }>
+								<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
+							</SubNavigationEntry>;
 					}
 					) }
 		</SubNavigationContainer>
@@ -65,7 +79,7 @@ export function SubNavigationItem( props ) {
 	return (
 		<div>
 			{ props.itemRoutes.map( function( route, routeKey ) {
-				return <Route key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route exact={true} key={ routeKey } path={ route.path } component={ route.component }/>;
 			}
 			) }
 		</div>

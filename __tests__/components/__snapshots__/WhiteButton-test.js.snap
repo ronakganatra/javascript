@@ -1,6 +1,6 @@
 exports[`test the white button matches the snapshot 1`] = `
 <button
-  className="cTDpVM"
+  className="hBZufG"
   type="button">
   ButtonValue
 </button>

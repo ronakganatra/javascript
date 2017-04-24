@@ -1,0 +1,74 @@
+exports[`test The Orders component matches the snapshot 1`] = `
+<div>
+  <div>
+    <label
+      className="bFGhCT"
+      htmlFor="orderSearchBar">
+      <span
+        className="screen-reader-text foqgVb">
+        Search
+      </span>
+    </label>
+    <input
+      aria-describedby="I am an order search bar id"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="hhtLuS"
+      id="orderSearchBar"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value={undefined} />
+    <p
+      className="screen-reader-text foqgVb"
+      id="I am an order search bar id">
+      I am an order search bar
+    </p>
+  </div>
+  <ul
+    className="jtXnzZ"
+    role="list">
+    <div
+      className="dnTGWH">
+      <span>
+        <li
+          className="gSUJps">
+          <span
+            className="iEQIhL"
+            label="Date">
+            <span>
+              May 20, 2012
+            </span>
+          </span>
+          <span
+            className="cydKsm"
+            label="Order">
+            MOOIE 123 TEST
+          </span>
+          <span
+            className="kiPHFq"
+            label="Items">
+            TEST ITEM
+          </span>
+          <span
+            className="iMMwZr"
+            label="Total">
+            <span>
+              €100.10
+            </span>
+          </span>
+          <span
+            className="fkNUbp"
+            label="Status">
+            Failed
+          </span>
+          <span
+            className="iTexxv"
+            label="" />
+        </li>
+      </span>
+    </div>
+  </ul>
+</div>
+`;

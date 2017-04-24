@@ -143,25 +143,32 @@ const MenuIcon = styled.img`
  */
 function MainMenu( props ) {
 	return (
-	<Menu>
-		<ul role="list">
-			{ props.menuRoutes.map( function( page ) {
-				let isActive = page.isActive || ( ( match ) => {
-					return match;
-				} );
+		<Menu>
+			<ul role="list">
+				{ props.menuRoutes.filter( ( menuItem ) => {
+					// Don't show items that are only defined as route.
+					return menuItem.showInMenu;
+				} )
+							 .map( function( page ) {
+									 let isActive = page.isActive || (
+											 ( match ) => {
+												 return match;
+											 }
+										 );
 
-				let title = props.intl.formatMessage( titles[ page.titleKey ] );
+									 let title = props.intl.formatMessage( titles[ page.titleKey ] );
 
-				return <li key={ page.titleKey }>
-					<MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
-						<MenuIcon src={ page.icon } alt="" />
-						{ title }
-					</MenuItem>
-				</li>;
-			}
-			) }
-		</ul>
-	</Menu>
+									 return <li key={ page.titleKey }>
+										 <MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
+											 <MenuIcon src={ page.icon } alt=""/>
+											 { title }
+										 </MenuItem>
+									 </li>;
+								 }
+							 )
+				}
+			</ul>
+		</Menu>
 	);
 }
 
@@ -182,7 +189,11 @@ export function MainMenuRoutes( props ) {
 	return (
 		<div>
 			{ props.menuRoutes.map( function( route, routeKey ) {
-				return <Route exact key={ routeKey } path={ route.path } component={ route.component }/>;
+				let config = Object.assign( {
+					exact: true,
+				}, route );
+
+				return <Route {...config} key={ routeKey } path={ route.path } component={ route.component }/>;
 			} )
 			}
 		</div>
