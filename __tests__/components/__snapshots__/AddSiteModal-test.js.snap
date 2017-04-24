@@ -1,21 +1,17 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="MgvPs my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="MgvPs my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="WUMSu">
-      <img
-        alt=""
-        className="jvPCVm"
-        src="addsite.svg" />
+      className="dlIyNb">
       <h1
-        className="bYuvwO">
+        className="dQgKWp">
         <span>
           Add Site
         </span>
@@ -56,6 +52,10 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
           </span>
         </button>
       </div>
+      <img
+        alt=""
+        className="ireVCO"
+        src="addsite.svg" />
     </div>
   </div>
 </div>
@@ -64,21 +64,17 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
 exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="MgvPs my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="MgvPs my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="WUMSu">
-      <img
-        alt=""
-        className="jvPCVm"
-        src="addsite.svg" />
+      className="dlIyNb">
       <h1
-        className="bYuvwO">
+        className="dQgKWp">
         <span>
           Add Site
         </span>
@@ -119,6 +115,10 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
           </span>
         </button>
       </div>
+      <img
+        alt=""
+        className="ireVCO"
+        src="addsite.svg" />
     </div>
   </div>
 </div>
@@ -127,21 +127,17 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
 exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="MgvPs my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="MgvPs my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="WUMSu">
-      <img
-        alt=""
-        className="jvPCVm"
-        src="addsite.svg" />
+      className="dlIyNb">
       <h1
-        className="bYuvwO">
+        className="dQgKWp">
         <span>
           Add Site
         </span>
@@ -182,6 +178,10 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
           </span>
         </button>
       </div>
+      <img
+        alt=""
+        className="ireVCO"
+        src="addsite.svg" />
     </div>
   </div>
 </div>
@@ -190,21 +190,17 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 exports[`test the addSiteModal handling an onLink event 1`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="MgvPs my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="MgvPs my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="WUMSu">
-      <img
-        alt=""
-        className="jvPCVm"
-        src="addsite.svg" />
+      className="dlIyNb">
       <h1
-        className="bYuvwO">
+        className="dQgKWp">
         <span>
           Add Site
         </span>
@@ -245,6 +241,10 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
           </span>
         </button>
       </div>
+      <img
+        alt=""
+        className="ireVCO"
+        src="addsite.svg" />
     </div>
   </div>
 </div>
@@ -253,21 +253,17 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
 exports[`test the addSiteModal handling an onLink event 2`] = `
 <div>
   <div
-    className="cAOCua my-yoast-modal__content"
+    className="MgvPs my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cAOCua my-yoast-modal__overlay"
+    overlayClassName="MgvPs my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="WUMSu">
-      <img
-        alt=""
-        className="jvPCVm"
-        src="addsite.svg" />
+      className="dlIyNb">
       <h1
-        className="bYuvwO">
+        className="dQgKWp">
         <span>
           Add Site
         </span>
@@ -308,6 +304,10 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
           </span>
         </button>
       </div>
+      <img
+        alt=""
+        className="ireVCO"
+        src="addsite.svg" />
     </div>
   </div>
 </div>
