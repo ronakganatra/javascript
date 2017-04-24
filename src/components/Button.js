@@ -60,7 +60,7 @@ export const IconButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.icon } );
 	background-position: 20px 50%;
-	background-size: 24px;
+	background-size: ${ props => props.iconSize };
 	border-radius: 3px;
 	color: ${ colors.$color_white };
 	padding: 0 20px 0 64px;
@@ -68,9 +68,19 @@ export const IconButton = styled( Button )`
 
 IconButton.PropTypes = {
 	icon: React.PropTypes.string.isRequired,
+	iconSize: React.PropTypes.string,
+};
+
+IconButton.defaultProps = {
+	iconSize: "24px",
 };
 
 export const WhiteButton = styled( LargeButton )`
 	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
+`;
+
+export const RedButton = styled( LargeButton )`
+	color: ${ colors.$color_white };
+	background-color: ${ colors.$color_red };
 `;
