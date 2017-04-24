@@ -1,6 +1,6 @@
 import React from "react";
 import Site from "./Site";
-import { Table } from "./Tables";
+import { ListTable } from "./Tables";
 import Paper from "./Paper";
 /**
  * Returns the rendered Sites component.
@@ -12,7 +12,7 @@ import Paper from "./Paper";
 function Sites( props ) {
 	return (
 		<Paper>
-			<Table>
+			<ListTable>
 				{ props.sites.map( function( site ) {
 					let onManageHandler = () => {
 						props.onManage( site.id );
@@ -26,7 +26,7 @@ function Sites( props ) {
 						onClickManage={ onManageHandler }
 					/>;
 				} ) }
-			</Table>
+			</ListTable>
 		</Paper>
 	);
 }

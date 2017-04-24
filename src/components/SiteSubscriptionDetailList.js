@@ -2,7 +2,7 @@ import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
-import { Table } from "./Tables";
+import { ListTable } from "./Tables";
 
 const messages = defineMessages( {
 	manageTitle: {
@@ -21,7 +21,7 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-			<Table hasHeaderLabels={ false }>
+			<ListTable hasHeaderLabels={ false }>
 				{ props.siteSubscriptions.map( ( subscription ) => {
 					return <SiteSubscriptionDetail
 						{ ...subscription }
@@ -32,7 +32,7 @@ function SiteSubscriptionDetailList( props ) {
 						onToggleSubscription={ props.onToggleSubscription }
 					/>;
 				} ) }
-			</Table>
+			</ListTable>
 		</CollapsibleHeader>
 	);
 }

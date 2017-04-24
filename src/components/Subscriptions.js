@@ -1,6 +1,6 @@
 import React from "react";
 import Subscription from "./Subscription";
-import { Table } from "./Tables";
+import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
 /**
@@ -12,7 +12,7 @@ import Paper from "./Paper";
 export default function Subscriptions( props ) {
 	return (
 		<Paper>
-			<Table>
+			<ListTable>
 				{ props.subscriptions.map( function( subscription ) {
 					let onManageHandler = () => {
 						props.onManage( subscription.id );
@@ -31,7 +31,7 @@ export default function Subscriptions( props ) {
 						onManage={ onManageHandler }
 					/>;
 				} ) }
-			</Table>
+			</ListTable>
 		</Paper>
 	);
 }

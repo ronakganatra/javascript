@@ -65,7 +65,6 @@ Column.defaultProps = {
 	separator: false,
 };
 
-
 /**
  * Separatifies an element
  *
@@ -126,15 +125,15 @@ Row.propTypes = {
 };
 
 Row.defaultProps = {
-	background: "none",
+	background: colors.$color_white,
 };
 
 /**
- * Returns the rendered Table component.
+ * Returns the rendered Zebra component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Table component.
+ * @returns {ReactElement} The rendered Zebra component.
  * @constructor
  */
 export const Zebra = styled.ul`
@@ -168,7 +167,7 @@ Zebra.defaultProps = {
  * @returns {ReactElement} The rendered Zebra component.
  * @constructor
  */
-export function Table( props ) {
+export function ListTable( props ) {
 	let zebraProps = Object.assign( {}, props );
 	let children = props.children;
 
@@ -182,25 +181,28 @@ export function Table( props ) {
 		return null;
 	}
 
-	zebraProps.children = children.map( ( child, key ) => {
-		return React.cloneElement( child, {
-			background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_grey_light,
+	// Do zebra striping background if props.doZebra is true (default).
+	if ( props.doZebra ) {
+		zebraProps.children = children.map( ( child, key ) => {
+			return React.cloneElement( child, {
+				background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_grey_light,
+			} );
 		} );
-	} );
+	}
 
 	return (
-		<Zebra { ...zebraProps }/>
+		<Zebra role="list" { ...zebraProps }/>
 	);
 }
 
-Table.propTypes = {
+ListTable.propTypes = {
 	children: React.PropTypes.oneOfType( [
 		React.PropTypes.arrayOf( React.PropTypes.node ),
 		React.PropTypes.node,
 	] ),
-	role: React.PropTypes.string,
+	doZebra: React.PropTypes.bool,
 };
 
-Table.defaultProps = {
-	role: "list",
+ListTable.defaultProps = {
+	doZebra: true,
 };

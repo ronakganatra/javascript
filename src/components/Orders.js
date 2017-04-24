@@ -1,6 +1,6 @@
 import React from "react";
 import Order from "./Order";
-import { Table } from "./Tables";
+import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
 /**
@@ -13,7 +13,7 @@ import Paper from "./Paper";
 export default function Orders( props ) {
 	return (
 		<Paper>
-			<Table hasHeaderLabels={ true }>
+			<ListTable hasHeaderLabels={ true }>
 				{ props.orders.map( ( order ) => {
 					let onInvoiceManager = () => {
 						props.onClickInvoice( order.id );
@@ -24,7 +24,7 @@ export default function Orders( props ) {
 								  onClickInvoice={ onInvoiceManager }
 					/>;
 				} ) }
-			</Table>
+			</ListTable>
 		</Paper>
 	);
 }
