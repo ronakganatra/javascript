@@ -111,7 +111,7 @@ export function linkSite( url ) {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}`, {
+		let request = new Request( `${apiUrl}/Customers/${userId}/sites/?access_token=${accessToken}`, {
 			method: "POST",
 			body: JSON.stringify( {
 				url,
@@ -183,7 +183,7 @@ export function retrieveSites() {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/sites/?access_token=${accessToken}`, {
+		let request = new Request( `${apiUrl}/Customers/${userId}/sites/?access_token=${accessToken}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",

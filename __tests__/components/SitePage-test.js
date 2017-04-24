@@ -24,7 +24,7 @@ test('the site page component matches the snapshot', () => {
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
 						  reoccurring: true,
-						  myYoastUserId: 2,
+						  subscriberId: 2,
 						  productSlots: {
 							  amountAvailable: 10,
 							  amountUsed: 5,
@@ -38,7 +38,7 @@ test('the site page component matches the snapshot', () => {
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
 						  reoccurring: true,
-						  myYoastUserId: 2,
+						  subscriberId: 2,
 						  productSlots: {
 							  amountAvailable: 10,
 							  amountUsed: 7,

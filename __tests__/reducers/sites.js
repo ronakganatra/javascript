@@ -272,7 +272,7 @@ test( 'the byIdReducers puts only subscription IDs in the state', () => {
 					"startDate": "2017-04-18T15:11:19.000Z",
 					"endDate": "2017-04-18T15:11:19.000Z",
 					"reoccurring": true,
-					"myYoastUserId": 2
+					"subscriberId": 2
 				}
 			]
 		} ],
