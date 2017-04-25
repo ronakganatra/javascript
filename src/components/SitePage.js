@@ -11,7 +11,7 @@ import AnimatedLoader from "./Loader";
 const messages = defineMessages( {
 	sitePageLoaded: {
 		id: "menu.site.loaded",
-		defaultMessage: "Site page loaded",
+		defaultMessage: "Manage site page loaded",
 	},
 } );
 
@@ -24,6 +24,7 @@ const messages = defineMessages( {
  */
 class SitePage extends React.Component {
 	componentDidMount() {
+		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitePageLoaded );
 		a11ySpeak( message );
 	}

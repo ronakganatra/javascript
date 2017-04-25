@@ -7,7 +7,7 @@ import a11ySpeak from "a11y-speak";
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
 		id: "menu.account.subscriptions.loaded",
-		defaultMessage: "Subscriptions are loaded",
+		defaultMessage: "Account subscriptions page loaded",
 	},
 	description: {
 		id: "search.description",
@@ -24,6 +24,7 @@ const messages = defineMessages( {
  */
 class SubscriptionsPage extends React.Component {
 	componentDidMount() {
+		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
 		a11ySpeak( message );
 	}

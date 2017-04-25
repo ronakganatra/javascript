@@ -3,9 +3,8 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import Paper from "./Paper";
 import { Button } from "./Button";
 import UserImage from "../components/UserImage";
-
 import validate from "validate.js";
-
+import a11ySpeak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 
@@ -58,6 +57,10 @@ const messages = defineMessages( {
 		id: "profile.description.picture",
 		defaultMessage: "This is your profile picture.",
 	},
+	profilePageLoaded: {
+		id: "menu.account.orders.loaded",
+		defaultMessage: "Profile page loaded",
+	},
 } );
 
 const Page = styled.div`
@@ -65,7 +68,7 @@ const Page = styled.div`
 	background-color: ${ colors.$color_white };
 	display: flex;
 	justify-content: space-between;
-	
+
 	@media screen and ( max-width: 800px ) {
 		display: block;
 	}
@@ -389,6 +392,12 @@ class ProfilePage extends React.Component {
 	 */
 	submitButtonText() {
 		return this.state.saving ? this.props.intl.formatMessage( messages.buttonSaving ) : this.props.intl.formatMessage( messages.buttonSaveChanges );
+	}
+
+	componentDidMount() {
+		// Announce navigation to assistive technologies.
+		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
+		a11ySpeak( message );
 	}
 
 	/**
