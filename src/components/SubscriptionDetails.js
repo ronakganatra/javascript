@@ -2,21 +2,36 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { ColumnText, Row, Table, Zebra, Column } from "./Tables";
-import { injectIntl, intlShape, FormattedDate, FormattedMessage } from "react-intl";
+import { injectIntl, intlShape, FormattedDate, FormattedMessage, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { LargeButton, RedButton } from "./Button";
+import CollapsibleHeader from "./CollapsibleHeader";
 
 let columnMargin = "10px";
-let hideButtonsThreshold = 1355;
-let mobileViewThreshold = 800;
+let hideButtonsThreshold = 400;
+let mobileViewThreshold = 1200;
+
+const messages = defineMessages( {
+	paymentDetailsTitle: {
+		id: "subscription-details.payment-details.title",
+		defaultMessage: "Payment details",
+	},
+	invoicesTitle: {
+		id: "subscription-details.invoices.title",
+		defaultMessage: "Invoices",
+	},
+	subscriptionDetailsTitle: {
+		id: "subscription-details.subscription-details.title",
+		defaultMessage: "Subscription details",
+	},
+} );
 
 const SubscriptionDetailsContainer = styled.div`
 	background-color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
-	height: 700px;
 	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		display: flex;
 		flex-wrap: wrap;
@@ -42,7 +57,7 @@ const ColumnContainer = styled.div`
 const ListHeader = styled.h2`
 	font-size: 1.0em;
 	font-weight: 400; 
-	margin: 30px 0 0 30px;
+	padding: 30px 0 0 30px;
 `;
 
 /**
@@ -55,92 +70,128 @@ const ListHeader = styled.h2`
  * @constructor
  */
 function SubscriptionDetails( props ) {
+	let paymentDetailTable =  (
+		<Table headings={ false } role="list" >
+			<Zebra>
+				<Row justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Start Date" }</ColumnText>
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.startDate } /> </ColumnText>
+				</Row>
+				<Row justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Next Billing" }</ColumnText>
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
+				</Row>
+			</Zebra>
+		</Table>
+	);
+
+	let invoicesTable = (
+		<Table headings={ false } role="list" >
+			<Zebra>
+				{ props.invoices.map( ( invoice ) => {
+					return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
+						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
+						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+						<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
+							<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+								<IconButton onClick={ props.onInvoiceDownload }
+											icon={ downloadIcon }
+											iconSize={ "16px" }>
+									<FormattedMessage
+										id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
+								</IconButton>
+							</MediaQuery>
+						</Column>
+					</Row>;
+				} ) }
+			</Zebra>
+		</Table>
+	);
+
+	let subscriptionDetailsTable = (
+		<Table headings={ false } role="list" >
+			<Zebra>
+				<Row justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">
+						<FormattedMessage id="subscriptionss.site-subscriptions-remaining"
+										  defaultMessage={" You can add { howMany } more sites to this subscription."}
+										  values={ { howMany: ( props.max - props.current ) } }/>
+					</ColumnText>
+					<Column columnPaddingLeft={ 20 }>
+						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+							<LargeButton onClick={ props.onAddSite }><FormattedMessage
+								id="subscriptions.buttons.add-site" defaultMessage="Add site" />
+							</LargeButton>
+						</MediaQuery>
+					</Column>
+				</Row>
+				<Row justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Change subscription level" }</ColumnText>
+					<Column columnPaddingLeft={ 20 }>
+						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+							<LargeButton onClick={ props.onShop }><FormattedMessage
+								id="subscriptions.buttons.shop" defaultMessage="Shop" />
+							</LargeButton>
+						</MediaQuery>
+					</Column>
+				</Row>
+				<Row justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Cancel subscription" }</ColumnText>
+					<Column columnPaddingLeft={ 20 }>
+						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+							<RedButton onClick={ props.onCancel }><FormattedMessage
+								id="subscriptions.buttons.cancel" defaultMessage="Cancel" />
+							</RedButton>
+						</MediaQuery>
+					</Column>
+				</Row>
+			</Zebra>
+		</Table>
+	);
+
 	return (
 		<SubscriptionDetailsContainer>
 				<ColumnContainer>
-				<ListHeader>
-					<FormattedMessage id="subscriptions.payment-details.header" defaultMessage="Payment details" />
-				</ListHeader>
-				<Table headings={ false } role="list" >
-					<Zebra>
-						<Row>
-							<ColumnText ColumnWidth="20%">{ "Start Date" }</ColumnText>
-							<ColumnText> <FormattedDate value={props.startDate} /> </ColumnText>
-						</Row>
-						<Row>
-							<ColumnText>{ "Next Billing" }</ColumnText>
-							<ColumnText> <FormattedDate value={props.nextBilling} /> </ColumnText>
-						</Row>
-					</Zebra>
-				</Table>
-			</ColumnContainer>
-				<ColumnContainer>
-					<ListHeader>
-						<FormattedMessage id="subscriptions.invoices.header" defaultMessage="Invoices" />
-					</ListHeader>
-					<Table headings={ false } role="list" >
-						<Zebra>
-							{ props.invoices.map( ( invoice ) => {
-								return <Row { ...invoice } key={ invoice.invoiceId }>
-									<ColumnText><FormattedDate value={invoice.invoiceDate} /></ColumnText>
-									<ColumnText>{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
-									<Column>
-										<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-											<IconButton onClick={ props.onInvoiceDownload }
-														icon={ downloadIcon }
-														iconSize={ "16px" }>
-												<FormattedMessage
-													id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
-											</IconButton>
-										</MediaQuery>
-									</Column>
-								</Row>;
-							} ) }
-						</Zebra>
-					</Table>
+					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<ListHeader>
+							{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
+						</ListHeader>
+						{ paymentDetailTable }
+					</MediaQuery>
+					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<CollapsibleHeader title={ props.intl.formatMessage( messages.paymentDetailsTitle ) }
+										   isOpen={ true }>
+							{ paymentDetailTable }
+						</CollapsibleHeader>
+					</MediaQuery>
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
-						<FormattedMessage id="subscriptions.subscription-details.header" defaultMessage="Subscription details" />
-					</ListHeader>
-					<Table headings={ false } role="list" >
-						<Zebra>
-							<Row>
-								<ColumnText>
-									<FormattedMessage id="subscriptionss.site-subscriptions-remaining"
-													  defaultMessage={" You can add { howMany } more sites to this subscription."}
-													  values={ { howMany: ( props.max - props.current ) } }/>
-								</ColumnText>
-								<Column>
-									<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-										<LargeButton onClick={ props.onAddSite }><FormattedMessage
-											id="subscriptions.buttons.add-site" defaultMessage="Add site" />
-										</LargeButton>
-									</MediaQuery>
-								</Column>
-							</Row>
-							<Row>
-								<ColumnText>{ "Change subscription level" }</ColumnText>
-								<Column>
-									<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-										<LargeButton onClick={ props.onShop }><FormattedMessage
-											id="subscriptions.buttons.shop" defaultMessage="Shop" />
-										</LargeButton>
-									</MediaQuery>
-								</Column>
-							</Row>
-							<Row>
-								<ColumnText>{ "Cancel subscription" }</ColumnText>
-								<Column>
-									<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-										<RedButton onClick={ props.onCancel }><FormattedMessage
-											id="subscriptions.buttons.cancel" defaultMessage="Cancel" />
-										</RedButton>
-									</MediaQuery>
-								</Column>
-							</Row>
-						</Zebra>
-					</Table>
+					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<ListHeader>
+							{ props.intl.formatMessage( messages.invoicesTitle ) }
+						</ListHeader>
+						{ invoicesTable }
+					</MediaQuery>
+					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<CollapsibleHeader title={ props.intl.formatMessage( messages.invoicesTitle ) }
+										   isOpen={ true }>
+							{ invoicesTable }
+						</CollapsibleHeader>
+					</MediaQuery>
+				</ColumnContainer>
+				<ColumnContainer>
+					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<ListHeader>
+							{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
+						</ListHeader>
+						{ subscriptionDetailsTable }
+					</MediaQuery>
+					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
+						<CollapsibleHeader title={ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
+										   isOpen={ true }>
+							{ subscriptionDetailsTable }
+						</CollapsibleHeader>
+					</MediaQuery>
 				</ColumnContainer>
 		</SubscriptionDetailsContainer>
 	);

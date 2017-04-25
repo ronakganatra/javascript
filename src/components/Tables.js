@@ -12,8 +12,7 @@ import colors from "yoast-components/style-guide/colors.json";
  */
 export const Column = styled.span`
 	font-size: 14px;
-	padding-left: 40px;
-	
+	padding-left: ${ props => props.columnPaddingLeft }px;
 	text-align: ${ props => props.textAlign };
 
 	&::before {
@@ -47,6 +46,7 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
+	columnPaddingLeft: React.PropTypes.number,
 	fillSpace: React.PropTypes.bool,
 	label: React.PropTypes.string,
 	hideOnMobile: React.PropTypes.bool,
@@ -57,6 +57,7 @@ Column.propTypes = {
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
+	columnPaddingLeft: 40,
 	fillSpace: false,
 	label: "",
 	hideOnMobile: false,
@@ -111,9 +112,9 @@ export const Row = styled.li`
 	
 	min-height: 100px;
 	display: flex;
-	padding-right: 40px;
+	padding-right: ${ props => props.rowPaddingRight };
 	align-items: center;
-	justify-content: space-around;
+	justify-content: ${ props => props.justifyContent };
 	
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
@@ -123,10 +124,14 @@ export const Row = styled.li`
 
 Row.propTypes = {
 	background: React.PropTypes.string,
+	rowPaddingRight: React.PropTypes.string,
+	justifyContent: React.PropTypes.string,
 };
 
 Row.defaultProps = {
 	background: "none",
+	rowPaddingRight: "40px",
+	justifyContent: "space-around",
 };
 
 /**
