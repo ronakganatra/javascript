@@ -1,37 +1,31 @@
 exports[`test The Order component matches the snapshot 1`] = `
 <li
-  className="jDAfCR">
+  className="jxyqOz">
   <span
-    className="iEQIhL"
-    label="Date">
+    className="ihJNsh">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="cydKsm"
-    label="Order">
+    className="igKvAR">
     MOOIE 456 TEST
   </span>
   <span
-    className="kiPHFq"
-    label="Items">
+    className="dKSGyu">
     TEST ITEM
   </span>
   <span
-    className="iMMwZr"
-    label="Total">
+    className="eSGqFF">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="fkNUbp"
-    label="Status">
+    className="sPQzX">
     Failed
   </span>
   <span
-    className="iTexxv"
-    label="" />
+    className="emvmXy" />
 </li>
 `;

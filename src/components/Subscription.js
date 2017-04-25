@@ -47,29 +47,22 @@ const messages = defineMessages( {
  * @constructor
  */
 function Subscription( props ) {
-	let rowProps = Object.assign( {}, props );
-
-	// Possibly prettify this.
-	delete rowProps.id;
-	delete rowProps.name;
-	delete rowProps.icon;
-	delete rowProps.used;
-	delete rowProps.max;
-	delete rowProps.nextBilling;
-	delete rowProps.billingCurrency;
-	delete rowProps.billingAmount;
+	let rowProps = [];
+	if ( props.background ) {
+		rowProps.background = props.background;
+	}
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
+			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px">
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px">
 				<FormattedDate value={ props.nextBilling } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
 			<Column textAlign="right">
@@ -96,6 +89,7 @@ Subscription.propTypes = {
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
+	background: React.PropTypes.string,
 	onManage: React.PropTypes.func.isRequired,
 };
 
