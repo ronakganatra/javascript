@@ -11,7 +11,7 @@ const messages = defineMessages( {
 	},
 	description: {
 		id: "search.description",
-		defaultMessage: "The search results will be updated as you type default.",
+		defaultMessage: "The search results will be updated as you type.",
 	},
 } );
 
