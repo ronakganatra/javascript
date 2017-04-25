@@ -36,7 +36,7 @@ class Orders extends React.Component {
 						};
 
 						return <Order { ...order }
-									  key={ order.productId }
+									  key={ order.id }
 									  onClickInvoice={ onInvoiceManager }
 						/>;
 					} ) }
