@@ -1,0 +1,11 @@
+exports[`test the subscription detail component matches the snapshot 1`] = `
+<div
+  className="klwmFG">
+  <div
+    className="fvyLVm" />
+  <div
+    className="fvyLVm" />
+  <div
+    className="fvyLVm" />
+</div>
+`;

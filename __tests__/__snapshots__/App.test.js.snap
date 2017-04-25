@@ -219,6 +219,15 @@ exports[`test renders without crashing 1`] = `
         </g>
       </svg>
       <div />
+      <div
+        className="klwmFG">
+        <div
+          className="fvyLVm" />
+        <div
+          className="fvyLVm" />
+        <div
+          className="fvyLVm" />
+      </div>
     </div>
   </main>
 </div>

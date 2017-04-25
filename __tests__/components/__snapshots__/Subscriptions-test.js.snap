@@ -7,7 +7,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
       <li
         className="gSUJps">
         <span
-          className="cpfBRH"
+          className="kueslB"
           label="">
           <img
             alt=""
@@ -15,44 +15,44 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="hSVqo"
+          className="hKNaZz"
           label="Product">
           SEO Premium for WordPress
         </span>
         <span
-          className="gWsdrk"
+          className="kwAsAX"
           label="Level">
           20 sites
         </span>
         <span
-          className="hHZLIx"
+          className="jkvVdY"
           label="Usage">
           4
           /
           20
         </span>
         <span
-          className="iznQZi"
+          className="bXEjBG"
           label="Next billing">
           <span>
             October 13, 2014
           </span>
         </span>
         <span
-          className="Vxkll"
+          className="jdwPuH"
           label="Amount">
           <span>
             $122.00
           </span>
         </span>
         <span
-          className="iTexxv"
+          className="cOgajo"
           label="" />
       </li>
       <li
         className="fTADJm">
         <span
-          className="cpfBRH"
+          className="kueslB"
           label="">
           <img
             alt=""
@@ -60,38 +60,38 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="hSVqo"
+          className="hKNaZz"
           label="Product">
           SEO Premium for WordPress
         </span>
         <span
-          className="gWsdrk"
+          className="kwAsAX"
           label="Level">
           20 sites
         </span>
         <span
-          className="hHZLIx"
+          className="jkvVdY"
           label="Usage">
           3
           /
           20
         </span>
         <span
-          className="iznQZi"
+          className="bXEjBG"
           label="Next billing">
           <span>
             October 13, 2014
           </span>
         </span>
         <span
-          className="Vxkll"
+          className="jdwPuH"
           label="Amount">
           <span>
             $125.12
           </span>
         </span>
         <span
-          className="iTexxv"
+          className="cOgajo"
           label="" />
       </li>
     </span>
