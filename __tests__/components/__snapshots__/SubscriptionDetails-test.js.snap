@@ -8,19 +8,18 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Payment details
     </h2>
     <ul
-      className="iDISCd"
+      className="jplRhE"
       role="list">
-      <span>
+      <ul
+        className="jplRhE">
         <li
-          className="eqhTrB">
+          className="fFYeCA">
           <span
-            className="dylAOH"
-            label="">
+            className="hIvutE">
             Start Date
           </span>
           <span
-            className="dylAOH"
-            label="">
+            className="hIvutE">
              
             <span>
               6/1/2017
@@ -29,15 +28,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </li>
         <li
-          className="kkAikv">
+          className="fFYeCA">
           <span
-            className="dylAOH"
-            label="">
+            className="hIvutE">
             Next Billing
           </span>
           <span
-            className="dylAOH"
-            label="">
+            className="hIvutE">
              
             <span>
               6/1/2018
@@ -45,7 +42,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
              
           </span>
         </li>
-      </span>
+      </ul>
     </ul>
   </div>
   <div
@@ -55,45 +52,40 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Subscription details
     </h2>
     <ul
-      className="iDISCd"
+      className="jplRhE"
       role="list">
-      <span>
+      <ul
+        className="jplRhE">
         <li
-          className="eqhTrB">
+          className="fFYeCA">
           <span
-            className="UucdR"
-            label="">
+            className="fkByDC">
             <span>
                You can add 4 more sites to this subscription.
             </span>
           </span>
           <span
-            className="liwyaW"
-            label="" />
+            className="gjfIlq" />
         </li>
         <li
-          className="kkAikv">
+          className="fFYeCA">
           <span
-            className="UucdR"
-            label="">
+            className="fkByDC">
             Change subscription level
           </span>
           <span
-            className="liwyaW"
-            label="" />
+            className="gjfIlq" />
         </li>
         <li
-          className="eqhTrB">
+          className="fFYeCA">
           <span
-            className="UucdR"
-            label="">
+            className="fkByDC">
             Cancel subscription
           </span>
           <span
-            className="liwyaW"
-            label="" />
+            className="gjfIlq" />
         </li>
-      </span>
+      </ul>
     </ul>
   </div>
   <div
@@ -103,48 +95,43 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Invoices
     </h2>
     <ul
-      className="iDISCd"
+      className="jplRhE"
       role="list">
-      <span>
+      <ul
+        className="jplRhE">
         <li
-          className="eqhTrB">
+          className="fFYeCA">
           <span
-            className="fgxjxx"
-            label="">
+            className="dESJUX">
             <span>
               7/21/2016
             </span>
           </span>
           <span
-            className="fgxjxx"
-            label="">
+            className="dESJUX">
             $
             100
           </span>
           <span
-            className="eZFkcp"
-            label="" />
+            className="kxFaKW" />
         </li>
         <li
-          className="kkAikv">
+          className="fFYeCA">
           <span
-            className="fgxjxx"
-            label="">
+            className="dESJUX">
             <span>
               7/22/2016
             </span>
           </span>
           <span
-            className="fgxjxx"
-            label="">
+            className="dESJUX">
             $
             20000
           </span>
           <span
-            className="eZFkcp"
-            label="" />
+            className="kxFaKW" />
         </li>
-      </span>
+      </ul>
     </ul>
   </div>
 </div>

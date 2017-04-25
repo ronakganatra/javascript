@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { ColumnText, Row, Table, Zebra, Column } from "./Tables";
+import { ColumnText, Row, ListTable, Zebra, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, FormattedMessage, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
@@ -72,7 +72,7 @@ const ListHeader = styled.h2`
  */
 function SubscriptionDetails( props ) {
 	let paymentDetailTable =  (
-		<Table headings={ false } role="list" >
+		<ListTable headings={ false } role="list" >
 			<Zebra>
 				<Row justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Start Date" }</ColumnText>
@@ -83,11 +83,11 @@ function SubscriptionDetails( props ) {
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
 				</Row>
 			</Zebra>
-		</Table>
+		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
-		<Table headings={ false } role="list" >
+		<ListTable headings={ false } role="list" >
 			<Zebra>
 				<Row justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">
@@ -124,11 +124,11 @@ function SubscriptionDetails( props ) {
 					</Column>
 				</Row>
 			</Zebra>
-		</Table>
+		</ListTable>
 	);
 
 	let invoicesTable = (
-		<Table headings={ false } role="list" >
+		<ListTable headings={ false } role="list" >
 			<Zebra>
 				{ props.invoices.map( ( invoice ) => {
 					return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
@@ -147,7 +147,7 @@ function SubscriptionDetails( props ) {
 					</Row>;
 				} ) }
 			</Zebra>
-		</Table>
+		</ListTable>
 	);
 
 
@@ -186,9 +186,6 @@ SubscriptionDetails.propTypes = {
 	onCancel: React.PropTypes.func.isRequired,
 	onInvoiceDownload: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-};
-
-SubscriptionDetails.defaultProps = {
 };
 
 export default injectIntl( SubscriptionDetails );
