@@ -115,7 +115,6 @@ export const Row = styled.li`
 	padding-right: ${ props => props.rowPaddingRight };
 	align-items: center;
 	justify-content: ${ props => props.justifyContent };
-	
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
 		padding-right: 20px;
