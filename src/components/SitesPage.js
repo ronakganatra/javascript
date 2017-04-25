@@ -24,6 +24,10 @@ const messages = defineMessages( {
 		id: "search.results",
 		defaultMessage: "Number of sites found: %d",
 	},
+	searchLabel: {
+		id: "search.label.sites",
+		defaultMessage: "Search sites",
+	},
 } );
 
 const SiteAddContainer = styled.div`
@@ -68,8 +72,9 @@ class SitesPage extends React.Component {
 
 		return <Search
 			id="search"
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
 			description={ this.props.intl.formatMessage( messages.description ) }
-			descriptionId="searchDescription"
+			descriptionId="search-description"
 			onChange={ changeSearchQuery }
 			query={ this.props.query }
 		/>;
