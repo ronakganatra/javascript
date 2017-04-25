@@ -56,7 +56,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="fkByDC">
           <span>
-             You can add 4 more sites to this subscription.
+            You can add 4 more sites to this subscription.
           </span>
         </span>
         <span

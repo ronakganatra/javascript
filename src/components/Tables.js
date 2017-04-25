@@ -188,9 +188,9 @@ export function ListTable( props ) {
 
 	// Do zebra striping background if props.doZebra is true (default).
 	if ( props.doZebra ) {
-		zebraProps.children = children.map( ( child, key ) => {
+		zebraProps.children = children.map( ( child, index ) => {
 			return React.cloneElement( child, {
-				background: ( key % 2 === 1 ) ? colors.$color_white : colors.$color_grey_light,
+				background: ( index % 2 === 1 ) ? colors.$color_white : colors.$color_grey_light,
 			} );
 		} );
 	}

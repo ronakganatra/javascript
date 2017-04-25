@@ -73,11 +73,11 @@ const ListHeader = styled.h2`
 function SubscriptionDetails( props ) {
 	let paymentDetailTable =  (
 		<ListTable hasHeaderLabels={ false } role="list" >
-				<Row justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="start-date" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Start Date" }</ColumnText>
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.startDate } /> </ColumnText>
 				</Row>
-				<Row justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="next-billing" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Next Billing" }</ColumnText>
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
 				</Row>
@@ -86,10 +86,10 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false } role="list" >
-				<Row justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="remaining-slots" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">
-						<FormattedMessage id="subscriptionss.site-subscriptions-remaining"
-										  defaultMessage={" You can add { howMany } more sites to this subscription."}
+						<FormattedMessage id="subscriptions.subscription-details.remaining"
+										  defaultMessage={"You can add { howMany } more sites to this subscription."}
 										  values={ { howMany: ( props.max - props.current ) } }/>
 					</ColumnText>
 					<Column columnPaddingLeft={ 20 }>
@@ -100,7 +100,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="change-level" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Change subscription level" }</ColumnText>
 					<Column columnPaddingLeft={ 20 }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
@@ -110,7 +110,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="cancel" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Cancel subscription" }</ColumnText>
 					<Column columnPaddingLeft={ 20 }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
