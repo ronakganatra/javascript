@@ -5,7 +5,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     className="dnTGWH">
     <span>
       <li
-        className="gSUJps">
+        className="fTADJm">
         <span
           className="kueslB"
           label="">
@@ -50,7 +50,7 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           label="" />
       </li>
       <li
-        className="fTADJm">
+        className="gSUJps">
         <span
           className="kueslB"
           label="">

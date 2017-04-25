@@ -22,7 +22,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     role="list">
     <span>
       <li
-        className="gSUJps">
+        className="fTADJm">
         <span
           className="galWEB">
           <img
@@ -71,7 +71,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </div>
       </li>
       <li
-        className="fTADJm">
+        className="gSUJps">
         <span
           className="galWEB">
           <img

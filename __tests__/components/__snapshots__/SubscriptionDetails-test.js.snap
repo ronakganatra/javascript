@@ -2,10 +2,150 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
 <div
   className="klwmFG">
   <div
-    className="fvyLVm" />
+    className="jjZCRT">
+    <h2
+      className="hpDvNn">
+      Payment details
+    </h2>
+    <ul
+      className="iDISCd"
+      role="list">
+      <span>
+        <li
+          className="eqhTrB">
+          <span
+            className="dylAOH"
+            label="">
+            Start Date
+          </span>
+          <span
+            className="dylAOH"
+            label="">
+             
+            <span>
+              6/1/2017
+            </span>
+             
+          </span>
+        </li>
+        <li
+          className="kkAikv">
+          <span
+            className="dylAOH"
+            label="">
+            Next Billing
+          </span>
+          <span
+            className="dylAOH"
+            label="">
+             
+            <span>
+              6/1/2018
+            </span>
+             
+          </span>
+        </li>
+      </span>
+    </ul>
+  </div>
   <div
-    className="fvyLVm" />
+    className="jjZCRT">
+    <h2
+      className="hpDvNn">
+      Subscription details
+    </h2>
+    <ul
+      className="iDISCd"
+      role="list">
+      <span>
+        <li
+          className="eqhTrB">
+          <span
+            className="UucdR"
+            label="">
+            <span>
+               You can add 4 more sites to this subscription.
+            </span>
+          </span>
+          <span
+            className="liwyaW"
+            label="" />
+        </li>
+        <li
+          className="kkAikv">
+          <span
+            className="UucdR"
+            label="">
+            Change subscription level
+          </span>
+          <span
+            className="liwyaW"
+            label="" />
+        </li>
+        <li
+          className="eqhTrB">
+          <span
+            className="UucdR"
+            label="">
+            Cancel subscription
+          </span>
+          <span
+            className="liwyaW"
+            label="" />
+        </li>
+      </span>
+    </ul>
+  </div>
   <div
-    className="fvyLVm" />
+    className="jjZCRT">
+    <h2
+      className="hpDvNn">
+      Invoices
+    </h2>
+    <ul
+      className="iDISCd"
+      role="list">
+      <span>
+        <li
+          className="eqhTrB">
+          <span
+            className="fgxjxx"
+            label="">
+            <span>
+              7/21/2016
+            </span>
+          </span>
+          <span
+            className="fgxjxx"
+            label="">
+            $
+            100
+          </span>
+          <span
+            className="eZFkcp"
+            label="" />
+        </li>
+        <li
+          className="kkAikv">
+          <span
+            className="fgxjxx"
+            label="">
+            <span>
+              7/22/2016
+            </span>
+          </span>
+          <span
+            className="fgxjxx"
+            label="">
+            $
+            20000
+          </span>
+          <span
+            className="eZFkcp"
+            label="" />
+        </li>
+      </span>
+    </ul>
+  </div>
 </div>
 `;
