@@ -7,7 +7,6 @@ import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { LargeButton, RedButton } from "./Button";
-import CollapsibleHeader from "./CollapsibleHeader";
 
 let columnMargin = "10px";
 let hideButtonsThreshold = 400;
@@ -35,11 +34,11 @@ const SubscriptionDetailsContainer = styled.div`
 	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		display: flex;
 		flex-wrap: wrap;
-		flex-direction: column;
-		div:nth-child(-n+2) {
+		flex-direction: row;
+		div:nth-child(odd) {
 			margin-right: ${ columnMargin };
 		}
-		div:nth-child(3) {
+		div:nth-child(even) {
 			margin-left: ${ columnMargin };
 		}
 	}
@@ -50,7 +49,7 @@ const ColumnContainer = styled.div`
 		width: calc( 50% - ${ columnMargin } );
 	}
 	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
-		width: calc( 100% - ${ columnMargin } );
+		width: 100%;
 	}
 `;
 
@@ -81,29 +80,6 @@ function SubscriptionDetails( props ) {
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Next Billing" }</ColumnText>
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
 				</Row>
-			</Zebra>
-		</Table>
-	);
-
-	let invoicesTable = (
-		<Table headings={ false } role="list" >
-			<Zebra>
-				{ props.invoices.map( ( invoice ) => {
-					return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
-						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
-						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
-						<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
-							<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-								<IconButton onClick={ props.onInvoiceDownload }
-											icon={ downloadIcon }
-											iconSize={ "16px" }>
-									<FormattedMessage
-										id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
-								</IconButton>
-							</MediaQuery>
-						</Column>
-					</Row>;
-				} ) }
 			</Zebra>
 		</Table>
 	);
@@ -149,49 +125,49 @@ function SubscriptionDetails( props ) {
 		</Table>
 	);
 
+	let invoicesTable = (
+		<Table headings={ false } role="list" >
+			<Zebra>
+				{ props.invoices.map( ( invoice ) => {
+					return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
+						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
+						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+						<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
+							<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+								<IconButton onClick={ props.onInvoiceDownload }
+											icon={ downloadIcon }
+											iconSize={ "16px" }>
+									<FormattedMessage
+										id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
+								</IconButton>
+							</MediaQuery>
+						</Column>
+					</Row>;
+				} ) }
+			</Zebra>
+		</Table>
+	);
+
+
 	return (
 		<SubscriptionDetailsContainer>
 				<ColumnContainer>
-					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<ListHeader>
-							{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-						</ListHeader>
-						{ paymentDetailTable }
-					</MediaQuery>
-					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<CollapsibleHeader title={ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-										   isOpen={ true }>
-							{ paymentDetailTable }
-						</CollapsibleHeader>
-					</MediaQuery>
+					<ListHeader>
+						{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
+					</ListHeader>
+					{ paymentDetailTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<ListHeader>
-							{ props.intl.formatMessage( messages.invoicesTitle ) }
-						</ListHeader>
-						{ invoicesTable }
-					</MediaQuery>
-					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<CollapsibleHeader title={ props.intl.formatMessage( messages.invoicesTitle ) }
-										   isOpen={ true }>
-							{ invoicesTable }
-						</CollapsibleHeader>
-					</MediaQuery>
+					<ListHeader>
+						{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
+					</ListHeader>
+					{ subscriptionDetailsTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<ListHeader>
-							{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-						</ListHeader>
-						{ subscriptionDetailsTable }
-					</MediaQuery>
-					<MediaQuery query={ "(max-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
-						<CollapsibleHeader title={ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-										   isOpen={ true }>
-							{ subscriptionDetailsTable }
-						</CollapsibleHeader>
-					</MediaQuery>
+					<ListHeader>
+						{ props.intl.formatMessage( messages.invoicesTitle ) }
+					</ListHeader>
+					{ invoicesTable }
 				</ColumnContainer>
 		</SubscriptionDetailsContainer>
 	);

@@ -66,7 +66,6 @@ Column.defaultProps = {
 	separator: false,
 };
 
-
 /**
  * Separatifies an element
  *
