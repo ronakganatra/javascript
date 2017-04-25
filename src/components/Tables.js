@@ -183,7 +183,7 @@ export function Zebra( props ) {
 
 	zebraProps.children = children.map( ( child, key ) => {
 		return React.cloneElement( child, {
-			background: ( key % 2 === 0 ) ? colors.$palette_white : colors.$palette_grey_light,
+			background: ( key % 2 === 1 ) ? colors.$palette_white : colors.$palette_grey_light,
 		} );
 	} );
 
