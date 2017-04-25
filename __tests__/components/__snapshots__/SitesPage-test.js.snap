@@ -39,7 +39,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       className="jplRhE"
       role="list">
       <li
-        className="bDpHpU">
+        className="bFLiCB">
         <span
           className="cdkaQN">
           <img
@@ -166,7 +166,7 @@ exports[`test the sites page component with sites handling an onclick event on t
       className="jplRhE"
       role="list">
       <li
-        className="bDpHpU">
+        className="bFLiCB">
         <span
           className="cdkaQN">
           <img
@@ -259,7 +259,7 @@ exports[`test the sites page component with sites handling an onclick event on t
       className="jplRhE"
       role="list">
       <li
-        className="bDpHpU">
+        className="bFLiCB">
         <span
           className="cdkaQN">
           <img

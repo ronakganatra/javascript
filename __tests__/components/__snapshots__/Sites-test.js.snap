@@ -5,7 +5,7 @@ exports[`test the sites component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="bDpHpU">
+      className="bFLiCB">
       <span
         className="cdkaQN">
         <img
@@ -50,7 +50,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         className="emvmXy" />
     </li>
     <li
-      className="czzRBQ">
+      className="faPOmU">
       <span
         className="cdkaQN">
         <img
@@ -95,7 +95,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         className="emvmXy" />
     </li>
     <li
-      className="bDpHpU">
+      className="bFLiCB">
       <span
         className="cdkaQN">
         <img
