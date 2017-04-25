@@ -72,6 +72,7 @@ class SitesPage extends React.Component {
 	}
 
 	componentDidMount() {
+		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
 	}
