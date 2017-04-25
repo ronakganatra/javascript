@@ -11,7 +11,7 @@ jest.mock( "../../src/reducers/search.js", () => {
 
 test('the sites page component with no sites matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<SitesPage sites={ [] } addSite={ () => {} } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
+		<SitesPage sites={ [] } addSite={ () => {} } onSearchChange={ () => {} } onLink={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ true } query="" onManage={ () => {} } />
 	);
 
@@ -27,7 +27,7 @@ test('the sites page component with a site matches the snapshot', () => {
 		siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 	};
 	const component = createComponentWithIntl(
-		<SitesPage sites={ [ site ] } addSite={ () => {} } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
+		<SitesPage sites={ [ site ] } addSite={ () => {} } onSearchChange={ () => {} } onLink={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} }/>
 
 	);
@@ -38,7 +38,7 @@ test('the sites page component with a site matches the snapshot', () => {
 
 test('the sites page component without sites handling an onclick event on the add site button', () => {
 	const component = createComponentWithIntl(
-		<SitesPage sites={ [] } addSite={ () => { return 'Add site'; } } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
+		<SitesPage sites={ [] } addSite={ () => { return 'Add site'; } } onSearchChange={ () => {} } onLink={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } />
 	);
 
@@ -60,7 +60,7 @@ test('the sites page component with sites handling an onclick event on the add s
 				siteName: "www.yoast.com",
 				activeSubscriptions: [ "woo", "video" ],
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-			},] } addSite={ () => { return 'Add site'; } } changeSearchQuery={ () => {} } onLink={ () => {} } onClose={ () => {} }
+			},] } addSite={ () => { return 'Add site'; } } onSearchChange={ () => {} } onLink={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } />
 	);
 
