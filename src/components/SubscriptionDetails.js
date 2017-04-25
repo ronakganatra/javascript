@@ -56,7 +56,9 @@ const ColumnContainer = styled.div`
 const ListHeader = styled.h2`
 	font-size: 1.0em;
 	font-weight: 400; 
-	padding: 30px 0 0 30px;
+	padding: 20px 0 20px 30px;
+	margin: 0;
+	border-bottom: thin solid ${ colors.$color_grey_light };
 `;
 
 /**
