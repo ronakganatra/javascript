@@ -5,6 +5,12 @@ jest.mock("../../src/actions/sites", () => {
 		return "retrieveSitesFunction"
 	} }
 } );
+jest.mock("../../src/actions/subscriptions", () => {
+	return { getAllSubscriptions: () => {
+		return "getAllSubscriptions"
+	} }
+} );
+
 test( 'location change action creator with /sites', () => {
 	let location = {
 		pathname: "/sites",
@@ -24,7 +30,7 @@ test( 'location change action creator with /account', () => {
 
 	const actual = locationChange ( location );
 
-	const expected = false;
+	const expected = "getAllSubscriptions";
 
 	expect( actual ).toEqual( expected );
 } );

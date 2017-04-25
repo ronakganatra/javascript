@@ -1,100 +1,85 @@
 exports[`test The Subscriptions component matches the snapshot 1`] = `
-<ul
-  className="jtXnzZ">
-  <div
-    className="dnTGWH">
-    <span>
-      <li
-        className="fTADJm">
-        <span
-          className="kueslB"
-          label="">
-          <img
-            alt=""
-            className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+<div
+  className="dnTGWH">
+  <ul
+    className="jplRhE"
+    role="list">
+    <li
+      className="bDpHpU">
+      <span
+        className="cdkaQN">
+        <img
+          alt=""
+          className="bjVGHc"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      </span>
+      <span
+        className="cHedPo">
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="jwyjVV">
+        20 sites
+      </span>
+      <span
+        className="eczGmx">
+        4
+        /
+        20
+      </span>
+      <span
+        className="cUGkua">
+        <span>
+          October 13, 2014
         </span>
-        <span
-          className="hKNaZz"
-          label="Product">
-          SEO Premium for WordPress
+      </span>
+      <span
+        className="bziLmx">
+        <span>
+          $122.00
         </span>
-        <span
-          className="kwAsAX"
-          label="Level">
-          20 sites
+      </span>
+      <span
+        className="emvmXy" />
+    </li>
+    <li
+      className="czzRBQ">
+      <span
+        className="cdkaQN">
+        <img
+          alt=""
+          className="bjVGHc"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+      </span>
+      <span
+        className="cHedPo">
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="jwyjVV">
+        20 sites
+      </span>
+      <span
+        className="eczGmx">
+        3
+        /
+        20
+      </span>
+      <span
+        className="cUGkua">
+        <span>
+          October 13, 2014
         </span>
-        <span
-          className="jkvVdY"
-          label="Usage">
-          4
-          /
-          20
+      </span>
+      <span
+        className="bziLmx">
+        <span>
+          $125.12
         </span>
-        <span
-          className="bXEjBG"
-          label="Next billing">
-          <span>
-            October 13, 2014
-          </span>
-        </span>
-        <span
-          className="jdwPuH"
-          label="Amount">
-          <span>
-            $122.00
-          </span>
-        </span>
-        <span
-          className="cOgajo"
-          label="" />
-      </li>
-      <li
-        className="gSUJps">
-        <span
-          className="kueslB"
-          label="">
-          <img
-            alt=""
-            className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
-        </span>
-        <span
-          className="hKNaZz"
-          label="Product">
-          SEO Premium for WordPress
-        </span>
-        <span
-          className="kwAsAX"
-          label="Level">
-          20 sites
-        </span>
-        <span
-          className="jkvVdY"
-          label="Usage">
-          3
-          /
-          20
-        </span>
-        <span
-          className="bXEjBG"
-          label="Next billing">
-          <span>
-            October 13, 2014
-          </span>
-        </span>
-        <span
-          className="jdwPuH"
-          label="Amount">
-          <span>
-            $125.12
-          </span>
-        </span>
-        <span
-          className="cOgajo"
-          label="" />
-      </li>
-    </span>
-  </div>
-</ul>
+      </span>
+      <span
+        className="emvmXy" />
+    </li>
+  </ul>
+</div>
 `;

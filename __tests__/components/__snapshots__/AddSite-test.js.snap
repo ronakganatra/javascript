@@ -1,12 +1,8 @@
 exports[`test The AddSite component matches the snapshot 1`] = `
 <div
-  className="WUMSu">
-  <img
-    alt=""
-    className="jvPCVm"
-    src="addsite.svg" />
+  className="dlIyNb">
   <h1
-    className="bYuvwO">
+    className="dQgKWp">
     <span>
       Add Site
     </span>
@@ -47,5 +43,9 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       </span>
     </button>
   </div>
+  <img
+    alt=""
+    className="ireVCO"
+    src="addsite.svg" />
 </div>
 `;

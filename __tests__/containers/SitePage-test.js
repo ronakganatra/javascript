@@ -25,7 +25,7 @@ test('the mapStateToProps function', () => {
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
 							reoccurring: true,
-							myYoastUserId: 2,
+							subscriberId: 2,
 							slots: {
 								amountAvailable: 11,
 								amountUsed: 5,
@@ -68,7 +68,7 @@ test('the mapStateToProps function', () => {
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",
 			reoccurring: true,
-			myYoastUserId: 2,
+			subscriberId: 2,
 			slots: {
 				amountAvailable: 11,
 				amountUsed: 5,

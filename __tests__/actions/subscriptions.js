@@ -10,7 +10,7 @@ jest.mock( "../../src/functions/auth", () => {
 	}
 } );
 
-let expectedRequest = new Request( getApiUrl() + "/MyYoastUsers/2/subscriptions/?access_token=access", {
+let expectedRequest = new Request( getApiUrl() + "/Customers/2/subscriptions/?access_token=access", {
 	method: "GET",
 	body: JSON.stringify(),
 	headers: {

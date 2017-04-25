@@ -69,7 +69,7 @@ test( 'fetch user action creator', () => {
 
 	return fetchUserFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.requestUser() );
-		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/MyYoastUsers/5/profile?access_token=AccessToken" );
+		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/Customers/5/profile?access_token=AccessToken" );
 		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( "User data" ) );
 	} );
 } );
