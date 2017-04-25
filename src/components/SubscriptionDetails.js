@@ -13,28 +13,36 @@ let hideButtonsThreshold = 1355;
 let mobileViewThreshold = 800;
 
 const SubscriptionDetailsContainer = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: column;
 	background-color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
 	height: 700px;
-	div:nth-child(-n+2) {
-		margin-right: ${ columnMargin };
-	}
-	div:nth-child(3) {
-		margin-left: ${ columnMargin };
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: column;
+		div:nth-child(-n+2) {
+			margin-right: ${ columnMargin };
+		}
+		div:nth-child(3) {
+			margin-left: ${ columnMargin };
+		}
 	}
 `;
 
 const ColumnContainer = styled.div`
-	width: calc( 50% - ${ columnMargin } );
-	float: left;
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) { 
+		width: calc( 50% - ${ columnMargin } );
+	}
+	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
+		width: calc( 100% - ${ columnMargin } );
+	}
 `;
 
-const listHeader = styled.h1`
-	font-size: 1.8em;
+const ListHeader = styled.h2`
+	font-size: 1.0em;
+	font-weight: 400; 
+	margin: 30px 0 0 30px;
 `;
 
 /**
@@ -49,15 +57,14 @@ const listHeader = styled.h1`
 function SubscriptionDetails( props ) {
 	return (
 		<SubscriptionDetailsContainer>
-			<MediaQuery query={ "(min-width: " + ( mobileViewThreshold + 1 ) + "px)" }>
 				<ColumnContainer>
-				<listHeader>
+				<ListHeader>
 					<FormattedMessage id="subscriptions.payment-details.header" defaultMessage="Payment details" />
-				</listHeader>
-				<Table headings={false} role="list" >
+				</ListHeader>
+				<Table headings={ false } role="list" >
 					<Zebra>
 						<Row>
-							<ColumnText>{ "Start Date" }</ColumnText>
+							<ColumnText ColumnWidth="20%">{ "Start Date" }</ColumnText>
 							<ColumnText> <FormattedDate value={props.startDate} /> </ColumnText>
 						</Row>
 						<Row>
@@ -68,10 +75,10 @@ function SubscriptionDetails( props ) {
 				</Table>
 			</ColumnContainer>
 				<ColumnContainer>
-					<listHeader>
+					<ListHeader>
 						<FormattedMessage id="subscriptions.invoices.header" defaultMessage="Invoices" />
-					</listHeader>
-					<Table headings={false} role="list" >
+					</ListHeader>
+					<Table headings={ false } role="list" >
 						<Zebra>
 							{ props.invoices.map( ( invoice ) => {
 								return <Row { ...invoice } key={ invoice.invoiceId }>
@@ -93,10 +100,10 @@ function SubscriptionDetails( props ) {
 					</Table>
 				</ColumnContainer>
 				<ColumnContainer>
-					<listHeader>
+					<ListHeader>
 						<FormattedMessage id="subscriptions.subscription-details.header" defaultMessage="Subscription details" />
-					</listHeader>
-					<Table headings={false} role="list" >
+					</ListHeader>
+					<Table headings={ false } role="list" >
 						<Zebra>
 							<Row>
 								<ColumnText>
@@ -135,7 +142,6 @@ function SubscriptionDetails( props ) {
 						</Zebra>
 					</Table>
 				</ColumnContainer>
-			</MediaQuery>
 		</SubscriptionDetailsContainer>
 	);
 }
