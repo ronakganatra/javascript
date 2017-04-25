@@ -22,13 +22,14 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         <span
           className="gWsdrk"
           label="Level">
-           sites
+          20 sites
         </span>
         <span
           className="hHZLIx"
           label="Usage">
           4
           /
+          20
         </span>
         <span
           className="iznQZi"
@@ -66,13 +67,14 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         <span
           className="gWsdrk"
           label="Level">
-           sites
+          20 sites
         </span>
         <span
           className="hHZLIx"
           label="Usage">
           3
           /
+          20
         </span>
         <span
           className="iznQZi"
