@@ -17,7 +17,7 @@ export default function Subscriptions( props ) {
 					let onManageHandler = () => {
 						props.onManage( subscription.id );
 					};
-						return <Subscription
+					return <Subscription
 							key={ subscription.id }
 							id={ subscription.id }
 							icon={ subscription.icon }

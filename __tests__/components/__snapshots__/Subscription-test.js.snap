@@ -9,20 +9,24 @@ exports[`test The Subscription component matches the snapshot 1`] = `
       src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
   </span>
   <span
-    className="cHedPo">
+    className="iiQuIO"
+    label="Product">
     SEO Premium for WordPress
   </span>
   <span
-    className="jwyjVV">
-    20 sites
+    className="byxNOD"
+    label="Level">
+     sites
   </span>
   <span
-    className="eczGmx">
+    className="bfZNTO"
+    label="Usage">
     14
     /
   </span>
   <span
-    className="cUGkua">
+    className="kUGIlo"
+    label="Next billing">
     <span>
       April 4, 2017
     </span>

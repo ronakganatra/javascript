@@ -14,21 +14,25 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="cHedPo">
+        className="iiQuIO"
+        label="Product">
         SEO Premium for WordPress
       </span>
       <span
-        className="jwyjVV">
+        className="byxNOD"
+        label="Level">
         20 sites
       </span>
       <span
-        className="eczGmx">
+        className="bfZNTO"
+        label="Usage">
         4
         /
         20
       </span>
       <span
-        className="cUGkua">
+        className="kUGIlo"
+        label="Next billing">
         <span>
           October 13, 2014
         </span>
@@ -52,21 +56,25 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="cHedPo">
+        className="iiQuIO"
+        label="Product">
         SEO Premium for WordPress
       </span>
       <span
-        className="jwyjVV">
+        className="byxNOD"
+        label="Level">
         20 sites
       </span>
       <span
-        className="eczGmx">
+        className="bfZNTO"
+        label="Usage">
         3
         /
         20
       </span>
       <span
-        className="cUGkua">
+        className="kUGIlo"
+        label="Next billing">
         <span>
           October 13, 2014
         </span>
