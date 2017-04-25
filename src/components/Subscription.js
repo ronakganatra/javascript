@@ -21,8 +21,8 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.usage",
 		defaultMessage: "Usage",
 	},
-	nextBillingOn: {
-		id: "subscriptions.overview.nextBillingOn",
+	nextPaymentOn: {
+		id: "subscriptions.overview.nextPaymentOn",
 		defaultMessage: "Next billing",
 	},
 	billingAmount: {
@@ -35,7 +35,7 @@ const messages = defineMessages( {
 	},
 	sites: {
 		id: "subscriptions.overview.sites",
-		defaultMessage: "{max} sites",
+		defaultMessage: "{limit} sites",
 	},
 } );
 
@@ -54,8 +54,8 @@ function Subscription( props ) {
 	delete rowProps.name;
 	delete rowProps.icon;
 	delete rowProps.used;
-	delete rowProps.max;
-	delete rowProps.nextBilling;
+	delete rowProps.limit;
+	delete rowProps.nextPayment;
 	delete rowProps.billingCurrency;
 	delete rowProps.billingAmount;
 
@@ -64,10 +64,10 @@ function Subscription( props ) {
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
 			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
-			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.max }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextBillingOn ) } ColumnWidth="150px">
-				<FormattedDate value={ props.nextBilling } day="numeric" month="long" year="numeric"/>
+			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }</ColumnText>
+			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
+			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
+				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">
@@ -91,8 +91,8 @@ Subscription.propTypes = {
 	icon: React.PropTypes.string.isRequired,
 	name: React.PropTypes.string.isRequired,
 	used: React.PropTypes.number.isRequired,
-	max: React.PropTypes.number.isRequired,
-	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
+	limit: React.PropTypes.number.isRequired,
+	nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,

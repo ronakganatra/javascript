@@ -18,15 +18,14 @@ export default function Subscriptions( props ) {
 						let onManageHandler = () => {
 							props.onManage( subscription.id );
 						};
-
 						return <Subscription
 							key={ subscription.id }
 							id={ subscription.id }
 							icon={ subscription.icon }
 							name={ subscription.name }
 							used={ subscription.used }
-							max={ subscription.max }
-							nextBilling={ subscription.nextBilling }
+							limit={ subscription.limit }
+							nextPayment={ subscription.nextPayment }
 							billingAmount={ subscription.billingAmount }
 							billingCurrency={ subscription.billingCurrency }
 							onManage={ onManageHandler }
@@ -47,8 +46,8 @@ Subscriptions.propTypes = {
 				icon: React.PropTypes.string.isRequired,
 				name: React.PropTypes.string.isRequired,
 				used: React.PropTypes.number.isRequired,
-				max: React.PropTypes.number.isRequired,
-				nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
+				limit: React.PropTypes.number.isRequired,
+				nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: React.PropTypes.number.isRequired,
 				billingCurrency: React.PropTypes.string.isRequired,
 			}

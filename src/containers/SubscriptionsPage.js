@@ -12,12 +12,12 @@ export const mapStateToProps = ( state ) => {
 		let subscriptionProps = {
 			id: subscription.id,
 			icon: "",
-			name: "Subscription",
+			name: subscription.name,
 			used: 0,
-			max: 1,
-			nextBilling: new Date(),
-			billingAmount: 0,
-			billingCurrency: "USD",
+			limit: subscription.limit,
+			nextPayment: subscription.nextPayment,
+			billingAmount: subscription.price,
+			billingCurrency: subscription.currency,
 		};
 
 		return subscriptionProps;
@@ -26,7 +26,7 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
-			return subscription.name.toUpperCase().includes( query.toUpperCase() ) || subscription.max.toString() === query || subscription.used.toString() === query;
+			return subscription.name.toUpperCase().includes( query.toUpperCase() ) || subscription.limit.toString() === query || subscription.used.toString() === query;
 		} );
 	}
 
