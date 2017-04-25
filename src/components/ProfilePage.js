@@ -59,7 +59,7 @@ const messages = defineMessages( {
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
-		defaultMessage: "Profile page loaded",
+		defaultMessage: "Account profile page loaded",
 	},
 } );
 

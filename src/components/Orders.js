@@ -8,7 +8,7 @@ import { defineMessages, injectIntl, intlShape } from "react-intl";
 const messages = defineMessages( {
 	ordersPageLoaded: {
 		id: "menu.account.orders.loaded",
-		defaultMessage: "Orders page loaded",
+		defaultMessage: "Account orders page loaded",
 	},
 } );
 
