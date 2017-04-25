@@ -4,134 +4,125 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
   <div
     className="jjZCRT">
     <h2
-      className="hpDvNn">
+      className="goWEAc">
       Payment details
     </h2>
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
-      <ul
-        className="jplRhE">
-        <li
-          className="fFYeCA">
-          <span
-            className="hIvutE">
-            Start Date
+      <li
+        className="iTtCSg">
+        <span
+          className="hIvutE">
+          Start Date
+        </span>
+        <span
+          className="hIvutE">
+           
+          <span>
+            6/1/2017
           </span>
-          <span
-            className="hIvutE">
-             
-            <span>
-              6/1/2017
-            </span>
-             
+           
+        </span>
+      </li>
+      <li
+        className="fFYeCA">
+        <span
+          className="hIvutE">
+          Next Billing
+        </span>
+        <span
+          className="hIvutE">
+           
+          <span>
+            6/1/2018
           </span>
-        </li>
-        <li
-          className="fFYeCA">
-          <span
-            className="hIvutE">
-            Next Billing
-          </span>
-          <span
-            className="hIvutE">
-             
-            <span>
-              6/1/2018
-            </span>
-             
-          </span>
-        </li>
-      </ul>
+           
+        </span>
+      </li>
     </ul>
   </div>
   <div
     className="jjZCRT">
     <h2
-      className="hpDvNn">
+      className="goWEAc">
       Subscription details
     </h2>
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
-      <ul
-        className="jplRhE">
-        <li
-          className="fFYeCA">
-          <span
-            className="fkByDC">
-            <span>
-               You can add 4 more sites to this subscription.
-            </span>
+      <li
+        className="iTtCSg">
+        <span
+          className="fkByDC">
+          <span>
+             You can add 4 more sites to this subscription.
           </span>
-          <span
-            className="gjfIlq" />
-        </li>
-        <li
-          className="fFYeCA">
-          <span
-            className="fkByDC">
-            Change subscription level
-          </span>
-          <span
-            className="gjfIlq" />
-        </li>
-        <li
-          className="fFYeCA">
-          <span
-            className="fkByDC">
-            Cancel subscription
-          </span>
-          <span
-            className="gjfIlq" />
-        </li>
-      </ul>
+        </span>
+        <span
+          className="gjfIlq" />
+      </li>
+      <li
+        className="fFYeCA">
+        <span
+          className="fkByDC">
+          Change subscription level
+        </span>
+        <span
+          className="gjfIlq" />
+      </li>
+      <li
+        className="iTtCSg">
+        <span
+          className="fkByDC">
+          Cancel subscription
+        </span>
+        <span
+          className="gjfIlq" />
+      </li>
     </ul>
   </div>
   <div
     className="jjZCRT">
     <h2
-      className="hpDvNn">
+      className="goWEAc">
       Invoices
     </h2>
     <ul
-      className="jplRhE"
+      className="kYxQsj"
       role="list">
-      <ul
-        className="jplRhE">
-        <li
-          className="fFYeCA">
-          <span
-            className="dESJUX">
-            <span>
-              7/21/2016
-            </span>
+      <li
+        className="iTtCSg">
+        <span
+          className="dESJUX">
+          <span>
+            7/21/2016
           </span>
-          <span
-            className="dESJUX">
-            $
-            100
+        </span>
+        <span
+          className="dESJUX">
+          $
+          100
+        </span>
+        <span
+          className="kxFaKW" />
+      </li>
+      <li
+        className="fFYeCA">
+        <span
+          className="dESJUX">
+          <span>
+            7/22/2016
           </span>
-          <span
-            className="kxFaKW" />
-        </li>
-        <li
-          className="fFYeCA">
-          <span
-            className="dESJUX">
-            <span>
-              7/22/2016
-            </span>
-          </span>
-          <span
-            className="dESJUX">
-            $
-            20000
-          </span>
-          <span
-            className="kxFaKW" />
-        </li>
-      </ul>
+        </span>
+        <span
+          className="dESJUX">
+          $
+          20000
+        </span>
+        <span
+          className="kxFaKW" />
+      </li>
     </ul>
   </div>
 </div>

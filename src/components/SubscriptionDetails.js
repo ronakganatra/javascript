@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { ColumnText, Row, ListTable, Zebra, Column } from "./Tables";
+import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, FormattedMessage, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
@@ -58,7 +58,7 @@ const ListHeader = styled.h2`
 	font-weight: 400; 
 	padding: 20px 0 20px 30px;
 	margin: 0;
-	border-bottom: thin solid ${ colors.$color_grey_light };
+	border-bottom: thin solid ${ colors.$color_grey_medium };
 `;
 
 /**
@@ -72,8 +72,7 @@ const ListHeader = styled.h2`
  */
 function SubscriptionDetails( props ) {
 	let paymentDetailTable =  (
-		<ListTable headings={ false } role="list" >
-			<Zebra>
+		<ListTable hasHeaderLabels={ false } role="list" >
 				<Row justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Start Date" }</ColumnText>
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.startDate } /> </ColumnText>
@@ -82,13 +81,11 @@ function SubscriptionDetails( props ) {
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Next Billing" }</ColumnText>
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
 				</Row>
-			</Zebra>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
-		<ListTable headings={ false } role="list" >
-			<Zebra>
+		<ListTable hasHeaderLabels={ false } role="list" >
 				<Row justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">
 						<FormattedMessage id="subscriptionss.site-subscriptions-remaining"
@@ -123,33 +120,29 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-			</Zebra>
 		</ListTable>
 	);
 
 	let invoicesTable = (
-		<ListTable headings={ false } role="list" >
-			<Zebra>
-				{ props.invoices.map( ( invoice ) => {
-					return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
-						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
-						<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
-						<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
-							<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-								<IconButton onClick={ props.onInvoiceDownload }
-											icon={ downloadIcon }
-											iconSize={ "16px" }>
-									<FormattedMessage
-										id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
-								</IconButton>
-							</MediaQuery>
-						</Column>
-					</Row>;
-				} ) }
-			</Zebra>
+		<ListTable hasHeaderLabels={ false } role="list" >
+			{ props.invoices.map( ( invoice ) => {
+				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
+					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+					<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
+						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
+							<IconButton onClick={ props.onInvoiceDownload }
+										icon={ downloadIcon }
+										iconSize={ "16px" }>
+								<FormattedMessage
+									id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
+							</IconButton>
+						</MediaQuery>
+					</Column>
+				</Row>;
+			} ) }
 		</ListTable>
 	);
-
 
 	return (
 		<SubscriptionDetailsContainer>
