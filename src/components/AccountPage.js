@@ -9,6 +9,13 @@ let itemRoutes = [
 		component: SubscriptionsPage,
 		path: "/account/subscriptions",
 		title: "Subscriptions",
+		isActive: ( match, location ) => {
+			if ( match ) {
+				return match;
+			}
+
+			return location.pathname === "/account" || location.pathname === "/account/";
+		},
 	},
 	{
 		component: OrderPage,

@@ -78,6 +78,13 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		right: 0;
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
+		transition: background 100ms ease-out;
+	}
+
+	@media screen and (max-width: 1024px) {
+		&.my-yoast-modal__overlay {
+			bottom: 74px;
+		}
 	}
 
 	&.my-yoast-modal__content {
@@ -87,26 +94,27 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		right: auto;
 		bottom: auto;
 		width: auto;
+		max-width: 90%;
+		max-height: 90%;
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 40px 20px;
+		padding: 2em 2em 0;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
 		
+		@media screen and ( max-width: 600px ) {
+			padding: 1.5em 1.5em 0;
+		}
+		
 		@media screen and ( max-width: 500px ) {
-			height: 300px;
-			width: auto;
-			overflow: scroll;
+			overflow-y: auto;
 		}
 		
 		@media screen and ( max-height: 640px ) {
-			height: 300px;
-			width: auto;
-			overflow: scroll;
+			overflow-y: auto;
 		}
-
 	}
 
 	.my-yoast-modal__actions {

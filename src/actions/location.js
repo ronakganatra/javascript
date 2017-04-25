@@ -2,6 +2,25 @@ import { retrieveSites } from "./sites";
 import { getAllSubscriptions } from "./subscriptions";
 import { getOrders } from "./orders";
 
+let locations = {
+	"/": retrieveSites(),
+	"/sites": retrieveSites(),
+	"/account/orders": getOrders(),
+	"/account": getAllSubscriptions(),
+	"/account/": getAllSubscriptions(),
+	"/account/subscriptions": getAllSubscriptions(),
+};
+
+let matchingLocations = [
+	{
+		matcher: /\/sites\/([^/]+)/,
+		action: ( dispatch ) => {
+			dispatch( retrieveSites() );
+			dispatch( getAllSubscriptions() );
+		},
+	},
+];
+
 /**
  * An action creator for a location change. Calls other action creators to actually create the actions.
  *
@@ -9,26 +28,17 @@ import { getOrders } from "./orders";
  * @returns {Object} A valid action.
  */
 export default function locationChange( location ) {
-	let matches;
-
-	switch ( location.pathname ) {
-		case "/":
-		case "/sites":
-			return retrieveSites();
-		case "/account/subscriptions":
-			return getAllSubscriptions();
-		case "/account/orders":
-			return getOrders();
-		default:
-			matches = location.pathname.match( /\/sites\/([^/]+)/ );
-
-			if ( null !== matches ) {
-				return ( dispatch ) => {
-					dispatch( retrieveSites() );
-					dispatch( getAllSubscriptions() );
-				};
-			}
-
-			return false;
+	if ( locations.hasOwnProperty( location.pathname ) ) {
+		return locations[ location.pathname ];
 	}
+
+	let action = () => {};
+
+	matchingLocations.forEach( ( matchingLocation ) => {
+		if ( location.pathname.match( matchingLocation.matcher ) ) {
+			action = matchingLocation.action;
+		}
+	} );
+
+	return action;
 }

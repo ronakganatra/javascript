@@ -53,9 +53,8 @@ export default function SubNavigation( props ) {
 	return (
 		<SubNavigationContainer role="list">
 					{ props.itemRoutes.map( function( item ) {
-						let isActive = item.isActive || ( ( match ) => {
-							return match;
-						} );
+						let isActive = item.isActive || ( match => match );
+
 						return <SubNavigationEntry key={ item.title }>
 								<LinkItem activeClassName={ activeStyle } to={ item.path } isActive={ isActive }> { item.title } </LinkItem>
 							</SubNavigationEntry>;

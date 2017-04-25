@@ -64,7 +64,7 @@ export function getAllSubscriptions() {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		let request = new Request( `${apiUrl}/MyYoastUsers/${userId}/subscriptions/?access_token=${accessToken}`, {
+		let request = new Request( `${apiUrl}/Customers/${userId}/subscriptions/?access_token=${accessToken}`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
