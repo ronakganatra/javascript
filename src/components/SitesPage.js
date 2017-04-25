@@ -62,15 +62,11 @@ class SitesPage extends React.Component {
 	 * @returns {ReactElement} The rendered Sites component.
 	 */
 	getSearch() {
-		let changeSearchQuery = ( event ) => {
-			this.props.changeSearchQuery( event.target.value );
-		};
-
 		return <Search
 			id="search"
 			description={ this.props.intl.formatMessage( messages.description ) }
 			descriptionId="searchDescription"
-			onChange={ changeSearchQuery }
+			onChange={ this.props.onSearchChange }
 			query={ this.props.query }
 		/>;
 	}
@@ -167,7 +163,7 @@ export default injectIntl( SitesPage );
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
-	changeSearchQuery: React.PropTypes.func.isRequired,
+	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,
 	onLink: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,
