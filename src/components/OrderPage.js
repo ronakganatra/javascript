@@ -4,10 +4,6 @@ import Search from "./Search";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 const messages = defineMessages( {
-	description: {
-		id: "search.description",
-		defaultMessage: "The search results will be updated as you type.",
-	},
 	searchLabel: {
 		id: "search.label.orders",
 		defaultMessage: "Search orders",
@@ -29,7 +25,6 @@ function OrderPage( props ) {
 				{ ...searchProps }
 				id="search"
 				searchLabel={ props.intl.formatMessage( messages.searchLabel ) }
-				description={ props.intl.formatMessage( messages.description ) }
 				descriptionId="search-description"
 			/>
 			<Orders { ...props } />

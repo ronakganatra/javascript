@@ -16,10 +16,6 @@ const messages = defineMessages( {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
 	},
-	description: {
-		id: "search.description",
-		defaultMessage: "The search results will be updated as you type.",
-	},
 	searchResults: {
 		id: "search.results",
 		defaultMessage: "Number of sites found: %d",
@@ -66,21 +62,17 @@ class SitesPage extends React.Component {
 	 * @returns {ReactElement} The rendered Sites component.
 	 */
 	getSearch() {
-		let changeSearchQuery = ( event ) => {
-			this.props.changeSearchQuery( event.target.value );
-		};
-
 		return <Search
 			id="search"
 			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
-			description={ this.props.intl.formatMessage( messages.description ) }
 			descriptionId="search-description"
-			onChange={ changeSearchQuery }
+			onChange={ this.props.onSearchChange }
 			query={ this.props.query }
 		/>;
 	}
 
 	componentDidMount() {
+		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
 	}
@@ -172,7 +164,7 @@ export default injectIntl( SitesPage );
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
-	changeSearchQuery: React.PropTypes.func.isRequired,
+	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,
 	onLink: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,

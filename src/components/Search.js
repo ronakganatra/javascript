@@ -9,6 +9,10 @@ const messages = defineMessages( {
 		id: "search.label",
 		defaultMessage: "Search",
 	},
+	description: {
+		id: "search.description",
+		defaultMessage: "The search results will be updated as you type default.",
+	},
 } );
 
 const SearchLabel = styled.label`
@@ -99,7 +103,7 @@ function Search( props ) {
 			spellCheck="false"
 		/>
 		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
-			{ props.description }
+			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
 		</SearchDescription>
 	</div>;
 }
@@ -109,7 +113,7 @@ export default injectIntl( Search );
 Search.propTypes = {
 	searchLabel: React.PropTypes.string,
 	id: React.PropTypes.string.isRequired,
-	description: React.PropTypes.string.isRequired,
+	description: React.PropTypes.string,
 	descriptionId: React.PropTypes.string.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	query: React.PropTypes.string,
