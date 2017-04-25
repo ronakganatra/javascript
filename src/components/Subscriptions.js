@@ -1,6 +1,6 @@
 import React from "react";
 import Subscription from "./Subscription";
-import { Table, Zebra } from "./Tables";
+import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
 /**
@@ -11,13 +11,12 @@ import Paper from "./Paper";
  */
 export default function Subscriptions( props ) {
 	return (
-		<Table>
-			<Paper>
-				<Zebra>
-					{ props.subscriptions.map( function( subscription ) {
-						let onManageHandler = () => {
-							props.onManage( subscription.id );
-						};
+		<Paper>
+			<ListTable>
+				{ props.subscriptions.map( function( subscription ) {
+					let onManageHandler = () => {
+						props.onManage( subscription.id );
+					};
 						return <Subscription
 							key={ subscription.id }
 							id={ subscription.id }
@@ -30,11 +29,9 @@ export default function Subscriptions( props ) {
 							billingCurrency={ subscription.billingCurrency }
 							onManage={ onManageHandler }
 						/>;
-					} )
-					}
-				</Zebra>
-			</Paper>
-		</Table>
+				} ) }
+			</ListTable>
+		</Paper>
 	);
 }
 

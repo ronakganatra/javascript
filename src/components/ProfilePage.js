@@ -78,7 +78,12 @@ const Column = styled.div`
 	}
 `;
 
-const Label = styled.p`
+const Label = styled.label`
+	margin-bottom: 0.5em;
+	font-size: 1.1em;
+`;
+
+const Paragraph = styled.p`
 	margin-bottom: 0.5em;
 	font-size: 1.1em;
 `;
@@ -91,6 +96,7 @@ const TextInput = styled.input`
 	width: 100%;
 	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
 	border:none;
+	margin: 7px 0;
 `;
 
 const SaveContainer = styled.div`
@@ -397,8 +403,9 @@ class ProfilePage extends React.Component {
 				<Page>
 					<Column>
 						<form onSubmit={this.handleSubmit}>
-							<Label>{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+							<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 							<TextInput
+								id="emailAddress"
 								autocomplete="on"
 								name="email"
 								type="text"
@@ -407,23 +414,26 @@ class ProfilePage extends React.Component {
 							{ this.displayErrors( "email" ) }
 
 							<FieldGroup>
-								<Label>{ this.props.intl.formatMessage( messages.labelCurrentPassword ) }</Label>
+								<Label htmlFor="oldPassword">{ this.props.intl.formatMessage( messages.labelCurrentPassword ) }</Label>
 								<TextInput
+									id="oldPassword"
 									type="password"
 									value={this.state.oldPassword}
 									onChange={this.handleOldPasswordChange}/>
 								{ this.displayErrors( "oldPassword" ) }
 
-								<Label>{ this.props.intl.formatMessage( messages.labelNewPassword ) }</Label>
+								<Label htmlFor="newPassword">{ this.props.intl.formatMessage( messages.labelNewPassword ) }</Label>
 								<TextInput
+									id="newPassword"
 									autocomplete="off"
 									type="password"
 									value={this.state.newPassword}
 									onChange={this.handleNewPasswordChange}/>
 								{ this.displayErrors( "newPassword" ) }
 
-								<Label>{ this.props.intl.formatMessage( messages.labelNewPasswordConfirm ) }</Label>
+								<Label htmlFor="newPasswordCheck">{ this.props.intl.formatMessage( messages.labelNewPasswordConfirm ) }</Label>
 								<TextInput
+									id="newPasswordCheck"
 									autocomplete="off"
 									type="password"
 									value={this.state.newPasswordCheck}
@@ -441,7 +451,7 @@ class ProfilePage extends React.Component {
 					</Column>
 
 					<Column>
-						<Label>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Label>
+						<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
 						<p>{ this.props.intl.formatMessage( messages.descriptionProfilePicture ) }</p>
 						{ image }
 					</Column>

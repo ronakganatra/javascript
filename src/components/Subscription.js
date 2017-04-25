@@ -47,17 +47,10 @@ const messages = defineMessages( {
  * @constructor
  */
 function Subscription( props ) {
-	let rowProps = Object.assign( {}, props );
-
-	// Possibly prettify this.
-	delete rowProps.id;
-	delete rowProps.name;
-	delete rowProps.icon;
-	delete rowProps.used;
-	delete rowProps.limit;
-	delete rowProps.nextPayment;
-	delete rowProps.billingCurrency;
-	delete rowProps.billingAmount;
+	let rowProps = [];
+	if ( props.background ) {
+		rowProps.background = props.background;
+	}
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
@@ -69,7 +62,7 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.billingAmount ) }
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
 			<Column textAlign="right">
@@ -96,6 +89,7 @@ Subscription.propTypes = {
 	billingAmount: React.PropTypes.number.isRequired,
 	billingCurrency: React.PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
+	background: React.PropTypes.string,
 	onManage: React.PropTypes.func.isRequired,
 };
 
