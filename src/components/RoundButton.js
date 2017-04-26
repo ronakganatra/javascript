@@ -1,12 +1,10 @@
 import React from "react";
-
 import styled from "styled-components";
-
 import colors from "yoast-components/style-guide/colors.json";
-
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
 import plus from "../icons/plus.svg";
+import { Link } from "react-router-dom";
 
 export const RoundButton = styled.button`
 	background-color: ${colors.$color_green_medium_light};
@@ -33,7 +31,7 @@ RoundButton.defaultProps = {
 
 export const RoundBackButton = styled( RoundButton )`
 	background-image: url( ${angleLeft} );
-	background-position: 4px center;
+	background-position: 3px 4px;
 `;
 
 RoundBackButton.defaultProps = {
@@ -51,6 +49,37 @@ RoundAddButton.defaultProps = {
 };
 
 export const ChevronButton = styled( RoundButton )`
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: url( ${chevronRight} );
+	background-position: center;
+	background-size: 24px;
+	box-shadow: none;
+`;
+
+export const RoundButtonLink = styled( Link )`
+	display: inline-block;
+	background-color: ${colors.$color_green_medium_light};
+	background-repeat: no-repeat;
+	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+	border-radius: 100%;
+	background-size: 30px;
+	width:  40px;
+	height: 40px;
+	line-height: 40px;
+	text-decoration: none;
+`;
+
+RoundButtonLink.propTypes = {
+	to: React.PropTypes.string.isRequired,
+};
+
+export const RoundBackButtonLink = styled( RoundButtonLink )`
+	background-image: url( ${angleLeft} );
+	background-position: 3px 4px;
+`;
+
+export const ChevronButtonLink = styled( RoundButtonLink )`
 	background-color: transparent;
 	background-repeat: no-repeat;
 	background-image: url( ${chevronRight} );
