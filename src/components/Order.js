@@ -13,8 +13,8 @@ const messages = defineMessages( {
 		id: "orders.overview.date",
 		defaultMessage: "Date",
 	},
-	orderNumber: {
-		id: "orders.overview.orderNumber",
+	orderId: {
+		id: "orders.overview.orderId",
 		defaultMessage: "Order",
 	},
 	items: {
@@ -42,17 +42,21 @@ const messages = defineMessages( {
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
+	console.log( props );
 	return (
 		<Row background={ props.background }>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
-						headerlabel={ props.intl.formatMessage( messages.orderNumber ) }>{ props.orderNumber }</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px" label={ props.intl.formatMessage( messages.items ) }>
+						headerLabel={ props.intl.formatMessage( messages.orderId ) }>
+				{ props.id };
+			</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerlabel={ props.intl.formatMessage( messages.total ) }>
+			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
+				{ console.log ( props.total ) }
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
@@ -75,7 +79,7 @@ function Order( props ) {
 
 Order.propTypes = {
 	date: React.PropTypes.instanceOf( Date ).isRequired,
-	orderNumber: React.PropTypes.string.isRequired,
+	id: React.PropTypes.string.isRequired,
 	total: React.PropTypes.number.isRequired,
 	currency: React.PropTypes.string.isRequired,
 	onClickInvoice: React.PropTypes.func.isRequired,

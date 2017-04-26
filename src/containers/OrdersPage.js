@@ -12,11 +12,10 @@ export const mapStateToProps = ( state ) => {
 
 		let orderProps = {
 			id: order.id,
-			orderNumber: "Order #",
+			orderNumber: order.items.orderid,
 			date: new Date( order.date ),
 			total: order.totalAmount,
-			currency: "USD",
-			status: "completed",
+			status: order.status,
 			items: order.items,
 		};
 

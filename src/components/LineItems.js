@@ -8,7 +8,7 @@ import React from "react";
  */
 function LineItems( props ) {
 	let items = props.items.map( ( item ) => {
-		return <div> { item.id } </div>;
+		return <div> { item.productName } </div>;
 	} );
 	return <div> { items } </div>;
 }
