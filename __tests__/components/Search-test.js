@@ -24,7 +24,7 @@ test('the search component handling an on change', () => {
 			id="search"
 			searchLabel="Search"
 			description="The search results will be updated as you type."
-			descriptionId="-d"
+			descriptionId="search-description"
 			onChange={ () => { return 'Query changed' } }
 		/>
 	);
