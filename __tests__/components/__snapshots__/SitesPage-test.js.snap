@@ -8,11 +8,11 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
-          Search
+          Search sites
         </span>
       </label>
       <input
-        aria-describedby="searchDescription"
+        aria-describedby="search-description"
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
@@ -24,7 +24,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         value="" />
       <p
         className="screen-reader-text foqgVb"
-        id="searchDescription">
+        id="search-description">
         The search results will be updated as you type.
       </p>
     </div>
@@ -135,11 +135,11 @@ exports[`test the sites page component with sites handling an onclick event on t
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
-          Search
+          Search sites
         </span>
       </label>
       <input
-        aria-describedby="searchDescription"
+        aria-describedby="search-description"
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
@@ -151,7 +151,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         value="" />
       <p
         className="screen-reader-text foqgVb"
-        id="searchDescription">
+        id="search-description">
         The search results will be updated as you type.
       </p>
     </div>
@@ -228,11 +228,11 @@ exports[`test the sites page component with sites handling an onclick event on t
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
-          Search
+          Search sites
         </span>
       </label>
       <input
-        aria-describedby="searchDescription"
+        aria-describedby="search-description"
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
@@ -244,7 +244,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         value="" />
       <p
         className="screen-reader-text foqgVb"
-        id="searchDescription">
+        id="search-description">
         The search results will be updated as you type.
       </p>
     </div>

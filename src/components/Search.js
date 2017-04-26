@@ -2,6 +2,18 @@ import React from "react";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import searchIcon from "../icons/search.svg";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const messages = defineMessages( {
+	searchLabel: {
+		id: "search.label",
+		defaultMessage: "Search",
+	},
+	description: {
+		id: "search.description",
+		defaultMessage: "The search results will be updated as you type.",
+	},
+} );
 
 const SearchLabel = styled.label`
 	background-image: url( ${ searchIcon } );
@@ -68,14 +80,16 @@ SearchDescription.defaultProps = {
  * @param {Object} props The props to use.
  * @returns {ReactElement} The rendered html.
  */
-export default function Search( props ) {
+function Search( props ) {
 	let changeSearchQuery = ( event ) => {
 		props.onChange( event.target.value );
 	};
 
 	return <div>
 		<SearchLabel htmlFor={ props.id }>
-			<SearchLabelText className="screen-reader-text">{ props.searchLabel }</SearchLabelText>
+			<SearchLabelText className="screen-reader-text">
+				{ props.searchLabel ? props.searchLabel : props.intl.formatMessage( messages.searchLabel ) }
+			</SearchLabelText>
 		</SearchLabel>
 		<SearchField
 			type="text"
@@ -89,20 +103,19 @@ export default function Search( props ) {
 			spellCheck="false"
 		/>
 		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
-			{ props.description }
+			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
 		</SearchDescription>
 	</div>;
 }
 
+export default injectIntl( Search );
+
 Search.propTypes = {
 	searchLabel: React.PropTypes.string,
 	id: React.PropTypes.string.isRequired,
-	description: React.PropTypes.string.isRequired,
+	description: React.PropTypes.string,
 	descriptionId: React.PropTypes.string.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	query: React.PropTypes.string,
-};
-
-Search.defaultProps = {
-	searchLabel: "Search",
+	intl: intlShape.isRequired,
 };

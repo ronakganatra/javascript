@@ -3,26 +3,26 @@ exports[`test The Orders component matches the snapshot 1`] = `
   <div>
     <label
       className="bFGhCT"
-      htmlFor="orderSearchBar">
+      htmlFor="search">
       <span
         className="screen-reader-text foqgVb">
-        Search
+        Search orders
       </span>
     </label>
     <input
-      aria-describedby="I am an order search bar id"
+      aria-describedby="search-description"
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
       className="hhtLuS"
-      id="orderSearchBar"
+      id="search"
       onChange={[Function]}
       spellCheck="false"
       type="text"
       value={undefined} />
     <p
       className="screen-reader-text foqgVb"
-      id="I am an order search bar id">
+      id="search-description">
       I am an order search bar
     </p>
   </div>
