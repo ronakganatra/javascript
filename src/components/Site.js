@@ -36,11 +36,16 @@ SiteIcon.propTypes = {
  * @constructor
  */
 function Site( props ) {
+	let rowProps = [];
+	if ( props.background ) {
+		rowProps.background = props.background;
+	}
+
 	return (
-		<Row>
+		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.activeSubscriptions ) }
+			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
 						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } /></ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
@@ -62,6 +67,7 @@ Site.propTypes = {
 	siteIcon: React.PropTypes.string,
 	onClickManage: React.PropTypes.func,
 	intl: intlShape.isRequired,
+	background: React.PropTypes.string,
 };
 
 Site.defaultProps = {

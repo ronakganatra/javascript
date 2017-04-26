@@ -18,108 +18,106 @@ exports[`test the site subscription detail list component matches the snapshot 1
     </svg>
   </button>
   <ul
-    className="iDISCd"
+    className="kYxQsj"
     role="list">
-    <span>
-      <li
-        className="gSUJps">
+    <li
+      className="ePzAao">
+      <span
+        className="galWEB">
+        <img
+          alt=""
+          className="cOhtuq"
+          src="Yoast_SEO_Icon_Small.svg" />
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Yoast_SEO_Icon_Small.svg" />
-          <span
-            className="gputun">
-            <div>
-              <div
-                aria-checked={false}
-                aria-label="Yoast SEO"
-                className="kXYdPH"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="checkbox"
-                tabIndex="0">
-                <span
-                  className="bNikmV" />
-              </div>
+          className="gputun">
+          <div>
+            <div
+              aria-checked={false}
+              aria-label="Yoast SEO"
+              className="kXYdPH"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex="0">
               <span
-                aria-hidden="true"
-                className="iUAAtI">
-                Off
-              </span>
+                className="bNikmV" />
             </div>
+            <span
+              aria-hidden="true"
+              className="iUAAtI">
+              Off
+            </span>
+          </div>
+        </span>
+      </span>
+      <div
+        className="drFsFv">
+        <span
+          className="gwtpew">
+          bla
+        </span>
+        <span
+          className="kaVduD">
+          <span>
+             5 / 10 remaining 
           </span>
         </span>
-        <div
-          className="drFsFv">
-          <span
-            className="gwtpew">
-            bla
-          </span>
-          <span
-            className="kaVduD">
-            <span>
-               5 / 10 remaining 
-            </span>
-          </span>
-          <button
-            className="dqWYTA"
-            onClick={[Function]}>
-            Add more slots
-          </button>
-        </div>
-      </li>
-      <li
-        className="fTADJm">
+        <button
+          className="dqWYTA"
+          onClick={[Function]}>
+          Add more slots
+        </button>
+      </div>
+    </li>
+    <li
+      className="jJQwzi">
+      <span
+        className="galWEB">
+        <img
+          alt=""
+          className="cOhtuq"
+          src="Local_SEO_Icon_Small.svg" />
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Local_SEO_Icon_Small.svg" />
-          <span
-            className="gputun">
-            <div>
-              <div
-                aria-checked={false}
-                aria-label="Local SEO"
-                className="kXYdPH"
-                onClick={[Function]}
-                onKeyDown={[Function]}
-                role="checkbox"
-                tabIndex="0">
-                <span
-                  className="bNikmV" />
-              </div>
+          className="gputun">
+          <div>
+            <div
+              aria-checked={false}
+              aria-label="Local SEO"
+              className="kXYdPH"
+              onClick={[Function]}
+              onKeyDown={[Function]}
+              role="checkbox"
+              tabIndex="0">
               <span
-                aria-hidden="true"
-                className="iUAAtI">
-                Off
-              </span>
+                className="bNikmV" />
             </div>
+            <span
+              aria-hidden="true"
+              className="iUAAtI">
+              Off
+            </span>
+          </div>
+        </span>
+      </span>
+      <div
+        className="drFsFv">
+        <span
+          className="gwtpew">
+          bla2
+        </span>
+        <span
+          className="kaVduD">
+          <span>
+             3 / 10 remaining 
           </span>
         </span>
-        <div
-          className="drFsFv">
-          <span
-            className="gwtpew">
-            bla2
-          </span>
-          <span
-            className="kaVduD">
-            <span>
-               3 / 10 remaining 
-            </span>
-          </span>
-          <button
-            className="dqWYTA"
-            onClick={[Function]}>
-            Add more slots
-          </button>
-        </div>
-      </li>
-    </span>
+        <button
+          className="dqWYTA"
+          onClick={[Function]}>
+          Add more slots
+        </button>
+      </div>
+    </li>
   </ul>
 </div>
 `;

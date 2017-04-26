@@ -1,7 +1,16 @@
 import React from "react";
 import Order from "./Order";
-import { Table, Zebra } from "./Tables";
+import { ListTable } from "./Tables";
 import Paper from "./Paper";
+import a11ySpeak from "a11y-speak";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const messages = defineMessages( {
+	ordersPageLoaded: {
+		id: "menu.account.orders.loaded",
+		defaultMessage: "Account orders page loaded",
+	},
+} );
 
 /**
  * Creates Page Order container element
@@ -10,30 +19,39 @@ import Paper from "./Paper";
  * @returns {ReactElement} PageOrderList element.
  * @constructor
  */
-export default function Orders( props ) {
-	return (
-		<Table headings={true} role="list">
+class Orders extends React.Component {
+	componentDidMount() {
+		// Announce navigation to assistive technologies.
+		let message = this.props.intl.formatMessage( messages.ordersPageLoaded );
+		a11ySpeak( message );
+	}
+
+	render() {
+		return (
 			<Paper>
-				<Zebra>
-					{ props.orders.map( ( order ) => {
+				<ListTable hasHeaderLabels={ true }>
+					{ this.props.orders.map( ( order ) => {
 						let onInvoiceManager = () => {
-							props.onClickInvoice( order.id );
+							this.props.onClickInvoice( order.id );
 						};
 
 						return <Order { ...order }
-									  key={ order.productId }
+									  key={ order.id }
 									  onClickInvoice={ onInvoiceManager }
 						/>;
 					} ) }
-				</Zebra>
+				</ListTable>
 			</Paper>
-		</Table>
-	);
+		);
+	}
 }
+
+export default injectIntl( Orders );
 
 Orders.propTypes = {
 	onClickInvoice: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
+	intl: intlShape.isRequired,
 };
 
 Orders.defaultProps = {
