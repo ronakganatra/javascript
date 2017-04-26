@@ -57,7 +57,7 @@ function Order( props ) {
 				<MediaQuery query="(min-width: 1356px)">
 					<IconButton aria-label={ props.intl.formatMessage( messages.invoice ) }
 								onClick={ props.onClickInvoice }
-								icon={ downloadIcon }>
+								iconSource={ downloadIcon }>
 						{ props.intl.formatMessage( messages.invoice ) }
 					</IconButton>
 				</MediaQuery>
