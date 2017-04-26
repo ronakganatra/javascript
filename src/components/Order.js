@@ -1,8 +1,8 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { Row, ColumnText, Column } from "./Tables";
-import { IconButton } from "./Button";
-import { ChevronButton } from "./RoundButton";
+import { IconButtonLink } from "./Button";
+import { ChevronButtonLink } from "./RoundButton";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { formatAmount } from "../functions/currency";
@@ -55,15 +55,14 @@ function Order( props ) {
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
-					<IconButton aria-label={ props.intl.formatMessage( messages.invoice ) }
-								onClick={ props.onClickInvoice }
-								iconSource={ downloadIcon }>
+					<IconButtonLink iconSource={ downloadIcon } href={ props.invoiceLink }>
 						{ props.intl.formatMessage( messages.invoice ) }
-					</IconButton>
+					</IconButtonLink>
 				</MediaQuery>
 				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.invoice ) }
-								   onClick={ props.onClickInvoice } />
+					<ChevronButtonLink href={ props.invoiceLink }>
+						<span className="screen-reader-text">{ props.intl.formatMessage( messages.invoice ) }</span>
+					</ChevronButtonLink>
 				</MediaQuery>
 			</Column>
 		</Row>
@@ -75,7 +74,7 @@ Order.propTypes = {
 	orderNumber: React.PropTypes.string.isRequired,
 	total: React.PropTypes.number.isRequired,
 	currency: React.PropTypes.string.isRequired,
-	onClickInvoice: React.PropTypes.func.isRequired,
+	invoiceLink: React.PropTypes.string,
 	intl: intlShape.isRequired,
 	items: React.PropTypes.string,
 	status: React.PropTypes.string,

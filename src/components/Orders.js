@@ -31,13 +31,11 @@ class Orders extends React.Component {
 			<Paper>
 				<ListTable hasHeaderLabels={ true }>
 					{ this.props.orders.map( ( order ) => {
-						let onInvoiceManager = () => {
-							this.props.onClickInvoice( order.id );
-						};
+						let invoiceURI = this.props.getInvoiceURI( order.id );
 
 						return <Order { ...order }
 									  key={ order.id }
-									  onClickInvoice={ onInvoiceManager }
+									  invoiceLink={ invoiceURI }
 						/>;
 					} ) }
 				</ListTable>
@@ -49,7 +47,7 @@ class Orders extends React.Component {
 export default injectIntl( Orders );
 
 Orders.propTypes = {
-	onClickInvoice: React.PropTypes.func.isRequired,
+	getInvoiceURI: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
 	intl: intlShape.isRequired,
 };

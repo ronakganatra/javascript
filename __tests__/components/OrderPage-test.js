@@ -16,8 +16,8 @@ test( "The Orders component matches the snapshot", () => {
 		},
 	];
 
-	let onClickInvoice = () => {
-		console.log( "Invoice clicked" );
+	let getInvoiceURI = () => {
+		return "http://somelink";
 	};
 
 	let searchProps = {
@@ -30,7 +30,7 @@ test( "The Orders component matches the snapshot", () => {
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<OrderPage orders={ orders } onClickInvoice={ onClickInvoice } searchProps={ searchProps } />
+			<OrderPage orders={ orders } getInvoiceURI={ getInvoiceURI } searchProps={ searchProps } />
 		</MemoryRouter>
 	);
 
