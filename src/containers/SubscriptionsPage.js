@@ -11,13 +11,13 @@ export const mapStateToProps = ( state ) => {
 
 		let subscriptionProps = {
 			id: subscription.id,
-			icon: "",
 			name: "Subscription",
 			used: 0,
 			max: 1,
 			nextBilling: new Date(),
 			billingAmount: 0,
 			billingCurrency: "USD",
+			icon: subscription.product.icon,
 		};
 
 		return subscriptionProps;
