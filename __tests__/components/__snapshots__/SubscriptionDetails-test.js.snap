@@ -19,7 +19,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="hIvutE">
           <span>
-            6/1/2017
+            June 01, 2017
           </span>
         </span>
       </li>
@@ -32,7 +32,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="hIvutE">
           <span>
-            6/1/2018
+            June 01, 2018
           </span>
         </span>
       </li>
@@ -90,13 +90,12 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="dESJUX">
           <span>
-            7/21/2016
+            July 21, 2016
           </span>
         </span>
         <span
           className="dESJUX">
-          $
-          100
+          $100
         </span>
         <span
           className="kxFaKW" />
@@ -106,13 +105,12 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="dESJUX">
           <span>
-            7/22/2016
+            July 22, 2016
           </span>
         </span>
         <span
           className="dESJUX">
-          $
-          20000
+          $20,000
         </span>
         <span
           className="kxFaKW" />

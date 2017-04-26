@@ -110,11 +110,25 @@ function SubscriptionDetails( props ) {
 		<ListTable hasHeaderLabels={ false }>
 				<Row key="start-date" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%"><FormattedDate value={ props.startDate }/></ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+						<FormattedDate
+							value={ props.startDate }
+							year='numeric'
+							month='long'
+							day='2-digit'
+						/>
+					</ColumnText>
 				</Row>
 				<Row key="next-billing" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%"><FormattedDate value={ props.nextBilling }/></ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+						<FormattedDate
+							value={ props.nextBilling }
+							year='numeric'
+							month='long'
+							day='2-digit'
+						/>
+					</ColumnText>
 				</Row>
 		</ListTable>
 	);
@@ -160,8 +174,24 @@ function SubscriptionDetails( props ) {
 		<ListTable hasHeaderLabels={ false }>
 			{ props.invoices.map( ( invoice ) => {
 				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%"><FormattedDate value={ invoice.invoiceDate } /></ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+						<FormattedDate
+							value={ invoice.invoiceDate }
+							year='numeric'
+							month='long'
+							day='2-digit'
+						/>
+					</ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+						{ props.intl.formatNumber(
+							invoice.invoiceAmount,
+							{
+								style: "currency",
+								currency: invoice.invoiceCurrency,
+								maximumFractionDigits: 0,
+							}
+						) }
+					</ColumnText>
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButton onClick={ props.onInvoiceDownload }
