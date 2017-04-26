@@ -12,7 +12,7 @@ import colors from "yoast-components/style-guide/colors.json";
  */
 export const Column = styled.span`
 	font-size: 14px;
-	padding-left: ${ props => props.columnPaddingLeft }px;
+	padding-left: ${ props => props.columnPaddingLeft };
 
 	text-align: ${ props => props.textAlign };
 
@@ -48,7 +48,7 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
-	columnPaddingLeft: React.PropTypes.number,
+	columnPaddingLeft: React.PropTypes.string,
 	fillSpace: React.PropTypes.bool,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
@@ -59,7 +59,7 @@ Column.propTypes = {
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
-	columnPaddingLeft: 40,
+	columnPaddingLeft: "40px",
 	fillSpace: false,
 	hideOnMobile: false,
 	hideOnTable: false,

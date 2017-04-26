@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { ColumnText, Row, ListTable, Column } from "./Tables";
-import { injectIntl, intlShape, FormattedDate, FormattedMessage, defineMessages } from "react-intl";
+import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
@@ -25,6 +25,42 @@ const messages = defineMessages( {
 		id: "subscription-details.subscription-details.title",
 		defaultMessage: "Subscription details",
 	},
+	startDate: {
+		id: "subscription-details.payment-details.start-date",
+		defaultMessage: "Start date",
+	},
+	nextBilling: {
+		id: "subscription-details.payment-details.next-billing",
+		defaultMessage: "Next billing",
+	},
+	addSites: {
+		id: "subscription-details.subscription-details.add-sites",
+		defaultMessage: "You can add { howMany } more sites to this subscription.",
+	},
+	changeLevel: {
+		id: "subscription-details.subscription-details.change-level",
+		defaultMessage: "Change subscription level",
+	},
+	cancelSubscription: {
+		id: "subscription-details.subscription-details.cancel-subscription",
+		defaultMessage: "Cancel subscription",
+	},
+	addSiteButton: {
+		id: "subscription-details.buttons.add-site",
+		defaultMessage: "Add site",
+	},
+	shopButton: {
+		id: "subscription-details.buttons.shop",
+		defaultMessage: "Shop",
+	},
+	cancelButton: {
+		id: "subscription-details.buttons.cancel",
+		defaultMessage: "Cancel",
+	},
+	invoiceButton: {
+		id: "subscription-details.buttons.invoice",
+		defaultMessage: "Invoice",
+	},
 } );
 
 const SubscriptionDetailsContainer = styled.div`
@@ -34,7 +70,6 @@ const SubscriptionDetailsContainer = styled.div`
 	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		display: flex;
 		flex-wrap: wrap;
-		flex-direction: row;
 		div:nth-child(odd) {
 			margin-right: ${ columnMargin };
 		}
@@ -54,11 +89,11 @@ const ColumnContainer = styled.div`
 `;
 
 const ListHeader = styled.h2`
-	font-size: 1.0em;
+	font-size: 1em;
 	font-weight: 400; 
 	padding: 20px 0 20px 30px;
 	margin: 0;
-	border-bottom: thin solid ${ colors.$color_grey_medium };
+	border-bottom: 1px solid ${ colors.$color_grey_medium };
 `;
 
 /**
@@ -71,51 +106,49 @@ const ListHeader = styled.h2`
  * @constructor
  */
 function SubscriptionDetails( props ) {
-	let paymentDetailTable =  (
-		<ListTable hasHeaderLabels={ false } role="list" >
+	let paymentDetailTable = (
+		<ListTable hasHeaderLabels={ false }>
 				<Row key="start-date" justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Start Date" }</ColumnText>
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.startDate } /> </ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%"><FormattedDate value={ props.startDate }/></ColumnText>
 				</Row>
 				<Row key="next-billing" justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%">{ "Next Billing" }</ColumnText>
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="30%"> <FormattedDate value={ props.nextBilling } /> </ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%"><FormattedDate value={ props.nextBilling }/></ColumnText>
 				</Row>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
-		<ListTable hasHeaderLabels={ false } role="list" >
+		<ListTable hasHeaderLabels={ false }>
 				<Row key="remaining-slots" justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">
-						<FormattedMessage id="subscriptions.subscription-details.remaining"
-										  defaultMessage={"You can add { howMany } more sites to this subscription."}
-										  values={ { howMany: ( props.max - props.current ) } }/>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
+						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>
-					<Column columnPaddingLeft={ 20 }>
+					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButton onClick={ props.onAddSite }><FormattedMessage
-								id="subscriptions.buttons.add-site" defaultMessage="Add site" />
+							<LargeButton onClick={ props.onAddSite }>
+								{ props.intl.formatMessage( messages.addSiteButton ) }
 							</LargeButton>
 						</MediaQuery>
 					</Column>
 				</Row>
 				<Row key="change-level" justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Change subscription level" }</ColumnText>
-					<Column columnPaddingLeft={ 20 }>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
+					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButton onClick={ props.onShop }><FormattedMessage
-								id="subscriptions.buttons.shop" defaultMessage="Shop" />
+							<LargeButton onClick={ props.onShop }>
+								{ props.intl.formatMessage( messages.shopButton ) }
 							</LargeButton>
 						</MediaQuery>
 					</Column>
 				</Row>
 				<Row key="cancel" justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="60%">{ "Cancel subscription" }</ColumnText>
-					<Column columnPaddingLeft={ 20 }>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
+					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<RedButton onClick={ props.onCancel }><FormattedMessage
-								id="subscriptions.buttons.cancel" defaultMessage="Cancel" />
+							<RedButton onClick={ props.onCancel }>
+								{ props.intl.formatMessage( messages.cancelButton ) }
 							</RedButton>
 						</MediaQuery>
 					</Column>
@@ -124,18 +157,17 @@ function SubscriptionDetails( props ) {
 	);
 
 	let invoicesTable = (
-		<ListTable hasHeaderLabels={ false } role="list" >
+		<ListTable hasHeaderLabels={ false }>
 			{ props.invoices.map( ( invoice ) => {
 				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%"><FormattedDate value={invoice.invoiceDate} /></ColumnText>
-					<ColumnText columnPaddingLeft={ 20 } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
-					<Column columnPaddingLeft={ 20 } ColumnWidth="20%">
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%"><FormattedDate value={ invoice.invoiceDate } /></ColumnText>
+					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">{ invoice.invoiceCurrency }{ invoice.invoiceAmount }</ColumnText>
+					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButton onClick={ props.onInvoiceDownload }
-										icon={ downloadIcon }
+										iconSource={ downloadIcon }
 										iconSize={ "16px" }>
-								<FormattedMessage
-									id="subscriptions.buttons.download-invoice" defaultMessage="Invoice" />
+								{ props.intl.formatMessage( messages.invoiceButton ) }
 							</IconButton>
 						</MediaQuery>
 					</Column>

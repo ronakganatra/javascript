@@ -58,7 +58,7 @@ export const LogoutButton = styled( Button )`
 
 export const IconButton = styled( Button )`
 	background-repeat: no-repeat;
-	background-image: url( ${ props => props.icon } );
+	background-image: url( ${ props => props.iconSource } );
 	background-position: 20px 50%;
 	background-size: ${ props => props.iconSize };
 	border-radius: 3px;
@@ -67,7 +67,7 @@ export const IconButton = styled( Button )`
 `;
 
 IconButton.PropTypes = {
-	icon: React.PropTypes.string.isRequired,
+	iconSource: React.PropTypes.string.isRequired,
 	iconSize: React.PropTypes.string,
 };
 

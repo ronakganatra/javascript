@@ -15,8 +15,8 @@ export const mapStateToProps = ( state ) => {
 			siteName: site.url,
 		};
 
-		if ( site.icon ) {
-			siteProps.siteIcon = site.icon;
+		if ( site.iconSource ) {
+			siteProps.siteIcon = site.iconSource;
 		}
 
 		return siteProps;

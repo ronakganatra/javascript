@@ -54,7 +54,7 @@ function Subscription( props ) {
 
 	return (
 		<Row key={ props.id } { ...rowProps }>
-			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
+			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { max: props.max } ) }</ColumnText>
@@ -81,7 +81,7 @@ function Subscription( props ) {
 
 Subscription.propTypes = {
 	id: React.PropTypes.string.isRequired,
-	icon: React.PropTypes.string.isRequired,
+	iconSource: React.PropTypes.string.isRequired,
 	name: React.PropTypes.string.isRequired,
 	used: React.PropTypes.number.isRequired,
 	max: React.PropTypes.number.isRequired,

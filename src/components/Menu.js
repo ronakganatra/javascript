@@ -160,7 +160,7 @@ function MainMenu( props ) {
 
 									 return <li key={ page.titleKey }>
 										 <MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
-											 <MenuIcon src={ page.icon } alt=""/>
+											 <MenuIcon src={ page.iconSource } alt=""/>
 											 { title }
 										 </MenuItem>
 									 </li>;

@@ -8,7 +8,7 @@ let menuItems = [
 		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
-		icon: sitesIcon,
+		iconSource: sitesIcon,
 		component: SitesPageContainer,
 		isActive: ( match, location ) => {
 			if ( match ) {
@@ -22,7 +22,7 @@ let menuItems = [
 		showInMenu: true,
 		path: "/account",
 		titleKey: "account",
-		icon: userIcon,
+		iconSource: userIcon,
 		component: AccountPage,
 		exact: false,
 	},
