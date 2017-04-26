@@ -6,6 +6,7 @@ import { ChevronButton } from "./RoundButton";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { formatAmount } from "../functions/currency";
+import LineItems from "./LineItems";
 
 const messages = defineMessages( {
 	date: {
@@ -48,7 +49,9 @@ function Order( props ) {
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
 						label={ props.intl.formatMessage( messages.orderNumber ) }>{ props.orderNumber }</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px"label={ props.intl.formatMessage( messages.items ) }>{ props.items }</ColumnText>
+			<ColumnText fillSpace={ true } ColumnWidth="150px" label={ props.intl.formatMessage( messages.items ) }>
+				<LineItems items={ props.items }/>
+			</ColumnText>
 			<ColumnText ColumnWidth="150px" label={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>

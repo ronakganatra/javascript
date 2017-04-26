@@ -17,7 +17,7 @@ export const mapStateToProps = ( state ) => {
 			total: order.totalAmount,
 			currency: "USD",
 			status: "completed",
-			items: "Order items...",
+			items: order.items,
 		};
 
 		return orderProps;
