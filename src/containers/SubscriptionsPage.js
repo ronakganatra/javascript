@@ -11,7 +11,7 @@ export const mapStateToProps = ( state ) => {
 
 		let subscriptionProps = {
 			id: subscription.id,
-			iconSource: "",
+			icon: "",
 			name: "Subscription",
 			used: 0,
 			max: 1,
