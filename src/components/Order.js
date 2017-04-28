@@ -83,6 +83,7 @@ Order.propTypes = {
 	items: React.PropTypes.string,
 	status: React.PropTypes.string,
 	background: React.PropTypes.string,
+	onClickInvoice: React.PropTypes.func.isRequired,
 };
 
 Order.defaultProps = {
