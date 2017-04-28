@@ -26,6 +26,7 @@ function SiteSubscriptionDetailList( props ) {
 					return <SiteSubscriptionDetail
 						{ ...subscription }
 						key={ subscription.id }
+						name={ subscription.productId }
 						onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
 						onMoreInfoClick={ props.onMoreInfoClick }
 						onSettingsClick={ props.onSettingsClick }

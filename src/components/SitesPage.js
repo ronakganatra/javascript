@@ -16,13 +16,13 @@ const messages = defineMessages( {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
 	},
-	description: {
-		id: "search.description",
-		defaultMessage: "The search results will be updated as you type.",
-	},
 	searchResults: {
 		id: "search.results",
 		defaultMessage: "Number of sites found: %d",
+	},
+	searchLabel: {
+		id: "search.label.sites",
+		defaultMessage: "Search sites",
 	},
 } );
 
@@ -64,8 +64,8 @@ class SitesPage extends React.Component {
 	getSearch() {
 		return <Search
 			id="search"
-			description={ this.props.intl.formatMessage( messages.description ) }
-			descriptionId="searchDescription"
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+			descriptionId="search-description"
 			onChange={ this.props.onSearchChange }
 			query={ this.props.query }
 		/>;

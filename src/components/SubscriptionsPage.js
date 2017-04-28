@@ -9,9 +9,9 @@ const messages = defineMessages( {
 		id: "menu.account.subscriptions.loaded",
 		defaultMessage: "Account subscriptions page loaded",
 	},
-	description: {
-		id: "search.description",
-		defaultMessage: "The search results will be updated as you type.",
+	searchLabel: {
+		id: "search.label.subscriptions",
+		defaultMessage: "Search subscriptions",
 	},
 } );
 
@@ -36,8 +36,8 @@ class SubscriptionsPage extends React.Component {
 			<div>
 				<Search
 					id="search"
-					description={ this.props.intl.formatMessage( messages.description ) }
-					descriptionId="searchDescription"
+					searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+					descriptionId="search-description"
 					query={ this.props.query }
 					onChange={ this.props.onSearchChange }
 				/>
