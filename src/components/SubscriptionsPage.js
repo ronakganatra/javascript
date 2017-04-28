@@ -85,7 +85,6 @@ class SubscriptionsPage extends React.Component {
 	 * @returns {void}
 	 */
 	debounceSearchResultsMessage( nextProps ) {
-		console.log( nextProps );
 		/*
 		 * Always clear any previously set timeout and then set it again. This
 		 * is equivalent to debouncing the call to `a11ySpeak()`.
