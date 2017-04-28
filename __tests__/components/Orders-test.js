@@ -16,19 +16,12 @@ test( "The Orders component matches the snapshot", () => {
 		},
 	];
 
-	let searchProps = {
-		id: "orderSearchBar",
-		description: "I am an order search bar",
-		descriptionId: "I am an order search bar id",
-		onChange: () => {},
-	};
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
 			<Orders
 				orders={ orders }
 				getInvoiceURI={ () => {} }
-				searchProps={ searchProps }
 			/>
 		</MemoryRouter>
 	);
