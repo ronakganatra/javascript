@@ -4,7 +4,7 @@ import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
 /**
- * Creates Page Order container element
+ * Returns the rendered Orders component.
  *
  * @param {object} props Properties for this element.
  * @returns {ReactElement} PageOrderList element.
@@ -15,13 +15,11 @@ export default function Orders( props ) {
 		<Paper>
 			<ListTable hasHeaderLabels={ true }>
 				{ props.orders.map( ( order ) => {
-					let onInvoiceManager = () => {
-						props.onClickInvoice( order.id );
-					};
+					let invoiceURI = props.getInvoiceURI( order.id );
 
 					return <Order { ...order }
-								  key={ order.productId }
-								  onClickInvoice={ onInvoiceManager }
+								  key={ order.id }
+								  invoiceLink={ invoiceURI }
 					/>;
 				} ) }
 			</ListTable>
@@ -30,7 +28,7 @@ export default function Orders( props ) {
 }
 
 Orders.propTypes = {
-	onClickInvoice: React.PropTypes.func.isRequired,
+	getInvoiceURI: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
 };
 

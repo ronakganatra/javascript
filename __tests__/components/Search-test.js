@@ -1,16 +1,15 @@
-
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { createComponentWithIntl } from "../../utils";
 
 import Search from '../../src/components/Search';
 
 test('the search component matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<Search
 			id="search"
-			placeholder="Search"
+			searchLabel="Search"
 			description="The search results will be updated as you type."
-			descriptionId="searchDescription"
+			descriptionId="search-description"
 			onChange={ () => {} }
 		/>
 	);
@@ -20,14 +19,14 @@ test('the search component matches the snapshot', () => {
 });
 
 test('the search component handling an on change', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<Search
-	id="search"
-	placeholder="Search"
-	description="The search results will be updated as you type."
-	descriptionId="searchDescription"
-	onChange={ () => { return 'Query changed' } }
-	/>
+			id="search"
+			searchLabel="Search"
+			description="The search results will be updated as you type."
+			descriptionId="search-description"
+			onChange={ () => { return 'Query changed' } }
+		/>
 	);
 
 	let tree = component.toJSON();

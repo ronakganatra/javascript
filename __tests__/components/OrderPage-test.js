@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 test( "The Orders component matches the snapshot", () => {
 	let orders = [
 		{
-			productId: "1",
+			id: "1",
 			date: new Date( "05/20/2012" ),
 			orderNumber: "MOOIE 123 TEST",
 			items: "TEST ITEM",
@@ -16,12 +16,13 @@ test( "The Orders component matches the snapshot", () => {
 		},
 	];
 
-	let onClickInvoice = () => {
-		console.log( "Invoice clicked" );
+	let getInvoiceURI = () => {
+		return "http://somelink";
 	};
 
 	let searchProps = {
 		id: "orderSearchBar",
+		searchLabel: "I am an orders search label",
 		description: "I am an order search bar",
 		descriptionId: "I am an order search bar id",
 		onChange: () => {},
@@ -29,7 +30,7 @@ test( "The Orders component matches the snapshot", () => {
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<OrderPage orders={ orders } onClickInvoice={ onClickInvoice } searchProps={ searchProps } />
+			<OrderPage orders={ orders } getInvoiceURI={ getInvoiceURI } searchProps={ searchProps } />
 		</MemoryRouter>
 	);
 
