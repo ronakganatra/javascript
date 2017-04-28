@@ -17,7 +17,7 @@ const messages = defineMessages( {
 		defaultMessage: "Sites page loaded",
 	},
 	searchResults: {
-		id: "search.results",
+		id: "sites-search.results",
 		defaultMessage: "Number of sites found: %d",
 	},
 	searchLabel: {

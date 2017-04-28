@@ -15,7 +15,7 @@ const messages = defineMessages( {
 		defaultMessage: "Account orders page loaded",
 	},
 	searchResults: {
-		id: "search.results",
+		id: "orders-search.results",
 		defaultMessage: "Number of orders found: %d",
 	},
 } );
