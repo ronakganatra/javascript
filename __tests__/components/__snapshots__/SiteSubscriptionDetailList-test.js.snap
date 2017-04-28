@@ -54,7 +54,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         className="drFsFv">
         <span
           className="gwtpew">
-          bla
+          Yoast SEO
         </span>
         <span
           className="kaVduD">
@@ -103,7 +103,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         className="drFsFv">
         <span
           className="gwtpew">
-          bla2
+          Local SEO
         </span>
         <span
           className="kaVduD">

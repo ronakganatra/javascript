@@ -152,7 +152,7 @@ export default function SiteSubscriptionDetail( props ) {
 			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
-				<ProductName>{ props.id }</ProductName>
+				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
 						values={{ howMany: ( props.slots.amountAvailable - props.slots.amountUsed ) + " / " + props.slots.amountAvailable }} />
@@ -175,6 +175,7 @@ export default function SiteSubscriptionDetail( props ) {
 
 SiteSubscriptionDetail.propTypes = {
 	id: React.PropTypes.string.isRequired,
+	name: React.PropTypes.string.isRequired,
 	onAddMoreSlotsClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
