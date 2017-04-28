@@ -35,7 +35,7 @@ const messages = defineMessages( {
 	},
 	sites: {
 		id: "subscriptions.overview.sites",
-		defaultMessage: "{limit} sites",
+		defaultMessage: "{ limit } sites",
 	},
 } );
 
@@ -55,11 +55,11 @@ function Subscription( props ) {
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.icon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" label={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } label={ props.intl.formatMessage( messages.level ) }
+			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
-			<ColumnText hideOnMobile={ true } label={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
+			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
