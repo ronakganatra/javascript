@@ -20,7 +20,7 @@ export default function Subscriptions( props ) {
 					return <Subscription
 						key={ subscription.id }
 						id={ subscription.id }
-						iconSource={ subscription.iconSource }
+						iconSource={ subscription.icon }
 						name={ subscription.name }
 						used={ subscription.used }
 						limit={ subscription.limit }
@@ -40,7 +40,7 @@ Subscriptions.propTypes = {
 		React.PropTypes.shape(
 			{
 				id: React.PropTypes.string.isRequired,
-				iconSource: React.PropTypes.string.isRequired,
+				icon: React.PropTypes.string.isRequired,
 				name: React.PropTypes.string.isRequired,
 				used: React.PropTypes.number.isRequired,
 				limit: React.PropTypes.number.isRequired,

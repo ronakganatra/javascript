@@ -9,7 +9,7 @@ test('The Subscriptions component matches the snapshot', () => {
 			<Subscriptions subscriptions={ [
 				{
 					id: "3",
-					iconSource: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+					icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 					name: "SEO Premium for WordPress",
 					used: 4,
 					limit: 20,
@@ -19,7 +19,7 @@ test('The Subscriptions component matches the snapshot', () => {
 				},
 				{
 					id: "4",
-					iconSource: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+					icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 					name: "SEO Premium for WordPress",
 					used: 3,
 					limit: 20,
