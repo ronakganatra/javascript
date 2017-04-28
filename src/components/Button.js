@@ -84,6 +84,7 @@ export const WhiteButton = styled( LargeButton )`
 export const RedButton = styled( LargeButton )`
 	color: ${ colors.$color_white };
 	background-color: ${ colors.$color_red };
+`;
 
 export const ButtonLink = styled.a`
 	display: inline-block;
