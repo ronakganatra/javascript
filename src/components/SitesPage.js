@@ -59,7 +59,7 @@ class SitesPage extends React.Component {
 	/**
 	 * Return the search bar.
 	 *
-	 * @returns {ReactElement} The rendered Sites component.
+	 * @returns {ReactElement} The rendered Search component.
 	 */
 	getSearch() {
 		return <Search
