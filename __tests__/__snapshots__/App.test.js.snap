@@ -219,6 +219,30 @@ exports[`test renders without crashing 1`] = `
         </g>
       </svg>
       <div />
+      <div
+        className="bSdara">
+        <div
+          className="fYsbWG">
+          <div
+            className="kBqHCj"
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2015/06/Yoast_SEO_Icon_500x500.png" />
+        </div>
+        <div
+          className="iVNEpc">
+          <div
+            className="foqgVb">
+            <h1
+              className="eyKfgT">
+              Some subscription
+            </h1>
+            
+          </div>
+          <p
+            className="clDVnZ">
+            Some description that might span two lines, so we can see how that looks.
+          </p>
+        </div>
+      </div>
     </div>
   </main>
 </div>
