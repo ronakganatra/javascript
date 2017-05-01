@@ -41,7 +41,6 @@ class SubscriptionsPage extends React.Component {
 	constructor() {
 		super();
 
-		// this.speakSearchResultsMessage = _debounce( this.speakSearchResultsMessage, 1000 );
 		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
 	}
 
