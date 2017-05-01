@@ -12,7 +12,7 @@ export const mapStateToProps = ( state ) => {
 
 		let siteProps = {
 			id: site.id,
-			siteName: site.url,
+			siteName: site.hostname ? site.hostname : site.url,
 		};
 
 		if ( site.icon ) {
