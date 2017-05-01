@@ -17,7 +17,7 @@ exports[`test renders without crashing 1`] = `
         alt=""
         className="bfdaAJ"
         size="64px"
-        src="https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=128" />
+        src="https://s.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?r=pg&d=https%3A%2F%2Fs3.amazonaws.com%2Fyoast-my-yoast%2FMy_Yoast_default_avatar.png" />
       <div
         className="foqgVb">
         <p

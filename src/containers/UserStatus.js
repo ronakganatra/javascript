@@ -2,13 +2,7 @@ import { logout } from "../actions/user";
 import { connect } from "react-redux";
 import UserProfile from "../components/UserProfile";
 import { url } from "gravatar";
-// import defaultAvatar from "../../public/images/defaultAvatar.svg";
-
-console.log( process.env.PUBLIC_URL );
-// let avatarPlaceholder = process.env.PUBLIC_URL + defaultAvatar;
-// let avatarPlaceholder = "https://thesocietypages.org/socimages/files/2009/05/yammer.gif";
-
-// console.log( process.env.PUBLIC_URL + defaultAvatar );
+let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/My_Yoast_default_avatar.png";
 
 const mapStateToProps = ( state ) => {
 	return {
@@ -17,7 +11,7 @@ const mapStateToProps = ( state ) => {
 		displayImage: {
 			src: url( state.user.data.profile.email, {
 				r: "pg",
-				d: "http://localhost:3001/static/media/defaultAvatar.2bd68eae.svg",
+				d: avatarPlaceholder,
 				protocol: "https",
 			} ),
 			size: "64px",
