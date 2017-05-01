@@ -21,6 +21,8 @@ const messages = defineMessages( {
 	},
 } );
 
+let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+
 /**
  * Returns the rendered SubscriptionsPage component.
  *
@@ -39,8 +41,8 @@ class SubscriptionsPage extends React.Component {
 	constructor() {
 		super();
 
+		// this.speakSearchResultsMessage = _debounce( this.speakSearchResultsMessage, 1000 );
 		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
-		this.speakSearchResultsMessage = _debounce( this.speakSearchResultsMessage, 1000 );
 	}
 
 	componentDidMount() {
@@ -80,7 +82,7 @@ class SubscriptionsPage extends React.Component {
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
 			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
-			a11ySpeak( message, "assertive" );
+			debouncedSpeak( message, "assertive" );
 		}
 	}
 }
