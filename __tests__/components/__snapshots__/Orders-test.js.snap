@@ -14,8 +14,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
       </span>
       <span
         className="igKvAR">
-        1
-        ;
+        MOOIE 123 TEST
       </span>
       <span
         className="dKSGyu">

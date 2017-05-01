@@ -12,7 +12,7 @@ export const mapStateToProps = ( state ) => {
 
 		let orderProps = {
 			id: order.id,
-			orderNumber: order.items.orderid,
+			orderNumber: order.invoiceNumber,
 			date: new Date( order.date ),
 			total: order.totalAmount,
 			status: order.status,

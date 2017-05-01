@@ -13,8 +13,8 @@ const messages = defineMessages( {
 		id: "orders.overview.date",
 		defaultMessage: "Date",
 	},
-	orderId: {
-		id: "orders.overview.orderId",
+	orderNumber: {
+		id: "orders.overview.orderNumber",
 		defaultMessage: "Order",
 	},
 	items: {
@@ -48,8 +48,8 @@ function Order( props ) {
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
-						headerLabel={ props.intl.formatMessage( messages.orderId ) }>
-				{ props.id };
+						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
+				{ props.orderNumber }
 			</ColumnText>
 			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
@@ -62,9 +62,8 @@ function Order( props ) {
 				<MediaQuery query="(min-width: 1356px)">
 
 					<IconButtonLink aria-label={ props.intl.formatMessage( messages.invoice ) }
-								onClick={ props.onClickInvoice }
-								iconSource={ downloadIcon }
-                href={ props.invoiceLink }>
+						iconSource={ downloadIcon }
+						href={ props.invoiceLink }>
 						{ props.intl.formatMessage( messages.invoice ) }
 					</IconButtonLink>
 				</MediaQuery>
@@ -81,6 +80,7 @@ function Order( props ) {
 Order.propTypes = {
 	date: React.PropTypes.instanceOf( Date ).isRequired,
 	id: React.PropTypes.string.isRequired,
+	orderNumber: React.PropTypes.string.isRequired,
 	total: React.PropTypes.number.isRequired,
 	currency: React.PropTypes.string.isRequired,
 	invoiceLink: React.PropTypes.string,
@@ -88,7 +88,6 @@ Order.propTypes = {
 	items: React.PropTypes.array,
 	status: React.PropTypes.string,
 	background: React.PropTypes.string,
-	onClickInvoice: React.PropTypes.func.isRequired,
 };
 
 Order.defaultProps = {
