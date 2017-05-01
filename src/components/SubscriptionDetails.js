@@ -233,7 +233,7 @@ function SubscriptionDetails( props ) {
 SubscriptionDetails.propTypes = {
 	startDate: React.PropTypes.instanceOf( Date ).isRequired,
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
-	invoices: React.PropTypes.array,
+	invoices: React.PropTypes.array.isRequired,
 	max: React.PropTypes.number.isRequired,
 	current: React.PropTypes.number.isRequired,
 	onAddSite: React.PropTypes.func.isRequired,
