@@ -21,7 +21,10 @@ let matchingLocations = [
 	},
 	{
 		matcher: /\/subscriptions\/([^/]+)/,
-		action: getAllSubscriptions(),
+		action: ( dispatch ) => {
+			dispatch( getAllSubscriptions() );
+			dispatch( getOrders() );
+		},
 	},
 ];
 

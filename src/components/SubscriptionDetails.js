@@ -7,6 +7,7 @@ import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { LargeButton, RedButton } from "./Button";
+import { formatAmount } from "../functions/currency";
 
 let columnMargin = "10px";
 let hideButtonsThreshold = 400;
@@ -184,7 +185,7 @@ function SubscriptionDetails( props ) {
 					</ColumnText>
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						{ props.intl.formatNumber(
-							invoice.invoiceAmount,
+							formatAmount( invoice.invoiceAmount ),
 							{
 								style: "currency",
 								currency: invoice.invoiceCurrency,

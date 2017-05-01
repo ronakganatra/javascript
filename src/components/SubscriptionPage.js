@@ -30,7 +30,7 @@ class SubscriptionPage extends React.Component {
 				endDate={new Date( subscription.endDate )}
 				max={subscription.limit}
 				current={1}
-				invoices={[]}
+				invoices={this.props.invoices}
 				onAddSite={this.props.onAddSite}
 				onShop={this.props.onShop}
 				onCancel={this.props.onCancel}
@@ -43,6 +43,7 @@ class SubscriptionPage extends React.Component {
 SubscriptionPage.propTypes = {
 	isLoading: React.PropTypes.bool,
 	subscription: React.PropTypes.object,
+	invoices: React.PropTypes.array,
 	onAddSite: React.PropTypes.func,
 	onShop: React.PropTypes.func,
 	onCancel: React.PropTypes.func,

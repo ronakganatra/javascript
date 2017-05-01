@@ -13,8 +13,27 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
+	let invoices = subscription.orders.map( order => state.entities.orders.byId[ order ] );
+
+	// If some invoices are undefined we are still waiting for some data.
+	if ( invoices.filter( invoice => !! invoice ).length !== invoices.length ) {
+		return {
+			isLoading: true,
+		};
+	}
+
+	invoices = invoices.map( order => {
+		return {
+			invoiceId: order.id,
+			invoiceDate: new Date( order.date ),
+			invoiceCurrency: order.currency,
+			invoiceAmount: order.totalAmount,
+		};
+	} );
+
 	return {
 		subscription,
+		invoices,
 	};
 };
 
