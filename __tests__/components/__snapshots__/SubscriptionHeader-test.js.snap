@@ -1,9 +1,9 @@
 exports[`test the subscription header matches the snapshot 1`] = `
 <div
-  className="hczbRR">
+  className="bSdara">
   
   <div
-    className="dbEMFQ">
+    className="iVNEpc">
     <div
       className="foqgVb">
       <h1
@@ -13,7 +13,7 @@ exports[`test the subscription header matches the snapshot 1`] = `
       
     </div>
     <p
-      className="lkcPjM" />
+      className="clDVnZ" />
   </div>
 </div>
 `;
