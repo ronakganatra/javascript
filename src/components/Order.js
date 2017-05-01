@@ -55,7 +55,11 @@ function Order( props ) {
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
-					<IconButtonLink iconSource={ downloadIcon } href={ props.invoiceLink }>
+
+					<IconButtonLink aria-label={ props.intl.formatMessage( messages.invoice ) }
+								onClick={ props.onClickInvoice }
+								iconSource={ downloadIcon }
+                href={ props.invoiceLink }>
 						{ props.intl.formatMessage( messages.invoice ) }
 					</IconButtonLink>
 				</MediaQuery>
@@ -79,6 +83,7 @@ Order.propTypes = {
 	items: React.PropTypes.string,
 	status: React.PropTypes.string,
 	background: React.PropTypes.string,
+	onClickInvoice: React.PropTypes.func.isRequired,
 };
 
 Order.defaultProps = {

@@ -29,6 +29,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 					amountUsed: 0,
 					addMoreSlots: "hi",
 				},
+				productLogo: subscription.product.icon,
 			},
 			subscription,
 			{
