@@ -4,6 +4,7 @@ import Subscriptions from "./Subscriptions";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
 import util from "util";
+import _debounce from "lodash/debounce";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -38,9 +39,8 @@ class SubscriptionsPage extends React.Component {
 	constructor() {
 		super();
 
-		this.debounceSearchResultsMessage = this.debounceSearchResultsMessage.bind( this );
-
-		this.searchTimer = false;
+		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
+		this.speakSearchResultsMessage = _debounce( this.speakSearchResultsMessage, 1000 );
 	}
 
 	componentDidMount() {
@@ -74,35 +74,13 @@ class SubscriptionsPage extends React.Component {
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */
-		this.debounceSearchResultsMessage( nextProps );
+		this.speakSearchResultsMessage( nextProps );
 	}
 
-	/**
-	 * Debounces `a11ySpeak()` and announces the search results to screen readers.
-	 *
-	 * @param {Object} nextProps The new props received by the component.
-	 *
-	 * @returns {void}
-	 */
-	debounceSearchResultsMessage( nextProps ) {
-		/*
-		 * Always clear any previously set timeout and then set it again. This
-		 * is equivalent to debouncing the call to `a11ySpeak()`.
-		 */
-		window.clearTimeout( this.searchTimer );
-
-		/*
-		 * Only if the search query is not empty. Also, check if the query is
-		 * different from the previous one: this ensures `a11ySpeak()` is not
-		 * called when the component re-renders for other reasons, for example
-		 * when opening the Add Site modal.
-		 */
+	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
 			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
-
-			this.searchTimer = window.setTimeout( function() {
-				a11ySpeak( message, "assertive" );
-			}, 1000 );
+			a11ySpeak( message, "assertive" );
 		}
 	}
 }
