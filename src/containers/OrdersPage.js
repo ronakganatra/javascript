@@ -10,16 +10,15 @@ export const mapStateToProps = ( state ) => {
 	let orders = allIds.map( ( orderId ) => {
 		let order = state.entities.orders.byId[ orderId ];
 
-		let orderProps = {
+		return {
 			id: order.id,
 			orderNumber: order.invoiceNumber,
 			date: new Date( order.date ),
 			total: order.totalAmount,
 			status: order.status,
 			items: order.items,
+			currency: order.currency,
 		};
-
-		return orderProps;
 	} );
 
 	let query = state.ui.search.query;
