@@ -27,7 +27,7 @@ test( "The Order component matches the snapshot", () => {
 		<MemoryRouter>
 			<Order
 				id="a"
-				onClickInvoice={ () => {} }
+				invoiceLink="http://somelink"
 				{ ...order }
 			/>
 		</MemoryRouter>

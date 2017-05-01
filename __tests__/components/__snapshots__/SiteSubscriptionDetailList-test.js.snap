@@ -21,7 +21,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="kYxQsj"
     role="list">
     <li
-      className="ePzAao">
+      className="bFLiCB">
       <span
         className="galWEB">
         <img
@@ -54,7 +54,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         className="drFsFv">
         <span
           className="gwtpew">
-          bla
+          Yoast SEO
         </span>
         <span
           className="kaVduD">
@@ -70,7 +70,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
       </div>
     </li>
     <li
-      className="jJQwzi">
+      className="faPOmU">
       <span
         className="galWEB">
         <img
@@ -103,7 +103,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         className="drFsFv">
         <span
           className="gwtpew">
-          bla2
+          Local SEO
         </span>
         <span
           className="kaVduD">

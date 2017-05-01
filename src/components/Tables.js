@@ -12,7 +12,7 @@ import colors from "yoast-components/style-guide/colors.json";
  */
 export const Column = styled.span`
 	font-size: 14px;
-	padding-left: 40px;
+	padding-left: ${ props => props.columnPaddingLeft };
 
 	text-align: ${ props => props.textAlign };
 
@@ -48,6 +48,7 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
+	columnPaddingLeft: React.PropTypes.string,
 	fillSpace: React.PropTypes.bool,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
@@ -58,6 +59,7 @@ Column.propTypes = {
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
+	columnPaddingLeft: "40px",
 	fillSpace: false,
 	hideOnMobile: false,
 	hideOnTable: false,
@@ -110,10 +112,9 @@ export const Row = styled.li`
 
 	min-height: 100px;
 	display: flex;
-	padding-right: 40px;
+	padding-right: ${ props => props.rowPaddingRight };
 	align-items: center;
-	justify-content: space-around;
-
+	justify-content: ${ props => props.justifyContent };
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
 		padding-right: 20px;
@@ -122,9 +123,13 @@ export const Row = styled.li`
 
 Row.propTypes = {
 	background: React.PropTypes.string,
+	rowPaddingRight: React.PropTypes.string,
+	justifyContent: React.PropTypes.string,
 };
 
 Row.defaultProps = {
+	rowPaddingRight: "40px",
+	justifyContent: "space-around",
 	background: colors.$color_white,
 };
 
@@ -183,9 +188,9 @@ export function ListTable( props ) {
 
 	// Do zebra striping background if props.doZebra is true (default).
 	if ( props.doZebra ) {
-		zebraProps.children = children.map( ( child, key ) => {
+		zebraProps.children = children.map( ( child, index ) => {
 			return React.cloneElement( child, {
-				background: ( key % 2 === 0 ) ? colors.$color_white : colors.$color_grey_light,
+				background: ( index % 2 === 1 ) ? colors.$color_white : colors.$color_grey_light,
 			} );
 		} );
 	}

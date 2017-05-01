@@ -42,8 +42,8 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		onClickInvoice: ( orderId ) => {
-			document.location = getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
+		getInvoiceURI: ( orderId ) => {
+			return getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
 		},
 		searchProps: {
 			onChange: ( query ) => {
