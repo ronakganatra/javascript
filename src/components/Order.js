@@ -42,7 +42,6 @@ const messages = defineMessages( {
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
-	console.log( props );
 	return (
 		<Row background={ props.background }>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -83,13 +82,13 @@ Order.propTypes = {
 	currency: React.PropTypes.string.isRequired,
 	onClickInvoice: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	items: React.PropTypes.string,
+	items: React.PropTypes.array,
 	status: React.PropTypes.string,
 	background: React.PropTypes.string,
 };
 
 Order.defaultProps = {
-	items: "",
+	items: [],
 	status: "N/A",
 	background: "",
 };

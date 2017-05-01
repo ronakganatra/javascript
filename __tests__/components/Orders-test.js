@@ -9,7 +9,16 @@ test( "The Orders component matches the snapshot", () => {
 			id: "1",
 			date: new Date( "05/20/2012" ),
 			orderNumber: "MOOIE 123 TEST",
-			items: "TEST ITEM",
+			items: [
+				{
+					id: "line-item-id1",
+					productName: "Name of the product",
+				},
+				{
+					id: "line-item-id2",
+					productName: "Another product",
+				},
+			],
 			total: 10010,
 			currency: "EUR",
 			status: "Failed",

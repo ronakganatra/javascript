@@ -9,11 +9,25 @@ exports[`test The Order component matches the snapshot 1`] = `
   </span>
   <span
     className="igKvAR">
-    MOOIE 456 TEST
+    a
+    ;
   </span>
   <span
     className="dKSGyu">
-    TEST ITEM
+    <div>
+       
+      <div>
+         
+        Name of the product
+         
+      </div>
+      <div>
+         
+        Another product
+         
+      </div>
+       
+    </div>
   </span>
   <span
     className="eSGqFF">
