@@ -139,12 +139,10 @@ class ProfilePage extends React.Component {
 
 		// Set default state; password fields are left blank intentionally.
 		this.state = {
-			email: this.props.email,
 			oldPassword: "",
 			newPassword: "",
 			newPasswordCheck: "",
 		};
-
 		this.validateWrapper = this.validateWrapper.bind( this );
 		this.validateFields = this.validateFields.bind( this );
 
@@ -406,9 +404,8 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-
 		return (
-			<Paper>
+		<Paper>
 				<Page>
 					<Column>
 						<form onSubmit={this.handleSubmit}>
@@ -418,7 +415,7 @@ class ProfilePage extends React.Component {
 								autocomplete="on"
 								name="email"
 								type="text"
-								value={this.state.email}
+								value={ this.props.email }
 								onChange={this.handleEmailChange}/>
 							{ this.displayErrors( "email" ) }
 
@@ -477,6 +474,8 @@ ProfilePage.propTypes = {
 	image: React.PropTypes.string,
 };
 
-ProfilePage.defaultProps = {};
+ProfilePage.defaultProps = {
+	email: "",
+};
 
 export default injectIntl( ProfilePage );
