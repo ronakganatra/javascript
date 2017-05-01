@@ -45,9 +45,9 @@ class App extends Component {
 								</header>
 								<UserStatus/>
 								<MainMenu menuRoutes={ menuItems }  />
+								<DebugInfo />
 							</Sidebar>
 							<Main>
-								<DebugInfo />
 								<Content>
 									<Route exact path="/" component={ SitesPageContainer } />
 									<Route path="/sites/:id" component={ SitePageContainer } />

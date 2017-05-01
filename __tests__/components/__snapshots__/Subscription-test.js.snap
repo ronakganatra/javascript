@@ -1,51 +1,40 @@
 exports[`test The Subscription component matches the snapshot 1`] = `
 <li
-  className="iYfqfc">
+  className="faPOmU">
   <span
-    className="hUbMKa"
-    label="">
+    className="cdkaQN">
     <img
       alt=""
       className="bjVGHc"
       src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
   </span>
   <span
-    className="cuMsox"
-    label="Product">
+    className="cHedPo">
     SEO Premium for WordPress
   </span>
   <span
-    className="cTrqWd"
-    label="Level">
+    className="jwyjVV">
     20 sites
   </span>
   <span
-    className="gZvJNr"
-    label="Usage">
+    className="eczGmx">
     14
     /
     20
   </span>
   <span
-    className="eKEkfc"
-    label="Next billing on">
+    className="cUGkua">
     <span>
-      4/4/2017
+      April 4, 2017
     </span>
   </span>
   <span
-    className="cQThsy"
-    label="Amount">
-    $
-     
-    125.12
+    className="bziLmx">
+    <span>
+      $125.12
+    </span>
   </span>
   <span
-    className="chflUA"
-    label="">
-    <a
-      href="/subscriptions/a"
-      onClick={[Function]} />
-  </span>
+    className="emvmXy" />
 </li>
 `;

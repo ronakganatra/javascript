@@ -2,6 +2,9 @@
   "extends": "yoast",
   "rules": {
     "__comment": [ 0, "Max length put on 200 because it is hard to stay under 150 with text strings." ],
-    "max-len": [ 2, 200 ]
+    "max-len": [ 2, 200 ],
+
+    "__comment2": [ 0, "Style-prop-object results in problems with the internationalization components, see https://github.com/yahoo/react-intl/issues/833 and https://github.com/yannickcr/eslint-plugin-react/issues/849" ],
+    "react/style-prop-object": 0
   }
 }

@@ -12,8 +12,8 @@ import colors from "yoast-components/style-guide/colors.json";
  */
 export const Column = styled.span`
 	font-size: 14px;
-	padding-left: 40px;
-	
+	padding-left: ${ props => props.columnPaddingLeft };
+
 	text-align: ${ props => props.textAlign };
 
 	&::before {
@@ -22,12 +22,13 @@ export const Column = styled.span`
  		top: -30px;
  		font-size: 1.286em;
  		line-height: 0;
- 		content: "${ props => props.label }";
+ 		${ props => props.headerLabel ? `content: "${props.headerLabel}";` : "content: none;" }
  	}
- 	
+
  	${ props => props.separator ? separatify() : "" }
-	
+
 	flex: 0 0 ${ props => props.ColumnWidth };
+	flex-grow: ${ props => props.fillSpace === true ? "1" : "0" };
 	@media screen and ( max-width: 1355px ) {
 		padding-left: 20px;
 		flex: 1 0 ${ props => props.ColumnWidth };
@@ -36,8 +37,9 @@ export const Column = styled.span`
 	@media screen and ( max-width: 800px ) {
 		&:first-child {
 			padding-left: 20px;
- 	    }
- 	    padding-left: 10px;
+		}
+
+		padding-left: 10px;
 		flex: 1 1 ${ props => props.ColumnWidth };
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
@@ -46,22 +48,24 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
-	label: React.PropTypes.string,
+	columnPaddingLeft: React.PropTypes.string,
+	fillSpace: React.PropTypes.bool,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
 	textAlign: React.PropTypes.string,
 	separator: React.PropTypes.bool,
+	headerLabel: React.PropTypes.string,
 };
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
-	label: "",
+	columnPaddingLeft: "40px",
+	fillSpace: false,
 	hideOnMobile: false,
 	hideOnTable: false,
 	textAlign: "left",
 	separator: false,
 };
-
 
 /**
  * Separatifies an element
@@ -73,12 +77,12 @@ export function separatify() {
 	&::after {
 		position:relative;
 		display: inline-block;
-		border-right: 2px solid ${colors.$color_grey};
+		border-right: 2px solid ${ colors.$color_grey };
 		padding-right: 40px;
 		height: 60px;
 		content: "";
 	}
-	
+
 
 	@media screen and ( max-width: 800px ) {
 		&::after {
@@ -105,13 +109,12 @@ export const ColumnText = styled( Column )`
  */
 export const Row = styled.li`
 	background: ${ props => props.background };
-	
+
 	min-height: 100px;
 	display: flex;
-	padding-right: 40px;
+	padding-right: ${ props => props.rowPaddingRight };
 	align-items: center;
-	justify-content: space-around;
-	
+	justify-content: ${ props => props.justifyContent };
 	@media screen and ( max-width: 1355px ) {
 		justify-content: space-between;
 		padding-right: 20px;
@@ -120,41 +123,14 @@ export const Row = styled.li`
 
 Row.propTypes = {
 	background: React.PropTypes.string,
+	rowPaddingRight: React.PropTypes.string,
+	justifyContent: React.PropTypes.string,
 };
 
 Row.defaultProps = {
-	background: "none",
-};
-
-/**
- * Returns the rendered Table component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Table component.
- * @constructor
- */
-export const Table = styled.ul`
-	margin: ${ props => props.headings ? "60px" : "0" } 0 0 0;
- 	padding: 0;
- 	list-style: none;
- 	position: relative;
- 	width: 100%;
- 	
- 	li:first-child {
-        & *::before {
-            left: auto;
-        }
-    }
-`;
-
-Table.propTypes = {
-	children: React.PropTypes.any,
-	headings: React.PropTypes.bool,
-};
-
-Table.defaultProps = {
-	headings: true,
+	rowPaddingRight: "40px",
+	justifyContent: "space-around",
+	background: colors.$color_white,
 };
 
 /**
@@ -165,7 +141,38 @@ Table.defaultProps = {
  * @returns {ReactElement} The rendered Zebra component.
  * @constructor
  */
-export function Zebra( props ) {
+export const Zebra = styled.ul`
+	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
+ 	padding: 0;
+ 	list-style: none;
+ 	position: relative;
+ 	width: 100%;
+
+ 	li:first-child {
+		& span::before {
+			left: auto;
+		}
+	}
+`;
+
+Zebra.propTypes = {
+	children: React.PropTypes.any,
+	hasHeaderLabels: React.PropTypes.bool,
+};
+
+Zebra.defaultProps = {
+	hasHeaderLabels: true,
+};
+
+/**
+ * Returns the rendered Zebra component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered Zebra component.
+ * @constructor
+ */
+export function ListTable( props ) {
 	let zebraProps = Object.assign( {}, props );
 	let children = props.children;
 
@@ -174,20 +181,33 @@ export function Zebra( props ) {
 		children = [ children ];
 	}
 
-	zebraProps.children = children.map( ( child, key ) => {
-		return React.cloneElement( child, {
-			background: ( key % 2 === 0 ) ? colors.$palette_white : colors.$palette_grey_light,
+	// Don't output an empty list.
+	if ( ! children.length ) {
+		return null;
+	}
+
+	// Do zebra striping background if props.doZebra is true (default).
+	if ( props.doZebra ) {
+		zebraProps.children = children.map( ( child, index ) => {
+			return React.cloneElement( child, {
+				background: ( index % 2 === 1 ) ? colors.$color_white : colors.$color_grey_light,
+			} );
 		} );
-	} );
+	}
 
 	return (
-		<span { ...zebraProps }/>
+		<Zebra role="list" { ...zebraProps }/>
 	);
 }
 
-Zebra.propTypes = {
+ListTable.propTypes = {
 	children: React.PropTypes.oneOfType( [
 		React.PropTypes.arrayOf( React.PropTypes.node ),
 		React.PropTypes.node,
 	] ),
+	doZebra: React.PropTypes.bool,
+};
+
+ListTable.defaultProps = {
+	doZebra: true,
 };

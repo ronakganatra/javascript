@@ -17,7 +17,7 @@ exports[`test renders without crashing 1`] = `
         alt=""
         className="bfdaAJ"
         size="64px"
-        src="https://gravatar.com/avatar/f08c3c3253bf14b5616b4db53cea6b78?s=60" />
+        src="https://s.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?r=pg&d=https%3A%2F%2Fs3.amazonaws.com%2Fyoast-my-yoast%2FMy_Yoast_default_avatar.png" />
       <div
         className="foqgVb">
         <p
@@ -25,7 +25,7 @@ exports[`test renders without crashing 1`] = `
           
         </p>
         <button
-          className="jZckzU"
+          className="xjUsf"
           onClick={[Function]}
           type="button">
           Sign out
@@ -52,19 +52,6 @@ exports[`test renders without crashing 1`] = `
         <li>
           <a
             className="eIYKTO"
-            href="/subscriptions"
-            onClick={[Function]}
-            style={undefined}>
-            <img
-              alt=""
-              className="ilptYL"
-              src="subscriptions.svg" />
-            Subscriptions
-          </a>
-        </li>
-        <li>
-          <a
-            className="eIYKTO"
             href="/account"
             onClick={[Function]}
             style={undefined}>
@@ -84,7 +71,7 @@ exports[`test renders without crashing 1`] = `
     <div
       className="jwnvEF">
       <svg
-        className="hWLdCL yoast-loader"
+        className="bzufPY yoast-loader"
         id="Y__x2B__bg"
         version="1.1"
         viewBox="0 0 500 500"

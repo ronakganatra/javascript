@@ -6,7 +6,7 @@ exports[`test the site header matches the snapshot 1`] = `
     placehold.it
   </h1>
   <button
-    className="cTDpVM"
+    className="hBZufG"
     onClick={[Function]}
     type="button">
     Visit site

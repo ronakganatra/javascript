@@ -5,7 +5,7 @@ exports[`test the site page component matches the snapshot 1`] = `
     onClick={[Function]}>
     <button
       aria-label="Back"
-      className="ugnwF" />
+      className="eqjPHj" />
   </a>
   <div
     className="gPDApQ">
@@ -14,14 +14,14 @@ exports[`test the site page component matches the snapshot 1`] = `
       yoast.com
     </h1>
     <button
-      className="cTDpVM"
+      className="hBZufG"
       onClick={[Function]}
       type="button">
       Visit site
     </button>
   </div>
   <svg
-    className="hWLdCL yoast-loader"
+    className="bzufPY yoast-loader"
     id="Y__x2B__bg"
     version="1.1"
     viewBox="0 0 500 500"

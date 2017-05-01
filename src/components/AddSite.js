@@ -10,21 +10,20 @@ import { addPlaceholderStyles } from "../styles/inputs";
 const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	min-width: 200px;
-	overflow: auto;
 	font-weight: 300;
 	font-size: 18px;
-	padding: 0 20px;
 `;
 
 const AddSiteImage = styled.img`
 	width: 100%;
-	padding: 20px;
+	margin: 1em 0 0;
+	vertical-align: bottom;
 `;
 
 const AddSiteHeading = styled.h1`
 	font-weight: 300;
 	font-size: 1.5em;
+	margin: 0;
 `;
 
 const AddSiteText = styled.p`
@@ -130,7 +129,6 @@ export default function AddSite( props ) {
 
 	return (
 			<AddSiteModal>
-				<AddSiteImage src={ addSiteImage } alt="" />
 				<AddSiteHeading>
 					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
 				</AddSiteHeading>
@@ -149,6 +147,7 @@ export default function AddSite( props ) {
 						<FormattedMessage id="sites.add-site.link" defaultMessage="link" />
 					</TextButton>
 				</Buttons>
+				<AddSiteImage src={ addSiteImage } alt="" />
 			</AddSiteModal>
 	);
 }

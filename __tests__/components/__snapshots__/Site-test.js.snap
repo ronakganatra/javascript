@@ -1,23 +1,20 @@
 exports[`test the site component matches the snapshot 1`] = `
 <li
-  className="iYfqfc">
+  className="faPOmU">
   <span
-    className="hUbMKa"
-    label="">
+    className="cdkaQN">
     <img
       alt=""
       className="bjVGHc"
       src="" />
   </span>
   <span
-    className="cpyTvm"
-    label="Site name">
+    className="keNlnt">
     yoast.com
   </span>
   <span
-    className="gtXVqi"
-    label="Active subscriptions">
-    <div>
+    className="dxkupl">
+    <span>
       <span
         aria-label="Yoast SEO is inactive"
         className="hGymDt"
@@ -42,10 +39,9 @@ exports[`test the site component matches the snapshot 1`] = `
         aria-label="Local SEO for Woo is inactive"
         className="egmryf"
         role="img" />
-    </div>
+    </span>
   </span>
   <span
-    className="chflUA"
-    label="" />
+    className="emvmXy" />
 </li>
 `;

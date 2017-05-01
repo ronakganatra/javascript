@@ -38,7 +38,7 @@ SiteSubscriptionIcons.propTypes = {
  */
 export default function SiteSubscriptions( props ) {
 	return (
-		<div>
+		<span>
 			{
 				Object.keys( YoastProducts ).map( function( productName ) {
 					let isActive = props.activeSubscriptions.includes( productName );
@@ -55,7 +55,7 @@ export default function SiteSubscriptions( props ) {
 					);
 				} )
 			}
-		</div>
+		</span>
 	);
 }
 

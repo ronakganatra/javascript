@@ -16,13 +16,13 @@ const messages = defineMessages( {
 		id: "menu.sites.loaded",
 		defaultMessage: "Sites page loaded",
 	},
-	description: {
-		id: "search.description",
-		defaultMessage: "The search results will be updated as you type.",
-	},
 	searchResults: {
 		id: "search.results",
 		defaultMessage: "Number of sites found: %d",
+	},
+	searchLabel: {
+		id: "search.label.sites",
+		defaultMessage: "Search sites",
 	},
 } );
 
@@ -62,20 +62,17 @@ class SitesPage extends React.Component {
 	 * @returns {ReactElement} The rendered Sites component.
 	 */
 	getSearch() {
-		let changeSearchQuery = ( event ) => {
-			this.props.changeSearchQuery( event.target.value );
-		};
-
 		return <Search
 			id="search"
-			description={ this.props.intl.formatMessage( messages.description ) }
-			descriptionId="searchDescription"
-			onChange={ changeSearchQuery }
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+			descriptionId="search-description"
+			onChange={ this.props.onSearchChange }
 			query={ this.props.query }
 		/>;
 	}
 
 	componentDidMount() {
+		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
 	}
@@ -155,14 +152,6 @@ class SitesPage extends React.Component {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
 			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
 
-			/*
-			 * Clear the a11ySpeak message so VoiceOver will detect a change in 1 second and always announce the messsage.
-			 *
-			 * There is a problem in VoiceOver in which it will not announce the text if it did not change since the last message.
-			 * Clearing the message and instantly setting it again does not seem to solve the problem.
-			 * Because we can make use of the 1 second de-bounce delay we have a bigger window to play with.
-			 */
-			a11ySpeak( "", "assertive" );
 			this.searchTimer = window.setTimeout( function() {
 				a11ySpeak( message, "assertive" );
 			}, 1000 );
@@ -175,7 +164,7 @@ export default injectIntl( SitesPage );
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
-	changeSearchQuery: React.PropTypes.func.isRequired,
+	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,
 	onLink: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,

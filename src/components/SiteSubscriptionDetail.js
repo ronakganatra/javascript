@@ -7,6 +7,7 @@ import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
 import { Row } from "./Tables";
+import _partial from "lodash/partial";
 
 let responsiveWidthThreshold = 1355;
 
@@ -139,20 +140,19 @@ export default function SiteSubscriptionDetail( props ) {
 	}
 
 	return (
-		<Row {...rowProps}>
+		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
 				<SubscriptionLogo src={ props.productLogo } alt="" />
 				<SubscriptionToggle>
 					<Toggle
-						onSetEnablement={ props.onToggleSubscription }
+						onSetEnablement={ _partial( props.onToggleSubscription, props.id ) }
 						isEnabled={ props.isEnabled }
-						ariaLabel={ props.productId }
-						onClick={ props.onToggleSubscription } />
+						ariaLabel={ props.productId } />
 				</SubscriptionToggle>
 			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
-				<ProductName>{ props.productId }</ProductName>
+				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
 						values={{ howMany: ( props.slots.amountAvailable - props.slots.amountUsed ) + " / " + props.slots.amountAvailable }} />
@@ -174,6 +174,8 @@ export default function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
+	id: React.PropTypes.string.isRequired,
+	name: React.PropTypes.string.isRequired,
 	onAddMoreSlotsClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,

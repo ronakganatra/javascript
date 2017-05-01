@@ -54,7 +54,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		addSite: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		changeSearchQuery: ( query ) => {
+		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
 		onClose: () => {

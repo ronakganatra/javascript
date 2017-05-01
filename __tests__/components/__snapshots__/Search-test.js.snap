@@ -9,7 +9,7 @@ exports[`test the search component handling an on change 1`] = `
     </span>
   </label>
   <input
-    aria-describedby="searchDescription"
+    aria-describedby="search-description"
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
@@ -21,7 +21,7 @@ exports[`test the search component handling an on change 1`] = `
     value={undefined} />
   <p
     className="screen-reader-text foqgVb"
-    id="searchDescription">
+    id="search-description">
     The search results will be updated as you type.
   </p>
 </div>
@@ -38,7 +38,7 @@ exports[`test the search component handling an on change 2`] = `
     </span>
   </label>
   <input
-    aria-describedby="searchDescription"
+    aria-describedby="search-description"
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
@@ -50,7 +50,7 @@ exports[`test the search component handling an on change 2`] = `
     value={undefined} />
   <p
     className="screen-reader-text foqgVb"
-    id="searchDescription">
+    id="search-description">
     The search results will be updated as you type.
   </p>
 </div>
@@ -67,7 +67,7 @@ exports[`test the search component matches the snapshot 1`] = `
     </span>
   </label>
   <input
-    aria-describedby="searchDescription"
+    aria-describedby="search-description"
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
@@ -79,7 +79,7 @@ exports[`test the search component matches the snapshot 1`] = `
     value={undefined} />
   <p
     className="screen-reader-text foqgVb"
-    id="searchDescription">
+    id="search-description">
     The search results will be updated as you type.
   </p>
 </div>

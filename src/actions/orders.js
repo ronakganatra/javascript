@@ -64,7 +64,7 @@ export function getOrders() {
 		let userId = getUserId();
 		let accessToken = getAccessToken();
 
-		return fetch( `${apiUrl}/MyYoastUsers/${userId}/orders?access_token=${accessToken}` )
+		return fetch( `${apiUrl}/Customers/${userId}/orders?access_token=${accessToken}` )
 			.then( handle401 )
 			.then( response => response.json() )
 			.then( json => dispatch( getOrdersSuccess( json ) ) )

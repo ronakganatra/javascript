@@ -1,6 +1,6 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer} from "../../src/reducers/index"
-import { uiSiteSubscriptionsReducer, byIdSitesSubscriptionsReducer, allIdsSitesSubscriptionsReducer } from "../../src/reducers/subscriptions";
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer, uiSiteReducer} from "../../src/reducers/index"
+import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
@@ -21,20 +21,32 @@ jest.mock( "../../src/reducers/user.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/site.js", () => {
+	return {
+		getSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "getSiteSubscriptionsReducer" }; } ),
+		siteAddSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "siteAddSubscriptionsReducer" }; } ),
+		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
+		byIdSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSubscriptionsReducer" }; } ),
+		allIdsSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSubscriptionsReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/subscriptions.js", () => {
 	return {
-		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
-		byIdSitesSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSitesSubscriptionsReducer" }; } ),
-		allIdsSitesSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSitesSubscriptionsReducer" }; } ),
+		byIdSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSubscriptionsReducer" }; } ),
+		allIdsSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSubscriptionsReducer" }; } ),
+		uiAllSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiAllSubscriptionsReducer" }; } ),
 	}
 } );
 
 test( 'ui reducer', () => {
-	const state = { sites: {}, orders: {} };
+
+	const state = { sites: {}, site: { subscriptions: {}, }, search: {}, orders: {}, subscriptions: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { search: { query: "" }, sites: { name: "uiSitesReducer" }, site: { name: "uiSiteSubscriptionsReducer" }, orders: {} };
+
+	const expected = { sites: { name: "uiSitesReducer" }, site: { subscriptions: { name: "uiSiteSubscriptionsReducer" }, }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" }, orders: {} };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -42,7 +54,7 @@ test( 'ui reducer', () => {
 } );
 
 test( 'entities site reducer', () => {
-	const state = { allIds: {}, byId: {} , orders: [] };
+	const state = { allIds: {}, byId: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -58,11 +70,11 @@ test( 'entities subscriptions reducer', () => {
 	const action = {
 		type: GET_SITE_SUBSCRIPTIONS_SUCCESS,
 	};
-	const expected = { allIds: { name: "allIdsSitesSubscriptionsReducer"}, byId: { name: "byIdSitesSubscriptionsReducer" } };
+	const expected = { allIds: { name: "allIdsSubscriptionsReducer"}, byId: { name: "byIdSubscriptionsReducer" } };
 	const actual = entitiesSubscriptionsReducer( state, action );
 	expect( actual ).toEqual( expected );
-	expect( byIdSitesSubscriptionsReducer ).toHaveBeenCalledWith( {}, action );
-	expect( allIdsSitesSubscriptionsReducer ).toHaveBeenCalledWith( {}, action );
+	expect( byIdSubscriptionsReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsSubscriptionsReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
 test( 'entities reducer', () => {
@@ -70,11 +82,13 @@ test( 'entities reducer', () => {
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
+
 	const expected = {
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
-		subscriptions: { allIds: { name: "allIdsSitesSubscriptionsReducer" }, byId: { name: "byIdSitesSubscriptionsReducer"} },
+		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
 		orders: { allIds: [], byId: {} }
 	};
+
 
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -103,13 +117,12 @@ test( 'root reducer', () => {
 				allIds:[],
 			},
 			sites: {
-
 				byId: { name: "byIdReducer" },
 				allIds: { name: "allIdsReducer" },
 			},
 			subscriptions: {
-				byId: { name: "byIdSitesSubscriptionsReducer" },
-				allIds: { name: "allIdsSitesSubscriptionsReducer" },
+				byId: { name: "byIdSubscriptionsReducer" },
+				allIds: { name: "allIdsSubscriptionsReducer" },
 			},
 		},
 		router: {
@@ -117,13 +130,16 @@ test( 'root reducer', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
-			site: { name: "uiSiteSubscriptionsReducer" },
+			search: {
+				query: "",
+			},
+			site: {
+				subscriptions: { name: "uiSiteSubscriptionsReducer" },
+			},
+			subscriptions: { name: "uiAllSubscriptionsReducer" },
 			orders: {
 				"error": "",
 				"retrievingOrders": false,
-			},
-     	search: {
-				query: "",
 			},
 		},
 		user: { name: "userReducer" }

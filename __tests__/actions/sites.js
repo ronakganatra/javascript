@@ -11,7 +11,7 @@ jest.mock( "../../src/functions/auth", () => {
 
 jest.mock( "whatwg-fetch" );
 
-let expectedRequest = new Request( getApiUrl() + "/MyYoastUsers/10/sites/?access_token=access", {
+let expectedRequest = new Request( getApiUrl() + "/Customers/10/sites/?access_token=access", {
 	method: "POST",
 	body: JSON.stringify( {
 		url: "http://yoast.com",
@@ -193,7 +193,7 @@ test( 'retrieve sites failure creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-let expectedRetrievingRequest = new Request( getApiUrl() + "/MyYoastUsers/10/sites/?access_token=access", {
+let expectedRetrievingRequest = new Request( getApiUrl() + "/Customers/10/sites/?access_token=access", {
 	method: "GET",
 	headers: {
 		"Content-Type": "application/json",
