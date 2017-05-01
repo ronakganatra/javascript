@@ -4,7 +4,6 @@ import ProfilePage from "../components/ProfilePage";
 const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.data.profile.email,
-
 	};
 };
 
