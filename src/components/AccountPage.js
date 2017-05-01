@@ -1,7 +1,7 @@
 import React from "react";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 import SubscriptionsPage from "../containers/SubscriptionsPage";
-import ProfilePage from "../components/ProfilePage";
+import ProfilePageContainer from "../containers/ProfilePage";
 import OrderPage from "../containers/OrdersPage";
 
 let itemRoutes = [
@@ -23,7 +23,7 @@ let itemRoutes = [
 		title: "Orders",
 	},
 	{
-		component: ProfilePage,
+		component: ProfilePageContainer,
 		path: "/account/profile",
 		title: "Profile",
 	},
