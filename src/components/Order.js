@@ -56,7 +56,6 @@ function Order( props ) {
 				<LineItems items={ props.items }/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
-				{ console.log ( props.total ) }
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
