@@ -4,10 +4,10 @@ import colors from "yoast-components/style-guide/colors.json";
 import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
-import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
-import { LargeButton, RedButton } from "./Button";
+import { LargeButton, RedButton, IconButtonLink } from "./Button";
 import { formatAmount } from "../functions/currency";
+import { getInvoiceUrl } from "../functions/api";
 
 let columnMargin = "10px";
 let hideButtonsThreshold = 400;
@@ -195,11 +195,12 @@ function SubscriptionDetails( props ) {
 					</ColumnText>
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<IconButton onClick={ props.onInvoiceDownload }
-										iconSource={ downloadIcon }
-										iconSize={ "16px" }>
+							<IconButtonLink
+								href={getInvoiceUrl( invoice.invoiceId )}
+								iconSource={ downloadIcon }
+								iconSize={ "16px" }>
 								{ props.intl.formatMessage( messages.invoiceButton ) }
-							</IconButton>
+							</IconButtonLink>
 						</MediaQuery>
 					</Column>
 				</Row>;

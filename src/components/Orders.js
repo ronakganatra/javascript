@@ -2,6 +2,7 @@ import React from "react";
 import Order from "./Order";
 import { ListTable } from "./Tables";
 import Paper from "./Paper";
+import { getInvoiceUrl } from "../functions/api";
 
 /**
  * Returns the rendered Orders component.
@@ -15,7 +16,7 @@ export default function Orders( props ) {
 		<Paper>
 			<ListTable hasHeaderLabels={ true }>
 				{ props.orders.map( ( order ) => {
-					let invoiceURI = props.getInvoiceURI( order.id );
+					let invoiceURI = getInvoiceUrl( order.id );
 
 					return <Order { ...order }
 								  key={ order.id }
@@ -28,7 +29,6 @@ export default function Orders( props ) {
 }
 
 Orders.propTypes = {
-	getInvoiceURI: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
 };
 

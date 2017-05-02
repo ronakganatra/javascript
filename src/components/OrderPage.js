@@ -48,7 +48,6 @@ export default injectIntl( OrderPage );
 
 OrderPage.propTypes = {
 	searchProps: React.PropTypes.object.isRequired,
-	getInvoiceURI: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
 	intl: intlShape.isRequired,
 };
