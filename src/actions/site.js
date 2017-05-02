@@ -8,9 +8,10 @@ import { getAccessToken } from "../functions/auth";
 
 export const SITE_TOGGLE_SUBSCRIPTION_REQUEST = "SITE_TOGGLE_SUBSCRIPTION_REQUEST";
 export const SITE_TOGGLE_SUBSCRIPTION_FAILURE = "SITE_TOGGLE_SUBSCRIPTION_FAILURE";
-
 export const SITE_ADD_SUBSCRIPTION_SUCCESS = "SITE_ADD_SUBSCRIPTION_SUCCESS";
 export const SITE_REMOVE_SUBSCRIPTION_SUCCESS = "SITE_REMOVE_SUBSCRIPTION_SUCCESS";
+export const SITE_REMOVE = "SITE_REMOVE";
+export const SITE_REMOVE_START = "SITE_REMOVE_START";
 
 /**
  * Action creators
@@ -135,5 +136,35 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 			.catch( ( error ) => {
 				dispatch( siteToggleSubscriptionFailure( error.json().message ) );
 			} );
+	};
+}
+
+
+/**
+ * An action creator for site removal.
+ *
+ * @param {string} siteId The id of the site for which the subscription is trying to be added.
+ * @param {string} subscriptionId The subscription trying to be added.
+ *
+ * @returns {Object} A site add subscription request action.
+ */
+export function siteRemove( siteId ) {
+	return ( dispatch ) => {
+		dispatch( siteRemoveStart( siteId ) );
+	};
+}
+
+/**
+ * An action creator for the start of the site removal.
+ *
+ * @param {string} siteId The id of the site for which the subscription is trying to be added.
+ * @param {string} subscriptionId The subscription trying to be added.
+ *
+ * @returns {Object} A site add subscription request action.
+ */
+export function siteRemoveStart( siteId ) {
+	return {
+		type: SITE_REMOVE_START,
+		siteId,
 	};
 }
