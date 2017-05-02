@@ -136,7 +136,7 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 				dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
 			} )
 			.catch( ( error ) => {
-				dispatch( siteToggleSubscriptionFailure( error.json().message ) );
+				dispatch( siteToggleSubscriptionFailure( error.message ) );
 			} );
 	};
 }
@@ -173,7 +173,7 @@ export function siteRemove( siteId ) {
 				dispatch( push( "/sites/" ) );
 			} )
 			.catch( ( error ) => {
-				dispatch( siteRemoveFailure( siteId, error.json().message ) );
+				dispatch( siteRemoveFailure( siteId, error.message ) );
 			} );
 	};
 }
