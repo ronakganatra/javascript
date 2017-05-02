@@ -1,0 +1,225 @@
+exports[`test The Downloads component matches the snapshot 1`] = `
+<div
+  className="kVOVrE">
+  <div
+    className="DQvEl">
+    <h2
+      className="khfVvv">
+      Yoast SEO
+    </h2>
+    <p
+      className="ckUTQP">
+      version 4.7
+    </p>
+    <img
+      alt=""
+      className="ieMZJu"
+      src="Yoast_SEO_Icon_Small.svg" />
+    <ul
+      className="etVRNn">
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Wordpress
+        </p>
+      </li>
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Drupal
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="DQvEl">
+    <h2
+      className="khfVvv">
+      Local SEO
+    </h2>
+    <p
+      className="ckUTQP">
+      version 4.7
+    </p>
+    <img
+      alt=""
+      className="ieMZJu"
+      src="Yoast_SEO_Icon_Small.svg" />
+    <ul
+      className="etVRNn">
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Wordpress
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="DQvEl">
+    <h2
+      className="khfVvv">
+      Video SEO
+    </h2>
+    <p
+      className="ckUTQP">
+      version 4.7
+    </p>
+    <img
+      alt=""
+      className="ieMZJu"
+      src="Yoast_SEO_Icon_Small.svg" />
+    <ul
+      className="etVRNn">
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Wordpress
+        </p>
+      </li>
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Drupal
+        </p>
+      </li>
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Typo3
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="DQvEl">
+    <h2
+      className="khfVvv">
+      News SEO
+    </h2>
+    <p
+      className="ckUTQP">
+      version 4.7
+    </p>
+    <img
+      alt=""
+      className="ieMZJu"
+      src="Yoast_SEO_Icon_Small.svg" />
+    <ul
+      className="etVRNn">
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Wordpress
+        </p>
+      </li>
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Drupal
+        </p>
+      </li>
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Typo3
+        </p>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="DQvEl">
+    <h2
+      className="khfVvv">
+      Yoast SEO for WooCommerce
+    </h2>
+    <p
+      className="ckUTQP">
+      version 4.7
+    </p>
+    <img
+      alt=""
+      className="ieMZJu"
+      src="Yoast_SEO_Icon_Small.svg" />
+    <ul
+      className="etVRNn">
+      <li
+        className="LnEm">
+         
+        <button
+          className="gAzDzu"
+          onClick={[Function]}>
+          Download
+        </button>
+        <p
+          className="bNegrd">
+          for Wordpress
+        </p>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
