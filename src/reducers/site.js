@@ -1,4 +1,4 @@
-import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE } from "../actions/site";
+import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE, SITE_REMOVE_START } from "../actions/site";
 
 /**
  * Initial state
@@ -11,6 +11,7 @@ const rootState = {
 				toggling: false,
 				error: "",
 			},
+			removing: false,
 		},
 	},
 };
@@ -42,6 +43,24 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 			return Object.assign( {}, state, {
 				toggling: false,
 				error: action.addingSubscriptionError,
+			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for global site actions within the ui site object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated state.
+ */
+export function uiSiteReducer( state = rootState.ui.site, action ) {
+	switch ( action.type ) {
+		case SITE_REMOVE_START:
+			return Object.assign( {}, state, {
+				removing: true,
 			} );
 		default:
 			return state;
