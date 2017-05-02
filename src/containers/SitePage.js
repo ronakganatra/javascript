@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { updateSiteUrl } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription } from "../actions/site";
+import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -42,6 +42,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		site,
 		subscriptions,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
+		UiSite: state.ui.site,
 	};
 };
 
@@ -61,6 +62,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
+		},
+		onRemove: () => {
+			// eslint-disable-next-line
+			if ( window.confirm( "Are you sure you want to remove this site from my.yoast?" ) ) {
+				dispatch( siteRemove( siteId ) );
+			}
 		},
 	};
 };
