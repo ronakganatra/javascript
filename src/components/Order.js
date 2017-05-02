@@ -5,7 +5,7 @@ import { IconButtonLink } from "./Button";
 import { ChevronButtonLink } from "./RoundButton";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
-import { formatAmount } from "../functions/currency";
+import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
 
 const messages = defineMessages( {
