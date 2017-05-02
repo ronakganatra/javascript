@@ -77,5 +77,4 @@ SitePage.defaultProps = {
 	subscriptions: [],
 	loadingSite: false,
 	loadingSubscriptions: true,
-	site: {},
 };
