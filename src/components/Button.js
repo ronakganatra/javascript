@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { Link } from "react-router-dom";
 
 export const Button = styled.button`
 	height: 48px;
@@ -86,7 +87,7 @@ export const RedButton = styled( LargeButton )`
 	background-color: ${ colors.$color_red };
 `;
 
-export const ButtonLink = styled.a`
+export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
 	line-height: 48px;
