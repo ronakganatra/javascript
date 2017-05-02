@@ -29,13 +29,9 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
-	let searchProps = {
-		query: query,
-	};
-
 	return {
 		orders,
-		searchProps,
+		query,
 	};
 };
 
@@ -44,10 +40,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		getInvoiceURI: ( orderId ) => {
 			return getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
 		},
-		searchProps: {
-			onChange: ( query ) => {
-				dispatch( onSearchQueryChange( query ) );
-			},
+		onSearchChange: ( query ) => {
+			dispatch( onSearchQueryChange( query ) );
 		},
 	};
 };
