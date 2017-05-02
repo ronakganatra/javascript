@@ -6,7 +6,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
-import { formatAmount } from "../../../shared/currency";
+import formatAmount from "../../../shared/currency";
 
 const messages = defineMessages( {
 	product: {
