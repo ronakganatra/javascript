@@ -1,4 +1,6 @@
-import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE, SITE_REMOVE_START } from "../actions/site";
+import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS,
+	SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_FAILURE,
+	SITE_REMOVE_START, SITE_REMOVE_SUCCESS, SITE_REMOVE_FAILURE } from "../actions/site";
 
 /**
  * Initial state
@@ -61,6 +63,14 @@ export function uiSiteReducer( state = rootState.ui.site, action ) {
 		case SITE_REMOVE_START:
 			return Object.assign( {}, state, {
 				removing: true,
+			} );
+		case SITE_REMOVE_SUCCESS:
+			return Object.assign( {}, state, {
+				removing: false,
+			} );
+		case SITE_REMOVE_FAILURE:
+			return Object.assign( {}, state, {
+				removing: false,
 			} );
 		default:
 			return state;
