@@ -22,6 +22,7 @@ const DownloadContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
 	
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
 		width: calc( 25% - 8px - 8px );
