@@ -6,6 +6,9 @@ import { SVGIcon } from "./SVGIcon";
 const CollapsibleHeaderContainer = styled.div`
 	margin-top: 20px;
 	background-color: #ffffff;
+	> div {
+		padding: 0 40px 16px 40px;
+	}
 `;
 
 const CollapsibleHeader = styled.button`
