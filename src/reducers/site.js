@@ -9,11 +9,11 @@ import { SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_ADD_SUBSCRIPTION_SUCCESS,
 const rootState = {
 	ui: {
 		site: {
-			subscriptions: {
-				toggling: false,
-				error: "",
-			},
 			removing: false,
+			subscriptions: {
+				error: "",
+				toggling: false,
+			},
 		},
 	},
 };
@@ -52,27 +52,28 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 }
 
 /**
- * A reducer for global site actions within the ui site object.
+ * A reducer for the site object within the ui object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated state.
+ *
+ * @returns {Object} The updated Site object.
  */
 export function uiSiteReducer( state = rootState.ui.site, action ) {
+	let site = Object.assign( {}, state );
 	switch ( action.type ) {
 		case SITE_REMOVE_START:
-			return Object.assign( {}, state, {
-				removing: true,
-			} );
+			site.removing = true;
+			break;
 		case SITE_REMOVE_SUCCESS:
-			return Object.assign( {}, state, {
-				removing: false,
-			} );
+			site.removing = false;
+			break;
 		case SITE_REMOVE_FAILURE:
-			return Object.assign( {}, state, {
-				removing: false,
-			} );
+			site.removing = false;
+			break;
 		default:
-			return state;
+			break;
 	}
+	site.subscriptions = uiSiteSubscriptionsReducer( state.subscriptions, action );
+	return site;
 }

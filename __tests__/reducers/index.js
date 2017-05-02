@@ -25,7 +25,7 @@ jest.mock( "../../src/reducers/site.js", () => {
 	return {
 		getSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "getSiteSubscriptionsReducer" }; } ),
 		siteAddSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "siteAddSubscriptionsReducer" }; } ),
-		uiSiteSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteSubscriptionsReducer" }; } ),
+		uiSiteReducer: jest.fn( ( state = {} ) => { return { name: "uiSiteReducer" }; } ),
 		byIdSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "byIdSubscriptionsReducer" }; } ),
 		allIdsSubscriptionsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsSubscriptionsReducer" }; } ),
 	}
@@ -41,12 +41,12 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 
 test( 'ui reducer', () => {
 
-	const state = { sites: {}, site: { subscriptions: {}, }, search: {}, orders: {}, subscriptions: {} };
+	const state = { sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 
-	const expected = { sites: { name: "uiSitesReducer" }, site: { subscriptions: { name: "uiSiteSubscriptionsReducer" }, }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" }, orders: {} };
+	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" }, orders: {} };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -133,9 +133,7 @@ test( 'root reducer', () => {
 			search: {
 				query: "",
 			},
-			site: {
-				subscriptions: { name: "uiSiteSubscriptionsReducer" },
-			},
+			site: { name: "uiSiteReducer" },
 			subscriptions: { name: "uiAllSubscriptionsReducer" },
 			orders: {
 				"error": "",
