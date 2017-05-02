@@ -104,3 +104,68 @@ test( 'site add subscription action creator with failure', () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Duplicate entry for Subscription.id" ) );
 	} );
 } );
+
+test( 'site remove action creator with success', () => {
+	expectedRequest = new Request( getApiUrl() + "/Sites/" + siteId + "/?access_token=access", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	} );
+
+	global.fetch = jest.fn( () => {
+		return Promise.resolve( {
+			status: 200,
+			json: () => { return {
+				"count": 1,
+			} },
+		} );
+	});
+
+	const dispatch = jest.fn();
+
+	const siteRemoveFunc = actions.siteRemove( siteId );
+
+	expect( siteRemoveFunc ).toBeInstanceOf( Function );
+
+	return siteRemoveFunc( dispatch ).then( () => {
+		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveStart( siteId ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveSuccess( siteId ) );
+	} );
+} );
+
+test( 'site remove action creator with failure', () => {
+	expectedRequest = new Request( getApiUrl() + "/Sites/" + siteId + "/?access_token=access", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	} );
+
+	global.fetch = jest.fn( () => {
+		return Promise.resolve( {
+			json: () => { return {
+				"error": {
+					"statusCode": 401,
+					"name": "Error",
+					"message": "Authorization Required",
+					"code": "AUTHORIZATION_REQUIRED",
+					"stack": "Dummydata"
+				}
+			} },
+		} );
+	});
+
+	const dispatch = jest.fn();
+
+	const siteRemoveFunc = actions.siteRemove( siteId );
+
+	expect( siteRemoveFunc ).toBeInstanceOf( Function );
+
+	return siteRemoveFunc( dispatch ).then( () => {
+		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveStart( siteId ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveFailure( siteId, "Authorization Required" ) );
+	} );
+} );
