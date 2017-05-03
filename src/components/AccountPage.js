@@ -30,9 +30,9 @@ let itemRoutes = [
 ];
 
 /**
- * Some stuff.
+ * Returns the rendered Account Page component.
  *
- * @returns {ReactElement} The rendered stuff.
+ * @returns {ReactElement} The rendered account page.
  */
 export default function AccountPage() {
 	return (

@@ -3,6 +3,7 @@ import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListTable } from "./Tables";
+import Paper from "./Paper";
 
 const messages = defineMessages( {
 	manageTitle: {
@@ -20,20 +21,23 @@ const messages = defineMessages( {
  */
 function SiteSubscriptionDetailList( props ) {
 	return (
-		<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-			<ListTable hasHeaderLabels={ false }>
-				{ props.siteSubscriptions.map( ( subscription ) => {
-					return <SiteSubscriptionDetail
-						{ ...subscription }
-						key={ subscription.id }
-						onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
-						onMoreInfoClick={ props.onMoreInfoClick }
-						onSettingsClick={ props.onSettingsClick }
-						onToggleSubscription={ props.onToggleSubscription }
-					/>;
-				} ) }
-			</ListTable>
-		</CollapsibleHeader>
+		<Paper>
+			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+				<ListTable hasHeaderLabels={ false }>
+					{ props.siteSubscriptions.map( ( subscription ) => {
+						return <SiteSubscriptionDetail
+							{ ...subscription }
+							key={ subscription.id }
+							name={ subscription.productId }
+							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
+							onMoreInfoClick={ props.onMoreInfoClick }
+							onSettingsClick={ props.onSettingsClick }
+							onToggleSubscription={ props.onToggleSubscription }
+						/>;
+					} ) }
+				</ListTable>
+			</CollapsibleHeader>
+		</Paper>
 	);
 }
 

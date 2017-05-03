@@ -13,13 +13,13 @@ exports[`test an add more slots button should be shown when no more slots are av
         <div
           aria-checked={true}
           aria-label="productId"
-          className="hGsRJU"
+          className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="checkbox"
           tabIndex="0">
           <span
-            className="lbeQtx" />
+            className="diphEL" />
         </div>
         <span
           aria-hidden="true"
@@ -66,13 +66,13 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
         <div
           aria-checked={true}
           aria-label="productId"
-          className="hGsRJU"
+          className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}
           role="checkbox"
           tabIndex="0">
           <span
-            className="lbeQtx" />
+            className="diphEL" />
         </div>
         <span
           aria-hidden="true"
