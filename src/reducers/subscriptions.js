@@ -67,7 +67,9 @@ export function byIdSubscriptionsReducer( state = rootState.entities.subscriptio
 			subscriptions = Object.assign( {}, state );
 
 			action.subscriptions.forEach( ( subscription ) => {
-				subscriptions[ subscription.id ] = subscription;
+				subscriptions[ subscription.id ] = Object.assign( {}, subscription, {
+					orders: subscription.orders.map( order => order.id ),
+				} );
 			} );
 
 			return subscriptions;
