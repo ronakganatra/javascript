@@ -1,12 +1,12 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { Row, ColumnText, Column } from "./Tables";
-import { IconButtonLink } from "./Button";
-import { ChevronButtonLink } from "./RoundButton";
+import { IconButtonLink, disable, IconButton } from "./Button";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { formatAmount } from "../functions/currency";
 import LineItems from "./LineItems";
+import styled from "styled-components";
 
 const messages = defineMessages( {
 	date: {
@@ -35,6 +35,8 @@ const messages = defineMessages( {
 	},
 } );
 
+let invoiceStatuses = [ "completed", "refunded" ];
+
 /**
  * A page order list using table abstraction.
  *
@@ -42,6 +44,20 @@ const messages = defineMessages( {
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
+	let InvoiceButton = IconButtonLink;
+	if ( ! invoiceStatuses.includes( props.status ) ) {
+		InvoiceButton = disable( IconButton );
+	}
+
+	let invoiceMessage = props.intl.formatMessage( messages.invoice );
+
+	// On mobile devices there is no text so we need to compensate the style for this.
+	let ResponseInvoiceButton = styled( InvoiceButton )`
+		@media screen and ( max-width: 1355px ) {
+			padding-right: 0px;
+		}
+	`;
+
 	return (
 		<Row background={ props.background }>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -59,19 +75,17 @@ function Order( props ) {
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
-				<MediaQuery query="(min-width: 1356px)">
-
-					<IconButtonLink aria-label={ props.intl.formatMessage( messages.invoice ) }
-						iconSource={ downloadIcon }
-						href={ props.invoiceLink }>
-						{ props.intl.formatMessage( messages.invoice ) }
-					</IconButtonLink>
-				</MediaQuery>
-				<MediaQuery query="(max-width: 1355px)">
-					<ChevronButtonLink href={ props.invoiceLink }>
-						<span className="screen-reader-text">{ props.intl.formatMessage( messages.invoice ) }</span>
-					</ChevronButtonLink>
-				</MediaQuery>
+				<ResponseInvoiceButton
+					aria-label={ invoiceMessage }
+					iconSource={ downloadIcon }
+					href={ props.invoiceLink }>
+					<MediaQuery query="(min-width: 1356px)">
+						{ invoiceMessage }
+					</MediaQuery>
+					<MediaQuery query="(max-width: 1355px)">
+						<span className="screen-reader-text">{ invoiceMessage }</span>
+					</MediaQuery>
+				</ResponseInvoiceButton>
 			</Column>
 		</Row>
 	);
