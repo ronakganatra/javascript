@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import colors from "yoast-components/style-guide/colors.json";
 import Paper from "./Paper";
-import Download from "./Download";
+import Download from "./Product";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
 

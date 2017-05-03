@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-import Downloads from '../../src/components/Downloads';
+import Downloads from '../../src/components/Products';
 import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 
 test('The Downloads component matches the snapshot', () => {

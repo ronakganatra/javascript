@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import Download from "./Download";
+import Download from "./Product";
 
 const DownloadsContainer = styled.div`
 	display: flex;

@@ -17,7 +17,7 @@ let mobileViewThreshold = 600;
 
 let outerMargin = 32;
 
-const DownloadContainer = styled.div`
+const ProductContainer = styled.div`
 	margin: 8px;
 	padding: 16px;
 	background-color: ${ colors.$color_grey_light };
@@ -39,18 +39,18 @@ const DownloadContainer = styled.div`
 	}
 `;
 
-const DownloadIcon = styled.img`
+const ProductIcon = styled.img`
 	width: 112px;
 	height: 112px;
 	padding: 0 0 5px;
 `;
 
-const DownloadList = styled.ul`
+const Downloads = styled.ul`
 	padding: 0;
 	margin: 0px 0 0;
 `;
 
-const DownloadListItem = styled.li`
+const Download = styled.li`
 	list-style: none;
 	text-align: center;
 	margin: 24px 0 0;
@@ -68,42 +68,42 @@ const ProductVersion = styled.p`
 	margin: 0 0 16px;
 `;
 
-const ButtonLabel = styled.p`
+const DownloadLabel = styled.p`
 	font-size: 0.9em;
 	font-weight: 300;
 	margin: 2px 0 12px;
 `;
 
 /**
- * The Download component.
+ * The Product component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Download component
+ * @returns {ReactElement} The rendered Product component
  */
-function Download( props ) {
+function Product( props ) {
 	return (
-		<DownloadContainer>
+		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
 			<ProductVersion> { "version " + props.currentVersion }</ProductVersion>
-			<DownloadIcon src={ props.icon } alt=""/>
-			<DownloadList>
+			<ProductIcon src={ props.icon } alt=""/>
+			<Downloads>
 				{ props.buttons.map( button => {
-					return ( <DownloadListItem key={ button.label }> <IconButton
+					return ( <Download key={ button.label }> <IconButton
 															iconSource={ downloadIcon }
 															onClick={ button.onButtonClick }
 															iconSize={ "16px" }
 					>
 						{ props.intl.formatMessage( messages.downloadButton ) }
 					</IconButton>
-						<ButtonLabel>{ button.label }</ButtonLabel></DownloadListItem> );
+						<DownloadLabel>{ button.label }</DownloadLabel></Download> );
 				} )	}
-			</DownloadList>
-		</DownloadContainer>
+			</Downloads>
+		</ProductContainer>
 	);
 }
 
-Download.propTypes = {
+Product.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	currentVersion: React.PropTypes.string.isRequired,
 	icon: React.PropTypes.string.isRequired,
@@ -111,4 +111,4 @@ Download.propTypes = {
 	intl: intlShape.isRequired,
 };
 
-export default injectIntl( Download );
+export default injectIntl( Product );
