@@ -5,10 +5,11 @@ import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE
 	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUCCESS } from "../actions/site";
 
-import _union from "lodash/union";
 import _isUndefined from "lodash/isUndefined";
-import _remove from "lodash/remove";
 import _pull from "lodash/pull";
+import _remove from "lodash/remove";
+import _union from "lodash/union";
+import _unset from "lodash/unset";
 import reduceReducers from "reduce-reducers";
 
 const rootState = {
@@ -204,7 +205,7 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 			break;
 
 		case SITE_REMOVE_SUCCESS:
-			_remove( sites, action.siteId );
+			_unset( sites, action.siteId );
 			break;
 	}
 	return sites;
