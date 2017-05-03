@@ -9,7 +9,7 @@ import { FormattedMessage } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
 import { injectIntl, intlShape } from "react-intl";
-import { formatAmount } from "../functions/currency";
+import formatAmount from "../../../shared/currency";
 
 let responsiveWidthThreshold = 1355;
 
