@@ -6,9 +6,10 @@ import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 test('The Downloads component matches the snapshot', () => {
 	let downloads = [
 		{
-			product: "Yoast SEO",
-			version: "version 4.7",
-			iconSource: SeoIcon,
+			id: "1",
+			name: "Yoast SEO",
+			currentVersion: "4.7",
+			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
 					onButtonClick: () => {} },
@@ -16,29 +17,19 @@ test('The Downloads component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			product: "Local SEO",
-			version: "version 4.7",
-			iconSource: SeoIcon,
+			id: "2",
+			name: "Local SEO",
+			currentVersion: "4.7",
+			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
 					onButtonClick: () => {} },
 			],
 		}, {
-			product: "Video SEO",
-			version: "version 4.7",
-			iconSource: SeoIcon,
-			buttons: [
-				{ label: "for Wordpress",
-					onButtonClick: () => {} },
-				{ label: "for Drupal",
-					onButtonClick: () => {} },
-				{ label: "for Typo3",
-					onButtonClick: () => {} },
-			],
-		}, {
-			product: "News SEO",
-			version: "version 4.7",
-			iconSource: SeoIcon,
+			id: "3",
+			name: "Video SEO",
+			currentVersion: "4.7",
+			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
 					onButtonClick: () => {} },
@@ -48,9 +39,23 @@ test('The Downloads component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			product: "Yoast SEO for WooCommerce",
-			version: "version 4.7",
-			iconSource: SeoIcon,
+			id: "4",
+			name: "News SEO",
+			currentVersion: "4.7",
+			icon: SeoIcon,
+			buttons: [
+				{ label: "for Wordpress",
+					onButtonClick: () => {} },
+				{ label: "for Drupal",
+					onButtonClick: () => {} },
+				{ label: "for Typo3",
+					onButtonClick: () => {} },
+			],
+		}, {
+			id: "5",
+			name: "Yoast SEO for WooCommerce",
+			currentVersion: "4.7",
+			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
 					onButtonClick: () => {} },
