@@ -42,7 +42,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
                 role="checkbox"
                 tabIndex="0">
                 <span
-                  className="bNikmV" />
+                  className="gzLwoW" />
               </div>
               <span
                 aria-hidden="true"
@@ -91,7 +91,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
                 role="checkbox"
                 tabIndex="0">
                 <span
-                  className="bNikmV" />
+                  className="gzLwoW" />
               </div>
               <span
                 aria-hidden="true"

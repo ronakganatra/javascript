@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
 const ToggleBar = styled.div`
-	background-color: ${ props => props.isEnabled ? colors.$color_blue_light : colors.$color_button_border }
+	background-color: ${ props => props.isEnabled ? "#a5d6a7" : colors.$color_button_border }
 	border-radius: 7px;
 	height: 14px;
 	width: 30px;
@@ -16,9 +16,9 @@ const ToggleBar = styled.div`
 `;
 
 const ToggleBullet = styled.span`
-	background-color: ${ props => props.isEnabled ? colors.$color_blue : colors.$color_grey_medium_dark }
+	background-color: ${ props => props.isEnabled ? colors.$color_green_medium_light : colors.$color_grey_medium_dark }
 	margin-left: ${ props => props.isEnabled ? "12px" : "-2px" }
-	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 100%;
 	height: 20px;
 	width: 20px;

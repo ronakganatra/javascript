@@ -5,7 +5,7 @@ import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 
 test('The Download component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<Download product="Yoast SEO" version="version 4.7" iconSource={ SeoIcon }
+		<Download key= "1" name="Yoast SEO" currentVersion="version 4.7" iconSource={ SeoIcon }
 				  buttons={ [ { label: "for Wordpress", onButtonClick: () => {} }, { label: "for Drupal", onButtonClick: () => {} } ] }/>
 	);
 
