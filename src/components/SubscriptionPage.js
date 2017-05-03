@@ -51,8 +51,8 @@ SubscriptionPage.propTypes = {
 		name: React.PropTypes.string.isRequired,
 		limit: React.PropTypes.number.isRequired,
 		startDate: React.PropTypes.string.isRequired,
-		endDate: React.PropTypes.string.isRequired,
-		nextBilling: React.PropTypes.string.isRequired,
+		endDate: React.PropTypes.string,
+		nextPayment: React.PropTypes.string,
 		product: React.PropTypes.shape( {
 			description: React.PropTypes.string.isRequired,
 			icon: React.PropTypes.string.isRequired,
