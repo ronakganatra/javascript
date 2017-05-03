@@ -7,7 +7,7 @@ const DownloadsContainer = styled.div`
 	display: flex;
 	background-color:  ${ colors.$color_white };
 	margin: 20px 0 0;
-	padding: 6px;
+	padding: 24px;
 	flex-wrap: wrap;
 	align-items: flex-start;
 `;
@@ -26,10 +26,10 @@ export default class Downloads extends React.Component {
 				<DownloadsContainer>
 					{ props.downloads.map( function( download ) {
 						return <Download
-							key={ download.product }
-							product={ download.product }
-							version={ download.version }
-							iconSource={ download.iconSource }
+							key={ download.id }
+							name={ download.name }
+							currentVersion={ download.currentVersion }
+							icon={ download.icon }
 							buttons={ download.buttons }
 						/>;
 					} ) }
