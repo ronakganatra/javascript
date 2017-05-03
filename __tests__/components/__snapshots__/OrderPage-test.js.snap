@@ -23,7 +23,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
     <p
       className="screen-reader-text foqgVb"
       id="search-description">
-      I am an order search bar
+      The search results will be updated as you type.
     </p>
   </div>
   <div

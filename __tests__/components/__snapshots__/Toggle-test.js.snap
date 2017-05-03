@@ -9,7 +9,7 @@ exports[`test a disabled toggle that is enabled 1`] = `
     role="checkbox"
     tabIndex="0">
     <span
-      className="bNikmV" />
+      className="gzLwoW" />
   </div>
   <span
     aria-hidden="true"
@@ -24,13 +24,13 @@ exports[`test a disabled toggle that is enabled 2`] = `
   <div
     aria-checked={true}
     aria-label="Option"
-    className="hGsRJU"
+    className="ldWdTm"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
     tabIndex="0">
     <span
-      className="lbeQtx" />
+      className="diphEL" />
   </div>
   <span
     aria-hidden="true"
@@ -51,7 +51,7 @@ exports[`test a disabled toggle which matches the snapshot 1`] = `
     role="checkbox"
     tabIndex="0">
     <span
-      className="bNikmV" />
+      className="gzLwoW" />
   </div>
   <span
     aria-hidden="true"
@@ -66,13 +66,13 @@ exports[`test an enabled toggle that is disabled 1`] = `
   <div
     aria-checked={true}
     aria-label="Option"
-    className="hGsRJU"
+    className="ldWdTm"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
     tabIndex="0">
     <span
-      className="lbeQtx" />
+      className="diphEL" />
   </div>
   <span
     aria-hidden="true"
@@ -93,7 +93,7 @@ exports[`test an enabled toggle that is disabled 2`] = `
     role="checkbox"
     tabIndex="0">
     <span
-      className="bNikmV" />
+      className="gzLwoW" />
   </div>
   <span
     aria-hidden="true"
@@ -108,13 +108,13 @@ exports[`test an enabled toggle which matches the snapshot 1`] = `
   <div
     aria-checked={true}
     aria-label="Option"
-    className="hGsRJU"
+    className="ldWdTm"
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
     tabIndex="0">
     <span
-      className="lbeQtx" />
+      className="diphEL" />
   </div>
   <span
     aria-hidden="true"

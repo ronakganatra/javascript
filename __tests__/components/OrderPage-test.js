@@ -29,17 +29,9 @@ test( "The Orders component matches the snapshot", () => {
 		return "http://somelink";
 	};
 
-	let searchProps = {
-		id: "orderSearchBar",
-		searchLabel: "I am an orders search label",
-		description: "I am an order search bar",
-		descriptionId: "I am an order search bar id",
-		onChange: () => {},
-	};
-
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<OrderPage orders={ orders } getInvoiceURI={ getInvoiceURI } searchProps={ searchProps } />
+			<OrderPage orders={ orders } getInvoiceURI={ getInvoiceURI } onSearchChange={ () => {} } />
 		</MemoryRouter>
 	);
 

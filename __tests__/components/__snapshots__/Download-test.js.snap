@@ -1,0 +1,47 @@
+exports[`test The Download component matches the snapshot 1`] = `
+<div
+  className="ijckaj">
+  <h2
+    className="eUCYpf">
+    Yoast SEO
+  </h2>
+  <p
+    className="hTJUTU">
+     
+    version version 4.7
+  </p>
+  <img
+    alt=""
+    className="ieMZJu"
+    src={undefined} />
+  <ul
+    className="etVRNn">
+    <li
+      className="jVUpbY">
+       
+      <button
+        className="gAzDzu"
+        onClick={[Function]}>
+        Download
+      </button>
+      <p
+        className="bOQKYc">
+        for Wordpress
+      </p>
+    </li>
+    <li
+      className="jVUpbY">
+       
+      <button
+        className="gAzDzu"
+        onClick={[Function]}>
+        Download
+      </button>
+      <p
+        className="bOQKYc">
+        for Drupal
+      </p>
+    </li>
+  </ul>
+</div>
+`;

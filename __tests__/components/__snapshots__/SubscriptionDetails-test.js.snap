@@ -95,7 +95,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
         <span
           className="dESJUX">
-          $100
+          $1
         </span>
         <span
           className="kxFaKW" />
@@ -110,7 +110,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
         <span
           className="dESJUX">
-          $20,000
+          $200
         </span>
         <span
           className="kxFaKW" />
