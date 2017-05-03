@@ -196,7 +196,7 @@ function SubscriptionDetails( props ) {
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButtonLink
-								href={getInvoiceUrl( invoice.invoiceId )}
+								href={ getInvoiceUrl( invoice.invoiceId ) }
 								iconSource={ downloadIcon }
 								iconSize={ "16px" }>
 								{ props.intl.formatMessage( messages.invoiceButton ) }

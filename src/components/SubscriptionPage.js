@@ -25,21 +25,21 @@ class SubscriptionPage extends React.Component {
 				<RoundBackButton />
 			</Link>
 			<Header
-				name={subscription.name}
-				byline={subscription.limit + " site subscription"}
-				description={subscription.product.description}
-				image={subscription.product.icon} />
+				name={ subscription.name }
+				byline={ subscription.limit + " site subscription" }
+				description={ subscription.product.description }
+				image={ subscription.product.icon } />
 			<SubscriptionDetails
-				startDate={new Date( subscription.startDate )}
-				nextBilling={new Date( subscription.nextPayment )}
-				endDate={new Date( subscription.endDate )}
-				max={subscription.limit}
-				current={1}
-				invoices={this.props.invoices}
-				onAddSite={this.props.onAddSite}
-				onShop={this.props.onShop}
-				onCancel={this.props.onCancel}
-				onInvoiceDownload={this.props.onInvoiceDownload}
+				startDate={ new Date( subscription.startDate ) }
+				nextBilling={ new Date( subscription.nextPayment ) }
+				endDate={ new Date( subscription.endDate ) }
+				max={ subscription.limit }
+				current={ 1 }
+				invoices={ this.props.invoices }
+				onAddSite={ this.props.onAddSite }
+				onShop={ this.props.onShop }
+				onCancel={ this.props.onCancel }
+				onInvoiceDownload={ this.props.onInvoiceDownload }
 			/>
 		</section>;
 	}
@@ -47,7 +47,17 @@ class SubscriptionPage extends React.Component {
 
 SubscriptionPage.propTypes = {
 	isLoading: React.PropTypes.bool,
-	subscription: React.PropTypes.object,
+	subscription: React.PropTypes.shape( {
+		name: React.PropTypes.string.isRequired,
+		limit: React.PropTypes.number.isRequired,
+		startDate: React.PropTypes.string.isRequired,
+		endDate: React.PropTypes.string.isRequired,
+		nextBilling: React.PropTypes.string.isRequired,
+		product: React.PropTypes.shape( {
+			description: React.PropTypes.string.isRequired,
+			icon: React.PropTypes.string.isRequired,
+		} ),
+	} ),
 	invoices: React.PropTypes.array,
 	onAddSite: React.PropTypes.func,
 	onShop: React.PropTypes.func,
@@ -57,6 +67,11 @@ SubscriptionPage.propTypes = {
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
+	invoices: [],
+	onAddSite: () => {},
+	onShop: () => {},
+	onCancel: () => {},
+	onInvoiceDownload: () => {},
 };
 
 export default SubscriptionPage;
