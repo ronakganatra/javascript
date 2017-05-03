@@ -1,4 +1,4 @@
-exports[`test The Order component matches the snapshot 1`] = `
+exports[`test A standard order 1`] = `
 <li
   className="gcUgGD">
   <span
@@ -36,9 +36,65 @@ exports[`test The Order component matches the snapshot 1`] = `
   </span>
   <span
     className="sPQzX">
-    Failed
+    completed
   </span>
   <span
-    className="emvmXy" />
+    className="emvmXy">
+    <a
+      aria-label="Invoice"
+      className="UIroX"
+      href="http://somelink" />
+  </span>
+</li>
+`;
+
+exports[`test An Order with a disabled invoice button 1`] = `
+<li
+  className="gcUgGD">
+  <span
+    className="ihJNsh">
+    <span>
+      January 1, 2012
+    </span>
+  </span>
+  <span
+    className="igKvAR">
+    MOOIE 456 TEST
+  </span>
+  <span
+    className="dKSGyu">
+    <div>
+       
+      <div>
+         
+        Name of the product
+         
+      </div>
+      <div>
+         
+        Another product
+         
+      </div>
+       
+    </div>
+  </span>
+  <span
+    className="eSGqFF">
+    <span>
+      $100.00
+    </span>
+  </span>
+  <span
+    className="sPQzX">
+    pending
+  </span>
+  <span
+    className="emvmXy">
+    <button
+      aria-label="Invoice"
+      className="dsNgyR gIYVme"
+      disabled="disabled"
+      href="http://somelink" />
+  </span>
 </li>
 `;
