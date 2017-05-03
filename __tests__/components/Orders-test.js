@@ -3,6 +3,12 @@ import { createComponentWithIntl } from "../../utils";
 import Orders from "../../src/components/Orders";
 import { MemoryRouter } from "react-router-dom";
 
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getInvoiceUrl: () => { return "http://somelink" },
+	};
+} );
+
 test( "The Orders component matches the snapshot", () => {
 	let orders = [
 		{
