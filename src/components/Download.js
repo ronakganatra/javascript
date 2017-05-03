@@ -15,6 +15,8 @@ const messages = defineMessages( {
 let responsiveWidthThreshold = 1355;
 let mobileViewThreshold = 600;
 
+let outerMargin = 32;
+
 const DownloadContainer = styled.div`
 	margin: 8px;
 	padding: 16px;
@@ -22,17 +24,18 @@ const DownloadContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
 	
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
-		width: calc( 25% - 8px - 8px );
+		width: calc( ( 100% - ${ outerMargin }px - ${ outerMargin }px ) / 4 );
 	}
 
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		width: calc( 50% - 8px - 8px );
+		width: calc( ( 100% - ${ outerMargin }px ) / 2 );
 	}
 	
 	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
-		width: calc( 100% - 8px - 8px );
+		width: 100%;
 	}
 `;
 
@@ -50,24 +53,24 @@ const DownloadList = styled.ul`
 const DownloadListItem = styled.li`
 	list-style: none;
 	text-align: center;
-	margin: 20px 0 0;
+	margin: 24px 0 0;
 `;
 
 const ProductName = styled.h2`
 	font-size: 1.5em;
-	font-weight: 700px;
+	font-weight: 700;
 	margin: 0;
 `;
 
 const ProductVersion = styled.p`
 	font-size: 1em;
-	font-weight: 300px;
+	font-weight: 300;
 	margin: 0 0 16px;
 `;
 
 const ButtonLabel = styled.p`
 	font-size: 0.9em;
-	font-weight: 300px;
+	font-weight: 300;
 	margin: 2px 0 12px;
 `;
 
@@ -81,9 +84,9 @@ const ButtonLabel = styled.p`
 function Download( props ) {
 	return (
 		<DownloadContainer>
-			<ProductName>{ props.product }</ProductName>
-			<ProductVersion>{ props.version }</ProductVersion>
-			<DownloadIcon src={ props.iconSource } alt=""/>
+			<ProductName>{ props.name }</ProductName>
+			<ProductVersion> { "version " + props.currentVersion }</ProductVersion>
+			<DownloadIcon src={ props.icon } alt=""/>
 			<DownloadList>
 				{ props.buttons.map( button => {
 					return ( <DownloadListItem key={ button.label }> <IconButton
@@ -101,9 +104,9 @@ function Download( props ) {
 }
 
 Download.propTypes = {
-	product: React.PropTypes.string.isRequired,
-	version: React.PropTypes.string.isRequired,
-	iconSource: React.PropTypes.string.isRequired,
+	name: React.PropTypes.string.isRequired,
+	currentVersion: React.PropTypes.string.isRequired,
+	icon: React.PropTypes.string.isRequired,
 	buttons: React.PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
 };
