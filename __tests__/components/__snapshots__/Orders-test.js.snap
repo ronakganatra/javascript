@@ -48,7 +48,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
         <a
           aria-label="Invoice"
           className="UIroX"
-          href="http://invoice-url" />
+          href="http://localhost:3000/api/Orders/1/invoice?access_token=" />
       </span>
     </li>
   </ul>
