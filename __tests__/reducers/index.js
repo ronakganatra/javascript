@@ -5,7 +5,7 @@ import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions"
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
-import { userReducer } from "../../src/reducers/user";
+import { userCombineReducer } from "../../src/reducers/user";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -17,7 +17,7 @@ jest.mock( "../../src/reducers/sites.js", () => {
 
 jest.mock( "../../src/reducers/user.js", () => {
 	return {
-		userReducer: jest.fn( ( state = {} ) => { return { name: "userReducer" }; } ),
+		userCombineReducer: jest.fn( ( state = {} ) => { return { name: "userCombineReducer" }; } ),
 	}
 } );
 
@@ -89,7 +89,6 @@ test( 'entities reducer', () => {
 		orders: { allIds: [], byId: {} }
 	};
 
-
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
 } );
@@ -105,7 +104,7 @@ test( 'ui reducer with search input', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'root reducer', () => {
+test( 'root reducer with LINK_SITE_FAILURE action', () => {
 	const state = { user: {}, router: { location: "URL" } };
 	const action = {
 		type: LINK_SITE_FAILURE,
@@ -142,9 +141,8 @@ test( 'root reducer', () => {
 				"retrievingOrders": false,
 			},
 		},
-		user: { name: "userReducer" }
+		user: { name: "userCombineReducer" },
 	};
 	const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );
-	expect( userReducer ).toHaveBeenCalledWith( {}, action );
 } );

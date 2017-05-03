@@ -408,6 +408,7 @@ class ProfilePage extends React.Component {
 		let onUpdateEmail = ( event ) => {
 			this.props.onChange( event.target.value );
 		};
+
 		return (
 		<Paper>
 				<Page>

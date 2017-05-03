@@ -58,19 +58,20 @@ export function userReducer( state = initialState, action ) {
 }
 
 /**
+ *  A reducer for the email string within the user object.
+ *
  * @param {Object} state The previous state of the store.
  * @param {Object} action The action that just occurred.
  * @returns {Object} The new state for the store.
  */
 export function userEmailReducer( state = initialState, action ) {
 	switch ( action.type ) {
-		case
-		PROFILE_UPDATE_EMAIL:
+		case PROFILE_UPDATE_EMAIL:
 			return Object.assign( {}, state, {
 				data: {
-					profile: {
+					profile: Object.assign( {}, state.data.profile, {
 						email: action.email,
-					},
+					} ),
 				},
 			} );
 		default:
@@ -81,12 +82,12 @@ export function userEmailReducer( state = initialState, action ) {
 let userState = reduceReducers( userReducer, userEmailReducer );
 
 /**
- * A reducer for the sites object within the ui object.
+ * A combineReducer for the user object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
  *
- * @returns {Object} The updated Sites object.
+ * @returns {Object} The updated email string.
  */
 export function userCombineReducer( state = initialState.user, action ) {
 	return userState( state, action );

@@ -1,6 +1,6 @@
 import { PROFILE_UPDATE_EMAIL } from "../actions/profile";
 
-/**
+/*
  * Initial state
  */
 
@@ -14,7 +14,7 @@ const initialState = {
 	},
 };
 
-/**
+/*
  * Reducers
  */
 

@@ -1,10 +1,10 @@
-/**
+/*
  * Action types
  */
 
 export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 
-/**
+/*
  * Action creators
  */
 
