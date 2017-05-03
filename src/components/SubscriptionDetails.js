@@ -6,7 +6,7 @@ import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { LargeButton, RedButton, IconButtonLink } from "./Button";
-import { formatAmount } from "../functions/currency";
+import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
 
 let columnMargin = "10px";
