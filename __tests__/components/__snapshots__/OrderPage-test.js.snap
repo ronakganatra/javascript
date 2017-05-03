@@ -71,7 +71,13 @@ exports[`test The Orders component matches the snapshot 1`] = `
           Failed
         </span>
         <span
-          className="emvmXy" />
+          className="emvmXy">
+          <button
+            aria-label="Invoice"
+            className="dsNgyR gIYVme"
+            disabled="disabled"
+            href="http://somelink" />
+        </span>
       </li>
     </ul>
   </div>

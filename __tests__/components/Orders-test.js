@@ -21,7 +21,7 @@ test( "The Orders component matches the snapshot", () => {
 			],
 			total: 10010,
 			currency: "EUR",
-			status: "Failed",
+			status: "completed",
 		},
 	];
 
@@ -30,7 +30,7 @@ test( "The Orders component matches the snapshot", () => {
 		<MemoryRouter>
 			<Orders
 				orders={ orders }
-				getInvoiceURI={ () => {} }
+			    getInvoiceURI={ () => { return "http://invoice-url" } }
 			/>
 		</MemoryRouter>
 	);

@@ -41,10 +41,15 @@ exports[`test The Orders component matches the snapshot 1`] = `
       </span>
       <span
         className="sPQzX">
-        Failed
+        completed
       </span>
       <span
-        className="emvmXy" />
+        className="emvmXy">
+        <a
+          aria-label="Invoice"
+          className="UIroX"
+          href="http://invoice-url" />
+      </span>
     </li>
   </ul>
 </div>
