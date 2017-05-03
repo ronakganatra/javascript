@@ -47,10 +47,18 @@ test('the site page component matches the snapshot', () => {
 						  productLogo: LocalIcon,
 					  },
 				] }
+				UiSite={ {
+					removing: false,
+					subscriptions: {
+						error: "",
+						toggling: false,
+					},
+				} }
 				onAddMoreSlotsClick={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
-				onToggleSubscription={ () => {} } />
+				onToggleSubscription={ () => {} }
+				onRemove={ () => {} } />
 		</MemoryRouter>
 	);
 

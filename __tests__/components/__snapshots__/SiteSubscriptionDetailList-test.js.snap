@@ -1,6 +1,6 @@
 exports[`test the site subscription detail list component matches the snapshot 1`] = `
 <div
-  className="kfRyEM">
+  className="dCqJjs">
   <button
     aria-expanded={true}
     className="hZuiiC"
