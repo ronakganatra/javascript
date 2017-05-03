@@ -3,6 +3,12 @@ import { createComponentWithIntl } from "../../utils";
 import OrderPage from "../../src/components/OrderPage";
 import { MemoryRouter } from "react-router-dom";
 
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getInvoiceUrl: () => { return "http://somelink" },
+	};
+} );
+
 test( "The Orders component matches the snapshot", () => {
 	let orders = [
 		{
@@ -25,13 +31,9 @@ test( "The Orders component matches the snapshot", () => {
 		},
 	];
 
-	let getInvoiceURI = () => {
-		return "http://somelink";
-	};
-
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<OrderPage orders={ orders } getInvoiceURI={ getInvoiceURI } onSearchChange={ () => {} } />
+			<OrderPage orders={ orders } onSearchChange={ () => {} } />
 		</MemoryRouter>
 	);
 
