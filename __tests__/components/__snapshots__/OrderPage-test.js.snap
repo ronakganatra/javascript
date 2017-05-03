@@ -75,7 +75,9 @@ exports[`test The Orders component matches the snapshot 1`] = `
           <a
             aria-label="Invoice"
             className="UIroX"
-            href="http://somelink" />
+            href="http://somelink"
+            iconSource="download.svg"
+            onClick={[Function]} />
         </span>
       </li>
     </ul>

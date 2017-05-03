@@ -43,7 +43,9 @@ exports[`test A standard order 1`] = `
     <a
       aria-label="Invoice"
       className="UIroX"
-      href="http://somelink" />
+      href="http://somelink"
+      iconSource="download.svg"
+      onClick={[Function]} />
   </span>
 </li>
 `;
@@ -94,7 +96,7 @@ exports[`test An Order with a disabled invoice button 1`] = `
       aria-label="Invoice"
       className="dsNgyR gIYVme"
       disabled="disabled"
-      href="http://somelink" />
+      to="http://somelink" />
   </span>
 </li>
 `;

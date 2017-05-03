@@ -78,7 +78,7 @@ function Order( props ) {
 				<ResponseInvoiceButton
 					aria-label={ invoiceMessage }
 					iconSource={ downloadIcon }
-					href={ props.invoiceLink }>
+					to={ props.invoiceLink }>
 					<MediaQuery query="(min-width: 1356px)">
 						{ invoiceMessage }
 					</MediaQuery>
