@@ -4,7 +4,7 @@ import { Row, ColumnText, Column } from "./Tables";
 import { IconButtonLink, disable, IconButton } from "./Button";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
-import { formatAmount } from "../functions/currency";
+import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
 import styled from "styled-components";
 
