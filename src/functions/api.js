@@ -1,4 +1,4 @@
-import { getAuthUrl, removeCookies as removeAuthCookies } from "./auth";
+import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
 
 /**
@@ -40,4 +40,14 @@ export function verifyStatusCode( response ) {
 	}
 
 	return response;
+}
+
+/**
+ * Returns the invoice URL for a certain order.
+ *
+ * @param {string} orderId The id of the order.
+ * @returns {string} The URL to the order invoice.
+ */
+export function getInvoiceUrl( orderId ) {
+	return getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
 }

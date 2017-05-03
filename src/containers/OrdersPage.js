@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import OrderPage from "../components/OrderPage";
-import { getApiUrl } from "../functions/api";
-import { getAccessToken } from "../functions/auth";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.orders.allIds;
@@ -37,9 +35,6 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		getInvoiceURI: ( orderId ) => {
-			return getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
-		},
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
