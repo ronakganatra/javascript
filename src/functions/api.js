@@ -49,5 +49,5 @@ export function verifyStatusCode( response ) {
  * @returns {string} The URL to the order invoice.
  */
 export function getInvoiceUrl( orderId ) {
-	return getApiUrl() + "/Orders/" + orderId + "/invoice?accessToken=" + getAccessToken();
+	return getApiUrl() + "/Orders/" + orderId + "/invoice?access_token=" + getAccessToken();
 }

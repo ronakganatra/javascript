@@ -24,16 +24,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return Object.assign(
 			{},
 			{
-				slots: {
-					amountAvailable: 1,
-					amountUsed: 0,
-					addMoreSlots: "hi",
-				},
 				productLogo: subscription.product.icon,
 			},
 			subscription,
 			{
 				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
+				price: subscription.product.price,
+				used: 1,
 			}
 		);
 	} );

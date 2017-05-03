@@ -11,16 +11,15 @@ test('the site subscription detail list component matches the snapshot', () => {
 			siteSubscriptions={ [
 				{
 					id: "bla",
+					name: "Yoast SEO",
 					productId: "Yoast SEO",
 					startDate: "2017-04-11T00:00:00.000Z",
 					endDate: "2017-04-11T00:00:00.000Z",
 					reoccurring: true,
 					subscriberId: 2,
-					slots: {
-						amountAvailable: 10,
-						amountUsed: 5,
-						addMoreSlots: "Add more slots",
-					},
+					limit: 10,
+					used: 5,
+					price: 5900,
 					product: {
 						id: "productid",
 						name: "string",
@@ -43,16 +42,15 @@ test('the site subscription detail list component matches the snapshot', () => {
 				},
 				{
 					id: "bla2",
+					name: "Local SEO",
 					productId: "Local SEO",
 					startDate: "2017-04-11T00:00:00.000Z",
 					endDate: "2017-04-11T00:00:00.000Z",
 					reoccurring: true,
 					subscriberId: 2,
-					slots: {
-						amountAvailable: 10,
-						amountUsed: 7,
-						addMoreSlots: "Add more slots",
-					},
+					limit: 10,
+					used: 7,
+					price: 6900,
 					product: {
 						id: "productid",
 						name: "string",
