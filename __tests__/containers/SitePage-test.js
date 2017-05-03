@@ -61,6 +61,13 @@ test('the mapStateToProps function', () => {
 				subscriptions: {
 					requesting: false,
 				},
+				site: {
+					removing: false,
+					subscriptions: {
+						error: "",
+						toggling: false,
+					},
+				},
 			},
 	};
 
@@ -113,6 +120,13 @@ test('the mapStateToProps function', () => {
 			isEnabled: false,
 		} ],
 		loadingSubscriptions: false,
+		UiSite: {
+			removing: false,
+			subscriptions: {
+				error: "",
+				toggling: false,
+			},
+		},
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
