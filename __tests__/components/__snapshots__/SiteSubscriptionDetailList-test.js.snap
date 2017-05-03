@@ -64,11 +64,6 @@ exports[`test the site subscription detail list component matches the snapshot 1
                5 / 10 remaining 
             </span>
           </span>
-          <button
-            className="dqWYTA"
-            onClick={[Function]}>
-            Add more slots
-          </button>
         </div>
       </li>
       <li
@@ -113,11 +108,6 @@ exports[`test the site subscription detail list component matches the snapshot 1
                3 / 10 remaining 
             </span>
           </span>
-          <button
-            className="dqWYTA"
-            onClick={[Function]}>
-            Add more slots
-          </button>
         </div>
       </li>
     </ul>
