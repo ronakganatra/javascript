@@ -36,6 +36,10 @@ const SubHeading = styled.h3`
 	font-size: 1em;
 `;
 
+const Container = styled.div`
+	padding: 0 40px 16px 40px;
+`;
+
 /**
  * Creates Site danger zone element
  *
@@ -54,11 +58,11 @@ function SiteDangerZone( props ) {
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.heading ) } isOpen={ true }>
-				<div>
+				<Container>
 					<SubHeading>{ props.intl.formatMessage( messages.siteRemovalHeading ) }</SubHeading>
 					<p>{ props.intl.formatMessage( messages.siteRemovalExplanation ) }</p>
 					<RedButton {...disabled} onClick={ props.onRemove }>{ buttonText }</RedButton>
-				</div>
+				</Container>
 			</CollapsibleHeader>
 		</Paper>
 	);
