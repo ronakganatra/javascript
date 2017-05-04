@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { updateSiteUrl } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription } from "../actions/site";
 import SitePage from "../components/SitePage";
+import { linkSitePopupOpen } from "../actions/sites";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -27,7 +28,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 				slots: {
 					amountAvailable: 1,
 					amountUsed: 0,
-					addMoreSlots: "hi",
+					addMoreSlots: "Add another license for ",
 				},
 				productLogo: subscription.product.icon,
 			},
@@ -51,7 +52,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreSlotsClick: () => {},
+		onAddMoreSlotsClick: () => {
+			dispatch( linkSitePopupOpen() );
+		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {
 				dispatch( siteAddSubscription( siteId, subscriptionId ) );

@@ -140,7 +140,6 @@ export default function SiteSubscriptionDetail( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
-
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
@@ -175,6 +174,7 @@ export default function SiteSubscriptionDetail( props ) {
 				</Buttons>
 			</MediaQuery>
 		</Row>
+
 	);
 }
 
