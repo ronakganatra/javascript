@@ -20,10 +20,6 @@ const messages = defineMessages( {
 		id: "downloads-page.page.loaded",
 		defaultMessage: "Downloads page loaded",
 	},
-	downloadsPagePluginsByLine: {
-		id: "downloads-page.by-line.plugins",
-		defaultMessage: " - Need help installing these? { link }.",
-	},
 	pluginsDownloads: {
 		id: "downloads-page.downloads.plugins",
 		defaultMessage: "Plugins",
