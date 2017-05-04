@@ -40,7 +40,8 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             <span>
                - Need help installing these? 
               <a
-                href="https://kb.yoast.com/?s=installation+guide">
+                href="https://yoa.st/myyoast-installation"
+                target="_blank">
                 Read our installation guides
               </a>
               .

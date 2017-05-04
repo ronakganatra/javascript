@@ -66,7 +66,7 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloads-page.by-line.plugins"
 				defaultMessage=" - Need help installing these? { link }."
-				values={ { link: <a href="https://kb.yoast.com/?s=installation+guide">Read our installation guides</a> } }
+				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">Read our installation guides</a> } }
 			/>
 		</ByLine>;
 
