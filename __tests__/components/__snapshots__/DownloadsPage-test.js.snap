@@ -31,7 +31,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
     <div
       className="dCNEzS">
       <div
-        className="kUJFXn">
+        className="AWsFI">
         <h2
           className="kvVUGn">
           Plugins
@@ -50,10 +50,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </h2>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Yoast SEO
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -67,7 +67,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -80,7 +79,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -93,7 +91,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -108,10 +105,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Local SEO
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -125,7 +122,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -140,10 +136,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Video SEO
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -157,7 +153,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -170,7 +165,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -183,7 +177,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -198,10 +191,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             News SEO
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -215,7 +208,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -228,7 +220,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -241,7 +232,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </li>
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -256,17 +246,17 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
       </div>
       <div
-        className="kUJFXn">
+        className="AWsFI">
         <h2
           className="kvVUGn">
           eBooks
         </h2>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Yoast SEO for WooCommerce
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -280,7 +270,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -295,10 +284,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Yoast SEO for WooCommerce
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -312,7 +301,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -327,10 +315,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Yoast SEO for WooCommerce
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -344,7 +332,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>
@@ -359,10 +346,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
         <div
           className="ehdGZO">
-          <h2
+          <h3
             className="bsRjPS">
             Yoast SEO for WooCommerce
-          </h2>
+          </h3>
           <p
             className="fIdtAc">
              
@@ -376,7 +363,6 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="hFfCOV">
             <li
               className="jVUpbY">
-               
               <button
                 className="gAzDzu"
                 onClick={[Function]}>

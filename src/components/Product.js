@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { IconButton } from "./Button";
-import downloadIcon  from "../icons/download.svg";
+import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 const messages = defineMessages( {
 	downloadButton: {
 		id: "download-page.buttons.download",
 		defaultMessage: "Download",
+	},
+	version: {
+		id: "download-page.product.version",
+		defaultMessage: "version",
 	},
 } );
 
@@ -55,7 +59,7 @@ const Download = styled.li`
 	margin: 24px 0 0;
 `;
 
-const ProductName = styled.h2`
+const ProductName = styled.h3`
 	font-size: 1.375em;
 	font-weight: 700;
 	margin: 0;
@@ -83,18 +87,20 @@ function Product( props ) {
 	return (
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
-			<ProductVersion> { "version " + props.currentVersion }</ProductVersion>
+			<ProductVersion> { props.intl.formatMessage( messages.version )+ " " + props.currentVersion }</ProductVersion>
 			<ProductIcon src={ props.icon } alt=""/>
 			<Downloads>
 				{ props.buttons.map( button => {
-					return ( <Download key={ button.label }> <IconButton
-															iconSource={ downloadIcon }
-															onClick={ button.onButtonClick }
-															iconSize={ "16px" }
-					>
-						{ props.intl.formatMessage( messages.downloadButton ) }
-					</IconButton>
-						<DownloadLabel>{ button.label }</DownloadLabel></Download> );
+					return (
+						<Download key={ button.label }>
+							<IconButton
+								iconSource={ downloadIcon }
+								onClick={ button.onButtonClick }
+								iconSize={ "16px" }>
+								{ props.intl.formatMessage( messages.downloadButton ) }
+							</IconButton>
+							<DownloadLabel>{ button.label }</DownloadLabel>
+						</Download> );
 				} )	}
 			</Downloads>
 		</ProductContainer>

@@ -4,10 +4,9 @@ import colors from "yoast-components/style-guide/colors.json";
 import Product from "./Product";
 import { ListHeading } from "./ListHeading";
 
-
 const ProductsContainer = styled.div`
 	display: flex;
-	background-color:  ${ colors.$color_white };
+	background-color: ${ colors.$color_white };
 	padding: 0 24px 24px 24px;
 	flex-wrap: wrap;
 	width: 100%;

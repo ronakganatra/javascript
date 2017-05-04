@@ -1,10 +1,10 @@
 exports[`test The Download component matches the snapshot 1`] = `
 <div
   className="ehdGZO">
-  <h2
+  <h3
     className="bsRjPS">
     Yoast SEO
-  </h2>
+  </h3>
   <p
     className="fIdtAc">
      
@@ -18,7 +18,6 @@ exports[`test The Download component matches the snapshot 1`] = `
     className="hFfCOV">
     <li
       className="jVUpbY">
-       
       <button
         className="gAzDzu"
         onClick={[Function]}>
@@ -31,7 +30,6 @@ exports[`test The Download component matches the snapshot 1`] = `
     </li>
     <li
       className="jVUpbY">
-       
       <button
         className="gAzDzu"
         onClick={[Function]}>
