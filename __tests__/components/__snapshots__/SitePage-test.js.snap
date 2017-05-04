@@ -171,7 +171,7 @@ exports[`test the site page component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <div
-      className="dCqJjs">
+      className="cjKevG">
       <button
         aria-expanded={true}
         className="hZuiiC"
@@ -188,7 +188,8 @@ exports[`test the site page component matches the snapshot 1`] = `
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
         </svg>
       </button>
-      <div>
+      <div
+        className="eMoJbq">
         <h3
           className="cecVBz">
           Disconnect this site
