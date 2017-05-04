@@ -7,6 +7,7 @@ import MediaQuery from "react-responsive";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { LargeButton, RedButton } from "./Button";
+import { ListHeading } from "./ListHeading";
 
 let columnMargin = "10px";
 let hideButtonsThreshold = 400;
@@ -86,14 +87,6 @@ const ColumnContainer = styled.div`
 	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
 		width: 100%;
 	}
-`;
-
-const ListHeader = styled.h2`
-	font-size: 1em;
-	font-weight: 400; 
-	padding: 20px 0 20px 30px;
-	margin: 0;
-	border-bottom: 1px solid ${ colors.$color_grey_medium };
 `;
 
 /**
@@ -209,21 +202,21 @@ function SubscriptionDetails( props ) {
 	return (
 		<SubscriptionDetailsContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ paymentDetailTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ subscriptionDetailsTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.invoicesTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ invoicesTable }
 				</ColumnContainer>
 		</SubscriptionDetailsContainer>

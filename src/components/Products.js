@@ -1,39 +1,62 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import Download from "./Product";
+import Product from "./Product";
+import { ListHeading } from "./ListHeading";
 
-const DownloadsContainer = styled.div`
+
+const ProductsContainer = styled.div`
 	display: flex;
 	background-color:  ${ colors.$color_white };
-	margin: 20px 0 0;
-	padding: 24px;
+	padding: 0 24px 24px 24px;
 	flex-wrap: wrap;
+	width: 100%;
 	align-items: flex-start;
 `;
 
+const ProductsListHeading = styled( ListHeading )`
+	width: calc( 100% - 16px );
+	font-size: 22px;
+	margin: 0 0 24px 8px;
+	padding: 0 0 24px 0;
+	align-self: center;
+`;
+
 /**
- * Returns the rendered Downloads Page component.
+ * Returns the rendered Products component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered download page.
+ * @returns {ReactElement} The rendered products page.
  */
-export default class Downloads extends React.Component {
+export default class Products extends React.Component {
 	render() {
 		let props = this.props;
 		return (
-				<DownloadsContainer>
-					{ props.downloads.map( function( download ) {
-						return <Download
-							key={ download.id }
-							name={ download.name }
-							currentVersion={ download.currentVersion }
-							icon={ download.icon }
-							buttons={ download.buttons }
+			<ProductsContainer>
+				<ProductsListHeading>
+					{ props.heading }
+					{ props.byLine }
+				</ProductsListHeading>
+					{ props.products.map( function( product ) {
+						return <Product
+							key={ product.id }
+							name={ product.name }
+							currentVersion={ product.currentVersion }
+							icon={ product.icon }
+							buttons={ product.buttons }
 						/>;
 					} ) }
-				</DownloadsContainer>
+			</ProductsContainer>
 		);
 	}
 }
+
+Products.propTypes = {
+	byLine: React.PropTypes.element,
+	heading: React.PropTypes.string.isRequired,
+};
+
+Products.defaultProps = {
+	byLine: null,
+};

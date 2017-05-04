@@ -1,14 +1,21 @@
-exports[`test The Downloads component matches the snapshot 1`] = `
+exports[`test The Products component matches the snapshot 1`] = `
 <div
-  className="bFpGra">
+  className="kUJFXn">
+  <h2
+    className="jbPjDT">
+    Products
+    <span>
+       - Buy here!
+    </span>
+  </h2>
   <div
-    className="ijckaj">
+    className="ehdGZO">
     <h2
-      className="eUCYpf">
+      className="bsRjPS">
       Yoast SEO
     </h2>
     <p
-      className="hTJUTU">
+      className="fIdtAc">
        
       version 4.7
     </p>
@@ -17,7 +24,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
       className="ieMZJu"
       src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="etVRNn">
+      className="hFfCOV">
       <li
         className="jVUpbY">
          
@@ -27,7 +34,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Wordpress
         </p>
       </li>
@@ -40,20 +47,20 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Drupal
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="ijckaj">
+    className="ehdGZO">
     <h2
-      className="eUCYpf">
+      className="bsRjPS">
       Local SEO
     </h2>
     <p
-      className="hTJUTU">
+      className="fIdtAc">
        
       version 4.7
     </p>
@@ -62,7 +69,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
       className="ieMZJu"
       src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="etVRNn">
+      className="hFfCOV">
       <li
         className="jVUpbY">
          
@@ -72,20 +79,20 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Wordpress
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="ijckaj">
+    className="ehdGZO">
     <h2
-      className="eUCYpf">
+      className="bsRjPS">
       Video SEO
     </h2>
     <p
-      className="hTJUTU">
+      className="fIdtAc">
        
       version 4.7
     </p>
@@ -94,7 +101,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
       className="ieMZJu"
       src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="etVRNn">
+      className="hFfCOV">
       <li
         className="jVUpbY">
          
@@ -104,7 +111,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Wordpress
         </p>
       </li>
@@ -117,7 +124,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Drupal
         </p>
       </li>
@@ -130,20 +137,20 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Typo3
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="ijckaj">
+    className="ehdGZO">
     <h2
-      className="eUCYpf">
+      className="bsRjPS">
       News SEO
     </h2>
     <p
-      className="hTJUTU">
+      className="fIdtAc">
        
       version 4.7
     </p>
@@ -152,7 +159,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
       className="ieMZJu"
       src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="etVRNn">
+      className="hFfCOV">
       <li
         className="jVUpbY">
          
@@ -162,7 +169,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Wordpress
         </p>
       </li>
@@ -175,7 +182,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Drupal
         </p>
       </li>
@@ -188,20 +195,20 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Typo3
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="ijckaj">
+    className="ehdGZO">
     <h2
-      className="eUCYpf">
+      className="bsRjPS">
       Yoast SEO for WooCommerce
     </h2>
     <p
-      className="hTJUTU">
+      className="fIdtAc">
        
       version 4.7
     </p>
@@ -210,7 +217,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
       className="ieMZJu"
       src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="etVRNn">
+      className="hFfCOV">
       <li
         className="jVUpbY">
          
@@ -220,7 +227,7 @@ exports[`test The Downloads component matches the snapshot 1`] = `
           Download
         </button>
         <p
-          className="bOQKYc">
+          className="hMkJGg">
           for Wordpress
         </p>
       </li>

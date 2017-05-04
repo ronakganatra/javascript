@@ -19,7 +19,7 @@ let outerMargin = 32;
 
 const ProductContainer = styled.div`
 	margin: 8px;
-	padding: 16px;
+	padding: 16px 16px 0 16px;
 	background-color: ${ colors.$color_grey_light };
 	display: flex;
 	flex-direction: column;
@@ -47,7 +47,6 @@ const ProductIcon = styled.img`
 
 const Downloads = styled.ul`
 	padding: 0;
-	margin: 0px 0 0;
 `;
 
 const Download = styled.li`
@@ -57,19 +56,18 @@ const Download = styled.li`
 `;
 
 const ProductName = styled.h2`
-	font-size: 1.5em;
+	font-size: 1.375em;
 	font-weight: 700;
 	margin: 0;
 `;
 
 const ProductVersion = styled.p`
-	font-size: 1em;
 	font-weight: 300;
 	margin: 0 0 16px;
 `;
 
 const DownloadLabel = styled.p`
-	font-size: 0.9em;
+	font-size: 0.875em;
 	font-weight: 300;
 	margin: 2px 0 12px;
 `;
