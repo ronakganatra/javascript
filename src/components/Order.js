@@ -33,6 +33,10 @@ const messages = defineMessages( {
 		id: "orders.overview.invoice",
 		defaultMessage: "Invoice",
 	},
+	invoiceLabel: {
+		id: "orders.overview.invoice.label",
+		defaultMessage: "Download invoice",
+	},
 } );
 
 let invoiceStatuses = [ "completed", "refunded" ];
@@ -50,11 +54,12 @@ function Order( props ) {
 	}
 
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
+	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	// On mobile devices there is no text so we need to compensate the style for this.
-	let ResponseInvoiceButton = styled( InvoiceButton )`
+	let ResponsiveInvoiceButton = styled( InvoiceButton )`
 		@media screen and ( max-width: 1355px ) {
-			padding-right: 0px;
+			padding-right: 0;
 		}
 	`;
 
@@ -75,17 +80,17 @@ function Order( props ) {
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
-				<ResponseInvoiceButton
-					aria-label={ invoiceMessage }
+				<ResponsiveInvoiceButton
+					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }>
-					<MediaQuery query="(min-width: 1356px)">
+					<MediaQuery query="(min-width: 1356px)" component="span">
 						{ invoiceMessage }
 					</MediaQuery>
 					<MediaQuery query="(max-width: 1355px)">
 						<span className="screen-reader-text">{ invoiceMessage }</span>
 					</MediaQuery>
-				</ResponseInvoiceButton>
+				</ResponsiveInvoiceButton>
 			</Column>
 		</Row>
 	);
