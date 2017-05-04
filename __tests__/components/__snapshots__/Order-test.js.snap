@@ -41,8 +41,8 @@ exports[`test A standard order 1`] = `
   <span
     className="emvmXy">
     <a
-      aria-label="Invoice"
-      className="UIroX"
+      aria-label="Download invoice"
+      className="cWcbKk"
       href="http://somelink"
       iconSource="download.svg"
       onClick={[Function]} />
@@ -93,8 +93,8 @@ exports[`test An Order with a disabled invoice button 1`] = `
   <span
     className="emvmXy">
     <button
-      aria-label="Invoice"
-      className="dsNgyR gIYVme"
+      aria-label="Download invoice"
+      className="wmLcN dsTvgF"
       disabled="disabled"
       to="http://somelink" />
   </span>
