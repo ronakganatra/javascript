@@ -40,6 +40,7 @@ const ProductOverviewContainer = styled.div`
 
 const ByLine = styled.span`
 	font-size: 18px;
+	font-weight: 400;
 `;
 
 /**

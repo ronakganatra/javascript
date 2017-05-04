@@ -33,10 +33,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
       <div
         className="kUJFXn">
         <h2
-          className="hfgMYt">
+          className="kvVUGn">
           Plugins
           <span
-            className="jVxDnA">
+            className="tfydH">
             <span>
                - Need help installing these? 
               <a
@@ -258,7 +258,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
       <div
         className="kUJFXn">
         <h2
-          className="hfgMYt">
+          className="kvVUGn">
           eBooks
         </h2>
         <div

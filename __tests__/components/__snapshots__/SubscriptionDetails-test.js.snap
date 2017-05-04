@@ -4,7 +4,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
   <div
     className="jjZCRT">
     <h2
-      className="cPkZpT">
+      className="bhibRj">
       Payment details
     </h2>
     <ul
@@ -41,7 +41,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
   <div
     className="jjZCRT">
     <h2
-      className="cPkZpT">
+      className="bhibRj">
       Subscription details
     </h2>
     <ul
@@ -79,7 +79,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
   <div
     className="jjZCRT">
     <h2
-      className="cPkZpT">
+      className="bhibRj">
       Invoices
     </h2>
     <ul
