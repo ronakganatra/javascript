@@ -15,7 +15,6 @@ import en from "react-intl/locale-data/en";
 import locationChange from "./actions/location";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
-
 addLocaleData( en );
 
 let history = createHistory();
@@ -53,7 +52,6 @@ let hasAccessToken = !! Cookies.get( "access_token" );
 if ( hasAccessToken ) {
 	store.dispatch( login( getAccessToken(), getUserId() ) );
 	store.dispatch( fetchUser( getAccessToken(), getUserId() ) );
-
 	ReactDOM.render(
 		<App store={ store } history={ history }/>,
 		document.getElementById( "root" )

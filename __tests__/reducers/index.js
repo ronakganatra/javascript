@@ -89,7 +89,6 @@ test( 'entities reducer', () => {
 		orders: { allIds: [], byId: {} }
 	};
 
-
 	const actual = entitiesReducer( state, action );
 	expect( actual ).toEqual( expected );
 } );
@@ -105,7 +104,7 @@ test( 'ui reducer with search input', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'root reducer', () => {
+test( 'root reducer with LINK_SITE_FAILURE action', () => {
 	const state = { user: {}, router: { location: "URL" } };
 	const action = {
 		type: LINK_SITE_FAILURE,
@@ -142,9 +141,8 @@ test( 'root reducer', () => {
 				"retrievingOrders": false,
 			},
 		},
-		user: { name: "userReducer" }
+		user: { name: "userReducer" },
 	};
 	const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );
-	expect( userReducer ).toHaveBeenCalledWith( {}, action );
 } );
