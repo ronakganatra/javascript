@@ -26,7 +26,7 @@ const CoursesContainer = styled.div`
 
 	a {
 		font-size: 1.5em;
-		color: ${ colors.$color_pink_dark };
+		color: ${ colors.$color_blue };
 	}
 `;
 
