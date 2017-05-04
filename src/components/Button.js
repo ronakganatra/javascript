@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { Link } from "react-router-dom";
+import Link from "./Link";
 
 export const Button = styled.button`
 	height: 48px;
@@ -104,11 +104,7 @@ export const ButtonLink = styled( Link )`
 `;
 
 ButtonLink.PropTypes = {
-	href: React.PropTypes.string.isRequired,
-};
-
-ButtonLink.defaultProps = {
-	href: "/",
+	to: React.PropTypes.string.isRequired,
 };
 
 export const LargeButtonLink = styled( ButtonLink )`

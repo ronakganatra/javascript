@@ -50,7 +50,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
           className="cWcbKk"
           href="http://somelink"
           iconSource="download.svg"
-          onClick={[Function]} />
+          to="http://somelink" />
       </span>
     </li>
   </ul>

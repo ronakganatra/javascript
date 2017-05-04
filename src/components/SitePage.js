@@ -1,7 +1,7 @@
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import { Link } from "react-router-dom";
+import Link from "./Link";
 
 import SiteHeader from "./SiteHeader";
 import { RoundBackButton } from "./RoundButton";

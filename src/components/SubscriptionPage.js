@@ -2,7 +2,7 @@ import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
-import { Link } from "react-router-dom";
+import Link from "./Link";
 import { RoundBackButton } from "./RoundButton";
 
 /**

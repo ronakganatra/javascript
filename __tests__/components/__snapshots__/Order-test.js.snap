@@ -45,7 +45,7 @@ exports[`test A standard order 1`] = `
       className="cWcbKk"
       href="http://somelink"
       iconSource="download.svg"
-      onClick={[Function]} />
+      to="http://somelink" />
   </span>
 </li>
 `;
