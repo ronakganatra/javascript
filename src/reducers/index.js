@@ -1,4 +1,4 @@
-import { userCombineReducer } from "./user";
+import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 import { routerReducer } from "react-router-redux";
@@ -42,7 +42,7 @@ export const entitiesReducer = combineReducers( {
 
 export const rootReducer = combineReducers( {
 	ui: uiReducer,
-	user: userCombineReducer,
+	user: userReducer,
 	entities: entitiesReducer,
 	router: routerReducer,
 } );

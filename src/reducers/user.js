@@ -1,5 +1,5 @@
 import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions/user";
-import { PROFILE_UPDATE_EMAIL } from "../actions/profile";
+import { PROFILE_UPDATE_EMAIL } from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
 const initialState = {
@@ -25,11 +25,12 @@ const initialState = {
 };
 
 /**
+ *  A reducer for the default user object.
  * @param {Object} state The previous state of the store.
  * @param {Object} action The action that just occurred.
  * @returns {Object} The new state for the store.
  */
-export function userReducer( state = initialState, action ) {
+export function userDataReducer( state = initialState, action ) {
 	switch ( action.type ) {
 		case LOGIN:
 			return Object.assign( {}, state, {
@@ -79,7 +80,7 @@ export function userEmailReducer( state = initialState, action ) {
 	}
 }
 
-let userState = reduceReducers( userReducer, userEmailReducer );
+let userState = reduceReducers( userDataReducer, userEmailReducer );
 
 /**
  * A combineReducer for the user object.
@@ -89,8 +90,8 @@ let userState = reduceReducers( userReducer, userEmailReducer );
  *
  * @returns {Object} The updated email string.
  */
-export function userCombineReducer( state = initialState.user, action ) {
+export function userReducer( state = initialState.user, action ) {
 	return userState( state, action );
 }
 
-export default userReducer;
+export default userDataReducer;

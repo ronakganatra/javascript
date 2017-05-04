@@ -1,5 +1,5 @@
-import { userEmailReducer, userReducer } from "../../src/reducers/user";
-import { login, PROFILE_UPDATE_EMAIL, LOGIN, LOGOUT, FETCH_USER_FAILURE, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../../src/actions/user";
+import userReducer from "../../src/reducers/user";
+import { login, LOGIN, LOGOUT, FETCH_USER_FAILURE, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, PROFILE_UPDATE_EMAIL } from "../../src/actions/user";
 
 test( 'the login action', () => {
 	const input = {};
@@ -73,26 +73,6 @@ test( 'the fetch user request success action', () => {
 	};
 
 	const actual = userReducer( input, action );
-
-	expect( actual ).toEqual( expected );
-} );
-
-
-test( 'the update email address action', () => {
-	const input = {
-		data: {
-			profile: {email: "updated emailaddress" }
-		}
-	};
-	const action = {
-		type: PROFILE_UPDATE_EMAIL,
-	};
-	const expected = {
-		data: {	profile: { email: "updated emailaddress" }
-		},
-	};
-
-	const actual = userEmailReducer( input, action );
 
 	expect( actual ).toEqual( expected );
 } );

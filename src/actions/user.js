@@ -11,6 +11,7 @@ export const LOGOUT = "LOGOUT";
 export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 
 /**
  * Action creators
@@ -91,5 +92,17 @@ export function fetchUser( accessToken, userId ) {
 			.catch( () => {
 				document.location.href = getAuthUrl();
 			} );
+	};
+}
+/**
+ * An action creator for the update email action.
+ *
+ * @param {string} email The changing email address of the customer.
+ * @returns {Object} An add email action.
+ */
+export function profileUpdateEmail( email ) {
+	return {
+		type: PROFILE_UPDATE_EMAIL,
+		email: email,
 	};
 }

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
-import { profileUpdateEmail } from "../actions/profile";
+import { profileUpdateEmail } from "../actions/user";
 
 const mapStateToProps = ( state ) => {
 	return {

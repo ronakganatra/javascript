@@ -5,7 +5,7 @@ import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions"
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
-import { userCombineReducer } from "../../src/reducers/user";
+import { userReducer } from "../../src/reducers/user";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -17,7 +17,7 @@ jest.mock( "../../src/reducers/sites.js", () => {
 
 jest.mock( "../../src/reducers/user.js", () => {
 	return {
-		userCombineReducer: jest.fn( ( state = {} ) => { return { name: "userCombineReducer" }; } ),
+		userReducer: jest.fn( ( state = {} ) => { return { name: "userReducer" }; } ),
 	}
 } );
 
@@ -141,7 +141,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				"retrievingOrders": false,
 			},
 		},
-		user: { name: "userCombineReducer" },
+		user: { name: "userReducer" },
 	};
 	const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );
