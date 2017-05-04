@@ -56,7 +56,7 @@ class CoursesPage extends React.Component {
 			<CoursesContainer>
 				<p>
 					<FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /><br />
-					<a href="https://yoast.academy" target="_blank">
+					<a href="https://yoa.st/myyoast-academy" target="_blank">
 						yoast.academy
 						<NewTabMessage />
 					</a>
