@@ -1,7 +1,14 @@
 import React from 'react';
 import { mapStateToProps, mapDispatchToProps } from '../../src/containers/SitePage'
 import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../../src/actions/sites";
+import { siteRemove } from "../../src/actions/site";
 import { push } from "react-router-redux";
+
+jest.mock( "../../src/actions/site", () => {
+	return {
+		siteRemove: ( siteId ) => { console.log(); return true; },
+	};
+} );
 
 test('the mapStateToProps function', () => {
 	let state = {
@@ -133,4 +140,42 @@ test('the mapStateToProps function', () => {
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
 
+} );
+
+test('the mapDispatchToProps function to call siteRemove action with onRemove when confirm is true', () => {
+	window.confirm = jest.fn( ( msg ) => { return true; } );
+
+	const dispatch = jest.fn();
+	let ownProps = {
+		match: {
+			params: {
+				id: 123,
+			},
+		},
+	}
+
+	let props = mapDispatchToProps( dispatch, ownProps );
+
+	props.onRemove();
+
+	expect( dispatch ).toHaveBeenCalledWith( siteRemove( 123 ) );
+} );
+
+test('the mapDispatchToProps function to NOT call siteRemove action with onRemove when confirm is false', () => {
+	window.confirm = jest.fn( ( msg ) => { return false; } );
+
+	const dispatch = jest.fn();
+	let ownProps = {
+		match: {
+			params: {
+				id: 123,
+			},
+		},
+	}
+
+	let props = mapDispatchToProps( dispatch, ownProps );
+
+	props.onRemove();
+
+	expect( dispatch ).not.toHaveBeenCalled();
 } );
