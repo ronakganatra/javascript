@@ -1,0 +1,25 @@
+exports[`test the courses page component matches the snapshot 1`] = `
+<div
+  className="kxinpO">
+  <p>
+    <span>
+      This section is still under construction. To access your courses, please visit:
+    </span>
+    <br />
+    <a
+      href="https://yoast.academy"
+      target="_blank">
+      yoast.academy
+      <span
+        className="screen-reader-text">
+        <span>
+          (opens in a new browser\'s tab)
+        </span>
+      </span>
+    </a>
+  </p>
+  <img
+    alt=""
+    src="construction.svg" />
+</div>
+`;

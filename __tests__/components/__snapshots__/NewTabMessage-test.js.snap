@@ -1,0 +1,8 @@
+exports[`test the new tab message component matches the snapshot 1`] = `
+<span
+  className="screen-reader-text">
+  <span>
+    (opens in a new browser\'s tab)
+  </span>
+</span>
+`;
