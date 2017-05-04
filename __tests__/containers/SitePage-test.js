@@ -122,7 +122,7 @@ test('the mapStateToProps function', () => {
 			isEnabled: false,
 		} ],
 		loadingSubscriptions: false,
-		UiSite: {
+		uiSite: {
 			removing: false,
 			subscriptions: {
 				error: "",

@@ -47,7 +47,7 @@ test('the site page component matches the snapshot', () => {
 						  productLogo: LocalIcon,
 					  },
 				] }
-				UiSite={ {
+				uiSite={ {
 					removing: false,
 					subscriptions: {
 						error: "",

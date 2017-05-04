@@ -55,7 +55,7 @@ class SitePage extends React.Component {
 				</Link>
 				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
-				<SiteDangerZone onRemove={ props.onRemove } removing={ props.UiSite.removing } />
+				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 			</div>
 		);
 	}
@@ -65,7 +65,7 @@ export default injectIntl( SitePage );
 
 SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
-	UiSite: React.PropTypes.object,
+	uiSite: React.PropTypes.object,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
