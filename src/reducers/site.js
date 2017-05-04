@@ -71,8 +71,6 @@ export function uiSiteReducer( state = rootState.ui.site, action ) {
 		case SITE_REMOVE_FAILURE:
 			site.removing = false;
 			break;
-		default:
-			break;
 	}
 	site.subscriptions = uiSiteSubscriptionsReducer( state.subscriptions, action );
 	return site;
