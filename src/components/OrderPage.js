@@ -95,7 +95,6 @@ class OrderPage extends React.Component {
 export default injectIntl( OrderPage );
 
 OrderPage.propTypes = {
-	getInvoiceURI: React.PropTypes.func.isRequired,
 	onSearchChange: React.PropTypes.func.isRequired,
 	orders: React.PropTypes.array,
 	intl: intlShape.isRequired,

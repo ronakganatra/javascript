@@ -16,6 +16,7 @@ import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
+import SubscriptionPageContainer from "./containers/SubscriptionPage";
 
 /*
  * Helper method to write global CSS.
@@ -52,6 +53,7 @@ class App extends Component {
 									<Route exact path="/" component={ SitesPageContainer } />
 									<Route path="/sites/:id" component={ SitePageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
+									<Route path="/account/subscriptions/:id" component={ SubscriptionPageContainer } />
 								</Content>
 							</Main>
 						</Layout>
