@@ -28,10 +28,14 @@ const messages = defineMessages( {
 		id: "downloads-page.downloads.eBooks",
 		defaultMessage: "eBooks",
 	},
+	installationGuides: {
+		id: "downloads-page.by-lines.installation-guides",
+		defaultMessage: "Read our installation guides",
+	},
 } );
 
 const ProductOverviewContainer = styled.div`
-	background-color:  ${ colors.$color_white };
+	background-color: ${ colors.$color_white };
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 24px;
@@ -44,11 +48,11 @@ const ByLine = styled.span`
 `;
 
 /**
- * Returns the rendered Products Page component.
+ * Returns the rendered Downloads Page component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered download page.
+ * @returns {ReactElement} The rendered downloads page.
  */
 class DownloadsPage extends React.Component {
 	componentDidMount() {
@@ -62,7 +66,7 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloads-page.by-line.plugins"
 				defaultMessage=" - Need help installing these? { link }."
-				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">Read our installation guides</a> } }
+				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
 		</ByLine>;
 
