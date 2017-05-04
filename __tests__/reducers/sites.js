@@ -3,6 +3,7 @@ import {
 	LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_SUCCESS
 } from "../../src/actions/sites";
+import { SITE_REMOVE_SUCCESS } from "../../src/actions/site";
 
 test( 'the popup open action', () => {
 	const state = {};
@@ -293,6 +294,25 @@ test( 'the byIdReducers puts only subscription IDs in the state', () => {
 	expect( actual ).toEqual( expected );
 } );
 
+test( 'the site remove success action in the byIdReducer', () => {
+	const state = { "497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		"url": "http://yoast.com",
+		"creationDate": "2017-03-21T08:54:09.415Z",
+		"userId": 1
+	} };
+
+	const action = {
+		type: SITE_REMOVE_SUCCESS,
+		siteId: "497490e6-eb8d-4627-be9b-bfd33fc217f1"
+	};
+
+	const expected = {};
+
+	const actual = byIdReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
 
 test( 'the link site success action in the allIdsReducer', () => {
 	const state = [];
@@ -403,4 +423,19 @@ test( 'the reducers don\'t touch state with different actions', () => {
 	const actual = uiSitesReducer( state, action );
 
 	expect( actual ).toEqual( state );
+} );
+
+test( 'the site remove success action in the allIdsReducer', () => {
+	const state = [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ];
+
+	const action = {
+		type: SITE_REMOVE_SUCCESS,
+		siteId: "497490e6-eb8d-4627-be9b-bfd33fc217f1"
+	};
+
+	const expected = [];
+
+	const actual = allIdsReducer( state, action );
+
+	expect( actual ).toEqual( expected );
 } );

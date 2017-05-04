@@ -6,6 +6,7 @@ import Link from "./Link";
 import SiteHeader from "./SiteHeader";
 import { RoundBackButton } from "./RoundButton";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
+import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
 
 const messages = defineMessages( {
@@ -54,6 +55,7 @@ class SitePage extends React.Component {
 				</Link>
 				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
+				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 			</div>
 		);
 	}
@@ -63,6 +65,7 @@ export default injectIntl( SitePage );
 
 SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
+	uiSite: React.PropTypes.object,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
@@ -77,5 +80,4 @@ SitePage.defaultProps = {
 	subscriptions: [],
 	loadingSite: false,
 	loadingSubscriptions: true,
-	site: {},
 };

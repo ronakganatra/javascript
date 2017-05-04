@@ -1,20 +1,16 @@
 import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
+import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer } from "./subscriptions.js";
-import { uiSiteSubscriptionsReducer } from "./site.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
 import { uiSearch } from "./search.js";
 
-export const uiSiteReducer = combineReducers( {
-	subscriptions: uiSiteSubscriptionsReducer,
-} );
-
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
-	search: uiSearch,
 	site: uiSiteReducer,
+	search: uiSearch,
 	subscriptions: uiAllSubscriptionsReducer,
 	orders: uiOrdersReducer,
 } );

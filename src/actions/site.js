@@ -1,6 +1,7 @@
 import "whatwg-fetch";
 import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
 import { getAccessToken } from "../functions/auth";
+import { push } from "react-router-redux";
 
 /**
  * Action types
@@ -8,9 +9,11 @@ import { getAccessToken } from "../functions/auth";
 
 export const SITE_TOGGLE_SUBSCRIPTION_REQUEST = "SITE_TOGGLE_SUBSCRIPTION_REQUEST";
 export const SITE_TOGGLE_SUBSCRIPTION_FAILURE = "SITE_TOGGLE_SUBSCRIPTION_FAILURE";
-
 export const SITE_ADD_SUBSCRIPTION_SUCCESS = "SITE_ADD_SUBSCRIPTION_SUCCESS";
 export const SITE_REMOVE_SUBSCRIPTION_SUCCESS = "SITE_REMOVE_SUBSCRIPTION_SUCCESS";
+export const SITE_REMOVE_START = "SITE_REMOVE_START";
+export const SITE_REMOVE_SUCCESS = "SITE_REMOVE_SUCCESS";
+export const SITE_REMOVE_FAILURE = "SITE_REMOVE_FAILURE";
 
 /**
  * Action creators
@@ -133,7 +136,88 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 				dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
 			} )
 			.catch( ( error ) => {
-				dispatch( siteToggleSubscriptionFailure( error.json().message ) );
+				dispatch( siteToggleSubscriptionFailure( error.message ) );
 			} );
+	};
+}
+
+
+/**
+ * An action creator for site removal.
+ *
+ * @param {string} siteId The id of the site which needs to be removed.
+ *
+ * @returns {Object} A site remove request action.
+ */
+export function siteRemove( siteId ) {
+	return ( dispatch ) => {
+		dispatch( siteRemoveStart( siteId ) );
+
+		let apiUrl = getApiUrl();
+		let accessToken = getAccessToken();
+
+		let request = new Request( `${apiUrl}/Sites/${siteId}/?access_token=${accessToken}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
+			.then( handle401 )
+			.then( verifyStatusCode )
+			.then( () => {
+				dispatch( siteRemoveSuccess( siteId ) );
+			} )
+			.then( () => {
+				dispatch( push( "/sites/" ) );
+			} )
+			.catch( ( error ) => {
+				dispatch( siteRemoveFailure( siteId, error.message ) );
+			} );
+	};
+}
+
+/**
+ * An action creator for the start of the site removal.
+ *
+ * @param {string} siteId The id of the site which needs to be removed.
+ *
+ * @returns {Object} A site remove start action.
+ */
+export function siteRemoveStart( siteId ) {
+	return {
+		type: SITE_REMOVE_START,
+		siteId: siteId,
+	};
+}
+
+/**
+ * An action creator for the start of the site removal.
+ *
+ * @param {string} siteId The id of the site for which was removed.
+ *
+ * @returns {Object} A site remove success action.
+ */
+export function siteRemoveSuccess( siteId ) {
+	return {
+		type: SITE_REMOVE_SUCCESS,
+		siteId: siteId,
+	};
+}
+
+/**
+ * An action creator for the start of the site removal.
+ *
+ * @param {string} siteId The id of the site for which was meant to be removed.
+ * @param {string} errorText The error message.
+ *
+ * @returns {Object} A site remove failure action.
+ */
+export function siteRemoveFailure( siteId, errorText ) {
+	return {
+		type: SITE_REMOVE_FAILURE,
+		siteId: siteId,
+		siteRemoveError: errorText,
 	};
 }
