@@ -109,6 +109,8 @@ test('the mapStateToProps function', () => {
 				currentVersion: 0,
 				changelog: "string"
 			},
+			used: 1,
+			price: 0,
 			productLogo: "https://image.flaticon.com/teams/new/1-freepik.jpg",
 			isEnabled: false,
 		} ],

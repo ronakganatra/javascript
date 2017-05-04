@@ -4,10 +4,11 @@ import colors from "yoast-components/style-guide/colors.json";
 import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
-import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
-import { LargeButton, RedButton } from "./Button";
 import { ListHeading } from "./ListHeading";
+import { LargeButton, RedButton, IconButtonLink } from "./Button";
+import formatAmount from "../../../shared/currency";
+import { getInvoiceUrl } from "../functions/api";
 
 let columnMargin = "10px";
 let hideButtonsThreshold = 400;
@@ -177,7 +178,7 @@ function SubscriptionDetails( props ) {
 					</ColumnText>
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						{ props.intl.formatNumber(
-							invoice.invoiceAmount,
+							formatAmount( invoice.invoiceAmount ),
 							{
 								style: "currency",
 								currency: invoice.invoiceCurrency,
@@ -187,11 +188,12 @@ function SubscriptionDetails( props ) {
 					</ColumnText>
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<IconButton onClick={ props.onInvoiceDownload }
-										iconSource={ downloadIcon }
-										iconSize={ "16px" }>
+							<IconButtonLink
+								href={ getInvoiceUrl( invoice.invoiceId ) }
+								iconSource={ downloadIcon }
+								iconSize={ "16px" }>
 								{ props.intl.formatMessage( messages.invoiceButton ) }
-							</IconButton>
+							</IconButtonLink>
 						</MediaQuery>
 					</Column>
 				</Row>;
@@ -226,7 +228,7 @@ function SubscriptionDetails( props ) {
 SubscriptionDetails.propTypes = {
 	startDate: React.PropTypes.instanceOf( Date ).isRequired,
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
-	invoices: React.PropTypes.array,
+	invoices: React.PropTypes.array.isRequired,
 	max: React.PropTypes.number.isRequired,
 	current: React.PropTypes.number.isRequired,
 	onAddSite: React.PropTypes.func.isRequired,
