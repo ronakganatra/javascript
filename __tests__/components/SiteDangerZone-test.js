@@ -13,6 +13,17 @@ test('the site dangerzone matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
+test('the site dangerzone with removing = true matches the snapshot', () => {
+	const component =  createComponentWithIntl(
+		<SiteDangerZone removing={ true } onRemove={ () => {
+			console.log( "Remove site" );
+		} } />
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
 test('the site dangerzone onRemove handling', () => {
 	const component =  createComponentWithIntl(
 		<SiteDangerZone removing={ false } onRemove={ () => {
