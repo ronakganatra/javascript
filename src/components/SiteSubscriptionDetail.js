@@ -5,9 +5,10 @@ import colors from "yoast-components/style-guide/colors.json";
 import { LargeButton } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, FormattedNumber } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
+import formatAmount from "../../../shared/currency";
 
 let responsiveWidthThreshold = 1355;
 
@@ -128,6 +129,7 @@ const Buttons = styled.span`
 `;
 
 /**
+ * Creates Site Subscriptions component
  *
  * @param {Object} props The props to use
  *
@@ -159,7 +161,10 @@ export default function SiteSubscriptionDetail( props ) {
 				</SubscriptionUsage>
 				{
 					props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
-						<AddOneSlot onClick={ props.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }</AddOneSlot>
+					<AddOneSlot onClick={ props.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }
+						<FormattedNumber value={ formatAmount( props.price ) } style="currency" currency={ props.currency }/>
+					</AddOneSlot>
+
 				}
 			</SubscriptionDetails>
 
@@ -181,6 +186,8 @@ SiteSubscriptionDetail.propTypes = {
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	isEnabled: React.PropTypes.bool,
+	price: React.PropTypes.number.isRequired,
+	currency: React.PropTypes.string.isRequired,
 	productId: React.PropTypes.string.isRequired,
 	productLogo: React.PropTypes.string.isRequired,
 	slots: React.PropTypes.shape( {
