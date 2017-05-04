@@ -75,6 +75,7 @@ test( 'site add subscription action creator with success', () => {
 
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteAddSubscriptionSuccess( siteId, subscriptionId ) );
 	} );
 } );
@@ -101,7 +102,73 @@ test( 'site add subscription action creator with failure', () => {
 
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
 		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Duplicate entry for Subscription.id" ) );
+	} );
+} );
+
+test( 'site remove subscription action creator with success', () => {
+	expectedRequest = new Request( getApiUrl() + "/Sites/" + siteId + "/subscriptions/rel/" + subscriptionId + "/?access_token=access", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	} );
+
+	global.fetch = jest.fn( () => {
+		return Promise.resolve( {
+			status: 200,
+			json: () => { return {
+				"count": 1,
+			} },
+		} );
+	});
+
+	const dispatch = jest.fn();
+
+	const siteRemoveSubscriptionFunc = actions.siteRemoveSubscription( siteId, subscriptionId );
+
+	expect( siteRemoveSubscriptionFunc ).toBeInstanceOf( Function );
+
+	return siteRemoveSubscriptionFunc( dispatch ).then( () => {
+		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
+	} );
+} );
+
+test( 'site remove subscription action creator with failure', () => {
+	expectedRequest = new Request( getApiUrl() + "/Sites/" + siteId + "/subscriptions/rel/" + subscriptionId + "/?access_token=access", {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	} );
+
+	global.fetch = jest.fn( () => {
+		return Promise.resolve( {
+			json: () => { return {
+				"error": {
+					"statusCode": 401,
+					"name": "Error",
+					"message": "Authorization Required",
+					"code": "AUTHORIZATION_REQUIRED",
+					"stack": "Dummydata"
+				}
+			} },
+		} );
+	});
+
+	const dispatch = jest.fn();
+
+	const siteRemoveSubscriptionFunc = actions.siteRemoveSubscription( siteId, subscriptionId );
+
+	expect( siteRemoveSubscriptionFunc ).toBeInstanceOf( Function );
+
+	return siteRemoveSubscriptionFunc( dispatch ).then( () => {
+		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
+		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Authorization Required" ) );
 	} );
 } );
 
