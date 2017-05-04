@@ -34,13 +34,12 @@ const ProductOverviewContainer = styled.div`
 	background-color:  ${ colors.$color_white };
 	display: flex;
 	flex-wrap: wrap;
-	padding: 24px 0 0 0;
-	margin: 36px 0 0 0;
+	padding-top: 24px;
+	margin-top: 36px;
 `;
 
 const ByLine = styled.span`
 	font-size: 18px;
-	font-weight: 400;
 `;
 
 /**

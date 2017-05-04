@@ -18,7 +18,7 @@ const ProductsListHeading = styled( ListHeading )`
 	width: calc( 100% - 16px );
 	font-size: 22px;
 	margin: 0 0 24px 8px;
-	padding: 0 0 24px 0;
+	padding-bottom: 24px;
 	align-self: center;
 `;
 
