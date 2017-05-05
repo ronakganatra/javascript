@@ -3,7 +3,7 @@ import DownloadsPage from '../../src/components/DownloadsPage';
 import { createComponentWithIntl } from "../../utils";
 import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 
-test('the downloads page component matches the snapshot', () => {
+test( 'the downloads page component matches the snapshot', () => {
 	let plugins = [
 		{
 			id: "1",

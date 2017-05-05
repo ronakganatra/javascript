@@ -3,7 +3,7 @@ import { createComponentWithIntl } from "../../utils";
 import Products from '../../src/components/Products';
 import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 
-test('The Products component matches the snapshot', () => {
+test( 'The Products component matches the snapshot', () => {
 	let products = [
 		{
 			id: "1",
@@ -68,5 +68,5 @@ test('The Products component matches the snapshot', () => {
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
+	expect( tree ).toMatchSnapshot();
 });

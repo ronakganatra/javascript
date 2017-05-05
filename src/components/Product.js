@@ -79,7 +79,7 @@ const DownloadLabel = styled.p`
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Product component
+ * @returns {ReactElement} The rendered Product component.
  */
 function Product( props ) {
 	return (
