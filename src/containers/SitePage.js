@@ -49,7 +49,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreSlotsClick: () => {},
+		onAddMoreLicensesClick: () => {},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {
 				dispatch( siteAddSubscription( siteId, subscriptionId ) );

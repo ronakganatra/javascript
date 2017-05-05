@@ -1,6 +1,7 @@
 import sitesIcon from "../icons/sites.svg";
 import coursesIcon from "../icons/courses.svg";
 import userIcon from "../icons/user.svg";
+import downloadsIcon from "../icons/download.svg";
 import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import CoursesPage from "../components/CoursesPage";
@@ -26,6 +27,13 @@ let menuItems = [
 		titleKey: "courses",
 		iconSource: coursesIcon,
 		component: CoursesPage,
+		exact: false,
+	},
+	{
+		showInMenu: true,
+		path: "/downloads",
+		titleKey: "downloads",
+		iconSource: downloadsIcon,
 		exact: false,
 	},
 	{
