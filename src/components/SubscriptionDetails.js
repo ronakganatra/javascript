@@ -136,7 +136,7 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-slots" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="remaining-licenses" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>

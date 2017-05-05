@@ -33,10 +33,10 @@ test('the mapStateToProps function', () => {
 							endDate: "2017-04-12T00:00:00.000Z",
 							reoccurring: true,
 							subscriberId: 2,
-							slots: {
+							licenses: {
 								amountAvailable: 11,
 								amountUsed: 5,
-								addMoreSlots: "Add more slots",
+								addMoreLicenses: "Add more licenses",
 							},
 							product: {
 								id: "productid",
@@ -100,10 +100,10 @@ test('the mapStateToProps function', () => {
 			endDate: "2017-04-12T00:00:00.000Z",
 			reoccurring: true,
 			subscriberId: 2,
-			slots: {
+			licenses: {
 				amountAvailable: 11,
 				amountUsed: 5,
-				addMoreSlots: "Add more slots",
+				addMoreLicenses: "Add more licenses",
 			},
 			product: {
 				id: "productid",

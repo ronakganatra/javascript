@@ -99,7 +99,7 @@ const SubscriptionUsage = styled.span`
 	}
 `;
 
-const AddOneSlot = styled.button`
+const AddOneLicense = styled.button`
 	font-size: 14px;
 	font-weight: 300;
 	font-style: italic;
@@ -143,14 +143,14 @@ function SiteSubscriptionDetail( props ) {
 
 	let licensesRemaining = props.limit - props.used;
 
-	let anotherSlot = null;
+	let anotherLicense = null;
 	if ( licensesRemaining === 0 ) {
 		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
 
-		anotherSlot = <AddOneSlot><FormattedMessage
-			id="site.subscriptions.slots.add"
-			defaultMessage="Add another slot for { price }"
-			values={{ price }} /></AddOneSlot>;
+		anotherLicense = <AddOneLicense><FormattedMessage
+			id="site.subscriptions.licenses.add"
+			defaultMessage="Add another license for { price }"
+			values={{ price }} /></AddOneLicense>;
 	}
 
 	return (
@@ -171,7 +171,7 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
 						values={{ howMany: licensesRemaining + " / " + props.limit }} />
 				</SubscriptionUsage>
-				{anotherSlot}
+				{ anotherLicense }
 			</SubscriptionDetails>
 
 			<MediaQuery query={ "(min-width: " + ( responsiveWidthThreshold + 1 ) + "px)" }>
@@ -188,7 +188,7 @@ function SiteSubscriptionDetail( props ) {
 SiteSubscriptionDetail.propTypes = {
 	id: React.PropTypes.string.isRequired,
 	name: React.PropTypes.string.isRequired,
-	onAddMoreSlotsClick: React.PropTypes.func,
+	onAddMoreLicensesClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
