@@ -55,7 +55,9 @@ const messages = defineMessages( {
 	},
 	descriptionProfilePicture: {
 		id: "profile.description.picture",
-		defaultMessage: "This is your profile picture.",
+		defaultMessage: "Your profile picture is supplied by Gravatar. If you don't have" +
+										" an account with them yet, or want to change your existing" +
+										" picture, please visit the Gravatar website.",
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
