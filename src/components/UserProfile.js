@@ -6,8 +6,9 @@ import colors from "yoast-components/style-guide/colors.json";
 
 const UserInfoContainer = styled.aside`
 	display: flex;
-	margin-left: 50px;
-	padding-bottom: 60px;
+	margin-left: 24px;
+	padding-right: 16px;
+	padding-bottom: 3em;
 `;
 
 const UserInfo = styled.div`

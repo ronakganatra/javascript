@@ -59,15 +59,19 @@ const Menu = styled.nav`
 
 const MenuItem = styled( NavLink )`
 	display: block;
-	height: 100px;
-	line-height: 100px;
+	line-height: 1;
 	font-size: 22px;
 	font-weight: 300;
-	padding-left: 25px;
-	margin-left: 25px;
-	padding-right: 25px;
+	padding: 32px 16px;
+	margin-left: 24px;
 	color: ${ colors.$color_background_light };
 	text-decoration: none;
+	
+	transition: color 0.1s ease-out, background-color 0.1s ease-out, padding 0.3s ease-out, transform 0.1s ease-out;
+	
+	&:hover {
+		padding-left: 24px;
+	}
 
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
@@ -77,6 +81,10 @@ const MenuItem = styled( NavLink )`
 		color: ${ colors.$color_pink_dark };
 		position: relative;
 		overflow-y: hidden;
+		
+		&:hover {
+			padding-left: 16px;
+		}
 
 		&:before,
 		&:after {
@@ -117,12 +125,23 @@ const MenuItem = styled( NavLink )`
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		
+		&:hover {
+			padding-left: 0;
+			transform: scale( 1.08 );
+		}
 
 		&.${ activeStyle } {
 			border-bottom: 5px solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
 			background-color: transparent;
+			transform: scale( 1.08 );
 			box-shadow: none;
+			
+			&:hover {
+				padding-left: 0;
+				transform: scale( 1.08 );
+			}
 
 			&:before,
 			&:after {
