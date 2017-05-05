@@ -1,0 +1,6 @@
+exports[`test the ListHeading matches the snapshot 1`] = `
+<h2
+  className="bhibRj">
+  This is a heading
+</h2>
+`;

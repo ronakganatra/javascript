@@ -5,6 +5,7 @@ import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
+import { ListHeading } from "./ListHeading";
 import { LargeButton, RedButton, IconButtonLink } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
@@ -87,14 +88,6 @@ const ColumnContainer = styled.div`
 	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
 		width: 100%;
 	}
-`;
-
-const ListHeader = styled.h2`
-	font-size: 1em;
-	font-weight: 400; 
-	padding: 20px 0 20px 30px;
-	margin: 0;
-	border-bottom: 1px solid ${ colors.$color_grey_medium };
 `;
 
 /**
@@ -211,21 +204,21 @@ function SubscriptionDetails( props ) {
 	return (
 		<SubscriptionDetailsContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ paymentDetailTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ subscriptionDetailsTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.invoicesTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ invoicesTable }
 				</ColumnContainer>
 		</SubscriptionDetailsContainer>

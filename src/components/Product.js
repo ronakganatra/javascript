@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { IconButton } from "./Button";
-import downloadIcon  from "../icons/download.svg";
+import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 const messages = defineMessages( {
 	downloadButton: {
-		id: "download-page.buttons.download",
+		id: "product.buttons.download",
 		defaultMessage: "Download",
+	},
+	version: {
+		id: "product.product.version",
+		defaultMessage: "version",
 	},
 } );
 
@@ -17,13 +21,10 @@ let mobileViewThreshold = 600;
 
 let outerMargin = 32;
 
-const DownloadContainer = styled.div`
+const ProductContainer = styled.div`
 	margin: 8px;
-	padding: 16px;
+	padding: 16px 16px 0 16px;
 	background-color: ${ colors.$color_grey_light };
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	text-align: center;
 	
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
@@ -39,71 +40,73 @@ const DownloadContainer = styled.div`
 	}
 `;
 
-const DownloadIcon = styled.img`
+const ProductIcon = styled.img`
 	width: 112px;
 	height: 112px;
 	padding: 0 0 5px;
 `;
 
-const DownloadList = styled.ul`
+const Downloads = styled.ul`
 	padding: 0;
-	margin: 0px 0 0;
+	margin: 0 0 24px 0;
 `;
 
-const DownloadListItem = styled.li`
+const Download = styled.li`
 	list-style: none;
 	text-align: center;
 	margin: 24px 0 0;
 `;
 
-const ProductName = styled.h2`
-	font-size: 1.5em;
+const ProductName = styled.h3`
+	font-size: 1.375em;
 	font-weight: 700;
 	margin: 0;
 `;
 
 const ProductVersion = styled.p`
-	font-size: 1em;
 	font-weight: 300;
-	margin: 0 0 16px;
+	margin: 0 0 24px;
 `;
 
-const ButtonLabel = styled.p`
-	font-size: 0.9em;
+const DownloadLabel = styled.p`
+	font-size: 0.875em;
 	font-weight: 300;
-	margin: 2px 0 12px;
+	margin: 2px 0 0;
 `;
 
 /**
- * The Download component.
+ * The Product component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Download component
+ * @returns {ReactElement} The rendered Product component.
  */
-function Download( props ) {
+function Product( props ) {
 	return (
-		<DownloadContainer>
+		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
-			<ProductVersion> { "version " + props.currentVersion }</ProductVersion>
-			<DownloadIcon src={ props.icon } alt=""/>
-			<DownloadList>
+			<ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>
+			<ProductIcon src={ props.icon } alt=""/>
+			<Downloads>
 				{ props.buttons.map( button => {
-					return ( <DownloadListItem key={ button.label }> <IconButton
-															iconSource={ downloadIcon }
-															onClick={ button.onButtonClick }
-															iconSize={ "16px" }
-					>
-						{ props.intl.formatMessage( messages.downloadButton ) }
-					</IconButton>
-						<ButtonLabel>{ button.label }</ButtonLabel></DownloadListItem> );
+					return (
+						<Download key={ button.label }>
+							<IconButton
+								iconSource={ downloadIcon }
+								onClick={ button.onButtonClick }
+								iconSize={ "16px" }
+								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }>
+								{ props.intl.formatMessage( messages.downloadButton ) }
+							</IconButton>
+							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
+						</Download> );
 				} )	}
-			</DownloadList>
-		</DownloadContainer>
+			</Downloads>
+		</ProductContainer>
 	);
 }
 
-Download.propTypes = {
+Product.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	currentVersion: React.PropTypes.string.isRequired,
 	icon: React.PropTypes.string.isRequired,
@@ -111,4 +114,4 @@ Download.propTypes = {
 	intl: intlShape.isRequired,
 };
 
-export default injectIntl( Download );
+export default injectIntl( Product );
