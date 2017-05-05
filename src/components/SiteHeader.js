@@ -3,6 +3,7 @@ import { LargeButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
+import NewTabMessage from "../components/NewTabMessage";
 
 const SiteHeaderContainer = styled.div`
 	max-width: 1480px;
@@ -48,8 +49,9 @@ export default function SiteHeader( props ) {
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<LargeButtonLink to={ props.url } className="visit-wp-admin" target="_blank">
+			<LargeButtonLink to={ `${ props.url }/wp-admin` } className="visit-wp-admin" target="_blank">
 				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Visit WP admin" />
+				<NewTabMessage />
 			</LargeButtonLink>
 		</SiteHeaderContainer>
 	);
