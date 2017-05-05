@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="emJgpt"
+      className="kVfXQP"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -23,15 +23,11 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="bFLiCB">
+        className="fjMKpU">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Yoast_SEO_Icon_Small.svg" />
+          className="hOCYEr">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
@@ -46,36 +42,38 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="hYNshL"
+            src="Yoast_SEO_Icon_Small.svg" />
         </span>
         <div
-          className="drFsFv">
+          className="gKpEkz">
           <span
-            className="gwtpew">
+            className="eDGcGX">
             Yoast SEO
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               5 / 10 remaining 
+              5/10 remaining
             </span>
           </span>
         </div>
+        <span
+          className="fLsOLM" />
       </li>
       <li
-        className="faPOmU">
+        className="btPTmU">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Local_SEO_Icon_Small.svg" />
+          className="hOCYEr">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
@@ -90,25 +88,31 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="hYNshL"
+            src="Local_SEO_Icon_Small.svg" />
         </span>
         <div
-          className="drFsFv">
+          className="gKpEkz">
           <span
-            className="gwtpew">
+            className="eDGcGX">
             Local SEO
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               3 / 10 remaining 
+              3/10 remaining
             </span>
           </span>
         </div>
+        <span
+          className="fLsOLM" />
       </li>
     </ul>
   </div>

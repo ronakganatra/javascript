@@ -109,28 +109,34 @@ export const ColumnText = styled( Column )`
  */
 export const Row = styled.li`
 	background: ${ props => props.background };
-
 	min-height: 100px;
 	display: flex;
 	padding-right: ${ props => props.rowPaddingRight };
+	padding-left: ${ props => props.rowPaddingLeft };
 	align-items: center;
 	justify-content: ${ props => props.justifyContent };
-	@media screen and ( max-width: 1355px ) {
-		justify-content: space-between;
-		padding-right: 20px;
+	flex-wrap: ${ props => props.flexWrap };
+
+	@media screen and ( max-width: 600px ) {
+		padding-right: 24px;
+		padding-left: 24px;
 	}
 `;
 
 Row.propTypes = {
 	background: React.PropTypes.string,
 	rowPaddingRight: React.PropTypes.string,
+	rowPaddingLeft: React.PropTypes.string,
 	justifyContent: React.PropTypes.string,
+	flexWrap: React.PropTypes.string,
 };
 
 Row.defaultProps = {
 	rowPaddingRight: "40px",
+	rowPaddingLeft: "40px",
 	justifyContent: "space-around",
 	background: colors.$color_white,
+	flexWrap: "nowrap",
 };
 
 /**

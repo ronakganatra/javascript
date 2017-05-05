@@ -20,8 +20,7 @@ test('the sitesubscription matches the snapshot', () => {
 		<SiteSubscriptionDetail { ...subscription }
 			onAddMoreSlotsClick={ () => {} }
 			onToggleSubscription={ () => {} }
-			onMoreInfoClick={ () => {} }
-			onSettingsClick={ () => {} } />
+			onMoreInfoClick={ () => {} } />
 	);
 
 	let tree = component.toJSON();

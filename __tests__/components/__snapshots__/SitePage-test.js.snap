@@ -8,18 +8,24 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="eqjPHj" />
   </a>
   <div
-    className="jeXWQb">
+    className="bnyUHJ">
     <h1
-      className="eLmnra">
+      className="fMViKj">
       yoast.com
     </h1>
     <a
       className="visit-wp-admin ifYuxa"
-      href="yoast.com"
+      href="yoast.com/wp-admin"
       onClick={[Function]}
       target="_blank">
       <span>
         Visit WP admin
+      </span>
+      <span
+        className="screen-reader-text">
+        <span>
+          (Opens in a new browser tab)
+        </span>
       </span>
     </a>
   </div>
@@ -177,7 +183,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cjKevG">
       <button
         aria-expanded={true}
-        className="emJgpt"
+        className="kVfXQP"
         onClick={[Function]}>
         <span>
           Danger zone
@@ -192,7 +198,7 @@ exports[`test the site page component matches the snapshot 1`] = `
         </svg>
       </button>
       <div
-        className="eMoJbq">
+        className="fOFLrX">
         <h3
           className="cecVBz">
           Disconnect this site

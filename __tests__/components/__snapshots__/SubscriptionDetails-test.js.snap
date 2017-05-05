@@ -11,7 +11,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="iTtCSg">
+        className="nJgre">
         <span
           className="hIvutE">
           Start date
@@ -24,7 +24,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="fFYeCA">
+        className="ghqMeY">
         <span
           className="hIvutE">
           Next billing
@@ -48,7 +48,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="iTtCSg">
+        className="nJgre">
         <span
           className="fkByDC">
           You can add 4 more sites to this subscription.
@@ -57,7 +57,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="gjfIlq" />
       </li>
       <li
-        className="fFYeCA">
+        className="ghqMeY">
         <span
           className="fkByDC">
           Change subscription level
@@ -66,7 +66,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="gjfIlq" />
       </li>
       <li
-        className="iTtCSg">
+        className="nJgre">
         <span
           className="fkByDC">
           Cancel subscription
@@ -86,7 +86,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="iTtCSg">
+        className="nJgre">
         <span
           className="dESJUX">
           <span>
@@ -101,7 +101,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="kxFaKW" />
       </li>
       <li
-        className="fFYeCA">
+        className="ghqMeY">
         <span
           className="dESJUX">
           <span>

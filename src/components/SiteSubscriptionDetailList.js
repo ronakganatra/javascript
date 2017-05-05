@@ -30,7 +30,6 @@ function SiteSubscriptionDetailList( props ) {
 							key={ subscription.id }
 							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
-							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 						/>;
 					} ) }
@@ -44,7 +43,6 @@ SiteSubscriptionDetailList.propTypes = {
 	siteSubscriptions: React.PropTypes.array,
 	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };

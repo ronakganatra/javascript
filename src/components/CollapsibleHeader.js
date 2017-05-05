@@ -19,6 +19,10 @@ const CollapsibleHeader = styled.button`
 	cursor: pointer;
 	text-align: left;
 
+	@media screen and ( max-width: 600px ) {
+		padding: 16px 14px 16px 24px;
+	}
+
 	span {
 		flex: 1 1 auto;
 		font-weight: 300;
@@ -28,6 +32,10 @@ const CollapsibleHeader = styled.button`
 	svg {
 		min-width: 150px;
 		align-self: center;
+
+		@media screen and ( max-width: 600px ) {
+			min-width: 0;
+		}
 	}
 `;
 

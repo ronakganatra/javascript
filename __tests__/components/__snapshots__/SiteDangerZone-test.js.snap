@@ -5,7 +5,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="emJgpt"
+      className="kVfXQP"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -20,7 +20,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
       </svg>
     </button>
     <div
-      className="eMoJbq">
+      className="fOFLrX">
       <h3
         className="cecVBz">
         Disconnect this site
@@ -46,7 +46,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="emJgpt"
+      className="kVfXQP"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -61,7 +61,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
       </svg>
     </button>
     <div
-      className="eMoJbq">
+      className="fOFLrX">
       <h3
         className="cecVBz">
         Disconnect this site
@@ -87,7 +87,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="emJgpt"
+      className="kVfXQP"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -102,7 +102,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
       </svg>
     </button>
     <div
-      className="eMoJbq">
+      className="fOFLrX">
       <h3
         className="cecVBz">
         Disconnect this site
@@ -128,7 +128,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="emJgpt"
+      className="kVfXQP"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -143,7 +143,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
       </svg>
     </button>
     <div
-      className="eMoJbq">
+      className="fOFLrX">
       <h3
         className="cecVBz">
         Disconnect this site

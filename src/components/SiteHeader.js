@@ -6,6 +6,11 @@ import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 
 const SiteHeaderContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-end;
+	align-content: flex-end;
 	max-width: 1480px;
 	height: 380px;
 	background-image: linear-gradient(transparent, ${ colors.$color_pink_dark }), url( ${ props => props.imageUrl } )
@@ -13,12 +18,22 @@ const SiteHeaderContainer = styled.div`
 	background-position: center;
 	background-size: contain;
 	position: relative;
-	margin: auto;
+	margin: 0 auto;
+	padding: 0 40px 26px;
+
+	@media screen and ( max-width: 600px ) {
+		height: auto;
+		min-height: 144px;
+		padding: 0 24px 16px;
+	}
 
 	.visit-wp-admin {
-		position: absolute;
-		right: 40px;
-		bottom: 26px;
+		flex: 0 0 auto;
+		margin-top: 1em;
+
+		@media screen and ( max-width: 600px ) {
+			min-width: 100%;
+		}
 	}
 `;
 
@@ -27,12 +42,15 @@ SiteHeaderContainer.propTypes = {
 };
 
 const SiteHeaderSitename = styled.h1`
+	flex: 1 1 auto;
 	color: ${colors.$color_white};
 	font-weight: 300;
 	margin: 0;
-	position: absolute;
-	bottom: 26px;
-	left: 40px;
+	word-break: break-word;
+
+	@media screen and ( max-width: 600px ) {
+		text-align: center;
+	}
 `;
 
 /**

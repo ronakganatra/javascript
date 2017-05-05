@@ -1,14 +1,10 @@
 exports[`test an add more slots button should be shown when no more slots are available 1`] = `
 <li
-  className="faPOmU">
+  className="btPTmU">
   <span
-    className="galWEB">
-    <img
-      alt=""
-      className="cOhtuq"
-      src="icon.svg" />
+    className="hOCYEr">
     <span
-      className="gputun">
+      className="gFXyaK">
       <div>
         <div
           aria-checked={true}
@@ -23,45 +19,41 @@ exports[`test an add more slots button should be shown when no more slots are av
         </div>
         <span
           aria-hidden="true"
-          className="iUAAtI">
+          className="euIAzV">
           On
         </span>
       </div>
     </span>
+    <img
+      alt=""
+      className="hYNshL"
+      src="icon.svg" />
   </span>
   <div
-    className="drFsFv">
+    className="gKpEkz">
     <span
-      className="gwtpew">
+      className="eDGcGX">
       Subscription name
     </span>
     <span
-      className="kaVduD">
+      className="kwOabh">
       <span>
-         0 / 20 remaining 
+        0/20 remaining
       </span>
     </span>
-    <button
-      className="dqWYTA">
-      <span>
-        Add another slot for $69.00
-      </span>
-    </button>
   </div>
+  <span
+    className="fLsOLM" />
 </li>
 `;
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="faPOmU">
+  className="btPTmU">
   <span
-    className="galWEB">
-    <img
-      alt=""
-      className="cOhtuq"
-      src="icon.svg" />
+    className="hOCYEr">
     <span
-      className="gputun">
+      className="gFXyaK">
       <div>
         <div
           aria-checked={true}
@@ -76,24 +68,30 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
         </div>
         <span
           aria-hidden="true"
-          className="iUAAtI">
+          className="euIAzV">
           On
         </span>
       </div>
     </span>
+    <img
+      alt=""
+      className="hYNshL"
+      src="icon.svg" />
   </span>
   <div
-    className="drFsFv">
+    className="gKpEkz">
     <span
-      className="gwtpew">
+      className="eDGcGX">
       Subscription name
     </span>
     <span
-      className="kaVduD">
+      className="kwOabh">
       <span>
-         6 / 20 remaining 
+        6/20 remaining
       </span>
     </span>
   </div>
+  <span
+    className="fLsOLM" />
 </li>
 `;

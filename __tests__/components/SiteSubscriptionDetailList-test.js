@@ -78,9 +78,6 @@ test('the site subscription detail list component matches the snapshot', () => {
 			onMoreInfoClick={ () => {
 				console.log( "more info" );
 			} }
-			onSettingsClick={ () => {
-				console.log( "settings" );
-			} }
 			onToggleSubscription={ () => {
 				console.log( "toggled" );
 			} }
