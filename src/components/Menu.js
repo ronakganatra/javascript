@@ -9,6 +9,10 @@ const titles = defineMessages( {
 		id: "menu.title.sites",
 		defaultMessage: "Sites",
 	},
+	courses: {
+		id: "menu.title.courses",
+		defaultMessage: "Courses",
+	},
 	subscriptions: {
 		id: "menu.title.subscriptions",
 		defaultMessage: "Subscriptions",
