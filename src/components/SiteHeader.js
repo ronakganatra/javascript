@@ -1,21 +1,22 @@
 import React from "react";
-import { WhiteButton } from "../components/Button";
+import { LargeButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { FormattedMessage } from "react-intl";
 
 const SiteHeaderContainer = styled.div`
 	max-width: 1480px;
 	height: 380px;
-	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url( ${ props => props.imageUrl } ) 
+	background-image: linear-gradient(transparent, ${ colors.$color_pink_dark }), url( ${ props => props.imageUrl } )
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 	position: relative;
 	margin: auto;
-	
-	& button {
+
+	.visit-wp-admin {
 		position: absolute;
-		right: 30px;
+		right: 40px;
 		bottom: 26px;
 	}
 `;
@@ -27,12 +28,10 @@ SiteHeaderContainer.propTypes = {
 const SiteHeaderSitename = styled.h1`
 	color: ${colors.$color_white};
 	font-weight: 300;
-	float: left;
-	padding: 5px;
-	margin: 0px;
+	margin: 0;
 	position: absolute;
 	bottom: 26px;
-	left: 30px;
+	left: 40px;
 `;
 
 /**
@@ -49,9 +48,9 @@ export default function SiteHeader( props ) {
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<WhiteButton onClick={ () => window.open(  props.url, "_blank" ) }>
-				Visit site
-			</WhiteButton>
+			<LargeButtonLink to={ props.url } className="visit-wp-admin" target="_blank">
+				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Visit WP admin" />
+			</LargeButtonLink>
 		</SiteHeaderContainer>
 	);
 }

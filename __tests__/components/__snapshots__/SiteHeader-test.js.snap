@@ -1,15 +1,18 @@
 exports[`test the site header matches the snapshot 1`] = `
 <div
-  className="gPDApQ">
+  className="jeXWQb">
   <h1
-    className="ilXPZI">
+    className="eLmnra">
     placehold.it
   </h1>
-  <button
-    className="hBZufG"
-    onClick={[Function]}
-    type="button">
-    Visit site
-  </button>
+  <a
+    className="visit-wp-admin ifYuxa"
+    href="http://placehold.it/"
+    target="_blank"
+    to="http://placehold.it/">
+    <span>
+      Visit WP admin
+    </span>
+  </a>
 </div>
 `;

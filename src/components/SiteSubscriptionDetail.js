@@ -121,14 +121,6 @@ const AddOneSlot = styled.button`
 	}
 `;
 
-const Buttons = styled.span`
-	margin: 0 40px 6px 0;
-
-	button:last-child {
-		margin-left: 40px;
-	}
-`;
-
 /**
  *
  * @param {Object} props The props to use
@@ -175,11 +167,9 @@ function SiteSubscriptionDetail( props ) {
 			</SubscriptionDetails>
 
 			<MediaQuery query={ "(min-width: " + ( responsiveWidthThreshold + 1 ) + "px)" }>
-				<Buttons>
-					<LargeButtonLink to={`/account/subscriptions/${props.id}`}>
-						<FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="Info" />
-					</LargeButtonLink>
-				</Buttons>
+				<LargeButtonLink to={ `/account/subscriptions/${ props.id }` }>
+					<FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="Details" />
+				</LargeButtonLink>
 			</MediaQuery>
 		</Row>
 	);

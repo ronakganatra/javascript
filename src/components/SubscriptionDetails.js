@@ -81,17 +81,17 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		width: calc( 50% - ${ columnMargin } );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
 		width: 100%;
 	}
 `;
 
 const ListHeader = styled.h2`
 	font-size: 1em;
-	font-weight: 400; 
+	font-weight: 400;
 	padding: 20px 0 20px 30px;
 	margin: 0;
 	border-bottom: 1px solid ${ colors.$color_grey_medium };

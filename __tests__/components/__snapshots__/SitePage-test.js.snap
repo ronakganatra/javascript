@@ -8,17 +8,20 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="eqjPHj" />
   </a>
   <div
-    className="gPDApQ">
+    className="jeXWQb">
     <h1
-      className="ilXPZI">
+      className="eLmnra">
       yoast.com
     </h1>
-    <button
-      className="hBZufG"
+    <a
+      className="visit-wp-admin ifYuxa"
+      href="yoast.com"
       onClick={[Function]}
-      type="button">
-      Visit site
-    </button>
+      target="_blank">
+      <span>
+        Visit WP admin
+      </span>
+    </a>
   </div>
   <svg
     className="bzufPY yoast-loader"
@@ -174,7 +177,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cjKevG">
       <button
         aria-expanded={true}
-        className="hZuiiC"
+        className="emJgpt"
         onClick={[Function]}>
         <span>
           Danger zone

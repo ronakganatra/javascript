@@ -26,6 +26,7 @@ const CollapsibleHeader = styled.button`
 	}
 
 	svg {
+		min-width: 150px;
 		align-self: center;
 	}
 `;
