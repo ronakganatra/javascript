@@ -138,6 +138,7 @@ const MenuIcon = styled.img`
 	@media screen and ( max-width: 1024px ) {
 		display: block;
 		height: 40px;
+		width: 40px;
 		margin: 0 auto -3px;
 	}
 `;
