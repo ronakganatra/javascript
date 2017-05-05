@@ -1,0 +1,410 @@
+exports[`test the downloads page component matches the snapshot 1`] = `
+<div>
+  <div>
+    <label
+      className="bFGhCT"
+      htmlFor="search">
+      <span
+        className="screen-reader-text foqgVb">
+        Search downloads
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="hhtLuS"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value="" />
+    <p
+      className="screen-reader-text foqgVb"
+      id="search-description">
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="dnTGWH">
+    <div
+      className="dVdgNT">
+      <div
+        className="AWsFI">
+        <h2
+          className="bWDgOy">
+          Plugins
+          <span
+            className="tfydH">
+            <span>
+               - Need help installing these? 
+              <a
+                href="https://yoa.st/myyoast-installation"
+                target="_blank">
+                Read our installation guides
+              </a>
+              .
+            </span>
+          </span>
+        </h2>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Yoast SEO
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for Drupal"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Drupal
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for Typo3"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Typo3
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Local SEO
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Local SEO for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Video SEO
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Video SEO for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Video SEO for Drupal"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Drupal
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Video SEO for Typo3"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Typo3
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            News SEO
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download News SEO for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download News SEO for Drupal"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Drupal
+              </p>
+            </li>
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download News SEO for Typo3"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Typo3
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div
+        className="AWsFI">
+        <h2
+          className="bWDgOy">
+          eBooks
+        </h2>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Yoast SEO for WooCommerce
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Yoast SEO for WooCommerce
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Yoast SEO for WooCommerce
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div
+          className="emPKkc">
+          <h3
+            className="bsRjPS">
+            Yoast SEO for WooCommerce
+          </h3>
+          <p
+            className="jPEgOF">
+             
+            version 4.7
+          </p>
+          <img
+            alt=""
+            className="ieMZJu"
+            src="Yoast_SEO_Icon_Small.svg" />
+          <ul
+            className="boOFOz">
+            <li
+              className="jVUpbY">
+              <button
+                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
+                className="gAzDzu"
+                onClick={[Function]}>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="cBxjGK">
+                for Wordpress
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

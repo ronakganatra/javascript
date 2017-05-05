@@ -1,4 +1,4 @@
-exports[`test an add more slots button should be shown when no more slots are available 1`] = `
+exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
   className="btPTmU">
   <span
@@ -44,7 +44,7 @@ exports[`test an add more slots button should be shown when no more slots are av
     <button
       className="cvhYPv">
       <span>
-        Add another slot for $69.00
+        Add another license for $69.00
       </span>
     </button>
   </div>

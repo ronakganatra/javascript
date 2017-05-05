@@ -31,7 +31,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const SubHeading = styled.h3`
+const SubHeading = styled.h2`
 	font-weight: 600;
 	font-size: 1em;
 `;

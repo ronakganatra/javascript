@@ -21,10 +21,10 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
     </button>
     <div
       className="fOFLrX">
-      <h3
+      <h2
         className="cecVBz">
         Disconnect this site
-      </h3>
+      </h2>
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
@@ -62,10 +62,10 @@ exports[`test the site dangerzone onRemove handling 1`] = `
     </button>
     <div
       className="fOFLrX">
-      <h3
+      <h2
         className="cecVBz">
         Disconnect this site
-      </h3>
+      </h2>
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
@@ -103,10 +103,10 @@ exports[`test the site dangerzone onRemove handling 2`] = `
     </button>
     <div
       className="fOFLrX">
-      <h3
+      <h2
         className="cecVBz">
         Disconnect this site
-      </h3>
+      </h2>
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
@@ -144,10 +144,10 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
     </button>
     <div
       className="fOFLrX">
-      <h3
+      <h2
         className="cecVBz">
         Disconnect this site
-      </h3>
+      </h2>
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>

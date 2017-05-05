@@ -25,10 +25,10 @@ test('the site page component matches the snapshot', () => {
 						  endDate: "2017-04-11T00:00:00.000Z",
 						  reoccurring: true,
 						  subscriberId: 2,
-						  productSlots: {
+						  productLicenses: {
 							  amountAvailable: 10,
 							  amountUsed: 5,
-							  addMoreSlots: "Add more slots",
+							  addMoreLicenses: "Add more licenses",
 						  },
 						  productLogo: SeoIcon,
 					  },
@@ -39,10 +39,10 @@ test('the site page component matches the snapshot', () => {
 						  endDate: "2017-04-11T00:00:00.000Z",
 						  reoccurring: true,
 						  subscriberId: 2,
-						  productSlots: {
+						  productLicenses: {
 							  amountAvailable: 10,
 							  amountUsed: 7,
-							  addMoreSlots: "Add more slots",
+							  addMoreLicenses: "Add more licenses",
 						  },
 						  productLogo: LocalIcon,
 					  },
@@ -54,7 +54,7 @@ test('the site page component matches the snapshot', () => {
 						toggling: false,
 					},
 				} }
-				onAddMoreSlotsClick={ () => {} }
+				onAddMoreLicensesClick={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
 				onToggleSubscription={ () => {} }

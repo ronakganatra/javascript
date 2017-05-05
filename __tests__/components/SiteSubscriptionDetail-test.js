@@ -20,7 +20,7 @@ test('the sitesubscription matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
 			<SiteSubscriptionDetail { ...subscription }
-				onAddMoreSlotsClick={ () => {} }
+				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} } />
 		</MemoryRouter>
@@ -30,13 +30,13 @@ test('the sitesubscription matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-test('an add more slots button should be shown when no more slots are available', () => {
+test('an add more licenses button should be shown when no more licenses are available', () => {
 	subscription = Object.assign( {}, subscription, { used: 20 } );
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
 			<SiteSubscriptionDetail { ...subscription }
-				onAddMoreSlotsClick={ () => {} }
+				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} } />

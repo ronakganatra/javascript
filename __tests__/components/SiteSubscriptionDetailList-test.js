@@ -73,7 +73,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 						productLogo: LocalIcon,
 					},
 				] }
-				onAddMoreSlotsClick={ () => {
+				onAddMoreLicensesClick={ () => {
 					console.log( "add more slots" );
 				} }
 				onMoreInfoClick={ () => {
