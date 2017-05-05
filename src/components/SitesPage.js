@@ -88,8 +88,8 @@ class SitesPage extends React.Component {
 			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
 		];
 		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
-							defaultMessage={ "We could not find { website } in your account." }
-							values={ { website: <strong>{ props.query }</strong> } } />,
+							defaultMessage={ "We could not find { site } in your account." }
+							values={ { site: <strong>{ props.query }</strong> } } />,
 			<FormattedMessage id="sites.sites-no-result.add" defaultMessage="Do you want to add it?" />,
 		];
 

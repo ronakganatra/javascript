@@ -30,7 +30,7 @@ const NoResultsImage = styled.img`
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered NoResults component
+ * @returns {ReactElement} The rendered NoResults component.
  * @constructor
  */
 export default function NoResults( props ) {

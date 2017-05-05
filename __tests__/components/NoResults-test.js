@@ -9,7 +9,7 @@ let paragraphs = [ <FormattedMessage id="downloads-page.no-downloads.welcome" de
 	<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
 	<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="Press the button below to visit yoast.com and look at our products."/> ];
 
-test('the NoResults component matches the snapshot', () => {
+test( 'the NoResults component matches the snapshot' , () => {
 	const component = createComponentWithIntl(
 		<NoResults paragraphs={ paragraphs } onClick={ () => {} } imageSource={ image } />
 	);
