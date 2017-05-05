@@ -12,7 +12,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={Object {}}>
           <img
             alt=""
-            className="ilptYL"
+            className="issROU"
             src="sites.svg" />
           Sites
         </a>
@@ -25,9 +25,22 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="ilptYL"
+            className="issROU"
             src="courses.svg" />
           Courses
+        </a>
+      </li>
+      <li>
+        <a
+          className="eIYKTO"
+          href="/downloads"
+          onClick={[Function]}
+          style={undefined}>
+          <img
+            alt=""
+            className="issROU"
+            src="download.svg" />
+          Downloads
         </a>
       </li>
       <li>
@@ -38,7 +51,7 @@ exports[`test the menu matches the snapshot 1`] = `
           style={undefined}>
           <img
             alt=""
-            className="ilptYL"
+            className="issROU"
             src="user.svg" />
           Account
         </a>

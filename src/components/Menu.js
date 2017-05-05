@@ -17,6 +17,10 @@ const titles = defineMessages( {
 		id: "menu.title.subscriptions",
 		defaultMessage: "Subscriptions",
 	},
+	downloads: {
+		id: "menu.title.downloads",
+		defaultMessage: "Downloads",
+	},
 	account: {
 		id: "menu.title.account",
 		defaultMessage: "Account",
@@ -133,7 +137,6 @@ const MenuIcon = styled.img`
 
 	@media screen and ( max-width: 1024px ) {
 		display: block;
-		width: 40px;
 		height: 40px;
 		margin: 0 auto -3px;
 	}
