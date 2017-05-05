@@ -41,9 +41,24 @@ exports[`test an add more slots button should be shown when no more slots are av
         0/20 remaining
       </span>
     </span>
+    <button
+      className="cvhYPv">
+      <span>
+        Add another slot for $69.00
+      </span>
+    </button>
   </div>
   <span
-    className="fLsOLM" />
+    className="fLsOLM">
+    <a
+      className="ifYuxa"
+      href="/account/subscriptions/very-unique-sub-id"
+      onClick={[Function]}>
+      <span>
+        Details
+      </span>
+    </a>
+  </span>
 </li>
 `;
 
@@ -92,6 +107,15 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     </span>
   </div>
   <span
-    className="fLsOLM" />
+    className="fLsOLM">
+    <a
+      className="ifYuxa"
+      href="/account/subscriptions/very-unique-sub-id"
+      onClick={[Function]}>
+      <span>
+        Details
+      </span>
+    </a>
+  </span>
 </li>
 `;
