@@ -10,6 +10,8 @@ import {
 	GET_ALL_SUBSCRIPTIONS_FAILURE,
 } from "../../src/actions/subscriptions";
 
+import { siteAddSubscriptionSuccess, siteRemoveSubscriptionSuccess } from "../../src/actions/site";
+
 test( 'The uiAllSubscriptionsReducer processes the get all subscription request action', () => {
 	const state = {
 		requesting: false,
@@ -57,6 +59,46 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription failure 
 	};
 
 	const actual = uiAllSubscriptionsReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( "Connecting a subscription to a site", () => {
+	let subscriptionState = {
+		"sub1id": {
+			used: 1,
+		},
+	};
+
+	let expected = {
+		"sub1id": {
+			used: 2,
+		},
+	};
+
+	let action = siteAddSubscriptionSuccess( "site-id", "sub1id" );
+
+	const actual = byIdSubscriptionsReducer( subscriptionState, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( "Removing a subscription from a site", () => {
+	let subscriptionState = {
+		"sub1id": {
+			used: 1,
+		},
+	};
+
+	let expected = {
+		"sub1id": {
+			used: 0,
+		},
+	};
+
+	let action = siteRemoveSubscriptionSuccess( "site-id", "sub1id" );
+
+	const actual = byIdSubscriptionsReducer( subscriptionState, action );
 
 	expect( actual ).toEqual( expected );
 } );

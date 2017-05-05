@@ -13,7 +13,7 @@ export const mapStateToProps = ( state ) => {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
-			used: 0,
+			used: subscription.used,
 			limit: subscription.limit,
 			nextPayment: new Date( subscription.nextPayment ),
 			billingAmount: subscription.price,
