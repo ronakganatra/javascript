@@ -1,6 +1,6 @@
 exports[`test the NoResults component matches the snapshot 1`] = `
 <div
-  className="iXKYOo">
+  className="hqmxmg">
   <p>
     <span>
       Welcome to the downloads page
@@ -22,7 +22,7 @@ exports[`test the NoResults component matches the snapshot 1`] = `
     onClick={[Function]} />
   <img
     alt=""
-    className="cEpmXf"
+    className="dFOHLF"
     src="noSites.svg" />
 </div>
 `;

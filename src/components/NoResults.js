@@ -8,14 +8,12 @@ const NoResultsContainer = styled.div`
 	text-align: center;
 	align: center;
 	margin: 0;
-	
-	button {
-		margin: 0 auto
-	}
 `;
 
 const NoResultsImage = styled.img`
 	height: auto;
+	display: block;
+	margin: 0 auto;
 		
 	@media screen and ( max-width: 400px ) { 
 		max-width: 250px;
