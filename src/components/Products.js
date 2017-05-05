@@ -18,7 +18,6 @@ const ProductsListHeading = styled( ListHeading )`
 	font-size: 22px;
 	margin: 0 0 24px 8px;
 	padding: 0 0 24px 0;
-	align-self: center;
 `;
 
 /**

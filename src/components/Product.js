@@ -7,11 +7,11 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 const messages = defineMessages( {
 	downloadButton: {
-		id: "download-page.buttons.download",
+		id: "product.buttons.download",
 		defaultMessage: "Download",
 	},
 	version: {
-		id: "download-page.product.version",
+		id: "product.product.version",
 		defaultMessage: "version",
 	},
 } );
@@ -25,9 +25,6 @@ const ProductContainer = styled.div`
 	margin: 8px;
 	padding: 16px 16px 0 16px;
 	background-color: ${ colors.$color_grey_light };
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 	text-align: center;
 	
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
@@ -51,6 +48,7 @@ const ProductIcon = styled.img`
 
 const Downloads = styled.ul`
 	padding: 0;
+	margin: 0 0 24px 0;
 `;
 
 const Download = styled.li`
@@ -67,13 +65,13 @@ const ProductName = styled.h3`
 
 const ProductVersion = styled.p`
 	font-weight: 300;
-	margin: 0 0 16px;
+	margin: 0 0 24px;
 `;
 
 const DownloadLabel = styled.p`
 	font-size: 0.875em;
 	font-weight: 300;
-	margin: 2px 0 12px;
+	margin: 2px 0 0;
 `;
 
 /**
@@ -87,7 +85,7 @@ function Product( props ) {
 	return (
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
-			<ProductVersion> { props.intl.formatMessage( messages.version )+ " " + props.currentVersion }</ProductVersion>
+			<ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>
 			<ProductIcon src={ props.icon } alt=""/>
 			<Downloads>
 				{ props.buttons.map( button => {
@@ -96,10 +94,11 @@ function Product( props ) {
 							<IconButton
 								iconSource={ downloadIcon }
 								onClick={ button.onButtonClick }
-								iconSize={ "16px" }>
+								iconSize={ "16px" }
+								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }>
 								{ props.intl.formatMessage( messages.downloadButton ) }
 							</IconButton>
-							<DownloadLabel>{ button.label }</DownloadLabel>
+							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
 			</Downloads>
