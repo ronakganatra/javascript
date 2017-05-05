@@ -44,7 +44,7 @@ exports[`test renders without crashing 1`] = `
             style={Object {}}>
             <img
               alt=""
-              className="ilptYL"
+              className="fHJXFs"
               src="sites.svg" />
             Sites
           </a>
@@ -57,9 +57,22 @@ exports[`test renders without crashing 1`] = `
             style={undefined}>
             <img
               alt=""
-              className="ilptYL"
+              className="fHJXFs"
               src="courses.svg" />
             Courses
+          </a>
+        </li>
+        <li>
+          <a
+            className="eIYKTO"
+            href="/downloads"
+            onClick={[Function]}
+            style={undefined}>
+            <img
+              alt=""
+              className="fHJXFs"
+              src="download.svg" />
+            Downloads
           </a>
         </li>
         <li>
@@ -70,7 +83,7 @@ exports[`test renders without crashing 1`] = `
             style={undefined}>
             <img
               alt=""
-              className="ilptYL"
+              className="fHJXFs"
               src="user.svg" />
             Account
           </a>
