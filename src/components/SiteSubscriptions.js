@@ -10,7 +10,6 @@ const SiteSubscriptionIcons = styled.img`
 `;
 
 SiteSubscriptionIcons.propTypes = {
-	image: React.PropTypes.string.isRequired,
 	isActive: React.PropTypes.bool.isRequired,
 };
 
@@ -45,7 +44,7 @@ export default function SiteSubscriptions( props ) {
 }
 
 SiteSubscriptions.propTypes = {
-	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 };
 

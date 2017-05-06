@@ -65,7 +65,7 @@ export function byIdProductsReducer( state = rootState.entities.products.byId, a
 	switch ( action.type ) {
 		case GET_ALL_PRODUCTS_SUCCESS:
 			products = Object.assign( {}, state );
-			console.log( "products", action.products );
+
 			action.products.forEach( ( product ) => {
 				products[ product.id ] = Object.assign( {}, product );
 			} );

@@ -64,7 +64,7 @@ function Site( props ) {
 Site.propTypes = {
 	siteName: React.PropTypes.string.isRequired,
 	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	siteIcon: React.PropTypes.string,
 	onClickManage: React.PropTypes.func,
 	intl: intlShape.isRequired,
