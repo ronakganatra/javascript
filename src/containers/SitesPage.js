@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
+import { linkSitePopupClose, linkSitePopupOpen,
+				 linkSite, updateSiteUrl, loadSites } from "../actions/sites";
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
@@ -47,6 +49,7 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( loadSites() );
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );

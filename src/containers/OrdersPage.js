@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
+import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 
 export const mapStateToProps = ( state ) => {
@@ -34,6 +35,8 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( getOrders() );
+
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
