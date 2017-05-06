@@ -408,7 +408,7 @@ class ProfilePage extends React.Component {
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
 		let onUpdateEmail = ( event ) => {
-			this.props.onChange( event.target.value );
+			this.props.onUpdateEmail( event.target.value );
 		};
 
 		return (
@@ -479,7 +479,7 @@ ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: React.PropTypes.string.isRequired,
 	image: React.PropTypes.string,
-	onChange: React.PropTypes.func.isRequired,
+	onUpdateEmail: React.PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {
