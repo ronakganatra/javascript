@@ -1,5 +1,5 @@
 import React from "react";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
 import { Button } from "./Button";
 import UserImage from "../components/UserImage";
@@ -49,15 +49,13 @@ const messages = defineMessages( {
 		id: "profile.button.saveChanges",
 		defaultMessage: "Save changes",
 	},
+	gravatarLink: {
+		id: "profile.gravatarLink",
+		defaultMessage: "Gravatar website",
+	},
 	labelProfilePicture: {
 		id: "profile.label.picture",
 		defaultMessage: "Profile picture",
-	},
-	descriptionProfilePicture: {
-		id: "profile.description.picture",
-		defaultMessage: "Your profile picture is supplied by Gravatar. If you don't have" +
-										" an account with them yet, or want to change your existing" +
-										" picture, please visit the Gravatar website.",
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
@@ -465,7 +463,15 @@ class ProfilePage extends React.Component {
 
 					<Column>
 						<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
-						<p>{ this.props.intl.formatMessage( messages.descriptionProfilePicture ) }</p>
+						<p>
+							<FormattedMessage
+								id="profile.description.picture"
+								defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
+												  " an account with them yet, or want to change your existing" +
+												  " picture, please visit the { link }." }
+								values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+							/>
+						</p>
 						{ image }
 					</Column>
 
