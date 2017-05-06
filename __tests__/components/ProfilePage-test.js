@@ -7,7 +7,7 @@ test('the site page component matches the snapshot', () => {
 		<ProfilePage
 				email={ "test@test.test" }
 				image="dummy.png"
-				onChange={ () => {} } />
+				onUpdateEmail={ () => {} } />
 	);
 
 	let tree = component.toJSON();
