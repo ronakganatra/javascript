@@ -2,6 +2,7 @@ import "whatwg-fetch";
 import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
 import { getAccessToken, getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
+import { getAllProducts } from "./products";
 
 /**
  * Action types
@@ -145,13 +146,14 @@ export function retrieveSitesRequest() {
 }
 
 /**
- * An action creator for loading sites and subscriptions.
+ * An action creator for loading sites, products and subscriptions.
  *
  * @returns {Object} a dispatcher that dispatches the actions.
  */
 export function loadSites() {
 	return ( dispatch ) => {
 		dispatch( retrieveSites() );
+		dispatch( getAllProducts() );
 		dispatch( getAllSubscriptions() );
 	};
 }
