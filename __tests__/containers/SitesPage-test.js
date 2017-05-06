@@ -11,9 +11,28 @@ test('the mapStateToProps function', () => {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"url": "http://yoast.com",
 					"creationDate": "2017-03-21T08:54:09.415Z",
-					"userId": 1
+					"userId": 1,
+					"subscriptions": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				} },
 				allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+			},
+			subscriptions: {
+				"byId": {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					},
+				},
+			},
+			products: {
+				"byId": {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+					},
+				}
 			},
 		},
 		router: {
@@ -33,7 +52,21 @@ test('the mapStateToProps function', () => {
 		},
 	};
 	let expected = {
-		sites: [ { "id": "497490e6-eb8d-4627-be9b-bfd33fc217f1", "siteName": "http://yoast.com" } ],
+		sites: [ {
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			"siteName": "http://yoast.com",
+			"activeSubscriptions": [ {
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			} ],
+		} ],
+		plugins: [
+			{
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"icon": "test.png",
+				"name": "Yoast SEO",
+			}
+		],
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
