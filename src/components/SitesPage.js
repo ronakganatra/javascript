@@ -109,7 +109,7 @@ class SitesPage extends React.Component {
 						{ this.getSearch() }
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
-					<Sites sites={ props.sites } onManage={ props.onManage }/>
+					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }
 				</div>
 			);
@@ -155,6 +155,7 @@ export default injectIntl( SitesPage );
 
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
 	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,

@@ -1,10 +1,13 @@
 import { connect } from "react-redux";
-import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
 import { linkSitePopupClose, linkSitePopupOpen,
 				 linkSite, updateSiteUrl, loadSites } from "../actions/sites";
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
+import _isUndefined from "lodash/isUndefined";
+import _compact from "lodash/compact";
+import _isEmpty from "lodash/isEmpty";
+import { getPlugins } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -21,6 +24,14 @@ export const mapStateToProps = ( state ) => {
 			siteProps.siteIcon = site.icon;
 		}
 
+		let activeSubscriptions = site.subscriptions.map( ( subscriptionId ) => {
+			let subscription = state.entities.subscriptions.byId[ subscriptionId ];
+			if ( ! _isUndefined( subscription ) ) {
+				return subscription;
+			}
+		} );
+
+		siteProps.activeSubscriptions = _compact( activeSubscriptions );
 		return siteProps;
 	} );
 
@@ -37,11 +48,26 @@ export const mapStateToProps = ( state ) => {
 
 	let errorMessage = state.ui.sites.linkSiteError;
 
+	let products = state.entities.products.byId;
+
+	let plugins = [];
+
+	if ( ! _isEmpty( products ) ) {
+		plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
+			return {
+				id: plugin.id,
+				name: plugin.name,
+				icon: plugin.icon,
+			};
+		} );
+	}
+
 	return {
 		sites,
 		popupOpen,
 		errorFound,
 		errorMessage,
+		plugins,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 		query,
 		showLoader: ! state.ui.sites.sitesRetrieved,
@@ -50,6 +76,7 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( loadSites() );
+
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );

@@ -1,23 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import SeoIcon from "../icons/Yoast/Yoast_SEO_Icon_Small.svg";
-import LocalIcon from "../icons/Yoast/Local_SEO_Icon_Small.svg";
-import NewsIcon from "../icons/Yoast/News_Icon_Small.svg";
-import VideoIcon from "../icons/Yoast/Video_SEO_Icon_Small.svg";
-import WooIcon from "../icons/Yoast/Woo_Icon_Small.svg";
-import LocalWooIcon from "../icons/Yoast/Local_Woo_Icon_Small.svg";
 
-let YoastProducts = {
-	seo: { name: "Yoast SEO", image: SeoIcon },
-	local: { name: "Local SEO", image: LocalIcon },
-	video: { name: "Video SEO", image: VideoIcon },
-	news: { name: "News SEO", image: NewsIcon },
-	woo: { name: "WooCommerce SEO", image: WooIcon },
-	localwoo: { name: "Local SEO for Woo", image: LocalWooIcon },
-};
-
-const SiteSubscriptionIcons = styled.span`
-	background-image: url(${ props => props.image });
+const SiteSubscriptionIcons = styled.img`
 	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
 	width: 40px;
 	height: 40px;
@@ -40,16 +24,17 @@ export default function SiteSubscriptions( props ) {
 	return (
 		<span>
 			{
-				Object.keys( YoastProducts ).map( function( productName ) {
-					let isActive = props.activeSubscriptions.includes( productName );
-					let product = YoastProducts[ productName ];
+				props.plugins.map( function( plugin ) {
+					let isActive = props.activeSubscriptions.map( ( subscription ) => {
+						return subscription.productId;
+					} ).includes( plugin.id );
 
 					return (
 						<SiteSubscriptionIcons
-							key={ productName }
-							image={ product.image }
+							key={ plugin.name }
+							src={ plugin.icon }
 							isActive={ isActive }
-							aria-label={ isActive ? product.name + " is active" : product.name + " is inactive" }
+							aria-label={ isActive ? plugin.name + " is active" : plugin.name + " is inactive" }
 							role="img"
 						/>
 					);
@@ -61,8 +46,10 @@ export default function SiteSubscriptions( props ) {
 
 SiteSubscriptions.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 };
 
 SiteSubscriptions.defaultProps = {
 	activeSubscriptions: [],
+	plugins: [],
 };
