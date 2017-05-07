@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import ProfilePage from '../../src/components/ProfilePage';
 import { createComponentWithIntl } from "../../utils";
 

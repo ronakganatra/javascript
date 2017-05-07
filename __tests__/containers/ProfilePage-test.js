@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { mapStateToProps, mapDispatchToProps } from "../../src/containers/ProfilePage"
 import { profileUpdateEmail } from "../../src/actions/user";
 import { url } from "gravatar";
