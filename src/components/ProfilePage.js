@@ -7,6 +7,7 @@ import validate from "validate.js";
 import a11ySpeak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
+import _isUndefined from "lodash/isUndefined";
 
 const messages = defineMessages( {
 	validationPasswordLength: {
@@ -103,12 +104,8 @@ const TextInput = styled.input`
 `;
 
 const SaveContainer = styled.div`
-	margin: 2em 0 0;
+	margin: 1em 0 0;
 	text-align: right;
-`;
-
-const FieldGroup = styled.div`
-	margin-top: 4em;
 `;
 
 const FormError = styled.div`
@@ -134,58 +131,36 @@ class ProfilePage extends React.Component {
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}
 	 */
-
 	constructor( props ) {
 		super( props );
 
 		// Set default state; password fields are left blank intentionally.
 		this.state = {
-			oldPassword: "",
-			newPassword: "",
-			newPasswordCheck: "",
+			error: [],
 		};
-		this.validateWrapper = this.validateWrapper.bind( this );
 		this.validateFields = this.validateFields.bind( this );
-
-		// Wrap all onChange handlers to validate input after changes.
-		this.handleEmailChange = this.validateWrapper( this.handleEmailChange );
-		this.handleOldPasswordChange = this.validateWrapper( this.handleOldPasswordChange );
-		this.handleNewPasswordChange = this.validateWrapper( this.handleNewPasswordChange );
-		this.handleNewPasswordCheckChange = this.validateWrapper( this.handleNewPasswordCheckChange );
-
-		this.handleSubmit = this.handleSubmit.bind( this );
 
 		// Validation constraints.
 		this.constraints = {
 			email: this.emailConstraints.bind( this ),
-			newPassword: this.passwordConstraints.bind( this ),
-			newPasswordCheck: this.passwordCheckConstraints.bind( this ),
 		};
-	}
-
-	/**
-	 * Wraps the field validation call around change even handler.
-	 *
-	 * @param {callback} action Function to trigger on change event.
-	 * @returns {function(this:ProfilePage)} Wrapped function to be attached to an event.
-	 */
-	validateWrapper( action ) {
-		let wrapper = function( event ) {
-			action.call( this, event, this.validateFields );
-		};
-
-		return wrapper.bind( this );
 	}
 
 	/**
 	 * Runs the fields through the validator and places the errors in the state.
 	 *
-	 * @returns {void}
+	 * @returns {Array} All validation errors.
 	 */
 	validateFields() {
-		this.setState( {
-			errors: validate( this.state, this.constraints, { format: "detailed" } ),
-		} );
+		let errors = validate( {
+			email: this.props.email,
+		}, this.constraints, { format: "detailed" } );
+
+		if ( _isUndefined( errors ) ) {
+			errors = [];
+		}
+
+		return errors;
 	}
 
 	/**
@@ -217,170 +192,26 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Creates the confirm new password field constraints for validation.
-	 *
-	 * @param {string} value Current value of the field.
-	 * @param {Object} attributes Constraint attributes.
-	 * @returns {Object} The constraint.
-	 */
-	passwordCheckConstraints( value, attributes ) {
-		if ( ! attributes.newPassword || attributes.newPassword.length === 0 ) {
-			return null;
-		}
-
-		return {
-			presence: false,
-			equality: {
-				message: this.props.intl.formatMessage( messages.validationPasswordMatch, {
-					field: "Confirm new password",
-					reference: "New password",
-				} ),
-				attribute: "newPassword",
-			},
-		};
-	}
-
-	/**
-	 * Creates the new password field constraints for validation.
-	 *
-	 * @param {string} value Current value of the field.
-	 * @param {Object} attributes Constraint attributes.
-	 * @returns {Object} The constraint.
-	 */
-	passwordConstraints( value, attributes ) {
-		if ( ! value && (
-				! attributes.oldPassword || attributes.oldPassword.length === 0
-			) ) {
-			return null;
-		}
-
-		return {
-			length: {
-				minimum: 6,
-				message: this.props.intl.formatMessage( messages.validationPasswordLength, {
-					field: "New password",
-					length: 6,
-				} ),
-			},
-		};
-	}
-
-	/**
-	 * Handles the form submittion
-	 *
-	 * @param {Object} event Event that triggered the submit.
-	 * @returns {void}
-	 */
-	handleSubmit( event ) {
-		// Submitting state.. show loader.
-		this.setState( {
-			saving: true,
-		} );
-		// Dispatch event to update to the server.
-
-		event.preventDefault();
-	}
-
-	/**
-	 * Handles the saved dispatch.
-	 * @returns {void}
-	 */
-	saveComplete() {
-		this.setState( {
-			saving: false,
-			saved: true,
-		} );
-	}
-
-	/**
-	 * Handles a save fail dispatch.
-	 *
-	 * @param {Object} errors Errors by field key.
-	 * @returns {void}
-	 */
-	saveFailed( errors ) {
-		this.setState( {
-			saving: false,
-			saved: false,
-			errors: errors,
-		} );
-	}
-
-	/**
-	 * Handles the email field value change.
-	 *
-	 * @param {Object} event The event that triggered the change.
-	 * @param {callback} callback Callback to be used after the state has been changed.
-	 *
-	 * @returns {void}
-	 */
-	handleEmailChange( event, callback ) {
-		this.setState( { email: event.target.value }, callback );
-
-		// Debounce unique-address check.
-		// E.a. onBlur -> cancel debounce and do it.
-	}
-
-	/**
-	 * Handles the old password field value change.
-	 *
-	 * @param {Object} event The event that triggered the change.
-	 * @param {callback} callback Callback to be used after the state has been changed.
-	 *
-	 * @returns {void}
-	 */
-	handleOldPasswordChange( event, callback ) {
-		this.setState( { oldPassword: event.target.value }, callback );
-	}
-
-	/**
-	 * Handles the new password field value change.
-	 *
-	 * @param {Object} event The event that triggered the change.
-	 * @param {callback} callback Callback to be used after the state has been changed.
-	 *
-	 * @returns {void}
-	 */
-	handleNewPasswordChange( event, callback ) {
-		this.setState( { newPassword: event.target.value }, callback );
-	}
-
-	/**
-	 * Handles the confirm new password field value change.
-	 *
-	 * @param {Object} event The event that triggered the change.
-	 * @param {callback} callback Callback to be used after the state has been changed.
-	 *
-	 * @returns {void}
-	 */
-	handleNewPasswordCheckChange( event, callback ) {
-		this.setState( { newPasswordCheck: event.target.value }, callback );
-	}
-
-	/**
 	 * Displays the errors for the provided field.
 	 *
+	 * @param {Array} errors The errors that could be displayed.
 	 * @param {string} field Field to display errors for.
-	 * @returns {JSXElement} List of JSXElements if errors are found otherwise null.
+	 * @returns {ReactElement[]} List of JSXElements if errors are found otherwise null.
 	 */
-	displayErrors( field ) {
-		if ( ! this.state.errors ) {
-			return null;
-		}
-
+	displayErrors( errors, field ) {
 		// Find errors for the specified field.
-		let errors = this.state.errors.filter( error => {
+		let fieldErrors = errors.filter( error => {
 			return error.attribute === field;
 		} );
 
 		// Return nothing if we don't have any errors.
-		if ( errors.length === 0 ) {
+		if ( fieldErrors.length === 0 ) {
 			return null;
 		}
 
 		// Display all remaining errors.
-		return errors.map( ( error ) => {
-			return <FormError>{ error.options.message }</FormError>;
+		return fieldErrors.map( ( error ) => {
+			return <FormError key={ error.options.message }>{ error.options.message }</FormError>;
 		} );
 	}
 
@@ -390,7 +221,7 @@ class ProfilePage extends React.Component {
 	 * @returns {string} Text to be used on the submit button.
 	 */
 	submitButtonText() {
-		return this.state.saving ? this.props.intl.formatMessage( messages.buttonSaving ) : this.props.intl.formatMessage( messages.buttonSaveChanges );
+		return this.isSaving() ? this.props.intl.formatMessage( messages.buttonSaving ) : this.props.intl.formatMessage( messages.buttonSaveChanges );
 	}
 
 	componentDidMount() {
@@ -400,20 +231,44 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
+	 * Whether we are currently saving.
+	 *
+	 * @returns {boolean} Whether we are currently saving.
+	 */
+	isSaving() {
+		return this.props.isSaving;
+	}
+
+	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+		let errors = this.validateFields();
+
 		let onUpdateEmail = ( event ) => {
 			this.props.onUpdateEmail( event.target.value );
 		};
 
+		let handleSubmit = ( event ) => {
+			event.preventDefault();
+
+			this.props.onSaveProfile();
+		};
+
+		let globalError = null;
+		if ( this.props.error !== "" ) {
+			globalError = <FormError>{this.props.error}</FormError>;
+		}
+
 		return (
-		<Paper>
+			<Paper>
 				<Page>
 					<Column>
-						<form onSubmit={this.handleSubmit}>
+						<form onSubmit={handleSubmit}>
+							{ globalError }
+
 							<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 							<TextInput
 								id="emailAddress"
@@ -422,41 +277,11 @@ class ProfilePage extends React.Component {
 								type="text"
 								value={ this.props.email }
 								onChange={ onUpdateEmail }/>
-							{ this.displayErrors( "email" ) }
-
-							<FieldGroup>
-								<Label htmlFor="oldPassword">{ this.props.intl.formatMessage( messages.labelCurrentPassword ) }</Label>
-								<TextInput
-									id="oldPassword"
-									type="password"
-									value={this.state.oldPassword}
-									onChange={this.handleOldPasswordChange}/>
-								{ this.displayErrors( "oldPassword" ) }
-
-								<Label htmlFor="newPassword">{ this.props.intl.formatMessage( messages.labelNewPassword ) }</Label>
-								<TextInput
-									id="newPassword"
-									autocomplete="off"
-									type="password"
-									value={this.state.newPassword}
-									onChange={this.handleNewPasswordChange}/>
-								{ this.displayErrors( "newPassword" ) }
-
-								<Label htmlFor="newPasswordCheck">{ this.props.intl.formatMessage( messages.labelNewPasswordConfirm ) }</Label>
-								<TextInput
-									id="newPasswordCheck"
-									autocomplete="off"
-									type="password"
-									value={this.state.newPasswordCheck}
-									onChange={this.handleNewPasswordCheckChange}/>
-								{ this.displayErrors( "newPasswordCheck" ) }
-							</FieldGroup>
+							{ this.displayErrors( errors, "email" ) }
 
 							<SaveContainer>
-								<Button type="submit" onClick={this.handleSubmit}
-												disabled={ this.state.saving }>{ this.submitButtonText() }</Button>
+								<Button type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</Button>
 								{ this.state.saved ? "Saved" : "" }
-
 							</SaveContainer>
 						</form>
 					</Column>
@@ -485,11 +310,16 @@ ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: React.PropTypes.string.isRequired,
 	image: React.PropTypes.string,
+	isSaving: React.PropTypes.bool,
+	error: React.PropTypes.string,
 	onUpdateEmail: React.PropTypes.func.isRequired,
+	onSaveProfile: React.PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
+	error: "",
+	isSaving: false,
 };
 
 export default injectIntl( ProfilePage );
