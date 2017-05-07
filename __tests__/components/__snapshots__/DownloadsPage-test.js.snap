@@ -2,7 +2,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
 <div>
   <div>
     <label
-      className="bFGhCT"
+      className="gOZvhE"
       htmlFor="search">
       <span
         className="screen-reader-text foqgVb">
@@ -14,7 +14,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="hhtLuS"
+      className="eCSBxO"
       id="search"
       onChange={[Function]}
       spellCheck="false"

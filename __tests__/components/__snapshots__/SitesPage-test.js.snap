@@ -4,7 +4,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -16,7 +16,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -127,7 +127,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -139,7 +139,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -216,7 +216,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -228,7 +228,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
