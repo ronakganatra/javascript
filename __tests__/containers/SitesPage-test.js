@@ -65,6 +65,7 @@ test('the mapStateToProps function', () => {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"icon": "test.png",
 				"name": "Yoast SEO",
+				"type": "plugin",
 			}
 		],
 		popupOpen: false,
