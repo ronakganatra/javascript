@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import SubscriptionPage from "../components/SubscriptionPage";
+import { getAllSubscriptions } from "../actions/subscriptions";
 import _isUndefined from "lodash/isUndefined";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -38,6 +39,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( getAllSubscriptions() );
+
 	return {
 		onAddSite: () => {},
 		onShop: () => {},
