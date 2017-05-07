@@ -21,7 +21,7 @@ const SearchLabel = styled.label`
 	background-position: left center;
 	background-repeat: no-repeat;
 	width: 40px;
-	height: 60px;
+	height: 50px;
 	float: left;
 `;
 
@@ -39,9 +39,9 @@ const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled.input`
-	height: 60px;
+	height: 50px;
 	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
-	background: ${ colors.$color_grey };
+	background: ${ colors.$color_white };
 	border: 0;
 	padding: 0 0 0 10px;
 	font-size: 18px;
