@@ -25,10 +25,7 @@ export const mapStateToProps = ( state ) => {
 		}
 
 		let activeSubscriptions = site.subscriptions.map( ( subscriptionId ) => {
-			let subscription = state.entities.subscriptions.byId[ subscriptionId ];
-			if ( ! _isUndefined( subscription ) ) {
-				return subscription;
-			}
+			return state.entities.subscriptions.byId[ subscriptionId ];
 		} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
@@ -48,19 +45,7 @@ export const mapStateToProps = ( state ) => {
 
 	let errorMessage = state.ui.sites.linkSiteError;
 
-	let products = state.entities.products.byId;
-
-	let plugins = [];
-
-	if ( ! _isEmpty( products ) ) {
-		plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
-			return {
-				id: plugin.id,
-				name: plugin.name,
-				icon: plugin.icon,
-			};
-		} );
-	}
+	let	plugins = getPlugins( state.entities.products.byId );
 
 	return {
 		sites,
