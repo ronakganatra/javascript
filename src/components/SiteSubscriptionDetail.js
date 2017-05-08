@@ -124,12 +124,12 @@ function SiteSubscriptionDetail( props ) {
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
-	if ( licensesRemaining === 1 ) {
+	if ( licensesRemaining === 0 ) {
 		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
 
 		anotherLicense = <AddOneLicense><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Add another license for { price }"
+			defaultMessage="Buy more licenses for { price }"
 			values={{ price }} /></AddOneLicense>;
 	}
 
