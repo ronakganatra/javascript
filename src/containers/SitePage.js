@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
-import { updateSiteUrl } from "../actions/sites";
+import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
+import { getPlugins } from "../functions/products";
+import _isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -34,15 +36,50 @@ export const mapStateToProps = ( state, ownProps ) => {
 		);
 	} );
 
+	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+		return subscription.status === "active";
+	} );
+
+	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
+		plugin.limit = 0;
+		plugin.isEnabled = false;
+		plugin.used = 0;
+		plugin.subscriptionId = "";
+		plugin.currency = "USD";
+
+		activeSubscriptions.filter( ( subscription ) => {
+			return subscription.productId === plugin.id;
+		} ).forEach( ( subscription ) => {
+			plugin.limit += subscription.limit;
+			plugin.used += ( subscription.used || 0 );
+			if ( subscription.isEnabled === true ) {
+				plugin.isEnabled = true;
+				plugin.subscriptionId = subscription.id;
+			} else if (
+				_isEmpty( plugin.subscriptionId ) &&
+				( subscription.limit > ( subscription.used || 0 ) )
+			) {
+				plugin.subscriptionId = subscription.id;
+			}
+			plugin.currency = subscription.currency;
+		} );
+
+		return plugin;
+	} );
+
+	console.log( "PLUGINS", plugins );
+
 	return {
 		site,
 		subscriptions,
+		plugins,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
 		uiSite: state.ui.site,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( loadSites() );
 	let siteId = ownProps.match.params.id;
 
 	return {

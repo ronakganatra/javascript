@@ -24,10 +24,10 @@ function SiteSubscriptionDetailList( props ) {
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable hasHeaderLabels={ false }>
-					{ props.siteSubscriptions.map( ( subscription ) => {
+					{ props.plugins.map( ( plugin ) => {
 						return <SiteSubscriptionDetail
-							{ ...subscription }
-							key={ subscription.id }
+							{ ...plugin }
+							key={ plugin.id }
 							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onSettingsClick={ props.onSettingsClick }
@@ -42,6 +42,7 @@ function SiteSubscriptionDetailList( props ) {
 
 SiteSubscriptionDetailList.propTypes = {
 	siteSubscriptions: React.PropTypes.array,
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
