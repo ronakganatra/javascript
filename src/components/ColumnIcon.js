@@ -12,15 +12,19 @@ import { Column } from "./Tables";
 export const ColumnIcon = styled( Column )`
 	height: 60px;
 	text-align: center;
+	flex: 0 0 ${ props => props.ColumnWidth };
 
 	& img {
 		margin: 0 auto;
 	}
 
-	box-sizing: border-box;
-	
-	@media screen and ( max-width: 800px ) {
-		height: 48px;
+	// We need to make sure flex values are not overridden.
+	@media screen and ( max-width: 1355px ) {
 		flex: 0 0 ${ props => props.ColumnWidth };
+	}
+
+	@media screen and ( max-width: 800px ) {
+		flex: 0 0 ${ props => props.ColumnWidth };
+		height: 48px;
 	}
 `;

@@ -17,7 +17,6 @@ const SubscriptionLeftContainer = styled.span`
 
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		margin-right: 20px;
-		background: red
 	}
 
 	@media screen and ( max-width: 800px ) {
