@@ -124,7 +124,7 @@ function SiteSubscriptionDetail( props ) {
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
-	if ( licensesRemaining === 0 ) {
+	if ( licensesRemaining === 1 ) {
 		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
 
 		anotherLicense = <AddOneLicense><FormattedMessage
