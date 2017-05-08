@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
-import { profileUpdateEmail, updateProfile } from "../actions/user";
+import { profileUpdateEmail, updateProfile, passwordResetSend } from "../actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/My_Yoast_default_avatar.png";
 
@@ -15,6 +15,9 @@ export const mapStateToProps = ( state ) => {
 		} ),
 		isSaving: state.user.savingProfile,
 		error: state.user.savingError,
+		isSendingPasswordReset: state.user.sendingPasswordReset,
+		hasSendPasswordReset: state.user.sendPasswordReset,
+		passwordResetError: state.user.passwordResetError,
 	};
 };
 
@@ -26,6 +29,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSaveProfile: ( profile ) => {
 			dispatch( updateProfile( profile ) );
 		},
+		onPasswordReset: ( email ) => {
+			dispatch( passwordResetSend( email ) );
+		},
 	};
 };
 
@@ -36,7 +42,14 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		dispatchProps.onSaveProfile( { email } );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onSaveProfile } );
+	const onPasswordReset = () => {
+		dispatchProps.onPasswordReset( email );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, {
+		onSaveProfile,
+		onPasswordReset,
+	} );
 };
 
 const ProfilePageContainer = connect(

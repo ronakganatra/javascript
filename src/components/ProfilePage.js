@@ -10,14 +10,6 @@ import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 
 const messages = defineMessages( {
-	validationPasswordLength: {
-		id: "validation.password.length",
-		defaultMessage: "{field} must be at least {length} characters long.",
-	},
-	validationPasswordMatch: {
-		id: "validation.password.match",
-		defaultMessage: "{field} must match {reference}.",
-	},
 	validationFormatEmail: {
 		id: "validation.format.email",
 		defaultMessage: "{field} must be a valid e-mail address.",
@@ -30,18 +22,6 @@ const messages = defineMessages( {
 		id: "profile.label.email",
 		defaultMessage: "Email",
 	},
-	labelCurrentPassword: {
-		id: "profile.label.password.current",
-		defaultMessage: "Current password",
-	},
-	labelNewPassword: {
-		id: "profile.label.password.new",
-		defaultMessage: "New password",
-	},
-	labelNewPasswordConfirm: {
-		id: "profile.label.password.confirm",
-		defaultMessage: "Confirm new password",
-	},
 	buttonSaving: {
 		id: "profile.button.saving",
 		defaultMessage: "Saving...",
@@ -49,6 +29,22 @@ const messages = defineMessages( {
 	buttonSaveChanges: {
 		id: "profile.button.saveChanges",
 		defaultMessage: "Save changes",
+	},
+	passwordReset: {
+		id: "profile.label.passwordReset",
+		defaultMessage: "Password reset",
+	},
+	passwordResetSend: {
+		id: "profile.button.passwordResetSend",
+		defaultMessage: "Send a password reset email",
+	},
+	passwordResetSending: {
+		id: "profile.button.passwordResetSending",
+		defaultMessage: "Sending password reset...",
+	},
+	passwordResetSent: {
+		id: "profile.passwordResetSent",
+		defaultMessage: "An email has been sent, please check your inbox.",
 	},
 	gravatarLink: {
 		id: "profile.gravatarLink",
@@ -83,6 +79,7 @@ const Column = styled.div`
 `;
 
 const Label = styled.label`
+	display: block;
 	margin-bottom: 0.5em;
 	font-size: 1.1em;
 `;
@@ -100,7 +97,6 @@ const TextInput = styled.input`
 	width: 100%;
 	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
 	border:none;
-	margin: 7px 0;
 `;
 
 const SaveContainer = styled.div`
@@ -113,6 +109,10 @@ const FormError = styled.div`
 	padding: 0.5em;
 	margin-top: 0.5em;
 	color: ${ colors.$color_black };
+`;
+
+const PasswordReset = styled.section`
+	margin: 1em 0;
 `;
 
 /**
@@ -240,6 +240,31 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
+	 * Returns the password reset elements for the profile page.
+	 *
+	 * @returns {ReactElement} The element for the password reset.
+	 */
+	getPasswordReset() {
+		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
+		let disabled = false;
+		if ( this.props.isSendingPasswordReset ) {
+			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSending );
+			disabled = true;
+		}
+
+		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={disabled}>{passwordResetButtonText}</Button>;
+		if ( this.props.hasSendPasswordReset ) {
+			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+		}
+
+		return <PasswordReset>
+			<Label>{ this.props.intl.formatMessage( messages.passwordReset ) }</Label>
+
+			{ passwordResetButton }
+		</PasswordReset>;
+	}
+
+	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
@@ -284,6 +309,8 @@ class ProfilePage extends React.Component {
 								{ this.state.saved ? "Saved" : "" }
 							</SaveContainer>
 						</form>
+
+						{ this.getPasswordReset() }
 					</Column>
 
 					<Column>
@@ -299,7 +326,6 @@ class ProfilePage extends React.Component {
 						</p>
 						{ image }
 					</Column>
-
 				</Page>
 			</Paper>
 		);
@@ -312,14 +338,21 @@ ProfilePage.propTypes = {
 	image: React.PropTypes.string,
 	isSaving: React.PropTypes.bool,
 	error: React.PropTypes.string,
+	isSendingPasswordReset: React.PropTypes.bool,
+	hasSendPasswordReset: React.PropTypes.bool,
+	passwordResetError: React.PropTypes.string,
 	onUpdateEmail: React.PropTypes.func.isRequired,
 	onSaveProfile: React.PropTypes.func.isRequired,
+	onPasswordReset: React.PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
 	error: "",
 	isSaving: false,
+	isSendingPasswordReset: false,
+	hasSendPasswordReset: false,
+	passwordResetError: "",
 };
 
 export default injectIntl( ProfilePage );

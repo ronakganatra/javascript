@@ -1,5 +1,13 @@
 import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions/user";
-import { PROFILE_UPDATE_REQUEST, PROFILE_UPDATE_FAILURE, PROFILE_UPDATE_SUCCESS, PROFILE_UPDATE_EMAIL } from "../actions/user";
+import {
+	PROFILE_UPDATE_REQUEST,
+	PROFILE_UPDATE_FAILURE,
+	PROFILE_UPDATE_SUCCESS,
+	PROFILE_UPDATE_EMAIL,
+	RESET_PASSWORD_REQUEST,
+	RESET_PASSWORD_FAILURE,
+	RESET_PASSWORD_SUCCESS,
+} from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
 const initialState = {
@@ -28,6 +36,9 @@ const initialState = {
 
 	savingProfile: false,
 	savingError: "",
+	sendingPasswordReset: false,
+	sendPasswordReset: false,
+	passwordResetError: "",
 };
 
 /**
@@ -104,7 +115,39 @@ export function userEmailReducer( state = initialState, action ) {
 	}
 }
 
-let userState = reduceReducers( userDataReducer, userEmailReducer );
+/**
+ * A reducer for the password reset.
+ *
+ * @param {Object} state The previous state of the store.
+ * @param {Object} action The action that just occurred.
+ * @returns {Object} The new state of the store.
+ */
+export function passwordResetReducer( state, action ) {
+	switch ( action.type ) {
+		case RESET_PASSWORD_REQUEST:
+			return Object.assign( {}, state, {
+				sendingPasswordReset: true,
+				passwordResetError: "",
+			} );
+
+		case RESET_PASSWORD_SUCCESS:
+			return Object.assign( {}, state, {
+				sendingPasswordReset: false,
+				sendPasswordReset: true,
+			} );
+
+		case RESET_PASSWORD_FAILURE:
+			return Object.assign( {}, state, {
+				sendingPasswordReset: false,
+				passwordResetError: action.message,
+			} );
+
+		default:
+			return state;
+	}
+}
+
+let userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer );
 
 /**
  * A combineReducer for the user object.
