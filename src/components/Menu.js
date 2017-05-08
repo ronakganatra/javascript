@@ -68,7 +68,8 @@ const MenuItem = styled( NavLink )`
 	text-decoration: none;
 	
 	transition: color 0.1s ease-out, background-color 0.1s ease-out, padding 0.3s ease-out, transform 0.1s ease-out;
-	
+
+	&:focus,
 	&:hover {
 		padding-left: 24px;
 	}
@@ -81,7 +82,8 @@ const MenuItem = styled( NavLink )`
 		color: ${ colors.$color_pink_dark };
 		position: relative;
 		overflow-y: hidden;
-		
+
+		&:focus,
 		&:hover {
 			padding-left: 16px;
 		}
@@ -126,6 +128,7 @@ const MenuItem = styled( NavLink )`
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		
+		&:focus,
 		&:hover {
 			padding-left: 0;
 			transform: scale( 1.08 );
@@ -138,6 +141,7 @@ const MenuItem = styled( NavLink )`
 			transform: scale( 1.08 );
 			box-shadow: none;
 			
+			&:focus,
 			&:hover {
 				padding-left: 0;
 				transform: scale( 1.08 );
