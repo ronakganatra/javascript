@@ -1,0 +1,96 @@
+exports[`test the site page component matches the snapshot 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <label
+          className="hQXFog"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="bogiac"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="test@test.test" />
+        <div
+          className="USlUF">
+          <label
+            className="hQXFog"
+            htmlFor="oldPassword">
+            Current password
+          </label>
+          <input
+            className="bogiac"
+            id="oldPassword"
+            onChange={[Function]}
+            type="password"
+            value="" />
+          <label
+            className="hQXFog"
+            htmlFor="newPassword">
+            New password
+          </label>
+          <input
+            className="bogiac"
+            id="newPassword"
+            onChange={[Function]}
+            type="password"
+            value="" />
+          <label
+            className="hQXFog"
+            htmlFor="newPasswordCheck">
+            Confirm new password
+          </label>
+          <input
+            className="bogiac"
+            id="newPasswordCheck"
+            onChange={[Function]}
+            type="password"
+            value="" />
+        </div>
+        <div
+          className="hkpkJu">
+          <button
+            className="dRCeMN"
+            disabled={undefined}
+            onClick={[Function]}
+            type="submit">
+            Save changes
+          </button>
+          
+        </div>
+      </form>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      <img
+        alt=""
+        className="gZEvir"
+        size="120px"
+        src="dummy.png" />
+    </div>
+  </div>
+</div>
+`;
