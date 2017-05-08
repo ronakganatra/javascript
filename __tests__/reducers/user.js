@@ -63,13 +63,20 @@ test( 'the fetch user request success action', () => {
 		type: FETCH_USER_SUCCESS,
 		user: {
 			someData: "data",
+			profile: {
+				email: "an email",
+			},
 		}
 	};
 	const expected = {
 		isFetching: false,
 		data: {
 			someData: "data",
+			profile: {
+				email: "an email",
+			},
 		},
+		email: "an email",
 	};
 
 	const actual = userReducer( input, action );

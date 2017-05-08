@@ -1,4 +1,4 @@
-exports[`test the site page component matches the snapshot 1`] = `
+exports[`components/ProfilePage failure during password reset 1`] = `
 <div
   className="dnTGWH">
   <div
@@ -8,65 +8,390 @@ exports[`test the site page component matches the snapshot 1`] = `
       <form
         onSubmit={[Function]}>
         <label
-          className="hQXFog"
+          className="geijem"
           htmlFor="emailAddress">
           Email
         </label>
         <input
-          className="bogiac"
+          className="gEZOsv"
           id="emailAddress"
           name="email"
           onChange={[Function]}
           type="text"
-          value="test@test.test" />
+          value="email@email.email" />
         <div
-          className="USlUF">
-          <label
-            className="hQXFog"
-            htmlFor="oldPassword">
-            Current password
-          </label>
-          <input
-            className="bogiac"
-            id="oldPassword"
-            onChange={[Function]}
-            type="password"
-            value="" />
-          <label
-            className="hQXFog"
-            htmlFor="newPassword">
-            New password
-          </label>
-          <input
-            className="bogiac"
-            id="newPassword"
-            onChange={[Function]}
-            type="password"
-            value="" />
-          <label
-            className="hQXFog"
-            htmlFor="newPasswordCheck">
-            Confirm new password
-          </label>
-          <input
-            className="bogiac"
-            id="newPasswordCheck"
-            onChange={[Function]}
-            type="password"
-            value="" />
-        </div>
-        <div
-          className="hkpkJu">
+          className="lasbVD">
           <button
             className="dRCeMN"
-            disabled={undefined}
-            onClick={[Function]}
+            disabled={false}
             type="submit">
             Save changes
           </button>
           
         </div>
       </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        <button
+          className="dRCeMN"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          Send a password reset email
+        </button>
+      </section>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage failure during profile save 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <div
+          className="yrpmy">
+          An error occurred while saving profile.
+        </div>
+        <label
+          className="geijem"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="gEZOsv"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="email@email.email" />
+        <div
+          className="lasbVD">
+          <button
+            className="dRCeMN"
+            disabled={false}
+            type="submit">
+            Save changes
+          </button>
+          
+        </div>
+      </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        <button
+          className="dRCeMN"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          Send a password reset email
+        </button>
+      </section>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage has sent password reset 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <label
+          className="geijem"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="gEZOsv"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="email@email.email" />
+        <div
+          className="lasbVD">
+          <button
+            className="dRCeMN"
+            disabled={false}
+            type="submit">
+            Save changes
+          </button>
+          
+        </div>
+      </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        An email has been sent, please check your inbox.
+      </section>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage saving profile 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <label
+          className="geijem"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="gEZOsv"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="email@email.email" />
+        <div
+          className="lasbVD">
+          <button
+            className="dRCeMN"
+            disabled={true}
+            type="submit">
+            Saving...
+          </button>
+          
+        </div>
+      </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        <button
+          className="dRCeMN"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          Send a password reset email
+        </button>
+      </section>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage sending password reset 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <label
+          className="geijem"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="gEZOsv"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="email@email.email" />
+        <div
+          className="lasbVD">
+          <button
+            className="dRCeMN"
+            disabled={false}
+            type="submit">
+            Save changes
+          </button>
+          
+        </div>
+      </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        <button
+          className="dRCeMN"
+          disabled={true}
+          onClick={[Function]}
+          type="button">
+          Sending password reset...
+        </button>
+      </section>
+    </div>
+    <div
+      className="iBTcsR">
+      <p
+        className="hQXFog">
+        Profile picture
+      </p>
+      <p>
+        <span>
+          Your profile picture is supplied by Gravatar. If you don\'t have an account with them yet, or want to change your existing picture, please visit the 
+          <a
+            href="https://gravatar.com"
+            target="_blank">
+            Gravatar website
+          </a>
+          .
+        </span>
+      </p>
+      
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage the default case 1`] = `
+<div
+  className="dnTGWH">
+  <div
+    className="djUbXD">
+    <div
+      className="iBTcsR">
+      <form
+        onSubmit={[Function]}>
+        <label
+          className="geijem"
+          htmlFor="emailAddress">
+          Email
+        </label>
+        <input
+          className="gEZOsv"
+          id="emailAddress"
+          name="email"
+          onChange={[Function]}
+          type="text"
+          value="test@test.test" />
+        <div
+          className="lasbVD">
+          <button
+            className="dRCeMN"
+            disabled={false}
+            type="submit">
+            Save changes
+          </button>
+          
+        </div>
+      </form>
+      <section
+        className="dEsRUZ">
+        <label
+          className="geijem">
+          Password reset
+        </label>
+        <button
+          className="dRCeMN"
+          disabled={false}
+          onClick={[Function]}
+          type="button">
+          Send a password reset email
+        </button>
+      </section>
     </div>
     <div
       className="iBTcsR">
