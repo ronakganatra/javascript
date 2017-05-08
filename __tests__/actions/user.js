@@ -200,4 +200,70 @@ describe( 'Profile saving', () => {
 
 		expect( actual ).toEqual( expected );
 	} );
+
+	test( 'actual profile save', () => {
+		global.fetch = jest.fn( () => {
+			return Promise.resolve( {
+				status: 200,
+				json: () => { return {
+					email: "email@email.email",
+				} },
+			} );
+		});
+
+		const dispatch = jest.fn();
+
+		const expectedBody = new FormData();
+		expectedBody.append( "user_login", "email@email.email" );
+
+		const apiUrl = getApiUrl();
+		const userId = 1;
+
+		let expectedRequest = new Request( `${apiUrl}/Customers//profile?access_token=`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify( { email: "email@email.email" } ),
+		} );
+
+		const saveProfileFunc = actions.updateProfile( { email: "email@email.email" } );
+
+		expect( saveProfileFunc ).toBeInstanceOf( Function );
+
+		return saveProfileFunc( dispatch ).then( () => {
+			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
+			expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateSuccess( { email: "email@email.email" } ) );
+		} );
+	} );
+
+	test( 'failed profile save', () => {
+		global.fetch = jest.fn( () => {
+			return Promise.resolve( {
+				status: 404,
+				json: () => {
+					return {
+						"error": {
+							"statusCode": 404,
+							"name": "Error",
+							"message": "An error occurred",
+							"code": "MODEL_NOT_FOUND",
+							"stack": "Error: could not find a model with id 6"
+						}
+					}
+				},
+			} );
+		});
+
+		const dispatch = jest.fn();
+
+		const resetPasswordFunc = actions.updateProfile( { email: "email@email.email" } );
+
+		return resetPasswordFunc( dispatch ).then( () => {
+			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
+			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateFailure( "An error occurred" ) );
+
+		} );
+	} );
 } );

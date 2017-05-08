@@ -181,8 +181,6 @@ export function updateProfile( profile ) {
 			.then( response => response.json() )
 			.then( ( profile ) => dispatch( profileUpdateSuccess( profile ) ) )
 			.catch( ( error ) => {
-				console.error( error );
-
 				dispatch( profileUpdateFailure( error.message ) );
 			} );
 	};
