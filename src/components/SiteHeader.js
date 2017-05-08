@@ -21,7 +21,7 @@ const SiteHeaderContainer = styled.div`
 	margin: 0 auto;
 	padding: 0 40px 26px;
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		height: auto;
 		min-height: 144px;
 		padding: 0 24px 16px;
@@ -31,7 +31,7 @@ const SiteHeaderContainer = styled.div`
 		flex: 0 0 auto;
 		margin-top: 1em;
 
-		@media screen and ( max-width: 600px ) {
+		@media screen and ( max-width: 800px ) {
 			min-width: 100%;
 		}
 	}
@@ -48,7 +48,7 @@ const SiteHeaderSitename = styled.h1`
 	margin: 0;
 	word-break: break-word;
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		text-align: center;
 	}
 `;

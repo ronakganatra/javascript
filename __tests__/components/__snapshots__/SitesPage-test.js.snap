@@ -39,20 +39,20 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       className="jplRhE"
       role="list">
       <li
-        className="ikmWFW">
+        className="eSkKDa">
         <span
-          className="cdkaQN">
+          className="jprQkR">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="keNlnt">
+          className="fwqmFH">
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="iYixbD">
           <span>
             <span
               aria-label="Yoast SEO is inactive"
@@ -81,7 +81,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="emvmXy" />
+          className="bRJYKR" />
       </li>
     </ul>
   </div>
@@ -166,20 +166,20 @@ exports[`test the sites page component with sites handling an onclick event on t
       className="jplRhE"
       role="list">
       <li
-        className="ikmWFW">
+        className="eSkKDa">
         <span
-          className="cdkaQN">
+          className="jprQkR">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="keNlnt">
+          className="fwqmFH">
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="iYixbD">
           <span>
             <span
               aria-label="Yoast SEO is inactive"
@@ -208,7 +208,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           </span>
         </span>
         <span
-          className="emvmXy" />
+          className="bRJYKR" />
       </li>
     </ul>
   </div>
@@ -259,20 +259,20 @@ exports[`test the sites page component with sites handling an onclick event on t
       className="jplRhE"
       role="list">
       <li
-        className="ikmWFW">
+        className="eSkKDa">
         <span
-          className="cdkaQN">
+          className="jprQkR">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="keNlnt">
+          className="fwqmFH">
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="iYixbD">
           <span>
             <span
               aria-label="Yoast SEO is inactive"
@@ -301,7 +301,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           </span>
         </span>
         <span
-          className="emvmXy" />
+          className="bRJYKR" />
       </li>
     </ul>
   </div>

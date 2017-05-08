@@ -19,7 +19,7 @@ const CollapsibleHeader = styled.button`
 	cursor: pointer;
 	text-align: left;
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		padding: 16px 14px 16px 24px;
 	}
 
@@ -33,7 +33,7 @@ const CollapsibleHeader = styled.button`
 		min-width: 150px;
 		align-self: center;
 
-		@media screen and ( max-width: 600px ) {
+		@media screen and ( max-width: 800px ) {
 			min-width: 0;
 		}
 	}

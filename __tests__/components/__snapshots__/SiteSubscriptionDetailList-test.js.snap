@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="kVfXQP"
+      className="euYPbC"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -23,9 +23,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="fjMKpU">
+        className="dhSHpp">
         <span
-          className="hOCYEr">
+          className="hlIkbu">
           <span
             className="gFXyaK">
             <div>
@@ -49,13 +49,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="hYNshL"
+            className="kganGp"
             src="Yoast_SEO_Icon_Small.svg" />
         </span>
         <div
-          className="gKpEkz">
+          className="hdGyW">
           <span
-            className="eDGcGX">
+            className="kXXZFn">
             Yoast SEO
           </span>
           <span
@@ -66,7 +66,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
         </div>
         <span
-          className="fLsOLM">
+          className="hMwgWU">
           <a
             className="ifYuxa"
             href="/account/subscriptions/bla"
@@ -78,9 +78,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="btPTmU">
+        className="gYVRpR">
         <span
-          className="hOCYEr">
+          className="hlIkbu">
           <span
             className="gFXyaK">
             <div>
@@ -104,13 +104,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="hYNshL"
+            className="kganGp"
             src="Local_SEO_Icon_Small.svg" />
         </span>
         <div
-          className="gKpEkz">
+          className="hdGyW">
           <span
-            className="eDGcGX">
+            className="kXXZFn">
             Local SEO
           </span>
           <span
@@ -121,7 +121,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
         </div>
         <span
-          className="fLsOLM">
+          className="hMwgWU">
           <a
             className="ifYuxa"
             href="/account/subscriptions/bla2"

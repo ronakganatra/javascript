@@ -17,9 +17,10 @@ const SubscriptionLeftContainer = styled.span`
 
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		margin-right: 20px;
+		background: red
 	}
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		align-self: flex-start;
 		margin: 0;
 		padding-top: 14px;
@@ -32,7 +33,7 @@ const SubscriptionLogo = styled.img`
 	height: 66px;
 	vertical-align: middle;
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		display: none;
 	}
 `;
@@ -58,7 +59,7 @@ const SubscriptionDetails = styled.div`
 		margin: 0 10px 0 0;
 	}
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		margin: 0;
 		padding-top: 20px;
 		align-self: flex-start;
@@ -73,7 +74,7 @@ const ProductName = styled.span`
 	white-space: nowrap;
 	display: block;
 
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		font-size: 14px;
 	}
 `;
@@ -99,7 +100,7 @@ const AddOneLicense = styled.button`
 `;
 
 const SubscriptionRightContainer = styled.span`
-	@media screen and ( max-width: 600px ) {
+	@media screen and ( max-width: 800px ) {
 		width: 100%;
 		padding: 18px 0 24px;
 

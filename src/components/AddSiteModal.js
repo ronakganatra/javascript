@@ -99,19 +99,19 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 2em 2em 0;
+		padding: 2em 40px 0;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
-		
-		@media screen and ( max-width: 600px ) {
+
+		@media screen and ( max-width: 800px ) {
 			padding: 1.5em 1.5em 0;
 		}
-		
+
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
 		}
-		
+
 		@media screen and ( max-height: 640px ) {
 			overflow-y: auto;
 		}

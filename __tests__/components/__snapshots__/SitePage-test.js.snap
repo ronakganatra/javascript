@@ -8,9 +8,9 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="eqjPHj" />
   </a>
   <div
-    className="bnyUHJ">
+    className="adaQP">
     <h1
-      className="fMViKj">
+      className="brKYWa">
       yoast.com
     </h1>
     <a
@@ -183,7 +183,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cjKevG">
       <button
         aria-expanded={true}
-        className="kVfXQP"
+        className="euYPbC"
         onClick={[Function]}>
         <span>
           Danger zone
@@ -198,7 +198,7 @@ exports[`test the site page component matches the snapshot 1`] = `
         </svg>
       </button>
       <div
-        className="eejCWA">
+        className="zYWq">
         <h2
           className="cecVBz">
           Disconnect this site
