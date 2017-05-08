@@ -50,7 +50,7 @@ class SitePage extends React.Component {
 														   onToggleSubscription={ props.onToggleSubscription }
 			/>;
 		}
-		console.log( "caca", props.site );
+
 		return (
 			<div>
 				<Link to={ "/sites" } >
