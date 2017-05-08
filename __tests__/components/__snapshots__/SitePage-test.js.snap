@@ -15,9 +15,9 @@ exports[`test the site page component matches the snapshot 1`] = `
     </h1>
     <a
       className="visit-wp-admin ifYuxa"
-      href="yoast.com/wp-admin"
-      onClick={[Function]}
-      target="_blank">
+      href="http://yoast.com/wp-admin"
+      target="_blank"
+      to="http://yoast.com/wp-admin">
       <span>
         Visit WP admin
       </span>

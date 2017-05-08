@@ -38,6 +38,9 @@ class SitePage extends React.Component {
 		}
 
 		let subscriptionList = <AnimatedLoader />;
+		let hostnameDisplay = props.site.hostname.replace( /^(?:www\.)?/, "" );
+		let urlDisplay = props.site.url.replace( /^(?:https?:)?\/\/(?:www\.)?/, "" );
+		let siteNameDisplay = props.site.hostname ? hostnameDisplay : urlDisplay;
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
@@ -47,13 +50,13 @@ class SitePage extends React.Component {
 														   onToggleSubscription={ props.onToggleSubscription }
 			/>;
 		}
-
+		console.log( "caca", props.site );
 		return (
 			<div>
 				<Link to={ "/sites" } >
 					<RoundBackButton />
 				</Link>
-				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.site.header }/>
+				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 			</div>

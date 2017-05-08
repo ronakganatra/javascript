@@ -11,7 +11,8 @@ test('the site page component matches the snapshot', () => {
 		<SitePage
 				site={ {
 					id: "abcd",
-					url: "yoast.com",
+					url: "http://yoast.com",
+					hostname: "yoast.com",
 					creationDate: "2017-04-11T00:00:00.000Z",
 					userId: 2,
 					header: "http://placehold.it/1480x380",
