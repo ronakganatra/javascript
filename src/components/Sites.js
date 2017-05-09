@@ -23,6 +23,7 @@ function Sites( props ) {
 						siteIcon={ site.siteIcon }
 						siteName={ site.siteName }
 						activeSubscriptions={ site.activeSubscriptions }
+						plugins={ props.plugins }
 						onClickManage={ onManageHandler }
 					/>;
 				} ) }
@@ -35,9 +36,11 @@ export default Sites;
 
 Sites.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onManage: React.PropTypes.func.isRequired,
 };
 
 Sites.defaultProps = {
 	sites: [],
+	plugins: [],
 };

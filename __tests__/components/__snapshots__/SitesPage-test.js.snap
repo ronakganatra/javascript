@@ -4,7 +4,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -16,7 +16,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -54,30 +54,26 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         <span
           className="iYixbD">
           <span>
-            <span
-              aria-label="Yoast SEO is inactive"
-              className="hGymDt"
-              role="img" />
-            <span
-              aria-label="Local SEO is inactive"
-              className="kswMOV"
-              role="img" />
-            <span
-              aria-label="Video SEO is active"
-              className="jzGgcX"
-              role="img" />
-            <span
-              aria-label="News SEO is inactive"
-              className="kdRmgg"
-              role="img" />
-            <span
-              aria-label="WooCommerce SEO is active"
-              className="gKxAXd"
-              role="img" />
-            <span
-              aria-label="Local SEO for Woo is inactive"
-              className="egmryf"
-              role="img" />
+            <img
+              aria-label="Test is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test2 is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test3 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test4 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
           </span>
         </span>
         <span
@@ -94,10 +90,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
 exports[`test the sites page component with no sites matches the snapshot 1`] = `
 <div>
   <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
+    className="hqmxmg">
     <p>
       <span>
         Welcome to the sites overview
@@ -105,8 +98,7 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
     </p>
     <p>
       <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
+        Here you will be able to manage all your sites that are running Yoast subscriptions.
       </span>
     </p>
     <p>
@@ -118,6 +110,10 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
       aria-label="Add"
       className="hTtZiN"
       onClick={[Function]} />
+    <img
+      alt=""
+      className="dFOHLF"
+      src="noSites.svg" />
   </div>
   <div>
     <noscript />
@@ -131,7 +127,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -143,7 +139,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -181,30 +177,26 @@ exports[`test the sites page component with sites handling an onclick event on t
         <span
           className="iYixbD">
           <span>
-            <span
-              aria-label="Yoast SEO is inactive"
-              className="hGymDt"
-              role="img" />
-            <span
-              aria-label="Local SEO is inactive"
-              className="kswMOV"
-              role="img" />
-            <span
-              aria-label="Video SEO is active"
-              className="jzGgcX"
-              role="img" />
-            <span
-              aria-label="News SEO is inactive"
-              className="kdRmgg"
-              role="img" />
-            <span
-              aria-label="WooCommerce SEO is active"
-              className="gKxAXd"
-              role="img" />
-            <span
-              aria-label="Local SEO for Woo is inactive"
-              className="egmryf"
-              role="img" />
+            <img
+              aria-label="Test is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test2 is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test3 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test4 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
           </span>
         </span>
         <span
@@ -224,7 +216,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     className="jCgOYH">
     <div>
       <label
-        className="bFGhCT"
+        className="gOZvhE"
         htmlFor="search">
         <span
           className="screen-reader-text foqgVb">
@@ -236,7 +228,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="hhtLuS"
+        className="eCSBxO"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -274,30 +266,26 @@ exports[`test the sites page component with sites handling an onclick event on t
         <span
           className="iYixbD">
           <span>
-            <span
-              aria-label="Yoast SEO is inactive"
-              className="hGymDt"
-              role="img" />
-            <span
-              aria-label="Local SEO is inactive"
-              className="kswMOV"
-              role="img" />
-            <span
-              aria-label="Video SEO is active"
-              className="jzGgcX"
-              role="img" />
-            <span
-              aria-label="News SEO is inactive"
-              className="kdRmgg"
-              role="img" />
-            <span
-              aria-label="WooCommerce SEO is active"
-              className="gKxAXd"
-              role="img" />
-            <span
-              aria-label="Local SEO for Woo is inactive"
-              className="egmryf"
-              role="img" />
+            <img
+              aria-label="Test is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test2 is active"
+              className="dVJUOs"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test3 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
+            <img
+              aria-label="Test4 is inactive"
+              className="jNYDQB"
+              role="img"
+              src="test.jpg" />
           </span>
         </span>
         <span
@@ -314,10 +302,7 @@ exports[`test the sites page component with sites handling an onclick event on t
 exports[`test the sites page component without sites handling an onclick event on the add site button 1`] = `
 <div>
   <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
+    className="hqmxmg">
     <p>
       <span>
         Welcome to the sites overview
@@ -325,8 +310,7 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <p>
       <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
+        Here you will be able to manage all your sites that are running Yoast subscriptions.
       </span>
     </p>
     <p>
@@ -338,6 +322,10 @@ exports[`test the sites page component without sites handling an onclick event o
       aria-label="Add"
       className="hTtZiN"
       onClick={[Function]} />
+    <img
+      alt=""
+      className="dFOHLF"
+      src="noSites.svg" />
   </div>
   <div>
     <noscript />
@@ -348,10 +336,7 @@ exports[`test the sites page component without sites handling an onclick event o
 exports[`test the sites page component without sites handling an onclick event on the add site button 2`] = `
 <div>
   <div
-    className="fLQomB">
-    <img
-      alt=""
-      src="nosites.png" />
+    className="hqmxmg">
     <p>
       <span>
         Welcome to the sites overview
@@ -359,8 +344,7 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <p>
       <span>
-        Here you will be able to manage all your
-        sites that are running Yoast subscriptions.
+        Here you will be able to manage all your sites that are running Yoast subscriptions.
       </span>
     </p>
     <p>
@@ -372,6 +356,10 @@ exports[`test the sites page component without sites handling an onclick event o
       aria-label="Add"
       className="hTtZiN"
       onClick={[Function]} />
+    <img
+      alt=""
+      className="dFOHLF"
+      src="noSites.svg" />
   </div>
   <div>
     <noscript />

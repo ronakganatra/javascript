@@ -56,6 +56,7 @@ test('the mapStateToProps function', () => {
 								currentVersion: 0,
 								changelog: "string"
 							},
+							used: 1,
 						},
 					},
 					allIds: [ "subscriptiontestId" ],

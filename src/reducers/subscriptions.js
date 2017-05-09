@@ -1,4 +1,5 @@
 import { GET_ALL_SUBSCRIPTIONS_FAILURE, GET_ALL_SUBSCRIPTIONS_REQUEST, GET_ALL_SUBSCRIPTIONS_SUCCESS } from "../actions/subscriptions";
+import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import _union from "lodash/union";
 
 /*
@@ -60,12 +61,10 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
  * @returns {Object} The updated byIdSubscriptions object.
  */
 export function byIdSubscriptionsReducer( state = rootState.entities.subscriptions.byId, action ) {
-	let subscriptions;
+	let subscriptions = Object.assign( {}, state );
 
 	switch ( action.type ) {
 		case GET_ALL_SUBSCRIPTIONS_SUCCESS:
-			subscriptions = Object.assign( {}, state );
-
 			action.subscriptions.forEach( ( subscription ) => {
 				subscriptions[ subscription.id ] = Object.assign( {}, subscription, {
 					orders: subscription.orders.map( order => order.id ),
@@ -74,8 +73,18 @@ export function byIdSubscriptionsReducer( state = rootState.entities.subscriptio
 
 			return subscriptions;
 
+		case SITE_ADD_SUBSCRIPTION_SUCCESS:
+			subscriptions[ action.subscriptionId ].used += 1;
+
+			return subscriptions;
+
+		case SITE_REMOVE_SUBSCRIPTION_SUCCESS:
+			subscriptions[ action.subscriptionId ].used -= 1;
+
+			return subscriptions;
+
 		default:
-			return state;
+			return subscriptions;
 	}
 }
 
