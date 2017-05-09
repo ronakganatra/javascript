@@ -1,5 +1,6 @@
 import * as actions from "../../src/actions/user";
 import { getApiUrl } from "../../src/functions/api";
+import { getPasswordResetUrl } from "../../src/functions/auth";
 
 jest.mock( "whatwg-fetch" );
 
@@ -120,7 +121,7 @@ describe( 'Password reset', () => {
 		expectedBody.append( "user_login", "email@email.email" );
 
 		const expectedRequest = new Request(
-			"http://yoast.dev/wp-login.php?action=lostpassword",
+			getPasswordResetUrl(),
 			{
 				method: "POST",
 				body: expectedBody,

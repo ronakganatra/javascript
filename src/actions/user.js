@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getAccessToken, getUserId } from "../functions/auth";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getAccessToken, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
  * Action types
@@ -234,7 +234,7 @@ export function passwordResetSend( email ) {
 		const body = new FormData();
 		body.append( "user_login", email );
 
-		const request = new Request( "http://yoast.dev/wp-login.php?action=lostpassword", {
+		const request = new Request( getPasswordResetUrl(), {
 			method: "POST",
 			body,
 			mode: "no-cors",
