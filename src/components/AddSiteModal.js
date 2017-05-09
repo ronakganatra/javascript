@@ -70,7 +70,6 @@ BaseAddSiteModal.defaultProps = {
 	errorMessage: "",
 };
 
-// keyframes returns a unique name based on a hash of the contents of the keyframes
 const fadeModalIn = keyframes`
 	from {
 		transform: translate(-50%, -80%);
