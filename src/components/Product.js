@@ -108,7 +108,7 @@ function Product( props ) {
 
 Product.propTypes = {
 	name: React.PropTypes.string.isRequired,
-	currentVersion: React.PropTypes.string.isRequired,
+	currentVersion: React.PropTypes.number.isRequired,
 	icon: React.PropTypes.string.isRequired,
 	buttons: React.PropTypes.array.isRequired,
 	intl: intlShape.isRequired,

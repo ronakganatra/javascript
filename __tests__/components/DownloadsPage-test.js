@@ -9,7 +9,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "1",
 			category: "plugins",
 			name: "Yoast SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -23,7 +23,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "2",
 			category: "plugins",
 			name: "Local SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -33,7 +33,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "3",
 			category: "plugins",
 			name: "Video SEO",
-			currentVersion: "4.7",
+			currentVersion:4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -47,7 +47,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "4",
 			category: "plugins",
 			name: "News SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -65,7 +65,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "5",
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -75,7 +75,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "6",
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -85,7 +85,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "7",
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -95,7 +95,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			id: "8",
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
