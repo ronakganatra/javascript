@@ -82,10 +82,10 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		width: calc( 50% - ${ columnMargin } );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
 		width: 100%;
 	}
 `;
