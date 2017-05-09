@@ -225,5 +225,5 @@ test('the mapDispatchToProps function to NOT call siteRemove action with onRemov
 
 	props.onRemove();
 
-	expect( dispatch ).not.toHaveBeenCalled();
+	expect( dispatch ).not.toHaveBeenCalledWith( siteRemove( 123 ) );
 } );
