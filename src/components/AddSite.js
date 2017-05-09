@@ -44,7 +44,7 @@ const Buttons = styled.div`
 	float: right;
 `;
 
-const NoActiveProduct = styled.p`
+const YellowWarning = styled.p`
 	padding: 5px;
 	background-color: ${ colors.$color_yellow };
 	overflow: auto;
@@ -69,13 +69,41 @@ const NoActiveProductIcon = styled.img`
 	}
 `;
 
-const NoActiveProductText = styled.span`
+const WarningText = styled.span`
 	font-size: 1em;
 `;
 
 const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
 `;
+
+/**
+ * Checks whether an URL was entered.
+ *
+ * @param {string} inputStr Thestring in the inputfield.
+ * @returns {null} null
+ */
+function urlValidityMessage( inputStr="" ) {
+	let urlValid = inputStr.match(
+		"^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d" +
+		"{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d" +
+		"{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*" +
+		"[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$"
+	);
+
+	if ( urlValid === null ) {
+		return(
+			<YellowWarning>
+				<WarningText id="url_reminder" >
+					<FormattedMessage
+						id="sites.add-site.no-valid-url"
+						defaultMessage={"Please enter a valid URL. A valid URL in this case starts with http:// (or https://)."}
+					/>
+				</WarningText>
+			</YellowWarning>
+		);
+	}
+}
 
 /**
  * Renders an error message
@@ -90,9 +118,9 @@ function getErrorMessage( errorFound, errorMessage ) {
 	}
 
 	return (
-		<NoActiveProduct>
+		<YellowWarning>
 			<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-			<NoActiveProductText id="addSiteInfo">
+			<WarningText id="addSiteInfo">
 				<FormattedMessage
 					id="sites.add-site.no-active-product"
 					defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
@@ -101,9 +129,10 @@ function getErrorMessage( errorFound, errorMessage ) {
 							id="sites.add-site-no-active-product.link"
 							defaultMessage="read this page."/></PurpleLink>,
 						errorMessage: <i>"{ errorMessage }."</i>,
-					}}/>
-			</NoActiveProductText>
-		</NoActiveProduct>
+					}}
+				/>
+			</WarningText>
+		</YellowWarning>
 	);
 }
 
@@ -137,7 +166,15 @@ export default function AddSite( props ) {
 						<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
 					</label>
 				</AddSiteText>
-				<WebsiteURL type="url" id="addSiteInputField" placeholder={ "example-site.com" } defaultValue={ suggestedValue } aria-describedby="addSiteInfo" onChange={ onChange } />
+				<WebsiteURL
+					type="url"
+					id="addSiteInputField"
+					placeholder={ "example-site.com" }
+					defaultValue={ suggestedValue }
+					aria-describedby="addSiteInfo"
+					onChange={ onChange }
+				/>
+				{ urlValidityMessage( props.linkingSiteUrl ) }
 				{ getErrorMessage( props.errorFound, props.errorMessage ) }
 				<Buttons>
 					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
@@ -153,6 +190,7 @@ export default function AddSite( props ) {
 }
 
 AddSite.propTypes = {
+	linkingSiteUrl: React.PropTypes.string.isRequired,
 	onCancelClick: React.PropTypes.func.isRequired,
 	onLinkClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
@@ -160,4 +198,3 @@ AddSite.propTypes = {
 	query: React.PropTypes.string.isRequired,
 	errorMessage: React.PropTypes.string,
 };
-

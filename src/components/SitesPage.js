@@ -100,7 +100,7 @@ class SitesPage extends React.Component {
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  errorMessage={ props.errorMessage } query={ props.query } />
+						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
 		if ( props.sites.length > 0 ) {
 			return (
@@ -154,8 +154,7 @@ class SitesPage extends React.Component {
 export default injectIntl( SitesPage );
 
 SitesPage.propTypes = {
-	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	linkingSiteUrl: React.PropTypes.string.isRequired,
 	addSite: React.PropTypes.func.isRequired,
 	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,
@@ -165,6 +164,8 @@ SitesPage.propTypes = {
 	onManage: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
+	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	intl: intlShape.isRequired,
 	query: React.PropTypes.string,
 	showLoader: React.PropTypes.bool,
@@ -172,6 +173,7 @@ SitesPage.propTypes = {
 
 SitesPage.defaultProps = {
 	sites: [],
+	linkingSiteUrl: "",
 	popupOpen: false,
 	errorMessage: "",
 	showLoader: false,
