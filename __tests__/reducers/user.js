@@ -240,37 +240,3 @@ describe( 'passwordResetReducer', () => {
 		expect( actual ).toEqual( expected );
 	} );
 } );
-
- /**
- * A reducer for the password reset.
- *
- * @param {Object} state The previous state of the store.
- * @param {Object} action The action that just occurred.
- * @returns {Object} The new state of the store.
- */
- /*
-export function passwordResetReducer( state, action ) {
-	switch ( action.type ) {
-		case RESET_PASSWORD_REQUEST:
-			return Object.assign( {}, state, {
-				sendingPasswordReset: true,
-				passwordResetError: "",
-			} );
-
-		case RESET_PASSWORD_SUCCESS:
-			return Object.assign( {}, state, {
-				sendingPasswordReset: false,
-				sendPasswordReset: true,
-			} );
-
-		case RESET_PASSWORD_FAILURE:
-			return Object.assign( {}, state, {
-				sendingPasswordReset: false,
-				passwordResetError: action.message,
-			} );
-
-		default:
-			return state;
-	}
-}
-*/
