@@ -46,7 +46,7 @@ function Site( props ) {
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
 			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
-						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } /></ColumnText>
+						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
@@ -63,7 +63,8 @@ function Site( props ) {
 
 Site.propTypes = {
 	siteName: React.PropTypes.string.isRequired,
-	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.string ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	siteIcon: React.PropTypes.string,
 	onClickManage: React.PropTypes.func,
 	intl: intlShape.isRequired,
@@ -72,6 +73,7 @@ Site.propTypes = {
 
 Site.defaultProps = {
 	activeSubscriptions: [],
+	plugins: [],
 	siteIcon: "",
 };
 

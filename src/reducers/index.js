@@ -4,6 +4,7 @@ import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
 import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer } from "./subscriptions.js";
+import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
 import { uiSearch } from "./search.js";
 
@@ -12,6 +13,7 @@ export const uiReducer = combineReducers( {
 	site: uiSiteReducer,
 	search: uiSearch,
 	subscriptions: uiAllSubscriptionsReducer,
+	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 } );
 
@@ -25,6 +27,11 @@ export const entitiesSubscriptionsReducer = combineReducers( {
 	allIds: allIdsSubscriptionsReducer,
 } );
 
+export const entitiesProductsReducer = combineReducers( {
+	byId: byIdProductsReducer,
+	allIds: allIdsProductsReducer,
+} );
+
 export const entitiesOrdersReducer = combineReducers( {
 	byId: byIdOrdersReducer,
 	allIds: allIdsOrdersReducer,
@@ -33,6 +40,7 @@ export const entitiesOrdersReducer = combineReducers( {
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
+	products: entitiesProductsReducer,
 	orders: entitiesOrdersReducer,
 } );
 

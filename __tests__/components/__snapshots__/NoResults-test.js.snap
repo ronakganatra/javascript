@@ -1,0 +1,28 @@
+exports[`test the NoResults component matches the snapshot 1`] = `
+<div
+  className="hqmxmg">
+  <p>
+    <span>
+      Welcome to the downloads page
+    </span>
+  </p>
+  <p>
+    <span>
+      It looks like you haven’t bought any products with downloadable files yet.
+    </span>
+  </p>
+  <p>
+    <span>
+      Press the button below to visit yoast.com and look at our products.
+    </span>
+  </p>
+  <button
+    aria-label="Add"
+    className="hTtZiN"
+    onClick={[Function]} />
+  <img
+    alt=""
+    className="dFOHLF"
+    src="noSites.svg" />
+</div>
+`;

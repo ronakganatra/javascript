@@ -1,7 +1,9 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer, uiSiteReducer} from "../../src/reducers/index"
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
+import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
+import { GET_SITE_PRODUCTS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
@@ -39,14 +41,22 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/products.js", () => {
+	return {
+		byIdProductsReducer: jest.fn( ( state = {} ) => { return { name: "byIdProductsReducer" }; } ),
+		allIdsProductsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsProductsReducer" }; } ),
+		uiAllProductsReducer: jest.fn( ( state = {} ) => { return { name: "uiAllProductsReducer" }; } ),
+	}
+} );
+
 test( 'ui reducer', () => {
 
-	const state = { sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {} };
+	const state = { sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 
-	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, search: { query: "" }, orders: {} };
+	const expected = { sites: { name: "uiSitesReducer" }, site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, search: { query: "" }, orders: {} };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -77,6 +87,18 @@ test( 'entities subscriptions reducer', () => {
 	expect( allIdsSubscriptionsReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
+test( 'entities products reducer', () => {
+	const state = { allIds: {}, byId: {} };
+	const action = {
+		type: GET_SITE_PRODUCTS_SUCCESS,
+	};
+	const expected = { allIds: { name: "allIdsProductsReducer"}, byId: { name: "byIdProductsReducer" } };
+	const actual = entitiesProductsReducer( state, action );
+	expect( actual ).toEqual( expected );
+	expect( byIdProductsReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsProductsReducer ).toHaveBeenCalledWith( {}, action );
+} );
+
 test( 'entities reducer', () => {
 	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} } };
 	const action = {
@@ -86,6 +108,7 @@ test( 'entities reducer', () => {
 	const expected = {
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
 		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
+		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer"} },
 		orders: { allIds: [], byId: {} }
 	};
 
@@ -123,6 +146,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				byId: { name: "byIdSubscriptionsReducer" },
 				allIds: { name: "allIdsSubscriptionsReducer" },
 			},
+			products: {
+				byId: { name: "byIdProductsReducer" },
+				allIds: { name: "allIdsProductsReducer" },
+			},
 		},
 		router: {
 			location: "URL",
@@ -134,6 +161,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			},
 			site: { name: "uiSiteReducer" },
 			subscriptions: { name: "uiAllSubscriptionsReducer" },
+			products: { name: "uiAllProductsReducer" },
 			orders: {
 				"error": "",
 				"retrievingOrders": false,

@@ -30,7 +30,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 			{
 				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
 				price: subscription.product.price,
-				used: 1,
 			}
 		);
 	} );
