@@ -48,22 +48,26 @@ export const mapStateToProps = ( state, ownProps ) => {
 		plugin.subscriptionId = "";
 		plugin.currency = "USD";
 
-		// get all subscriptions for this plugin
+		// Get all subscriptions for this plugin
 		activeSubscriptions.filter( ( subscription ) => {
 			return subscription.productId === plugin.id;
 		} ).forEach( ( subscription ) => {
-			// accumulate amount of slots for this plugin.
+			// Accumulate amount of slots for this plugin.
 			plugin.limit += subscription.limit;
-			// accumulate amount of slots in use for this plugin.
+			// Accumulate amount of slots in use for this plugin.
 			plugin.used += ( subscription.used || 0 );
 
-			// If the plugin subscription is enabled for this site, make sure it's
-			// subscriptionId is set on the plugin.
+			/*
+			 * If the plugin subscription is enabled for this site, make sure it's
+			 * subscriptionId is set on the plugin.
+			 */
 			if ( subscription.isEnabled === true ) {
 				plugin.isEnabled = true;
 				plugin.subscriptionId = subscription.id;
-			// If the plugin subscription Id has not been set and there are still slots
-			// available, set the first available product subscription for this plugin.
+			/*
+			 * If the plugin subscription Id has not been set and there are still slots
+			 * available, set the first available product subscription for this plugin.
+			 */
 			} else if (
 				_isEmpty( plugin.subscriptionId ) &&
 				( subscription.limit > ( subscription.used || 0 ) )
@@ -71,9 +75,9 @@ export const mapStateToProps = ( state, ownProps ) => {
 				plugin.subscriptionId = subscription.id;
 			}
 
-			// determine currency based on the subscription currency.
-			// @todo the currency should be made available on the products themselves.
-			// This need to be fixed in the shop.
+			// Determine currency based on the subscription currency.
+			// Eventually the currency should be made available on the products themselves.
+			// This needs to be fixed in the shop.
 			plugin.currency = subscription.currency;
 		} );
 
