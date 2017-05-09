@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import { updateSiteUrl } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription } from "../actions/site";
 import SitePage from "../components/SitePage";
-import { linkSitePopupOpen } from "../actions/sites";
+import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
+import { push } from "react-router-redux";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -14,6 +15,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			loadingSite: true,
 		};
 	}
+	let popupOpen = state.ui.subscriptions.addLicensesPopupOpen;
 
 	let site = sites.byId[ id ];
 
@@ -40,6 +42,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	return {
+		popupOpen,
 		site,
 		subscriptions,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
@@ -49,14 +52,22 @@ export const mapStateToProps = ( state, ownProps ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	let siteId = ownProps.match.params.id;
 
+	let amountAvailable = 0;
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
 		onAddMoreSlotsClick: () => {
-			dispatch( linkSitePopupOpen() );
+			dispatch( addLicensesPopupOpen() );
+		},
+		onClose: () => {
+			dispatch( addLicensesPopupClose() );
+		},
+		onUpgrade: ( productId ) => {
+			dispatch( push( "/shop/" ) );
 		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
-			if ( enabled ) {
+			if ( enabled && amountAvailable === 0 ) {
+				dispatch( addLicensesPopupOpen() );
 				dispatch( siteAddSubscription( siteId, subscriptionId ) );
 			} else {
 				dispatch( siteRemoveSubscription( siteId, subscriptionId ) );

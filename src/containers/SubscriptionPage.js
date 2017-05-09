@@ -1,6 +1,9 @@
 import { connect } from "react-redux";
 import SubscriptionPage from "../components/SubscriptionPage";
 import _isUndefined from "lodash/isUndefined";
+import { push } from "react-router-redux";
+
+let product;
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let subscriptionId = ownProps.match.params.id;
@@ -12,7 +15,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 			isLoading: true,
 		};
 	}
-
+	let productId = subscription.productId;
+	product = productId;
 	let invoices = subscription.orders.map( order => state.entities.orders.byId[ order ] );
 
 	// If some invoices are undefined we are still waiting for some data.
@@ -34,13 +38,16 @@ export const mapStateToProps = ( state, ownProps ) => {
 	return {
 		subscription,
 		invoices,
+		productId,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onAddSite: () => {},
-		onShop: () => {},
+		onShop: () => {
+			dispatch( push( "/shop/" + product ) );
+		},
 		onCancel: () => {},
 		onInvoiceDownload: () => {},
 	};

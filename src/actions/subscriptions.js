@@ -9,6 +9,8 @@ import { getAccessToken, getUserId } from "../functions/auth";
 export const GET_ALL_SUBSCRIPTIONS_REQUEST = "GET_ALL_SUBSCRIPTIONS_REQUEST";
 export const GET_ALL_SUBSCRIPTIONS_SUCCESS = "GET_ALL_SUBSCRIPTIONS_SUCCESS";
 export const GET_ALL_SUBSCRIPTIONS_FAILURE = "GET_ALL_SUBSCRIPTIONS_FAILURE";
+export const ADD_LICENCES_POPUP_OPEN = "ADD_LICENCES_POPUP_OPEN";
+export const ADD_LICENCES_POPUP_CLOSE = "ADD_LICENCES_POPUP_CLOSE";
 
 /*
  * Action creators
@@ -79,5 +81,27 @@ export function getAllSubscriptions() {
 			.catch( ( error ) => {
 				dispatch( getAllSubscriptionsFailure( error.message ) );
 			} );
+	};
+}
+
+/**
+ * An action creator for the opening add licenses pop-up action.
+ *
+ * @returns {Object} An open add licenses pop-up action.
+ */
+export function addLicensesPopupOpen() {
+	return {
+		type: ADD_LICENCES_POPUP_OPEN,
+	};
+}
+
+/**
+ * An action creator for the closing add licenses pop-up action.
+ *
+ * @returns {Object} An closing add licenses pop-up action.
+ */
+export function addLicensesPopupClose() {
+	return {
+		type: ADD_LICENCES_POPUP_CLOSE,
 	};
 }

@@ -43,7 +43,13 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -93,7 +99,13 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 1`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -143,7 +155,13 @@ exports[`test the sitesubscription onAddMoreSlotsClick handling 2`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -193,7 +211,13 @@ exports[`test the sitesubscription onMoreInfoClick handling 1`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -243,7 +267,13 @@ exports[`test the sitesubscription onMoreInfoClick handling 2`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -293,7 +323,13 @@ exports[`test the sitesubscription onSettingsClick handling 1`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -343,7 +379,13 @@ exports[`test the sitesubscription onSettingsClick handling 2`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -393,7 +435,13 @@ exports[`test the sitesubscription onToggleSubscription handling 1`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;
@@ -443,7 +491,13 @@ exports[`test the sitesubscription onToggleSubscription handling 2`] = `
       className="dqWYTA"
       onClick={[Function]}>
       Add more slots for $69
+      <span>
+        NaN
+      </span>
     </button>
+  </div>
+  <div>
+    <noscript />
   </div>
 </li>
 `;

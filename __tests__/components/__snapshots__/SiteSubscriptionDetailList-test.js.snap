@@ -68,7 +68,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="dqWYTA"
             onClick={[Function]}>
             Add more slots
+            <span>
+              NaN
+            </span>
           </button>
+        </div>
+        <div>
+          <noscript />
         </div>
       </li>
       <li
@@ -117,7 +123,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="dqWYTA"
             onClick={[Function]}>
             Add more slots
+            <span>
+              NaN
+            </span>
           </button>
+        </div>
+        <div>
+          <noscript />
         </div>
       </li>
     </ul>

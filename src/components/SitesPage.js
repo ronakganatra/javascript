@@ -83,7 +83,6 @@ class SitesPage extends React.Component {
 		if ( props.showLoader ) {
 			return <AnimatedLoader />;
 		}
-
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }

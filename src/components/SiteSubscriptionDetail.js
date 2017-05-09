@@ -9,6 +9,7 @@ import { FormattedMessage, FormattedNumber } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
 import formatAmount from "../../../shared/currency";
+import AddLicensesModal from "./AddLicensesModal";
 
 let responsiveWidthThreshold = 1355;
 
@@ -140,6 +141,9 @@ export default function SiteSubscriptionDetail( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
+	let modal = (
+		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
+	);
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
@@ -165,8 +169,9 @@ export default function SiteSubscriptionDetail( props ) {
 					</AddOneSlot>
 
 				}
-			</SubscriptionDetails>
 
+			</SubscriptionDetails>
+			{ modal }
 			<MediaQuery query={ "(min-width: " + ( responsiveWidthThreshold + 1 ) + "px)" }>
 				<Buttons>
 					<LargeButton onClick={ props.onMoreInfoClick }><FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="More info" /></LargeButton>
@@ -174,7 +179,6 @@ export default function SiteSubscriptionDetail( props ) {
 				</Buttons>
 			</MediaQuery>
 		</Row>
-
 	);
 }
 
@@ -185,6 +189,7 @@ SiteSubscriptionDetail.propTypes = {
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
+	onUpgrade: React.PropTypes.func.isRequired,
 	isEnabled: React.PropTypes.bool,
 	price: React.PropTypes.number.isRequired,
 	currency: React.PropTypes.string.isRequired,
@@ -196,6 +201,8 @@ SiteSubscriptionDetail.propTypes = {
 		addMoreSlots: React.PropTypes.string,
 	} ).isRequired,
 	background: React.PropTypes.string,
+	popupOpen: React.PropTypes.bool,
+	onClose: React.PropTypes.func.isRequired,
 };
 
 SiteSubscriptionDetail.defaultProps = {

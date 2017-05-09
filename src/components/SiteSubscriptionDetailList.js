@@ -33,6 +33,9 @@ function SiteSubscriptionDetailList( props ) {
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
+							popupOpen={ props.popupOpen }
+							onClose={ props.onClose }
+							onUpgrade={ props.onUpgrade }
 						/>;
 					} ) }
 				</ListTable>
@@ -48,6 +51,9 @@ SiteSubscriptionDetailList.propTypes = {
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
+	popupOpen: React.PropTypes.bool,
+	onClose: React.PropTypes.func.isRequired,
+	onUpgrade: React.PropTypes.func.isRequired,
 };
 
 SiteSubscriptionDetailList.defaultProps = {

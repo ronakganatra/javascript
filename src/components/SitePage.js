@@ -44,6 +44,9 @@ class SitePage extends React.Component {
 														   onMoreInfoClick={ props.onMoreInfoClick }
 														   onSettingsClick={ props.onSettingsClick }
 														   onToggleSubscription={ props.onToggleSubscription }
+														   popupOpen={ props.popupOpen }
+														   onClose={ props.onClose }
+														   onUpgrade={ props.onUpgrade }
 			/>;
 		}
 
