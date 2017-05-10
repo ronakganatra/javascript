@@ -22,7 +22,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     defaultValue=""
     id="addSiteInputField"
     onChange={[Function]}
-    placeholder="example-site.com"
+    placeholder="https://example-site.com"
     type="url" />
   <div
     className="jdEMcw">

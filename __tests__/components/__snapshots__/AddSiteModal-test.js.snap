@@ -31,7 +31,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
-        placeholder="example-site.com"
+        placeholder="https://example-site.com"
         type="url" />
       <div
         className="jdEMcw">
@@ -94,7 +94,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
-        placeholder="example-site.com"
+        placeholder="https://example-site.com"
         type="url" />
       <div
         className="jdEMcw">
@@ -157,7 +157,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
-        placeholder="example-site.com"
+        placeholder="https://example-site.com"
         type="url" />
       <div
         className="jdEMcw">
@@ -220,7 +220,7 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
-        placeholder="example-site.com"
+        placeholder="https://example-site.com"
         type="url" />
       <div
         className="jdEMcw">
@@ -283,7 +283,7 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
-        placeholder="example-site.com"
+        placeholder="https://example-site.com"
         type="url" />
       <div
         className="jdEMcw">

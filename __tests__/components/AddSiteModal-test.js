@@ -23,6 +23,7 @@ test('The AddSiteModal component matches the snapshot', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 
 	);
@@ -41,6 +42,7 @@ test('the addSiteModal handling an onClose event', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 	);
 
@@ -65,6 +67,7 @@ test('the addSiteModal handling an onLink event', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 	);
 
