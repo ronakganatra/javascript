@@ -5,20 +5,20 @@ exports[`test the sites component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="hIfJht">
+      className="dfVkqD">
       <span
-        className="gfiVKI">
+        className="hKxPZP">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="inIuEx">
+        className="column--site-name gfZVIN">
         www.yoast.com
       </span>
       <span
-        className="krhDyE">
+        className="column--site-subscriptions goqbxj">
         <span>
           <img
             aria-label="Test is active"
@@ -43,23 +43,23 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="duzOqA" />
+        className="fvaPPL" />
     </li>
     <li
-      className="bhegyb">
+      className="eXjWlS">
       <span
-        className="gfiVKI">
+        className="hKxPZP">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="inIuEx">
+        className="column--site-name gfZVIN">
         www.google.com
       </span>
       <span
-        className="krhDyE">
+        className="column--site-subscriptions goqbxj">
         <span>
           <img
             aria-label="Test is active"
@@ -84,23 +84,23 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="duzOqA" />
+        className="fvaPPL" />
     </li>
     <li
-      className="hIfJht">
+      className="dfVkqD">
       <span
-        className="gfiVKI">
+        className="hKxPZP">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="inIuEx">
+        className="column--site-name gfZVIN">
         www.facebook.com
       </span>
       <span
-        className="krhDyE">
+        className="column--site-subscriptions goqbxj">
         <span>
           <img
             aria-label="Test is active"
@@ -125,7 +125,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="duzOqA" />
+        className="fvaPPL" />
     </li>
   </ul>
 </div>

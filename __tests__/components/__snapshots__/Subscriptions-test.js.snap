@@ -5,80 +5,80 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="hIfJht">
+      className="kLXNVT">
       <span
-        className="gfiVKI">
+        className="hKxPZP">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="dZXzDJ">
+        className="column--subscription-name fcObzd">
         SEO Premium for WordPress
       </span>
       <span
-        className="caRsKK">
+        className="column--subscription-level kjmKmu">
         20 sites
       </span>
       <span
-        className="hPsdFS">
+        className="column--subscription-usage iZDhRy">
         4
         /
         20
       </span>
       <span
-        className="lpmXNC">
+        className="column--subscription-next-billing dncuIG">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="jSKwHP">
+        className="column--subscription-amount hMTsIw">
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="duzOqA" />
+        className="fvaPPL" />
     </li>
     <li
-      className="bhegyb">
+      className="gVabgJ">
       <span
-        className="gfiVKI">
+        className="hKxPZP">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="dZXzDJ">
+        className="column--subscription-name fcObzd">
         SEO Premium for WordPress
       </span>
       <span
-        className="caRsKK">
+        className="column--subscription-level kjmKmu">
         20 sites
       </span>
       <span
-        className="hPsdFS">
+        className="column--subscription-usage iZDhRy">
         3
         /
         20
       </span>
       <span
-        className="lpmXNC">
+        className="column--subscription-next-billing dncuIG">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="jSKwHP">
+        className="column--subscription-amount hMTsIw">
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="duzOqA" />
+        className="fvaPPL" />
     </li>
   </ul>
 </div>

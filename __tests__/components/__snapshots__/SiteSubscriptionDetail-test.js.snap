@@ -1,6 +1,6 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="bhegyb">
+  className="kGwIJV">
   <span
     className="fGtTED">
     <span
@@ -64,7 +64,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="bhegyb">
+  className="kGwIJV">
   <span
     className="fGtTED">
     <span

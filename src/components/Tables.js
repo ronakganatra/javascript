@@ -25,6 +25,7 @@ Zebra.defaultProps = {
 	hasHeaderLabels: true,
 };
 
+// The Rows are flex containers.
 export const Row = styled.li`
 	background: ${ props => props.background };
 	min-height: 100px;
@@ -50,6 +51,12 @@ Row.defaultProps = {
 	background: colors.$color_white,
 };
 
+/*
+ * The "Columns" are flex-items, their "flex" property is the initial `0 1 auto`
+ * that translates to: cannot grow, can shrink, initial width based on the content.
+ * It can be changed on a case by case basis either wrapping the Columns in a
+ * styled component or using className where applicable.
+ */
 export const Column = styled.span`
 	font-size: 14px;
 	padding-left: 40px;
@@ -69,8 +76,6 @@ export const Column = styled.span`
 
  	${ props => props.separator ? separatify() : "" }
 
-	flex: 0 0 ${ props => props.ColumnWidth };
-
 	@media screen and ( max-width: 1355px ) {
 		padding-left: 20px;
 		${ props => props.hideOnTablet ? "display: none;" : "" }
@@ -83,7 +88,6 @@ export const Column = styled.span`
 
 Column.propTypes = {
 	children: React.PropTypes.any,
-	ColumnWidth: React.PropTypes.string,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
 	separator: React.PropTypes.bool,
@@ -91,7 +95,6 @@ Column.propTypes = {
 };
 
 Column.defaultProps = {
-	ColumnWidth: "auto",
 	hideOnMobile: false,
 	hideOnTable: false,
 	separator: false,

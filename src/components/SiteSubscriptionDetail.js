@@ -109,6 +109,10 @@ const SubscriptionRightContainer = styled.span`
 	}
 `;
 
+const CustomRow = styled( Row )`
+	flex-wrap: wrap;
+`;
+
 /**
  *
  * @param {Object} props The props to use
@@ -137,9 +141,9 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.subscriptionId !== "" ) {
 		disable = false;
 	}
-	// Todo: make the Row flex wrap
+
 	return (
-		<Row { ...rowProps }>
+		<CustomRow { ...rowProps }>
 			<SubscriptionLeftContainer>
 				<SubscriptionToggle>
 					<Toggle
@@ -165,7 +169,7 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
 				</LargeButtonLink>
 			</SubscriptionRightContainer>
-		</Row>
+		</CustomRow>
 	);
 }
 

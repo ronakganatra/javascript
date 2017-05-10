@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
@@ -38,6 +39,22 @@ const messages = defineMessages( {
 	},
 } );
 
+const CustomRow = styled( Row )`
+	.column--subscription-name {
+		flex: 1 1 250px;
+	}
+
+	.column--subscription-level,
+	.column--subscription-usage,
+	.column--subscription-amount {
+		flex: 0 1 100px;
+	}
+
+	.column--subscription-next-billing {
+		flex: 0 1 150px;
+	}
+`;
+
 /**
  * Creates a subscription component
  *
@@ -50,20 +67,23 @@ function Subscription( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
-	// Todo: second column fillSpace={ true }
+
 	return (
-		<Row key={ props.id } { ...rowProps }>
+		<CustomRow key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
-			<ColumnText ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
-			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
-			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
+			<ColumnText className="column--subscription-name" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText className="column--subscription-level" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
+				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
+			</ColumnText>
+			<ColumnText className="column--subscription-usage" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
+				{ props.used }/{ props.limit }
+			</ColumnText>
+			<ColumnText className="column--subscription-next-billing" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
-			            ColumnWidth="100px">
-				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
+			<ColumnText className="column--subscription-amount" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
+				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
+			</ColumnText>
 			<Column>
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
@@ -74,7 +94,7 @@ function Subscription( props ) {
 				</MediaQuery>
 
 			</Column>
-		</Row>
+		</CustomRow>
 	);
 }
 

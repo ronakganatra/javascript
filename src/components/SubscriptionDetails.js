@@ -91,7 +91,28 @@ const ColumnContainer = styled.div`
 	}
 `;
 
-// todo: all the column here should have a 20px padding left.
+const CustomRow = styled( Row )`
+	& > span {
+		padding-left: 20px;
+	}
+
+	.column--subscription-detail-start-date,
+	.column--subscription-detail-next-billing {
+		flex: 0 0 30%;
+	}
+
+	.column--subscription-detail-add-site,
+	.column--subscription-detail-change-level,
+	.column--subscription-detail-cancel {
+		flex: 1 1 60%;
+	}
+
+	.column--subscription-invoice-date,
+	.column--subscription-invoice-amount,
+	.column--subscription-invoice-button {
+		flex: 0 0 20%;
+	}
+`;
 
 /**
  * The SubscriptionDetails component.
@@ -105,9 +126,11 @@ const ColumnContainer = styled.div`
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="start-date">
-					<ColumnText ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
-					<ColumnText ColumnWidth="30%">
+				<CustomRow key="start-date">
+					<ColumnText className="column--subscription-detail-start-date">
+						{ props.intl.formatMessage( messages.startDate ) }
+					</ColumnText>
+					<ColumnText className="column--subscription-detail-start-date">
 						<FormattedDate
 							value={ props.startDate }
 							year='numeric'
@@ -115,10 +138,12 @@ function SubscriptionDetails( props ) {
 							day='2-digit'
 						/>
 					</ColumnText>
-				</Row>
-				<Row key="next-billing">
-					<ColumnText ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
-					<ColumnText ColumnWidth="30%">
+				</CustomRow>
+				<CustomRow key="next-billing">
+					<ColumnText className="column--subscription-detail-next-billing">
+						{ props.intl.formatMessage( messages.nextBilling ) }
+					</ColumnText>
+					<ColumnText className="column--subscription-detail-next-billing">
 						<FormattedDate
 							value={ props.nextBilling }
 							year='numeric'
@@ -126,14 +151,14 @@ function SubscriptionDetails( props ) {
 							day='2-digit'
 						/>
 					</ColumnText>
-				</Row>
+				</CustomRow>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-licenses">
-					<ColumnText ColumnWidth="60%">
+				<CustomRow key="remaining-licenses">
+					<ColumnText className="column--subscription-detail-add-site">
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>
 					<Column>
@@ -143,9 +168,11 @@ function SubscriptionDetails( props ) {
 							</LargeButton>
 						</MediaQuery>
 					</Column>
-				</Row>
-				<Row key="change-level">
-					<ColumnText ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
+				</CustomRow>
+				<CustomRow key="change-level">
+					<ColumnText className="column--subscription-detail-change-level">
+						{ props.intl.formatMessage( messages.changeLevel ) }
+					</ColumnText>
 					<Column>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<LargeButton onClick={ props.onShop }>
@@ -153,9 +180,11 @@ function SubscriptionDetails( props ) {
 							</LargeButton>
 						</MediaQuery>
 					</Column>
-				</Row>
-				<Row key="cancel">
-					<ColumnText ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
+				</CustomRow>
+				<CustomRow key="cancel">
+					<ColumnText className="column--subscription-detail-cancel">
+						{ props.intl.formatMessage( messages.cancelSubscription ) }
+					</ColumnText>
 					<Column>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<RedButton onClick={ props.onCancel }>
@@ -163,15 +192,15 @@ function SubscriptionDetails( props ) {
 							</RedButton>
 						</MediaQuery>
 					</Column>
-				</Row>
+				</CustomRow>
 		</ListTable>
 	);
 
 	let invoicesTable = (
 		<ListTable hasHeaderLabels={ false }>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } key={ invoice.invoiceId }>
-					<ColumnText ColumnWidth="20%">
+				return <CustomRow { ...invoice } key={ invoice.invoiceId }>
+					<ColumnText className="column--subscription-invoice-date">
 						<FormattedDate
 							value={ invoice.invoiceDate }
 							year='numeric'
@@ -179,7 +208,7 @@ function SubscriptionDetails( props ) {
 							day='2-digit'
 						/>
 					</ColumnText>
-					<ColumnText ColumnWidth="20%">
+					<ColumnText className="column--subscription-invoice-amount">
 						{ props.intl.formatNumber(
 							formatAmount( invoice.invoiceAmount ),
 							{
@@ -189,7 +218,7 @@ function SubscriptionDetails( props ) {
 							}
 						) }
 					</ColumnText>
-					<Column ColumnWidth="20%">
+					<Column className="column--subscription-invoice-button">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButtonLink
 								to={ getInvoiceUrl( invoice.invoiceId ) }
@@ -199,7 +228,7 @@ function SubscriptionDetails( props ) {
 							</IconButtonLink>
 						</MediaQuery>
 					</Column>
-				</Row>;
+				</CustomRow>;
 			} ) }
 		</ListTable>
 	);

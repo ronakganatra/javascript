@@ -39,6 +39,20 @@ const messages = defineMessages( {
 	},
 } );
 
+const CustomRow = styled( Row )`
+	& > span {
+		flex: 0 1 150px;
+	}
+
+	.column--order-items {
+		flex: 1 1 150px;
+	}
+
+	.column--order-invoice-button {
+		flex: 0 0 auto;
+	}
+`;
+
 let invoiceStatuses = [ "completed", "refunded" ];
 
 /**
@@ -62,24 +76,24 @@ function Order( props ) {
 			padding-right: 0;
 		}
 	`;
-	// Todo: third column fillSpace={ true }
+
 	return (
-		<Row background={ props.background }>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
+		<CustomRow background={ props.background }>
+			<ColumnText headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
+			<ColumnText hideOnMobile={ true } hideOnTablet={ true }
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnText className="column--order-items" headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
+			<ColumnText headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
-			<Column>
+			<ColumnText headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
+			<Column className="column--order-invoice-button">
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
@@ -92,7 +106,7 @@ function Order( props ) {
 					</MediaQuery>
 				</ResponsiveInvoiceButton>
 			</Column>
-		</Row>
+		</CustomRow>
 	);
 }
 

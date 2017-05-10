@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
@@ -27,6 +28,16 @@ SiteIcon.propTypes = {
 	src: React.PropTypes.string.isRequired,
 };
 
+const CustomRow = styled( Row )`
+	.column--site-name {
+		flex: 1 1 250px;
+	}
+
+	.column--site-subscriptions {
+		flex: 0 1 500px;
+	}
+`;
+
 /**
  * Returns the rendered Site component.
  *
@@ -42,13 +53,14 @@ function Site( props ) {
 	}
 
 	let siteIcon = props.siteIcon || defaultSiteIcon;
-	// Todo: second column fillSpace={ true }
+
 	return (
-		<Row { ...rowProps }>
+		<CustomRow { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
-			<ColumnText ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
-						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
+			<ColumnText className="column--site-name" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
+			<ColumnText className="column--site-subscriptions" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
+				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
+			</ColumnText>
 			<Column>
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
@@ -59,7 +71,7 @@ function Site( props ) {
 								   onClick={ props.onClickManage } />
 				</MediaQuery>
 			</Column>
-		</Row>
+		</CustomRow>
 	);
 }
 

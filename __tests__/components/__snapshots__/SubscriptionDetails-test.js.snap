@@ -11,26 +11,26 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="hIfJht">
+        className="gmnUIR">
         <span
-          className="fkFeGn">
+          className="column--subscription-detail-start-date abykF">
           Start date
         </span>
         <span
-          className="fkFeGn">
+          className="column--subscription-detail-start-date abykF">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="bhegyb">
+        className="VURQv">
         <span
-          className="fkFeGn">
+          className="column--subscription-detail-next-billing abykF">
           Next billing
         </span>
         <span
-          className="fkFeGn">
+          className="column--subscription-detail-next-billing abykF">
           <span>
             June 01, 2018
           </span>
@@ -48,31 +48,31 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="hIfJht">
+        className="gmnUIR">
         <span
-          className="ljyFID">
+          className="column--subscription-detail-add-site abykF">
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="duzOqA" />
+          className="fvaPPL" />
       </li>
       <li
-        className="bhegyb">
+        className="VURQv">
         <span
-          className="ljyFID">
+          className="column--subscription-detail-change-level abykF">
           Change subscription level
         </span>
         <span
-          className="duzOqA" />
+          className="fvaPPL" />
       </li>
       <li
-        className="hIfJht">
+        className="gmnUIR">
         <span
-          className="ljyFID">
+          className="column--subscription-detail-cancel abykF">
           Cancel subscription
         </span>
         <span
-          className="duzOqA" />
+          className="fvaPPL" />
       </li>
     </ul>
   </div>
@@ -86,34 +86,34 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="hIfJht">
+        className="gmnUIR">
         <span
-          className="ingwLc">
+          className="column--subscription-invoice-date abykF">
           <span>
             July 21, 2016
           </span>
         </span>
         <span
-          className="ingwLc">
+          className="column--subscription-invoice-amount abykF">
           $1
         </span>
         <span
-          className="fZTTMc" />
+          className="column--subscription-invoice-button fvaPPL" />
       </li>
       <li
-        className="bhegyb">
+        className="VURQv">
         <span
-          className="ingwLc">
+          className="column--subscription-invoice-date abykF">
           <span>
             July 22, 2016
           </span>
         </span>
         <span
-          className="ingwLc">
+          className="column--subscription-invoice-amount abykF">
           $200
         </span>
         <span
-          className="fZTTMc" />
+          className="column--subscription-invoice-button fvaPPL" />
       </li>
     </ul>
   </div>
