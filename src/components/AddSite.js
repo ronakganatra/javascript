@@ -224,7 +224,7 @@ class AddSite extends React.Component {
 					<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 					</TextButton>
-					<TextButton type="button" onClick={ this.props.onLinkClick } buttonWidth={"100px"} enabledStyle={ this.linkEnabled } >
+					<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled } >
 						<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
 					</TextButton>
 				</Buttons>
