@@ -104,7 +104,7 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.linkEnabled= true;
+		this.linkEnabled = true;
 
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
@@ -134,10 +134,9 @@ class AddSite extends React.Component {
 	 */
 	urlValidityMessage( inputStr = "" ) {
 		this.linkEnabled = true;
-		console.log( this.linkEnabled );
+
 		if ( "" === inputStr ) {
 			this.linkEnabled = false;
-			console.log( this.linkEnabled );
 			return;
 		}
 
