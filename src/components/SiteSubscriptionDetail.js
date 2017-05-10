@@ -99,10 +99,11 @@ const SubscriptionUsage = styled.span`
 	}
 `;
 
-const AddOneSlot = styled.button`
+const AddOneSlot = styled.a`
 	font-size: 14px;
 	font-weight: 300;
 	font-style: italic;
+	text-decoration: none;
 	border: none;
 	background: transparent url( ${ plusIcon } ) no-repeat 0 0;
 	background-size: 16px;
@@ -144,6 +145,7 @@ export default function SiteSubscriptionDetail( props ) {
 	let modal = (
 		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
 	);
+	console.log( "sitesubdetails", props );
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
@@ -162,9 +164,8 @@ export default function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
 						values={{ howMany: ( props.slots.amountAvailable - props.slots.amountUsed ) + " / " + props.slots.amountAvailable }} />
 				</SubscriptionUsage>
-				{
-					props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
-					<AddOneSlot onClick={ props.onAddMoreSlotsClick }>{ props.slots.addMoreSlots }
+				{	props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
+					<AddOneSlot href={ props.product.storeUrl } >{ props.slots.addMoreSlots }
 						<FormattedNumber value={ formatAmount( props.price ) } style="currency" currency={ props.currency }/>
 					</AddOneSlot>
 
@@ -190,6 +191,7 @@ SiteSubscriptionDetail.propTypes = {
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.func.isRequired,
+	product: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
 	price: React.PropTypes.number.isRequired,
 	currency: React.PropTypes.string.isRequired,

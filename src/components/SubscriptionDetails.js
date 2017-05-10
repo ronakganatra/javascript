@@ -5,7 +5,7 @@ import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
-import { LargeButton, RedButton, IconButtonLink } from "./Button";
+import { LargeButton, RedButton, IconButtonLink, LargeButtonLink } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
 
@@ -152,9 +152,8 @@ function SubscriptionDetails( props ) {
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
 					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButton onClick={ props.onShop }>
-								{ props.intl.formatMessage( messages.shopButton ) }
-							</LargeButton>
+							<LargeButtonLink href={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+								{ props.intl.formatMessage( messages.shopButton ) } </LargeButtonLink>
 						</MediaQuery>
 					</Column>
 				</Row>
@@ -243,6 +242,7 @@ SubscriptionDetails.propTypes = {
 	onCancel: React.PropTypes.func.isRequired,
 	onInvoiceDownload: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
+	subscription: React.PropTypes.string,
 };
 
 export default injectIntl( SubscriptionDetails );

@@ -91,6 +91,7 @@ Subscription.propTypes = {
 	intl: intlShape.isRequired,
 	background: React.PropTypes.string,
 	onManage: React.PropTypes.func.isRequired,
+	product: React.PropTypes.string,
 };
 
 export default injectIntl( Subscription );

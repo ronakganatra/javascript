@@ -20,6 +20,7 @@ const messages = defineMessages( {
  * @constructor
  */
 function SiteSubscriptionDetailList( props ) {
+	console.log( "SiteSubscriptiopnDetail", props );
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
@@ -35,7 +36,7 @@ function SiteSubscriptionDetailList( props ) {
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
-							onUpgrade={ props.onUpgrade }
+							onUpgrade={ subscription.product.storeUrl }
 						/>;
 					} ) }
 				</ListTable>

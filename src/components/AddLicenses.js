@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TextButton } from "./Button.js";
+import { TextButton, ButtonLink } from "./Button.js";
 import { FormattedMessage } from "react-intl";
 
 const AddLicensesModal = styled.div`
@@ -35,6 +35,8 @@ const Buttons = styled.div`
  * @returns {ReactElement} A react component describing the AddLicenses modal.
  */
 export default function AddLicenses( props ) {
+	console.log( "subs log", props );
+
 	return (
 			<AddLicensesModal>
 				<AddLicensesHeading>
@@ -50,9 +52,10 @@ export default function AddLicenses( props ) {
 					<TextButton type="button" onClick={ props.onClose } buttonWidth={"100px"}>
 						<FormattedMessage id="subscriptions.upgrade-subscription.cancel" defaultMessage="cancel" />
 					</TextButton>
-					<TextButton type="button" onClick={ props.onUpgrade } buttonWidth={"100px"}>
+
+					<ButtonLink href={ props.onUpgrade }>
 						<FormattedMessage id="subscriptions.upgrade-subscription.link" defaultMessage="upgrade" />
-					</TextButton>
+					</ButtonLink>
 				</Buttons>
 			</AddLicensesModal>
 	);
@@ -63,5 +66,7 @@ AddLicenses.propTypes = {
 	onUpgrade: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
+	subscription: React.PropTypes.string,
+	history: React.PropTypes.any,
 };
 
