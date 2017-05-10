@@ -111,7 +111,6 @@ class AddSite extends React.Component {
 		};
 	}
 
-
 	urlConstraints() {
 		let output = {
 			url: {
