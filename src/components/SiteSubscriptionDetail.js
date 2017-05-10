@@ -146,7 +146,6 @@ function SiteSubscriptionDetail( props ) {
 	let modal = (
 		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
 	);
-	console.log( "sitesubdetails", props );
 
 	let licensesRemaining = props.limit - props.used;
 
@@ -164,7 +163,6 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.subscriptionId !== "" ) {
 		disable = false;
 	}
-	console.log ( "test", props );
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
@@ -209,8 +207,7 @@ SiteSubscriptionDetail.propTypes = {
 	onToggleDisabled: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.func.isRequired,
-	product: React.PropTypes.string.isRequired,
+	onUpgrade: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
 	icon: React.PropTypes.string.isRequired,
 	limit: React.PropTypes.number.isRequired,

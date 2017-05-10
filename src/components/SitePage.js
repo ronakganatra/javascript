@@ -51,7 +51,6 @@ class SitePage extends React.Component {
 														   onToggleDisabled={ props.onToggleDisabled }
 			/>;
 		}
-		console.log( "SitePage", props.subscriptions );
 		return (
 			<div>
 				<Link to={ "/sites" } >

@@ -20,7 +20,6 @@ const messages = defineMessages( {
  * @constructor
  */
 function SiteSubscriptionDetailList( props ) {
-	console.log( "SSDL", props );
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
@@ -55,7 +54,7 @@ SiteSubscriptionDetailList.propTypes = {
 	intl: intlShape.isRequired,
 	popupOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.func.isRequired,
+	onUpgrade: React.PropTypes.string.isRequired,
 	onToggleDisabled: React.PropTypes.func.isRequired,
 };
 

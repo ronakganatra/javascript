@@ -35,8 +35,6 @@ const Buttons = styled.div`
  * @returns {ReactElement} A react component describing the AddLicenses modal.
  */
 export default function AddLicenses( props ) {
-	console.log( "subs log", props );
-
 	return (
 			<AddLicensesModal>
 				<AddLicensesHeading>
@@ -63,9 +61,7 @@ export default function AddLicenses( props ) {
 
 AddLicenses.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.func.isRequired,
-	errorFound: React.PropTypes.bool.isRequired,
-	errorMessage: React.PropTypes.string,
+	onUpgrade: React.PropTypes.string.isRequired,
 	subscription: React.PropTypes.string,
 	history: React.PropTypes.any,
 };
