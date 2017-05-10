@@ -1,6 +1,5 @@
 import React from "react";
-import { ColumnIcon } from "./ColumnIcon";
-import { Row, ColumnText, Column } from "./Tables";
+import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";

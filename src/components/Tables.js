@@ -2,14 +2,55 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
-/**
- * Returns the rendered Column component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Column component.
- * @constructor
- */
+export const Zebra = styled.ul`
+	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
+ 	padding: 0;
+ 	list-style: none;
+ 	position: relative;
+ 	width: 100%;
+
+ 	li:first-child {
+		& span::before {
+			left: auto;
+		}
+	}
+`;
+
+Zebra.propTypes = {
+	children: React.PropTypes.any,
+	hasHeaderLabels: React.PropTypes.bool,
+};
+
+Zebra.defaultProps = {
+	hasHeaderLabels: true,
+};
+
+export const Row = styled.li`
+	background: ${ props => props.background };
+	min-height: 100px;
+	display: flex;
+	padding: 26px 40px;
+	align-items: center;
+	justify-content: ${ props => props.justifyContent };
+	flex-wrap: ${ props => props.flexWrap };
+
+	@media screen and ( max-width: 800px ) {
+		padding: 20px 24px;
+	}
+`;
+
+Row.propTypes = {
+	background: React.PropTypes.string,
+	justifyContent: React.PropTypes.string,
+	flexWrap: React.PropTypes.string,
+};
+
+Row.defaultProps = {
+	justifyContent: "space-around",
+	background: colors.$color_white,
+	flexWrap: "nowrap",
+};
+
 export const Column = styled.span`
 	font-size: 14px;
 	padding-left: ${ props => props.columnPaddingLeft };
@@ -68,6 +109,32 @@ Column.defaultProps = {
 	separator: false,
 };
 
+export const ColumnText = styled( Column )`
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+`;
+
+export const ColumnIcon = styled( Column )`
+	height: 60px;
+	text-align: center;
+	flex: 0 0 ${ props => props.ColumnWidth };
+
+	& img {
+		margin: 0 auto;
+	}
+
+	// We need to make sure flex values are not overridden.
+	@media screen and ( max-width: 1355px ) {
+		flex: 0 0 ${ props => props.ColumnWidth };
+	}
+
+	@media screen and ( max-width: 800px ) {
+		flex: 0 0 ${ props => props.ColumnWidth };
+		height: 48px;
+	}
+`;
+
 /**
  * Separatifies an element.
  *
@@ -99,83 +166,12 @@ export function separatify() {
 	`;
 }
 
-export const ColumnText = styled( Column )`
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-`;
-
 /**
- * Returns the rendered Row component.
+ * Returns the rendered ListTable component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered Row component.
- * @constructor
- */
-export const Row = styled.li`
-	background: ${ props => props.background };
-	min-height: 100px;
-	display: flex;
-	padding: 26px 40px;
-	align-items: center;
-	justify-content: ${ props => props.justifyContent };
-	flex-wrap: ${ props => props.flexWrap };
-
-	@media screen and ( max-width: 800px ) {
-		padding: 20px 24px;
-	}
-`;
-
-Row.propTypes = {
-	background: React.PropTypes.string,
-	justifyContent: React.PropTypes.string,
-	flexWrap: React.PropTypes.string,
-};
-
-Row.defaultProps = {
-	justifyContent: "space-around",
-	background: colors.$color_white,
-	flexWrap: "nowrap",
-};
-
-/**
- * Returns the rendered Zebra component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Zebra component.
- * @constructor
- */
-export const Zebra = styled.ul`
-	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
- 	padding: 0;
- 	list-style: none;
- 	position: relative;
- 	width: 100%;
-
- 	li:first-child {
-		& span::before {
-			left: auto;
-		}
-	}
-`;
-
-Zebra.propTypes = {
-	children: React.PropTypes.any,
-	hasHeaderLabels: React.PropTypes.bool,
-};
-
-Zebra.defaultProps = {
-	hasHeaderLabels: true,
-};
-
-/**
- * Returns the rendered Zebra component.
- *
- * @param {Object} props The props to use.
- *
- * @returns {ReactElement} The rendered Zebra component.
+ * @returns {ReactElement} The rendered ListTable component.
  * @constructor
  */
 export function ListTable( props ) {

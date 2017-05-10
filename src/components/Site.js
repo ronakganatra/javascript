@@ -3,8 +3,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
-import { ColumnIcon } from "./ColumnIcon";
-import { Row, ColumnText, Column } from "./Tables";
+import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 
