@@ -29,6 +29,8 @@ class BaseAddLicensesModal extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		console.log( "subs log1", this.props );
+
 		return (
 			<div>
 				<Modal

@@ -48,11 +48,10 @@ class SitePage extends React.Component {
 														   onToggleSubscription={ props.onToggleSubscription }
 														   popupOpen={ props.popupOpen }
 														   onClose={ props.onClose }
-														   onClick={ props.onClick }
-														   onUpgrade={ props.onUpgrade }
+														   onToggleDisabled={ props.onToggleDisabled }
 			/>;
 		}
-
+		console.log( "SitePage", props.subscriptions );
 		return (
 			<div>
 				<Link to={ "/sites" } >

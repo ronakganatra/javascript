@@ -53,7 +53,7 @@ export default function AddLicenses( props ) {
 						<FormattedMessage id="subscriptions.upgrade-subscription.cancel" defaultMessage="cancel" />
 					</TextButton>
 
-					<ButtonLink href={ props.onUpgrade }>
+					<ButtonLink to={ props.onUpgrade }>
 						<FormattedMessage id="subscriptions.upgrade-subscription.link" defaultMessage="upgrade" />
 					</ButtonLink>
 				</Buttons>

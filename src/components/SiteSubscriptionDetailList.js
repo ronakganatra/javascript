@@ -20,23 +20,23 @@ const messages = defineMessages( {
  * @constructor
  */
 function SiteSubscriptionDetailList( props ) {
+	console.log( "SSDL", props );
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable hasHeaderLabels={ false }>
 					{ props.plugins.map( ( plugin ) => {
-						console.log( "SiteSubscriptiopnDetail", plugin );
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.id }
 							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
-							onClick={ props.onToggleSubscription }
+							onToggleDisabled={ props.onToggleDisabled }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
-							onUpgrade=""
+							onUpgrade={ plugin.storeUrl }
 						/>;
 					} ) }
 				</ListTable>
@@ -56,6 +56,7 @@ SiteSubscriptionDetailList.propTypes = {
 	popupOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.func.isRequired,
+	onToggleDisabled: React.PropTypes.func.isRequired,
 };
 
 SiteSubscriptionDetailList.defaultProps = {

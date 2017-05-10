@@ -154,7 +154,7 @@ function SiteSubscriptionDetail( props ) {
 	if ( licensesRemaining === 0 ) {
 		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
 
-		anotherLicense = <AddOneLicense><FormattedMessage
+		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
 			id="site.subscriptions.licenses.add"
 			defaultMessage="Add another license for { price }"
 			values={{ price }} /></AddOneLicense>;
@@ -164,7 +164,7 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.subscriptionId !== "" ) {
 		disable = false;
 	}
-
+	console.log ( "test", props );
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
@@ -172,7 +172,7 @@ function SiteSubscriptionDetail( props ) {
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
-						onClick={ props.onClick }
+						onToggleDisabled={ props.onToggleDisabled }
 						isEnabled={ props.isEnabled }
 						disable={ disable }
 						ariaLabel={ props.id } />
@@ -204,8 +204,9 @@ SiteSubscriptionDetail.propTypes = {
 	subscriptionId: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	onAddMoreLicensesClick: React.PropTypes.func,
-	onClick: React.PropTypes.func,
+	onClickToggle: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
+	onToggleDisabled: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.func.isRequired,
@@ -220,6 +221,7 @@ SiteSubscriptionDetail.propTypes = {
 	currency: React.PropTypes.string,
 	popupOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
+	storeUrl: React.PropTypes.string.isRequired,
 };
 
 SiteSubscriptionDetail.defaultProps = {

@@ -3,7 +3,6 @@ import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
-import { push } from "react-router-redux";
 import { getPlugins } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
@@ -107,14 +106,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onAddMoreLicensesClick: () => {
 			dispatch( addLicensesPopupOpen() );
 		},
+		onToggleDisabled: () => {
+			dispatch( addLicensesPopupOpen() );
+		},
 		onClose: () => {
 			dispatch( addLicensesPopupClose() );
-		},
-		onUpgrade: ( productId ) => {
-			dispatch( push( "/shop/" ) );
-		},
-		onClick: ( productId ) => {
-			dispatch( push( "/shop/" ) );
 		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {
