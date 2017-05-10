@@ -48,7 +48,11 @@ class Toggle extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.setEnablement = this.setEnablement.bind( this );
+		this.onClick = () => {};
+
+		if ( props.disable !== true ) {
+			this.onClick = this.setEnablement.bind( this );
+		}
 
 		this.state = {
 			isEnabled: this.props.isEnabled,
@@ -62,7 +66,7 @@ class Toggle extends React.Component {
 	 */
 	render() {
 		return <div>
-			<ToggleBar isEnabled={this.isEnabled()} onClick={this.setEnablement} onKeyDown={this.setEnablement} tabIndex="0"
+			<ToggleBar isEnabled={this.isEnabled()} onClick={this.onClick} onKeyDown={this.setEnablement} tabIndex="0"
 				role="checkbox" aria-label={this.props.ariaLabel} aria-checked={this.isEnabled()}
 			>
 				<ToggleBullet isEnabled={this.isEnabled()} />
@@ -106,6 +110,7 @@ Toggle.propTypes = {
 	isEnabled: React.PropTypes.bool,
 	ariaLabel: React.PropTypes.string.isRequired,
 	onSetEnablement: React.PropTypes.func,
+	disable: React.PropTypes.bool,
 };
 
 Toggle.defaultProps = {

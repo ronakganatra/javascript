@@ -4,12 +4,12 @@ import SiteSubscriptionDetail from '../../src/components/SiteSubscriptionDetail'
 import { MemoryRouter } from "react-router-dom";
 
 let subscription = {
-	id: "very-unique-sub-id",
+	id: "very-unique-product-id",
 	isEnabled: true,
 	name: "Subscription name",
 	productName: "Productname",
-	productId: "productId",
-	productLogo: "icon.svg",
+	subscriptionId: "subId",
+	icon: "icon.svg",
 	limit: 20,
 	used: 14,
 	price: 6900,

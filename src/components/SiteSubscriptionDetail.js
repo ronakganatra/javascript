@@ -133,16 +133,22 @@ function SiteSubscriptionDetail( props ) {
 			values={{ price }} /></AddOneLicense>;
 	}
 
+	let disable = true;
+	if ( props.subscriptionId !== "" ) {
+		disable = false;
+	}
+
 	return (
 		<Row { ...rowProps } flexWrap="wrap" justifyContent="space-between">
 			<SubscriptionLeftContainer>
 				<SubscriptionToggle>
 					<Toggle
-						onSetEnablement={ _partial( props.onToggleSubscription, props.id ) }
+						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						isEnabled={ props.isEnabled }
-						ariaLabel={ props.productId } />
+						disable={ disable }
+						ariaLabel={ props.id } />
 				</SubscriptionToggle>
-				<SubscriptionLogo src={ props.productLogo } alt="" />
+				<SubscriptionLogo src={ props.icon } alt="" />
 			</SubscriptionLeftContainer>
 
 			<SubscriptionDetails>
@@ -155,8 +161,8 @@ function SiteSubscriptionDetail( props ) {
 			</SubscriptionDetails>
 
 			<SubscriptionRightContainer>
-				<LargeButtonLink to={ `/account/subscriptions/${ props.id }` }>
-					<FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="Details" />
+				<LargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
+					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
 				</LargeButtonLink>
 			</SubscriptionRightContainer>
 		</Row>
@@ -165,13 +171,13 @@ function SiteSubscriptionDetail( props ) {
 
 SiteSubscriptionDetail.propTypes = {
 	id: React.PropTypes.string.isRequired,
+	subscriptionId: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	onAddMoreLicensesClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	isEnabled: React.PropTypes.bool,
-	productId: React.PropTypes.string.isRequired,
-	productLogo: React.PropTypes.string.isRequired,
+	icon: React.PropTypes.string.isRequired,
 	limit: React.PropTypes.number.isRequired,
 	used: React.PropTypes.number.isRequired,
 	background: React.PropTypes.string,

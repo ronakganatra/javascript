@@ -53,7 +53,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 						used: 7,
 						price: 6900,
 						product: {
-							id: "productid",
+							id: "productid2",
 							name: "string",
 							description: "string",
 							storeUrl: "string",
@@ -73,6 +73,30 @@ test('the site subscription detail list component matches the snapshot', () => {
 						productLogo: LocalIcon,
 					},
 				] }
+				plugins={
+					[
+						{
+							id: "productid",
+							name: "Yoast SEO Premium",
+							type: "plugin",
+							icon: "icon.png",
+							currency: "USD",
+							price: 123,
+							limit: 2,
+							used: 1,
+						},
+						{
+							id: "productid2",
+							name: "Yoast SEO Local",
+							type: "plugin",
+							icon: "icon2.png",
+							currency: "USD",
+							price: 123,
+							limit: 2,
+							used: 2,
+						},
+					]
+				}
 				onAddMoreLicensesClick={ () => {
 					console.log( "add more slots" );
 				} }

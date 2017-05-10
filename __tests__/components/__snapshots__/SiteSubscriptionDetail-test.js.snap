@@ -8,7 +8,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       <div>
         <div
           aria-checked={true}
-          aria-label="productId"
+          aria-label="very-unique-product-id"
           className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -52,7 +52,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
     className="hMwgWU">
     <a
       className="ifYuxa"
-      href="/account/subscriptions/very-unique-sub-id"
+      href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
         Details
@@ -72,7 +72,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label="productId"
+          aria-label="very-unique-product-id"
           className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -110,7 +110,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     className="hMwgWU">
     <a
       className="ifYuxa"
-      href="/account/subscriptions/very-unique-sub-id"
+      href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
         Details
