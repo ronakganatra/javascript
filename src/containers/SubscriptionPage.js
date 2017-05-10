@@ -3,7 +3,6 @@ import SubscriptionPage from "../components/SubscriptionPage";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
-import { push } from "react-router-redux";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let subscriptionId = ownProps.match.params.id;
@@ -14,7 +13,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 			isLoading: true,
 		};
 	}
-	let productId = subscription.product.storeUrl;
 
 	let invoices = subscription.orders.map( order => state.entities.orders.byId[ order ] );
 
@@ -37,7 +35,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 	return {
 		subscription,
 		invoices,
-		productId,
 	};
 };
 
@@ -53,9 +50,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 
 	return {
 		onAddSite: () => {},
-		onShop: () => {
-			dispatch( push( "test" + ownProps.product + "nog een test" ) );
-		},
 		onCancel: () => {},
 		onInvoiceDownload: () => {},
 	};
