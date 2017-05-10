@@ -82,10 +82,10 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		width: calc( 50% - ${ columnMargin } );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
 		width: 100%;
 	}
 `;
@@ -189,7 +189,7 @@ function SubscriptionDetails( props ) {
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButtonLink
-								href={ getInvoiceUrl( invoice.invoiceId ) }
+								to={ getInvoiceUrl( invoice.invoiceId ) }
 								iconSource={ downloadIcon }
 								iconSize={ "16px" }>
 								{ props.intl.formatMessage( messages.invoiceButton ) }
