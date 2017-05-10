@@ -134,7 +134,10 @@ class AddSite extends React.Component {
 	 */
 	urlValidityMessage( inputStr = "" ) {
 		this.linkEnabled = true;
+		console.log( this.linkEnabled );
 		if ( "" === inputStr ) {
+			this.linkEnabled = false;
+			console.log( this.linkEnabled );
 			return;
 		}
 
@@ -218,6 +221,7 @@ class AddSite extends React.Component {
 					onChange={ this.onWebsiteURLChange.bind( this ) }
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<Buttons>
 					<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
@@ -226,7 +230,6 @@ class AddSite extends React.Component {
 						<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
 					</TextButton>
 				</Buttons>
-				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
