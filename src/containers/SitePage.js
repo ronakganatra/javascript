@@ -65,6 +65,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onUpgrade: ( productId ) => {
 			dispatch( push( "/shop/" ) );
 		},
+		onClick: ( productId ) => {
+			dispatch( push( "/shop/" ) );
+		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled && amountAvailable === 0 ) {
 				dispatch( addLicensesPopupOpen() );

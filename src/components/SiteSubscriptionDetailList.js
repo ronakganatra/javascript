@@ -32,6 +32,7 @@ function SiteSubscriptionDetailList( props ) {
 							name={ subscription.productId }
 							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
+							onClick={ props.onToggleSubscription }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }

@@ -153,6 +153,7 @@ export default function SiteSubscriptionDetail( props ) {
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.id ) }
+						onClick={ props.onClick }
 						isEnabled={ props.isEnabled }
 						ariaLabel={ props.productId } />
 				</SubscriptionToggle>
@@ -187,6 +188,7 @@ SiteSubscriptionDetail.propTypes = {
 	id: React.PropTypes.string.isRequired,
 	name: React.PropTypes.string.isRequired,
 	onAddMoreSlotsClick: React.PropTypes.func,
+	onClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
