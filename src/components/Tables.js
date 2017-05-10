@@ -31,30 +31,28 @@ export const Row = styled.li`
 	display: flex;
 	padding: 26px 40px;
 	align-items: center;
-	justify-content: ${ props => props.justifyContent };
-	flex-wrap: ${ props => props.flexWrap };
+	justify-content: space-between;
+
+	@media screen and ( max-width: 1355px ) {
+		padding: 26px 24px;
+	}
 
 	@media screen and ( max-width: 800px ) {
-		padding: 20px 24px;
+		padding: 16px 18px;
 	}
 `;
 
 Row.propTypes = {
 	background: React.PropTypes.string,
-	justifyContent: React.PropTypes.string,
-	flexWrap: React.PropTypes.string,
 };
 
 Row.defaultProps = {
-	justifyContent: "space-around",
 	background: colors.$color_white,
-	flexWrap: "nowrap",
 };
 
 export const Column = styled.span`
 	font-size: 14px;
-	padding-left: ${ props => props.columnPaddingLeft };
-	text-align: ${ props => props.textAlign };
+	padding-left: 40px;
 
 	&:first-child {
 		padding-left: 0;
@@ -72,17 +70,13 @@ export const Column = styled.span`
  	${ props => props.separator ? separatify() : "" }
 
 	flex: 0 0 ${ props => props.ColumnWidth };
-	flex-grow: ${ props => props.fillSpace === true ? "1" : "0" };
 
 	@media screen and ( max-width: 1355px ) {
 		padding-left: 20px;
-		flex: 1 0 ${ props => props.ColumnWidth };
 		${ props => props.hideOnTablet ? "display: none;" : "" }
 	}
 
 	@media screen and ( max-width: 800px ) {
-		padding-left: 10px;
-		flex: 1 1 ${ props => props.ColumnWidth };
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
 `;
@@ -90,22 +84,16 @@ export const Column = styled.span`
 Column.propTypes = {
 	children: React.PropTypes.any,
 	ColumnWidth: React.PropTypes.string,
-	columnPaddingLeft: React.PropTypes.string,
-	fillSpace: React.PropTypes.bool,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
-	textAlign: React.PropTypes.string,
 	separator: React.PropTypes.bool,
 	headerLabel: React.PropTypes.string,
 };
 
 Column.defaultProps = {
 	ColumnWidth: "auto",
-	columnPaddingLeft: "40px",
-	fillSpace: false,
 	hideOnMobile: false,
 	hideOnTable: false,
-	textAlign: "left",
 	separator: false,
 };
 
@@ -116,21 +104,10 @@ export const ColumnText = styled( Column )`
 `;
 
 export const ColumnIcon = styled( Column )`
+	flex: 0 0 auto;
 	height: 60px;
-	text-align: center;
-	flex: 0 0 ${ props => props.ColumnWidth };
-
-	& img {
-		margin: 0 auto;
-	}
-
-	// We need to make sure flex values are not overridden.
-	@media screen and ( max-width: 1355px ) {
-		flex: 0 0 ${ props => props.ColumnWidth };
-	}
 
 	@media screen and ( max-width: 800px ) {
-		flex: 0 0 ${ props => props.ColumnWidth };
 		height: 48px;
 	}
 `;
@@ -153,14 +130,14 @@ export function separatify() {
 
 	@media screen and ( max-width: 1355px ) {
 		&::after {
-			padding-right: 20px;
+			padding-right: 24px;
 		}
 	}
 
 	@media screen and ( max-width: 800px ) {
 		&::after {
-			padding-right: 10px;
 			height: 48px;
+			padding-right: 18px;
 		}
 	}
 	`;

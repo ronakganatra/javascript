@@ -91,6 +91,8 @@ const ColumnContainer = styled.div`
 	}
 `;
 
+// todo: all the column here should have a 20px padding left.
+
 /**
  * The SubscriptionDetails component.
  *
@@ -103,9 +105,9 @@ const ColumnContainer = styled.div`
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="start-date" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+				<Row key="start-date">
+					<ColumnText ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
+					<ColumnText ColumnWidth="30%">
 						<FormattedDate
 							value={ props.startDate }
 							year='numeric'
@@ -114,9 +116,9 @@ function SubscriptionDetails( props ) {
 						/>
 					</ColumnText>
 				</Row>
-				<Row key="next-billing" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+				<Row key="next-billing">
+					<ColumnText ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
+					<ColumnText ColumnWidth="30%">
 						<FormattedDate
 							value={ props.nextBilling }
 							year='numeric'
@@ -130,11 +132,11 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-licenses" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
+				<Row key="remaining-licenses">
+					<ColumnText ColumnWidth="60%">
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
+					<Column>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<LargeButton onClick={ props.onAddSite }>
 								{ props.intl.formatMessage( messages.addSiteButton ) }
@@ -142,9 +144,9 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="change-level" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
+				<Row key="change-level">
+					<ColumnText ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
+					<Column>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<LargeButton onClick={ props.onShop }>
 								{ props.intl.formatMessage( messages.shopButton ) }
@@ -152,9 +154,9 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="cancel" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
+				<Row key="cancel">
+					<ColumnText ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
+					<Column>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<RedButton onClick={ props.onCancel }>
 								{ props.intl.formatMessage( messages.cancelButton ) }
@@ -168,8 +170,8 @@ function SubscriptionDetails( props ) {
 	let invoicesTable = (
 		<ListTable hasHeaderLabels={ false }>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+				return <Row { ...invoice } key={ invoice.invoiceId }>
+					<ColumnText ColumnWidth="20%">
 						<FormattedDate
 							value={ invoice.invoiceDate }
 							year='numeric'
@@ -177,7 +179,7 @@ function SubscriptionDetails( props ) {
 							day='2-digit'
 						/>
 					</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+					<ColumnText ColumnWidth="20%">
 						{ props.intl.formatNumber(
 							formatAmount( invoice.invoiceAmount ),
 							{
@@ -187,7 +189,7 @@ function SubscriptionDetails( props ) {
 							}
 						) }
 					</ColumnText>
-					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
+					<Column ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButtonLink
 								to={ getInvoiceUrl( invoice.invoiceId ) }

@@ -5,80 +5,80 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="eSkKDa">
+      className="hIfJht">
       <span
-        className="hhzmjS">
+        className="gfiVKI">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="gVFNux">
+        className="dZXzDJ">
         SEO Premium for WordPress
       </span>
       <span
-        className="XdUuW">
+        className="caRsKK">
         20 sites
       </span>
       <span
-        className="GZdqB">
+        className="hPsdFS">
         4
         /
         20
       </span>
       <span
-        className="dUaqzO">
+        className="lpmXNC">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="ccZXPQ">
+        className="jSKwHP">
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="duzOqA" />
     </li>
     <li
-      className="iCoagh">
+      className="bhegyb">
       <span
-        className="hhzmjS">
+        className="gfiVKI">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="gVFNux">
+        className="dZXzDJ">
         SEO Premium for WordPress
       </span>
       <span
-        className="XdUuW">
+        className="caRsKK">
         20 sites
       </span>
       <span
-        className="GZdqB">
+        className="hPsdFS">
         3
         /
         20
       </span>
       <span
-        className="dUaqzO">
+        className="lpmXNC">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="ccZXPQ">
+        className="jSKwHP">
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="duzOqA" />
     </li>
   </ul>
 </div>

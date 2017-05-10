@@ -50,11 +50,11 @@ function Subscription( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
-
+	// Todo: second column fillSpace={ true }
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
+			<ColumnText ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
 			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }</ColumnText>
 			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
@@ -64,7 +64,7 @@ function Subscription( props ) {
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
 			            ColumnWidth="100px">
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
-			<Column textAlign="right">
+			<Column>
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>

@@ -137,9 +137,9 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.subscriptionId !== "" ) {
 		disable = false;
 	}
-
+	// Todo: make the Row flex wrap
 	return (
-		<Row { ...rowProps } flexWrap="wrap" justifyContent="space-between">
+		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
 				<SubscriptionToggle>
 					<Toggle

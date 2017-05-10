@@ -39,14 +39,14 @@ function Site( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
-
+	// Todo: second column fillSpace={ true }
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
+			<ColumnText ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
 						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
-			<Column textAlign="right">
+			<Column>
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>

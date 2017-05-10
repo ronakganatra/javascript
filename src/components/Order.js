@@ -62,7 +62,7 @@ function Order( props ) {
 			padding-right: 0;
 		}
 	`;
-
+	// Todo: third column fillSpace={ true }
 	return (
 		<Row background={ props.background }>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -72,14 +72,14 @@ function Order( props ) {
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
-			<Column textAlign="right">
+			<Column>
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
