@@ -6,14 +6,14 @@ exports[`test the site component matches the snapshot 1`] = `
     <img
       alt=""
       className="bjVGHc"
-      src="" />
+      src="sites_black.svg" />
   </span>
   <span
     className="keNlnt">
     yoast.com
   </span>
   <span
-    className="dxkupl">
+    className="eCJqXQ">
     <span>
       <img
         aria-label="Test is active"
