@@ -104,6 +104,8 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
+		this.linkEnabled= true;
+
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
 		};
@@ -131,6 +133,7 @@ class AddSite extends React.Component {
 	 * @returns {null} null
 	 */
 	urlValidityMessage( inputStr = "" ) {
+		this.linkEnabled = true;
 		if ( "" === inputStr ) {
 			return;
 		}
@@ -138,6 +141,8 @@ class AddSite extends React.Component {
 		let result = validate( { website: inputStr }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
+			this.linkEnabled = false;
+
 			return (
 				<span>
 					<ValidationText id="url_reminder">
@@ -217,7 +222,7 @@ class AddSite extends React.Component {
 					<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 					</TextButton>
-					<TextButton type="button" onClick={ this.props.onLinkClick } buttonWidth={"100px"}>
+					<TextButton type="button" onClick={ this.props.onLinkClick } buttonWidth={"100px"} enabledStyle={ this.linkEnabled } >
 						<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
 					</TextButton>
 				</Buttons>
