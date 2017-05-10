@@ -20,24 +20,23 @@ const messages = defineMessages( {
  * @constructor
  */
 function SiteSubscriptionDetailList( props ) {
-	console.log( "SiteSubscriptiopnDetail", props );
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable hasHeaderLabels={ false }>
-					{ props.siteSubscriptions.map( ( subscription ) => {
+					{ props.plugins.map( ( plugin ) => {
+						console.log( "SiteSubscriptiopnDetail", plugin );
 						return <SiteSubscriptionDetail
-							{ ...subscription }
-							key={ subscription.id }
-							name={ subscription.productId }
-							onAddMoreSlotsClick={ props.onAddMoreSlotsClick }
+							{ ...plugin }
+							key={ plugin.id }
+							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onClick={ props.onToggleSubscription }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
-							onUpgrade={ subscription.product.storeUrl }
+							onUpgrade=""
 						/>;
 					} ) }
 				</ListTable>
@@ -48,7 +47,8 @@ function SiteSubscriptionDetailList( props ) {
 
 SiteSubscriptionDetailList.propTypes = {
 	siteSubscriptions: React.PropTypes.array,
-	onAddMoreSlotsClick: React.PropTypes.func.isRequired,
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,

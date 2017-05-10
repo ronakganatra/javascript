@@ -1,9 +1,11 @@
 import { connect } from "react-redux";
-import { updateSiteUrl } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription } from "../actions/site";
+import { updateSiteUrl, loadSites } from "../actions/sites";
+import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
 import { push } from "react-router-redux";
+import { getPlugins } from "../functions/products";
+import _isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -27,36 +29,82 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return Object.assign(
 			{},
 			{
-				slots: {
-					amountAvailable: 1,
-					amountUsed: 0,
-					addMoreSlots: "Add another license for ",
-				},
 				productLogo: subscription.product.icon,
 			},
 			subscription,
 			{
 				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
+				price: subscription.product.price,
 			}
 		);
+	} );
+
+	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+		return subscription.status === "active";
+	} );
+
+	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
+		// Set defaults
+		plugin.limit = 0;
+		plugin.isEnabled = false;
+		plugin.used = 0;
+		plugin.subscriptionId = "";
+		plugin.currency = "USD";
+
+		// Get all subscriptions for this plugin
+		activeSubscriptions.filter( ( subscription ) => {
+			return subscription.productId === plugin.id;
+		} ).forEach( ( subscription ) => {
+			// Accumulate amount of slots for this plugin.
+			plugin.limit += subscription.limit;
+			// Accumulate amount of slots in use for this plugin.
+			plugin.used += ( subscription.used || 0 );
+
+			/*
+			 * If the plugin subscription is enabled for this site, make sure it's
+			 * subscriptionId is set on the plugin.
+			 */
+			if ( subscription.isEnabled === true ) {
+				plugin.isEnabled = true;
+				plugin.subscriptionId = subscription.id;
+			/*
+			 * If the plugin subscription Id has not been set and there are still slots
+			 * available, set the first available product subscription for this plugin.
+			 */
+			} else if (
+				_isEmpty( plugin.subscriptionId ) &&
+				( subscription.limit > ( subscription.used || 0 ) )
+			) {
+				plugin.subscriptionId = subscription.id;
+			}
+
+			// Determine currency based on the subscription currency.
+			// Eventually the currency should be made available on the products themselves.
+			// This needs to be fixed in the shop.
+			plugin.currency = subscription.currency;
+		} );
+
+		return plugin;
 	} );
 
 	return {
 		popupOpen,
 		site,
 		subscriptions,
+		plugins,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
+		uiSite: state.ui.site,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( loadSites() );
 	let siteId = ownProps.match.params.id;
 
-	let amountAvailable = 0;
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreSlotsClick: () => {
+		onAddMoreLicensesClick: () => {
 			dispatch( addLicensesPopupOpen() );
 		},
 		onClose: () => {
@@ -69,8 +117,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( push( "/shop/" ) );
 		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
-			if ( enabled && amountAvailable === 0 ) {
-				dispatch( addLicensesPopupOpen() );
+			if ( enabled ) {
 				dispatch( siteAddSubscription( siteId, subscriptionId ) );
 			} else {
 				dispatch( siteRemoveSubscription( siteId, subscriptionId ) );
@@ -78,6 +125,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
+		},
+		onRemove: () => {
+			// eslint-disable-next-line
+			if ( window.confirm( "Are you sure you want to remove this site from my.yoast?" ) ) {
+				dispatch( siteRemove( siteId ) );
+			}
 		},
 	};
 };

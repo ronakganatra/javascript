@@ -5,6 +5,7 @@ import { ColumnText, Row, ListTable, Column } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
+import { ListHeading } from "./ListHeading";
 import { LargeButton, RedButton, IconButtonLink, LargeButtonLink } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
@@ -81,20 +82,12 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		width: calc( 50% - ${ columnMargin } );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) { 
+	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
 		width: 100%;
 	}
-`;
-
-const ListHeader = styled.h2`
-	font-size: 1em;
-	font-weight: 400; 
-	padding: 20px 0 20px 30px;
-	margin: 0;
-	border-bottom: 1px solid ${ colors.$color_grey_medium };
 `;
 
 /**
@@ -136,7 +129,7 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-slots" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="remaining-licenses" justifyContent="space-between" rowPaddingRight="20px">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>
@@ -195,7 +188,7 @@ function SubscriptionDetails( props ) {
 					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<IconButtonLink
-								href={ getInvoiceUrl( invoice.invoiceId ) }
+								to={ getInvoiceUrl( invoice.invoiceId ) }
 								iconSource={ downloadIcon }
 								iconSize={ "16px" }>
 								{ props.intl.formatMessage( messages.invoiceButton ) }
@@ -210,21 +203,21 @@ function SubscriptionDetails( props ) {
 	return (
 		<SubscriptionDetailsContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ paymentDetailTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ subscriptionDetailsTable }
 				</ColumnContainer>
 				<ColumnContainer>
-					<ListHeader>
+					<ListHeading>
 						{ props.intl.formatMessage( messages.invoicesTitle ) }
-					</ListHeader>
+					</ListHeading>
 					{ invoicesTable }
 				</ColumnContainer>
 		</SubscriptionDetailsContainer>

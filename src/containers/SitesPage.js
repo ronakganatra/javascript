@@ -1,8 +1,13 @@
 import { connect } from "react-redux";
-import { linkSitePopupClose, linkSitePopupOpen, linkSite, updateSiteUrl } from "../actions/sites";
+import { linkSitePopupClose, linkSitePopupOpen,
+				 linkSite, updateSiteUrl, loadSites } from "../actions/sites";
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
+import _isUndefined from "lodash/isUndefined";
+import _compact from "lodash/compact";
+import _isEmpty from "lodash/isEmpty";
+import { getPlugins } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -13,19 +18,25 @@ export const mapStateToProps = ( state ) => {
 		let siteProps = {
 			id: site.id,
 			siteName: site.hostname ? site.hostname : site.url,
+			url: site.url,
 		};
 
 		if ( site.icon ) {
 			siteProps.siteIcon = site.icon;
 		}
 
+		let activeSubscriptions = site.subscriptions.map( ( subscriptionId ) => {
+			return state.entities.subscriptions.byId[ subscriptionId ];
+		} );
+
+		siteProps.activeSubscriptions = _compact( activeSubscriptions );
 		return siteProps;
 	} );
 
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
-		sites = sites.filter( ( sites ) => {
-			return sites.siteName.includes( query );
+		sites = sites.filter( ( site ) => {
+			return site.siteName.includes( query ) || site.url.includes( query );
 		} );
 	}
 
@@ -35,11 +46,14 @@ export const mapStateToProps = ( state ) => {
 
 	let errorMessage = state.ui.sites.linkSiteError;
 
+	let	plugins = getPlugins( state.entities.products.byId );
+
 	return {
 		sites,
 		popupOpen,
 		errorFound,
 		errorMessage,
+		plugins,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 		query,
 		showLoader: ! state.ui.sites.sitesRetrieved,
@@ -47,6 +61,8 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( loadSites() );
+
 	return {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );

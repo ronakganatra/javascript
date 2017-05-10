@@ -2,7 +2,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
 <div>
   <div>
     <label
-      className="bFGhCT"
+      className="gOZvhE"
       htmlFor="search">
       <span
         className="screen-reader-text foqgVb">
@@ -14,7 +14,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="hhtLuS"
+      className="eCSBxO"
       id="search"
       onChange={[Function]}
       spellCheck="false"
@@ -68,10 +68,17 @@ exports[`test The Orders component matches the snapshot 1`] = `
         </span>
         <span
           className="sPQzX">
-          Failed
+          completed
         </span>
         <span
-          className="emvmXy" />
+          className="emvmXy">
+          <a
+            aria-label="Download invoice"
+            className="gfspCA"
+            href="http://somelink"
+            iconSource="download.svg"
+            to="http://somelink" />
+        </span>
       </li>
     </ul>
   </div>

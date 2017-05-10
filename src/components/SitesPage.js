@@ -2,15 +2,16 @@ import util from "util";
 import React from "react";
 import styled from "styled-components";
 import a11ySpeak from "a11y-speak";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
-import NoSites from "./NoSites";
-import SitesNoResult from "./SitesNoResult";
+import NoResults from "./NoResults";
 import { RoundAddButton } from "./RoundButton";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
+import noSitesImage from "./../images/noSites.svg";
+import sitesNoResultsImage from "./../images/SitesNoResults.svg";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -80,6 +81,18 @@ class SitesPage extends React.Component {
 
 	render() {
 		let props = this.props;
+		let noSitesParagraphs = [
+			<FormattedMessage id="sites.no-site.welcome" defaultMessage="Welcome to the sites overview" />,
+			<FormattedMessage id="sites.no-site.manage"
+							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
+			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
+		];
+		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
+							defaultMessage={ "We could not find { site } in your account." }
+							values={ { site: <strong>{ props.query }</strong> } } />,
+			<FormattedMessage id="sites.sites-no-result.add" defaultMessage="Do you want to add it?" />,
+		];
+
 		if ( props.showLoader ) {
 			return <AnimatedLoader />;
 		}
@@ -95,7 +108,7 @@ class SitesPage extends React.Component {
 						{ this.getSearch() }
 						<RoundAddButton onClick={ props.addSite }/>
 					</SiteAddContainer>
-					<Sites sites={ props.sites } onManage={ props.onManage }/>
+					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }
 				</div>
 			);
@@ -105,14 +118,14 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						{ this.getSearch() }
 					</SiteAddContainer>
-					<SitesNoResult onClick={ props.addSite } query={ props.query } />
+					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage }/>
 					{ modal }
 				</div>
 			);
 		}
 		return (
 			<div>
-				<NoSites onClick={ props.addSite }/>
+				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage }/>
 				{ modal }
 			</div>
 		);
@@ -141,6 +154,7 @@ export default injectIntl( SitesPage );
 
 SitesPage.propTypes = {
 	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	addSite: React.PropTypes.func.isRequired,
 	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,

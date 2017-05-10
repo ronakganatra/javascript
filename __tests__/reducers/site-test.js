@@ -1,81 +1,123 @@
-import { uiSiteSubscriptionsReducer } from "../../src/reducers/site";
-import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_TOGGLE_SUBSCRIPTION_REQUEST, SITE_TOGGLE_SUBSCRIPTION_FAILURE } from "../../src/actions/site";
+import { uiSiteReducer } from "../../src/reducers/site";
+import * as actions from "../../src/actions/site";
+
+let defaultState = {
+	removing: false,
+	subscriptions: {
+		error: "",
+		toggling: false,
+	},
+};
 
 test( 'the site add subscription request action', () => {
-	const state = {
-		toggling: false,
-		error: "",
-		active: [],
-	};
 	const action = {
-		type: SITE_TOGGLE_SUBSCRIPTION_REQUEST,
-	};
-	const expected = {
-		toggling: true,
-		error: "",
-		active: [],
+		type: actions.SITE_TOGGLE_SUBSCRIPTION_REQUEST,
 	};
 
-	const actual = uiSiteSubscriptionsReducer( state, action );
+	const initialState = Object.assign( {}, defaultState );
+
+	const expected = Object.assign( {}, initialState );
+	expected.subscriptions.toggling = true;
+
+	const actual = uiSiteReducer( initialState, action );
 
 	expect( actual ).toEqual( expected );
 } );
 
 test( 'the site add subscription success action', () => {
-	const state = {
-		toggling: true,
-		error: "",
-	};
-	const subscriptionToBeAdded = {
-		"siteId": "2",
-		"subscriptionId": "4",
-		"id": 8
-	};
 	const action = {
-		type: SITE_ADD_SUBSCRIPTION_SUCCESS,
+		type: actions.SITE_ADD_SUBSCRIPTION_SUCCESS,
 		"siteId": 108,
 		"subscriptionId": 120,
 	};
-	const expected = {
-		toggling: false,
-		error: "",
-	};
 
-	const actual = uiSiteSubscriptionsReducer( state, action );
+	const initialState = Object.assign( {}, defaultState );
+	initialState.subscriptions.toggling = true;
+
+	const expected = Object.assign( {}, initialState );
+	expected.subscriptions.toggling = false;
+
+	const actual = uiSiteReducer( initialState, action );
 
 	expect( actual ).toEqual( expected );
 } );
 
 test( 'the site add subscription failure action', () => {
-	const state = {
-		toggling: true,
-		error: "",
-	};
 	const action = {
-		type: SITE_TOGGLE_SUBSCRIPTION_FAILURE,
+		type: actions.SITE_TOGGLE_SUBSCRIPTION_FAILURE,
 		addingSubscriptionError: "This is an error"
 	};
-	const expected = {
-		toggling: false,
-		error: "This is an error",
-	};
 
-	const actual = uiSiteSubscriptionsReducer( state, action );
+	const initialState = Object.assign( {}, defaultState );
+	initialState.subscriptions.toggling = true;
+
+	const expected = Object.assign( {}, initialState );
+	expected.subscriptions.toggling = false;
+	expected.subscriptions.error = "This is an error";
+
+	const actual = uiSiteReducer( initialState, action );
 
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'an action not defined in the getSiteSubscriptionsReducer switch', () => {
-	const state = {};
+test( 'the site remove start action', () => {
+	const action = {
+		type: actions.SITE_REMOVE_START,
+	};
+
+	const initialState = Object.assign( {}, defaultState );
+
+	const expected = Object.assign( {}, initialState );
+	expected.removing = true;
+
+	const actual = uiSiteReducer( initialState, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'the site remove success action', () => {
+	const action = {
+		type: actions.SITE_REMOVE_SUCCESS,
+	};
+
+	const initialState = Object.assign( {}, defaultState );
+	initialState.removing = true;
+
+	const expected = Object.assign( {}, initialState );
+	expected.removing = false;
+
+	const actual = uiSiteReducer( initialState, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'the site remove failure action', () => {
+	const action = {
+		type: actions.SITE_REMOVE_FAILURE,
+	};
+
+	const initialState = Object.assign( {}, defaultState );
+	initialState.removing = true;
+
+	const expected = Object.assign( {}, initialState );
+	expected.removing = false;
+
+	const actual = uiSiteReducer( initialState, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'an action not defined in the uiSiteReducer', () => {
+	const state = { subscriptions: {} };
 
 	const BOGUS = "BOGUS";
 
 	const action = {
 		type: BOGUS,
 	};
-	const expected = {};
+	const expected = { subscriptions: {} };
 
-	const actual = uiSiteSubscriptionsReducer( state, action );
+	const actual = uiSiteReducer( state, action );
 
 	expect( actual ).toEqual( expected );
 } );

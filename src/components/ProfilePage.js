@@ -1,5 +1,5 @@
 import React from "react";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
 import { Button } from "./Button";
 import UserImage from "../components/UserImage";
@@ -49,13 +49,13 @@ const messages = defineMessages( {
 		id: "profile.button.saveChanges",
 		defaultMessage: "Save changes",
 	},
+	gravatarLink: {
+		id: "profile.gravatarLink",
+		defaultMessage: "Gravatar website",
+	},
 	labelProfilePicture: {
 		id: "profile.label.picture",
 		defaultMessage: "Profile picture",
-	},
-	descriptionProfilePicture: {
-		id: "profile.description.picture",
-		defaultMessage: "This is your profile picture.",
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
@@ -134,6 +134,7 @@ class ProfilePage extends React.Component {
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}
 	 */
+
 	constructor( props ) {
 		super( props );
 
@@ -404,6 +405,10 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+		let onUpdateEmail = ( event ) => {
+			this.props.onUpdateEmail( event.target.value );
+		};
+
 		return (
 		<Paper>
 				<Page>
@@ -416,7 +421,7 @@ class ProfilePage extends React.Component {
 								name="email"
 								type="text"
 								value={ this.props.email }
-								onChange={this.handleEmailChange}/>
+								onChange={ onUpdateEmail }/>
 							{ this.displayErrors( "email" ) }
 
 							<FieldGroup>
@@ -458,7 +463,15 @@ class ProfilePage extends React.Component {
 
 					<Column>
 						<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
-						<p>{ this.props.intl.formatMessage( messages.descriptionProfilePicture ) }</p>
+						<p>
+							<FormattedMessage
+								id="profile.description.picture"
+								defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
+												  " an account with them yet, or want to change your existing" +
+												  " picture, please visit the { link }." }
+								values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+							/>
+						</p>
 						{ image }
 					</Column>
 
@@ -472,6 +485,7 @@ ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: React.PropTypes.string.isRequired,
 	image: React.PropTypes.string,
+	onUpdateEmail: React.PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {

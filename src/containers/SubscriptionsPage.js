@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
+import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/SubscriptionsPage";
 import { push } from "react-router-redux";
 
@@ -13,7 +14,7 @@ export const mapStateToProps = ( state ) => {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
-			used: 0,
+			used: subscription.used,
 			limit: subscription.limit,
 			nextPayment: new Date( subscription.nextPayment ),
 			billingAmount: subscription.price,
@@ -37,6 +38,7 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( getAllSubscriptions() );
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );

@@ -168,5 +168,43 @@ exports[`test the site page component matches the snapshot 1`] = `
       </g>
     </g>
   </svg>
+  <div
+    className="dnTGWH">
+    <div
+      className="cjKevG">
+      <button
+        aria-expanded={true}
+        className="hZuiiC"
+        onClick={[Function]}>
+        <span>
+          Danger zone
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
+      </button>
+      <div
+        className="eMoJbq">
+        <h2
+          className="cecVBz">
+          Disconnect this site
+        </h2>
+        <p>
+          This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
+        </p>
+        <button
+          className="iMNqUX"
+          onClick={[Function]}
+          type="button">
+          Remove
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
 `;

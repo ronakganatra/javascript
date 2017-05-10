@@ -4,7 +4,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
 import plus from "../icons/plus.svg";
-import { Link } from "react-router-dom";
+import Link from "./Link";
 
 export const RoundButton = styled.button`
 	background-color: ${colors.$color_green_medium_light};

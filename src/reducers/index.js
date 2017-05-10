@@ -1,22 +1,19 @@
-import { userReducer as user } from "./user";
+import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
+import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer } from "./subscriptions.js";
-import { uiSiteSubscriptionsReducer } from "./site.js";
+import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
-
 import { uiSearch } from "./search.js";
-
-export const uiSiteReducer = combineReducers( {
-	subscriptions: uiSiteSubscriptionsReducer,
-} );
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
-	search: uiSearch,
 	site: uiSiteReducer,
+	search: uiSearch,
 	subscriptions: uiAllSubscriptionsReducer,
+	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 } );
 
@@ -30,6 +27,11 @@ export const entitiesSubscriptionsReducer = combineReducers( {
 	allIds: allIdsSubscriptionsReducer,
 } );
 
+export const entitiesProductsReducer = combineReducers( {
+	byId: byIdProductsReducer,
+	allIds: allIdsProductsReducer,
+} );
+
 export const entitiesOrdersReducer = combineReducers( {
 	byId: byIdOrdersReducer,
 	allIds: allIdsOrdersReducer,
@@ -38,13 +40,14 @@ export const entitiesOrdersReducer = combineReducers( {
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
+	products: entitiesProductsReducer,
 	orders: entitiesOrdersReducer,
 } );
 
 export const rootReducer = combineReducers( {
 	ui: uiReducer,
+	user: userReducer,
 	entities: entitiesReducer,
-	user,
 	router: routerReducer,
 } );
 

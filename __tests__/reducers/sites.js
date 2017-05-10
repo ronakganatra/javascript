@@ -3,6 +3,7 @@ import {
 	LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_SUCCESS
 } from "../../src/actions/sites";
+import { SITE_REMOVE_SUCCESS } from "../../src/actions/site";
 
 test( 'the popup open action', () => {
 	const state = {};
@@ -114,7 +115,7 @@ test( 'the link site success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
 		},
 	};
 	const expected = {
@@ -122,7 +123,8 @@ test( 'the link site success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -136,7 +138,8 @@ test( 'the link site success action in the byIdReducer when there is already an 
 		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 		"url": "http://yoast.com",
 		"creationDate": "2017-03-21T08:54:09.415Z",
-		"userId": 1
+		"userId": 1,
+		"subscriptions": [],
 	} };
 
 	const action = {
@@ -145,7 +148,8 @@ test( 'the link site success action in the byIdReducer when there is already an 
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 	};
 	const expected = {
@@ -153,13 +157,15 @@ test( 'the link site success action in the byIdReducer when there is already an 
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 		"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -211,7 +217,8 @@ test( 'the retrieve sites success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -225,7 +232,8 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 		"url": "http://yoast.com",
 		"creationDate": "2017-03-21T08:54:09.415Z",
-		"userId": 1
+		"userId": 1,
+		"subscriptions": [],
 	} };
 
 	const action = {
@@ -234,7 +242,8 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		} ],
 	};
 	const expected = {
@@ -242,13 +251,15 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 		"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -293,6 +304,25 @@ test( 'the byIdReducers puts only subscription IDs in the state', () => {
 	expect( actual ).toEqual( expected );
 } );
 
+test( 'the site remove success action in the byIdReducer', () => {
+	const state = { "497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		"url": "http://yoast.com",
+		"creationDate": "2017-03-21T08:54:09.415Z",
+		"userId": 1
+	} };
+
+	const action = {
+		type: SITE_REMOVE_SUCCESS,
+		siteId: "497490e6-eb8d-4627-be9b-bfd33fc217f1"
+	};
+
+	const expected = {};
+
+	const actual = byIdReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
 
 test( 'the link site success action in the allIdsReducer', () => {
 	const state = [];
@@ -341,13 +371,15 @@ test( 'the retrieve sites success action in the allIdsReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 				"url": "http://yoast2.com",
 				"creationDate": "2017-03-21T08:54:09.415Z",
-				"userId": 1
+				"userId": 1,
+				"subscriptions": [],
 			}, ]
 	};
 	const expected = [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "497490e6-eb8d-4627-be9b-bfd33fc217f2" ];
@@ -403,4 +435,19 @@ test( 'the reducers don\'t touch state with different actions', () => {
 	const actual = uiSitesReducer( state, action );
 
 	expect( actual ).toEqual( state );
+} );
+
+test( 'the site remove success action in the allIdsReducer', () => {
+	const state = [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ];
+
+	const action = {
+		type: SITE_REMOVE_SUCCESS,
+		siteId: "497490e6-eb8d-4627-be9b-bfd33fc217f1"
+	};
+
+	const expected = [];
+
+	const actual = allIdsReducer( state, action );
+
+	expect( actual ).toEqual( expected );
 } );

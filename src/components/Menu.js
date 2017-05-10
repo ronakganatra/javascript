@@ -9,9 +9,17 @@ const titles = defineMessages( {
 		id: "menu.title.sites",
 		defaultMessage: "Sites",
 	},
+	courses: {
+		id: "menu.title.courses",
+		defaultMessage: "Courses",
+	},
 	subscriptions: {
 		id: "menu.title.subscriptions",
 		defaultMessage: "Subscriptions",
+	},
+	downloads: {
+		id: "menu.title.downloads",
+		defaultMessage: "Downloads",
 	},
 	account: {
 		id: "menu.title.account",
@@ -51,31 +59,42 @@ const Menu = styled.nav`
 
 const MenuItem = styled( NavLink )`
 	display: block;
-	height: 100px;
-	line-height: 100px;
+	line-height: 1.4;
 	font-size: 22px;
 	font-weight: 300;
-	padding-left: 25px;
-	margin-left: 25px;
-	padding-right: 25px;
+	padding: 2rem 1rem;
+	margin-left: 1.5rem;
 	color: ${ colors.$color_background_light };
 	text-decoration: none;
+	
+	transition: color 0.1s ease-out, background-color 0.1s ease-out, padding 50ms ease-out, transform 100ms ease-out;
+
+	&:focus,
+	&:hover {
+		padding-left: 1.25rem;
+		transition: padding 100ms ease-out;
+	}
 
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
 		background-color: ${ colors.$color_grey_light };
-		box-shadow: inset 12px 0px 6px -10px rgba(0, 0, 0, 0.3);
+		box-shadow: inset 12px 0 6px -10px rgba(0, 0, 0, 0.3);
 		font-weight: 400;
 		color: ${ colors.$color_pink_dark };
 		position: relative;
 		overflow-y: hidden;
+
+		&:focus,
+		&:hover {
+			padding-left: 1rem;
+		}
 
 		&:before,
 		&:after {
 			content: "";
 			display: block;
 			width: 100%;
-			height: 5px;
+			height: 0.25rem;
 			position: absolute;
 			left: 0;
 			background: transparent;
@@ -83,24 +102,24 @@ const MenuItem = styled( NavLink )`
 
 		&:before {
 			border-bottom-right-radius: 20px 10px;
-			top: -5px;
-			box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
+			top: -0.25rem;
+			box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 		}
 
 		&:after {
 			border-top-right-radius: 20px 10px;
-			bottom: -5px;
-			box-shadow: 0px -1px 8px 0px rgba(0, 0, 0, 0.3);
+			bottom: -0.25rem;
+			box-shadow: 0 -1px 8px 0 rgba(0, 0, 0, 0.3);
 		}
 	}
 
 	@media screen and ( max-width: 1024px ) {
 		display: inline-block;
 		width: 100%; /* necessary for the text ellipsis */
-		height: 74px;
+		height: 4.5rem;
 		margin: 0;
-		padding: 8px 0 0;
-		border-bottom: 5px solid transparent;
+		padding: 0.5rem 0 0;
+		border-bottom: 0.25rem solid transparent;
 		box-shadow: none;
 		color: ${ colors.$color_white };
 		font-size: 12px;
@@ -109,12 +128,25 @@ const MenuItem = styled( NavLink )`
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		
+		&:focus,
+		&:hover {
+			padding-left: 0;
+			transform: scale( 1.08 );
+		}
 
 		&.${ activeStyle } {
-			border-bottom: 5px solid ${ colors.$color_white };
+			border-bottom: 0.25rem solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
 			background-color: transparent;
+			transform: scale( 1.08 );
 			box-shadow: none;
+			
+			&:focus,
+			&:hover {
+				padding-left: 0;
+				transform: scale( 1.08 );
+			}
 
 			&:before,
 			&:after {
@@ -129,8 +161,8 @@ const MenuIcon = styled.img`
 
 	@media screen and ( max-width: 1024px ) {
 		display: block;
-		width: 40px;
 		height: 40px;
+		width: 40px;
 		margin: 0 auto -3px;
 	}
 `;

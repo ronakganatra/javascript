@@ -1,7 +1,14 @@
 import React from 'react';
 import { mapStateToProps, mapDispatchToProps } from '../../src/containers/SitePage'
 import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../../src/actions/sites";
+import { siteRemove } from "../../src/actions/site";
 import { push } from "react-router-redux";
+
+jest.mock( "../../src/actions/site", () => {
+	return {
+		siteRemove: ( siteId ) => { console.log(); return true; },
+	};
+} );
 
 test('the mapStateToProps function', () => {
 	let state = {
@@ -21,18 +28,18 @@ test('the mapStateToProps function', () => {
 					byId: {
 						"subscriptiontestId": {
 							id: "subscriptiontestId",
-							productId: "SEO for Sony",
+							productId: "productid1",
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
 							reoccurring: true,
 							subscriberId: 2,
-							slots: {
+							licenses: {
 								amountAvailable: 11,
 								amountUsed: 5,
-								addMoreSlots: "Add more slots",
+								addMoreLicenses: "Add more licenses",
 							},
 							product: {
-								id: "productid",
+								id: "productid1",
 								name: "string",
 								description: "string",
 								storeUrl: "string",
@@ -49,10 +56,32 @@ test('the mapStateToProps function', () => {
 								currentVersion: 0,
 								changelog: "string"
 							},
+							used: 1,
 						},
 					},
 					allIds: [ "subscriptiontestId" ],
 				},
+				products: {
+					byId: {
+						"productid1": {
+							id: "productid1",
+							name: "Yoast SEO Premium",
+							type: "plugin",
+							icon: "icon.png",
+							currency: "USD",
+							price: 123,
+						},
+						"productid2": {
+							id: "productid2",
+							name: "Yoast SEO Local",
+							type: "plugin",
+							icon: "icon.png",
+							currency: "USD",
+							price: 123,
+						},
+					},
+					allIds: [ "productid1", "productid2" ],
+				}
 			},
 			router: {
 				location: "sites/497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -60,6 +89,13 @@ test('the mapStateToProps function', () => {
 			ui: {
 				subscriptions: {
 					requesting: false,
+				},
+				site: {
+					removing: false,
+					subscriptions: {
+						error: "",
+						toggling: false,
+					},
 				},
 			},
 	};
@@ -81,18 +117,18 @@ test('the mapStateToProps function', () => {
 		},
 		subscriptions: [ {
 			id: "subscriptiontestId",
-			productId: "SEO for Sony",
+			productId: "productid1",
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",
 			reoccurring: true,
 			subscriberId: 2,
-			slots: {
+			licenses: {
 				amountAvailable: 11,
 				amountUsed: 5,
-				addMoreSlots: "Add more slots",
+				addMoreLicenses: "Add more licenses",
 			},
 			product: {
-				id: "productid",
+				id: "productid1",
 				name: "string",
 				description: "string",
 				storeUrl: "string",
@@ -109,12 +145,85 @@ test('the mapStateToProps function', () => {
 				currentVersion: 0,
 				changelog: "string"
 			},
+			used: 1,
+			price: 0,
 			productLogo: "https://image.flaticon.com/teams/new/1-freepik.jpg",
 			isEnabled: false,
 		} ],
+		plugins: [
+			{
+				id: "productid1",
+				name: "Yoast SEO Premium",
+				type: "plugin",
+				icon: "icon.png",
+				currency: "USD",
+				price: 123,
+				used: 0,
+				limit: 0,
+				isEnabled: false,
+				subscriptionId: "",
+			},
+			{
+				id: "productid2",
+				name: "Yoast SEO Local",
+				type: "plugin",
+				icon: "icon.png",
+				currency: "USD",
+				price: 123,
+				used: 0,
+				limit: 0,
+				isEnabled: false,
+				subscriptionId: "",
+			},
+		],
 		loadingSubscriptions: false,
+		uiSite: {
+			removing: false,
+			subscriptions: {
+				error: "",
+				toggling: false,
+			},
+		},
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
 
+} );
+
+test('the mapDispatchToProps function to call siteRemove action with onRemove when confirm is true', () => {
+	window.confirm = jest.fn( ( msg ) => { return true; } );
+
+	const dispatch = jest.fn();
+	let ownProps = {
+		match: {
+			params: {
+				id: 123,
+			},
+		},
+	}
+
+	let props = mapDispatchToProps( dispatch, ownProps );
+
+	props.onRemove();
+
+	expect( dispatch ).toHaveBeenCalledWith( siteRemove( 123 ) );
+} );
+
+test('the mapDispatchToProps function to NOT call siteRemove action with onRemove when confirm is false', () => {
+	window.confirm = jest.fn( ( msg ) => { return false; } );
+
+	const dispatch = jest.fn();
+	let ownProps = {
+		match: {
+			params: {
+				id: 123,
+			},
+		},
+	}
+
+	let props = mapDispatchToProps( dispatch, ownProps );
+
+	props.onRemove();
+
+	expect( dispatch ).not.toHaveBeenCalledWith( siteRemove( 123 ) );
 } );

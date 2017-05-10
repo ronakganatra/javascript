@@ -2,14 +2,15 @@ import React from "react";
 import MediaQuery from "react-responsive";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { LargeButton } from "./Button";
+import { LargeButtonLink } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
-import { FormattedMessage, FormattedNumber } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
 import formatAmount from "../../../shared/currency";
 import AddLicensesModal from "./AddLicensesModal";
+import { injectIntl, intlShape } from "react-intl";
 
 let responsiveWidthThreshold = 1355;
 
@@ -99,7 +100,7 @@ const SubscriptionUsage = styled.span`
 	}
 `;
 
-const AddOneSlot = styled.a`
+const AddOneLicense = styled.a`
 	font-size: 14px;
 	font-weight: 300;
 	font-style: italic;
@@ -137,7 +138,7 @@ const Buttons = styled.span`
  *
  * @returns {ReactElement} The rendered component.
  */
-export default function SiteSubscriptionDetail( props ) {
+function SiteSubscriptionDetail( props ) {
 	let rowProps = [];
 	if ( props.background ) {
 		rowProps.background = props.background;
@@ -146,16 +147,35 @@ export default function SiteSubscriptionDetail( props ) {
 		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
 	);
 	console.log( "sitesubdetails", props );
+
+	let licensesRemaining = props.limit - props.used;
+
+	let anotherLicense = null;
+	if ( licensesRemaining === 0 ) {
+		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
+
+		anotherLicense = <AddOneLicense><FormattedMessage
+			id="site.subscriptions.licenses.add"
+			defaultMessage="Add another license for { price }"
+			values={{ price }} /></AddOneLicense>;
+	}
+
+	let disable = true;
+	if ( props.subscriptionId !== "" ) {
+		disable = false;
+	}
+
 	return (
 		<Row { ...rowProps }>
 			<SubscriptionLeftContainer>
-				<SubscriptionLogo src={ props.productLogo } alt="" />
+				<SubscriptionLogo src={ props.icon } alt="" />
 				<SubscriptionToggle>
 					<Toggle
-						onSetEnablement={ _partial( props.onToggleSubscription, props.id ) }
+						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						onClick={ props.onClick }
 						isEnabled={ props.isEnabled }
-						ariaLabel={ props.productId } />
+						disable={ disable }
+						ariaLabel={ props.id } />
 				</SubscriptionToggle>
 			</SubscriptionLeftContainer>
 
@@ -163,21 +183,16 @@ export default function SiteSubscriptionDetail( props ) {
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={" { howMany } remaining "}
-						values={{ howMany: ( props.slots.amountAvailable - props.slots.amountUsed ) + " / " + props.slots.amountAvailable }} />
+						values={{ howMany: licensesRemaining + " / " + props.limit }} />
 				</SubscriptionUsage>
-				{	props.slots.addMoreSlots && props.slots.addMoreSlots !== "" &&
-					<AddOneSlot href={ props.product.storeUrl } >{ props.slots.addMoreSlots }
-						<FormattedNumber value={ formatAmount( props.price ) } style="currency" currency={ props.currency }/>
-					</AddOneSlot>
-
-				}
-
+				{ anotherLicense }
 			</SubscriptionDetails>
 			{ modal }
 			<MediaQuery query={ "(min-width: " + ( responsiveWidthThreshold + 1 ) + "px)" }>
 				<Buttons>
-					<LargeButton onClick={ props.onMoreInfoClick }><FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="More info" /></LargeButton>
-					<LargeButton onClick={ props.onSettingsClick }><FormattedMessage id="subscriptions.buttons.settings" defaultMessage="Settings" /></LargeButton>
+					<LargeButtonLink to={`/account/subscriptions/${props.subscriptionId}`}>
+						<FormattedMessage id="subscriptions.buttons.moreInfo" defaultMessage="Info" />
+					</LargeButtonLink>
 				</Buttons>
 			</MediaQuery>
 		</Row>
@@ -186,8 +201,9 @@ export default function SiteSubscriptionDetail( props ) {
 
 SiteSubscriptionDetail.propTypes = {
 	id: React.PropTypes.string.isRequired,
+	subscriptionId: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
-	onAddMoreSlotsClick: React.PropTypes.func,
+	onAddMoreLicensesClick: React.PropTypes.func,
 	onClick: React.PropTypes.func,
 	onToggleSubscription: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
@@ -195,16 +211,13 @@ SiteSubscriptionDetail.propTypes = {
 	onUpgrade: React.PropTypes.func.isRequired,
 	product: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
-	price: React.PropTypes.number.isRequired,
-	currency: React.PropTypes.string.isRequired,
-	productId: React.PropTypes.string.isRequired,
-	productLogo: React.PropTypes.string.isRequired,
-	slots: React.PropTypes.shape( {
-		amountAvailable: React.PropTypes.number.isRequired,
-		amountUsed: React.PropTypes.number,
-		addMoreSlots: React.PropTypes.string,
-	} ).isRequired,
+	icon: React.PropTypes.string.isRequired,
+	limit: React.PropTypes.number.isRequired,
+	used: React.PropTypes.number.isRequired,
 	background: React.PropTypes.string,
+	price: React.PropTypes.number,
+	intl: intlShape.isRequired,
+	currency: React.PropTypes.string,
 	popupOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
 };
@@ -212,9 +225,6 @@ SiteSubscriptionDetail.propTypes = {
 SiteSubscriptionDetail.defaultProps = {
 	onToggleSubscription: () => {},
 	isEnabled: false,
-	slots: {
-		amountUsed: 0,
-		onAddMoreSlotsClick: () => {},
-		addMoreSlots: "",
-	},
 };
+
+export default injectIntl( SiteSubscriptionDetail );

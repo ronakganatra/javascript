@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import Link from "./Link";
 
 export const Button = styled.button`
 	height: 48px;
@@ -86,7 +87,7 @@ export const RedButton = styled( LargeButton )`
 	background-color: ${ colors.$color_red };
 `;
 
-export const ButtonLink = styled.a`
+export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 40px;
 	line-height: 40px;
@@ -104,11 +105,7 @@ export const ButtonLink = styled.a`
 `;
 
 ButtonLink.PropTypes = {
-	href: React.PropTypes.string.isRequired,
-};
-
-ButtonLink.defaultProps = {
-	href: "/",
+	to: React.PropTypes.string.isRequired,
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
@@ -152,3 +149,22 @@ export const WhiteButtonLink = styled( LargeButtonLink )`
 	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
 `;
+
+/**
+ * Returns a disabled button component for the given component.
+ *
+ * @param {React.Component} Button The button.
+ * @returns {React.Component} The disabled button.
+ */
+export function disable( Button ) {
+	let StyledDisabledButton = styled( Button )`
+		background-color: ${ colors.$color_grey_disabled }
+		cursor: default
+	`;
+
+	return class DisabledButton extends Component {
+		render() {
+			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
+		}
+	};
+}
