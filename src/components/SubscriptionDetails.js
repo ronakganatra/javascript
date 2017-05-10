@@ -145,7 +145,7 @@ function SubscriptionDetails( props ) {
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
 					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButtonLink href={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+							<LargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
 								{ props.intl.formatMessage( messages.shopButton ) } </LargeButtonLink>
 						</MediaQuery>
 					</Column>
@@ -231,7 +231,7 @@ SubscriptionDetails.propTypes = {
 	max: React.PropTypes.number.isRequired,
 	current: React.PropTypes.number.isRequired,
 	onAddSite: React.PropTypes.func.isRequired,
-	onShop: React.PropTypes.func.isRequired,
+	onShop: React.PropTypes.string.isRequired,
 	onCancel: React.PropTypes.func.isRequired,
 	onInvoiceDownload: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
