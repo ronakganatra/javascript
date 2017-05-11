@@ -129,7 +129,7 @@ function SiteSubscriptionDetail( props ) {
 
 		anotherLicense = <AddOneLicense><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Buy more licenses for { price }"
+			defaultMessage="Buy more licenses"
 			values={{ price }} /></AddOneLicense>;
 	}
 
