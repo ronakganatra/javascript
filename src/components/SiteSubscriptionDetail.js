@@ -22,7 +22,6 @@ const SubscriptionLeftContainer = styled.span`
 	@media screen and ( max-width: 800px ) {
 		align-self: flex-start;
 		margin: 0;
-		padding-top: 14px;
 	}
 `;
 
@@ -60,7 +59,7 @@ const SubscriptionDetails = styled.div`
 
 	@media screen and ( max-width: 800px ) {
 		margin: 0;
-		padding-top: 20px;
+		padding-top: 6px;
 		align-self: flex-start;
 	}
 `;
@@ -101,7 +100,7 @@ const AddOneLicense = styled.button`
 const SubscriptionRightContainer = styled.span`
 	@media screen and ( max-width: 800px ) {
 		width: 100%;
-		padding: 18px 0 24px;
+		padding: 18px 0 6px;
 
 		a {
 			width: 100%;

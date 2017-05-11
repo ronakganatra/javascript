@@ -32,7 +32,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
       className="jplRhE"
       role="list">
       <li
-        className="dOAdym">
+        className="fvUrJs">
         <span
           className="wgXGK">
           <span>
@@ -71,7 +71,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
           className="column--order-invoice-button fvaPPL">
           <a
             aria-label="Download invoice"
-            className="cWcbKk"
+            className="order--invoice-button daVaAM"
             href="http://somelink"
             iconSource="download.svg"
             to="http://somelink" />

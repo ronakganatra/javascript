@@ -51,6 +51,49 @@ const CustomRow = styled( Row )`
 	.column--order-invoice-button {
 		flex: 0 0 auto;
 	}
+
+	@media screen and ( max-width: 1355px ) {
+		.order--invoice-button {
+			padding-right: 0;
+		}
+	}
+
+	@media screen and ( max-width: 800px ) {
+		flex-wrap: wrap;
+
+		&:first-child {
+			margin-top: -40px;
+		}
+
+		& > span {
+			flex-basis: auto;
+			padding-left: 0;
+		}
+
+		// Hide off-screen the column headers.
+		& span::before {
+			position: static;
+			display: inline-block;
+			padding-right: 0.5em;
+			font-size: inherit;
+		}
+
+		.column--order-items {
+			min-width: 100%;
+			padding: 1em 0;
+		}
+
+		.column--order-invoice-button {
+			width: 100%;
+			padding: 18px 0 6px;
+
+			.order--invoice-button {
+				width: 100%;
+				padding: 0 15px;
+				background-image: none;
+			}
+		}
+	}
 `;
 
 let invoiceStatuses = [ "completed", "refunded" ];
@@ -70,13 +113,6 @@ function Order( props ) {
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
-	// On mobile devices there is no text so we need to compensate the style for this.
-	let ResponsiveInvoiceButton = styled( InvoiceButton )`
-		@media screen and ( max-width: 1355px ) {
-			padding-right: 0;
-		}
-	`;
-
 	return (
 		<CustomRow background={ props.background }>
 			<ColumnText headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -94,17 +130,21 @@ function Order( props ) {
 			</ColumnText>
 			<ColumnText headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column className="column--order-invoice-button">
-				<ResponsiveInvoiceButton
+				<InvoiceButton
+					className="order--invoice-button"
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }>
 					<MediaQuery query="(min-width: 1356px)" component="span">
 						{ invoiceMessage }
 					</MediaQuery>
-					<MediaQuery query="(max-width: 1355px)">
+					<MediaQuery query="(min-width: 801px) and (max-width: 1355px)">
 						<span className="screen-reader-text">{ invoiceMessage }</span>
 					</MediaQuery>
-				</ResponsiveInvoiceButton>
+					<MediaQuery query="(max-width: 800px)" component="span">
+						{ invoiceMessage }
+					</MediaQuery>
+				</InvoiceButton>
 			</Column>
 		</CustomRow>
 	);

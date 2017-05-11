@@ -157,8 +157,8 @@ export const WhiteButtonLink = styled( LargeButtonLink )`
  */
 export function disable( Button ) {
 	let StyledDisabledButton = styled( Button )`
-		background-color: ${ colors.$color_grey_disabled }
-		cursor: default
+		background-color: ${ colors.$color_grey_disabled };
+		cursor: default;
 	`;
 
 	return class DisabledButton extends Component {
