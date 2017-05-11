@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="dpBnXH"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -71,7 +71,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="hMwgWU">
           <a
-            className="dAFQbA"
+            className="gLGnIB"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -123,7 +123,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             </span>
           </span>
           <a
-            className="ddFsZG"
+            className="cLgDIl"
             href="http://url2.com">
             <span>
               Get additional subscriptions
@@ -136,7 +136,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="hMwgWU">
           <a
-            className="dAFQbA"
+            className="gLGnIB"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>

@@ -1,20 +1,17 @@
 exports[`test the site page component matches the snapshot 1`] = `
 <div>
   <a
+    className="inhQil"
     href="/sites"
-    onClick={[Function]}>
-    <button
-      aria-label="Back"
-      className="eqjPHj" />
-  </a>
+    onClick={[Function]} />
   <div
-    className="adaQP">
+    className="cDHpqO">
     <h1
       className="brKYWa">
       yoast.com
     </h1>
     <a
-      className="visit-wp-admin dAFQbA"
+      className="visit-wp-admin gLGnIB"
       href="http://yoast.com/wp-admin"
       target="_blank"
       to="http://yoast.com/wp-admin">
@@ -183,7 +180,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cjKevG">
       <button
         aria-expanded={true}
-        className="euYPbC"
+        className="dpBnXH"
         onClick={[Function]}>
         <span>
           Danger zone
@@ -198,7 +195,7 @@ exports[`test the site page component matches the snapshot 1`] = `
         </svg>
       </button>
       <div
-        className="zYWq">
+        className="fJgJGV">
         <h2
           className="cecVBz">
           Disconnect this site
@@ -207,7 +204,7 @@ exports[`test the site page component matches the snapshot 1`] = `
           This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
         </p>
         <button
-          className="iMNqUX"
+          className="dPnfvu"
           onClick={[Function]}
           type="button">
           Remove

@@ -30,7 +30,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
     </div>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
   </div>
   <div
@@ -108,7 +108,7 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
     </p>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
     <img
       alt=""
@@ -153,7 +153,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     </div>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
   </div>
   <div
@@ -242,7 +242,7 @@ exports[`test the sites page component with sites handling an onclick event on t
     </div>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
   </div>
   <div
@@ -320,7 +320,7 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
     <img
       alt=""
@@ -354,7 +354,7 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <button
       aria-label="Add"
-      className="hTtZiN"
+      className="jjZOyd"
       onClick={[Function]} />
     <img
       alt=""
