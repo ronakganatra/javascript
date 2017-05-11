@@ -106,16 +106,6 @@ const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
 `;
 
-
-/**
- * Renders the AddSite component.
- *
- * @param {Object} props                 Component props.
- * @param {Function} props.onCancelClick The function to execute when the cancel button is clicked.
- * @param {Function} props.onLinkClick   The function to execute when the link button is clicked.
- *
- * @returns {ReactElement} A react component describing the AddSite modal.
- */
 class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
@@ -127,16 +117,26 @@ class AddSite extends React.Component {
 		};
 	}
 
+	/**
+	 * Sets the constraints for validation to URL, and sets the message.
+	 *
+ 	 * @returns {Object} Returns the constraints for the URL.
+	 */
 	urlConstraints() {
-		let output = {
+		return {
 			url: {
 				message: this.props.intl.formatMessage( messages.validationFormatURL ),
 			},
 		};
-
-		return output;
 	}
 
+	/**
+	 * Calls onChange function when website url changes.
+	 *
+	 * @param {Object} event The event returned by the WebsiteURLChange.
+	 *
+	 * @returns {null} null
+	 */
 	onWebsiteURLChange( event ) {
 		this.props.onChange( event.target.value );
 	}
@@ -144,13 +144,13 @@ class AddSite extends React.Component {
 	/**
 	 * Checks whether an URL was entered.
 	 *
-	 * @param {string} inputStr Thestring in the inputfield.
-	 * @returns {null} null
+	 * @param {string} inputStr The string in the input field.
+	 * @returns {null} null Returns either null or an error message JSX.
 	 */
 	urlValidityMessage( inputStr = "" ) {
 		this.linkEnabled = true;
 
-		if ( "" === inputStr ) {
+		if ( inputStr === "" ) {
 			this.linkEnabled = false;
 			return;
 		}
@@ -164,7 +164,7 @@ class AddSite extends React.Component {
 				<ValidationText id="url_reminder">
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
-						defaultMessage={ "{validationMessage}" }
+						defaultMessage={ "{ validationMessage }" }
 						values={ { validationMessage: result[ 0 ].options.message } }
 					/>
 				</ValidationText>
@@ -190,19 +190,24 @@ class AddSite extends React.Component {
 				<WarningText id="addSiteInfo">
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
-						defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
-						values={{
+						defaultMessage={"Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }"}
+						values={ {
 							link: <PurpleLink href="/"><FormattedMessage
 								id="sites.add-site-no-active-product.link"
 								defaultMessage="read this page."/></PurpleLink>,
 							errorMessage: <i>"{ errorMessage }."</i>,
-						}}
+						} }
 					/>
 				</WarningText>
 			</YellowWarning>
 		);
 	}
 
+	/**
+	 * Returns the rendered html.
+	 *
+	 * @returns {ReactElement} The rendered html.
+	 */
 	render() {
 		let suggestedValue = "";
 
@@ -218,7 +223,8 @@ class AddSite extends React.Component {
 				<AddSiteText>
 					<label htmlFor="addSiteInputField">
 						<FormattedMessage id="sites.add-site.enter-url"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"/>
+										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+						/>
 					</label>
 				</AddSiteText>
 				<WebsiteURL
@@ -233,7 +239,7 @@ class AddSite extends React.Component {
 				<ErrorButtonZone>
 					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<Buttons>
-						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
+						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={ "100px" }>
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</TextButton>
 						<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {
