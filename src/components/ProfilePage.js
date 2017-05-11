@@ -244,16 +244,25 @@ class ProfilePage extends React.Component {
 	 * @returns {ReactElement} The element for the password reset.
 	 */
 	getPasswordReset() {
-		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
 		let disabled = false;
+		let passwordResetError;
+
+		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
+
 		if ( this.props.isSendingPasswordReset ) {
 			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSending );
 			disabled = true;
 		}
 
-		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={disabled}>{passwordResetButtonText}</Button>;
 		if ( this.props.hasSendPasswordReset ) {
-			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSent );
+			disabled = false;
+		}
+
+		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={disabled}>{passwordResetButtonText}</Button>;
+
+		if ( this.props.passwordResetError ) {
+			passwordResetError = <FormError>{ this.props.passwordResetError }</FormError>;
 		}
 
 		return <PasswordReset>
@@ -264,6 +273,7 @@ class ProfilePage extends React.Component {
 				defaultMessage={ "To change your password follow the instructions in the password reset mail." } />
 			</p>
 			{ passwordResetButton }
+			{ passwordResetError }
 		</PasswordReset>;
 	}
 
