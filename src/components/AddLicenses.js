@@ -62,7 +62,5 @@ export default function AddLicenses( props ) {
 AddLicenses.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.string.isRequired,
-	subscription: React.PropTypes.string,
-	history: React.PropTypes.any,
 };
 
