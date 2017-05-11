@@ -316,7 +316,6 @@ class ProfilePage extends React.Component {
 							{ this.displayErrors( errors, "email" ) }
 
 							<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
-								{ this.state.saved ? "Saved" : "" }
 						</form>
 
 						{ this.getPasswordReset() }
