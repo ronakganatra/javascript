@@ -52,7 +52,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="eCJqXQ">
           <span>
             <img
               aria-label="Test is active"
@@ -175,7 +175,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="eCJqXQ">
           <span>
             <img
               aria-label="Test is active"
@@ -264,7 +264,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           www.yoast.com
         </span>
         <span
-          className="dxkupl">
+          className="eCJqXQ">
           <span>
             <img
               aria-label="Test is active"
