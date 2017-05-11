@@ -49,11 +49,26 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
-	float: right;
+	text-align: right;
+	flex: 200px 1 0;
+`;
+
+const ErrorButtonZone = styled.div`
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   width: 100%;
+   flex-direction: row;
+   -webkit-justify-content: space-between;
+   justify-content: space-between;
+   
+   @media screen and ( max-width: 800px ) {
+   	  display: block;
+   }
 `;
 
 const YellowWarning = styled.p`
-	padding: 5px;
+	padding: 4px;
 	background-color: ${ colors.$color_yellow };
 	overflow: auto;
 	display: flex;
@@ -81,9 +96,10 @@ const WarningText = styled.span`
 	font-size: 0.8em;
 `;
 
-const ValidationText = styled.span`
+const ValidationText = styled.div`
 	font-size: 0.8em;
 	color: red;
+	margin: 1em 0;
 `;
 
 const PurpleLink = styled.a`
@@ -145,18 +161,13 @@ class AddSite extends React.Component {
 			this.linkEnabled = false;
 
 			return (
-				<span>
-					<ValidationText id="url_reminder">
-						<FormattedMessage
-							id="sites.add-site.url-validation-message"
-							defaultMessage={ "{validationMessage}" }
-							values={
-							{
-								validationMessage: result[ 0 ].options.message,
-							}
-							} />
-					</ValidationText>
-				</span>
+				<ValidationText id="url_reminder">
+					<FormattedMessage
+						id="sites.add-site.url-validation-message"
+						defaultMessage={ "{validationMessage}" }
+						values={ { validationMessage: result[ 0 ].options.message } }
+					/>
+				</ValidationText>
 			);
 		}
 	}
@@ -219,15 +230,18 @@ class AddSite extends React.Component {
 					onChange={ this.onWebsiteURLChange.bind( this ) }
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
-				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
-				<Buttons>
-					<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
-						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-					</TextButton>
-					<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled } >
-						<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
-					</TextButton>
-				</Buttons>
+				<ErrorButtonZone>
+					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
+					<Buttons>
+						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={"100px"}>
+							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+						</TextButton>
+						<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {
+						} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled }>
+							<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
+						</TextButton>
+					</Buttons>
+				</ErrorButtonZone>
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
