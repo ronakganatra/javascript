@@ -65,20 +65,20 @@ function Order( props ) {
 
 	return (
 		<Row background={ props.background }>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
+			<ColumnText ColumnWidth="100px" headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnText>
 			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnText fillSpace={ true } ColumnWidth="130px" headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
+			<ColumnText ColumnWidth="130px" headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
+			<ColumnText ColumnWidth="130px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
 			<Column textAlign="right">
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
