@@ -303,8 +303,6 @@ class ProfilePage extends React.Component {
 				<Page>
 					<Column>
 						<form onSubmit={handleSubmit}>
-							{ globalError }
-
 							<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 							<TextInput
 								id="emailAddress"
@@ -314,6 +312,7 @@ class ProfilePage extends React.Component {
 								value={ this.props.email }
 								onChange={ onUpdateEmail }/>
 							{ this.displayErrors( errors, "email" ) }
+							{ globalError }
 
 							<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
 						</form>
