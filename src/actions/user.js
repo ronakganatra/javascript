@@ -177,7 +177,12 @@ export function updateProfile( profile ) {
 		} );
 
 		return fetch( request )
-			.then( verifyStatusCode )
+			.then( ( response ) => {
+				if ( response.status === 400 ) {
+					throw new Error( "The email address could not be changed, it is probably already in use." );
+				}
+				return verifyStatusCode( response );
+			} )
 			.then( response => response.json() )
 			.then( ( profile ) => dispatch( profileUpdateSuccess( profile ) ) )
 			.catch( ( error ) => {
