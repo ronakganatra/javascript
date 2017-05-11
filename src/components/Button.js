@@ -12,9 +12,21 @@ export const Button = styled.button`
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	font-size: 14px;
-	font-family: "Open Sans";
+	font-family: "Open Sans", sans-serif;
 	text-transform: uppercase;
 	cursor: pointer;
+
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
+	}
+	
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
 `;
 
 Button.propTypes = {
@@ -36,7 +48,6 @@ export const GreenButton = styled( Button )`
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	height: 46px;
 	margin: 4px 0 4px 12px;
 `;
 
@@ -97,10 +108,22 @@ export const ButtonLink = styled( Link )`
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
 	font-size: 14px;
-	font-family: "Open Sans";
+	font-family: "Open Sans", sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
+
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
 `;
 
 ButtonLink.PropTypes = {
@@ -132,7 +155,6 @@ export const IconButtonLink = styled( ButtonLink )`
 	background-image: url( ${ props => props.iconSource } );
 	background-position: 20px 50%;
 	background-size: 24px;
-	border-radius: 3px;
 	color: ${ colors.$color_white };
 	padding: 0 20px 0 64px;
 `;
@@ -154,8 +176,17 @@ export const WhiteButtonLink = styled( LargeButtonLink )`
  */
 export function disable( Button ) {
 	let StyledDisabledButton = styled( Button )`
-		background-color: ${ colors.$color_grey_disabled }
-		cursor: default
+		background-color: ${ colors.$color_grey_disabled };
+		cursor: default;
+
+		&:focus,
+		&:hover {
+			box-shadow: none;
+		}
+
+		&:active {
+			transform: none;
+		}
 	`;
 
 	return class DisabledButton extends Component {
