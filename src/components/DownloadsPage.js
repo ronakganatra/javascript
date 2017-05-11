@@ -6,6 +6,8 @@ import Paper from "./Paper";
 import Products from "./Products";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
+import NoResults from "./NoResults";
+import noDownloads from "./../images/noSites.svg";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -65,6 +67,22 @@ class DownloadsPage extends React.Component {
 		a11ySpeak( message );
 	}
 
+	/**
+	 * Return the search bar.
+	 *
+	 * @returns {ReactElement} The rendered Search component.
+	 */
+	getSearch() {
+		return <Search
+			id="search"
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+			descriptionId="search-description"
+			onChange={ this.props.onSearchChange }
+			query={ this.props.query }
+		/>;
+	}
+
+
 	render() {
 		let pluginsByLine = <ByLine>
 			<FormattedMessage
@@ -73,31 +91,42 @@ class DownloadsPage extends React.Component {
 				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
 		</ByLine>;
+		console.log( "props plugins", this.props.plugins );
+		console.log( "props eBooks", this.props.eBooks );
 
-		return (
-			<div>
-				<Search
-					id="search"
-					searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
-					descriptionId="search-description"
-					onChange={ this.props.onSearchChange }
-					query={ this.props.query }
-				/>
-				<Paper>
-					<ProductOverviewContainer>
-						<Products
-							products={ this.props.plugins }
-							byLine={ pluginsByLine }
-							heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
-						/>
-						<Products
-							products={ this.props.eBooks }
-							heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
-						/>
-					</ProductOverviewContainer>
-				</Paper>
-			</div>
-		);
+		let noDownloadsParagraphs = [ <FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
+			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
+			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="Press the button below to visit yoast.com and look at our products."/> ];
+
+		if ( this.props.eBooks.length > 0 || this.props.plugins.length > 0 ) {
+			return (
+				<div>
+					{ this.getSearch() }
+					<Paper>
+						<ProductOverviewContainer>
+							<Products
+								products={ this.props.plugins }
+								byLine={ pluginsByLine }
+								heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
+							/>
+							<Products
+								products={ this.props.eBooks }
+								heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
+							/>
+						</ProductOverviewContainer>
+					</Paper>
+				</div>
+			);
+		} else if ( this.props.query.length > 0 ) {
+			return (
+				<div>
+					{ this.getSearch() }
+				</div>
+			);
+		}
+		return <NoResults paragraphs={ noDownloadsParagraphs }
+						  onClick={ () => window.open( "https://yoa.st/myyoast-download", "_blank" ) }
+						  imageSource={ noDownloads }/>;
 	}
 }
 

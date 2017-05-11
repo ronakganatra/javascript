@@ -4,94 +4,55 @@ import DownloadsPage from "../components/DownloadsPage";
 import { getAllProducts } from "../actions/products";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
+import { getEbooks, getPlugins } from "../functions/products";
+import _filter from "lodash/filter";
+import _includes from "lodash/includes";
+import _flatMap from "lodash/flatMap";
 
-let ebookIds = [], pluginIds = [];
-
-/**
- * Sorts products based on their category.
- *
- * @param {Object} state The current state.
- * @returns {void}
- */
-const sortProducts = ( state ) => {
-	let allProductIds = state.entities.products.allIds;
-	allProductIds.map( ( productId ) => {
-		console.log( "id", productId, "hiero", state.entities.products.byId[ productId ] );
-		let product = state.entities.products.byId[ productId ];
-		switch ( product.shopProductType ) {
-			case "plugin":
-				pluginIds.push( product.id );
-				return pluginIds;
-			case "ebook":
-				ebookIds.push( product.id );
-				return ebookIds;
-		}
+const getEbookProducts = ( state ) =>  {
+	let eBooks =  getEbooks( state.entities.products.byId );
+	let completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
+	let lineItems = _flatMap( completedOrders, ( order ) => {
+		return order.items;
+	} );
+	let boughtProductIds = lineItems.map( ( lineItem ) => {
+		return lineItem.productId;
+	} );
+	return _filter( eBooks, ( eBook ) => {
+		return _includes( boughtProductIds,  eBook.id );
 	} );
 };
 
-/**
- * Gets the user's eBooks.
- *
- * @param {Object} state The current state.
- * @returns {Array} The array of eBooks.
- */
-const getEbooks = ( state ) => {
-	let orderIds = state.entities.orders.allIds;
-	let userEbooks = [];
-	orderIds.map( ( orderId ) => {
-		let order = state.entities.orders.byId[ orderId ];
-		if ( order.status === "completed" ) {
-			let items = order.items;
-			items.map( ( item ) => {
-				if ( ebookIds.indexOf( item.productId ) !== -1 ) {
-					userEbooks.push( item );
-				}
-			} );
-		}
+const getPluginProducts = ( state ) =>  {
+	let plugins = getPlugins( state.entities.products.byId );
+	let activeSubscriptions = _filter( state.entities.subscriptions.byId, { status: "active" } );
+	let activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
+		return subscription.productId;
 	} );
-	return userEbooks;
+	return _filter( plugins, ( plugin ) => {
+		return _includes( activeSubscriptionIds,  plugin.id );
+	} );
 };
 
-/**
- * Gets the user's plugins.
- *
- * @param {Object} state The current state.
- * @returns {Array} The array of plugins.
- */
-const getPlugins = ( state ) => {
-	let subscriptionIds = state.entities.subscriptions.allIds;
-	let userPlugins = [];
-	subscriptionIds.map( ( subscriptionId ) => {
-		let subscription = state.entities.subscriptions.byId[ subscriptionId ];
-		if ( subscription.status === "active" && pluginIds.indexOf( subscription.productId !== -1 ) )  {
-			userPlugins.push( subscription );
-		}
-	} );
-	return userPlugins;
-};
-
-const setDownloadProps = ( userProducts, state ) => {
-	return userProducts.map( ( userProduct ) => {
-		let product = state.entities.products.byId[ userProduct.productId ];
-		let downloadProps = {
+const setDownloadProps = ( products, state ) => {
+	return products.map( ( product ) => {
+		return {
 			id: product.id,
 			name: product.name,
 			currentVersion: product.currentVersion,
 			icon: product.icon,
-			category: product.shopProductType,
+			category: product.type,
 			buttons: [ {
 				label: product.description,
 				onButtonClick: ( () => window.open( product.storeUrl, "_blank" ) ),
 			} ],
 		};
-		return downloadProps;
 	} );
 };
 
 export const mapStateToProps = ( state ) => {
-	sortProducts( state );
-	let eBooks = setDownloadProps( getEbooks( state ), state );
-	let plugins = setDownloadProps( getPlugins( state ), state );
+	let eBooks = setDownloadProps( getEbookProducts( state ), state );
+	let plugins = setDownloadProps( getPluginProducts( state ), state );
 
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
