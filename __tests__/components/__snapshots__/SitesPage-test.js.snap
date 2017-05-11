@@ -55,24 +55,20 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
           className="buwONS">
           <span>
             <img
-              aria-label="Test is active"
+              alt="Test is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test2 is active"
+              alt="Test2 is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test3 is inactive"
+              alt="Test3 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test4 is inactive"
+              alt="Test4 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
           </span>
         </span>
@@ -178,24 +174,20 @@ exports[`test the sites page component with sites handling an onclick event on t
           className="buwONS">
           <span>
             <img
-              aria-label="Test is active"
+              alt="Test is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test2 is active"
+              alt="Test2 is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test3 is inactive"
+              alt="Test3 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test4 is inactive"
+              alt="Test4 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
           </span>
         </span>
@@ -267,24 +259,20 @@ exports[`test the sites page component with sites handling an onclick event on t
           className="buwONS">
           <span>
             <img
-              aria-label="Test is active"
+              alt="Test is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test2 is active"
+              alt="Test2 is active"
               className="dVJUOs"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test3 is inactive"
+              alt="Test3 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
             <img
-              aria-label="Test4 is inactive"
+              alt="Test4 is inactive"
               className="jNYDQB"
-              role="img"
               src="test.jpg" />
           </span>
         </span>
