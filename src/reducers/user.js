@@ -100,6 +100,7 @@ export function userEmailReducer( state = initialState, action ) {
 		case PROFILE_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
 				savingProfile: false,
+				sendPasswordReset: false,
 				data: {
 					profile: action.profile,
 				},
