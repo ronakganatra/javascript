@@ -21,10 +21,14 @@ const SiteHeaderContainer = styled.div`
 	margin: 0 auto;
 	padding: 0 40px 26px;
 
+	@media screen and ( max-width: 1355px ) {
+		padding: 0 24px 26px;
+	}
+
 	@media screen and ( max-width: 800px ) {
 		height: auto;
 		min-height: 144px;
-		padding: 0 24px 16px;
+		padding: 0 18px 16px;
 	}
 
 	.visit-wp-admin {

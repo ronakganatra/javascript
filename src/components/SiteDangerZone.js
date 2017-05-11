@@ -39,8 +39,12 @@ const SubHeading = styled.h2`
 const Container = styled.div`
 	padding: 0 40px 16px 40px;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: 1355px ) {
 		padding: 0 24px 16px 24px;
+	}
+
+	@media screen and ( max-width: 800px ) {
+		padding: 0 18px 16px 18px;
 	}
 `;
 

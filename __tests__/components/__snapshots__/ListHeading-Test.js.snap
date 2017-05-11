@@ -1,6 +1,6 @@
 exports[`test the ListHeading matches the snapshot 1`] = `
 <h2
-  className="hApBsV">
+  className="crGUjy">
   This is a heading
 </h2>
 `;

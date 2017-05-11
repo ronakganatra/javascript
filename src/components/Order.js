@@ -70,7 +70,7 @@ const CustomRow = styled( Row )`
 			padding-left: 0;
 		}
 
-		// Hide off-screen the column headers.
+		// Use the column headers as labels.
 		& span::before {
 			position: static;
 			display: inline-block;
