@@ -68,7 +68,7 @@ export default function SiteHeader( props ) {
 				{ props.name }
 			</SiteHeaderSitename>
 			<LargeButtonLink to={ `${ props.url }/wp-admin` } className="visit-wp-admin" target="_blank">
-				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Visit WP admin" />
+				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
 				<NewTabMessage />
 			</LargeButtonLink>
 		</SiteHeaderContainer>

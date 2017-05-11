@@ -23,6 +23,7 @@ const AddLicensesText = styled.p`
 
 const Buttons = styled.div`
 	float: right;
+	margin-bottom: 1.5em;
 `;
 
 /**
