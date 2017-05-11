@@ -147,7 +147,8 @@ function SubscriptionDetails( props ) {
 					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
 							<LargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
-								{ props.intl.formatMessage( messages.shopButton ) } </LargeButtonLink>
+								{ props.intl.formatMessage( messages.shopButton ) } 
+							</LargeButtonLink>
 						</MediaQuery>
 					</Column>
 				</Row>
