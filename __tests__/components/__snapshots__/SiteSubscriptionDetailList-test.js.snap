@@ -122,7 +122,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <button
             className="cvhYPv">
             <span>
-              Buy more licenses
+              Buy another subscription
             </span>
           </button>
         </div>

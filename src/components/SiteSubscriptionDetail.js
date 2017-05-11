@@ -8,7 +8,6 @@ import { FormattedMessage } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
 import { injectIntl, intlShape } from "react-intl";
-import formatAmount from "../../../shared/currency";
 
 let responsiveWidthThreshold = 1355;
 
@@ -125,12 +124,10 @@ function SiteSubscriptionDetail( props ) {
 
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 ) {
-		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
-
 		anotherLicense = <AddOneLicense><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Buy more licenses"
-			values={{ price }} /></AddOneLicense>;
+			defaultMessage="Buy another subscription"/>
+			</AddOneLicense>;
 	}
 
 	let disable = true;
@@ -181,7 +178,6 @@ SiteSubscriptionDetail.propTypes = {
 	limit: React.PropTypes.number.isRequired,
 	used: React.PropTypes.number.isRequired,
 	background: React.PropTypes.string,
-	price: React.PropTypes.number,
 	intl: intlShape.isRequired,
 	currency: React.PropTypes.string,
 };
