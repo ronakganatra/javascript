@@ -28,8 +28,6 @@ function SiteSubscriptionDetailList( props ) {
 						  defaultMessage="Here you can easily activate any plugins you bought from us - but it looks like you don't have any yet!" />,
 		<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
 	];
-
-	console.log( "props", props );
 	if ( props.plugins.length > 0 ) {
 		return (
 			<Paper>
