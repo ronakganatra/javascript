@@ -61,7 +61,6 @@ class SubscriptionsPage extends React.Component {
 		];
 
 		let props = this.props;
-
 		if ( props.subscriptions.length > 0 ) {
 			return (
 				<div>
@@ -77,7 +76,10 @@ class SubscriptionsPage extends React.Component {
 			);
 		}
 		return (
-				<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ props.addSubscriptions } imageSource={ noSubscriptionsImage }/>
+				<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
+					window.open( "https://url-to-sto.re" ).bind( this );
+				}
+			} imageSource={ noSubscriptionsImage }/>
 		);
 	}
 
