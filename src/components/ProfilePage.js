@@ -133,10 +133,6 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		// Set default state; password fields are left blank intentionally.
-		this.state = {
-			error: [],
-		};
 		this.validateFields = this.validateFields.bind( this );
 
 		// Validation constraints.
@@ -146,7 +142,7 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Runs the fields through the validator and places the errors in the state.
+	 * Runs the fields through the validator and returns the errors.
 	 *
 	 * @returns {Array} All validation errors.
 	 */
