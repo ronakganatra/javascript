@@ -6,7 +6,7 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import noSitesImage from "./../images/noSites.svg";
+import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -53,7 +53,7 @@ class SubscriptionsPage extends React.Component {
 	}
 
 	render() {
-		let noSitesParagraphs = [
+		let noSubscriptionsParagraphs = [
 			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
 			<FormattedMessage id="subscriptions.no-subscriptions.manage"
 							  defaultMessage="Here you can find a list of the software you bought from us - but it looks like you don't have any yet!" />,
@@ -77,16 +77,7 @@ class SubscriptionsPage extends React.Component {
 			);
 		}
 		return (
-			<div>
-				<Search
-					id="search"
-					searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
-					descriptionId="search-description"
-					query={ this.props.query }
-					onChange={ this.props.onSearchChange }
-				/>
-				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSubscription } imageSource={ noSitesImage }/>
-			</div>
+				<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ props.addSubscriptions } imageSource={ noSubscriptionsImage }/>
 		);
 	}
 

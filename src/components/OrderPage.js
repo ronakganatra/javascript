@@ -1,10 +1,12 @@
 import React from "react";
 import Orders from "./Orders";
 import Search from "./Search";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
+import NoResults from "./NoResults";
+import noOrdersImage from "./../images/noOrders.svg";
 
 const messages = defineMessages( {
 	searchLabel: {
@@ -65,11 +67,24 @@ class OrderPage extends React.Component {
 
 	render() {
 		let props = this.props;
+
+		let noOrdersParagraphs = [
+			<FormattedMessage id="orders.no-orders.welcome" defaultMessage="Welcome to the orders overview" />,
+			<FormattedMessage id="orders.no-orders.manage"
+							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
+			<FormattedMessage id="orders.no-orders.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+		];
+
+		if ( props.orders.length > 0 ) {
+			return (
+				<div>
+					{ this.getSearch() }
+					<Orders { ...this.props } onChange={ props.onSearchChange } query={ props.query }/>
+				</div>
+			);
+		}
 		return (
-			<div>
-				{ this.getSearch() }
-				<Orders { ...this.props } onChange={ props.onSearchChange } query={ props.query }/>
-			</div>
+			<NoResults paragraphs={ noOrdersParagraphs } onClick={ () => {} } imageSource={ noOrdersImage }/>
 		);
 	}
 

@@ -40,9 +40,6 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getAllSubscriptions() );
 	return {
-		addSubscription: () => {
-			dispatch( push( "/account/subscriptions/buynewsubscription" ) );
-		},
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
