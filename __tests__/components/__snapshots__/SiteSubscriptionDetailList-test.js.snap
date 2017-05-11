@@ -65,10 +65,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
             </span>
           </span>
         </div>
+        <div>
+          <noscript />
+        </div>
         <span
           className="hMwgWU">
           <a
-            className="ifYuxa"
+            className="dAFQbA"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -119,17 +122,21 @@ exports[`test the site subscription detail list component matches the snapshot 1
               0/2 remaining
             </span>
           </span>
-          <button
-            className="cvhYPv">
+          <a
+            className="ddFsZG"
+            href="http://url2.com">
             <span>
               Buy more licenses for $1.23
             </span>
-          </button>
+          </a>
+        </div>
+        <div>
+          <noscript />
         </div>
         <span
           className="hMwgWU">
           <a
-            className="ifYuxa"
+            className="dAFQbA"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>

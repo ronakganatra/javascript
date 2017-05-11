@@ -1,4 +1,5 @@
-import { GET_ALL_SUBSCRIPTIONS_FAILURE, GET_ALL_SUBSCRIPTIONS_REQUEST, GET_ALL_SUBSCRIPTIONS_SUCCESS } from "../actions/subscriptions";
+import { GET_ALL_SUBSCRIPTIONS_FAILURE, GET_ALL_SUBSCRIPTIONS_REQUEST, GET_ALL_SUBSCRIPTIONS_SUCCESS,
+	ADD_LICENCES_POPUP_CLOSE, ADD_LICENCES_POPUP_OPEN } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import _union from "lodash/union";
 
@@ -17,6 +18,8 @@ const rootState = {
 		subscriptions: {
 			requesting: false,
 			error: "",
+			addLicensesPopupOpen: false,
+
 		},
 	},
 };
@@ -47,6 +50,14 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
 			return Object.assign( {}, state, {
 				requesting: false,
 				error: action.message,
+			} );
+		case ADD_LICENCES_POPUP_OPEN:
+			return Object.assign( {}, state, {
+				addLicensesPopupOpen: true,
+			} );
+		case ADD_LICENCES_POPUP_CLOSE:
+			return Object.assign( {}, state, {
+				addLicensesPopupOpen: false,
 			} );
 		default:
 			return state;
