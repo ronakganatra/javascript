@@ -30,7 +30,12 @@ function SiteSubscriptionDetailList( props ) {
 							key={ plugin.id }
 							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
+							onToggleDisabled={ props.onToggleDisabled }
+							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
+							popupOpen={ props.popupOpen }
+							onClose={ props.onClose }
+							onUpgrade={ plugin.storeUrl }
 						/>;
 					} ) }
 				</ListTable>
@@ -46,6 +51,9 @@ SiteSubscriptionDetailList.propTypes = {
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
+	popupOpen: React.PropTypes.bool,
+	onClose: React.PropTypes.func.isRequired,
+	onToggleDisabled: React.PropTypes.func.isRequired,
 };
 
 SiteSubscriptionDetailList.defaultProps = {

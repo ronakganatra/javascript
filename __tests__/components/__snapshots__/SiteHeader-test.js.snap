@@ -6,12 +6,12 @@ exports[`test the site header matches the snapshot 1`] = `
     placehold.it
   </h1>
   <a
-    className="visit-wp-admin ifYuxa"
+    className="visit-wp-admin dAFQbA"
     href="http://placehold.it//wp-admin"
     target="_blank"
     to="http://placehold.it//wp-admin">
     <span>
-      Visit WP admin
+      Open WordPress admin
     </span>
     <span
       className="screen-reader-text">

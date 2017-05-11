@@ -48,7 +48,7 @@ class Toggle extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.onClick = () => {};
+		this.onClick = this.props.onToggleDisabled;
 
 		if ( props.disable !== true ) {
 			this.onClick = this.setEnablement.bind( this );
@@ -111,6 +111,7 @@ Toggle.propTypes = {
 	ariaLabel: React.PropTypes.string.isRequired,
 	onSetEnablement: React.PropTypes.func,
 	disable: React.PropTypes.bool,
+	onToggleDisabled: React.PropTypes.func,
 };
 
 Toggle.defaultProps = {

@@ -12,6 +12,12 @@ test('the mapStateToProps function', () => {
 					email: "test@test.test"
 				},
 			},
+			email: "test@test.test",
+			savingError: "An error",
+			savingProfile: false,
+			sendingPasswordReset: false,
+			sendPasswordReset: false,
+			passwordResetError: "Password reset error",
 		},
 	};
 
@@ -23,6 +29,12 @@ test('the mapStateToProps function', () => {
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
+		error: "An error",
+
+		isSaving: false,
+		isSendingPasswordReset: false,
+		hasSendPasswordReset: false,
+		passwordResetError: "Password reset error",
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );

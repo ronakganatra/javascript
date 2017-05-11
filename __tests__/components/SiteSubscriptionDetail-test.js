@@ -14,6 +14,7 @@ let subscription = {
 	used: 14,
 	price: 6900,
 	currency: "USD",
+	storeUrl: "http://store.url.com",
 };
 
 test('the sitesubscription matches the snapshot', () => {
@@ -22,7 +23,11 @@ test('the sitesubscription matches the snapshot', () => {
 			<SiteSubscriptionDetail { ...subscription }
 				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
-				onMoreInfoClick={ () => {} } />
+				onMoreInfoClick={ () => {} }
+				onSettingsClick={ () => {} }
+				onClose={ () => {} }
+				onUpgrade={ "" }
+			/>
 		</MemoryRouter>
 	);
 
@@ -39,7 +44,10 @@ test('an add more licenses button should be shown when no more licenses are avai
 				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
-				onSettingsClick={ () => {} } />
+				onSettingsClick={ () => {} }
+				onClose={ () => {} }
+				onUpgrade={ "" }
+			/>
 		</MemoryRouter>
 	);
 

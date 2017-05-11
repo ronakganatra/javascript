@@ -200,7 +200,7 @@ test('the mapDispatchToProps function to call siteRemove action with onRemove wh
 				id: 123,
 			},
 		},
-	}
+	};
 
 	let props = mapDispatchToProps( dispatch, ownProps );
 
@@ -219,7 +219,7 @@ test('the mapDispatchToProps function to NOT call siteRemove action with onRemov
 				id: 123,
 			},
 		},
-	}
+	};
 
 	let props = mapDispatchToProps( dispatch, ownProps );
 
