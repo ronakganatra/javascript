@@ -254,12 +254,10 @@ class ProfilePage extends React.Component {
 			disabled = true;
 		}
 
-		if ( this.props.hasSendPasswordReset ) {
-			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSent );
-			disabled = false;
-		}
-
 		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={disabled}>{passwordResetButtonText}</Button>;
+		if ( this.props.hasSendPasswordReset ) {
+			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+		}
 
 		if ( this.props.passwordResetError ) {
 			passwordResetError = <FormError>{ this.props.passwordResetError }</FormError>;

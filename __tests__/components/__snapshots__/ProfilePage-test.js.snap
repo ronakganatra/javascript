@@ -45,6 +45,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           type="button">
           Send password reset email
         </button>
+        <div
+          className="yrpmy">
+          An error occurred while sending password reset.
+        </div>
       </section>
     </div>
     <div
