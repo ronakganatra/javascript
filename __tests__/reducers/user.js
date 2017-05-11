@@ -135,6 +135,7 @@ describe( 'userEmailReducer', () => {
 		const expected = {
 			savingProfile: false,
 			savingError: "",
+			sendPasswordReset: false,
 			data: {
 				profile: profile,
 			},
