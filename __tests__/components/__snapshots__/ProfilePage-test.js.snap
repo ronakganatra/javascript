@@ -82,10 +82,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="iBTcsR">
       <form
         onSubmit={[Function]}>
-        <div
-          className="yrpmy">
-          An error occurred while saving profile.
-        </div>
         <label
           className="geijem"
           htmlFor="emailAddress">
@@ -98,6 +94,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
+        <div
+          className="yrpmy">
+          An error occurred while saving profile.
+        </div>
         <button
           className="kpPLHv"
           disabled={false}
