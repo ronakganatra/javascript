@@ -49,7 +49,6 @@ SiteSubscriptionDetailList.propTypes = {
 	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	popupOpen: React.PropTypes.bool,

@@ -13,8 +13,11 @@ import colors from "yoast-components/style-guide/colors.json";
 export const Column = styled.span`
 	font-size: 14px;
 	padding-left: ${ props => props.columnPaddingLeft };
-
 	text-align: ${ props => props.textAlign };
+
+	&:first-child {
+		padding-left: 0;
+	}
 
 	&::before {
  		position: absolute;
@@ -29,16 +32,14 @@ export const Column = styled.span`
 
 	flex: 0 0 ${ props => props.ColumnWidth };
 	flex-grow: ${ props => props.fillSpace === true ? "1" : "0" };
+
 	@media screen and ( max-width: 1355px ) {
 		padding-left: 20px;
 		flex: 1 0 ${ props => props.ColumnWidth };
 		${ props => props.hideOnTablet ? "display: none;" : "" }
 	}
-	@media screen and ( max-width: 800px ) {
-		&:first-child {
-			padding-left: 20px;
-		}
 
+	@media screen and ( max-width: 800px ) {
 		padding-left: 10px;
 		flex: 1 1 ${ props => props.ColumnWidth };
 		${ props => props.hideOnMobile ? "display: none;" : "" }
@@ -68,7 +69,7 @@ Column.defaultProps = {
 };
 
 /**
- * Separatifies an element
+ * Separatifies an element.
  *
  * @returns {String} CSS
  */
@@ -83,6 +84,11 @@ export function separatify() {
 		content: "";
 	}
 
+	@media screen and ( max-width: 1355px ) {
+		&::after {
+			padding-right: 20px;
+		}
+	}
 
 	@media screen and ( max-width: 800px ) {
 		&::after {
@@ -109,28 +115,28 @@ export const ColumnText = styled( Column )`
  */
 export const Row = styled.li`
 	background: ${ props => props.background };
-
 	min-height: 100px;
 	display: flex;
-	padding-right: ${ props => props.rowPaddingRight };
+	padding: 26px 40px;
 	align-items: center;
 	justify-content: ${ props => props.justifyContent };
-	@media screen and ( max-width: 1355px ) {
-		justify-content: space-between;
-		padding-right: 20px;
+	flex-wrap: ${ props => props.flexWrap };
+
+	@media screen and ( max-width: 800px ) {
+		padding: 20px 24px;
 	}
 `;
 
 Row.propTypes = {
 	background: React.PropTypes.string,
-	rowPaddingRight: React.PropTypes.string,
 	justifyContent: React.PropTypes.string,
+	flexWrap: React.PropTypes.string,
 };
 
 Row.defaultProps = {
-	rowPaddingRight: "40px",
 	justifyContent: "space-around",
 	background: colors.$color_white,
+	flexWrap: "nowrap",
 };
 
 /**

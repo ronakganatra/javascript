@@ -69,6 +69,7 @@ const SubscriptionDetailsContainer = styled.div`
 	background-color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
+
 	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
 		display: flex;
 		flex-wrap: wrap;
@@ -102,7 +103,7 @@ const ColumnContainer = styled.div`
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="start-date" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="start-date" justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
 						<FormattedDate
@@ -113,7 +114,7 @@ function SubscriptionDetails( props ) {
 						/>
 					</ColumnText>
 				</Row>
-				<Row key="next-billing" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="next-billing" justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
 						<FormattedDate
@@ -129,7 +130,7 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-licenses" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="remaining-licenses" justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnText>
@@ -141,7 +142,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="change-level" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="change-level" justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
 					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
@@ -150,7 +151,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="cancel" justifyContent="space-between" rowPaddingRight="20px">
+				<Row key="cancel" justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
 					<Column columnPaddingLeft={ "20px" }>
 						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
@@ -166,7 +167,7 @@ function SubscriptionDetails( props ) {
 	let invoicesTable = (
 		<ListTable hasHeaderLabels={ false }>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between" rowPaddingRight="20px">
+				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between">
 					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
 						<FormattedDate
 							value={ invoice.invoiceDate }

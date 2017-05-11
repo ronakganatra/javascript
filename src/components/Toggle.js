@@ -27,8 +27,9 @@ const ToggleBullet = styled.span`
 `;
 
 const ToggleVisualLabel = styled.span`
-	padding: 6px 0;
+	padding: 6px 0 0;
 	font-size: 14px;
+	line-height: 20px;
 	width: 30px;
 	text-align: center;
 	display: inline-block;

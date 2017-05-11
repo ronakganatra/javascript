@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="hZuiiC"
+      className="euYPbC"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -23,15 +23,11 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="bFLiCB">
+        className="dhSHpp">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="icon.png" />
+          className="fGtTED">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
@@ -46,39 +42,50 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="kganGp"
+            src="icon.png" />
         </span>
         <div
-          className="drFsFv">
+          className="hdGyW">
           <span
-            className="gwtpew">
+            className="kXXZFn">
             Yoast SEO Premium
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               1 / 2 remaining 
+              1/2 remaining
             </span>
           </span>
         </div>
         <div>
           <noscript />
         </div>
+        <span
+          className="hMwgWU">
+          <a
+            className="dAFQbA"
+            href="/account/subscriptions/undefined"
+            onClick={[Function]}>
+            <span>
+              Details
+            </span>
+          </a>
+        </span>
       </li>
       <li
-        className="faPOmU">
+        className="gYVRpR">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="icon2.png" />
+          className="fGtTED">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
@@ -93,35 +100,50 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="kganGp"
+            src="icon2.png" />
         </span>
         <div
-          className="drFsFv">
+          className="hdGyW">
           <span
-            className="gwtpew">
+            className="kXXZFn">
             Yoast SEO Local
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               0 / 2 remaining 
+              0/2 remaining
             </span>
           </span>
           <a
-            className="jUXnqI"
+            className="hPdJMX"
             href="http://url2.com">
             <span>
-              Add another license for $1.23
+              Buy more licenses for $1.23
             </span>
           </a>
         </div>
         <div>
           <noscript />
         </div>
+        <span
+          className="hMwgWU">
+          <a
+            className="dAFQbA"
+            href="/account/subscriptions/undefined"
+            onClick={[Function]}>
+            <span>
+              Details
+            </span>
+          </a>
+        </span>
       </li>
     </ul>
   </div>

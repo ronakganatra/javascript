@@ -1,14 +1,10 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="faPOmU">
+  className="gYVRpR">
   <span
-    className="galWEB">
-    <img
-      alt=""
-      className="cOhtuq"
-      src="icon.svg" />
+    className="fGtTED">
     <span
-      className="gputun">
+      className="gFXyaK">
       <div>
         <div
           aria-checked={true}
@@ -23,49 +19,60 @@ exports[`test an add more licenses button should be shown when no more licenses 
         </div>
         <span
           aria-hidden="true"
-          className="iUAAtI">
+          className="euIAzV">
           On
         </span>
       </div>
     </span>
+    <img
+      alt=""
+      className="kganGp"
+      src="icon.svg" />
   </span>
   <div
-    className="drFsFv">
+    className="hdGyW">
     <span
-      className="gwtpew">
+      className="kXXZFn">
       Subscription name
     </span>
     <span
-      className="kaVduD">
+      className="kwOabh">
       <span>
-         0 / 20 remaining 
+        0/20 remaining
       </span>
     </span>
     <a
-      className="jUXnqI"
+      className="hPdJMX"
       href="http://store.url.com">
       <span>
-        Add another license for $69.00
+        Buy more licenses for $69.00
       </span>
     </a>
   </div>
   <div>
     <noscript />
   </div>
+  <span
+    className="hMwgWU">
+    <a
+      className="dAFQbA"
+      href="/account/subscriptions/subId"
+      onClick={[Function]}>
+      <span>
+        Details
+      </span>
+    </a>
+  </span>
 </li>
 `;
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="faPOmU">
+  className="gYVRpR">
   <span
-    className="galWEB">
-    <img
-      alt=""
-      className="cOhtuq"
-      src="icon.svg" />
+    className="fGtTED">
     <span
-      className="gputun">
+      className="gFXyaK">
       <div>
         <div
           aria-checked={true}
@@ -80,27 +87,42 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
         </div>
         <span
           aria-hidden="true"
-          className="iUAAtI">
+          className="euIAzV">
           On
         </span>
       </div>
     </span>
+    <img
+      alt=""
+      className="kganGp"
+      src="icon.svg" />
   </span>
   <div
-    className="drFsFv">
+    className="hdGyW">
     <span
-      className="gwtpew">
+      className="kXXZFn">
       Subscription name
     </span>
     <span
-      className="kaVduD">
+      className="kwOabh">
       <span>
-         6 / 20 remaining 
+        6/20 remaining
       </span>
     </span>
   </div>
   <div>
     <noscript />
   </div>
+  <span
+    className="hMwgWU">
+    <a
+      className="dAFQbA"
+      href="/account/subscriptions/subId"
+      onClick={[Function]}>
+      <span>
+        Details
+      </span>
+    </a>
+  </span>
 </li>
 `;
