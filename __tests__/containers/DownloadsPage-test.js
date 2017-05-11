@@ -44,7 +44,7 @@ test( "the mapStateToProps function", () => {
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
-						"type": "eBook",
+						"type": "ebook",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
 					}
@@ -58,7 +58,7 @@ test( "the mapStateToProps function", () => {
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
-						"type": "eBook",
+						"type": "ebook",
 						"items": {"productId": "3"},
 						"status": "completed",
 					}
@@ -76,7 +76,7 @@ test( "the mapStateToProps function", () => {
 	let expected = {
 		eBooks: [ {
 			buttons: [ { label: "for Wordpress", onButtonClick: () => window.open("http://yoast.com", "_blank") } ],
-			category: "eBook",
+			category: "ebook",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
 			id: "3",
@@ -142,7 +142,7 @@ test( "the mapStateToProps function without search results", () => {
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
-						"type": "eBook",
+						"type": "ebook",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
 					}
@@ -156,7 +156,7 @@ test( "the mapStateToProps function without search results", () => {
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
-						"type": "eBook",
+						"type": "ebook",
 						"items": {"productId": "3"},
 						"status": "completed",
 					}
