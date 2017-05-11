@@ -39,6 +39,8 @@ export const Main = styled.main`
 	background: ${colors.$color_grey_light};
 	margin: 0 2%;
 	padding: 40px 0;
+	// Firefox needs this for site-name break word to work.
+	min-width: 0;
 
 	@media screen and ( max-width: 1024px ) {
 		margin: 4% 4% 0 4%;
