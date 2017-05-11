@@ -8,7 +8,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 	let subscriptionId = ownProps.match.params.id;
 
 	let subscription = state.entities.subscriptions.byId[ subscriptionId ];
-
 	if ( _isUndefined( subscription ) ) {
 		return {
 			isLoading: true,
@@ -51,7 +50,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 
 	return {
 		onAddSite: () => {},
-		onShop: () => {},
 		onCancel: () => {},
 		onInvoiceDownload: () => {},
 	};
