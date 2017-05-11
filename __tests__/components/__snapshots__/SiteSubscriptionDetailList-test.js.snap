@@ -2,10 +2,10 @@ exports[`test the site subscription detail list component matches the snapshot 1
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gKbqAS"
+      className="fMcIxG"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -23,11 +23,11 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="enOFJA">
+        className="kcnSVY">
         <span
-          className="cJZwkh">
+          className="column--site-subscription-detail-toggle-logo fvaPPL">
           <span
-            className="gFXyaK">
+            className="ipTaeZ">
             <div>
               <div
                 aria-checked={false}
@@ -52,8 +52,8 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="kganGp"
             src="icon.png" />
         </span>
-        <div
-          className="jTMAAx">
+        <span
+          className="column--site-subscription-detail-details fvaPPL">
           <span
             className="kXXZFn">
             Yoast SEO Premium
@@ -64,9 +64,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
               1/2 remaining
             </span>
           </span>
-        </div>
+        </span>
         <span
-          className="AePzG">
+          className="column--site-subscription-detail-button fvaPPL">
           <a
             className="ifYuxa"
             href="/account/subscriptions/undefined"
@@ -78,11 +78,11 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="kGwIJV">
+        className="iSKWSU">
         <span
-          className="cJZwkh">
+          className="column--site-subscription-detail-toggle-logo fvaPPL">
           <span
-            className="gFXyaK">
+            className="ipTaeZ">
             <div>
               <div
                 aria-checked={false}
@@ -107,8 +107,8 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="kganGp"
             src="icon2.png" />
         </span>
-        <div
-          className="jTMAAx">
+        <span
+          className="column--site-subscription-detail-details fvaPPL">
           <span
             className="kXXZFn">
             Yoast SEO Local
@@ -125,9 +125,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
               Buy more licenses for $1.23
             </span>
           </button>
-        </div>
+        </span>
         <span
-          className="AePzG">
+          className="column--site-subscription-detail-button fvaPPL">
           <a
             className="ifYuxa"
             href="/account/subscriptions/undefined"

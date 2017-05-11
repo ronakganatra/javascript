@@ -5,7 +5,7 @@ import { SVGIcon } from "./SVGIcon";
 
 const CollapsibleHeaderContainer = styled.div`
 	margin-top: 20px;
-	background-color: #ffffff;
+	background-color: ${ colors.$color_white };
 `;
 
 const CollapsibleHeader = styled.button`
@@ -24,7 +24,7 @@ const CollapsibleHeader = styled.button`
 	}
 
 	@media screen and ( max-width: 800px ) {
-		padding: 16px 18px 16px 18px;
+		padding: 16px 18px;
 	}
 
 	span {

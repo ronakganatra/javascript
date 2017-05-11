@@ -2,10 +2,10 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gKbqAS"
+      className="fMcIxG"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -43,10 +43,10 @@ exports[`test the site dangerzone onRemove handling 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gKbqAS"
+      className="fMcIxG"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -84,10 +84,10 @@ exports[`test the site dangerzone onRemove handling 2`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gKbqAS"
+      className="fMcIxG"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -125,10 +125,10 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gKbqAS"
+      className="fMcIxG"
       onClick={[Function]}>
       <span>
         Danger zone

@@ -1,10 +1,10 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="kGwIJV">
+  className="iSKWSU">
   <span
-    className="cJZwkh">
+    className="column--site-subscription-detail-toggle-logo fvaPPL">
     <span
-      className="gFXyaK">
+      className="ipTaeZ">
       <div>
         <div
           aria-checked={true}
@@ -29,8 +29,8 @@ exports[`test an add more licenses button should be shown when no more licenses 
       className="kganGp"
       src="icon.svg" />
   </span>
-  <div
-    className="jTMAAx">
+  <span
+    className="column--site-subscription-detail-details fvaPPL">
     <span
       className="kXXZFn">
       Subscription name
@@ -47,9 +47,9 @@ exports[`test an add more licenses button should be shown when no more licenses 
         Buy more licenses for $69.00
       </span>
     </button>
-  </div>
+  </span>
   <span
-    className="AePzG">
+    className="column--site-subscription-detail-button fvaPPL">
     <a
       className="ifYuxa"
       href="/account/subscriptions/subId"
@@ -64,11 +64,11 @@ exports[`test an add more licenses button should be shown when no more licenses 
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="kGwIJV">
+  className="iSKWSU">
   <span
-    className="cJZwkh">
+    className="column--site-subscription-detail-toggle-logo fvaPPL">
     <span
-      className="gFXyaK">
+      className="ipTaeZ">
       <div>
         <div
           aria-checked={true}
@@ -93,8 +93,8 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       className="kganGp"
       src="icon.svg" />
   </span>
-  <div
-    className="jTMAAx">
+  <span
+    className="column--site-subscription-detail-details fvaPPL">
     <span
       className="kXXZFn">
       Subscription name
@@ -105,9 +105,9 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
         6/20 remaining
       </span>
     </span>
-  </div>
+  </span>
   <span
-    className="AePzG">
+    className="column--site-subscription-detail-button fvaPPL">
     <a
       className="ifYuxa"
       href="/account/subscriptions/subId"

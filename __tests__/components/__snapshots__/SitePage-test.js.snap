@@ -180,10 +180,10 @@ exports[`test the site page component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <div
-      className="cjKevG">
+      className="cxrbkq">
       <button
         aria-expanded={true}
-        className="gKbqAS"
+        className="fMcIxG"
         onClick={[Function]}>
         <span>
           Danger zone
