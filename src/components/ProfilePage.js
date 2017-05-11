@@ -295,7 +295,14 @@ class ProfilePage extends React.Component {
 
 		let globalError = null;
 		if ( this.props.error !== "" ) {
-			globalError = <FormError>{this.props.error}</FormError>;
+			let message = this.props.error;
+			if ( message === "Bad Request" ) {
+				message = <FormattedMessage
+					id="profile.error.duplicateEmail"
+					defaultMessage={ "The email address could not be changed, it is probably already in use." }
+				/>;
+			}
+			globalError = <FormError>{message}</FormError>;
 		}
 
 		return (
