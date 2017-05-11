@@ -59,7 +59,6 @@ BaseAddLicensesModal.propTypes = {
 
 BaseAddLicensesModal.defaultProps = {
 	isOpen: false,
-	errorMessage: "",
 };
 
 const AddLicensesModal = styled( BaseAddLicensesModal )`
