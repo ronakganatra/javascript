@@ -4,13 +4,13 @@ import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
 
 export const Button = styled.button`
-	height: 48px;
-	padding: 0 15px;
+	height: 46px;
+	padding: 12px 16px;
 	border: 0;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
-	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
 	font-size: 14px;
 	font-family: "Open Sans";
 	text-transform: uppercase;
@@ -36,8 +36,8 @@ export const GreenButton = styled( Button )`
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	height: 40px;
-	margin: 5px 0px 5px 10px;
+	height: 46px;
+	margin: 4px 0 4px 12px;
 `;
 
 TextButton.PropTypes = {
@@ -89,14 +89,13 @@ export const RedButton = styled( LargeButton )`
 
 export const ButtonLink = styled( Link )`
 	display: inline-block;
-	height: 40px;
-	line-height: 40px;
-	padding: 0 15px;
-	margin: 5px 0px 5px 10px;
+	height: 46px;
+	padding: 12px 16px;
+	margin: 4px 0px 4px 12px;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
-	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
 	font-size: 14px;
 	font-family: "Open Sans";
 	text-transform: uppercase;
@@ -118,9 +117,6 @@ export const GreenButtonLink = styled( ButtonLink )`
 
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
-	height: 40px;
-	line-height: 40px;
-	margin: 5px 0px 5px 10px;
 `;
 
 TextButtonLink.PropTypes = {
