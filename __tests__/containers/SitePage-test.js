@@ -28,7 +28,7 @@ test('the mapStateToProps function', () => {
 					byId: {
 						"subscriptiontestId": {
 							id: "subscriptiontestId",
-							productId: "SEO for Sony",
+							productId: "productid1",
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
 							reoccurring: true,
@@ -39,7 +39,7 @@ test('the mapStateToProps function', () => {
 								addMoreLicenses: "Add more licenses",
 							},
 							product: {
-								id: "productid",
+								id: "productid1",
 								name: "string",
 								description: "string",
 								storeUrl: "string",
@@ -61,6 +61,27 @@ test('the mapStateToProps function', () => {
 					},
 					allIds: [ "subscriptiontestId" ],
 				},
+				products: {
+					byId: {
+						"productid1": {
+							id: "productid1",
+							name: "Yoast SEO Premium",
+							type: "plugin",
+							icon: "icon.png",
+							currency: "USD",
+							price: 123,
+						},
+						"productid2": {
+							id: "productid2",
+							name: "Yoast SEO Local",
+							type: "plugin",
+							icon: "icon.png",
+							currency: "USD",
+							price: 123,
+						},
+					},
+					allIds: [ "productid1", "productid2" ],
+				}
 			},
 			router: {
 				location: "sites/497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -96,7 +117,7 @@ test('the mapStateToProps function', () => {
 		},
 		subscriptions: [ {
 			id: "subscriptiontestId",
-			productId: "SEO for Sony",
+			productId: "productid1",
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",
 			reoccurring: true,
@@ -107,7 +128,7 @@ test('the mapStateToProps function', () => {
 				addMoreLicenses: "Add more licenses",
 			},
 			product: {
-				id: "productid",
+				id: "productid1",
 				name: "string",
 				description: "string",
 				storeUrl: "string",
@@ -129,6 +150,32 @@ test('the mapStateToProps function', () => {
 			productLogo: "https://image.flaticon.com/teams/new/1-freepik.jpg",
 			isEnabled: false,
 		} ],
+		plugins: [
+			{
+				id: "productid1",
+				name: "Yoast SEO Premium",
+				type: "plugin",
+				icon: "icon.png",
+				currency: "USD",
+				price: 123,
+				used: 0,
+				limit: 0,
+				isEnabled: false,
+				subscriptionId: "",
+			},
+			{
+				id: "productid2",
+				name: "Yoast SEO Local",
+				type: "plugin",
+				icon: "icon.png",
+				currency: "USD",
+				price: 123,
+				used: 0,
+				limit: 0,
+				isEnabled: false,
+				subscriptionId: "",
+			},
+		],
 		loadingSubscriptions: false,
 		uiSite: {
 			removing: false,
@@ -178,5 +225,5 @@ test('the mapDispatchToProps function to NOT call siteRemove action with onRemov
 
 	props.onRemove();
 
-	expect( dispatch ).not.toHaveBeenCalled();
+	expect( dispatch ).not.toHaveBeenCalledWith( siteRemove( 123 ) );
 } );

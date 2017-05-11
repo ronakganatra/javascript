@@ -7,6 +7,7 @@ import { ColumnIcon } from "./ColumnIcon";
 import { Row, ColumnText, Column } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
+import defaultSiteIcon from "../icons/sites_black.svg";
 
 const messages = defineMessages( {
 	siteName: {
@@ -40,13 +41,14 @@ function Site( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
+	let siteIcon = props.siteIcon || defaultSiteIcon;
 
 	return (
 		<Row { ...rowProps }>
-			<ColumnIcon separator={ true }><SiteIcon src={ props.siteIcon } alt=""/></ColumnIcon>
+			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
 			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
 			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
-						ColumnWidth="500px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
+						ColumnWidth="460px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
 			<Column textAlign="right">
 				<MediaQuery query="(min-width: 1356px)">
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }

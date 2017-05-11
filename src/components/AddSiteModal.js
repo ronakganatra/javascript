@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import AddSite from "../components/AddSite";
 
@@ -70,6 +70,18 @@ BaseAddSiteModal.defaultProps = {
 	errorMessage: "",
 };
 
+const fadeModalIn = keyframes`
+	from {
+		transform: translate(-50%, -80%);
+		opacity: 0;
+	}
+
+	to {
+		transform: translate(-50%, -50%);
+		opacity: 1;
+	}
+`;
+
 const AddSiteModal = styled( BaseAddSiteModal )`
 	&.my-yoast-modal__overlay {
 		position: fixed;
@@ -103,6 +115,15 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
+		
+		animation-iteration-count: 1;
+		animation-duration: 300ms;
+		animation-timing-function: ease;
+		animation-delay: 50ms;
+		animation-direction: normal;
+		animation-fill-mode: both;
+		animation-play-state: running;
+		animation-name: ${ fadeModalIn };
 		
 		@media screen and ( max-width: 600px ) {
 			padding: 1.5em 1.5em 0;

@@ -41,6 +41,7 @@ class SitePage extends React.Component {
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
+														   plugins={ props.plugins }
 														   onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 														   onMoreInfoClick={ props.onMoreInfoClick }
 														   onSettingsClick={ props.onSettingsClick }
@@ -67,6 +68,7 @@ SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
 	uiSite: React.PropTypes.object,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,

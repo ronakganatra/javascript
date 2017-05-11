@@ -168,7 +168,7 @@ export function uiSitesReducer( state = rootState.ui.sites, action ) {
  */
 function pluckSubscriptionIds( site ) {
 	if ( _isUndefined( site.subscriptions ) ) {
-		return site;
+		return Object.assign( {}, site, { subscriptions: [] } );
 	}
 
 	return Object.assign( {}, site, { subscriptions: site.subscriptions.map( subscription => subscription.id ) } );

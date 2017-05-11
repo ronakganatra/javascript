@@ -18,6 +18,7 @@ export const mapStateToProps = ( state ) => {
 		let siteProps = {
 			id: site.id,
 			siteName: site.hostname ? site.hostname : site.url,
+			url: site.url,
 		};
 
 		if ( site.icon ) {
@@ -34,8 +35,8 @@ export const mapStateToProps = ( state ) => {
 
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
-		sites = sites.filter( ( sites ) => {
-			return sites.siteName.includes( query );
+		sites = sites.filter( ( site ) => {
+			return site.siteName.includes( query ) || site.url.includes( query );
 		} );
 	}
 

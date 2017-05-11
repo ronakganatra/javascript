@@ -29,13 +29,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <img
             alt=""
             className="cOhtuq"
-            src="Yoast_SEO_Icon_Small.svg" />
+            src="icon.png" />
           <span
             className="gputun">
             <div>
               <div
                 aria-checked={false}
-                aria-label="Yoast SEO"
+                aria-label="productid"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -56,12 +56,12 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="drFsFv">
           <span
             className="gwtpew">
-            Yoast SEO
+            Yoast SEO Premium
           </span>
           <span
             className="kaVduD">
             <span>
-               5 / 10 remaining 
+               1 / 2 remaining 
             </span>
           </span>
         </div>
@@ -73,13 +73,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <img
             alt=""
             className="cOhtuq"
-            src="Local_SEO_Icon_Small.svg" />
+            src="icon2.png" />
           <span
             className="gputun">
             <div>
               <div
                 aria-checked={false}
-                aria-label="Local SEO"
+                aria-label="productid2"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -100,14 +100,20 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="drFsFv">
           <span
             className="gwtpew">
-            Local SEO
+            Yoast SEO Local
           </span>
           <span
             className="kaVduD">
             <span>
-               3 / 10 remaining 
+               0 / 2 remaining 
             </span>
           </span>
+          <button
+            className="dqWYTA">
+            <span>
+              Add another license for $1.23
+            </span>
+          </button>
         </div>
       </li>
     </ul>
