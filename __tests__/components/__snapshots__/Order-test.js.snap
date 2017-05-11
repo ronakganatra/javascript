@@ -13,20 +13,17 @@ exports[`test A standard order 1`] = `
   </span>
   <span
     className="column--order-items hGMasR">
-    <div>
-       
-      <div>
-         
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         Another product
-         
-      </div>
-       
-    </div>
+      </span>
+    </span>
   </span>
   <span
     className="gaSTWT">
@@ -65,20 +62,17 @@ exports[`test An Order with a disabled invoice button 1`] = `
   </span>
   <span
     className="column--order-items hGMasR">
-    <div>
-       
-      <div>
-         
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         Another product
-         
-      </div>
-       
-    </div>
+      </span>
+    </span>
   </span>
   <span
     className="gaSTWT">
