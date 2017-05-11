@@ -7,7 +7,6 @@ import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
 import { Row } from "./Tables";
 import _partial from "lodash/partial";
-import formatAmount from "../../../shared/currency";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
 
@@ -131,12 +130,10 @@ function SiteSubscriptionDetail( props ) {
 
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 ) {
-		let price = props.intl.formatNumber( formatAmount( props.price ), { style: "currency", currency: props.currency } );
-
 		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Buy more licenses for { price }"
-			values={{ price }} /></AddOneLicense>;
+			defaultMessage="Get additional subscriptions"/>
+			</AddOneLicense>;
 	}
 
 	let disable = true;
@@ -191,7 +188,6 @@ SiteSubscriptionDetail.propTypes = {
 	limit: React.PropTypes.number.isRequired,
 	used: React.PropTypes.number.isRequired,
 	background: React.PropTypes.string,
-	price: React.PropTypes.number,
 	intl: intlShape.isRequired,
 	currency: React.PropTypes.string,
 	popupOpen: React.PropTypes.bool,

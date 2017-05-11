@@ -14,7 +14,7 @@ function filterProductsByType( type, products ) {
 	return _filter( products, product => product.type === type );
 }
 
-export const getEbooks = _partial( filterProductsByType, "eBook" );
+export const getEbooks = _partial( filterProductsByType, "ebook" );
 export const getCares = _partial( filterProductsByType, "care" );
 export const getCourses = _partial( filterProductsByType, "course" );
 export const getPlugins = _partial( filterProductsByType, "plugin" );

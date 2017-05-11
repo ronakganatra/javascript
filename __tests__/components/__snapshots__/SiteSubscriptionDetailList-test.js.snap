@@ -126,7 +126,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="ddFsZG"
             href="http://url2.com">
             <span>
-              Buy more licenses for $1.23
+              Get additional subscriptions
             </span>
           </a>
         </div>
