@@ -11,7 +11,7 @@ exports[`test the site header matches the snapshot 1`] = `
     target="_blank"
     to="http://placehold.it//wp-admin">
     <span>
-      Visit WP admin
+      Open WordPress admin
     </span>
     <span
       className="screen-reader-text">

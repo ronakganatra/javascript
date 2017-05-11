@@ -19,7 +19,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       target="_blank"
       to="http://yoast.com/wp-admin">
       <span>
-        Visit WP admin
+        Open WordPress admin
       </span>
       <span
         className="screen-reader-text">
