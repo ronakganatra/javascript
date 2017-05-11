@@ -24,6 +24,7 @@ export const Sidebar = styled.div`
 		width: 100%;
 		height: 74px;
 		bottom: 0;
+		max-width: none;
 	}
 
 	@media screen and ( max-width: 1024px ) {
