@@ -8,7 +8,7 @@ test( 'The Products component matches the snapshot', () => {
 		{
 			id: "1",
 			name: "Yoast SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -19,7 +19,7 @@ test( 'The Products component matches the snapshot', () => {
 		}, {
 			id: "2",
 			name: "Local SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -28,7 +28,7 @@ test( 'The Products component matches the snapshot', () => {
 		}, {
 			id: "3",
 			name: "Video SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -41,7 +41,7 @@ test( 'The Products component matches the snapshot', () => {
 		}, {
 			id: "4",
 			name: "News SEO",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -54,7 +54,7 @@ test( 'The Products component matches the snapshot', () => {
 		}, {
 			id: "5",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: "4.7",
+			currentVersion: 4.7,
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
