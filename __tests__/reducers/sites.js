@@ -114,7 +114,7 @@ test( 'the link site success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
 		},
 	};
 	const expected = {
@@ -122,7 +122,8 @@ test( 'the link site success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -136,7 +137,8 @@ test( 'the link site success action in the byIdReducer when there is already an 
 		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 		"url": "http://yoast.com",
 		"creationDate": "2017-03-21T08:54:09.415Z",
-		"userId": 1
+		"userId": 1,
+		"subscriptions": [],
 	} };
 
 	const action = {
@@ -145,7 +147,8 @@ test( 'the link site success action in the byIdReducer when there is already an 
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 	};
 	const expected = {
@@ -153,13 +156,15 @@ test( 'the link site success action in the byIdReducer when there is already an 
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 		"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -211,7 +216,8 @@ test( 'the retrieve sites success action in the byIdReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -225,7 +231,8 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 		"url": "http://yoast.com",
 		"creationDate": "2017-03-21T08:54:09.415Z",
-		"userId": 1
+		"userId": 1,
+		"subscriptions": [],
 	} };
 
 	const action = {
@@ -234,7 +241,8 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		} ],
 	};
 	const expected = {
@@ -242,13 +250,15 @@ test( 'the retrieve sites success action in the byIdReducer when there is alread
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 		"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://google.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		}
 	};
 
@@ -360,13 +370,15 @@ test( 'the retrieve sites success action in the allIdsReducer', () => {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
-			"userId": 1
+			"userId": 1,
+			"subscriptions": [],
 		},
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
 				"url": "http://yoast2.com",
 				"creationDate": "2017-03-21T08:54:09.415Z",
-				"userId": 1
+				"userId": 1,
+				"subscriptions": [],
 			}, ]
 	};
 	const expected = [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "497490e6-eb8d-4627-be9b-bfd33fc217f2" ];

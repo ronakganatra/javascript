@@ -1,22 +1,39 @@
 import React from "react";
-import { WhiteButton } from "../components/Button";
+import { LargeButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { FormattedMessage } from "react-intl";
+import NewTabMessage from "../components/NewTabMessage";
 
 const SiteHeaderContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	align-items: flex-end;
+	align-content: flex-end;
 	max-width: 1480px;
 	height: 380px;
-	background-image: linear-gradient(transparent, ${colors.$color_pink_dark}), url( ${ props => props.imageUrl } ) 
+	background-image: linear-gradient(transparent, ${ colors.$color_pink_dark }), url( ${ props => props.imageUrl } )
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
 	position: relative;
-	margin: auto;
-	
-	& button {
-		position: absolute;
-		right: 30px;
-		bottom: 26px;
+	margin: 0 auto;
+	padding: 0 40px 26px;
+
+	@media screen and ( max-width: 800px ) {
+		height: auto;
+		min-height: 144px;
+		padding: 0 24px 16px;
+	}
+
+	.visit-wp-admin {
+		flex: 0 0 auto;
+		margin-top: 1em;
+
+		@media screen and ( max-width: 800px ) {
+			min-width: 100%;
+		}
 	}
 `;
 
@@ -25,14 +42,15 @@ SiteHeaderContainer.propTypes = {
 };
 
 const SiteHeaderSitename = styled.h1`
+	flex: 1 1 auto;
 	color: ${colors.$color_white};
 	font-weight: 300;
-	float: left;
-	padding: 5px;
-	margin: 0px;
-	position: absolute;
-	bottom: 26px;
-	left: 30px;
+	margin: 0;
+	word-break: break-word;
+
+	@media screen and ( max-width: 800px ) {
+		text-align: center;
+	}
 `;
 
 /**
@@ -49,9 +67,10 @@ export default function SiteHeader( props ) {
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<WhiteButton onClick={ () => window.open(  props.url, "_blank" ) }>
-				Visit site
-			</WhiteButton>
+			<LargeButtonLink to={ `${ props.url }/wp-admin` } className="visit-wp-admin" target="_blank">
+				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Visit WP admin" />
+				<NewTabMessage />
+			</LargeButtonLink>
 		</SiteHeaderContainer>
 	);
 }

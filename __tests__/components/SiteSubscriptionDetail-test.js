@@ -1,14 +1,15 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
 import SiteSubscriptionDetail from '../../src/components/SiteSubscriptionDetail';
+import { MemoryRouter } from "react-router-dom";
 
 let subscription = {
-	id: "very-unique-sub-id",
+	id: "very-unique-product-id",
 	isEnabled: true,
 	name: "Subscription name",
 	productName: "Productname",
-	productId: "productId",
-	productLogo: "icon.svg",
+	subscriptionId: "subId",
+	icon: "icon.svg",
 	limit: 20,
 	used: 14,
 	price: 6900,
@@ -17,11 +18,12 @@ let subscription = {
 
 test('the sitesubscription matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail { ...subscription }
-			onAddMoreLicensesClick={ () => {} }
-			onToggleSubscription={ () => {} }
-			onMoreInfoClick={ () => {} }
-			onSettingsClick={ () => {} } />
+		<MemoryRouter>
+			<SiteSubscriptionDetail { ...subscription }
+				onAddMoreLicensesClick={ () => {} }
+				onToggleSubscription={ () => {} }
+				onMoreInfoClick={ () => {} } />
+		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();
@@ -32,11 +34,13 @@ test('an add more licenses button should be shown when no more licenses are avai
 	subscription = Object.assign( {}, subscription, { used: 20 } );
 
 	const component = createComponentWithIntl(
-		<SiteSubscriptionDetail { ...subscription }
-			onAddMoreLicensesClick={ () => {} }
-			onToggleSubscription={ () => {} }
-			onMoreInfoClick={ () => {} }
-			onSettingsClick={ () => {} } />
+		<MemoryRouter>
+			<SiteSubscriptionDetail { ...subscription }
+				onAddMoreLicensesClick={ () => {} }
+				onToggleSubscription={ () => {} }
+				onMoreInfoClick={ () => {} }
+				onSettingsClick={ () => {} } />
+		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();

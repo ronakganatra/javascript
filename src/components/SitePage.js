@@ -38,9 +38,13 @@ class SitePage extends React.Component {
 		}
 
 		let subscriptionList = <AnimatedLoader />;
+		let hostnameDisplay = props.site.hostname.replace( /^(?:www\.)?/, "" );
+		let urlDisplay = props.site.url.replace( /^(?:https?:)?\/\/(?:www\.)?/, "" );
+		let siteNameDisplay = props.site.hostname ? hostnameDisplay : urlDisplay;
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
+														   plugins={ props.plugins }
 														   onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 														   onMoreInfoClick={ props.onMoreInfoClick }
 														   onSettingsClick={ props.onSettingsClick }
@@ -53,7 +57,7 @@ class SitePage extends React.Component {
 				<Link to={ "/sites" } >
 					<RoundBackButton />
 				</Link>
-				<SiteHeader name={ props.site.url } url={ props.site.url } imageUrl={ props.site.header }/>
+				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 			</div>
@@ -67,6 +71,7 @@ SitePage.propTypes = {
 	site: React.PropTypes.object.isRequired,
 	uiSite: React.PropTypes.object,
 	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
+	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,

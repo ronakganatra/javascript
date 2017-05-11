@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="hZuiiC"
+      className="euYPbC"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -23,19 +23,15 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="bFLiCB">
+        className="dhSHpp">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Yoast_SEO_Icon_Small.svg" />
+          className="fGtTED">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
-                aria-label="Yoast SEO"
+                aria-label="productid"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -46,40 +42,51 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="kganGp"
+            src="icon.png" />
         </span>
         <div
-          className="drFsFv">
+          className="hdGyW">
           <span
-            className="gwtpew">
-            Yoast SEO
+            className="kXXZFn">
+            Yoast SEO Premium
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               5 / 10 remaining 
+              1/2 remaining
             </span>
           </span>
         </div>
+        <span
+          className="hMwgWU">
+          <a
+            className="ifYuxa"
+            href="/account/subscriptions/undefined"
+            onClick={[Function]}>
+            <span>
+              Details
+            </span>
+          </a>
+        </span>
       </li>
       <li
-        className="faPOmU">
+        className="gYVRpR">
         <span
-          className="galWEB">
-          <img
-            alt=""
-            className="cOhtuq"
-            src="Local_SEO_Icon_Small.svg" />
+          className="fGtTED">
           <span
-            className="gputun">
+            className="gFXyaK">
             <div>
               <div
                 aria-checked={false}
-                aria-label="Local SEO"
+                aria-label="productid2"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -90,25 +97,46 @@ exports[`test the site subscription detail list component matches the snapshot 1
               </div>
               <span
                 aria-hidden="true"
-                className="iUAAtI">
+                className="euIAzV">
                 Off
               </span>
             </div>
           </span>
+          <img
+            alt=""
+            className="kganGp"
+            src="icon2.png" />
         </span>
         <div
-          className="drFsFv">
+          className="hdGyW">
           <span
-            className="gwtpew">
-            Local SEO
+            className="kXXZFn">
+            Yoast SEO Local
           </span>
           <span
-            className="kaVduD">
+            className="kwOabh">
             <span>
-               3 / 10 remaining 
+              0/2 remaining
             </span>
           </span>
+          <button
+            className="cVVItG">
+            <span>
+              Buy more licenses for $1.23
+            </span>
+          </button>
         </div>
+        <span
+          className="hMwgWU">
+          <a
+            className="ifYuxa"
+            href="/account/subscriptions/undefined"
+            onClick={[Function]}>
+            <span>
+              Details
+            </span>
+          </a>
+        </span>
       </li>
     </ul>
   </div>
