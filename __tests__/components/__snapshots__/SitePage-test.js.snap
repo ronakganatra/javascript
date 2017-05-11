@@ -14,7 +14,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       yoast.com
     </h1>
     <a
-      className="visit-wp-admin ifYuxa"
+      className="visit-wp-admin dAFQbA"
       href="http://yoast.com/wp-admin"
       target="_blank"
       to="http://yoast.com/wp-admin">
