@@ -126,7 +126,7 @@ function SiteSubscriptionDetail( props ) {
 	if ( licensesRemaining === 0 ) {
 		anotherLicense = <AddOneLicense><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Buy another subscription"/>
+			defaultMessage="Get additional subscriptions"/>
 			</AddOneLicense>;
 	}
 
