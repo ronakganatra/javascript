@@ -2,7 +2,7 @@ exports[`test renders without crashing 1`] = `
 <div
   className="dRnDAb">
   <div
-    className="fiOhHo">
+    className="knRgRt">
     <header
       role="banner">
       <img
@@ -19,7 +19,7 @@ exports[`test renders without crashing 1`] = `
         size="64px"
         src="https://s.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?r=pg&d=https%3A%2F%2Fs3.amazonaws.com%2Fyoast-my-yoast%2FMy_Yoast_default_avatar.png" />
       <div
-        className="foqgVb">
+        className="gGMKAV">
         <p
           className="gGQGre">
           

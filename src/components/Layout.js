@@ -15,6 +15,8 @@ export const Layout = styled.div`
 export const Sidebar = styled.div`
 	flex: 0 0 300px;
 	background-color: ${colors.$color_pink_dark};
+	// Firefox needs this for user-email break word to work inside flex items.
+	max-width: 300px;
 
 	@media screen and ( max-width: 1024px ) {
 		position: fixed;

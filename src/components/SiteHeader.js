@@ -46,7 +46,12 @@ const SiteHeaderSitename = styled.h1`
 	color: ${colors.$color_white};
 	font-weight: 300;
 	margin: 0;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	-ms-word-break: break-all;
 	word-break: break-word;
+	// Firefox needs this for break word to work inside flex items.
+	min-width: 0;
 
 	@media screen and ( max-width: 800px ) {
 		text-align: center;
