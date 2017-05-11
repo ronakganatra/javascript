@@ -66,8 +66,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		addSite: () => {
+		addSite: ( url ) => {
 			dispatch( linkSitePopupOpen() );
+			dispatch( updateSiteUrl( url ) );
 		},
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
@@ -98,7 +99,11 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		dispatchProps.onLink( url );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink } );
+	let addSite = () => {
+		dispatchProps.addSite( url );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink, addSite } );
 };
 
 const SitesPageContainer = connect(
