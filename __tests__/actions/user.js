@@ -139,35 +139,6 @@ describe( 'Password reset', () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetSuccess() );
 		} );
 	} );
-
-	test( 'failed reset', () => {
-		global.fetch = jest.fn( () => {
-			return Promise.resolve( {
-				status: 404,
-				json: () => {
-					return {
-						"error": {
-							"statusCode": 404,
-							"name": "Error",
-							"message": "An error occurred",
-							"code": "MODEL_NOT_FOUND",
-							"stack": "Error: could not find a model with id 6"
-						}
-					}
-				},
-			} );
-		});
-
-		const dispatch = jest.fn();
-
-		const resetPasswordFunc = actions.passwordResetSend( "email@email.email" );
-
-		return resetPasswordFunc( dispatch ).then( () => {
-			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetRequest() );
-			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetFailure( "An error occurred" ) );
-
-		} );
-	} );
 } );
 
 describe( 'Profile saving', () => {
