@@ -18,7 +18,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         www.yoast.com
       </span>
       <span
-        className="iYixbD">
+        className="buwONS">
         <span>
           <img
             aria-label="Test is active"
@@ -59,7 +59,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         www.google.com
       </span>
       <span
-        className="iYixbD">
+        className="buwONS">
         <span>
           <img
             aria-label="Test is active"
@@ -100,7 +100,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         www.facebook.com
       </span>
       <span
-        className="iYixbD">
+        className="buwONS">
         <span>
           <img
             aria-label="Test is active"
