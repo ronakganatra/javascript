@@ -19,29 +19,31 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={false}
-            type="submit">
-            Save changes
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={false}
+          type="submit">
+          Save email address
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         <button
           className="dRCeMN"
           disabled={false}
           onClick={[Function]}
           type="button">
-          Send a password reset email
+          Send password reset email
         </button>
       </section>
     </div>
@@ -93,29 +95,31 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={false}
-            type="submit">
-            Save changes
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={false}
+          type="submit">
+          Save email address
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         <button
           className="dRCeMN"
           disabled={false}
           onClick={[Function]}
           type="button">
-          Send a password reset email
+          Send password reset email
         </button>
       </section>
     </div>
@@ -163,23 +167,25 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={false}
-            type="submit">
-            Save changes
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={false}
+          type="submit">
+          Save email address
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         An email has been sent, please check your inbox.
       </section>
     </div>
@@ -227,29 +233,31 @@ exports[`components/ProfilePage saving profile 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={true}
-            type="submit">
-            Saving...
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={true}
+          type="submit">
+          Saving...
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         <button
           className="dRCeMN"
           disabled={false}
           onClick={[Function]}
           type="button">
-          Send a password reset email
+          Send password reset email
         </button>
       </section>
     </div>
@@ -297,23 +305,25 @@ exports[`components/ProfilePage sending password reset 1`] = `
           onChange={[Function]}
           type="text"
           value="email@email.email" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={false}
-            type="submit">
-            Save changes
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={false}
+          type="submit">
+          Save email address
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         <button
           className="dRCeMN"
           disabled={true}
@@ -367,29 +377,31 @@ exports[`components/ProfilePage the default case 1`] = `
           onChange={[Function]}
           type="text"
           value="test@test.test" />
-        <div
-          className="lasbVD">
-          <button
-            className="dRCeMN"
-            disabled={false}
-            type="submit">
-            Save changes
-          </button>
-          
-        </div>
+        <button
+          className="kpPLHv"
+          disabled={false}
+          type="submit">
+          Save email address
+        </button>
+        
       </form>
       <section
         className="dEsRUZ">
         <label
           className="geijem">
-          Password reset
+          Change password
         </label>
+        <p>
+          <span>
+            To change your password follow the instructions in the password reset mail.
+          </span>
+        </p>
         <button
           className="dRCeMN"
           disabled={false}
           onClick={[Function]}
           type="button">
-          Send a password reset email
+          Send password reset email
         </button>
       </section>
     </div>

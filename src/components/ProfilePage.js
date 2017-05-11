@@ -28,15 +28,15 @@ const messages = defineMessages( {
 	},
 	buttonSaveChanges: {
 		id: "profile.button.saveChanges",
-		defaultMessage: "Save changes",
+		defaultMessage: "Save email address",
 	},
 	passwordReset: {
 		id: "profile.label.passwordReset",
-		defaultMessage: "Password reset",
+		defaultMessage: "Change password",
 	},
 	passwordResetSend: {
 		id: "profile.button.passwordResetSend",
-		defaultMessage: "Send a password reset email",
+		defaultMessage: "Send password reset email",
 	},
 	passwordResetSending: {
 		id: "profile.button.passwordResetSending",
@@ -99,11 +99,6 @@ const TextInput = styled.input`
 	border:none;
 `;
 
-const SaveContainer = styled.div`
-	margin: 1em 0 0;
-	text-align: right;
-`;
-
 const FormError = styled.div`
 	background-color: ${ colors.$color_yellow };
 	padding: 0.5em;
@@ -112,6 +107,10 @@ const FormError = styled.div`
 `;
 
 const PasswordReset = styled.section`
+	margin: 1em 0;
+`;
+
+const SaveButton = styled( Button )`
 	margin: 1em 0;
 `;
 
@@ -260,6 +259,10 @@ class ProfilePage extends React.Component {
 		return <PasswordReset>
 			<Label>{ this.props.intl.formatMessage( messages.passwordReset ) }</Label>
 
+			<p><FormattedMessage
+				id="profile.description.passwordReset"
+				defaultMessage={ "To change your password follow the instructions in the password reset mail." } />
+			</p>
 			{ passwordResetButton }
 		</PasswordReset>;
 	}
@@ -304,10 +307,8 @@ class ProfilePage extends React.Component {
 								onChange={ onUpdateEmail }/>
 							{ this.displayErrors( errors, "email" ) }
 
-							<SaveContainer>
-								<Button type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</Button>
+							<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
 								{ this.state.saved ? "Saved" : "" }
-							</SaveContainer>
 						</form>
 
 						{ this.getPasswordReset() }
