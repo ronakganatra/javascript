@@ -34,23 +34,26 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
-        <button
-          className="dGwiED"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="jRmHgR"
-          onClick={[Function]}
-          type="button">
-          <span>
-            link
-          </span>
-        </button>
+        className="kgoxYr">
+        <div
+          className="dulcjS">
+          <button
+            className="dGwiED"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="jRmHgR"
+            onClick={[Function]}
+            type="button">
+            <span>
+              link
+            </span>
+          </button>
+        </div>
       </div>
       <img
         alt=""
@@ -97,23 +100,26 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
-        <button
-          className="dGwiED"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="jRmHgR"
-          onClick={[Function]}
-          type="button">
-          <span>
-            link
-          </span>
-        </button>
+        className="kgoxYr">
+        <div
+          className="dulcjS">
+          <button
+            className="dGwiED"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="jRmHgR"
+            onClick={[Function]}
+            type="button">
+            <span>
+              link
+            </span>
+          </button>
+        </div>
       </div>
       <img
         alt=""
@@ -160,23 +166,26 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
-        <button
-          className="dGwiED"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="jRmHgR"
-          onClick={[Function]}
-          type="button">
-          <span>
-            link
-          </span>
-        </button>
+        className="kgoxYr">
+        <div
+          className="dulcjS">
+          <button
+            className="dGwiED"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="jRmHgR"
+            onClick={[Function]}
+            type="button">
+            <span>
+              link
+            </span>
+          </button>
+        </div>
       </div>
       <img
         alt=""
@@ -223,23 +232,26 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
-        <button
-          className="dGwiED"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="jRmHgR"
-          onClick={[Function]}
-          type="button">
-          <span>
-            link
-          </span>
-        </button>
+        className="kgoxYr">
+        <div
+          className="dulcjS">
+          <button
+            className="dGwiED"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="jRmHgR"
+            onClick={[Function]}
+            type="button">
+            <span>
+              link
+            </span>
+          </button>
+        </div>
       </div>
       <img
         alt=""
@@ -286,23 +298,26 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
-        <button
-          className="dGwiED"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="jRmHgR"
-          onClick={[Function]}
-          type="button">
-          <span>
-            link
-          </span>
-        </button>
+        className="kgoxYr">
+        <div
+          className="dulcjS">
+          <button
+            className="dGwiED"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="jRmHgR"
+            onClick={[Function]}
+            type="button">
+            <span>
+              link
+            </span>
+          </button>
+        </div>
       </div>
       <img
         alt=""
