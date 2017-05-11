@@ -241,7 +241,6 @@ export function passwordResetSend( email ) {
 		} );
 
 		return fetch( request )
-			.then( verifyStatusCode )
 			.then( () => dispatch( passwordResetSuccess() ) )
 			.catch( ( error ) => dispatch( passwordResetFailure( error.message ) ) );
 	};
