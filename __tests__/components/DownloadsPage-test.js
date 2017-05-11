@@ -111,3 +111,16 @@ test( 'the downloads page component matches the snapshot', () => {
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
 } );
+
+test( 'the downloads page component matches the snapshot when there are no downloads', () => {
+	let plugins = [];
+
+	let eBooks = [];
+
+	const component = createComponentWithIntl(
+		<DownloadsPage onSearchChange={ () => {} } eBooks={ eBooks } plugins={ plugins }/>
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
