@@ -42,9 +42,7 @@ export const LargeButton = styled( Button )`
 	min-width: 150px;
 `;
 
-export const GreenButton = styled( Button )`
-	background-color: ${ colors.$color_green_medium_light };
-`;
+export const GreenButton = styled( Button )``;
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
@@ -60,8 +58,6 @@ TextButton.defaultProps = {
 };
 
 export const LogoutButton = styled( Button )`
-	background-color: ${ colors.$color_green_medium_light };
-	color: ${ colors.$color_white };
 	border-radius: 3px;
 	height: 36px;
 	width: 112px;
@@ -73,8 +69,6 @@ export const IconButton = styled( Button )`
 	background-image: url( ${ props => props.iconSource } );
 	background-position: 20px 50%;
 	background-size: ${ props => props.iconSize };
-	border-radius: 3px;
-	color: ${ colors.$color_white };
 	margin: 0;
 	padding: 0 20px 0 64px;
 `;
@@ -94,7 +88,6 @@ export const WhiteButton = styled( LargeButton )`
 `;
 
 export const RedButton = styled( LargeButton )`
-	color: ${ colors.$color_white };
 	background-color: ${ colors.$color_red };
 `;
 
@@ -134,9 +127,7 @@ export const LargeButtonLink = styled( ButtonLink )`
 	min-width: 150px;
 `;
 
-export const GreenButtonLink = styled( ButtonLink )`
-	background-color: ${ colors.$color_green_medium_light };
-`;
+export const GreenButtonLink = styled( ButtonLink )``;
 
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
@@ -155,7 +146,6 @@ export const IconButtonLink = styled( ButtonLink )`
 	background-image: url( ${ props => props.iconSource } );
 	background-position: 20px 50%;
 	background-size: 24px;
-	color: ${ colors.$color_white };
 	padding: 0 20px 0 64px;
 `;
 
@@ -164,8 +154,8 @@ IconButtonLink.PropTypes = {
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`
-	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
+	color: ${ colors.$color_blue };
 `;
 
 /**
