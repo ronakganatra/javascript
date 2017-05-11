@@ -13,6 +13,7 @@ let subscription = {
 	used: 14,
 	price: 6900,
 	currency: "USD",
+	storeUrl: "http://store.url.com",
 };
 
 test('the sitesubscription matches the snapshot', () => {
@@ -21,7 +22,10 @@ test('the sitesubscription matches the snapshot', () => {
 			onAddMoreLicensesClick={ () => {} }
 			onToggleSubscription={ () => {} }
 			onMoreInfoClick={ () => {} }
-			onSettingsClick={ () => {} } />
+			onSettingsClick={ () => {} }
+			onClose={ () => {} }
+			onUpgrade={ "" }
+		/>
 	);
 
 	let tree = component.toJSON();
@@ -36,7 +40,10 @@ test('an add more licenses button should be shown when no more licenses are avai
 			onAddMoreLicensesClick={ () => {} }
 			onToggleSubscription={ () => {} }
 			onMoreInfoClick={ () => {} }
-			onSettingsClick={ () => {} } />
+			onSettingsClick={ () => {} }
+			onClose={ () => {} }
+			onUpgrade={ "" }
+		/>
 	);
 
 	let tree = component.toJSON();

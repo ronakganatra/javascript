@@ -60,17 +60,16 @@ SubscriptionPage.propTypes = {
 	} ),
 	invoices: React.PropTypes.array,
 	onAddSite: React.PropTypes.func,
-	onShop: React.PropTypes.func,
+	onShop: React.PropTypes.string,
 	onCancel: React.PropTypes.func,
 	onInvoiceDownload: React.PropTypes.func,
-	history: React.PropTypes.func,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	invoices: [],
 	onAddSite: () => {},
-	onShop: () => {},
+	onShop: "",
 	onCancel: () => {},
 	onInvoiceDownload: () => {},
 };

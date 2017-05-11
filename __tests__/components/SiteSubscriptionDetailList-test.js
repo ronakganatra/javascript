@@ -83,6 +83,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 						price: 123,
 						limit: 2,
 						used: 1,
+						storeUrl: "http://url1.com",
 					},
 					{
 						id: "productid2",
@@ -93,6 +94,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 						price: 123,
 						limit: 2,
 						used: 2,
+						storeUrl: "http://url2.com",
 					},
 				]
 			}
@@ -107,6 +109,12 @@ test('the site subscription detail list component matches the snapshot', () => {
 			} }
 			onToggleSubscription={ () => {
 				console.log( "toggled" );
+			} }
+			onClose={ () => {
+				console.log( "closed" );
+			} }
+			onToggleDisabled={ () => {
+				console.log( "toggle disabled" )
 			} }
 		/>
 	);

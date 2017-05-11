@@ -42,8 +42,8 @@ exports[`test an add more licenses button should be shown when no more licenses 
       </span>
     </span>
     <a
-      className="gGERYh"
-      href={undefined}>
+      className="jUXnqI"
+      href="http://store.url.com">
       <span>
         Add another license for $69.00
       </span>

@@ -54,7 +54,6 @@ SiteSubscriptionDetailList.propTypes = {
 	intl: intlShape.isRequired,
 	popupOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.string.isRequired,
 	onToggleDisabled: React.PropTypes.func.isRequired,
 };
 

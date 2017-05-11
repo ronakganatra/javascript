@@ -112,8 +112,8 @@ exports[`test the site subscription detail list component matches the snapshot 1
             </span>
           </span>
           <a
-            className="gGERYh"
-            href={undefined}>
+            className="jUXnqI"
+            href="http://url2.com">
             <span>
               Add another license for $1.23
             </span>

@@ -10,7 +10,7 @@ test('the subscription detail component matches the snapshot', () => {
 								 invoiceCurrency: "USD", invoiceAmount: 100 }, { invoiceId: 2,
 								 invoiceDate: new Date( "July 22, 2016" ),
 								 invoiceCurrency: "USD", invoiceAmount: 20000 } ] }
-							 current={ 6 } max={ 10 } onAddSite={ ()=>{} } onShop={ () => {} } onCancel={ ()=>{} }
+							 current={ 6 } max={ 10 } onAddSite={ ()=>{} } onShop={ "" } onCancel={ ()=>{} }
 							 onInvoiceDownload={ () => {} } />
 	);
 
