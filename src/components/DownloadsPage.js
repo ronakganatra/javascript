@@ -91,8 +91,6 @@ class DownloadsPage extends React.Component {
 				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
 		</ByLine>;
-		console.log( "props plugins", this.props.plugins );
-		console.log( "props eBooks", this.props.eBooks );
 
 		let noDownloadsParagraphs = [ <FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
 			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
