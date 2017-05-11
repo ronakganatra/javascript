@@ -27,19 +27,23 @@ const LinkItem = styled( NavLink )`
 	text-decoration: none;
 	padding: 0.5em 2.5em;
 	color: ${ colors.$color_grey_dark };
+	
+	margin-bottom: -4px;
+	border-bottom: 4px solid transparent;
+	
+	transition: border 200ms ease-out;
 
 	&:hover,
 	&:focus,
 	&.${ activeStyle } {
 		font-weight: 400;
 		color: ${ colors.$color_pink_dark };
-		margin-bottom: -4px;
-		border-bottom: 4px double ${ colors.$color_pink_dark };
+		border-bottom-color: ${ colors.$color_pink_dark };
+		border-bottom-style: double;
 	}
 
 	&.${ activeStyle } {
-		margin-bottom: -4px;
-		border-bottom: 4px solid ${ colors.$color_pink_dark };
+		border-bottom-style: solid;
 	}
 `;
 
