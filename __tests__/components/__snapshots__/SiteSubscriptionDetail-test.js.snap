@@ -1,8 +1,8 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="iyklcV">
+  className="crxkgQ">
   <span
-    className="column--site-subscription-detail-toggle-logo fvaPPL">
+    className="column--site-subscription-detail-toggle-logo jMZpnL">
     <span
       className="ipTaeZ">
       <div>
@@ -30,7 +30,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       src="icon.svg" />
   </span>
   <span
-    className="column--site-subscription-detail-details fvaPPL">
+    className="column--site-subscription-detail-details jMZpnL">
     <span
       className="kXXZFn">
       Subscription name
@@ -53,9 +53,9 @@ exports[`test an add more licenses button should be shown when no more licenses 
     <noscript />
   </div>
   <span
-    className="column--site-subscription-detail-button fvaPPL">
+    className="column--site-subscription-detail-button jMZpnL">
     <a
-      className="dAFQbA"
+      className="iyPoNp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -68,9 +68,9 @@ exports[`test an add more licenses button should be shown when no more licenses 
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="iyklcV">
+  className="crxkgQ">
   <span
-    className="column--site-subscription-detail-toggle-logo fvaPPL">
+    className="column--site-subscription-detail-toggle-logo jMZpnL">
     <span
       className="ipTaeZ">
       <div>
@@ -98,7 +98,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       src="icon.svg" />
   </span>
   <span
-    className="column--site-subscription-detail-details fvaPPL">
+    className="column--site-subscription-detail-details jMZpnL">
     <span
       className="kXXZFn">
       Subscription name
@@ -114,9 +114,9 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     <noscript />
   </div>
   <span
-    className="column--site-subscription-detail-button fvaPPL">
+    className="column--site-subscription-detail-button jMZpnL">
     <a
-      className="dAFQbA"
+      className="iyPoNp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>

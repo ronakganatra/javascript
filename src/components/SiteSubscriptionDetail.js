@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { LargeButtonLink } from "./Button";
+import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
@@ -10,6 +10,8 @@ import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
 import defaults from "../config/defaults.json";
+
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const CustomRow = styled( Row )`
 	flex-wrap: wrap;
@@ -47,11 +49,6 @@ const CustomRow = styled( Row )`
 		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			width: 100%;
 			padding: 18px 0 6px;
-
-			a {
-				width: 100%;
-				margin: 0;
-			}
 		}
 	}
 `;
@@ -169,9 +166,9 @@ function SiteSubscriptionDetail( props ) {
 			</Column>
 			{ modal }
 			<Column className="column--site-subscription-detail-button">
-				<LargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
+				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
-				</LargeButtonLink>
+				</ResponsiveLargeButtonLink>
 			</Column>
 		</CustomRow>
 	);

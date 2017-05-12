@@ -7,78 +7,78 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     <li
       className="kLXNVT">
       <span
-        className="hKxPZP">
+        className="gXWwBm">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="column--subscription-name fcObzd">
+        className="column--subscription-name fPICTi">
         SEO Premium for WordPress
       </span>
       <span
-        className="column--subscription-level kjmKmu">
+        className="column--subscription-level gCmwQW">
         20 sites
       </span>
       <span
-        className="column--subscription-usage iZDhRy">
+        className="column--subscription-usage fpPuWZ">
         4
         /
         20
       </span>
       <span
-        className="column--subscription-next-billing dncuIG">
+        className="column--subscription-next-billing cVPawA">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="column--subscription-amount hMTsIw">
+        className="column--subscription-amount jRIeWb">
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="fvaPPL" />
+        className="jMZpnL" />
     </li>
     <li
       className="gVabgJ">
       <span
-        className="hKxPZP">
+        className="gXWwBm">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="column--subscription-name fcObzd">
+        className="column--subscription-name fPICTi">
         SEO Premium for WordPress
       </span>
       <span
-        className="column--subscription-level kjmKmu">
+        className="column--subscription-level gCmwQW">
         20 sites
       </span>
       <span
-        className="column--subscription-usage iZDhRy">
+        className="column--subscription-usage fpPuWZ">
         3
         /
         20
       </span>
       <span
-        className="column--subscription-next-billing dncuIG">
+        className="column--subscription-next-billing cVPawA">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="column--subscription-amount hMTsIw">
+        className="column--subscription-amount jRIeWb">
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="fvaPPL" />
+        className="jMZpnL" />
     </li>
   </ul>
 </div>

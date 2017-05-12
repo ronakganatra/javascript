@@ -23,9 +23,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="imtgCu">
+        className="kSLeqo">
         <span
-          className="column--site-subscription-detail-toggle-logo fvaPPL">
+          className="column--site-subscription-detail-toggle-logo jMZpnL">
           <span
             className="ipTaeZ">
             <div>
@@ -53,7 +53,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             src="icon.png" />
         </span>
         <span
-          className="column--site-subscription-detail-details fvaPPL">
+          className="column--site-subscription-detail-details jMZpnL">
           <span
             className="kXXZFn">
             Yoast SEO Premium
@@ -69,9 +69,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="column--site-subscription-detail-button fvaPPL">
+          className="column--site-subscription-detail-button jMZpnL">
           <a
-            className="dAFQbA"
+            className="iyPoNp"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -81,9 +81,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="iyklcV">
+        className="crxkgQ">
         <span
-          className="column--site-subscription-detail-toggle-logo fvaPPL">
+          className="column--site-subscription-detail-toggle-logo jMZpnL">
           <span
             className="ipTaeZ">
             <div>
@@ -111,7 +111,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             src="icon2.png" />
         </span>
         <span
-          className="column--site-subscription-detail-details fvaPPL">
+          className="column--site-subscription-detail-details jMZpnL">
           <span
             className="kXXZFn">
             Yoast SEO Local
@@ -134,9 +134,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="column--site-subscription-detail-button fvaPPL">
+          className="column--site-subscription-detail-button jMZpnL">
           <a
-            className="dAFQbA"
+            className="iyPoNp"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>

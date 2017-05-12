@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
+import defaults from "../config/defaults.json";
 
 export const Button = styled.button`
 	height: 48px;
@@ -167,4 +168,26 @@ export function disable( Button ) {
 			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
 		}
 	};
+}
+
+/**
+ * Makes a button full width in the small responsive view.
+ *
+ * @param {ReactElement} component The original button.
+ * @returns {ReactElement} The button with full width responsive style.
+ */
+export function makeButtonFullWidth( component ) {
+	return styled( component )`
+		// Take into account buttons with icons and preserve other buttons that have their own min-width.
+		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+			${ props => props.iconSource ? "padding: 0 20px; min-width: 64px;" : "" }
+		}
+
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+			width: 100%;
+			margin: 0;
+			padding: 0 15px;
+			background-image: none;
+		}
+	`;
 }

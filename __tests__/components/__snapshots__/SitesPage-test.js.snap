@@ -41,18 +41,18 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       <li
         className="dfVkqD">
         <span
-          className="hKxPZP">
+          className="gXWwBm">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="column--site-name gfZVIN">
+          className="column--site-name huevqy">
           www.yoast.com
         </span>
         <span
-          className="column--site-subscriptions goqbxj">
+          className="column--site-subscriptions sZuJf">
           <span>
             <img
               aria-label="Test is active"
@@ -77,7 +77,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
     </ul>
   </div>
@@ -164,18 +164,18 @@ exports[`test the sites page component with sites handling an onclick event on t
       <li
         className="dfVkqD">
         <span
-          className="hKxPZP">
+          className="gXWwBm">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="column--site-name gfZVIN">
+          className="column--site-name huevqy">
           www.yoast.com
         </span>
         <span
-          className="column--site-subscriptions goqbxj">
+          className="column--site-subscriptions sZuJf">
           <span>
             <img
               aria-label="Test is active"
@@ -200,7 +200,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           </span>
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
     </ul>
   </div>
@@ -253,18 +253,18 @@ exports[`test the sites page component with sites handling an onclick event on t
       <li
         className="dfVkqD">
         <span
-          className="hKxPZP">
+          className="gXWwBm">
           <img
             alt=""
             className="bjVGHc"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
         </span>
         <span
-          className="column--site-name gfZVIN">
+          className="column--site-name huevqy">
           www.yoast.com
         </span>
         <span
-          className="column--site-subscriptions goqbxj">
+          className="column--site-subscriptions sZuJf">
           <span>
             <img
               aria-label="Test is active"
@@ -289,7 +289,7 @@ exports[`test the sites page component with sites handling an onclick event on t
           </span>
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
     </ul>
   </div>

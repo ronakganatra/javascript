@@ -1,7 +1,7 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { Row, ColumnText, Column } from "./Tables";
-import { IconButtonLink, disable, IconButton } from "./Button";
+import { Row, Column, makeColumnFullWidth } from "./Tables";
+import { IconButtonLink, disable, IconButton, makeButtonFullWidth } from "./Button";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
@@ -53,12 +53,6 @@ const CustomRow = styled( Row )`
 		flex: 0 0 auto;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
-		.order--invoice-button {
-			padding-right: 0;
-		}
-	}
-
 	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		flex-wrap: wrap;
 
@@ -78,26 +72,10 @@ const CustomRow = styled( Row )`
 			padding-right: 0.5em;
 			font-size: inherit;
 		}
-
-		.column--order-items {
-			min-width: 100%;
-			padding: 1em 0;
-		}
-
-		.column--order-invoice-button {
-			width: 100%;
-			padding: 18px 0 6px;
-
-			.order--invoice-button {
-				width: 100%;
-				margin: 0;
-				padding: 0 15px;
-				background-image: none;
-			}
-		}
 	}
 `;
 
+let ResponsiveFullWidthColumn = makeColumnFullWidth( Column );
 let invoiceStatuses = [ "completed", "refunded" ];
 
 /**
@@ -112,28 +90,30 @@ function Order( props ) {
 		InvoiceButton = disable( IconButton );
 	}
 
+	let ResponsiveInvoiceButton = makeButtonFullWidth( InvoiceButton );
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
 		<CustomRow background={ props.background }>
-			<ColumnText headerLabel={ props.intl.formatMessage( messages.date ) }>
+			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
-			</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true }
+			</Column>
+			<Column ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
-			</ColumnText>
-			<ColumnText className="column--order-items" headerLabel={ props.intl.formatMessage( messages.items ) }>
+			</Column>
+			<ResponsiveFullWidthColumn className="column--order-items" ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
-			</ColumnText>
-			<ColumnText headerLabel={ props.intl.formatMessage( messages.total ) }>
+			</ResponsiveFullWidthColumn>
+			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
-			</ColumnText>
-			<ColumnText headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
-			<Column className="column--order-invoice-button">
-				<InvoiceButton
-					className="order--invoice-button"
+			</Column>
+			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
+				{ props.status }
+			</Column>
+			<ResponsiveFullWidthColumn className="column--order-invoice-button">
+				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }>
@@ -146,8 +126,8 @@ function Order( props ) {
 					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.small }px)` } component="span">
 						{ invoiceMessage }
 					</MediaQuery>
-				</InvoiceButton>
-			</Column>
+				</ResponsiveInvoiceButton>
+			</ResponsiveFullWidthColumn>
 		</CustomRow>
 	);
 }

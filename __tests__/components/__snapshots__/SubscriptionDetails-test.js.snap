@@ -13,11 +13,11 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="gmnUIR">
         <span
-          className="column--subscription-detail-start-date abykF">
+          className="column--subscription-detail-start-date eMrAqV">
           Start date
         </span>
         <span
-          className="column--subscription-detail-start-date abykF">
+          className="column--subscription-detail-start-date eMrAqV">
           <span>
             June 01, 2017
           </span>
@@ -26,11 +26,11 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="VURQv">
         <span
-          className="column--subscription-detail-next-billing abykF">
+          className="column--subscription-detail-next-billing eMrAqV">
           Next billing
         </span>
         <span
-          className="column--subscription-detail-next-billing abykF">
+          className="column--subscription-detail-next-billing eMrAqV">
           <span>
             June 01, 2018
           </span>
@@ -50,29 +50,29 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="gmnUIR">
         <span
-          className="column--subscription-detail-add-site abykF">
+          className="column--subscription-detail-add-site eMrAqV">
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
       <li
         className="VURQv">
         <span
-          className="column--subscription-detail-change-level abykF">
+          className="column--subscription-detail-change-level eMrAqV">
           Change subscription level
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
       <li
         className="gmnUIR">
         <span
-          className="column--subscription-detail-cancel abykF">
+          className="column--subscription-detail-cancel eMrAqV">
           Cancel subscription
         </span>
         <span
-          className="fvaPPL" />
+          className="jMZpnL" />
       </li>
     </ul>
   </div>
@@ -88,32 +88,32 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="gmnUIR">
         <span
-          className="column--subscription-invoice-date abykF">
+          className="column--subscription-invoice-date jMZpnL">
           <span>
             July 21, 2016
           </span>
         </span>
         <span
-          className="column--subscription-invoice-amount abykF">
+          className="column--subscription-invoice-amount eMrAqV">
           $1
         </span>
         <span
-          className="column--subscription-invoice-button fvaPPL" />
+          className="column--subscription-invoice-button jMZpnL" />
       </li>
       <li
         className="VURQv">
         <span
-          className="column--subscription-invoice-date abykF">
+          className="column--subscription-invoice-date jMZpnL">
           <span>
             July 22, 2016
           </span>
         </span>
         <span
-          className="column--subscription-invoice-amount abykF">
+          className="column--subscription-invoice-amount eMrAqV">
           $200
         </span>
         <span
-          className="column--subscription-invoice-button fvaPPL" />
+          className="column--subscription-invoice-button jMZpnL" />
       </li>
     </ul>
   </div>

@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
-import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
+import { Row, Column, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
@@ -58,10 +58,12 @@ function Site( props ) {
 	return (
 		<CustomRow { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
-			<ColumnText className="column--site-name" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
-			<ColumnText className="column--site-subscriptions" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
+			<Column ellipsis={ true } className="column--site-name" headerLabel={ props.intl.formatMessage( messages.siteName ) }>
+				{ props.siteName }
+			</Column>
+			<Column ellipsis={ true } className="column--site-subscriptions" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
-			</ColumnText>
+			</Column>
 			<Column>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }

@@ -77,6 +77,8 @@ export const Column = styled.span`
 
  	${ props => props.separator ? separatify() : "" }
 
+	${ props => props.ellipsis ? ellipsify() : "" }
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding-left: 20px;
 		${ props => props.hideOnTablet ? "display: none;" : "" }
@@ -93,19 +95,15 @@ Column.propTypes = {
 	hideOnTablet: React.PropTypes.bool,
 	separator: React.PropTypes.bool,
 	headerLabel: React.PropTypes.string,
+	ellipsis: React.PropTypes.bool,
 };
 
 Column.defaultProps = {
 	hideOnMobile: false,
 	hideOnTable: false,
 	separator: false,
+	ellipsis: false,
 };
-
-export const ColumnText = styled( Column )`
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-`;
 
 export const ColumnIcon = styled( Column )`
 	flex: 0 0 auto;
@@ -123,27 +121,55 @@ export const ColumnIcon = styled( Column )`
  */
 export function separatify() {
 	return `
-	&::after {
-		position:relative;
-		display: inline-block;
-		border-right: 2px solid ${ colors.$color_grey };
-		padding-right: 40px;
-		height: 60px;
-		content: "";
-	}
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		&::after {
-			padding-right: 24px;
+			position:relative;
+			display: inline-block;
+			border-right: 2px solid ${ colors.$color_grey };
+			padding-right: 40px;
+			height: 60px;
+			content: "";
 		}
-	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-		&::after {
-			height: 48px;
-			padding-right: 18px;
+		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+			&::after {
+				padding-right: 24px;
+			}
 		}
-	}
+
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+			&::after {
+				height: 48px;
+				padding-right: 18px;
+			}
+		}
+	`;
+}
+
+/**
+ * Make an element text nowrap and add ellipsis.
+ *
+ * @returns {String} CSS
+ */
+export function ellipsify() {
+	return `
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	`;
+}
+
+/**
+ * Makes a column full-width in the small responsive view.
+ *
+ * @param {ReactElement} component The original column.
+ * @returns {ReactElement} The column with full width responsive style.
+ */
+export function makeColumnFullWidth( component ) {
+	return styled( component )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+			min-width: 100%;
+			padding-top: 1em;
+		}
 	`;
 }
 

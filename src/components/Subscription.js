@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
+import { Row, Column, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
@@ -72,19 +72,21 @@ function Subscription( props ) {
 	return (
 		<CustomRow key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
-			<ColumnText className="column--subscription-name" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText className="column--subscription-level" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
+			<Column ellipsis={ true } className="column--subscription-name" headerLabel={ props.intl.formatMessage( messages.product ) }>
+				{ props.name }
+			</Column>
+			<Column ellipsis={ true } className="column--subscription-level" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
-			</ColumnText>
-			<ColumnText className="column--subscription-usage" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
+			</Column>
+			<Column ellipsis={ true } className="column--subscription-usage" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
 				{ props.used }/{ props.limit }
-			</ColumnText>
-			<ColumnText className="column--subscription-next-billing" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
+			</Column>
+			<Column ellipsis={ true } className="column--subscription-next-billing" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
-			</ColumnText>
-			<ColumnText className="column--subscription-amount" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
+			</Column>
+			<Column ellipsis={ true } className="column--subscription-amount" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
-			</ColumnText>
+			</Column>
 			<Column>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
@@ -93,7 +95,6 @@ function Subscription( props ) {
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
-
 			</Column>
 		</CustomRow>
 	);

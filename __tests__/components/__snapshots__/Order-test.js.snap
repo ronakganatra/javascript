@@ -1,18 +1,18 @@
 exports[`test A standard order 1`] = `
 <li
-  className="hdBTsL">
+  className="fVKSfD">
   <span
-    className="wgXGK">
+    className="KzPla">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fjzskW">
+    className="hSIOhO">
     MOOIE 456 TEST
   </span>
   <span
-    className="column--order-items hGMasR">
+    className="column--order-items jKEpQi">
     <span
       className="gLZwgs">
       <span
@@ -26,20 +26,20 @@ exports[`test A standard order 1`] = `
     </span>
   </span>
   <span
-    className="gaSTWT">
+    className="kYCpab">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="fUjetu">
+    className="lmKmYC">
     completed
   </span>
   <span
-    className="column--order-invoice-button fvaPPL">
+    className="column--order-invoice-button kvvXDP">
     <a
       aria-label="Download invoice"
-      className="order--invoice-button kDmqTE"
+      className="gQnPQn"
       href="http://somelink"
       iconSource="download.svg"
       to="http://somelink" />
@@ -49,19 +49,19 @@ exports[`test A standard order 1`] = `
 
 exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="hdBTsL">
+  className="fVKSfD">
   <span
-    className="wgXGK">
+    className="KzPla">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fjzskW">
+    className="hSIOhO">
     MOOIE 456 TEST
   </span>
   <span
-    className="column--order-items hGMasR">
+    className="column--order-items jKEpQi">
     <span
       className="gLZwgs">
       <span
@@ -75,20 +75,20 @@ exports[`test An Order with a disabled invoice button 1`] = `
     </span>
   </span>
   <span
-    className="gaSTWT">
+    className="kYCpab">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="fUjetu">
+    className="lmKmYC">
     pending
   </span>
   <span
-    className="column--order-invoice-button fvaPPL">
+    className="column--order-invoice-button kvvXDP">
     <button
       aria-label="Download invoice"
-      className="order--invoice-button hctKRi"
+      className="gqeVuG hctKRi"
       disabled="disabled"
       to="http://somelink" />
   </span>

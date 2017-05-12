@@ -17,7 +17,7 @@ const messages = defineMessages( {
 	},
 } );
 
-// Todo: standardize this margin.
+// To do: standardize this margin.
 let outerMargin = 32;
 
 const ProductContainer = styled.div`
