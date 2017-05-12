@@ -1,0 +1,8 @@
+{
+  "css": {
+    "breakpoint": {
+      "medium": 1355,
+      "small": 800
+    }
+  }
+}

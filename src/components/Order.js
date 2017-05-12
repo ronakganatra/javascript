@@ -7,6 +7,7 @@ import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
 import styled from "styled-components";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	date: {
@@ -52,13 +53,13 @@ const CustomRow = styled( Row )`
 		flex: 0 0 auto;
 	}
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		.order--invoice-button {
 			padding-right: 0;
 		}
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		flex-wrap: wrap;
 
 		&:first-child {
@@ -135,13 +136,13 @@ function Order( props ) {
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }>
-					<MediaQuery query="(min-width: 1356px)" component="span">
+					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` } component="span">
 						{ invoiceMessage }
 					</MediaQuery>
-					<MediaQuery query="(min-width: 801px) and (max-width: 1355px)">
+					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.small + 1 }px) and (max-width: ${ defaults.css.breakpoint.medium }px)` }>
 						<span className="screen-reader-text">{ invoiceMessage }</span>
 					</MediaQuery>
-					<MediaQuery query="(max-width: 800px)" component="span">
+					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.small }px)` } component="span">
 						{ invoiceMessage }
 					</MediaQuery>
 				</InvoiceButton>
