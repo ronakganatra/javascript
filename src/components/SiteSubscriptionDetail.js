@@ -51,6 +51,7 @@ const CustomRow = styled( Row )`
 
 			a {
 				width: 100%;
+				margin: 0;
 			}
 		}
 	}

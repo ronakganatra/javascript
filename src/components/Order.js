@@ -90,6 +90,7 @@ const CustomRow = styled( Row )`
 
 			.order--invoice-button {
 				width: 100%;
+				margin: 0;
 				padding: 0 15px;
 				background-image: none;
 			}

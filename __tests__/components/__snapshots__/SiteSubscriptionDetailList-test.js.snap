@@ -23,7 +23,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
       className="kYxQsj"
       role="list">
       <li
-        className="kcnSVY">
+        className="imtgCu">
         <span
           className="column--site-subscription-detail-toggle-logo fvaPPL">
           <span
@@ -81,7 +81,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="iSKWSU">
+        className="iyklcV">
         <span
           className="column--site-subscription-detail-toggle-logo fvaPPL">
           <span
