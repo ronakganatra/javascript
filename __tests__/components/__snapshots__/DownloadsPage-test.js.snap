@@ -31,9 +31,9 @@ exports[`test the downloads page component matches the snapshot 1`] = `
     <div
       className="dVdgNT">
       <div
-        className="AWsFI">
+        className="jhQvCy">
         <h2
-          className="kwHRTj">
+          className="iJNKGZ">
           Plugins
           <span
             className="tfydH">
@@ -48,6 +48,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             </span>
           </span>
         </h2>
+        
         <div
           className="cbzkol">
           <h3
@@ -266,11 +267,12 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         </div>
       </div>
       <div
-        className="AWsFI">
+        className="jhQvCy">
         <h2
-          className="kwHRTj">
+          className="iJNKGZ">
           eBooks
         </h2>
+        
         <div
           className="cbzkol">
           <h3
@@ -411,29 +413,37 @@ exports[`test the downloads page component matches the snapshot 1`] = `
 
 exports[`test the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="hqmxmg">
+  className="cUmAWv">
   <p>
-    <span>
-      Welcome to the downloads page
-    </span>
+    <p>
+      <span>
+        Welcome to the downloads page
+      </span>
+    </p>
+    <p>
+      <span>
+        It looks like you haven’t bought any products with downloadable files yet.
+      </span>
+    </p>
+    <p>
+      <span>
+        To browse our products, please visit:
+      </span>
+    </p>
+    <a
+      href="https://yoa.st/myyoast-download"
+      target="_blank">
+      yoast.com
+      <span
+        className="screen-reader-text">
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
   </p>
-  <p>
-    <span>
-      It looks like you haven’t bought any products with downloadable files yet.
-    </span>
-  </p>
-  <p>
-    <span>
-      Press the button below to visit yoast.com and look at our products.
-    </span>
-  </p>
-  <button
-    aria-label="Add"
-    className="hTtZiN"
-    onClick={[Function]} />
   <img
     alt=""
-    className="dFOHLF"
     src="noSites.svg" />
 </div>
 `;

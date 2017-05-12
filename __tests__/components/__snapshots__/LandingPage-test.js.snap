@@ -1,16 +1,16 @@
-exports[`test the courses page component matches the snapshot 1`] = `
+exports[`test the landing page component matches the snapshot 1`] = `
 <div
   className="cUmAWv">
   <p>
     <p>
       <span>
-        This section is still under construction. To access your courses, please visit:
+        I am a landing page
       </span>
     </p>
     <a
-      href="https://yoa.st/myyoast-academy"
+      href="http://yoast.com"
       target="_blank">
-      yoast.academy
+      yoast.com
       <span
         className="screen-reader-text">
         <span>
