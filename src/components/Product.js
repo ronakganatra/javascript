@@ -4,6 +4,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	downloadButton: {
@@ -16,9 +17,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let responsiveWidthThreshold = 1355;
-let mobileViewThreshold = 600;
-
+// Todo: standardize this margin.
 let outerMargin = 32;
 
 const ProductContainer = styled.div`
@@ -27,15 +26,15 @@ const ProductContainer = styled.div`
 	background-color: ${ colors.$color_grey_light };
 	text-align: center;
 
-	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
 		width: calc( ( 100% - ${ outerMargin }px - ${ outerMargin }px ) / 4 );
 	}
 
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		width: calc( ( 100% - ${ outerMargin }px ) / 2 );
 	}
 
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		width: 100%;
 	}
 `;

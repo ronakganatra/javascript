@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import defaults from "../config/defaults.json";
 
 export const Zebra = styled.ul`
 	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
@@ -34,11 +35,11 @@ export const Row = styled.li`
 	align-items: center;
 	justify-content: space-between;
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 26px 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		padding: 16px 18px;
 	}
 `;
@@ -76,12 +77,12 @@ export const Column = styled.span`
 
  	${ props => props.separator ? separatify() : "" }
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding-left: 20px;
 		${ props => props.hideOnTablet ? "display: none;" : "" }
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
 `;
@@ -110,7 +111,7 @@ export const ColumnIcon = styled( Column )`
 	flex: 0 0 auto;
 	height: 60px;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		height: 48px;
 	}
 `;
@@ -131,13 +132,13 @@ export function separatify() {
 		content: "";
 	}
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		&::after {
 			padding-right: 24px;
 		}
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		&::after {
 			height: 48px;
 			padding-right: 18px;

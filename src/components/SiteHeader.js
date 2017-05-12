@@ -4,6 +4,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
+import defaults from "../config/defaults.json";
 
 const SiteHeaderContainer = styled.div`
 	display: flex;
@@ -21,11 +22,11 @@ const SiteHeaderContainer = styled.div`
 	margin: 0 auto;
 	padding: 0 40px 26px;
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 0 24px 26px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		height: auto;
 		min-height: 144px;
 		padding: 0 18px 16px;
@@ -35,7 +36,7 @@ const SiteHeaderContainer = styled.div`
 		flex: 0 0 auto;
 		margin-top: 1em;
 
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			min-width: 100%;
 		}
 	}
@@ -57,7 +58,7 @@ const SiteHeaderSitename = styled.h1`
 	// Firefox needs this for break word to work inside flex items.
 	min-width: 0;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		text-align: center;
 	}
 `;

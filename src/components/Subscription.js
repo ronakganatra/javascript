@@ -7,6 +7,7 @@ import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
 import formatAmount from "../../../shared/currency";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	product: {
@@ -85,11 +86,11 @@ function Subscription( props ) {
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
 			</ColumnText>
 			<Column>
-				<MediaQuery query="(min-width: 1356px)">
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query="(max-width: 1355px)">
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
 

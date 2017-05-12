@@ -4,6 +4,7 @@ import CollapsibleHeader from "./CollapsibleHeader";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { RedButton } from "./Button";
 import Paper from "./Paper";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	heading: {
@@ -39,11 +40,11 @@ const SubHeading = styled.h2`
 const Container = styled.div`
 	padding: 0 40px 16px 40px;
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 0 24px 16px 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		padding: 0 18px 16px 18px;
 	}
 `;

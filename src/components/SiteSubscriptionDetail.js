@@ -9,14 +9,13 @@ import { Row, Column } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
-
-let responsiveWidthThreshold = 1355;
+import defaults from "../config/defaults.json";
 
 const CustomRow = styled( Row )`
 	flex-wrap: wrap;
 
 	.column--site-subscription-detail-toggle-logo {
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			align-self: flex-start;
 		}
 	}
@@ -28,11 +27,11 @@ const CustomRow = styled( Row )`
 		overflow: hidden;
 		max-width: 100%;
 
-		@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 			padding-left: 24px;
 		}
 
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			padding: 6px 0 0 18px;
 			align-self: flex-start;
 		}
@@ -41,11 +40,11 @@ const CustomRow = styled( Row )`
 	.column--site-subscription-detail-button {
 		padding-left: 40px;
 
-		@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 			padding-left: 24px;
 		}
 
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			width: 100%;
 			padding: 18px 0 6px;
 
@@ -63,7 +62,7 @@ const SubscriptionLogo = styled.img`
 	height: 66px;
 	vertical-align: middle;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		display: none;
 	}
 `;
@@ -73,11 +72,11 @@ const SubscriptionToggle = styled.span`
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		margin-right: 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		margin-right: 0;
 	}
 `;
@@ -90,7 +89,7 @@ const ProductName = styled.span`
 	white-space: nowrap;
 	display: block;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		font-size: 14px;
 	}
 `;

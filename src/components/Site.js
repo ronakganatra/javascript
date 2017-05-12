@@ -8,6 +8,7 @@ import { Row, ColumnText, Column, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	siteName: {
@@ -62,11 +63,11 @@ function Site( props ) {
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
 			</ColumnText>
 			<Column>
-				<MediaQuery query="(min-width: 1356px)">
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query="(max-width: 1355px)">
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								   onClick={ props.onClickManage } />
 				</MediaQuery>

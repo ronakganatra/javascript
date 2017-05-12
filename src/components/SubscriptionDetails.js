@@ -9,10 +9,12 @@ import { ListHeading } from "./ListHeading";
 import { LargeButton, RedButton, IconButtonLink, LargeButtonLink } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
+import defaults from "../config/defaults.json";
 
+// Todo: standardize this margin.
 let columnMargin = "10px";
+// Todo: buttons should not disappear, just be full width.
 let hideButtonsThreshold = 400;
-let mobileViewThreshold = 1200;
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -70,7 +72,7 @@ const SubscriptionDetailsContainer = styled.div`
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
 
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
 		display: flex;
 		flex-wrap: wrap;
 		div:nth-child(odd) {
@@ -83,10 +85,10 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
 		width: calc( 50% - ${ columnMargin } );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		width: 100%;
 	}
 `;

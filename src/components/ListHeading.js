@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import defaults from "../config/defaults.json";
 
 export const ListHeading = styled.h2`
 	font-size: 1em;
@@ -8,11 +9,11 @@ export const ListHeading = styled.h2`
 	margin: 0;
 	border-bottom: 1px solid ${ colors.$color_grey_medium };
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 20px 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		padding: 20px 18px;
 	}
 `;

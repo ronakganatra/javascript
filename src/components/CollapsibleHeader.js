@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { SVGIcon } from "./SVGIcon";
+import defaults from "../config/defaults.json";
 
 const CollapsibleHeaderContainer = styled.div`
 	margin-top: 20px;
@@ -19,11 +20,11 @@ const CollapsibleHeader = styled.button`
 	cursor: pointer;
 	text-align: left;
 
-	@media screen and ( max-width: 1355px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 16px 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		padding: 16px 18px;
 	}
 
@@ -37,7 +38,7 @@ const CollapsibleHeader = styled.button`
 		min-width: 150px;
 		align-self: center;
 
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			min-width: 0;
 		}
 	}

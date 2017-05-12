@@ -1,17 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-
-// Remove image element below threshold.
-let responsiveWidthThreshold = "800px";
+import defaults from "../config/defaults.json";
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
 	min-height: 180px;
 	background-color: ${ colors.$palette_pink_dark }
 	display: flex;
-	
-	@media screen and ( max-width: ${ responsiveWidthThreshold } ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		min-height: 0;
 	}
 `;
@@ -22,8 +20,8 @@ const HeaderContext = styled.div`
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	
-	@media screen and ( max-width: ${ responsiveWidthThreshold } ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		padding: 0.5em 1em 1em;
 	}
 `;
@@ -32,7 +30,7 @@ const HeaderContext = styled.div`
 const HeaderContainer = styled.div`
 `;
 
-const HeaderTitle = styled.h1` 
+const HeaderTitle = styled.h1`
 	color: ${ colors.$color_white };
 	font-size: 2em;
 	font-weight: 400;
@@ -52,7 +50,7 @@ const HeaderImageContainer = styled.div`
 	width: 180px;
 	display: block;
 
-	@media screen and ( max-width: ${ responsiveWidthThreshold } ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		display: none;
 	}
 `;
@@ -71,7 +69,7 @@ const HeaderDescription = styled.p`
 	font-weight: 200;
 	letter-spacing: 0.05em;
 	color: ${ colors.$color_white };
-	@media screen and ( max-width: ${ responsiveWidthThreshold } ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 		display: none;
 	}
 `;

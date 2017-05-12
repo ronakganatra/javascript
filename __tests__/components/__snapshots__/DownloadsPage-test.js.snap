@@ -49,7 +49,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </span>
         </h2>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Yoast SEO
@@ -110,7 +110,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Local SEO
@@ -143,7 +143,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Video SEO
@@ -204,7 +204,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             News SEO
@@ -272,7 +272,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           eBooks
         </h2>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Yoast SEO for WooCommerce
@@ -305,7 +305,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Yoast SEO for WooCommerce
@@ -338,7 +338,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Yoast SEO for WooCommerce
@@ -371,7 +371,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="cbzkol">
+          className="oDZeE">
           <h3
             className="eHeqpp">
             Yoast SEO for WooCommerce
