@@ -103,80 +103,46 @@ class DownloadsPage extends React.Component {
 															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
 		let pluginDownloads = <Products
-								products={ this.props.plugins }
-								byLine={ pluginsByLine }
-								heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
+									products={ this.props.plugins }
+									byLine={ pluginsByLine }
+									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
+									noResults={ this.props.plugins.length > 0 ? "" : "No results" }
 		/>;
 
 		let eBookDownloads = <Products
-								products={ this.props.eBooks }
-								heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
-		/>;
-
-		let noEBookDownloads = <Products
-									products={ [] }
+									products={ this.props.eBooks }
 									heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
-									noResults="No results"
+									noResults={ this.props.eBooks.length > 0 ? "" : "No results" }
 		/>;
 
-		let noPluginDownloads = <Products
-									byLine={ pluginsByLine }
-									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
-									products={ [] }
-									noResults="No results"
-		/>;
-
-		if ( this.props.eBooks.length > 0 && this.props.plugins.length > 0 ) {
-			return (
-				<div>
-					{ this.getSearch() }
-					<Paper>
-						<ProductOverviewContainer>
-							{ pluginDownloads }
-							{ eBookDownloads }
-						</ProductOverviewContainer>
-					</Paper>
-				</div>
-			);
-		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length > 0 ) {
-			return (
-				<div>
-					{ this.getSearch() }
-					<Paper>
-						<ProductOverviewContainer>
-							{ pluginDownloads }
-							{ noEBookDownloads }
-						</ProductOverviewContainer>
-					</Paper>
-				</div>
-			);
-		} else if ( this.props.plugins.length === 0 && this.props.eBooks.length > 0 ) {
-			return (
-				<div>
-					{ this.getSearch() }
-					<Paper>
-						<ProductOverviewContainer>
-							{ noPluginDownloads }
-							{ eBookDownloads }
-						</ProductOverviewContainer>
-					</Paper>
-				</div>
-			);
-		} else if ( this.props.query.length > 0 ) {
+		if ( this.props.query.length > 0 && ( this.props.plugins.length === 0 && this.props.eBooks.length === 0 ) ) {
 			return (
 				<div>
 					{ this.getSearch() }
 					<LandingPage imageSource={ noResults }
-						  paragraphs={ noResultsParagraphs }
+								 paragraphs={ noResultsParagraphs }
 					/>
 				</div>
 			);
+		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
+			return <LandingPage url="https://yoa.st/myyoast-download"
+								urlText="yoast.com"
+								imageSource={ noDownloads }
+								paragraphs={ noDownloadsParagraphs }
+			/>;
 		}
-		return <LandingPage url="https://yoa.st/myyoast-download"
-					 urlText="yoast.com"
-					 imageSource={ noDownloads }
-					 paragraphs={ noDownloadsParagraphs }
-		/>;
+
+		return (
+			<div>
+				{ this.getSearch() }
+				<Paper>
+					<ProductOverviewContainer>
+						{ pluginDownloads }
+						{ eBookDownloads }
+					</ProductOverviewContainer>
+				</Paper>
+			</div>
+		);
 	}
 }
 
