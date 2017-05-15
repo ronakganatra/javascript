@@ -23,6 +23,7 @@ test('The AddSiteModal component matches the snapshot', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 
 	);
@@ -41,6 +42,7 @@ test('the addSiteModal handling an onClose event', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 	);
 
@@ -65,6 +67,7 @@ test('the addSiteModal handling an onLink event', () => {
 			onChange={ () => {} }
 			errorFound={ false }
 			query=""
+			linkingSiteUrl=""
 		/>
 	);
 
@@ -72,7 +75,7 @@ test('the addSiteModal handling an onLink event', () => {
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[0].children[3].children[1].props.onClick();
+	tree.children[0].children[0].children[3].children[0].children[1].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();

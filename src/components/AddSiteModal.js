@@ -46,6 +46,7 @@ class BaseAddSiteModal extends React.Component {
 						errorFound={ this.props.errorFound }
 						errorMessage={ this.props.errorMessage }
 						query={ this.props.query }
+						linkingSiteUrl={ this.props.linkingSiteUrl }
 					/>
 				</Modal>
 			</div>
@@ -63,11 +64,13 @@ BaseAddSiteModal.propTypes = {
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
 	query: React.PropTypes.string.isRequired,
+	linkingSiteUrl: React.PropTypes.string.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {
 	isOpen: false,
 	errorMessage: "",
+	linkingSiteUrl: "",
 };
 
 const fadeModalIn = keyframes`

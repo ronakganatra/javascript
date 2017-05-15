@@ -82,7 +82,6 @@ test( 'the link site failure action', () => {
 	const expected = {
 		linkSiteFailed: true,
 		linkSiteError: action.linkSiteError,
-		linkingSiteUrl: "",
 		linkingSite: false,
 	};
 
