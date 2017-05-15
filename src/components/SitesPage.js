@@ -150,8 +150,6 @@ class SitesPage extends React.Component {
 	}
 }
 
-export default injectIntl( SitesPage );
-
 SitesPage.propTypes = {
 	linkingSiteUrl: React.PropTypes.string.isRequired,
 	addSite: React.PropTypes.func.isRequired,
@@ -177,3 +175,5 @@ SitesPage.defaultProps = {
 	errorMessage: "",
 	showLoader: false,
 };
+
+export default injectIntl( SitesPage );
