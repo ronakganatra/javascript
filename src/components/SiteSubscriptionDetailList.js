@@ -1,7 +1,7 @@
 import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
-import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
