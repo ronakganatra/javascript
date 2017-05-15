@@ -21,6 +21,15 @@ export function getLogoutUrl() {
 }
 
 /**
+ * Returns the URL where the user can reset their password.
+ *
+ * @returns {string} The URL where the user can reset their password.
+ */
+export function getPasswordResetUrl() {
+	return getEnv( "PASSWORD_RESET_URL", "http://yoast.dev/wp-login.php?action=lostpassword" );
+}
+
+/**
  * Removes the cookie signage Express adds.
  *
  * @param {string} cookie The signed cookie.

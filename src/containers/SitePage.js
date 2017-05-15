@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
+import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
 import { getPlugins } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
@@ -15,6 +16,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			loadingSite: true,
 		};
 	}
+	let popupOpen = state.ui.subscriptions.addLicensesPopupOpen;
 
 	let site = sites.byId[ id ];
 
@@ -85,6 +87,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	return {
+		popupOpen,
 		site,
 		subscriptions,
 		plugins,
@@ -100,7 +103,15 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreLicensesClick: () => {},
+		onAddMoreLicensesClick: () => {
+			dispatch( addLicensesPopupOpen() );
+		},
+		onToggleDisabled: () => {
+			dispatch( addLicensesPopupOpen() );
+		},
+		onClose: () => {
+			dispatch( addLicensesPopupClose() );
+		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {
 				dispatch( siteAddSubscription( siteId, subscriptionId ) );

@@ -26,7 +26,7 @@ const ProductContainer = styled.div`
 	padding: 16px 16px 0 16px;
 	background-color: ${ colors.$color_grey_light };
 	text-align: center;
-	
+
 	@media screen and ( min-width: ${ responsiveWidthThreshold }px ) {
 		width: calc( ( 100% - ${ outerMargin }px - ${ outerMargin }px ) / 4 );
 	}
@@ -34,7 +34,7 @@ const ProductContainer = styled.div`
 	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
 		width: calc( ( 100% - ${ outerMargin }px ) / 2 );
 	}
-	
+
 	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
 		width: 100%;
 	}
@@ -59,7 +59,8 @@ const Download = styled.li`
 
 const ProductName = styled.h3`
 	font-size: 1.375em;
-	font-weight: 700;
+	font-weight: 400;
+	line-height: 1.2;
 	margin: 0;
 `;
 
@@ -94,7 +95,6 @@ function Product( props ) {
 							<IconButton
 								iconSource={ downloadIcon }
 								onClick={ button.onButtonClick }
-								iconSize={ "16px" }
 								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }>
 								{ props.intl.formatMessage( messages.downloadButton ) }
 							</IconButton>
@@ -108,7 +108,7 @@ function Product( props ) {
 
 Product.propTypes = {
 	name: React.PropTypes.string.isRequired,
-	currentVersion: React.PropTypes.string.isRequired,
+	currentVersion: React.PropTypes.number.isRequired,
 	icon: React.PropTypes.string.isRequired,
 	buttons: React.PropTypes.array.isRequired,
 	intl: intlShape.isRequired,

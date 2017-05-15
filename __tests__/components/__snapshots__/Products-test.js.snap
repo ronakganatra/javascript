@@ -9,9 +9,9 @@ exports[`test The Products component matches the snapshot 1`] = `
     </span>
   </h2>
   <div
-    className="emPKkc">
+    className="cbzkol">
     <h3
-      className="bsRjPS">
+      className="eHeqpp">
       Yoast SEO
     </h3>
     <p
@@ -29,7 +29,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for Wordpress"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -43,7 +43,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for Drupal"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -56,9 +56,9 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="emPKkc">
+    className="cbzkol">
     <h3
-      className="bsRjPS">
+      className="eHeqpp">
       Local SEO
     </h3>
     <p
@@ -76,7 +76,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Local SEO for Wordpress"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -89,9 +89,9 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="emPKkc">
+    className="cbzkol">
     <h3
-      className="bsRjPS">
+      className="eHeqpp">
       Video SEO
     </h3>
     <p
@@ -109,7 +109,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Video SEO for Wordpress"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -123,7 +123,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Video SEO for Drupal"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -137,7 +137,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Video SEO for Typo3"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -150,9 +150,9 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="emPKkc">
+    className="cbzkol">
     <h3
-      className="bsRjPS">
+      className="eHeqpp">
       News SEO
     </h3>
     <p
@@ -170,7 +170,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download News SEO for Wordpress"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -184,7 +184,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download News SEO for Drupal"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -198,7 +198,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download News SEO for Typo3"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>
@@ -211,9 +211,9 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="emPKkc">
+    className="cbzkol">
     <h3
-      className="bsRjPS">
+      className="eHeqpp">
       Yoast SEO for WooCommerce
     </h3>
     <p
@@ -231,7 +231,7 @@ exports[`test The Products component matches the snapshot 1`] = `
         className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-          className="gAzDzu"
+          className="iWoOIL"
           onClick={[Function]}>
           Download
         </button>

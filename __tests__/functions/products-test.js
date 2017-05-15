@@ -11,7 +11,7 @@ let products = {
 		type: "care",
 	},
 	"4": {
-		type: "eBook",
+		type: "ebook",
 	},
 }
 
@@ -34,7 +34,7 @@ test( "getCares util", () => {
 } );
 
 test( "getEbooks util", () => {
-	let expected = [ {type: "eBook"} ]
+	let expected = [ {type: "ebook"} ]
 
 	expect( getEbooks( products) ).toEqual( expected );
 } );

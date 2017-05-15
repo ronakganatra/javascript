@@ -41,17 +41,21 @@ exports[`test an add more licenses button should be shown when no more licenses 
         0/20 remaining
       </span>
     </span>
-    <button
-      className="cvhYPv">
+    <a
+      className="ddFsZG"
+      href="http://store.url.com">
       <span>
-        Buy more licenses for $69.00
+        Get additional subscriptions
       </span>
-    </button>
+    </a>
+  </div>
+  <div>
+    <noscript />
   </div>
   <span
     className="hMwgWU">
     <a
-      className="ifYuxa"
+      className="dAFQbA"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -106,10 +110,13 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       </span>
     </span>
   </div>
+  <div>
+    <noscript />
+  </div>
   <span
     className="hMwgWU">
     <a
-      className="ifYuxa"
+      className="dAFQbA"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>

@@ -1,5 +1,5 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer , entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer} from "../../src/reducers/index"
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
@@ -50,7 +50,6 @@ jest.mock( "../../src/reducers/products.js", () => {
 } );
 
 test( 'ui reducer', () => {
-
 	const state = { sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
