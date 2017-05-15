@@ -19,6 +19,7 @@ export const mapStateToProps = ( state ) => {
 			nextPayment: new Date( subscription.nextPayment ),
 			billingAmount: subscription.price,
 			billingCurrency: subscription.currency,
+			status: subscription.status,
 		};
 
 		return subscriptionProps;
@@ -31,9 +32,14 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
+	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+		return subscription.status === "active";
+	} );
+
 	return {
 		subscriptions,
 		query,
+		activeSubscriptions,
 	};
 };
 
