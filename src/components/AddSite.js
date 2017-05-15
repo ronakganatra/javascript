@@ -107,6 +107,13 @@ const PurpleLink = styled.a`
 `;
 
 class AddSite extends React.Component {
+	/**
+	 * Initializes the class with the specified props.
+	 *
+ 	 * @param {Object} props The props to be passed to the class that was extended from.
+	 *
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 
@@ -118,9 +125,9 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Sets the constraints for validation to URL, and sets the message.
+	 * Sets the constraints for validation to URL, and sets the message that should be returned if the constraints are not met.
 	 *
- 	 * @returns {Object} Returns the constraints for the URL.
+ 	 * @returns {Object} Returns the constraints for the URL, and the message.
 	 */
 	urlConstraints() {
 		return {
@@ -135,7 +142,7 @@ class AddSite extends React.Component {
 	 *
 	 * @param {Object} event The event returned by the WebsiteURLChange.
 	 *
-	 * @returns {null} null
+	 * @returns {void}
 	 */
 	onWebsiteURLChange( event ) {
 		this.props.onChange( event.target.value );
@@ -144,18 +151,18 @@ class AddSite extends React.Component {
 	/**
 	 * Checks whether an URL was entered.
 	 *
-	 * @param {string} inputStr The string in the input field.
-	 * @returns {null} null Returns either null or an error message JSX.
+	 * @param {string} input The string in the input field.
+	 * @returns {null} Returns either null or an error message JSX.
 	 */
-	urlValidityMessage( inputStr = "" ) {
+	urlValidityMessage( input = "" ) {
 		this.linkEnabled = true;
 
-		if ( inputStr === "" ) {
+		if ( input === "" ) {
 			this.linkEnabled = false;
-			return;
+			return null;
 		}
 
-		let result = validate( { website: inputStr }, { website: this.urlConstraints() }, { format: "detailed" } );
+		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
 			this.linkEnabled = false;
@@ -190,7 +197,7 @@ class AddSite extends React.Component {
 				<WarningText id="addSiteInfo">
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
-						defaultMessage={"Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }"}
+						defaultMessage={ "Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }" }
 						values={ {
 							link: <PurpleLink href="/"><FormattedMessage
 								id="sites.add-site-no-active-product.link"
