@@ -53,10 +53,34 @@ Row.defaultProps = {
 };
 
 /*
+ * A responsive row allows children to wrap in new lines in the responsive view.
+ * If the columns have headers, they're are displayed as labels inside the
+ * column content.
+ */
+export const RowResponsive = styled( Row )`
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		flex-wrap: wrap;
+		align-items: flex-start;
+
+		&:first-child {
+			margin-top: -40px;
+		}
+
+		// Use the column headers as labels.
+		& span::before {
+			position: static;
+			display: inline-block;
+			padding-right: 0.5em;
+			font-size: inherit;
+		}
+	}
+`;
+
+/*
  * The "Columns" are flex-items, their "flex" property is the initial `0 1 auto`
  * that translates to: cannot grow, can shrink, initial width based on the content.
- * It can be changed on a case by case basis either wrapping the Columns in a
- * styled component or using className where applicable.
+ * A column can be changed on a case by case basis wrapping the Columns in a
+ * styled component.
  */
 export const Column = styled.span`
 	font-size: 14px;
@@ -105,8 +129,40 @@ Column.defaultProps = {
 	ellipsis: false,
 };
 
-export const ColumnIcon = styled( Column )`
+/*
+ * Primary column, the largest one in a row: can grow, cannot shrink, and the
+ * initial width is 200 pixels. In the responsive view, can shrink.
+ */
+export const ColumnPrimary = styled( Column )`
+	flex: 1 0 200px;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		flex-shrink: 1;
+	}
+`;
+
+/*
+ * Column with fixed width: cannot grow, cannot shrink, and the width based on
+ * its content.
+ */
+export const ColumnFixedWidth = styled( Column )`
 	flex: 0 0 auto;
+`;
+
+/*
+ * Column with a minimum width: can grow, cannot shrink, and the initial width
+ * is 100 pixels.
+ */
+export const ColumnMinWidth = styled( Column )`
+	flex: 1 0 100px;
+`;
+
+/*
+ * Column with icon: cannot grow, cannot shrink, and the width is fixed based on
+ * its content. The height is smaller in the responsive view because icons are
+ * smaller.
+ */
+export const ColumnIcon = styled( ColumnFixedWidth )`
 	height: 60px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
@@ -159,16 +215,17 @@ export function ellipsify() {
 }
 
 /**
- * Makes a column full-width in the small responsive view.
+ * Makes an element full-width in the small responsive view.
  *
- * @param {ReactElement} component The original column.
- * @returns {ReactElement} The column with full width responsive style.
+ * @param {ReactElement} component The original element.
+ * @returns {ReactElement} The element with full width responsive style.
  */
-export function makeColumnFullWidth( component ) {
+export function makeFullWidth( component ) {
 	return styled( component )`
 		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			min-width: 100%;
-			padding-top: 1em;
+			margin-top: 1em;
+			padding: 0;
 		}
 	`;
 }

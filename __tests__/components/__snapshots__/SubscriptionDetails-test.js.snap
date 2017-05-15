@@ -11,26 +11,26 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="gmnUIR">
+        className="hIfJht">
         <span
-          className="column--subscription-detail-start-date eMrAqV">
+          className="eMrAqV">
           Start date
         </span>
         <span
-          className="column--subscription-detail-start-date eMrAqV">
+          className="eMrAqV">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="VURQv">
+        className="bhegyb">
         <span
-          className="column--subscription-detail-next-billing eMrAqV">
+          className="eMrAqV">
           Next billing
         </span>
         <span
-          className="column--subscription-detail-next-billing eMrAqV">
+          className="eMrAqV">
           <span>
             June 01, 2018
           </span>
@@ -48,27 +48,27 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="gmnUIR">
+        className="hIfJht">
         <span
-          className="column--subscription-detail-add-site eMrAqV">
+          className="fbIbuP">
           You can add 4 more sites to this subscription.
         </span>
         <span
           className="jMZpnL" />
       </li>
       <li
-        className="VURQv">
+        className="bhegyb">
         <span
-          className="column--subscription-detail-change-level eMrAqV">
+          className="fbIbuP">
           Change subscription level
         </span>
         <span
           className="jMZpnL" />
       </li>
       <li
-        className="gmnUIR">
+        className="hIfJht">
         <span
-          className="column--subscription-detail-cancel eMrAqV">
+          className="fbIbuP">
           Cancel subscription
         </span>
         <span
@@ -86,34 +86,34 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="kYxQsj"
       role="list">
       <li
-        className="gmnUIR">
+        className="hIfJht">
         <span
-          className="column--subscription-invoice-date jMZpnL">
+          className="hpjLSh">
           <span>
             July 21, 2016
           </span>
         </span>
         <span
-          className="column--subscription-invoice-amount eMrAqV">
+          className="fRQKF">
           $1
         </span>
         <span
-          className="column--subscription-invoice-button jMZpnL" />
+          className="fXreAk" />
       </li>
       <li
-        className="VURQv">
+        className="bhegyb">
         <span
-          className="column--subscription-invoice-date jMZpnL">
+          className="hpjLSh">
           <span>
             July 22, 2016
           </span>
         </span>
         <span
-          className="column--subscription-invoice-amount eMrAqV">
+          className="fRQKF">
           $200
         </span>
         <span
-          className="column--subscription-invoice-button jMZpnL" />
+          className="fXreAk" />
       </li>
     </ul>
   </div>

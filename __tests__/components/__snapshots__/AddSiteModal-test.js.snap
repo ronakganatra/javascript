@@ -34,9 +34,9 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         placeholder="example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
+        className="jBIXHT">
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -44,7 +44,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
           </span>
         </button>
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -97,9 +97,9 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         placeholder="example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
+        className="jBIXHT">
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -107,7 +107,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
           </span>
         </button>
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -160,9 +160,9 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         placeholder="example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
+        className="jBIXHT">
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -170,7 +170,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
           </span>
         </button>
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -223,9 +223,9 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         placeholder="example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
+        className="jBIXHT">
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -233,7 +233,7 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
           </span>
         </button>
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -286,9 +286,9 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         placeholder="example-site.com"
         type="url" />
       <div
-        className="jdEMcw">
+        className="jBIXHT">
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>
@@ -296,7 +296,7 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
           </span>
         </button>
         <button
-          className="bEmYQs"
+          className="gWsyZy"
           onClick={[Function]}
           type="button">
           <span>

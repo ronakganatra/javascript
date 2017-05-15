@@ -1,8 +1,8 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="crxkgQ">
+  className="geTmNJ">
   <span
-    className="column--site-subscription-detail-toggle-logo jMZpnL">
+    className="jMZpnL">
     <span
       className="ipTaeZ">
       <div>
@@ -30,19 +30,19 @@ exports[`test an add more licenses button should be shown when no more licenses 
       src="icon.svg" />
   </span>
   <span
-    className="column--site-subscription-detail-details jMZpnL">
+    className="iyDwOW">
     <span
-      className="kXXZFn">
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="kwOabh">
+      className="fdTSGx">
       <span>
         0/20 remaining
       </span>
     </span>
     <a
-      className="ddFsZG"
+      className="eZZZoN"
       href="http://store.url.com">
       <span>
         Get additional subscriptions
@@ -53,9 +53,9 @@ exports[`test an add more licenses button should be shown when no more licenses 
     <noscript />
   </div>
   <span
-    className="column--site-subscription-detail-button jMZpnL">
+    className="eYQFHK">
     <a
-      className="iyPoNp"
+      className="gseaFp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -68,9 +68,9 @@ exports[`test an add more licenses button should be shown when no more licenses 
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="crxkgQ">
+  className="geTmNJ">
   <span
-    className="column--site-subscription-detail-toggle-logo jMZpnL">
+    className="jMZpnL">
     <span
       className="ipTaeZ">
       <div>
@@ -98,13 +98,13 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       src="icon.svg" />
   </span>
   <span
-    className="column--site-subscription-detail-details jMZpnL">
+    className="iyDwOW">
     <span
-      className="kXXZFn">
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="kwOabh">
+      className="fdTSGx">
       <span>
         6/20 remaining
       </span>
@@ -114,9 +114,9 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     <noscript />
   </div>
   <span
-    className="column--site-subscription-detail-button jMZpnL">
+    className="eYQFHK">
     <a
-      className="iyPoNp"
+      className="gseaFp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>

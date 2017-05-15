@@ -38,7 +38,7 @@ export const GreenButton = styled( Button )`
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 	height: 40px;
-	margin: 5px 0px 5px 10px;
+	margin: 0;
 `;
 
 TextButton.PropTypes = {
@@ -93,7 +93,7 @@ export const ButtonLink = styled( Link )`
 	height: 40px;
 	line-height: 40px;
 	padding: 0 15px;
-	margin: 5px 0px 5px 10px;
+	margin: 0;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
 	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
@@ -121,7 +121,6 @@ export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
 	height: 40px;
 	line-height: 40px;
-	margin: 5px 0px 5px 10px;
 `;
 
 TextButtonLink.PropTypes = {

@@ -5,19 +5,19 @@ exports[`test The Orders component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="fHGpRN">
+      className="fCMVIG">
       <span
-        className="KzPla">
+        className="OTulW">
         <span>
           May 20, 2012
         </span>
       </span>
       <span
-        className="hSIOhO">
+        className="fKqvxj">
         MOOIE 123 TEST
       </span>
       <span
-        className="column--order-items jKEpQi">
+        className="eyKrwF">
         <span
           className="gLZwgs">
           <span
@@ -31,20 +31,20 @@ exports[`test The Orders component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="kYCpab">
+        className="jPvoSH">
         <span>
           €100.10
         </span>
       </span>
       <span
-        className="lmKmYC">
+        className="dZeSps">
         completed
       </span>
       <span
-        className="column--order-invoice-button kvvXDP">
+        className="eYQFHK">
         <a
           aria-label="Download invoice"
-          className="gQnPQn"
+          className="kuxYii"
           href="http://somelink"
           iconSource="download.svg"
           to="http://somelink" />

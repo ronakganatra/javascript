@@ -1,6 +1,5 @@
 import React from "react";
-import styled from "styled-components";
-import { Row, Column, ColumnIcon } from "./Tables";
+import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
@@ -40,22 +39,6 @@ const messages = defineMessages( {
 	},
 } );
 
-const CustomRow = styled( Row )`
-	.column--subscription-name {
-		flex: 1 1 250px;
-	}
-
-	.column--subscription-level,
-	.column--subscription-usage,
-	.column--subscription-amount {
-		flex: 0 1 100px;
-	}
-
-	.column--subscription-next-billing {
-		flex: 0 1 150px;
-	}
-`;
-
 /**
  * Creates a subscription component
  *
@@ -70,24 +53,24 @@ function Subscription( props ) {
 	}
 
 	return (
-		<CustomRow key={ props.id } { ...rowProps }>
+		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
-			<Column ellipsis={ true } className="column--subscription-name" headerLabel={ props.intl.formatMessage( messages.product ) }>
+			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
-			</Column>
-			<Column ellipsis={ true } className="column--subscription-level" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
+			</ColumnPrimary>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
-			</Column>
-			<Column ellipsis={ true } className="column--subscription-usage" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
 				{ props.used }/{ props.limit }
-			</Column>
-			<Column ellipsis={ true } className="column--subscription-next-billing" hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
-			</Column>
-			<Column ellipsis={ true } className="column--subscription-amount" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
-			</Column>
-			<Column>
+			</ColumnMinWidth>
+			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
@@ -95,8 +78,8 @@ function Subscription( props ) {
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
-			</Column>
-		</CustomRow>
+			</ColumnFixedWidth>
+		</Row>
 	);
 }
 

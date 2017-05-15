@@ -6,7 +6,11 @@ const SiteSubscriptionIcons = styled.img`
 	width: 40px;
 	height: 40px;
 	float: left;
-	margin: 0 5px;
+	margin-right: 10px;
+
+	&:nth-child(n+7) {
+		margin-top: 10px;
+	}
 `;
 
 SiteSubscriptionIcons.propTypes = {

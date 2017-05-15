@@ -5,53 +5,11 @@ import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
-import { Row, Column } from "./Tables";
+import { RowResponsive, Column, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
 import defaults from "../config/defaults.json";
-
-let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
-
-const CustomRow = styled( Row )`
-	flex-wrap: wrap;
-
-	.column--site-subscription-detail-toggle-logo {
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-			align-self: flex-start;
-		}
-	}
-
-	.column--site-subscription-detail-details {
-		color: ${ colors.$color_black };
-		padding-left: 40px;
-		flex: 1 1;
-		overflow: hidden;
-		max-width: 100%;
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
-			padding-left: 24px;
-		}
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-			padding: 6px 0 0 18px;
-			align-self: flex-start;
-		}
-	}
-
-	.column--site-subscription-detail-button {
-		padding-left: 40px;
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
-			padding-left: 24px;
-		}
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-			width: 100%;
-			padding: 18px 0 6px;
-		}
-	}
-`;
 
 const SubscriptionLogo = styled.img`
 	display: inline-block;
@@ -80,20 +38,18 @@ const SubscriptionToggle = styled.span`
 
 const ProductName = styled.span`
 	font-size: 16px;
-	font-weight: 400;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	display: block;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-		font-size: 14px;
+		white-space: normal;
 	}
 `;
 
 const SubscriptionUsage = styled.span`
 	display: inline-block;
-	font-size: 14px;
 	font-weight: 300;
 	margin-right: 10px;
 `;
@@ -104,13 +60,16 @@ const AddOneLicense = styled.a`
 	font-style: italic;
 	text-decoration: none;
 	border: none;
-	background: transparent url( ${ plusIcon } ) no-repeat 0 0;
+	background: transparent url( ${ plusIcon } ) no-repeat 0 2px;
 	background-size: 16px;
 	color: ${ colors.$color_blue };
 	cursor: pointer;
 	padding: 0 0 0 20px;
 	text-align: left;
 `;
+
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 /**
  * Creates Site Subscriptions component
@@ -143,8 +102,8 @@ function SiteSubscriptionDetail( props ) {
 		disable = false;
 	}
 	return (
-		<CustomRow { ...rowProps }>
-			<Column className="column--site-subscription-detail-toggle-logo">
+		<RowResponsive { ...rowProps }>
+			<Column>
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
@@ -156,21 +115,21 @@ function SiteSubscriptionDetail( props ) {
 				<SubscriptionLogo src={ props.icon } alt="" />
 			</Column>
 
-			<Column className="column--site-subscription-detail-details">
+			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
 						values={{ howMany: licensesRemaining + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
-			</Column>
+			</ColumnPrimary>
 			{ modal }
-			<Column className="column--site-subscription-detail-button">
+			<ColumnFixedWidthResponsive>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
 				</ResponsiveLargeButtonLink>
-			</Column>
-		</CustomRow>
+			</ColumnFixedWidthResponsive>
+		</RowResponsive>
 	);
 }
 

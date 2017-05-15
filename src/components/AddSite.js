@@ -42,6 +42,11 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 
 const Buttons = styled.div`
 	float: right;
+	padding: 5px 0;
+
+	button {
+		margin-left: 10px;
+	}
 `;
 
 const NoActiveProduct = styled.p`
@@ -50,7 +55,7 @@ const NoActiveProduct = styled.p`
 	overflow: auto;
 	display: flex;
 	align-items: center;
-	
+
 	@media screen and ( max-width: 720px ) {
 		flex-direction: column;
 		text-align: left;
@@ -63,7 +68,7 @@ const NoActiveProductIcon = styled.img`
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
-	
+
 	@media screen and ( max-width: 720px ) {
 		padding: 10px;
 	}
@@ -160,4 +165,3 @@ AddSite.propTypes = {
 	query: React.PropTypes.string.isRequired,
 	errorMessage: React.PropTypes.string,
 };
-

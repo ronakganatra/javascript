@@ -2,22 +2,22 @@ exports[`test the subscription component matches the snapshot 1`] = `
 <span>
   <img
     aria-label="Test is active"
-    className="dVJUOs"
+    className="dhzOCo"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test2 is active"
-    className="dVJUOs"
+    className="dhzOCo"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test3 is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test4 is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
 </span>
@@ -27,22 +27,22 @@ exports[`test the subscription component with plugins without active subscriptio
 <span>
   <img
     aria-label="Test is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test2 is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test3 is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
   <img
     aria-label="Test4 is inactive"
-    className="jNYDQB"
+    className="snIQS"
     role="img"
     src="test.jpg" />
 </span>

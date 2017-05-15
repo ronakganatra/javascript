@@ -5,39 +5,39 @@ exports[`test the sites component matches the snapshot 1`] = `
     className="jplRhE"
     role="list">
     <li
-      className="dfVkqD">
+      className="hIfJht">
       <span
-        className="gXWwBm">
+        className="dOvErj">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="column--site-name huevqy">
+        className="kVUeYb">
         www.yoast.com
       </span>
       <span
-        className="column--site-subscriptions sZuJf">
+        className="deHdHN">
         <span>
           <img
             aria-label="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
         </span>
@@ -46,39 +46,39 @@ exports[`test the sites component matches the snapshot 1`] = `
         className="jMZpnL" />
     </li>
     <li
-      className="eXjWlS">
+      className="bhegyb">
       <span
-        className="gXWwBm">
+        className="dOvErj">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="column--site-name huevqy">
+        className="kVUeYb">
         www.google.com
       </span>
       <span
-        className="column--site-subscriptions sZuJf">
+        className="deHdHN">
         <span>
           <img
             aria-label="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
         </span>
@@ -87,39 +87,39 @@ exports[`test the sites component matches the snapshot 1`] = `
         className="jMZpnL" />
     </li>
     <li
-      className="dfVkqD">
+      className="hIfJht">
       <span
-        className="gXWwBm">
+        className="dOvErj">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="column--site-name huevqy">
+        className="kVUeYb">
         www.facebook.com
       </span>
       <span
-        className="column--site-subscriptions sZuJf">
+        className="deHdHN">
         <span>
           <img
             aria-label="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
           <img
             aria-label="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             role="img"
             src="test.jpg" />
         </span>

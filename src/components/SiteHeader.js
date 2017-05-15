@@ -4,6 +4,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
+import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
 
 const SiteHeaderContainer = styled.div`
@@ -31,15 +32,6 @@ const SiteHeaderContainer = styled.div`
 		min-height: 144px;
 		padding: 0 18px 16px;
 	}
-
-	.visit-wp-admin {
-		flex: 0 0 auto;
-		margin-top: 1em;
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-			min-width: 100%;
-		}
-	}
 `;
 
 SiteHeaderContainer.propTypes = {
@@ -63,6 +55,8 @@ const SiteHeaderSitename = styled.h1`
 	}
 `;
 
+let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
+
 /**
  * The SiteHeader component.
  *
@@ -77,10 +71,10 @@ export default function SiteHeader( props ) {
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<LargeButtonLink to={ `${ props.url }/wp-admin` } className="visit-wp-admin" target="_blank">
+			<LargeButtonLinkResponsive to={ `${ props.url }/wp-admin` } target="_blank">
 				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
 				<NewTabMessage />
-			</LargeButtonLink>
+			</LargeButtonLinkResponsive>
 		</SiteHeaderContainer>
 	);
 }

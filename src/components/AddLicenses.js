@@ -24,6 +24,11 @@ const AddLicensesText = styled.p`
 const Buttons = styled.div`
 	float: right;
 	margin-bottom: 1.5em;
+
+	a,
+	button {
+		margin-left: 10px;
+	}
 `;
 
 /**
@@ -64,4 +69,3 @@ AddLicenses.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.string.isRequired,
 };
-

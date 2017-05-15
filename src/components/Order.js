@@ -1,12 +1,11 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { Row, Column, makeColumnFullWidth } from "./Tables";
+import { RowResponsive, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { IconButtonLink, disable, IconButton, makeButtonFullWidth } from "./Button";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
-import styled from "styled-components";
 import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
@@ -40,42 +39,10 @@ const messages = defineMessages( {
 	},
 } );
 
-const CustomRow = styled( Row )`
-	& > span {
-		flex: 0 1 150px;
-	}
+let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
+let ColumnPrimaryResponsive = makeFullWidth( ColumnPrimary );
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 
-	.column--order-items {
-		flex: 1 1 150px;
-	}
-
-	.column--order-invoice-button {
-		flex: 0 0 auto;
-	}
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-		flex-wrap: wrap;
-
-		&:first-child {
-			margin-top: -40px;
-		}
-
-		& > span {
-			flex-basis: auto;
-			padding-left: 0;
-		}
-
-		// Use the column headers as labels.
-		& span::before {
-			position: static;
-			display: inline-block;
-			padding-right: 0.5em;
-			font-size: inherit;
-		}
-	}
-`;
-
-let ResponsiveFullWidthColumn = makeColumnFullWidth( Column );
 let invoiceStatuses = [ "completed", "refunded" ];
 
 /**
@@ -91,28 +58,29 @@ function Order( props ) {
 	}
 
 	let ResponsiveInvoiceButton = makeButtonFullWidth( InvoiceButton );
+
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
-		<CustomRow background={ props.background }>
-			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
+		<RowResponsive background={ props.background }>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
-			</Column>
-			<Column ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
+			</ColumnMinWidthResponsive>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
-			</Column>
-			<ResponsiveFullWidthColumn className="column--order-items" ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
+			</ColumnMinWidth>
+			<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
-			</ResponsiveFullWidthColumn>
-			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
+			</ColumnPrimaryResponsive>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
-			</Column>
-			<Column ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
+			</ColumnMinWidthResponsive>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
 				{ props.status }
-			</Column>
-			<ResponsiveFullWidthColumn className="column--order-invoice-button">
+			</ColumnMinWidthResponsive>
+			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
@@ -127,8 +95,8 @@ function Order( props ) {
 						{ invoiceMessage }
 					</MediaQuery>
 				</ResponsiveInvoiceButton>
-			</ResponsiveFullWidthColumn>
-		</CustomRow>
+			</ColumnFixedWidthResponsive>
+		</RowResponsive>
 	);
 }
 

@@ -1,12 +1,12 @@
 exports[`test the site header matches the snapshot 1`] = `
 <div
-  className="leDgWm">
+  className="gqYdX">
   <h1
     className="kcUTNx">
     placehold.it
   </h1>
   <a
-    className="visit-wp-admin dAFQbA"
+    className="iSKtNA"
     href="http://placehold.it//wp-admin"
     target="_blank"
     to="http://placehold.it//wp-admin">

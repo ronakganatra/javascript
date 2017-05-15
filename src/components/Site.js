@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
-import { Row, Column, ColumnIcon } from "./Tables";
+import { Row, Column, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
@@ -29,14 +29,8 @@ SiteIcon.propTypes = {
 	src: React.PropTypes.string.isRequired,
 };
 
-const CustomRow = styled( Row )`
-	.column--site-name {
-		flex: 1 1 250px;
-	}
-
-	.column--site-subscriptions {
-		flex: 0 1 500px;
-	}
+let ColumnSubscriptions = styled( ColumnFixedWidth )`
+	flex-basis: 340px;
 `;
 
 /**
@@ -56,14 +50,15 @@ function Site( props ) {
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 
 	return (
-		<CustomRow { ...rowProps }>
+		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
-			<Column ellipsis={ true } className="column--site-name" headerLabel={ props.intl.formatMessage( messages.siteName ) }>
+			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
-			</Column>
-			<Column ellipsis={ true } className="column--site-subscriptions" hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
+			</ColumnPrimary>
+			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
-			</Column>
+			</ColumnSubscriptions>
 			<Column>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
@@ -74,7 +69,7 @@ function Site( props ) {
 								   onClick={ props.onClickManage } />
 				</MediaQuery>
 			</Column>
-		</CustomRow>
+		</Row>
 	);
 }
 
