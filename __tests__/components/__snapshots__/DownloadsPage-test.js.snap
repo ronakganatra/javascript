@@ -444,6 +444,6 @@ exports[`test the downloads page component matches the snapshot when there are n
   </p>
   <img
     alt=""
-    src="noSites.svg" />
+    src="SitesNoResults.svg" />
 </div>
 `;
