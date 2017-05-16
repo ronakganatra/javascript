@@ -3,6 +3,20 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
 
+let buttonAnimations=`
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 export const Button = styled.button`
 	height: 46px;
 	padding: 12px 16px;
@@ -18,15 +32,7 @@ export const Button = styled.button`
 
 	transition: background 150ms ease-out;
 
-	&:focus,
-	&:hover {
-		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
-	}
-	
-	&:active {
-		transform: translateY( 1px );
-		box-shadow: none;
-	}
+	${ buttonAnimations }
 `;
 
 Button.propTypes = {
@@ -106,17 +112,7 @@ export const ButtonLink = styled( Link )`
 	text-decoration: none;
 	text-align: center;
 
-	transition: background 150ms ease-out;
-
-	&:focus,
-	&:hover {
-		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
-	}
-
-	&:active {
-		transform: translateY( 1px );
-		box-shadow: none;
-	}
+	${ buttonAnimations }
 `;
 
 ButtonLink.PropTypes = {
@@ -126,8 +122,6 @@ ButtonLink.PropTypes = {
 export const LargeButtonLink = styled( ButtonLink )`
 	min-width: 150px;
 `;
-
-export const GreenButtonLink = styled( ButtonLink )``;
 
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };

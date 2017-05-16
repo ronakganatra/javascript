@@ -55,7 +55,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
   <span
     className="hMwgWU">
     <a
-      className="gLGnIB"
+      className="hAUCdp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -116,7 +116,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
   <span
     className="hMwgWU">
     <a
-      className="gLGnIB"
+      className="hAUCdp"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
