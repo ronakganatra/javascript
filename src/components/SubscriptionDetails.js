@@ -1,20 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { Row, ListTable, Column, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth } from "./Tables";
+import { Row, RowResponsive, ListTable, Column, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
-import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { ListHeading } from "./ListHeading";
-import { LargeButton, RedButton, IconButtonLink, LargeButtonLink } from "./Button";
+import { LargeButton, RedButton, IconButtonLink, LargeButtonLink, makeButtonFullWidth } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
 import defaults from "../config/defaults.json";
-
-// To do: standardize this margin.
-let columnMargin = "10px";
-// To do: buttons should not disappear, just be full width.
-let hideButtonsThreshold = 400;
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -75,23 +69,26 @@ const SubscriptionDetailsContainer = styled.div`
 	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
 		display: flex;
 		flex-wrap: wrap;
-		div:nth-child(odd) {
-			margin-right: ${ columnMargin };
-		}
-		div:nth-child(even) {
-			margin-left: ${ columnMargin };
-		}
+		justify-content: space-between;
 	}
 `;
 
 const ColumnContainer = styled.div`
 	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
-		width: calc( 50% - ${ columnMargin } );
+		width: calc( 50% - 10px );
 	}
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		width: 100%;
 	}
 `;
+
+let ColumnResponsive = makeFullWidth( Column );
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+let ResponsiveRedButton = makeButtonFullWidth( RedButton );
+let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
 
 /**
  * The SubscriptionDetails component.
@@ -136,49 +133,43 @@ function SubscriptionDetails( props ) {
 
 	let subscriptionDetailsTable = (
 		<ListTable>
-				<Row hasHeaderLabels={ false } key="remaining-licenses">
+				<RowResponsive hasHeaderLabels={ false } key="remaining-licenses">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnPrimary>
-					<Column>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButton onClick={ props.onAddSite }>
-								{ props.intl.formatMessage( messages.addSiteButton ) }
-							</LargeButton>
-						</MediaQuery>
-					</Column>
-				</Row>
-				<Row hasHeaderLabels={ false } key="change-level">
+					<ColumnResponsive>
+						<ResponsiveLargeButton onClick={ props.onAddSite }>
+							{ props.intl.formatMessage( messages.addSiteButton ) }
+						</ResponsiveLargeButton>
+					</ColumnResponsive>
+				</RowResponsive>
+				<RowResponsive hasHeaderLabels={ false } key="change-level">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.changeLevel ) }
 					</ColumnPrimary>
-					<Column>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
-								{ props.intl.formatMessage( messages.shopButton ) }
-							</LargeButtonLink>
-						</MediaQuery>
-					</Column>
-				</Row>
-				<Row hasHeaderLabels={ false } key="cancel">
+					<ColumnResponsive>
+						<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+							{ props.intl.formatMessage( messages.shopButton ) }
+						</ResponsiveLargeButtonLink>
+					</ColumnResponsive>
+				</RowResponsive>
+				<RowResponsive hasHeaderLabels={ false } key="cancel">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.cancelSubscription ) }
 					</ColumnPrimary>
-					<Column>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<RedButton onClick={ props.onCancel }>
-								{ props.intl.formatMessage( messages.cancelButton ) }
-							</RedButton>
-						</MediaQuery>
-					</Column>
-				</Row>
+					<ColumnResponsive>
+						<ResponsiveRedButton onClick={ props.onCancel }>
+							{ props.intl.formatMessage( messages.cancelButton ) }
+						</ResponsiveRedButton>
+					</ColumnResponsive>
+				</RowResponsive>
 		</ListTable>
 	);
 
 	let invoicesTable = (
 		<ListTable>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
+				return <RowResponsive { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
 					<ColumnMinWidth>
 						<FormattedDate
 							value={ invoice.invoiceDate }
@@ -197,17 +188,15 @@ function SubscriptionDetails( props ) {
 							}
 						) }
 					</ColumnMinWidth>
-					<ColumnFixedWidth>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<IconButtonLink
-								to={ getInvoiceUrl( invoice.invoiceId ) }
-								iconSource={ downloadIcon }
-								iconSize={ "16px" }>
-								{ props.intl.formatMessage( messages.invoiceButton ) }
-							</IconButtonLink>
-						</MediaQuery>
-					</ColumnFixedWidth>
-				</Row>;
+					<ColumnFixedWidthResponsive>
+						<ResponsiveIconButtonLink
+							to={ getInvoiceUrl( invoice.invoiceId ) }
+							iconSource={ downloadIcon }
+							iconSize={ "16px" }>
+							{ props.intl.formatMessage( messages.invoiceButton ) }
+						</ResponsiveIconButtonLink>
+					</ColumnFixedWidthResponsive>
+				</RowResponsive>;
 			} ) }
 		</ListTable>
 	);

@@ -17,7 +17,6 @@ const messages = defineMessages( {
 	},
 } );
 
-// To do: standardize this margin.
 let outerMargin = 32;
 
 const ProductContainer = styled.div`
