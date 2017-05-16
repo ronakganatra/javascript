@@ -22,26 +22,29 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     defaultValue=""
     id="addSiteInputField"
     onChange={[Function]}
-    placeholder="example-site.com"
+    placeholder="https://example-site.com"
     type="url" />
   <div
-    className="jdEMcw">
-    <button
-      className="bksMGM"
-      onClick={[Function]}
-      type="button">
-      <span>
-        cancel
-      </span>
-    </button>
-    <button
-      className="bksMGM"
-      onClick={[Function]}
-      type="button">
-      <span>
-        link
-      </span>
-    </button>
+    className="kgoxYr">
+    <div
+      className="dulcjS">
+      <button
+        className="gizGfh"
+        onClick={[Function]}
+        type="button">
+        <span>
+          cancel
+        </span>
+      </button>
+      <button
+        className="hOwTLM"
+        onClick={[Function]}
+        type="button">
+        <span>
+          link
+        </span>
+      </button>
+    </div>
   </div>
   <img
     alt=""

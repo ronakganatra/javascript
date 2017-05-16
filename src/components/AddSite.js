@@ -1,11 +1,19 @@
 import React from "react";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { TextButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { FormattedMessage } from "react-intl";
 import { addPlaceholderStyles } from "../styles/inputs";
+import validate from "validate.js";
+
+const messages = defineMessages( {
+	validationFormatURL: {
+		id: "validation.format.url",
+		defaultMessage: "Please enter a valid URL. Remember to use http:// or https://.",
+	},
+} );
 
 const AddSiteModal = styled.div`
 	max-width: 640px;
@@ -41,11 +49,26 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
-	float: right;
+	text-align: right;
+	flex: 200px 1 0;
 `;
 
-const NoActiveProduct = styled.p`
-	padding: 5px;
+const ErrorButtonZone = styled.div`
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   width: 100%;
+   flex-direction: row;
+   -webkit-justify-content: space-between;
+   justify-content: space-between;
+   
+   @media screen and ( max-width: 800px ) {
+   	  display: block;
+   }
+`;
+
+const YellowWarning = styled.p`
+	padding: 4px;
 	background-color: ${ colors.$color_yellow };
 	overflow: auto;
 	display: flex;
@@ -69,90 +92,178 @@ const NoActiveProductIcon = styled.img`
 	}
 `;
 
-const NoActiveProductText = styled.span`
-	font-size: 1em;
+const WarningText = styled.span`
+	font-size: 0.8em;
+`;
+
+const ValidationText = styled.div`
+	font-size: 0.8em;
+	color: red;
+	margin: 1em 0;
 `;
 
 const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
 `;
 
-/**
- * Renders an error message
- *
- * @param {boolean} errorFound Whether an error has been thrown.
- * @param {string} errorMessage The error message to render.
- * @returns {ReactElement} The rendered element.
- */
-function getErrorMessage( errorFound, errorMessage ) {
-	if ( ! errorFound ) {
-		return null;
+class AddSite extends React.Component {
+	/**
+	 * Initializes the class with the specified props.
+	 *
+ 	 * @param {Object} props The props to be passed to the class that was extended from.
+	 *
+	 * @returns {void}
+	 */
+	constructor( props ) {
+		super( props );
+
+		this.linkEnabled = true;
+
+		this.constraints = {
+			url: this.urlConstraints.bind( this ),
+		};
 	}
 
-	return (
-		<NoActiveProduct>
-			<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-			<NoActiveProductText id="addSiteInfo">
-				<FormattedMessage
-					id="sites.add-site.no-active-product"
-					defaultMessage={"Oops! It look's like something went wrong... When we tried to link your site, we received this message: {errorMessage} If you need help, {link}"}
-					values={{
-						link: <PurpleLink href="/"><FormattedMessage
-							id="sites.add-site-no-active-product.link"
-							defaultMessage="read this page."/></PurpleLink>,
-						errorMessage: <i>"{ errorMessage }."</i>,
-					}}/>
-			</NoActiveProductText>
-		</NoActiveProduct>
-	);
-}
-
-/**
- * Renders the AddSite component.
- *
- * @param {Object} props                 Component props.
- * @param {Function} props.onCancelClick The function to execute when the cancel button is clicked.
- * @param {Function} props.onLinkClick   The function to execute when the link button is clicked.
- *
- * @returns {ReactElement} A react component describing the AddSite modal.
- */
-export default function AddSite( props ) {
-	let onChange = ( event ) => {
-		props.onChange( event.target.value );
-	};
-
-	let suggestedValue = "";
-
-	if ( props.query.length > 0 ) {
-		suggestedValue = props.query;
+	/**
+	 * Sets the constraints for validation to URL, and sets the message that should be returned if the constraints are not met.
+	 *
+ 	 * @returns {Object} Returns the constraints for the URL, and the message.
+	 */
+	urlConstraints() {
+		return {
+			url: {
+				message: this.props.intl.formatMessage( messages.validationFormatURL ),
+			},
+		};
 	}
 
-	return (
+	/**
+	 * Calls onChange function when website url changes.
+	 *
+	 * @param {Object} event The event returned by the WebsiteURLChange.
+	 *
+	 * @returns {void}
+	 */
+	onWebsiteURLChange( event ) {
+		this.props.onChange( event.target.value );
+	}
+
+	/**
+	 * Checks whether an URL was entered.
+	 *
+	 * @param {string} input The string in the input field.
+	 * @returns {null} Returns either null or an error message JSX.
+	 */
+	urlValidityMessage( input = "" ) {
+		this.linkEnabled = true;
+
+		if ( input === "" ) {
+			this.linkEnabled = false;
+			return null;
+		}
+
+		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
+
+		if ( result && result[ 0 ] !== null ) {
+			this.linkEnabled = false;
+
+			return (
+				<ValidationText id="url_reminder">
+					<FormattedMessage
+						id="sites.add-site.url-validation-message"
+						defaultMessage={ "{ validationMessage }" }
+						values={ { validationMessage: result[ 0 ].options.message } }
+					/>
+				</ValidationText>
+			);
+		}
+	}
+
+	/**
+	 * Renders an error message
+	 *
+	 * @param {boolean} errorFound Whether an error has been thrown.
+	 * @param {string} errorMessage The error message to render.
+	 * @returns {ReactElement} The rendered element.
+	 */
+	getErrorMessage( errorFound, errorMessage ) {
+		if ( ! errorFound ) {
+			return null;
+		}
+
+		return (
+			<YellowWarning>
+				<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
+				<WarningText id="addSiteInfo">
+					<FormattedMessage
+						id="sites.add-site.no-active-product"
+						defaultMessage={ "Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }" }
+						values={ {
+							link: <PurpleLink href="/"><FormattedMessage
+								id="sites.add-site-no-active-product.link"
+								defaultMessage="read this page."/></PurpleLink>,
+							errorMessage: <i>"{ errorMessage }."</i>,
+						} }
+					/>
+				</WarningText>
+			</YellowWarning>
+		);
+	}
+
+	/**
+	 * Returns the rendered html.
+	 *
+	 * @returns {ReactElement} The rendered html.
+	 */
+	render() {
+		let suggestedValue = "";
+
+		if ( this.props.query.length > 0 ) {
+			suggestedValue = this.props.query;
+		}
+
+		return (
 			<AddSiteModal>
 				<AddSiteHeading>
-					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site" />
+					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
 				</AddSiteHeading>
 				<AddSiteText>
 					<label htmlFor="addSiteInputField">
-						<FormattedMessage id="sites.add-site.enter-url" defaultMessage="Please enter the URL of the site you would like to link with your account:" />
+						<FormattedMessage id="sites.add-site.enter-url"
+										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+						/>
 					</label>
 				</AddSiteText>
-				<WebsiteURL type="url" id="addSiteInputField" placeholder={ "example-site.com" } defaultValue={ suggestedValue } aria-describedby="addSiteInfo" onChange={ onChange } />
-				{ getErrorMessage( props.errorFound, props.errorMessage ) }
-				<Buttons>
-					<TextButton type="button" onClick={ props.onCancelClick } buttonWidth={"100px"}>
-						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel" />
-					</TextButton>
-					<TextButton type="button" onClick={ props.onLinkClick } buttonWidth={"100px"}>
-						<FormattedMessage id="sites.add-site.link" defaultMessage="link" />
-					</TextButton>
-				</Buttons>
-				<AddSiteImage src={ addSiteImage } alt="" />
+				<WebsiteURL
+					type="url"
+					id="addSiteInputField"
+					placeholder={ "https://example-site.com" }
+					defaultValue={ suggestedValue }
+					aria-describedby="addSiteInfo"
+					onChange={ this.onWebsiteURLChange.bind( this ) }
+				/>
+				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+				<ErrorButtonZone>
+					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
+					<Buttons>
+						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={ "100px" }>
+							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+						</TextButton>
+						<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {
+						} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled }>
+							<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
+						</TextButton>
+					</Buttons>
+				</ErrorButtonZone>
+				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
-	);
+		);
+	}
 }
 
 AddSite.propTypes = {
+	intl: intlShape.isRequired,
+	linkingSiteUrl: React.PropTypes.string.isRequired,
 	onCancelClick: React.PropTypes.func.isRequired,
 	onLinkClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
@@ -161,3 +272,4 @@ AddSite.propTypes = {
 	errorMessage: React.PropTypes.string,
 };
 
+export default injectIntl( AddSite );

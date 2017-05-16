@@ -33,8 +33,7 @@ export default function SiteSubscriptions( props ) {
 							key={ plugin.name }
 							src={ plugin.icon }
 							isActive={ isActive }
-							aria-label={ isActive ? plugin.name + " is active" : plugin.name + " is inactive" }
-							role="img"
+							alt={ isActive ? plugin.name + " is active" : plugin.name + " is inactive" }
 						/>
 					);
 				} )
