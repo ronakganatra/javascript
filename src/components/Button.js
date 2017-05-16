@@ -3,7 +3,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
 
-let buttonAnimations=`
+let buttonAnimations = `
 	transition: background 150ms ease-out;
 
 	&:focus,
