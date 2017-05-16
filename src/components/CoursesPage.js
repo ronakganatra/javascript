@@ -1,34 +1,19 @@
 import React from "react";
-import styled from "styled-components";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import NewTabMessage from "../components/NewTabMessage";
+import LandingPage from "./LandingPage";
 import a11ySpeak from "a11y-speak";
 import constructionImage from "../images/construction.svg";
-import colors from "yoast-components/style-guide/colors.json";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
 	},
+	underConstruction: {
+		id: "courses.under-construction",
+		defaultMessage: "This section is still under construction. To access your courses, please visit:",
+	},
 } );
-
-const CoursesContainer = styled.div`
-	margin-top: 10vh;
-	text-align: center;
-
-	img {
-		width: 540px;
-		max-width: 100%;
-		height: auto;
-		margin-top: 2em;
-	}
-
-	a {
-		font-size: 1.5em;
-		color: ${ colors.$color_blue };
-	}
-`;
 
 /**
  * A function that returns the Courses Page component.
@@ -52,20 +37,15 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
+		let paragraphs = [ <FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
 		return (
-			<CoursesContainer>
-				<p>
-					<FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /><br />
-					<a href="https://yoa.st/myyoast-academy" target="_blank">
-						yoast.academy
-						<NewTabMessage />
-					</a>
-				</p>
-				<img src={ constructionImage } alt="" />
-			</CoursesContainer>
+			<LandingPage url="https://yoa.st/myyoast-academy"
+				  urlText="yoast.academy"
+				  imageSource={ constructionImage }
+				  paragraphs={ paragraphs }
+			/>
 		);
 	}
-
 }
 
 export default injectIntl( CoursesPage );
