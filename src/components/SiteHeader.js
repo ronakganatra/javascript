@@ -21,7 +21,7 @@ const SiteHeaderContainer = styled.div`
 	background-size: contain;
 	position: relative;
 	margin: 0 auto;
-	padding: 0 40px 26px;
+	padding: 0 32px 24px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 0 24px 26px;

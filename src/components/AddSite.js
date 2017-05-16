@@ -55,7 +55,7 @@ const Buttons = styled.div`
 
 	a,
 	button {
-		margin-left: 10px;
+		margin-left: 12px;
 	}
 `;
 

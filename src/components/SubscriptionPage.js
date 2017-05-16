@@ -2,8 +2,7 @@ import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
-import Link from "./Link";
-import { RoundBackButton } from "./RoundButton";
+import { RoundBackButtonLink } from "./RoundButton";
 
 /**
  * Returns the rendered SubscriptionPage component.
@@ -21,9 +20,7 @@ class SubscriptionPage extends React.Component {
 		let subscription = this.props.subscription;
 
 		return <section>
-			<Link to={ "/account/subscriptions" } >
-				<RoundBackButton />
-			</Link>
+			<RoundBackButtonLink to={ "/account/subscriptions" } />
 			<Header
 				name={ subscription.name }
 				byline={ subscription.limit + " site subscription" }

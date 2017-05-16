@@ -6,6 +6,20 @@ import chevronRight from "../icons/chevron-right.svg";
 import plus from "../icons/plus.svg";
 import Link from "./Link";
 
+let buttonAnimations = `
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 255, 255, 255, 0.1 );
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 export const RoundButton = styled.button`
 	background-color: ${colors.$color_green_medium_light};
 	background-repeat: no-repeat;
@@ -29,7 +43,11 @@ RoundButton.defaultProps = {
 	"aria-label": "",
 };
 
-export const RoundBackButton = styled( RoundButton )`
+const RoundButtonFeedback = styled( RoundButton )`
+	${ buttonAnimations }
+`;
+
+export const RoundBackButton = styled( RoundButtonFeedback )`
 	background-image: url( ${angleLeft} );
 	background-position: 3px 4px;
 `;
@@ -38,7 +56,7 @@ RoundBackButton.defaultProps = {
 	"aria-label": "Back",
 };
 
-export const RoundAddButton = styled( RoundButton )`
+export const RoundAddButton = styled( RoundButtonFeedback )`
 	background-image: url( ${plus} );
 	background-position: center;
 	background-size: 20px;
@@ -58,7 +76,7 @@ export const ChevronButton = styled( RoundButton )`
 `;
 
 // Standard button links.
-export const RoundButtonLink = styled.a`
+export const RoundButtonLink = styled( Link )`
 	display: inline-block;
 	background-color: ${colors.$color_green_medium_light};
 	background-repeat: no-repeat;
@@ -79,7 +97,11 @@ RoundButtonLink.defaultProps = {
 	href: "/",
 };
 
-export const RoundBackButtonLink = styled( RoundButtonLink )`
+const RoundButtonLinkFeedback = styled( RoundButtonLink )`
+	${ buttonAnimations }
+`;
+
+export const RoundBackButtonLink = styled( RoundButtonLinkFeedback )`
 	background-image: url( ${angleLeft} );
 	background-position: 3px 4px;
 `;

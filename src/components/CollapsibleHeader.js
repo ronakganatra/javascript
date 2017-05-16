@@ -14,7 +14,7 @@ const CollapsibleHeader = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 16px 40px;
+	padding: 16px 32px 16px 24px;
 	border: none;
 	background-color: ${ colors.$color_white };
 	cursor: pointer;
@@ -35,7 +35,7 @@ const CollapsibleHeader = styled.button`
 	}
 
 	svg {
-		min-width: 150px;
+		min-width: 40px;
 		align-self: center;
 
 		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {

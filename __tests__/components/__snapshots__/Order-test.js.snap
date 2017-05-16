@@ -39,7 +39,7 @@ exports[`test A standard order 1`] = `
     className="eYQFHK">
     <a
       aria-label="Download invoice"
-      className="kuxYii"
+      className="eHcUbq"
       href="http://somelink"
       iconSource="download.svg"
       to="http://somelink" />
@@ -88,7 +88,7 @@ exports[`test An Order with a disabled invoice button 1`] = `
     className="eYQFHK">
     <button
       aria-label="Download invoice"
-      className="gqeVuG hctKRi"
+      className="gqeVuG knOsJT"
       disabled="disabled"
       to="http://somelink" />
   </span>
