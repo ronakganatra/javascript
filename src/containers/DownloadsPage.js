@@ -44,7 +44,7 @@ const setDownloadProps = ( products, state ) => {
 			category: product.type,
 			buttons: [ {
 				label: product.description,
-				onButtonClick: ( () => window.open( product.storeUrl, "_blank" ) ),
+				onButtonClick: ( () => window.open( product.downloadUrl, "_blank" ) ),
 			} ],
 		};
 	} );
