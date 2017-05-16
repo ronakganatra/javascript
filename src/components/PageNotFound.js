@@ -1,7 +1,6 @@
 import React from "react";
 import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-// import LandingPage from "./LandingPage";
 import a11ySpeak from "a11y-speak";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
