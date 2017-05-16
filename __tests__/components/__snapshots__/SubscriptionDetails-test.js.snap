@@ -123,10 +123,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="eYQFHK">
           <a
             className="eHcUbq"
-            href="http://localhost:3000/api/Orders/1/invoice?access_token="
+            href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
-            to="http://localhost:3000/api/Orders/1/invoice?access_token=">
+            to="http://somelink">
             Invoice
           </a>
         </span>
@@ -147,10 +147,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="eYQFHK">
           <a
             className="eHcUbq"
-            href="http://localhost:3000/api/Orders/2/invoice?access_token="
+            href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
-            to="http://localhost:3000/api/Orders/2/invoice?access_token=">
+            to="http://somelink">
             Invoice
           </a>
         </span>

@@ -3,6 +3,12 @@ import { createComponentWithIntl } from "../../utils";
 import { MemoryRouter } from "react-router-dom";
 import SubscriptionDetails from '../../src/components/SubscriptionDetails';
 
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getInvoiceUrl: () => { return "http://somelink" },
+	};
+} );
+
 test('the subscription detail component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
