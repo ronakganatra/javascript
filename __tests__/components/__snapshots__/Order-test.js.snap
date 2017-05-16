@@ -1,6 +1,6 @@
 exports[`test A standard order 1`] = `
 <li
-  className="jMDRGq">
+  className="yNbwP">
   <span
     className="OTulW">
     <span>
@@ -49,7 +49,7 @@ exports[`test A standard order 1`] = `
 
 exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="jMDRGq">
+  className="yNbwP">
   <span
     className="OTulW">
     <span>

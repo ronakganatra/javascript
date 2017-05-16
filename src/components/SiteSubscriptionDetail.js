@@ -83,6 +83,7 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
+
 	let modal = (
 		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
 	);
@@ -102,7 +103,7 @@ function SiteSubscriptionDetail( props ) {
 		disable = false;
 	}
 	return (
-		<RowResponsive { ...rowProps }>
+		<RowResponsive { ...rowProps } hasHeaderLabels={ false }>
 			<Column>
 				<SubscriptionToggle>
 					<Toggle

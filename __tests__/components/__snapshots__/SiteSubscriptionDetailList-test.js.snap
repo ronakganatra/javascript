@@ -20,10 +20,10 @@ exports[`test the site subscription detail list component matches the snapshot 1
       </svg>
     </button>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="fCMVIG">
+        className="hmBkue">
         <span
           className="jMZpnL">
           <span
@@ -81,7 +81,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="geTmNJ">
+        className="cxOSVY">
         <span
           className="jMZpnL">
           <span

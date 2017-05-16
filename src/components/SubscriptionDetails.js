@@ -104,8 +104,8 @@ const ColumnContainer = styled.div`
  */
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
-		<ListTable hasHeaderLabels={ false }>
-				<Row key="start-date">
+		<ListTable>
+				<Row hasHeaderLabels={ false } key="start-date">
 					<Column ellipsis={ true }>
 						{ props.intl.formatMessage( messages.startDate ) }
 					</Column>
@@ -118,7 +118,7 @@ function SubscriptionDetails( props ) {
 						/>
 					</Column>
 				</Row>
-				<Row key="next-billing">
+				<Row hasHeaderLabels={ false } key="next-billing">
 					<Column ellipsis={ true }>
 						{ props.intl.formatMessage( messages.nextBilling ) }
 					</Column>
@@ -135,8 +135,8 @@ function SubscriptionDetails( props ) {
 	);
 
 	let subscriptionDetailsTable = (
-		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-licenses">
+		<ListTable>
+				<Row hasHeaderLabels={ false } key="remaining-licenses">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnPrimary>
@@ -148,7 +148,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="change-level">
+				<Row hasHeaderLabels={ false } key="change-level">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.changeLevel ) }
 					</ColumnPrimary>
@@ -160,7 +160,7 @@ function SubscriptionDetails( props ) {
 						</MediaQuery>
 					</Column>
 				</Row>
-				<Row key="cancel">
+				<Row hasHeaderLabels={ false } key="cancel">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.cancelSubscription ) }
 					</ColumnPrimary>
@@ -176,9 +176,9 @@ function SubscriptionDetails( props ) {
 	);
 
 	let invoicesTable = (
-		<ListTable hasHeaderLabels={ false }>
+		<ListTable>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } key={ invoice.invoiceId }>
+				return <Row { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
 					<ColumnMinWidth>
 						<FormattedDate
 							value={ invoice.invoiceDate }

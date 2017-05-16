@@ -14,7 +14,7 @@ import { getInvoiceUrl } from "../functions/api";
 export default function Orders( props ) {
 	return (
 		<Paper>
-			<ListTable hasHeaderLabels={ true }>
+			<ListTable>
 				{ props.orders.map( ( order ) => {
 					let invoiceURI = getInvoiceUrl( order.id );
 

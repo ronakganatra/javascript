@@ -8,10 +8,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Payment details
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="hIfJht">
+        className="ldfDUe">
         <span
           className="eMrAqV">
           Start date
@@ -24,7 +24,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="bhegyb">
+        className="hjwORc">
         <span
           className="eMrAqV">
           Next billing
@@ -45,10 +45,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Subscription details
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="hIfJht">
+        className="ldfDUe">
         <span
           className="fbIbuP">
           You can add 4 more sites to this subscription.
@@ -57,7 +57,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="jMZpnL" />
       </li>
       <li
-        className="bhegyb">
+        className="hjwORc">
         <span
           className="fbIbuP">
           Change subscription level
@@ -66,7 +66,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="jMZpnL" />
       </li>
       <li
-        className="hIfJht">
+        className="ldfDUe">
         <span
           className="fbIbuP">
           Cancel subscription
@@ -83,10 +83,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       Invoices
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="hIfJht">
+        className="ldfDUe">
         <span
           className="hpjLSh">
           <span>
@@ -101,7 +101,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="fXreAk" />
       </li>
       <li
-        className="bhegyb">
+        className="hjwORc">
         <span
           className="hpjLSh">
           <span>

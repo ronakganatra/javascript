@@ -4,14 +4,14 @@ import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 
 export const Zebra = styled.ul`
-	margin: ${ props => props.hasHeaderLabels ? "60px" : "0" } 0 0 0;
+	margin: 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
  	width: 100%;
 
  	li:first-child {
-		& span::before {
+		& > span::before {
 			left: auto;
 		}
 	}
@@ -19,11 +19,6 @@ export const Zebra = styled.ul`
 
 Zebra.propTypes = {
 	children: React.PropTypes.any,
-	hasHeaderLabels: React.PropTypes.bool,
-};
-
-Zebra.defaultProps = {
-	hasHeaderLabels: true,
 };
 
 // The Rows are flex containers.
@@ -34,6 +29,10 @@ export const Row = styled.li`
 	padding: 26px 40px;
 	align-items: center;
 	justify-content: space-between;
+
+	&:first-child {
+		margin-top: ${ props => props.hasHeaderLabels ? "60px" : "0" };
+	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
 		padding: 26px 24px;
@@ -46,10 +45,12 @@ export const Row = styled.li`
 
 Row.propTypes = {
 	background: React.PropTypes.string,
+	hasHeaderLabels: React.PropTypes.bool,
 };
 
 Row.defaultProps = {
 	background: colors.$color_white,
+	hasHeaderLabels: true,
 };
 
 /*
@@ -63,11 +64,11 @@ export const RowResponsive = styled( Row )`
 		align-items: flex-start;
 
 		&:first-child {
-			margin-top: -40px;
+			margin-top: ${ props => props.hasHeaderLabels ? "20px" : "0" };
 		}
 
-		// Use the column headers as labels.
-		& span::before {
+		// Use the column headers (if any) as labels.
+		& > span::before {
 			position: static;
 			display: inline-block;
 			padding-right: 0.5em;
