@@ -107,7 +107,6 @@ export function linkReducer( state = rootState.ui.sites, action ) {
 			return Object.assign( {}, state, {
 				linkSiteFailed: true,
 				linkSiteError: action.linkSiteError,
-				linkingSiteUrl: "",
 				linkingSite: false,
 			} );
 		default:

@@ -1,13 +1,14 @@
 exports[`test The Products component matches the snapshot 1`] = `
 <div
-  className="AWsFI">
+  className="jhQvCy">
   <h2
-    className="cRXCLv">
+    className="fDaaKP">
     Products
     <span>
        - Buy here!
     </span>
   </h2>
+  
   <div
     className="oDZeE">
     <h3

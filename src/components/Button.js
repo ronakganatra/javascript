@@ -37,16 +37,19 @@ export const GreenButton = styled( Button )`
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	height: 40px;
 	margin: 0;
 `;
 
 TextButton.PropTypes = {
 	buttonWidth: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 TextButton.defaultProps = {
 	buttonWidth: "auto",
+	enabledStyle: true,
 };
 
 export const LogoutButton = styled( Button )`

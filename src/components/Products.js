@@ -8,6 +8,7 @@ const ProductsContainer = styled.div`
 	display: flex;
 	background-color: ${ colors.$color_white };
 	padding: 0 24px 24px 24px;
+	margin: 0 0 0 8px;
 	flex-wrap: wrap;
 	width: 100%;
 	align-items: flex-start;
@@ -16,7 +17,7 @@ const ProductsContainer = styled.div`
 const ProductsListHeading = styled( ListHeading )`
 	width: calc( 100% - 16px );
 	font-size: 22px;
-	margin: 0 0 24px 8px;
+	margin: 0 0 24px 0px;
 	padding: 0 0 24px 0;
 `;
 
@@ -36,6 +37,7 @@ export default class Products extends React.Component {
 					{ props.heading }
 					{ props.byLine }
 				</ProductsListHeading>
+					{ props.noResults }
 					{ props.products.map( function( product ) {
 						return <Product
 							key={ product.id }
@@ -53,8 +55,10 @@ export default class Products extends React.Component {
 Products.propTypes = {
 	byLine: React.PropTypes.element,
 	heading: React.PropTypes.string.isRequired,
+	noResults: React.PropTypes.string,
 };
 
 Products.defaultProps = {
 	byLine: null,
+	noResults: "",
 };
