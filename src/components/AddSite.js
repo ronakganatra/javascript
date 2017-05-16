@@ -49,8 +49,14 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
+	flex: 1 0 200px;
+	padding: 5px 0;
 	text-align: right;
-	flex: 200px 1 0;
+
+	a,
+	button {
+		margin-left: 10px;
+	}
 `;
 
 const ErrorButtonZone = styled.div`
