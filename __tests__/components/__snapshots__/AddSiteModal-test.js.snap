@@ -1,12 +1,12 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
-    className="cnKpHY my-yoast-modal__content"
+    className="dNKvox my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cnKpHY my-yoast-modal__overlay"
+    overlayClassName="dNKvox my-yoast-modal__overlay"
     role="dialog">
     <div
       className="dlIyNb">
@@ -27,14 +27,14 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="fZParA"
+        className="dOTZmQ"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="kgoxYr">
+        className="jRbKIE">
         <div
           className="dulcjS">
           <button
@@ -67,12 +67,12 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
 exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
-    className="cnKpHY my-yoast-modal__content"
+    className="dNKvox my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cnKpHY my-yoast-modal__overlay"
+    overlayClassName="dNKvox my-yoast-modal__overlay"
     role="dialog">
     <div
       className="dlIyNb">
@@ -93,14 +93,14 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="fZParA"
+        className="dOTZmQ"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="kgoxYr">
+        className="jRbKIE">
         <div
           className="dulcjS">
           <button
@@ -133,12 +133,12 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
 exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
-    className="cnKpHY my-yoast-modal__content"
+    className="dNKvox my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cnKpHY my-yoast-modal__overlay"
+    overlayClassName="dNKvox my-yoast-modal__overlay"
     role="dialog">
     <div
       className="dlIyNb">
@@ -159,14 +159,14 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="fZParA"
+        className="dOTZmQ"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="kgoxYr">
+        className="jRbKIE">
         <div
           className="dulcjS">
           <button
@@ -199,12 +199,12 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 exports[`test the addSiteModal handling an onLink event 1`] = `
 <div>
   <div
-    className="cnKpHY my-yoast-modal__content"
+    className="dNKvox my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cnKpHY my-yoast-modal__overlay"
+    overlayClassName="dNKvox my-yoast-modal__overlay"
     role="dialog">
     <div
       className="dlIyNb">
@@ -225,14 +225,14 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="fZParA"
+        className="dOTZmQ"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="kgoxYr">
+        className="jRbKIE">
         <div
           className="dulcjS">
           <button
@@ -265,12 +265,12 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
 exports[`test the addSiteModal handling an onLink event 2`] = `
 <div>
   <div
-    className="cnKpHY my-yoast-modal__content"
+    className="dNKvox my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="cnKpHY my-yoast-modal__overlay"
+    overlayClassName="dNKvox my-yoast-modal__overlay"
     role="dialog">
     <div
       className="dlIyNb">
@@ -291,14 +291,14 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="fZParA"
+        className="dOTZmQ"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="kgoxYr">
+        className="jRbKIE">
         <div
           className="dulcjS">
           <button

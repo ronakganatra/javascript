@@ -18,14 +18,14 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="fZParA"
+    className="dOTZmQ"
     defaultValue=""
     id="addSiteInputField"
     onChange={[Function]}
     placeholder="https://example-site.com"
     type="url" />
   <div
-    className="kgoxYr">
+    className="jRbKIE">
     <div
       className="dulcjS">
       <button

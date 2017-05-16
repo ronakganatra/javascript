@@ -44,8 +44,9 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	height: 60px;
 	box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${ colors.$color_grey };
-	text-indent: 10px;
+	padding: 0 0 0 10px;
 	font-size: 0.8em;
+	border: 0;
 ` );
 
 const Buttons = styled.div`
@@ -54,16 +55,16 @@ const Buttons = styled.div`
 `;
 
 const ErrorButtonZone = styled.div`
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   width: 100%;
-   flex-direction: row;
-   -webkit-justify-content: space-between;
-   justify-content: space-between;
-   
-   @media screen and ( max-width: 800px ) {
-   	  display: block;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	width: 100%;
+	flex-direction: row;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+
+	@media screen and ( max-width: 800px ) {
+		display: block;
    }
 `;
 
