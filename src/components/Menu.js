@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { NavLink, Route } from "react-router-dom";
+import { NavLink, Route, Switch } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import SitesPageContainer from "../containers/SitesPage";
+import SitePageContainer from "../containers/SitePage";
+import SubscriptionPageContainer from "../containers/SubscriptionPage";
+import PageNotFound from "./PageNotFound";
 
 const titles = defineMessages( {
 	sites: {
@@ -219,7 +223,10 @@ MainMenu.propTypes = {
  */
 export function MainMenuRoutes( props ) {
 	return (
-		<div>
+		<Switch>
+			<Route exact path="/" component={ SitesPageContainer } />
+			<Route path="/sites/:id" component={ SitePageContainer } />
+			<Route path="/account/subscriptions/:id" component={ SubscriptionPageContainer } />
 			{ props.menuRoutes.map( function( route, routeKey ) {
 				let config = Object.assign( {
 					exact: true,
@@ -228,7 +235,8 @@ export function MainMenuRoutes( props ) {
 				return <Route {...config} key={ routeKey } path={ route.path } component={ route.component }/>;
 			} )
 			}
-		</div>
+			<Route path="*" component={ PageNotFound } />
+		</Switch>
 	);
 }
 
