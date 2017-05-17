@@ -71,11 +71,11 @@ function Subscription( props ) {
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
-				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
 			</ColumnFixedWidth>

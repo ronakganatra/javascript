@@ -20,11 +20,11 @@ const CollapsibleHeader = styled.button`
 	cursor: pointer;
 	text-align: left;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 16px 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding: 16px 18px;
 	}
 
@@ -38,7 +38,7 @@ const CollapsibleHeader = styled.button`
 		min-width: 40px;
 		align-self: center;
 
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			min-width: 0;
 		}
 	}

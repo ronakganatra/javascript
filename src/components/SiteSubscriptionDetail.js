@@ -17,7 +17,7 @@ const SubscriptionLogo = styled.img`
 	height: 66px;
 	vertical-align: middle;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
 	}
 `;
@@ -27,11 +27,11 @@ const SubscriptionToggle = styled.span`
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		margin-right: 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		margin-right: 0;
 	}
 `;
@@ -43,7 +43,7 @@ const ProductName = styled.span`
 	white-space: nowrap;
 	display: block;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		white-space: normal;
 	}
 `;

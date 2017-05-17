@@ -9,7 +9,7 @@ const SubscriptionHeaderContainer = styled.div`
 	background-color: ${ colors.$palette_pink_dark }
 	display: flex;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		min-height: 0;
 	}
 `;
@@ -21,7 +21,7 @@ const HeaderContext = styled.div`
 	justify-content: space-between;
 	flex-direction: column;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding: 0.5em 1em 1em;
 	}
 `;
@@ -50,7 +50,7 @@ const HeaderImageContainer = styled.div`
 	width: 180px;
 	display: block;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
 	}
 `;
@@ -69,7 +69,7 @@ const HeaderDescription = styled.p`
 	font-weight: 200;
 	letter-spacing: 0.05em;
 	color: ${ colors.$color_white };
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
 	}
 `;

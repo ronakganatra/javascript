@@ -34,11 +34,11 @@ export const Row = styled.li`
 		margin-top: ${ props => props.hasHeaderLabels ? "60px" : "0" };
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 26px 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding: 16px 18px;
 	}
 `;
@@ -59,7 +59,7 @@ Row.defaultProps = {
  * column content.
  */
 export const RowResponsive = styled( Row )`
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		flex-wrap: wrap;
 		align-items: flex-start;
 
@@ -104,12 +104,12 @@ export const Column = styled.span`
 
 	${ props => props.ellipsis ? ellipsify() : "" }
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding-left: 20px;
 		${ props => props.hideOnTablet ? "display: none;" : "" }
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		${ props => props.hideOnMobile ? "display: none;" : "" }
 	}
 `;
@@ -137,7 +137,7 @@ Column.defaultProps = {
 export const ColumnPrimary = styled( Column )`
 	flex: 1 0 200px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		flex-shrink: 1;
 	}
 `;
@@ -166,7 +166,7 @@ export const ColumnMinWidth = styled( Column )`
 export const ColumnIcon = styled( ColumnFixedWidth )`
 	height: 60px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		height: 48px;
 	}
 `;
@@ -187,13 +187,13 @@ export function separatify() {
 			content: "";
 		}
 
-		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 			&::after {
 				padding-right: 24px;
 			}
 		}
 
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			&::after {
 				height: 48px;
 				padding-right: 18px;
@@ -216,14 +216,14 @@ export function ellipsify() {
 }
 
 /**
- * Makes an element full-width in the small responsive view.
+ * Makes an element full-width in the mobile responsive view.
  *
  * @param {ReactElement} component The original element.
  * @returns {ReactElement} The element with full width responsive style.
  */
 export function makeFullWidth( component ) {
 	return styled( component )`
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			min-width: 100%;
 			margin-top: 1em;
 			padding: 0;

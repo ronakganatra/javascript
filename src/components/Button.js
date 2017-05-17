@@ -185,7 +185,7 @@ export function disable( Button ) {
 }
 
 /**
- * Makes a button full width in the small responsive view.
+ * Makes a button full width in the mobile responsive view.
  *
  * @param {ReactElement} component The original button.
  * @returns {ReactElement} The button with full width responsive style.
@@ -193,11 +193,11 @@ export function disable( Button ) {
 export function makeButtonFullWidth( component ) {
 	return styled( component )`
 		// Take into account buttons with icons and preserve other buttons that have their own min-width.
-		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 			${ props => props.iconSource ? "padding: 0 20px; min-width: 64px;" : "" }
 		}
 
-		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			width: 100%;
 			margin: 0;
 			padding: 0 15px;

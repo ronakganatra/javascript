@@ -1,8 +1,8 @@
 {
   "css": {
     "breakpoint": {
-      "medium": 1355,
-      "small": 800
+      "tablet": 1355,
+      "mobile": 800
     }
   }
 }

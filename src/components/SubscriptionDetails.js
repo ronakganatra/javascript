@@ -66,7 +66,7 @@ const SubscriptionDetailsContainer = styled.div`
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
 
-	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet }px ) {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -74,11 +74,11 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc( 50% - 10px );
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: 100%;
 	}
 `;

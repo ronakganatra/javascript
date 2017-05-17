@@ -9,11 +9,11 @@ export const ListHeading = styled.h2`
 	margin: 0;
 	border-bottom: 1px solid ${ colors.$color_grey_medium };
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 20px 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding: 20px 18px;
 	}
 `;

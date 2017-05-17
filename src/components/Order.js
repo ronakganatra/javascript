@@ -85,13 +85,13 @@ function Order( props ) {
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }>
-					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` } component="span">
+					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` } component="span">
 						{ invoiceMessage }
 					</MediaQuery>
-					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.small + 1 }px) and (max-width: ${ defaults.css.breakpoint.medium }px)` }>
+					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 						<span className="screen-reader-text">{ invoiceMessage }</span>
 					</MediaQuery>
-					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.small }px)` } component="span">
+					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.mobile }px)` } component="span">
 						{ invoiceMessage }
 					</MediaQuery>
 				</ResponsiveInvoiceButton>

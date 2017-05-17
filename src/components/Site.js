@@ -60,11 +60,11 @@ function Site( props ) {
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
 			</ColumnSubscriptions>
 			<Column>
-				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.medium + 1 }px)` }>
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.medium }px)` }>
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								   onClick={ props.onClickManage } />
 				</MediaQuery>

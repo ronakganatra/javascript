@@ -67,7 +67,7 @@ const Page = styled.div`
 	display: flex;
 	justify-content: space-between;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: block;
 	}
 `;

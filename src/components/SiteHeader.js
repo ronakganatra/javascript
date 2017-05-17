@@ -23,11 +23,11 @@ const SiteHeaderContainer = styled.div`
 	margin: 0 auto;
 	padding: 0 32px 24px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 0 24px 26px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		height: auto;
 		min-height: 144px;
 		padding: 0 18px 16px;
@@ -50,7 +50,7 @@ const SiteHeaderSitename = styled.h1`
 	// Firefox needs this for break word to work inside flex items.
 	min-width: 0;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		text-align: center;
 	}
 `;
