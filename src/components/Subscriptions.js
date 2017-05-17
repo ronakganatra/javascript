@@ -11,7 +11,6 @@ import Paper from "./Paper";
  * @returns {ReactElement} The rendered component.
  */
 export default function Subscriptions( props ) {
-	console.log( "ActiveSubscriptions", props.activeSubscriptions );
 	return (
 	<Paper>
 		<ListTable>
