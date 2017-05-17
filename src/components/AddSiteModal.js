@@ -128,9 +128,6 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		animation-play-state: running;
 		animation-name: ${ fadeModalIn };
 
-		@media screen and ( max-width: 800px ) {
-		}
-
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
 		}
