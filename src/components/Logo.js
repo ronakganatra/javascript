@@ -11,7 +11,7 @@ import logo from "../images/logo.svg";
  */
 export function Logo( props ) {
 	return (
-		<LogoImage src={ logo } size={ props.size } alt={ props.alt }/>
+		<a href="/"> <LogoImage src={ logo } size={ props.size } alt={ props.alt }  /> </a>
 	);
 }
 
