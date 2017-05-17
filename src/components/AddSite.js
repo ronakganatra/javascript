@@ -283,7 +283,7 @@ class AddSite extends React.Component {
 						<TextButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</TextButton>
-						<ConnectButton type="button" onClick={ this.urlValidity ? this.props.onLinkClick : () => {
+						<ConnectButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
 						} } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</ConnectButton>
@@ -300,7 +300,7 @@ AddSite.propTypes = {
 	intl: intlShape.isRequired,
 	linkingSiteUrl: React.PropTypes.string.isRequired,
 	onCancelClick: React.PropTypes.func.isRequired,
-	onLinkClick: React.PropTypes.func.isRequired,
+	onConnectClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	query: React.PropTypes.string.isRequired,

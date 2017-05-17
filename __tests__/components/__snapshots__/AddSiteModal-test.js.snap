@@ -202,7 +202,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 </div>
 `;
 
-exports[`test the addSiteModal handling an onLink event 1`] = `
+exports[`test the addSiteModal handling an onConnect event 1`] = `
 <div>
   <div
     className="hBejNq my-yoast-modal__content"
@@ -270,7 +270,7 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
 </div>
 `;
 
-exports[`test the addSiteModal handling an onLink event 2`] = `
+exports[`test the addSiteModal handling an onConnect event 2`] = `
 <div>
   <div
     className="hBejNq my-yoast-modal__content"

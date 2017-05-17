@@ -40,7 +40,7 @@ class BaseAddSiteModal extends React.Component {
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
 					<AddSite
-						onLinkClick={ this.props.onLink }
+						onConnectClick={ this.props.onConnect }
 						onCancelClick={ this.props.onClose }
 						onChange={ this.props.onChange }
 						errorFound={ this.props.errorFound }
@@ -59,7 +59,7 @@ BaseAddSiteModal.propTypes = {
 	intl: intlShape.isRequired,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onLink: React.PropTypes.func.isRequired,
+	onConnect: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
