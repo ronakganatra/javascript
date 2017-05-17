@@ -19,15 +19,16 @@ let buttonAnimations = `
 `;
 
 export const Button = styled.button`
-	height: 46px;
-	padding: 12px 16px;
+	height: 48px;
+	margin: 0;
+	// Buttons don't need vertical padding.
+	padding: 0 16px;
 	border: 0;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-	font-size: 14px;
-	font-family: "Open Sans", sans-serif;
+	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	cursor: pointer;
 
@@ -46,14 +47,13 @@ Button.defaultProps = {
 };
 
 export const LargeButton = styled( Button )`
-	min-width: 150px;
+	min-width: 152px;
 `;
 
 export const GreenButton = styled( Button )``;
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	margin: 0;
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 `;
 
@@ -77,10 +77,9 @@ export const LogoutButton = styled( Button )`
 export const IconButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 20px 50%;
+	background-position: 16px 50%;
 	background-size: ${ props => props.iconSize };
-	margin: 0;
-	padding: 0 20px 0 64px;
+	padding-left: 56px;
 `;
 
 IconButton.PropTypes = {
@@ -103,15 +102,14 @@ export const RedButton = styled( LargeButton )`
 
 export const ButtonLink = styled( Link )`
 	display: inline-block;
-	height: 46px;
+	height: 48px;
 	padding: 12px 16px;
-	margin: 0;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
-	font-size: 14px;
-	font-family: "Open Sans", sans-serif;
+	// line height 24 + padding 12 + 12 = 48
+	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
@@ -124,7 +122,7 @@ ButtonLink.PropTypes = {
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
-	min-width: 150px;
+	min-width: 152px;
 `;
 
 export const TextButtonLink = styled( ButtonLink )`
@@ -142,9 +140,10 @@ TextButtonLink.defaultProps = {
 export const IconButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 20px 50%;
+	background-position: 16px 50%;
 	background-size: 24px;
-	padding: 0 20px 0 64px;
+	// 8px grid: 16 left background position + 24 icon size + 16 = 56
+	padding-left: 56px;
 `;
 
 IconButtonLink.PropTypes = {
@@ -192,16 +191,32 @@ export function disable( Button ) {
  */
 export function makeButtonFullWidth( component ) {
 	return styled( component )`
-		// Take into account buttons with icons and preserve other buttons that have their own min-width.
-		@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
-			${ props => props.iconSource ? "padding: 0 20px; min-width: 64px;" : "" }
-		}
-
 		@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
 			width: 100%;
-			margin: 0;
-			padding: 0 15px;
 			background-image: none;
+			padding: 12px 16px;
+		}
+	`;
+}
+
+/**
+ * Makes an icon button display only the icon in the intermdiate responsive view.
+ *
+ * @param {ReactElement} component The original button.
+ * @returns {ReactElement} The button with icon only.
+ */
+export function makeResponsiveIconButton( component ) {
+	return styled( component )`
+		.screen-reader-text {
+			position: static;
+		}
+
+		@media screen and (min-width: ${ defaults.css.breakpoint.small + 1 }px) and (max-width: ${ defaults.css.breakpoint.medium }px) {
+			padding-right: 0;
+
+			.screen-reader-text {
+				position: absolute;
+			}
 		}
 	`;
 }
