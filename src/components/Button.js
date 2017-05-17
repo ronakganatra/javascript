@@ -18,7 +18,7 @@ let buttonAnimations = `
 `;
 
 export const Button = styled.button`
-	height: 46px;
+	height: 48px;
 	padding: 12px 16px;
 	border: 0;
 	background-color: ${ colors.$color_green_medium_light };
@@ -48,10 +48,8 @@ export const LargeButton = styled( Button )`
 	min-width: 150px;
 `;
 
-export const GreenButton = styled( Button )``;
-
 export const TextButton = styled( Button )`
-	width: ${ props => props.buttonWidth };
+	min-width: 150px;
 	margin: 4px 0 4px 12px;
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 `;
@@ -102,7 +100,7 @@ export const RedButton = styled( LargeButton )`
 
 export const ButtonLink = styled( Link )`
 	display: inline-block;
-	height: 46px;
+	height: 48px;
 	padding: 12px 16px;
 	margin: 4px 0px 4px 12px;
 	background-color: ${ colors.$color_green_medium_light };
@@ -114,6 +112,7 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
+	min-width: 150px;
 
 	${ buttonAnimations }
 `;
@@ -123,7 +122,6 @@ ButtonLink.PropTypes = {
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
-	min-width: 150px;
 `;
 
 export const TextButtonLink = styled( ButtonLink )`

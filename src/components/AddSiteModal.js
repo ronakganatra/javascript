@@ -114,7 +114,7 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 12px 12px 0;
+		padding: 1em 1.5em 0;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;

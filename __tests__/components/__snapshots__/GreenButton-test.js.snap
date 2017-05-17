@@ -1,7 +1,0 @@
-exports[`test the green button matches the snapshot 1`] = `
-<button
-  className="gSTevm"
-  type="button">
-  ButtonValue
-</button>
-`;

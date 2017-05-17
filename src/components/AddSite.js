@@ -19,7 +19,7 @@ const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 1em;
 `;
 
 const AddSiteImage = styled.img`
@@ -37,35 +37,40 @@ const AddSiteHeading = styled.h1`
 const AddSiteText = styled.p`
 	font-weight: 300;
 	font-size: 1em;
+	margin: 16px 0 8px 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
-	height: 60px;
+	height: 48px;
 	box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${ colors.$color_grey };
 	padding: 0 0 0 10px;
-	font-size: 0.8em;
+	font-size: 1em;
 	border: 0;
 ` );
 
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
+
+	@media screen and ( max-width: 415px ) {
+		text-align: center;
+   }
 `;
 
 const ErrorButtonZone = styled.div`
 	display: -webkit-flex;
 	display: flex;
 	-webkit-flex-direction: row;
-	width: 100%;
 	flex-direction: row;
 	-webkit-justify-content: space-between;
 	justify-content: space-between;
+	margin: 16px 0 24px 0;
 
 	@media screen and ( max-width: 800px ) {
 		display: block;
-   }
+	}
 `;
 
 const YellowWarning = styled.p`
@@ -94,13 +99,14 @@ const NoActiveProductIcon = styled.img`
 `;
 
 const WarningText = styled.span`
-	font-size: 0.8em;
+	font-size: 1em;
 `;
 
 const ValidationText = styled.div`
-	font-size: 0.8em;
+	font-size: 1em;
 	color: red;
 	margin: 1em 0;
+	visibility: ${ props => props.hide ? "hidden" : "visible" };
 `;
 
 const PurpleLink = styled.a`
@@ -118,7 +124,7 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.linkEnabled = true;
+		this.urlValidity = false;
 
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
@@ -149,27 +155,32 @@ class AddSite extends React.Component {
 		this.props.onChange( event.target.value );
 	}
 
-	/**
-	 * Checks whether an URL was entered.
-	 *
-	 * @param {string} input The string in the input field.
-	 * @returns {null} Returns either null or an error message JSX.
-	 */
-	urlValidityMessage( input = "" ) {
-		this.linkEnabled = true;
+	validateUrl( input = "" ) {
+		this.urlValidity = true;
 
 		if ( input === "" ) {
-			this.linkEnabled = false;
-			return null;
+			this.urlValidity = false;
 		}
 
 		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
-			this.linkEnabled = false;
+			this.urlValidity = false;
+		}
+	}
 
+	/**
+	 * Checks whether an URL was entered.
+	 *
+	 * @param {string} input The string in the input field.
+	 * @returns {ReactElement} Returns either null or an error message JSX.
+	 */
+	urlValidityMessage( input = "" ) {
+		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
+
+		if ( ! this.urlValidity && input !== "" ) {
 			return (
-				<ValidationText id="url_reminder">
+				<ValidationText id="url_reminder" hide={ false }>
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
 						defaultMessage={ "{ validationMessage }" }
@@ -178,6 +189,15 @@ class AddSite extends React.Component {
 				</ValidationText>
 			);
 		}
+
+		return (
+			<ValidationText id="possible_warning_area" hide={ true } >
+				<FormattedMessage
+					id="sites.add-site.url-validation-message-area"
+					defaultMessage={ "." }
+				/>
+			</ValidationText>
+		);
 	}
 
 	/**
@@ -244,18 +264,19 @@ class AddSite extends React.Component {
 					onChange={ this.onWebsiteURLChange.bind( this ) }
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+				{ this.validateUrl( this.props.linkingSiteUrl ) }
 				<ErrorButtonZone>
-					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<Buttons>
-						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={ "100px" }>
+						<TextButton id="cancelButton" type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</TextButton>
-						<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {
-						} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled }>
-							<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
+						<TextButton id="connectButton" type="button" onClick={ this.urlValidity ? this.props.onLinkClick : () => {
+						} } enabledStyle={ this.urlValidity }>
+							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</TextButton>
 					</Buttons>
 				</ErrorButtonZone>
+				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);

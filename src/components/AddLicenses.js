@@ -24,6 +24,7 @@ const AddLicensesText = styled.p`
 const Buttons = styled.div`
 	float: right;
 	margin-bottom: 1.5em;
+	font-weight: normal;
 `;
 
 /**
@@ -48,7 +49,7 @@ export default function AddLicenses( props ) {
 					</label>
 				</AddLicensesText>
 				<Buttons>
-					<TextButton type="button" onClick={ props.onClose } buttonWidth={"100px"}>
+					<TextButton type="button" onClick={ props.onClose } >
 						<FormattedMessage id="subscriptions.upgrade-subscription.cancel" defaultMessage="cancel" />
 					</TextButton>
 

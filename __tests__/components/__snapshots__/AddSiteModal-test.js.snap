@@ -1,15 +1,15 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
-    className="dNKvox my-yoast-modal__content"
+    className="hBejNq my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="dNKvox my-yoast-modal__overlay"
+    overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="dlIyNb">
+      className="hfMDPK">
       <h1
         className="dQgKWp">
         <span>
@@ -17,7 +17,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         </span>
       </h1>
       <p
-        className="glrMsz">
+        className="hUuGBg">
         <label
           htmlFor="addSiteInputField">
           <span>
@@ -27,18 +27,19 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="dOTZmQ"
+        className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jRbKIE">
+        className="gCxKqx">
         <div
-          className="dulcjS">
+          className="bJLOdJ">
           <button
-            className="gizGfh"
+            className="cAeNWO"
+            id="cancelButton"
             onClick={[Function]}
             type="button">
             <span>
@@ -46,14 +47,22 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="hOwTLM"
+            className="kYSsZd"
+            id="connectButton"
             onClick={[Function]}
             type="button">
             <span>
-              link
+              connect
             </span>
           </button>
         </div>
+      </div>
+      <div
+        className="kgmozi"
+        id="possible_warning_area">
+        <span>
+          .
+        </span>
       </div>
       <img
         alt=""
@@ -67,15 +76,15 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
 exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
-    className="dNKvox my-yoast-modal__content"
+    className="hBejNq my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="dNKvox my-yoast-modal__overlay"
+    overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="dlIyNb">
+      className="hfMDPK">
       <h1
         className="dQgKWp">
         <span>
@@ -83,7 +92,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         </span>
       </h1>
       <p
-        className="glrMsz">
+        className="hUuGBg">
         <label
           htmlFor="addSiteInputField">
           <span>
@@ -93,18 +102,19 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="dOTZmQ"
+        className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jRbKIE">
+        className="gCxKqx">
         <div
-          className="dulcjS">
+          className="bJLOdJ">
           <button
-            className="gizGfh"
+            className="cAeNWO"
+            id="cancelButton"
             onClick={[Function]}
             type="button">
             <span>
@@ -112,14 +122,22 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="hOwTLM"
+            className="kYSsZd"
+            id="connectButton"
             onClick={[Function]}
             type="button">
             <span>
-              link
+              connect
             </span>
           </button>
         </div>
+      </div>
+      <div
+        className="kgmozi"
+        id="possible_warning_area">
+        <span>
+          .
+        </span>
       </div>
       <img
         alt=""
@@ -133,15 +151,15 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
 exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
-    className="dNKvox my-yoast-modal__content"
+    className="hBejNq my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="dNKvox my-yoast-modal__overlay"
+    overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="dlIyNb">
+      className="hfMDPK">
       <h1
         className="dQgKWp">
         <span>
@@ -149,7 +167,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         </span>
       </h1>
       <p
-        className="glrMsz">
+        className="hUuGBg">
         <label
           htmlFor="addSiteInputField">
           <span>
@@ -159,18 +177,19 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="dOTZmQ"
+        className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jRbKIE">
+        className="gCxKqx">
         <div
-          className="dulcjS">
+          className="bJLOdJ">
           <button
-            className="gizGfh"
+            className="cAeNWO"
+            id="cancelButton"
             onClick={[Function]}
             type="button">
             <span>
@@ -178,14 +197,22 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="hOwTLM"
+            className="kYSsZd"
+            id="connectButton"
             onClick={[Function]}
             type="button">
             <span>
-              link
+              connect
             </span>
           </button>
         </div>
+      </div>
+      <div
+        className="kgmozi"
+        id="possible_warning_area">
+        <span>
+          .
+        </span>
       </div>
       <img
         alt=""
@@ -199,15 +226,15 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 exports[`test the addSiteModal handling an onLink event 1`] = `
 <div>
   <div
-    className="dNKvox my-yoast-modal__content"
+    className="hBejNq my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="dNKvox my-yoast-modal__overlay"
+    overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="dlIyNb">
+      className="hfMDPK">
       <h1
         className="dQgKWp">
         <span>
@@ -215,7 +242,7 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         </span>
       </h1>
       <p
-        className="glrMsz">
+        className="hUuGBg">
         <label
           htmlFor="addSiteInputField">
           <span>
@@ -225,18 +252,19 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="dOTZmQ"
+        className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jRbKIE">
+        className="gCxKqx">
         <div
-          className="dulcjS">
+          className="bJLOdJ">
           <button
-            className="gizGfh"
+            className="cAeNWO"
+            id="cancelButton"
             onClick={[Function]}
             type="button">
             <span>
@@ -244,14 +272,22 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
             </span>
           </button>
           <button
-            className="hOwTLM"
+            className="kYSsZd"
+            id="connectButton"
             onClick={[Function]}
             type="button">
             <span>
-              link
+              connect
             </span>
           </button>
         </div>
+      </div>
+      <div
+        className="kgmozi"
+        id="possible_warning_area">
+        <span>
+          .
+        </span>
       </div>
       <img
         alt=""
@@ -265,15 +301,15 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
 exports[`test the addSiteModal handling an onLink event 2`] = `
 <div>
   <div
-    className="dNKvox my-yoast-modal__content"
+    className="hBejNq my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="dNKvox my-yoast-modal__overlay"
+    overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="dlIyNb">
+      className="hfMDPK">
       <h1
         className="dQgKWp">
         <span>
@@ -281,7 +317,7 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         </span>
       </h1>
       <p
-        className="glrMsz">
+        className="hUuGBg">
         <label
           htmlFor="addSiteInputField">
           <span>
@@ -291,18 +327,19 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
       </p>
       <input
         aria-describedby="addSiteInfo"
-        className="dOTZmQ"
+        className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
         onChange={[Function]}
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="jRbKIE">
+        className="gCxKqx">
         <div
-          className="dulcjS">
+          className="bJLOdJ">
           <button
-            className="gizGfh"
+            className="cAeNWO"
+            id="cancelButton"
             onClick={[Function]}
             type="button">
             <span>
@@ -310,14 +347,22 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
             </span>
           </button>
           <button
-            className="hOwTLM"
+            className="kYSsZd"
+            id="connectButton"
             onClick={[Function]}
             type="button">
             <span>
-              link
+              connect
             </span>
           </button>
         </div>
+      </div>
+      <div
+        className="kgmozi"
+        id="possible_warning_area">
+        <span>
+          .
+        </span>
       </div>
       <img
         alt=""
