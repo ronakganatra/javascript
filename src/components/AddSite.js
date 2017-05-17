@@ -53,10 +53,28 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+	-webkit-justify-content: flex-end;
+	justify-content: flex-end;
 
 	@media screen and ( max-width: 415px ) {
-		text-align: center;
-   }
+		display: flex;
+		-webkit-flex-direction: column
+		flex-direction: column;
+		-webkit-align-items: center;
+		align-items: center;
+		-webkit-justify-content: center;
+		justify-content: center;
+	}
+`;
+
+const ConnectButton = styled( TextButton )`
+	@media screen and ( max-width: 415px ) {
+		order: -1;
+	}
 `;
 
 const ErrorButtonZone = styled.div`
@@ -106,7 +124,7 @@ const ValidationText = styled.div`
 	font-size: 1em;
 	color: red;
 	margin: 1em 0;
-	visibility: ${ props => props.hide ? "hidden" : "visible" };
+	min-height: 1.8em;
 `;
 
 const PurpleLink = styled.a`
@@ -173,14 +191,14 @@ class AddSite extends React.Component {
 	 * Checks whether an URL was entered.
 	 *
 	 * @param {string} input The string in the input field.
-	 * @returns {ReactElement} Returns either null or an error message JSX.
+	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
 	 */
 	urlValidityMessage( input = "" ) {
 		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( ! this.urlValidity && input !== "" ) {
 			return (
-				<ValidationText id="url_reminder" hide={ false }>
+				<ValidationText id="url_reminder">
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
 						defaultMessage={ "{ validationMessage }" }
@@ -191,12 +209,7 @@ class AddSite extends React.Component {
 		}
 
 		return (
-			<ValidationText id="possible_warning_area" hide={ true } >
-				<FormattedMessage
-					id="sites.add-site.url-validation-message-area"
-					defaultMessage={ "." }
-				/>
-			</ValidationText>
+			<ValidationText />
 		);
 	}
 
@@ -267,13 +280,13 @@ class AddSite extends React.Component {
 				{ this.validateUrl( this.props.linkingSiteUrl ) }
 				<ErrorButtonZone>
 					<Buttons>
-						<TextButton id="cancelButton" type="button" onClick={ this.props.onCancelClick } >
+						<TextButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</TextButton>
-						<TextButton id="connectButton" type="button" onClick={ this.urlValidity ? this.props.onLinkClick : () => {
+						<ConnectButton type="button" onClick={ this.urlValidity ? this.props.onLinkClick : () => {
 						} } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
-						</TextButton>
+						</ConnectButton>
 					</Buttons>
 				</ErrorButtonZone>
 				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
