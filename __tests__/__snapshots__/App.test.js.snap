@@ -6,14 +6,13 @@ exports[`test renders without crashing 1`] = `
     <header
       role="banner">
       <a
-        href="/">
-         
+        href="/"
+        onClick={[Function]}>
         <img
-          alt="My Yoast"
+          alt="Home page"
           className="jEhkge"
           size="200px"
           src="logo.svg" />
-         
       </a>
     </header>
     <aside
