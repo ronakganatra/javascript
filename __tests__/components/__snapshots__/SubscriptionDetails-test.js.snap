@@ -56,7 +56,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="ftKZCz">
           <button
-            className="cFGXds"
+            className="gCYCVO"
             onClick={[Function]}
             type="button">
             Add site
@@ -73,7 +73,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="ftKZCz">
           <a
             aria-label="Shop"
-            className="GAdsD"
+            className="eRLPss"
             href="/"
             onClick={[Function]}>
             Shop
@@ -89,7 +89,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="ftKZCz">
           <button
-            className="dIwcJP"
+            className="qbTWO"
             onClick={[Function]}
             type="button">
             Cancel
@@ -122,7 +122,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="eYQFHK">
           <a
-            className="eHcUbq"
+            className="cxCufn"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
@@ -146,7 +146,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="eYQFHK">
           <a
-            className="eHcUbq"
+            className="cxCufn"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"

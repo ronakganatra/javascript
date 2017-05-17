@@ -29,7 +29,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     <div
       className="dptjfs">
       <button
-        className="byGGvA"
+        className="iCxCzn"
         onClick={[Function]}
         type="button">
         <span>
@@ -37,7 +37,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        className="justtH"
+        className="iqDKhg"
         onClick={[Function]}
         type="button">
         <span>
