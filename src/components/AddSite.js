@@ -43,9 +43,10 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
 	height: 60px;
 	box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
-	background: ${ colors.$color_grey };
+	background: ${ colors.$palette_grey_light };
 	text-indent: 10px;
 	font-size: 0.8em;
+	border:none;
 ` );
 
 const Buttons = styled.div`
