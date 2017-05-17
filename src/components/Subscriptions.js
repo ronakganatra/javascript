@@ -3,7 +3,6 @@ import Subscription from "./Subscription";
 import { ListTable } from "./Tables";
 import Paper from "./Paper";
 
-
 /**
  *
  * @param {Object} props The props to use
@@ -37,7 +36,7 @@ export default function Subscriptions( props ) {
 }
 
 Subscriptions.propTypes = {
-	subscriptions: React.PropTypes.arrayOf(
+	activeSubscriptions: React.PropTypes.arrayOf(
 		React.PropTypes.shape(
 			{
 				id: React.PropTypes.string.isRequired,
@@ -48,9 +47,9 @@ Subscriptions.propTypes = {
 				nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: React.PropTypes.number.isRequired,
 				billingCurrency: React.PropTypes.string.isRequired,
+				status: React.PropTypes.string.isRequired,
 			}
 		)
 	),
-	activeSubscriptions: React.PropTypes.array,
 	onManage: React.PropTypes.func.isRequired,
 };
