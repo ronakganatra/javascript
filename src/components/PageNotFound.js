@@ -82,10 +82,6 @@ class PageNotFound extends React.Component {
 			</p>
 			<img src={ pageNotFoundImage } alt="" />
 		</PageContainer>
-
-			// <LandingPage imageSource={ pageNotFoundImage }
-			// 			 paragraphs={ paragraphs }
-			// />
 		);
 	}
 }
