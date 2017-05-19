@@ -19,10 +19,12 @@ test( "The Orders component matches the snapshot", () => {
 				{
 					id: "line-item-id1",
 					productName: "Name of the product",
+					productAmount: 1,
 				},
 				{
 					id: "line-item-id2",
 					productName: "Another product",
+					productAmount: 2,
 				},
 			],
 			total: 10010,

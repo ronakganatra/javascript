@@ -49,11 +49,15 @@ exports[`test The Orders component matches the snapshot 1`] = `
              
             <div>
                
+              1
+              x 
               Name of the product
                
             </div>
             <div>
                
+              2
+              x 
               Another product
                
             </div>

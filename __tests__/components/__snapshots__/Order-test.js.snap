@@ -17,11 +17,15 @@ exports[`test A standard order 1`] = `
        
       <div>
          
+        1
+        x 
         Name of the product
          
       </div>
       <div>
          
+        2
+        x 
         Another product
          
       </div>
@@ -69,11 +73,15 @@ exports[`test An Order with a disabled invoice button 1`] = `
        
       <div>
          
+        1
+        x 
         Name of the product
          
       </div>
       <div>
          
+        2
+        x 
         Another product
          
       </div>
