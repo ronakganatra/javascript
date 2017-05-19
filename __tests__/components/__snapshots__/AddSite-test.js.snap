@@ -18,7 +18,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="bTPgEV"
+    className="fZParA"
     defaultValue=""
     id="addSiteInputField"
     onChange={[Function]}
