@@ -43,7 +43,7 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
 	height: 60px;
 	box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
-	background: ${ colors.$palette_grey };
+	background: ${ colors.$color_grey };
 	text-indent: 10px;
 	font-size: 0.8em;
 ` );
