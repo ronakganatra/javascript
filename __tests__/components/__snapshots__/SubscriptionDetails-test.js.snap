@@ -1,36 +1,36 @@
 exports[`test the subscription detail component matches the snapshot 1`] = `
 <div
-  className="jOBfLO">
+  className="kiDHR">
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Payment details
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="ldfDUe">
+        className="edtPkR">
         <span
-          className="eMrAqV">
+          className="fRQKF">
           Start date
         </span>
         <span
-          className="eMrAqV">
+          className="kvzzCK">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="hjwORc">
+        className="dpgevR">
         <span
-          className="eMrAqV">
+          className="fRQKF">
           Next billing
         </span>
         <span
-          className="eMrAqV">
+          className="kvzzCK">
           <span>
             June 01, 2018
           </span>
@@ -39,24 +39,24 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Subscription details
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="fbIbuP">
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="ftKZCz">
+          className="eYQFHK">
           <button
-            className="cFGXds"
+            className="jZxTNk"
             onClick={[Function]}
             type="button">
             Add site
@@ -64,16 +64,16 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="cxOSVY">
+        className="caAtBd">
         <span
           className="fbIbuP">
           Change subscription level
         </span>
         <span
-          className="ftKZCz">
+          className="eYQFHK">
           <a
             aria-label="Shop"
-            className="GAdsD"
+            className="fxcBZO"
             href="/"
             onClick={[Function]}>
             Shop
@@ -81,15 +81,15 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="fbIbuP">
           Cancel subscription
         </span>
         <span
-          className="ftKZCz">
+          className="eYQFHK">
           <button
-            className="dIwcJP"
+            className="fjZmnY"
             onClick={[Function]}
             type="button">
             Cancel
@@ -99,16 +99,16 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Invoices
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="hpjLSh">
           <span>
@@ -116,13 +116,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="fRQKF">
+          className="lbPrms">
           $1
         </span>
         <span
           className="eYQFHK">
           <a
-            className="eHcUbq"
+            className="ePBMXH"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
@@ -132,7 +132,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="cxOSVY">
+        className="caAtBd">
         <span
           className="hpjLSh">
           <span>
@@ -140,13 +140,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="fRQKF">
+          className="lbPrms">
           $200
         </span>
         <span
           className="eYQFHK">
           <a
-            className="eHcUbq"
+            className="ePBMXH"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"

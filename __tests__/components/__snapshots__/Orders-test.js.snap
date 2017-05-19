@@ -5,7 +5,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
     className="dITYws"
     role="list">
     <li
-      className="fFgZvB">
+      className="dnXsPR">
       <span
         className="OTulW">
         <span>
@@ -44,7 +44,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
         className="eYQFHK">
         <a
           aria-label="Download invoice"
-          className="eHcUbq"
+          className="ePBMXH"
           href="http://somelink"
           iconSource="download.svg"
           to="http://somelink" />

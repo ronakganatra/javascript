@@ -5,7 +5,7 @@ exports[`test the site page component matches the snapshot 1`] = `
     href="/sites"
     onClick={[Function]} />
   <div
-    className="buzHYP">
+    className="eoofqi">
     <h1
       className="kcUTNx">
       yoast.com
@@ -180,7 +180,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={true}
-        className="hOoRAL"
+        className="gvecqt"
         onClick={[Function]}>
         <span>
           Danger zone
@@ -195,7 +195,7 @@ exports[`test the site page component matches the snapshot 1`] = `
         </svg>
       </button>
       <div
-        className="kYvXeo">
+        className="chGuAF">
         <h2
           className="cecVBz">
           Disconnect this site

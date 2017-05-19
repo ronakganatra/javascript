@@ -5,9 +5,9 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
     className="dITYws"
     role="list">
     <li
-      className="buNNXr">
+      className="fUWodl">
       <span
-        className="dOvErj">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
@@ -43,9 +43,9 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
         className="fXreAk" />
     </li>
     <li
-      className="kuPieq">
+      className="feEuTA">
       <span
-        className="dOvErj">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"

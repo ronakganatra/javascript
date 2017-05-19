@@ -24,13 +24,13 @@ const SiteHeaderContainer = styled.div`
 	padding: 0 32px 24px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
-		padding: 0 24px 26px;
+		padding: 0 24px 24px;
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		height: auto;
 		min-height: 144px;
-		padding: 0 18px 16px;
+		padding: 0 16px 16px;
 	}
 `;
 

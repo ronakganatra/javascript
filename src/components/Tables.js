@@ -26,7 +26,7 @@ export const Row = styled.li`
 	background: ${ props => props.background };
 	min-height: 100px;
 	display: flex;
-	padding: 26px 40px;
+	padding: 24px 40px;
 	align-items: center;
 	justify-content: space-between;
 
@@ -35,11 +35,11 @@ export const Row = styled.li`
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
-		padding: 26px 24px;
+		padding: 24px;
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		padding: 16px 18px;
+		padding: 16px;
 	}
 `;
 
@@ -55,16 +55,16 @@ Row.defaultProps = {
 
 /*
  * A responsive row allows children to wrap in new lines in the responsive view.
- * If the columns have headers, they're are displayed as labels inside the
- * column content.
+ * If the columns have headers, they're displayed as labels inside the column
+ * content.
  */
-export const RowResponsive = styled( Row )`
+export const RowMobileCollapse = styled( Row )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		flex-wrap: wrap;
 		align-items: flex-start;
 
 		&:first-child {
-			margin-top: ${ props => props.hasHeaderLabels ? "20px" : "0" };
+			margin-top: ${ props => props.hasHeaderLabels ? "24px" : "0" };
 		}
 
 		// Use the column headers (if any) as labels.
@@ -83,7 +83,7 @@ export const RowResponsive = styled( Row )`
  * A column can be changed on a case by case basis wrapping the Columns in a
  * styled component.
  */
-export const Column = styled.span`
+const ColumnBase = styled.span`
 	font-size: 14px;
 	padding-left: 40px;
 
@@ -114,7 +114,7 @@ export const Column = styled.span`
 	}
 `;
 
-Column.propTypes = {
+ColumnBase.propTypes = {
 	children: React.PropTypes.any,
 	hideOnMobile: React.PropTypes.bool,
 	hideOnTablet: React.PropTypes.bool,
@@ -123,7 +123,7 @@ Column.propTypes = {
 	ellipsis: React.PropTypes.bool,
 };
 
-Column.defaultProps = {
+ColumnBase.defaultProps = {
 	hideOnMobile: false,
 	hideOnTable: false,
 	separator: false,
@@ -134,7 +134,7 @@ Column.defaultProps = {
  * Primary column, the largest one in a row: can grow, cannot shrink, and the
  * initial width is 200 pixels. In the responsive view, can shrink.
  */
-export const ColumnPrimary = styled( Column )`
+export const ColumnPrimary = styled( ColumnBase )`
 	flex: 1 0 200px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
@@ -146,7 +146,7 @@ export const ColumnPrimary = styled( Column )`
  * Column with fixed width: cannot grow, cannot shrink, and the width based on
  * its content.
  */
-export const ColumnFixedWidth = styled( Column )`
+export const ColumnFixedWidth = styled( ColumnBase )`
 	flex: 0 0 auto;
 `;
 
@@ -154,7 +154,7 @@ export const ColumnFixedWidth = styled( Column )`
  * Column with a minimum width: can grow, cannot shrink, and the initial width
  * is 100 pixels.
  */
-export const ColumnMinWidth = styled( Column )`
+export const ColumnMinWidth = styled( ColumnBase )`
 	flex: 1 0 100px;
 `;
 
@@ -196,7 +196,7 @@ export function separatify() {
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			&::after {
 				height: 48px;
-				padding-right: 18px;
+				padding-right: 16px;
 			}
 		}
 	`;

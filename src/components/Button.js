@@ -200,7 +200,7 @@ export function makeButtonFullWidth( component ) {
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			width: 100%;
 			margin: 0;
-			padding: 0 15px;
+			padding: 0 16px;
 			background-image: none;
 		}
 	`;

@@ -4,7 +4,7 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
-import { Row, Column, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
+import { Row, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
@@ -59,7 +59,7 @@ function Site( props ) {
 				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
 			</ColumnSubscriptions>
-			<Column>
+			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
@@ -68,7 +68,7 @@ function Site( props ) {
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								   onClick={ props.onClickManage } />
 				</MediaQuery>
-			</Column>
+			</ColumnFixedWidth>
 		</Row>
 	);
 }

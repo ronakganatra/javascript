@@ -25,7 +25,7 @@ const CollapsibleHeader = styled.button`
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		padding: 16px 18px;
+		padding: 16px;
 	}
 
 	span {

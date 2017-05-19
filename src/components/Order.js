@@ -1,6 +1,6 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { RowResponsive, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { IconButtonLink, disable, IconButton, makeButtonFullWidth } from "./Button";
 import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
@@ -63,7 +63,7 @@ function Order( props ) {
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
-		<RowResponsive background={ props.background }>
+		<RowMobileCollapse background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnMinWidthResponsive>
@@ -96,7 +96,7 @@ function Order( props ) {
 					</MediaQuery>
 				</ResponsiveInvoiceButton>
 			</ColumnFixedWidthResponsive>
-		</RowResponsive>
+		</RowMobileCollapse>
 	);
 }
 

@@ -25,7 +25,7 @@ const ProductContainer = styled.div`
 	background-color: ${ colors.$color_grey_light };
 	text-align: center;
 
-	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
 		width: calc( ( 100% - ${ outerMargin }px - ${ outerMargin }px ) / 4 );
 	}
 

@@ -5,7 +5,7 @@ import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
-import { RowResponsive, Column, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
@@ -103,8 +103,8 @@ function SiteSubscriptionDetail( props ) {
 		disable = false;
 	}
 	return (
-		<RowResponsive { ...rowProps } hasHeaderLabels={ false }>
-			<Column>
+		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
+			<ColumnFixedWidth>
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
@@ -114,7 +114,7 @@ function SiteSubscriptionDetail( props ) {
 						ariaLabel={ props.id } />
 				</SubscriptionToggle>
 				<SubscriptionLogo src={ props.icon } alt="" />
-			</Column>
+			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
@@ -130,7 +130,7 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthResponsive>
-		</RowResponsive>
+		</RowMobileCollapse>
 	);
 }
 

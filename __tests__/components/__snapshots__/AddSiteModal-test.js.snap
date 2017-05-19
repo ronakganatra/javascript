@@ -34,9 +34,9 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="hLfGwL">
+        className="grqHlz">
         <div
-          className="dptjfs">
+          className="dgmCYf">
           <button
             className="byGGvA"
             onClick={[Function]}
@@ -100,9 +100,9 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="hLfGwL">
+        className="grqHlz">
         <div
-          className="dptjfs">
+          className="dgmCYf">
           <button
             className="byGGvA"
             onClick={[Function]}
@@ -166,9 +166,9 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="hLfGwL">
+        className="grqHlz">
         <div
-          className="dptjfs">
+          className="dgmCYf">
           <button
             className="byGGvA"
             onClick={[Function]}
@@ -232,9 +232,9 @@ exports[`test the addSiteModal handling an onLink event 1`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="hLfGwL">
+        className="grqHlz">
         <div
-          className="dptjfs">
+          className="dgmCYf">
           <button
             className="byGGvA"
             onClick={[Function]}
@@ -298,9 +298,9 @@ exports[`test the addSiteModal handling an onLink event 2`] = `
         placeholder="https://example-site.com"
         type="url" />
       <div
-        className="hLfGwL">
+        className="grqHlz">
         <div
-          className="dptjfs">
+          className="dgmCYf">
           <button
             className="byGGvA"
             onClick={[Function]}

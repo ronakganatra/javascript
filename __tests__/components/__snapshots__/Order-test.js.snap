@@ -1,6 +1,6 @@
 exports[`test A standard order 1`] = `
 <li
-  className="yNbwP">
+  className="fhXzbr">
   <span
     className="OTulW">
     <span>
@@ -39,7 +39,7 @@ exports[`test A standard order 1`] = `
     className="eYQFHK">
     <a
       aria-label="Download invoice"
-      className="eHcUbq"
+      className="ePBMXH"
       href="http://somelink"
       iconSource="download.svg"
       to="http://somelink" />
@@ -49,7 +49,7 @@ exports[`test A standard order 1`] = `
 
 exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="yNbwP">
+  className="fhXzbr">
   <span
     className="OTulW">
     <span>
@@ -88,7 +88,7 @@ exports[`test An Order with a disabled invoice button 1`] = `
     className="eYQFHK">
     <button
       aria-label="Download invoice"
-      className="gqeVuG knOsJT"
+      className="iNVwYz knOsJT"
       disabled="disabled"
       to="http://somelink" />
   </span>
