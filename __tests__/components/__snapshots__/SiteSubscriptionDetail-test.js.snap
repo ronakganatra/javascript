@@ -8,7 +8,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       <div>
         <div
           aria-checked={true}
-          aria-label="Enable subscription to: Subscription name"
+          aria-label="Enable subscription for: Subscription name"
           className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}
@@ -76,7 +76,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       <div>
         <div
           aria-checked={true}
-          aria-label="Enable subscription to: Subscription name"
+          aria-label="Enable subscription for: Subscription name"
           className="ldWdTm"
           onClick={[Function]}
           onKeyDown={[Function]}

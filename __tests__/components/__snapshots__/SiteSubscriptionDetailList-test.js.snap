@@ -31,7 +31,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             <div>
               <div
                 aria-checked={false}
-                aria-label="Enable subscription to: Yoast SEO Premium"
+                aria-label="Enable subscription for: Yoast SEO Premium"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -89,7 +89,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             <div>
               <div
                 aria-checked={false}
-                aria-label="Enable subscription to: Yoast SEO Local"
+                aria-label="Enable subscription for: Yoast SEO Local"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
