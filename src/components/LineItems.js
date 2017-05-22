@@ -1,4 +1,11 @@
 import React from "react";
+import styled from "styled-components";
+
+const Block = styled.span`
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+`;
 
 /**
  * LineItems.
@@ -8,9 +15,9 @@ import React from "react";
  */
 function LineItems( props ) {
 	let items = props.items.map( ( item ) => {
-		return <div key={item.id}> { item.productName } </div>;
+		return <Block key={item.id}>{ item.quantity }x { item.productName }</Block>;
 	} );
-	return <div> { items } </div>;
+	return <Block>{ items }</Block>;
 }
 
 LineItems.propTypes = {

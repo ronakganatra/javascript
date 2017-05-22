@@ -1,12 +1,10 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { Row, ColumnText, Column } from "./Tables";
-import { IconButtonLink, disable, IconButton } from "./Button";
-import MediaQuery from "react-responsive";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { IconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
-import styled from "styled-components";
 
 const messages = defineMessages( {
 	date: {
@@ -39,6 +37,10 @@ const messages = defineMessages( {
 	},
 } );
 
+let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
+let ColumnPrimaryResponsive = makeFullWidth( ColumnPrimary );
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+
 let invoiceStatuses = [ "completed", "refunded" ];
 
 /**
@@ -53,46 +55,39 @@ function Order( props ) {
 		InvoiceButton = disable( IconButton );
 	}
 
+	let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( InvoiceButton ) );
+
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
-	// On mobile devices there is no text so we need to compensate the style for this.
-	let ResponsiveInvoiceButton = styled( InvoiceButton )`
-		@media screen and ( max-width: 1355px ) {
-			padding-right: 0;
-		}
-	`;
-
 	return (
-		<Row background={ props.background }>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.date ) }>
+		<RowMobileCollapse background={ props.background }>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
-			</ColumnText>
-			<ColumnText ColumnWidth="150px" hideOnMobile={ true } hideOnTablet={ true }
+			</ColumnMinWidthResponsive>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
-			</ColumnText>
-			<ColumnText fillSpace={ true } ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.items ) }>
+			</ColumnMinWidth>
+			<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
-			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.total ) }>
+			</ColumnPrimaryResponsive>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
-			</ColumnText>
-			<ColumnText ColumnWidth="150px" headerLabel={ props.intl.formatMessage( messages.status ) }>{ props.status }</ColumnText>
-			<Column textAlign="right">
+			</ColumnMinWidthResponsive>
+			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
+				{ props.status }
+			</ColumnMinWidthResponsive>
+			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
-					to={ props.invoiceLink }>
-					<MediaQuery query="(min-width: 1356px)" component="span">
-						{ invoiceMessage }
-					</MediaQuery>
-					<MediaQuery query="(max-width: 1355px)">
-						<span className="screen-reader-text">{ invoiceMessage }</span>
-					</MediaQuery>
+					to={ props.invoiceLink }
+				>
+					<span className="screen-reader-text">{ invoiceMessage }</span>
 				</ResponsiveInvoiceButton>
-			</Column>
-		</Row>
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapse>
 	);
 }
 

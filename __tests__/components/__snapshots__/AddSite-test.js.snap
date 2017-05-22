@@ -25,29 +25,26 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     placeholder="https://example-site.com"
     type="url" />
   <div
-    className="gCxKqx">
-    <div
-      className="iMrCDo">
-      <button
-        className="cAeNWO"
-        onClick={[Function]}
-        type="button">
-        <span>
-          cancel
-        </span>
-      </button>
-      <button
-        className="gxQXtW"
-        onClick={[Function]}
-        type="button">
-        <span>
-          connect
-        </span>
-      </button>
-    </div>
+    className="etHoNp">
+    <button
+      className="hMhZgw"
+      onClick={[Function]}
+      type="button">
+      <span>
+        cancel
+      </span>
+    </button>
+    <button
+      className="fpqbdc"
+      onClick={[Function]}
+      type="button">
+      <span>
+        connect
+      </span>
+    </button>
   </div>
   <div
-    className="bPgglV" />
+    className="ehuLPF" />
   <img
     alt=""
     className="ireVCO"

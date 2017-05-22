@@ -7,6 +7,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -51,15 +52,26 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
-	margin: 8px 0px 8px;
+	flex: 1 0 200px;
+	padding: 8px 0;
 	text-align: right;
-	flex: 200px 1 0;
 
-	@media screen and ( max-width: 415px ) {
+	a,
+	button {
+		margin-left: 12px;
+	}
+
+	@media screen and ( max-width: 420px ) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		
+		a,
+		button {
+			margin-left: 0px;
+			margin-bottom: 8px;
+		}
 	}
 `;
 
@@ -70,7 +82,8 @@ const YellowWarning = styled.p`
 	display: flex;
 	align-items: center;
 
-	@media screen and ( max-width: 720px ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		flex-direction: column;
 		text-align: left;
 	}
@@ -83,7 +96,7 @@ const NoActiveProductIcon = styled.img`
 	min-width: 75px;
 	display: flex;
 
-	@media screen and ( max-width: 720px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		padding: 10px;
 	}
 `;

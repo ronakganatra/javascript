@@ -1,36 +1,36 @@
 exports[`test the subscription detail component matches the snapshot 1`] = `
 <div
-  className="hryQvk">
+  className="kiDHR">
   <div
-    className="dTjaLK">
+    className="jpmqGa">
     <h2
-      className="hApBsV">
+      className="fylYwn">
       Payment details
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="xYUMo">
+        className="edtPkR">
         <span
-          className="kDRWvD">
+          className="fRQKF">
           Start date
         </span>
         <span
-          className="kDRWvD">
+          className="kvzzCK">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="RYFGA">
+        className="dpgevR">
         <span
-          className="kDRWvD">
+          className="fRQKF">
           Next billing
         </span>
         <span
-          className="kDRWvD">
+          className="kvzzCK">
           <span>
             June 01, 2018
           </span>
@@ -39,81 +39,121 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="dTjaLK">
+    className="jpmqGa">
     <h2
-      className="hApBsV">
+      className="fylYwn">
       Subscription details
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="xYUMo">
+        className="iqzWVT">
         <span
-          className="jJwkoG">
+          className="fbIbuP">
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="eUSlSP" />
+          className="kZrKRI">
+          <button
+            className="cQKPtQ"
+            onClick={[Function]}
+            type="button">
+            Add site
+          </button>
+        </span>
       </li>
       <li
-        className="RYFGA">
+        className="caAtBd">
         <span
-          className="jJwkoG">
+          className="fbIbuP">
           Change subscription level
         </span>
         <span
-          className="eUSlSP" />
+          className="kZrKRI">
+          <a
+            aria-label="Shop"
+            className="eRLPss"
+            href="/"
+            onClick={[Function]}>
+            Shop
+          </a>
+        </span>
       </li>
       <li
-        className="xYUMo">
+        className="iqzWVT">
         <span
-          className="jJwkoG">
+          className="fbIbuP">
           Cancel subscription
         </span>
         <span
-          className="eUSlSP" />
+          className="kZrKRI">
+          <button
+            className="bMmKni"
+            onClick={[Function]}
+            type="button">
+            Cancel
+          </button>
+        </span>
       </li>
     </ul>
   </div>
   <div
-    className="dTjaLK">
+    className="jpmqGa">
     <h2
-      className="hApBsV">
+      className="fylYwn">
       Invoices
     </h2>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="xYUMo">
+        className="iqzWVT">
         <span
-          className="iKUZuN">
+          className="hpjLSh">
           <span>
             July 21, 2016
           </span>
         </span>
         <span
-          className="iKUZuN">
+          className="dQuCEX">
           $1
         </span>
         <span
-          className="cDlnCh" />
+          className="kZrKRI">
+          <a
+            className="cxCufn"
+            href="http://somelink"
+            iconSize="16px"
+            iconSource="download.svg"
+            to="http://somelink">
+            Invoice
+          </a>
+        </span>
       </li>
       <li
-        className="RYFGA">
+        className="caAtBd">
         <span
-          className="iKUZuN">
+          className="hpjLSh">
           <span>
             July 22, 2016
           </span>
         </span>
         <span
-          className="iKUZuN">
+          className="dQuCEX">
           $200
         </span>
         <span
-          className="cDlnCh" />
+          className="kZrKRI">
+          <a
+            className="cxCufn"
+            href="http://somelink"
+            iconSize="16px"
+            iconSource="download.svg"
+            to="http://somelink">
+            Invoice
+          </a>
+        </span>
       </li>
     </ul>
   </div>

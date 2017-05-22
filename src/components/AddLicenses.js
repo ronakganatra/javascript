@@ -23,12 +23,24 @@ const AddLicensesText = styled.p`
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
+	margin-bottom: 1.5em;
 
-	@media screen and ( max-width: 415px ) {
+	a,
+	button {
+		margin-left: 12px;
+	}
+
+	@media screen and ( max-width: 420px ) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+		
+		a,
+		button {
+			margin-left: 0px;
+			margin-bottom: 12px;
+		}
 	}
 `;
 
@@ -70,4 +82,3 @@ AddLicenses.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
 	onUpgrade: React.PropTypes.string.isRequired,
 };
-
