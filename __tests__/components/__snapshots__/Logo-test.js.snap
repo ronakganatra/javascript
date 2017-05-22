@@ -1,7 +1,11 @@
 exports[`test the logo matches the snapshot 1`] = `
-<img
-  alt="My logo alt"
-  className="fFGzcR"
-  size="300px"
-  src="logo.svg" />
+<a
+  href="/"
+  onClick={[Function]}>
+  <img
+    alt="My logo alt"
+    className="fFGzcR"
+    size="300px"
+    src="logo.svg" />
+</a>
 `;

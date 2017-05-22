@@ -29,18 +29,18 @@ exports[`test The Orders component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="dITYws"
       role="list">
       <li
-        className="eSkKDa">
+        className="dnXsPR">
         <span
-          className="jrqJwq">
+          className="OTulW">
           <span>
             May 20, 2012
           </span>
         </span>
         <span
-          className="fMqdCr">
+          className="fKqvxj">
           MOOIE 123 TEST
         </span>
         <span
@@ -59,26 +59,24 @@ exports[`test The Orders component matches the snapshot 1`] = `
               2
               x 
               Another product
-               
-            </div>
-             
-          </div>
+            </span>
+          </span>
         </span>
         <span
-          className="bOrTEM">
+          className="jPvoSH">
           <span>
             €100.10
           </span>
         </span>
         <span
-          className="eFDsTa">
+          className="dZeSps">
           completed
         </span>
         <span
-          className="bRJYKR">
+          className="eYQFHK">
           <a
             aria-label="Download invoice"
-            className="kYeBEf"
+            className="ePBMXH"
             href="http://somelink"
             iconSource="download.svg"
             to="http://somelink" />

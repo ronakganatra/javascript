@@ -2,14 +2,18 @@ exports[`test renders without crashing 1`] = `
 <div
   className="dRnDAb">
   <div
-    className="fiOhHo">
+    className="egcnZp">
     <header
       role="banner">
-      <img
-        alt="My Yoast"
-        className="jEhkge"
-        size="200px"
-        src="logo.svg" />
+      <a
+        href="/"
+        onClick={[Function]}>
+        <img
+          alt="Home page"
+          className="jEhkge"
+          size="200px"
+          src="logo.svg" />
+      </a>
     </header>
     <aside
       className="user-info jHKGbh">
@@ -19,7 +23,7 @@ exports[`test renders without crashing 1`] = `
         size="64px"
         src="https://s.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?r=pg&d=https%3A%2F%2Fs3.amazonaws.com%2Fyoast-my-yoast%2FMy_Yoast_default_avatar.png" />
       <div
-        className="foqgVb">
+        className="gGMKAV">
         <p
           className="gGQGre">
           
@@ -92,7 +96,7 @@ exports[`test renders without crashing 1`] = `
     </nav>
   </div>
   <main
-    className="lhxswa"
+    className="kShiHI"
     id="content">
     <div
       className="jwnvEF">

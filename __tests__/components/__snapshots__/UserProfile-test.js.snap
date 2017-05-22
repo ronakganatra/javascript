@@ -7,7 +7,7 @@ exports[`test the user profile logout button handling an onclick event 1`] = `
     size="60px"
     src="Image" />
   <div
-    className="foqgVb">
+    className="gGMKAV">
     <p
       className="gGQGre">
       This is a name
@@ -31,7 +31,7 @@ exports[`test the user profile logout button handling an onclick event 2`] = `
     size="60px"
     src="Image" />
   <div
-    className="foqgVb">
+    className="gGMKAV">
     <p
       className="gGQGre">
       This is a name
@@ -55,7 +55,7 @@ exports[`test the user profile matches the snapshot 1`] = `
     size="60px"
     src="Image" />
   <div
-    className="foqgVb">
+    className="gGMKAV">
     <p
       className="gGQGre">
       This is a name
@@ -79,7 +79,7 @@ exports[`test the user profile matches the snapshot 2`] = `
     size="60px"
     src="Image" />
   <div
-    className="foqgVb">
+    className="gGMKAV">
     <p
       className="gGQGre">
       This is a name

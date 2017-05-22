@@ -23,7 +23,7 @@ function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-				<ListTable hasHeaderLabels={ false }>
+				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
 						return <SiteSubscriptionDetail
 							{ ...plugin }
