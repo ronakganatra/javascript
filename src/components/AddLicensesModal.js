@@ -40,7 +40,7 @@ class BaseAddLicensesModal extends React.Component {
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
 					<AddLicenses
-						onUpgrade={ this.props.onUpgrade }
+						onShop={ this.props.onShop }
 						onClose={ this.props.onClose }
 					/>
 				</Modal>
@@ -54,7 +54,7 @@ BaseAddLicensesModal.propTypes = {
 	intl: intlShape.isRequired,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.string.isRequired,
+	onShop: React.PropTypes.string.isRequired,
 };
 
 BaseAddLicensesModal.defaultProps = {
