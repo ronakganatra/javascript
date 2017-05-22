@@ -8,10 +8,6 @@ import Paper from "./Paper";
 const messages = defineMessages( {
 	heading: {
 		id: "site_danger_zone.heading",
-		defaultMessage: "Danger zone",
-	},
-	siteRemovalHeading: {
-		id: "site_danger_zone.site_removal.heading",
 		defaultMessage: "Disconnect this site",
 	},
 	siteRemovalExplanation: {
@@ -30,11 +26,6 @@ const messages = defineMessages( {
 		defaultMessage: "Removing site...",
 	},
 } );
-
-const SubHeading = styled.h2`
-	font-weight: 600;
-	font-size: 1em;
-`;
 
 const Container = styled.div`
 	padding: 0 24px 24px 24px;
@@ -59,7 +50,6 @@ function SiteDangerZone( props ) {
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.heading ) } isOpen={ true }>
 				<Container>
-					<SubHeading>{ props.intl.formatMessage( messages.siteRemovalHeading ) }</SubHeading>
 					<p>{ props.intl.formatMessage( messages.siteRemovalExplanation ) }</p>
 					<RedButton {...disabled} onClick={ props.onRemove }>{ buttonText }</RedButton>
 				</Container>
