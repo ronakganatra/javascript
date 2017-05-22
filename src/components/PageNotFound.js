@@ -69,7 +69,6 @@ class PageNotFound extends React.Component {
 			<FormattedMessage id="page.suggestsitemap" defaultMessage={ "Maybe this { sitemap } will help?" }
 							  values={ { sitemap: <a href="https://my.yoast.com/sitemap.xml">sitemap</a> } } />,
 			<FormattedMessage id="page.suggestmenu" defaultMessage="Or pick one of the menu items. Those pages definitely still exist."/> ];
-		console.log( "Paragraph props id", paragraphs );
 		return (
 
 
