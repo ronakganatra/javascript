@@ -1,12 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { TextButton, ButtonLink } from "./Button.js";
+import { LargeButton, LargeButtonLink } from "./Button.js";
 import { FormattedMessage } from "react-intl";
 
 const AddLicensesModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	font-weight: 300;
 	font-size: 18px;
 `;
 
@@ -22,9 +21,15 @@ const AddLicensesText = styled.p`
 `;
 
 const Buttons = styled.div`
-	float: right;
-	margin-bottom: 1.5em;
-	font-weight: normal;
+	text-align: right;
+	flex: 200px 1 0;
+
+	@media screen and ( max-width: 415px ) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 `;
 
 /**
@@ -49,13 +54,13 @@ export default function AddLicenses( props ) {
 					</label>
 				</AddLicensesText>
 				<Buttons>
-					<TextButton type="button" onClick={ props.onClose } >
+					<LargeButton type="button" onClick={ props.onClose } >
 						<FormattedMessage id="subscriptions.upgrade-subscription.cancel" defaultMessage="cancel" />
-					</TextButton>
+					</LargeButton>
 
-					<ButtonLink to={ props.onUpgrade }>
+					<LargeButtonLink to={ props.onUpgrade }>
 						<FormattedMessage id="subscriptions.upgrade-subscription.link" defaultMessage="upgrade" />
-					</ButtonLink>
+					</LargeButtonLink>
 				</Buttons>
 			</AddLicensesModal>
 	);

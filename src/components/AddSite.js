@@ -1,6 +1,6 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { TextButton } from "./Button.js";
+import { LargeButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
@@ -51,43 +51,15 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
+	margin: 8px 0px 8px;
 	text-align: right;
 	flex: 200px 1 0;
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	flex-direction: row;
-	-webkit-justify-content: flex-end;
-	justify-content: flex-end;
 
 	@media screen and ( max-width: 415px ) {
 		display: flex;
-		-webkit-flex-direction: column
 		flex-direction: column;
-		-webkit-align-items: center;
 		align-items: center;
-		-webkit-justify-content: center;
 		justify-content: center;
-	}
-`;
-
-const ConnectButton = styled( TextButton )`
-	@media screen and ( max-width: 415px ) {
-		order: -1;
-	}
-`;
-
-const ErrorButtonZone = styled.div`
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	flex-direction: row;
-	-webkit-justify-content: space-between;
-	justify-content: space-between;
-	margin: 16px 0 24px 0;
-
-	@media screen and ( max-width: 800px ) {
-		display: block;
 	}
 `;
 
@@ -97,7 +69,7 @@ const YellowWarning = styled.p`
 	overflow: auto;
 	display: flex;
 	align-items: center;
-	
+
 	@media screen and ( max-width: 720px ) {
 		flex-direction: column;
 		text-align: left;
@@ -110,7 +82,7 @@ const NoActiveProductIcon = styled.img`
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
-	
+
 	@media screen and ( max-width: 720px ) {
 		padding: 10px;
 	}
@@ -122,7 +94,7 @@ const WarningText = styled.span`
 
 const ValidationText = styled.div`
 	font-size: 1em;
-	color: red;
+	color: ${ colors.$color_red};
 	margin: 1em 0;
 	min-height: 1.8em;
 `;
@@ -198,7 +170,7 @@ class AddSite extends React.Component {
 
 		if ( ! this.urlValidity && input !== "" ) {
 			return (
-				<ValidationText id="url_reminder">
+				<ValidationText>
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
 						defaultMessage={ "{ validationMessage }" }
@@ -278,17 +250,15 @@ class AddSite extends React.Component {
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 				{ this.validateUrl( this.props.linkingSiteUrl ) }
-				<ErrorButtonZone>
-					<Buttons>
-						<TextButton type="button" onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-						</TextButton>
-						<ConnectButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ this.urlValidity }>
-							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
-						</ConnectButton>
-					</Buttons>
-				</ErrorButtonZone>
+				<Buttons>
+					<LargeButton type="button" onClick={ this.props.onCancelClick } >
+						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+					</LargeButton>
+					<LargeButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+					} } enabledStyle={ this.urlValidity }>
+						<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+					</LargeButton>
+				</Buttons>
 				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>

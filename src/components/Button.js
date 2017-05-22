@@ -21,7 +21,7 @@ export const Button = styled.button`
 	height: 48px;
 	padding: 12px 16px;
 	border: 0;
-	background-color: ${ colors.$color_green_medium_light };
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
@@ -30,18 +30,18 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	cursor: pointer;
 
-	transition: background 150ms ease-out;
-
-	${ buttonAnimations }
+	${ buttonAnimations };
 `;
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 Button.defaultProps = {
 	type: "button",
+	enabledStyle: true,
 };
 
 export const LargeButton = styled( Button )`
@@ -49,19 +49,15 @@ export const LargeButton = styled( Button )`
 `;
 
 export const TextButton = styled( Button )`
-	min-width: 150px;
-	margin: 4px 0 4px 12px;
-	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
+	width: ${ props => props.buttonWidth };
 `;
 
 TextButton.PropTypes = {
 	buttonWidth: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
 };
 
 TextButton.defaultProps = {
 	buttonWidth: "auto",
-	enabledStyle: true,
 };
 
 export const LogoutButton = styled( Button )`
@@ -102,7 +98,6 @@ export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
 	padding: 12px 16px;
-	margin: 4px 0px 4px 12px;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
@@ -112,7 +107,6 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	min-width: 150px;
 
 	${ buttonAnimations }
 `;
@@ -122,6 +116,7 @@ ButtonLink.PropTypes = {
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
+	min-width: 150px;
 `;
 
 export const TextButtonLink = styled( ButtonLink )`
