@@ -1,13 +1,14 @@
 import React from "react";
+import styled from "styled-components";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import SiteIcon from "./SiteIcon";
-import { ColumnIcon } from "./ColumnIcon";
-import { Row, ColumnText, Column } from "./Tables";
+import { Row, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	siteName: {
@@ -28,6 +29,10 @@ SiteIcon.propTypes = {
 	src: React.PropTypes.string.isRequired,
 };
 
+let ColumnSubscriptions = styled( ColumnFixedWidth )`
+	flex-basis: 340px;
+`;
+
 /**
  * Returns the rendered Site component.
  *
@@ -41,24 +46,29 @@ function Site( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
+
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.siteName ) }>{ props.siteName }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
-						ColumnWidth="460px"><SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } /></ColumnText>
-			<Column textAlign="right">
-				<MediaQuery query="(min-width: 1356px)">
+			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
+				{ props.siteName }
+			</ColumnPrimary>
+			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
+				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
+			</ColumnSubscriptions>
+			<ColumnFixedWidth>
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query="(max-width: 1355px)">
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
 								   onClick={ props.onClickManage } />
 				</MediaQuery>
-			</Column>
+			</ColumnFixedWidth>
 		</Row>
 	);
 }

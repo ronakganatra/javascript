@@ -1,18 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { ColumnText, Row, ListTable, Column } from "./Tables";
+import { Row, RowMobileCollapse, ListTable, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
-import MediaQuery from "react-responsive";
 import downloadIcon from "../icons/download.svg";
 import { ListHeading } from "./ListHeading";
-import { LargeButton, RedButton, IconButtonLink, LargeButtonLink } from "./Button";
+import { LargeButton, RedButton, IconButtonLink, LargeButtonLink, makeButtonFullWidth } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
-
-let columnMargin = "10px";
-let hideButtonsThreshold = 400;
-let mobileViewThreshold = 1200;
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -70,26 +66,29 @@ const SubscriptionDetailsContainer = styled.div`
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
 
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
 		display: flex;
 		flex-wrap: wrap;
-		div:nth-child(odd) {
-			margin-right: ${ columnMargin };
-		}
-		div:nth-child(even) {
-			margin-left: ${ columnMargin };
-		}
+		justify-content: space-between;
 	}
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ mobileViewThreshold }px ) {
-		width: calc( 50% - ${ columnMargin } );
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
+		width: calc( 50% - 10px );
 	}
-	@media screen and ( max-width: ${ mobileViewThreshold }px ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: 100%;
 	}
 `;
+
+let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+let ResponsiveRedButton = makeButtonFullWidth( RedButton );
+let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
 
 /**
  * The SubscriptionDetails component.
@@ -102,82 +101,84 @@ const ColumnContainer = styled.div`
  */
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
-		<ListTable hasHeaderLabels={ false }>
-				<Row key="start-date" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.startDate ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+		<ListTable>
+				<Row hasHeaderLabels={ false } key="start-date">
+					<ColumnMinWidth ellipsis={ true }>
+						{ props.intl.formatMessage( messages.startDate ) }
+					</ColumnMinWidth>
+					<ColumnFixedWidth ellipsis={ true }>
 						<FormattedDate
 							value={ props.startDate }
 							year='numeric'
 							month='long'
 							day='2-digit'
 						/>
-					</ColumnText>
+					</ColumnFixedWidth>
 				</Row>
-				<Row key="next-billing" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">{ props.intl.formatMessage( messages.nextBilling ) }</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="30%">
+				<Row hasHeaderLabels={ false } key="next-billing">
+					<ColumnMinWidth ellipsis={ true }>
+						{ props.intl.formatMessage( messages.nextBilling ) }
+					</ColumnMinWidth>
+					<ColumnFixedWidth ellipsis={ true }>
 						<FormattedDate
 							value={ props.nextBilling }
 							year='numeric'
 							month='long'
 							day='2-digit'
 						/>
-					</ColumnText>
+					</ColumnFixedWidth>
 				</Row>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
-		<ListTable hasHeaderLabels={ false }>
-				<Row key="remaining-licenses" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">
+		<ListTable>
+				<RowMobileCollapse hasHeaderLabels={ false } key="remaining-licenses">
+					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
-					</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButton onClick={ props.onAddSite }>
-								{ props.intl.formatMessage( messages.addSiteButton ) }
-							</LargeButton>
-						</MediaQuery>
-					</Column>
-				</Row>
-				<Row key="change-level" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.changeLevel ) }</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<LargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
-								{ props.intl.formatMessage( messages.shopButton ) }
-							</LargeButtonLink>
-						</MediaQuery>
-					</Column>
-				</Row>
-				<Row key="cancel" justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="60%">{ props.intl.formatMessage( messages.cancelSubscription ) }</ColumnText>
-					<Column columnPaddingLeft={ "20px" }>
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<RedButton onClick={ props.onCancel }>
-								{ props.intl.formatMessage( messages.cancelButton ) }
-							</RedButton>
-						</MediaQuery>
-					</Column>
-				</Row>
+					</ColumnPrimary>
+					<ColumnFixedWidthResponsive>
+						<ResponsiveLargeButton onClick={ props.onAddSite }>
+							{ props.intl.formatMessage( messages.addSiteButton ) }
+						</ResponsiveLargeButton>
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
+				<RowMobileCollapse hasHeaderLabels={ false } key="change-level">
+					<ColumnPrimary ellipsis={ true }>
+						{ props.intl.formatMessage( messages.changeLevel ) }
+					</ColumnPrimary>
+					<ColumnFixedWidthResponsive>
+						<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+							{ props.intl.formatMessage( messages.shopButton ) }
+						</ResponsiveLargeButtonLink>
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
+				<RowMobileCollapse hasHeaderLabels={ false } key="cancel">
+					<ColumnPrimary ellipsis={ true }>
+						{ props.intl.formatMessage( messages.cancelSubscription ) }
+					</ColumnPrimary>
+					<ColumnFixedWidthResponsive>
+						<ResponsiveRedButton onClick={ props.onCancel }>
+							{ props.intl.formatMessage( messages.cancelButton ) }
+						</ResponsiveRedButton>
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
 		</ListTable>
 	);
 
 	let invoicesTable = (
-		<ListTable hasHeaderLabels={ false }>
+		<ListTable>
 			{ props.invoices.map( ( invoice ) => {
-				return <Row { ...invoice } key={ invoice.invoiceId } justifyContent="space-between">
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+				return <RowMobileCollapse { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
+					<ColumnMinWidth>
 						<FormattedDate
 							value={ invoice.invoiceDate }
 							year='numeric'
 							month='long'
 							day='2-digit'
 						/>
-					</ColumnText>
-					<ColumnText columnPaddingLeft={ "20px" } ColumnWidth="20%">
+					</ColumnMinWidth>
+					<ColumnMinWidthResponsive ellipsis={ true }>
 						{ props.intl.formatNumber(
 							formatAmount( invoice.invoiceAmount ),
 							{
@@ -186,18 +187,16 @@ function SubscriptionDetails( props ) {
 								maximumFractionDigits: 0,
 							}
 						) }
-					</ColumnText>
-					<Column columnPaddingLeft={ "20px" } ColumnWidth="20%">
-						<MediaQuery query={ "(min-width: " + ( hideButtonsThreshold + 1 ) + "px)" }>
-							<IconButtonLink
-								to={ getInvoiceUrl( invoice.invoiceId ) }
-								iconSource={ downloadIcon }
-								iconSize={ "16px" }>
-								{ props.intl.formatMessage( messages.invoiceButton ) }
-							</IconButtonLink>
-						</MediaQuery>
-					</Column>
-				</Row>;
+					</ColumnMinWidthResponsive>
+					<ColumnFixedWidthResponsive>
+						<ResponsiveIconButtonLink
+							to={ getInvoiceUrl( invoice.invoiceId ) }
+							iconSource={ downloadIcon }
+							iconSize={ "16px" }>
+							{ props.intl.formatMessage( messages.invoiceButton ) }
+						</ResponsiveIconButtonLink>
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>;
 			} ) }
 		</ListTable>
 	);

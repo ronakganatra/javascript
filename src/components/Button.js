@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
+import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
 	transition: background 150ms ease-out;
@@ -52,7 +53,7 @@ export const GreenButton = styled( Button )``;
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	margin: 4px 0 4px 12px;
+	margin: 0;
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 `;
 
@@ -104,7 +105,7 @@ export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 46px;
 	padding: 12px 16px;
-	margin: 4px 0px 4px 12px;
+	margin: 0;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
@@ -181,4 +182,26 @@ export function disable( Button ) {
 			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
 		}
 	};
+}
+
+/**
+ * Makes a button full width in the mobile responsive view.
+ *
+ * @param {ReactElement} component The original button.
+ * @returns {ReactElement} The button with full width responsive style.
+ */
+export function makeButtonFullWidth( component ) {
+	return styled( component )`
+		// Take into account buttons with icons and preserve other buttons that have their own min-width.
+		@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+			${ props => props.iconSource ? "padding: 0 20px; min-width: 64px;" : "" }
+		}
+
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			width: 100%;
+			margin: 0;
+			padding: 0 16px;
+			background-image: none;
+		}
+	`;
 }

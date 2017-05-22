@@ -1,10 +1,10 @@
 exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="gYVRpR">
+  className="caAtBd">
   <span
-    className="fGtTED">
+    className="fXreAk">
     <span
-      className="gFXyaK">
+      className="ipTaeZ">
       <div>
         <div
           aria-checked={true}
@@ -29,14 +29,14 @@ exports[`test an add more licenses button should be shown when no more licenses 
       className="kganGp"
       src="icon.svg" />
   </span>
-  <div
-    className="hdGyW">
+  <span
+    className="iyDwOW">
     <span
-      className="kXXZFn">
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="kwOabh">
+      className="fdTSGx">
       <span>
         0/20 remaining
       </span>
@@ -48,14 +48,14 @@ exports[`test an add more licenses button should be shown when no more licenses 
         Get additional subscriptions
       </span>
     </a>
-  </div>
+  </span>
   <div>
     <noscript />
   </div>
   <span
-    className="hMwgWU">
+    className="eYQFHK">
     <a
-      className="hAUCdp"
+      className="fxcBZO"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -68,11 +68,11 @@ exports[`test an add more licenses button should be shown when no more licenses 
 
 exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="gYVRpR">
+  className="caAtBd">
   <span
-    className="fGtTED">
+    className="fXreAk">
     <span
-      className="gFXyaK">
+      className="ipTaeZ">
       <div>
         <div
           aria-checked={true}
@@ -97,26 +97,26 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       className="kganGp"
       src="icon.svg" />
   </span>
-  <div
-    className="hdGyW">
+  <span
+    className="iyDwOW">
     <span
-      className="kXXZFn">
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="kwOabh">
+      className="fdTSGx">
       <span>
         6/20 remaining
       </span>
     </span>
-  </div>
+  </span>
   <div>
     <noscript />
   </div>
   <span
-    className="hMwgWU">
+    className="eYQFHK">
     <a
-      className="hAUCdp"
+      className="fxcBZO"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
