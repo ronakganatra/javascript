@@ -8,6 +8,7 @@ import a11ySpeak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -66,7 +67,7 @@ const Page = styled.div`
 	display: flex;
 	justify-content: space-between;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: block;
 	}
 `;

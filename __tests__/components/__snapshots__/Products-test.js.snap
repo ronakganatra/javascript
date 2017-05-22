@@ -2,7 +2,7 @@ exports[`test The Products component matches the snapshot 1`] = `
 <div
   className="jhQvCy">
   <h2
-    className="iJNKGZ">
+    className="fdADGm">
     Products
     <span>
        - Buy here!
@@ -10,7 +10,7 @@ exports[`test The Products component matches the snapshot 1`] = `
   </h2>
   
   <div
-    className="cbzkol">
+    className="iqMgVR">
     <h3
       className="eHeqpp">
       Yoast SEO
@@ -57,7 +57,7 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="cbzkol">
+    className="iqMgVR">
     <h3
       className="eHeqpp">
       Local SEO
@@ -90,7 +90,7 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="cbzkol">
+    className="iqMgVR">
     <h3
       className="eHeqpp">
       Video SEO
@@ -151,7 +151,7 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="cbzkol">
+    className="iqMgVR">
     <h3
       className="eHeqpp">
       News SEO
@@ -212,7 +212,7 @@ exports[`test The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="cbzkol">
+    className="iqMgVR">
     <h3
       className="eHeqpp">
       Yoast SEO for WooCommerce

@@ -4,6 +4,8 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
+import { makeFullWidth } from "./Tables";
+import defaults from "../config/defaults.json";
 
 const SiteHeaderContainer = styled.div`
 	display: flex;
@@ -21,19 +23,14 @@ const SiteHeaderContainer = styled.div`
 	margin: 0 auto;
 	padding: 0 32px 24px;
 
-	@media screen and ( max-width: 800px ) {
-		height: auto;
-		min-height: 152px;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 0 24px 24px;
 	}
 
-	.visit-wp-admin {
-		flex: 0 0 auto;
-		margin: 1em 0 0;
-
-		@media screen and ( max-width: 800px ) {
-			min-width: 100%;
-		}
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		height: auto;
+		min-height: 144px;
+		padding: 0 16px 16px;
 	}
 `;
 
@@ -46,12 +43,19 @@ const SiteHeaderSitename = styled.h1`
 	color: ${colors.$color_white};
 	font-weight: 300;
 	margin: 0;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	-ms-word-break: break-all;
 	word-break: break-word;
+	// Firefox needs this for break word to work inside flex items.
+	min-width: 0;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		text-align: center;
 	}
 `;
+
+let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
 
 /**
  * The SiteHeader component.
@@ -67,10 +71,10 @@ export default function SiteHeader( props ) {
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<LargeButtonLink to={ `${ props.url }/wp-admin` } className="visit-wp-admin" target="_blank">
+			<LargeButtonLinkResponsive to={ `${ props.url }/wp-admin` } target="_blank">
 				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
 				<NewTabMessage />
-			</LargeButtonLink>
+			</LargeButtonLinkResponsive>
 		</SiteHeaderContainer>
 	);
 }

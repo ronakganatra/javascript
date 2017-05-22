@@ -1,48 +1,45 @@
 exports[`test A standard order 1`] = `
 <li
-  className="bVHbHQ">
+  className="fhXzbr">
   <span
-    className="jrqJwq">
+    className="OTulW">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fMqdCr">
+    className="fKqvxj">
     MOOIE 456 TEST
   </span>
   <span
-    className="hzUbLx">
-    <div>
-       
-      <div>
-         
+    className="eyKrwF">
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         Another product
-         
-      </div>
-       
-    </div>
+      </span>
+    </span>
   </span>
   <span
-    className="bOrTEM">
+    className="jPvoSH">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="eFDsTa">
+    className="dZeSps">
     completed
   </span>
   <span
-    className="bRJYKR">
+    className="eYQFHK">
     <a
       aria-label="Download invoice"
-      className="kYeBEf"
+      className="ePBMXH"
       href="http://somelink"
       iconSource="download.svg"
       to="http://somelink" />
@@ -52,49 +49,46 @@ exports[`test A standard order 1`] = `
 
 exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="bVHbHQ">
+  className="fhXzbr">
   <span
-    className="jrqJwq">
+    className="OTulW">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fMqdCr">
+    className="fKqvxj">
     MOOIE 456 TEST
   </span>
   <span
-    className="hzUbLx">
-    <div>
-       
-      <div>
-         
+    className="eyKrwF">
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         Another product
-         
-      </div>
-       
-    </div>
+      </span>
+    </span>
   </span>
   <span
-    className="bOrTEM">
+    className="jPvoSH">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="eFDsTa">
+    className="dZeSps">
     pending
   </span>
   <span
-    className="bRJYKR">
+    className="eYQFHK">
     <button
       aria-label="Download invoice"
-      className="wmLcN knOsJT"
+      className="iNVwYz knOsJT"
       disabled="disabled"
       to="http://somelink" />
   </span>

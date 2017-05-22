@@ -2,10 +2,10 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="dpBnXH"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -20,7 +20,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
       </svg>
     </button>
     <div
-      className="fJgJGV">
+      className="chGuAF">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -43,10 +43,10 @@ exports[`test the site dangerzone onRemove handling 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="dpBnXH"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -61,7 +61,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
       </svg>
     </button>
     <div
-      className="fJgJGV">
+      className="chGuAF">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -84,10 +84,10 @@ exports[`test the site dangerzone onRemove handling 2`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="dpBnXH"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -102,7 +102,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
       </svg>
     </button>
     <div
-      className="fJgJGV">
+      className="chGuAF">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -125,10 +125,10 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="dpBnXH"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -143,7 +143,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
       </svg>
     </button>
     <div
-      className="fJgJGV">
+      className="chGuAF">
       <h2
         className="cecVBz">
         Disconnect this site
