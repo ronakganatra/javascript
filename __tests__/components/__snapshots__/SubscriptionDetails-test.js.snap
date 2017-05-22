@@ -54,9 +54,9 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <button
-            className="jZxTNk"
+            className="gCYCVO"
             onClick={[Function]}
             type="button">
             Add site
@@ -70,10 +70,10 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           Change subscription level
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
             aria-label="Shop"
-            className="fxcBZO"
+            className="eRLPss"
             href="/"
             onClick={[Function]}>
             Shop
@@ -87,9 +87,9 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           Cancel subscription
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <button
-            className="fjZmnY"
+            className="qbTWO"
             onClick={[Function]}
             type="button">
             Cancel
@@ -116,13 +116,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="lbPrms">
+          className="dQuCEX">
           $1
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
-            className="ePBMXH"
+            className="cxCufn"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
@@ -140,13 +140,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="lbPrms">
+          className="dQuCEX">
           $200
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
-            className="ePBMXH"
+            className="cxCufn"
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"

@@ -226,7 +226,8 @@ export function makeFullWidth( component ) {
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			min-width: 100%;
 			margin-top: 1em;
-			padding: 0;
+			padding-right: 0;
+			padding-left: 0;
 		}
 	`;
 }

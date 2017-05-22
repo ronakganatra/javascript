@@ -69,9 +69,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
-            className="fxcBZO"
+            className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -134,9 +134,9 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
-            className="fxcBZO"
+            className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>

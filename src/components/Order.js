@@ -1,12 +1,10 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
-import { IconButtonLink, disable, IconButton, makeButtonFullWidth } from "./Button";
-import MediaQuery from "react-responsive";
+import { IconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
-import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	date: {
@@ -57,7 +55,7 @@ function Order( props ) {
 		InvoiceButton = disable( IconButton );
 	}
 
-	let ResponsiveInvoiceButton = makeButtonFullWidth( InvoiceButton );
+	let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( InvoiceButton ) );
 
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
@@ -84,16 +82,9 @@ function Order( props ) {
 				<ResponsiveInvoiceButton
 					aria-label={ invoiceLabel }
 					iconSource={ downloadIcon }
-					to={ props.invoiceLink }>
-					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` } component="span">
-						{ invoiceMessage }
-					</MediaQuery>
-					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-						<span className="screen-reader-text">{ invoiceMessage }</span>
-					</MediaQuery>
-					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.mobile }px)` } component="span">
-						{ invoiceMessage }
-					</MediaQuery>
+					to={ props.invoiceLink }
+				>
+					<span className="screen-reader-text">{ invoiceMessage }</span>
 				</ResponsiveInvoiceButton>
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapse>
