@@ -26,7 +26,7 @@ test('the sitesubscription matches the snapshot', () => {
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
 				onClose={ () => {} }
-				onUpgrade={ "" }
+				onShop={ "" }
 			/>
 		</MemoryRouter>
 	);
@@ -46,7 +46,7 @@ test('an add more licenses button should be shown when no more licenses are avai
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
 				onClose={ () => {} }
-				onUpgrade={ "" }
+				onShop={ "" }
 			/>
 		</MemoryRouter>
 	);
