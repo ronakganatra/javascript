@@ -6,7 +6,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
 const NotFoundHeading = styled.h1`
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 2.5em;
 	margin: 0;
 `;
@@ -43,9 +43,9 @@ const messages = defineMessages( {
 } );
 
 /**
- * A function that returns the Courses Page component.
+ * A function that returns the Page Not Found component.
  *
- * @returns {ReactElement} The component that contains the courses page.
+ * @returns {ReactElement} The component that contains the Page Not Found page.
  */
 class PageNotFound extends React.Component {
 	/**
@@ -65,21 +65,19 @@ class PageNotFound extends React.Component {
 
 	render() {
 		let paragraphs = [
-			<FormattedMessage id="page.notfound.header" defaultMessage={ "{ oops }" }
-							  values={ { oops: <NotFoundHeading> Oops. </NotFoundHeading> } } />,
 			<FormattedMessage id="page.notfound" defaultMessage="I'm afraid the page you are looking for does not exist..." />,
 			<FormattedMessage id="page.suggestsitemap" defaultMessage={ "Maybe this { sitemap } will help?" }
 							  values={ { sitemap: <a href="https://my.yoast.com/sitemap.xml">sitemap</a> } } />,
 			<FormattedMessage id="page.suggestmenu" defaultMessage="Or pick one of the menu items. Those pages definitely still exist."/> ];
+		console.log( "Paragraph props id", paragraphs );
 		return (
 
 
 		<PageContainer>
-			<p>
-				{ paragraphs.map( function( paragraph ) {
-					return <p key={ paragraph.props.id }>{ paragraph }</p>;
-				} ) }
-			</p>
+			<NotFoundHeading><FormattedMessage id="page.notfound.header" defaultMessage={ "Oops" } /></NotFoundHeading>
+			{ paragraphs.map( function( paragraph ) {
+				return <p key={ paragraph.props.id }>{ paragraph }</p>;
+			} ) }
 			<img src={ pageNotFoundImage } alt="" />
 		</PageContainer>
 		);

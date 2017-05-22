@@ -232,7 +232,7 @@ export function MainMenuRoutes( props ) {
 					exact: true,
 				}, route );
 
-				return <Route {...config} key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route { ...config } key={ routeKey } path={ route.path } component={ route.component }/>;
 			} )
 			}
 			<Route path="*" component={ PageNotFound } />
