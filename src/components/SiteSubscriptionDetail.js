@@ -91,11 +91,11 @@ const AddOneLicense = styled.a`
 	font-style: italic;
 	text-decoration: none;
 	border: none;
-	background: transparent url( ${ plusIcon } ) no-repeat 0 0;
+	background: transparent url( ${ plusIcon } ) no-repeat 2px 2px;
 	background-size: 16px;
 	color: ${ colors.$color_blue };
 	cursor: pointer;
-	padding: 0 0 0 20px;
+	padding: 0 0 0 22px;
 	text-align: left;
 `;
 

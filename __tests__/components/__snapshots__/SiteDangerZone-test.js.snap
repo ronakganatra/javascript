@@ -5,7 +5,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="dpBnXH"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -20,7 +20,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
+      className="fJgJGV">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -29,7 +29,7 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="iZskeQ"
         onClick={[Function]}
         type="button">
         Remove
@@ -46,7 +46,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="dpBnXH"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -61,7 +61,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
+      className="fJgJGV">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -70,7 +70,7 @@ exports[`test the site dangerzone onRemove handling 1`] = `
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="iZskeQ"
         onClick={[Function]}
         type="button">
         Remove
@@ -87,7 +87,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="dpBnXH"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -102,7 +102,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
+      className="fJgJGV">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -111,7 +111,7 @@ exports[`test the site dangerzone onRemove handling 2`] = `
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="iZskeQ"
         onClick={[Function]}
         type="button">
         Remove
@@ -128,7 +128,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
     className="cjKevG">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="dpBnXH"
       onClick={[Function]}>
       <span>
         Danger zone
@@ -143,7 +143,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
       </svg>
     </button>
     <div
-      className="zYWq">
+      className="fJgJGV">
       <h2
         className="cecVBz">
         Disconnect this site
@@ -152,7 +152,7 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="iZskeQ"
         disabled={Object {}}
         onClick={[Function]}
         type="button">

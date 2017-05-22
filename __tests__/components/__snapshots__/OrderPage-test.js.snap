@@ -74,7 +74,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
           className="bRJYKR">
           <a
             aria-label="Download invoice"
-            className="gfspCA"
+            className="kYeBEf"
             href="http://somelink"
             iconSource="download.svg"
             to="http://somelink" />

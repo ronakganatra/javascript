@@ -19,17 +19,17 @@ const SiteHeaderContainer = styled.div`
 	background-size: contain;
 	position: relative;
 	margin: 0 auto;
-	padding: 0 40px 26px;
+	padding: 0 32px 24px;
 
 	@media screen and ( max-width: 800px ) {
 		height: auto;
-		min-height: 144px;
-		padding: 0 24px 16px;
+		min-height: 152px;
+		padding: 0 24px 24px;
 	}
 
 	.visit-wp-admin {
 		flex: 0 0 auto;
-		margin-top: 1em;
+		margin: 1em 0 0;
 
 		@media screen and ( max-width: 800px ) {
 			min-width: 100%;
