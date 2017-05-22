@@ -7,7 +7,7 @@ import Products from "./Products";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
 import LandingPage from "./LandingPage";
-import noDownloads from "./../images/SitesNoResults.svg";
+import noDownloads from "./../images/noDownloads.svg";
 import noResults from "./../images/SitesNoResults.svg";
 
 const messages = defineMessages( {

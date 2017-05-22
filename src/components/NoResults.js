@@ -7,7 +7,7 @@ const NoResultsContainer = styled.div`
 	color: ${ colors.$color_black };
 	text-align: center;
 	align: center;
-	margin: 0;
+	margin-top: 10vh;
 `;
 
 const NoResultsImage = styled.img`
