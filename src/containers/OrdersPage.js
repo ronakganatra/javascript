@@ -23,8 +23,8 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
-			return order.items.toUpperCase().includes( query.toUpperCase() ) ||
-						 order.orderNumber.toUpperCase().includes( query.toUpperCase() );
+			return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
+				order.orderNumber.toUpperCase().includes( query.toUpperCase() );
 		} );
 	}
 

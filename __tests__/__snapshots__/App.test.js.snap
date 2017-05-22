@@ -5,11 +5,15 @@ exports[`test renders without crashing 1`] = `
     className="fiOhHo">
     <header
       role="banner">
-      <img
-        alt="My Yoast"
-        className="jEhkge"
-        size="200px"
-        src="logo.svg" />
+      <a
+        href="/"
+        onClick={[Function]}>
+        <img
+          alt="Home page"
+          className="jEhkge"
+          size="200px"
+          src="logo.svg" />
+      </a>
     </header>
     <aside
       className="user-info jHKGbh">
