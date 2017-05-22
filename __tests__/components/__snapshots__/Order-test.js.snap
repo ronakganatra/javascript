@@ -12,21 +12,19 @@ exports[`test A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="hzUbLx">
-    <div>
-       
-      <div>
-         
+    className="eyKrwF">
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         1
         x 
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         2
         x 
-
         Another product
       </span>
     </span>
@@ -67,20 +65,19 @@ exports[`test An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="hzUbLx">
-    <div>
-      <div>
-         
+    className="eyKrwF">
+    <span
+      className="gLZwgs">
+      <span
+        className="gLZwgs">
         1
         x 
         Name of the product
-         
-      </div>
-      <div>
-         
+      </span>
+      <span
+        className="gLZwgs">
         2
         x 
-
         Another product
       </span>
     </span>

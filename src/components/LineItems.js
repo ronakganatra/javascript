@@ -15,7 +15,7 @@ const Block = styled.span`
  */
 function LineItems( props ) {
 	let items = props.items.map( ( item ) => {
-		return <Block key={item.id}> { item.quantity }x { item.productName } </Block>;
+		return <Block key={item.id}>{ item.quantity }x { item.productName }</Block>;
 	} );
 	return <Block>{ items }</Block>;
 }
