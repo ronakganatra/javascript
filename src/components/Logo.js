@@ -3,7 +3,6 @@ import styled from "styled-components";
 import logo from "../images/logo.svg";
 import Link from "./Link.js";
 
-
 /**
  * @param {Object} props Component props.
  * @param {String} props.size The width of the prop.
