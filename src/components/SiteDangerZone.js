@@ -38,14 +38,14 @@ const SubHeading = styled.h2`
 `;
 
 const Container = styled.div`
-	padding: 0 40px 16px 40px;
+	padding: 0 24px 16px 24px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 0 24px 16px 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
-		padding: 0 18px 16px 18px;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		padding: 0 16px 16px;
 	}
 `;
 

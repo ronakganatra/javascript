@@ -5,9 +5,9 @@ exports[`test the sites component matches the snapshot 1`] = `
     className="dITYws"
     role="list">
     <li
-      className="buNNXr">
+      className="fUWodl">
       <span
-        className="dOvErj">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
@@ -39,12 +39,12 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="jMZpnL" />
+        className="fXreAk" />
     </li>
     <li
-      className="kuPieq">
+      className="feEuTA">
       <span
-        className="dOvErj">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
@@ -76,12 +76,12 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="jMZpnL" />
+        className="fXreAk" />
     </li>
     <li
-      className="buNNXr">
+      className="fUWodl">
       <span
-        className="dOvErj">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
@@ -113,7 +113,7 @@ exports[`test the sites component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="jMZpnL" />
+        className="fXreAk" />
     </li>
   </ul>
 </div>

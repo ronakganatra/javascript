@@ -1,36 +1,36 @@
 exports[`test the subscription detail component matches the snapshot 1`] = `
 <div
-  className="jOBfLO">
+  className="kiDHR">
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Payment details
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="ldfDUe">
+        className="edtPkR">
         <span
-          className="eMrAqV">
+          className="fRQKF">
           Start date
         </span>
         <span
-          className="eMrAqV">
+          className="kvzzCK">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="hjwORc">
+        className="dpgevR">
         <span
-          className="eMrAqV">
+          className="fRQKF">
           Next billing
         </span>
         <span
-          className="eMrAqV">
+          className="kvzzCK">
           <span>
             June 01, 2018
           </span>
@@ -39,22 +39,22 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Subscription details
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="fbIbuP">
           You can add 4 more sites to this subscription.
         </span>
         <span
-          className="ftKZCz">
+          className="kZrKRI">
           <button
             className="gCYCVO"
             onClick={[Function]}
@@ -64,13 +64,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="cxOSVY">
+        className="caAtBd">
         <span
           className="fbIbuP">
           Change subscription level
         </span>
         <span
-          className="ftKZCz">
+          className="kZrKRI">
           <a
             aria-label="Shop"
             className="eRLPss"
@@ -81,13 +81,13 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="fbIbuP">
           Cancel subscription
         </span>
         <span
-          className="ftKZCz">
+          className="kZrKRI">
           <button
             className="qbTWO"
             onClick={[Function]}
@@ -99,16 +99,16 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="dtrcKL">
+    className="jpmqGa">
     <h2
-      className="crGUjy">
+      className="fylYwn">
       Invoices
     </h2>
     <ul
       className="dITYws"
       role="list">
       <li
-        className="hmBkue">
+        className="iqzWVT">
         <span
           className="hpjLSh">
           <span>
@@ -116,11 +116,11 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="fRQKF">
+          className="dQuCEX">
           $1
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
             className="cxCufn"
             href="http://somelink"
@@ -132,7 +132,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="cxOSVY">
+        className="caAtBd">
         <span
           className="hpjLSh">
           <span>
@@ -140,11 +140,11 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           </span>
         </span>
         <span
-          className="fRQKF">
+          className="dQuCEX">
           $200
         </span>
         <span
-          className="eYQFHK">
+          className="kZrKRI">
           <a
             className="cxCufn"
             href="http://somelink"

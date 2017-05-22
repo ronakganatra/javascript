@@ -25,15 +25,15 @@ const ProductContainer = styled.div`
 	background-color: ${ colors.$color_grey_light };
 	text-align: center;
 
-	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
 		width: calc( ( 100% - ${ outerMargin }px - ${ outerMargin }px ) / 4 );
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc( ( 100% - ${ outerMargin }px ) / 2 );
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
 `;

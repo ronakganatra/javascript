@@ -5,7 +5,7 @@ import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage } from "react-intl";
-import { RowResponsive, Column, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
 import { injectIntl, intlShape } from "react-intl";
@@ -17,7 +17,7 @@ const SubscriptionLogo = styled.img`
 	height: 66px;
 	vertical-align: middle;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
 	}
 `;
@@ -27,11 +27,11 @@ const SubscriptionToggle = styled.span`
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		margin-right: 24px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		margin-right: 0;
 	}
 `;
@@ -43,7 +43,7 @@ const ProductName = styled.span`
 	white-space: nowrap;
 	display: block;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.small }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		white-space: normal;
 	}
 `;
@@ -103,8 +103,8 @@ function SiteSubscriptionDetail( props ) {
 		disable = false;
 	}
 	return (
-		<RowResponsive { ...rowProps } hasHeaderLabels={ false }>
-			<Column>
+		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
+			<ColumnFixedWidth>
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
@@ -114,7 +114,7 @@ function SiteSubscriptionDetail( props ) {
 						ariaLabel={ props.id } />
 				</SubscriptionToggle>
 				<SubscriptionLogo src={ props.icon } alt="" />
-			</Column>
+			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
@@ -130,7 +130,7 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthResponsive>
-		</RowResponsive>
+		</RowMobileCollapse>
 	);
 }
 

@@ -1,8 +1,8 @@
 exports[`test A standard order 1`] = `
 <li
-  className="yNbwP">
+  className="fhXzbr">
   <span
-    className="OTulW">
+    className="kwWJud">
     <span>
       January 1, 2012
     </span>
@@ -12,7 +12,7 @@ exports[`test A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="eyKrwF">
+    className="bSJakI">
     <span
       className="gLZwgs">
       <span
@@ -26,17 +26,17 @@ exports[`test A standard order 1`] = `
     </span>
   </span>
   <span
-    className="jPvoSH">
+    className="jbrwcx">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="dZeSps">
+    className="dEBTMs">
     completed
   </span>
   <span
-    className="eYQFHK">
+    className="kZrKRI">
     <a
       aria-label="Download invoice"
       className="gjWJrZ"
@@ -54,9 +54,9 @@ exports[`test A standard order 1`] = `
 
 exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="yNbwP">
+  className="fhXzbr">
   <span
-    className="OTulW">
+    className="kwWJud">
     <span>
       January 1, 2012
     </span>
@@ -66,7 +66,7 @@ exports[`test An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="eyKrwF">
+    className="bSJakI">
     <span
       className="gLZwgs">
       <span
@@ -80,17 +80,17 @@ exports[`test An Order with a disabled invoice button 1`] = `
     </span>
   </span>
   <span
-    className="jPvoSH">
+    className="jbrwcx">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="dZeSps">
+    className="dEBTMs">
     pending
   </span>
   <span
-    className="eYQFHK">
+    className="kZrKRI">
     <button
       aria-label="Download invoice"
       className="hlkIIS eoqTBx"

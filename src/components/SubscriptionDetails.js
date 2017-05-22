@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { Row, RowResponsive, ListTable, Column, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { Row, RowMobileCollapse, ListTable, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import downloadIcon from "../icons/download.svg";
 import { ListHeading } from "./ListHeading";
@@ -66,7 +66,7 @@ const SubscriptionDetailsContainer = styled.div`
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
 	width: 100%;
 
-	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
@@ -74,16 +74,16 @@ const SubscriptionDetailsContainer = styled.div`
 `;
 
 const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
 		width: calc( 50% - 10px );
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.medium }px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: 100%;
 	}
 `;
 
-let ColumnResponsive = makeFullWidth( Column );
+let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
@@ -103,73 +103,73 @@ function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
 		<ListTable>
 				<Row hasHeaderLabels={ false } key="start-date">
-					<Column ellipsis={ true }>
+					<ColumnMinWidth ellipsis={ true }>
 						{ props.intl.formatMessage( messages.startDate ) }
-					</Column>
-					<Column ellipsis={ true }>
+					</ColumnMinWidth>
+					<ColumnFixedWidth ellipsis={ true }>
 						<FormattedDate
 							value={ props.startDate }
 							year='numeric'
 							month='long'
 							day='2-digit'
 						/>
-					</Column>
+					</ColumnFixedWidth>
 				</Row>
 				<Row hasHeaderLabels={ false } key="next-billing">
-					<Column ellipsis={ true }>
+					<ColumnMinWidth ellipsis={ true }>
 						{ props.intl.formatMessage( messages.nextBilling ) }
-					</Column>
-					<Column ellipsis={ true }>
+					</ColumnMinWidth>
+					<ColumnFixedWidth ellipsis={ true }>
 						<FormattedDate
 							value={ props.nextBilling }
 							year='numeric'
 							month='long'
 							day='2-digit'
 						/>
-					</Column>
+					</ColumnFixedWidth>
 				</Row>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
 		<ListTable>
-				<RowResponsive hasHeaderLabels={ false } key="remaining-licenses">
+				<RowMobileCollapse hasHeaderLabels={ false } key="remaining-licenses">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
 					</ColumnPrimary>
-					<ColumnResponsive>
+					<ColumnFixedWidthResponsive>
 						<ResponsiveLargeButton onClick={ props.onAddSite }>
 							{ props.intl.formatMessage( messages.addSiteButton ) }
 						</ResponsiveLargeButton>
-					</ColumnResponsive>
-				</RowResponsive>
-				<RowResponsive hasHeaderLabels={ false } key="change-level">
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
+				<RowMobileCollapse hasHeaderLabels={ false } key="change-level">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.changeLevel ) }
 					</ColumnPrimary>
-					<ColumnResponsive>
+					<ColumnFixedWidthResponsive>
 						<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
 							{ props.intl.formatMessage( messages.shopButton ) }
 						</ResponsiveLargeButtonLink>
-					</ColumnResponsive>
-				</RowResponsive>
-				<RowResponsive hasHeaderLabels={ false } key="cancel">
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
+				<RowMobileCollapse hasHeaderLabels={ false } key="cancel">
 					<ColumnPrimary ellipsis={ true }>
 						{ props.intl.formatMessage( messages.cancelSubscription ) }
 					</ColumnPrimary>
-					<ColumnResponsive>
+					<ColumnFixedWidthResponsive>
 						<ResponsiveRedButton onClick={ props.onCancel }>
 							{ props.intl.formatMessage( messages.cancelButton ) }
 						</ResponsiveRedButton>
-					</ColumnResponsive>
-				</RowResponsive>
+					</ColumnFixedWidthResponsive>
+				</RowMobileCollapse>
 		</ListTable>
 	);
 
 	let invoicesTable = (
 		<ListTable>
 			{ props.invoices.map( ( invoice ) => {
-				return <RowResponsive { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
+				return <RowMobileCollapse { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
 					<ColumnMinWidth>
 						<FormattedDate
 							value={ invoice.invoiceDate }
@@ -178,7 +178,7 @@ function SubscriptionDetails( props ) {
 							day='2-digit'
 						/>
 					</ColumnMinWidth>
-					<ColumnMinWidth ellipsis={ true }>
+					<ColumnMinWidthResponsive ellipsis={ true }>
 						{ props.intl.formatNumber(
 							formatAmount( invoice.invoiceAmount ),
 							{
@@ -187,7 +187,7 @@ function SubscriptionDetails( props ) {
 								maximumFractionDigits: 0,
 							}
 						) }
-					</ColumnMinWidth>
+					</ColumnMinWidthResponsive>
 					<ColumnFixedWidthResponsive>
 						<ResponsiveIconButtonLink
 							to={ getInvoiceUrl( invoice.invoiceId ) }
@@ -196,7 +196,7 @@ function SubscriptionDetails( props ) {
 							{ props.intl.formatMessage( messages.invoiceButton ) }
 						</ResponsiveIconButtonLink>
 					</ColumnFixedWidthResponsive>
-				</RowResponsive>;
+				</RowMobileCollapse>;
 			} ) }
 		</ListTable>
 	);

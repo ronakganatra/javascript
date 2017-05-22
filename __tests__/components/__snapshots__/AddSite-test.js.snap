@@ -25,9 +25,9 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     placeholder="https://example-site.com"
     type="url" />
   <div
-    className="hLfGwL">
+    className="grqHlz">
     <div
-      className="dptjfs">
+      className="dgmCYf">
       <button
         className="iCxCzn"
         onClick={[Function]}

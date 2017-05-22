@@ -1,6 +1,6 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { RowResponsive, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { IconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
@@ -61,7 +61,7 @@ function Order( props ) {
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
-		<RowResponsive background={ props.background }>
+		<RowMobileCollapse background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnMinWidthResponsive>
@@ -87,7 +87,7 @@ function Order( props ) {
 					<span className="screen-reader-text">{ invoiceMessage }</span>
 				</ResponsiveInvoiceButton>
 			</ColumnFixedWidthResponsive>
-		</RowResponsive>
+		</RowMobileCollapse>
 	);
 }
 
