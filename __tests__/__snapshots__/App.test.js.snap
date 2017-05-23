@@ -3,15 +3,15 @@ exports[`test renders without crashing 1`] = `
   className="dRnDAb">
   <div
     className="egcnZp">
-    <a
-      className="ibLdSE"
-      href="#content">
-      <span>
-        Skip to main content
-      </span>
-    </a>
     <header
       role="banner">
+      <a
+        className="ibLdSE"
+        href="#content">
+        <span>
+          Skip to main content
+        </span>
+      </a>
       <a
         href="/"
         onClick={[Function]}>

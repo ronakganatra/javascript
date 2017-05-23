@@ -38,10 +38,10 @@ class App extends Component {
 					<ConnectedRouter history={ this.props.history }>
 						<Layout>
 							<Sidebar>
-								<SkipLink>
-									<FormattedMessage id="skiplink" defaultMessage={ "Skip to main content" } />
-								</SkipLink>
 								<header role="banner">
+									<SkipLink>
+										<FormattedMessage id="skiplink" defaultMessage={ "Skip to main content" } />
+									</SkipLink>
 									<Logo size="200px" />
 								</header>
 								<UserStatus/>
