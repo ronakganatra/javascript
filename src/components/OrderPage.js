@@ -6,7 +6,9 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
+import LandingPage from "./LandingPage";
 import noOrdersImage from "./../images/noOrders.svg";
+import noResultsImage from "./../images/SitesNoResults.svg";
 
 const messages = defineMessages( {
 	searchLabel: {
@@ -74,12 +76,24 @@ class OrderPage extends React.Component {
 							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
 			<FormattedMessage id="orders.no-orders.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
 		];
+		let noSearchResultsParagraphs = [
+			<FormattedMessage id="orders.search.no-results"
+							  defaultMessage={ "We could not find any orders matching { query }." }
+							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
 		if ( props.orders.length > 0 ) {
 			return (
 				<div>
 					{ this.getSearch() }
 					<Orders { ...this.props } onChange={ props.onSearchChange } query={ props.query }/>
+				</div>
+			);
+		} else if ( props.query.length > 0 ) {
+			return (
+				<div>
+					{ this.getSearch() }
+					<LandingPage paragraphs={ noSearchResultsParagraphs }
+								 imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
