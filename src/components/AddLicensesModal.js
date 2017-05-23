@@ -95,10 +95,6 @@ const AddLicensesModal = styled( BaseAddLicensesModal )`
 		background-color: #fff;
 		outline: none;
 		
-		@media screen and ( max-width: 600px ) {
-			padding: 1.5em 1.5em 0;
-		}
-		
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
 		}

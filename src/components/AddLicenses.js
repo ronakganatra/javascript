@@ -20,11 +20,25 @@ const AddLicensesText = styled.p`
 `;
 
 const Buttons = styled.div`
-	float: right;
-
+	text-align: right;
+	flex: 200px 1 0;
+  
 	a,
 	button {
 		margin-left: 12px;
+	}
+
+	@media screen and ( max-width: 455px ) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		a,
+		button {
+			margin-left: 0px;
+			margin-top: 12px;
+		}
 	}
 `;
 
