@@ -122,13 +122,13 @@ exports[`test the site subscription detail list component matches the snapshot 1
               0/2 remaining
             </span>
           </span>
-          <a
-            className="cLgDIl"
-            href="http://url2.com">
+          <button
+            className="dRCgBP"
+            onClick={[Function]}>
             <span>
               Get additional subscriptions
             </span>
-          </a>
+          </button>
         </span>
         <div>
           <noscript />
