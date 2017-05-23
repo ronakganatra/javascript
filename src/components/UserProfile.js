@@ -12,6 +12,8 @@ const UserInfoContainer = styled.aside`
 `;
 
 const UserInfo = styled.div`
+	// Firefox needs this for user-email break word to work.
+	min-width: 0;
 `;
 
 const UserName = styled.p`

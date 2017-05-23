@@ -1,12 +1,12 @@
 import React from "react";
-import { ColumnIcon } from "./ColumnIcon";
-import { Row, ColumnText, Column } from "./Tables";
+import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/RoundButton.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
 import formatAmount from "../../../shared/currency";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	product: {
@@ -55,26 +55,30 @@ function Subscription( props ) {
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
-			<ColumnText fillSpace={ true } ColumnWidth="250px" headerLabel={ props.intl.formatMessage( messages.product ) }>{ props.name }</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }
-			            ColumnWidth="100px">{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }</ColumnText>
-			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) } ColumnWidth="100px">{ props.used }/{ props.limit }</ColumnText>
-			<ColumnText hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) } ColumnWidth="150px">
+			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
+				{ props.name }
+			</ColumnPrimary>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
+				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
+				{ props.used }/{ props.limit }
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
 				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
-			</ColumnText>
-			<ColumnText hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }
-			            ColumnWidth="100px">
-				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /></ColumnText>
-			<Column textAlign="right">
-				<MediaQuery query="(min-width: 1356px)">
+			</ColumnMinWidth>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
+				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
+			</ColumnMinWidth>
+			<ColumnFixedWidth>
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
 					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
-				<MediaQuery query="(max-width: 1355px)">
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 				</MediaQuery>
-
-			</Column>
+			</ColumnFixedWidth>
 		</Row>
 	);
 }

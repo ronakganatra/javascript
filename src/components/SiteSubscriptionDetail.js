@@ -1,30 +1,22 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { LargeButtonLink } from "./Button";
+import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
-import { FormattedMessage } from "react-intl";
-import { Row } from "./Tables";
+import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
-import { injectIntl, intlShape } from "react-intl";
+import defaults from "../config/defaults.json";
+import util from "util";
 
-let responsiveWidthThreshold = 1355;
-
-const SubscriptionLeftContainer = styled.span`
-	margin-right: 40px;
-
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		margin-right: 20px;
-	}
-
-	@media screen and ( max-width: 800px ) {
-		align-self: flex-start;
-		margin: 0;
-		padding-top: 14px;
-	}
-`;
+const messages = defineMessages( {
+	toggleAriaLabel: {
+		id: "site.subscription-detail.toggle",
+		defaultMessage: "Enable subscription for: %s",
+	},
+} );
 
 const SubscriptionLogo = styled.img`
 	display: inline-block;
@@ -32,7 +24,7 @@ const SubscriptionLogo = styled.img`
 	height: 66px;
 	vertical-align: middle;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
 	}
 `;
@@ -40,47 +32,31 @@ const SubscriptionLogo = styled.img`
 const SubscriptionToggle = styled.span`
 	display: inline-block;
 	vertical-align: middle;
-	margin: 10px 40px 0 2px;
+	margin: 6px 40px 0 2px;
 
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		margin-right: 20px;
-	}
-`;
-
-const SubscriptionDetails = styled.div`
-	color: ${ colors.$color_black };
-	margin: 0 40px 0 0;
-	flex: 1 1;
-	overflow: hidden;
-	max-width: 100%;
-
-	@media screen and ( max-width: ${ responsiveWidthThreshold }px ) {
-		margin: 0 10px 0 0;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		margin-right: 24px;
 	}
 
-	@media screen and ( max-width: 800px ) {
-		margin: 0;
-		padding-top: 20px;
-		align-self: flex-start;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		margin-right: 0;
 	}
 `;
 
 const ProductName = styled.span`
 	font-size: 16px;
-	font-weight: 400;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	display: block;
 
-	@media screen and ( max-width: 800px ) {
-		font-size: 14px;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		white-space: normal;
 	}
 `;
 
 const SubscriptionUsage = styled.span`
 	display: inline-block;
-	font-size: 14px;
 	font-weight: 300;
 	margin-right: 10px;
 `;
@@ -91,24 +67,16 @@ const AddOneLicense = styled.a`
 	font-style: italic;
 	text-decoration: none;
 	border: none;
-	background: transparent url( ${ plusIcon } ) no-repeat 0 0;
+	background: transparent url( ${ plusIcon } ) no-repeat 2px 2px;
 	background-size: 16px;
 	color: ${ colors.$color_blue };
 	cursor: pointer;
-	padding: 0 0 0 20px;
+	padding: 0 0 0 22px;
 	text-align: left;
 `;
 
-const SubscriptionRightContainer = styled.span`
-	@media screen and ( max-width: 800px ) {
-		width: 100%;
-		padding: 18px 0 24px;
-
-		a {
-			width: 100%;
-		}
-	}
-`;
+let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 /**
  * Creates Site Subscriptions component
@@ -122,6 +90,7 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
+
 	let modal = (
 		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
 	);
@@ -141,34 +110,34 @@ function SiteSubscriptionDetail( props ) {
 		disable = false;
 	}
 	return (
-		<Row { ...rowProps } flexWrap="wrap" justifyContent="space-between">
-			<SubscriptionLeftContainer>
+		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
+			<ColumnFixedWidth>
 				<SubscriptionToggle>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						onToggleDisabled={ props.onToggleDisabled }
 						isEnabled={ props.isEnabled }
 						disable={ disable }
-						ariaLabel={ props.id } />
+						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
 				</SubscriptionToggle>
 				<SubscriptionLogo src={ props.icon } alt="" />
-			</SubscriptionLeftContainer>
+			</ColumnFixedWidth>
 
-			<SubscriptionDetails>
+			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
 						values={{ howMany: licensesRemaining + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
-			</SubscriptionDetails>
+			</ColumnPrimary>
 			{ modal }
-			<SubscriptionRightContainer>
-				<LargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
+			<ColumnFixedWidthResponsive>
+				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
-				</LargeButtonLink>
-			</SubscriptionRightContainer>
-		</Row>
+				</ResponsiveLargeButtonLink>
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapse>
 	);
 }
 

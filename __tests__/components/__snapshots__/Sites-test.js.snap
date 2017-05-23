@@ -2,118 +2,118 @@ exports[`test the sites component matches the snapshot 1`] = `
 <div
   className="dnTGWH">
   <ul
-    className="jplRhE"
+    className="dITYws"
     role="list">
     <li
-      className="eSkKDa">
+      className="fUWodl">
       <span
-        className="hhzmjS">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="fwqmFH">
+        className="kVUeYb">
         www.yoast.com
       </span>
       <span
-        className="buwONS">
+        className="deHdHN">
         <span>
           <img
             alt="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
           <img
             alt="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="fXreAk" />
     </li>
     <li
-      className="iCoagh">
+      className="feEuTA">
       <span
-        className="hhzmjS">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="fwqmFH">
+        className="kVUeYb">
         www.google.com
       </span>
       <span
-        className="buwONS">
+        className="deHdHN">
         <span>
           <img
             alt="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
           <img
             alt="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="fXreAk" />
     </li>
     <li
-      className="eSkKDa">
+      className="fUWodl">
       <span
-        className="hhzmjS">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="fwqmFH">
+        className="kVUeYb">
         www.facebook.com
       </span>
       <span
-        className="buwONS">
+        className="deHdHN">
         <span>
           <img
             alt="Test is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test2 is active"
-            className="dVJUOs"
+            className="dhzOCo"
             src="test.jpg" />
           <img
             alt="Test3 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
           <img
             alt="Test4 is inactive"
-            className="jNYDQB"
+            className="snIQS"
             src="test.jpg" />
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="fXreAk" />
     </li>
   </ul>
 </div>

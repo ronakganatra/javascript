@@ -2,13 +2,13 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
-        Danger zone
+        Disconnect this site
       </span>
       <svg
         fill="#555"
@@ -20,16 +20,12 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
-      <h2
-        className="cecVBz">
-        Disconnect this site
-      </h2>
+      className="chGuAF">
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="ecqRgL"
         onClick={[Function]}
         type="button">
         Remove
@@ -43,13 +39,13 @@ exports[`test the site dangerzone onRemove handling 1`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
-        Danger zone
+        Disconnect this site
       </span>
       <svg
         fill="#555"
@@ -61,16 +57,12 @@ exports[`test the site dangerzone onRemove handling 1`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
-      <h2
-        className="cecVBz">
-        Disconnect this site
-      </h2>
+      className="chGuAF">
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="ecqRgL"
         onClick={[Function]}
         type="button">
         Remove
@@ -84,13 +76,13 @@ exports[`test the site dangerzone onRemove handling 2`] = `
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
-        Danger zone
+        Disconnect this site
       </span>
       <svg
         fill="#555"
@@ -102,16 +94,12 @@ exports[`test the site dangerzone onRemove handling 2`] = `
       </svg>
     </button>
     <div
-      className="zYWq">
-      <h2
-        className="cecVBz">
-        Disconnect this site
-      </h2>
+      className="chGuAF">
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="ecqRgL"
         onClick={[Function]}
         type="button">
         Remove
@@ -125,13 +113,13 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
-        Danger zone
+        Disconnect this site
       </span>
       <svg
         fill="#555"
@@ -143,16 +131,12 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
       </svg>
     </button>
     <div
-      className="zYWq">
-      <h2
-        className="cecVBz">
-        Disconnect this site
-      </h2>
+      className="chGuAF">
       <p>
         This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
       </p>
       <button
-        className="iMNqUX"
+        className="ecqRgL"
         disabled={Object {}}
         onClick={[Function]}
         type="button">

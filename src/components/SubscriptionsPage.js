@@ -1,10 +1,12 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import Subscriptions from "./Subscriptions";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
+import NoResults from "./NoResults";
+import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -51,19 +53,33 @@ class SubscriptionsPage extends React.Component {
 	}
 
 	render() {
-		let props = this.props;
+		let noSubscriptionsParagraphs = [
+			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
+			<FormattedMessage id="subscriptions.no-subscriptions.manage"
+							  defaultMessage="Here you can find a list of the software you bought from us - but it looks like you don't have any yet!" />,
+			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+		];
 
+		let props = this.props;
+		if ( props.subscriptions.length > 0 ) {
+			return (
+				<div>
+					<Search
+						id="search"
+						searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+						descriptionId="search-description"
+						query={ this.props.query }
+						onChange={ this.props.onSearchChange }
+					/>
+					<Subscriptions { ...props } />
+				</div>
+			);
+		}
 		return (
-			<div>
-				<Search
-					id="search"
-					searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
-					descriptionId="search-description"
-					query={ this.props.query }
-					onChange={ this.props.onSearchChange }
-				/>
-				<Subscriptions { ...props } />
-			</div>
+				<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
+					window.open( "https://url-to-sto.re" ).bind( this );
+				}
+			} imageSource={ noSubscriptionsImage }/>
 		);
 	}
 

@@ -4,14 +4,11 @@ import CollapsibleHeader from "./CollapsibleHeader";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { RedButton } from "./Button";
 import Paper from "./Paper";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	heading: {
 		id: "site_danger_zone.heading",
-		defaultMessage: "Danger zone",
-	},
-	siteRemovalHeading: {
-		id: "site_danger_zone.site_removal.heading",
 		defaultMessage: "Disconnect this site",
 	},
 	siteRemovalExplanation: {
@@ -31,16 +28,15 @@ const messages = defineMessages( {
 	},
 } );
 
-const SubHeading = styled.h2`
-	font-weight: 600;
-	font-size: 1em;
-`;
-
 const Container = styled.div`
-	padding: 0 40px 16px 40px;
+	padding: 0 24px 16px 24px;
 
-	@media screen and ( max-width: 800px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 0 24px 16px 24px;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		padding: 0 16px 16px;
 	}
 `;
 
@@ -63,7 +59,6 @@ function SiteDangerZone( props ) {
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.heading ) } isOpen={ true }>
 				<Container>
-					<SubHeading>{ props.intl.formatMessage( messages.siteRemovalHeading ) }</SubHeading>
 					<p>{ props.intl.formatMessage( messages.siteRemovalExplanation ) }</p>
 					<RedButton {...disabled} onClick={ props.onRemove }>{ buttonText }</RedButton>
 				</Container>

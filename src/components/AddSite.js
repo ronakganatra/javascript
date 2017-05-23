@@ -7,6 +7,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -49,22 +50,28 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 ` );
 
 const Buttons = styled.div`
+	flex: 1 0 200px;
+	padding: 8px 0;
 	text-align: right;
-	flex: 200px 1 0;
+
+	a,
+	button {
+		margin-left: 12px;
+	}
 `;
 
 const ErrorButtonZone = styled.div`
-   display: -webkit-flex;
-   display: flex;
-   -webkit-flex-direction: row;
-   width: 100%;
-   flex-direction: row;
-   -webkit-justify-content: space-between;
-   justify-content: space-between;
-   
-   @media screen and ( max-width: 800px ) {
-   	  display: block;
-   }
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	width: 100%;
+	flex-direction: row;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
+		display: block;
+	}
 `;
 
 const YellowWarning = styled.p`
@@ -73,8 +80,8 @@ const YellowWarning = styled.p`
 	overflow: auto;
 	display: flex;
 	align-items: center;
-	
-	@media screen and ( max-width: 720px ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		flex-direction: column;
 		text-align: left;
 	}
@@ -86,8 +93,8 @@ const NoActiveProductIcon = styled.img`
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
-	
-	@media screen and ( max-width: 720px ) {
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		padding: 10px;
 	}
 `;

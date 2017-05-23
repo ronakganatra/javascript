@@ -2,10 +2,10 @@ exports[`test the site subscription detail list component matches the snapshot 1
 <div
   className="dnTGWH">
   <div
-    className="cjKevG">
+    className="cxrbkq">
     <button
       aria-expanded={true}
-      className="euYPbC"
+      className="gvecqt"
       onClick={[Function]}>
       <span>
         Manage subscriptions
@@ -20,18 +20,18 @@ exports[`test the site subscription detail list component matches the snapshot 1
       </svg>
     </button>
     <ul
-      className="kYxQsj"
+      className="dITYws"
       role="list">
       <li
-        className="dhSHpp">
+        className="iqzWVT">
         <span
-          className="fGtTED">
+          className="fXreAk">
           <span
-            className="gFXyaK">
+            className="ipTaeZ">
             <div>
               <div
                 aria-checked={false}
-                aria-label="productid"
+                aria-label="Enable subscription for: Yoast SEO Premium"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -52,26 +52,26 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="kganGp"
             src="icon.png" />
         </span>
-        <div
-          className="hdGyW">
+        <span
+          className="iyDwOW">
           <span
-            className="kXXZFn">
+            className="kyRcdL">
             Yoast SEO Premium
           </span>
           <span
-            className="kwOabh">
+            className="fdTSGx">
             <span>
               1/2 remaining
             </span>
           </span>
-        </div>
+        </span>
         <div>
           <noscript />
         </div>
         <span
-          className="hMwgWU">
+          className="kZrKRI">
           <a
-            className="dAFQbA"
+            className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -81,15 +81,15 @@ exports[`test the site subscription detail list component matches the snapshot 1
         </span>
       </li>
       <li
-        className="gYVRpR">
+        className="caAtBd">
         <span
-          className="fGtTED">
+          className="fXreAk">
           <span
-            className="gFXyaK">
+            className="ipTaeZ">
             <div>
               <div
                 aria-checked={false}
-                aria-label="productid2"
+                aria-label="Enable subscription for: Yoast SEO Local"
                 className="kXYdPH"
                 onClick={[Function]}
                 onKeyDown={[Function]}
@@ -110,33 +110,33 @@ exports[`test the site subscription detail list component matches the snapshot 1
             className="kganGp"
             src="icon2.png" />
         </span>
-        <div
-          className="hdGyW">
+        <span
+          className="iyDwOW">
           <span
-            className="kXXZFn">
+            className="kyRcdL">
             Yoast SEO Local
           </span>
           <span
-            className="kwOabh">
+            className="fdTSGx">
             <span>
               0/2 remaining
             </span>
           </span>
           <a
-            className="ddFsZG"
+            className="cLgDIl"
             href="http://url2.com">
             <span>
               Get additional subscriptions
             </span>
           </a>
-        </div>
+        </span>
         <div>
           <noscript />
         </div>
         <span
-          className="hMwgWU">
+          className="kZrKRI">
           <a
-            className="dAFQbA"
+            className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
