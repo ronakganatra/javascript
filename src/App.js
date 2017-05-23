@@ -8,15 +8,11 @@ import menuItems from "./config/Menu";
 import MainMenu, { MainMenuRoutes } from "./components/Menu";
 import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
-import { Route } from "react-router-dom";
 import { ConnectedRouter } from "react-router-redux";
 import colors from "yoast-components/style-guide/colors.json";
 import { IntlProvider } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
-import SitesPageContainer from "./containers/SitesPage";
-import SitePageContainer from "./containers/SitePage";
-import SubscriptionPageContainer from "./containers/SubscriptionPage";
 
 /*
  * Helper method to write global CSS.
@@ -50,10 +46,7 @@ class App extends Component {
 							</Sidebar>
 							<Main>
 								<Content>
-									<Route exact path="/" component={ SitesPageContainer } />
-									<Route path="/sites/:id" component={ SitePageContainer } />
 									<MainMenuRoutes menuRoutes={ menuItems }  />
-									<Route path="/account/subscriptions/:id" component={ SubscriptionPageContainer } />
 								</Content>
 							</Main>
 						</Layout>

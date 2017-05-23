@@ -6,40 +6,39 @@ import { FormattedMessage } from "react-intl";
 const AddLicensesModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	font-size: 18px;
 `;
 
 const AddLicensesHeading = styled.h1`
 	font-weight: 300;
-	font-size: 1.5em;
+	font-size: 20px;
 	margin: 0;
 `;
 
 const AddLicensesText = styled.p`
 	font-weight: 300;
-	font-size: 1em;
+	font-size: 16px;
 `;
 
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
 	margin-bottom: 1.5em;
-
+ 
 	a,
 	button {
 		margin-left: 12px;
 	}
 
-	@media screen and ( max-width: 420px ) {
+	@media screen and ( max-width: 455px ) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		
+
 		a,
 		button {
 			margin-left: 0px;
-			margin-bottom: 12px;
+			margin-top: 12px;
 		}
 	}
 `;
@@ -47,9 +46,9 @@ const Buttons = styled.div`
 /**
  * Renders the AddLicenses component.
  *
- * @param {Object} props                 Component props.
- * @param {Function} props.onCancelClick The function to execute when the cancel button is clicked.
- * @param {Function} props.onUpgradeClick   The function to execute when the link button is clicked.
+ * @param {Object} props Component props.
+ * @param {Function} props.onClose The function to execute when the cancel button is clicked.
+ * @param {Function} props.onUpgrade   The function to execute when the link button is clicked.
  *
  * @returns {ReactElement} A react component describing the AddLicenses modal.
  */
@@ -57,21 +56,21 @@ export default function AddLicenses( props ) {
 	return (
 			<AddLicensesModal>
 				<AddLicensesHeading>
-					<FormattedMessage id="subscriptions.upgrade-subscription.header" defaultMessage="Upgrade subscription" />
+					<FormattedMessage id="add-licenses.header" defaultMessage="You are out of licenses" />
 				</AddLicensesHeading>
 				<AddLicensesText>
 					<label htmlFor="addLicensesInputField">
-						<FormattedMessage id="subscriptions.upgrade-subscription.text" defaultMessage="You've used up all the site
-						licenses on your current subscription. Do you want to upgade you subscription? (Description of how this change will be billed)" />
+						<FormattedMessage id="add-licenses.text" defaultMessage="You've used up all the site
+						licenses in your current subscription. If you want to add more sites, please buy another subscription." />
 					</label>
 				</AddLicensesText>
 				<Buttons>
 					<LargeButton type="button" onClick={ props.onClose } >
-						<FormattedMessage id="subscriptions.upgrade-subscription.cancel" defaultMessage="cancel" />
+						<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
 					</LargeButton>
 
-					<LargeButtonLink to={ props.onUpgrade }>
-						<FormattedMessage id="subscriptions.upgrade-subscription.link" defaultMessage="upgrade" />
+					<LargeButtonLink to={ props.onShop }>
+						<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
 					</LargeButtonLink>
 				</Buttons>
 			</AddLicensesModal>
@@ -80,5 +79,5 @@ export default function AddLicenses( props ) {
 
 AddLicenses.propTypes = {
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.string.isRequired,
+	onShop: React.PropTypes.string.isRequired,
 };

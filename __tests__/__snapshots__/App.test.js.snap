@@ -248,7 +248,6 @@ exports[`test renders without crashing 1`] = `
           </g>
         </g>
       </svg>
-      <div />
     </div>
   </main>
 </div>

@@ -4,12 +4,19 @@ import colors from "yoast-components/style-guide/colors.json";
 import { LargeButtonLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
 import AddLicensesModal from "./AddLicensesModal";
-import { injectIntl, intlShape } from "react-intl";
 import defaults from "../config/defaults.json";
+import util from "util";
+
+const messages = defineMessages( {
+	toggleAriaLabel: {
+		id: "site.subscription-detail.toggle",
+		defaultMessage: "Enable subscription for: %s",
+	},
+} );
 
 const SubscriptionLogo = styled.img`
 	display: inline-block;
@@ -85,7 +92,7 @@ function SiteSubscriptionDetail( props ) {
 	}
 
 	let modal = (
-		<AddLicensesModal isOpen={ props.popupOpen } onUpgrade={ props.onUpgrade } onClose={ props.onClose }/>
+		<AddLicensesModal isOpen={ props.popupOpen } onShop={ props.onShop } onClose={ props.onClose }/>
 	);
 
 	let licensesRemaining = props.limit - props.used;
@@ -111,7 +118,7 @@ function SiteSubscriptionDetail( props ) {
 						onToggleDisabled={ props.onToggleDisabled }
 						isEnabled={ props.isEnabled }
 						disable={ disable }
-						ariaLabel={ props.id } />
+						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
 				</SubscriptionToggle>
 				<SubscriptionLogo src={ props.icon } alt="" />
 			</ColumnFixedWidth>
@@ -144,7 +151,7 @@ SiteSubscriptionDetail.propTypes = {
 	onToggleDisabled: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.string.isRequired,
+	onShop: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
 	icon: React.PropTypes.string.isRequired,
 	limit: React.PropTypes.number.isRequired,
