@@ -36,9 +36,6 @@ export function uiSearch( state = rootState.ui.search, action ) {
 		case LINK_SITE_POPUP_CLOSE:
 		case LINK_SITE_SUCCESS:
 		case LINK_SITE_FAILURE:
-			return Object.assign( {}, state, {
-				query: "",
-			} );
 		case LOCATION_CHANGE:
 			return Object.assign( {}, state, {
 				query: "",
