@@ -79,6 +79,11 @@ export default function SiteHeader( props ) {
 	);
 }
 
+
+SiteHeader.defaultProps = {
+	imageUrl: "",
+};
+
 SiteHeader.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	url: React.PropTypes.string.isRequired,
