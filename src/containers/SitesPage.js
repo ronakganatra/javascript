@@ -77,7 +77,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClose: () => {
 			dispatch( linkSitePopupClose() );
 		},
-		onLink: ( url ) => {
+		onConnect: ( url ) => {
 			dispatch( linkSite( url ) );
 		},
 		onChange: ( url ) => {
@@ -96,15 +96,15 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onLink = () => {
-		dispatchProps.onLink( url );
+	let onConnect = () => {
+		dispatchProps.onConnect( url );
 	};
 
 	let addSite = () => {
 		dispatchProps.addSite( url );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink, addSite } );
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite } );
 };
 
 const SitesPageContainer = connect(

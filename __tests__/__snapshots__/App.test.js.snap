@@ -36,7 +36,7 @@ exports[`test renders without crashing 1`] = `
           
         </p>
         <button
-          className="jlGwtL"
+          className="ehCYwP"
           onClick={[Function]}
           type="button">
           Sign out

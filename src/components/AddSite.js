@@ -1,6 +1,6 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { TextButton } from "./Button.js";
+import { LargeButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-weight: 300;
-	font-size: 18px;
+	font-size: 1em;
 `;
 
 const AddSiteImage = styled.img`
@@ -38,15 +38,17 @@ const AddSiteHeading = styled.h1`
 const AddSiteText = styled.p`
 	font-weight: 300;
 	font-size: 1em;
+	margin: 16px 0 8px 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
-	height: 60px;
+	height: 48px;
 	box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${ colors.$color_grey };
-	text-indent: 10px;
-	font-size: 0.8em;
+	padding: 0 0 0 10px;
+	font-size: 1em;
+	border: 0;
 ` );
 
 const Buttons = styled.div`
@@ -58,19 +60,18 @@ const Buttons = styled.div`
 	button {
 		margin-left: 12px;
 	}
-`;
 
-const ErrorButtonZone = styled.div`
-	display: -webkit-flex;
-	display: flex;
-	-webkit-flex-direction: row;
-	width: 100%;
-	flex-direction: row;
-	-webkit-justify-content: space-between;
-	justify-content: space-between;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		display: block;
+	@media screen and ( max-width: 420px ) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		a,
+		button {
+			margin-left: 0px;
+			margin-bottom: 8px;
+		}
 	}
 `;
 
@@ -80,6 +81,7 @@ const YellowWarning = styled.p`
 	overflow: auto;
 	display: flex;
 	align-items: center;
+
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		flex-direction: column;
@@ -100,13 +102,14 @@ const NoActiveProductIcon = styled.img`
 `;
 
 const WarningText = styled.span`
-	font-size: 0.8em;
+	font-size: 1em;
 `;
 
 const ValidationText = styled.div`
-	font-size: 0.8em;
-	color: red;
+	font-size: 1em;
+	color: ${ colors.$color_red};
 	margin: 1em 0;
+	min-height: 1.8em;
 `;
 
 const PurpleLink = styled.a`
@@ -124,7 +127,7 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.linkEnabled = true;
+		this.urlValidity = false;
 
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
@@ -155,27 +158,32 @@ class AddSite extends React.Component {
 		this.props.onChange( event.target.value );
 	}
 
-	/**
-	 * Checks whether an URL was entered.
-	 *
-	 * @param {string} input The string in the input field.
-	 * @returns {null} Returns either null or an error message JSX.
-	 */
-	urlValidityMessage( input = "" ) {
-		this.linkEnabled = true;
+	validateUrl( input = "" ) {
+		this.urlValidity = true;
 
 		if ( input === "" ) {
-			this.linkEnabled = false;
-			return null;
+			this.urlValidity = false;
 		}
 
 		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
-			this.linkEnabled = false;
+			this.urlValidity = false;
+		}
+	}
 
+	/**
+	 * Checks whether an URL was entered.
+	 *
+	 * @param {string} input The string in the input field.
+	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
+	 */
+	urlValidityMessage( input = "" ) {
+		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
+
+		if ( ! this.urlValidity && input !== "" ) {
 			return (
-				<ValidationText id="url_reminder">
+				<ValidationText>
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
 						defaultMessage={ "{ validationMessage }" }
@@ -184,6 +192,10 @@ class AddSite extends React.Component {
 				</ValidationText>
 			);
 		}
+
+		return (
+			<ValidationText />
+		);
 	}
 
 	/**
@@ -250,18 +262,17 @@ class AddSite extends React.Component {
 					onChange={ this.onWebsiteURLChange.bind( this ) }
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
-				<ErrorButtonZone>
-					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
-					<Buttons>
-						<TextButton type="button" onClick={ this.props.onCancelClick } buttonWidth={ "100px" }>
-							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-						</TextButton>
-						<TextButton type="button" onClick={ this.linkEnabled ? this.props.onLinkClick : () => {
-						} } buttonWidth={"100px"} enabledStyle={ this.linkEnabled }>
-							<FormattedMessage id="sites.add-site.link" defaultMessage="link"/>
-						</TextButton>
-					</Buttons>
-				</ErrorButtonZone>
+				{ this.validateUrl( this.props.linkingSiteUrl ) }
+				<Buttons>
+					<LargeButton type="button" onClick={ this.props.onCancelClick } >
+						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+					</LargeButton>
+					<LargeButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+					} } enabledStyle={ this.urlValidity }>
+						<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+					</LargeButton>
+				</Buttons>
+				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
@@ -272,7 +283,7 @@ AddSite.propTypes = {
 	intl: intlShape.isRequired,
 	linkingSiteUrl: React.PropTypes.string.isRequired,
 	onCancelClick: React.PropTypes.func.isRequired,
-	onLinkClick: React.PropTypes.func.isRequired,
+	onConnectClick: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	query: React.PropTypes.string.isRequired,

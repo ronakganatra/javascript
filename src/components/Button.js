@@ -24,7 +24,7 @@ export const Button = styled.button`
 	// Buttons don't need vertical padding.
 	padding: 0 16px;
 	border: 0;
-	background-color: ${ colors.$color_green_medium_light };
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 	border-radius: 4px;
@@ -32,39 +32,34 @@ export const Button = styled.button`
 	text-transform: uppercase;
 	cursor: pointer;
 
-	transition: background 150ms ease-out;
-
-	${ buttonAnimations }
+	${ buttonAnimations };
 `;
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 Button.defaultProps = {
 	type: "button",
+	enabledStyle: true,
 };
 
 export const LargeButton = styled( Button )`
 	min-width: 152px;
 `;
 
-export const GreenButton = styled( Button )``;
-
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 `;
 
 TextButton.PropTypes = {
 	buttonWidth: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
 };
 
 TextButton.defaultProps = {
 	buttonWidth: "auto",
-	enabledStyle: true,
 };
 
 export const LogoutButton = styled( Button )`

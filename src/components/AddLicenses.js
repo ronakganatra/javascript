@@ -22,7 +22,8 @@ const AddLicensesText = styled.p`
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
-  
+	margin-bottom: 1.5em;
+ 
 	a,
 	button {
 		margin-left: 12px;
