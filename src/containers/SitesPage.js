@@ -17,7 +17,7 @@ export const mapStateToProps = ( state ) => {
 
 		let siteProps = {
 			id: site.id,
-			siteName: site.hostname ? site.hostname : site.url,
+			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
 			url: site.url,
 		};
 
