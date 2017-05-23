@@ -108,7 +108,7 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
       onClick={[Function]} />
     <img
       alt=""
-      className="dFOHLF"
+      className="bTHZQB"
       src="noSites.svg" />
   </div>
   <div>
@@ -312,7 +312,7 @@ exports[`test the sites page component without sites handling an onclick event o
       onClick={[Function]} />
     <img
       alt=""
-      className="dFOHLF"
+      className="bTHZQB"
       src="noSites.svg" />
   </div>
   <div>
@@ -346,7 +346,7 @@ exports[`test the sites page component without sites handling an onclick event o
       onClick={[Function]} />
     <img
       alt=""
-      className="dFOHLF"
+      className="bTHZQB"
       src="noSites.svg" />
   </div>
   <div>

@@ -16,7 +16,7 @@ const PageContainer = styled.div`
 	text-align: center;
 
 	img {
-		width: 540px;
+		width: 384px;
 		max-width: 100%;
 		height: auto;
 		margin-top: 2em;

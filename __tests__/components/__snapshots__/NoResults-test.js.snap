@@ -22,7 +22,7 @@ exports[`test the NoResults component matches the snapshot 1`] = `
     onClick={[Function]} />
   <img
     alt=""
-    className="dFOHLF"
+    className="bTHZQB"
     src="noSites.svg" />
 </div>
 `;
