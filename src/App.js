@@ -40,7 +40,7 @@ class App extends Component {
 							<Sidebar>
 								<header role="banner">
 									<SkipLink>
-										<FormattedMessage id="skiplink" defaultMessage={ "Skip to main content" } />
+										<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 									</SkipLink>
 									<Logo size="200px" />
 								</header>
