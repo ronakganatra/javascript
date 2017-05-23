@@ -90,7 +90,7 @@ const AddLicensesModal = styled( BaseAddLicensesModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 2em 2em 0;
+		padding: 24px 40px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;

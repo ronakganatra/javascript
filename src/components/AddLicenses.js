@@ -1,29 +1,26 @@
 import React from "react";
 import styled from "styled-components";
-import { TextButton, ButtonLink } from "./Button.js";
+import { LargeButton, LargeButtonLink } from "./Button.js";
 import { FormattedMessage } from "react-intl";
 
 const AddLicensesModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	font-weight: 300;
-	font-size: 18px;
 `;
 
 const AddLicensesHeading = styled.h1`
 	font-weight: 300;
-	font-size: 1.5em;
+	font-size: 20px;
 	margin: 0;
 `;
 
 const AddLicensesText = styled.p`
 	font-weight: 300;
-	font-size: 1em;
+	font-size: 16px;
 `;
 
 const Buttons = styled.div`
 	float: right;
-	margin-bottom: 1.5em;
 
 	a,
 	button {
@@ -53,13 +50,13 @@ export default function AddLicenses( props ) {
 					</label>
 				</AddLicensesText>
 				<Buttons>
-					<TextButton type="button" onClick={ props.onClose } buttonWidth={"100px"}>
+					<LargeButton type="button" onClick={ props.onClose } >
 						<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
-					</TextButton>
+					</LargeButton>
 
-					<ButtonLink to={ props.onShop }>
+					<LargeButtonLink to={ props.onShop }>
 						<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
-					</ButtonLink>
+					</LargeButtonLink>
 				</Buttons>
 			</AddLicensesModal>
 	);
