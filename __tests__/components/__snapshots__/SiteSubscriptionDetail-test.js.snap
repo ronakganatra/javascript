@@ -38,7 +38,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
     <span
       className="fdTSGx">
       <span>
-        0/20 remaining
+        20/20 used
       </span>
     </span>
     <button
@@ -106,7 +106,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     <span
       className="fdTSGx">
       <span>
-        6/20 remaining
+        14/20 used
       </span>
     </span>
   </span>

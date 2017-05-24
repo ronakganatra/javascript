@@ -10,9 +10,10 @@ import { Provider } from "react-redux";
 import { injectGlobal } from "styled-components";
 import { ConnectedRouter } from "react-router-redux";
 import colors from "yoast-components/style-guide/colors.json";
-import { IntlProvider } from "react-intl";
+import { IntlProvider, FormattedMessage } from "react-intl";
 import DebugInfo from "./components/DebugInfo";
 import { Logo } from "./components/Logo";
+import SkipLink from "./components/SkipLink";
 
 /*
  * Helper method to write global CSS.
@@ -38,6 +39,9 @@ class App extends Component {
 						<Layout>
 							<Sidebar>
 								<header role="banner">
+									<SkipLink>
+										<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+									</SkipLink>
 									<Logo size="200px" />
 								</header>
 								<UserStatus/>

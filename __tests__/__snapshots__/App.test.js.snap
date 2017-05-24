@@ -6,6 +6,13 @@ exports[`test renders without crashing 1`] = `
     <header
       role="banner">
       <a
+        className="ibLdSE"
+        href="#content">
+        <span>
+          Skip to main content
+        </span>
+      </a>
+      <a
         href="/"
         onClick={[Function]}>
         <img
@@ -29,7 +36,7 @@ exports[`test renders without crashing 1`] = `
           
         </p>
         <button
-          className="jlGwtL"
+          className="ehCYwP"
           onClick={[Function]}
           type="button">
           Sign out

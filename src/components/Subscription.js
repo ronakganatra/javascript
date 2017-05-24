@@ -17,9 +17,9 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.level",
 		defaultMessage: "Level",
 	},
-	usage: {
-		id: "subscriptions.overview.usage",
-		defaultMessage: "Usage",
+	used: {
+		id: "subscriptions.overview.used",
+		defaultMessage: "Used",
 	},
 	nextPaymentOn: {
 		id: "subscriptions.overview.nextPaymentOn",
@@ -61,7 +61,7 @@ function Subscription( props ) {
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
 			</ColumnMinWidth>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.usage ) }>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.used ) }>
 				{ props.used }/{ props.limit }
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>

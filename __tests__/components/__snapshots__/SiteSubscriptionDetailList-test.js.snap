@@ -61,7 +61,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <span
             className="fdTSGx">
             <span>
-              1/2 remaining
+              1/2 used
             </span>
           </span>
         </span>
@@ -119,7 +119,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <span
             className="fdTSGx">
             <span>
-              0/2 remaining
+              2/2 used
             </span>
           </span>
           <button
