@@ -233,6 +233,32 @@ export function makeFullWidth( component ) {
 }
 
 /**
+ * Makes an element full-width in the mobile responsive view.
+ *
+ * @param {ReactElement} column The original element.
+ * @returns {ReactElement} The element with full width responsive style.
+ */
+export function responsiveHeaders( column ) {
+	return styled( column )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			&::before {
+				float: left;
+				min-width: 60px;
+				// background: lightblue !important;
+				line-height: inherit;
+				font-weight: 700;
+				${ props => props.headerLabel ? `content: "${props.headerLabel}:";` : "content: none;" }
+			}
+
+			> span {
+				// background: lavender;
+				line-height: inherit;
+			}
+		}
+	`;
+}
+
+/**
  * Returns the rendered ListTable component.
  *
  * @param {Object} props The props to use.
