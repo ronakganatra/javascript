@@ -11,7 +11,16 @@ const PageContainer = styled.div`
 		width: 540px;
 		max-width: 100%;
 		height: auto;
-		margin-top: 2em;
+		
+		display: block;
+		margin: 0 auto;
+			
+		@media screen and ( max-width: 400px ) { 
+			max-width: 250px;
+		}
+		@media screen and ( min-width: 400px ) { 
+			max-width: 384px;
+		}	
 	}
 
 	a {

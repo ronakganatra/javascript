@@ -86,7 +86,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
 exports[`test the sites page component with no sites matches the snapshot 1`] = `
 <div>
   <div
-    className="hqmxmg">
+    className="beArzs">
     <p>
       <span>
         Welcome to the sites overview
@@ -290,7 +290,7 @@ exports[`test the sites page component with sites handling an onclick event on t
 exports[`test the sites page component without sites handling an onclick event on the add site button 1`] = `
 <div>
   <div
-    className="hqmxmg">
+    className="beArzs">
     <p>
       <span>
         Welcome to the sites overview
@@ -324,7 +324,7 @@ exports[`test the sites page component without sites handling an onclick event o
 exports[`test the sites page component without sites handling an onclick event on the add site button 2`] = `
 <div>
   <div
-    className="hqmxmg">
+    className="beArzs">
     <p>
       <span>
         Welcome to the sites overview
