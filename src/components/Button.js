@@ -133,9 +133,9 @@ export const LargeButtonLink = styled( ButtonLink )`
 export const IconButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 16px 50%;
+	background-position: 8px 50%;
 	background-size: ${ props => props.iconSize };
-	padding-left: 56px;
+	padding-left: 36px;
 `;
 
 IconButtonLink.PropTypes = {

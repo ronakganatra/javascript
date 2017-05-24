@@ -1,7 +1,7 @@
 exports[`test the site page component matches the snapshot 1`] = `
 <div>
   <a
-    className="idJSNR"
+    className="mMcmp"
     enabledStyle={true}
     href="/sites"
     iconSize="24px"

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
+import { BackButtonLink } from "./Button";
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
@@ -47,9 +48,15 @@ const HeaderByline = styled.div`
 
 // Provides air around the image and provides background color.
 const HeaderImageContainer = styled.div`
-	padding: 2em 1.5em;
-	width: 180px;
-	display: block;
+	padding: 24px 24px 16px 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	
+	a {
+		margin-top: 8px;
+	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -59,8 +66,8 @@ const HeaderImageContainer = styled.div`
 const HeaderImage = styled.div`
 	background: url( ${ props => props.src } ) no-repeat center center;
 	background-size: contain;
-	width: 100%;
-	height: 100%;
+	width: 96px;
+	height: 96px;
 `;
 
 const HeaderDescription = styled.p`
@@ -83,13 +90,21 @@ const HeaderDescription = styled.p`
  * @constructor
  */
 export default function SubscriptionHeader( props ) {
+	let imageContainer = (
+		<HeaderImageContainer>
+			<HeaderImage src={ props.image }/>
+			<BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>
+		</HeaderImageContainer>
+	);
 	// Only add the image and container if provided.
-	let image = props.image ? <HeaderImageContainer><HeaderImage src={ props.image }/></HeaderImageContainer> : "";
+	let image = props.image ? imageContainer : <BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>;
 	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>
-			{ image }
+			<div>
+				{ image }
+			</div>
 			<HeaderContext>
 				<HeaderContainer>
 					<HeaderTitle>{ props.name }</HeaderTitle>
