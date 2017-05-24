@@ -98,11 +98,17 @@ function SiteSubscriptionDetail( props ) {
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
-	if ( licensesRemaining === 0 ) {
+	if ( licensesRemaining === 0 && props.isEnabled === true ) {
 		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
 			id="site.subscriptions.licenses.add"
-			defaultMessage="Get additional subscriptions"/>
+			defaultMessage="Get another subscription"/>
 			</AddOneLicense>;
+	}
+	if ( props.isEnabled === false ) {
+		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
+			id="site.subscriptions.licenses.add"
+			defaultMessage="Get a subscription"/>
+		</AddOneLicense>;
 	}
 
 	let disable = true;
@@ -134,7 +140,7 @@ function SiteSubscriptionDetail( props ) {
 			{ modal }
 			<ColumnFixedWidthResponsive>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
-					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
+					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapse>

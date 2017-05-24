@@ -1,7 +1,8 @@
 import React from "react";
-import { LargeButtonLink } from "../components/Button";
+import { LargeButtonLink, IconButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import angleRight from "../icons/angle-right.svg";
 import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
@@ -15,7 +16,8 @@ const SiteHeaderContainer = styled.div`
 	align-content: flex-end;
 	max-width: 1480px;
 	height: 380px;
-	background-image: linear-gradient(transparent, ${ colors.$color_pink_dark }), url( ${ props => props.imageUrl } )
+	background-color: ${ colors.$color_pink_dark };
+	background-image: url( ${ props => props.imageUrl } );
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -49,6 +51,7 @@ const SiteHeaderSitename = styled.h1`
 	word-break: break-word;
 	// Firefox needs this for break word to work inside flex items.
 	min-width: 0;
+	text-align: center;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		text-align: center;
@@ -68,17 +71,23 @@ let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
 export default function SiteHeader( props ) {
 	return (
 		<SiteHeaderContainer imageUrl={ props.imageUrl }>
+			<LargeButtonLinkResponsive to={ "/sites" } target="_blank">
+				<FormattedMessage id="sites.buttons.back" defaultMessage="Back" />
+			</LargeButtonLinkResponsive>
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<LargeButtonLinkResponsive to={ `${ props.url }/wp-admin` } target="_blank">
+			<IconButtonLink iconSource={ angleRight } to={ `${ props.url }/wp-admin` } target="_blank">
 				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
 				<NewTabMessage />
-			</LargeButtonLinkResponsive>
+			</IconButtonLink>
 		</SiteHeaderContainer>
 	);
 }
 
+SiteHeader.defaultProps = {
+	imageUrl: "",
+};
 SiteHeader.propTypes = {
 	name: React.PropTypes.string.isRequired,
 	url: React.PropTypes.string.isRequired,

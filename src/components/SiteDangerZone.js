@@ -12,19 +12,19 @@ const messages = defineMessages( {
 		defaultMessage: "Disconnect this site",
 	},
 	siteRemovalExplanation: {
-		id: "site_danger_zone.site_removal.explanation",
+		id: "site_danger_zone.site_disconnect.explanation",
 		defaultMessage:	"This will revoke the licenses of the active plugins listed" +
 						" above and remove the site from your my.yoast account. This" +
 						" will NOT delete your actual website or the plugins" +
 						" themselves. You can always re-add the plugins later.",
 	},
 	siteRemovalButtonText: {
-		id: "site_danger_zone.site_removal.button_text",
-		defaultMessage: "Remove",
+		id: "site_danger_zone.site_disconnect.button_text",
+		defaultMessage: "Disconnect",
 	},
 	siteRemovalLoadingButtonText: {
-		id: "site_danger_zone.site_removal.loading_button_text",
-		defaultMessage: "Removing site...",
+		id: "site_danger_zone.site_disconnect.loading_button_text",
+		defaultMessage: "Disconnecting site...",
 	},
 } );
 

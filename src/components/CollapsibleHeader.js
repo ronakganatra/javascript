@@ -9,17 +9,11 @@ const CollapsibleHeaderContainer = styled.div`
 	background-color: ${ colors.$color_white };
 `;
 
-const CollapsibleHeader = styled.button`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+const CollapsibleHeading = styled.button`
 	width: 100%;
-	padding: 16px 32px 16px 24px;
-	border: none;
 	background-color: ${ colors.$color_white };
-	cursor: pointer;
-	text-align: left;
-
+	padding: 16px 32px 0 24px;
+	border: none;
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 16px 24px;
 	}
@@ -31,7 +25,6 @@ const CollapsibleHeader = styled.button`
 	span {
 		flex: 1 1 auto;
 		font-weight: 300;
-		font-size: 1.5em;
 	}
 
 	svg {
@@ -42,6 +35,28 @@ const CollapsibleHeader = styled.button`
 			min-width: 0;
 		}
 	}
+`;
+
+const CollapsibleTitle = styled.span`
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 0;
+	border: none;
+	font-size: 1.5em;
+	background-color: ${ colors.$color_white };
+	cursor: pointer;
+	text-align: left;
+`;
+
+const CollapsibleSubTitle = styled.span`
+	display: flex;
+	margin-top: 0px;
+	padding-top: 0px;
+	padding-bottom: 12px;
+	font-size: 0.9em;
+	width: 100%;
+	text-align: left;
 `;
 
 export default class ListToggle extends React.Component {
@@ -104,21 +119,39 @@ export default class ListToggle extends React.Component {
 		if ( this.state.isOpen ) {
 			children = this.props.children;
 		}
-
-		return (
+		if ( this.props.subtitle ) {
+			return (
 			<CollapsibleHeaderContainer>
-				<CollapsibleHeader onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-					<span>{ this.props.title }</span>
-					{ this.getArrow() }
-				</CollapsibleHeader>
-				{ children }
+					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
+						<CollapsibleTitle>
+						<span>{ this.props.title }</span>
+						{ this.getArrow() }
+						</CollapsibleTitle>
+							<CollapsibleSubTitle>{ this.props.subtitle }</CollapsibleSubTitle>
+					</CollapsibleHeading>
+					{ children }
 			</CollapsibleHeaderContainer>
-		);
+			);
+		}
+		if ( ! this.props.subtitle ) {
+			return (
+				<CollapsibleHeaderContainer>
+					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
+						<CollapsibleTitle>
+							<span>{ this.props.title }</span>
+							{ this.getArrow() }
+						</CollapsibleTitle>
+					</CollapsibleHeading>
+					{ children }
+				</CollapsibleHeaderContainer>
+			);
+		}
 	}
 }
 
 ListToggle.propTypes = {
 	title: React.PropTypes.string.isRequired,
+	subtitle: React.PropTypes.string,
 	isOpen: React.PropTypes.bool,
 	children: React.PropTypes.oneOfType( [
 		React.PropTypes.arrayOf( React.PropTypes.node ),
