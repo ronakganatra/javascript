@@ -233,6 +233,30 @@ export function makeFullWidth( component ) {
 }
 
 /**
+ * Makes columns use headers as bold labels with a colon in the mobile responsive view.
+ *
+ * @param {ReactElement} column The original column.
+ * @returns {ReactElement} The column with transformed headers.
+ */
+export function responsiveHeaders( column ) {
+	return styled( column )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			&::before {
+				float: left;
+				min-width: 60px;
+				line-height: inherit;
+				font-weight: 700;
+				${ props => props.headerLabel ? `content: "${props.headerLabel}:";` : "content: none;" }
+			}
+
+			> span {
+				line-height: inherit;
+			}
+		}
+	`;
+}
+
+/**
  * Returns the rendered ListTable component.
  *
  * @param {Object} props The props to use.

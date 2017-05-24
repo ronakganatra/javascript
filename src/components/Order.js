@@ -1,6 +1,6 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
-import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
 import { IconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
@@ -37,9 +37,9 @@ const messages = defineMessages( {
 	},
 } );
 
-let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
-let ColumnPrimaryResponsive = makeFullWidth( ColumnPrimary );
-let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
 let invoiceStatuses = [ "completed", "refunded" ];
 
@@ -76,7 +76,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				{ props.status }
+				<span>{ props.status }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
