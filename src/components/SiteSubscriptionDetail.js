@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonBlueline, makeButtonFullWidth } from "./Button";
+import { LargeButtonLink, IconButtonTransparent, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -85,12 +85,12 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 ) {
 		anotherLicense = (
-			<IconButtonBlueline iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
 				<FormattedMessage
-					id="site.subscriptions.licenses.add"
+					id="site.subscriptions.add-licenses"
 					defaultMessage="Get additional subscriptions"
 				/>
-			</IconButtonBlueline>
+			</IconButtonTransparent>
 		);
 	}
 

@@ -91,14 +91,13 @@ IconButton.defaultProps = {
 	iconSize: "24px",
 };
 
-export const IconButtonBlueline = styled( IconButton )`
+export const IconButtonTransparent = styled( IconButton )`
 	background-color: transparent;
 	background-position: 0.5em 50%;
 	color: ${ colors.$color_blue };
 	box-shadow: none;
-	border-radius: none;
 	text-transform: none;
-	height: 24px;
+	height: 32px;
 	padding-left: 2em;
 
 	transition: background 150ms ease-out;
@@ -106,7 +105,7 @@ export const IconButtonBlueline = styled( IconButton )`
 	&:focus,
 	&:hover {
 		box-shadow: none;
-		background-color: ${ colors.$color_grey };
+		background-color: ${ colors.$color_grey_light };
 	}
 
 	&:active {

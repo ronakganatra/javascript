@@ -42,7 +42,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       </span>
     </span>
     <button
-      className="dRCgBP"
+      className="jNiqmv"
       onClick={[Function]}>
       <span>
         Get additional subscriptions

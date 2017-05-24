@@ -11,7 +11,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="edtPkR">
+        className="EUEdz">
         <span
           className="fRQKF">
           Start date
@@ -48,7 +48,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="iqzWVT">
+        className="kwWqYb">
         <span
           className="fbIbuP">
           You can add 4 more sites to this subscription.
@@ -81,7 +81,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="iqzWVT">
+        className="kwWqYb">
         <span
           className="fbIbuP">
           Cancel subscription
@@ -108,7 +108,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="iqzWVT">
+        className="kwWqYb">
         <span
           className="hpjLSh">
           <span>
