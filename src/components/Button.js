@@ -86,6 +86,29 @@ IconButton.defaultProps = {
 	iconSize: "24px",
 };
 
+export const IconButtonTransparent = styled( IconButton )`
+	background-color: transparent;
+	background-position: 0.5em 50%;
+	color: ${ colors.$color_blue };
+	box-shadow: none;
+	text-transform: none;
+	height: 32px;
+	padding-left: 2em;
+
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: none;
+		background-color: ${ colors.$color_grey_light };
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 export const WhiteButton = styled( LargeButton )`
 	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };

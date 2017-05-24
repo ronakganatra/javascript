@@ -413,7 +413,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
 
 exports[`test the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="cUmAWv">
+  className="ixTlWO">
   <p>
     <p>
       <span>
@@ -444,6 +444,6 @@ exports[`test the downloads page component matches the snapshot when there are n
   </p>
   <img
     alt=""
-    src="SitesNoResults.svg" />
+    src="noDownloads.svg" />
 </div>
 `;
