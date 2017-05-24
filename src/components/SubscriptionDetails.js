@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { Row, RowMobileCollapse, ListTable, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ListTable, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import downloadIcon from "../icons/download.svg";
 import { ListHeading } from "./ListHeading";
@@ -83,6 +83,21 @@ const ColumnContainer = styled.div`
 	}
 `;
 
+const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		min-height: 0;
+
+		> span:nth-child(2) {
+			margin-top: 0;
+			color: ${ colors.$color_black };
+		}
+
+		> span:first-child {
+			color: ${ colors.$color_grey_text };
+		}
+	}
+`;
+
 let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
@@ -102,74 +117,74 @@ let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
 function SubscriptionDetails( props ) {
 	let paymentDetailTable = (
 		<ListTable>
-				<Row hasHeaderLabels={ false } key="start-date">
-					<ColumnMinWidth ellipsis={ true }>
-						{ props.intl.formatMessage( messages.startDate ) }
-					</ColumnMinWidth>
-					<ColumnFixedWidth ellipsis={ true }>
-						<FormattedDate
-							value={ props.startDate }
-							year='numeric'
-							month='long'
-							day='2-digit'
-						/>
-					</ColumnFixedWidth>
-				</Row>
-				<Row hasHeaderLabels={ false } key="next-billing">
-					<ColumnMinWidth ellipsis={ true }>
-						{ props.intl.formatMessage( messages.nextBilling ) }
-					</ColumnMinWidth>
-					<ColumnFixedWidth ellipsis={ true }>
-						<FormattedDate
-							value={ props.nextBilling }
-							year='numeric'
-							month='long'
-							day='2-digit'
-						/>
-					</ColumnFixedWidth>
-				</Row>
+			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
+				<ColumnMinWidth ellipsis={ true }>
+					{ props.intl.formatMessage( messages.startDate ) }
+				</ColumnMinWidth>
+				<ColumnFixedWidthResponsive ellipsis={ true }>
+					<FormattedDate
+						value={ props.startDate }
+						year='numeric'
+						month='long'
+						day='2-digit'
+					/>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapseNoMinHeight>
+			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
+				<ColumnMinWidth ellipsis={ true }>
+					{ props.intl.formatMessage( messages.nextBilling ) }
+				</ColumnMinWidth>
+				<ColumnFixedWidthResponsive ellipsis={ true }>
+					<FormattedDate
+						value={ props.nextBilling }
+						year='numeric'
+						month='long'
+						day='2-digit'
+					/>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapseNoMinHeight>
 		</ListTable>
 	);
 
 	let subscriptionDetailsTable = (
 		<ListTable>
-				<RowMobileCollapse hasHeaderLabels={ false } key="remaining-licenses">
-					<ColumnPrimary ellipsis={ true }>
-						{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
-					</ColumnPrimary>
-					<ColumnFixedWidthResponsive>
-						<ResponsiveLargeButton onClick={ props.onAddSite }>
-							{ props.intl.formatMessage( messages.addSiteButton ) }
-						</ResponsiveLargeButton>
-					</ColumnFixedWidthResponsive>
-				</RowMobileCollapse>
-				<RowMobileCollapse hasHeaderLabels={ false } key="change-level">
-					<ColumnPrimary ellipsis={ true }>
-						{ props.intl.formatMessage( messages.changeLevel ) }
-					</ColumnPrimary>
-					<ColumnFixedWidthResponsive>
-						<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
-							{ props.intl.formatMessage( messages.shopButton ) }
-						</ResponsiveLargeButtonLink>
-					</ColumnFixedWidthResponsive>
-				</RowMobileCollapse>
-				<RowMobileCollapse hasHeaderLabels={ false } key="cancel">
-					<ColumnPrimary ellipsis={ true }>
-						{ props.intl.formatMessage( messages.cancelSubscription ) }
-					</ColumnPrimary>
-					<ColumnFixedWidthResponsive>
-						<ResponsiveRedButton onClick={ props.onCancel }>
-							{ props.intl.formatMessage( messages.cancelButton ) }
-						</ResponsiveRedButton>
-					</ColumnFixedWidthResponsive>
-				</RowMobileCollapse>
+			<RowMobileCollapse hasHeaderLabels={ false } key="remaining-licenses">
+				<ColumnPrimary>
+					{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
+				</ColumnPrimary>
+				<ColumnFixedWidthResponsive>
+					<ResponsiveLargeButton onClick={ props.onAddSite }>
+						{ props.intl.formatMessage( messages.addSiteButton ) }
+					</ResponsiveLargeButton>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapse>
+			<RowMobileCollapse hasHeaderLabels={ false } key="change-level">
+				<ColumnPrimary>
+					{ props.intl.formatMessage( messages.changeLevel ) }
+				</ColumnPrimary>
+				<ColumnFixedWidthResponsive>
+					<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+						{ props.intl.formatMessage( messages.shopButton ) }
+					</ResponsiveLargeButtonLink>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapse>
+			<RowMobileCollapse hasHeaderLabels={ false } key="cancel">
+				<ColumnPrimary>
+					{ props.intl.formatMessage( messages.cancelSubscription ) }
+				</ColumnPrimary>
+				<ColumnFixedWidthResponsive>
+					<ResponsiveRedButton onClick={ props.onCancel }>
+						{ props.intl.formatMessage( messages.cancelButton ) }
+					</ResponsiveRedButton>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapse>
 		</ListTable>
 	);
 
 	let invoicesTable = (
 		<ListTable>
 			{ props.invoices.map( ( invoice ) => {
-				return <RowMobileCollapse { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
+				return <RowMobileCollapseNoMinHeight { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
 					<ColumnMinWidth>
 						<FormattedDate
 							value={ invoice.invoiceDate }
@@ -196,31 +211,31 @@ function SubscriptionDetails( props ) {
 							{ props.intl.formatMessage( messages.invoiceButton ) }
 						</ResponsiveIconButtonLink>
 					</ColumnFixedWidthResponsive>
-				</RowMobileCollapse>;
+				</RowMobileCollapseNoMinHeight>;
 			} ) }
 		</ListTable>
 	);
 
 	return (
 		<SubscriptionDetailsContainer>
-				<ColumnContainer>
-					<ListHeading>
-						{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-					</ListHeading>
-					{ paymentDetailTable }
-				</ColumnContainer>
-				<ColumnContainer>
-					<ListHeading>
-						{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-					</ListHeading>
-					{ subscriptionDetailsTable }
-				</ColumnContainer>
-				<ColumnContainer>
-					<ListHeading>
-						{ props.intl.formatMessage( messages.invoicesTitle ) }
-					</ListHeading>
-					{ invoicesTable }
-				</ColumnContainer>
+			<ColumnContainer>
+				<ListHeading>
+					{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
+				</ListHeading>
+				{ paymentDetailTable }
+			</ColumnContainer>
+			<ColumnContainer>
+				<ListHeading>
+					{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
+				</ListHeading>
+				{ subscriptionDetailsTable }
+			</ColumnContainer>
+			<ColumnContainer>
+				<ListHeading>
+					{ props.intl.formatMessage( messages.invoicesTitle ) }
+				</ListHeading>
+				{ invoicesTable }
+			</ColumnContainer>
 		</SubscriptionDetailsContainer>
 	);
 }

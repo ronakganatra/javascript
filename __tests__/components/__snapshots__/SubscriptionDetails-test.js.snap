@@ -11,26 +11,26 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="edtPkR">
+        className="ewLcmZ">
         <span
           className="fRQKF">
           Start date
         </span>
         <span
-          className="kvzzCK">
+          className="hBSCLY">
           <span>
             June 01, 2017
           </span>
         </span>
       </li>
       <li
-        className="dpgevR">
+        className="hBAcMw">
         <span
           className="fRQKF">
           Next billing
         </span>
         <span
-          className="kvzzCK">
+          className="hBSCLY">
           <span>
             June 01, 2018
           </span>
@@ -50,7 +50,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="iqzWVT">
         <span
-          className="fbIbuP">
+          className="iyDwOW">
           You can add 4 more sites to this subscription.
         </span>
         <span
@@ -66,7 +66,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="caAtBd">
         <span
-          className="fbIbuP">
+          className="iyDwOW">
           Change subscription level
         </span>
         <span
@@ -83,7 +83,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       <li
         className="iqzWVT">
         <span
-          className="fbIbuP">
+          className="iyDwOW">
           Cancel subscription
         </span>
         <span
@@ -108,7 +108,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="iqzWVT">
+        className="ewLcmZ">
         <span
           className="hpjLSh">
           <span>
@@ -132,7 +132,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="caAtBd">
+        className="hBAcMw">
         <span
           className="hpjLSh">
           <span>
