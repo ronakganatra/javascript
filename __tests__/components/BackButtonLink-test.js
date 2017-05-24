@@ -1,12 +1,14 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-
-import { RoundBackButton } from '../../src/components/RoundButton';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { BackButtonLink } from '../../src/components/Button';
 
 test('the round back button matches the snapshot', () => {
 	const component = renderer.create(
-		<RoundBackButton>ButtonValue</RoundBackButton>
+		<Router>
+			<BackButtonLink to="/" >ButtonValue</BackButtonLink>
+		</Router>
 	);
 
 	let tree = component.toJSON();
@@ -15,7 +17,9 @@ test('the round back button matches the snapshot', () => {
 
 test('the round back button with button type given matches the snapshot', () => {
 	const component = renderer.create(
-		<RoundBackButton type="button">ButtonValue</RoundBackButton>
+		<Router>
+			<BackButtonLink to="/" type="button">ButtonValue</BackButtonLink>
+		</Router>
 	);
 
 	let tree = component.toJSON();

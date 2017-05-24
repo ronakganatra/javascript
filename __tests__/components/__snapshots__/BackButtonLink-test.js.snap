@@ -1,0 +1,22 @@
+exports[`test the round back button matches the snapshot 1`] = `
+<a
+  className="idJSNR"
+  enabledStyle={true}
+  href="/"
+  iconSize="24px"
+  onClick={[Function]}>
+  ButtonValue
+</a>
+`;
+
+exports[`test the round back button with button type given matches the snapshot 1`] = `
+<a
+  className="idJSNR"
+  enabledStyle={true}
+  href="/"
+  iconSize="24px"
+  onClick={[Function]}
+  type="button">
+  ButtonValue
+</a>
+`;

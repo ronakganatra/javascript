@@ -1,15 +1,15 @@
 exports[`test the round add button matches the snapshot 1`] = `
 <button
-  aria-label="Add"
-  className="bFzQXD">
+  className="htZdOf"
+  onClick={[Function]}>
   ButtonValue
 </button>
 `;
 
 exports[`test the round add button with button type given matches the snapshot 1`] = `
 <button
-  aria-label="Add"
-  className="bFzQXD"
+  className="htZdOf"
+  onClick={[Function]}
   type="button">
   ButtonValue
 </button>
