@@ -56,7 +56,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <button
-            className="gCYCVO"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             Add site
@@ -89,7 +89,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <button
-            className="qbTWO"
+            className="bMmKni"
             onClick={[Function]}
             type="button">
             Cancel

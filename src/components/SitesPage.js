@@ -97,7 +97,7 @@ class SitesPage extends React.Component {
 			return <AnimatedLoader />;
 		}
 		let modal = (
-			<AddSiteModal isOpen={ props.popupOpen } onLink={ props.onLink } onClose={ props.onClose }
+			<AddSiteModal isOpen={ props.popupOpen } onConnect={ props.onConnect } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
 						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
@@ -155,7 +155,7 @@ SitesPage.propTypes = {
 	addSite: React.PropTypes.func.isRequired,
 	onSearchChange: React.PropTypes.func.isRequired,
 	popupOpen: React.PropTypes.bool,
-	onLink: React.PropTypes.func.isRequired,
+	onConnect: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	onManage: React.PropTypes.func.isRequired,

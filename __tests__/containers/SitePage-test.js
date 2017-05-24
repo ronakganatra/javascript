@@ -6,7 +6,7 @@ import { push } from "react-router-redux";
 
 jest.mock( "../../src/actions/site", () => {
 	return {
-		siteRemove: ( siteId ) => { console.log(); return true; },
+		siteRemove: ( siteId ) => { return true; },
 	};
 } );
 

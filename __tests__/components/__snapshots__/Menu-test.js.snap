@@ -1,63 +1,60 @@
 exports[`test the menu matches the snapshot 1`] = `
-<div>
-  <nav
-    className="bpAoaQ">
-    <ul
-      role="list">
-      <li>
-        <a
-          className="active-class-name chQpZc"
-          href="/sites"
-          onClick={[Function]}
-          style={Object {}}>
-          <img
-            alt=""
-            className="fHJXFs"
-            src="sites.svg" />
-          Sites
-        </a>
-      </li>
-      <li>
-        <a
-          className="chQpZc"
-          href="/courses"
-          onClick={[Function]}
-          style={undefined}>
-          <img
-            alt=""
-            className="fHJXFs"
-            src="courses.svg" />
-          Courses
-        </a>
-      </li>
-      <li>
-        <a
-          className="chQpZc"
-          href="/downloads"
-          onClick={[Function]}
-          style={undefined}>
-          <img
-            alt=""
-            className="fHJXFs"
-            src="download.svg" />
-          Downloads
-        </a>
-      </li>
-      <li>
-        <a
-          className="chQpZc"
-          href="/account"
-          onClick={[Function]}
-          style={undefined}>
-          <img
-            alt=""
-            className="fHJXFs"
-            src="user.svg" />
-          Account
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <div />
-</div>
+<nav
+  className="bpAoaQ">
+  <ul
+    role="list">
+    <li>
+      <a
+        className="active-class-name chQpZc"
+        href="/sites"
+        onClick={[Function]}
+        style={Object {}}>
+        <img
+          alt=""
+          className="fHJXFs"
+          src="sites.svg" />
+        Sites
+      </a>
+    </li>
+    <li>
+      <a
+        className="chQpZc"
+        href="/courses"
+        onClick={[Function]}
+        style={undefined}>
+        <img
+          alt=""
+          className="fHJXFs"
+          src="courses.svg" />
+        Courses
+      </a>
+    </li>
+    <li>
+      <a
+        className="chQpZc"
+        href="/downloads"
+        onClick={[Function]}
+        style={undefined}>
+        <img
+          alt=""
+          className="fHJXFs"
+          src="download.svg" />
+        Downloads
+      </a>
+    </li>
+    <li>
+      <a
+        className="chQpZc"
+        href="/account"
+        onClick={[Function]}
+        style={undefined}>
+        <img
+          alt=""
+          className="fHJXFs"
+          src="user.svg" />
+        Account
+      </a>
+    </li>
+  </ul>
+</nav>
 `;

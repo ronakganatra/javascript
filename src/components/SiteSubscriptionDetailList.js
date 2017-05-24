@@ -35,7 +35,7 @@ function SiteSubscriptionDetailList( props ) {
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
-							onUpgrade={ plugin.storeUrl }
+							onShop={ plugin.storeUrl }
 						/>;
 					} ) }
 				</ListTable>

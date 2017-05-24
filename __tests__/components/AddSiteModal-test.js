@@ -17,7 +17,7 @@ test('The AddSiteModal component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<AddSiteModal onClose={ () => {
 			console.log( "clicked on Cancel" );
-		} } onLink={ () => {
+		} } onConnect={ () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
@@ -36,7 +36,7 @@ test('the addSiteModal handling an onClose event', () => {
 	const component = createComponentWithIntl(
 		<AddSiteModal onClose={ () => {
 			console.log( "clicked on Cancel" );
-		} } onLink={ () => {
+		} } onConnect={ () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
@@ -57,11 +57,11 @@ test('the addSiteModal handling an onClose event', () => {
 	expect( tree ).toMatchSnapshot();
 } );
 
-test('the addSiteModal handling an onLink event', () => {
+test('the addSiteModal handling an onConnect event', () => {
 	const component = createComponentWithIntl(
 		<AddSiteModal onClose={ () => {
 			console.log( "clicked on Cancel" );
-		} } onLink={ () => {
+		} } onConnect={ () => {
 			console.log( "clicked on Link" );
 		} } isOpen={ true }
 			onChange={ () => {} }
@@ -75,7 +75,7 @@ test('the addSiteModal handling an onLink event', () => {
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[0].children[3].children[0].children[1].props.onClick();
+	tree.children[0].children[0].children[3].children[1].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
