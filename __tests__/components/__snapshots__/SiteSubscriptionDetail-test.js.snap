@@ -45,7 +45,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       className="cLgDIl"
       href="http://store.url.com">
       <span>
-        Get additional subscriptions
+        Get another subscription
       </span>
     </a>
   </span>
@@ -59,7 +59,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
-        Details
+        Manage
       </span>
     </a>
   </span>
@@ -120,7 +120,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
-        Details
+        Manage
       </span>
     </a>
   </span>
