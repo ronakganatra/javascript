@@ -233,10 +233,10 @@ export function makeFullWidth( component ) {
 }
 
 /**
- * Makes an element full-width in the mobile responsive view.
+ * Makes columns use headers as bold labels with a colon in the mobile responsive view.
  *
- * @param {ReactElement} column The original element.
- * @returns {ReactElement} The element with full width responsive style.
+ * @param {ReactElement} column The original column.
+ * @returns {ReactElement} The column with transformed headers.
  */
 export function responsiveHeaders( column ) {
 	return styled( column )`
@@ -244,14 +244,12 @@ export function responsiveHeaders( column ) {
 			&::before {
 				float: left;
 				min-width: 60px;
-				// background: lightblue !important;
 				line-height: inherit;
 				font-weight: 700;
 				${ props => props.headerLabel ? `content: "${props.headerLabel}:";` : "content: none;" }
 			}
 
 			> span {
-				// background: lavender;
 				line-height: inherit;
 			}
 		}
