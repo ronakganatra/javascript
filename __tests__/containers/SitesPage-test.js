@@ -9,6 +9,7 @@ let state = {
 			byId: { "497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"hostname": "yoast.com",
+				"path": "/",
 				"url": "https://yoast.com",
 				"creationDate": "2017-03-21T08:54:09.415Z",
 				"userId": 1,
@@ -172,6 +173,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 
+	state.ui.search.query = ""
 } );
 
 test('the mapDispatchToProps function to call linkSitePopupOpen action with onClick', () => {
@@ -223,4 +225,47 @@ test('the mapDispatchToProps function to call push action with onManage', () => 
 	props.onManage( siteId );
 
 	expect( dispatch ).toHaveBeenCalledWith( push( "/sites/" + siteId ) );
+} );
+
+test('the mapStateToProps function when there is an additional path in the url', () => {
+	state.entities.sites.byId = { "497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		"hostname": "yoast.com",
+		"path": "/extrapath",
+		"url": "https://yoast.com",
+		"creationDate": "2017-03-21T08:54:09.415Z",
+		"userId": 1,
+		"subscriptions": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+	} };
+
+	console.log( state.entities.sites.byId )
+
+	let expected = {
+		sites: [ {
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			"siteName": "yoast.com/extrapath",
+			"url": "https://yoast.com",
+			"activeSubscriptions": [ {
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			} ],
+		} ],
+		plugins: [
+			{
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"icon": "test.png",
+				"name": "Yoast SEO",
+				"type": "plugin",
+			}
+		],
+		popupOpen: false,
+		showLoader: true,
+		errorFound: false,
+		errorMessage: "",
+		linkingSiteUrl: "http://yoast.com",
+		query: "",
+	};
+
+	expect( mapStateToProps( state ) ).toEqual( expected );
+
 } );
