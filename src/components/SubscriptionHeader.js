@@ -8,6 +8,7 @@ const SubscriptionHeaderContainer = styled.div`
 	min-height: 180px;
 	background-color: ${ colors.$palette_pink_dark }
 	display: flex;
+	margin-top: 8px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		min-height: 0;

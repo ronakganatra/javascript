@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
+import angleLeft from "../icons/angle-left.svg";
+import chevronRight from "../icons/chevron-right.svg";
 import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
@@ -56,10 +58,12 @@ export const TextButton = styled( Button )`
 
 TextButton.PropTypes = {
 	buttonWidth: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 TextButton.defaultProps = {
 	buttonWidth: "auto",
+	enabledStyle: true,
 };
 
 export const LogoutButton = styled( Button )`
@@ -80,11 +84,17 @@ export const IconButton = styled( Button )`
 IconButton.PropTypes = {
 	iconSource: React.PropTypes.string.isRequired,
 	iconSize: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 IconButton.defaultProps = {
 	iconSize: "24px",
+	enabledStyle: true,
 };
+
+export const LargeIconButton = styled( IconButton )`
+	min-width: 152px;
+`;
 
 export const WhiteButton = styled( LargeButton )`
 	color: ${ colors.$color_blue };
@@ -120,6 +130,33 @@ export const LargeButtonLink = styled( ButtonLink )`
 	min-width: 152px;
 `;
 
+export const IconButtonLink = styled( ButtonLink )`
+	background-repeat: no-repeat;
+	background-image: url( ${ props => props.iconSource } );
+	background-position: 16px 50%;
+	background-size: ${ props => props.iconSize };
+	padding-left: 56px;
+`;
+
+IconButtonLink.PropTypes = {
+	iconSource: React.PropTypes.string.isRequired,
+	iconSize: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
+};
+
+IconButtonLink.defaultProps = {
+	iconSize: "24px",
+	enabledStyle: true,
+};
+
+export const LargeIconButtonLink = styled( IconButtonLink )`
+	min-width: 152px;
+`;
+
+export const BackButtonLink = styled( LargeIconButtonLink )`
+	background-image: url( ${ angleLeft } );
+`;
+
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
 `;
@@ -132,17 +169,28 @@ TextButtonLink.defaultProps = {
 	buttonWidth: "auto",
 };
 
-export const IconButtonLink = styled( ButtonLink )`
+export const ChevronButton = styled( Button )`
+	background-color: transparent;
 	background-repeat: no-repeat;
-	background-image: url( ${ props => props.iconSource } );
-	background-position: 16px 50%;
+	background-image: url( ${ chevronRight } );
+	background-position: center;
 	background-size: 24px;
-	// 8px grid: 16 left background position + 24 icon size + 16 = 56
-	padding-left: 56px;
+	background-size: 30px;
+	width:  48px;
+	height: 48px;
+	cursor: pointer;
+	box-shadow: none;
 `;
 
-IconButtonLink.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
+ChevronButton.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+	"aria-label": React.PropTypes.string,
+};
+
+ChevronButton.defaultProps = {
+	type: "button",
+	"aria-label": "",
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`

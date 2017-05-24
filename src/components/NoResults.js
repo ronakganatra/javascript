@@ -1,5 +1,6 @@
 import React from "react";
-import { RoundAddButton } from "../components/RoundButton";
+import { LargeIconButton } from "../components/Button.js";
+import plus from "../icons/plus.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -37,7 +38,9 @@ export default function NoResults( props ) {
 			{ props.paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
-				<RoundAddButton onClick={ props.onClick } />
+				<LargeIconButton onClick={ props.onClick } iconSource={ plus }>
+					Add site
+				</LargeIconButton>
 			<NoResultsImage src={ props.imageSource } alt="" />
 		</NoResultsContainer>
 	);

@@ -17,9 +17,10 @@ exports[`test the NoResults component matches the snapshot 1`] = `
     </span>
   </p>
   <button
-    aria-label="Add"
-    className="bFzQXD"
-    onClick={[Function]} />
+    className="htZdOf"
+    onClick={[Function]}>
+    Add site
+  </button>
   <img
     alt=""
     className="bTHZQB"

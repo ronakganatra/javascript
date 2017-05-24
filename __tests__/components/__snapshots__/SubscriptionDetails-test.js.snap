@@ -122,7 +122,8 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <a
-            className="cxCufn"
+            className="chUAZl"
+            enabledStyle={true}
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"
@@ -146,7 +147,8 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <a
-            className="cxCufn"
+            className="chUAZl"
+            enabledStyle={true}
             href="http://somelink"
             iconSize="16px"
             iconSource="download.svg"

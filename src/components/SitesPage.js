@@ -7,7 +7,8 @@ import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
-import { RoundAddButton } from "./RoundButton";
+import { LargeIconButton } from "./Button";
+import plus from "../icons/plus.svg";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
@@ -106,7 +107,7 @@ class SitesPage extends React.Component {
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<RoundAddButton onClick={ props.addSite }/>
+						<LargeIconButton onClick={ props.addSite } iconSource={ plus }>Add site</LargeIconButton>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }

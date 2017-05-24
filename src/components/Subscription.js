@@ -3,7 +3,7 @@ import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
-import { ChevronButton } from "../components/RoundButton.js";
+import { ChevronButton } from "../components/Button.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
 import formatAmount from "../../../shared/currency";
 import defaults from "../config/defaults.json";

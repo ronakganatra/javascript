@@ -1,9 +1,8 @@
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-
 import SiteHeader from "./SiteHeader";
-import { RoundBackButtonLink } from "./RoundButton";
+import { BackButtonLink } from "./Button";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
@@ -55,7 +54,7 @@ class SitePage extends React.Component {
 		}
 		return (
 			<div>
-				<RoundBackButtonLink to={ "/sites" } />
+				<BackButtonLink to={ "/sites" } >Back</BackButtonLink>
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
