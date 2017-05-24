@@ -1,8 +1,9 @@
 import React from "react";
-import { LargeButtonLink, IconButtonLink } from "../components/Button";
+import { IconRightButtonLink, IconButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import angleRight from "../icons/angle-right.svg";
+import angleLeft from "../icons/angle-left.svg";
 import { FormattedMessage } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
@@ -10,10 +11,11 @@ import defaults from "../config/defaults.json";
 
 const SiteHeaderContainer = styled.div`
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: flex-end;
-	align-items: flex-end;
-	align-content: flex-end;
+	flex-direction: column;
+	// flex-wrap: wrap;
+	// justify-content: flex-end;
+	// align-items: flex-end;
+	// align-content: flex-end;
 	max-width: 1480px;
 	height: 380px;
 	background-color: ${ colors.$color_pink_dark };
@@ -42,9 +44,15 @@ SiteHeaderContainer.propTypes = {
 
 const SiteHeaderSitename = styled.h1`
 	flex: 1 1 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	color: ${colors.$color_white};
 	font-weight: 300;
+	font-size: 2em;
 	margin: 0;
+	padding-top: 100px;
+	height: 280px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-ms-word-break: break-all;
@@ -58,7 +66,17 @@ const SiteHeaderSitename = styled.h1`
 	}
 `;
 
-let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
+const ButtonSection = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-end;
+	align-content: flex-end;
+	height: 100px;
+`;
+
+let BackButton = makeFullWidth( IconButtonLink );
+let WPAdminButton = makeFullWidth( IconRightButtonLink );
 
 /**
  * The SiteHeader component.
@@ -71,16 +89,18 @@ let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
 export default function SiteHeader( props ) {
 	return (
 		<SiteHeaderContainer imageUrl={ props.imageUrl }>
-			<LargeButtonLinkResponsive to={ "/sites" } target="_blank">
-				<FormattedMessage id="sites.buttons.back" defaultMessage="Back" />
-			</LargeButtonLinkResponsive>
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
-			<IconButtonLink iconSource={ angleRight } to={ `${ props.url }/wp-admin` } target="_blank">
-				<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
-				<NewTabMessage />
-			</IconButtonLink>
+			<ButtonSection>
+				<BackButton to={ "/sites" } iconSource={ angleLeft }>
+					<FormattedMessage id="sites.buttons.back" defaultMessage="Back" />
+				</BackButton>
+				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } target="_blank">
+					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
+					<NewTabMessage />
+				</WPAdminButton>
+			</ButtonSection>
 		</SiteHeaderContainer>
 	);
 }
