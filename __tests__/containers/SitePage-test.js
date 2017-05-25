@@ -31,7 +31,7 @@ test('the mapStateToProps function', () => {
 							productId: "productid1",
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
-							reoccurring: true,
+							recurring: true,
 							subscriberId: 2,
 							licenses: {
 								amountAvailable: 11,
@@ -120,7 +120,7 @@ test('the mapStateToProps function', () => {
 			productId: "productid1",
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",
-			reoccurring: true,
+			recurring: true,
 			subscriberId: 2,
 			licenses: {
 				amountAvailable: 11,

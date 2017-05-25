@@ -281,7 +281,7 @@ test( 'the byIdReducers puts only subscription IDs in the state', () => {
 					"productId": "01be14c4-b4f5-4141-8ce6-4f4dac59762d",
 					"startDate": "2017-04-18T15:11:19.000Z",
 					"endDate": "2017-04-18T15:11:19.000Z",
-					"reoccurring": true,
+					"recurring": true,
 					"subscriberId": 2
 				}
 			]
