@@ -238,8 +238,6 @@ test('the mapStateToProps function when there is an additional path in the url',
 		"subscriptions": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 	} };
 
-	console.log( state.entities.sites.byId )
-
 	let expected = {
 		sites: [ {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
