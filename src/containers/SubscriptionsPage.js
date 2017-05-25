@@ -29,8 +29,8 @@ export const mapStateToProps = ( state ) => {
 		subscriptions = subscriptions.filter( ( subscription ) => {
 			let formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
-		    month: "long",
-		    day: "numeric",
+				month: "long",
+				day: "numeric",
 			} ).format( subscription.nextPayment );
 
 			return subscription.name.toUpperCase().includes( query.toUpperCase() ) ||

@@ -25,8 +25,8 @@ export const mapStateToProps = ( state ) => {
 		orders = orders.filter( ( order ) => {
 			let formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
-		    month: "long",
-		    day: "numeric",
+				month: "long",
+				day: "numeric",
 			} ).format( order.date );
 
 			return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
