@@ -27,7 +27,11 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
-			return subscription.name.toUpperCase().includes( query.toUpperCase() ) || subscription.limit.toString() === query || subscription.used.toString() === query;
+			return subscription.name.toUpperCase().includes( query.toUpperCase() ) ||
+							subscription.limit.toString() === query ||
+							subscription.used.toString() === query ||
+							subscription.nextPayment.toDateString().toUpperCase().includes( query.toUpperCase() ) ||
+							( subscription.billingAmount / 100 ).toString().includes( query.toUpperCase() );
 		} );
 	}
 
