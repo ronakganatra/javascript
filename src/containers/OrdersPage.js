@@ -24,7 +24,9 @@ export const mapStateToProps = ( state ) => {
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
 			return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
-				order.orderNumber.toUpperCase().includes( query.toUpperCase() );
+							order.orderNumber.toUpperCase().includes( query.toUpperCase() ) ||
+							( order.total / 100 ).toString().includes( query ) ||
+							order.date.toDateString().toUpperCase().includes( query.toUpperCase() );
 		} );
 	}
 
