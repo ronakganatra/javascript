@@ -27,6 +27,12 @@ test( "the mapStateToProps function", () => {
 						"type": "plugin",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "zip",
+								"file": "http://example.org/plugin.zip"
+							},
+						],
 					},
 					"2": {
 						"id": "2",
@@ -37,6 +43,12 @@ test( "the mapStateToProps function", () => {
 						"type": "plugin",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "zip",
+								"file": "http://example.org/plugin.zip"
+							},
+						],
 					},
 					"3": {
 						"id": "3",
@@ -47,6 +59,12 @@ test( "the mapStateToProps function", () => {
 						"type": "ebook",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "pdf",
+								"file": "http://example.org/ebook.pdf"
+							},
+						],
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -75,7 +93,7 @@ test( "the mapStateToProps function", () => {
 
 	let expected = {
 		eBooks: [ {
-			buttons: [ { label: "for Wordpress", onButtonClick: () => window.open("http://yoast.com", "_blank") } ],
+			buttons: [ { label: "pdf", onButtonClick: () => window.open("http://example.org/ebook.pdf", "_blank") } ],
 			category: "ebook",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
@@ -83,7 +101,7 @@ test( "the mapStateToProps function", () => {
 			name: "download1",
 		}],
 		plugins: [ {
-			buttons: [ { label: "for Wordpress", onButtonClick: () => window.open("http://yoast.com", "_blank") } ],
+			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
 			category: "plugin",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
@@ -125,6 +143,12 @@ test( "the mapStateToProps function without search results", () => {
 						"type": "plugin",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "zip",
+								"file": "http://example.org/plugin.zip"
+							},
+						],
 					},
 					"2": {
 						"id": "2",
@@ -135,6 +159,12 @@ test( "the mapStateToProps function without search results", () => {
 						"type": "plugin",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "zip",
+								"file": "http://example.org/plugin.zip"
+							},
+						],
 					},
 					"3": {
 						"id": "3",
@@ -145,6 +175,12 @@ test( "the mapStateToProps function without search results", () => {
 						"type": "ebook",
 						"description": "for Wordpress",
 						"storeUrl": "http://yoast.com",
+						"downloads": [
+							{
+								"name": "pdf",
+								"file": "http://example.org/ebook.pdf"
+							},
+						],
 					}
 				},
 				allIds: [ "1", "2", "3" ],
