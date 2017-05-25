@@ -23,10 +23,16 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
+			let formattedDate = new Intl.DateTimeFormat( "en-US", {
+				year: "numeric",
+		    month: "long",
+		    day: "numeric",
+			} ).format( order.date );
+
 			return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
 							order.orderNumber.toUpperCase().includes( query.toUpperCase() ) ||
 							( order.total / 100 ).toString().includes( query ) ||
-							order.date.toDateString().toUpperCase().includes( query.toUpperCase() );
+							formattedDate.toUpperCase().includes( query.toUpperCase() );
 		} );
 	}
 
