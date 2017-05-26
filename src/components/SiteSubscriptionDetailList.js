@@ -28,11 +28,14 @@ function SiteSubscriptionDetailList( props ) {
 						let onToggleDisabled = () => {
 							return props.onToggleDisabled( plugin.id );
 						};
+						let onAddMoreLicensesClick = () => {
+							return props.onAddMoreLicensesClick( plugin.id );
+						};
 
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.id }
-							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
+							onAddMoreLicensesClick={ onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
 							onSettingsClick={ props.onSettingsClick }
