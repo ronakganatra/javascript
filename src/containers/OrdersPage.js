@@ -25,6 +25,11 @@ export const mapStateToProps = ( state ) => {
 		return order.status === "completed";
 	} );
 
+	// Sort orders based on order date.
+	orders = orders.sort( ( a, b ) => {
+		return b.date - a.date;
+	} );
+
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
