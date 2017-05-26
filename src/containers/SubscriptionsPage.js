@@ -47,9 +47,8 @@ export const mapStateToProps = ( state ) => {
 	} );
 
 	return {
-		subscriptions,
-		query,
 		activeSubscriptions,
+		query,
 	};
 };
 

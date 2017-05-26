@@ -16,6 +16,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					nextPayment: new Date("October 13, 2014"),
 					billingAmount: 12200,
 					billingCurrency: "USD",
+					status: "active",
 				},
 				{
 					id: "4",
@@ -26,6 +27,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					nextPayment: new Date("October 13, 2014"),
 					billingAmount: 12512,
 					billingCurrency: "USD",
+					status: "active",
 				},
 			] } onManage={ () => { } } />
 		</MemoryRouter>

@@ -18,6 +18,7 @@ let state = {
 					"product": {
 						"icon": "icon.jpg",
 					},
+					"status": "active",
 				},
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
@@ -34,7 +35,7 @@ let state = {
 };
 
 let defaultExpected = {
-	subscriptions: [
+	activeSubscriptions: [
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"name": "Yoast SEO",
@@ -44,6 +45,7 @@ let defaultExpected = {
 			"billingAmount": "6900",
 			"billingCurrency": "USD",
 			"icon": "icon.jpg",
+			"status": "active",
 		},
 	],
 	query: "",
@@ -91,7 +93,7 @@ test('the mapStateToProps function when query contains part of formatted price',
 test('the mapStateToProps function when query contains nonsense', () => {
 	state.ui.search.query = "afhsdkgfj"
 	let expected = Object.assign( {}, defaultExpected, {
-		subscriptions: [],
+		activeSubscriptions: [],
 		query: "afhsdkgfj"
 	} )
 
