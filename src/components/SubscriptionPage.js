@@ -3,7 +3,21 @@ import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
 import { RoundBackButtonLink } from "./RoundButton";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { ListHeading } from "./ListHeading";
 import Orders from "./Orders";
+import Paper from "./Paper";
+
+const messages = defineMessages( {
+	paymentDetailsTitle: {
+		id: "subscription-page.payment-details.title",
+		defaultMessage: "Payment details",
+	},
+	invoicesTitle: {
+		id: "subscription-page.invoices.title",
+		defaultMessage: "Invoices",
+	},
+} );
 
 /**
  * Returns the rendered SubscriptionPage component.
@@ -26,17 +40,26 @@ class SubscriptionPage extends React.Component {
 				name={ subscription.name }
 				byline={ subscription.limit + " site subscription" }
 				description={ subscription.product.description }
-				image={ subscription.product.icon } />
-			<SubscriptionDetails
-				startDate={ new Date( subscription.startDate ) }
-				nextBilling={ new Date( subscription.nextPayment ) }
-				endDate={ new Date( subscription.endDate ) }
-				max={ subscription.limit }
-				current={ 1 }
-				orders={ this.props.orders }
-				onInvoiceDownload={ this.props.onInvoiceDownload }
+				image={ subscription.product.icon }
 			/>
-			<Orders { ...this.props } />
+			<Paper>
+				<ListHeading>
+					{ this.props.intl.formatMessage( messages.paymentDetailsTitle ) }
+				</ListHeading>
+				<SubscriptionDetails
+					startDate={ new Date( subscription.startDate ) }
+					nextBilling={ new Date( subscription.nextPayment ) }
+					endDate={ new Date( subscription.endDate ) }
+					max={ subscription.limit }
+					current={ 1 }
+					orders={ this.props.orders }
+					onInvoiceDownload={ this.props.onInvoiceDownload }
+				/>
+				<ListHeading>
+					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
+				</ListHeading>
+				<Orders { ...this.props } />
+			</Paper>
 		</section>;
 	}
 }
@@ -56,6 +79,7 @@ SubscriptionPage.propTypes = {
 	} ),
 	orders: React.PropTypes.array,
 	onInvoiceDownload: React.PropTypes.func,
+	intl: intlShape.isRequired,
 };
 
 SubscriptionPage.defaultProps = {
@@ -64,4 +88,4 @@ SubscriptionPage.defaultProps = {
 	onInvoiceDownload: () => {},
 };
 
-export default SubscriptionPage;
+export default injectIntl( SubscriptionPage );

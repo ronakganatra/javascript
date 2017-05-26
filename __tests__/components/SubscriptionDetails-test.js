@@ -17,13 +17,13 @@ test('the subscription detail component matches the snapshot', () => {
 				nextBilling={ new Date( "June 1, 2018" ) }
 				orders={ [
 					{
-						id: 1,
+						id: "1",
 						date: new Date( "July 21, 2016" ),
 						currency: "USD",
 						total: 100
 					},
 					{
-						id: 2,
+						id: "2",
 						date: new Date( "July 22, 2016" ),
 						currency: "USD",
 						total: 20000

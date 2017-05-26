@@ -1,99 +1,32 @@
 exports[`test the subscription detail component matches the snapshot 1`] = `
-<div
-  className="kiDHR">
-  <div
-    className="jpmqGa">
-    <h2
-      className="fylYwn">
-      Payment details
-    </h2>
-    <ul
-      className="dITYws"
-      role="list">
-      <li
-        className="hWCJYz">
-        <span
-          className="fRQKF">
-          Start date
-        </span>
-        <span
-          className="hBSCLY">
-          <span>
-            June 01, 2017
-          </span>
-        </span>
-      </li>
-      <li
-        className="hBAcMw">
-        <span
-          className="fRQKF">
-          Next billing
-        </span>
-        <span
-          className="hBSCLY">
-          <span>
-            June 01, 2018
-          </span>
-        </span>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="jpmqGa">
-    <h2
-      className="fylYwn">
-      Invoices
-    </h2>
-    <ul
-      className="dITYws"
-      role="list">
-      <li
-        className="hWCJYz"
-        id={1}>
-        <span
-          className="hpjLSh">
-          <span>
-            July 21, 2016
-          </span>
-        </span>
-        <span
-          className="dQuCEX">
-          $1.00
-        </span>
-        <span
-          className="kZrKRI">
-          <a
-            aria-label={undefined}
-            className="cxCufn"
-            href="http://somelink">
-            Invoice
-          </a>
-        </span>
-      </li>
-      <li
-        className="hBAcMw"
-        id={2}>
-        <span
-          className="hpjLSh">
-          <span>
-            July 22, 2016
-          </span>
-        </span>
-        <span
-          className="dQuCEX">
-          $200.00
-        </span>
-        <span
-          className="kZrKRI">
-          <a
-            aria-label={undefined}
-            className="cxCufn"
-            href="http://somelink">
-            Invoice
-          </a>
-        </span>
-      </li>
-    </ul>
-  </div>
-</div>
+<ul
+  className="dITYws"
+  role="list">
+  <li
+    className="hWCJYz">
+    <span
+      className="fRQKF">
+      Start date
+    </span>
+    <span
+      className="hBSCLY">
+      <span>
+        June 01, 2017
+      </span>
+    </span>
+  </li>
+  <li
+    className="hBAcMw">
+    <span
+      className="fRQKF">
+      Next billing
+    </span>
+    <span
+      className="hBSCLY">
+      <span>
+        June 01, 2018
+      </span>
+    </span>
+  </li>
+</ul>
 `;

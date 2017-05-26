@@ -3,11 +3,6 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
-import downloadIcon from "../icons/download.svg";
-import { ListHeading } from "./ListHeading";
-import {  IconButtonLink, makeButtonFullWidth } from "./Button";
-import formatAmount from "../../../shared/currency";
-import { getInvoiceUrl } from "../functions/api";
 import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
@@ -33,28 +28,6 @@ const messages = defineMessages( {
 	},
 } );
 
-const SubscriptionDetailsContainer = styled.div`
-	background-color: ${ colors.$color_white };
-	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
-	width: 100%;
-
-	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
-	}
-`;
-
-const ColumnContainer = styled.div`
-	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
-		width: calc( 50% - 10px );
-	}
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
-		width: 100%;
-	}
-`;
-
 const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		min-height: 0;
@@ -70,9 +43,7 @@ const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 	}
 `;
 
-let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
-let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
 
 /**
  * The SubscriptionDetails component.
@@ -84,7 +55,7 @@ let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
  * @constructor
  */
 function SubscriptionDetails( props ) {
-	let paymentDetailTable = (
+	return (
 		<ListTable>
 			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
 				<ColumnMinWidth ellipsis={ true }>
@@ -113,58 +84,6 @@ function SubscriptionDetails( props ) {
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapseNoMinHeight>
 		</ListTable>
-	);
-
-	let invoicesTable = (
-		<ListTable>
-			{ props.orders.map( ( order ) => {
-				return <RowMobileCollapseNoMinHeight { ...order } hasHeaderLabels={ false } key={ order.id }>
-					<ColumnMinWidth>
-						<FormattedDate
-							value={ order.date }
-							year='numeric'
-							month='long'
-							day='2-digit'
-						/>
-					</ColumnMinWidth>
-					<ColumnMinWidthResponsive ellipsis={ true }>
-						{ props.intl.formatNumber(
-							formatAmount( order.total ),
-							{
-								style: "currency",
-								currency: order.currency,
-								// maximumFractionDigits: 0,
-							}
-						) }
-					</ColumnMinWidthResponsive>
-					<ColumnFixedWidthResponsive>
-						<ResponsiveIconButtonLink
-							to={ getInvoiceUrl( order.id ) }
-							iconSource={ downloadIcon }
-							iconSize={ "16px" }>
-							{ props.intl.formatMessage( messages.invoiceButton ) }
-						</ResponsiveIconButtonLink>
-					</ColumnFixedWidthResponsive>
-				</RowMobileCollapseNoMinHeight>;
-			} ) }
-		</ListTable>
-	);
-
-	return (
-		<SubscriptionDetailsContainer>
-			<ColumnContainer>
-				<ListHeading>
-					{ props.intl.formatMessage( messages.paymentDetailsTitle ) }
-				</ListHeading>
-				{ paymentDetailTable }
-			</ColumnContainer>
-			<ColumnContainer>
-				<ListHeading>
-					{ props.intl.formatMessage( messages.invoicesTitle ) }
-				</ListHeading>
-				{ invoicesTable }
-			</ColumnContainer>
-		</SubscriptionDetailsContainer>
 	);
 }
 
