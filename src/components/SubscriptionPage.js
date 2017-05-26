@@ -3,6 +3,7 @@ import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
 import { RoundBackButtonLink } from "./RoundButton";
+import Orders from "./Orders";
 
 /**
  * Returns the rendered SubscriptionPage component.
@@ -32,9 +33,10 @@ class SubscriptionPage extends React.Component {
 				endDate={ new Date( subscription.endDate ) }
 				max={ subscription.limit }
 				current={ 1 }
-				invoices={ this.props.invoices }
+				orders={ this.props.orders }
 				onInvoiceDownload={ this.props.onInvoiceDownload }
 			/>
+			<Orders { ...this.props } />
 		</section>;
 	}
 }
@@ -52,13 +54,13 @@ SubscriptionPage.propTypes = {
 			icon: React.PropTypes.string.isRequired,
 		} ),
 	} ),
-	invoices: React.PropTypes.array,
+	orders: React.PropTypes.array,
 	onInvoiceDownload: React.PropTypes.func,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
-	invoices: [],
+	orders: [],
 	onInvoiceDownload: () => {},
 };
 

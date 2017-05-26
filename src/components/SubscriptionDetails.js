@@ -117,11 +117,11 @@ function SubscriptionDetails( props ) {
 
 	let invoicesTable = (
 		<ListTable>
-			{ props.invoices.map( ( invoice ) => {
-				return <RowMobileCollapseNoMinHeight { ...invoice } hasHeaderLabels={ false } key={ invoice.invoiceId }>
+			{ props.orders.map( ( order ) => {
+				return <RowMobileCollapseNoMinHeight { ...order } hasHeaderLabels={ false } key={ order.id }>
 					<ColumnMinWidth>
 						<FormattedDate
-							value={ invoice.invoiceDate }
+							value={ order.date }
 							year='numeric'
 							month='long'
 							day='2-digit'
@@ -129,17 +129,17 @@ function SubscriptionDetails( props ) {
 					</ColumnMinWidth>
 					<ColumnMinWidthResponsive ellipsis={ true }>
 						{ props.intl.formatNumber(
-							formatAmount( invoice.invoiceAmount ),
+							formatAmount( order.total ),
 							{
 								style: "currency",
-								currency: invoice.invoiceCurrency,
-								maximumFractionDigits: 0,
+								currency: order.currency,
+								// maximumFractionDigits: 0,
 							}
 						) }
 					</ColumnMinWidthResponsive>
 					<ColumnFixedWidthResponsive>
 						<ResponsiveIconButtonLink
-							to={ getInvoiceUrl( invoice.invoiceId ) }
+							to={ getInvoiceUrl( order.id ) }
 							iconSource={ downloadIcon }
 							iconSize={ "16px" }>
 							{ props.intl.formatMessage( messages.invoiceButton ) }
@@ -171,7 +171,7 @@ function SubscriptionDetails( props ) {
 SubscriptionDetails.propTypes = {
 	startDate: React.PropTypes.instanceOf( Date ).isRequired,
 	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
-	invoices: React.PropTypes.array.isRequired,
+	orders: React.PropTypes.array.isRequired,
 	max: React.PropTypes.number.isRequired,
 	current: React.PropTypes.number.isRequired,
 	onInvoiceDownload: React.PropTypes.func.isRequired,

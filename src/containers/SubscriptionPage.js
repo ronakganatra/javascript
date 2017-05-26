@@ -14,27 +14,30 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	let invoices = subscription.orders.map( order => state.entities.orders.byId[ order ] );
+	let orders = subscription.orders.map( order => state.entities.orders.byId[ order ] );
 
-	// If some invoices are undefined we are still waiting for some data.
-	if ( invoices.filter( invoice => !! invoice ).length !== invoices.length ) {
+	// If some orders are undefined we are still waiting for some data.
+	if ( orders.filter( order => !! order ).length !== orders.length ) {
 		return {
 			isLoading: true,
 		};
 	}
 
-	invoices = invoices.map( order => {
+	orders = orders.map( order => {
 		return {
-			invoiceId: order.id,
-			invoiceDate: new Date( order.date ),
-			invoiceCurrency: order.currency,
-			invoiceAmount: order.totalAmount,
+			id: order.id,
+			orderNumber: order.invoiceNumber,
+			date: new Date( order.date ),
+			total: order.totalAmount,
+			status: order.status,
+			items: order.items,
+			currency: order.currency,
 		};
 	} );
 
 	return {
 		subscription,
-		invoices,
+		orders,
 	};
 };
 

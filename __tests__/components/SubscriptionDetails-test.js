@@ -12,13 +12,27 @@ jest.mock( "../../src/functions/api", () => {
 test('the subscription detail component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<SubscriptionDetails startDate={ new Date( "June 1, 2017" ) } nextBilling={ new Date( "June 1, 2018" ) }
-								 invoices={ [ { invoiceId: 1, invoiceDate: new Date( "July 21, 2016" ),
-									 invoiceCurrency: "USD", invoiceAmount: 100 }, { invoiceId: 2,
-									 invoiceDate: new Date( "July 22, 2016" ),
-									 invoiceCurrency: "USD", invoiceAmount: 20000 } ] }
-								 current={ 6 } max={ 10 }
-								 onInvoiceDownload={ () => {} } />
+			<SubscriptionDetails
+				startDate={ new Date( "June 1, 2017" ) }
+				nextBilling={ new Date( "June 1, 2018" ) }
+				orders={ [
+					{
+						id: 1,
+						date: new Date( "July 21, 2016" ),
+						currency: "USD",
+						total: 100
+					},
+					{
+						id: 2,
+						date: new Date( "July 22, 2016" ),
+						currency: "USD",
+						total: 20000
+					}
+				] }
+				current={ 6 }
+				max={ 10 }
+				onInvoiceDownload={ () => {} }
+			/>
 		</MemoryRouter>
 	);
 

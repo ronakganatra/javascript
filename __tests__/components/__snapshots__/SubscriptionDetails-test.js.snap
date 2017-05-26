@@ -48,7 +48,8 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
       className="dITYws"
       role="list">
       <li
-        className="hWCJYz">
+        className="hWCJYz"
+        id={1}>
         <span
           className="hpjLSh">
           <span>
@@ -57,7 +58,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
         <span
           className="dQuCEX">
-          $1
+          $1.00
         </span>
         <span
           className="kZrKRI">
@@ -70,7 +71,8 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
       </li>
       <li
-        className="hBAcMw">
+        className="hBAcMw"
+        id={2}>
         <span
           className="hpjLSh">
           <span>
@@ -79,7 +81,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         </span>
         <span
           className="dQuCEX">
-          $200
+          $200.00
         </span>
         <span
           className="kZrKRI">
