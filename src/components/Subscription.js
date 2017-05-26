@@ -72,8 +72,7 @@ function Subscription( props ) {
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-					<LargeButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) }
-					>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+					<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />

@@ -166,6 +166,11 @@ export const IconButtonLink = styled( ButtonLink )`
 
 IconButtonLink.PropTypes = {
 	iconSource: React.PropTypes.string.isRequired,
+	iconSize: React.PropTypes.string,
+};
+
+IconButtonLink.defaultProps = {
+	iconSize: "24px",
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`

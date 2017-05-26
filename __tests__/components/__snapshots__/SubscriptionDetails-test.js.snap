@@ -72,7 +72,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <a
-            aria-label="Shop"
+            ariaLabel="Shop"
             className="eRLPss"
             href="/"
             onClick={[Function]}>
@@ -122,11 +122,9 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <a
+            aria-label={undefined}
             className="cxCufn"
-            href="http://somelink"
-            iconSize="16px"
-            iconSource="download.svg"
-            to="http://somelink">
+            href="http://somelink">
             Invoice
           </a>
         </span>
@@ -146,11 +144,9 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
         <span
           className="kZrKRI">
           <a
+            aria-label={undefined}
             className="cxCufn"
-            href="http://somelink"
-            iconSize="16px"
-            iconSource="download.svg"
-            to="http://somelink">
+            href="http://somelink">
             Invoice
           </a>
         </span>
