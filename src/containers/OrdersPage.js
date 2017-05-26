@@ -20,6 +20,11 @@ export const mapStateToProps = ( state ) => {
 		};
 	} );
 
+	// Only show completed orders.
+	orders = orders.filter( ( order ) => {
+		return order.status === "completed";
+	} );
+
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {

@@ -19,8 +19,21 @@ let state = {
 						}
 					],
 				},
+				"497490e6-eb8d-4627-be9b-bfd33fc217f2": {
+					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f2",
+					"invoiceNumber": "YST201702",
+					"status": "pending",
+					"date": "2017-05-02 21:04:28",
+					"totalAmount": "6900",
+					"currency": "USD",
+					"items": [
+						{
+							productName: "Yoast SEO",
+						}
+					],
+				},
 			},
-			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "497490e6-eb8d-4627-be9b-bfd33fc217f2" ],
 		},
 	},
 	router: {
