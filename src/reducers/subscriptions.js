@@ -18,8 +18,10 @@ const rootState = {
 		subscriptions: {
 			requesting: false,
 			error: "",
-			addLicensesPopupOpen: false,
-
+		},
+		addSubscriptionModal: {
+			id: null,
+			popupOpen: false,
 		},
 	},
 };
@@ -51,13 +53,29 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
 				requesting: false,
 				error: action.message,
 			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the ui addSubscriptionModal object.
+ *
+ * @param {Object} state The current state of the ui addSubscriptionModal object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated ui addSubscriptionModal object.
+ */
+export function uiAddSubscriptionModalReducer( state = rootState.ui.addSubscriptionModal, action ) {
+	switch ( action.type ) {
 		case ADD_LICENCES_POPUP_OPEN:
 			return Object.assign( {}, state, {
-				addLicensesPopupOpen: true,
+				id: action.productId,
+				popupOpen: true,
 			} );
 		case ADD_LICENCES_POPUP_CLOSE:
 			return Object.assign( {}, state, {
-				addLicensesPopupOpen: false,
+				id: null,
+				popupOpen: false,
 			} );
 		default:
 			return state;
