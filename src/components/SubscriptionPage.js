@@ -33,9 +33,6 @@ class SubscriptionPage extends React.Component {
 				max={ subscription.limit }
 				current={ 1 }
 				invoices={ this.props.invoices }
-				onAddSite={ this.props.onAddSite }
-				onShop={ subscription.product.storeUrl }
-				onCancel={ this.props.onCancel }
 				onInvoiceDownload={ this.props.onInvoiceDownload }
 			/>
 		</section>;
@@ -56,18 +53,12 @@ SubscriptionPage.propTypes = {
 		} ),
 	} ),
 	invoices: React.PropTypes.array,
-	onAddSite: React.PropTypes.func,
-	onShop: React.PropTypes.string,
-	onCancel: React.PropTypes.func,
 	onInvoiceDownload: React.PropTypes.func,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	invoices: [],
-	onAddSite: () => {},
-	onShop: "",
-	onCancel: () => {},
 	onInvoiceDownload: () => {},
 };
 

@@ -49,8 +49,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getOrdersAndSubscriptions( dispatch ) );
 
 	return {
-		onAddSite: () => {},
-		onCancel: () => {},
 		onInvoiceDownload: () => {},
 	};
 };

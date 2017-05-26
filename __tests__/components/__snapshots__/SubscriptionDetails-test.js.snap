@@ -42,66 +42,6 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
     className="jpmqGa">
     <h2
       className="fylYwn">
-      Subscription details
-    </h2>
-    <ul
-      className="dITYws"
-      role="list">
-      <li
-        className="kwWqYb">
-        <span
-          className="iyDwOW">
-          You can add 4 more sites to this subscription.
-        </span>
-        <span
-          className="kZrKRI">
-          <button
-            className="cQKPtQ"
-            onClick={[Function]}
-            type="button">
-            Add site
-          </button>
-        </span>
-      </li>
-      <li
-        className="caAtBd">
-        <span
-          className="iyDwOW">
-          Change subscription level
-        </span>
-        <span
-          className="kZrKRI">
-          <a
-            ariaLabel="Shop"
-            className="eRLPss"
-            href="/"
-            onClick={[Function]}>
-            Shop
-          </a>
-        </span>
-      </li>
-      <li
-        className="kwWqYb">
-        <span
-          className="iyDwOW">
-          Cancel subscription
-        </span>
-        <span
-          className="kZrKRI">
-          <button
-            className="bMmKni"
-            onClick={[Function]}
-            type="button">
-            Cancel
-          </button>
-        </span>
-      </li>
-    </ul>
-  </div>
-  <div
-    className="jpmqGa">
-    <h2
-      className="fylYwn">
       Invoices
     </h2>
     <ul

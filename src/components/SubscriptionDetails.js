@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { RowMobileCollapse, ListTable, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
 import downloadIcon from "../icons/download.svg";
 import { ListHeading } from "./ListHeading";
-import { LargeButton, RedButton, IconButtonLink, LargeButtonLink, makeButtonFullWidth } from "./Button";
+import {  IconButtonLink, makeButtonFullWidth } from "./Button";
 import formatAmount from "../../../shared/currency";
 import { getInvoiceUrl } from "../functions/api";
 import defaults from "../config/defaults.json";
@@ -19,10 +19,6 @@ const messages = defineMessages( {
 		id: "subscription-details.invoices.title",
 		defaultMessage: "Invoices",
 	},
-	subscriptionDetailsTitle: {
-		id: "subscription-details.subscription-details.title",
-		defaultMessage: "Subscription details",
-	},
 	startDate: {
 		id: "subscription-details.payment-details.start-date",
 		defaultMessage: "Start date",
@@ -30,30 +26,6 @@ const messages = defineMessages( {
 	nextBilling: {
 		id: "subscription-details.payment-details.next-billing",
 		defaultMessage: "Next billing",
-	},
-	addSites: {
-		id: "subscription-details.subscription-details.add-sites",
-		defaultMessage: "You can add { howMany } more sites to this subscription.",
-	},
-	changeLevel: {
-		id: "subscription-details.subscription-details.change-level",
-		defaultMessage: "Change subscription level",
-	},
-	cancelSubscription: {
-		id: "subscription-details.subscription-details.cancel-subscription",
-		defaultMessage: "Cancel subscription",
-	},
-	addSiteButton: {
-		id: "subscription-details.buttons.add-site",
-		defaultMessage: "Add site",
-	},
-	shopButton: {
-		id: "subscription-details.buttons.shop",
-		defaultMessage: "Shop",
-	},
-	cancelButton: {
-		id: "subscription-details.buttons.cancel",
-		defaultMessage: "Cancel",
 	},
 	invoiceButton: {
 		id: "subscription-details.buttons.invoice",
@@ -100,9 +72,6 @@ const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 
 let ColumnMinWidthResponsive = makeFullWidth( ColumnMinWidth );
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
-let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
-let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
-let ResponsiveRedButton = makeButtonFullWidth( RedButton );
 let ResponsiveIconButtonLink = makeButtonFullWidth( IconButtonLink );
 
 /**
@@ -143,41 +112,6 @@ function SubscriptionDetails( props ) {
 					/>
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapseNoMinHeight>
-		</ListTable>
-	);
-
-	let subscriptionDetailsTable = (
-		<ListTable>
-			<RowMobileCollapse hasHeaderLabels={ false } key="remaining-licenses">
-				<ColumnPrimary>
-					{ props.intl.formatMessage( messages.addSites, { howMany: ( props.max - props.current ) } ) }
-				</ColumnPrimary>
-				<ColumnFixedWidthResponsive>
-					<ResponsiveLargeButton onClick={ props.onAddSite }>
-						{ props.intl.formatMessage( messages.addSiteButton ) }
-					</ResponsiveLargeButton>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapse>
-			<RowMobileCollapse hasHeaderLabels={ false } key="change-level">
-				<ColumnPrimary>
-					{ props.intl.formatMessage( messages.changeLevel ) }
-				</ColumnPrimary>
-				<ColumnFixedWidthResponsive>
-					<ResponsiveLargeButtonLink to={ props.onShop } ariaLabel={ props.intl.formatMessage( messages.shopButton ) }>
-						{ props.intl.formatMessage( messages.shopButton ) }
-					</ResponsiveLargeButtonLink>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapse>
-			<RowMobileCollapse hasHeaderLabels={ false } key="cancel">
-				<ColumnPrimary>
-					{ props.intl.formatMessage( messages.cancelSubscription ) }
-				</ColumnPrimary>
-				<ColumnFixedWidthResponsive>
-					<ResponsiveRedButton onClick={ props.onCancel }>
-						{ props.intl.formatMessage( messages.cancelButton ) }
-					</ResponsiveRedButton>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapse>
 		</ListTable>
 	);
 
@@ -226,12 +160,6 @@ function SubscriptionDetails( props ) {
 			</ColumnContainer>
 			<ColumnContainer>
 				<ListHeading>
-					{ props.intl.formatMessage( messages.subscriptionDetailsTitle ) }
-				</ListHeading>
-				{ subscriptionDetailsTable }
-			</ColumnContainer>
-			<ColumnContainer>
-				<ListHeading>
 					{ props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				{ invoicesTable }
@@ -246,9 +174,6 @@ SubscriptionDetails.propTypes = {
 	invoices: React.PropTypes.array.isRequired,
 	max: React.PropTypes.number.isRequired,
 	current: React.PropTypes.number.isRequired,
-	onAddSite: React.PropTypes.func.isRequired,
-	onShop: React.PropTypes.string.isRequired,
-	onCancel: React.PropTypes.func.isRequired,
 	onInvoiceDownload: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	subscription: React.PropTypes.string,
