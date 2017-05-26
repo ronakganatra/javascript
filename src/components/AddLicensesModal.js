@@ -40,7 +40,7 @@ class BaseAddLicensesModal extends React.Component {
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
 					<AddLicenses
-						onUpgrade={ this.props.onUpgrade }
+						onShop={ this.props.onShop }
 						onClose={ this.props.onClose }
 					/>
 				</Modal>
@@ -54,7 +54,7 @@ BaseAddLicensesModal.propTypes = {
 	intl: intlShape.isRequired,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onUpgrade: React.PropTypes.string.isRequired,
+	onShop: React.PropTypes.string.isRequired,
 };
 
 BaseAddLicensesModal.defaultProps = {
@@ -90,14 +90,10 @@ const AddLicensesModal = styled( BaseAddLicensesModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 2em 2em 0;
+		padding: 24px 40px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
-		
-		@media screen and ( max-width: 600px ) {
-			padding: 1.5em 1.5em 0;
-		}
 		
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;

@@ -1,17 +1,14 @@
 exports[`test the subscription header matches the snapshot 1`] = `
 <div
-  className="bSdara">
+  className="eYkuWg">
   
   <div
-    className="iVNEpc">
-    <div
-      className="foqgVb">
-      <h1
-        className="eyKfgT">
-        Subscription
-      </h1>
-      
-    </div>
+    className="kNtseW">
+    <h1
+      className="keuAmE">
+      Subscription
+    </h1>
+    
     <p
       className="clDVnZ" />
   </div>

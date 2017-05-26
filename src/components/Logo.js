@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
+import Link from "./Link.js";
 
 /**
  * @param {Object} props Component props.
@@ -11,7 +12,7 @@ import logo from "../images/logo.svg";
  */
 export function Logo( props ) {
 	return (
-		<LogoImage src={ logo } size={ props.size } alt={ props.alt }/>
+		<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
 	);
 }
 
@@ -22,7 +23,7 @@ Logo.propTypes = {
 
 Logo.defaultProps = {
 	size: "200px",
-	alt: "My Yoast",
+	alt: "Home page",
 };
 
 const LogoImage = styled.img`

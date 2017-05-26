@@ -2,83 +2,83 @@ exports[`test The Subscriptions component matches the snapshot 1`] = `
 <div
   className="dnTGWH">
   <ul
-    className="jplRhE"
+    className="dITYws"
     role="list">
     <li
-      className="eSkKDa">
+      className="jmkSBM">
       <span
-        className="hhzmjS">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="gVFNux">
+        className="hNmLMm">
         SEO Premium for WordPress
       </span>
       <span
-        className="XdUuW">
+        className="hPaOmn">
         20 sites
       </span>
       <span
-        className="GZdqB">
+        className="gVetyu">
         4
         /
         20
       </span>
       <span
-        className="dUaqzO">
+        className="hcokQE">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="ccZXPQ">
+        className="lmMizz">
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="fXreAk" />
     </li>
     <li
-      className="iCoagh">
+      className="feEuTA">
       <span
-        className="hhzmjS">
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="gVFNux">
+        className="hNmLMm">
         SEO Premium for WordPress
       </span>
       <span
-        className="XdUuW">
+        className="hPaOmn">
         20 sites
       </span>
       <span
-        className="GZdqB">
+        className="gVetyu">
         3
         /
         20
       </span>
       <span
-        className="dUaqzO">
+        className="hcokQE">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="ccZXPQ">
+        className="lmMizz">
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="bRJYKR" />
+        className="fXreAk" />
     </li>
   </ul>
 </div>

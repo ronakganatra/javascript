@@ -6,8 +6,9 @@ import Paper from "./Paper";
 import Products from "./Products";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
-import NoResults from "./NoResults";
-import noDownloads from "./../images/noSites.svg";
+import LandingPage from "./LandingPage";
+import noDownloads from "./../images/noDownloads.svg";
+import noResults from "./../images/SitesNoResults.svg";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -92,39 +93,56 @@ class DownloadsPage extends React.Component {
 			/>
 		</ByLine>;
 
-		let noDownloadsParagraphs = [ <FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
+		let noDownloadsParagraphs = [
+			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
 			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="Press the button below to visit yoast.com and look at our products."/> ];
+			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="To browse our products, please visit:"/> ];
 
-		if ( this.props.eBooks.length > 0 || this.props.plugins.length > 0 ) {
+		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.no-results"
+															   defaultMessage={ "We could not find any downloads matching { query }." }
+															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
+
+		let pluginDownloads = <Products
+									products={ this.props.plugins }
+									byLine={ pluginsByLine }
+									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
+									noResults={ this.props.plugins.length > 0 ? "" : "No results" }
+		/>;
+
+		let eBookDownloads = <Products
+									products={ this.props.eBooks }
+									heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
+									noResults={ this.props.eBooks.length > 0 ? "" : "No results" }
+		/>;
+
+		if ( this.props.query.length > 0 && ( this.props.plugins.length === 0 && this.props.eBooks.length === 0 ) ) {
 			return (
 				<div>
 					{ this.getSearch() }
-					<Paper>
-						<ProductOverviewContainer>
-							<Products
-								products={ this.props.plugins }
-								byLine={ pluginsByLine }
-								heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
-							/>
-							<Products
-								products={ this.props.eBooks }
-								heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
-							/>
-						</ProductOverviewContainer>
-					</Paper>
+					<LandingPage imageSource={ noResults }
+								 paragraphs={ noResultsParagraphs }
+					/>
 				</div>
 			);
-		} else if ( this.props.query.length > 0 ) {
-			return (
-				<div>
-					{ this.getSearch() }
-				</div>
-			);
+		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
+			return <LandingPage url="https://yoa.st/myyoast-download"
+								urlText="yoast.com"
+								imageSource={ noDownloads }
+								paragraphs={ noDownloadsParagraphs }
+			/>;
 		}
-		return <NoResults paragraphs={ noDownloadsParagraphs }
-						  onClick={ () => window.open( "https://yoa.st/myyoast-download", "_blank" ) }
-						  imageSource={ noDownloads }/>;
+
+		return (
+			<div>
+				{ this.getSearch() }
+				<Paper>
+					<ProductOverviewContainer>
+						{ pluginDownloads }
+						{ eBookDownloads }
+					</ProductOverviewContainer>
+				</Paper>
+			</div>
+		);
 	}
 }
 

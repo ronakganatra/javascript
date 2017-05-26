@@ -40,12 +40,13 @@ class BaseAddSiteModal extends React.Component {
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
 					<AddSite
-						onLinkClick={ this.props.onLink }
+						onConnectClick={ this.props.onConnect }
 						onCancelClick={ this.props.onClose }
 						onChange={ this.props.onChange }
 						errorFound={ this.props.errorFound }
 						errorMessage={ this.props.errorMessage }
 						query={ this.props.query }
+						linkingSiteUrl={ this.props.linkingSiteUrl }
 					/>
 				</Modal>
 			</div>
@@ -58,16 +59,18 @@ BaseAddSiteModal.propTypes = {
 	intl: intlShape.isRequired,
 	isOpen: React.PropTypes.bool,
 	onClose: React.PropTypes.func.isRequired,
-	onLink: React.PropTypes.func.isRequired,
+	onConnect: React.PropTypes.func.isRequired,
 	onChange: React.PropTypes.func.isRequired,
 	errorFound: React.PropTypes.bool.isRequired,
 	errorMessage: React.PropTypes.string,
 	query: React.PropTypes.string.isRequired,
+	linkingSiteUrl: React.PropTypes.string.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {
 	isOpen: false,
 	errorMessage: "",
+	linkingSiteUrl: "",
 };
 
 const fadeModalIn = keyframes`
@@ -111,7 +114,7 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 2em 40px 0;
+		padding: 1em 1.5em 0;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
@@ -124,10 +127,6 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		animation-fill-mode: both;
 		animation-play-state: running;
 		animation-name: ${ fadeModalIn };
-
-		@media screen and ( max-width: 800px ) {
-			padding: 1.5em 1.5em 0;
-		}
 
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;

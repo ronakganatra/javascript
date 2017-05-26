@@ -7,7 +7,7 @@ const NoResultsContainer = styled.div`
 	color: ${ colors.$color_black };
 	text-align: center;
 	align: center;
-	margin: 0;
+	margin-top: 10vh;
 `;
 
 const NoResultsImage = styled.img`
@@ -16,7 +16,7 @@ const NoResultsImage = styled.img`
 	margin: 0 auto;
 		
 	@media screen and ( max-width: 400px ) { 
-		max-width: 250px;
+		max-width: 240px;
 	}
 	@media screen and ( min-width: 400px ) { 
 		max-width: 384px;

@@ -2,42 +2,56 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
+import defaults from "../config/defaults.json";
+
+let buttonAnimations = `
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
 
 export const Button = styled.button`
 	height: 48px;
-	padding: 0 15px;
+	margin: 0;
+	// Buttons don't need vertical padding.
+	padding: 0 16px;
 	border: 0;
-	background-color: ${ colors.$color_green_medium_light };
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
-	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
-	font-size: 14px;
-	font-family: "Open Sans";
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	cursor: pointer;
+
+	${ buttonAnimations };
 `;
 
 Button.propTypes = {
 	onClick: React.PropTypes.func,
 	type: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
 Button.defaultProps = {
 	type: "button",
+	enabledStyle: true,
 };
 
 export const LargeButton = styled( Button )`
-	min-width: 150px;
-`;
-
-export const GreenButton = styled( Button )`
-	background-color: ${ colors.$color_green_medium_light };
+	min-width: 152px;
 `;
 
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
-	height: 40px;
-	margin: 5px 0px 5px 10px;
 `;
 
 TextButton.PropTypes = {
@@ -49,8 +63,6 @@ TextButton.defaultProps = {
 };
 
 export const LogoutButton = styled( Button )`
-	background-color: ${ colors.$color_green_medium_light };
-	color: ${ colors.$color_white };
 	border-radius: 3px;
 	height: 36px;
 	width: 112px;
@@ -60,12 +72,9 @@ export const LogoutButton = styled( Button )`
 export const IconButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 20px 50%;
+	background-position: 16px 50%;
 	background-size: ${ props => props.iconSize };
-	border-radius: 3px;
-	color: ${ colors.$color_white };
-	margin: 0;
-	padding: 0 20px 0 64px;
+	padding-left: 56px;
 `;
 
 IconButton.PropTypes = {
@@ -77,31 +86,53 @@ IconButton.defaultProps = {
 	iconSize: "24px",
 };
 
+export const IconButtonTransparent = styled( IconButton )`
+	background-color: transparent;
+	background-position: 0.5em 50%;
+	color: ${ colors.$color_blue };
+	box-shadow: none;
+	text-transform: none;
+	height: 32px;
+	padding-left: 2em;
+
+	transition: background 150ms ease-out;
+
+	&:focus,
+	&:hover {
+		box-shadow: none;
+		background-color: ${ colors.$color_grey_light };
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 export const WhiteButton = styled( LargeButton )`
 	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
 `;
 
 export const RedButton = styled( LargeButton )`
-	color: ${ colors.$color_white };
 	background-color: ${ colors.$color_red };
 `;
 
 export const ButtonLink = styled( Link )`
 	display: inline-block;
-	height: 40px;
-	line-height: 40px;
-	padding: 0 15px;
-	margin: 5px 0px 5px 10px;
+	height: 48px;
+	padding: 12px 16px;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
-	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
-	border-radius: 5px;
-	font-size: 14px;
-	font-family: "Open Sans";
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+	// line height 24 + padding 12 + 12 = 48
+	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
+
+	${ buttonAnimations }
 `;
 
 ButtonLink.PropTypes = {
@@ -109,18 +140,11 @@ ButtonLink.PropTypes = {
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
-	min-width: 150px;
-`;
-
-export const GreenButtonLink = styled( ButtonLink )`
-	background-color: ${ colors.$color_green_medium_light };
+	min-width: 152px;
 `;
 
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
-	height: 40px;
-	line-height: 40px;
-	margin: 5px 0px 5px 10px;
 `;
 
 TextButtonLink.PropTypes = {
@@ -134,11 +158,10 @@ TextButtonLink.defaultProps = {
 export const IconButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 20px 50%;
+	background-position: 16px 50%;
 	background-size: 24px;
-	border-radius: 3px;
-	color: ${ colors.$color_white };
-	padding: 0 20px 0 64px;
+	// 8px grid: 16 left background position + 24 icon size + 16 = 56
+	padding-left: 56px;
 `;
 
 IconButtonLink.PropTypes = {
@@ -146,8 +169,8 @@ IconButtonLink.PropTypes = {
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`
-	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
+	color: ${ colors.$color_blue };
 `;
 
 /**
@@ -158,8 +181,17 @@ export const WhiteButtonLink = styled( LargeButtonLink )`
  */
 export function disable( Button ) {
 	let StyledDisabledButton = styled( Button )`
-		background-color: ${ colors.$color_grey_disabled }
-		cursor: default
+		background-color: ${ colors.$color_grey_disabled };
+		cursor: default;
+
+		&:focus,
+		&:hover {
+			box-shadow: none;
+		}
+
+		&:active {
+			transform: none;
+		}
 	`;
 
 	return class DisabledButton extends Component {
@@ -167,4 +199,42 @@ export function disable( Button ) {
 			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
 		}
 	};
+}
+
+/**
+ * Makes a button full width in the mobile responsive view.
+ *
+ * @param {ReactElement} component The original button.
+ * @returns {ReactElement} The button with full width responsive style.
+ */
+export function makeButtonFullWidth( component ) {
+	return styled( component )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			width: 100%;
+			background-image: none;
+			padding: 12px 16px;
+		}
+	`;
+}
+
+/**
+ * Makes an icon button display only the icon in the intermdiate responsive view.
+ *
+ * @param {ReactElement} component The original button.
+ * @returns {ReactElement} The button with icon only.
+ */
+export function makeResponsiveIconButton( component ) {
+	return styled( component )`
+		.screen-reader-text {
+			position: static;
+		}
+
+		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
+			padding-right: 0;
+
+			.screen-reader-text {
+				position: absolute;
+			}
+		}
+	`;
 }

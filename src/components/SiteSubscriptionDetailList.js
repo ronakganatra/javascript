@@ -23,7 +23,7 @@ function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
-				<ListTable hasHeaderLabels={ false }>
+				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
 						return <SiteSubscriptionDetail
 							{ ...plugin }
@@ -35,7 +35,7 @@ function SiteSubscriptionDetailList( props ) {
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
-							onUpgrade={ plugin.storeUrl }
+							onShop={ plugin.storeUrl }
 						/>;
 					} ) }
 				</ListTable>

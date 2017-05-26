@@ -15,7 +15,7 @@ const SubNavigationContainer = styled.ul`
 	list-style-type: none;
 	margin-bottom: 2em;
 	padding: 0;
-	border-bottom: 1px solid ${ colors.$color_pink_dark };
+	border-bottom: 4px solid ${ colors.$color_grey_medium };
 `;
 
 const SubNavigationEntry = styled.li`
@@ -27,18 +27,23 @@ const LinkItem = styled( NavLink )`
 	text-decoration: none;
 	padding: 0.5em 2.5em;
 	color: ${ colors.$color_grey_dark };
+	
+	margin-bottom: -4px;
+	border-bottom: 4px solid transparent;
+	
+	transition: border 200ms ease-out;
+
 	&:hover,
 	&:focus,
 	&.${ activeStyle } {
-		color: ${ colors.$color_pink_dark };
 		font-weight: 400;
-		padding-bottom: 0.4em;
-		border-bottom: 0.1em solid ${ colors.$color_pink_dark };
+		color: ${ colors.$color_pink_dark };
+		border-bottom-color: ${ colors.$color_pink_dark };
+		border-bottom-style: double;
 	}
 
 	&.${ activeStyle } {
-		padding-bottom: 0.3em;
-		border-bottom: 0.2em solid ${ colors.$color_pink_dark };
+		border-bottom-style: solid;
 	}
 `;
 

@@ -1,6 +1,6 @@
 exports[`test the NoResults component matches the snapshot 1`] = `
 <div
-  className="hqmxmg">
+  className="beArzs">
   <p>
     <span>
       Welcome to the downloads page
@@ -18,11 +18,11 @@ exports[`test the NoResults component matches the snapshot 1`] = `
   </p>
   <button
     aria-label="Add"
-    className="hTtZiN"
+    className="bFzQXD"
     onClick={[Function]} />
   <img
     alt=""
-    className="dFOHLF"
+    className="bTHZQB"
     src="noSites.svg" />
 </div>
 `;

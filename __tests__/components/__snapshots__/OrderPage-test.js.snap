@@ -29,55 +29,63 @@ exports[`test The Orders component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <ul
-      className="jplRhE"
+      className="dITYws"
       role="list">
       <li
-        className="eSkKDa">
+        className="bknwPR">
         <span
-          className="jrqJwq">
+          className="gRzsfa">
           <span>
             May 20, 2012
           </span>
         </span>
         <span
-          className="fMqdCr">
+          className="fKqvxj">
           MOOIE 123 TEST
         </span>
         <span
-          className="hzUbLx">
-          <div>
-             
-            <div>
-               
+          className="kIDkAC">
+          <span
+            className="gLZwgs">
+            <span
+              className="gLZwgs">
+              1
+              x 
               Name of the product
-               
-            </div>
-            <div>
-               
+            </span>
+            <span
+              className="gLZwgs">
+              2
+              x 
               Another product
-               
-            </div>
-             
-          </div>
+            </span>
+          </span>
         </span>
         <span
-          className="bOrTEM">
+          className="FOjhs">
           <span>
             €100.10
           </span>
         </span>
         <span
-          className="eFDsTa">
-          completed
+          className="gWfuXy">
+          <span>
+            completed
+          </span>
         </span>
         <span
-          className="bRJYKR">
+          className="gJSEqq">
           <a
             aria-label="Download invoice"
-            className="gfspCA"
+            className="gjWJrZ"
             href="http://somelink"
             iconSource="download.svg"
-            to="http://somelink" />
+            to="http://somelink">
+            <span
+              className="screen-reader-text">
+              Invoice
+            </span>
+          </a>
         </span>
       </li>
     </ul>

@@ -2,10 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { SVGIcon } from "./SVGIcon";
+import defaults from "../config/defaults.json";
 
 const CollapsibleHeaderContainer = styled.div`
 	margin-top: 20px;
-	background-color: #ffffff;
+	background-color: ${ colors.$color_white };
 `;
 
 const CollapsibleHeader = styled.button`
@@ -13,14 +14,18 @@ const CollapsibleHeader = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 16px 40px;
+	padding: 16px 32px 16px 24px;
 	border: none;
 	background-color: ${ colors.$color_white };
 	cursor: pointer;
 	text-align: left;
 
-	@media screen and ( max-width: 800px ) {
-		padding: 16px 14px 16px 24px;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		padding: 16px 24px;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		padding: 16px;
 	}
 
 	span {
@@ -30,10 +35,10 @@ const CollapsibleHeader = styled.button`
 	}
 
 	svg {
-		min-width: 150px;
+		min-width: 40px;
 		align-self: center;
 
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			min-width: 0;
 		}
 	}

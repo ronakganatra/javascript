@@ -17,7 +17,7 @@ export const mapStateToProps = ( state ) => {
 
 		let siteProps = {
 			id: site.id,
-			siteName: site.hostname ? site.hostname : site.url,
+			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
 			url: site.url,
 		};
 
@@ -67,8 +67,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClick: () => {
 			dispatch( linkSitePopupOpen() );
 		},
-		addSite: () => {
+		addSite: ( url ) => {
 			dispatch( linkSitePopupOpen() );
+			dispatch( updateSiteUrl( url ) );
 		},
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
@@ -76,7 +77,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClose: () => {
 			dispatch( linkSitePopupClose() );
 		},
-		onLink: ( url ) => {
+		onConnect: ( url ) => {
 			dispatch( linkSite( url ) );
 		},
 		onChange: ( url ) => {
@@ -95,11 +96,15 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onLink = () => {
-		dispatchProps.onLink( url );
+	let onConnect = () => {
+		dispatchProps.onConnect( url );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onLink } );
+	let addSite = () => {
+		dispatchProps.addSite( url );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite } );
 };
 
 const SitesPageContainer = connect(

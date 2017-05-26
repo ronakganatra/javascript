@@ -1,6 +1,6 @@
 exports[`test The AddSite component matches the snapshot 1`] = `
 <div
-  className="dlIyNb">
+  className="hfMDPK">
   <h1
     className="dQgKWp">
     <span>
@@ -8,7 +8,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     </span>
   </h1>
   <p
-    className="glrMsz">
+    className="hUuGBg">
     <label
       htmlFor="addSiteInputField">
       <span>
@@ -18,16 +18,16 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   </p>
   <input
     aria-describedby="addSiteInfo"
-    className="fZParA"
+    className="jssTrf"
     defaultValue=""
     id="addSiteInputField"
     onChange={[Function]}
-    placeholder="example-site.com"
+    placeholder="https://example-site.com"
     type="url" />
   <div
-    className="jdEMcw">
+    className="etHoNp">
     <button
-      className="bEmYQs"
+      className="hMhZgw"
       onClick={[Function]}
       type="button">
       <span>
@@ -35,14 +35,16 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       </span>
     </button>
     <button
-      className="bEmYQs"
+      className="fpqbdc"
       onClick={[Function]}
       type="button">
       <span>
-        link
+        connect
       </span>
     </button>
   </div>
+  <div
+    className="ehuLPF" />
   <img
     alt=""
     className="ireVCO"

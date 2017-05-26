@@ -1,0 +1,26 @@
+exports[`test the landing page component matches the snapshot 1`] = `
+<div
+  className="ixTlWO">
+  <p>
+    <p>
+      <span>
+        I am a landing page
+      </span>
+    </p>
+    <a
+      href="http://yoast.com"
+      target="_blank">
+      yoast.com
+      <span
+        className="screen-reader-text">
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+  </p>
+  <img
+    alt=""
+    src="construction.svg" />
+</div>
+`;

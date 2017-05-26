@@ -1,10 +1,9 @@
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import Link from "./Link";
 
 import SiteHeader from "./SiteHeader";
-import { RoundBackButton } from "./RoundButton";
+import { RoundBackButtonLink } from "./RoundButton";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
@@ -39,8 +38,7 @@ class SitePage extends React.Component {
 
 		let subscriptionList = <AnimatedLoader />;
 		let hostnameDisplay = props.site.hostname.replace( /^(?:www\.)?/, "" );
-		let urlDisplay = props.site.url.replace( /^(?:https?:)?\/\/(?:www\.)?/, "" );
-		let siteNameDisplay = props.site.hostname ? hostnameDisplay : urlDisplay;
+		let siteNameDisplay = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
@@ -56,9 +54,7 @@ class SitePage extends React.Component {
 		}
 		return (
 			<div>
-				<Link to={ "/sites" } >
-					<RoundBackButton />
-				</Link>
+				<RoundBackButtonLink to={ "/sites" } />
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
