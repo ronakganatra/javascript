@@ -78,7 +78,6 @@ exports[`test The Orders component matches the snapshot 1`] = `
           <a
             aria-label="Download invoice"
             className="gjWJrZ"
-            data-type="external"
             href="http://somelink">
             <span
               className="screen-reader-text">

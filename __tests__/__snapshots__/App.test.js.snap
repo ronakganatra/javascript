@@ -13,7 +13,6 @@ exports[`test renders without crashing 1`] = `
         </span>
       </a>
       <a
-        data-type="internal"
         href="/"
         onClick={[Function]}>
         <img

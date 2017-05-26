@@ -56,7 +56,6 @@ exports[`test an add more licenses button should be shown when no more licenses 
     className="kZrKRI">
     <a
       className="eRLPss"
-      data-type="internal"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
@@ -118,7 +117,6 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     className="kZrKRI">
     <a
       className="eRLPss"
-      data-type="internal"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>

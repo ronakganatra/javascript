@@ -21,9 +21,8 @@ export default class Link extends Component {
 				href={ this.props.to }
 				className={ this.props.className }
 				aria-label={ this.props.ariaLabel }
-				data-type="external"
 			>{ this.props.children }</a>
-			: <RouterLink { ...this.props } data-type="internal" />;
+			: <RouterLink { ...this.props } />;
 	}
 }
 

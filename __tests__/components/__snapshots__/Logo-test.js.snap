@@ -1,6 +1,5 @@
 exports[`test the logo matches the snapshot 1`] = `
 <a
-  data-type="internal"
   href="/"
   onClick={[Function]}>
   <img

@@ -72,7 +72,6 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="kZrKRI">
           <a
             className="eRLPss"
-            data-type="internal"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
@@ -138,7 +137,6 @@ exports[`test the site subscription detail list component matches the snapshot 1
           className="kZrKRI">
           <a
             className="eRLPss"
-            data-type="internal"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
