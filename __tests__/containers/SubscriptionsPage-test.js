@@ -88,6 +88,16 @@ test('the mapStateToProps function when query contains part of formatted price',
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
+test('the mapStateToProps function when query contains nonsense', () => {
+	state.ui.search.query = "afhsdkgfj"
+	let expected = Object.assign( {}, defaultExpected, {
+		subscriptions: [],
+		query: "afhsdkgfj"
+	} )
+
+	expect( mapStateToProps( state ) ).toEqual( expected );
+} );
+
 test('the mapDispatchToProps function to call onSearchQueryChange', () => {
 	const dispatch = jest.fn();
 
