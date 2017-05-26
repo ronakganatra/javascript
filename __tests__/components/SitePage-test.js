@@ -62,7 +62,7 @@ test('the site page component matches the snapshot', () => {
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }
 				onClose={ () => {} }
-				addSubscriptionModal= { { id: null} } />
+				addSubscriptionModal= { { id: null } } />
 		</MemoryRouter>
 	);
 
