@@ -32,8 +32,25 @@ let state = {
 						}
 					],
 				},
+				"497490e6-eb8d-4627-be9b-bfd33fc217f3": {
+					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
+					"invoiceNumber": "YST201703",
+					"status": "completed",
+					"date": "2017-06-01 21:04:28",
+					"totalAmount": "6900",
+					"currency": "USD",
+					"items": [
+						{
+							productName: "Yoast SEO",
+						}
+					],
+				},
 			},
-			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "497490e6-eb8d-4627-be9b-bfd33fc217f2" ],
+			allIds: [
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"497490e6-eb8d-4627-be9b-bfd33fc217f2",
+				"497490e6-eb8d-4627-be9b-bfd33fc217f3",
+			],
 		},
 	},
 	router: {
@@ -48,6 +65,19 @@ let state = {
 
 let defaultExpected = {
 	orders: [
+		{
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
+			"orderNumber": "YST201703",
+			"status": "completed",
+			"date": new Date( "2017-06-01 21:04:28" ),
+			"total": "6900",
+			"currency": "USD",
+			"items": [
+				{
+					productName: "Yoast SEO",
+				}
+			],
+		},
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"orderNumber": "YST201701",
@@ -85,7 +115,24 @@ test('the mapStateToProps function when query contains part of orderNumber', () 
 
 test('the mapStateToProps function when query contains part of formatted order date', () => {
 	state.ui.search.query = "May 1"
-	let expected = Object.assign( {}, defaultExpected, { query: "May 1" } )
+	let expected = Object.assign( {}, defaultExpected, {
+		orders: [
+			{
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"orderNumber": "YST201701",
+				"status": "completed",
+				"date": new Date( "2017-05-01 21:04:28" ),
+				"total": "6900",
+				"currency": "USD",
+				"items": [
+					{
+						productName: "Yoast SEO",
+					}
+				],
+			},
+		],
+		query: "May 1"
+	} )
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
