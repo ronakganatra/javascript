@@ -80,7 +80,7 @@ function Order( props ) {
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
-					aria-label={ invoiceLabel }
+					ariaLabel={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }
 				>

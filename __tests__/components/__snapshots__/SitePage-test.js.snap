@@ -2,6 +2,7 @@ exports[`test the site page component matches the snapshot 1`] = `
 <div>
   <a
     className="yuYyR"
+    data-type="internal"
     href="/sites"
     onClick={[Function]} />
   <div
@@ -11,10 +12,10 @@ exports[`test the site page component matches the snapshot 1`] = `
       yoast.com
     </h1>
     <a
+      aria-label={undefined}
       className="eSTPyC"
-      href="http://yoast.com/wp-admin"
-      target="_blank"
-      to="http://yoast.com/wp-admin">
+      data-type="external"
+      href="http://yoast.com/wp-admin">
       <span>
         Open WordPress admin
       </span>
@@ -215,6 +216,7 @@ exports[`test the site page component matches the snapshot for a site in a direc
 <div>
   <a
     className="yuYyR"
+    data-type="internal"
     href="/sites"
     onClick={[Function]} />
   <div
@@ -224,10 +226,10 @@ exports[`test the site page component matches the snapshot for a site in a direc
       yoast.com/path/
     </h1>
     <a
+      aria-label={undefined}
       className="eSTPyC"
-      href="http://yoast.com/wp-admin"
-      target="_blank"
-      to="http://yoast.com/wp-admin">
+      data-type="external"
+      href="http://yoast.com/wp-admin">
       <span>
         Open WordPress admin
       </span>

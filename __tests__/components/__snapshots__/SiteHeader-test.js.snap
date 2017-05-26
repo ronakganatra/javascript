@@ -6,10 +6,10 @@ exports[`test the site header matches the snapshot 1`] = `
     placehold.it
   </h1>
   <a
+    aria-label={undefined}
     className="eSTPyC"
-    href="http://placehold.it//wp-admin"
-    target="_blank"
-    to="http://placehold.it//wp-admin">
+    data-type="external"
+    href="http://placehold.it//wp-admin">
     <span>
       Open WordPress admin
     </span>
