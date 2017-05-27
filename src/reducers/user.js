@@ -11,6 +11,9 @@ import {
 import reduceReducers from "reduce-reducers";
 
 const initialState = {
+	// Whether or not the user is enabled.
+	enabled: true,
+
 	// Whether or not the user is currently logged in.
 	loggedIn: false,
 
@@ -69,6 +72,7 @@ export function userDataReducer( state = initialState, action ) {
 			return Object.assign( {}, state, {
 				data: action.user,
 				email: action.user.profile.email,
+				enabled: action.user.profile.enabled,
 				isFetching: false,
 			} );
 		default:
