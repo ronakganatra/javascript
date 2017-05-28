@@ -12,7 +12,7 @@ import reduceReducers from "reduce-reducers";
 
 const initialState = {
 	// Whether or not the user is enabled.
-	enabled: true,
+	enabled: null,
 
 	// Whether or not the user is currently logged in.
 	loggedIn: false,
