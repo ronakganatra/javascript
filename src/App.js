@@ -11,6 +11,7 @@ import { Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
 import { inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
+import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
@@ -32,24 +33,36 @@ injectGlobal`
 
 class App extends Component {
 	render() {
+		let Routes = ( props ) => {
+			if ( props.user.enabled === true ) {
+				return (
+					<Switch>
+						<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
+						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+						<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
+						{	menuItems.map( function( route, routeKey ) {
+							let config = Object.assign( {
+								exact: true,
+							}, route );
+
+							return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
+						} )
+						}
+						<Route path="*" component={ inMainLayout( PageNotFound ) } />
+					</Switch>
+				);
+			}
+
+			return (
+				<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
+			);
+		};
+
 		return (
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
 					<ConnectedRouter history={ this.props.history }>
-						<Switch>
-							<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
-							<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
-							<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
-							{ menuItems.map( function( route, routeKey ) {
-								let config = Object.assign( {
-									exact: true,
-								}, route );
-
-								return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
-							} )
-							}
-							<Route path="*" component={ inMainLayout( PageNotFound ) } />
-						</Switch>
+						<Routes user={ this.props.store.getState().user } />
 					</ConnectedRouter>
 				</Provider>
 			</IntlProvider>
