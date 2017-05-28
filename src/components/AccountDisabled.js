@@ -45,18 +45,9 @@ const messages = defineMessages( {
  * @returns {ReactElement} The component that contains the Page Not Found page.
  */
 class AccountDisabled extends React.Component {
-	/**
-	 * Sets the CoursesPage object.
-	 *
-	 * @returns {void}
-	 */
-	constructor() {
-		super();
-	}
-
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.pageNotFound );
+		let message = this.props.intl.formatMessage( messages.accountDisabled );
 		a11ySpeak( message );
 	}
 
