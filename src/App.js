@@ -2,18 +2,13 @@
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
 import "./App.css";
-import UserStatus from "./containers/UserStatus";
-import { Layout, Sidebar, Main, Content } from "./components/Layout";
-import menuItems from "./config/Menu";
-import MainMenu, { MainMenuRoutes } from "./components/Menu";
-import { Provider } from "react-redux";
-import { injectGlobal } from "styled-components";
-import { ConnectedRouter } from "react-router-redux";
 import colors from "yoast-components/style-guide/colors.json";
-import { IntlProvider, FormattedMessage } from "react-intl";
-import DebugInfo from "./components/DebugInfo";
-import { Logo } from "./components/Logo";
-import SkipLink from "./components/SkipLink";
+import { injectGlobal } from "styled-components";
+import { IntlProvider } from "react-intl";
+import { Provider } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
+import { MainMenuRoutes } from "./components/Menu";
+import menuItems from "./config/Menu";
 
 /*
  * Helper method to write global CSS.
@@ -36,24 +31,7 @@ class App extends Component {
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
 					<ConnectedRouter history={ this.props.history }>
-						<Layout>
-							<Sidebar>
-								<header role="banner">
-									<SkipLink>
-										<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-									</SkipLink>
-									<Logo size="200px" />
-								</header>
-								<UserStatus/>
-								<MainMenu menuRoutes={ menuItems }  />
-								<DebugInfo />
-							</Sidebar>
-							<Main>
-								<Content>
-									<MainMenuRoutes menuRoutes={ menuItems }  />
-								</Content>
-							</Main>
-						</Layout>
+						<MainMenuRoutes menuRoutes={ menuItems }  />
 					</ConnectedRouter>
 				</Provider>
 			</IntlProvider>

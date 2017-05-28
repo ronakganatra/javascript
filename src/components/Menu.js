@@ -7,6 +7,7 @@ import SitesPageContainer from "../containers/SitesPage";
 import SitePageContainer from "../containers/SitePage";
 import SubscriptionPageContainer from "../containers/SubscriptionPage";
 import PageNotFound from "./PageNotFound";
+import { inMainLayout, inSingleLayout } from "./Layout";
 
 const titles = defineMessages( {
 	sites: {
@@ -70,7 +71,7 @@ const MenuItem = styled( NavLink )`
 	margin-left: 1.5rem;
 	color: ${ colors.$color_background_light };
 	text-decoration: none;
-	
+
 	transition: color 0.1s ease-out, background-color 0.1s ease-out, padding 50ms ease-out, transform 100ms ease-out;
 
 	&:focus,
@@ -132,7 +133,7 @@ const MenuItem = styled( NavLink )`
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
-		
+
 		&:focus,
 		&:hover {
 			padding-left: 0;
@@ -145,7 +146,7 @@ const MenuItem = styled( NavLink )`
 			background-color: transparent;
 			transform: scale( 1.08 );
 			box-shadow: none;
-			
+
 			&:focus,
 			&:hover {
 				padding-left: 0;
@@ -224,18 +225,18 @@ MainMenu.propTypes = {
 export function MainMenuRoutes( props ) {
 	return (
 		<Switch>
-			<Route exact path="/" component={ SitesPageContainer } />
-			<Route path="/sites/:id" component={ SitePageContainer } />
-			<Route path="/account/subscriptions/:id" component={ SubscriptionPageContainer } />
+			<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
+			<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+			<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
 			{ props.menuRoutes.map( function( route, routeKey ) {
 				let config = Object.assign( {
 					exact: true,
 				}, route );
 
-				return <Route { ...config } key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
 			} )
 			}
-			<Route path="*" component={ PageNotFound } />
+			<Route path="*" component={ inMainLayout( PageNotFound ) } />
 		</Switch>
 	);
 }
