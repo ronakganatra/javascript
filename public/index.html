@@ -35,9 +35,8 @@
 <body>
 <div id="root">
 
-	<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #eeeeee;">
+	<div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #f1f1f1;">
 		<div style="transform: translate( -50%, -50% ); position: absolute; left: 50%; top: 50%; text-align: center; padding: 32px">
-			<img src="%PUBLIC_URL%/android-icon-192x192.png" width="96" height="96" style="vertical-align: bottom"/>
 			<h1 id="loader"
 				style="font-family: Verdana, sans-serif; font-size: 16px; margin: 8px; padding: 0; color: #333333">
 				Loading<span style="transition: color 250ms ease;">.</span><span
@@ -54,7 +53,7 @@
 			try {
 				dot = dot > children.length ? 0 : dot + 1;
 				for ( var i = 0; i < children.length; i ++ ) {
-					children[ i ].style.color = i === dot ? "#eeeeee" : "";
+					children[ i ].style.color = i === dot ? "#f1f1f1" : "";
 				}
 			} catch ( e ) {
 			}
