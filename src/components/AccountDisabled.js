@@ -55,6 +55,8 @@ class AccountDisabled extends React.Component {
 		let paragraphs = [
 			<FormattedMessage id="account.disabled.possible-action" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
 							  values={ { support: <a href="mailto:support@yoast.com">support team</a> } } />,
+			<FormattedMessage id="account.disabled.visit-yoast" defaultMessage={ "Visit { yoast }." }
+							  values={ { yoast: <a href="https://yoast.com">Yoast.com</a> } } />,
 		];
 		return (
 
