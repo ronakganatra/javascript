@@ -33,7 +33,36 @@
     <title>My Yoast</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+
+      <style>
+        span {
+          transition: color 250ms ease;
+        }
+        span.hidden {
+          color: #eeeeee;
+        }
+      </style>
+
+      <div style="position: absolute; left: 0; top: 0; bottom: 0; right: 0; background-color: #eeeeee;">
+        <div style="transform: translate( -50%, -50% ); position: absolute; left: 50%; top: 50%; text-align: center; padding: 32px">
+          <img src="%PUBLIC_URL%/android-icon-192x192.png" width="96" height="96" style="vertical-align: bottom"/>
+          <h1 id="loader" style="font-family: Verdana, sans-serif; font-size: 16px; margin: 8px; padding: 0; color: #333333">Loading<span>.</span><span>.</span><span>.</span></h1>
+        </div>
+      </div>
+
+      <script type="application/javascript">
+        var children = document.getElementById( 'loader').children,
+            dot = 0;
+        window.setInterval( function() {
+            dot = dot > children.length ? 0 : dot + 1;
+            for( var i = 0; i < children.length; i++ ) {
+				children[i].className = ( i === dot ) ? 'hidden' : '';
+            }
+        }, 250 );
+      </script>
+
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
