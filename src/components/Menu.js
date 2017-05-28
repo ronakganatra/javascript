@@ -1,13 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { NavLink, Route, Switch } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import SitesPageContainer from "../containers/SitesPage";
-import SitePageContainer from "../containers/SitePage";
-import SubscriptionPageContainer from "../containers/SubscriptionPage";
-import PageNotFound from "./PageNotFound";
-import { inMainLayout, inSingleLayout } from "./Layout";
 
 const titles = defineMessages( {
 	sites: {
@@ -214,33 +209,4 @@ export default injectIntl( MainMenu );
 MainMenu.propTypes = {
 	menuRoutes: React.PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
-};
-
-/**
- * The main menu routes.
- *
- * @param {Object} props The props to use.
- * @returns {ReactElement} The rendered component.
- */
-export function MainMenuRoutes( props ) {
-	return (
-		<Switch>
-			<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
-			<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
-			<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
-			{ props.menuRoutes.map( function( route, routeKey ) {
-				let config = Object.assign( {
-					exact: true,
-				}, route );
-
-				return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
-			} )
-			}
-			<Route path="*" component={ inMainLayout( PageNotFound ) } />
-		</Switch>
-	);
-}
-
-MainMenuRoutes.propTypes = {
-	menuRoutes: React.PropTypes.array.isRequired,
 };

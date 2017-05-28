@@ -7,8 +7,13 @@ import { injectGlobal } from "styled-components";
 import { IntlProvider } from "react-intl";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
-import { MainMenuRoutes } from "./components/Menu";
+import { Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
+import { inMainLayout, inSingleLayout } from "./components/Layout";
+import PageNotFound from "./components/PageNotFound";
+import SitesPageContainer from "./containers/SitesPage";
+import SitePageContainer from "./containers/SitePage";
+import SubscriptionPageContainer from "./containers/SubscriptionPage";
 
 /*
  * Helper method to write global CSS.
@@ -31,7 +36,20 @@ class App extends Component {
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
 					<ConnectedRouter history={ this.props.history }>
-						<MainMenuRoutes menuRoutes={ menuItems }  />
+						<Switch>
+							<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
+							<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+							<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
+							{ menuItems.map( function( route, routeKey ) {
+								let config = Object.assign( {
+									exact: true,
+								}, route );
+
+								return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
+							} )
+							}
+							<Route path="*" component={ inMainLayout( PageNotFound ) } />
+						</Switch>
 					</ConnectedRouter>
 				</Provider>
 			</IntlProvider>
