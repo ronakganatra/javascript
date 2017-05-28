@@ -5,7 +5,7 @@ import "./App.css";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectGlobal } from "styled-components";
 import { IntlProvider } from "react-intl";
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
@@ -31,39 +31,59 @@ injectGlobal`
 	}
 `;
 
+const Routes = ( props ) => {
+	if ( props.userEnabled === false ) {
+		return (
+			<ConnectedRouter history={ props.history }>
+				<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
+			</ConnectedRouter>
+		);
+	}
+
+	if ( props.userEnabled === true ) {
+		return (
+			<ConnectedRouter history={ props.history }>
+				<Switch>
+					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
+					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
+					{	menuItems.map( function( route, routeKey ) {
+						let config = Object.assign( {
+							exact: true,
+						}, route );
+
+						return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
+					} )
+					}
+					<Route path="*" component={ inMainLayout( PageNotFound ) } />
+				</Switch>
+			</ConnectedRouter>
+		);
+	}
+
+	// We don't want to render anything until user is fetched, user.enabled is null by default.
+	return <span />;
+};
+
+Routes.propTypes = {
+	userEnabled: React.PropTypes.bool,
+	history: React.PropTypes.object,
+};
+
+const RoutesContainer = connect(
+	( state ) => {
+		return {
+			userEnabled: state.user.enabled,
+		};
+	}
+)( Routes );
+
 class App extends Component {
 	render() {
-		let Routes = ( props ) => {
-			if ( props.user.enabled === true ) {
-				return (
-					<Switch>
-						<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
-						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
-						<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
-						{	menuItems.map( function( route, routeKey ) {
-							let config = Object.assign( {
-								exact: true,
-							}, route );
-
-							return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
-						} )
-						}
-						<Route path="*" component={ inMainLayout( PageNotFound ) } />
-					</Switch>
-				);
-			}
-
-			return (
-				<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
-			);
-		};
-
 		return (
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
-					<ConnectedRouter history={ this.props.history }>
-						<Routes user={ this.props.store.getState().user } />
-					</ConnectedRouter>
+					<RoutesContainer history={ this.props.history } />
 				</Provider>
 			</IntlProvider>
 		);
