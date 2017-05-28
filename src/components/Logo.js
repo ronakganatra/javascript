@@ -20,7 +20,7 @@ export function Logo( props ) {
 Logo.propTypes = {
 	size: React.PropTypes.string,
 	alt: React.PropTypes.string,
-	colored: React.PropTypes.boolean,
+	colored: React.PropTypes.bool,
 };
 
 Logo.defaultProps = {
