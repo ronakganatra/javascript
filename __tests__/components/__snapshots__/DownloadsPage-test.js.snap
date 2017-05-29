@@ -413,23 +413,23 @@ exports[`test the downloads page component matches the snapshot 1`] = `
 
 exports[`test the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="ixTlWO">
+  className="cuXUW">
   <p>
-    <p>
-      <span>
-        Welcome to the downloads page
-      </span>
-    </p>
-    <p>
-      <span>
-        It looks like you haven’t bought any products with downloadable files yet.
-      </span>
-    </p>
-    <p>
-      <span>
-        To browse our products, please visit:
-      </span>
-    </p>
+    <span>
+      Welcome to the downloads page
+    </span>
+  </p>
+  <p>
+    <span>
+      It looks like you haven’t bought any products with downloadable files yet.
+    </span>
+  </p>
+  <p>
+    <span>
+      To browse our products, please visit:
+    </span>
+  </p>
+  <p>
     <a
       href="https://yoa.st/myyoast-download"
       target="_blank">

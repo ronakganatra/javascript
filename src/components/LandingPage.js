@@ -11,16 +11,16 @@ const PageContainer = styled.div`
 		width: 540px;
 		max-width: 100%;
 		height: auto;
-		
+
 		display: block;
 		margin: 0 auto;
-			
-		@media screen and ( max-width: 400px ) { 
+
+		@media screen and ( max-width: 400px ) {
 			max-width: 250px;
 		}
-		@media screen and ( min-width: 400px ) { 
+		@media screen and ( min-width: 400px ) {
 			max-width: 384px;
-		}	
+		}
 	}
 
 	a {
@@ -39,10 +39,10 @@ const PageContainer = styled.div`
 export default function LandingPage( props ) {
 	return (
 		<PageContainer>
+			{ props.paragraphs.map( function( paragraph ) {
+				return <p key={ paragraph.props.id }>{ paragraph }</p>;
+			} ) }
 			<p>
-				{ props.paragraphs.map( function( paragraph ) {
-					return <p key={ paragraph.props.id }>{ paragraph }</p>;
-				} ) }
 				<a href={ props.url } target="_blank">
 					{ props.urlText }
 					<NewTabMessage />
