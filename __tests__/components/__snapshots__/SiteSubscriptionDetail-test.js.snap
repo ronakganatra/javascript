@@ -42,9 +42,6 @@ exports[`test an add more licenses button should be shown when no more licenses 
       </span>
     </span>
   </span>
-  <div>
-    <noscript />
-  </div>
   <span
     className="fRNOok">
     <a
@@ -103,9 +100,6 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       </span>
     </span>
   </span>
-  <div>
-    <noscript />
-  </div>
   <span
     className="fRNOok">
     <a

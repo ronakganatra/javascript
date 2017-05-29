@@ -16,7 +16,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			loadingSite: true,
 		};
 	}
-	let popupOpen = state.ui.subscriptions.addLicensesPopupOpen;
+	let addSubscriptionModal = state.ui.addSubscriptionModal;
 
 	let site = sites.byId[ id ];
 
@@ -94,7 +94,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	return {
-		popupOpen,
+		addSubscriptionModal,
 		site,
 		subscriptions,
 		plugins,
@@ -110,11 +110,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreLicensesClick: () => {
-			dispatch( addLicensesPopupOpen() );
+		onAddMoreLicensesClick: ( subscriptionId ) => {
+			dispatch( addLicensesPopupOpen( subscriptionId ) );
 		},
-		onToggleDisabled: () => {
-			dispatch( addLicensesPopupOpen() );
+		onToggleDisabled: ( subscriptionId ) => {
+			dispatch( addLicensesPopupOpen( subscriptionId ) );
 		},
 		onClose: () => {
 			dispatch( addLicensesPopupClose() );

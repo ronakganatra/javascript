@@ -6,7 +6,6 @@ import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } from "./Tables";
 import _partial from "lodash/partial";
-import AddLicensesModal from "./AddLicensesModal";
 import defaults from "../config/defaults.json";
 import util from "util";
 
@@ -82,10 +81,6 @@ function SiteSubscriptionDetail( props ) {
 		rowProps.background = props.background;
 	}
 
-	let modal = (
-		<AddLicensesModal isOpen={ props.popupOpen } onShop={ props.onShop } onClose={ props.onClose }/>
-	);
-
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
@@ -136,7 +131,6 @@ function SiteSubscriptionDetail( props ) {
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
-			{ modal }
 			<ColumnFixedWidthEnabled isAvailable={ props.isAvailable}>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />

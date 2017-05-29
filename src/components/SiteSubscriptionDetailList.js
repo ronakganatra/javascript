@@ -27,20 +27,27 @@ function SiteSubscriptionDetailList( props ) {
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable>
-					{ ( props.plugins.map( ( plugin ) => {
+					{ props.plugins.map( ( plugin ) => {
+						let onToggleDisabled = () => {
+							return props.onToggleDisabled( plugin.id );
+						};
+						let onAddMoreLicensesClick = () => {
+							return props.onAddMoreLicensesClick( plugin.id );
+						};
+
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.id }
-							onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
+							onAddMoreLicensesClick={ onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
-							onToggleDisabled={ props.onToggleDisabled }
+							onToggleDisabled={ onToggleDisabled }
 							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }
 							onShop={ plugin.storeUrl }
 						/>;
-					} ) ) }
+					} ) }
 				</ListTable>
 			</CollapsibleHeader>
 		</Paper>

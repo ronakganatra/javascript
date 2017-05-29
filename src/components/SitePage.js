@@ -5,6 +5,9 @@ import SiteHeader from "./SiteHeader";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
+import AddLicensesModal from "./AddLicensesModal";
+
+import _filter from "lodash/filter";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -27,6 +30,19 @@ class SitePage extends React.Component {
 		a11ySpeak( message );
 	}
 
+	getModal() {
+		let productId = this.props.addSubscriptionModal.id;
+
+		// Find the plugin with the correct productId.
+		let plugins = _filter( this.props.plugins, plugin => plugin.id === productId );
+
+		if ( plugins.length !== 1 ) {
+			return;
+		}
+
+		return <AddLicensesModal isOpen={ productId !== null } onShop={ plugins[ 0 ].storeUrl } onClose={ this.props.onClose }/>;
+	}
+
 	render() {
 		let props = this.props;
 
@@ -45,7 +61,6 @@ class SitePage extends React.Component {
 														   onMoreInfoClick={ props.onMoreInfoClick }
 														   onSettingsClick={ props.onSettingsClick }
 														   onToggleSubscription={ props.onToggleSubscription }
-														   popupOpen={ props.popupOpen }
 														   onClose={ props.onClose }
 														   onToggleDisabled={ props.onToggleDisabled }
 			/>;
@@ -55,6 +70,7 @@ class SitePage extends React.Component {
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
+				{ this.getModal() }
 			</div>
 		);
 	}
@@ -70,10 +86,12 @@ SitePage.propTypes = {
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
 	onSettingsClick: React.PropTypes.func.isRequired,
+	onClose: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	loadingSite: React.PropTypes.bool,
 	loadingSubscriptions: React.PropTypes.bool,
+	addSubscriptionModal: React.PropTypes.object,
 };
 
 SitePage.defaultProps = {
