@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
-import logoColor from "../images/logoColor.svg";
 import Link from "./Link.js";
 
 /**
@@ -13,14 +12,13 @@ import Link from "./Link.js";
  */
 export function Logo( props ) {
 	return (
-		<Link to="/"><LogoImage src={ props.colored ? logoColor : logo } size={ props.size } alt={ props.alt }/></Link>
+		<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
 	);
 }
 
 Logo.propTypes = {
 	size: React.PropTypes.string,
 	alt: React.PropTypes.string,
-	colored: React.PropTypes.bool,
 };
 
 Logo.defaultProps = {
