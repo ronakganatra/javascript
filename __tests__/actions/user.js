@@ -38,7 +38,6 @@ test( 'request user action creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-
 test( 'request user action creator', () => {
 	const expected = {
 		type: actions.FETCH_USER_SUCCESS,
@@ -72,6 +71,68 @@ test( 'fetch user action creator', () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.requestUser() );
 		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/Customers/5/profile?access_token=AccessToken" );
 		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( "User data" ) );
+	} );
+} );
+
+test( 'disable user start action creator', () => {
+	const expected = {
+		type: actions.DISABLE_USER_START,
+	};
+
+	const actual = actions.disableUserStart();
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'disable user success action creator', () => {
+	const expected = {
+		type: actions.DISABLE_USER_SUCCESS,
+	};
+
+	const actual = actions.disableUserSuccess();
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'disable user failure action creator', () => {
+	const expected = {
+		type: actions.DISABLE_USER_FAILURE,
+		errorMessage: "Fail",
+	};
+
+	const actual = actions.disableUserFailure( "Fail" );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'disable user action creator', () => {
+	global.fetch = jest.fn( () => {
+		return Promise.resolve( {
+			status: 200,
+			json: () => { return {
+				"enabled": false,
+			} },
+		} );
+	});
+
+	let request = new Request( getApiUrl() + "/Customers//?access_token=", {
+		method: "PATCH",
+		body: JSON.stringify( {
+			enabled: false,
+		} ),
+		headers: {
+			"Content-Type": "application/json",
+		},
+	} );
+
+	const dispatch = jest.fn();
+
+	const disableUserFunc = actions.disableUser();
+
+	expect( disableUserFunc ).toBeInstanceOf( Function );
+
+	return disableUserFunc( dispatch ).then( () => {
+		expect( global.fetch ).toHaveBeenCalledWith( request );
 	} );
 } );
 

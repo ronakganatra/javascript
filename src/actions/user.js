@@ -21,6 +21,10 @@ export const RESET_PASSWORD_REQUEST = "RESET_PASSWORD_REQUEST";
 export const RESET_PASSWORD_FAILURE = "RESET_PASSWORD_FAILURE";
 export const RESET_PASSWORD_SUCCESS = "RESET_PASSWORD_SUCCESS";
 
+export const DISABLE_USER_START = "DISABLE_USER_START";
+export const DISABLE_USER_FAILURE = "DISABLE_USER_FAILURE";
+export const DISABLE_USER_SUCCESS = "DISABLE_USER_SUCCESS";
+
 /**
  * Action creators
  */
@@ -99,6 +103,77 @@ export function fetchUser( accessToken, userId ) {
 			.then( json => dispatch( receiveUser( json ) ) )
 			.catch( () => {
 				document.location.href = getAuthUrl();
+			} );
+	};
+}
+
+/**
+ * An action creator for the request user action.
+ *
+ * @returns {Object} A request user action.
+ */
+export function disableUserStart() {
+	return {
+		type: DISABLE_USER_START,
+	};
+}
+
+/**
+ * An action creator for the receive user action.
+ *
+ * @returns {Object} A receive user action.
+ */
+export function disableUserSuccess() {
+	return {
+		type: DISABLE_USER_SUCCESS,
+	};
+}
+
+/**
+ * An action creator for the receive user action.
+ *
+ * @param {Object} errorMessage The user data that was successfully received.
+ * @returns {Object} A receive user action.
+ */
+export function disableUserFailure( errorMessage ) {
+	return {
+		type: DISABLE_USER_FAILURE,
+		errorMessage: errorMessage,
+	};
+}
+
+/**
+ * An action creator for the fetch user action.
+ *
+ * @param {string} accessToken A valid access token for the user.
+ * @param {string} userId The user ID for the user that we want to fetch.
+ * @returns {Object} A fetch user action.
+ */
+export function disableUser() {
+	let userId = getUserId();
+	let accessToken = getAccessToken();
+
+	return ( dispatch ) => {
+		dispatch( disableUserStart() );
+
+		let apiUrl = getApiUrl();
+
+		let request = new Request( `${apiUrl}/Customers/${userId}/?access_token=${accessToken}`, {
+			method: "PATCH",
+			body: JSON.stringify( {
+				enabled: false,
+			} ),
+			headers: {
+				"Content-Type": "application/json",
+			},
+		} );
+
+		return fetch( request )
+			.then( handle401 )
+			.then( response => response.json() )
+			.then( json => dispatch( disableUserSuccess() ) )
+			.catch( ( error ) => {
+				dispatch( disableUserFailure( error.message ) );
 			} );
 	};
 }
