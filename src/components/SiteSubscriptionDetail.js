@@ -65,7 +65,7 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
-	display: ${ props => props.isAvailable ? "inline-block" : "none" };
+	display: ${ props => props.isEnabled ? "inline-block" : "none" };
 `;
 
 /**
@@ -131,7 +131,7 @@ function SiteSubscriptionDetail( props ) {
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
-			<ColumnFixedWidthEnabled isAvailable={ props.isAvailable}>
+			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled}>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
