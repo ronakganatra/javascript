@@ -4,7 +4,6 @@ import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListTable } from "./Tables";
 import Paper from "./Paper";
-
 const messages = defineMessages( {
 	manageTitle: {
 		id: "site_subscriptions.overview.title",
@@ -28,7 +27,7 @@ function SiteSubscriptionDetailList( props ) {
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage ( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable>
-					{ props.plugins.map( ( plugin ) => {
+					{ ( props.plugins.map( ( plugin ) => {
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.id }
@@ -41,7 +40,7 @@ function SiteSubscriptionDetailList( props ) {
 							onClose={ props.onClose }
 							onShop={ plugin.storeUrl }
 						/>;
-					} ) }
+					} ) ) }
 				</ListTable>
 			</CollapsibleHeader>
 		</Paper>
