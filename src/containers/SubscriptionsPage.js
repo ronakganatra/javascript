@@ -27,8 +27,6 @@ export const mapStateToProps = ( state ) => {
 
 	let query = state.ui.search.query;
 
-	console.log( query );
-
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
 			let formattedDate = new Intl.DateTimeFormat( "en-US", {
