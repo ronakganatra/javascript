@@ -92,4 +92,20 @@ describe( 'components/ProfilePage', () => {
 		let tree = component.toJSON();
 		expect( tree ).toMatchSnapshot();
 	} );
+
+	test('while deleting the account', () => {
+		const component = createComponentWithIntl(
+			<ProfilePage
+				email="email@email.email"
+				isDeleting={ true }
+				onUpdateEmail={ () => {} }
+				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
+				onPasswordReset={ () => {} }
+				passwordResetError={"An error occurred while sending password reset."} />
+		);
+
+		let tree = component.toJSON();
+		expect( tree ).toMatchSnapshot();
+	} );
 } );
