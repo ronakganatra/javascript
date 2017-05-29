@@ -46,9 +46,9 @@ const messages = defineMessages( {
 } );
 
 /**
- * A function that returns the Page Not Found component.
+ * A function that returns the Account disabled component.
  *
- * @returns {ReactElement} The component that contains the Page Not Found page.
+ * @returns {ReactElement} The component that contains the Account disabled page.
  */
 class AccountDisabled extends React.Component {
 	componentDidMount() {
