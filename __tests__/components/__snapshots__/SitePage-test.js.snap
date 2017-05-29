@@ -1,9 +1,9 @@
 exports[`test the site page component matches the snapshot 1`] = `
 <div>
   <div
-    className="gcVow">
+    className="hBdIEw">
     <h1
-      className="jlnkwy">
+      className="irnCFt">
       yoast.com
     </h1>
     <div
@@ -205,6 +205,8 @@ exports[`test the site page component matches the snapshot 1`] = `
               d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
           </svg>
         </span>
+        <span
+          className="GHtNJ" />
       </button>
       <div
         className="chGuAF">

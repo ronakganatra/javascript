@@ -21,6 +21,8 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
         </svg>
       </span>
+      <span
+        className="GHtNJ" />
     </button>
     <div
       className="chGuAF">
@@ -61,6 +63,8 @@ exports[`test the site dangerzone onRemove handling 1`] = `
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
         </svg>
       </span>
+      <span
+        className="GHtNJ" />
     </button>
     <div
       className="chGuAF">
@@ -101,6 +105,8 @@ exports[`test the site dangerzone onRemove handling 2`] = `
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
         </svg>
       </span>
+      <span
+        className="GHtNJ" />
     </button>
     <div
       className="chGuAF">
@@ -141,6 +147,8 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
             d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
         </svg>
       </span>
+      <span
+        className="GHtNJ" />
     </button>
     <div
       className="chGuAF">
