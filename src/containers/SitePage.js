@@ -84,7 +84,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		} );
 
 		plugin.hasSubscriptions = plugin.limit > 0;
-		plugin.isAvailable = plugin.limit > plugin.used;
+		plugin.isAvailable = plugin.limit > plugin.used || plugin.isEnabled;
 
 		return plugin;
 	} );
