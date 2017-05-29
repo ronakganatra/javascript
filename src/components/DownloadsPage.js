@@ -35,6 +35,10 @@ const messages = defineMessages( {
 		id: "downloads-page.by-lines.installation-guides",
 		defaultMessage: "Read our installation guides",
 	},
+	otherBooks: {
+		id: "downloads-page.by-lines.books-upsell",
+		defaultMessage: "Check out our other eBooks",
+	},
 } );
 
 const ProductOverviewContainer = styled.div`
@@ -43,7 +47,7 @@ const ProductOverviewContainer = styled.div`
 	flex-wrap: wrap;
 	padding-top: 24px;
 	margin-top: 36px;
-	
+
 	a {
 		color: ${ colors.$color_blue };
 	}
@@ -93,6 +97,14 @@ class DownloadsPage extends React.Component {
 			/>
 		</ByLine>;
 
+		let eBooksByLine = <ByLine>
+			<FormattedMessage
+				id="downloads-page.by-line.ebooks"
+				defaultMessage=" - Want to read more about SEO? { link }."
+				values={ { link: <a target="_blank" href="https://yoa.st/ebooks">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
+			/>
+		</ByLine>;
+
 		let noDownloadsParagraphs = [
 			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
 			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
@@ -111,6 +123,7 @@ class DownloadsPage extends React.Component {
 
 		let eBookDownloads = <Products
 									products={ this.props.eBooks }
+									byLine={ eBooksByLine }
 									heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
 									noResults={ this.props.eBooks.length > 0 ? "" : "No results" }
 		/>;
