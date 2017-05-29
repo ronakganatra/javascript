@@ -4,7 +4,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
   <span
     className="fXreAk">
     <span
-      className="bFlBoG">
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -26,7 +26,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
     </span>
     <img
       alt=""
-      className="exiJlH"
+      className="jbZlKk"
       src="icon.svg" />
   </span>
   <span
@@ -36,7 +36,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
       Subscription name
     </span>
     <span
-      className="IOJRz">
+      className="hkQMsn">
       <span>
         0/20 remaining
       </span>
@@ -46,7 +46,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
     <noscript />
   </div>
   <span
-    className="fVeJEd">
+    className="fRNOok">
     <a
       className="eRLPss"
       href="/account/subscriptions/subId"
@@ -65,7 +65,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
   <span
     className="fXreAk">
     <span
-      className="bFlBoG">
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -87,7 +87,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     </span>
     <img
       alt=""
-      className="exiJlH"
+      className="jbZlKk"
       src="icon.svg" />
   </span>
   <span
@@ -97,7 +97,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       Subscription name
     </span>
     <span
-      className="IOJRz">
+      className="hkQMsn">
       <span>
         6/20 remaining
       </span>
@@ -107,7 +107,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     <noscript />
   </div>
   <span
-    className="fVeJEd">
+    className="fRNOok">
     <a
       className="eRLPss"
       href="/account/subscriptions/subId"

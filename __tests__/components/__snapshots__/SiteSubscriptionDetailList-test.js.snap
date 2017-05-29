@@ -34,7 +34,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="fXreAk">
           <span
-            className="bFlBoG">
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -56,7 +56,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="exiJlH"
+            className="jbZlKk"
             src="icon.png" />
         </span>
         <span
@@ -66,7 +66,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             Yoast SEO Premium
           </span>
           <span
-            className="IOJRz">
+            className="hkQMsn">
             <span>
               1/2 remaining
             </span>
@@ -76,7 +76,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="fVeJEd">
+          className="fRNOok">
           <a
             className="eRLPss"
             href="/account/subscriptions/undefined"
@@ -92,7 +92,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="fXreAk">
           <span
-            className="bFlBoG">
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -114,7 +114,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="exiJlH"
+            className="jbZlKk"
             src="icon2.png" />
         </span>
         <span
@@ -124,7 +124,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             Yoast SEO Local
           </span>
           <span
-            className="IOJRz">
+            className="hkQMsn">
             <span>
               0/2 remaining
             </span>
@@ -141,7 +141,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           <noscript />
         </div>
         <span
-          className="fVeJEd">
+          className="fRNOok">
           <a
             className="eRLPss"
             href="/account/subscriptions/undefined"
