@@ -46,6 +46,7 @@ const initialState = {
 	sendPasswordReset: false,
 	passwordResetError: "",
 	deletingProfile: false,
+	deleteProfileError: "",
 };
 
 /**
@@ -177,6 +178,7 @@ export function userDisableReducer( state = initialState, action ) {
 		case DISABLE_USER_FAILURE:
 			return Object.assign( {}, state, {
 				deletingProfile: false,
+				deleteProfileError: action.errorMessage,
 			} );
 
 		default:
