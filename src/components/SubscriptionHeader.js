@@ -3,6 +3,18 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 import { BackButtonLink, makeButtonFullWidth } from "./Button";
+import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
+
+const messages = defineMessages( {
+	sitePageLoaded: {
+		id: "menu.site.loaded",
+		defaultMessage: "Manage site page loaded",
+	},
+	backButton: {
+		id: "back-button",
+		defaultMessage: "Back",
+	},
+} );
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
@@ -104,17 +116,21 @@ let ResponsiveBackButtonLink = makeButtonFullWidth( BackButtonLink );
  * @returns {ReactElement} The rendered component.
  * @constructor
  */
-export default function SubscriptionHeader( props ) {
+function SubscriptionHeader( props ) {
 	let imageContainer = (
 		<HeaderImageContainer>
 			<HeaderImage src={ props.image }/>
-			<BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>
+			<BackButtonLink to={ "/account/subscriptions" } >
+				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+			</BackButtonLink>
 		</HeaderImageContainer>
 	);
 
 	let buttonContainer = (
 		<HeaderImageContainer>
-			<BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>
+			<BackButtonLink to={ "/account/subscriptions" } >
+				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+			</BackButtonLink>
 		</HeaderImageContainer>
 	);
 
@@ -133,11 +149,15 @@ export default function SubscriptionHeader( props ) {
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
 			<ResponsiveBackButtonArea>
-				<ResponsiveBackButtonLink to={ "/account/subscriptions" } >Back</ResponsiveBackButtonLink>
+				<ResponsiveBackButtonLink to={ "/account/subscriptions" } >
+					<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+				</ResponsiveBackButtonLink>
 			</ResponsiveBackButtonArea>
 		</SubscriptionHeaderContainer>
 	);
 }
+
+export default injectIntl( SubscriptionHeader );
 
 SubscriptionHeader.propTypes = {
 	name: React.PropTypes.string.isRequired,

@@ -1,6 +1,6 @@
 import React from "react";
 import a11ySpeak from "a11y-speak";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import SiteHeader from "./SiteHeader";
 import { BackButtonLink } from "./Button";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
@@ -11,6 +11,10 @@ const messages = defineMessages( {
 	sitePageLoaded: {
 		id: "menu.site.loaded",
 		defaultMessage: "Manage site page loaded",
+	},
+	backButton: {
+		id: "back-button",
+		defaultMessage: "Back",
 	},
 } );
 
@@ -54,7 +58,7 @@ class SitePage extends React.Component {
 		}
 		return (
 			<div>
-				<BackButtonLink to={ "/sites" } >Back</BackButtonLink>
+				<BackButtonLink to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonLink>
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />

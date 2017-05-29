@@ -6,7 +6,9 @@ exports[`test the site page component matches the snapshot 1`] = `
     href="/sites"
     iconSize="24px"
     onClick={[Function]}>
-    Back
+    <span>
+      Back
+    </span>
   </a>
   <div
     className="eoofqi">

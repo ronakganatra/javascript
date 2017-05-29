@@ -9,7 +9,9 @@ exports[`test the subscription header matches the snapshot 1`] = `
       href="/account/subscriptions"
       iconSize="24px"
       onClick={[Function]}>
-      Back
+      <span>
+        Back
+      </span>
     </a>
   </div>
   <div
@@ -35,7 +37,9 @@ exports[`test the subscription header matches the snapshot 1`] = `
       href="/account/subscriptions"
       iconSize="24px"
       onClick={[Function]}>
-      Back
+      <span>
+        Back
+      </span>
     </a>
   </div>
 </div>
