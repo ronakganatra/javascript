@@ -12,26 +12,31 @@ import { getInvoiceUrl } from "../functions/api";
  * @constructor
  */
 export default function Orders( props ) {
-	return (
-		<Paper>
-			<ListTable>
-				{ props.orders.map( ( order ) => {
-					let invoiceURI = getInvoiceUrl( order.id );
+	let ordersTable = <ListTable { ...props }>
+		{ props.orders.map( ( order ) => {
+			let invoiceURI = getInvoiceUrl( order.id );
 
-					return <Order { ...order }
-								  key={ order.id }
-								  invoiceLink={ invoiceURI }
-					/>;
-				} ) }
-			</ListTable>
-		</Paper>
-	);
+			return <Order
+				{ ...order }
+				key={ order.id }
+				invoiceLink={ invoiceURI }
+			/>;
+		} ) }
+	</ListTable>;
+
+	if ( props.hasPaper ) {
+		return <Paper>{ ordersTable }</Paper>;
+	}
+
+	return ordersTable;
 }
 
 Orders.propTypes = {
 	orders: React.PropTypes.array,
+	hasPaper: React.PropTypes.bool,
 };
 
 Orders.defaultProps = {
 	orders: [],
+	hasPaper: true,
 };

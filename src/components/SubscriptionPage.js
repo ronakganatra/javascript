@@ -7,6 +7,8 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListHeading } from "./ListHeading";
 import Orders from "./Orders";
 import Paper from "./Paper";
+import styled from "styled-components";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -18,6 +20,33 @@ const messages = defineMessages( {
 		defaultMessage: "Invoices",
 	},
 } );
+
+/**
+ * Changes the default styling of the Orders ListTable.
+ *
+ * @param {ReactElement} orders The original Orders component.
+ * @returns {ReactElement} The Orders component with changed styling.
+ */
+export function styledOrders( orders ) {
+	return styled( orders )`
+		li:first-child {
+			margin-top: 40px;
+		}
+
+		li > span::before {
+			top: -20px;
+			font-size: 1em;
+		}
+
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			li:first-child {
+				margin-top: 0;
+			}
+		}
+	`;
+}
+
+let SubscriptionOrders = styledOrders( Orders );
 
 /**
  * Returns the rendered SubscriptionPage component.
@@ -58,7 +87,7 @@ class SubscriptionPage extends React.Component {
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
-				<Orders { ...this.props } />
+				<SubscriptionOrders hasPaper={ false } { ...this.props } />
 			</Paper>
 		</section>;
 	}
