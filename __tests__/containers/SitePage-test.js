@@ -152,8 +152,8 @@ test('the mapStateToProps function', () => {
 		} ],
 		plugins: [
 			{
-				id: "productid1",
-				name: "Yoast SEO Premium",
+				id: "productid2",
+				name: "Yoast SEO Local",
 				type: "plugin",
 				icon: "icon.png",
 				currency: "USD",
@@ -166,8 +166,8 @@ test('the mapStateToProps function', () => {
 				subscriptionId: "",
 			},
 			{
-				id: "productid2",
-				name: "Yoast SEO Local",
+				id: "productid1",
+				name: "Yoast SEO Premium",
 				type: "plugin",
 				icon: "icon.png",
 				currency: "USD",
