@@ -10,6 +10,7 @@ describe( 'components/ProfilePage', () => {
 				image="dummy.png"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }/>
 		);
 
@@ -23,6 +24,7 @@ describe( 'components/ProfilePage', () => {
 				email="email@email.email"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
 				isSaving={true} />
 		);
@@ -37,6 +39,7 @@ describe( 'components/ProfilePage', () => {
 				email="email@email.email"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
 				error="An error occurred while saving profile." />
 		);
@@ -51,6 +54,7 @@ describe( 'components/ProfilePage', () => {
 				email="email@email.email"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
 				isSendingPasswordReset={true} />
 		);
@@ -65,6 +69,7 @@ describe( 'components/ProfilePage', () => {
 				email="email@email.email"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
 				hasSendPasswordReset={true} />
 		);
@@ -79,6 +84,7 @@ describe( 'components/ProfilePage', () => {
 				email="email@email.email"
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
 				passwordResetError={"An error occurred while sending password reset."} />
 		);
