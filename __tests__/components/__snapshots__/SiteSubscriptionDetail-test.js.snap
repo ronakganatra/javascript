@@ -41,13 +41,6 @@ exports[`test an add more licenses button should be shown when no more licenses 
         0/20 remaining
       </span>
     </span>
-    <a
-      className="cLgDIl"
-      href="http://store.url.com">
-      <span>
-        Get another subscription
-      </span>
-    </a>
   </span>
   <div>
     <noscript />

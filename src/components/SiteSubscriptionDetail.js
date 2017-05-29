@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import colors from "yoast-components/style-guide/colors.json";
-import { LargeButtonLink, makeButtonFullWidth } from "./Button";
+import { LargeButtonLink, IconButtonTransparent, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -63,20 +62,6 @@ const SubscriptionUsage = styled.span`
 	margin-right: 10px;
 `;
 
-const AddOneLicense = styled.a`
-	font-size: 14px;
-	font-weight: 300;
-	font-style: italic;
-	text-decoration: none;
-	border: none;
-	background: transparent url( ${ plusIcon } ) no-repeat 2px 2px;
-	background-size: 16px;
-	color: ${ colors.$color_blue };
-	cursor: pointer;
-	padding: 0 0 0 22px;
-	text-align: left;
-`;
-
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
@@ -104,17 +89,25 @@ function SiteSubscriptionDetail( props ) {
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
-	if ( licensesRemaining === 0 && props.isEnabled === true ) {
-		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
-			id="site.subscriptions.licenses.add"
-			defaultMessage="Get another subscription"/>
-			</AddOneLicense>;
+	if ( licensesRemaining === 0 && props.isEnabled === false ) {
+		anotherLicense = (
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+				<FormattedMessage
+					id="site.subscriptions.licenses.add"
+					defaultMessage="Get another subscription"
+				/>
+			</IconButtonTransparent>
+		);
 	}
-	if ( props.isEnabled === false ) {
-		anotherLicense = <AddOneLicense href={ props.storeUrl }><FormattedMessage
-			id="site.subscriptions.licenses.add"
-			defaultMessage="Get a subscription"/>
-		</AddOneLicense>;
+	if ( props.isAvailable === false ) {
+		anotherLicense = (
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+				<FormattedMessage
+					id="site.subscriptions.licenses.add"
+					defaultMessage="Get a subscription"
+				/>
+			</IconButtonTransparent>
+		);
 	}
 
 	let disable = true;

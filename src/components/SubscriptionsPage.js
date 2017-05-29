@@ -6,7 +6,9 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
+import LandingPage from "./LandingPage";
 import noSubscriptionsImage from "./../images/noSubscriptions.svg";
+import noResultsImage from "./../images/SitesNoResults.svg";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -52,6 +54,21 @@ class SubscriptionsPage extends React.Component {
 		a11ySpeak( message );
 	}
 
+	/**
+	 * Return the search bar.
+	 *
+	 * @returns {ReactElement} The rendered Search component.
+	 */
+	getSearch() {
+		return <Search
+			id="search"
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
+			descriptionId="search-description"
+			query={ this.props.query }
+			onChange={ this.props.onSearchChange }
+		/>;
+	}
+
 	render() {
 		let noSubscriptionsParagraphs = [
 			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
@@ -59,26 +76,32 @@ class SubscriptionsPage extends React.Component {
 							  defaultMessage="Here you can find a list of the software you bought from us - but it looks like you don't have any yet!" />,
 			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
 		];
+		let noSearchResultsParagraphs = [
+			<FormattedMessage id="subscriptions.search.no-results"
+							  defaultMessage={ "We could not find any subscriptions matching { query }." }
+							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
 		let props = this.props;
-		if ( props.subscriptions.length > 0 ) {
+		if ( props.activeSubscriptions.length > 0 ) {
 			return (
 				<div>
-					<Search
-						id="search"
-						searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
-						descriptionId="search-description"
-						query={ this.props.query }
-						onChange={ this.props.onSearchChange }
-					/>
+					{ this.getSearch() }
 					<Subscriptions { ...props } />
+				</div>
+			);
+		} else if ( props.query.length > 0 ) {
+			return (
+				<div>
+					{ this.getSearch() }
+					<LandingPage paragraphs={ noSearchResultsParagraphs }
+								 imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
 		return (
-				<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
-					window.open( "https://url-to-sto.re" ).bind( this );
-				}
+			<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
+				window.open( "https://url-to-sto.re" ).bind( this );
+			}
 			} imageSource={ noSubscriptionsImage }/>
 		);
 	}

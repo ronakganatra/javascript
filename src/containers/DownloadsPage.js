@@ -8,6 +8,7 @@ import { getEbooks, getPlugins } from "../functions/products";
 import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
+import _isEmpty from "lodash/isEmpty";
 
 const getEbookProducts = ( state ) =>  {
 	let eBooks =  getEbooks( state.entities.products.byId );
@@ -36,16 +37,24 @@ const getPluginProducts = ( state ) =>  {
 
 const setDownloadProps = ( products, state ) => {
 	return products.map( ( product ) => {
+		let downloadButtons = [];
+
+		if ( ! _isEmpty( product.downloads ) ) {
+			downloadButtons = product.downloads.map( ( download ) => {
+				return {
+					label: download.name,
+					onButtonClick: ( () => window.open( download.file, "_blank" ) ),
+				};
+			} );
+		}
+
 		return {
 			id: product.id,
 			name: product.name,
 			currentVersion: product.currentVersion,
 			icon: product.icon,
 			category: product.type,
-			buttons: [ {
-				label: product.description,
-				onButtonClick: ( () => window.open( product.downloadUrl, "_blank" ) ),
-			} ],
+			buttons: downloadButtons,
 		};
 	} );
 };

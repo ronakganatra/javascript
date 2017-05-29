@@ -16,32 +16,39 @@ const SubscriptionHeaderContainer = styled.div`
 
 // Places the description at the bottom of the container.
 const HeaderContext = styled.div`
-	padding: 1em 0 1.5em 1em;
+	padding: 2em 1.5em 2em 0;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		padding: 0.5em 1em 1em;
+		padding: 1em;
 	}
-`;
-
-// Keeps the header and by-line together.
-const HeaderContainer = styled.div`
 `;
 
 const HeaderTitle = styled.h1`
 	color: ${ colors.$color_white };
 	font-size: 2em;
+	line-height: 1.25;
 	font-weight: 400;
 	margin: 0;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		font-size: 1em;
+	}
 `;
 
-const HeaderByline = styled.div`
+const HeaderByline = styled.p`
+	margin: 0;
 	color: ${ colors.$color_white };
 	font-style: italic;
 	font-weight: 400;
 	font-size: 1.1em;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		margin-top: 0.5em;
+		font-size: 0.875em;
+	}
 `;
 
 // Provides air around the image and provides background color.
@@ -90,10 +97,8 @@ export default function SubscriptionHeader( props ) {
 		<SubscriptionHeaderContainer>
 			{ image }
 			<HeaderContext>
-				<HeaderContainer>
-					<HeaderTitle>{ props.name }</HeaderTitle>
-					{ byline }
-				</HeaderContainer>
+				<HeaderTitle>{ props.name }</HeaderTitle>
+				{ byline }
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
 		</SubscriptionHeaderContainer>

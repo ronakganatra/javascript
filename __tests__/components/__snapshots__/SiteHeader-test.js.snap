@@ -1,6 +1,6 @@
 exports[`test the site header matches the snapshot 1`] = `
 <div
-  className="hBdIEw">
+  className="kFyTbG">
   <h1
     className="irnCFt">
     placehold.it
@@ -10,6 +10,7 @@ exports[`test the site header matches the snapshot 1`] = `
     <a
       className="XCFoz"
       href="/sites"
+      iconSize="24px"
       iconSource="angle-left.svg"
       onClick={[Function]}>
       <span>
@@ -17,11 +18,9 @@ exports[`test the site header matches the snapshot 1`] = `
       </span>
     </a>
     <a
+      aria-label={undefined}
       className="hTpgWn"
-      href="http://placehold.it//wp-admin"
-      iconSource="angle-right.svg"
-      target="_blank"
-      to="http://placehold.it//wp-admin">
+      href="http://placehold.it//wp-admin">
       <span>
         Open WordPress admin
       </span>

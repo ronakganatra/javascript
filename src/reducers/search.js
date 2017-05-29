@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from "react-router-redux";
 import { SEARCH_QUERY_CHANGE } from "../actions/search";
 import { LINK_SITE_POPUP_CLOSE, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../actions/sites";
 
@@ -35,6 +36,7 @@ export function uiSearch( state = rootState.ui.search, action ) {
 		case LINK_SITE_POPUP_CLOSE:
 		case LINK_SITE_SUCCESS:
 		case LINK_SITE_FAILURE:
+		case LOCATION_CHANGE:
 			return Object.assign( {}, state, {
 				query: "",
 			} );

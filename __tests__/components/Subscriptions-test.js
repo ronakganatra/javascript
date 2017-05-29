@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 test('The Subscriptions component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<Subscriptions subscriptions={ [
+			<Subscriptions activeSubscriptions={ [
 				{
 					id: "3",
 					icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
@@ -16,6 +16,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					nextPayment: new Date("October 13, 2014"),
 					billingAmount: 12200,
 					billingCurrency: "USD",
+					status: "active",
 				},
 				{
 					id: "4",
@@ -26,6 +27,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					nextPayment: new Date("October 13, 2014"),
 					billingAmount: 12512,
 					billingCurrency: "USD",
+					status: "active",
 				},
 			] } onManage={ () => { } } />
 		</MemoryRouter>

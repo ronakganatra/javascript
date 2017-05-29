@@ -12,10 +12,6 @@ import defaults from "../config/defaults.json";
 const SiteHeaderContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	// flex-wrap: wrap;
-	// justify-content: flex-end;
-	// align-items: flex-end;
-	// align-content: flex-end;
 	max-width: 1480px;
 	height: 286px;
 	background-color: ${ colors.$color_pink_dark };
@@ -66,6 +62,7 @@ const SiteHeaderSitename = styled.h1`
 	}
 `;
 
+
 const ButtonSection = styled.div`
 	display: flex;
 	flex-wrap: wrap;
@@ -77,6 +74,7 @@ const ButtonSection = styled.div`
 
 let BackButton = makeFullWidth( IconButtonLink );
 let WPAdminButton = makeFullWidth( IconRightButtonLink );
+// let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
 
 /**
  * The SiteHeader component.
