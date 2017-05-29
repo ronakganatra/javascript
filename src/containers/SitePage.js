@@ -89,8 +89,15 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return plugin;
 	} );
 
-	plugins = plugins.reverse().sort( ( a, b ) => {
-		return a.isAvailable ? 0 : 1;
+	plugins = plugins.sort( ( a, b ) => {
+		if ( a.hasSubscriptions ) {
+			if ( a.isAvailable === false && b.isAvailable === true ) {
+				return 1;
+			}
+			return -1;
+		}
+
+		return 1;
 	} );
 
 	return {
