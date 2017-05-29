@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink, Route } from "react-router-dom";
-// import defaults from "../config/defaults.json";
 
 const activeStyle = "activeSubMenu";
 
