@@ -1,30 +1,38 @@
 exports[`test the site page component matches the snapshot 1`] = `
 <div>
-  <a
-    className="yuYyR"
-    href="/sites"
-    onClick={[Function]} />
   <div
-    className="eoofqi">
+    className="kFyTbG">
     <h1
-      className="kcUTNx">
+      className="irnCFt">
       yoast.com
     </h1>
-    <a
-      className="eSTPyC"
-      href="http://yoast.com/wp-admin"
-      target="_blank"
-      to="http://yoast.com/wp-admin">
-      <span>
-        Open WordPress admin
-      </span>
-      <span
-        className="screen-reader-text">
+    <div
+      className="fIyvPW">
+      <a
+        className="XCFoz"
+        href="/sites"
+        iconSize="24px"
+        iconSource="angle-left.svg"
+        onClick={[Function]}>
         <span>
-          (Opens in a new browser tab)
+          Back
         </span>
-      </span>
-    </a>
+      </a>
+      <a
+        aria-label={undefined}
+        className="hTpgWn"
+        href="http://yoast.com/wp-admin">
+        <span>
+          Open WordPress admin
+        </span>
+        <span
+          className="screen-reader-text">
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
+      </a>
+    </div>
   </div>
   <svg
     className="bzufPY yoast-loader"
@@ -179,33 +187,26 @@ exports[`test the site page component matches the snapshot 1`] = `
     <div
       className="cxrbkq">
       <button
-        aria-expanded={true}
-        className="gvecqt"
+        aria-expanded={false}
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Disconnect this site
+        <span
+          className="ObzGJ">
+          <span>
+            Disconnect this site
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
-      <div
-        className="chGuAF">
-        <p>
-          This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-        </p>
-        <button
-          className="hIXzRV"
-          onClick={[Function]}
-          type="button">
-          Remove
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -213,31 +214,39 @@ exports[`test the site page component matches the snapshot 1`] = `
 
 exports[`test the site page component matches the snapshot for a site in a directory 1`] = `
 <div>
-  <a
-    className="yuYyR"
-    href="/sites"
-    onClick={[Function]} />
   <div
-    className="eoofqi">
+    className="kFyTbG">
     <h1
-      className="kcUTNx">
+      className="irnCFt">
       yoast.com/path/
     </h1>
-    <a
-      className="eSTPyC"
-      href="http://yoast.com/wp-admin"
-      target="_blank"
-      to="http://yoast.com/wp-admin">
-      <span>
-        Open WordPress admin
-      </span>
-      <span
-        className="screen-reader-text">
+    <div
+      className="fIyvPW">
+      <a
+        className="XCFoz"
+        href="/sites"
+        iconSize="24px"
+        iconSource="angle-left.svg"
+        onClick={[Function]}>
         <span>
-          (Opens in a new browser tab)
+          Back
         </span>
-      </span>
-    </a>
+      </a>
+      <a
+        aria-label={undefined}
+        className="hTpgWn"
+        href="http://yoast.com/wp-admin">
+        <span>
+          Open WordPress admin
+        </span>
+        <span
+          className="screen-reader-text">
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
+      </a>
+    </div>
   </div>
   <svg
     className="bzufPY yoast-loader"
@@ -392,33 +401,26 @@ exports[`test the site page component matches the snapshot for a site in a direc
     <div
       className="cxrbkq">
       <button
-        aria-expanded={true}
-        className="gvecqt"
+        aria-expanded={false}
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Disconnect this site
+        <span
+          className="ObzGJ">
+          <span>
+            Disconnect this site
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
-      <div
-        className="chGuAF">
-        <p>
-          This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-        </p>
-        <button
-          className="hIXzRV"
-          onClick={[Function]}
-          type="button">
-          Remove
-        </button>
-      </div>
     </div>
   </div>
 </div>

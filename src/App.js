@@ -2,18 +2,19 @@
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
 import "./App.css";
-import UserStatus from "./containers/UserStatus";
-import { Layout, Sidebar, Main, Content } from "./components/Layout";
-import menuItems from "./config/Menu";
-import MainMenu, { MainMenuRoutes } from "./components/Menu";
-import { Provider } from "react-redux";
-import { injectGlobal } from "styled-components";
-import { ConnectedRouter } from "react-router-redux";
 import colors from "yoast-components/style-guide/colors.json";
-import { IntlProvider, FormattedMessage } from "react-intl";
-import DebugInfo from "./components/DebugInfo";
-import { Logo } from "./components/Logo";
-import SkipLink from "./components/SkipLink";
+import { injectGlobal } from "styled-components";
+import { IntlProvider } from "react-intl";
+import { Provider, connect } from "react-redux";
+import { ConnectedRouter } from "react-router-redux";
+import { Route, Switch } from "react-router-dom";
+import menuItems from "./config/Menu";
+import { inMainLayout, inSingleLayout } from "./components/Layout";
+import PageNotFound from "./components/PageNotFound";
+import AccountDisabled from "./components/AccountDisabled";
+import SitesPageContainer from "./containers/SitesPage";
+import SitePageContainer from "./containers/SitePage";
+import SubscriptionPageContainer from "./containers/SubscriptionPage";
 
 /*
  * Helper method to write global CSS.
@@ -30,31 +31,59 @@ injectGlobal`
 	}
 `;
 
+const Routes = ( props ) => {
+	if ( props.userEnabled === false ) {
+		return (
+			<ConnectedRouter history={ props.history }>
+				<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
+			</ConnectedRouter>
+		);
+	}
+
+	if ( props.userEnabled === true ) {
+		return (
+			<ConnectedRouter history={ props.history }>
+				<Switch>
+					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
+					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
+					{	menuItems.map( function( route, routeKey ) {
+						let config = Object.assign( {
+							exact: true,
+						}, route );
+
+						return <Route { ...config } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
+					} )
+					}
+					<Route path="*" component={ inMainLayout( PageNotFound ) } />
+				</Switch>
+			</ConnectedRouter>
+		);
+	}
+
+	// We don't want to render anything until user is fetched, user.enabled is null by default.
+	return <span />;
+};
+
+Routes.propTypes = {
+	userEnabled: React.PropTypes.bool,
+	history: React.PropTypes.object,
+};
+
+const RoutesContainer = connect(
+	( state ) => {
+		return {
+			userEnabled: state.user.enabled,
+		};
+	}
+)( Routes );
+
 class App extends Component {
 	render() {
 		return (
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
-					<ConnectedRouter history={ this.props.history }>
-						<Layout>
-							<Sidebar>
-								<header role="banner">
-									<SkipLink>
-										<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-									</SkipLink>
-									<Logo size="200px" />
-								</header>
-								<UserStatus/>
-								<MainMenu menuRoutes={ menuItems }  />
-								<DebugInfo />
-							</Sidebar>
-							<Main>
-								<Content>
-									<MainMenuRoutes menuRoutes={ menuItems }  />
-								</Content>
-							</Main>
-						</Layout>
-					</ConnectedRouter>
+					<RoutesContainer history={ this.props.history } />
 				</Provider>
 			</IntlProvider>
 		);

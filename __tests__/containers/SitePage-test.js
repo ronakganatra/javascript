@@ -161,6 +161,8 @@ test('the mapStateToProps function', () => {
 				used: 0,
 				limit: 0,
 				isEnabled: false,
+				isAvailable: false,
+				hasSubscriptions: false,
 				subscriptionId: "",
 			},
 			{
@@ -173,6 +175,8 @@ test('the mapStateToProps function', () => {
 				used: 0,
 				limit: 0,
 				isEnabled: false,
+				isAvailable: false,
+				hasSubscriptions: false,
 				subscriptionId: "",
 			},
 		],

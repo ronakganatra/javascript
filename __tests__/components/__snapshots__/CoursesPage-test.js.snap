@@ -1,12 +1,12 @@
 exports[`test the courses page component matches the snapshot 1`] = `
 <div
-  className="ixTlWO">
+  className="cuXUW">
   <p>
-    <p>
-      <span>
-        This section is still under construction. To access your courses, please visit:
-      </span>
-    </p>
+    <span>
+      This section is still under construction. To access your courses, please visit:
+    </span>
+  </p>
+  <p>
     <a
       href="https://yoa.st/myyoast-academy"
       target="_blank">

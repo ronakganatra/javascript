@@ -166,6 +166,25 @@ export const IconButtonLink = styled( ButtonLink )`
 
 IconButtonLink.PropTypes = {
 	iconSource: React.PropTypes.string.isRequired,
+	iconSize: React.PropTypes.string,
+};
+
+IconButtonLink.defaultProps = {
+	iconSize: "24px",
+};
+
+export const IconRightButtonLink = styled( ButtonLink )`
+	background-repeat: no-repeat;
+	background-image: url( ${ props => props.iconSource } );
+	background-position: right 16px center;
+	background-size: 24px;
+	// 8px grid: 16 left background position + 24 icon size + 16 = 56
+	padding-left: 16px;
+	padding-right: 56px;
+`;
+
+IconRightButtonLink.PropTypes = {
+	iconSource: React.PropTypes.string.isRequired,
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`

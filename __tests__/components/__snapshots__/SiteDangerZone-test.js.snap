@@ -4,33 +4,26 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
   <div
     className="cxrbkq">
     <button
-      aria-expanded={true}
-      className="gvecqt"
+      aria-expanded={false}
+      className="hJrCTB"
       onClick={[Function]}>
-      <span>
-        Disconnect this site
+      <span
+        className="ObzGJ">
+        <span>
+          Disconnect this site
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        </svg>
       </span>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
+      <span
+        className="GHtNJ" />
     </button>
-    <div
-      className="chGuAF">
-      <p>
-        This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-      </p>
-      <button
-        className="hIXzRV"
-        onClick={[Function]}
-        type="button">
-        Remove
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -41,33 +34,26 @@ exports[`test the site dangerzone onRemove handling 1`] = `
   <div
     className="cxrbkq">
     <button
-      aria-expanded={true}
-      className="gvecqt"
+      aria-expanded={false}
+      className="hJrCTB"
       onClick={[Function]}>
-      <span>
-        Disconnect this site
+      <span
+        className="ObzGJ">
+        <span>
+          Disconnect this site
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        </svg>
       </span>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
+      <span
+        className="GHtNJ" />
     </button>
-    <div
-      className="chGuAF">
-      <p>
-        This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-      </p>
-      <button
-        className="hIXzRV"
-        onClick={[Function]}
-        type="button">
-        Remove
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -78,33 +64,26 @@ exports[`test the site dangerzone onRemove handling 2`] = `
   <div
     className="cxrbkq">
     <button
-      aria-expanded={true}
-      className="gvecqt"
+      aria-expanded={false}
+      className="hJrCTB"
       onClick={[Function]}>
-      <span>
-        Disconnect this site
+      <span
+        className="ObzGJ">
+        <span>
+          Disconnect this site
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        </svg>
       </span>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
+      <span
+        className="GHtNJ" />
     </button>
-    <div
-      className="chGuAF">
-      <p>
-        This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-      </p>
-      <button
-        className="hIXzRV"
-        onClick={[Function]}
-        type="button">
-        Remove
-      </button>
-    </div>
   </div>
 </div>
 `;
@@ -115,34 +94,26 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
   <div
     className="cxrbkq">
     <button
-      aria-expanded={true}
-      className="gvecqt"
+      aria-expanded={false}
+      className="hJrCTB"
       onClick={[Function]}>
-      <span>
-        Disconnect this site
+      <span
+        className="ObzGJ">
+        <span>
+          Disconnect this site
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+        </svg>
       </span>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
+      <span
+        className="GHtNJ" />
     </button>
-    <div
-      className="chGuAF">
-      <p>
-        This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-      </p>
-      <button
-        className="hIXzRV"
-        disabled={Object {}}
-        onClick={[Function]}
-        type="button">
-        Removing site...
-      </button>
-    </div>
   </div>
 </div>
 `;

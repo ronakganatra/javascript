@@ -83,7 +83,14 @@ export const mapStateToProps = ( state, ownProps ) => {
 			plugin.currency = subscription.currency;
 		} );
 
+		plugin.hasSubscriptions = plugin.limit > 0;
+		plugin.isAvailable = plugin.limit > plugin.used;
+
 		return plugin;
+	} );
+
+	plugins = plugins.reverse().sort( ( a, b ) => {
+		return a.isAvailable ? 0 : 1;
 	} );
 
 	return {

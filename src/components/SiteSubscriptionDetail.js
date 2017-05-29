@@ -21,6 +21,7 @@ const SubscriptionLogo = styled.img`
 	width: 66px;
 	height: 66px;
 	vertical-align: middle;
+	opacity: ${ props => props.hasSubscriptions ? "1" : "0.2" };
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -29,6 +30,7 @@ const SubscriptionLogo = styled.img`
 
 const SubscriptionToggle = styled.span`
 	display: inline-block;
+ 	visibility: ${ props => props.hasSubscriptions ? "initial" : "hidden" };
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
@@ -54,13 +56,17 @@ const ProductName = styled.span`
 `;
 
 const SubscriptionUsage = styled.span`
-	display: inline-block;
+	display: ${ props => props.hasSubscriptions ? "inline-block" : "none" };
 	font-weight: 300;
 	margin-right: 10px;
 `;
 
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+
+const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
+	display: ${ props => props.isAvailable ? "inline-block" : "none" };
+`;
 
 /**
  * Creates Site Subscriptions component
@@ -78,12 +84,22 @@ function SiteSubscriptionDetail( props ) {
 	let licensesRemaining = props.limit - props.used;
 
 	let anotherLicense = null;
-	if ( licensesRemaining === 0 ) {
+	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
 			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
 				<FormattedMessage
-					id="site.subscriptions.add-licenses"
-					defaultMessage="Get additional subscriptions"
+					id="site.subscriptions.licenses.add"
+					defaultMessage="Get another subscription"
+				/>
+			</IconButtonTransparent>
+		);
+	}
+	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
+		anotherLicense = (
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+				<FormattedMessage
+					id="site.subscriptions.licenses.add"
+					defaultMessage="Get a subscription"
 				/>
 			</IconButtonTransparent>
 		);
@@ -96,7 +112,7 @@ function SiteSubscriptionDetail( props ) {
 	return (
 		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
 			<ColumnFixedWidth>
-				<SubscriptionToggle>
+				<SubscriptionToggle hasSubscriptions={ props.hasSubscriptions }>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						onToggleDisabled={ props.onToggleDisabled }
@@ -104,22 +120,22 @@ function SiteSubscriptionDetail( props ) {
 						disable={ disable }
 						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
 				</SubscriptionToggle>
-				<SubscriptionLogo src={ props.icon } alt="" />
+				<SubscriptionLogo hasSubscriptions={ props.hasSubscriptions} src={ props.icon } alt="" />
 			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
-				<SubscriptionUsage>
-					<FormattedMessage id="subscriptions.used" defaultMessage={"{ howMany } used"}
-						values={{ howMany: props.used + "/" + props.limit }} />
+				<SubscriptionUsage hasSubscriptions={ props.hasSubscriptions }>
+					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
+						values={{ howMany: licensesRemaining + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
-			<ColumnFixedWidthResponsive>
+			<ColumnFixedWidthEnabled isAvailable={ props.isAvailable}>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
-					<FormattedMessage id="subscriptions.buttons.details" defaultMessage="Details" />
+					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
-			</ColumnFixedWidthResponsive>
+			</ColumnFixedWidthEnabled>
 		</RowMobileCollapse>
 	);
 }
@@ -136,6 +152,8 @@ SiteSubscriptionDetail.propTypes = {
 	onSettingsClick: React.PropTypes.func.isRequired,
 	onShop: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
+	isAvailable: React.PropTypes.bool,
+	hasSubscriptions: React.PropTypes.bool,
 	icon: React.PropTypes.string.isRequired,
 	limit: React.PropTypes.number.isRequired,
 	used: React.PropTypes.number.isRequired,

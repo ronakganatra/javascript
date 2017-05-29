@@ -163,7 +163,7 @@ function SubscriptionDetails( props ) {
 					{ props.intl.formatMessage( messages.changeLevel ) }
 				</ColumnPrimary>
 				<ColumnFixedWidthResponsive>
-					<ResponsiveLargeButtonLink to={ props.onShop } aria-label={ props.intl.formatMessage( messages.shopButton ) }>
+					<ResponsiveLargeButtonLink to={ props.onShop } ariaLabel={ props.intl.formatMessage( messages.shopButton ) }>
 						{ props.intl.formatMessage( messages.shopButton ) }
 					</ResponsiveLargeButtonLink>
 				</ColumnFixedWidthResponsive>
