@@ -50,7 +50,7 @@ const CollapsibleTitle = styled.span`
 `;
 
 const CollapsibleSubTitle = styled.span`
-	display: flex;
+	display: flex; 
 	margin-top: 0px;
 	padding-top: 0px;
 	padding-bottom: 12px;
@@ -119,8 +119,7 @@ export default class ListToggle extends React.Component {
 		if ( this.state.isOpen ) {
 			children = this.props.children;
 		}
-		if ( this.props.subtitle ) {
-			return (
+		return (
 			<CollapsibleHeaderContainer>
 					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
 						<CollapsibleTitle>
@@ -131,21 +130,7 @@ export default class ListToggle extends React.Component {
 					</CollapsibleHeading>
 					{ children }
 			</CollapsibleHeaderContainer>
-			);
-		}
-		if ( ! this.props.subtitle ) {
-			return (
-				<CollapsibleHeaderContainer>
-					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-						<CollapsibleTitle>
-							<span>{ this.props.title }</span>
-							{ this.getArrow() }
-						</CollapsibleTitle>
-					</CollapsibleHeading>
-					{ children }
-				</CollapsibleHeaderContainer>
-			);
-		}
+		);
 	}
 }
 

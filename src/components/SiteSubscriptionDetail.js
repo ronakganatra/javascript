@@ -23,6 +23,7 @@ const SubscriptionLogo = styled.img`
 	width: 66px;
 	height: 66px;
 	vertical-align: middle;
+	opacity: ${ props => props.isEnabled ? "1" : "0.2" }; 
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -31,6 +32,7 @@ const SubscriptionLogo = styled.img`
 
 const SubscriptionToggle = styled.span`
 	display: inline-block;
+ 	visibility: ${ props => props.isEnabled ? "initial" : "hidden" }; 
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
@@ -56,7 +58,7 @@ const ProductName = styled.span`
 `;
 
 const SubscriptionUsage = styled.span`
-	display: inline-block;
+	display: ${ props => props.isEnabled ? "inline-block" : "none" }; 
 	font-weight: 300;
 	margin-right: 10px;
 `;
@@ -77,6 +79,10 @@ const AddOneLicense = styled.a`
 
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+
+const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
+	display: ${ props => props.isEnabled ? "inline-block" : "none" }; 
+`;
 
 /**
  * Creates Site Subscriptions component
@@ -115,10 +121,11 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.subscriptionId !== "" ) {
 		disable = false;
 	}
+	console.log( "Enabled?", props.isEnabled );
 	return (
 		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
 			<ColumnFixedWidth>
-				<SubscriptionToggle>
+				<SubscriptionToggle isEnabled={ props.isEnabled }>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						onToggleDisabled={ props.onToggleDisabled }
@@ -126,23 +133,23 @@ function SiteSubscriptionDetail( props ) {
 						disable={ disable }
 						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
 				</SubscriptionToggle>
-				<SubscriptionLogo src={ props.icon } alt="" />
+				<SubscriptionLogo isEnabled={ props.isEnabled } src={ props.icon } alt="" />
 			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
-				<SubscriptionUsage>
+				<SubscriptionUsage isEnabled={ props.isEnabled }>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
 						values={{ howMany: licensesRemaining + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
 			{ modal }
-			<ColumnFixedWidthResponsive>
+			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
-			</ColumnFixedWidthResponsive>
+			</ColumnFixedWidthEnabled>
 		</RowMobileCollapse>
 	);
 }

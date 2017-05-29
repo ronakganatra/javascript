@@ -17,7 +17,7 @@ const SiteHeaderContainer = styled.div`
 	// align-items: flex-end;
 	// align-content: flex-end;
 	max-width: 1480px;
-	height: 380px;
+	height: 286px;
 	background-color: ${ colors.$color_pink_dark };
 	background-image: url( ${ props => props.imageUrl } );
 	background-repeat: no-repeat;
@@ -52,7 +52,7 @@ const SiteHeaderSitename = styled.h1`
 	font-size: 2em;
 	margin: 0;
 	padding-top: 100px;
-	height: 280px;
+	height: 186px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-ms-word-break: break-all;
