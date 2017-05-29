@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
-import { BackButtonLink } from "./Button";
+import { BackButtonLink, makeButtonFullWidth } from "./Button";
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
@@ -13,6 +13,7 @@ const SubscriptionHeaderContainer = styled.div`
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		min-height: 0;
+		display: block;
 	}
 `;
 
@@ -25,6 +26,7 @@ const HeaderContext = styled.div`
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding: 0.5em 1em 1em;
+		display: block;
 	}
 `;
 
@@ -53,7 +55,7 @@ const HeaderImageContainer = styled.div`
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	
+
 	a {
 		margin-top: 8px;
 	}
@@ -81,6 +83,19 @@ const HeaderDescription = styled.p`
 		display: none;
 	}
 `;
+
+// This button only appears when the window is smaller than the mobile breakpoint.
+const ResponsiveBackButtonArea = styled.div`
+	display: none;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: block;
+		padding: 16px 16px;
+	}
+`;
+
+let ResponsiveBackButtonLink = makeButtonFullWidth( BackButtonLink );
+
 
 /**
  * Creates the Subscription Header component
@@ -112,6 +127,9 @@ export default function SubscriptionHeader( props ) {
 				</HeaderContainer>
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
+			<ResponsiveBackButtonArea>
+				<ResponsiveBackButtonLink to={ "/account/subscriptions" } >Back</ResponsiveBackButtonLink>
+			</ResponsiveBackButtonArea>
 		</SubscriptionHeaderContainer>
 	);
 }
@@ -126,5 +144,5 @@ SubscriptionHeader.propTypes = {
 SubscriptionHeader.defaultProps = {
 	image: "",
 	byline: "",
-	desciption: "",
+	description: "",
 };

@@ -1,6 +1,6 @@
 exports[`test the subscription header matches the snapshot 1`] = `
 <div
-  className="ThvYB">
+  className="jQPrGG">
   <div>
     <a
       className="mMcmp"
@@ -12,7 +12,7 @@ exports[`test the subscription header matches the snapshot 1`] = `
     </a>
   </div>
   <div
-    className="hKMBVn">
+    className="ksyPaS">
     <div
       className="foqgVb">
       <h1
@@ -22,7 +22,20 @@ exports[`test the subscription header matches the snapshot 1`] = `
       
     </div>
     <p
-      className="clDVnZ" />
+      className="clDVnZ">
+      
+    </p>
+  </div>
+  <div
+    className="czrsFh">
+    <a
+      className="fviucV"
+      enabledStyle={true}
+      href="/account/subscriptions"
+      iconSize="24px"
+      onClick={[Function]}>
+      Back
+    </a>
   </div>
 </div>
 `;
