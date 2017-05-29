@@ -29,7 +29,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <div
-      className="dVdgNT">
+      className="iKseVU">
       <div
         className="jhQvCy">
         <h2
@@ -70,7 +70,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -84,7 +84,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for Drupal"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -98,7 +98,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for Typo3"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -131,7 +131,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Local SEO for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -164,7 +164,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Video SEO for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -178,7 +178,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Video SEO for Drupal"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -192,7 +192,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Video SEO for Typo3"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -225,7 +225,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download News SEO for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -239,7 +239,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download News SEO for Drupal"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -253,7 +253,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download News SEO for Typo3"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -271,6 +271,18 @@ exports[`test the downloads page component matches the snapshot 1`] = `
         <h2
           className="fdADGm">
           eBooks
+          <span
+            className="tfydH">
+            <span>
+               - Want to read more about SEO? 
+              <a
+                href="https://yoa.st/ebooks"
+                target="_blank">
+                Check out our other eBooks
+              </a>
+              .
+            </span>
+          </span>
         </h2>
         
         <div
@@ -294,7 +306,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -327,7 +339,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -360,7 +372,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
@@ -393,7 +405,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
               className="jVUpbY">
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="fEuRdt"
+                className="eBIRAa"
                 onClick={[Function]}>
                 Download
               </button>
