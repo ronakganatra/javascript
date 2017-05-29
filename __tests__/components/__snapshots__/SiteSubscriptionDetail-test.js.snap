@@ -41,13 +41,13 @@ exports[`test an add more licenses button should be shown when no more licenses 
         20/20 used
       </span>
     </span>
-    <a
-      className="cLgDIl"
-      href="http://store.url.com">
+    <button
+      className="hCeSSC"
+      onClick={[Function]}>
       <span>
         Get additional subscriptions
       </span>
-    </a>
+    </button>
   </span>
   <div>
     <noscript />

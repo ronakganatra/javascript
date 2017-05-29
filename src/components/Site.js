@@ -61,8 +61,7 @@ function Site( props ) {
 			</ColumnSubscriptions>
 			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-					<LargeButton aria-label={ props.intl.formatMessage( messages.manage ) }
-								 onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+					<LargeButton onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }

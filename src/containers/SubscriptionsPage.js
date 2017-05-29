@@ -19,6 +19,7 @@ export const mapStateToProps = ( state ) => {
 			nextPayment: new Date( subscription.nextPayment ),
 			billingAmount: subscription.price,
 			billingCurrency: subscription.currency,
+			status: subscription.status,
 		};
 
 		return subscriptionProps;
@@ -27,12 +28,26 @@ export const mapStateToProps = ( state ) => {
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
-			return subscription.name.toUpperCase().includes( query.toUpperCase() ) || subscription.limit.toString() === query || subscription.used.toString() === query;
+			let formattedDate = new Intl.DateTimeFormat( "en-US", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			} ).format( subscription.nextPayment );
+
+			return subscription.name.toUpperCase().includes( query.toUpperCase() ) ||
+							subscription.limit.toString() === query ||
+							subscription.used.toString() === query ||
+							formattedDate.toUpperCase().includes( query.toUpperCase() ) ||
+							( subscription.billingAmount / 100 ).toString().includes( query.toUpperCase() );
 		} );
 	}
 
+	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+		return subscription.status === "active";
+	} );
+
 	return {
-		subscriptions,
+		activeSubscriptions,
 		query,
 	};
 };

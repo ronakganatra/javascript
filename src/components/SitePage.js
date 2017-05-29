@@ -41,8 +41,7 @@ class SitePage extends React.Component {
 
 		let subscriptionList = <AnimatedLoader />;
 		let hostnameDisplay = props.site.hostname.replace( /^(?:www\.)?/, "" );
-		let urlDisplay = props.site.url.replace( /^(?:https?:)?\/\/(?:www\.)?/, "" );
-		let siteNameDisplay = props.site.hostname ? hostnameDisplay : urlDisplay;
+		let siteNameDisplay = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }

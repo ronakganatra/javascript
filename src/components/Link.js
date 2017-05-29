@@ -19,12 +19,16 @@ export default class Link extends Component {
 		return isExternal( this.props.to )
 			? <a
 				href={ this.props.to }
-				{ ...this.props }
-			/>
-			:			<RouterLink { ...this.props } />;
+				className={ this.props.className }
+				aria-label={ this.props.ariaLabel }
+			>{ this.props.children }</a>
+			: <RouterLink { ...this.props } />;
 	}
 }
 
 Link.propTypes = {
 	to: React.PropTypes.string.isRequired,
+	className: React.PropTypes.string,
+	children: React.PropTypes.any,
+	ariaLabel: React.PropTypes.string,
 };

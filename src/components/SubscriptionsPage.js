@@ -82,7 +82,7 @@ class SubscriptionsPage extends React.Component {
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
 		let props = this.props;
-		if ( props.subscriptions.length > 0 ) {
+		if ( props.activeSubscriptions.length > 0 ) {
 			return (
 				<div>
 					{ this.getSearch() }

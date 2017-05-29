@@ -11,32 +11,32 @@ import Paper from "./Paper";
  */
 export default function Subscriptions( props ) {
 	return (
-		<Paper>
-			<ListTable>
-				{ props.subscriptions.map( function( subscription ) {
-					let onManageHandler = () => {
-						props.onManage( subscription.id );
-					};
-					return <Subscription
-						key={ subscription.id }
-						id={ subscription.id }
-						iconSource={ subscription.icon }
-						name={ subscription.name }
-						used={ subscription.used }
-						limit={ subscription.limit }
-						nextPayment={ subscription.nextPayment }
-						billingAmount={ subscription.billingAmount }
-						billingCurrency={ subscription.billingCurrency }
-						onManage={ onManageHandler }
-					/>;
-				} ) }
-			</ListTable>
-		</Paper>
+	<Paper>
+		<ListTable>
+			{ props.activeSubscriptions.map( function( subscription ) {
+				let onManageHandler = () => {
+					props.onManage( subscription.id );
+				};
+				return <Subscription
+					key={ subscription.id }
+					id={ subscription.id }
+					iconSource={ subscription.icon }
+					name={ subscription.name }
+					used={ subscription.used }
+					limit={ subscription.limit }
+					nextPayment={ subscription.nextPayment }
+					billingAmount={ subscription.billingAmount }
+					billingCurrency={ subscription.billingCurrency }
+					onManage={ onManageHandler }
+				/>;
+			} ) }
+		</ListTable>
+	</Paper>
 	);
 }
 
 Subscriptions.propTypes = {
-	subscriptions: React.PropTypes.arrayOf(
+	activeSubscriptions: React.PropTypes.arrayOf(
 		React.PropTypes.shape(
 			{
 				id: React.PropTypes.string.isRequired,
@@ -47,6 +47,7 @@ Subscriptions.propTypes = {
 				nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: React.PropTypes.number.isRequired,
 				billingCurrency: React.PropTypes.string.isRequired,
+				status: React.PropTypes.string.isRequired,
 			}
 		)
 	),
