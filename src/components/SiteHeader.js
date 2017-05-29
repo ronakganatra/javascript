@@ -74,7 +74,6 @@ const ButtonSection = styled.div`
 
 let BackButton = makeFullWidth( IconButtonLink );
 let WPAdminButton = makeFullWidth( IconRightButtonLink );
-// let LargeButtonLinkResponsive = makeFullWidth( LargeButtonLink );
 
 /**
  * The SiteHeader component.

@@ -25,7 +25,7 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
-			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage ( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable>
 					{ ( props.plugins.map( ( plugin ) => {
 						return <SiteSubscriptionDetail
