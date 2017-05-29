@@ -1,0 +1,39 @@
+exports[`test the account disabled component matches the snapshot 1`] = `
+<div
+  className="evxUij">
+  <img
+    className="jEhkge"
+    size="200px"
+    src="logoColor.svg" />
+  <h1
+    className="kchLit">
+    <span>
+      Account disabled
+    </span>
+  </h1>
+  <p>
+    <span>
+      If you would like to re-enable your account, please contact our 
+      <a
+        href="mailto:support@yoast.com">
+        support team
+      </a>
+      .
+    </span>
+  </p>
+  <p>
+    <span>
+      Visit 
+      <a
+        href="https://yoast.com">
+        Yoast.com
+      </a>
+      .
+    </span>
+  </p>
+  <img
+    alt=""
+    className="kKZHaX"
+    src="PageNotFound.svg" />
+</div>
+`;
