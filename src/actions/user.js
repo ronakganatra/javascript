@@ -154,7 +154,6 @@ export function disableUser() {
 	let accessToken = getAccessToken();
 
 	return ( dispatch ) => {
-		console.log( "YOOOOOOOOOO" );
 		dispatch( disableUserStart() );
 
 		let apiUrl = getApiUrl();
