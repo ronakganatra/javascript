@@ -7,7 +7,7 @@ import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
-import { LargeIconButton } from "./Button";
+import { LargeIconButton, makeButtonFullWidth } from "./Button";
 import plus from "../icons/plus.svg";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
@@ -35,6 +35,9 @@ const SiteAddContainer = styled.div`
 		margin: 20px 0 36px 0;
 	}
 `;
+
+let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
+
 
 let debouncedSpeak = _debounce( a11ySpeak, 1000 );
 
@@ -107,7 +110,7 @@ class SitesPage extends React.Component {
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<LargeIconButton onClick={ props.addSite } iconSource={ plus }>Add site</LargeIconButton>
+						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }><FormattedMessage id="sites.add-site-button" defaultMessage="Add site" /></ResponsiveIconButton>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }

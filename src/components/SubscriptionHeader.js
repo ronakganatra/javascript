@@ -111,15 +111,20 @@ export default function SubscriptionHeader( props ) {
 			<BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>
 		</HeaderImageContainer>
 	);
+
+	let buttonContainer = (
+		<HeaderImageContainer>
+			<BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>
+		</HeaderImageContainer>
+	);
+
 	// Only add the image and container if provided.
-	let image = props.image ? imageContainer : <BackButtonLink to={ "/account/subscriptions" } >Back</BackButtonLink>;
+	let headerLeftContainer = props.image ? imageContainer : buttonContainer;
 	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>
-			<div>
-				{ image }
-			</div>
+			{ headerLeftContainer }
 			<HeaderContext>
 				<HeaderContainer>
 					<HeaderTitle>{ props.name }</HeaderTitle>

@@ -29,9 +29,11 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       </p>
     </div>
     <button
-      className="htZdOf"
+      className="bsGyfo"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
   </div>
   <div
@@ -150,9 +152,11 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
-      className="htZdOf"
+      className="bsGyfo"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
   </div>
   <div
@@ -236,9 +240,11 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
-      className="htZdOf"
+      className="bsGyfo"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
   </div>
   <div

@@ -1,7 +1,8 @@
 exports[`test the subscription header matches the snapshot 1`] = `
 <div
   className="jQPrGG">
-  <div>
+  <div
+    className="jlVeDb">
     <a
       className="mMcmp"
       enabledStyle={true}
