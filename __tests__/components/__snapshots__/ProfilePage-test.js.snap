@@ -78,19 +78,24 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -177,19 +182,24 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -266,19 +276,24 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -361,19 +376,24 @@ exports[`components/ProfilePage saving profile 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -456,19 +476,24 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -555,19 +580,24 @@ exports[`components/ProfilePage the default case 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
@@ -654,19 +684,24 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="gvecqt"
+        className="hJrCTB"
         onClick={[Function]}>
-        <span>
-          Danger zone
+        <span
+          className="ObzGJ">
+          <span>
+            Danger zone
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}>
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+          </svg>
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        <span
+          className="GHtNJ" />
       </button>
     </div>
   </div>
