@@ -22,7 +22,7 @@ const SubscriptionLogo = styled.img`
 	width: 66px;
 	height: 66px;
 	vertical-align: middle;
-	opacity: ${ props => props.isAvailable ? "1" : "0.2" }; 
+	opacity: ${ props => props.hasSubscriptions ? "1" : "0.2" };
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -31,7 +31,7 @@ const SubscriptionLogo = styled.img`
 
 const SubscriptionToggle = styled.span`
 	display: inline-block;
- 	visibility: ${ props => props.isAvailable ? "initial" : "hidden" }; 
+ 	visibility: ${ props => props.hasSubscriptions ? "initial" : "hidden" };
 	vertical-align: middle;
 	margin: 6px 40px 0 2px;
 
@@ -57,7 +57,7 @@ const ProductName = styled.span`
 `;
 
 const SubscriptionUsage = styled.span`
-	display: ${ props => props.isAvailable ? "inline-block" : "none" }; 
+	display: ${ props => props.hasSubscriptions ? "inline-block" : "none" };
 	font-weight: 300;
 	margin-right: 10px;
 `;
@@ -66,7 +66,7 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
-	display: ${ props => props.isAvailable ? "inline-block" : "none" }; 
+	display: ${ props => props.isAvailable ? "inline-block" : "none" };
 `;
 
 /**
@@ -99,7 +99,7 @@ function SiteSubscriptionDetail( props ) {
 			</IconButtonTransparent>
 		);
 	}
-	if ( props.isAvailable === false ) {
+	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
 			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
 				<FormattedMessage
@@ -117,7 +117,7 @@ function SiteSubscriptionDetail( props ) {
 	return (
 		<RowMobileCollapse { ...rowProps } hasHeaderLabels={ false }>
 			<ColumnFixedWidth>
-				<SubscriptionToggle isAvailable={ props.isAvailable }>
+				<SubscriptionToggle hasSubscriptions={ props.hasSubscriptions }>
 					<Toggle
 						onSetEnablement={ _partial( props.onToggleSubscription, props.subscriptionId ) }
 						onToggleDisabled={ props.onToggleDisabled }
@@ -125,12 +125,12 @@ function SiteSubscriptionDetail( props ) {
 						disable={ disable }
 						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
 				</SubscriptionToggle>
-				<SubscriptionLogo isAvailable={ props.isAvailable} src={ props.icon } alt="" />
+				<SubscriptionLogo hasSubscriptions={ props.hasSubscriptions} src={ props.icon } alt="" />
 			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
-				<SubscriptionUsage isAvailable={ props.isAvailable }>
+				<SubscriptionUsage hasSubscriptions={ props.hasSubscriptions }>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
 						values={{ howMany: licensesRemaining + "/" + props.limit }} />
 				</SubscriptionUsage>
@@ -159,6 +159,7 @@ SiteSubscriptionDetail.propTypes = {
 	onShop: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
 	isAvailable: React.PropTypes.bool,
+	hasSubscriptions: React.PropTypes.bool,
 	icon: React.PropTypes.string.isRequired,
 	limit: React.PropTypes.number.isRequired,
 	used: React.PropTypes.number.isRequired,
