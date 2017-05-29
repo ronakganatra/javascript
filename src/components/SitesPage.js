@@ -27,6 +27,10 @@ const messages = defineMessages( {
 		id: "search.label.sites",
 		defaultMessage: "Search sites",
 	},
+	addSite: {
+		id: "sites.add-site-button",
+		defaultMessage: "Add site",
+	},
 } );
 
 const SiteAddContainer = styled.div`
@@ -110,7 +114,9 @@ class SitesPage extends React.Component {
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }><FormattedMessage id="sites.add-site-button" defaultMessage="Add site" /></ResponsiveIconButton>
+						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }>
+							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
+						</ResponsiveIconButton>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }
