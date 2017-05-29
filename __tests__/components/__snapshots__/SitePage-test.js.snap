@@ -187,7 +187,7 @@ exports[`test the site page component matches the snapshot 1`] = `
     <div
       className="cxrbkq">
       <button
-        aria-expanded={true}
+        aria-expanded={false}
         className="hJrCTB"
         onClick={[Function]}>
         <span
@@ -201,24 +201,12 @@ exports[`test the site page component matches the snapshot 1`] = `
             viewBox="0 0 24 24"
             width={40}>
             <path
-              d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
           </svg>
         </span>
         <span
           className="GHtNJ" />
       </button>
-      <div
-        className="chGuAF">
-        <p>
-          This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-        </p>
-        <button
-          className="hIXzRV"
-          onClick={[Function]}
-          type="button">
-          Disconnect
-        </button>
-      </div>
     </div>
   </div>
 </div>
@@ -413,7 +401,7 @@ exports[`test the site page component matches the snapshot for a site in a direc
     <div
       className="cxrbkq">
       <button
-        aria-expanded={true}
+        aria-expanded={false}
         className="hJrCTB"
         onClick={[Function]}>
         <span
@@ -427,24 +415,12 @@ exports[`test the site page component matches the snapshot for a site in a direc
             viewBox="0 0 24 24"
             width={40}>
             <path
-              d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
           </svg>
         </span>
         <span
           className="GHtNJ" />
       </button>
-      <div
-        className="chGuAF">
-        <p>
-          This will revoke the licenses of the active plugins listed above and remove the site from your my.yoast account. This will NOT delete your actual website or the plugins themselves. You can always re-add the plugins later.
-        </p>
-        <button
-          className="hIXzRV"
-          onClick={[Function]}
-          type="button">
-          Disconnect
-        </button>
-      </div>
     </div>
   </div>
 </div>
