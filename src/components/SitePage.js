@@ -59,7 +59,6 @@ class SitePage extends React.Component {
 														   plugins={ props.plugins }
 														   onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
 														   onMoreInfoClick={ props.onMoreInfoClick }
-														   onSettingsClick={ props.onSettingsClick }
 														   onToggleSubscription={ props.onToggleSubscription }
 														   onClose={ props.onClose }
 														   onToggleDisabled={ props.onToggleDisabled }
@@ -85,7 +84,6 @@ SitePage.propTypes = {
 	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
 	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
 	onClose: React.PropTypes.func.isRequired,
 	onToggleSubscription: React.PropTypes.func.isRequired,
 	intl: intlShape.isRequired,

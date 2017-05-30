@@ -41,7 +41,6 @@ function SiteSubscriptionDetailList( props ) {
 							onAddMoreLicensesClick={ onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
-							onSettingsClick={ props.onSettingsClick }
 							onToggleSubscription={ props.onToggleSubscription }
 							popupOpen={ props.popupOpen }
 							onClose={ props.onClose }

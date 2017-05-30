@@ -114,9 +114,6 @@ test('the site subscription detail list component matches the snapshot', () => {
 				onToggleDisabled={ () => {
 					console.log( "toggle disabled" )
 				} }
-				onSettingsClick={ () => {
-					console.log( "settings clicked" )
-				} }
 			/>
 		</MemoryRouter>
 	);

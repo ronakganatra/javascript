@@ -149,7 +149,6 @@ SiteSubscriptionDetail.propTypes = {
 	onToggleSubscription: React.PropTypes.func,
 	onToggleDisabled: React.PropTypes.func,
 	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onSettingsClick: React.PropTypes.func.isRequired,
 	onShop: React.PropTypes.string.isRequired,
 	isEnabled: React.PropTypes.bool,
 	isAvailable: React.PropTypes.bool,
