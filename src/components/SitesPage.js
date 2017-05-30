@@ -7,7 +7,8 @@ import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
-import { RoundAddButton } from "./RoundButton";
+import { LargeIconButton, makeButtonFullWidth } from "./Button";
+import plus from "../icons/plus.svg";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
@@ -26,6 +27,10 @@ const messages = defineMessages( {
 		id: "search.label.sites",
 		defaultMessage: "Search sites",
 	},
+	addSite: {
+		id: "sites.add-site-button",
+		defaultMessage: "Add site",
+	},
 } );
 
 const SiteAddContainer = styled.div`
@@ -34,6 +39,9 @@ const SiteAddContainer = styled.div`
 		margin: 20px 0 36px 0;
 	}
 `;
+
+let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
+
 
 let debouncedSpeak = _debounce( a11ySpeak, 1000 );
 
@@ -106,7 +114,9 @@ class SitesPage extends React.Component {
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<RoundAddButton onClick={ props.addSite }/>
+						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }>
+							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
+						</ResponsiveIconButton>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ modal }
@@ -118,14 +128,14 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						{ this.getSearch() }
 					</SiteAddContainer>
-					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage }/>
+					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites"/>
 					{ modal }
 				</div>
 			);
 		}
 		return (
 			<div>
-				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage }/>
+				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />
 				{ modal }
 			</div>
 		);

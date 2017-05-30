@@ -2,7 +2,6 @@ import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
-import { RoundBackButtonLink } from "./RoundButton";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListHeading } from "./ListHeading";
 import Orders from "./Orders";
@@ -64,7 +63,6 @@ class SubscriptionPage extends React.Component {
 		let subscription = this.props.subscription;
 
 		return <section>
-			<RoundBackButtonLink to={ "/account/subscriptions" } />
 			<Header
 				name={ subscription.name }
 				byline={ subscription.limit + " site subscription" }

@@ -20,17 +20,26 @@ const SubNavigationContainer = styled.ul`
 
 const SubNavigationEntry = styled.li`
 	min-width: 200px;
+
+	@media screen and ( max-width: 600px ) {
+		width: 150px;
+		min-width: 0px;
+	}
 `;
 
 const LinkItem = styled( NavLink )`
 	display: block;
 	text-decoration: none;
-	padding: 0.5em 2.5em;
+	padding: 0.5em 0;
 	color: ${ colors.$color_grey_dark };
-	
+
 	margin-bottom: -4px;
 	border-bottom: 4px solid transparent;
-	
+
+	@media screen and ( min-width: 600px ) {
+		padding: 0.5em 2.5em;
+	}
+
 	transition: border 200ms ease-out;
 
 	&:hover,

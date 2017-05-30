@@ -2,15 +2,30 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
+import { BackButtonLink, makeButtonFullWidth } from "./Button";
+import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
+
+const messages = defineMessages( {
+	sitePageLoaded: {
+		id: "menu.site.loaded",
+		defaultMessage: "Manage site page loaded",
+	},
+	backButton: {
+		id: "back-button",
+		defaultMessage: "Back",
+	},
+} );
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
 	min-height: 180px;
 	background-color: ${ colors.$palette_pink_dark }
 	display: flex;
+	margin-top: 8px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		min-height: 0;
+		display: block;
 	}
 `;
 
@@ -22,6 +37,7 @@ const HeaderContext = styled.div`
 	flex-direction: column;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: block;
 		padding: 1em;
 	}
 `;
@@ -53,9 +69,15 @@ const HeaderByline = styled.p`
 
 // Provides air around the image and provides background color.
 const HeaderImageContainer = styled.div`
-	padding: 2em 1.5em;
-	width: 180px;
-	display: block;
+	padding: 24px 24px 16px 24px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	a {
+		margin-top: 8px;
+	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -65,8 +87,8 @@ const HeaderImageContainer = styled.div`
 const HeaderImage = styled.div`
 	background: url( ${ props => props.src } ) no-repeat center center;
 	background-size: contain;
-	width: 100%;
-	height: 100%;
+	width: 96px;
+	height: 96px;
 `;
 
 const HeaderDescription = styled.p`
@@ -81,6 +103,19 @@ const HeaderDescription = styled.p`
 	}
 `;
 
+// This button only appears when the window is smaller than the mobile breakpoint.
+const ResponsiveBackButtonArea = styled.div`
+	display: none;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: block;
+		padding: 16px 16px;
+	}
+`;
+
+let ResponsiveBackButtonLink = makeButtonFullWidth( BackButtonLink );
+
+
 /**
  * Creates the Subscription Header component
  *
@@ -88,22 +123,46 @@ const HeaderDescription = styled.p`
  * @returns {ReactElement} The rendered component.
  * @constructor
  */
-export default function SubscriptionHeader( props ) {
+function SubscriptionHeader( props ) {
+	let imageContainer = (
+		<HeaderImageContainer>
+			<HeaderImage src={ props.image }/>
+			<BackButtonLink to={ "/account/subscriptions" } >
+				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+			</BackButtonLink>
+		</HeaderImageContainer>
+	);
+
+	let buttonContainer = (
+		<HeaderImageContainer>
+			<BackButtonLink to={ "/account/subscriptions" } >
+				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+			</BackButtonLink>
+		</HeaderImageContainer>
+	);
+
 	// Only add the image and container if provided.
-	let image = props.image ? <HeaderImageContainer><HeaderImage src={ props.image }/></HeaderImageContainer> : "";
+	let headerLeftContainer = props.image ? imageContainer : buttonContainer;
 	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>
-			{ image }
+			{ headerLeftContainer }
 			<HeaderContext>
 				<HeaderTitle>{ props.name }</HeaderTitle>
 				{ byline }
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
+			<ResponsiveBackButtonArea>
+				<ResponsiveBackButtonLink to={ "/account/subscriptions" } >
+					<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
+				</ResponsiveBackButtonLink>
+			</ResponsiveBackButtonArea>
 		</SubscriptionHeaderContainer>
 	);
 }
+
+export default injectIntl( SubscriptionHeader );
 
 SubscriptionHeader.propTypes = {
 	name: React.PropTypes.string.isRequired,
@@ -115,5 +174,5 @@ SubscriptionHeader.propTypes = {
 SubscriptionHeader.defaultProps = {
 	image: "",
 	byline: "",
-	desciption: "",
+	description: "",
 };

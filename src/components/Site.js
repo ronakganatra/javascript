@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
-import { ChevronButton } from "../components/RoundButton.js";
+import { ChevronButton } from "../components/Button.js";
 import SiteIcon from "./SiteIcon";
 import { Row, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
 import { injectIntl, intlShape, defineMessages } from "react-intl";

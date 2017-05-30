@@ -32,14 +32,6 @@ const messages = defineMessages( {
 		id: "page.notfound",
 		defaultMessage: "Page not found",
 	},
-	suggestSitemap: {
-		id: "page.suggestsitemap",
-		defaultMessage: "Maybe this sitemap will help?",
-	},
-	suggestMenu: {
-		id: "page.suggestmenu",
-		defaultMessage: "Or pick one of the menu items. Those pages definitely still exist.",
-	},
 } );
 
 /**
@@ -66,9 +58,7 @@ class PageNotFound extends React.Component {
 	render() {
 		let paragraphs = [
 			<FormattedMessage id="page.notfound" defaultMessage="I'm afraid the page you are looking for does not exist..." />,
-			<FormattedMessage id="page.suggestsitemap" defaultMessage={ "Maybe this { sitemap } will help?" }
-							  values={ { sitemap: <a href="https://my.yoast.com/sitemap.xml">sitemap</a> } } />,
-			<FormattedMessage id="page.suggestmenu" defaultMessage="Or pick one of the menu items. Those pages definitely still exist."/> ];
+		];
 		return (
 
 

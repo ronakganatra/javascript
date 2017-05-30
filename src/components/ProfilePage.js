@@ -1,7 +1,7 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
-import { Button } from "./Button";
+import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import validate from "validate.js";
 import a11ySpeak from "a11y-speak";
@@ -9,6 +9,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import defaults from "../config/defaults.json";
+import CollapsibleHeader from "./CollapsibleHeader";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -23,6 +24,14 @@ const messages = defineMessages( {
 		id: "profile.label.email",
 		defaultMessage: "Email",
 	},
+	labelDelete: {
+		id: "profile.label.delete",
+		defaultMessage: "Delete account",
+	},
+	dangerZone: {
+		id: "profile.label.dangerZone",
+		defaultMessage: "Danger zone",
+	},
 	buttonSaving: {
 		id: "profile.button.saving",
 		defaultMessage: "Saving...",
@@ -30,6 +39,14 @@ const messages = defineMessages( {
 	buttonSaveChanges: {
 		id: "profile.button.saveChanges",
 		defaultMessage: "Save email address",
+	},
+	buttonDeleting: {
+		id: "profile.button.deleting",
+		defaultMessage: "Deleting your account...",
+	},
+	buttonDeleteAccount: {
+		id: "profile.button.delete",
+		defaultMessage: "Delete your account",
 	},
 	passwordReset: {
 		id: "profile.label.passwordReset",
@@ -112,6 +129,10 @@ const PasswordReset = styled.section`
 `;
 
 const SaveButton = styled( Button )`
+	margin: 1em 0;
+`;
+
+const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
 
@@ -220,6 +241,15 @@ class ProfilePage extends React.Component {
 		return this.isSaving() ? this.props.intl.formatMessage( messages.buttonSaving ) : this.props.intl.formatMessage( messages.buttonSaveChanges );
 	}
 
+	/**
+	 * Creates the text to be displayed on the save button.
+	 *
+	 * @returns {string} Text to be used on the submit button.
+	 */
+	deleteButtonText() {
+		return this.isDeleting() ? this.props.intl.formatMessage( messages.buttonDeleting ) : this.props.intl.formatMessage( messages.buttonDeleteAccount );
+	}
+
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
@@ -233,6 +263,15 @@ class ProfilePage extends React.Component {
 	 */
 	isSaving() {
 		return this.props.isSaving;
+	}
+
+	/**
+	 * Whether we are currently disabling the account.
+	 *
+	 * @returns {boolean} Whether we are currently disabling the account.
+	 */
+	isDeleting() {
+		return this.props.isDeleting;
 	}
 
 	/**
@@ -290,6 +329,12 @@ class ProfilePage extends React.Component {
 			this.props.onSaveProfile();
 		};
 
+		let handleDelete = ( event ) => {
+			event.preventDefault();
+
+			this.props.onDeleteProfile();
+		};
+
 		let globalError = null;
 		if ( this.props.error !== "" ) {
 			let message = this.props.error;
@@ -303,42 +348,61 @@ class ProfilePage extends React.Component {
 		}
 
 		return (
-			<Paper>
-				<Page>
-					<Column>
-						<form onSubmit={handleSubmit}>
-							<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
-							<TextInput
-								id="emailAddress"
-								autocomplete="on"
-								name="email"
-								type="text"
-								value={ this.props.email }
-								onChange={ onUpdateEmail }/>
-							{ this.displayErrors( errors, "email" ) }
-							{ globalError }
+			<div>
+				<Paper>
+					<Page>
+						<Column>
+							<form onSubmit={handleSubmit}>
+								<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+								<TextInput
+									id="emailAddress"
+									autocomplete="on"
+									name="email"
+									type="text"
+									value={ this.props.email }
+									onChange={ onUpdateEmail }/>
+								{ this.displayErrors( errors, "email" ) }
+								{ globalError }
 
-							<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
-						</form>
+								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
+							</form>
 
-						{ this.getPasswordReset() }
-					</Column>
+							{ this.getPasswordReset() }
+						</Column>
 
-					<Column>
-						<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
-						<p>
-							<FormattedMessage
-								id="profile.description.picture"
-								defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-												  " an account with them yet, or want to change your existing" +
-												  " picture, please visit the { link }." }
-								values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
-							/>
-						</p>
-						{ image }
-					</Column>
-				</Page>
-			</Paper>
+						<Column>
+							<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
+							<p>
+								<FormattedMessage
+									id="profile.description.picture"
+									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
+														" an account with them yet, or want to change your existing" +
+														" picture, please visit the { link }." }
+									values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+								/>
+							</p>
+							{ image }
+						</Column>
+					</Page>
+				</Paper>
+				<Paper>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
+						<Page>
+							<form onSubmit={handleDelete}>
+								<Label htmlFor="disableAccount">{ this.props.intl.formatMessage( messages.labelDelete ) }</Label>
+								<p>
+									<FormattedMessage
+										id="profile.delete.message"
+										defaultMessage={ "Warning! If you delete your account you lose access to" +
+															" your downloads and you will no longer receive updates for any Premium" +
+															" plugins you've bought from us." } />
+								</p>
+								<DeleteButton id="disableAccount" type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
+							</form>
+						</Page>
+					</CollapsibleHeader>
+				</Paper>
+			</div>
 		);
 	}
 }
@@ -348,12 +412,14 @@ ProfilePage.propTypes = {
 	email: React.PropTypes.string.isRequired,
 	image: React.PropTypes.string,
 	isSaving: React.PropTypes.bool,
+	isDeleting: React.PropTypes.bool,
 	error: React.PropTypes.string,
 	isSendingPasswordReset: React.PropTypes.bool,
 	hasSendPasswordReset: React.PropTypes.bool,
 	passwordResetError: React.PropTypes.string,
 	onUpdateEmail: React.PropTypes.func.isRequired,
 	onSaveProfile: React.PropTypes.func.isRequired,
+	onDeleteProfile: React.PropTypes.func.isRequired,
 	onPasswordReset: React.PropTypes.func.isRequired,
 };
 

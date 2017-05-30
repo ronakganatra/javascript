@@ -5,19 +5,26 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cxrbkq">
     <button
       aria-expanded={true}
-      className="gvecqt"
+      className="hJrCTB"
       onClick={[Function]}>
-      <span>
-        Manage subscriptions
+      <span
+        className="ObzGJ">
+        <span>
+          Subscriptions
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}>
+          <path
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+        </svg>
       </span>
-      <svg
-        fill="#555"
-        height={40}
-        viewBox="0 0 24 24"
-        width={40}>
-        <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-      </svg>
+      <span
+        className="GHtNJ">
+        Active subscriptions for this site. If you don\'t have any subscriptions left, use the link to get additional subscriptions.
+      </span>
     </button>
     <ul
       className="dITYws"
@@ -27,7 +34,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="fXreAk">
           <span
-            className="ipTaeZ">
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -49,7 +56,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="kganGp"
+            className="jbZlKk"
             src="icon.png" />
         </span>
         <span
@@ -59,23 +66,20 @@ exports[`test the site subscription detail list component matches the snapshot 1
             Yoast SEO Premium
           </span>
           <span
-            className="fdTSGx">
+            className="hkQMsn">
             <span>
-              1/2 used
+              1/2 remaining
             </span>
           </span>
         </span>
-        <div>
-          <noscript />
-        </div>
         <span
-          className="kZrKRI">
+          className="fRNOok">
           <a
             className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
-              Details
+              Manage
             </span>
           </a>
         </span>
@@ -85,7 +89,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
         <span
           className="fXreAk">
           <span
-            className="ipTaeZ">
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -107,7 +111,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
           </span>
           <img
             alt=""
-            className="kganGp"
+            className="jbZlKk"
             src="icon2.png" />
         </span>
         <span
@@ -117,30 +121,27 @@ exports[`test the site subscription detail list component matches the snapshot 1
             Yoast SEO Local
           </span>
           <span
-            className="fdTSGx">
+            className="hkQMsn">
             <span>
-              2/2 used
+              0/2 remaining
             </span>
           </span>
           <button
-            className="eXlTfw"
+            className="hCeSSC"
             onClick={[Function]}>
             <span>
-              Get additional subscriptions
+              Get another subscription
             </span>
           </button>
         </span>
-        <div>
-          <noscript />
-        </div>
         <span
-          className="kZrKRI">
+          className="fRNOok">
           <a
             className="eRLPss"
             href="/account/subscriptions/undefined"
             onClick={[Function]}>
             <span>
-              Details
+              Manage
             </span>
           </a>
         </span>

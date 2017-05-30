@@ -82,6 +82,7 @@ class SubscriptionsPage extends React.Component {
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
 		let props = this.props;
+
 		if ( props.activeSubscriptions.length > 0 ) {
 			return (
 				<div>
@@ -99,10 +100,14 @@ class SubscriptionsPage extends React.Component {
 			);
 		}
 		return (
-			<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
-				window.open( "https://url-to-sto.re" ).bind( this );
-			}
-			} imageSource={ noSubscriptionsImage }/>
+			<NoResults
+				paragraphs={ noSubscriptionsParagraphs }
+				onClick={ () => {
+					window.open( "https://url-to-sto.re" ).bind( this );
+				} }
+				imageSource={ noSubscriptionsImage }
+				pageContext="noSubscriptions"
+			/>
 		);
 	}
 
@@ -119,7 +124,7 @@ class SubscriptionsPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.activeSubscriptions.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}

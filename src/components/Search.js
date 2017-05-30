@@ -61,19 +61,6 @@ SearchField.defaultProps = {
 	"aria-describedby": "",
 };
 
-const SearchDescription = styled.p`
-`;
-
-SearchDescription.propTypes = {
-	className: React.PropTypes.string,
-	id: React.PropTypes.string,
-};
-
-SearchDescription.defaultProps = {
-	className: "",
-	id: "",
-};
-
 /**
  * Renders the Search component.
  *
@@ -102,9 +89,9 @@ function Search( props ) {
 			autoCapitalize="off"
 			spellCheck="false"
 		/>
-		<SearchDescription className="screen-reader-text" id={ props.descriptionId }>
+		<p className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
-		</SearchDescription>
+		</p>
 	</div>;
 }
 

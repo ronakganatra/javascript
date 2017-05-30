@@ -15,6 +15,7 @@ test('the mapStateToProps function', () => {
 			email: "test@test.test",
 			savingError: "An error",
 			savingProfile: false,
+			deletingProfile: false,
 			sendingPasswordReset: false,
 			sendPasswordReset: false,
 			passwordResetError: "Password reset error",
@@ -32,6 +33,7 @@ test('the mapStateToProps function', () => {
 		error: "An error",
 
 		isSaving: false,
+		isDeleting: false,
 		isSendingPasswordReset: false,
 		hasSendPasswordReset: false,
 		passwordResetError: "Password reset error",

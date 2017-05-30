@@ -16,7 +16,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			loadingSite: true,
 		};
 	}
-	let popupOpen = state.ui.subscriptions.addLicensesPopupOpen;
+	let addSubscriptionModal = state.ui.addSubscriptionModal;
 
 	let site = sites.byId[ id ];
 
@@ -83,11 +83,25 @@ export const mapStateToProps = ( state, ownProps ) => {
 			plugin.currency = subscription.currency;
 		} );
 
+		plugin.hasSubscriptions = plugin.limit > 0;
+		plugin.isAvailable = plugin.limit > plugin.used || plugin.isEnabled;
+
 		return plugin;
 	} );
 
+	plugins = plugins.sort( ( a, b ) => {
+		if ( a.hasSubscriptions ) {
+			if ( a.isAvailable === false && b.isAvailable === true ) {
+				return 1;
+			}
+			return -1;
+		}
+
+		return 1;
+	} );
+
 	return {
-		popupOpen,
+		addSubscriptionModal,
 		site,
 		subscriptions,
 		plugins,
@@ -103,11 +117,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onSettingsClick: () => {},
-		onAddMoreLicensesClick: () => {
-			dispatch( addLicensesPopupOpen() );
+		onAddMoreLicensesClick: ( subscriptionId ) => {
+			dispatch( addLicensesPopupOpen( subscriptionId ) );
 		},
-		onToggleDisabled: () => {
-			dispatch( addLicensesPopupOpen() );
+		onToggleDisabled: ( subscriptionId ) => {
+			dispatch( addLicensesPopupOpen( subscriptionId ) );
 		},
 		onClose: () => {
 			dispatch( addLicensesPopupClose() );

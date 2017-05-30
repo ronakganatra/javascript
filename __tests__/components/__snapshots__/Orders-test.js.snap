@@ -50,7 +50,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
         className="gJSEqq">
         <a
           aria-label="Download invoice"
-          className="gjWJrZ"
+          className="imWOnZ"
           href="http://somelink">
           <span
             className="screen-reader-text">

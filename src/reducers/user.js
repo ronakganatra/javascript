@@ -7,10 +7,16 @@ import {
 	RESET_PASSWORD_REQUEST,
 	RESET_PASSWORD_FAILURE,
 	RESET_PASSWORD_SUCCESS,
+	DISABLE_USER_START,
+	DISABLE_USER_FAILURE,
+	DISABLE_USER_SUCCESS,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
 const initialState = {
+	// Whether or not the user is enabled.
+	enabled: null,
+
 	// Whether or not the user is currently logged in.
 	loggedIn: false,
 
@@ -39,6 +45,8 @@ const initialState = {
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
 	passwordResetError: "",
+	deletingProfile: false,
+	deleteProfileError: "",
 };
 
 /**
@@ -69,6 +77,7 @@ export function userDataReducer( state = initialState, action ) {
 			return Object.assign( {}, state, {
 				data: action.user,
 				email: action.user.profile.email,
+				enabled: action.user.profile.enabled,
 				isFetching: false,
 			} );
 		default:
@@ -148,7 +157,36 @@ export function passwordResetReducer( state, action ) {
 	}
 }
 
-let userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer );
+/**
+ * A reducer for disabling a user account
+ *
+ * @param {Object} state The previous state of the store.
+ * @param {Object} action The action that just occurred.
+ * @returns {Object} The new state of the store.
+ */
+export function userDisableReducer( state = initialState, action ) {
+	switch ( action.type ) {
+		case DISABLE_USER_START:
+			return Object.assign( {}, state, {
+				deletingProfile: true,
+			} );
+		case DISABLE_USER_SUCCESS:
+			return Object.assign( {}, state, {
+				deletingProfile: false,
+				enabled: false,
+			} );
+		case DISABLE_USER_FAILURE:
+			return Object.assign( {}, state, {
+				deletingProfile: false,
+				deleteProfileError: action.errorMessage,
+			} );
+
+		default:
+			return state;
+	}
+}
+
+let userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer, userDisableReducer );
 
 /**
  * A combineReducer for the user object.

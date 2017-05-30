@@ -93,6 +93,7 @@ function Product( props ) {
 							<IconButton
 								iconSource={ downloadIcon }
 								onClick={ button.onButtonClick }
+								enabledStyle={ true }
 								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }>
 								{ props.intl.formatMessage( messages.downloadButton ) }
 							</IconButton>

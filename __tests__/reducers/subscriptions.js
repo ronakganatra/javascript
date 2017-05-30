@@ -2,12 +2,14 @@ import {
 	uiSiteSubscriptionsReducer,
 	uiAllSubscriptionsReducer,
 	byIdSubscriptionsReducer,
-	allIdsSubscriptionsReducer,
+	uiAddSubscriptionModalReducer,
 } from "../../src/reducers/subscriptions";
 import {
 	GET_ALL_SUBSCRIPTIONS_REQUEST,
 	GET_ALL_SUBSCRIPTIONS_SUCCESS,
 	GET_ALL_SUBSCRIPTIONS_FAILURE,
+	ADD_LICENCES_POPUP_OPEN,
+	ADD_LICENCES_POPUP_CLOSE,
 } from "../../src/actions/subscriptions";
 
 import { siteAddSubscriptionSuccess, siteRemoveSubscriptionSuccess } from "../../src/actions/site";
@@ -25,6 +27,43 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription request 
 	};
 
 	const actual = uiAllSubscriptionsReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'The uiAddSubscriptionModalReducer processes the add licenses popup open action', () => {
+	const state = {
+		id: null,
+		popupOpen: false,
+	};
+	const action = {
+		type: ADD_LICENCES_POPUP_OPEN,
+		productId: 1
+	};
+	const expected = {
+		id: 1,
+		popupOpen: true,
+	};
+
+	const actual = uiAddSubscriptionModalReducer( state, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'The uiAddSubscriptionModalReducer processes the add licenses popup close action', () => {
+	const state = {
+		id: 1,
+		popupOpen: true,
+	};
+	const action = {
+		type: ADD_LICENCES_POPUP_CLOSE,
+	};
+	const expected = {
+		id: null,
+		popupOpen: false,
+	};
+
+	const actual = uiAddSubscriptionModalReducer( state, action );
 
 	expect( actual ).toEqual( expected );
 } );
