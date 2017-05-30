@@ -32,20 +32,20 @@ const messages = defineMessages( {
 		id: "profile.label.dangerZone",
 		defaultMessage: "Danger zone",
 	},
-	buttonSaving: {
-		id: "profile.button.saving",
+	saving: {
+		id: "profile.saving",
 		defaultMessage: "Saving...",
 	},
-	buttonSaveChanges: {
-		id: "profile.button.saveChanges",
+	saveEmail: {
+		id: "profile.saveEmail",
 		defaultMessage: "Save email address",
 	},
-	buttonDeleting: {
-		id: "profile.button.deleting",
+	deletingAccount: {
+		id: "profile.deleting",
 		defaultMessage: "Deleting your account...",
 	},
-	buttonDeleteAccount: {
-		id: "profile.button.delete",
+	deleteAccount: {
+		id: "profile.delete",
 		defaultMessage: "Delete your account",
 	},
 	passwordReset: {
@@ -228,7 +228,7 @@ class ProfilePage extends React.Component {
 
 		// Display all remaining errors.
 		return fieldErrors.map( ( error ) => {
-			return <FormError key={ error.options.message }>{ error.options.message }</FormError>;
+			return <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
 		} );
 	}
 
@@ -238,7 +238,7 @@ class ProfilePage extends React.Component {
 	 * @returns {string} Text to be used on the submit button.
 	 */
 	submitButtonText() {
-		return this.isSaving() ? this.props.intl.formatMessage( messages.buttonSaving ) : this.props.intl.formatMessage( messages.buttonSaveChanges );
+		return this.isSaving() ? this.props.intl.formatMessage( messages.saving ) : this.props.intl.formatMessage( messages.saveEmail );
 	}
 
 	/**
@@ -247,13 +247,48 @@ class ProfilePage extends React.Component {
 	 * @returns {string} Text to be used on the submit button.
 	 */
 	deleteButtonText() {
-		return this.isDeleting() ? this.props.intl.formatMessage( messages.buttonDeleting ) : this.props.intl.formatMessage( messages.buttonDeleteAccount );
+		return this.isDeleting() ? this.props.intl.formatMessage( messages.deletingAccount ) : this.props.intl.formatMessage( messages.deleteAccount );
 	}
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
 		a11ySpeak( message );
+	}
+
+	componentDidUpdate() {
+		this.announceActions();
+	}
+
+	/**
+	 * Announce actions to assistive technologies.
+	 *
+	 * @returns {void}
+	 */
+	announceActions() {
+		let message = "";
+
+		if ( this.isSaving() ) {
+			message = this.props.intl.formatMessage( messages.saving );
+		}
+
+		if ( this.isDeleting() ) {
+			message = this.props.intl.formatMessage( messages.deletingAccount );
+		}
+
+		if ( this.props.isSendingPasswordReset ) {
+			message = this.props.intl.formatMessage( messages.passwordResetSending );
+		}
+
+		if ( this.props.hasSendPasswordReset ) {
+			message = this.props.intl.formatMessage( messages.passwordResetSent );
+		}
+
+		if ( ! message ) {
+			return;
+		}
+
+		a11ySpeak( message, "assertive" );
 	}
 
 	/**
@@ -290,17 +325,17 @@ class ProfilePage extends React.Component {
 			disabled = true;
 		}
 
-		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={disabled}>{passwordResetButtonText}</Button>;
+		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={ disabled }>{ passwordResetButtonText }</Button>;
 		if ( this.props.hasSendPasswordReset ) {
 			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError>{ this.props.passwordResetError }</FormError>;
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
 		}
 
 		return <PasswordReset>
-			<Label>{ this.props.intl.formatMessage( messages.passwordReset ) }</Label>
+			<Paragraph>{ this.props.intl.formatMessage( messages.passwordReset ) }</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
@@ -344,7 +379,7 @@ class ProfilePage extends React.Component {
 					defaultMessage={ "The email address could not be changed, it is probably already in use." }
 				/>;
 			}
-			globalError = <FormError>{message}</FormError>;
+			globalError = <FormError role="alert">{ message }</FormError>;
 		}
 
 		return (
@@ -352,10 +387,10 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<Page>
 						<Column>
-							<form onSubmit={handleSubmit}>
-								<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+							<form onSubmit={ handleSubmit }>
+								<Label htmlFor="email-address">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 								<TextInput
-									id="emailAddress"
+									id="email-address"
 									autocomplete="on"
 									name="email"
 									type="text"
@@ -388,8 +423,8 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
-							<form onSubmit={handleDelete}>
-								<Label htmlFor="disableAccount">{ this.props.intl.formatMessage( messages.labelDelete ) }</Label>
+							<form onSubmit={ handleDelete }>
+								<Paragraph>{ this.props.intl.formatMessage( messages.labelDelete ) }</Paragraph>
 								<p>
 									<FormattedMessage
 										id="profile.delete.message"
@@ -397,7 +432,7 @@ class ProfilePage extends React.Component {
 															" your downloads and you will no longer receive updates for any Premium" +
 															" plugins you've bought from us." } />
 								</p>
-								<DeleteButton id="disableAccount" type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
+								<DeleteButton type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
 							</form>
 						</Page>
 					</CollapsibleHeader>
