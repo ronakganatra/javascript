@@ -10,12 +10,8 @@ const messages = defineMessages( {
 		id: "noresults-addsite",
 		defaultMessage: "Add site",
 	},
-	addSubscriptions: {
-		id: "noresults-addsubscription",
-		defaultMessage: "Add subscription",
-	},
-	noOrders: {
-		id: "noresults-shop",
+	visitShop: {
+		id: "noresults-visit-shop",
 		defaultMessage: "Shop",
 	},
 } );
@@ -65,16 +61,11 @@ function getNoResultsButton( onClick, pageContext ) {
 				</NoResultsIconButton>
 			);
 		case "noOrders":
-			return (
-				<NoResultsButton onClick={ onClick } >
-					<FormattedMessage id={ messages.noOrders.id } defaultMessage={ messages.noOrders.defaultMessage } />
-				</NoResultsButton>
-			);
 		case "noSubscriptions":
 			return (
-				<NoResultsIconButton onClick={ onClick } iconSource={ plus }>
-					<FormattedMessage id={ messages.addSubscriptions.id } defaultMessage={ messages.addSubscriptions.defaultMessage } />
-				</NoResultsIconButton>
+				<NoResultsButton onClick={ onClick } >
+					<FormattedMessage id={ messages.visitShop.id } defaultMessage={ messages.visitShop.defaultMessage } />
+				</NoResultsButton>
 			);
 	}
 }
