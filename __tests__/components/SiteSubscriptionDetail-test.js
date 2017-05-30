@@ -24,7 +24,6 @@ test('the sitesubscription matches the snapshot', () => {
 				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
-				onSettingsClick={ () => {} }
 				onClose={ () => {} }
 				onShop={ "" }
 			/>
@@ -44,7 +43,6 @@ test('an add more licenses button should be shown when no more licenses are avai
 				onAddMoreLicensesClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
-				onSettingsClick={ () => {} }
 				onClose={ () => {} }
 				onShop={ "" }
 			/>
