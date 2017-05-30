@@ -23,7 +23,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         type="text"
         value="" />
       <p
-        className="screen-reader-text foqgVb"
+        className="screen-reader-text"
         id="search-description">
         The search results will be updated as you type.
       </p>
@@ -142,7 +142,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         type="text"
         value="" />
       <p
-        className="screen-reader-text foqgVb"
+        className="screen-reader-text"
         id="search-description">
         The search results will be updated as you type.
       </p>
@@ -227,7 +227,7 @@ exports[`test the sites page component with sites handling an onclick event on t
         type="text"
         value="" />
       <p
-        className="screen-reader-text foqgVb"
+        className="screen-reader-text"
         id="search-description">
         The search results will be updated as you type.
       </p>

@@ -21,7 +21,7 @@ exports[`test The Orders component matches the snapshot 1`] = `
       type="text"
       value={undefined} />
     <p
-      className="screen-reader-text foqgVb"
+      className="screen-reader-text"
       id="search-description">
       The search results will be updated as you type.
     </p>

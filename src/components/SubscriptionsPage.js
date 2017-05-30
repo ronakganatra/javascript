@@ -120,7 +120,7 @@ class SubscriptionsPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.activeSubscriptions.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}
