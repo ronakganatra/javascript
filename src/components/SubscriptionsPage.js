@@ -103,7 +103,7 @@ class SubscriptionsPage extends React.Component {
 			<NoResults
 				paragraphs={ noSubscriptionsParagraphs }
 				onClick={ () => {
-					window.open( "https://url-to-sto.re" ).bind( this );
+					window.open( "https://yoast.com/shop/" ).bind( this );
 				} }
 				imageSource={ noSubscriptionsImage }
 				pageContext="noSubscriptions"

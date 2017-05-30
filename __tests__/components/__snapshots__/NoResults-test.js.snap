@@ -82,10 +82,11 @@ exports[`test the NoResults component matches the snapshot in the case of no sub
     </span>
   </p>
   <button
-    className="jLgvqh"
-    onClick={[Function]}>
+    className="djkrxg"
+    onClick={[Function]}
+    type="button">
     <span>
-      Add subscription
+      Shop
     </span>
   </button>
   <img
