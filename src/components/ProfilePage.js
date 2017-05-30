@@ -228,7 +228,7 @@ class ProfilePage extends React.Component {
 
 		// Display all remaining errors.
 		return fieldErrors.map( ( error ) => {
-			return <FormError key={ error.options.message }>{ error.options.message }</FormError>;
+			return <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
 		} );
 	}
 
@@ -296,7 +296,7 @@ class ProfilePage extends React.Component {
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError>{ this.props.passwordResetError }</FormError>;
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
 		}
 
 		return <PasswordReset>
@@ -344,7 +344,7 @@ class ProfilePage extends React.Component {
 					defaultMessage={ "The email address could not be changed, it is probably already in use." }
 				/>;
 			}
-			globalError = <FormError>{message}</FormError>;
+			globalError = <FormError role="alert">{message}</FormError>;
 		}
 
 		return (
@@ -353,9 +353,9 @@ class ProfilePage extends React.Component {
 					<Page>
 						<Column>
 							<form onSubmit={handleSubmit}>
-								<Label htmlFor="emailAddress">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+								<Label htmlFor="email-address">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
 								<TextInput
-									id="emailAddress"
+									id="email-address"
 									autocomplete="on"
 									name="email"
 									type="text"
