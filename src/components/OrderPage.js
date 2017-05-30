@@ -100,7 +100,7 @@ class OrderPage extends React.Component {
 		return (
 			<NoResults paragraphs={ noOrdersParagraphs } onClick={ () => {
 				window.open( "https://url-to-sto.re" ).bind( this );
-			} } imageSource={ noOrdersImage }/>
+			} } imageSource={ noOrdersImage } pageContext="noOrders"/>
 		);
 	}
 

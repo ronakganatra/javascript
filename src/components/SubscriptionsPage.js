@@ -100,10 +100,14 @@ class SubscriptionsPage extends React.Component {
 			);
 		}
 		return (
-			<NoResults paragraphs={ noSubscriptionsParagraphs } onClick={ () => {
-				window.open( "https://url-to-sto.re" ).bind( this );
-			}
-			} imageSource={ noSubscriptionsImage }/>
+			<NoResults
+				paragraphs={ noSubscriptionsParagraphs }
+				onClick={ () => {
+					window.open( "https://url-to-sto.re" ).bind( this );
+				} }
+				imageSource={ noSubscriptionsImage }
+				pageContext="noSubscriptions"
+			/>
 		);
 	}
 

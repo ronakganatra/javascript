@@ -1,16 +1,43 @@
 exports[`test the subscription header matches the snapshot 1`] = `
 <div
-  className="eYkuWg">
-  
+  className="jQPrGG">
   <div
-    className="kNtseW">
+    className="jlVeDb">
+    <a
+      className="mMcmp"
+      enabledStyle={true}
+      href="/account/subscriptions"
+      iconSize="24px"
+      onClick={[Function]}>
+      <span>
+        Back
+      </span>
+    </a>
+  </div>
+  <div
+    className="fyzQxC">
     <h1
       className="keuAmE">
       Subscription
     </h1>
     
     <p
-      className="clDVnZ" />
+      className="clDVnZ">
+      
+    </p>
+  </div>
+  <div
+    className="czrsFh">
+    <a
+      className="fviucV"
+      enabledStyle={true}
+      href="/account/subscriptions"
+      iconSize="24px"
+      onClick={[Function]}>
+      <span>
+        Back
+      </span>
+    </a>
   </div>
 </div>
 `;

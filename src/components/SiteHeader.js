@@ -1,13 +1,20 @@
 import React from "react";
-import { IconRightButtonLink, IconButtonLink } from "../components/Button";
+import { IconRightButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import angleRight from "../icons/angle-right.svg";
-import angleLeft from "../icons/angle-left.svg";
-import { FormattedMessage } from "react-intl";
+import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
+import { BackButtonLink } from "./Button";
+
+const messages = defineMessages( {
+	backButton: {
+		id: "back-button",
+		defaultMessage: "Back",
+	},
+} );
 
 const SiteHeaderContainer = styled.div`
 	display: flex;
@@ -72,7 +79,7 @@ const ButtonSection = styled.div`
 	height: 100px;
 `;
 
-let BackButton = makeFullWidth( IconButtonLink );
+let BackButtonResponsive = makeFullWidth( BackButtonLink );
 let WPAdminButton = makeFullWidth( IconRightButtonLink );
 
 /**
@@ -83,16 +90,14 @@ let WPAdminButton = makeFullWidth( IconRightButtonLink );
  * @returns {ReactElement} The rendered component
  * @constructor
  */
-export default function SiteHeader( props ) {
+function SiteHeader( props ) {
 	return (
 		<SiteHeaderContainer imageUrl={ props.imageUrl }>
 			<SiteHeaderSitename>
 				{ props.name }
 			</SiteHeaderSitename>
 			<ButtonSection>
-				<BackButton to={ "/sites" } iconSource={ angleLeft }>
-					<FormattedMessage id="sites.buttons.back" defaultMessage="Back" />
-				</BackButton>
+				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
 				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } target="_blank">
 					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin" />
 					<NewTabMessage />
@@ -101,6 +106,8 @@ export default function SiteHeader( props ) {
 		</SiteHeaderContainer>
 	);
 }
+
+export default injectIntl( SiteHeader );
 
 SiteHeader.defaultProps = {
 	imageUrl: "",

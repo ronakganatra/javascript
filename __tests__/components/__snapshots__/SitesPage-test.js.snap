@@ -29,9 +29,12 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       </p>
     </div>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="bsGyfo"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
   </div>
   <div
     className="dnTGWH">
@@ -103,9 +106,12 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
       </span>
     </p>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="jLgvqh"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
     <img
       alt=""
       className="bTHZQB"
@@ -148,9 +154,12 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="bsGyfo"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
   </div>
   <div
     className="dnTGWH">
@@ -233,9 +242,12 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="bsGyfo"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
   </div>
   <div
     className="dnTGWH">
@@ -307,9 +319,12 @@ exports[`test the sites page component without sites handling an onclick event o
       </span>
     </p>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="jLgvqh"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
     <img
       alt=""
       className="bTHZQB"
@@ -341,9 +356,12 @@ exports[`test the sites page component without sites handling an onclick event o
       </span>
     </p>
     <button
-      aria-label="Add"
-      className="bFzQXD"
-      onClick={[Function]} />
+      className="jLgvqh"
+      onClick={[Function]}>
+      <span>
+        Add site
+      </span>
+    </button>
     <img
       alt=""
       className="bTHZQB"

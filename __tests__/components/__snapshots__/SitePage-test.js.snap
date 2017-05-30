@@ -9,10 +9,10 @@ exports[`test the site page component matches the snapshot 1`] = `
     <div
       className="fIyvPW">
       <a
-        className="XCFoz"
+        className="iDMZUX"
+        enabledStyle={true}
         href="/sites"
         iconSize="24px"
-        iconSource="angle-left.svg"
         onClick={[Function]}>
         <span>
           Back
@@ -223,10 +223,10 @@ exports[`test the site page component matches the snapshot for a site in a direc
     <div
       className="fIyvPW">
       <a
-        className="XCFoz"
+        className="iDMZUX"
+        enabledStyle={true}
         href="/sites"
         iconSize="24px"
-        iconSource="angle-left.svg"
         onClick={[Function]}>
         <span>
           Back

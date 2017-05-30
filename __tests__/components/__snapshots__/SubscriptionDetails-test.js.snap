@@ -123,7 +123,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="kZrKRI">
           <a
             aria-label={undefined}
-            className="cxCufn"
+            className="pzaNb"
             href="http://somelink">
             Invoice
           </a>
@@ -145,7 +145,7 @@ exports[`test the subscription detail component matches the snapshot 1`] = `
           className="kZrKRI">
           <a
             aria-label={undefined}
-            className="cxCufn"
+            className="pzaNb"
             href="http://somelink">
             Invoice
           </a>

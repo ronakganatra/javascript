@@ -1,16 +1,22 @@
 exports[`test the round back button matches the snapshot 1`] = `
-<button
-  aria-label="Back"
-  className="llTiYv">
+<a
+  className="mMcmp"
+  enabledStyle={true}
+  href="/"
+  iconSize="24px"
+  onClick={[Function]}>
   ButtonValue
-</button>
+</a>
 `;
 
 exports[`test the round back button with button type given matches the snapshot 1`] = `
-<button
-  aria-label="Back"
-  className="llTiYv"
+<a
+  className="mMcmp"
+  enabledStyle={true}
+  href="/"
+  iconSize="24px"
+  onClick={[Function]}
   type="button">
   ButtonValue
-</button>
+</a>
 `;

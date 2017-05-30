@@ -127,7 +127,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
             </span>
           </span>
           <button
-            className="eXlTfw"
+            className="hCeSSC"
             onClick={[Function]}>
             <span>
               Get another subscription

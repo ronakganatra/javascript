@@ -1,12 +1,12 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-
-import { RoundAddButton } from '../../src/components/RoundButton';
+import plus from "../../src/icons/plus.svg";
+import { LargeIconButton } from '../../src/components/Button';
 
 test('the round add button matches the snapshot', () => {
 	const component = renderer.create(
-		<RoundAddButton>ButtonValue</RoundAddButton>
+		<LargeIconButton onClick={ () => {} } iconSource={ plus } >ButtonValue</LargeIconButton>
 	);
 
 	let tree = component.toJSON();
@@ -15,7 +15,7 @@ test('the round add button matches the snapshot', () => {
 
 test('the round add button with button type given matches the snapshot', () => {
 	const component = renderer.create(
-		<RoundAddButton type="button">ButtonValue</RoundAddButton>
+		<LargeIconButton onClick={ () => {} } type="button" iconSource={ plus } >ButtonValue</LargeIconButton>
 	);
 
 	let tree = component.toJSON();
