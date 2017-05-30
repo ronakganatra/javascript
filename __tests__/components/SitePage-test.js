@@ -60,7 +60,9 @@ test('the site page component matches the snapshot', () => {
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
 				onToggleSubscription={ () => {} }
-				onRemove={ () => {} } />
+				onRemove={ () => {} }
+				onClose={ () => {} }
+				addSubscriptionModal= { { id: "bla" } } />
 		</MemoryRouter>
 	);
 
@@ -123,7 +125,9 @@ test('the site page component matches the snapshot for a site in a directory', (
 				onMoreInfoClick={ () => {} }
 				onSettingsClick={ () => {} }
 				onToggleSubscription={ () => {} }
-				onRemove={ () => {} } />
+				onRemove={ () => {} }
+				onClose={ () => {} }
+				addSubscriptionModal= { { id: "bla" } } />
 		</MemoryRouter>
 	);
 

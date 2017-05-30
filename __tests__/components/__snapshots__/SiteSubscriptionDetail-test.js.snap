@@ -4,7 +4,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
   <span
     className="fXreAk">
     <span
-      className="ipTaeZ">
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -26,7 +26,7 @@ exports[`test an add more licenses button should be shown when no more licenses 
     </span>
     <img
       alt=""
-      className="kganGp"
+      className="jbZlKk"
       src="icon.svg" />
   </span>
   <span
@@ -36,11 +36,12 @@ exports[`test an add more licenses button should be shown when no more licenses 
       Subscription name
     </span>
     <span
-      className="fdTSGx">
+      className="hkQMsn">
       <span>
-        20/20 used
+        0/20 remaining
       </span>
     </span>
+<<<<<<< HEAD
     <button
       className="hCeSSC"
       onClick={[Function]}>
@@ -48,18 +49,17 @@ exports[`test an add more licenses button should be shown when no more licenses 
         Get additional subscriptions
       </span>
     </button>
+=======
+>>>>>>> master
   </span>
-  <div>
-    <noscript />
-  </div>
   <span
-    className="kZrKRI">
+    className="kVHWFy">
     <a
       className="eRLPss"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
-        Details
+        Manage
       </span>
     </a>
   </span>
@@ -72,7 +72,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
   <span
     className="fXreAk">
     <span
-      className="ipTaeZ">
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -94,7 +94,7 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
     </span>
     <img
       alt=""
-      className="kganGp"
+      className="jbZlKk"
       src="icon.svg" />
   </span>
   <span
@@ -104,23 +104,20 @@ exports[`test the sitesubscription matches the snapshot 1`] = `
       Subscription name
     </span>
     <span
-      className="fdTSGx">
+      className="hkQMsn">
       <span>
-        14/20 used
+        6/20 remaining
       </span>
     </span>
   </span>
-  <div>
-    <noscript />
-  </div>
   <span
-    className="kZrKRI">
+    className="kVHWFy">
     <a
       className="eRLPss"
       href="/account/subscriptions/subId"
       onClick={[Function]}>
       <span>
-        Details
+        Manage
       </span>
     </a>
   </span>

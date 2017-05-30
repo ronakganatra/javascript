@@ -87,11 +87,13 @@ export function getAllSubscriptions() {
 /**
  * An action creator for the opening add licenses pop-up action.
  *
+ * @param {string} productId The plugin id.
  * @returns {Object} An open add licenses pop-up action.
  */
-export function addLicensesPopupOpen() {
+export function addLicensesPopupOpen( productId ) {
 	return {
 		type: ADD_LICENCES_POPUP_OPEN,
+		productId: productId,
 	};
 }
 

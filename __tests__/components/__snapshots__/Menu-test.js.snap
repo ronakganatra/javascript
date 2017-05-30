@@ -5,7 +5,7 @@ exports[`test the menu matches the snapshot 1`] = `
     role="list">
     <li>
       <a
-        className="active-class-name chQpZc"
+        className="active-class-name hUsklo"
         href="/sites"
         onClick={[Function]}
         style={Object {}}>
@@ -18,7 +18,7 @@ exports[`test the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="chQpZc"
+        className="hUsklo"
         href="/courses"
         onClick={[Function]}
         style={undefined}>
@@ -31,7 +31,7 @@ exports[`test the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="chQpZc"
+        className="hUsklo"
         href="/downloads"
         onClick={[Function]}
         style={undefined}>
@@ -44,7 +44,7 @@ exports[`test the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="chQpZc"
+        className="hUsklo"
         href="/account"
         onClick={[Function]}
         style={undefined}>

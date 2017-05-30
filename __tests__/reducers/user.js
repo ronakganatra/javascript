@@ -1,6 +1,7 @@
 import userReducer, {
 	userEmailReducer,
 	passwordResetReducer,
+	userDisableReducer,
 } from "../../src/reducers/user";
 import {
 	login,
@@ -16,6 +17,9 @@ import {
 	RESET_PASSWORD_REQUEST,
 	RESET_PASSWORD_SUCCESS,
 	RESET_PASSWORD_FAILURE,
+	DISABLE_USER_START,
+	DISABLE_USER_SUCCESS,
+	DISABLE_USER_FAILURE,
 } from "../../src/actions/user";
 
 test( 'the login action', () => {
@@ -97,6 +101,51 @@ test( 'the fetch user request success action', () => {
 	};
 
 	const actual = userReducer( input, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'the disable user start action', () => {
+	const input = {};
+	const action = {
+		type: DISABLE_USER_START,
+	};
+	const expected = {
+		deletingProfile: true,
+	};
+
+	const actual = userDisableReducer( input, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'the disable user success action', () => {
+	const input = {};
+	const action = {
+		type: DISABLE_USER_SUCCESS,
+	};
+	const expected = {
+		deletingProfile: false,
+		enabled: false,
+	};
+
+	const actual = userDisableReducer( input, action );
+
+	expect( actual ).toEqual( expected );
+} );
+
+test( 'the disable user failure action', () => {
+	const input = {};
+	const action = {
+		type: DISABLE_USER_FAILURE,
+		errorMessage: "fail",
+	};
+	const expected = {
+		deletingProfile: false,
+		deleteProfileError: "fail",
+	};
+
+	const actual = userDisableReducer( input, action );
 
 	expect( actual ).toEqual( expected );
 } );
