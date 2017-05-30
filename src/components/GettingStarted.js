@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LargeButton } from "./Button.js";
+import { LargeButton, makeButtonFullWidth } from "./Button.js";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 import colors from "yoast-components/style-guide/colors.json";
@@ -29,8 +29,8 @@ const GettingStartedHeading = styled.h1`
 
 const GettingStartedText = styled.p`
 	font-weight: 300;
-	font-size: 14px;
-	margin-top: 0;
+	font-size: 16px;
+	margin-top: 18px;
 	a {
 		color: ${ colors.$color_blue };
 	}
@@ -39,24 +39,7 @@ const GettingStartedText = styled.p`
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
-
-	a,
-	button {
-		margin-left: 12px;
-	}
-
-	@media screen and ( max-width: 455px ) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		a,
-		button {
-			margin-left: 0px;
-			margin-top: 12px;
-		}
-	}
+	margin-top: 18px;
 `;
 
 const VideoContainer = styled.div`
@@ -76,6 +59,8 @@ const Video = styled.iframe`
     width: 100%;
     height: 100%;
 `;
+
+const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 /**
  * Renders the getting started component.
@@ -106,9 +91,9 @@ function GettingStarted( props ) {
 				</label>
 			</GettingStartedText>
 			<Buttons>
-				<LargeButton type="button" onClick={ props.onClose } >
+				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="getting-started.got-it" defaultMessage="Got it" />
-				</LargeButton>
+				</ResponsiveLargeButton>
 			</Buttons>
 		</GettingStartedModal>
 	);
