@@ -69,7 +69,6 @@ SearchField.defaultProps = {
  */
 function Search( props ) {
 	let changeSearchQuery = ( event ) => {
-		console.log( event.target.value );
 		props.onChange( event.target.value );
 	};
 
