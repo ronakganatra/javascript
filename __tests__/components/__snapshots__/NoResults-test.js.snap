@@ -16,11 +16,6 @@ exports[`test the NoResults component matches the snapshot 1`] = `
       Press the button below to visit yoast.com and look at our products.
     </span>
   </p>
-  <button
-    className="htZdOf"
-    onClick={[Function]}>
-    Add site
-  </button>
   <img
     alt=""
     className="bTHZQB"

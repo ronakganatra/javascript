@@ -108,7 +108,9 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
     <button
       className="htZdOf"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
     <img
       alt=""
@@ -319,7 +321,9 @@ exports[`test the sites page component without sites handling an onclick event o
     <button
       className="htZdOf"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
     <img
       alt=""
@@ -354,7 +358,9 @@ exports[`test the sites page component without sites handling an onclick event o
     <button
       className="htZdOf"
       onClick={[Function]}>
-      Add site
+      <span>
+        Add site
+      </span>
     </button>
     <img
       alt=""

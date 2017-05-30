@@ -128,14 +128,14 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						{ this.getSearch() }
 					</SiteAddContainer>
-					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage }/>
+					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites"/>
 					{ modal }
 				</div>
 			);
 		}
 		return (
 			<div>
-				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage }/>
+				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />
 				{ modal }
 			</div>
 		);
