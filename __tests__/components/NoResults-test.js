@@ -11,7 +11,7 @@ let paragraphs = [ <FormattedMessage id="downloads-page.no-downloads.welcome" de
 
 test( 'the NoResults component matches the snapshot' , () => {
 	const component = createComponentWithIntl(
-		<NoResults paragraphs={ paragraphs } onClick={ () => {} } imageSource={ image } />
+		<NoResults paragraphs={ paragraphs } onClick={ () => {} } imageSource={ image } pageContext="noSites" />
 	);
 
 	let tree = component.toJSON();

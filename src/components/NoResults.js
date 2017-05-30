@@ -40,6 +40,14 @@ const NoResultsImage = styled.img`
 	}
 `;
 
+const NoResultsIconButton = styled( LargeIconButton )`
+	margin-bottom: 2em;
+`;
+
+const NoResultsButton = styled( LargeButton )`
+	margin-bottom: 2em;
+`;
+
 /**
  * A function that modifies the button on the noResults page, depending on the context.
  *
@@ -52,15 +60,15 @@ function getNoResultsButton( onClick, pageContext ) {
 	switch ( pageContext ) {
 		case "noSites":
 			return (
-				<LargeIconButton onClick={ onClick } iconSource={ plus }>
+				<NoResultsIconButton onClick={ onClick } iconSource={ plus }>
 					<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
-				</LargeIconButton>
+				</NoResultsIconButton>
 			);
 		case "noOrders":
 			return (
-				<LargeButton onClick={ onClick } >
+				<NoResultsButton onClick={ onClick } >
 					<FormattedMessage id={ messages.noOrders.id } defaultMessage={ messages.noOrders.defaultMessage } />
-				</LargeButton>
+				</NoResultsButton>
 			);
 		case "noSubscriptions":
 			return (
