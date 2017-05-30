@@ -17,7 +17,6 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     </label>
   </p>
   <input
-    aria-describedby="addSiteInfo"
     className="jssTrf"
     defaultValue=""
     id="addSiteInputField"
