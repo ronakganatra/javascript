@@ -209,6 +209,9 @@ exports[`test the site page component matches the snapshot 1`] = `
       </button>
     </div>
   </div>
+  <div>
+    <noscript />
+  </div>
 </div>
 `;
 
@@ -422,6 +425,9 @@ exports[`test the site page component matches the snapshot for a site in a direc
           className="GHtNJ" />
       </button>
     </div>
+  </div>
+  <div>
+    <noscript />
   </div>
 </div>
 `;

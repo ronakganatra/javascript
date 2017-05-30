@@ -31,16 +31,23 @@ class SitePage extends React.Component {
 	}
 
 	getModal() {
+		// The default productId is null.
 		let productId = this.props.addSubscriptionModal.id;
 
 		// Find the plugin with the correct productId.
 		let plugins = _filter( this.props.plugins, plugin => plugin.id === productId );
+		// Only 0 or 1 plugins can be found.
+		let storeUrl = plugins.length ? plugins[ 0 ].storeUrl : "";
 
-		if ( plugins.length !== 1 ) {
-			return;
+		/*
+		 * Always render the modal and, when there are no plugins, set productId
+		 * to null to allow the modal to close correctly. See issue #619.
+		 */
+		if ( ! plugins.length ) {
+			productId = null;
 		}
 
-		return <AddLicensesModal isOpen={ productId !== null } onShop={ plugins[ 0 ].storeUrl } onClose={ this.props.onClose }/>;
+		return <AddLicensesModal isOpen={ productId !== null } onShop={ storeUrl } onClose={ this.props.onClose }/>;
 	}
 
 	render() {
