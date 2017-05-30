@@ -41,16 +41,6 @@ exports[`test an add more licenses button should be shown when no more licenses 
         0/20 remaining
       </span>
     </span>
-<<<<<<< HEAD
-    <button
-      className="hCeSSC"
-      onClick={[Function]}>
-      <span>
-        Get additional subscriptions
-      </span>
-    </button>
-=======
->>>>>>> master
   </span>
   <span
     className="kVHWFy">
