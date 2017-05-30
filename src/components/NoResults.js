@@ -72,9 +72,9 @@ function getNoResultsButton( onClick, pageContext ) {
 			);
 		case "noSubscriptions":
 			return (
-				<LargeIconButton onClick={ onClick } iconSource={ plus }>
+				<NoResultsIconButton onClick={ onClick } iconSource={ plus }>
 					<FormattedMessage id={ messages.addSubscriptions.id } defaultMessage={ messages.addSubscriptions.defaultMessage } />
-				</LargeIconButton>
+				</NoResultsIconButton>
 			);
 	}
 }
