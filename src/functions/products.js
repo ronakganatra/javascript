@@ -27,8 +27,8 @@ function filterProductsByType( type, products ) {
 				if ( filteredProducts.hasOwnProperty( product.glNumber ) ) {
 					filteredProducts[ product.glNumber ].ids.push( product.id );
 				} else {
-					product.ids = [ product.id ];
-					filteredProducts[ product.glNumber ] = _omit( product, "id" );
+					let productCopy = Object.assign( {}, product, { ids: [ product.id ] } );
+					filteredProducts[ product.glNumber ] = _omit( productCopy, "id" );
 				}
 			}
 		);
