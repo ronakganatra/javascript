@@ -8,7 +8,8 @@ import { FormattedMessage } from "react-intl";
 import DebugInfo from "../components/DebugInfo";
 import { Logo } from "../components/Logo";
 import SkipLink from "../components/SkipLink";
-import { BeaconButton } from "../components/Button";
+import BeaconButtonContainer from "../containers/BeaconButton";
+import GettingStartedModalContainer from "../containers/GettingStartedModal";
 
 const Layout = styled.div`
 	display: flex;
@@ -25,6 +26,7 @@ const Sidebar = styled.div`
 	background-color: ${colors.$color_pink_dark};
 	// Firefox needs this for user-email break word to work inside flex items.
 	max-width: 300px;
+	padding-left: 20px;
 
 	@media screen and ( max-width: 1024px ) {
 		position: fixed;
@@ -78,8 +80,10 @@ export const inSingleLayout = ( WrappedComponent ) => {
 			return (
 				<Layout>
 					<Main>
+						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
+							<GettingStartedModalContainer />
 						</Content>
 					</Main>
 				</Layout>
@@ -105,9 +109,10 @@ export const inMainLayout = ( WrappedComponent ) => {
 						<DebugInfo />
 					</Sidebar>
 					<Main>
+						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
-							<BeaconButton>?</BeaconButton>
+							<GettingStartedModalContainer />
 						</Content>
 					</Main>
 				</Layout>

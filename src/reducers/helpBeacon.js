@@ -21,7 +21,7 @@ const rootState = {
 			popupOpen: false,
 		},
 		helpBeaconModal: {
-			popUpOpen: false,
+			popupOpen: false,
 		},
 	},
 };

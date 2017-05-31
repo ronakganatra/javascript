@@ -216,27 +216,21 @@ ChevronButton.defaultProps = {
 	"aria-label": "",
 };
 
-export const BeaconButton = styled.button`
-	background-color: ${colors.$color_green_medium_light};
-	background-repeat: no-repeat;
-	box-shadow: 0px 0px 40px 0px rgba( 0, 0, 0, 0.3 );
-	border: 0;
-	border-radius: 100%;
-	background-size: 30px;
-	font-size: 28px;
-	color: ${colors.$color_white};
-	width:  64px;
-	height: 64px;
+export const BeaconButton = styled( Button )`
+	border-radius: 0;
+	height: 36px;
+	width: 112px;
 	cursor: pointer;
 	position: fixed;
-	right: 32px;
-	bottom: 32px;
-	z-index: 1;
+	left: -40px;
+	top: 50%;
+	transform: rotate( 270deg );
+	background-color: ${ colors.$color_green_medium_light };
+	padding: 0;
 	
-	@media screen and ( max-width: 1024px ) {
-		bottom: 92px;
+	&:active {
+		transform: rotate( 270deg );
 	}
-	
 `;
 
 BeaconButton.propTypes = {
