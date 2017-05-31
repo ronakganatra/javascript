@@ -6,6 +6,7 @@ import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
 import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
+import { uiHelpBeaconModalReducer } from "./helpBeacon";
 import { uiSearch } from "./search.js";
 
 export const uiReducer = combineReducers( {
@@ -16,6 +17,7 @@ export const uiReducer = combineReducers( {
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
+	helpBeaconModal: uiHelpBeaconModalReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
