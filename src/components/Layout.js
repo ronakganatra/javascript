@@ -8,6 +8,7 @@ import { FormattedMessage } from "react-intl";
 import DebugInfo from "../components/DebugInfo";
 import { Logo } from "../components/Logo";
 import SkipLink from "../components/SkipLink";
+import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 
 const Layout = styled.div`
 	display: flex;
@@ -42,6 +43,7 @@ const Sidebar = styled.div`
 	}
 `;
 
+
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
@@ -61,6 +63,10 @@ const Main = styled.main`
 const Content = styled.div`
 	max-width: 1200px;
 	margin: 0 auto;
+
+	@media screen and ( max-width: 1024px ) {
+	margin: 68px auto 0;
+	}
 `;
 
 Main.propTypes = {
@@ -76,6 +82,7 @@ export const inSingleLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
+					<MobileHeaderContainer/>
 					<Main>
 						<Content>
 							<WrappedComponent { ...this.props } />
@@ -92,12 +99,13 @@ export const inMainLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
+					<MobileHeaderContainer/>
 					<Sidebar>
 						<header role="banner">
 							<SkipLink>
 								<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 							</SkipLink>
-							<Logo size="200px" />
+							<Logo size="200px"/>
 						</header>
 						<UserStatus/>
 						<MainMenu menuRoutes={ menuItems }  />

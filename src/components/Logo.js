@@ -30,6 +30,10 @@ const LogoImage = styled.img`
 	width: ${ props => props.size };
 	display: block;
 	margin: 30px auto 25px;
+
+	@media screen and ( max-width: 1024px ) {
+	margin: 12px auto 0px 5px;
+	}
 `;
 
 LogoImage.propTypes = {
