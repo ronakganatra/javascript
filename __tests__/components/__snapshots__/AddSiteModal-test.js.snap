@@ -26,7 +26,6 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         </label>
       </p>
       <input
-        aria-describedby="addSiteInfo"
         className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
@@ -91,7 +90,6 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         </label>
       </p>
       <input
-        aria-describedby="addSiteInfo"
         className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
@@ -156,7 +154,6 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         </label>
       </p>
       <input
-        aria-describedby="addSiteInfo"
         className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
@@ -221,7 +218,6 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
         </label>
       </p>
       <input
-        aria-describedby="addSiteInfo"
         className="jssTrf"
         defaultValue=""
         id="addSiteInputField"
@@ -286,7 +282,6 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
         </label>
       </p>
       <input
-        aria-describedby="addSiteInfo"
         className="jssTrf"
         defaultValue=""
         id="addSiteInputField"

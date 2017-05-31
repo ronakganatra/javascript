@@ -211,9 +211,9 @@ class AddSite extends React.Component {
 		}
 
 		return (
-			<YellowWarning>
+			<YellowWarning role="alert" >
 				<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-				<WarningText id="addSiteInfo">
+				<WarningText>
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
 						defaultMessage={ "Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }" }
@@ -258,7 +258,6 @@ class AddSite extends React.Component {
 					id="addSiteInputField"
 					placeholder={ "https://example-site.com" }
 					defaultValue={ suggestedValue }
-					aria-describedby="addSiteInfo"
 					onChange={ this.onWebsiteURLChange.bind( this ) }
 				/>
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
