@@ -141,7 +141,6 @@ function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
-	id: React.PropTypes.string.isRequired,
 	subscriptionId: React.PropTypes.string,
 	name: React.PropTypes.string.isRequired,
 	onAddMoreLicensesClick: React.PropTypes.func,
