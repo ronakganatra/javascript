@@ -29,6 +29,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         noValidate={true}
         onSubmit={[Function]}>
         <input
+          autoFocus={true}
           className="jssTrf"
           defaultValue=""
           id="addSiteInputField"
@@ -97,6 +98,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         noValidate={true}
         onSubmit={[Function]}>
         <input
+          autoFocus={true}
           className="jssTrf"
           defaultValue=""
           id="addSiteInputField"
@@ -165,6 +167,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         noValidate={true}
         onSubmit={[Function]}>
         <input
+          autoFocus={true}
           className="jssTrf"
           defaultValue=""
           id="addSiteInputField"
@@ -233,6 +236,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
         noValidate={true}
         onSubmit={[Function]}>
         <input
+          autoFocus={true}
           className="jssTrf"
           defaultValue=""
           id="addSiteInputField"
@@ -297,32 +301,37 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
           </span>
         </label>
       </p>
-      <input
-        className="jssTrf"
-        defaultValue=""
-        id="addSiteInputField"
-        onChange={[Function]}
-        placeholder="https://example-site.com"
-        type="url" />
-      <div
-        className="etHoNp">
-        <button
-          className="hMhZgw"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="fpqbdc"
-          onClick={[Function]}
-          type="button">
-          <span>
-            connect
-          </span>
-        </button>
-      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
+        <input
+          autoFocus={true}
+          className="jssTrf"
+          defaultValue=""
+          id="addSiteInputField"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url" />
+        <div
+          className="etHoNp">
+          <button
+            className="hMhZgw"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="fpqbdc"
+            onClick={[Function]}
+            type="submit">
+            <span>
+              connect
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         className="ehuLPF" />
       <img

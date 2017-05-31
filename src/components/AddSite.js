@@ -266,6 +266,7 @@ class AddSite extends React.Component {
 						placeholder={ "https://example-site.com" }
 						defaultValue={ suggestedValue }
 						onChange={ this.onWebsiteURLChange.bind( this ) }
+						autoFocus
 					/>
 					{ this.validateUrl( this.props.linkingSiteUrl ) }
 					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }

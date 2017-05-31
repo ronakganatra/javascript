@@ -20,6 +20,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     noValidate={true}
     onSubmit={[Function]}>
     <input
+      autoFocus={true}
       className="jssTrf"
       defaultValue=""
       id="addSiteInputField"
