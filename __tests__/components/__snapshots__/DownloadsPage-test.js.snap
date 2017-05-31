@@ -29,7 +29,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
   <div
     className="dnTGWH">
     <div
-      className="iKseVU">
+      className="cTIMsz">
       <div
         className="jhQvCy">
         <h2
@@ -425,7 +425,7 @@ exports[`test the downloads page component matches the snapshot 1`] = `
 
 exports[`test the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="cuXUW">
+  className="dqiflz">
   <p>
     <span>
       Welcome to the downloads page
