@@ -253,24 +253,26 @@ class AddSite extends React.Component {
 						/>
 					</label>
 				</AddSiteText>
-				<WebsiteURL
-					type="url"
-					id="addSiteInputField"
-					placeholder={ "https://example-site.com" }
-					defaultValue={ suggestedValue }
-					onChange={ this.onWebsiteURLChange.bind( this ) }
-				/>
-				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
-				{ this.validateUrl( this.props.linkingSiteUrl ) }
-				<Buttons>
-					<LargeButton type="button" onClick={ this.props.onCancelClick } >
-						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-					</LargeButton>
-					<LargeButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-					} } enabledStyle={ this.urlValidity }>
-						<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
-					</LargeButton>
-				</Buttons>
+				<form>
+					<WebsiteURL
+						type="url"
+						id="addSiteInputField"
+						placeholder={ "https://example-site.com" }
+						defaultValue={ suggestedValue }
+						onChange={ this.onWebsiteURLChange.bind( this ) }
+					/>
+					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+					{ this.validateUrl( this.props.linkingSiteUrl ) }
+					<Buttons>
+						<LargeButton type="button" onClick={ this.props.onCancelClick } >
+							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+						</LargeButton>
+						<LargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ this.urlValidity }>
+							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+						</LargeButton>
+					</Buttons>
+				</form>
 				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
