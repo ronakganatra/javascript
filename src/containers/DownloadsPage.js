@@ -61,7 +61,8 @@ const setDownloadProps = ( products, state ) => {
 		}
 
 		return {
-			id: product.id,
+			ids: product.ids,
+			glNumber: product.glNumber,
 			name: product.name,
 			currentVersion: product.currentVersion,
 			icon: product.icon,
