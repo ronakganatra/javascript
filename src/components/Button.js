@@ -222,6 +222,7 @@ export const BeaconButton = styled( Button )`
 	width: 112px;
 	cursor: pointer;
 	position: fixed;
+	z-index: 1;
 	left: -40px;
 	top: 50%;
 	transform: rotate( 270deg );
