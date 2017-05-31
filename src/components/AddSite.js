@@ -241,6 +241,12 @@ class AddSite extends React.Component {
 			suggestedValue = this.props.query;
 		}
 
+		let handleSubmit = ( event ) => {
+			event.preventDefault();
+
+			return ( this.urlValidity ? this.props.onConnectClick : () => {} );
+		};
+
 		return (
 			<AddSiteModal>
 				<AddSiteHeading>
@@ -253,7 +259,7 @@ class AddSite extends React.Component {
 						/>
 					</label>
 				</AddSiteText>
-				<form>
+				<form onSubmit={ handleSubmit } noValidate >
 					<WebsiteURL
 						type="url"
 						id="addSiteInputField"
@@ -261,14 +267,13 @@ class AddSite extends React.Component {
 						defaultValue={ suggestedValue }
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
-					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 					{ this.validateUrl( this.props.linkingSiteUrl ) }
+					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 					<Buttons>
 						<LargeButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</LargeButton>
-						<LargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ this.urlValidity }>
+						<LargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {} } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</LargeButton>
 					</Buttons>

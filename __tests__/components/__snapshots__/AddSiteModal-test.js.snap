@@ -25,32 +25,36 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
           </span>
         </label>
       </p>
-      <input
-        className="jssTrf"
-        defaultValue=""
-        id="addSiteInputField"
-        onChange={[Function]}
-        placeholder="https://example-site.com"
-        type="url" />
-      <div
-        className="etHoNp">
-        <button
-          className="hMhZgw"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="fpqbdc"
-          onClick={[Function]}
-          type="button">
-          <span>
-            connect
-          </span>
-        </button>
-      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
+        <input
+          className="jssTrf"
+          defaultValue=""
+          id="addSiteInputField"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url" />
+        <div
+          className="etHoNp">
+          <button
+            className="hMhZgw"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="fpqbdc"
+            onClick={[Function]}
+            type="submit">
+            <span>
+              connect
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         className="ehuLPF" />
       <img
@@ -89,32 +93,36 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
           </span>
         </label>
       </p>
-      <input
-        className="jssTrf"
-        defaultValue=""
-        id="addSiteInputField"
-        onChange={[Function]}
-        placeholder="https://example-site.com"
-        type="url" />
-      <div
-        className="etHoNp">
-        <button
-          className="hMhZgw"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="fpqbdc"
-          onClick={[Function]}
-          type="button">
-          <span>
-            connect
-          </span>
-        </button>
-      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
+        <input
+          className="jssTrf"
+          defaultValue=""
+          id="addSiteInputField"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url" />
+        <div
+          className="etHoNp">
+          <button
+            className="hMhZgw"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="fpqbdc"
+            onClick={[Function]}
+            type="submit">
+            <span>
+              connect
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         className="ehuLPF" />
       <img
@@ -153,32 +161,36 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
           </span>
         </label>
       </p>
-      <input
-        className="jssTrf"
-        defaultValue=""
-        id="addSiteInputField"
-        onChange={[Function]}
-        placeholder="https://example-site.com"
-        type="url" />
-      <div
-        className="etHoNp">
-        <button
-          className="hMhZgw"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="fpqbdc"
-          onClick={[Function]}
-          type="button">
-          <span>
-            connect
-          </span>
-        </button>
-      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
+        <input
+          className="jssTrf"
+          defaultValue=""
+          id="addSiteInputField"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url" />
+        <div
+          className="etHoNp">
+          <button
+            className="hMhZgw"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="fpqbdc"
+            onClick={[Function]}
+            type="submit">
+            <span>
+              connect
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         className="ehuLPF" />
       <img
@@ -217,32 +229,36 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
           </span>
         </label>
       </p>
-      <input
-        className="jssTrf"
-        defaultValue=""
-        id="addSiteInputField"
-        onChange={[Function]}
-        placeholder="https://example-site.com"
-        type="url" />
-      <div
-        className="etHoNp">
-        <button
-          className="hMhZgw"
-          onClick={[Function]}
-          type="button">
-          <span>
-            cancel
-          </span>
-        </button>
-        <button
-          className="fpqbdc"
-          onClick={[Function]}
-          type="button">
-          <span>
-            connect
-          </span>
-        </button>
-      </div>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
+        <input
+          className="jssTrf"
+          defaultValue=""
+          id="addSiteInputField"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url" />
+        <div
+          className="etHoNp">
+          <button
+            className="hMhZgw"
+            onClick={[Function]}
+            type="button">
+            <span>
+              cancel
+            </span>
+          </button>
+          <button
+            className="fpqbdc"
+            onClick={[Function]}
+            type="submit">
+            <span>
+              connect
+            </span>
+          </button>
+        </div>
+      </form>
       <div
         className="ehuLPF" />
       <img
