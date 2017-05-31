@@ -6,7 +6,8 @@ import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 test( 'the downloads page component matches the snapshot', () => {
 	let plugins = [
 		{
-			id: "1",
+			glNumber: 111,
+			ids: [ "1" ],
 			category: "plugins",
 			name: "Yoast SEO",
 			currentVersion: "4.7",
@@ -20,7 +21,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "2",
+			glNumber: 222,
+			ids: [ "2" ],
 			category: "plugins",
 			name: "Local SEO",
 			currentVersion: "4.7",
@@ -30,7 +32,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "3",
+			glNumber: 333,
+			ids: [ "3" ],
 			category: "plugins",
 			name: "Video SEO",
 			currentVersion: "4.7",
@@ -44,7 +47,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "4",
+			glNumber: 444,
+			ids: [ "4" ],
 			category: "plugins",
 			name: "News SEO",
 			currentVersion: "4.7",
@@ -62,7 +66,8 @@ test( 'the downloads page component matches the snapshot', () => {
 
 	let eBooks = [
 		{
-			id: "5",
+			glNumber: 555,
+			ids: [ "5" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
 			currentVersion: "",
@@ -72,7 +77,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "6",
+			glNumber: 666,
+			ids: [ "6" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
 			currentVersion: "",
@@ -82,7 +88,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "7",
+			glNumber: 777,
+			ids: [ "7" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
 			currentVersion: "",
@@ -92,7 +99,8 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			id: "8",
+			glNumber: 888,
+			ids: [ "8" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
 			currentVersion: "",

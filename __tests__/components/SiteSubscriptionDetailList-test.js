@@ -13,7 +13,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 					{
 						id: "bla",
 						name: "Yoast SEO",
-						productId: "Yoast SEO",
+						productId: "1",
 						startDate: "2017-04-11T00:00:00.000Z",
 						endDate: "2017-04-11T00:00:00.000Z",
 						subscriberId: 2,
@@ -21,7 +21,8 @@ test('the site subscription detail list component matches the snapshot', () => {
 						used: 5,
 						price: 5900,
 						product: {
-							id: "productid",
+							glNumber: 111,
+							id: "1",
 							name: "string",
 							description: "string",
 							storeUrl: "string",
@@ -43,7 +44,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 					{
 						id: "bla2",
 						name: "Local SEO",
-						productId: "Local SEO",
+						productId: "2",
 						startDate: "2017-04-11T00:00:00.000Z",
 						endDate: "2017-04-11T00:00:00.000Z",
 						subscriberId: 2,
@@ -51,7 +52,8 @@ test('the site subscription detail list component matches the snapshot', () => {
 						used: 7,
 						price: 6900,
 						product: {
-							id: "productid2",
+							glNumber: 222,
+							id: "2",
 							name: "string",
 							description: "string",
 							storeUrl: "string",
@@ -74,7 +76,8 @@ test('the site subscription detail list component matches the snapshot', () => {
 				plugins={
 					[
 						{
-							id: "productid",
+							glNumber: 111,
+							ids: [ "1" ],
 							name: "Yoast SEO Premium",
 							type: "plugin",
 							icon: "icon.png",
@@ -85,7 +88,8 @@ test('the site subscription detail list component matches the snapshot', () => {
 							storeUrl: "http://url1.com",
 						},
 						{
-							id: "productid2",
+							glNumber: 222,
+							ids: [ "2" ],
 							name: "Yoast SEO Local",
 							type: "plugin",
 							icon: "icon2.png",
