@@ -8,6 +8,7 @@ import { FormattedMessage } from "react-intl";
 import DebugInfo from "../components/DebugInfo";
 import { Logo } from "../components/Logo";
 import SkipLink from "../components/SkipLink";
+import { BeaconButton } from "../components/Button";
 
 const Layout = styled.div`
 	display: flex;
@@ -106,6 +107,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 					<Main>
 						<Content>
 							<WrappedComponent { ...this.props } />
+							<BeaconButton>?</BeaconButton>
 						</Content>
 					</Main>
 				</Layout>

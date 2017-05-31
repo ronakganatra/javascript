@@ -228,6 +228,15 @@ export const BeaconButton = styled.button`
 	width:  64px;
 	height: 64px;
 	cursor: pointer;
+	position: fixed;
+	right: 32px;
+	bottom: 32px;
+	z-index: 1;
+	
+	@media screen and ( max-width: 1024px ) {
+		bottom: 92px;
+	}
+	
 `;
 
 BeaconButton.propTypes = {
