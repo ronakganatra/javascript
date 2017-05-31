@@ -37,7 +37,7 @@ function SiteSubscriptionDetailList( props ) {
 
 						return <SiteSubscriptionDetail
 							{ ...plugin }
-							key={ plugin.id }
+							key={ plugin.glNumber }
 							onAddMoreLicensesClick={ onAddMoreLicensesClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
