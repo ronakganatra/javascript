@@ -20,7 +20,13 @@ const getEbookProducts = ( state ) =>  {
 		return lineItem.productId;
 	} );
 	return _filter( eBooks, ( eBook ) => {
-		return _includes( boughtProductIds,  eBook.id );
+		let boughtEbook = false;
+		eBook.ids.forEach( ( eBookId ) => {
+			if ( _includes( boughtProductIds,  eBookId ) ) {
+				boughtEbook = true;
+			}
+		} );
+		return boughtEbook;
 	} );
 };
 
@@ -31,7 +37,13 @@ const getPluginProducts = ( state ) =>  {
 		return subscription.productId;
 	} );
 	return _filter( plugins, ( plugin ) => {
-		return _includes( activeSubscriptionIds,  plugin.id );
+		let boughtPlugin = false;
+		plugin.ids.forEach( ( pluginId ) => {
+			if ( _includes( activeSubscriptionIds,  pluginId ) ) {
+				boughtPlugin = true;
+			}
+		} );
+		return boughtPlugin;
 	} );
 };
 
