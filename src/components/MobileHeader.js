@@ -6,9 +6,8 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 
-const FixedMobileHeader = styled.div`
+const FixedMobileHeader = styled.nav`
 	@media screen and ( max-width: 1024px ) {
-		flex: 1 1 auto;
 		display: flex;
 		justify-content: space-between;
 		position: fixed;
@@ -16,8 +15,7 @@ const FixedMobileHeader = styled.div`
 		width: 100%;
 		height: 48px;
 		top: 0;
-		max-width: 100%;
-		background-color: ${colors.$color_pink_dark};
+		background-color: ${ colors.$color_pink_dark };
 	}
 `;
 
@@ -33,10 +31,10 @@ const LogoutButtonFixedHeader = styled( LogoutButton )`
  */
 export default function MobileHeader( props ) {
 	return (
-	<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+	<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 		<FixedMobileHeader>
 			<Logo size="88px"/>
-			<LogoutButtonFixedHeader type="button" onClick={props.onLogoutClick} >Sign out</LogoutButtonFixedHeader>
+			<LogoutButtonFixedHeader type="button" onClick={ props.onLogoutClick } >Sign out</LogoutButtonFixedHeader>
 		</FixedMobileHeader>
 	</MediaQuery>
 	);

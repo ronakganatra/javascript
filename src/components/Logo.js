@@ -32,7 +32,7 @@ const LogoImage = styled.img`
 	margin: 30px auto 25px;
 
 	@media screen and ( max-width: 1024px ) {
-	margin: 12px auto 0px 5px;
+	margin: 12px 0 0 5px;
 	}
 `;
 

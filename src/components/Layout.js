@@ -65,7 +65,7 @@ const Content = styled.div`
 	margin: 0 auto;
 
 	@media screen and ( max-width: 1024px ) {
-	margin: 68px auto 0;
+		margin: 68px auto 0;
 	}
 `;
 
