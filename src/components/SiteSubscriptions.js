@@ -28,13 +28,16 @@ export default function SiteSubscriptions( props ) {
 		<span>
 			{
 				props.plugins.map( function( plugin ) {
-					let isActive = props.activeSubscriptions.map( ( subscription ) => {
-						return subscription.productId;
-					} ).includes( plugin.id );
+					let isActive = false;
+					props.activeSubscriptions.forEach( ( subscription ) => {
+						if( plugin.ids.includes( subscription.productId ) ) {
+							isActive = true;
+						}
+					} );
 
 					return (
 						<SiteSubscriptionIcons
-							key={ plugin.name }
+							key={ plugin.glNumber }
 							src={ plugin.icon }
 							isActive={ isActive }
 							alt={ isActive ? plugin.name + " is active" : plugin.name + " is inactive" }
