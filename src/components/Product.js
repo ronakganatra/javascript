@@ -5,6 +5,7 @@ import { IconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import defaults from "../config/defaults.json";
+import _isEmpty from "lodash/isEmpty";
 
 const messages = defineMessages( {
 	downloadButton: {
@@ -41,7 +42,8 @@ const ProductContainer = styled.div`
 const ProductIcon = styled.img`
 	width: 112px;
 	height: 112px;
-	padding: 0 0 5px;
+	padding: 0 0 5px 0;
+	margin-top: 24px;
 `;
 
 const Downloads = styled.ul`
@@ -64,7 +66,6 @@ const ProductName = styled.h3`
 
 const ProductVersion = styled.p`
 	font-weight: 300;
-	margin: 0 0 24px;
 `;
 
 const DownloadLabel = styled.p`
@@ -81,10 +82,15 @@ const DownloadLabel = styled.p`
  * @returns {ReactElement} The rendered Product component.
  */
 function Product( props ) {
+	let productVersion = "";
+	if ( ! _isEmpty( props.currentVersion ) ) {
+		productVersion = <ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>;
+	}
+
 	return (
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
-			<ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>
+			{ productVersion }
 			<ProductIcon src={ props.icon } alt=""/>
 			<Downloads>
 				{ props.buttons.map( button => {
@@ -107,7 +113,7 @@ function Product( props ) {
 
 Product.propTypes = {
 	name: React.PropTypes.string.isRequired,
-	currentVersion: React.PropTypes.number.isRequired,
+	currentVersion: React.PropTypes.string,
 	icon: React.PropTypes.string.isRequired,
 	buttons: React.PropTypes.array.isRequired,
 	intl: intlShape.isRequired,

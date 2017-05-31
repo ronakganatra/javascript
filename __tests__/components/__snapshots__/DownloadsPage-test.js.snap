@@ -56,13 +56,13 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             Yoast SEO
           </h3>
           <p
-            className="jPEgOF">
+            className="hTVMCQ">
              
             version 4.7
           </p>
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -117,13 +117,13 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             Local SEO
           </h3>
           <p
-            className="jPEgOF">
+            className="hTVMCQ">
              
             version 4.7
           </p>
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -150,13 +150,13 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             Video SEO
           </h3>
           <p
-            className="jPEgOF">
+            className="hTVMCQ">
              
             version 4.7
           </p>
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -211,13 +211,13 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             News SEO
           </h3>
           <p
-            className="jPEgOF">
+            className="hTVMCQ">
              
             version 4.7
           </p>
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -291,14 +291,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="eHeqpp">
             Yoast SEO for WooCommerce
           </h3>
-          <p
-            className="jPEgOF">
-             
-            version 4.7
-          </p>
+          
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -324,14 +320,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="eHeqpp">
             Yoast SEO for WooCommerce
           </h3>
-          <p
-            className="jPEgOF">
-             
-            version 4.7
-          </p>
+          
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -357,14 +349,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="eHeqpp">
             Yoast SEO for WooCommerce
           </h3>
-          <p
-            className="jPEgOF">
-             
-            version 4.7
-          </p>
+          
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
@@ -390,14 +378,10 @@ exports[`test the downloads page component matches the snapshot 1`] = `
             className="eHeqpp">
             Yoast SEO for WooCommerce
           </h3>
-          <p
-            className="jPEgOF">
-             
-            version 4.7
-          </p>
+          
           <img
             alt=""
-            className="ieMZJu"
+            className="bAfIbR"
             src="Yoast_SEO_Icon_Small.svg" />
           <ul
             className="boOFOz">
