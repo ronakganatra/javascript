@@ -4,7 +4,7 @@ exports[`test the logo matches the snapshot 1`] = `
   onClick={[Function]}>
   <img
     alt="My logo alt"
-    className="fFGzcR"
+    className="eqDMBu"
     size="300px"
     src="logo.svg" />
 </a>
