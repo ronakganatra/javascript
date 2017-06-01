@@ -104,7 +104,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-						<MobileHeaderContainer/>
+					<MobileHeaderContainer/>
 					<Sidebar>
 						<header role="banner">
 							<SkipLink>
