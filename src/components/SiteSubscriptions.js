@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import util from "util";
 
 const messages = defineMessages( {
 	active: {
 		id: "site-subscriptions.subscription.active",
-		defaultMessage: "is active",
+		defaultMessage: "%s is active",
 	},
 	inactive: {
 		id: "site-subscriptions.subscription.inactive",
-		defaultMessage: "is inactive",
+		defaultMessage: "%s is inactive",
 	},
 } );
 
@@ -49,7 +50,7 @@ function SiteSubscriptions( props ) {
 							key={ plugin.name }
 							src={ plugin.icon }
 							isActive={ isActive }
-							alt={ isActive ? plugin.name + " " + props.intl.formatMessage( messages.active ) : plugin.name + " " + props.intl.formatMessage( messages.inactive ) }
+							alt={ isActive ? util.format( props.intl.formatMessage( messages.active ), plugin.name ) : util.format( props.intl.formatMessage( messages.inactive ), plugin.name )  }
 						/>
 					);
 				} )
