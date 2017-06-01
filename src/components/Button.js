@@ -73,6 +73,23 @@ export const LogoutButton = styled( Button )`
 	padding: 0;
 `;
 
+export const LogoutButtonResponsive = styled.button`
+	height: 36px;
+	width: 122px;
+	margin: auto 0;
+	padding: 0 0 0 36px;
+	font: 400 14px/24px "Open Sans", sans-serif;
+	cursor: pointer;
+	color: ${ colors.$color_white };
+	box-shadow: 0;
+	border: 0;
+	background-color: transparent;
+	background-image: url( ${ props => props.iconSource } );
+	background-size: ${ props => props.iconSize };
+	background-repeat: no-repeat;
+	background-position: 18px; 50%;
+`;
+
 export const IconButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );

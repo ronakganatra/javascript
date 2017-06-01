@@ -1,6 +1,7 @@
 import React from "react";
-import { LogoutButton } from "../components/Button";
+import { LogoutButtonResponsive } from "../components/Button";
 import styled from "styled-components";
+import logout from "../icons/logout.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 
@@ -13,13 +14,10 @@ const FixedMobileHeader = styled.nav`
 		z-index: 1;
 		width: 100%;
 		height: 48px;
+		padding-left:10px; 
 		top: 0;
 		background-color: ${ colors.$color_pink_dark };
 	}
-`;
-
-const LogoutButtonFixedHeader = styled( LogoutButton )`
-	margin: 5px;
 `;
 
 /**
@@ -32,7 +30,8 @@ export default function MobileHeader( props ) {
 	return (
 		<FixedMobileHeader>
 			<Logo size="88px"/>
-			<LogoutButtonFixedHeader type="button" onClick={ props.onLogoutClick } >Sign out</LogoutButtonFixedHeader>
+			<LogoutButtonResponsive type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
+				Sign out</LogoutButtonResponsive>
 		</FixedMobileHeader>
 	);
 }
