@@ -9,37 +9,33 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
     overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="hfMDPK">
+      className="kTBxlP">
       <h1
-        className="dQgKWp">
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
-      <p
-        className="hUuGBg">
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
         <label
-          htmlFor="addSiteInputField">
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
         </label>
-      </p>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}>
         <input
-          autoFocus={true}
-          className="jssTrf"
+          className="jeqQcj"
           defaultValue=""
-          id="addSiteInputField"
+          id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="etHoNp">
+          className="gKAvLX">
           <button
-            className="hMhZgw"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -47,7 +43,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="fpqbdc"
+            className="jVSHhf"
             onClick={[Function]}
             type="submit">
             <span>
@@ -78,37 +74,33 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
     overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="hfMDPK">
+      className="kTBxlP">
       <h1
-        className="dQgKWp">
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
-      <p
-        className="hUuGBg">
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
         <label
-          htmlFor="addSiteInputField">
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
         </label>
-      </p>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}>
         <input
-          autoFocus={true}
-          className="jssTrf"
+          className="jeqQcj"
           defaultValue=""
-          id="addSiteInputField"
+          id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="etHoNp">
+          className="gKAvLX">
           <button
-            className="hMhZgw"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -116,7 +108,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="fpqbdc"
+            className="jVSHhf"
             onClick={[Function]}
             type="submit">
             <span>
@@ -147,37 +139,33 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
     overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="hfMDPK">
+      className="kTBxlP">
       <h1
-        className="dQgKWp">
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
-      <p
-        className="hUuGBg">
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
         <label
-          htmlFor="addSiteInputField">
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
         </label>
-      </p>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}>
         <input
-          autoFocus={true}
-          className="jssTrf"
+          className="jeqQcj"
           defaultValue=""
-          id="addSiteInputField"
+          id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="etHoNp">
+          className="gKAvLX">
           <button
-            className="hMhZgw"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -185,7 +173,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="fpqbdc"
+            className="jVSHhf"
             onClick={[Function]}
             type="submit">
             <span>
@@ -216,37 +204,33 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
     overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="hfMDPK">
+      className="kTBxlP">
       <h1
-        className="dQgKWp">
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
-      <p
-        className="hUuGBg">
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
         <label
-          htmlFor="addSiteInputField">
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
         </label>
-      </p>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}>
         <input
-          autoFocus={true}
-          className="jssTrf"
+          className="jeqQcj"
           defaultValue=""
-          id="addSiteInputField"
+          id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="etHoNp">
+          className="gKAvLX">
           <button
-            className="hMhZgw"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -254,7 +238,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
-            className="fpqbdc"
+            className="jVSHhf"
             onClick={[Function]}
             type="submit">
             <span>
@@ -285,37 +269,33 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
     overlayClassName="hBejNq my-yoast-modal__overlay"
     role="dialog">
     <div
-      className="hfMDPK">
+      className="kTBxlP">
       <h1
-        className="dQgKWp">
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
-      <p
-        className="hUuGBg">
+      <form
+        noValidate={true}
+        onSubmit={[Function]}>
         <label
-          htmlFor="addSiteInputField">
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
         </label>
-      </p>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}>
         <input
-          autoFocus={true}
-          className="jssTrf"
+          className="jeqQcj"
           defaultValue=""
-          id="addSiteInputField"
+          id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="etHoNp">
+          className="gKAvLX">
           <button
-            className="hMhZgw"
+            className="cQKPtQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -323,7 +303,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
             </span>
           </button>
           <button
-            className="fpqbdc"
+            className="jVSHhf"
             onClick={[Function]}
             type="submit">
             <span>
