@@ -1,5 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const messages = defineMessages( {
+	active: {
+		id: "site-subscriptions.subscription.active",
+		defaultMessage: "is active",
+	},
+	inactive: {
+		id: "site-subscriptions.subscription.inactive",
+		defaultMessage: "is inactive",
+	},
+} );
 
 const SiteSubscriptionIcons = styled.img`
 	opacity: ${ props => props.isActive ? 1.0 : 0.2 };
@@ -23,7 +35,7 @@ SiteSubscriptionIcons.propTypes = {
  * @param {Object} props The props to use.
  * @returns {ReactElement} The rendered Subscriptions component.
  */
-export default function SiteSubscriptions( props ) {
+function SiteSubscriptions( props ) {
 	return (
 		<span>
 			{
@@ -37,7 +49,7 @@ export default function SiteSubscriptions( props ) {
 							key={ plugin.name }
 							src={ plugin.icon }
 							isActive={ isActive }
-							alt={ isActive ? plugin.name + " is active" : plugin.name + " is inactive" }
+							alt={ isActive ? plugin.name + " " + props.intl.formatMessage( messages.active ) : plugin.name + " " + props.intl.formatMessage( messages.inactive ) }
 						/>
 					);
 				} )
@@ -49,9 +61,12 @@ export default function SiteSubscriptions( props ) {
 SiteSubscriptions.propTypes = {
 	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
 	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	intl: intlShape.isRequired,
 };
 
 SiteSubscriptions.defaultProps = {
 	activeSubscriptions: [],
 	plugins: [],
 };
+
+export default injectIntl( SiteSubscriptions );

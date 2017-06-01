@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import { createComponentWithIntl } from "../../utils";
 
 import SiteSubscriptions from '../../src/components/SiteSubscriptions';
 
@@ -33,10 +34,10 @@ let activeSubscriptions = [
 	{
 		productId: "0002",
 	},
-]
+];
 
 test('the subscription component matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptions plugins={ plugins } activeSubscriptions={ activeSubscriptions } />
 	);
 
@@ -45,7 +46,7 @@ test('the subscription component matches the snapshot', () => {
 });
 
 test('the subscription component without plugins with active subscriptions using the default matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptions activeSubscriptions={ activeSubscriptions } />
 	);
 
@@ -54,7 +55,7 @@ test('the subscription component without plugins with active subscriptions using
 });
 
 test('the subscription component with plugins without active subscriptions using the default matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptions plugins={ plugins } />
 	);
 
@@ -63,7 +64,7 @@ test('the subscription component with plugins without active subscriptions using
 });
 
 test('the subscription component without plugins or active subscriptions using the default matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<SiteSubscriptions />
 	);
 
