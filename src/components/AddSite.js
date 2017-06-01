@@ -43,14 +43,6 @@ const AddSiteHeading = styled.h1`
 	margin: 0;
 `;
 
-/*
-const AddSiteText = styled.p`
-	font-weight: 300;
-	font-size: 1em;
-	margin: 16px 0 8px 0;
-`;
-*/
-
 const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
 	height: 48px;
