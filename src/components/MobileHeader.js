@@ -5,7 +5,7 @@ import logout from "../icons/logout.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 
-const FixedMobileHeader = styled.nav`
+const FixedMobileHeader = styled.header`
 	display:none;
 	@media screen and ( max-width: 1024px ) {
 		display: flex;
@@ -28,7 +28,7 @@ const FixedMobileHeader = styled.nav`
  */
 export default function MobileHeader( props ) {
 	return (
-		<FixedMobileHeader>
+		<FixedMobileHeader role="banner">
 			<Logo size="88px"/>
 			<LogoutButtonResponsive type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
 				Sign out</LogoutButtonResponsive>
