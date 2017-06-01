@@ -15,7 +15,9 @@ exports[`test the responsive site header matches the snapshot 1`] = `
     className="lpsmID"
     onClick={[Function]}
     type="button">
-    Sign out
+    <span>
+      Sign out
+    </span>
   </button>
 </header>
 `;
