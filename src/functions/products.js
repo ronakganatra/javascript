@@ -1,5 +1,7 @@
 import _partial from "lodash/partial";
 import _filter from "lodash/filter";
+import _omit from "lodash/omit";
+import _uniq from "lodash/uniq";
 
 /** Product helpers */
 
@@ -11,7 +13,30 @@ import _filter from "lodash/filter";
  * @returns {Object[]} The filtered collection of products.
  */
 function filterProductsByType( type, products ) {
-	return _filter( products, product => product.type === type );
+	products = _filter( products, product => product.type === type );
+
+	let uniqueGlNumbers = _uniq( products.map( ( product ) => {
+		return product.glNumber;
+	} ) );
+
+	let filteredProducts = {};
+
+	uniqueGlNumbers.forEach( ( glNumber ) => {
+		_filter( products, product => product.glNumber === glNumber ).forEach(
+			( product ) => {
+				if ( filteredProducts.hasOwnProperty( product.glNumber ) ) {
+					filteredProducts[ product.glNumber ].ids.push( product.id );
+				} else {
+					let productCopy = Object.assign( {}, product, { ids: [ product.id ] } );
+					filteredProducts[ product.glNumber ] = _omit( productCopy, "id" );
+				}
+			}
+		);
+	} );
+
+	return Object.keys( filteredProducts ).map( ( key, index ) => {
+		return filteredProducts[ key ];
+	} );
 }
 
 export const getEbooks = _partial( filterProductsByType, "ebook" );

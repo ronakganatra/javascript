@@ -52,7 +52,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 		// Get all subscriptions for this plugin
 		activeSubscriptions.filter( ( subscription ) => {
-			return subscription.productId === plugin.id;
+			return plugin.ids.includes( subscription.productId );
 		} ).forEach( ( subscription ) => {
 			// Accumulate amount of slots for this plugin.
 			plugin.limit += subscription.limit;

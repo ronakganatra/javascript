@@ -5,22 +5,26 @@ import Sites from '../../src/components/Sites';
 
 let plugins = [
 	{
-		id: "0001",
+		glNumber: 111,
+		ids: [ "1" ],
 		icon: "test.jpg",
 		name: "Test",
 	},
 	{
-		id: "0002",
+		glNumber: 222,
+		ids: [ "2" ],
 		icon: "test.jpg",
 		name: "Test2",
 	},
 	{
-		id: "0003",
+		glNumber: 333,
+		ids: [ "3" ],
 		icon: "test.jpg",
 		name: "Test3",
 	},
 	{
-		id: "0004",
+		glNumber: 444,
+		ids: [ "4" ],
 		icon: "test.jpg",
 		name: "Test4",
 	}
@@ -28,10 +32,10 @@ let plugins = [
 
 let activeSubscriptions = [
 	{
-		productId: "0001",
+		productId: "1",
 	},
 	{
-		productId: "0002",
+		productId: "2",
 	},
 ]
 

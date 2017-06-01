@@ -40,7 +40,7 @@ export default class Products extends React.Component {
 					{ props.noResults }
 					{ props.products.map( function( product ) {
 						return <Product
-							key={ product.id }
+							key={ product.glNumber }
 							name={ product.name }
 							currentVersion={ product.currentVersion }
 							icon={ product.icon }

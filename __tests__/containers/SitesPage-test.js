@@ -32,6 +32,7 @@ let state = {
 					"icon": "test.png",
 					"name": "Yoast SEO",
 					"type": "plugin",
+					"glNumber": 111,
 				},
 			}
 		},
@@ -66,7 +67,8 @@ test('the mapStateToProps function', () => {
 		} ],
 		plugins: [
 			{
-				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
@@ -99,7 +101,8 @@ test('the mapStateToProps function when query contains url of site', () => {
 		} ],
 		plugins: [
 			{
-				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
@@ -132,7 +135,8 @@ test('the mapStateToProps function when query just contains the hostname of site
 		} ],
 		plugins: [
 			{
-				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
@@ -157,7 +161,8 @@ test('the mapStateToProps function when query does not match any site.', () => {
 		sites: [],
 		plugins: [
 			{
-				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
@@ -250,7 +255,8 @@ test('the mapStateToProps function when there is an additional path in the url',
 		} ],
 		plugins: [
 			{
-				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",

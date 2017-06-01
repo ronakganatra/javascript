@@ -20,7 +20,6 @@ test( "the mapStateToProps function", () => {
 				byId: {
 					"1": {
 						"id": "1",
-						"productId": "1",
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
@@ -33,10 +32,10 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
+						"glNumber": 111,
 					},
 					"2": {
 						"id": "2",
-						"productId": "1",
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
@@ -49,10 +48,10 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
+						"glNumber": 222,
 					},
 					"3": {
 						"id": "3",
-						"productId": "3",
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
@@ -65,6 +64,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
+						"glNumber": 333
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -97,21 +97,24 @@ test( "the mapStateToProps function", () => {
 			category: "ebook",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
-			id: "3",
+			ids: [ "3" ],
 			name: "download1",
+			glNumber: 333,
 		}],
 		plugins: [ {
 			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
 			category: "plugin",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
-			id: "1",
+			ids: [ "1" ],
 			name: "download1",
+			glNumber: 111,
 		} ],
 		query: "d",
 	};
 
 	let actual = mapStateToProps( state );
+
 	expected.plugins[ 0 ].buttons[ 0 ].onButtonClick = actual.plugins[ 0 ].buttons[ 0 ].onButtonClick;
 	expected.eBooks[ 0 ].buttons[ 0 ].onButtonClick = actual.eBooks[ 0 ].buttons[ 0 ].onButtonClick;
 
@@ -149,6 +152,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
+						glNumber: 111,
 					},
 					"2": {
 						"id": "2",
@@ -165,6 +169,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
+						glNumber: 222,
 					},
 					"3": {
 						"id": "3",
@@ -181,6 +186,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
+						glNumber: 333,
 					}
 				},
 				allIds: [ "1", "2", "3" ],

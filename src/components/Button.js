@@ -216,6 +216,35 @@ ChevronButton.defaultProps = {
 	"aria-label": "",
 };
 
+export const BeaconButton = styled( Button )`
+	border-radius: 0;
+	height: 36px;
+	width: 112px;
+	cursor: pointer;
+	position: fixed;
+	z-index: 1;
+	left: -40px;
+	top: 50%;
+	transform: rotate( 270deg );
+	background-color: ${ colors.$color_green_medium_light };
+	padding: 0;
+	
+	&:active {
+		transform: rotate( 270deg );
+	}
+`;
+
+BeaconButton.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+	"aria-label": React.PropTypes.string,
+};
+
+BeaconButton.defaultProps = {
+	type: "button",
+	"aria-label": "",
+};
+
 export const IconRightButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );

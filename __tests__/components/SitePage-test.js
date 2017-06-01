@@ -25,7 +25,6 @@ test('the site page component matches the snapshot', () => {
 						  productId: "Yoast SEO",
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
-						  reoccurring: true,
 						  subscriberId: 2,
 						  productLicenses: {
 							  amountAvailable: 10,
@@ -39,7 +38,6 @@ test('the site page component matches the snapshot', () => {
 						  productId: "Local SEO",
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
-						  reoccurring: true,
 						  subscriberId: 2,
 						  productLicenses: {
 							  amountAvailable: 10,
@@ -89,7 +87,6 @@ test('the site page component matches the snapshot for a site in a directory', (
 						  productId: "Yoast SEO",
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
-						  reoccurring: true,
 						  subscriberId: 2,
 						  productLicenses: {
 							  amountAvailable: 10,
@@ -103,7 +100,6 @@ test('the site page component matches the snapshot for a site in a directory', (
 						  productId: "Local SEO",
 						  startDate: "2017-04-11T00:00:00.000Z",
 						  endDate: "2017-04-11T00:00:00.000Z",
-						  reoccurring: true,
 						  subscriberId: 2,
 						  productLicenses: {
 							  amountAvailable: 10,

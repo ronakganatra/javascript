@@ -6,9 +6,10 @@ import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 test( 'The Products component matches the snapshot', () => {
 	let products = [
 		{
+			glNumber: 111,
 			id: "1",
 			name: "Yoast SEO",
-			currentVersion: 4.7,
+			currentVersion: "4.7",
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -17,18 +18,20 @@ test( 'The Products component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
+			glNumber: 222,
 			id: "2",
 			name: "Local SEO",
-			currentVersion: 4.7,
+			currentVersion: "4.7",
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
 					onButtonClick: () => {} },
 			],
 		}, {
+			glNumber: 333,
 			id: "3",
 			name: "Video SEO",
-			currentVersion: 4.7,
+			currentVersion: "4.7",
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -39,9 +42,10 @@ test( 'The Products component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
+			glNumber: 444,
 			id: "4",
 			name: "News SEO",
-			currentVersion: 4.7,
+			currentVersion: "4.7",
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
@@ -52,9 +56,10 @@ test( 'The Products component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
+			glNumber: 555,
 			id: "5",
 			name: "Yoast SEO for WooCommerce",
-			currentVersion: 4.7,
+			currentVersion: "4.7",
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",

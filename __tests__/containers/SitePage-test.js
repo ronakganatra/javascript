@@ -31,7 +31,6 @@ test('the mapStateToProps function', () => {
 							productId: "productid1",
 							startDate: "2017-04-12T00:00:00.000Z",
 							endDate: "2017-04-12T00:00:00.000Z",
-							reoccurring: true,
 							subscriberId: 2,
 							licenses: {
 								amountAvailable: 11,
@@ -70,6 +69,7 @@ test('the mapStateToProps function', () => {
 							icon: "icon.png",
 							currency: "USD",
 							price: 123,
+							glNumber: 111,
 						},
 						"productid2": {
 							id: "productid2",
@@ -78,6 +78,7 @@ test('the mapStateToProps function', () => {
 							icon: "icon.png",
 							currency: "USD",
 							price: 123,
+							glNumber: 222,
 						},
 					},
 					allIds: [ "productid1", "productid2" ],
@@ -120,7 +121,6 @@ test('the mapStateToProps function', () => {
 			productId: "productid1",
 			startDate: "2017-04-12T00:00:00.000Z",
 			endDate: "2017-04-12T00:00:00.000Z",
-			reoccurring: true,
 			subscriberId: 2,
 			licenses: {
 				amountAvailable: 11,
@@ -152,7 +152,7 @@ test('the mapStateToProps function', () => {
 		} ],
 		plugins: [
 			{
-				id: "productid2",
+				ids: [ "productid2" ],
 				name: "Yoast SEO Local",
 				type: "plugin",
 				icon: "icon.png",
@@ -164,9 +164,10 @@ test('the mapStateToProps function', () => {
 				isAvailable: false,
 				hasSubscriptions: false,
 				subscriptionId: "",
+				glNumber: 222,
 			},
 			{
-				id: "productid1",
+				ids: [ "productid1" ],
 				name: "Yoast SEO Premium",
 				type: "plugin",
 				icon: "icon.png",
@@ -178,6 +179,7 @@ test('the mapStateToProps function', () => {
 				isAvailable: false,
 				hasSubscriptions: false,
 				subscriptionId: "",
+				glNumber: 111,
 			},
 		],
 		loadingSubscriptions: false,
