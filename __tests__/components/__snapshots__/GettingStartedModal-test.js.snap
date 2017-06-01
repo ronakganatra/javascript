@@ -1,0 +1,11 @@
+exports[`test the closed Getting Started Modal matches the snapshot 1`] = `
+<div>
+  <noscript />
+</div>
+`;
+
+exports[`test the opened Getting Started Modal matches the snapshot 1`] = `
+<div>
+  <noscript />
+</div>
+`;
