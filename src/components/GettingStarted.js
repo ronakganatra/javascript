@@ -76,7 +76,7 @@ function GettingStarted( props ) {
 			<GettingStartedHeading>
 				<FormattedMessage id="getting-started.header" defaultMessage="Getting started with My Yoast" />
 			</GettingStartedHeading>
-			<VideoContainer><Video height="315" width="560" src="https://www.youtube.com/embed/8sr_p7eIu2A" frameBorder="0" allowFullScreen /></VideoContainer>
+			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" frameBorder="0" allowFullScreen /></VideoContainer>
 			<GettingStartedText>
 				<label htmlFor="GettingStartedInputField">
 					<FormattedMessage
