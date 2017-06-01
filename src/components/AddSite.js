@@ -1,6 +1,6 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { LargeButton } from "./Button.js";
+import { LargeButton, LargeSecondaryButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
@@ -263,9 +263,9 @@ class AddSite extends React.Component {
 				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 				{ this.validateUrl( this.props.linkingSiteUrl ) }
 				<Buttons>
-					<LargeButton type="button" onClick={ this.props.onCancelClick } >
+					<LargeSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-					</LargeButton>
+					</LargeSecondaryButton>
 					<LargeButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
 					} } enabledStyle={ this.urlValidity }>
 						<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
