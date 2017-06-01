@@ -38,3 +38,7 @@ export default function MobileHeader( props ) {
 MobileHeader.propTypes = {
 	onLogoutClick: React.PropTypes.func.isRequired,
 };
+
+MobileHeader.defaultProps = {
+	onLogoutClick: () => {},
+};
