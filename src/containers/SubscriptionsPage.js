@@ -25,10 +25,14 @@ export const mapStateToProps = ( state ) => {
 		return subscriptionProps;
 	} );
 
+	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+		return subscription.status === "active";
+	} );
+
 	let query = state.ui.search.query;
 
 	if ( query.length > 0 ) {
-		subscriptions = subscriptions.filter( ( subscription ) => {
+		activeSubscriptions = activeSubscriptions.filter( ( subscription ) => {
 			let formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
 				month: "long",
@@ -42,10 +46,6 @@ export const mapStateToProps = ( state ) => {
 							( subscription.billingAmount / 100 ).toString().includes( query.toUpperCase() );
 		} );
 	}
-
-	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active";
-	} );
 
 	return {
 		activeSubscriptions,
