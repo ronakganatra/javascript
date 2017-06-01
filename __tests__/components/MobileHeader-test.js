@@ -9,7 +9,7 @@ import { MemoryRouter } from "react-router-dom";
 test('the responsive site header matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<MobileHeader role="banner">
+			<MobileHeader role="banner" onLogoutClick={ () => {} }>
 					<Logo size="88px"/>
 					<LogoutButtonResponsive type="button" onClick={ () => {
 						}

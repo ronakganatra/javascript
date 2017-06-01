@@ -5,6 +5,7 @@ import logout from "../icons/logout.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	signOut: {
@@ -15,7 +16,7 @@ const messages = defineMessages( {
 
 const FixedMobileHeader = styled.header`
 	display:none;
-	@media screen and ( max-width: 1024px ) {
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		display: flex;
 		justify-content: space-between;
 		position: fixed;
@@ -40,8 +41,8 @@ function MobileHeader( props ) {
 			<Logo size="88px"/>
 			<LogoutButtonResponsive type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
 				<FormattedMessage
-					id={ messages.signOut }
-					defaultMessage={ "Sign out" }
+					id={ messages.signOut.id }
+					defaultMessage="Sign out"
 				/>
 			</LogoutButtonResponsive>
 		</FixedMobileHeader>
@@ -54,6 +55,3 @@ MobileHeader.propTypes = {
 	onLogoutClick: React.PropTypes.func.isRequired,
 };
 
-MobileHeader.defaultProps = {
-	onLogoutClick: () => {},
-};
