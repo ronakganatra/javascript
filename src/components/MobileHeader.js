@@ -29,7 +29,7 @@ const FixedMobileHeader = styled.header`
 `;
 
 /**
- * Renders the user profile component.
+ * Renders the FixedMobileHeader component.
  *
  * @param {Object} props Component props.
  * @returns {ReactElement} A react component.
