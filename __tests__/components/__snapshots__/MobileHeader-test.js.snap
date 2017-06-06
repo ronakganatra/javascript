@@ -1,6 +1,6 @@
 exports[`test the responsive site header matches the snapshot 1`] = `
 <header
-  className="kZMMaq"
+  className="kmgHha"
   role="banner">
   <a
     href="/"
