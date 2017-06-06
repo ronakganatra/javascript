@@ -86,7 +86,9 @@ export const inSingleLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<MobileHeaderContainer/>
+					<header role="banner">
+						<MobileHeaderContainer/>
+					</header>
 					<Main>
 						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
 						<Content>
