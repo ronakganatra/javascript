@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { LargeButton, LargeButtonLink } from "./Button.js";
+import { LargeButtonLink, LargeSecondaryButton } from "./Button.js";
 import { FormattedMessage } from "react-intl";
 
 const AddLicensesModal = styled.div`
@@ -65,9 +65,9 @@ export default function AddLicenses( props ) {
 					</label>
 				</AddLicensesText>
 				<Buttons>
-					<LargeButton type="button" onClick={ props.onClose } >
+					<LargeSecondaryButton type="button" onClick={ props.onClose } >
 						<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
-					</LargeButton>
+					</LargeSecondaryButton>
 
 					<LargeButtonLink to={ props.onShop }>
 						<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />

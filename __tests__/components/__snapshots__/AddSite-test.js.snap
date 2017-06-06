@@ -26,7 +26,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
   <div
     className="etHoNp">
     <button
-      className="hMhZgw"
+      className="gVNhZM"
       onClick={[Function]}
       type="button">
       <span>
