@@ -11,6 +11,7 @@ import SkipLink from "../components/SkipLink";
 import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
+import MediaQuery from "react-responsive";
 
 
 const Layout = styled.div`
@@ -104,14 +105,16 @@ export const inMainLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<MobileHeaderContainer/>
+					<header role="banner">
+						<MediaQuery query="(max-width: 1024px)">
+							<MobileHeaderContainer/>
+						</MediaQuery>
+						<SkipLink>
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+						</SkipLink>
+					</header>
 					<Sidebar>
-						<header role="banner">
-							<SkipLink>
-								<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-							</SkipLink>
-							<Logo size="200px"/>
-						</header>
+						<Logo size="200px"/>
 						<UserStatus/>
 						<MainMenu menuRoutes={ menuItems }  />
 						<DebugInfo />
