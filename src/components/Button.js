@@ -4,7 +4,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
-import infoCircle from "../icons/info-circle.svg";
+import questionCircle from "../icons/question-circle.svg";
 import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
@@ -234,20 +234,29 @@ ChevronButton.defaultProps = {
 export const BeaconButton = styled( Button )`
 	border-radius: 0;
 	height: 36px;
-	width: 40px;
+	width: 152px;
+	font-size: 16px;
 	cursor: pointer;
 	position: fixed;
 	z-index: 1;
-	left: 0;
+	left: -112px;
 	top: 85%;
+	color: ${ colors.$color_white };
 	background-color: ${ colors.$color_green_medium_light };
 	z-index: 1;
-	padding-right: 24px;
-	font-size: 0;
+	padding-right: 40px;
 	background-repeat: no-repeat;
-	background-image: url( ${ infoCircle } );
+	background-image: url( ${ questionCircle } );
 	background-position: right 8px center;
 	background-size: 24px;
+	transition: left .5s ease-in;
+	text-overflow: clip;
+	text-shadow: 1px 1px black;
+
+	&:hover {
+		left: 0;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+	}
 `;
 
 BeaconButton.propTypes = {
