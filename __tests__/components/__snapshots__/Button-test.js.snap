@@ -9,7 +9,7 @@ exports[`test the Large Secondary Button matches the snapshot 1`] = `
 exports[`test the beacon button matches the snapshot 1`] = `
 <button
   aria-label=""
-  className="isMiBq"
+  className="boxaOe"
   type="button">
   ButtonValue
 </button>
