@@ -81,13 +81,12 @@ export const LogoutButtonResponsive = styled.button`
 	font: 400 14px/24px "Open Sans", sans-serif;
 	cursor: pointer;
 	color: ${ colors.$color_white };
-	box-shadow: 0;
 	border: 0;
 	background-color: transparent;
 	background-image: url( ${ props => props.iconSource } );
 	background-size: ${ props => props.iconSize };
 	background-repeat: no-repeat;
-	background-position: 18px; 50%;
+	background-position: 18px 50%;
 `;
 
 export const IconButton = styled( Button )`
