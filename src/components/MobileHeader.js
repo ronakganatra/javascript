@@ -6,6 +6,7 @@ import questionCircle from "../icons/question-circle.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	signOut: {
@@ -31,14 +32,22 @@ const FixedMobileHeader = styled.header`
 	}
 `;
 
-const LogoutHeaderButton = styled( MobileHeaderButton )`
+export const LogoutHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
 	right: 0;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		right: -48px;
+	}
 `;
 
-const BeaconHeaderButton = styled( MobileHeaderButton )`
+export const BeaconHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
 	left: 0;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 36px;
+	}
 `;
 
 /**
@@ -48,7 +57,6 @@ const BeaconHeaderButton = styled( MobileHeaderButton )`
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-	console.log( props.onBeaconClick );
 	return (
 		<FixedMobileHeader role="banner">
 			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle } iconSize="24px">

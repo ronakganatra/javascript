@@ -119,8 +119,7 @@ export const MobileHeaderButton = styled( IconButton )`
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		font-size: 0;
-		padding-left: 40px;
+		text-indent: -9999em;
 		box-shadow: none;
 	}
 `;
@@ -269,6 +268,7 @@ export const BeaconButton = styled( Button )`
 	transition: left .5s ease-in;
 	text-shadow: 1px 1px black;
 
+	&:focus,
 	&:hover {
 		left: 0;
 		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
