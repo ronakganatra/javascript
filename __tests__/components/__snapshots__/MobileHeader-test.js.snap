@@ -1,0 +1,23 @@
+exports[`test the responsive site header matches the snapshot 1`] = `
+<header
+  className="bXkdrx"
+  role="banner">
+  <a
+    href="/"
+    onClick={[Function]}>
+    <img
+      alt="Home page"
+      className="imUVvR"
+      size="88px"
+      src="logo.svg" />
+  </a>
+  <button
+    className="ckhqFE"
+    onClick={[Function]}
+    type="button">
+    <span>
+      Sign out
+    </span>
+  </button>
+</header>
+`;

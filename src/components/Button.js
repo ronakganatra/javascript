@@ -108,6 +108,16 @@ IconButton.defaultProps = {
 	enabledStyle: true,
 };
 
+export const LogoutHeaderButton = styled( IconButton )`
+	background-color: transparent;
+	box-shadow: none;
+	margin: 5px;
+	display: block;
+	position: fixed;
+	right: 0;
+	top: 0;
+`;
+
 export const LargeIconButton = styled( IconButton )`
 	min-width: 152px;
 `;
