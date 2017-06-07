@@ -108,12 +108,12 @@ export const inMainLayout = ( WrappedComponent ) => {
 			return (
 				<Layout>
 					<header role="banner">
-						<MediaQuery query="(max-width: 1024px)">
-							<MobileHeaderContainer/>
-						</MediaQuery>
 						<SkipLink>
 							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 						</SkipLink>
+						<MediaQuery query="(max-width: 1024px)">
+							<MobileHeaderContainer/>
+						</MediaQuery>
 					</header>
 					<Sidebar>
 						<MediaQuery query="(min-width: 1025px)">
