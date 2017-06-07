@@ -250,12 +250,15 @@ export const BeaconButton = styled( Button )`
 	background-position: right 8px center;
 	background-size: 24px;
 	transition: left .5s ease-in;
-	text-overflow: clip;
 	text-shadow: 1px 1px black;
 
 	&:hover {
 		left: 0;
 		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	@media screen and ( max-width: 1024px ) {
+		display: none;
 	}
 `;
 
@@ -269,6 +272,30 @@ BeaconButton.defaultProps = {
 	type: "button",
 	"aria-label": "",
 };
+
+export const BeaconHeaderButton = styled ( Button )`
+	display: none;
+
+	@media screen and ( max-width: 1024px ) {
+		display: block;
+		border-radius: 0;
+		height: 32px;
+		width: 32px;
+		font-size: 16px;
+		cursor: pointer;
+		position: fixed;
+		z-index: 1;
+		color: ${ colors.$color_white };
+		background-color: transparent;
+		padding: 0;
+		background-repeat: no-repeat;
+		background-image: url( ${ questionCircle } );
+		background-position: 0;
+		background-size: 32px;
+		box-shadow: none;
+		margin: 8px 8px;
+	}
+`;
 
 export const IconRightButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;

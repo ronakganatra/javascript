@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoutButton } from "../components/Button";
+import { LogoutButton, BeaconHeaderButton } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
@@ -7,8 +7,7 @@ import { Logo } from "../components/Logo";
 const FixedMobileHeader = styled.nav`
 	display:none;
 	@media screen and ( max-width: 1024px ) {
-		display: flex;
-		justify-content: space-between;
+		display: inline-block;
 		position: fixed;
 		z-index: 1;
 		width: 100%;
@@ -20,6 +19,10 @@ const FixedMobileHeader = styled.nav`
 
 const LogoutButtonFixedHeader = styled( LogoutButton )`
 	margin: 5px;
+	display: block;
+	position: fixed;
+	right: 0;
+	top: 0;
 `;
 
 /**
@@ -31,6 +34,7 @@ const LogoutButtonFixedHeader = styled( LogoutButton )`
 export default function MobileHeader( props ) {
 	return (
 		<FixedMobileHeader>
+			<BeaconHeaderButton />
 			<Logo size="88px"/>
 			<LogoutButtonFixedHeader type="button" onClick={ props.onLogoutClick } >Sign out</LogoutButtonFixedHeader>
 		</FixedMobileHeader>
