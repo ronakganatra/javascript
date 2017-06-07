@@ -108,14 +108,21 @@ IconButton.defaultProps = {
 	enabledStyle: true,
 };
 
-export const LogoutHeaderButton = styled( IconButton )`
+export const MobileHeaderButton = styled( IconButton )`
 	background-color: transparent;
 	box-shadow: none;
-	margin: 5px;
 	display: block;
 	position: fixed;
-	right: 0;
-	top: 0;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		font-size: 0;
+		padding-left: 40px;
+		box-shadow: none;
+	}
 `;
 
 export const LargeIconButton = styled( IconButton )`
@@ -282,30 +289,6 @@ BeaconButton.defaultProps = {
 	type: "button",
 	"aria-label": "",
 };
-
-export const BeaconHeaderButton = styled ( Button )`
-	display: none;
-
-	@media screen and ( max-width: 1024px ) {
-		display: block;
-		border-radius: 0;
-		height: 32px;
-		width: 32px;
-		font-size: 16px;
-		cursor: pointer;
-		position: fixed;
-		z-index: 1;
-		color: ${ colors.$color_white };
-		background-color: transparent;
-		padding: 0;
-		background-repeat: no-repeat;
-		background-image: url( ${ questionCircle } );
-		background-position: 0;
-		background-size: 32px;
-		box-shadow: none;
-		margin: 8px 8px;
-	}
-`;
 
 export const IconRightButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
