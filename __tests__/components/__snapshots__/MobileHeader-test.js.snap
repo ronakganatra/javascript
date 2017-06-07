@@ -12,7 +12,7 @@ exports[`test the responsive site header matches the snapshot 1`] = `
       src="logo.svg" />
   </a>
   <button
-    className="eZpWey"
+    className="ckhqFE"
     onClick={[Function]}
     type="button">
     <span>

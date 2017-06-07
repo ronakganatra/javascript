@@ -1,5 +1,5 @@
 import React from "react";
-import { LogoutButtonResponsive } from "../components/Button";
+import { LogoutHeaderButton } from "../components/Button";
 import styled from "styled-components";
 import logout from "../icons/logout.svg";
 import colors from "yoast-components/style-guide/colors.json";
@@ -38,12 +38,12 @@ function MobileHeader( props ) {
 	return (
 		<FixedMobileHeader role="banner">
 			<Logo size="88px"/>
-			<LogoutButtonResponsive type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
+			<LogoutHeaderButton type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
 				<FormattedMessage
 					id={ messages.signOut.id }
 					defaultMessage="Sign out"
 				/>
-			</LogoutButtonResponsive>
+			</LogoutHeaderButton>
 		</FixedMobileHeader>
 	);
 }
