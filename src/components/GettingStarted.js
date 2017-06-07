@@ -54,6 +54,7 @@ const VideoContainer = styled.div`
 
 const Video = styled.iframe`
 	position: absolute;
+	border: 0;
     top:0;
     left: 0;
     width: 100%;
@@ -76,7 +77,7 @@ function GettingStarted( props ) {
 			<GettingStartedHeading>
 				<FormattedMessage id="getting-started.header" defaultMessage="Getting started with My Yoast" />
 			</GettingStartedHeading>
-			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" frameBorder="0" allowFullScreen /></VideoContainer>
+			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<GettingStartedText>
 				<label htmlFor="GettingStartedInputField">
 					<FormattedMessage

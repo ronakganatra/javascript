@@ -88,12 +88,12 @@
 
 .screen-reader-text {
 	position: absolute;
-	margin: -1px;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
 	padding: 0;
 	height: 1px;
 	width: 1px;
 	overflow: hidden;
-	clip: rect(0 0 0 0);
 	border: 0;
 	word-wrap: normal !important;
 }
