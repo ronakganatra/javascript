@@ -37,7 +37,8 @@ export const LogoutHeaderButton = styled( MobileHeaderButton )`
 	right: 0;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		right: -48px;
+		width: 56px;
+		padding-right: 0px;
 	}
 `;
 
