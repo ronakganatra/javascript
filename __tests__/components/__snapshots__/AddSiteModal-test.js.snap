@@ -1,12 +1,12 @@
 exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
-    className="hBejNq my-yoast-modal__content"
+    className="ZwEmN my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="hBejNq my-yoast-modal__overlay"
+    overlayClassName="ZwEmN my-yoast-modal__overlay"
     role="dialog">
     <div
       className="kTBxlP">
@@ -35,7 +35,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -66,12 +66,12 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
 exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
-    className="hBejNq my-yoast-modal__content"
+    className="ZwEmN my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="hBejNq my-yoast-modal__overlay"
+    overlayClassName="ZwEmN my-yoast-modal__overlay"
     role="dialog">
     <div
       className="kTBxlP">
@@ -100,7 +100,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -131,12 +131,12 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
 exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
-    className="hBejNq my-yoast-modal__content"
+    className="ZwEmN my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="hBejNq my-yoast-modal__overlay"
+    overlayClassName="ZwEmN my-yoast-modal__overlay"
     role="dialog">
     <div
       className="kTBxlP">
@@ -165,7 +165,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -196,12 +196,12 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
 exports[`test the addSiteModal handling an onConnect event 1`] = `
 <div>
   <div
-    className="hBejNq my-yoast-modal__content"
+    className="ZwEmN my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="hBejNq my-yoast-modal__overlay"
+    overlayClassName="ZwEmN my-yoast-modal__overlay"
     role="dialog">
     <div
       className="kTBxlP">
@@ -230,7 +230,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -261,12 +261,12 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
 exports[`test the addSiteModal handling an onConnect event 2`] = `
 <div>
   <div
-    className="hBejNq my-yoast-modal__content"
+    className="ZwEmN my-yoast-modal__content"
     contentLabel="Add a new site"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="hBejNq my-yoast-modal__overlay"
+    overlayClassName="ZwEmN my-yoast-modal__overlay"
     role="dialog">
     <div
       className="kTBxlP">
@@ -295,7 +295,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
