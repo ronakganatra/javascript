@@ -1,5 +1,5 @@
 exports[`test the responsive site header matches the snapshot 1`] = `
-<header
+<div
   className="bXkdrx"
   role="banner">
   <a
@@ -19,5 +19,5 @@ exports[`test the responsive site header matches the snapshot 1`] = `
       Sign out
     </span>
   </button>
-</header>
+</div>
 `;
