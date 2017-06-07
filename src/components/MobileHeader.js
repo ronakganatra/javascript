@@ -4,7 +4,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 
-const FixedMobileHeader = styled.header`
+const FixedMobileHeader = styled.div`
 	display:none;
 	@media screen and ( max-width: 1024px ) {
 		display: flex;

@@ -116,7 +116,9 @@ export const inMainLayout = ( WrappedComponent ) => {
 						</SkipLink>
 					</header>
 					<Sidebar>
-						<Logo size="200px"/>
+						<MediaQuery query="(min-width: 1025px)">
+							<Logo size="200px"/>
+						</MediaQuery>
 						<UserStatus/>
 						<MainMenu menuRoutes={ menuItems }  />
 						<DebugInfo />
