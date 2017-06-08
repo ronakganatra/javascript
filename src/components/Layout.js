@@ -4,7 +4,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import UserStatus from "../containers/UserStatus";
 import menuItems from "../config/Menu";
 import MainMenu from "../components/Menu";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, defineMessages } from "react-intl";
 import DebugInfo from "../components/DebugInfo";
 import { Logo } from "../components/Logo";
 import SkipLink from "../components/SkipLink";
@@ -12,6 +12,12 @@ import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 
+const messages = defineMessages( {
+	beacon: {
+		id: "needhelp",
+		defaultMessage: "Need help?",
+	},
+} );
 
 const Layout = styled.div`
 	display: flex;
@@ -87,7 +93,9 @@ export const inSingleLayout = ( WrappedComponent ) => {
 				<Layout>
 					<MobileHeaderContainer/>
 					<Main>
-						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
+						<BeaconButtonContainer>
+							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
+						</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
@@ -117,7 +125,9 @@ export const inMainLayout = ( WrappedComponent ) => {
 						<DebugInfo />
 					</Sidebar>
 					<Main>
-						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
+						<BeaconButtonContainer>
+							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
+						</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
