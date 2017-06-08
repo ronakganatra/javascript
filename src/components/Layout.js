@@ -51,14 +51,14 @@ const Sidebar = styled.div`
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
-	margin: 0 2%;
+	margin: 50px 2%;
 	padding: 40px 0;
 	// Firefox needs this for site-name break word to work.
 	min-width: 0;
 
 	@media screen and ( max-width: 1024px ) {
 		margin: 4% 4% 0 4%;
-		padding: 0 0 100px 0;
+		padding: 40px 0 100px 0;
 		position: relative;
 		z-index: 0;
 	}
@@ -69,7 +69,7 @@ const Content = styled.div`
 	margin: 0 auto;
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 68px auto 0;
+		margin: 0 auto;
 	}
 `;
 
@@ -117,7 +117,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 					</header>
 					<Sidebar>
 						<MediaQuery query="(min-width: 1025px)">
-							<Logo size="200px"/>
+							<Logo context="sidebar" size="200px"/>
 						</MediaQuery>
 						<UserStatus/>
 						<MainMenu menuRoutes={ menuItems }  />

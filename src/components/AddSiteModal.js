@@ -94,7 +94,12 @@ const AddSiteModal = styled( BaseAddSiteModal )`
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
 		transition: background 100ms ease-out;
-		z-index: 999;
+	}
+
+	@media screen and (max-width: 1024px) {
+		&.my-yoast-modal__overlay {
+			bottom: 74px;
+		}
 	}
 
 	&.my-yoast-modal__content {

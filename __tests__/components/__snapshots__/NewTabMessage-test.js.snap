@@ -1,8 +1,11 @@
 exports[`test the new tab message component matches the snapshot 1`] = `
-<span
-  className="screen-reader-text">
-  <span>
-    (Opens in a new browser tab)
+<span>
+   
+  <span
+    className="screen-reader-text">
+    <span>
+      (Opens in a new browser tab)
+    </span>
   </span>
 </span>
 `;

@@ -430,10 +430,13 @@ exports[`test the downloads page component matches the snapshot when there are n
       href="https://yoa.st/myyoast-download"
       target="_blank">
       yoast.com
-      <span
-        className="screen-reader-text">
-        <span>
-          (Opens in a new browser tab)
+      <span>
+         
+        <span
+          className="screen-reader-text">
+          <span>
+            (Opens in a new browser tab)
+          </span>
         </span>
       </span>
     </a>

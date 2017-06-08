@@ -8,8 +8,8 @@ import { FormattedMessage } from "react-intl";
  */
 export default function NewTabMessage() {
 	return (
-		<span className="screen-reader-text">
+		<span>{ " " }<span className="screen-reader-text">
 			<FormattedMessage id="link.new-window" defaultMessage="(Opens in a new browser tab)" />
-		</span>
+		</span></span>
 	);
 }
