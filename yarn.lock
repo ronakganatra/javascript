@@ -4,7 +4,7 @@
 
 "a11y-speak@git+https://github.com/Yoast/a11y-speak.git#master":
   version "0.0.1"
-  resolved "git+https://github.com/Yoast/a11y-speak.git#a968fffb1982e742ab61a41709d71ca76d6fe035"
+  resolved "git+https://github.com/Yoast/a11y-speak.git#4e772809a2fed1a54ba29176ada175b15436e977"
 
 abab@^1.0.3:
   version "1.0.3"
