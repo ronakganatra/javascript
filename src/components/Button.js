@@ -4,6 +4,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import Link from "./Link";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
+import questionCircle from "../icons/question-circle.svg";
 import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
@@ -107,9 +108,20 @@ IconButton.defaultProps = {
 	enabledStyle: true,
 };
 
-export const LogoutHeaderButton = styled( IconButton )`
+export const MobileHeaderButton = styled( IconButton )`
 	background-color: transparent;
 	box-shadow: none;
+	display: block;
+	position: fixed;
+
+	&:hover {
+		box-shadow: none;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		text-indent: -9999em;
+		box-shadow: none;
+	}
 `;
 
 export const LargeIconButton = styled( IconButton )`
@@ -217,8 +229,7 @@ export const ChevronButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ chevronRight } );
 	background-position: center;
-	background-size: 24px;
-	background-size: 30px;
+	background-size: 32px;
 	width:  48px;
 	height: 48px;
 	cursor: pointer;
@@ -239,18 +250,32 @@ ChevronButton.defaultProps = {
 export const BeaconButton = styled( Button )`
 	border-radius: 0;
 	height: 36px;
-	width: 112px;
+	width: 152px;
+	font-size: 16px;
 	cursor: pointer;
 	position: fixed;
 	z-index: 1;
-	left: -40px;
-	top: 50%;
-	transform: rotate( 270deg );
+	left: -112px;
+	top: 85%;
+	color: ${ colors.$color_white };
 	background-color: ${ colors.$color_green_medium_light };
-	padding: 0;
-	
-	&:active {
-		transform: rotate( 270deg );
+	z-index: 1;
+	padding-right: 40px;
+	background-repeat: no-repeat;
+	background-image: url( ${ questionCircle } );
+	background-position: right 8px center;
+	background-size: 24px;
+	transition: left .5s ease-in;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+
+	&:focus,
+	&:hover {
+		left: 0;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+	}
+
+	@media screen and ( max-width: 1024px ) {
+		display: none;
 	}
 `;
 
