@@ -87,7 +87,9 @@ export const inSingleLayout = ( WrappedComponent ) => {
 				<Layout>
 					<MobileHeaderContainer/>
 					<Main>
-						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
+						<BeaconButtonContainer>
+							<FormattedMessage id="beacon.needhelp" defaultMessage="Need help?" />
+						</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
@@ -117,7 +119,9 @@ export const inMainLayout = ( WrappedComponent ) => {
 						<DebugInfo />
 					</Sidebar>
 					<Main>
-						<BeaconButtonContainer>Need help?</BeaconButtonContainer>
+						<BeaconButtonContainer>
+							<FormattedMessage id="beacon.needhelp" defaultMessage="Need help?" />
+						</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
