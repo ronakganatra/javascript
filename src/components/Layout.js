@@ -57,7 +57,7 @@ const Sidebar = styled.div`
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
-	margin: 50px 2%;
+	margin: 42px 2%;
 	padding: 40px 0;
 	// Firefox needs this for site-name break word to work.
 	min-width: 0;
