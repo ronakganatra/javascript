@@ -1,6 +1,6 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { LargeButton, makeButtonFullWidth } from "./Button.js";
+import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
@@ -120,6 +120,8 @@ const PurpleLink = styled.a`
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
+const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
+
 
 class AddSite extends React.Component {
 	/**
@@ -273,10 +275,11 @@ class AddSite extends React.Component {
 					{ this.validateUrl( this.props.linkingSiteUrl ) }
 					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 					<Buttons>
-						<WideLargeButton type="button" onClick={ this.props.onCancelClick }>
+						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-						</WideLargeButton>
-						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {} } enabledStyle={ this.urlValidity }>
+						</WideSecondaryButton>
+						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>

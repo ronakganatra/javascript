@@ -52,6 +52,21 @@ export const LargeButton = styled( Button )`
 	min-width: 152px;
 `;
 
+export const LargeSecondaryButton = styled( LargeButton )`
+	color: ${ colors.$color_black };
+	box-shadow: none;
+	background-color: ${ colors.$color_white };
+	border: 1px solid ${ colors.$color_black };
+	
+	&:focus,
+	&:hover {
+		background-color: ${ colors.$color_green_medium_light };
+		color: ${ colors.$color_white };
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+		border: none;
+	}
+`;
+
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 `;

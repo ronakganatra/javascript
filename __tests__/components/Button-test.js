@@ -1,8 +1,7 @@
-
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import { Button } from '../../src/components/Button';
+import { Button, BeaconButton, LargeSecondaryButton } from '../../src/components/Button';
 
 test('the button matches the snapshot', () => {
 	const component = renderer.create(
@@ -39,3 +38,23 @@ test('the button handling an onclick event', () => {
 	tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
+
+test('the beacon button matches the snapshot', () => {
+	const component = renderer.create(
+		<BeaconButton>ButtonValue</BeaconButton>
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+test('the Large Secondary Button matches the snapshot', () => {
+	const component = renderer.create(
+		<LargeSecondaryButton>ButtonValue</LargeSecondaryButton>
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+

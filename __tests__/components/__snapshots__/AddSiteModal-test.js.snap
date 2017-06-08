@@ -35,7 +35,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -100,7 +100,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -165,7 +165,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -230,7 +230,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
@@ -295,7 +295,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
         <div
           className="gKAvLX">
           <button
-            className="cQKPtQ"
+            className="icAwVQ"
             onClick={[Function]}
             type="button">
             <span>
