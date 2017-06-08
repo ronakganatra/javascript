@@ -1,7 +1,7 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
-import { IconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
+import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
@@ -50,7 +50,7 @@ let invoiceStatuses = [ "completed", "refunded" ];
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
-	let InvoiceButton = IconButtonLink;
+	let InvoiceButton = LargeIconButtonLink;
 	if ( ! invoiceStatuses.includes( props.status ) ) {
 		InvoiceButton = disable( IconButton );
 	}
