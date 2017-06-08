@@ -17,7 +17,7 @@ exports[`test the NoResults component matches the snapshot in the case of no ord
     </span>
   </p>
   <button
-    className="djkrxg"
+    className="tgmOK"
     onClick={[Function]}
     type="button">
     <span>
@@ -50,7 +50,7 @@ exports[`test the NoResults component matches the snapshot in the case of no sit
     </span>
   </p>
   <button
-    className="jLgvqh"
+    className="jixybb"
     onClick={[Function]}>
     <span>
       Add site
@@ -82,7 +82,7 @@ exports[`test the NoResults component matches the snapshot in the case of no sub
     </span>
   </p>
   <button
-    className="djkrxg"
+    className="tgmOK"
     onClick={[Function]}
     type="button">
     <span>

@@ -20,7 +20,7 @@ exports[`test The Download component matches the snapshot 1`] = `
       className="jVUpbY">
       <button
         aria-label="Download Yoast SEO for Wordpress"
-        className="eBIRAa"
+        className="lkyrfy"
         onClick={[Function]}>
         Download
       </button>
@@ -34,7 +34,7 @@ exports[`test The Download component matches the snapshot 1`] = `
       className="jVUpbY">
       <button
         aria-label="Download Yoast SEO for Drupal"
-        className="eBIRAa"
+        className="lkyrfy"
         onClick={[Function]}>
         Download
       </button>
@@ -66,7 +66,7 @@ exports[`test The Download component without a currentVersion matches the snapsh
       className="jVUpbY">
       <button
         aria-label="Download Yoast SEO for Wordpress"
-        className="eBIRAa"
+        className="lkyrfy"
         onClick={[Function]}>
         Download
       </button>
@@ -80,7 +80,7 @@ exports[`test The Download component without a currentVersion matches the snapsh
       className="jVUpbY">
       <button
         aria-label="Download Yoast SEO for Drupal"
-        className="eBIRAa"
+        className="lkyrfy"
         onClick={[Function]}>
         Download
       </button>

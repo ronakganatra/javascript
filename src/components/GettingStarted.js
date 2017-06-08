@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth } from "./Button.js";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
-import colors from "yoast-components/style-guide/colors.json";
 
 const messages = defineMessages( {
 	knowledgeBase: {
@@ -31,9 +30,6 @@ const GettingStartedText = styled.p`
 	font-weight: 300;
 	font-size: 16px;
 	margin-top: 18px;
-	a {
-		color: ${ colors.$color_blue };
-	}
 `;
 
 const Buttons = styled.div`

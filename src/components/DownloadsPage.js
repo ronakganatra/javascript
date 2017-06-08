@@ -47,10 +47,6 @@ const ProductOverviewContainer = styled.div`
 	flex-wrap: wrap;
 	padding-top: 24px;
 	margin-top: 36px;
-
-	a {
-		color: ${ colors.$color_blue };
-	}
 `;
 
 const ByLine = styled.span`

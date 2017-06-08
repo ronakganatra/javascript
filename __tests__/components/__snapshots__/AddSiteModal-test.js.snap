@@ -35,7 +35,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
       <div
         className="etHoNp">
         <button
-          className="gVNhZM"
+          className="dChgFz"
           onClick={[Function]}
           type="button">
           <span>
@@ -43,7 +43,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
           </span>
         </button>
         <button
-          className="fpqbdc"
+          className="cGLSOs"
           onClick={[Function]}
           type="button">
           <span>
@@ -99,7 +99,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
       <div
         className="etHoNp">
         <button
-          className="gVNhZM"
+          className="dChgFz"
           onClick={[Function]}
           type="button">
           <span>
@@ -107,7 +107,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
           </span>
         </button>
         <button
-          className="fpqbdc"
+          className="cGLSOs"
           onClick={[Function]}
           type="button">
           <span>
@@ -163,7 +163,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
       <div
         className="etHoNp">
         <button
-          className="gVNhZM"
+          className="dChgFz"
           onClick={[Function]}
           type="button">
           <span>
@@ -171,7 +171,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
           </span>
         </button>
         <button
-          className="fpqbdc"
+          className="cGLSOs"
           onClick={[Function]}
           type="button">
           <span>
@@ -227,7 +227,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
       <div
         className="etHoNp">
         <button
-          className="gVNhZM"
+          className="dChgFz"
           onClick={[Function]}
           type="button">
           <span>
@@ -235,7 +235,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
           </span>
         </button>
         <button
-          className="fpqbdc"
+          className="cGLSOs"
           onClick={[Function]}
           type="button">
           <span>
@@ -291,7 +291,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
       <div
         className="etHoNp">
         <button
-          className="gVNhZM"
+          className="dChgFz"
           onClick={[Function]}
           type="button">
           <span>
@@ -299,7 +299,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
           </span>
         </button>
         <button
-          className="fpqbdc"
+          className="cGLSOs"
           onClick={[Function]}
           type="button">
           <span>

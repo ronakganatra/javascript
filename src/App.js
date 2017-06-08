@@ -29,6 +29,15 @@ injectGlobal`
 		min-height: 100%;
 		background: ${colors.$color_grey_light};
 	}
+
+	a {
+		color: ${ colors.$color_blue };
+	}
+
+	a:hover,
+	a:focus {
+		color: ${ colors.$color_pink_dark };
+	}
 `;
 
 const Routes = ( props ) => {
