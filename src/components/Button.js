@@ -266,7 +266,7 @@ export const BeaconButton = styled( Button )`
 	background-position: right 8px center;
 	background-size: 24px;
 	transition: left .5s ease-in;
-	text-shadow: 1px 1px black;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 
 	&:focus,
 	&:hover {
