@@ -8,6 +8,8 @@ import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
 import defaults from "../config/defaults.json";
+import a11ySpeak from "a11y-speak";
+import _debounce from "lodash/debounce";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -15,6 +17,8 @@ const messages = defineMessages( {
 		defaultMessage: "Please enter a valid URL. Remember to use http:// or https://.",
 	},
 } );
+
+let debouncedSpeak = _debounce( a11ySpeak, 1000 );
 
 const AddSiteModal = styled.div`
 	max-width: 640px;
@@ -66,7 +70,7 @@ const Buttons = styled.div`
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		
+
 		a,
 		button {
 			margin-left: 0px;
@@ -275,6 +279,26 @@ class AddSite extends React.Component {
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
+	}
+
+	componentDidUpdate( prevProps ) {
+		this.speakSearchResultsMessage( prevProps );
+	}
+
+	speakSearchResultsMessage( prevProps ) {
+		/*
+		 * In order to use this.urlValidity we need to wait it's updated so we
+		 * use componentDidUpdate() to call the debounced a11ySpeak. As a
+		 * consequence, we need to use the lodash debounce.cancel() method to
+		 * cancel the delayed call. This is particularly important when typing
+		 * fast in the site URL field.
+		 */
+		debouncedSpeak.cancel();
+
+		if ( this.props.linkingSiteUrl.length > 0 && ( this.props.linkingSiteUrl !== prevProps.linkingSiteUrl ) && ! this.urlValidity ) {
+			let message = this.props.intl.formatMessage( messages.validationFormatURL );
+			debouncedSpeak( message, "assertive" );
+		}
 	}
 }
 
