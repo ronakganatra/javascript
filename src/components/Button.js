@@ -338,14 +338,18 @@ export function makeResponsiveIconButton( component ) {
 	return styled( component )`
 		.screen-reader-text {
 			position: static;
+			clip-path: none;
 		}
 
 		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
 			padding-right: 0;
 			padding-left: 42px;
+			min-width: 0;
 
 			.screen-reader-text {
 				position: absolute;
+				clip: rect(1px, 1px, 1px, 1px);
+				clip-path: inset(50%);
 			}
 		}
 	`;
