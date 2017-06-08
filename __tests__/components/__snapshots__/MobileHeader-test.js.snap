@@ -1,6 +1,6 @@
 exports[`test the responsive site header matches the snapshot 1`] = `
-<header
-  className="Bludo"
+<div
+  className="hoACPf"
   role="banner">
   <button
     className="iArdEu"
@@ -15,7 +15,7 @@ exports[`test the responsive site header matches the snapshot 1`] = `
     onClick={[Function]}>
     <img
       alt="Home page"
-      className="hIISaB"
+      className="cfqaso"
       size="88px"
       src="logo.svg" />
   </a>
@@ -27,5 +27,5 @@ exports[`test the responsive site header matches the snapshot 1`] = `
       Sign out
     </span>
   </button>
-</header>
+</div>
 `;
