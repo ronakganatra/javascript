@@ -1,6 +1,6 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { LargeButton, LargeSecondaryButton } from "./Button.js";
+import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
 import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
@@ -21,6 +21,12 @@ const AddSiteModal = styled.div`
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;
+	label {
+		display: inline-block;
+		font-weight: 300;
+		font-size: 1em;
+		margin: 16px 0 8px 0;
+	}
 `;
 
 const AddSiteImage = styled.img`
@@ -32,13 +38,8 @@ const AddSiteImage = styled.img`
 const AddSiteHeading = styled.h1`
 	font-weight: 300;
 	font-size: 1.5em;
+	// margin: 0 0 8px 0;
 	margin: 0;
-`;
-
-const AddSiteText = styled.p`
-	font-weight: 300;
-	font-size: 1em;
-	margin: 16px 0 8px 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -49,19 +50,18 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	// margin-top: 8px;
 ` );
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
 	padding: 8px 0;
 	text-align: right;
-
 	a,
 	button {
 		margin-left: 12px;
 	}
-
-	@media screen and ( max-width: 420px ) {
+	@media screen and (max-width: ${ defaults.css.breakpoint.mobile }px) {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -81,8 +81,6 @@ const YellowWarning = styled.p`
 	overflow: auto;
 	display: flex;
 	align-items: center;
-
-
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		flex-direction: column;
 		text-align: left;
@@ -95,7 +93,6 @@ const NoActiveProductIcon = styled.img`
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
-
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		padding: 10px;
 	}
@@ -116,11 +113,15 @@ const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
 `;
 
+const WideLargeButton = makeButtonFullWidth( LargeButton );
+const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
+
+
 class AddSite extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
 	 *
- 	 * @param {Object} props The props to be passed to the class that was extended from.
+	 * @param {Object} props The props to be passed to the class that was extended from.
 	 *
 	 * @returns {void}
 	 */
@@ -137,7 +138,7 @@ class AddSite extends React.Component {
 	/**
 	 * Sets the constraints for validation to URL, and sets the message that should be returned if the constraints are not met.
 	 *
- 	 * @returns {Object} Returns the constraints for the URL, and the message.
+	 * @returns {Object} Returns the constraints for the URL, and the message.
 	 */
 	urlConstraints() {
 		return {
@@ -241,36 +242,42 @@ class AddSite extends React.Component {
 			suggestedValue = this.props.query;
 		}
 
+		let handleSubmit = ( event ) => {
+			event.preventDefault();
+
+			return ( this.urlValidity ? this.props.onConnectClick : () => {} );
+		};
+
 		return (
 			<AddSiteModal>
 				<AddSiteHeading>
 					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
 				</AddSiteHeading>
-				<AddSiteText>
-					<label htmlFor="addSiteInputField">
+				<form onSubmit={ handleSubmit } noValidate>
+					<label htmlFor="add-site-input">
 						<FormattedMessage id="sites.add-site.enter-url"
 										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
 						/>
 					</label>
-				</AddSiteText>
-				<WebsiteURL
-					type="url"
-					id="addSiteInputField"
-					placeholder={ "https://example-site.com" }
-					defaultValue={ suggestedValue }
-					onChange={ this.onWebsiteURLChange.bind( this ) }
-				/>
-				{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
-				{ this.validateUrl( this.props.linkingSiteUrl ) }
-				<Buttons>
-					<LargeSecondaryButton type="button" onClick={ this.props.onCancelClick } >
-						<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
-					</LargeSecondaryButton>
-					<LargeButton type="button" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-					} } enabledStyle={ this.urlValidity }>
-						<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
-					</LargeButton>
-				</Buttons>
+					<WebsiteURL
+						type="url"
+						id="add-site-input"
+						placeholder={ "https://example-site.com" }
+						defaultValue={ suggestedValue }
+						onChange={ this.onWebsiteURLChange.bind( this ) }
+					/>
+					{ this.validateUrl( this.props.linkingSiteUrl ) }
+					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+					<Buttons>
+						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
+							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+						</WideSecondaryButton>
+						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ this.urlValidity }>
+							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+						</WideLargeButton>
+					</Buttons>
+				</form>
 				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
