@@ -22,12 +22,9 @@ exports[`test the site header matches the snapshot 1`] = `
       className="hTpgWn"
       href="http://placehold.it//wp-admin">
       <span>
-        Open WordPress admin
-      </span>
-      <span>
-         
+        Open WordPress admin 
         <span
-          className="screen-reader-text">
+          className="screen-reader-text fuqaAG">
           <span>
             (Opens in a new browser tab)
           </span>

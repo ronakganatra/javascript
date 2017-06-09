@@ -73,24 +73,22 @@ const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
  */
 function GettingStarted( props ) {
 	return (
-		<GettingStartedModal>
+		<GettingStartedModal role="document">
 			<GettingStartedHeading>
 				<FormattedMessage id="getting-started.header" defaultMessage="Getting started with My Yoast" />
 			</GettingStartedHeading>
-			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<GettingStartedText>
-				<label htmlFor="GettingStartedInputField">
-					<FormattedMessage
-						id="getting-started.text"
-						defaultMessage="If you have more questions, check our our { KBLink } articles, or { emailLink }."
-						values={ {
-							KBLink: <a target="_blank" href="https://yoa.st/12q">{ props.intl.formatMessage( messages.knowledgeBase ) }<NewTabMessage /></a>,
-							emailLink: <a href="mailto:support@yoast.com">{ props.intl.formatMessage( messages.email ) }</a>,
-						} }
-					/>
-
-				</label>
+				<FormattedMessage
+					id="getting-started.text"
+					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }. If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
+					values={ {
+						myYoast: "My Yoast",
+						KBLink: <a target="_blank" href="https://yoa.st/12q">{ props.intl.formatMessage( messages.knowledgeBase ) }<NewTabMessage /></a>,
+						emailLink: <a href="mailto:support@yoast.com">{ props.intl.formatMessage( messages.email ) }</a>,
+					} }
+				/>
 			</GettingStartedText>
+			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="getting-started.got-it" defaultMessage="Got it" />

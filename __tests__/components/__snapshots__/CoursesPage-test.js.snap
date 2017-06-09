@@ -11,13 +11,10 @@ exports[`test the courses page component matches the snapshot 1`] = `
       href="https://yoa.st/myyoast-academy"
       target="_blank">
       yoast.academy
-      <span>
-         
-        <span
-          className="screen-reader-text">
-          <span>
-            (Opens in a new browser tab)
-          </span>
+      <span
+        className="screen-reader-text fuqaAG">
+        <span>
+          (Opens in a new browser tab)
         </span>
       </span>
     </a>
