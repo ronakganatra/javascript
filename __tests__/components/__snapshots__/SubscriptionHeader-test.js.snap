@@ -4,7 +4,7 @@ exports[`test the subscription header matches the snapshot 1`] = `
   <div
     className="jlVeDb">
     <a
-      className="mMcmp"
+      className="cMPKsQ"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"
@@ -29,7 +29,7 @@ exports[`test the subscription header matches the snapshot 1`] = `
   <div
     className="czrsFh">
     <a
-      className="fviucV"
+      className="bDwqmp"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"

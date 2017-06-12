@@ -3,7 +3,7 @@ exports[`test the responsive site header matches the snapshot 1`] = `
   className="Bludo"
   role="banner">
   <button
-    className="iArdEu"
+    className="eeyfLS"
     onClick={[Function]}
     type="button">
     <span>
@@ -20,7 +20,7 @@ exports[`test the responsive site header matches the snapshot 1`] = `
       src="logo.svg" />
   </a>
   <button
-    className="kdOWzz"
+    className="fTeRQe"
     onClick={[Function]}
     type="button">
     <span>

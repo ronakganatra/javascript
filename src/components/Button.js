@@ -10,8 +10,8 @@ import defaults from "../config/defaults.json";
 let buttonAnimations = `
 	transition: background 150ms ease-out;
 
-	&:focus,
-	&:hover {
+	&:hover,
+	&:focus {
 		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), inset 0 0 0 100px rgba( 0, 0, 0, 0.1 );
 	}
 
@@ -58,9 +58,9 @@ export const LargeSecondaryButton = styled( LargeButton )`
 	box-shadow: none;
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
-	
-	&:focus,
-	&:hover {
+
+	&:hover,
+	&:focus {
 		background-color: ${ colors.$color_green_medium_light };
 		color: ${ colors.$color_white };
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
@@ -114,7 +114,8 @@ export const MobileHeaderButton = styled( IconButton )`
 	display: block;
 	position: fixed;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		box-shadow: none;
 	}
 
@@ -139,8 +140,8 @@ export const IconButtonTransparent = styled( IconButton )`
 
 	transition: background 150ms ease-out;
 
-	&:focus,
-	&:hover {
+	&:hover,
+	&:focus {
 		box-shadow: none;
 		background-color: ${ colors.$color_grey_light };
 	}
@@ -173,6 +174,11 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
+
+	&:hover,
+	&:focus {
+		color: ${ colors.$color_white };
+	}
 
 	${ buttonAnimations }
 `;
@@ -268,8 +274,8 @@ export const BeaconButton = styled( Button )`
 	transition: left .5s ease-in;
 	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 
-	&:focus,
-	&:hover {
+	&:hover,
+	&:focus {
 		left: 0;
 		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 	}
@@ -320,8 +326,8 @@ export function disable( Button ) {
 		background-color: ${ colors.$color_grey_disabled };
 		cursor: default;
 
-		&:focus,
-		&:hover {
+		&:hover,
+		&:focus {
 			box-shadow: none;
 		}
 
