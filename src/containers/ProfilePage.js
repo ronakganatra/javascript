@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import { profileUpdateEmail, updateProfile, passwordResetSend, disableUser } from "../actions/user";
 import { url } from "gravatar";
-let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/My_Yoast_default_avatar.png";
+let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
 	return {
