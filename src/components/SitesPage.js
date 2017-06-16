@@ -95,6 +95,7 @@ class SitesPage extends React.Component {
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
 			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
 		];
+
 		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
 							defaultMessage={ "We could not find { site } in your account." }
 							values={ { site: <strong>{ props.query }</strong> } } />,
@@ -104,11 +105,13 @@ class SitesPage extends React.Component {
 		if ( props.showLoader ) {
 			return <AnimatedLoader />;
 		}
+
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onConnect={ props.onConnect } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
 						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
+
 		if ( props.sites.length > 0 ) {
 			return (
 				<div>
@@ -133,6 +136,7 @@ class SitesPage extends React.Component {
 				</div>
 			);
 		}
+
 		return (
 			<div>
 				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />

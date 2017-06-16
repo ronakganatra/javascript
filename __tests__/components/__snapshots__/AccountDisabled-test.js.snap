@@ -1,12 +1,17 @@
-exports[`test the account disabled component matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the account disabled component matches the snapshot 1`] = `
 <div
-  className="cttIji">
+  className="cttIji"
+>
   <img
     className="jEhkge"
     size="200px"
-    src="logoColor.svg" />
+    src="logoColor.svg"
+  />
   <h1
-    className="kchLit">
+    className="kchLit"
+  >
     <span>
       Account disabled
     </span>
@@ -15,7 +20,8 @@ exports[`test the account disabled component matches the snapshot 1`] = `
     <span>
       If you would like to re-enable your account, please contact our 
       <a
-        href="mailto:support@yoast.com">
+        href="mailto:support@yoast.com"
+      >
         support team
       </a>
       .
@@ -25,7 +31,8 @@ exports[`test the account disabled component matches the snapshot 1`] = `
     <span>
       Visit 
       <a
-        href="https://yoast.com">
+        href="https://yoast.com"
+      >
         Yoast.com
       </a>
       .
@@ -34,6 +41,7 @@ exports[`test the account disabled component matches the snapshot 1`] = `
   <img
     alt=""
     className="kKZHaX"
-    src="PageNotFound.svg" />
+    src="PageNotFound.svg"
+  />
 </div>
 `;

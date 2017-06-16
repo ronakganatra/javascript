@@ -1,5 +1,114 @@
+import "whatwg-fetch";
 import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
+import { DuplicateRecord } from "../errors/DuplicateRecord";
+import { GenericServerError } from "../errors/GenericServerError";
+
+/**
+ * Determines whether or not a valid HTTP method was passed.
+ *
+ * @param {string} method The HTTP method to check.
+ * @returns {boolean} Whether or not the HTTP method is valid.
+ */
+function determineValidMethod( method ) {
+	let validMethods = [ "GET", "POST", "PUT", "FETCH", "HEAD", "DELETE" ];
+
+	if ( typeof method !== "string" ) {
+		return false;
+	}
+
+	return validMethods.includes( method.toUpperCase() );
+}
+
+/**
+ * Prepares a request for sending.
+ *
+ * @param {string} url The URL to send the request to.
+ * @param {object} payload The payload of the request.
+ * @param {string} method The HTTP method to use for the request.
+ * @returns {Request} The Request object.
+ */
+export function prepareRequest( url, payload = {}, method = "GET" ) {
+	if ( ! determineValidMethod( method ) ) {
+		throw new Error( `Invalid method of ${method} supplied. Please ensure it's a string and a valid HTTP method.` );
+	}
+
+	let options = {
+		method,
+		headers: {
+			"Content-Type": "application/json",
+		},
+	};
+
+	if ( method !== "GET" ) {
+		options.body = JSON.stringify( payload );
+	}
+
+	return new Request( `${getApiUrl()}/${url}?access_token=${getAccessToken()}`, options );
+}
+
+/**
+ * Executes a specific request and handles potential errors.
+ *
+ * @param {Request} request The request to execute.
+ * @returns {object} The fetched request object.
+ */
+export function doRequest( request ) {
+	return fetch( request )
+		.then( handleResponse )
+		.catch( ( error ) => {
+			throw error;
+		} );
+}
+
+/**
+ * Handles the response.
+ *
+ * @param {Response} response The server response object.
+ * @returns {object} The processes response.
+ */
+function handleResponse( response ) {
+	let validStatusCodes = [ 200, 204 ];
+
+	if ( response.status === 401 ) {
+		return handle401( response );
+	}
+
+	if ( ! validStatusCodes.includes( response.status ) ) {
+		return handleErrorResponse( response );
+	}
+
+	return response.json();
+}
+/**
+ * Handles an errored response.
+ *
+ * @param {object} response The response to handle.
+ * @returns {object} The reponse object.
+ */
+function handleErrorResponse( response ) {
+	return response
+		.json()
+		.then( response => determineErrorMessage( response ) );
+}
+
+/**
+ * Determines the error to throw.
+ *
+ * @param {object} response The error response that was passed along.
+ * @returns {void}
+ */
+function determineErrorMessage( response ) {
+	if ( ! response.error ) {
+		throw new GenericServerError( response.statusText );
+	}
+
+	if ( response.error.code === "ER_DUP_ENTRY" ) {
+		throw new DuplicateRecord();
+	}
+
+	throw new GenericServerError( response.error.message );
+}
 
 /**
  * Returns the API URL that should be used to do AJAX requests to.
@@ -11,10 +120,10 @@ export function getApiUrl() {
 }
 
 /**
- * Checks a response for a 401 status code and redirects if present.
+ * Checks a response for a 401 status code and redirects if true.
  *
  * @param {Object} response The response that needs to be checked for a 401.
- * @returns {Object} Returns the unaltered object if no 401 is present.
+ * @returns {object} The request object.
  */
 export function handle401( response ) {
 	if ( response.status === 401 ) {

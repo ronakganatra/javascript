@@ -257,12 +257,14 @@ class AddSite extends React.Component {
 				<AddSiteHeading>
 					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
 				</AddSiteHeading>
+
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">
 						<FormattedMessage id="sites.add-site.enter-url"
 										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
 						/>
 					</label>
+
 					<WebsiteURL
 						type="url"
 						id="add-site-input"
@@ -270,8 +272,10 @@ class AddSite extends React.Component {
 						defaultValue={ suggestedValue }
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
+
 					{ this.validateUrl( this.props.linkingSiteUrl ) }
 					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
