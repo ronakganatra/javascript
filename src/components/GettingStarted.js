@@ -88,7 +88,7 @@ function GettingStarted( props ) {
 					} }
 				/>
 			</GettingStartedText>
-			<VideoContainer><Video height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
+			<VideoContainer><Video title="My Yoast introductory video" height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="getting-started.got-it" defaultMessage="Got it" />
