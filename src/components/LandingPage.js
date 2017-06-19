@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import NewTabMessage from "../components/NewTabMessage";
-import colors from "yoast-components/style-guide/colors.json";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -25,7 +24,6 @@ const PageContainer = styled.div`
 
 	a {
 		font-size: 1.5em;
-		color: ${ colors.$color_blue };
 	}
 `;
 

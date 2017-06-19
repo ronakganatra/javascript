@@ -33,9 +33,9 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="eVNsVH">
+          className="eHlvIb">
           <button
-            className="icAwVQ"
+            className="esBjHe"
             onClick={[Function]}
             type="button">
             <span>
@@ -43,7 +43,7 @@ exports[`test The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="jVSHhf"
+            className="gjaBno"
             onClick={[Function]}
             type="submit">
             <span>
@@ -98,9 +98,9 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="eVNsVH">
+          className="eHlvIb">
           <button
-            className="icAwVQ"
+            className="esBjHe"
             onClick={[Function]}
             type="button">
             <span>
@@ -108,7 +108,7 @@ exports[`test the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="jVSHhf"
+            className="gjaBno"
             onClick={[Function]}
             type="submit">
             <span>
@@ -163,9 +163,9 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="eVNsVH">
+          className="eHlvIb">
           <button
-            className="icAwVQ"
+            className="esBjHe"
             onClick={[Function]}
             type="button">
             <span>
@@ -173,7 +173,7 @@ exports[`test the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="jVSHhf"
+            className="gjaBno"
             onClick={[Function]}
             type="submit">
             <span>
@@ -228,9 +228,9 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="eVNsVH">
+          className="eHlvIb">
           <button
-            className="icAwVQ"
+            className="esBjHe"
             onClick={[Function]}
             type="button">
             <span>
@@ -238,7 +238,7 @@ exports[`test the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
-            className="jVSHhf"
+            className="gjaBno"
             onClick={[Function]}
             type="submit">
             <span>
@@ -293,9 +293,9 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
           placeholder="https://example-site.com"
           type="url" />
         <div
-          className="eVNsVH">
+          className="eHlvIb">
           <button
-            className="icAwVQ"
+            className="esBjHe"
             onClick={[Function]}
             type="button">
             <span>
@@ -303,7 +303,7 @@ exports[`test the addSiteModal handling an onConnect event 2`] = `
             </span>
           </button>
           <button
-            className="jVSHhf"
+            className="gjaBno"
             onClick={[Function]}
             type="submit">
             <span>

@@ -11,14 +11,22 @@ import Link from "./Link.js";
  * @constructor
  */
 export function Logo( props ) {
-	return (
-		<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
-	);
+	switch ( props.context ) {
+		case "header":
+			return (
+				<Link to="/"><HeaderLogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+			);
+		case "sidebar":
+			return (
+				<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+			);
+	}
 }
 
 Logo.propTypes = {
 	size: React.PropTypes.string,
 	alt: React.PropTypes.string,
+	context: React.PropTypes.string.isRequired,
 };
 
 Logo.defaultProps = {
@@ -43,3 +51,7 @@ LogoImage.propTypes = {
 LogoImage.defaultProps = {
 	size: "200px",
 };
+
+const HeaderLogoImage = styled( LogoImage )`
+	margin: 12px auto;
+`;

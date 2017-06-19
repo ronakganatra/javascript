@@ -24,9 +24,9 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       placeholder="https://example-site.com"
       type="url" />
     <div
-      className="eVNsVH">
+      className="eHlvIb">
       <button
-        className="icAwVQ"
+        className="esBjHe"
         onClick={[Function]}
         type="button">
         <span>
@@ -34,7 +34,7 @@ exports[`test The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        className="jVSHhf"
+        className="gjaBno"
         onClick={[Function]}
         type="submit">
         <span>

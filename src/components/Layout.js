@@ -11,6 +11,7 @@ import SkipLink from "../components/SkipLink";
 import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
+import MediaQuery from "react-responsive";
 
 const messages = defineMessages( {
 	beacon: {
@@ -56,14 +57,14 @@ const Sidebar = styled.div`
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
-	margin: 0 2%;
+	margin: 42px 2%;
 	padding: 40px 0;
 	// Firefox needs this for site-name break word to work.
 	min-width: 0;
 
 	@media screen and ( max-width: 1024px ) {
 		margin: 4% 4% 0 4%;
-		padding: 0 0 100px 0;
+		padding: 40px 0 100px 0;
 		position: relative;
 		z-index: 0;
 	}
@@ -74,7 +75,7 @@ const Content = styled.div`
 	margin: 0 auto;
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 68px auto 0;
+		margin: 0 auto;
 	}
 `;
 
@@ -91,11 +92,10 @@ export const inSingleLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<MobileHeaderContainer/>
+					<header role="banner">
+						<MobileHeaderContainer/>
+					</header>
 					<Main>
-						<BeaconButtonContainer>
-							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
-						</BeaconButtonContainer>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
@@ -112,14 +112,18 @@ export const inMainLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<MobileHeaderContainer/>
+					<header role="banner">
+						<SkipLink>
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+						</SkipLink>
+						<MediaQuery query="(max-width: 1024px)">
+							<MobileHeaderContainer/>
+						</MediaQuery>
+					</header>
 					<Sidebar>
-						<header role="banner">
-							<SkipLink>
-								<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-							</SkipLink>
-							<Logo size="200px"/>
-						</header>
+						<MediaQuery query="(min-width: 1025px)">
+							<Logo context="sidebar" size="200px"/>
+						</MediaQuery>
 						<UserStatus/>
 						<MainMenu menuRoutes={ menuItems }  />
 						<DebugInfo />

@@ -45,13 +45,12 @@ const LinkItem = styled( NavLink )`
 	&:hover,
 	&:focus,
 	&.${ activeStyle } {
-		font-weight: 400;
-		color: ${ colors.$color_pink_dark };
 		border-bottom-color: ${ colors.$color_pink_dark };
 		border-bottom-style: double;
 	}
 
 	&.${ activeStyle } {
+		color: ${ colors.$color_pink_dark };
 		border-bottom-style: solid;
 	}
 `;
