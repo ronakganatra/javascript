@@ -12,7 +12,7 @@ test('the responsive site header matches the snapshot', () => {
 		<MemoryRouter>
 			<MobileHeader role="banner" onLogoutClick={ () => {} } onBeaconClick={ () => {} }>
 				<BeaconHeaderButton type="button" onClick={ () => {} } iconSource={ questionCircle } iconSize="24px">Need help?</BeaconHeaderButton>
-				<Logo size="88px"/>
+				<Logo context="header" size="88px"/>
 				<LogoutHeaderButton type="button" onClick={ () => {} } iconSource={ logout } iconSize="24px">Sign out</LogoutHeaderButton>
 			</MobileHeader>
 		</MemoryRouter>
