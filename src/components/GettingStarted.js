@@ -13,6 +13,10 @@ const messages = defineMessages( {
 		id: "getting-started.text.email",
 		defaultMessage: "send us an email",
 	},
+	videoTitle: {
+		id: "getting-started.iframe.title",
+		defaultMessage: "My Yoast introductory video",
+	},
 } );
 
 const GettingStartedModal = styled.div`
@@ -84,7 +88,7 @@ function GettingStarted( props ) {
 					} }
 				/>
 			</GettingStartedText>
-			<VideoContainer><Video title="My Yoast introductory video" height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
+			<VideoContainer><Video title={ props.intl.formatMessage( messages.videoTitle ) } height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="getting-started.got-it" defaultMessage="Got it" />
