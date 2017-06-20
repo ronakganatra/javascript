@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401 } from "../functions/api";
+import { getApiUrl, verifyStatusCode, handle401 } from "../functions/api";
 import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getAccessToken, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
@@ -242,9 +242,6 @@ export function updateProfile( profile ) {
 		let apiUrl = getApiUrl();
 		let accessToken = getAccessToken();
 		let userId = getUserId();
-		console.log( "accessToken", accessToken, "userId", userId, "apiurl", apiUrl );
-		// localhost:3000/api/Customers/041dbd4e-6691-474b-9d72-c4e8c1d0f096/profile?access_token=
-		// http://localhost:3000/api/Orders/string15/invoice?access_token=j6SwSk6JucRhmm5Ap0ke7NC1EywyBaWAxlfBFVnVqBbHFtQmeAqPllqlLlDtl63m
 		let request = new Request( `${apiUrl}/Customers/${userId}/profile?access_token=${accessToken}`, {
 			method: "PATCH",
 			headers: {
@@ -254,7 +251,7 @@ export function updateProfile( profile ) {
 		} );
 
 		return fetch( request )
-			// .then( verifyStatusCode )
+			.then( verifyStatusCode )
 			.then( response => response.json() )
 			.then( ( profile ) => dispatch( profileUpdateSuccess( profile ) ) )
 			.catch( ( error ) => {
