@@ -2,7 +2,7 @@ import React from "react";
 import { mapStateToProps, mapDispatchToProps } from "../../src/containers/ProfilePage"
 import { profileUpdateEmail } from "../../src/actions/user";
 import { url } from "gravatar";
-let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/My_Yoast_default_avatar.png";
+let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 test('the mapStateToProps function', () => {
 	let state = {
