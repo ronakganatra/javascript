@@ -41,10 +41,12 @@ const CollapsibleHeading = styled.button`
 		margin-top: -4px;
 		margin-bottom: -4px;
 		// Looks like Safari 10 doesn't like align-items: center for SVGs and needs some help.
-		align-self: center;
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			align-self: flex-start;
+		align-self: flex-start;
+		
+		@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		margin-top: 4px;
+		margin-bottom: 4px;
+		margin-right: -2px;
 		}
 	}
 `;
