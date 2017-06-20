@@ -188,7 +188,7 @@ exports[`test the site page component matches the snapshot 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -401,7 +401,7 @@ exports[`test the site page component matches the snapshot for a site in a direc
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">

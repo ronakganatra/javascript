@@ -79,7 +79,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -180,7 +180,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -270,7 +270,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -366,7 +366,7 @@ exports[`components/ProfilePage saving profile 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -462,7 +462,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -562,7 +562,7 @@ exports[`components/ProfilePage the default case 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
@@ -663,7 +663,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="cxrbkq">
       <button
         aria-expanded={false}
-        className="cDWwtH"
+        className="gCGqdM"
         onClick={[Function]}>
         <span
           className="ioaeUl">
