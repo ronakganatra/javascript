@@ -1,17 +1,23 @@
-exports[`test The AddSite component matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The AddSite component matches the snapshot 1`] = `
 <div
-  className="eUbKKo">
+  className="eUbKKo"
+>
   <h1
-    className="fMuHnF">
+    className="fMuHnF"
+  >
     <span>
       Add Site
     </span>
   </h1>
   <form
     noValidate={true}
-    onSubmit={[Function]}>
+    onSubmit={[Function]}
+  >
     <label
-      htmlFor="add-site-input">
+      htmlFor="add-site-input"
+    >
       <span>
         Please enter the URL of the site you would like to link with your account:
       </span>
@@ -22,13 +28,16 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
-      type="url" />
+      type="url"
+    />
     <div
-      className="eHlvIb">
+      className="eHlvIb"
+    >
       <button
         className="jGxsPB"
         onClick={[Function]}
-        type="button">
+        type="button"
+      >
         <span>
           cancel
         </span>
@@ -36,7 +45,8 @@ exports[`test The AddSite component matches the snapshot 1`] = `
       <button
         className="fCGFXY"
         onClick={[Function]}
-        type="submit">
+        type="submit"
+      >
         <span>
           connect
         </span>
@@ -44,10 +54,12 @@ exports[`test The AddSite component matches the snapshot 1`] = `
     </div>
   </form>
   <div
-    className="ehuLPF" />
+    className="ehuLPF"
+  />
   <img
     alt=""
     className="ireVCO"
-    src="addsite.svg" />
+    src="addsite.svg"
+  />
 </div>
 `;

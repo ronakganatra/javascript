@@ -1,10 +1,12 @@
-exports[`test the closed Getting Started Modal matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the closed Getting Started Modal matches the snapshot 1`] = `
 <div>
   <noscript />
 </div>
 `;
 
-exports[`test the opened Getting Started Modal matches the snapshot 1`] = `
+exports[`the opened Getting Started Modal matches the snapshot 1`] = `
 <div>
   <noscript />
 </div>
