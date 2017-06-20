@@ -10,10 +10,19 @@ const CollapsibleHeaderContainer = styled.div`
 `;
 
 const CollapsibleHeading = styled.button`
+	display: flex;
 	width: 100%;
+	justify-content: space-between;
+	align-items: center;
 	background-color: ${ colors.$color_white };
-	padding: 16px 32px 0 24px;
+	padding: 24px 32px;
 	border: none;
+	text-align: left;
+	font-weight: 300;
+	cursor: pointer;
+	// When clicking, the button text disappears in Safari 10 because of color: activebuttontext.
+	color: ${ colors.$color_black };
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		padding: 16px 24px;
 	}
@@ -22,13 +31,16 @@ const CollapsibleHeading = styled.button`
 		padding: 16px;
 	}
 
-	span {
-		flex: 1 1 auto;
-		font-weight: 300;
-	}
-
 	svg {
-		min-width: 40px;
+		flex: 0 0 40px;
+		// Compensate the SVGIcon width-viewbox size.
+		margin-right: -10px;
+		// Add some spacing between icon and text.
+		margin-left: 10px;
+		// Compensate the height difference with a line of text (32px).
+		margin-top: -4px;
+		margin-bottom: -4px;
+		// Looks like Safari 10 doesn't like align-items: center for SVGs and needs some help.
 		align-self: center;
 
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
@@ -38,25 +50,19 @@ const CollapsibleHeading = styled.button`
 `;
 
 const CollapsibleTitle = styled.span`
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-	margin-bottom: 0;
-	border: none;
+	flex: 1 1 auto;
 	font-size: 1.5em;
-	background-color: ${ colors.$color_white };
-	cursor: pointer;
-	text-align: left;
+	// Chrome needs 8 decimals to make this 32px without roundings.
+	line-height: 1.33333333;
+	// Looks like Safari 10 doesn't like align-items: center for SVGs and needs some help.
+	align-self: center;
 `;
 
 const CollapsibleSubTitle = styled.span`
-	display: flex; 
-	margin-top: 0px;
-	padding-top: 0px;
-	padding-bottom: 12px;
-	font-size: 0.9em;
-	width: 100%;
-	text-align: left;
+	display: block;
+	// Chrome needs 8 decimals to make this 16px without roundings.
+	font-size: 0.66666666em;
+	line-height: 1.5;
 `;
 
 export default class ListToggle extends React.Component {
@@ -116,19 +122,22 @@ export default class ListToggle extends React.Component {
 	 */
 	render() {
 		let children = null;
+		let subtitle = this.props.subtitle ? <CollapsibleSubTitle>{ this.props.subtitle }</CollapsibleSubTitle> : null;
+
 		if ( this.state.isOpen ) {
 			children = this.props.children;
 		}
+
 		return (
 			<CollapsibleHeaderContainer>
-					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-						<CollapsibleTitle>
-						<span>{ this.props.title }</span>
-						{ this.getArrow() }
-						</CollapsibleTitle>
-							<CollapsibleSubTitle>{ this.props.subtitle }</CollapsibleSubTitle>
-					</CollapsibleHeading>
-					{ children }
+				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
+					<CollapsibleTitle>
+						{ this.props.title }
+						{ subtitle }
+					</CollapsibleTitle>
+					{ this.getArrow() }
+				</CollapsibleHeading>
+				{ children }
 			</CollapsibleHeaderContainer>
 		);
 	}

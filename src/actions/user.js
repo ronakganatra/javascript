@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
+import { getApiUrl, verifyStatusCode, handle401 } from "../functions/api";
 import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getAccessToken, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
@@ -242,7 +242,6 @@ export function updateProfile( profile ) {
 		let apiUrl = getApiUrl();
 		let accessToken = getAccessToken();
 		let userId = getUserId();
-
 		let request = new Request( `${apiUrl}/Customers/${userId}/profile?access_token=${accessToken}`, {
 			method: "PATCH",
 			headers: {
