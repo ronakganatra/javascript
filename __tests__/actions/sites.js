@@ -16,7 +16,7 @@ jest.mock( "../../src/functions/api", () => {
 
 			// If the site already exists, we need to reject the promise.
 			if ( mockSites.includes( request.payload.url ) === true ) {
-				return Promise.reject( { message: "Attempted to insert a duplicate record in an unique field" } );
+				return Promise.reject( { message: "Attempted to insert a duplicate record in a unique field" } );
 			}
 
 			return Promise.resolve( { status: 200 } );
@@ -125,7 +125,7 @@ test( 'link site action creator with failure', () => {
 	return linkSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
 		expect( api.doRequest ).toHaveBeenCalled();
-		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Attempted to insert a duplicate record in an unique field" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Attempted to insert a duplicate record in a unique field" ) );
 	} );
 } );
 

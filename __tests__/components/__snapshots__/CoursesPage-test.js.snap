@@ -1,9 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the courses page component matches the snapshot 1`] = `
+exports[`test the courses page component matches the snapshot 1`] = `
 <div
-  className="kNIZiW"
->
+  className="kNIZiW">
   <p>
     <span>
       This section is still under construction. To access your courses, please visit:
@@ -12,14 +9,12 @@ exports[`the courses page component matches the snapshot 1`] = `
   <p>
     <a
       href="https://yoa.st/myyoast-academy"
-      target="_blank"
-    >
+      target="_blank">
       yoast.academy
       <span>
          
         <span
-          className="screen-reader-text"
-        >
+          className="screen-reader-text">
           <span>
             (Opens in a new browser tab)
           </span>
@@ -29,7 +24,6 @@ exports[`the courses page component matches the snapshot 1`] = `
   </p>
   <img
     alt=""
-    src="construction.svg"
-  />
+    src="construction.svg" />
 </div>
 `;

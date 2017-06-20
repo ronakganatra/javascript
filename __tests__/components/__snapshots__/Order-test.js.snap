@@ -1,37 +1,28 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`A standard order 1`] = `
+exports[`test A standard order 1`] = `
 <li
-  className="fhXzbr"
->
+  className="fhXzbr">
   <span
-    className="gRzsfa"
-  >
+    className="gRzsfa">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fKqvxj"
-  >
+    className="fKqvxj">
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
-  >
+    className="kIDkAC">
     <span
-      className="gLZwgs"
-    >
+      className="gLZwgs">
       <span
-        className="gLZwgs"
-      >
+        className="gLZwgs">
         1
         x 
         Name of the product
       </span>
       <span
-        className="gLZwgs"
-      >
+        className="gLZwgs">
         2
         x 
         Another product
@@ -39,30 +30,25 @@ exports[`A standard order 1`] = `
     </span>
   </span>
   <span
-    className="FOjhs"
-  >
+    className="FOjhs">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="gWfuXy"
-  >
+    className="gWfuXy">
     <span>
       completed
     </span>
   </span>
   <span
-    className="gJSEqq"
-  >
+    className="gJSEqq">
     <a
       aria-label="Download invoice"
       className="iVhzmJ"
-      href="http://somelink"
-    >
+      href="http://somelink">
       <span
-        className="screen-reader-text"
-      >
+        className="screen-reader-text">
         Invoice
       </span>
     </a>
@@ -70,38 +56,31 @@ exports[`A standard order 1`] = `
 </li>
 `;
 
-exports[`An Order with a disabled invoice button 1`] = `
+exports[`test An Order with a disabled invoice button 1`] = `
 <li
-  className="fhXzbr"
->
+  className="fhXzbr">
   <span
-    className="gRzsfa"
-  >
+    className="gRzsfa">
     <span>
       January 1, 2012
     </span>
   </span>
   <span
-    className="fKqvxj"
-  >
+    className="fKqvxj">
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
-  >
+    className="kIDkAC">
     <span
-      className="gLZwgs"
-    >
+      className="gLZwgs">
       <span
-        className="gLZwgs"
-      >
+        className="gLZwgs">
         1
         x 
         Name of the product
       </span>
       <span
-        className="gLZwgs"
-      >
+        className="gLZwgs">
         2
         x 
         Another product
@@ -109,30 +88,25 @@ exports[`An Order with a disabled invoice button 1`] = `
     </span>
   </span>
   <span
-    className="FOjhs"
-  >
+    className="FOjhs">
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="gWfuXy"
-  >
+    className="gWfuXy">
     <span>
       pending
     </span>
   </span>
   <span
-    className="gJSEqq"
-  >
+    className="gJSEqq">
     <button
       className="gbpVTx dBOCiy"
       disabled="disabled"
-      to="http://somelink"
-    >
+      to="http://somelink">
       <span
-        className="screen-reader-text"
-      >
+        className="screen-reader-text">
         Invoice
       </span>
     </button>

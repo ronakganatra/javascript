@@ -1,20 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the site dangerzone matches the snapshot 1`] = `
+exports[`test the site dangerzone matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <div
-    className="cxrbkq"
-  >
+    className="cxrbkq">
     <button
       aria-expanded={false}
       className="hJrCTB"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span
-        className="ObzGJ"
-      >
+        className="ObzGJ">
         <span>
           Disconnect this site
         </span>
@@ -22,36 +16,29 @@ exports[`the site dangerzone matches the snapshot 1`] = `
           fill="#555"
           height={40}
           viewBox="0 0 24 24"
-          width={40}
-        >
+          width={40}>
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
         </svg>
       </span>
       <span
-        className="GHtNJ"
-      />
+        className="GHtNJ" />
     </button>
   </div>
 </div>
 `;
 
-exports[`the site dangerzone onRemove handling 1`] = `
+exports[`test the site dangerzone onRemove handling 1`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <div
-    className="cxrbkq"
-  >
+    className="cxrbkq">
     <button
       aria-expanded={false}
       className="hJrCTB"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span
-        className="ObzGJ"
-      >
+        className="ObzGJ">
         <span>
           Disconnect this site
         </span>
@@ -59,36 +46,29 @@ exports[`the site dangerzone onRemove handling 1`] = `
           fill="#555"
           height={40}
           viewBox="0 0 24 24"
-          width={40}
-        >
+          width={40}>
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
         </svg>
       </span>
       <span
-        className="GHtNJ"
-      />
+        className="GHtNJ" />
     </button>
   </div>
 </div>
 `;
 
-exports[`the site dangerzone onRemove handling 2`] = `
+exports[`test the site dangerzone onRemove handling 2`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <div
-    className="cxrbkq"
-  >
+    className="cxrbkq">
     <button
       aria-expanded={false}
       className="hJrCTB"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span
-        className="ObzGJ"
-      >
+        className="ObzGJ">
         <span>
           Disconnect this site
         </span>
@@ -96,36 +76,29 @@ exports[`the site dangerzone onRemove handling 2`] = `
           fill="#555"
           height={40}
           viewBox="0 0 24 24"
-          width={40}
-        >
+          width={40}>
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
         </svg>
       </span>
       <span
-        className="GHtNJ"
-      />
+        className="GHtNJ" />
     </button>
   </div>
 </div>
 `;
 
-exports[`the site dangerzone with removing = true matches the snapshot 1`] = `
+exports[`test the site dangerzone with removing = true matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <div
-    className="cxrbkq"
-  >
+    className="cxrbkq">
     <button
       aria-expanded={false}
       className="hJrCTB"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span
-        className="ObzGJ"
-      >
+        className="ObzGJ">
         <span>
           Disconnect this site
         </span>
@@ -133,16 +106,13 @@ exports[`the site dangerzone with removing = true matches the snapshot 1`] = `
           fill="#555"
           height={40}
           viewBox="0 0 24 24"
-          width={40}
-        >
+          width={40}>
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
         </svg>
       </span>
       <span
-        className="GHtNJ"
-      />
+        className="GHtNJ" />
     </button>
   </div>
 </div>

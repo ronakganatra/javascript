@@ -1,51 +1,39 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the site component matches the snapshot 1`] = `
+exports[`test the site component matches the snapshot 1`] = `
 <li
-  className="feEuTA"
->
+  className="feEuTA">
   <span
-    className="cDqrvr"
-  >
+    className="cDqrvr">
     <img
       alt=""
       className="bjVGHc"
-      src="sites_black.svg"
-    />
+      src="sites_black.svg" />
   </span>
   <span
-    className="kVUeYb"
-  >
+    className="kVUeYb">
     yoast.com
   </span>
   <span
-    className="deHdHN"
-  >
+    className="deHdHN">
     <span>
       <img
         alt="Test is active"
         className="dhzOCo"
-        src="test.jpg"
-      />
+        src="test.jpg" />
       <img
         alt="Test2 is active"
         className="dhzOCo"
-        src="test.jpg"
-      />
+        src="test.jpg" />
       <img
         alt="Test3 is inactive"
         className="snIQS"
-        src="test.jpg"
-      />
+        src="test.jpg" />
       <img
         alt="Test4 is inactive"
         className="snIQS"
-        src="test.jpg"
-      />
+        src="test.jpg" />
     </span>
   </span>
   <span
-    className="fXreAk"
-  />
+    className="fXreAk" />
 </li>
 `;

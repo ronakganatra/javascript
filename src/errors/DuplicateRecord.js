@@ -9,7 +9,7 @@ class DuplicateRecord extends Error {
 	 * @returns {void}
 	 */
 	constructor() {
-		let errorMessage = "Attempted to insert a duplicate record in an unique field";
+		let errorMessage = "Attempted to insert a duplicate record in a unique field";
 		super( errorMessage );
 
 		this.name = this.constructor.name;
