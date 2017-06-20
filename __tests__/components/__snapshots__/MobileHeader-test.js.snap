@@ -1,35 +1,28 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the responsive site header matches the snapshot 1`] = `
+exports[`test the responsive site header matches the snapshot 1`] = `
 <div
   className="hoACPf"
-  role="banner"
->
+  role="banner">
   <button
     className="hOwfOc"
     onClick={[Function]}
-    type="button"
-  >
+    type="button">
     <span>
       Need help?
     </span>
   </button>
   <a
     href="/"
-    onClick={[Function]}
-  >
+    onClick={[Function]}>
     <img
       alt="Home page"
       className="cfqaso"
       size="88px"
-      src="logo.svg"
-    />
+      src="logo.svg" />
   </a>
   <button
     className="hkGDCU"
     onClick={[Function]}
-    type="button"
-  >
+    type="button">
     <span>
       Sign out
     </span>

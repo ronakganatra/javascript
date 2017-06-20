@@ -1,9 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the NoResults component matches the snapshot in the case of no orders 1`] = `
+exports[`test the NoResults component matches the snapshot in the case of no orders 1`] = `
 <div
-  className="beArzs"
->
+  className="beArzs">
   <p>
     <span>
       Welcome to the downloads page
@@ -22,8 +19,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
   <button
     className="lgZBpT"
     onClick={[Function]}
-    type="button"
-  >
+    type="button">
     <span>
       Shop
     </span>
@@ -31,15 +27,13 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
   <img
     alt=""
     className="bTHZQB"
-    src="noSites.svg"
-  />
+    src="noSites.svg" />
 </div>
 `;
 
-exports[`the NoResults component matches the snapshot in the case of no sites 1`] = `
+exports[`test the NoResults component matches the snapshot in the case of no sites 1`] = `
 <div
-  className="beArzs"
->
+  className="beArzs">
   <p>
     <span>
       Welcome to the downloads page
@@ -57,8 +51,7 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
   </p>
   <button
     className="wmNXI"
-    onClick={[Function]}
-  >
+    onClick={[Function]}>
     <span>
       Add site
     </span>
@@ -66,15 +59,13 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
   <img
     alt=""
     className="bTHZQB"
-    src="noSites.svg"
-  />
+    src="noSites.svg" />
 </div>
 `;
 
-exports[`the NoResults component matches the snapshot in the case of no subscriptions 1`] = `
+exports[`test the NoResults component matches the snapshot in the case of no subscriptions 1`] = `
 <div
-  className="beArzs"
->
+  className="beArzs">
   <p>
     <span>
       Welcome to the downloads page
@@ -93,8 +84,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
   <button
     className="lgZBpT"
     onClick={[Function]}
-    type="button"
-  >
+    type="button">
     <span>
       Shop
     </span>
@@ -102,7 +92,6 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
   <img
     alt=""
     className="bTHZQB"
-    src="noSites.svg"
-  />
+    src="noSites.svg" />
 </div>
 `;
