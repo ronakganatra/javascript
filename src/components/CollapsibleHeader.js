@@ -44,7 +44,7 @@ const CollapsibleHeading = styled.button`
 		align-self: center;
 
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			min-width: 0;
+			align-self: flex-start;
 		}
 	}
 `;

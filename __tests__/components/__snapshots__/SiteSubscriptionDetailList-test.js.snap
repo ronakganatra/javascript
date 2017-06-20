@@ -5,7 +5,7 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cxrbkq">
     <button
       aria-expanded={true}
-      className="kBcWxC"
+      className="cDWwtH"
       onClick={[Function]}>
       <span
         className="ioaeUl">
