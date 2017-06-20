@@ -1,7 +1,10 @@
-exports[`test the skip link matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the skip link matches the snapshot 1`] = `
 <a
   className="iRZkuG"
-  href="#content">
+  href="#content"
+>
   LinkText
 </a>
 `;
