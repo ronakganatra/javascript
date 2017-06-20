@@ -5,24 +5,20 @@ exports[`test the site dangerzone matches the snapshot 1`] = `
     className="cxrbkq">
     <button
       aria-expanded={false}
-      className="hJrCTB"
+      className="kBcWxC"
       onClick={[Function]}>
       <span
-        className="ObzGJ">
-        <span>
-          Disconnect this site
-        </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        className="ioaeUl">
+        Disconnect this site
       </span>
-      <span
-        className="GHtNJ" />
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}>
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+      </svg>
     </button>
   </div>
 </div>
@@ -35,24 +31,20 @@ exports[`test the site dangerzone onRemove handling 1`] = `
     className="cxrbkq">
     <button
       aria-expanded={false}
-      className="hJrCTB"
+      className="kBcWxC"
       onClick={[Function]}>
       <span
-        className="ObzGJ">
-        <span>
-          Disconnect this site
-        </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        className="ioaeUl">
+        Disconnect this site
       </span>
-      <span
-        className="GHtNJ" />
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}>
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+      </svg>
     </button>
   </div>
 </div>
@@ -65,24 +57,20 @@ exports[`test the site dangerzone onRemove handling 2`] = `
     className="cxrbkq">
     <button
       aria-expanded={false}
-      className="hJrCTB"
+      className="kBcWxC"
       onClick={[Function]}>
       <span
-        className="ObzGJ">
-        <span>
-          Disconnect this site
-        </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        className="ioaeUl">
+        Disconnect this site
       </span>
-      <span
-        className="GHtNJ" />
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}>
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+      </svg>
     </button>
   </div>
 </div>
@@ -95,24 +83,20 @@ exports[`test the site dangerzone with removing = true matches the snapshot 1`] 
     className="cxrbkq">
     <button
       aria-expanded={false}
-      className="hJrCTB"
+      className="kBcWxC"
       onClick={[Function]}>
       <span
-        className="ObzGJ">
-        <span>
-          Disconnect this site
-        </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
-        </svg>
+        className="ioaeUl">
+        Disconnect this site
       </span>
-      <span
-        className="GHtNJ" />
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}>
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" />
+      </svg>
     </button>
   </div>
 </div>

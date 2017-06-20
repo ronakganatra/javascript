@@ -5,26 +5,24 @@ exports[`test the site subscription detail list component matches the snapshot 1
     className="cxrbkq">
     <button
       aria-expanded={true}
-      className="hJrCTB"
+      className="kBcWxC"
       onClick={[Function]}>
       <span
-        className="ObzGJ">
-        <span>
-          Subscriptions
+        className="ioaeUl">
+        Subscriptions
+        <span
+          className="eMlIYg">
+          Active subscriptions for this site. If you don\'t have any subscriptions left, use the link to get additional subscriptions.
         </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}>
-          <path
-            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
-        </svg>
       </span>
-      <span
-        className="GHtNJ">
-        Active subscriptions for this site. If you don\'t have any subscriptions left, use the link to get additional subscriptions.
-      </span>
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}>
+        <path
+          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
+      </svg>
     </button>
     <ul
       className="dITYws"

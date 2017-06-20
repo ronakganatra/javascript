@@ -1,13 +1,18 @@
-exports[`test the sites page component with a site matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the sites page component with a site matches the snapshot 1`] = `
 <div>
   <div
-    className="jCgOYH">
+    className="jCgOYH"
+  >
     <div>
       <label
         className="gOZvhE"
-        htmlFor="search">
+        htmlFor="search"
+      >
         <span
-          className="screen-reader-text foqgVb">
+          className="screen-reader-text foqgVb"
+        >
           Search sites
         </span>
       </label>
@@ -21,62 +26,78 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
         onChange={[Function]}
         spellCheck="false"
         type="text"
-        value="" />
+        value=""
+      />
       <p
         className="screen-reader-text"
-        id="search-description">
+        id="search-description"
+      >
         The search results will be updated as you type.
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="kXytjt"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
     </button>
   </div>
   <div
-    className="dnTGWH">
+    className="dnTGWH"
+  >
     <ul
       className="dITYws"
-      role="list">
+      role="list"
+    >
       <li
-        className="jmkSBM">
+        className="jmkSBM"
+      >
         <span
-          className="cDqrvr">
+          className="cDqrvr"
+        >
           <img
             alt=""
             className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+          />
         </span>
         <span
-          className="kVUeYb">
+          className="kVUeYb"
+        >
           www.yoast.com
         </span>
         <span
-          className="deHdHN">
+          className="deHdHN"
+        >
           <span>
             <img
               alt="Test is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test2 is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test3 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test4 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
           </span>
         </span>
         <span
-          className="fXreAk" />
+          className="fXreAk"
+        />
       </li>
     </ul>
   </div>
@@ -86,10 +107,11 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`test the sites page component with no sites matches the snapshot 1`] = `
+exports[`the sites page component with no sites matches the snapshot 1`] = `
 <div>
   <div
-    className="beArzs">
+    className="beArzs"
+  >
     <p>
       <span>
         Welcome to the sites overview
@@ -107,7 +129,8 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
     </p>
     <button
       className="wmNXI"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
@@ -115,7 +138,8 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
     <img
       alt=""
       className="bTHZQB"
-      src="noSites.svg" />
+      src="noSites.svg"
+    />
   </div>
   <div>
     <noscript />
@@ -123,16 +147,19 @@ exports[`test the sites page component with no sites matches the snapshot 1`] = 
 </div>
 `;
 
-exports[`test the sites page component with sites handling an onclick event on the add site button 1`] = `
+exports[`the sites page component with sites handling an onclick event on the add site button 1`] = `
 <div>
   <div
-    className="jCgOYH">
+    className="jCgOYH"
+  >
     <div>
       <label
         className="gOZvhE"
-        htmlFor="search">
+        htmlFor="search"
+      >
         <span
-          className="screen-reader-text foqgVb">
+          className="screen-reader-text foqgVb"
+        >
           Search sites
         </span>
       </label>
@@ -146,62 +173,78 @@ exports[`test the sites page component with sites handling an onclick event on t
         onChange={[Function]}
         spellCheck="false"
         type="text"
-        value="" />
+        value=""
+      />
       <p
         className="screen-reader-text"
-        id="search-description">
+        id="search-description"
+      >
         The search results will be updated as you type.
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="kXytjt"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
     </button>
   </div>
   <div
-    className="dnTGWH">
+    className="dnTGWH"
+  >
     <ul
       className="dITYws"
-      role="list">
+      role="list"
+    >
       <li
-        className="jmkSBM">
+        className="jmkSBM"
+      >
         <span
-          className="cDqrvr">
+          className="cDqrvr"
+        >
           <img
             alt=""
             className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+          />
         </span>
         <span
-          className="kVUeYb">
+          className="kVUeYb"
+        >
           www.yoast.com
         </span>
         <span
-          className="deHdHN">
+          className="deHdHN"
+        >
           <span>
             <img
               alt="Test is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test2 is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test3 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test4 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
           </span>
         </span>
         <span
-          className="fXreAk" />
+          className="fXreAk"
+        />
       </li>
     </ul>
   </div>
@@ -211,16 +254,19 @@ exports[`test the sites page component with sites handling an onclick event on t
 </div>
 `;
 
-exports[`test the sites page component with sites handling an onclick event on the add site button 2`] = `
+exports[`the sites page component with sites handling an onclick event on the add site button 2`] = `
 <div>
   <div
-    className="jCgOYH">
+    className="jCgOYH"
+  >
     <div>
       <label
         className="gOZvhE"
-        htmlFor="search">
+        htmlFor="search"
+      >
         <span
-          className="screen-reader-text foqgVb">
+          className="screen-reader-text foqgVb"
+        >
           Search sites
         </span>
       </label>
@@ -234,62 +280,78 @@ exports[`test the sites page component with sites handling an onclick event on t
         onChange={[Function]}
         spellCheck="false"
         type="text"
-        value="" />
+        value=""
+      />
       <p
         className="screen-reader-text"
-        id="search-description">
+        id="search-description"
+      >
         The search results will be updated as you type.
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="kXytjt"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
     </button>
   </div>
   <div
-    className="dnTGWH">
+    className="dnTGWH"
+  >
     <ul
       className="dITYws"
-      role="list">
+      role="list"
+    >
       <li
-        className="jmkSBM">
+        className="jmkSBM"
+      >
         <span
-          className="cDqrvr">
+          className="cDqrvr"
+        >
           <img
             alt=""
             className="bjVGHc"
-            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+            src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+          />
         </span>
         <span
-          className="kVUeYb">
+          className="kVUeYb"
+        >
           www.yoast.com
         </span>
         <span
-          className="deHdHN">
+          className="deHdHN"
+        >
           <span>
             <img
               alt="Test is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test2 is active"
               className="dhzOCo"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test3 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
             <img
               alt="Test4 is inactive"
               className="snIQS"
-              src="test.jpg" />
+              src="test.jpg"
+            />
           </span>
         </span>
         <span
-          className="fXreAk" />
+          className="fXreAk"
+        />
       </li>
     </ul>
   </div>
@@ -299,10 +361,11 @@ exports[`test the sites page component with sites handling an onclick event on t
 </div>
 `;
 
-exports[`test the sites page component without sites handling an onclick event on the add site button 1`] = `
+exports[`the sites page component without sites handling an onclick event on the add site button 1`] = `
 <div>
   <div
-    className="beArzs">
+    className="beArzs"
+  >
     <p>
       <span>
         Welcome to the sites overview
@@ -320,7 +383,8 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <button
       className="wmNXI"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
@@ -328,7 +392,8 @@ exports[`test the sites page component without sites handling an onclick event o
     <img
       alt=""
       className="bTHZQB"
-      src="noSites.svg" />
+      src="noSites.svg"
+    />
   </div>
   <div>
     <noscript />
@@ -336,10 +401,11 @@ exports[`test the sites page component without sites handling an onclick event o
 </div>
 `;
 
-exports[`test the sites page component without sites handling an onclick event on the add site button 2`] = `
+exports[`the sites page component without sites handling an onclick event on the add site button 2`] = `
 <div>
   <div
-    className="beArzs">
+    className="beArzs"
+  >
     <p>
       <span>
         Welcome to the sites overview
@@ -357,7 +423,8 @@ exports[`test the sites page component without sites handling an onclick event o
     </p>
     <button
       className="wmNXI"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Add site
       </span>
@@ -365,7 +432,8 @@ exports[`test the sites page component without sites handling an onclick event o
     <img
       alt=""
       className="bTHZQB"
-      src="noSites.svg" />
+      src="noSites.svg"
+    />
   </div>
   <div>
     <noscript />
