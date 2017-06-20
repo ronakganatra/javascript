@@ -21,7 +21,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             type="text"
             value="email@email.email" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -39,7 +39,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={false}
             onClick={[Function]}
             type="button">
@@ -131,7 +131,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             An error occurred while saving profile.
           </div>
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -149,7 +149,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={false}
             onClick={[Function]}
             type="button">
@@ -231,7 +231,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             type="text"
             value="email@email.email" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -325,7 +325,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             type="text"
             value="email@email.email" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={true}
             type="submit">
             Saving...
@@ -343,7 +343,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={false}
             onClick={[Function]}
             type="button">
@@ -425,7 +425,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             type="text"
             value="email@email.email" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -443,7 +443,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={true}
             onClick={[Function]}
             type="button">
@@ -525,7 +525,7 @@ exports[`components/ProfilePage the default case 1`] = `
             type="text"
             value="test@test.test" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -543,7 +543,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={false}
             onClick={[Function]}
             type="button">
@@ -629,7 +629,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             type="text"
             value="email@email.email" />
           <button
-            className="fJbWiH"
+            className="gMwboN"
             disabled={false}
             type="submit">
             Save email address
@@ -647,7 +647,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="kYVQJf"
+            className="byhavi"
             disabled={false}
             onClick={[Function]}
             type="button">
