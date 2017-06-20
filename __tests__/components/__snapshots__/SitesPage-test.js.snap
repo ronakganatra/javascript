@@ -29,6 +29,7 @@ exports[`test the sites page component with a site matches the snapshot 1`] = `
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="jxECuL"
       onClick={[Function]}>
       <span>
@@ -154,6 +155,7 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="jxECuL"
       onClick={[Function]}>
       <span>
@@ -242,6 +244,7 @@ exports[`test the sites page component with sites handling an onclick event on t
       </p>
     </div>
     <button
+      aria-label="Add site"
       className="jxECuL"
       onClick={[Function]}>
       <span>
