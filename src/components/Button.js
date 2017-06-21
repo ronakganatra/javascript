@@ -57,6 +57,7 @@ export const LargeButton = styled( Button )`
 export const LargeSecondaryButton = styled( LargeButton )`
 	color: ${ colors.$color_black };
 	box-shadow: none;
+	text-shadow: none;
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
 
@@ -112,6 +113,7 @@ IconButton.defaultProps = {
 export const MobileHeaderButton = styled( IconButton )`
 	background-color: transparent;
 	box-shadow: none;
+	text-shadow: none;
 	display: block;
 	position: fixed;
 
@@ -123,6 +125,7 @@ export const MobileHeaderButton = styled( IconButton )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		text-indent: -9999em;
 		box-shadow: none;
+		text-shadow: none;
 	}
 `;
 
@@ -135,6 +138,7 @@ export const IconButtonTransparent = styled( IconButton )`
 	background-position: 0.5em 50%;
 	color: ${ colors.$color_blue };
 	box-shadow: none;
+	text-shadow: none;
 	text-transform: none;
 	height: 32px;
 	padding-left: 2em;
@@ -144,22 +148,26 @@ export const IconButtonTransparent = styled( IconButton )`
 	&:hover,
 	&:focus {
 		box-shadow: none;
+		text-shadow: none;
 		background-color: ${ colors.$color_grey_light };
 	}
 
 	&:active {
 		transform: translateY( 1px );
 		box-shadow: none;
+		text-shadow: none;
 	}
 `;
 
 export const WhiteButton = styled( LargeButton )`
 	color: ${ colors.$color_blue };
 	background-color: ${ colors.$color_white };
+	text-shadow: none;
 `;
 
 export const RedButton = styled( LargeButton )`
 	background-color: ${ colors.$color_red };
+	text-shadow: none;
 `;
 
 export const ButtonLink = styled( Link )`
@@ -273,7 +281,6 @@ export const BeaconButton = styled( Button )`
 	background-position: right 8px center;
 	background-size: 24px;
 	transition: left .5s ease-in;
-	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
 
 	&:hover,
 	&:focus {
@@ -314,6 +321,7 @@ IconRightButtonLink.PropTypes = {
 export const WhiteButtonLink = styled( LargeButtonLink )`
 	background-color: ${ colors.$color_white };
 	color: ${ colors.$color_blue };
+	text-shadow: none;
 `;
 
 /**

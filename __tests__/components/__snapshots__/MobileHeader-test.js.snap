@@ -6,7 +6,7 @@ exports[`the responsive site header matches the snapshot 1`] = `
   role="banner"
 >
   <button
-    className="hOwfOc"
+    className="SPVtL"
     onClick={[Function]}
     type="button"
   >
@@ -26,7 +26,7 @@ exports[`the responsive site header matches the snapshot 1`] = `
     />
   </a>
   <button
-    className="hkGDCU"
+    className="eQCryy"
     onClick={[Function]}
     type="button"
   >
