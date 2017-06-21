@@ -30,6 +30,7 @@ export const Button = styled.button`
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	text-shadow: 0px 0px 1px #000;
 	border-radius: 4px;
 	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
