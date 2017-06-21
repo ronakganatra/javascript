@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
@@ -27,7 +28,7 @@ const SiteSubscriptionIcons = styled.img`
 `;
 
 SiteSubscriptionIcons.propTypes = {
-	isActive: React.PropTypes.bool.isRequired,
+	isActive: PropTypes.bool.isRequired,
 };
 
 /**
@@ -63,8 +64,8 @@ function SiteSubscriptions( props ) {
 }
 
 SiteSubscriptions.propTypes = {
-	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
 	intl: intlShape.isRequired,
 };
 

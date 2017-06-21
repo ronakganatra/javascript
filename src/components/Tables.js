@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -18,7 +19,7 @@ export const Zebra = styled.ul`
 `;
 
 Zebra.propTypes = {
-	children: React.PropTypes.any,
+	children: PropTypes.any,
 };
 
 // The Rows are flex containers.
@@ -44,8 +45,8 @@ export const Row = styled.li`
 `;
 
 Row.propTypes = {
-	background: React.PropTypes.string,
-	hasHeaderLabels: React.PropTypes.bool,
+	background: PropTypes.string,
+	hasHeaderLabels: PropTypes.bool,
 };
 
 Row.defaultProps = {
@@ -115,12 +116,12 @@ const ColumnBase = styled.span`
 `;
 
 ColumnBase.propTypes = {
-	children: React.PropTypes.any,
-	hideOnMobile: React.PropTypes.bool,
-	hideOnTablet: React.PropTypes.bool,
-	separator: React.PropTypes.bool,
-	headerLabel: React.PropTypes.string,
-	ellipsis: React.PropTypes.bool,
+	children: PropTypes.any,
+	hideOnMobile: PropTypes.bool,
+	hideOnTablet: PropTypes.bool,
+	separator: PropTypes.bool,
+	headerLabel: PropTypes.string,
+	ellipsis: PropTypes.bool,
 };
 
 ColumnBase.defaultProps = {
@@ -293,11 +294,11 @@ export function ListTable( props ) {
 }
 
 ListTable.propTypes = {
-	children: React.PropTypes.oneOfType( [
-		React.PropTypes.arrayOf( React.PropTypes.node ),
-		React.PropTypes.node,
+	children: PropTypes.oneOfType( [
+		PropTypes.arrayOf( PropTypes.node ),
+		PropTypes.node,
 	] ),
-	doZebra: React.PropTypes.bool,
+	doZebra: PropTypes.bool,
 };
 
 ListTable.defaultProps = {

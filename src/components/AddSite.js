@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
@@ -315,13 +316,13 @@ class AddSite extends React.Component {
 
 AddSite.propTypes = {
 	intl: intlShape.isRequired,
-	linkingSiteUrl: React.PropTypes.string.isRequired,
-	onCancelClick: React.PropTypes.func.isRequired,
-	onConnectClick: React.PropTypes.func.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	errorFound: React.PropTypes.bool.isRequired,
-	query: React.PropTypes.string.isRequired,
-	errorMessage: React.PropTypes.string,
+	linkingSiteUrl: PropTypes.string.isRequired,
+	onCancelClick: PropTypes.func.isRequired,
+	onConnectClick: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	errorFound: PropTypes.bool.isRequired,
+	query: PropTypes.string.isRequired,
+	errorMessage: PropTypes.string,
 };
 
 export default injectIntl( AddSite );

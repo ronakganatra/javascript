@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
@@ -24,9 +25,9 @@ export function Logo( props ) {
 }
 
 Logo.propTypes = {
-	size: React.PropTypes.string,
-	alt: React.PropTypes.string,
-	context: React.PropTypes.string.isRequired,
+	size: PropTypes.string,
+	alt: PropTypes.string,
+	context: PropTypes.string.isRequired,
 };
 
 Logo.defaultProps = {
@@ -45,7 +46,7 @@ const LogoImage = styled.img`
 `;
 
 LogoImage.propTypes = {
-	size: React.PropTypes.string,
+	size: PropTypes.string,
 };
 
 LogoImage.defaultProps = {

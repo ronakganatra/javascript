@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { LargeButton, LargeIconButton } from "../components/Button.js";
 import plus from "../icons/plus.svg";
@@ -71,8 +72,8 @@ function getNoResultsButton( onClick, pageContext ) {
 }
 
 getNoResultsButton.propTypes = {
-	onClick: React.PropTypes.func.isRequired,
-	pageContext: React.PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+	pageContext: PropTypes.string.isRequired,
 };
 
 /**
@@ -98,10 +99,10 @@ function NoResults( props ) {
 export default injectIntl( NoResults );
 
 NoResults.propTypes = {
-	onClick: React.PropTypes.func.isRequired,
-	paragraphs: React.PropTypes.arrayOf( React.PropTypes.element ),
-	imageSource: React.PropTypes.string.isRequired,
-	pageContext: React.PropTypes.string.isRequired,
+	onClick: PropTypes.func.isRequired,
+	paragraphs: PropTypes.arrayOf( PropTypes.element ),
+	imageSource: PropTypes.string.isRequired,
+	pageContext: PropTypes.string.isRequired,
 };
 
 NoResults.defaultProps = {

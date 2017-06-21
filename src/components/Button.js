@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -40,9 +41,9 @@ export const Button = styled.button`
 `;
 
 Button.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 Button.defaultProps = {
@@ -74,8 +75,8 @@ export const TextButton = styled( Button )`
 `;
 
 TextButton.PropTypes = {
-	buttonWidth: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	buttonWidth: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 TextButton.defaultProps = {
@@ -99,9 +100,9 @@ export const IconButton = styled( Button )`
 `;
 
 IconButton.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
-	iconSize: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 IconButton.defaultProps = {
@@ -185,7 +186,7 @@ export const ButtonLink = styled( Link )`
 `;
 
 ButtonLink.PropTypes = {
-	to: React.PropTypes.string.isRequired,
+	to: PropTypes.string.isRequired,
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
@@ -201,9 +202,9 @@ export const IconButtonLink = styled( ButtonLink )`
 `;
 
 IconButtonLink.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
-	iconSize: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 IconButtonLink.defaultProps = {
@@ -224,7 +225,7 @@ export const TextButtonLink = styled( ButtonLink )`
 `;
 
 TextButtonLink.PropTypes = {
-	buttonWidth: React.PropTypes.string,
+	buttonWidth: PropTypes.string,
 };
 
 TextButtonLink.defaultProps = {
@@ -244,9 +245,9 @@ export const ChevronButton = styled( Button )`
 `;
 
 ChevronButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 ChevronButton.defaultProps = {
@@ -287,9 +288,9 @@ export const BeaconButton = styled( Button )`
 `;
 
 BeaconButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 BeaconButton.defaultProps = {
@@ -308,7 +309,7 @@ export const IconRightButtonLink = styled( ButtonLink )`
 `;
 
 IconRightButtonLink.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
+	iconSource: PropTypes.string.isRequired,
 };
 
 export const WhiteButtonLink = styled( LargeButtonLink )`

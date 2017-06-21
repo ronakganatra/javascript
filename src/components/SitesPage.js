@@ -1,4 +1,5 @@
 import util from "util";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import a11ySpeak from "a11y-speak";
@@ -165,21 +166,21 @@ class SitesPage extends React.Component {
 }
 
 SitesPage.propTypes = {
-	linkingSiteUrl: React.PropTypes.string.isRequired,
-	addSite: React.PropTypes.func.isRequired,
-	onSearchChange: React.PropTypes.func.isRequired,
-	popupOpen: React.PropTypes.bool,
-	onConnect: React.PropTypes.func.isRequired,
-	onClose: React.PropTypes.func.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	onManage: React.PropTypes.func.isRequired,
-	errorFound: React.PropTypes.bool.isRequired,
-	errorMessage: React.PropTypes.string,
-	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	linkingSiteUrl: PropTypes.string.isRequired,
+	addSite: PropTypes.func.isRequired,
+	onSearchChange: PropTypes.func.isRequired,
+	popupOpen: PropTypes.bool,
+	onConnect: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onManage: PropTypes.func.isRequired,
+	errorFound: PropTypes.bool.isRequired,
+	errorMessage: PropTypes.string,
+	sites: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
 	intl: intlShape.isRequired,
-	query: React.PropTypes.string,
-	showLoader: React.PropTypes.bool,
+	query: PropTypes.string,
+	showLoader: PropTypes.bool,
 };
 
 SitesPage.defaultProps = {

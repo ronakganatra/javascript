@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -50,11 +51,11 @@ class BaseAddLicensesModal extends React.Component {
 }
 
 BaseAddLicensesModal.propTypes = {
-	className: React.PropTypes.string,
+	className: PropTypes.string,
 	intl: intlShape.isRequired,
-	isOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
-	onShop: React.PropTypes.string.isRequired,
+	isOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	onShop: PropTypes.string.isRequired,
 };
 
 BaseAddLicensesModal.defaultProps = {

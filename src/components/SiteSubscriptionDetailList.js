@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
@@ -54,15 +55,15 @@ function SiteSubscriptionDetailList( props ) {
 }
 
 SiteSubscriptionDetailList.propTypes = {
-	siteSubscriptions: React.PropTypes.array,
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onToggleSubscription: React.PropTypes.func.isRequired,
+	siteSubscriptions: PropTypes.array,
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	onAddMoreLicensesClick: PropTypes.func.isRequired,
+	onMoreInfoClick: PropTypes.func.isRequired,
+	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	popupOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
-	onToggleDisabled: React.PropTypes.func.isRequired,
+	popupOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	onToggleDisabled: PropTypes.func.isRequired,
 };
 
 SiteSubscriptionDetailList.defaultProps = {

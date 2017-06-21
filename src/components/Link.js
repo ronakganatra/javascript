@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
@@ -27,8 +28,8 @@ export default class Link extends Component {
 }
 
 Link.propTypes = {
-	to: React.PropTypes.string.isRequired,
-	className: React.PropTypes.string,
-	children: React.PropTypes.any,
-	ariaLabel: React.PropTypes.string,
+	to: PropTypes.string.isRequired,
+	className: PropTypes.string,
+	children: PropTypes.any,
+	ariaLabel: PropTypes.string,
 };

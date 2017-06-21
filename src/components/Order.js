@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
@@ -92,16 +93,16 @@ function Order( props ) {
 }
 
 Order.propTypes = {
-	date: React.PropTypes.instanceOf( Date ).isRequired,
-	id: React.PropTypes.string.isRequired,
-	orderNumber: React.PropTypes.string.isRequired,
-	total: React.PropTypes.number.isRequired,
-	currency: React.PropTypes.string.isRequired,
-	invoiceLink: React.PropTypes.string,
+	date: PropTypes.instanceOf( Date ).isRequired,
+	id: PropTypes.string.isRequired,
+	orderNumber: PropTypes.string.isRequired,
+	total: PropTypes.number.isRequired,
+	currency: PropTypes.string.isRequired,
+	invoiceLink: PropTypes.string,
 	intl: intlShape.isRequired,
-	items: React.PropTypes.array,
-	status: React.PropTypes.string,
-	background: React.PropTypes.string,
+	items: PropTypes.array,
+	status: PropTypes.string,
+	background: PropTypes.string,
 };
 
 Order.defaultProps = {

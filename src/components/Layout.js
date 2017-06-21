@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -80,7 +81,7 @@ const Content = styled.div`
 `;
 
 Main.propTypes = {
-	id: React.PropTypes.string,
+	id: PropTypes.string,
 };
 
 Main.defaultProps = {
