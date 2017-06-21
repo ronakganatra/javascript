@@ -1,93 +1,115 @@
-exports[`test the user profile logout button handling an onclick event 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the user profile logout button handling an onclick event 1`] = `
 <aside
-  className="user-info jHKGbh">
+  className="user-info jHKGbh"
+>
   <img
     alt=""
     className="ubghu"
     size="60px"
-    src="Image" />
+    src="Image"
+  />
   <div
-    className="gGMKAV">
+    className="gGMKAV"
+  >
     <p
-      className="gGQGre">
+      className="gGQGre"
+    >
       This is a name
     </p>
     <button
       className="enbGwh"
       onClick={[Function]}
-      type="button">
+      type="button"
+    >
       Sign out
     </button>
   </div>
 </aside>
 `;
 
-exports[`test the user profile logout button handling an onclick event 2`] = `
+exports[`the user profile logout button handling an onclick event 2`] = `
 <aside
-  className="user-info jHKGbh">
+  className="user-info jHKGbh"
+>
   <img
     alt=""
     className="ubghu"
     size="60px"
-    src="Image" />
+    src="Image"
+  />
   <div
-    className="gGMKAV">
+    className="gGMKAV"
+  >
     <p
-      className="gGQGre">
+      className="gGQGre"
+    >
       This is a name
     </p>
     <button
       className="enbGwh"
       onClick={[Function]}
-      type="button">
+      type="button"
+    >
       Sign out
     </button>
   </div>
 </aside>
 `;
 
-exports[`test the user profile matches the snapshot 1`] = `
+exports[`the user profile matches the snapshot 1`] = `
 <aside
-  className="user-info jHKGbh">
+  className="user-info jHKGbh"
+>
   <img
     alt=""
     className="ubghu"
     size="60px"
-    src="Image" />
+    src="Image"
+  />
   <div
-    className="gGMKAV">
+    className="gGMKAV"
+  >
     <p
-      className="gGQGre">
+      className="gGQGre"
+    >
       This is a name
     </p>
     <button
       className="enbGwh"
       onClick={[Function]}
-      type="button">
+      type="button"
+    >
       Sign out
     </button>
   </div>
 </aside>
 `;
 
-exports[`test the user profile matches the snapshot 2`] = `
+exports[`the user profile matches the snapshot 2`] = `
 <aside
-  className="user-info jHKGbh">
+  className="user-info jHKGbh"
+>
   <img
     alt=""
     className="ubghu"
     size="60px"
-    src="Image" />
+    src="Image"
+  />
   <div
-    className="gGMKAV">
+    className="gGMKAV"
+  >
     <p
-      className="gGQGre">
+      className="gGQGre"
+    >
       This is a name
     </p>
     <button
       className="enbGwh"
       onClick={[Function]}
-      type="button">
+      type="button"
+    >
       Sign out
     </button>
   </div>

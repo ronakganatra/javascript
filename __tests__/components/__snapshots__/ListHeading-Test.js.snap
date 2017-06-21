@@ -1,6 +1,9 @@
-exports[`test the ListHeading matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ListHeading matches the snapshot 1`] = `
 <h2
-  className="fylYwn">
+  className="fylYwn"
+>
   This is a heading
 </h2>
 `;
