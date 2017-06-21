@@ -1,119 +1,153 @@
-exports[`test the sites component matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the sites component matches the snapshot 1`] = `
 <div
-  className="dnTGWH">
+  className="dnTGWH"
+>
   <ul
     className="dITYws"
-    role="list">
+    role="list"
+  >
     <li
-      className="jmkSBM">
+      className="jmkSBM"
+    >
       <span
-        className="cDqrvr">
+        className="cDqrvr"
+      >
         <img
           alt=""
           className="bjVGHc"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
       </span>
       <span
-        className="kVUeYb">
+        className="kVUeYb"
+      >
         www.yoast.com
       </span>
       <span
-        className="deHdHN">
+        className="deHdHN"
+      >
         <span>
           <img
             alt="Test is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test2 is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test3 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test4 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
         </span>
       </span>
       <span
-        className="fXreAk" />
+        className="fXreAk"
+      />
     </li>
     <li
-      className="feEuTA">
+      className="feEuTA"
+    >
       <span
-        className="cDqrvr">
+        className="cDqrvr"
+      >
         <img
           alt=""
           className="bjVGHc"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
       </span>
       <span
-        className="kVUeYb">
+        className="kVUeYb"
+      >
         www.google.com
       </span>
       <span
-        className="deHdHN">
+        className="deHdHN"
+      >
         <span>
           <img
             alt="Test is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test2 is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test3 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test4 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
         </span>
       </span>
       <span
-        className="fXreAk" />
+        className="fXreAk"
+      />
     </li>
     <li
-      className="jmkSBM">
+      className="jmkSBM"
+    >
       <span
-        className="cDqrvr">
+        className="cDqrvr"
+      >
         <img
           alt=""
           className="bjVGHc"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
       </span>
       <span
-        className="kVUeYb">
+        className="kVUeYb"
+      >
         www.facebook.com
       </span>
       <span
-        className="deHdHN">
+        className="deHdHN"
+      >
         <span>
           <img
             alt="Test is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test2 is active"
             className="dhzOCo"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test3 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
           <img
             alt="Test4 is inactive"
             className="snIQS"
-            src="test.jpg" />
+            src="test.jpg"
+          />
         </span>
       </span>
       <span
-        className="fXreAk" />
+        className="fXreAk"
+      />
     </li>
   </ul>
 </div>

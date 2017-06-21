@@ -1,22 +1,26 @@
-exports[`test the round back button matches the snapshot 1`] = `
-<a
-  className="cMPKsQ"
-  enabledStyle={true}
-  href="/"
-  iconSize="24px"
-  onClick={[Function]}>
-  ButtonValue
-</a>
-`;
+// Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test the round back button with button type given matches the snapshot 1`] = `
+exports[`the round back button matches the snapshot 1`] = `
 <a
   className="cMPKsQ"
   enabledStyle={true}
   href="/"
   iconSize="24px"
   onClick={[Function]}
-  type="button">
+>
+  ButtonValue
+</a>
+`;
+
+exports[`the round back button with button type given matches the snapshot 1`] = `
+<a
+  className="cMPKsQ"
+  enabledStyle={true}
+  href="/"
+  iconSize="24px"
+  onClick={[Function]}
+  type="button"
+>
   ButtonValue
 </a>
 `;
