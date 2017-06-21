@@ -1,6 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`The AddSiteModal component matches the snapshot 1`] = `
+exports[`test The AddSiteModal component matches the snapshot 1`] = `
 <div>
   <div
     className="ZwEmN my-yoast-modal__content"
@@ -9,25 +7,20 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
     isOpen={true}
     onRequestClose={[Function]}
     overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
+    role="dialog">
     <div
-      className="eUbKKo"
-    >
+      className="eUbKKo">
       <h1
-        className="fMuHnF"
-      >
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
       <form
         noValidate={true}
-        onSubmit={[Function]}
-      >
+        onSubmit={[Function]}>
         <label
-          htmlFor="add-site-input"
-        >
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
@@ -38,16 +31,13 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
-          type="url"
-        />
+          type="url" />
         <div
-          className="eHlvIb"
-        >
+          className="eHlvIb">
           <button
             className="esBjHe"
             onClick={[Function]}
-            type="button"
-          >
+            type="button">
             <span>
               cancel
             </span>
@@ -55,8 +45,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           <button
             className="gjaBno"
             onClick={[Function]}
-            type="submit"
-          >
+            type="submit">
             <span>
               connect
             </span>
@@ -64,19 +53,17 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
         </div>
       </form>
       <div
-        className="ehuLPF"
-      />
+        className="ehuLPF" />
       <img
         alt=""
         className="ireVCO"
-        src="addsite.svg"
-      />
+        src="addsite.svg" />
     </div>
   </div>
 </div>
 `;
 
-exports[`the addSiteModal handling an onClose event 1`] = `
+exports[`test the addSiteModal handling an onClose event 1`] = `
 <div>
   <div
     className="ZwEmN my-yoast-modal__content"
@@ -85,25 +72,20 @@ exports[`the addSiteModal handling an onClose event 1`] = `
     isOpen={true}
     onRequestClose={[Function]}
     overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
+    role="dialog">
     <div
-      className="eUbKKo"
-    >
+      className="eUbKKo">
       <h1
-        className="fMuHnF"
-      >
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
       <form
         noValidate={true}
-        onSubmit={[Function]}
-      >
+        onSubmit={[Function]}>
         <label
-          htmlFor="add-site-input"
-        >
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
@@ -114,16 +96,13 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
-          type="url"
-        />
+          type="url" />
         <div
-          className="eHlvIb"
-        >
+          className="eHlvIb">
           <button
             className="esBjHe"
             onClick={[Function]}
-            type="button"
-          >
+            type="button">
             <span>
               cancel
             </span>
@@ -131,8 +110,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           <button
             className="gjaBno"
             onClick={[Function]}
-            type="submit"
-          >
+            type="submit">
             <span>
               connect
             </span>
@@ -140,19 +118,17 @@ exports[`the addSiteModal handling an onClose event 1`] = `
         </div>
       </form>
       <div
-        className="ehuLPF"
-      />
+        className="ehuLPF" />
       <img
         alt=""
         className="ireVCO"
-        src="addsite.svg"
-      />
+        src="addsite.svg" />
     </div>
   </div>
 </div>
 `;
 
-exports[`the addSiteModal handling an onClose event 2`] = `
+exports[`test the addSiteModal handling an onClose event 2`] = `
 <div>
   <div
     className="ZwEmN my-yoast-modal__content"
@@ -161,25 +137,20 @@ exports[`the addSiteModal handling an onClose event 2`] = `
     isOpen={true}
     onRequestClose={[Function]}
     overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
+    role="dialog">
     <div
-      className="eUbKKo"
-    >
+      className="eUbKKo">
       <h1
-        className="fMuHnF"
-      >
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
       <form
         noValidate={true}
-        onSubmit={[Function]}
-      >
+        onSubmit={[Function]}>
         <label
-          htmlFor="add-site-input"
-        >
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
@@ -190,16 +161,13 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
-          type="url"
-        />
+          type="url" />
         <div
-          className="eHlvIb"
-        >
+          className="eHlvIb">
           <button
             className="esBjHe"
             onClick={[Function]}
-            type="button"
-          >
+            type="button">
             <span>
               cancel
             </span>
@@ -207,8 +175,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           <button
             className="gjaBno"
             onClick={[Function]}
-            type="submit"
-          >
+            type="submit">
             <span>
               connect
             </span>
@@ -216,19 +183,17 @@ exports[`the addSiteModal handling an onClose event 2`] = `
         </div>
       </form>
       <div
-        className="ehuLPF"
-      />
+        className="ehuLPF" />
       <img
         alt=""
         className="ireVCO"
-        src="addsite.svg"
-      />
+        src="addsite.svg" />
     </div>
   </div>
 </div>
 `;
 
-exports[`the addSiteModal handling an onConnect event 1`] = `
+exports[`test the addSiteModal handling an onConnect event 1`] = `
 <div>
   <div
     className="ZwEmN my-yoast-modal__content"
@@ -237,25 +202,20 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
     isOpen={true}
     onRequestClose={[Function]}
     overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
+    role="dialog">
     <div
-      className="eUbKKo"
-    >
+      className="eUbKKo">
       <h1
-        className="fMuHnF"
-      >
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
       <form
         noValidate={true}
-        onSubmit={[Function]}
-      >
+        onSubmit={[Function]}>
         <label
-          htmlFor="add-site-input"
-        >
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
@@ -266,16 +226,13 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
-          type="url"
-        />
+          type="url" />
         <div
-          className="eHlvIb"
-        >
+          className="eHlvIb">
           <button
             className="esBjHe"
             onClick={[Function]}
-            type="button"
-          >
+            type="button">
             <span>
               cancel
             </span>
@@ -283,8 +240,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           <button
             className="gjaBno"
             onClick={[Function]}
-            type="submit"
-          >
+            type="submit">
             <span>
               connect
             </span>
@@ -292,19 +248,17 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
         </div>
       </form>
       <div
-        className="ehuLPF"
-      />
+        className="ehuLPF" />
       <img
         alt=""
         className="ireVCO"
-        src="addsite.svg"
-      />
+        src="addsite.svg" />
     </div>
   </div>
 </div>
 `;
 
-exports[`the addSiteModal handling an onConnect event 2`] = `
+exports[`test the addSiteModal handling an onConnect event 2`] = `
 <div>
   <div
     className="ZwEmN my-yoast-modal__content"
@@ -313,25 +267,20 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
     isOpen={true}
     onRequestClose={[Function]}
     overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
+    role="dialog">
     <div
-      className="eUbKKo"
-    >
+      className="eUbKKo">
       <h1
-        className="fMuHnF"
-      >
+        className="fMuHnF">
         <span>
           Add Site
         </span>
       </h1>
       <form
         noValidate={true}
-        onSubmit={[Function]}
-      >
+        onSubmit={[Function]}>
         <label
-          htmlFor="add-site-input"
-        >
+          htmlFor="add-site-input">
           <span>
             Please enter the URL of the site you would like to link with your account:
           </span>
@@ -342,16 +291,13 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
-          type="url"
-        />
+          type="url" />
         <div
-          className="eHlvIb"
-        >
+          className="eHlvIb">
           <button
             className="esBjHe"
             onClick={[Function]}
-            type="button"
-          >
+            type="button">
             <span>
               cancel
             </span>
@@ -359,8 +305,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
           <button
             className="gjaBno"
             onClick={[Function]}
-            type="submit"
-          >
+            type="submit">
             <span>
               connect
             </span>
@@ -368,13 +313,11 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
         </div>
       </form>
       <div
-        className="ehuLPF"
-      />
+        className="ehuLPF" />
       <img
         alt=""
         className="ireVCO"
-        src="addsite.svg"
-      />
+        src="addsite.svg" />
     </div>
   </div>
 </div>

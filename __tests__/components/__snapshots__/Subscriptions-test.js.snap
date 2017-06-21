@@ -1,106 +1,84 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`The Subscriptions component matches the snapshot 1`] = `
+exports[`test The Subscriptions component matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <ul
     className="dITYws"
-    role="list"
-  >
+    role="list">
     <li
-      className="jmkSBM"
-    >
+      className="jmkSBM">
       <span
-        className="cDqrvr"
-      >
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
-        />
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="hNmLMm"
-      >
+        className="hNmLMm">
         SEO Premium for WordPress
       </span>
       <span
-        className="hPaOmn"
-      >
+        className="hPaOmn">
         20 sites
       </span>
       <span
-        className="gVetyu"
-      >
+        className="gVetyu">
         4
         /
         20
       </span>
       <span
-        className="hcokQE"
-      >
+        className="hcokQE">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="lmMizz"
-      >
+        className="lmMizz">
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="fXreAk"
-      />
+        className="fXreAk" />
     </li>
     <li
-      className="feEuTA"
-    >
+      className="feEuTA">
       <span
-        className="cDqrvr"
-      >
+        className="cDqrvr">
         <img
           alt=""
           className="bjVGHc"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
-        />
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png" />
       </span>
       <span
-        className="hNmLMm"
-      >
+        className="hNmLMm">
         SEO Premium for WordPress
       </span>
       <span
-        className="hPaOmn"
-      >
+        className="hPaOmn">
         20 sites
       </span>
       <span
-        className="gVetyu"
-      >
+        className="gVetyu">
         3
         /
         20
       </span>
       <span
-        className="hcokQE"
-      >
+        className="hcokQE">
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="lmMizz"
-      >
+        className="lmMizz">
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="fXreAk"
-      />
+        className="fXreAk" />
     </li>
   </ul>
 </div>

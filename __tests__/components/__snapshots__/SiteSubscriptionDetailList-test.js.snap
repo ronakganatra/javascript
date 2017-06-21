@@ -1,51 +1,38 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the site subscription detail list component matches the snapshot 1`] = `
+exports[`test the site subscription detail list component matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
->
+  className="dnTGWH">
   <div
-    className="cxrbkq"
-  >
+    className="cxrbkq">
     <button
       aria-expanded={true}
       className="gCGqdM"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span
-        className="ioaeUl"
-      >
+        className="ioaeUl">
         Subscriptions
         <span
-          className="eMlIYg"
-        >
-          Active subscriptions for this site. If you don't have any subscriptions left, use the link to get additional subscriptions.
+          className="eMlIYg">
+          Active subscriptions for this site. If you don\'t have any subscriptions left, use the link to get additional subscriptions.
         </span>
       </span>
       <svg
         fill="#555"
         height={40}
         viewBox="0 0 24 24"
-        width={40}
-      >
+        width={40}>
         <path
-          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
-        />
+          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" />
       </svg>
     </button>
     <ul
       className="dITYws"
-      role="list"
-    >
+      role="list">
       <li
-        className="kwWqYb"
-      >
+        className="kwWqYb">
         <span
-          className="fXreAk"
-        >
+          className="fXreAk">
           <span
-            className="fdUIpZ"
-          >
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -54,16 +41,13 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="checkbox"
-                tabIndex="0"
-              >
+                tabIndex="0">
                 <span
-                  className="gzLwoW"
-                />
+                  className="gzLwoW" />
               </div>
               <span
                 aria-hidden="true"
-                className="euIAzV"
-              >
+                className="euIAzV">
                 Off
               </span>
             </div>
@@ -71,33 +55,27 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           <img
             alt=""
             className="jbZlKk"
-            src="icon.png"
-          />
+            src="icon.png" />
         </span>
         <span
-          className="iyDwOW"
-        >
+          className="iyDwOW">
           <span
-            className="kyRcdL"
-          >
+            className="kyRcdL">
             Yoast SEO Premium
           </span>
           <span
-            className="hkQMsn"
-          >
+            className="hkQMsn">
             <span>
               1/2 remaining
             </span>
           </span>
         </span>
         <span
-          className="fRNOok"
-        >
+          className="fRNOok">
           <a
             className="cNkzFL"
             href="/account/subscriptions/undefined"
-            onClick={[Function]}
-          >
+            onClick={[Function]}>
             <span>
               Manage
             </span>
@@ -105,14 +83,11 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         </span>
       </li>
       <li
-        className="caAtBd"
-      >
+        className="caAtBd">
         <span
-          className="fXreAk"
-        >
+          className="fXreAk">
           <span
-            className="fdUIpZ"
-          >
+            className="fdUIpZ">
             <div>
               <div
                 aria-checked={false}
@@ -121,16 +96,13 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
                 onClick={[Function]}
                 onKeyDown={[Function]}
                 role="checkbox"
-                tabIndex="0"
-              >
+                tabIndex="0">
                 <span
-                  className="gzLwoW"
-                />
+                  className="gzLwoW" />
               </div>
               <span
                 aria-hidden="true"
-                className="euIAzV"
-              >
+                className="euIAzV">
                 Off
               </span>
             </div>
@@ -138,41 +110,34 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           <img
             alt=""
             className="jbZlKk"
-            src="icon2.png"
-          />
+            src="icon2.png" />
         </span>
         <span
-          className="iyDwOW"
-        >
+          className="iyDwOW">
           <span
-            className="kyRcdL"
-          >
+            className="kyRcdL">
             Yoast SEO Local
           </span>
           <span
-            className="hkQMsn"
-          >
+            className="hkQMsn">
             <span>
               0/2 remaining
             </span>
           </span>
           <button
             className="jfzkEi"
-            onClick={[Function]}
-          >
+            onClick={[Function]}>
             <span>
               Get another subscription
             </span>
           </button>
         </span>
         <span
-          className="fRNOok"
-        >
+          className="fRNOok">
           <a
             className="cNkzFL"
             href="/account/subscriptions/undefined"
-            onClick={[Function]}
-          >
+            onClick={[Function]}>
             <span>
               Manage
             </span>

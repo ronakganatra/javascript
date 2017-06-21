@@ -1,24 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the page not found component matches the snapshot 1`] = `
+exports[`test the page not found component matches the snapshot 1`] = `
 <div
-  className="bqOpUy"
->
+  className="bqOpUy">
   <h1
-    className="kchLit"
-  >
+    className="kchLit">
     <span>
       Oops
     </span>
   </h1>
   <p>
     <span>
-      I'm afraid the page you are looking for does not exist...
+      I\'m afraid the page you are looking for does not exist...
     </span>
   </p>
   <img
     alt=""
-    src="PageNotFound.svg"
-  />
+    src="PageNotFound.svg" />
 </div>
 `;

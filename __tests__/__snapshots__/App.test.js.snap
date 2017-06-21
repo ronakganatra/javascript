@@ -1,3 +1,1 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`renders without crashing 1`] = `<span />`;
+exports[`test renders without crashing 1`] = `<span />`;
