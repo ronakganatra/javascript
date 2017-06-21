@@ -1,6 +1,6 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401 } from "../functions/api";
-import { getAccessToken, getUserId } from "../functions/auth";
+import { getUserId } from "../functions/auth";
+import { prepareRequest, doRequest } from "../functions/api";
 
 /*
  * Action types
@@ -60,12 +60,10 @@ export function getOrders() {
 	return ( dispatch ) => {
 		dispatch( getOrdersRequest() );
 
-		let apiUrl = getApiUrl();
 		let userId = getUserId();
-		let accessToken = getAccessToken();
+		let request = prepareRequest( `Customers/${userId}/orders/` );
 
-		return fetch( `${apiUrl}/Customers/${userId}/orders?access_token=${accessToken}` )
-			.then( handle401 )
+		return doRequest( request )
 			.then( json => dispatch( getOrdersSuccess( json ) ) )
 			.catch( ( error ) => {
 				dispatch( getOrdersFailure( error.message ) );

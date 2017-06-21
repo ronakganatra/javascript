@@ -2,6 +2,7 @@ import "whatwg-fetch";
 import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
 import { getAccessToken } from "../functions/auth";
 import { push } from "react-router-redux";
+import { prepareRequest, doRequest } from "../functions/api";
 
 /**
  * Action types
@@ -86,19 +87,9 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
+		let request = prepareRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, {}, "PUT" );
 
-		let request = new Request( `${apiUrl}/Sites/${siteId}/subscriptions/rel/${subscriptionId}/?access_token=${accessToken}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
+		return doRequest( request )
 			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
 			.catch( ( error ) => {
 				dispatch( siteToggleSubscriptionFailure( error.message ) );
