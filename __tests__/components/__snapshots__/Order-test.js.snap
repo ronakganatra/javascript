@@ -102,7 +102,7 @@ exports[`test An Order with a disabled invoice button 1`] = `
   <span
     className="gJSEqq">
     <button
-      className="gbpVTx dBOCiy"
+      className="gbpVTx fSviGx"
       disabled="disabled"
       to="http://somelink">
       <span

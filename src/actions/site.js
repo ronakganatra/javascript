@@ -99,7 +99,6 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 		return fetch( request )
 			.then( handle401 )
 			.then( verifyStatusCode )
-			.then( response => response.json() )
 			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
 			.catch( ( error ) => {
 				dispatch( siteToggleSubscriptionFailure( error.message ) );
