@@ -1,20 +1,16 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the round add button matches the snapshot 1`] = `
+exports[`test the round add button matches the snapshot 1`] = `
 <button
   className="hWjmTF"
-  onClick={[Function]}
->
+  onClick={[Function]}>
   ButtonValue
 </button>
 `;
 
-exports[`the round add button with button type given matches the snapshot 1`] = `
+exports[`test the round add button with button type given matches the snapshot 1`] = `
 <button
   className="hWjmTF"
   onClick={[Function]}
-  type="button"
->
+  type="button">
   ButtonValue
 </button>
 `;
