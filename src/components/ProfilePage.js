@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
@@ -444,18 +445,18 @@ class ProfilePage extends React.Component {
 
 ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
-	email: React.PropTypes.string.isRequired,
-	image: React.PropTypes.string,
-	isSaving: React.PropTypes.bool,
-	isDeleting: React.PropTypes.bool,
-	error: React.PropTypes.string,
-	isSendingPasswordReset: React.PropTypes.bool,
-	hasSendPasswordReset: React.PropTypes.bool,
-	passwordResetError: React.PropTypes.string,
-	onUpdateEmail: React.PropTypes.func.isRequired,
-	onSaveProfile: React.PropTypes.func.isRequired,
-	onDeleteProfile: React.PropTypes.func.isRequired,
-	onPasswordReset: React.PropTypes.func.isRequired,
+	email: PropTypes.string.isRequired,
+	image: PropTypes.string,
+	isSaving: PropTypes.bool,
+	isDeleting: PropTypes.bool,
+	error: PropTypes.string,
+	isSendingPasswordReset: PropTypes.bool,
+	hasSendPasswordReset: PropTypes.bool,
+	passwordResetError: PropTypes.string,
+	onUpdateEmail: PropTypes.func.isRequired,
+	onSaveProfile: PropTypes.func.isRequired,
+	onDeleteProfile: PropTypes.func.isRequired,
+	onPasswordReset: PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {

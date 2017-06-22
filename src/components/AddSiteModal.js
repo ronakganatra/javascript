@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Modal from "react-modal";
 import styled, { keyframes } from "styled-components";
@@ -55,16 +56,16 @@ class BaseAddSiteModal extends React.Component {
 }
 
 BaseAddSiteModal.propTypes = {
-	className: React.PropTypes.string,
+	className: PropTypes.string,
 	intl: intlShape.isRequired,
-	isOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
-	onConnect: React.PropTypes.func.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	errorFound: React.PropTypes.bool.isRequired,
-	errorMessage: React.PropTypes.string,
-	query: React.PropTypes.string.isRequired,
-	linkingSiteUrl: React.PropTypes.string.isRequired,
+	isOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	onConnect: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	errorFound: PropTypes.bool.isRequired,
+	errorMessage: PropTypes.string,
+	query: PropTypes.string.isRequired,
+	linkingSiteUrl: PropTypes.string.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {

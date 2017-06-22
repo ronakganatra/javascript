@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
@@ -21,7 +22,7 @@ function LineItems( props ) {
 }
 
 LineItems.propTypes = {
-	items: React.PropTypes.array,
+	items: PropTypes.array,
 };
 
 LineItems.defaultProps = {

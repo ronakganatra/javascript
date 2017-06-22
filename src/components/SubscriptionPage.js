@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
@@ -92,20 +93,20 @@ class SubscriptionPage extends React.Component {
 }
 
 SubscriptionPage.propTypes = {
-	isLoading: React.PropTypes.bool,
-	subscription: React.PropTypes.shape( {
-		name: React.PropTypes.string.isRequired,
-		limit: React.PropTypes.number.isRequired,
-		startDate: React.PropTypes.string.isRequired,
-		endDate: React.PropTypes.string,
-		nextPayment: React.PropTypes.string,
-		product: React.PropTypes.shape( {
-			description: React.PropTypes.string.isRequired,
-			icon: React.PropTypes.string.isRequired,
+	isLoading: PropTypes.bool,
+	subscription: PropTypes.shape( {
+		name: PropTypes.string.isRequired,
+		limit: PropTypes.number.isRequired,
+		startDate: PropTypes.string.isRequired,
+		endDate: PropTypes.string,
+		nextPayment: PropTypes.string,
+		product: PropTypes.shape( {
+			description: PropTypes.string.isRequired,
+			icon: PropTypes.string.isRequired,
 		} ),
 	} ),
-	orders: React.PropTypes.array,
-	onInvoiceDownload: React.PropTypes.func,
+	orders: PropTypes.array,
+	onInvoiceDownload: PropTypes.func,
 	intl: intlShape.isRequired,
 };
 

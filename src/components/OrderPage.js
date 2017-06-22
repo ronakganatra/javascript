@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Orders from "./Orders";
 import Search from "./Search";
@@ -126,8 +127,8 @@ class OrderPage extends React.Component {
 export default injectIntl( OrderPage );
 
 OrderPage.propTypes = {
-	onSearchChange: React.PropTypes.func.isRequired,
-	orders: React.PropTypes.array,
+	onSearchChange: PropTypes.func.isRequired,
+	orders: PropTypes.array,
 	intl: intlShape.isRequired,
-	query: React.PropTypes.string,
+	query: PropTypes.string,
 };

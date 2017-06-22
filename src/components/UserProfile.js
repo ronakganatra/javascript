@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
@@ -45,15 +46,15 @@ export default function UserProfile( props ) {
 }
 
 UserProfile.propTypes = {
-	displayName: React.PropTypes.string.isRequired,
-	displayImage: React.PropTypes.shape( {
-		src: React.PropTypes.string,
-		alt: React.PropTypes.string,
-		size: React.PropTypes.string,
+	displayName: PropTypes.string.isRequired,
+	displayImage: PropTypes.shape( {
+		src: PropTypes.string,
+		alt: PropTypes.string,
+		size: PropTypes.string,
 	} ),
-	onLogoutClick: React.PropTypes.func.isRequired,
-	loggedIn: React.PropTypes.bool,
-	className: React.PropTypes.string,
+	onLogoutClick: PropTypes.func.isRequired,
+	loggedIn: PropTypes.bool,
+	className: PropTypes.string,
 };
 
 UserProfile.defaultProps = {

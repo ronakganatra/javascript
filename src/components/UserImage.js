@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const UserImage = styled.img`
@@ -9,9 +9,9 @@ const UserImage = styled.img`
 `;
 
 UserImage.propTypes = {
-	size: React.PropTypes.string.isRequired,
-	src: React.PropTypes.string.isRequired,
-	alt: React.PropTypes.string,
+	size: PropTypes.string.isRequired,
+	src: PropTypes.string.isRequired,
+	alt: PropTypes.string,
 };
 
 UserImage.defaultProps = {

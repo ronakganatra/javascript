@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -112,10 +113,10 @@ function Product( props ) {
 }
 
 Product.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	currentVersion: React.PropTypes.string,
-	icon: React.PropTypes.string.isRequired,
-	buttons: React.PropTypes.array.isRequired,
+	name: PropTypes.string.isRequired,
+	currentVersion: PropTypes.string,
+	icon: PropTypes.string.isRequired,
+	buttons: PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
 };
 

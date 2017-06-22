@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
@@ -85,18 +86,18 @@ class SitePage extends React.Component {
 export default injectIntl( SitePage );
 
 SitePage.propTypes = {
-	site: React.PropTypes.object.isRequired,
-	uiSite: React.PropTypes.object,
-	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onClose: React.PropTypes.func.isRequired,
-	onToggleSubscription: React.PropTypes.func.isRequired,
+	site: PropTypes.object.isRequired,
+	uiSite: PropTypes.object,
+	subscriptions: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	onAddMoreLicensesClick: PropTypes.func.isRequired,
+	onMoreInfoClick: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	loadingSite: React.PropTypes.bool,
-	loadingSubscriptions: React.PropTypes.bool,
-	addSubscriptionModal: React.PropTypes.object,
+	loadingSite: PropTypes.bool,
+	loadingSubscriptions: PropTypes.bool,
+	addSubscriptionModal: PropTypes.object,
 };
 
 SitePage.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { IconRightButtonLink } from "../components/Button";
 import styled from "styled-components";
@@ -42,7 +43,7 @@ const SiteHeaderContainer = styled.div`
 `;
 
 SiteHeaderContainer.propTypes = {
-	imageUrl: React.PropTypes.string.isRequired,
+	imageUrl: PropTypes.string.isRequired,
 };
 
 const SiteHeaderSitename = styled.h1`
@@ -112,7 +113,7 @@ SiteHeader.defaultProps = {
 	imageUrl: "",
 };
 SiteHeader.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	url: React.PropTypes.string.isRequired,
-	imageUrl: React.PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	url: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string.isRequired,
 };

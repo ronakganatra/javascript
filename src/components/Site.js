@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import MediaQuery from "react-responsive";
@@ -26,7 +27,7 @@ const messages = defineMessages( {
 } );
 
 SiteIcon.propTypes = {
-	src: React.PropTypes.string.isRequired,
+	src: PropTypes.string.isRequired,
 };
 
 let ColumnSubscriptions = styled( ColumnFixedWidth )`
@@ -73,13 +74,13 @@ function Site( props ) {
 }
 
 Site.propTypes = {
-	siteName: React.PropTypes.string.isRequired,
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	activeSubscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
-	siteIcon: React.PropTypes.string,
-	onClickManage: React.PropTypes.func,
+	siteName: PropTypes.string.isRequired,
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
+	siteIcon: PropTypes.string,
+	onClickManage: PropTypes.func,
 	intl: intlShape.isRequired,
-	background: React.PropTypes.string,
+	background: PropTypes.string,
 };
 
 Site.defaultProps = {

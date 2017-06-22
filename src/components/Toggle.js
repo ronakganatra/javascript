@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -107,11 +108,11 @@ class Toggle extends React.Component {
 }
 
 Toggle.propTypes = {
-	isEnabled: React.PropTypes.bool,
-	ariaLabel: React.PropTypes.string.isRequired,
-	onSetEnablement: React.PropTypes.func,
-	disable: React.PropTypes.bool,
-	onToggleDisabled: React.PropTypes.func,
+	isEnabled: PropTypes.bool,
+	ariaLabel: PropTypes.string.isRequired,
+	onSetEnablement: PropTypes.func,
+	disable: PropTypes.bool,
+	onToggleDisabled: PropTypes.func,
 };
 
 Toggle.defaultProps = {

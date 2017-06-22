@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -78,7 +79,7 @@ export default function SubNavigation( props ) {
 }
 
 SubNavigation.propTypes = {
-	itemRoutes: React.PropTypes.array.isRequired,
+	itemRoutes: PropTypes.array.isRequired,
 };
 
 /**
@@ -99,5 +100,5 @@ export function SubNavigationItem( props ) {
 }
 
 SubNavigationItem.propTypes = {
-	itemRoutes: React.PropTypes.array.isRequired,
+	itemRoutes: PropTypes.array.isRequired,
 };

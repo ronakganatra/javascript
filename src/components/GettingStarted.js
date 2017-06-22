@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth } from "./Button.js";
@@ -99,7 +100,7 @@ function GettingStarted( props ) {
 }
 
 GettingStarted.propTypes = {
-	onClose: React.PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

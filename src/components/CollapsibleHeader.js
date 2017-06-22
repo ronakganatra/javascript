@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -146,12 +147,12 @@ export default class ListToggle extends React.Component {
 }
 
 ListToggle.propTypes = {
-	title: React.PropTypes.string.isRequired,
-	subtitle: React.PropTypes.string,
-	isOpen: React.PropTypes.bool,
-	children: React.PropTypes.oneOfType( [
-		React.PropTypes.arrayOf( React.PropTypes.node ),
-		React.PropTypes.node,
+	title: PropTypes.string.isRequired,
+	subtitle: PropTypes.string,
+	isOpen: PropTypes.bool,
+	children: PropTypes.oneOfType( [
+		PropTypes.arrayOf( PropTypes.node ),
+		PropTypes.node,
 	] ),
 };
 

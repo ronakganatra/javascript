@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Site from "./Site";
 import { ListTable } from "./Tables";
@@ -35,9 +36,9 @@ function Sites( props ) {
 export default Sites;
 
 Sites.propTypes = {
-	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onManage: React.PropTypes.func.isRequired,
+	sites: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	onManage: PropTypes.func.isRequired,
 };
 
 Sites.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { LargeButtonLink, LargeSecondaryButton } from "./Button.js";
@@ -78,6 +79,6 @@ export default function AddLicenses( props ) {
 }
 
 AddLicenses.propTypes = {
-	onClose: React.PropTypes.func.isRequired,
-	onShop: React.PropTypes.string.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onShop: PropTypes.string.isRequired,
 };

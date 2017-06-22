@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -208,6 +209,6 @@ function MainMenu( props ) {
 export default injectIntl( MainMenu );
 
 MainMenu.propTypes = {
-	menuRoutes: React.PropTypes.array.isRequired,
+	menuRoutes: PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
 };

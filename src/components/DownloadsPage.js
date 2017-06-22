@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
@@ -159,10 +160,10 @@ export default injectIntl( DownloadsPage );
 
 DownloadsPage.propTypes = {
 	intl: intlShape.isRequired,
-	query: React.PropTypes.string,
-	onSearchChange: React.PropTypes.func.isRequired,
-	eBooks: React.PropTypes.array,
-	plugins: React.PropTypes.array,
+	query: PropTypes.string,
+	onSearchChange: PropTypes.func.isRequired,
+	eBooks: PropTypes.array,
+	plugins: PropTypes.array,
 };
 
 DownloadsPage.defaultProps = {
