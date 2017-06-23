@@ -1,8 +1,38 @@
 import * as actions from "../../src/actions/user";
-import { getApiUrl } from "../../src/functions/api";
+import * as api from "../../src/functions/api";
 import { getPasswordResetUrl } from "../../src/functions/auth";
 
 jest.mock( "whatwg-fetch" );
+
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getApiUrl: jest.fn( () => { return "" } ),
+		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+			return { endpoint, method, payload };
+		} ),
+		doRequest: jest.fn( ( request ) => {
+			if ( request.method === "GET" ) {
+				return Promise.resolve( { username: "foo" } );
+			}
+
+			if ( request.method === "PATCH" ) {
+				return Promise.resolve( request.payload );
+			}
+
+			return Promise.resolve( { status: 200 } );
+		} )
+	};
+} );
+
+jest.mock( "../../src/functions/auth", () => {
+	return {
+		getUserId: jest.fn( () => { return 10 } ),
+		getAccessToken: jest.fn( () => { return "access" } ),
+		getPasswordResetUrl: jest.fn( () => { return "http://reset.your.passwo.rd" } ),
+		getLogoutUrl: jest.fn( () => { return "http://log.out" } ),
+		removeCookies: jest.fn( () => {} ),
+	}
+} );
 
 test( 'login action creator', () => {
 	const expected = {
@@ -45,32 +75,25 @@ test( 'request user action creator', () => {
 			userData: "data",
 		},
 	};
-	const input = {
-		userData: "data",
-	};
 
+	const input = { userData: "data" };
 	const actual = actions.receiveUser( input );
 
 	expect( actual ).toEqual( expected );
 } );
 
 test( 'fetch user action creator', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			json: () => { return "User data" },
-		} );
-	});
-
 	const dispatch = jest.fn();
+	const fetchUserFunc = actions.fetchUser( 10 );
 
-	const fetchUserFunc = actions.fetchUser( "AccessToken", 5 );
+	let expectedRequest = api.prepareRequest( "Customers/10/profile/" );
 
 	expect( fetchUserFunc ).toBeInstanceOf( Function );
 
 	return fetchUserFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.requestUser() );
-		expect( global.fetch ).toHaveBeenCalledWith( getApiUrl() + "/Customers/5/profile?access_token=AccessToken" );
-		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( "User data" ) );
+		expect( api.doRequest ).toHaveBeenCalledWith( expectedRequest );
+		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( { username: "foo" } ) );
 	} );
 } );
 
@@ -106,33 +129,16 @@ test( 'disable user failure action creator', () => {
 } );
 
 test( 'disable user action creator', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			status: 200,
-			json: () => { return {
-				"enabled": false,
-			} },
-		} );
-	});
-
-	let request = new Request( getApiUrl() + "/Customers//?access_token=", {
-		method: "PATCH",
-		body: JSON.stringify( {
-			enabled: false,
-		} ),
-		headers: {
-			"Content-Type": "application/json",
-		},
-	} );
+	let request = api.prepareRequest( "Customers/10/", { enabled: false }, "PATCH" );
 
 	const dispatch = jest.fn();
-
 	const disableUserFunc = actions.disableUser();
 
 	expect( disableUserFunc ).toBeInstanceOf( Function );
 
 	return disableUserFunc( dispatch ).then( () => {
-		expect( global.fetch ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.disableUserSuccess() );
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 	} );
 } );
 
@@ -169,14 +175,8 @@ describe( 'Password reset', () => {
 	} );
 
 	test( 'actual reset', () => {
-		global.fetch = jest.fn( () => {
-			return Promise.resolve( {
-				status: 200,
-				json: () => { return "Yay" },
-			} );
-		});
-
 		const dispatch = jest.fn();
+		const resetPasswordFunc = actions.passwordResetSend( "email@email.email" );
 
 		const expectedBody = new FormData();
 		expectedBody.append( "user_login", "email@email.email" );
@@ -190,13 +190,11 @@ describe( 'Password reset', () => {
 			}
 		);
 
-		const resetPasswordFunc = actions.passwordResetSend( "email@email.email" );
-
 		expect( resetPasswordFunc ).toBeInstanceOf( Function );
 
 		return resetPasswordFunc( dispatch ).then( () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetRequest() );
-			expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+			expect( api.doRequest ).toHaveBeenCalled();
 			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetSuccess() );
 		} );
 	} );
@@ -235,62 +233,27 @@ describe( 'Profile saving', () => {
 	} );
 
 	test( 'actual profile save', () => {
-		global.fetch = jest.fn( () => {
-			return Promise.resolve( {
-				status: 200,
-				json: () => { return {
-					email: "email@email.email",
-				} },
-			} );
-		});
-
 		const dispatch = jest.fn();
 
-		const expectedBody = new FormData();
-		expectedBody.append( "user_login", "email@email.email" );
-
-		const apiUrl = getApiUrl();
-		const userId = 1;
-
-		let expectedRequest = new Request( `${apiUrl}/Customers//profile?access_token=`, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify( { email: "email@email.email" } ),
-		} );
-
+		let expectedRequest = api.prepareRequest( "Customers/10/profile/", { email: "email@email.email" }, "PATCH" );
 		const saveProfileFunc = actions.updateProfile( { email: "email@email.email" } );
 
 		expect( saveProfileFunc ).toBeInstanceOf( Function );
 
 		return saveProfileFunc( dispatch ).then( () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
-			expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
+			expect( api.doRequest ).toHaveBeenCalledWith( expectedRequest );
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateSuccess( { email: "email@email.email" } ) );
 		} );
 	} );
 
 	test( 'failed profile save', () => {
-		global.fetch = jest.fn( () => {
-			return Promise.resolve( {
-				status: 404,
-				json: () => {
-					return {
-						"error": {
-							"statusCode": 404,
-							"name": "Error",
-							"message": "An error occurred",
-							"code": "MODEL_NOT_FOUND",
-							"stack": "Error: could not find a model with id 6"
-						}
-					}
-				},
-			} );
-		});
+		// Force a rejection to ensure the profileUpdateFailure will be called.
+		api.doRequest.mockImplementation( () => {
+			return Promise.reject( Error( "An error occurred" ) );
+		} );
 
 		const dispatch = jest.fn();
-
 		const resetPasswordFunc = actions.updateProfile( { email: "email@email.email" } );
 
 		return resetPasswordFunc( dispatch ).then( () => {

@@ -1,6 +1,5 @@
 import "whatwg-fetch";
 import { prepareRequest, doRequest } from "../functions/api";
-import { getUserId } from "../functions/auth";
 
 /*
  * Action types
@@ -60,13 +59,10 @@ export function getAllProducts() {
 	return ( dispatch ) => {
 		dispatch( getAllProductsRequest() );
 
-		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/products/` );
+		let request = prepareRequest( "products/" );
 
 		return doRequest( request )
 			.then( json => dispatch( getAllProductsSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( getAllProductsFailure( error.message ) );
-			} );
+			.catch( error => dispatch( getAllProductsFailure( error.message ) ) );
 	};
 }

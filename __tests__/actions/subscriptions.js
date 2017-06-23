@@ -1,7 +1,23 @@
 import * as actions from "../../src/actions/subscriptions";
-import { getApiUrl } from "../../src/functions/api";
+import * as api from "../../src/functions/api";
 
 jest.mock( "whatwg-fetch" );
+
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getApiUrl: jest.fn( () => { return "" } ),
+		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+			return { endpoint, method, payload };
+		} ),
+		doRequest: jest.fn( ( request ) => {
+			if ( request.method === "GET" ) {
+				return Promise.resolve( { subscription: "Subscription" } );
+			}
+
+			return Promise.resolve( { status: 200 } );
+		} )
+	};
+} );
 
 jest.mock( "../../src/functions/auth", () => {
 	return {
@@ -10,60 +26,32 @@ jest.mock( "../../src/functions/auth", () => {
 	}
 } );
 
-let expectedRequest = new Request( getApiUrl() + "/Customers/2/subscriptions/?access_token=access", {
-	method: "GET",
-	body: JSON.stringify(),
-	headers: {
-		"Content-Type": "application/json",
-	},
-} );
-
 test( 'get all subscriptions action creator with success', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			status: 200,
-			json: () => { return {
-				test: "test",
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
 	const getAllSubscriptionsFunc = actions.getAllSubscriptions();
 
 	expect( getAllSubscriptionsFunc ).toBeInstanceOf( Function );
 
-	let subscription = {
-		test: "test",
-	};
-
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsSuccess( subscription ) );
+		expect( api.doRequest ).toHaveBeenCalled();
+		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsSuccess( { subscription: "Subscription" } ) );
 	} );
 } );
 
 
 test( 'get all subscriptions action creator with failure', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			json: () => { return {
-				"error": {
-					"message": "error message test",
-				}
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
 	const getAllSubscriptionsFunc = actions.getAllSubscriptions();
+
+	// Force a rejection to ensure the getAllSubscriptionsFailure will be called.
+	api.doRequest.mockImplementation( () => {
+		return Promise.reject( Error( "Authorization required" ) );
+	} );
 
 	expect( getAllSubscriptionsFunc ).toBeInstanceOf( Function );
 
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsFailure( "error message test" ) );
+		expect( api.doRequest ).toHaveBeenCalled();
+		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsFailure( "Authorization required" ) );
 	} );
 } );
