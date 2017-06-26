@@ -24,8 +24,8 @@ function determineValidMethod( method ) {
  * Prepares a request for sending.
  *
  * @param {string} url The URL to send the request to.
- * @param {object} payload The payload of the request.
  * @param {string} method The HTTP method to use for the request.
+ * @param {object} payload The payload of the request.
  * @param {Object} additionalOptions And optional object containing options to be used by the request object.
  *
  * @returns {Request} The Request object.
@@ -53,8 +53,8 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
  * Prepares a request to send to the internal API.
  *
  * @param {string} url The URL to send the request to.
- * @param {object} payload The payload of the request.
  * @param {string} method The HTTP method to use for the request.
+ * @param {object} payload The payload of the request.
  * @param {Object} additionalOptions And optional object containing options to be used by the request object.
  *
  * @returns {Request} The Request object.

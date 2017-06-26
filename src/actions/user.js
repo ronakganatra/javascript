@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import {prepareInternalRequest, doRequest, prepareRequest} from "../functions/api";
+import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
 import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
