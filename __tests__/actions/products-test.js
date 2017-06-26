@@ -6,7 +6,7 @@ jest.mock( "whatwg-fetch" );
 jest.mock( "../../src/functions/api", () => {
 	return {
 		getApiUrl: jest.fn( () => { return "" } ),
-		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+		prepareInternalRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
 			return { endpoint, method, payload };
 		} ),
 		doRequest: jest.fn( ( request ) => {
@@ -32,8 +32,11 @@ test( 'get all products action creator with success', () => {
 
 	expect( getAllProductsFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `products/` );
+
 	return getAllProductsFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsSuccess( [ { name: "Product" } ] ) );
 	} );
 } );
@@ -50,8 +53,11 @@ test( 'get all products action creator with failure', () => {
 
 	expect( getAllProductsFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `products/` );
+
 	return getAllProductsFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsFailure( "Authorization required" ) );
 	} );
 } );

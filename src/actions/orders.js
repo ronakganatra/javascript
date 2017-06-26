@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { getUserId } from "../functions/auth";
-import { prepareRequest, doRequest } from "../functions/api";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 
 /*
  * Action types
@@ -61,7 +61,7 @@ export function getOrders() {
 		dispatch( getOrdersRequest() );
 
 		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/orders/` );
+		let request = prepareInternalRequest( `Customers/${userId}/orders/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getOrdersSuccess( json ) ) )

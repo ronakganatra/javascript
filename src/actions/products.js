@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { prepareRequest, doRequest } from "../functions/api";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 
 /*
  * Action types
@@ -59,7 +59,7 @@ export function getAllProducts() {
 	return ( dispatch ) => {
 		dispatch( getAllProductsRequest() );
 
-		let request = prepareRequest( "products/" );
+		let request = prepareInternalRequest( "products/" );
 
 		return doRequest( request )
 			.then( json => dispatch( getAllProductsSuccess( json ) ) )

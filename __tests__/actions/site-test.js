@@ -5,14 +5,10 @@ import * as api from "../../src/functions/api";
 jest.mock( "../../src/functions/api", () => {
 	return {
 		getApiUrl: jest.fn( () => { return "" } ),
-		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+		prepareInternalRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
 			return { endpoint, method, payload };
 		} ),
 		doRequest: jest.fn( ( request ) => {
-			if ( request.method === "DELETE" ) {
-				return Promise.resolve( {} );
-			}
-
 			return Promise.resolve( { status: 200 } );
 		} )
 	};
@@ -82,9 +78,12 @@ test( 'site add subscription action creator with success', () => {
 
 	expect( siteAddSubscriptionFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
+
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteAddSubscriptionSuccess( siteId, subscriptionId ) );
 	} );
 } );
@@ -100,9 +99,11 @@ test( 'site add subscription action creator with failure', () => {
 
 	expect( siteAddSubscriptionFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
+
 	return siteAddSubscriptionFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Duplicate entry for Subscription.id" ) );
 	} );
 } );
@@ -113,9 +114,12 @@ test( 'site remove subscription action creator with success', () => {
 
 	expect( siteRemoveSubscriptionFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
+
 	return siteRemoveSubscriptionFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
 	} );
 } );
@@ -131,9 +135,12 @@ test( 'site remove subscription action creator with failure', () => {
 
 	expect( siteRemoveSubscriptionFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
+
 	return siteRemoveSubscriptionFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionRequest() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteToggleSubscriptionFailure( "Authorization Required" ) );
 	} );
 } );
@@ -144,9 +151,12 @@ test( 'site remove action creator with success', () => {
 
 	expect( siteRemoveFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
+
 	return siteRemoveFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveStart( siteId ) );
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveSuccess( siteId ) );
 	} );
 } );
@@ -162,9 +172,12 @@ test( 'site remove action creator with failure', () => {
 
 	expect( siteRemoveFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
+
 	return siteRemoveFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveStart( siteId ) );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.siteRemoveFailure( siteId, "Authorization Required" ) );
 	} );
 } );

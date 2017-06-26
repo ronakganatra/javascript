@@ -7,7 +7,10 @@ jest.mock( "whatwg-fetch" );
 jest.mock( "../../src/functions/api", () => {
 	return {
 		getApiUrl: jest.fn( () => { return "" } ),
-		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+		prepareRequest: jest.fn( ( endpoint, method = "GET", payload = {} ) => {
+			return { endpoint, method, payload };
+		} ),
+		prepareInternalRequest: jest.fn( ( endpoint, method = "GET", payload = {} ) => {
 			return { endpoint, method, payload };
 		} ),
 		doRequest: jest.fn( ( request ) => {
@@ -86,13 +89,14 @@ test( 'fetch user action creator', () => {
 	const dispatch = jest.fn();
 	const fetchUserFunc = actions.fetchUser( 10 );
 
-	let expectedRequest = api.prepareRequest( "Customers/10/profile/" );
+	let request = api.prepareInternalRequest( "Customers/10/profile/" );
 
 	expect( fetchUserFunc ).toBeInstanceOf( Function );
 
 	return fetchUserFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.requestUser() );
-		expect( api.doRequest ).toHaveBeenCalledWith( expectedRequest );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.receiveUser( { username: "foo" } ) );
 	} );
 } );
@@ -129,7 +133,7 @@ test( 'disable user failure action creator', () => {
 } );
 
 test( 'disable user action creator', () => {
-	let request = api.prepareRequest( "Customers/10/", { enabled: false }, "PATCH" );
+	let request = api.prepareInternalRequest( "Customers/10/", "PATCH", { enabled: false } );
 
 	const dispatch = jest.fn();
 	const disableUserFunc = actions.disableUser();
@@ -138,6 +142,7 @@ test( 'disable user action creator', () => {
 
 	return disableUserFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.disableUserSuccess() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
 		expect( api.doRequest ).toHaveBeenCalledWith( request );
 	} );
 } );
@@ -181,20 +186,18 @@ describe( 'Password reset', () => {
 		const expectedBody = new FormData();
 		expectedBody.append( "user_login", "email@email.email" );
 
-		const expectedRequest = new Request(
+		const request = api.prepareRequest(
 			getPasswordResetUrl(),
-			{
-				method: "POST",
-				body: expectedBody,
-				mode: "no-cors",
-			}
-		);
+			"POST",
+			{ body: expectedBody },
+			{ mode: "no-cors" } );
 
 		expect( resetPasswordFunc ).toBeInstanceOf( Function );
 
 		return resetPasswordFunc( dispatch ).then( () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetRequest() );
-			expect( api.doRequest ).toHaveBeenCalled();
+			expect( api.prepareRequest ).toHaveBeenCalled();
+			expect( api.doRequest ).toHaveBeenCalledWith( request );
 			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetSuccess() );
 		} );
 	} );
@@ -235,14 +238,16 @@ describe( 'Profile saving', () => {
 	test( 'actual profile save', () => {
 		const dispatch = jest.fn();
 
-		let expectedRequest = api.prepareRequest( "Customers/10/profile/", { email: "email@email.email" }, "PATCH" );
+		let request = api.prepareInternalRequest( "Customers/10/profile/", "PATCH", { email: "email@email.email" } );
+
 		const saveProfileFunc = actions.updateProfile( { email: "email@email.email" } );
 
 		expect( saveProfileFunc ).toBeInstanceOf( Function );
 
 		return saveProfileFunc( dispatch ).then( () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
-			expect( api.doRequest ).toHaveBeenCalledWith( expectedRequest );
+			expect( api.prepareInternalRequest ).toHaveBeenCalled();
+			expect( api.doRequest ).toHaveBeenCalledWith( request );
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateSuccess( { email: "email@email.email" } ) );
 		} );
 	} );
@@ -254,10 +259,13 @@ describe( 'Profile saving', () => {
 		} );
 
 		const dispatch = jest.fn();
+		let request = api.prepareInternalRequest( "Customers/10/profile/", "PATCH", { email: "email@email.email" } );
 		const resetPasswordFunc = actions.updateProfile( { email: "email@email.email" } );
 
 		return resetPasswordFunc( dispatch ).then( () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
+			expect( api.prepareInternalRequest ).toHaveBeenCalled();
+			expect( api.doRequest ).toHaveBeenCalledWith( request );
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateFailure( "An error occurred" ) );
 
 		} );

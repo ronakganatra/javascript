@@ -30,7 +30,7 @@ function determineValidMethod( method ) {
  *
  * @returns {Request} The Request object.
  */
-export function prepareRequest( url, payload = {}, method = "GET", additionalOptions = {} ) {
+export function prepareRequest( url, method = "GET", payload = {}, additionalOptions = {} ) {
 	if ( ! determineValidMethod( method ) ) {
 		throw new Error( `Invalid method of ${method} supplied. Please ensure it's a string and a valid HTTP method.` );
 	}
@@ -46,7 +46,21 @@ export function prepareRequest( url, payload = {}, method = "GET", additionalOpt
 
 	options = Object.assign( {}, options, additionalOptions );
 
-	return new Request( `${getApiUrl()}/${url}?access_token=${getAccessToken()}`, options );
+	return new Request( url, options );
+}
+
+/**
+ * Prepares a request to send to the internal API.
+ *
+ * @param {string} url The URL to send the request to.
+ * @param {object} payload The payload of the request.
+ * @param {string} method The HTTP method to use for the request.
+ * @param {Object} additionalOptions And optional object containing options to be used by the request object.
+ *
+ * @returns {Request} The Request object.
+ */
+export function prepareInternalRequest( url, method = "GET", payload = {}, additionalOptions = {} ) {
+	return prepareRequest( `${getApiUrl()}/${url}?access_token=${getAccessToken()}`, method, payload, additionalOptions );
 }
 
 /**

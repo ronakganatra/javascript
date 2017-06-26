@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { doRequest, prepareRequest } from "../functions/api";
+import { doRequest, prepareInternalRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
 
 /*
@@ -63,7 +63,7 @@ export function getAllSubscriptions() {
 		dispatch( getAllSubscriptionsRequest() );
 
 		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/subscriptions/` );
+		let request = prepareInternalRequest( `Customers/${userId}/subscriptions/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getAllSubscriptionsSuccess( json ) ) )

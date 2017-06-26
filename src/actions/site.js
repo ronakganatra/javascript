@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { push } from "react-router-redux";
-import { prepareRequest, doRequest } from "../functions/api";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 
 /**
  * Action types
@@ -85,7 +85,7 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let request = prepareRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, {}, "PUT" );
+		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
 
 		return doRequest( request )
 			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
@@ -105,7 +105,7 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let request = prepareRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, {}, "DELETE" );
+		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
 
 		return doRequest( request )
 			.then( json => dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) ) )
@@ -124,7 +124,7 @@ export function siteRemove( siteId ) {
 	return ( dispatch ) => {
 		dispatch( siteRemoveStart( siteId ) );
 
-		let request = prepareRequest( `Sites/${siteId}/`, {}, "DELETE" );
+		let request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
 
 		return doRequest( request )
 			.then( json => dispatch( siteRemoveSuccess( siteId ) ) )

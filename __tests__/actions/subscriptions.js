@@ -6,7 +6,7 @@ jest.mock( "whatwg-fetch" );
 jest.mock( "../../src/functions/api", () => {
 	return {
 		getApiUrl: jest.fn( () => { return "" } ),
-		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+		prepareInternalRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
 			return { endpoint, method, payload };
 		} ),
 		doRequest: jest.fn( ( request ) => {
@@ -31,13 +31,14 @@ test( 'get all subscriptions action creator with success', () => {
 	const getAllSubscriptionsFunc = actions.getAllSubscriptions();
 
 	expect( getAllSubscriptionsFunc ).toBeInstanceOf( Function );
+	let request = api.prepareInternalRequest( `Customers/2/subscriptions/` );
 
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsSuccess( { subscription: "Subscription" } ) );
 	} );
 } );
-
 
 test( 'get all subscriptions action creator with failure', () => {
 	const dispatch = jest.fn();
@@ -48,10 +49,13 @@ test( 'get all subscriptions action creator with failure', () => {
 		return Promise.reject( Error( "Authorization required" ) );
 	} );
 
+	let request = api.prepareInternalRequest( `Customers/2/subscriptions/` );
+
 	expect( getAllSubscriptionsFunc ).toBeInstanceOf( Function );
 
 	return getAllSubscriptionsFunc( dispatch ).then( () => {
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.getAllSubscriptionsFailure( "Authorization required" ) );
 	} );
 } );

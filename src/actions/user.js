@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { prepareRequest, doRequest } from "../functions/api";
+import {prepareInternalRequest, doRequest, prepareRequest} from "../functions/api";
 import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
@@ -104,7 +104,7 @@ export function fetchUser( userId ) {
 	return ( dispatch ) => {
 		dispatch( requestUser() );
 
-		let request = prepareRequest( `Customers/${userId}/profile/` );
+		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
 		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
@@ -160,7 +160,7 @@ export function disableUser() {
 	return ( dispatch ) => {
 		dispatch( disableUserStart() );
 
-		let request = prepareRequest( `Customers/${userId}/`, { enabled: false }, "PATCH" );
+		let request = prepareInternalRequest( `Customers/${userId}/`, "PATCH", { enabled: false } );
 
 		return doRequest( request )
 			.then( json => dispatch( disableUserSuccess() ) )
@@ -230,7 +230,7 @@ export function updateProfile( profile ) {
 		dispatch( profileUpdateRequest() );
 
 		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/profile/`, profile, "PATCH" );
+		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
 			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
@@ -286,13 +286,9 @@ export function passwordResetSend( email ) {
 		const body = new FormData();
 		body.append( "user_login", email );
 
-		const request = new Request( getPasswordResetUrl(), {
-			method: "POST",
-			body,
-			mode: "no-cors",
-		} );
+		let request = prepareRequest( getPasswordResetUrl(), "POST", { body }, { mode: "no-cors" } );
 
-		return fetch( request )
+		return doRequest( request )
 			.then( dispatch( passwordResetSuccess() ) )
 			.catch( error => dispatch( passwordResetFailure( error.message ) ) );
 	};
