@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import NewTabMessage from "../components/NewTabMessage";
@@ -52,10 +53,10 @@ export default function LandingPage( props ) {
 }
 
 LandingPage.propTypes = {
-	paragraphs: React.PropTypes.arrayOf( React.PropTypes.element ),
-	url: React.PropTypes.string,
-	urlText: React.PropTypes.string,
-	imageSource: React.PropTypes.string,
+	paragraphs: PropTypes.arrayOf( PropTypes.element ),
+	url: PropTypes.string,
+	urlText: PropTypes.string,
+	imageSource: PropTypes.string,
 };
 LandingPage.defaultProps = {
 	paragraphs: [],

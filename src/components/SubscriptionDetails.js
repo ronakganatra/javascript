@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -88,14 +89,14 @@ function SubscriptionDetails( props ) {
 }
 
 SubscriptionDetails.propTypes = {
-	startDate: React.PropTypes.instanceOf( Date ).isRequired,
-	nextBilling: React.PropTypes.instanceOf( Date ).isRequired,
-	orders: React.PropTypes.array.isRequired,
-	max: React.PropTypes.number.isRequired,
-	current: React.PropTypes.number.isRequired,
-	onInvoiceDownload: React.PropTypes.func.isRequired,
+	startDate: PropTypes.instanceOf( Date ).isRequired,
+	nextBilling: PropTypes.instanceOf( Date ).isRequired,
+	orders: PropTypes.array.isRequired,
+	max: PropTypes.number.isRequired,
+	current: PropTypes.number.isRequired,
+	onInvoiceDownload: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	subscription: React.PropTypes.string,
+	subscription: PropTypes.string,
 };
 
 export default injectIntl( SubscriptionDetails );

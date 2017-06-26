@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -8,11 +9,11 @@ export const SVGIcon = ( props ) => (
 );
 
 SVGIcon.propTypes = {
-	width: React.PropTypes.number,
-	height: React.PropTypes.number,
-	fill: React.PropTypes.string,
-	viewBox: React.PropTypes.string,
-	children: React.PropTypes.any,
+	width: PropTypes.number,
+	height: PropTypes.number,
+	fill: PropTypes.string,
+	viewBox: PropTypes.string,
+	children: PropTypes.any,
 };
 
 SVGIcon.defaultProps = {

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { MobileHeaderButton } from "../components/Button";
 import styled from "styled-components";
@@ -77,6 +78,6 @@ function MobileHeader( props ) {
 export default injectIntl( MobileHeader );
 
 MobileHeader.propTypes = {
-	onLogoutClick: React.PropTypes.func.isRequired,
-	onBeaconClick: React.PropTypes.func.isRequired,
+	onLogoutClick: PropTypes.func.isRequired,
+	onBeaconClick: PropTypes.func.isRequired,
 };

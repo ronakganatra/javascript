@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import Subscriptions from "./Subscriptions";
@@ -131,9 +132,9 @@ class SubscriptionsPage extends React.Component {
 }
 
 SubscriptionsPage.propTypes = {
-	onSearchChange: React.PropTypes.func.isRequired,
+	onSearchChange: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	query: React.PropTypes.string,
+	query: PropTypes.string,
 };
 
 export default injectIntl( SubscriptionsPage );

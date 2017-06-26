@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
@@ -83,18 +84,18 @@ function Subscription( props ) {
 }
 
 Subscription.propTypes = {
-	id: React.PropTypes.string.isRequired,
-	iconSource: React.PropTypes.string.isRequired,
-	name: React.PropTypes.string.isRequired,
-	used: React.PropTypes.number.isRequired,
-	limit: React.PropTypes.number.isRequired,
-	nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
-	billingAmount: React.PropTypes.number.isRequired,
-	billingCurrency: React.PropTypes.string.isRequired,
+	id: PropTypes.string.isRequired,
+	iconSource: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
+	used: PropTypes.number.isRequired,
+	limit: PropTypes.number.isRequired,
+	nextPayment: PropTypes.instanceOf( Date ).isRequired,
+	billingAmount: PropTypes.number.isRequired,
+	billingCurrency: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
-	background: React.PropTypes.string,
-	onManage: React.PropTypes.func.isRequired,
-	product: React.PropTypes.string,
+	background: PropTypes.string,
+	onManage: PropTypes.func.isRequired,
+	product: PropTypes.string,
 };
 
 export default injectIntl( Subscription );

@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -27,7 +27,7 @@ const SkipLink = styled.a`
 `;
 
 SkipLink.propTypes = {
-	href: React.PropTypes.string.isRequired,
+	href: PropTypes.string.isRequired,
 };
 
 SkipLink.defaultProps = {

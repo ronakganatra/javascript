@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -106,8 +107,8 @@ export const TextButton = styled( Button )`
 `;
 
 TextButton.PropTypes = {
-	buttonWidth: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	buttonWidth: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 TextButton.defaultProps = {
@@ -262,7 +263,7 @@ export const ButtonLink = styled( Link )`
 `;
 
 ButtonLink.PropTypes = {
-	to: React.PropTypes.string.isRequired,
+	to: PropTypes.string.isRequired,
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
@@ -278,9 +279,9 @@ export const IconButtonLink = styled( ButtonLink )`
 `;
 
 IconButtonLink.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
-	iconSize: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 IconButtonLink.defaultProps = {
@@ -301,7 +302,7 @@ export const TextButtonLink = styled( ButtonLink )`
 `;
 
 TextButtonLink.PropTypes = {
-	buttonWidth: React.PropTypes.string,
+	buttonWidth: PropTypes.string,
 };
 
 TextButtonLink.defaultProps = {
@@ -319,7 +320,7 @@ export const IconRightButtonLink = styled( ButtonLink )`
 `;
 
 IconRightButtonLink.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
+	iconSource: PropTypes.string.isRequired,
 };
 
 // Style related functions.
