@@ -52,15 +52,15 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
 /**
  * Prepares a request to send to the internal API.
  *
- * @param {string} url The URL to send the request to.
+ * @param {string} path The path to send the request to.
  * @param {string} method The HTTP method to use for the request.
  * @param {object} payload The payload of the request.
  * @param {Object} additionalOptions And optional object containing options to be used by the request object.
  *
  * @returns {Request} The Request object.
  */
-export function prepareInternalRequest( url, method = "GET", payload = {}, additionalOptions = {} ) {
-	return prepareRequest( `${getApiUrl()}/${url}?access_token=${getAccessToken()}`, method, payload, additionalOptions );
+export function prepareInternalRequest( path, method = "GET", payload = {}, additionalOptions = {} ) {
+	return prepareRequest( `${getApiUrl()}/${path}?access_token=${getAccessToken()}`, method, payload, additionalOptions );
 }
 
 /**
