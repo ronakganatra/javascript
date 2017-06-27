@@ -1,6 +1,5 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
-import { getAccessToken } from "../functions/auth";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 
 /*
  * Action types
@@ -60,23 +59,10 @@ export function getAllProducts() {
 	return ( dispatch ) => {
 		dispatch( getAllProductsRequest() );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( "products/" );
 
-		let request = new Request( `${apiUrl}/products/?access_token=${accessToken}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( getAllProductsSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( getAllProductsFailure( error.message ) );
-			} );
+			.catch( error => dispatch( getAllProductsFailure( error.message ) ) );
 	};
 }

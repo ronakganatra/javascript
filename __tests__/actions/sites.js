@@ -6,7 +6,7 @@ const mockSites = [ "http://yoast.com" ];
 jest.mock( "../../src/functions/api", () => {
 	return {
 		getApiUrl: jest.fn( () => { return "" } ),
-		prepareRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+		prepareInternalRequest: jest.fn( ( endpoint, method = "GET", payload = {} ) => {
 			return { endpoint, method, payload };
 		} ),
 		doRequest: jest.fn( ( request ) => {
@@ -109,9 +109,12 @@ test( 'link site action creator with success', () => {
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/`, "POST", { url: "http://yoast2.com" } );
+
 	return linkSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast2.com" ) );
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteSuccess( { status: 200 } ) );
 	} );
 } );
@@ -122,9 +125,12 @@ test( 'link site action creator with failure', () => {
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/`, "POST", { url: "http://yoast.com" } );
+
+
 	return linkSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
-		expect( api.doRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Attempted to insert a duplicate record in a unique field" ) );
 	} );
 } );
@@ -181,8 +187,12 @@ test( 'retrieve sites action action creator with success', () => {
 
 	expect( retrieveSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/` );
+
 	return retrieveSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesSuccess( mockSites ) );
 	} );
 } );
@@ -198,8 +208,12 @@ test( 'retrieve sites action action creator with failure', () => {
 
 	expect( retrieveSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/` );
+
 	return retrieveSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
 		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesFailure( "Authorization required" ) );
 	} );
 } );
