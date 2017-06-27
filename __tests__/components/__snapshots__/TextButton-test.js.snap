@@ -1,6 +1,9 @@
-exports[`test the text button matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the text button matches the snapshot 1`] = `
 <button
-  className="kGyYcw">
+  className="kGyYcw"
+>
   ButtonValue
 </button>
 `;

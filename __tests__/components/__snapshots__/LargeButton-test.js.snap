@@ -1,7 +1,10 @@
-exports[`test the large button matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the large button matches the snapshot 1`] = `
 <button
   className="jsTvTe"
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;

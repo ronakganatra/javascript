@@ -1,4 +1,6 @@
-exports[`test a disabled toggle that is enabled 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`a disabled toggle that is enabled 1`] = `
 <div>
   <div
     aria-checked={false}
@@ -7,19 +9,22 @@ exports[`test a disabled toggle that is enabled 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="gzLwoW" />
+      className="gzLwoW"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     Off
   </span>
 </div>
 `;
 
-exports[`test a disabled toggle that is enabled 2`] = `
+exports[`a disabled toggle that is enabled 2`] = `
 <div>
   <div
     aria-checked={true}
@@ -28,19 +33,22 @@ exports[`test a disabled toggle that is enabled 2`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="diphEL" />
+      className="diphEL"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     On
   </span>
 </div>
 `;
 
-exports[`test a disabled toggle which matches the snapshot 1`] = `
+exports[`a disabled toggle which matches the snapshot 1`] = `
 <div>
   <div
     aria-checked={false}
@@ -49,19 +57,22 @@ exports[`test a disabled toggle which matches the snapshot 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="gzLwoW" />
+      className="gzLwoW"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     Off
   </span>
 </div>
 `;
 
-exports[`test an enabled toggle that is disabled 1`] = `
+exports[`an enabled toggle that is disabled 1`] = `
 <div>
   <div
     aria-checked={true}
@@ -70,19 +81,22 @@ exports[`test an enabled toggle that is disabled 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="diphEL" />
+      className="diphEL"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     On
   </span>
 </div>
 `;
 
-exports[`test an enabled toggle that is disabled 2`] = `
+exports[`an enabled toggle that is disabled 2`] = `
 <div>
   <div
     aria-checked={false}
@@ -91,19 +105,22 @@ exports[`test an enabled toggle that is disabled 2`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="gzLwoW" />
+      className="gzLwoW"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     Off
   </span>
 </div>
 `;
 
-exports[`test an enabled toggle which matches the snapshot 1`] = `
+exports[`an enabled toggle which matches the snapshot 1`] = `
 <div>
   <div
     aria-checked={true}
@@ -112,13 +129,16 @@ exports[`test an enabled toggle which matches the snapshot 1`] = `
     onClick={[Function]}
     onKeyDown={[Function]}
     role="checkbox"
-    tabIndex="0">
+    tabIndex="0"
+  >
     <span
-      className="diphEL" />
+      className="diphEL"
+    />
   </div>
   <span
     aria-hidden="true"
-    className="euIAzV">
+    className="euIAzV"
+  >
     On
   </span>
 </div>

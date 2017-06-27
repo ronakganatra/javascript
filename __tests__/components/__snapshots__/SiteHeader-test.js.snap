@@ -1,18 +1,24 @@
-exports[`test the site header matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the site header matches the snapshot 1`] = `
 <div
-  className="kFyTbG">
+  className="kFyTbG"
+>
   <h1
-    className="irnCFt">
+    className="irnCFt"
+  >
     placehold.it
   </h1>
   <div
-    className="fIyvPW">
+    className="fIyvPW"
+  >
     <a
       className="jGMDFB"
       enabledStyle={true}
       href="/sites"
       iconSize="24px"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Back
       </span>
@@ -20,11 +26,13 @@ exports[`test the site header matches the snapshot 1`] = `
     <a
       aria-label={undefined}
       className="kyorHW"
-      href="http://placehold.it//wp-admin">
+      href="http://placehold.it//wp-admin"
+    >
       <span>
         Open WordPress admin 
         <span
-          className="screen-reader-text fuqaAG">
+          className="screen-reader-text fuqaAG"
+        >
           <span>
             (Opens in a new browser tab)
           </span>

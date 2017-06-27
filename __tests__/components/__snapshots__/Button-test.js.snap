@@ -1,50 +1,58 @@
-exports[`test the Large Secondary Button matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the Large Secondary Button matches the snapshot 1`] = `
 <button
   className="bXlRtC"
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;
 
-exports[`test the beacon button matches the snapshot 1`] = `
+exports[`the beacon button matches the snapshot 1`] = `
 <button
   aria-label=""
   className="AvAyj"
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;
 
-exports[`test the button handling an onclick event 1`] = `
+exports[`the button handling an onclick event 1`] = `
 <button
   className="dICXMg"
   onClick={[Function]}
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;
 
-exports[`test the button handling an onclick event 2`] = `
+exports[`the button handling an onclick event 2`] = `
 <button
   className="dICXMg"
   onClick={[Function]}
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;
 
-exports[`test the button matches the snapshot 1`] = `
+exports[`the button matches the snapshot 1`] = `
 <button
   className="dICXMg"
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;
 
-exports[`test the button with button type given matches the snapshot 1`] = `
+exports[`the button with button type given matches the snapshot 1`] = `
 <button
   className="dICXMg"
-  type="button">
+  type="button"
+>
   ButtonValue
 </button>
 `;

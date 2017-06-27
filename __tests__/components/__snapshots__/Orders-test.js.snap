@@ -1,33 +1,44 @@
-exports[`test The Orders component matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Orders component matches the snapshot 1`] = `
 <div
-  className="dnTGWH">
+  className="dnTGWH"
+>
   <ul
     className="dITYws"
-    role="list">
+    role="list"
+  >
     <li
-      className="bknwPR">
+      className="bknwPR"
+    >
       <span
-        className="gRzsfa">
+        className="gRzsfa"
+      >
         <span>
           May 20, 2012
         </span>
       </span>
       <span
-        className="fKqvxj">
+        className="fKqvxj"
+      >
         MOOIE 123 TEST
       </span>
       <span
-        className="kIDkAC">
+        className="kIDkAC"
+      >
         <span
-          className="gLZwgs">
+          className="gLZwgs"
+        >
           <span
-            className="gLZwgs">
+            className="gLZwgs"
+          >
             1
             x 
             Name of the product
           </span>
           <span
-            className="gLZwgs">
+            className="gLZwgs"
+          >
             2
             x 
             Another product
@@ -35,25 +46,30 @@ exports[`test The Orders component matches the snapshot 1`] = `
         </span>
       </span>
       <span
-        className="FOjhs">
+        className="FOjhs"
+      >
         <span>
           €100.10
         </span>
       </span>
       <span
-        className="gWfuXy">
+        className="gWfuXy"
+      >
         <span>
           completed
         </span>
       </span>
       <span
-        className="gJSEqq">
+        className="gJSEqq"
+      >
         <a
           aria-label="Download invoice"
           className="cMyvFx"
-          href="http://somelink">
+          href="http://somelink"
+        >
           <span
-            className="screen-reader-text">
+            className="screen-reader-text"
+          >
             Invoice
           </span>
         </a>

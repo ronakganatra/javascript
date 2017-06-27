@@ -1,39 +1,48 @@
-exports[`test the subnavigation component matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the subnavigation component matches the snapshot 1`] = `
 <div>
   <ul
     className="fXEqiq"
-    role="list">
+    role="list"
+  >
     <li
-      className="isgbHI">
+      className="isgbHI"
+    >
       <a
         className="jUdSwI"
         href="/account/subscriptions"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
          
         Subscriptions
          
       </a>
     </li>
     <li
-      className="isgbHI">
+      className="isgbHI"
+    >
       <a
         className="jUdSwI"
         href="/account/orders"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
          
         Orders
          
       </a>
     </li>
     <li
-      className="isgbHI">
+      className="isgbHI"
+    >
       <a
         className="jUdSwI"
         href="/account/profile"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
          
         Profile
          
