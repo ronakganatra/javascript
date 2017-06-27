@@ -12,7 +12,7 @@ const ProductsContainer = styled.div`
 	margin: 0 0 0 8px;
 	flex-wrap: wrap;
 	width: 100%;
-	align-items: flex-end;
+	align-items: stretch;
 `;
 
 const ProductsListHeading = styled( ListHeading )`

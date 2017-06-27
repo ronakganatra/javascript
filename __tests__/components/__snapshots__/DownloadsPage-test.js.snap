@@ -39,7 +39,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
       className="dCNEzS"
     >
       <div
-        className="iHSCjI"
+        className="dCSOIl"
       >
         <h2
           className="fdADGm"
@@ -329,7 +329,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
         </div>
       </div>
       <div
-        className="iHSCjI"
+        className="dCSOIl"
       >
         <h2
           className="fdADGm"
