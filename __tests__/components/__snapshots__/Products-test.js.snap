@@ -1,12 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`The Products component matches the snapshot 1`] = `
+exports[`test The Products component matches the snapshot 1`] = `
 <div
-  className="jhQvCy"
->
+  className="jhQvCy">
   <h2
-    className="fdADGm"
-  >
+    className="fdADGm">
     Products
     <span>
        - Buy here!
@@ -14,290 +10,235 @@ exports[`The Products component matches the snapshot 1`] = `
   </h2>
   
   <div
-    className="iqMgVR"
-  >
+    className="iqMgVR">
     <h3
-      className="eHeqpp"
-    >
+      className="eHeqpp">
       Yoast SEO
     </h3>
     <p
-      className="hTVMCQ"
-    >
+      className="hTVMCQ">
        
       version 4.7
     </p>
     <img
       alt=""
       className="bAfIbR"
-      src="Yoast_SEO_Icon_Small.svg"
-    />
+      src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="boOFOz"
-    >
+      className="boOFOz">
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for Wordpress"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for Drupal"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Drupal
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="iqMgVR"
-  >
+    className="iqMgVR">
     <h3
-      className="eHeqpp"
-    >
+      className="eHeqpp">
       Local SEO
     </h3>
     <p
-      className="hTVMCQ"
-    >
+      className="hTVMCQ">
        
       version 4.7
     </p>
     <img
       alt=""
       className="bAfIbR"
-      src="Yoast_SEO_Icon_Small.svg"
-    />
+      src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="boOFOz"
-    >
+      className="boOFOz">
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Local SEO for Wordpress"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Wordpress
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="iqMgVR"
-  >
+    className="iqMgVR">
     <h3
-      className="eHeqpp"
-    >
+      className="eHeqpp">
       Video SEO
     </h3>
     <p
-      className="hTVMCQ"
-    >
+      className="hTVMCQ">
        
       version 4.7
     </p>
     <img
       alt=""
       className="bAfIbR"
-      src="Yoast_SEO_Icon_Small.svg"
-    />
+      src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="boOFOz"
-    >
+      className="boOFOz">
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Video SEO for Wordpress"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Video SEO for Drupal"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Drupal
         </p>
       </li>
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Video SEO for Typo3"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Typo3
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="iqMgVR"
-  >
+    className="iqMgVR">
     <h3
-      className="eHeqpp"
-    >
+      className="eHeqpp">
       News SEO
     </h3>
     <p
-      className="hTVMCQ"
-    >
+      className="hTVMCQ">
        
       version 4.7
     </p>
     <img
       alt=""
       className="bAfIbR"
-      src="Yoast_SEO_Icon_Small.svg"
-    />
+      src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="boOFOz"
-    >
+      className="boOFOz">
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download News SEO for Wordpress"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download News SEO for Drupal"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Drupal
         </p>
       </li>
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download News SEO for Typo3"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Typo3
         </p>
       </li>
     </ul>
   </div>
   <div
-    className="iqMgVR"
-  >
+    className="iqMgVR">
     <h3
-      className="eHeqpp"
-    >
+      className="eHeqpp">
       Yoast SEO for WooCommerce
     </h3>
     <p
-      className="hTVMCQ"
-    >
+      className="hTVMCQ">
        
       version 4.7
     </p>
     <img
       alt=""
       className="bAfIbR"
-      src="Yoast_SEO_Icon_Small.svg"
-    />
+      src="Yoast_SEO_Icon_Small.svg" />
     <ul
-      className="boOFOz"
-    >
+      className="boOFOz">
       <li
-        className="jVUpbY"
-      >
+        className="jVUpbY">
         <button
           aria-label="Download Yoast SEO for WooCommerce for Wordpress"
           className="jDaTAs"
-          onClick={[Function]}
-        >
+          onClick={[Function]}>
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
-        >
+          className="cBxjGK">
           for Wordpress
         </p>
       </li>

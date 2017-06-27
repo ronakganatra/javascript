@@ -1,9 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`the landing page component matches the snapshot 1`] = `
+exports[`test the landing page component matches the snapshot 1`] = `
 <div
-  className="kNIZiW"
->
+  className="kNIZiW">
   <p>
     <span>
       I am a landing page
@@ -12,12 +9,10 @@ exports[`the landing page component matches the snapshot 1`] = `
   <p>
     <a
       href="http://yoast.com"
-      target="_blank"
-    >
+      target="_blank">
       yoast.com
       <span
-        className="screen-reader-text fuqaAG"
-      >
+        className="screen-reader-text fuqaAG">
         <span>
           (Opens in a new browser tab)
         </span>
@@ -26,7 +21,6 @@ exports[`the landing page component matches the snapshot 1`] = `
   </p>
   <img
     alt=""
-    src="construction.svg"
-  />
+    src="construction.svg" />
 </div>
 `;

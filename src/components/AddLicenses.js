@@ -55,15 +55,13 @@ const Buttons = styled.div`
  */
 export default function AddLicenses( props ) {
 	return (
-			<AddLicensesModal>
+			<AddLicensesModal role="document">
 				<AddLicensesHeading>
 					<FormattedMessage id="add-licenses.header" defaultMessage="You are out of licenses" />
 				</AddLicensesHeading>
 				<AddLicensesText>
-					<label htmlFor="addLicensesInputField">
-						<FormattedMessage id="add-licenses.text" defaultMessage="You've used up all the site
-						licenses in your current subscription. If you want to add more sites, please buy another subscription." />
-					</label>
+					<FormattedMessage id="add-licenses.text" defaultMessage="You've used up all the site
+					licenses in your current subscription. If you want to add more sites, please buy another subscription." />
 				</AddLicensesText>
 				<Buttons>
 					<LargeSecondaryButton type="button" onClick={ props.onClose } >

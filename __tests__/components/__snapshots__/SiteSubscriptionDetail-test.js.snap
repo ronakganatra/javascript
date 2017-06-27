@@ -1,15 +1,10 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`an add more licenses button should be shown when no more licenses are available 1`] = `
+exports[`test an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="caAtBd"
->
+  className="caAtBd">
   <span
-    className="fXreAk"
-  >
+    className="fXreAk">
     <span
-      className="fdUIpZ"
-    >
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -18,16 +13,13 @@ exports[`an add more licenses button should be shown when no more licenses are a
           onClick={[Function]}
           onKeyDown={[Function]}
           role="checkbox"
-          tabIndex="0"
-        >
+          tabIndex="0">
           <span
-            className="diphEL"
-          />
+            className="diphEL" />
         </div>
         <span
           aria-hidden="true"
-          className="euIAzV"
-        >
+          className="euIAzV">
           On
         </span>
       </div>
@@ -35,33 +27,27 @@ exports[`an add more licenses button should be shown when no more licenses are a
     <img
       alt=""
       className="jbZlKk"
-      src="icon.svg"
-    />
+      src="icon.svg" />
   </span>
   <span
-    className="iyDwOW"
-  >
+    className="iyDwOW">
     <span
-      className="kyRcdL"
-    >
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="hkQMsn"
-    >
+      className="hkQMsn">
       <span>
         0/20 remaining
       </span>
     </span>
   </span>
   <span
-    className="kVHWFy"
-  >
+    className="kVHWFy">
     <a
       className="iVRLEK"
       href="/account/subscriptions/subId"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span>
         Manage
       </span>
@@ -70,16 +56,13 @@ exports[`an add more licenses button should be shown when no more licenses are a
 </li>
 `;
 
-exports[`the sitesubscription matches the snapshot 1`] = `
+exports[`test the sitesubscription matches the snapshot 1`] = `
 <li
-  className="caAtBd"
->
+  className="caAtBd">
   <span
-    className="fXreAk"
-  >
+    className="fXreAk">
     <span
-      className="fdUIpZ"
-    >
+      className="fdUIpZ">
       <div>
         <div
           aria-checked={true}
@@ -88,16 +71,13 @@ exports[`the sitesubscription matches the snapshot 1`] = `
           onClick={[Function]}
           onKeyDown={[Function]}
           role="checkbox"
-          tabIndex="0"
-        >
+          tabIndex="0">
           <span
-            className="diphEL"
-          />
+            className="diphEL" />
         </div>
         <span
           aria-hidden="true"
-          className="euIAzV"
-        >
+          className="euIAzV">
           On
         </span>
       </div>
@@ -105,33 +85,27 @@ exports[`the sitesubscription matches the snapshot 1`] = `
     <img
       alt=""
       className="jbZlKk"
-      src="icon.svg"
-    />
+      src="icon.svg" />
   </span>
   <span
-    className="iyDwOW"
-  >
+    className="iyDwOW">
     <span
-      className="kyRcdL"
-    >
+      className="kyRcdL">
       Subscription name
     </span>
     <span
-      className="hkQMsn"
-    >
+      className="hkQMsn">
       <span>
         6/20 remaining
       </span>
     </span>
   </span>
   <span
-    className="kVHWFy"
-  >
+    className="kVHWFy">
     <a
       className="iVRLEK"
       href="/account/subscriptions/subId"
-      onClick={[Function]}
-    >
+      onClick={[Function]}>
       <span>
         Manage
       </span>
