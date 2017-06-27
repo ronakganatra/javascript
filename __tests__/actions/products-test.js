@@ -1,7 +1,23 @@
 import * as actions from "../../src/actions/products";
-import { getApiUrl } from "../../src/functions/api";
+import * as api from "../../src/functions/api";
 
 jest.mock( "whatwg-fetch" );
+
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getApiUrl: jest.fn( () => { return "" } ),
+		prepareInternalRequest: jest.fn( ( endpoint, payload = {}, method = "GET" ) => {
+			return { endpoint, method, payload };
+		} ),
+		doRequest: jest.fn( ( request ) => {
+			if ( request.method === "GET" ) {
+				return Promise.resolve(	[ { name: "Product" } ] );
+			}
+
+			return Promise.resolve( { status: 200 } );
+		} )
+	};
+} );
 
 jest.mock( "../../src/functions/auth", () => {
 	return {
@@ -10,60 +26,38 @@ jest.mock( "../../src/functions/auth", () => {
 	}
 } );
 
-let expectedRequest = new Request( getApiUrl() + "/products/?access_token=access", {
-	method: "GET",
-	body: JSON.stringify(),
-	headers: {
-		"Content-Type": "application/json",
-	},
-} );
-
 test( 'get all products action creator with success', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			status: 200,
-			json: () => { return {
-				test: "test",
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
 	const getAllProductsFunc = actions.getAllProducts();
 
 	expect( getAllProductsFunc ).toBeInstanceOf( Function );
 
-	let product = {
-		test: "test",
-	};
+	let request = api.prepareInternalRequest( `products/` );
 
 	return getAllProductsFunc( dispatch ).then( () => {
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsSuccess( product ) );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsSuccess( [ { name: "Product" } ] ) );
 	} );
 } );
 
 
 test( 'get all products action creator with failure', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			json: () => { return {
-				"error": {
-					"message": "error message test",
-				}
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
 	const getAllProductsFunc = actions.getAllProducts();
+
+	// Force a rejection to ensure the retrieveSitesFailure will be called.
+	api.doRequest.mockImplementation( () => {
+		return Promise.reject( Error( "Authorization required" ) );
+	} );
 
 	expect( getAllProductsFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `products/` );
+
 	return getAllProductsFunc( dispatch ).then( () => {
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsFailure( "error message test" ) );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductsFailure( "Authorization required" ) );
 	} );
 } );

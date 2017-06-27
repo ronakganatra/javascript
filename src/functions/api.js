@@ -11,7 +11,7 @@ import { GenericServerError } from "../errors/GenericServerError";
  * @returns {boolean} Whether or not the HTTP method is valid.
  */
 function determineValidMethod( method ) {
-	let validMethods = [ "GET", "POST", "PUT", "FETCH", "HEAD", "DELETE" ];
+	let validMethods = [ "GET", "POST", "PUT", "FETCH", "HEAD", "DELETE", "PATCH" ];
 
 	if ( typeof method !== "string" ) {
 		return false;
@@ -24,27 +24,43 @@ function determineValidMethod( method ) {
  * Prepares a request for sending.
  *
  * @param {string} url The URL to send the request to.
- * @param {object} payload The payload of the request.
  * @param {string} method The HTTP method to use for the request.
+ * @param {object} payload The payload of the request.
+ * @param {Object} additionalOptions An optional object containing options to be used by the request object.
+ *
  * @returns {Request} The Request object.
  */
-export function prepareRequest( url, payload = {}, method = "GET" ) {
+export function prepareRequest( url, method = "GET", payload = {}, additionalOptions = {} ) {
 	if ( ! determineValidMethod( method ) ) {
 		throw new Error( `Invalid method of ${method} supplied. Please ensure it's a string and a valid HTTP method.` );
 	}
 
 	let options = {
 		method,
-		headers: {
-			"Content-Type": "application/json",
-		},
+		headers: { "Content-Type": "application/json" },
 	};
 
 	if ( method !== "GET" ) {
 		options.body = JSON.stringify( payload );
 	}
 
-	return new Request( `${getApiUrl()}/${url}?access_token=${getAccessToken()}`, options );
+	options = Object.assign( {}, options, additionalOptions );
+
+	return new Request( url, options );
+}
+
+/**
+ * Prepares a request to send to the internal API.
+ *
+ * @param {string} path The path to send the request to.
+ * @param {string} method The HTTP method to use for the request.
+ * @param {object} payload The payload of the request.
+ * @param {Object} additionalOptions An optional object containing options to be used by the request object.
+ *
+ * @returns {Request} The Request object.
+ */
+export function prepareInternalRequest( path, method = "GET", payload = {}, additionalOptions = {} ) {
+	return prepareRequest( `${getApiUrl()}/${path}?access_token=${getAccessToken()}`, method, payload, additionalOptions );
 }
 
 /**

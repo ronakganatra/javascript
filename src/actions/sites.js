@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { prepareRequest, doRequest } from "../functions/api";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
 import { getAllProducts } from "./products";
@@ -110,7 +110,7 @@ export function linkSite( url ) {
 		dispatch( linkSiteRequest() );
 
 		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/sites/`, { url }, "POST" );
+		let request = prepareInternalRequest( `Customers/${userId}/sites/`, "POST", { url } );
 
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
@@ -179,7 +179,7 @@ export function retrieveSites() {
 		dispatch( retrieveSitesRequest() );
 
 		let userId = getUserId();
-		let request = prepareRequest( `Customers/${userId}/sites/` );
+		let request = prepareInternalRequest( `Customers/${userId}/sites/` );
 
 		return doRequest( request )
 			.then( json => dispatch( retrieveSitesSuccess( json ) ) )

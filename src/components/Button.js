@@ -22,7 +22,8 @@ let buttonAnimations = `
 	}
 `;
 
-export const Button = styled.button`
+// Button style archetypes.
+const ButtonArchetype = styled.button`
 	height: 48px;
 	margin: 0;
 	// Buttons don't need vertical padding.
@@ -31,7 +32,6 @@ export const Button = styled.button`
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
-	text-shadow: 0px 0px 1px #000;
 	border-radius: 4px;
 	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
@@ -40,26 +40,52 @@ export const Button = styled.button`
 	${ buttonAnimations };
 `;
 
-Button.propTypes = {
-	onClick: PropTypes.func,
-	type: PropTypes.string,
-	enabledStyle: PropTypes.bool,
+ButtonArchetype.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
 };
 
-Button.defaultProps = {
+ButtonArchetype.defaultProps = {
 	type: "button",
 	enabledStyle: true,
 };
 
-export const LargeButton = styled( Button )`
+export const IconButtonArchetype = styled( ButtonArchetype )`
+	background-repeat: no-repeat;
+	background-image: url( ${ props => props.iconSource } );
+	background-position: 16px 50%;
+	background-size: ${ props => props.iconSize };
+	padding-left: 56px;
+`;
+
+IconButtonArchetype.PropTypes = {
+	iconSource: React.PropTypes.string.isRequired,
+	iconSize: React.PropTypes.string,
+	enabledStyle: React.PropTypes.bool,
+};
+
+IconButtonArchetype.defaultProps = {
+	iconSize: "24px",
+	enabledStyle: true,
+};
+
+// Styled ButtonArchetypes.
+export const Button = styled( ButtonArchetype )`
+	text-shadow: 0px 0px 1px #000;
+`;
+
+export const RedButton = styled( ButtonArchetype )`
+	background-color: ${ colors.$color_red };
 	min-width: 152px;
 `;
 
-export const LargeSecondaryButton = styled( LargeButton )`
+export const LargeSecondaryButton = styled( ButtonArchetype )`
 	color: ${ colors.$color_black };
 	box-shadow: none;
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
+	min-width: 152px;
 
 	&:hover,
 	&:focus {
@@ -67,7 +93,13 @@ export const LargeSecondaryButton = styled( LargeButton )`
 		color: ${ colors.$color_white };
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 		border: none;
+		text-shadow: 0px 0px 1px #000;
 	}
+`;
+
+// Styled Buttons.
+export const LargeButton = styled( Button )`
+	min-width: 152px;
 `;
 
 export const TextButton = styled( Button )`
@@ -91,47 +123,73 @@ export const LogoutButton = styled( Button )`
 	padding: 0;
 `;
 
-export const IconButton = styled( Button )`
-	background-repeat: no-repeat;
-	background-image: url( ${ props => props.iconSource } );
-	background-position: 16px 50%;
-	background-size: ${ props => props.iconSize };
-	padding-left: 56px;
-`;
-
-IconButton.PropTypes = {
-	iconSource: PropTypes.string.isRequired,
-	iconSize: PropTypes.string,
-	enabledStyle: PropTypes.bool,
-};
-
-IconButton.defaultProps = {
-	iconSize: "24px",
-	enabledStyle: true,
-};
-
-export const MobileHeaderButton = styled( IconButton )`
-	background-color: transparent;
-	box-shadow: none;
-	display: block;
+export const BeaconButton = styled( Button )`
+	border-radius: 0;
+	height: 36px;
+	width: 152px;
+	font-size: 16px;
+	cursor: pointer;
 	position: fixed;
+	z-index: 1;
+	left: -112px;
+	top: 85%;
+	color: ${ colors.$color_white };
+	background-color: ${ colors.$color_green_medium_light };
+	z-index: 1;
+	padding-right: 40px;
+	background-repeat: no-repeat;
+	background-image: url( ${ questionCircle } );
+	background-position: right 8px center;
+	background-size: 24px;
+	transition: left .5s ease-in;
 
 	&:hover,
 	&:focus {
-		box-shadow: none;
+		left: 0;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		text-indent: -9999em;
-		box-shadow: none;
+	@media screen and ( max-width: 1024px ) {
+		display: none;
 	}
 `;
 
-export const LargeIconButton = styled( IconButton )`
-	min-width: 152px;
+BeaconButton.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+	"aria-label": React.PropTypes.string,
+};
+
+BeaconButton.defaultProps = {
+	type: "button",
+	"aria-label": "",
+};
+
+export const ChevronButton = styled( Button )`
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: url( ${ chevronRight } );
+	background-position: center;
+	background-size: 32px;
+	width:  48px;
+	height: 48px;
+	cursor: pointer;
+	box-shadow: none;
 `;
 
-export const IconButtonTransparent = styled( IconButton )`
+ChevronButton.propTypes = {
+	onClick: React.PropTypes.func,
+	type: React.PropTypes.string,
+	"aria-label": React.PropTypes.string,
+};
+
+ChevronButton.defaultProps = {
+	type: "button",
+	"aria-label": "",
+};
+
+// Styled IconButtonArchetypes.
+export const IconButtonTransparent = styled( IconButtonArchetype )`
 	background-color: transparent;
 	background-position: 0.5em 50%;
 	color: ${ colors.$color_blue };
@@ -154,15 +212,33 @@ export const IconButtonTransparent = styled( IconButton )`
 	}
 `;
 
-export const WhiteButton = styled( LargeButton )`
-	color: ${ colors.$color_blue };
-	background-color: ${ colors.$color_white };
+export const MobileHeaderButton = styled( IconButtonArchetype )`
+	background-color: transparent;
+	box-shadow: none;
+	display: block;
+	position: fixed;
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		text-indent: -9999em;
+		box-shadow: none;
+	}
 `;
 
-export const RedButton = styled( LargeButton )`
-	background-color: ${ colors.$color_red };
+export const IconButton = styled( IconButtonArchetype )`
+	text-shadow: 0px 0px 1px #000;
 `;
 
+// Styled IconButtons.
+export const LargeIconButton = styled( IconButton )`
+	min-width: 152px;
+`;
+
+// Styled ButtonLinks.
 export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
@@ -176,6 +252,7 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
+	text-shadow: 0px 0px 1px #000;
 
 	&:hover,
 	&:focus {
@@ -232,72 +309,6 @@ TextButtonLink.defaultProps = {
 	buttonWidth: "auto",
 };
 
-export const ChevronButton = styled( Button )`
-	background-color: transparent;
-	background-repeat: no-repeat;
-	background-image: url( ${ chevronRight } );
-	background-position: center;
-	background-size: 32px;
-	width:  48px;
-	height: 48px;
-	cursor: pointer;
-	box-shadow: none;
-`;
-
-ChevronButton.propTypes = {
-	onClick: PropTypes.func,
-	type: PropTypes.string,
-	"aria-label": PropTypes.string,
-};
-
-ChevronButton.defaultProps = {
-	type: "button",
-	"aria-label": "",
-};
-
-export const BeaconButton = styled( Button )`
-	border-radius: 0;
-	height: 36px;
-	width: 152px;
-	font-size: 16px;
-	cursor: pointer;
-	position: fixed;
-	z-index: 1;
-	left: -112px;
-	top: 85%;
-	color: ${ colors.$color_white };
-	background-color: ${ colors.$color_green_medium_light };
-	z-index: 1;
-	padding-right: 40px;
-	background-repeat: no-repeat;
-	background-image: url( ${ questionCircle } );
-	background-position: right 8px center;
-	background-size: 24px;
-	transition: left .5s ease-in;
-	text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
-
-	&:hover,
-	&:focus {
-		left: 0;
-		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
-	}
-
-	@media screen and ( max-width: 1024px ) {
-		display: none;
-	}
-`;
-
-BeaconButton.propTypes = {
-	onClick: PropTypes.func,
-	type: PropTypes.string,
-	"aria-label": PropTypes.string,
-};
-
-BeaconButton.defaultProps = {
-	type: "button",
-	"aria-label": "",
-};
-
 export const IconRightButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
@@ -312,10 +323,7 @@ IconRightButtonLink.PropTypes = {
 	iconSource: PropTypes.string.isRequired,
 };
 
-export const WhiteButtonLink = styled( LargeButtonLink )`
-	background-color: ${ colors.$color_white };
-	color: ${ colors.$color_blue };
-`;
+// Style related functions.
 
 /**
  * Returns a disabled button component for the given component.

@@ -1,6 +1,6 @@
 import "whatwg-fetch";
-import { getApiUrl, verifyStatusCode, handle401 } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getAccessToken, getUserId, getPasswordResetUrl } from "../functions/auth";
+import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl } from "../functions/auth";
 
 /*
  * Action types
@@ -85,25 +85,30 @@ export function receiveUser( user ) {
 }
 
 /**
+ * Forces a redirect to the login page.
+ *
+ * @returns {void}
+ */
+export function redirectToLogin() {
+	document.location.href = getAuthUrl();
+}
+
+/**
  * An action creator for the fetch user action.
  *
- * @param {string} accessToken A valid access token for the user.
  * @param {string} userId The user ID for the user that we want to fetch.
+ *
  * @returns {Object} A fetch user action.
  */
-export function fetchUser( accessToken, userId ) {
+export function fetchUser( userId ) {
 	return ( dispatch ) => {
 		dispatch( requestUser() );
 
-		let apiUrl = getApiUrl();
+		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
-		return fetch( `${apiUrl}/Customers/${userId}/profile?access_token=${accessToken}` )
-			.then( handle401 )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
-			.catch( () => {
-				document.location.href = getAuthUrl();
-			} );
+			.catch( redirectToLogin );
 	};
 }
 
@@ -151,30 +156,15 @@ export function disableUserFailure( errorMessage ) {
  */
 export function disableUser() {
 	let userId = getUserId();
-	let accessToken = getAccessToken();
 
 	return ( dispatch ) => {
 		dispatch( disableUserStart() );
 
-		let apiUrl = getApiUrl();
+		let request = prepareInternalRequest( `Customers/${userId}/`, "PATCH", { enabled: false } );
 
-		let request = new Request( `${apiUrl}/Customers/${userId}/?access_token=${accessToken}`, {
-			method: "PATCH",
-			body: JSON.stringify( {
-				enabled: false,
-			} ),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( disableUserSuccess() ) )
-			.catch( ( error ) => {
-				dispatch( disableUserFailure( error.message ) );
-			} );
+			.catch( error => dispatch( disableUserFailure( error.message ) ) );
 	};
 }
 
@@ -239,24 +229,12 @@ export function updateProfile( profile ) {
 	return ( dispatch ) => {
 		dispatch( profileUpdateRequest() );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
 		let userId = getUserId();
-		let request = new Request( `${apiUrl}/Customers/${userId}/profile?access_token=${accessToken}`, {
-			method: "PATCH",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify( profile ),
-		} );
+		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
-		return fetch( request )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
-			.then( ( profile ) => dispatch( profileUpdateSuccess( profile ) ) )
-			.catch( ( error ) => {
-				dispatch( profileUpdateFailure( error.message ) );
-			} );
+		return doRequest( request )
+			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
+			.catch( error => dispatch( profileUpdateFailure( error.message ) ) );
 	};
 }
 
@@ -308,14 +286,10 @@ export function passwordResetSend( email ) {
 		const body = new FormData();
 		body.append( "user_login", email );
 
-		const request = new Request( getPasswordResetUrl(), {
-			method: "POST",
-			body,
-			mode: "no-cors",
-		} );
+		let request = prepareRequest( getPasswordResetUrl(), "POST", { body }, { mode: "no-cors" } );
 
-		return fetch( request )
-			.then( () => dispatch( passwordResetSuccess() ) )
-			.catch( ( error ) => dispatch( passwordResetFailure( error.message ) ) );
+		return doRequest( request )
+			.then( dispatch( passwordResetSuccess() ) )
+			.catch( error => dispatch( passwordResetFailure( error.message ) ) );
 	};
 }

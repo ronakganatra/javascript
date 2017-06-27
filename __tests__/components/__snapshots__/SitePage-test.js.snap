@@ -14,7 +14,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="fIyvPW"
     >
       <a
-        className="rPtNK"
+        className="jGMDFB"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -26,7 +26,7 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="eEWLlf"
+        className="kyorHW"
         href="http://yoast.com/wp-admin"
       >
         <span>
@@ -260,7 +260,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="fIyvPW"
     >
       <a
-        className="rPtNK"
+        className="jGMDFB"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -272,7 +272,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="eEWLlf"
+        className="kyorHW"
         href="http://yoast.com/wp-admin"
       >
         <span>

@@ -2,7 +2,7 @@
 
 exports[`the Large Secondary Button matches the snapshot 1`] = `
 <button
-  className="bvjOnJ"
+  className="bXlRtC"
   type="button"
 >
   ButtonValue
@@ -12,7 +12,7 @@ exports[`the Large Secondary Button matches the snapshot 1`] = `
 exports[`the beacon button matches the snapshot 1`] = `
 <button
   aria-label=""
-  className="gkcyrM"
+  className="AvAyj"
   type="button"
 >
   ButtonValue
@@ -21,7 +21,7 @@ exports[`the beacon button matches the snapshot 1`] = `
 
 exports[`the button handling an onclick event 1`] = `
 <button
-  className="byhavi"
+  className="dICXMg"
   onClick={[Function]}
   type="button"
 >
@@ -31,7 +31,7 @@ exports[`the button handling an onclick event 1`] = `
 
 exports[`the button handling an onclick event 2`] = `
 <button
-  className="byhavi"
+  className="dICXMg"
   onClick={[Function]}
   type="button"
 >
@@ -41,7 +41,7 @@ exports[`the button handling an onclick event 2`] = `
 
 exports[`the button matches the snapshot 1`] = `
 <button
-  className="byhavi"
+  className="dICXMg"
   type="button"
 >
   ButtonValue
@@ -50,7 +50,7 @@ exports[`the button matches the snapshot 1`] = `
 
 exports[`the button with button type given matches the snapshot 1`] = `
 <button
-  className="byhavi"
+  className="dICXMg"
   type="button"
 >
   ButtonValue
