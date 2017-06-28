@@ -88,7 +88,7 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
 
 		return doRequest( request )
-			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
+			.then( dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
 			.catch( error => dispatch( siteToggleSubscriptionFailure( error.message ) ) );
 	};
 }
@@ -108,7 +108,7 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
 
 		return doRequest( request )
-			.then( json => dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) ) )
+			.then( dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) ) )
 			.catch( error => dispatch( siteToggleSubscriptionFailure( error.message ) ) );
 	};
 }

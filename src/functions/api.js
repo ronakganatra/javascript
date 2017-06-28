@@ -70,6 +70,7 @@ export function prepareInternalRequest( path, method = "GET", payload = {}, addi
  * @returns {object} The fetched request object.
  */
 export function doRequest( request ) {
+	console.log( "REQUEST: ", request );
 	return fetch( request )
 		.then( handleResponse )
 		.catch( ( error ) => {
@@ -86,6 +87,8 @@ export function doRequest( request ) {
 function handleResponse( response ) {
 	let validStatusCodes = [ 200, 204 ];
 
+	console.log( response );
+
 	if ( response.status === 401 ) {
 		return handle401( response );
 	}
@@ -94,6 +97,10 @@ function handleResponse( response ) {
 		return handleErrorResponse( response );
 	}
 
+	// if no content in response, resolve empty promise.
+	if ( response.status === 204 ) {
+		return Promise.resolve();
+	}
 	return response.json();
 }
 /**
