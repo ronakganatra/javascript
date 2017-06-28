@@ -94,7 +94,7 @@ function handleResponse( response ) {
 		return handleErrorResponse( response );
 	}
 
-	// if no content in response, resolve empty promise.
+	// If no content in response, resolve empty promise.
 	if ( response.status === 204 ) {
 		return Promise.resolve();
 	}
