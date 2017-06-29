@@ -98,6 +98,7 @@ function handleResponse( response ) {
 	if ( response.status === 204 ) {
 		return Promise.resolve();
 	}
+	
 	return response.json();
 }
 /**
@@ -166,10 +167,12 @@ export function verifyStatusCode( response ) {
 	// The server returns a 204 with DELETE responses.
 	if ( response.status !== 200 && response.status !== 204 ) {
 		let error = response.statusText;
+		
 		// On no-cors request the error is not set.
 		if ( response.json().error ) {
 			error = response.json().error.message;
 		}
+		
 		throw new Error( error );
 	}
 
