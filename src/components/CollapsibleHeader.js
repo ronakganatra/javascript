@@ -61,13 +61,6 @@ const CollapsibleTitle = styled.span`
 	align-self: center;
 `;
 
-const CollapsibleSubTitle = styled.span`
-	display: block;
-	// Chrome needs 8 decimals to make this 16px without roundings.
-	font-size: 0.66666666em;
-	line-height: 1.5;
-`;
-
 export default class ListToggle extends React.Component {
 	/**
 	 * The constructor.
@@ -125,7 +118,6 @@ export default class ListToggle extends React.Component {
 	 */
 	render() {
 		let children = null;
-		let subtitle = this.props.subtitle ? <CollapsibleSubTitle>{ this.props.subtitle }</CollapsibleSubTitle> : null;
 
 		if ( this.state.isOpen ) {
 			children = this.props.children;
@@ -136,7 +128,6 @@ export default class ListToggle extends React.Component {
 				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
 					<CollapsibleTitle>
 						{ this.props.title }
-						{ subtitle }
 					</CollapsibleTitle>
 					{ this.getArrow() }
 				</CollapsibleHeading>
@@ -148,7 +139,6 @@ export default class ListToggle extends React.Component {
 
 ListToggle.propTypes = {
 	title: PropTypes.string.isRequired,
-	subtitle: PropTypes.string,
 	isOpen: PropTypes.bool,
 	children: PropTypes.oneOfType( [
 		PropTypes.arrayOf( PropTypes.node ),

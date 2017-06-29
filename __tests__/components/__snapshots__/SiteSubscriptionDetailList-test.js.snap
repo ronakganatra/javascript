@@ -16,11 +16,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         className="ioaeUl"
       >
         Subscriptions
-        <span
-          className="eMlIYg"
-        >
-          Active subscriptions for this site. If you don't have any subscriptions left, use the link to get additional subscriptions.
-        </span>
       </span>
       <svg
         fill="#555"

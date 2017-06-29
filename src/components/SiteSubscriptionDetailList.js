@@ -10,10 +10,6 @@ const messages = defineMessages( {
 		id: "site_subscriptions.overview.title",
 		defaultMessage: "Subscriptions",
 	},
-	subtitle: {
-		id: "site_subscriptions.overview.subtitle",
-		defaultMessage: "Active subscriptions for this site. If you don't have any subscriptions left, use the link to get additional subscriptions.",
-	},
 } );
 
 /**
@@ -26,7 +22,7 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
-			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
 				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
 						let onToggleDisabled = () => {
