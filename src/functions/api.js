@@ -100,6 +100,11 @@ export function doRequest( request ) {
  * @returns {object} The processes response.
  */
 function handleResponse( response ) {
+	// With opaque response types, no inference can be made on whether the request was successful.
+	// For now we'll assume all such responses come from external requests, and can only be successful.
+	if ( response.type === "opaque" ) {
+		return Promise.resolve();
+	}
 	let validStatusCodes = [ 200, 204 ];
 
 	if ( response.status === 401 ) {
