@@ -21,6 +21,24 @@ function determineValidMethod( method ) {
 }
 
 /**
+ * Hoi
+ * @param {string} method The API method.
+ * @param {Object} payload The payload.
+ * @returns {Object} an object
+ */
+function preparePayload( method, payload ) {
+	if ( method === "GET" || method === "HEAD" ) {
+		return {};
+	}
+
+	if ( payload instanceof FormData ) {
+		return payload;
+	}
+
+	return JSON.stringify( payload );
+}
+
+/**
  * Prepares a request for sending.
  *
  * @param {string} url The URL to send the request to.
@@ -40,9 +58,7 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
 		headers: { "Content-Type": "application/json" },
 	};
 
-	if ( method !== "GET" ) {
-		options.body = JSON.stringify( payload );
-	}
+	options.body = preparePayload( method, payload );
 
 	options = Object.assign( {}, options, additionalOptions );
 
@@ -101,6 +117,7 @@ function handleResponse( response ) {
 
 	return response.json();
 }
+
 /**
  * Handles an errored response.
  *
