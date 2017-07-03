@@ -114,10 +114,6 @@ const ValidationText = styled.div`
 	min-height: 1.8em;
 `;
 
-const PurpleLink = styled.a`
-	color: ${ colors.$color_purple };
-`;
-
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
@@ -222,12 +218,9 @@ class AddSite extends React.Component {
 				<WarningText>
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
-						defaultMessage={ "Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }" }
+						defaultMessage={ "{ errorMessage }" }
 						values={ {
-							link: <PurpleLink href="/"><FormattedMessage
-								id="sites.add-site-no-active-product.link"
-								defaultMessage="read this page."/></PurpleLink>,
-							errorMessage: <i>"{ errorMessage }."</i>,
+							errorMessage: errorMessage,
 						} }
 					/>
 				</WarningText>
@@ -281,8 +274,7 @@ class AddSite extends React.Component {
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ this.urlValidity }>
+						<WideLargeButton type="submit" onClick={ this.props.onConnectClick } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>

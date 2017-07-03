@@ -121,14 +121,14 @@ function handleErrorResponse( response ) {
  */
 function determineErrorMessage( response ) {
 	if ( ! response.error ) {
-		throw new GenericServerError( response.statusText );
+		throw new GenericServerError();
 	}
 
 	if ( response.error.code === "ER_DUP_ENTRY" ) {
 		throw new DuplicateRecord();
 	}
 
-	throw new GenericServerError( response.error.message );
+	throw new GenericServerError();
 }
 
 /**

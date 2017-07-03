@@ -9,7 +9,7 @@ class DuplicateRecord extends Error {
 	 * @returns {void}
 	 */
 	constructor() {
-		let errorMessage = "Attempted to insert a duplicate record in a unique field";
+		let errorMessage = "It looks like you have already added this site to your My Yoast account.";
 		super( errorMessage );
 
 		this.name = this.constructor.name;

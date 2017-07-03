@@ -4,12 +4,13 @@
 class GenericServerError extends Error {
 
 	/**
-	 * Constructs the error message.
-	 * @param {string} message The message to display in the error.
+	 * Constructs the general error message.
+	 *
 	 * @returns {void}
 	 */
-	constructor( message ) {
-		super( message );
+	constructor() {
+		let errorMessage = "Oops, something went wrong on our end, please try again. If this keeps happening, please contact support.";
+		super( errorMessage );
 	}
 }
 
