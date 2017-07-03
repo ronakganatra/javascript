@@ -274,7 +274,8 @@ class AddSite extends React.Component {
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.props.onConnectClick } enabledStyle={ this.urlValidity }>
+						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ this.urlValidity }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>
