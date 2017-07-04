@@ -349,12 +349,16 @@ class ProfilePage extends React.Component {
 	getPasswordReset() {
 		let onClickAction = this.props.onPasswordReset;
 		let passwordResetError;
-
 		let passwordResetMessage;
 
 		if ( this.props.isSendingPasswordReset ) {
 			let message = this.props.intl.formatMessage( messages.passwordResetSending );
 
+			/*
+			 * While sending the email: prevent calling the password reset
+			 * function multiple times but don't disable the button for better
+			 * accessibility (avoid keyboard focus loss).
+			 */
 			onClickAction = _noop;
 
 			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
@@ -369,10 +373,7 @@ class ProfilePage extends React.Component {
 		}
 
 		if ( this.props.passwordResetError ) {
-			let message = this.props.passwordResetError;
-
-			passwordResetError = <FormError>{ message }</FormError>;
-			a11ySpeak( message, "assertive" );
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
 		}
 
 		return <PasswordReset>
@@ -380,7 +381,7 @@ class ProfilePage extends React.Component {
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage={ "To change your password follow the instructions in the password reset mail." }
+				defaultMessage={ "To change your password follow the instructions in the password reset email." }
 			/></p>
 			<Button onClick={ onClickAction }>{ this.props.intl.formatMessage( messages.passwordResetSend ) }</Button>
 			{ passwordResetError }
@@ -402,6 +403,14 @@ class ProfilePage extends React.Component {
 
 		let handleSubmit = ( event ) => {
 			event.preventDefault();
+
+			/*
+			 * While saving: prevent multiple submissions but don't disable the
+			 * button for better accessibility (avoid keyboard focus loss).
+			 */
+			if ( this.isSaving() ) {
+				return;
+			}
 
 			this.props.onSaveProfile();
 		};
@@ -437,7 +446,6 @@ class ProfilePage extends React.Component {
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
 								{ globalError }
-
 								{ this.getSaveButton() }
 							</form>
 
