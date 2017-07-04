@@ -212,15 +212,20 @@ class AddSite extends React.Component {
 			return null;
 		}
 
+		let contactLink = (
+			<a href ='mailto:support@yoast.com'> please contact support</a>
+		);
+
 		return (
 			<YellowWarning role="alert" >
 				<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
 				<WarningText>
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
-						defaultMessage={ "{ errorMessage }" }
+						defaultMessage={"{ errorMessage }{ contactLink }."}
 						values={ {
-							errorMessage: errorMessage,
+							errorMessage: errorMessage.replace( "please contact support.", "" ),
+							contactLink: contactLink,
 						} }
 					/>
 				</WarningText>

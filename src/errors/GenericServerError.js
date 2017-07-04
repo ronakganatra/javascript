@@ -15,3 +15,4 @@ class GenericServerError extends Error {
 }
 
 exports.GenericServerError = GenericServerError;
+
