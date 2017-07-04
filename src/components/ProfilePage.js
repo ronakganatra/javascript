@@ -9,6 +9,7 @@ import a11ySpeak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 
@@ -20,6 +21,10 @@ const messages = defineMessages( {
 	validationRequired: {
 		id: "validation.required",
 		defaultMessage: "{field} cannot be empty.",
+	},
+	duplicateEmail: {
+		id: "profile.error.duplicateEmail",
+		defaultMessage: "The email address could not be changed, it is probably already in use.",
 	},
 	labelEmail: {
 		id: "profile.label.email",
@@ -49,8 +54,8 @@ const messages = defineMessages( {
 		id: "profile.delete",
 		defaultMessage: "Delete your account",
 	},
-	passwordReset: {
-		id: "profile.label.passwordReset",
+	passwordChange: {
+		id: "profile.passwordChange",
 		defaultMessage: "Change password",
 	},
 	passwordResetSend: {
@@ -59,7 +64,7 @@ const messages = defineMessages( {
 	},
 	passwordResetSending: {
 		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending password reset...",
+		defaultMessage: "Sending  email...",
 	},
 	passwordResetSent: {
 		id: "profile.passwordResetSent",
@@ -69,8 +74,8 @@ const messages = defineMessages( {
 		id: "profile.gravatarLink",
 		defaultMessage: "Gravatar website",
 	},
-	labelProfilePicture: {
-		id: "profile.label.picture",
+	profilePicture: {
+		id: "profile.picture",
 		defaultMessage: "Profile picture",
 	},
 	profilePageLoaded: {
@@ -118,11 +123,23 @@ const TextInput = styled.input`
 	border:none;
 `;
 
-const FormError = styled.div`
+const FormMessage = styled.p`
+	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
+	margin: 0.5em 0 0;
+	${ props => props.inline ? "display: inline-block;" : "display: block;" }
+`;
+
+FormMessage.propTypes = {
+	inline: React.PropTypes.bool,
+};
+
+FormMessage.defaultProps = {
+	inline: false,
+};
+
+const FormError = styled( FormMessage )`
+ 	padding: 0.5em;
 	background-color: ${ colors.$color_yellow };
-	padding: 0.5em;
-	margin-top: 0.5em;
-	color: ${ colors.$color_black };
 `;
 
 const PasswordReset = styled.section`
@@ -238,15 +255,6 @@ class ProfilePage extends React.Component {
 	 *
 	 * @returns {string} Text to be used on the submit button.
 	 */
-	submitButtonText() {
-		return this.isSaving() ? this.props.intl.formatMessage( messages.saving ) : this.props.intl.formatMessage( messages.saveEmail );
-	}
-
-	/**
-	 * Creates the text to be displayed on the save button.
-	 *
-	 * @returns {string} Text to be used on the submit button.
-	 */
 	deleteButtonText() {
 		return this.isDeleting() ? this.props.intl.formatMessage( messages.deletingAccount ) : this.props.intl.formatMessage( messages.deleteAccount );
 	}
@@ -311,39 +319,72 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Returns the password reset elements for the profile page.
+	 * Returns the save email elements for the profile page.
 	 *
-	 * @returns {ReactElement} The element for the password reset.
+	 * @returns {ReactElement} The elements for the save email.
 	 */
-	getPasswordReset() {
-		let disabled = false;
-		let passwordResetError;
+	getSaveButton() {
+		let emailSavingMessage;
 
-		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
+		if ( this.isSaving() ) {
+			let message = this.props.intl.formatMessage( messages.saving );
 
-		if ( this.props.isSendingPasswordReset ) {
-			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSending );
-			disabled = true;
+			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
 		}
 
-		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={ disabled }>{ passwordResetButtonText }</Button>;
+		return <div>
+			<SaveButton type="submit">
+				{ this.props.intl.formatMessage( messages.saveEmail ) }
+			</SaveButton>
+			{ emailSavingMessage }
+		</div>;
+	}
+
+	/**
+	 * Returns the password reset elements for the profile page.
+	 *
+	 * @returns {ReactElement} The elements for the password reset.
+	 */
+	getPasswordReset() {
+		let onClickAction = this.props.onPasswordReset;
+		let passwordResetError;
+
+		let passwordResetMessage;
+
+		if ( this.props.isSendingPasswordReset ) {
+			let message = this.props.intl.formatMessage( messages.passwordResetSending );
+
+			onClickAction = _noop;
+
+			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
+		}
+
 		if ( this.props.hasSendPasswordReset ) {
-			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+			let message = this.props.intl.formatMessage( messages.passwordResetSent );
+
+			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
+			let message = this.props.passwordResetError;
+
+			passwordResetError = <FormError>{ message }</FormError>;
+			a11ySpeak( message, "assertive" );
 		}
 
 		return <PasswordReset>
-			<Paragraph>{ this.props.intl.formatMessage( messages.passwordReset ) }</Paragraph>
+			<Paragraph>{ this.props.intl.formatMessage( messages.passwordChange ) }</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage={ "To change your password follow the instructions in the password reset mail." } />
-			</p>
-			{ passwordResetButton }
+				defaultMessage={ "To change your password follow the instructions in the password reset mail." }
+			/></p>
+			<Button onClick={ onClickAction }>{ this.props.intl.formatMessage( messages.passwordResetSend ) }</Button>
 			{ passwordResetError }
+			{ passwordResetMessage }
 		</PasswordReset>;
 	}
 
@@ -375,10 +416,7 @@ class ProfilePage extends React.Component {
 		if ( this.props.error !== "" ) {
 			let message = this.props.error;
 			if ( message === "Bad Request" ) {
-				message = <FormattedMessage
-					id="profile.error.duplicateEmail"
-					defaultMessage={ "The email address could not be changed, it is probably already in use." }
-				/>;
+				message = this.props.intl.formatMessage( messages.duplicateEmail );
 			}
 			globalError = <FormError role="alert">{ message }</FormError>;
 		}
@@ -400,14 +438,14 @@ class ProfilePage extends React.Component {
 								{ this.displayErrors( errors, "email" ) }
 								{ globalError }
 
-								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
+								{ this.getSaveButton() }
 							</form>
 
 							{ this.getPasswordReset() }
 						</Column>
 
 						<Column>
-							<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
+							<Paragraph>{ this.props.intl.formatMessage( messages.profilePicture ) }</Paragraph>
 							<p>
 								<FormattedMessage
 									id="profile.description.picture"
