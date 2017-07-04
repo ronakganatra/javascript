@@ -283,7 +283,7 @@ export function passwordResetSend( email ) {
 	return ( dispatch ) => {
 		dispatch( passwordResetRequest() );
 
-		let body = new FormData();
+		const body = new FormData();
 		body.append( "user_login", email );
 
 		let request = prepareRequest( getPasswordResetUrl(), "POST", body, { mode: "no-cors" } );
