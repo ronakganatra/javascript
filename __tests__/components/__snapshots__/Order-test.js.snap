@@ -57,7 +57,7 @@ exports[`A standard order 1`] = `
   >
     <a
       aria-label="Download invoice"
-      className="cMyvFx"
+      className="FJVi"
       href="http://somelink"
     >
       <span
@@ -126,7 +126,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     className="gJSEqq"
   >
     <button
-      className="gbpVTx fezeEe"
+      className="gbpVTx gKiRpK"
       disabled="disabled"
       to="http://somelink"
     >

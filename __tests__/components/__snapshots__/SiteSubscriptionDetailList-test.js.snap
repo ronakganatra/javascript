@@ -89,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="iVRLEK"
+            className="jNEDIU"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -152,7 +152,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <button
-            className="jfzkEi"
+            className="dxNrSx"
             onClick={[Function]}
           >
             <span>
@@ -164,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="iVRLEK"
+            className="jNEDIU"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
