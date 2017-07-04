@@ -28,13 +28,14 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -46,23 +47,22 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={false}
             onClick={[Function]}
             type="button"
           >
             Send password reset email
           </button>
-          <div
-            className="yrpmy"
+          <p
+            className="gmPQne"
             role="alert"
           >
             An error occurred while sending password reset.
-          </div>
+          </p>
         </section>
       </div>
       <div
@@ -149,19 +149,20 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             type="text"
             value="email@email.email"
           />
-          <div
-            className="yrpmy"
+          <p
+            className="gmPQne"
             role="alert"
           >
             An error occurred while saving profile.
+          </p>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
           </div>
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
         </form>
         <section
           className="dEsRUZ"
@@ -173,12 +174,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={false}
             onClick={[Function]}
             type="button"
           >
@@ -270,13 +270,14 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -288,10 +289,21 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
-          An email has been sent, please check your inbox.
+          <button
+            className="cHnBIQ"
+            onClick={[Function]}
+            type="button"
+          >
+            Send password reset email
+          </button>
+          <p
+            className="jtXKzF"
+          >
+            An email has been sent, please check your inbox.
+          </p>
         </section>
       </div>
       <div
@@ -378,13 +390,19 @@ exports[`components/ProfilePage saving profile 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="fTwoQp"
-            disabled={true}
-            type="submit"
-          >
-            Saving...
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+            <p
+              className="ffWuSs"
+            >
+              Saving...
+            </p>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -396,12 +414,11 @@ exports[`components/ProfilePage saving profile 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={false}
             onClick={[Function]}
             type="button"
           >
@@ -493,13 +510,14 @@ exports[`components/ProfilePage sending password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -511,17 +529,21 @@ exports[`components/ProfilePage sending password reset 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={true}
             onClick={[Function]}
             type="button"
           >
-            Sending password reset...
+            Send password reset email
           </button>
+          <p
+            className="ffWuSs"
+          >
+            Sending  email...
+          </p>
         </section>
       </div>
       <div
@@ -608,13 +630,14 @@ exports[`components/ProfilePage the default case 1`] = `
             type="text"
             value="test@test.test"
           />
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -626,12 +649,11 @@ exports[`components/ProfilePage the default case 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={false}
             onClick={[Function]}
             type="button"
           >
@@ -728,13 +750,14 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="fTwoQp"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              Save email address
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -746,23 +769,22 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
             className="cHnBIQ"
-            disabled={false}
             onClick={[Function]}
             type="button"
           >
             Send password reset email
           </button>
-          <div
-            className="yrpmy"
+          <p
+            className="gmPQne"
             role="alert"
           >
             An error occurred while sending password reset.
-          </div>
+          </p>
         </section>
       </div>
       <div
