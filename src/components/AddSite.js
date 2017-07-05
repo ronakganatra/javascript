@@ -114,6 +114,10 @@ const ValidationText = styled.div`
 	min-height: 1.8em;
 `;
 
+const PurpleLink = styled.a`		
+  	color: ${ colors.$color_purple };		
+  `;
+
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
@@ -212,9 +216,14 @@ class AddSite extends React.Component {
 			return null;
 		}
 
-		let contactLink = (
-			<a href="mailto:support@yoast.com"> please contact support</a>
-		);
+		let contactLink = "";
+		let defaultMessage = "{ errorMessage }";
+
+		if ( errorMessage.indexOf( "[customer_support_link]" ) > -1 ) {
+			errorMessage = errorMessage.replace( "[customer_support_link]", "" );
+			contactLink = ( <PurpleLink href="mailto:support@yoast.com"> please contact support </PurpleLink> );
+			defaultMessage = "{ errorMessage }{ contactLink }.";
+		}
 
 		return (
 			<YellowWarning role="alert" >
@@ -222,9 +231,9 @@ class AddSite extends React.Component {
 				<WarningText>
 					<FormattedMessage
 						id="sites.add-site.no-active-product"
-						defaultMessage={"{ errorMessage }{ contactLink }."}
+						defaultMessage={ defaultMessage }
 						values={ {
-							errorMessage: errorMessage.replace( "please contact support.", "" ),
+							errorMessage: errorMessage,
 							contactLink: contactLink,
 						} }
 					/>

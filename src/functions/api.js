@@ -2,7 +2,7 @@ import "whatwg-fetch";
 import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
 import { DuplicateRecord } from "../errors/DuplicateRecord";
-import { GenericServerError } from "../errors/GenericServerError";
+import { CustomerSupportError } from "../errors/CustomerSupportError";
 
 /**
  * Determines whether or not a valid HTTP method was passed.
@@ -121,14 +121,14 @@ function handleErrorResponse( response ) {
  */
 function determineErrorMessage( response ) {
 	if ( ! response.error ) {
-		throw new GenericServerError();
+		throw new CustomerSupportError();
 	}
 
 	if ( response.error.code === "ER_DUP_ENTRY" ) {
 		throw new DuplicateRecord();
 	}
 
-	throw new GenericServerError();
+	throw new CustomerSupportError();
 }
 
 /**
