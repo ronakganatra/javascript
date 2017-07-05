@@ -63,6 +63,8 @@ class OrderPage extends React.Component {
 	}
 
 	componentDidMount() {
+		this.props.loadData();
+
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.ordersPageLoaded );
 		a11ySpeak( message );
@@ -131,4 +133,9 @@ OrderPage.propTypes = {
 	orders: PropTypes.array,
 	intl: intlShape.isRequired,
 	query: PropTypes.string,
+	loadData: PropTypes.func,
+};
+
+OrderPage.defaultProps = {
+	loadData: () => {},
 };
