@@ -213,7 +213,7 @@ class AddSite extends React.Component {
 		}
 
 		let contactLink = (
-			<a href ='mailto:support@yoast.com'> please contact support</a>
+			<a href="mailto:support@yoast.com"> please contact support</a>
 		);
 
 		return (
