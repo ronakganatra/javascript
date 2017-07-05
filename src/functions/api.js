@@ -26,11 +26,11 @@ function determineValidMethod( method ) {
  * @param {string} method The API method for the request.
  * @param {Object} payload The payload that came with the request.
  *
- * @returns {Object} An empty object, a FormData object, or a stringified object.
+ * @returns {Object} null, a FormData object, or a stringified object.
  */
 function preparePayload( method, payload ) {
 	if ( method === "GET" || method === "HEAD" ) {
-		return {};
+		return null;
 	}
 
 	if ( payload instanceof FormData ) {
