@@ -87,7 +87,7 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get another subscription"
@@ -95,9 +95,10 @@ function SiteSubscriptionDetail( props ) {
 			</IconButtonTransparent>
 		);
 	}
+
 	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get a subscription"
@@ -144,7 +145,7 @@ function SiteSubscriptionDetail( props ) {
 SiteSubscriptionDetail.propTypes = {
 	subscriptionId: PropTypes.string,
 	name: PropTypes.string.isRequired,
-	onAddMoreLicensesClick: PropTypes.func,
+	onAddMoreSubscriptionsClick: PropTypes.func,
 	onClickToggle: PropTypes.func,
 	onToggleSubscription: PropTypes.func,
 	onToggleDisabled: PropTypes.func,
