@@ -21,6 +21,26 @@ function determineValidMethod( method ) {
 }
 
 /**
+ * Prepares the payload based on the methods. GET and HEAD can't have payloads, and FormData cannot be stringified.
+ *
+ * @param {string} method The API method for the request.
+ * @param {Object} payload The payload that came with the request.
+ *
+ * @returns {Object} null, a FormData object, or a stringified object.
+ */
+function preparePayload( method, payload ) {
+	if ( method === "GET" || method === "HEAD" ) {
+		return null;
+	}
+
+	if ( payload instanceof FormData ) {
+		return payload;
+	}
+
+	return JSON.stringify( payload );
+}
+
+/**
  * Prepares a request for sending.
  *
  * @param {string} url The URL to send the request to.
@@ -40,9 +60,7 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
 		headers: { "Content-Type": "application/json" },
 	};
 
-	if ( method !== "GET" ) {
-		options.body = JSON.stringify( payload );
-	}
+	options.body = preparePayload( method, payload );
 
 	options = Object.assign( {}, options, additionalOptions );
 
@@ -84,6 +102,14 @@ export function doRequest( request ) {
  * @returns {object} The processes response.
  */
 function handleResponse( response ) {
+	/*
+	With opaque response types, no inference can be made on whether the request was successful.
+	For now we'll assume all such responses come from external requests, and can only be successful.
+	*/
+	if ( response.type === "opaque" ) {
+		return Promise.resolve();
+	}
+
 	let validStatusCodes = [ 200, 204 ];
 
 	if ( response.status === 401 ) {
@@ -101,6 +127,7 @@ function handleResponse( response ) {
 
 	return response.json();
 }
+
 /**
  * Handles an errored response.
  *
@@ -151,29 +178,6 @@ export function handle401( response ) {
 		removeAuthCookies();
 		document.location.href = getAuthUrl();
 		throw new Error( "Authentication required" );
-	}
-
-	return response;
-}
-
-/**
- * Checks a response for an error status code and throws an error if present.
- *
- * @param {Object} response The response that needs to be checked for an error status code.
- * @returns {Object} Returns the unaltered object if no error status code is present.
- *
- */
-export function verifyStatusCode( response ) {
-	// The server returns a 204 with DELETE responses.
-	if ( response.status !== 200 && response.status !== 204 ) {
-		let error = response.statusText;
-
-		// On no-cors request the error is not set.
-		if ( response.json().error ) {
-			error = response.json().error.message;
-		}
-
-		throw new Error( error );
 	}
 
 	return response;
