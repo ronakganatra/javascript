@@ -76,8 +76,9 @@ class SubscriptionsPage extends React.Component {
 		let noSubscriptionsParagraphs = [
 			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
 			<FormattedMessage id="subscriptions.no-subscriptions.manage"
-							  defaultMessage="Here you can find a list of the software you bought from us - but it looks like you don't have any yet!" />,
-			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
+so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
+			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
 		];
 		let noSearchResultsParagraphs = [
 			<FormattedMessage id="subscriptions.search.no-results"
