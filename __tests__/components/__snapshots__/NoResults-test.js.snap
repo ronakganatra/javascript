@@ -20,7 +20,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
     </span>
   </p>
   <button
-    className="jJXxXH"
+    className="cyaQRf"
     onClick={[Function]}
     type="button"
   >
@@ -56,7 +56,7 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
     </span>
   </p>
   <button
-    className="kiBQfY"
+    className="hKDCzF"
     onClick={[Function]}
   >
     <span>
@@ -91,7 +91,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
     </span>
   </p>
   <button
-    className="jJXxXH"
+    className="cyaQRf"
     onClick={[Function]}
     type="button"
   >

@@ -50,6 +50,8 @@ class SubscriptionsPage extends React.Component {
 	}
 
 	componentDidMount() {
+		this.props.loadData();
+
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
 		a11ySpeak( message );
@@ -135,6 +137,11 @@ SubscriptionsPage.propTypes = {
 	onSearchChange: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	query: PropTypes.string,
+	loadData: PropTypes.func,
+};
+
+SubscriptionsPage.defaultProps = {
+	loadData: () => {},
 };
 
 export default injectIntl( SubscriptionsPage );

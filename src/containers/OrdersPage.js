@@ -53,12 +53,11 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
-	dispatch( getOrders() );
-
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
+		loadData: () => dispatch( getOrders() ),
 	};
 };
 

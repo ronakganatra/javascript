@@ -9,7 +9,7 @@ import questionCircle from "../icons/question-circle.svg";
 import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
-	transition: background 150ms ease-out;
+	transition: background-color 150ms ease-out;
 
 	&:hover,
 	&:focus {
@@ -198,7 +198,7 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	height: 32px;
 	padding-left: 2em;
 
-	transition: background 150ms ease-out;
+	transition: background-color 150ms ease-out;  
 
 	&:hover,
 	&:focus {

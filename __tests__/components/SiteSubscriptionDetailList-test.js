@@ -101,7 +101,7 @@ test('the site subscription detail list component matches the snapshot', () => {
 						},
 					]
 				}
-				onAddMoreLicensesClick={ () => {
+				onAddMoreSubscriptionsClick={ () => {
 					console.log( "add more slots" );
 				} }
 				onMoreInfoClick={ () => {
