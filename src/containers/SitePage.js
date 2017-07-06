@@ -6,68 +6,24 @@ import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscrip
 import { getPlugins } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
-/**
- * Processes subscriptions.
- *
- * @param {Array} subscriptions The subscriptions.
- *
- * @returns {Object} object containing the processed subscriptions.
- */
-function processSubscriptions( subscriptions ) {
-	let processed = {};
-
-	subscriptions.forEach( ( subscription ) => {
-		// Lets just skip anything that isn't a plugin (for now).
-		if ( subscription.product.type !== "plugin" ) {
-			return true;
-		}
-
-		let product = subscription.product;
-
-		if ( processed.hasOwnProperty( product.glNumber ) ) {
-			processed[ product.glNumber ].used += subscription.used;
-			processed[ product.glNumber ].limit += subscription.limit;
-
-			return true;
-		}
-
-		processed[ product.glNumber ] = {
-			used: subscription.used,
-			limit: subscription.limit,
-			product,
-		};
-	} );
-
-	return processed;
-}
-
-/**
- * Maps the items in the state, to props.
- *
- * @param {Object} state Object containing the current state.
- * @param {Object} ownProps Object containing the props given to the container.
- *
- * @returns {*} The mapped state.
- */
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
+
 	let sites = state.entities.sites;
 
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
-		return { loadingSite: true };
+		return {
+			loadingSite: true,
+		};
 	}
-
 	let addSubscriptionModal = state.ui.addSubscriptionModal;
+
 	let site = sites.byId[ id ];
 
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
 	} );
 
-	let subs = processSubscriptions( subscriptions );
-	console.log( subs );
-
-	// Map logo to subscriptions and set its state.
 	subscriptions = subscriptions.map( ( subscription ) => {
 		return Object.assign(
 			{},
@@ -82,29 +38,22 @@ export const mapStateToProps = ( state, ownProps ) => {
 		);
 	} );
 
-	// let activeSubscriptionInformationBlaat = {};
 	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
 		return subscription.status === "active";
 	} );
 
 	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
 		// Set defaults
-		let defaults = {
-			limit: 0,
-			isEnabled: false,
-			used: 0,
-			subcriptionId: "",
-			currency: "USD",
-		};
-
-		plugin = Object.assign( {}, plugin, defaults );
+		plugin.limit = 0;
+		plugin.isEnabled = false;
+		plugin.used = 0;
+		plugin.subscriptionId = "";
+		plugin.currency = "USD";
 
 		// Get all subscriptions for this plugin
-		let filteredActiveSubscriptions = activeSubscriptions.filter( ( subscription ) => {
+		activeSubscriptions.filter( ( subscription ) => {
 			return plugin.ids.includes( subscription.productId );
-		} );
-
-		filteredActiveSubscriptions.forEach( ( subscription ) => {
+		} ).forEach( ( subscription ) => {
 			// Accumulate amount of slots for this plugin.
 			plugin.limit += subscription.limit;
 			// Accumulate amount of slots in use for this plugin.
@@ -136,8 +85,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 		plugin.hasSubscriptions = plugin.limit > 0;
 		plugin.isAvailable = plugin.limit > plugin.used || plugin.isEnabled;
-
-		console.log( plugin );
 
 		return plugin;
 	} );
