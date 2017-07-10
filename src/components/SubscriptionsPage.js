@@ -39,7 +39,7 @@ class SubscriptionsPage extends React.Component {
 	/**
 	 * Sets the SubscriptionsPage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sends the number of subscriptions found in the search results to the screenreader.
 	 *
 	 * @returns {void}
 	 */
@@ -57,6 +57,22 @@ class SubscriptionsPage extends React.Component {
 		a11ySpeak( message );
 	}
 
+	componentWillReceiveProps( nextProps ) {
+		/*
+		 * While typing or pasting in the search field, `componentWillReceiveProps()`
+		 * continously passes a new `query` props. We use this at our advantage
+		 * to debounce the call to `a11ySpeak()`.
+		 * Note: remember for <input> and <textarea>, React `onChange` behaves
+		 * like the DOM's built-in oninput event handler.
+		 */
+		this.speakSearchResultsMessage( nextProps );
+	}
+	speakSearchResultsMessage( nextProps ) {
+		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.activeSubscriptions.length );
+			debouncedSpeak( message, "assertive" );
+		}
+	}
 	/**
 	 * Return the search bar.
 	 *
@@ -114,23 +130,6 @@ class SubscriptionsPage extends React.Component {
 		);
 	}
 
-	componentWillReceiveProps( nextProps ) {
-		/*
-		 * While typing or pasting in the search field, `componentWillReceiveProps()`
-		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
-		 * Note: remember for <input> and <textarea>, React `onChange` behaves
-		 * like the DOM's built-in oninput event handler.
-		 */
-		this.speakSearchResultsMessage( nextProps );
-	}
-
-	speakSearchResultsMessage( nextProps ) {
-		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.activeSubscriptions.length );
-			debouncedSpeak( message, "assertive" );
-		}
-	}
 }
 
 SubscriptionsPage.propTypes = {

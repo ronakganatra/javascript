@@ -146,9 +146,9 @@ const DeleteButton = styled( RedButton )`
  */
 class ProfilePage extends React.Component {
 	/**
-	 * Sets the SitesPage object.
+	 * Sets the ProfilePage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sets (input) validation constraints, including email.
 	 *
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}

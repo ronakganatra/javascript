@@ -57,7 +57,7 @@ class SitesPage extends React.Component {
 	/**
 	 * Sets the SitesPage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sends the number of sites found in the search results to the screenreader.
 	 *
 	 * @returns {void}
 	 */
@@ -87,7 +87,23 @@ class SitesPage extends React.Component {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
 	}
+	componentWillReceiveProps( nextProps ) {
+		/*
+		 * While typing or pasting in the search field, `componentWillReceiveProps()`
+		 * continously passes a new `query` props. We use this at our advantage
+		 * to debounce the call to `a11ySpeak()`.
+		 * Note: remember for <input> and <textarea>, React `onChange` behaves
+		 * like the DOM's built-in oninput event handler.
+		 */
+		this.speakSearchResultsMessage( nextProps );
+	}
 
+	speakSearchResultsMessage( nextProps ) {
+		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
+			debouncedSpeak( message, "assertive" );
+		}
+	}
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
@@ -144,24 +160,6 @@ class SitesPage extends React.Component {
 				{ modal }
 			</div>
 		);
-	}
-
-	componentWillReceiveProps( nextProps ) {
-		/*
-		 * While typing or pasting in the search field, `componentWillReceiveProps()`
-		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
-		 * Note: remember for <input> and <textarea>, React `onChange` behaves
-		 * like the DOM's built-in oninput event handler.
-		 */
-		this.speakSearchResultsMessage( nextProps );
-	}
-
-	speakSearchResultsMessage( nextProps ) {
-		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
-			debouncedSpeak( message, "assertive" );
-		}
 	}
 }
 
