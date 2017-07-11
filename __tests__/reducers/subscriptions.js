@@ -33,15 +33,17 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription request 
 
 test( 'The uiAddSubscriptionModalReducer processes the add licenses popup open action', () => {
 	const state = {
-		id: null,
+		storeUrl: null,
 		popupOpen: false,
 	};
+
 	const action = {
 		type: ADD_LICENCES_POPUP_OPEN,
-		productId: 1
+		storeUrl: "http://yoast.test/shop/product-url",
 	};
+
 	const expected = {
-		id: 1,
+		storeUrl: "http://yoast.test/shop/product-url",
 		popupOpen: true,
 	};
 
@@ -52,14 +54,16 @@ test( 'The uiAddSubscriptionModalReducer processes the add licenses popup open a
 
 test( 'The uiAddSubscriptionModalReducer processes the add licenses popup close action', () => {
 	const state = {
-		id: 1,
+		storeUrl: "http://yoast.test/shop/product-url",
 		popupOpen: true,
 	};
+
 	const action = {
 		type: ADD_LICENCES_POPUP_CLOSE,
 	};
+
 	const expected = {
-		id: null,
+		storeUrl: null,
 		popupOpen: false,
 	};
 
@@ -72,9 +76,11 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription success 
 	const state = {
 		requesting: true,
 	};
+
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_SUCCESS,
 	};
+
 	const expected = {
 		requesting: false,
 	};
@@ -88,10 +94,12 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription failure 
 	const state = {
 		requesting: true,
 	};
+
 	const action = {
 		type: GET_ALL_SUBSCRIPTIONS_FAILURE,
 		message: "test_errorMessage",
 	};
+
 	const expected = {
 		requesting: false,
 		error: "test_errorMessage",

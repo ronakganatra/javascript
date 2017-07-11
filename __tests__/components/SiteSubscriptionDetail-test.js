@@ -21,7 +21,7 @@ test('the sitesubscription matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
 			<SiteSubscriptionDetail { ...subscription }
-				onAddMoreLicensesClick={ () => {} }
+                onAddMoreSubscriptionsClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onClose={ () => {} }
@@ -40,7 +40,7 @@ test('an add more licenses button should be shown when no more licenses are avai
 	const component = createComponentWithIntl(
 		<MemoryRouter>
 			<SiteSubscriptionDetail { ...subscription }
-				onAddMoreLicensesClick={ () => {} }
+                onAddMoreSubscriptionsClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onClose={ () => {} }
