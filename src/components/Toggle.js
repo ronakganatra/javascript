@@ -7,11 +7,11 @@ import { defineMessages, injectIntl, intlShape } from "react-intl";
 const messages = defineMessages( {
 	toggleLabelOn: {
 		id: "togglelabel.on",
-		defaultMessage: "on",
+		defaultMessage: "On",
 	},
 	toggleLabelOff: {
 		id: "togglelabel.off",
-		defaultMessage: "off",
+		defaultMessage: "Off",
 	},
 } );
 
