@@ -42,6 +42,10 @@ const messages = defineMessages( {
 		id: "profile.saving",
 		defaultMessage: "Saving...",
 	},
+	saved: {
+		id: "profile.saved",
+		defaultMessage: "Email address saved",
+	},
 	saveEmail: {
 		id: "profile.saveEmail",
 		defaultMessage: "Save email address",
@@ -64,7 +68,7 @@ const messages = defineMessages( {
 	},
 	passwordResetSending: {
 		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending  email...",
+		defaultMessage: "Sending email...",
 	},
 	passwordResetSent: {
 		id: "profile.passwordResetSent",
@@ -125,7 +129,7 @@ const TextInput = styled.input`
 
 const FormMessage = styled.p`
 	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
-	margin: 0.5em 0 0;
+	margin: 0;
 	${ props => props.inline ? "display: inline-block;" : "display: block;" }
 `;
 
@@ -281,6 +285,10 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.saving );
 		}
 
+		if ( this.isSaved() ) {
+			message = this.props.intl.formatMessage( messages.saved );
+		}
+
 		if ( this.isDeleting() ) {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
@@ -293,10 +301,6 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
-		if ( ! message ) {
-			return;
-		}
-
 		a11ySpeak( message, "assertive" );
 	}
 
@@ -307,6 +311,15 @@ class ProfilePage extends React.Component {
 	 */
 	isSaving() {
 		return this.props.isSaving;
+	}
+
+	/**
+	 * Whether the profile was updated successfully.
+	 *
+	 * @returns {boolean} Whether the profile was saved.
+	 */
+	isSaved() {
+		return this.props.isSaved;
 	}
 
 	/**
@@ -494,6 +507,7 @@ ProfilePage.propTypes = {
 	email: PropTypes.string.isRequired,
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
+	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
 	error: PropTypes.string,
 	isSendingPasswordReset: PropTypes.bool,
@@ -509,6 +523,7 @@ ProfilePage.defaultProps = {
 	email: "",
 	error: "",
 	isSaving: false,
+	isSaved: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
 	passwordResetError: "",

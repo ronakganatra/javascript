@@ -58,7 +58,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             Send password reset email
           </button>
           <p
-            className="gmPQne"
+            className="fpGphL"
             role="alert"
           >
             An error occurred while sending password reset.
@@ -150,7 +150,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             value="email@email.email"
           />
           <p
-            className="gmPQne"
+            className="fpGphL"
             role="alert"
           >
             An error occurred while saving profile.
@@ -300,7 +300,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             Send password reset email
           </button>
           <p
-            className="jtXKzF"
+            className="bIVyUv"
           >
             An email has been sent, please check your inbox.
           </p>
@@ -398,7 +398,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               Save email address
             </button>
             <p
-              className="ffWuSs"
+              className="fCYIZc"
             >
               Saving...
             </p>
@@ -540,9 +540,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
             Send password reset email
           </button>
           <p
-            className="ffWuSs"
+            className="fCYIZc"
           >
-            Sending  email...
+            Sending email...
           </p>
         </section>
       </div>
@@ -780,7 +780,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             Send password reset email
           </button>
           <p
-            className="gmPQne"
+            className="fpGphL"
             role="alert"
           >
             An error occurred while sending password reset.
