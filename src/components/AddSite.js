@@ -3,7 +3,6 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
-import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
@@ -11,6 +10,7 @@ import validate from "validate.js";
 import defaults from "../config/defaults.json";
 import a11ySpeak from "a11y-speak";
 import _debounce from "lodash/debounce";
+import ErrorMessage from "./ErrorMessage";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -80,43 +80,12 @@ const Buttons = styled.div`
 	}
 `;
 
-const YellowWarning = styled.p`
-	padding: 4px;
-	background-color: ${ colors.$color_yellow };
-	overflow: auto;
-	display: flex;
-	align-items: center;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		flex-direction: column;
-		text-align: left;
-	}
-`;
-
-const NoActiveProductIcon = styled.img`
-	width: 15%;
-	height: 10%;
-	padding: 20px;
-	min-width: 75px;
-	display: flex;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		padding: 10px;
-	}
-`;
-
-const WarningText = styled.span`
-	font-size: 1em;
-`;
-
 const ValidationText = styled.div`
 	font-size: 1em;
 	color: ${ colors.$color_red};
 	margin: 1em 0;
 	min-height: 1.8em;
 `;
-
-const PurpleLink = styled.a`		
-  	color: ${ colors.$color_purple };		
-  `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
@@ -205,44 +174,6 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Renders an error message
-	 *
-	 * @param {boolean} errorFound Whether an error has been thrown.
-	 * @param {string} errorMessage The error message to render.
-	 * @returns {ReactElement} The rendered element.
-	 */
-	getErrorMessage( errorFound, errorMessage ) {
-		if ( ! errorFound ) {
-			return null;
-		}
-
-		let contactLink = "";
-		let defaultMessage = "{ errorMessage }";
-
-		if ( errorMessage.indexOf( "[customer_support_link]" ) > -1 ) {
-			errorMessage = errorMessage.replace( "[customer_support_link]", "" );
-			contactLink = ( <PurpleLink href="mailto:support@yoast.com"> please contact support </PurpleLink> );
-			defaultMessage = "{ errorMessage }{ contactLink }.";
-		}
-
-		return (
-			<YellowWarning role="alert" >
-				<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-				<WarningText>
-					<FormattedMessage
-						id="sites.add-site.no-active-product"
-						defaultMessage={ defaultMessage }
-						values={ {
-							errorMessage: errorMessage,
-							contactLink: contactLink,
-						} }
-					/>
-				</WarningText>
-			</YellowWarning>
-		);
-	}
-
-	/**
 	 * Returns the rendered html.
 	 *
 	 * @returns {ReactElement} The rendered html.
@@ -282,7 +213,7 @@ class AddSite extends React.Component {
 					/>
 
 					{ this.validateUrl( this.props.linkingSiteUrl ) }
-					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+					<ErrorMessage errorMessage={ this.props.errorMessage } />
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
@@ -327,7 +258,6 @@ AddSite.propTypes = {
 	onCancelClick: PropTypes.func.isRequired,
 	onConnectClick: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
-	errorFound: PropTypes.bool.isRequired,
 	query: PropTypes.string.isRequired,
 	errorMessage: PropTypes.string,
 };

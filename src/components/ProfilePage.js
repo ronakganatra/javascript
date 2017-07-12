@@ -11,6 +11,7 @@ import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
+import ErrorMessage from "./ErrorMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -372,8 +373,8 @@ class ProfilePage extends React.Component {
 		};
 
 		let globalError = null;
-		if ( this.props.error !== "" ) {
-			let message = this.props.error;
+		if ( this.props.error === "" ) {
+			let message = "THIJS JIJ MAFKETEL";
 			if ( message === "Bad Request" ) {
 				message = <FormattedMessage
 					id="profile.error.duplicateEmail"
@@ -399,6 +400,7 @@ class ProfilePage extends React.Component {
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
 								{ globalError }
+								<ErrorMessage errorMessage={ "THIJS JIJ MAFKETEL" } />
 
 								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
 							</form>
