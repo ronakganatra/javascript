@@ -260,7 +260,9 @@ class ProfilePage extends React.Component {
 	 * @returns {string} Text to be used on the submit button.
 	 */
 	deleteButtonText() {
-		return this.isDeleting() ? this.props.intl.formatMessage( messages.deletingAccount ) : this.props.intl.formatMessage( messages.deleteAccount );
+		return this.isDeleting()
+			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage}/>
+			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage }/>;
 	}
 
 	componentDidMount() {
@@ -348,7 +350,7 @@ class ProfilePage extends React.Component {
 
 		return <div>
 			<SaveButton type="submit">
-				{ this.props.intl.formatMessage( messages.saveEmail ) }
+				<FormattedMessage id={ messages.saveEmail.id } defaultMessage={ messages.saveEmail.defaultMessage } />
 			</SaveButton>
 			{ emailSavingMessage }
 		</div>;
@@ -390,13 +392,15 @@ class ProfilePage extends React.Component {
 		}
 
 		return <PasswordReset>
-			<Paragraph>{ this.props.intl.formatMessage( messages.passwordChange ) }</Paragraph>
+			<Paragraph>
+				<FormattedMessage id={ messages.passwordChange.id } defaultMessage={ messages.passwordChange.defaultMessage }/>
+			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
 				defaultMessage="To change your password follow the instructions in the password reset email."
 			/></p>
-			<Button onClick={ onClickAction }>{ this.props.intl.formatMessage( messages.passwordResetSend ) }</Button>
+			<Button onClick={ onClickAction }><FormattedMessage id={ messages.passwordResetSend.id } defaultMessage={ messages.passwordResetSend.defaultMessage }/></Button>
 			{ passwordResetError }
 			{ passwordResetMessage }
 		</PasswordReset>;
@@ -449,7 +453,7 @@ class ProfilePage extends React.Component {
 					<Page>
 						<Column>
 							<form onSubmit={ handleSubmit }>
-								<Label htmlFor="email-address">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+								<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
 								<TextInput
 									id="email-address"
 									autocomplete="on"
@@ -466,7 +470,9 @@ class ProfilePage extends React.Component {
 						</Column>
 
 						<Column>
-							<Paragraph>{ this.props.intl.formatMessage( messages.profilePicture ) }</Paragraph>
+							<Paragraph>
+								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
+							</Paragraph>
 							<p>
 								<FormattedMessage
 									id="profile.description.picture"
@@ -484,7 +490,9 @@ class ProfilePage extends React.Component {
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
 							<form onSubmit={ handleDelete }>
-								<Paragraph>{ this.props.intl.formatMessage( messages.labelDelete ) }</Paragraph>
+								<Paragraph>
+									<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
+								</Paragraph>
 								<p>
 									<FormattedMessage
 										id="profile.delete.message"
