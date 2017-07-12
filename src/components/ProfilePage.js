@@ -373,8 +373,8 @@ class ProfilePage extends React.Component {
 		};
 
 		let globalError = null;
-		if ( this.props.error === "" ) {
-			let message = "THIJS JIJ MAFKETEL";
+		if ( this.props.error !== "" ) {
+			let message = "";
 			if ( message === "Bad Request" ) {
 				message = <FormattedMessage
 					id="profile.error.duplicateEmail"
@@ -400,7 +400,7 @@ class ProfilePage extends React.Component {
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
 								{ globalError }
-								<ErrorMessage errorMessage={ "THIJS JIJ MAFKETEL" } />
+								<ErrorMessage errorMessage={ "THIS AN ERROR" } />
 
 								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
 							</form>
