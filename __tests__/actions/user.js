@@ -189,7 +189,7 @@ describe( 'Password reset', () => {
 		const request = api.prepareRequest(
 			getPasswordResetUrl(),
 			"POST",
-			{ body: expectedBody },
+			expectedBody,
 			{ mode: "no-cors" } );
 
 		expect( resetPasswordFunc ).toBeInstanceOf( Function );

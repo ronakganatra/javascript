@@ -60,8 +60,11 @@ export default function AddLicenses( props ) {
 					<FormattedMessage id="add-licenses.header" defaultMessage="You are out of licenses" />
 				</AddLicensesHeading>
 				<AddLicensesText>
-					<FormattedMessage id="add-licenses.text" defaultMessage="You've used up all the site
-					licenses in your current subscription. If you want to add more sites, please buy another subscription." />
+					<FormattedMessage
+						id="add-licenses.text"
+						defaultMessage="You've used up all the site licenses in your current subscription.
+						If you want to add more sites, please buy another subscription."
+					/>
 				</AddLicensesText>
 				<Buttons>
 					<LargeSecondaryButton type="button" onClick={ props.onClose } >

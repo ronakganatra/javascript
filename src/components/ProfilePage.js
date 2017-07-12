@@ -146,9 +146,9 @@ const DeleteButton = styled( RedButton )`
  */
 class ProfilePage extends React.Component {
 	/**
-	 * Sets the SitesPage object.
+	 * Sets the ProfilePage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sets (input) validation constraints, including email.
 	 *
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}
@@ -340,7 +340,7 @@ class ProfilePage extends React.Component {
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage={ "To change your password follow the instructions in the password reset mail." } />
+				defaultMessage="To change your password follow the instructions in the password reset mail." />
 			</p>
 			{ passwordResetButton }
 			{ passwordResetError }
@@ -377,7 +377,7 @@ class ProfilePage extends React.Component {
 			if ( message === "Bad Request" ) {
 				message = <FormattedMessage
 					id="profile.error.duplicateEmail"
-					defaultMessage={ "The email address could not be changed, it is probably already in use." }
+					defaultMessage="The email address could not be changed, it is probably already in use."
 				/>;
 			}
 			globalError = <FormError role="alert">{ message }</FormError>;

@@ -4,9 +4,7 @@ import { linkSitePopupClose, linkSitePopupOpen,
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
-import _isUndefined from "lodash/isUndefined";
 import _compact from "lodash/compact";
-import _isEmpty from "lodash/isEmpty";
 import { getPlugins } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {

@@ -22,20 +22,21 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
-			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } isOpen={ true }>
 				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
 						let onToggleDisabled = () => {
-							return props.onToggleDisabled( plugin.id );
+							return props.onToggleDisabled( plugin.storeUrl );
 						};
-						let onAddMoreLicensesClick = () => {
-							return props.onAddMoreLicensesClick( plugin.id );
+
+						let onAddMoreSubscriptionsClick = () => {
+							return props.onAddMoreSubscriptionsClick( plugin.storeUrl );
 						};
 
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.glNumber }
-							onAddMoreLicensesClick={ onAddMoreLicensesClick }
+							onAddMoreSubscriptionsClick={ onAddMoreSubscriptionsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
 							onToggleSubscription={ props.onToggleSubscription }
@@ -51,19 +52,14 @@ function SiteSubscriptionDetailList( props ) {
 }
 
 SiteSubscriptionDetailList.propTypes = {
-	siteSubscriptions: PropTypes.array,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
-	onAddMoreLicensesClick: PropTypes.func.isRequired,
+	onAddMoreSubscriptionsClick: PropTypes.func.isRequired,
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	popupOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	onToggleDisabled: PropTypes.func.isRequired,
-};
-
-SiteSubscriptionDetailList.defaultProps = {
-	siteSubscriptions: [],
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

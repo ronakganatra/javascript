@@ -20,7 +20,7 @@ const rootState = {
 			error: "",
 		},
 		addSubscriptionModal: {
-			id: null,
+			storeUrl: null,
 			popupOpen: false,
 		},
 	},
@@ -69,12 +69,12 @@ export function uiAddSubscriptionModalReducer( state = rootState.ui.addSubscript
 	switch ( action.type ) {
 		case ADD_LICENCES_POPUP_OPEN:
 			return Object.assign( {}, state, {
-				id: action.productId,
+				storeUrl: action.storeUrl,
 				popupOpen: true,
 			} );
 		case ADD_LICENCES_POPUP_CLOSE:
 			return Object.assign( {}, state, {
-				id: null,
+				storeUrl: null,
 				popupOpen: false,
 			} );
 		default:

@@ -116,7 +116,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 
 	return {
 		onMoreInfoClick: () => {},
-		onAddMoreLicensesClick: ( subscriptionId ) => {
+		onAddMoreSubscriptionsClick: ( subscriptionId ) => {
 			dispatch( addLicensesPopupOpen( subscriptionId ) );
 		},
 		onToggleDisabled: ( subscriptionId ) => {
