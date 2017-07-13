@@ -49,6 +49,23 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               To change your password follow the instructions in the password reset mail.
             </span>
           </p>
+          <div
+            className="izAftX"
+            role="alert"
+          >
+            <img
+              alt=""
+              className="cfhiIS"
+              src="exclamation-triangle.svg"
+            />
+            <span
+              className="dvtOGe"
+            >
+              <span>
+                An error occurred while sending password reset.
+              </span>
+            </span>
+          </div>
           <button
             className="cHnBIQ"
             disabled={false}
@@ -57,12 +74,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           >
             Send password reset email
           </button>
-          <div
-            className="yrpmy"
-            role="alert"
-          >
-            An error occurred while sending password reset.
-          </div>
         </section>
       </div>
       <div
@@ -150,10 +161,21 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             value="email@email.email"
           />
           <div
-            className="yrpmy"
+            className="izAftX"
             role="alert"
           >
-            An error occurred while saving profile.
+            <img
+              alt=""
+              className="cfhiIS"
+              src="exclamation-triangle.svg"
+            />
+            <span
+              className="dvtOGe"
+            >
+              <span>
+                An error occurred while saving profile.
+              </span>
+            </span>
           </div>
           <button
             className="fTwoQp"
@@ -749,6 +771,23 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               To change your password follow the instructions in the password reset mail.
             </span>
           </p>
+          <div
+            className="izAftX"
+            role="alert"
+          >
+            <img
+              alt=""
+              className="cfhiIS"
+              src="exclamation-triangle.svg"
+            />
+            <span
+              className="dvtOGe"
+            >
+              <span>
+                An error occurred while sending password reset.
+              </span>
+            </span>
+          </div>
           <button
             className="cHnBIQ"
             disabled={false}
@@ -757,12 +796,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           >
             Send password reset email
           </button>
-          <div
-            className="yrpmy"
-            role="alert"
-          >
-            An error occurred while sending password reset.
-          </div>
         </section>
       </div>
       <div

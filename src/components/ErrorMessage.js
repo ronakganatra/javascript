@@ -45,6 +45,14 @@ const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
 `;
 
+/**
+ * This class can render error messages in our custom style. It outputs the styled error message if its errorMessage prop is not empty.
+ * Else, it renders null.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered ErrorMessage component.
+ */
 class ErrorMessage extends React.Component {
 	/**
 	 * Sets the ErrorMessage object.
@@ -57,23 +65,19 @@ class ErrorMessage extends React.Component {
 	}
 
 	/**
-	 * Sets the error message to be rendered, or null.
+	 * Checks the errormessage for placeholders, replaces them with desired content. Outputs an object that can be used by formatErrorMessage().
 	 *
-	 * @param {string} errorMessage The error message to render.
-	 * @returns {ReactElement} The rendered JSX element.
+	 * @param {string} errorMessage The string to check for placeholders.
+	 * @returns {Object} An object with a defaultMessage and values, which can be used by FormattedMessage.
 	 */
-	getErrorMessage( errorMessage ) {
-		if ( errorMessage.length <= 0 ) {
-			return null;
-		}
-
-		let contactLink = "";
+	handlePlaceholders( errorMessage ) {
 		let defaultMessage = "{ errorMessage }";
 		let values = { errorMessage };
 
+		// In the case of a [customer_support_link] placeholder, replace with an e-mail link to support. Will eventually link to Knowledge base.
 		if ( errorMessage.indexOf( "[customer_support_link]" ) > -1 ) {
 			errorMessage = errorMessage.replace( "[customer_support_link]", "" );
-			contactLink = (
+			let contactLink = (
 				<PurpleLink href="mailto:support@yoast.com">
 					<FormattedMessage id={ messages.contactSupportLink.id } defaultMessage={ messages.contactSupportLink.defaultMessage } />
 				</PurpleLink> );
@@ -82,14 +86,48 @@ class ErrorMessage extends React.Component {
 		}
 
 		return(
+		{
+			defaultMessage,
+			values,
+		}
+		);
+	}
+
+	/**
+	 * Formats an object containing a defaultMessage and values into a FormattedMessage component.
+	 *
+	 * @param {Object} messageFormatObject An object containing a defaultMessage and values that replace defaultMessage sections.
+	 * @returns {ReactElement} A FormattedMessage component that contains the formatted error message.
+	 */
+	formatErrorMessage( messageFormatObject ) {
+		return(
+			<FormattedMessage
+				id="sites.add-site.error"
+				defaultMessage={ messageFormatObject.defaultMessage }
+				values={ messageFormatObject.values }
+			/>
+		);
+	}
+
+	/**
+	 * Sets the error message to be rendered, or null.
+	 *
+	 * @param {string} errorMessage The error message to render.
+	 * @returns {ReactElement} The rendered JSX element.
+	 */
+	getErrorMessage( errorMessage ) {
+		if ( errorMessage === "" ) {
+			return null;
+		}
+
+		let messageFormatObject = this.handlePlaceholders( errorMessage );
+		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
+
+		return(
 			<YellowWarning role="alert">
 				<NoActiveProductIcon src={ warningTriangle } alt=""/>
 				<WarningText>
-					<FormattedMessage
-						id="sites.add-site.error"
-						defaultMessage={ defaultMessage }
-						values={ values }
-					/>
+					{ finalErrorMessage }
 				</WarningText>
 			</YellowWarning>
 		);
@@ -102,9 +140,7 @@ class ErrorMessage extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
-				{ this.getErrorMessage( this.props.errorMessage ) }
-			</div>
+				this.getErrorMessage( this.props.errorMessage )
 		);
 	}
 }
