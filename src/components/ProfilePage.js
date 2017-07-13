@@ -318,7 +318,6 @@ class ProfilePage extends React.Component {
 	 */
 	getPasswordReset() {
 		let disabled = false;
-		let passwordResetError;
 
 		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
 
@@ -332,10 +331,6 @@ class ProfilePage extends React.Component {
 			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
-		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
-		}
-
 		return <PasswordReset>
 			<Paragraph>{ this.props.intl.formatMessage( messages.passwordReset ) }</Paragraph>
 
@@ -343,8 +338,8 @@ class ProfilePage extends React.Component {
 				id="profile.description.passwordReset"
 				defaultMessage="To change your password follow the instructions in the password reset mail." />
 			</p>
+			<ErrorMessage errorMessage={ this.props.passwordResetError } />
 			{ passwordResetButton }
-			{ passwordResetError }
 		</PasswordReset>;
 	}
 
@@ -372,18 +367,6 @@ class ProfilePage extends React.Component {
 			this.props.onDeleteProfile();
 		};
 
-		let globalError = null;
-		if ( this.props.error !== "" ) {
-			let message = "";
-			if ( message === "Bad Request" ) {
-				message = <FormattedMessage
-					id="profile.error.duplicateEmail"
-					defaultMessage="The email address could not be changed, it is probably already in use."
-				/>;
-			}
-			globalError = <FormError role="alert">{ message }</FormError>;
-		}
-
 		return (
 			<div>
 				<Paper>
@@ -399,9 +382,7 @@ class ProfilePage extends React.Component {
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
-								{ globalError }
-								<ErrorMessage errorMessage={ "THIS AN ERROR" } />
-
+								<ErrorMessage errorMessage={ this.props.saveEmailError } />
 								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
 							</form>
 
@@ -451,7 +432,7 @@ ProfilePage.propTypes = {
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isDeleting: PropTypes.bool,
-	error: PropTypes.string,
+	saveEmailError: PropTypes.string,
 	isSendingPasswordReset: PropTypes.bool,
 	hasSendPasswordReset: PropTypes.bool,
 	passwordResetError: PropTypes.string,
@@ -463,7 +444,7 @@ ProfilePage.propTypes = {
 
 ProfilePage.defaultProps = {
 	email: "",
-	error: "",
+	saveEmailError: "",
 	isSaving: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,

@@ -16,7 +16,7 @@ let messages = defineMessages( {
 const YellowWarning = styled.div`
 	padding: 4px;
 	background-color: ${ colors.$color_yellow };
-	margin-top: 0.5em;
+	margin: 0.5em 0;
 	overflow: auto;
 	display: flex;
 	align-items: center;

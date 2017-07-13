@@ -15,7 +15,7 @@ export const mapStateToProps = ( state ) => {
 		} ),
 		isSaving: state.user.savingProfile,
 		isDeleting: state.user.deletingProfile,
-		error: state.user.savingError,
+		saveEmailError: state.user.saveEmailError,
 		isSendingPasswordReset: state.user.sendingPasswordReset,
 		hasSendPasswordReset: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,

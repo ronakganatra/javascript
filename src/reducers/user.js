@@ -41,7 +41,7 @@ const initialState = {
 	},
 
 	savingProfile: false,
-	savingError: "",
+	saveEmailError: "",
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
 	passwordResetError: "",
@@ -97,13 +97,13 @@ export function userEmailReducer( state = initialState, action ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
 				savingProfile: true,
-				savingError: "",
+				saveEmailError: "",
 			} );
 
 		case PROFILE_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
 				savingProfile: false,
-				savingError: action.message,
+				saveEmailError: action.message,
 			} );
 
 		case PROFILE_UPDATE_SUCCESS:
