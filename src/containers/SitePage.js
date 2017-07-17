@@ -89,15 +89,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return plugin;
 	} );
 
-	plugins = plugins.sort( ( a, b ) => {
-		if ( a.hasSubscriptions ) {
-			if ( a.isAvailable === false && b.isAvailable === true ) {
-				return 1;
-			}
-			return -1;
-		}
+	// Defines an array of plugin glnumbers in order of popularity: Premium, Local, News, WooCommerce, Video, Local for Woo.
+	let pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
 
-		return 1;
+	plugins = plugins.sort( ( a, b ) => {
+		return pluginsOrder.indexOf( a.glNumber ) > pluginsOrder.indexOf( b.glNumber );
 	} );
 
 	return {
