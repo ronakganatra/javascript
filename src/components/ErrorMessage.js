@@ -14,7 +14,8 @@ let messages = defineMessages( {
 } );
 
 const YellowWarning = styled.div`
-	padding: 4px;
+	padding: 0.5em;
+	padding-left: ${ props => props.iconPadding ? "0" : "0.5em" };
 	background-color: ${ colors.$color_yellow };
 	margin: 0.5em 0;
 	overflow: auto;
@@ -48,6 +49,7 @@ const PurpleLink = styled.a`
 /**
  * This class can render error messages in our custom style. It outputs the styled error message if its errorMessage prop is not empty.
  * Else, it renders null.
+ * The parameter showIcon is set to true by default, and will render a warning triangle with adjusted padding-left.
  *
  * @param {Object} props The props to use.
  *
@@ -62,6 +64,7 @@ class ErrorMessage extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
+		this.iconPadding = true;
 	}
 
 	/**
@@ -109,6 +112,16 @@ class ErrorMessage extends React.Component {
 		);
 	}
 
+	renderIcon( showIcon ) {
+		if ( showIcon !== true ) {
+			this.iconPadding = false;
+			return null;
+		}
+		return(
+			<NoActiveProductIcon src={ warningTriangle } alt=""/>
+		);
+	}
+
 	/**
 	 * Sets the error message to be rendered, or null.
 	 *
@@ -122,10 +135,11 @@ class ErrorMessage extends React.Component {
 
 		let messageFormatObject = this.handlePlaceholders( errorMessage );
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
+		let errorIcon = this.renderIcon( this.props.showIcon );
 
 		return(
-			<YellowWarning role="alert">
-				<NoActiveProductIcon src={ warningTriangle } alt=""/>
+			<YellowWarning role="alert" iconPadding={ this.iconPadding }>
+				{ errorIcon }
 				<WarningText>
 					{ finalErrorMessage }
 				</WarningText>
@@ -147,10 +161,12 @@ class ErrorMessage extends React.Component {
 
 ErrorMessage.propTypes = {
 	errorMessage: PropTypes.string,
+	showIcon: PropTypes.bool,
 };
 
 ErrorMessage.defaultProps = {
 	errorMessage: "",
+	showIcon: true,
 };
 
 export default injectIntl( ErrorMessage );

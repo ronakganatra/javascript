@@ -2,7 +2,7 @@
 
 exports[`the ErrorMessage component matches the snapshot 1`] = `
 <div
-  className="izAftX"
+  className="akGZW"
   role="alert"
 >
   <img
@@ -15,6 +15,59 @@ exports[`the ErrorMessage component matches the snapshot 1`] = `
   >
     <span>
       This is a test
+    </span>
+  </span>
+</div>
+`;
+
+exports[`the ErrorMessage component with an implemented placeholder matches the snapshot 1`] = `
+<div
+  className="akGZW"
+  role="alert"
+>
+  <img
+    alt=""
+    className="cfhiIS"
+    src="exclamation-triangle.svg"
+  />
+  <span
+    className="dvtOGe"
+  >
+    <span>
+      This is a test 
+      <a
+        className="jWXgwc"
+        href="mailto:support@yoast.com"
+      >
+        <span>
+          please contact support
+        </span>
+      </a>
+      .
+    </span>
+  </span>
+</div>
+`;
+
+exports[`the ErrorMessage with no Icon requested matches the snapshot 1`] = `
+<div
+  className="GlToM"
+  role="alert"
+>
+  <span
+    className="dvtOGe"
+  >
+    <span>
+      This is a test 
+      <a
+        className="jWXgwc"
+        href="mailto:support@yoast.com"
+      >
+        <span>
+          please contact support
+        </span>
+      </a>
+      .
     </span>
   </span>
 </div>

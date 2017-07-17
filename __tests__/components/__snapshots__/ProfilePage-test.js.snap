@@ -50,7 +50,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <div
-            className="izAftX"
+            className="akGZW"
             role="alert"
           >
             <img
@@ -161,7 +161,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             value="email@email.email"
           />
           <div
-            className="izAftX"
+            className="akGZW"
             role="alert"
           >
             <img
@@ -772,7 +772,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <div
-            className="izAftX"
+            className="akGZW"
             role="alert"
           >
             <img
