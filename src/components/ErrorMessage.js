@@ -57,7 +57,7 @@ const PurpleLink = styled.a`
  */
 class ErrorMessage extends React.Component {
 	/**
-	 * Sets the ErrorMessage object.
+	 * Sets the ErrorMessage object. This includes setting iconPadding to true, because by default the icon is shown. This requires altered padding-left.
 	 *
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}
@@ -112,6 +112,12 @@ class ErrorMessage extends React.Component {
 		);
 	}
 
+	/**
+	 * Returns the warningTriangle Icon, or returns null and adjusts the padding accordingly.
+	 *
+	 * @param {Boolean} showIcon Whether to show the warning triangle icon (true) or not (false). Default = true.
+	 * @returns {ReactElement} Returns null in case the input is set to false, and the warning triangle icon if true.
+	 */
 	renderIcon( showIcon ) {
 		if ( showIcon !== true ) {
 			this.iconPadding = false;
