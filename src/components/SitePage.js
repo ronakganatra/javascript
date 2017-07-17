@@ -73,7 +73,7 @@ class SitePage extends React.Component {
 export default injectIntl( SitePage );
 
 SitePage.propTypes = {
-	site: PropTypes.object.isRequired,
+	site: PropTypes.object,
 	uiSite: PropTypes.object,
 	subscriptions: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
