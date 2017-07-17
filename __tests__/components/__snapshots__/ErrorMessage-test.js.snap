@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ErrorMessage component matches the snapshot 1`] = `
+<div
+  className="izAftX"
+  role="alert"
+>
+  <img
+    alt=""
+    className="cfhiIS"
+    src="exclamation-triangle.svg"
+  />
+  <span
+    className="dvtOGe"
+  >
+    <span>
+      This is a test
+    </span>
+  </span>
+</div>
+`;
