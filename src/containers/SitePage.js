@@ -89,9 +89,17 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return plugin;
 	} );
 
-	// Defines an array of plugin glnumbers in order of popularity: Premium, Local, News, WooCommerce, Video, Local for Woo.
+	/* Defines an array of plugin glnumbers in order of popularity:
+     * Premium WP: "82101"
+     * Local WP: "82103"
+     * News WP : "82104"
+     * WooCommerce: "82105"
+     * Video WP: "82102"
+     * Local WooCommerce: "82106"
+     */
 	let pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
 
+	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
 	plugins = plugins.sort( ( a, b ) => {
 		return pluginsOrder.indexOf( a.glNumber ) > pluginsOrder.indexOf( b.glNumber );
 	} );
