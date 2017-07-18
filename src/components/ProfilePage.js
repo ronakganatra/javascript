@@ -134,7 +134,7 @@ const FormMessage = styled.p`
 `;
 
 FormMessage.propTypes = {
-	inline: React.PropTypes.bool,
+	inline: PropTypes.bool,
 };
 
 FormMessage.defaultProps = {
