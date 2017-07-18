@@ -133,11 +133,20 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.urlValidity = false;
-
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
 		};
+
+		this.state={
+			validationError: null,
+			showValidationError: false,
+			urlValidity: false,
+		};
+		// Defines the debounced function for showing validation error.
+		this.showValidationMessageDebounced = _debounce( () => {
+			console.log( "Ok, ok I will work" );
+			this.setState( { showValidationError: true } );
+		}, 1000 );
 	}
 
 	/**
@@ -161,21 +170,47 @@ class AddSite extends React.Component {
 	 * @returns {void}
 	 */
 	onWebsiteURLChange( event ) {
-		this.props.onChange( event.target.value );
+		const value = event.target.value;
+		this.props.onChange( value );
+		let validationError = this.validateUrl( value );
+		if( validationError ) {
+			this.setState( {
+				urlValidity: false,
+				validationError: validationError,
+			} );
+			this.showValidationMessageDebounced();
+		} else {
+			this.setState( {
+				urlValidity: true,
+				validationError: null,
+			} );
+			this.hideValidationError();
+		}
 	}
 
+	/**
+	 * Validates URL and shows validation error if URL is unvalid.
+	 *
+	 * @param {string} input The URL to be validated
+	 * @returns {string} URL Validation error message
+	 */
 	validateUrl( input = "" ) {
-		this.urlValidity = true;
-
 		if ( input === "" ) {
-			this.urlValidity = false;
+			return null;
 		}
 
 		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
-			this.urlValidity = false;
+			return result[ 0 ].options.message;
 		}
+		return null;
+	}
+
+	hideValidationError() {
+		this.setState( { showValidationError: false }, () => {
+			this.showValidationMessageDebounced.cancel();
+		} );
 	}
 
 	/**
@@ -185,20 +220,17 @@ class AddSite extends React.Component {
 	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
 	 */
 	urlValidityMessage( input = "" ) {
-		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
-
-		if ( ! this.urlValidity && input !== "" ) {
+		if ( this.state.showValidationError && input !== "" ) {
 			return (
 				<ValidationText>
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
-						defaultMessage={ "{ validationMessage }" }
-						values={ { validationMessage: result[ 0 ].options.message } }
+						defaultMessage={ "{ validationError }" }
+						values={ { validationError: this.state.validationError } }
 					/>
 				</ValidationText>
 			);
 		}
-
 		return (
 			<ValidationText />
 		);
@@ -250,7 +282,7 @@ class AddSite extends React.Component {
 		let handleSubmit = ( event ) => {
 			event.preventDefault();
 
-			return ( this.urlValidity ? this.props.onConnectClick : () => {} );
+			return ( this.state.urlValidity ? this.props.onConnectClick : () => {} );
 		};
 
 		return (
@@ -274,15 +306,14 @@ class AddSite extends React.Component {
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
 
-					{ this.validateUrl( this.props.linkingSiteUrl ) }
 					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ this.urlValidity }>
+						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ ! this.state.validationError }>
 							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>
