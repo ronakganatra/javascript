@@ -412,9 +412,9 @@ class ProfilePage extends React.Component {
 								<FormattedMessage
 									id="profile.description.picture"
 									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-														" an account with them yet, or want to change your existing" +
-														" picture, please visit the { link }." }
-									values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+									" an account with them yet, or want to change your existing" +
+									" picture, please visit the { link }." }
+									values={ { link: <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
 								/>
 							</p>
 							{ image }
@@ -430,8 +430,8 @@ class ProfilePage extends React.Component {
 									<FormattedMessage
 										id="profile.delete.message"
 										defaultMessage={ "Warning! If you delete your account you lose access to" +
-															" your downloads and you will no longer receive updates for any Premium" +
-															" plugins you've bought from us." } />
+										" your downloads and you will no longer receive updates for any Premium" +
+										" plugins you've bought from us." } />
 								</p>
 								<DeleteButton type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
 							</form>
