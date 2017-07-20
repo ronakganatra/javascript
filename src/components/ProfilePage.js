@@ -162,7 +162,6 @@ const DeleteButton = styled( RedButton )`
  * Returns the rendered Sites Page component.
  *
  * @param {Object} props The props to use.
- *
  * @returns {ReactElement} The rendered Sites component.
  */
 class ProfilePage extends React.Component {
