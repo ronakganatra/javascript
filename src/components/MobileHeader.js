@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { MobileHeaderButton } from "../components/Button";
 import styled from "styled-components";
@@ -19,17 +20,14 @@ const messages = defineMessages( {
 	},
 } );
 
-const FixedMobileHeader = styled.header`
-	display:none;
-	@media screen and ( max-width: 1024px ) {
-		display: inline-block;
-		position: fixed;
-		z-index: 1;
-		width: 100%;
-		height: 48px;
-		top: 0;
-		background-color: ${ colors.$color_pink_dark };
-	}
+const FixedMobileHeader = styled.div`
+	display: inline-block;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 48px;
+	top: 0;
+	background-color: ${ colors.$color_pink_dark };
 `;
 
 export const LogoutHeaderButton = styled( MobileHeaderButton )`
@@ -66,7 +64,7 @@ function MobileHeader( props ) {
 					defaultMessage={ messages.needHelp.defaultMessage }
 				/>
 			</BeaconHeaderButton>
-			<Logo size="88px"/>
+			<Logo context="header" size="88px"/>
 			<LogoutHeaderButton type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
 				<FormattedMessage
 					id={ messages.signOut.id }
@@ -80,7 +78,6 @@ function MobileHeader( props ) {
 export default injectIntl( MobileHeader );
 
 MobileHeader.propTypes = {
-	onLogoutClick: React.PropTypes.func.isRequired,
-	onBeaconClick: React.PropTypes.func.isRequired,
+	onLogoutClick: PropTypes.func.isRequired,
+	onBeaconClick: PropTypes.func.isRequired,
 };
-

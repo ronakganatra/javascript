@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Order from "./Order";
 import { ListTable } from "./Tables";
@@ -32,8 +33,8 @@ export default function Orders( props ) {
 }
 
 Orders.propTypes = {
-	orders: React.PropTypes.array,
-	hasPaper: React.PropTypes.bool,
+	orders: PropTypes.array,
+	hasPaper: PropTypes.bool,
 };
 
 Orders.defaultProps = {

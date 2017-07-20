@@ -1,24 +1,40 @@
 import * as actions from "../../src/actions/sites";
-import { getApiUrl } from "../../src/functions/api";
+import * as api from "../../src/functions/api";
+
+const mockSites = [ "http://yoast.com" ];
+
+jest.mock( "../../src/functions/api", () => {
+	return {
+		getApiUrl: jest.fn( () => { return "" } ),
+		prepareInternalRequest: jest.fn( ( endpoint, method = "GET", payload = {} ) => {
+			return { endpoint, method, payload };
+		} ),
+		doRequest: jest.fn( ( request ) => {
+			if ( request.method === "GET" ) {
+				return Promise.resolve( mockSites );
+			}
+
+			// If the site already exists, we need to reject the promise.
+			if ( mockSites.includes( request.payload.url ) === true ) {
+				return Promise.reject( { message: "Attempted to insert a duplicate record in a unique field" } );
+			}
+
+			return Promise.resolve( { status: 200 } );
+		} )
+	};
+} );
 
 jest.mock( "../../src/functions/auth", () => {
 	return {
 		getUserId: jest.fn( () => { return 10 } ),
 		getAccessToken: jest.fn( () => { return "access" } ),
-
 	}
 } );
 
 jest.mock( "whatwg-fetch" );
 
-let expectedRequest = new Request( getApiUrl() + "/Customers/10/sites/?access_token=access", {
-	method: "POST",
-	body: JSON.stringify( {
-		url: "http://yoast.com",
-	} ),
-	headers: {
-		"Content-Type": "application/json",
-	},
+beforeEach( () => {
+	api.doRequest.mockClear();
 } );
 
 test( 'opening link site pop-up action creator', () => {
@@ -62,6 +78,7 @@ test( 'link site success creator', () => {
 			"userId": 1
 		},
 	};
+
 	const input = {
 		"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 		"url": "http://yoast.com",
@@ -74,76 +91,47 @@ test( 'link site success creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-
 test( 'link site failure creator', () => {
 	const expected = {
 		type: actions.LINK_SITE_FAILURE,
 		linkSiteError: "Authorization Required",
 	};
-	const input = "Authorization Required";
 
+	const input = "Authorization Required";
 	const actual = actions.linkSiteFailure( input );
 
 	expect( actual ).toEqual( expected );
 } );
 
 test( 'link site action creator with success', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			status: 200,
-			json: () => { return {
-				"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-				"url": "5",
-				"creationDate": "2017-03-21T15:24:34.606Z",
-				"userId": 5
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
-	const linkSiteFunc = actions.linkSite( "http://yoast.com" );
+	const linkSiteFunc = actions.linkSite( "http://yoast2.com" );
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
-	let site = {
-		"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-		"url": "5",
-		"creationDate": "2017-03-21T15:24:34.606Z",
-		"userId": 5
-	};
+	let request = api.prepareInternalRequest( `Customers/10/sites/`, "POST", { url: "http://yoast2.com" } );
 
 	return linkSiteFunc( dispatch ).then( () => {
-		 expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
-		 expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		 expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteSuccess( site ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast2.com" ) );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteSuccess( { status: 200 } ) );
 	} );
 } );
 
 test( 'link site action creator with failure', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			json: () => { return {
-				"error": {
-					"statusCode": 500,
-					"name": "Error",
-					"message": "Duplicate entry for Site.id",
-					"stack": "Error: Duplicate entry for Site.id\n    at Memory._createSync (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/connectors/memory.js:224:15)\n    at Memory.create (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/connectors/memory.js:232:8)\n    at /Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/dao.js:397:23\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at doNotify (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:99:49)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:122:5)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at Function.ObserverMixin._notifyBaseObservers (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:120:15)\n    at Function.ObserverMixin.notifyObserversOf (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/observer.js:97:8)\n    at ModelConstructor.<anonymous> (/Users/maarten/Yoast/my-yoast/node_modules/loopback-datasource-juggler/lib/dao.js:393:15)"
-				}
-			} },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
 	const linkSiteFunc = actions.linkSite( "http://yoast.com" );
 
 	expect( linkSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/`, "POST", { url: "http://yoast.com" } );
+
+
 	return linkSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Duplicate entry for Site.id" ) );
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( "Attempted to insert a duplicate record in a unique field" ) );
 	} );
 } );
 
@@ -193,71 +181,39 @@ test( 'retrieve sites failure creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-let expectedRetrievingRequest = new Request( getApiUrl() + "/Customers/10/sites/?access_token=access", {
-	method: "GET",
-	headers: {
-		"Content-Type": "application/json",
-	},
-} );
-
-
 test( 'retrieve sites action action creator with success', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			status: 200,
-			json: () => { return [ {
-				"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-				"url": "5",
-				"creationDate": "2017-03-21T15:24:34.606Z",
-				"userId": 5
-			} ] },
-		} );
-	});
-
 	const dispatch = jest.fn();
-
-	const retrieveSiteFunc = actions.retrieveSites( );
+	const retrieveSiteFunc = actions.retrieveSites();
 
 	expect( retrieveSiteFunc ).toBeInstanceOf( Function );
 
-	let sites = [ {
-		"id": "7e54b616-59a7-4389-af3e-c2e0c093b955",
-		"url": "5",
-		"creationDate": "2017-03-21T15:24:34.606Z",
-		"userId": 5
-	} ];
+	let request = api.prepareInternalRequest( `Customers/10/sites/` );
 
 	return retrieveSiteFunc( dispatch ).then( () => {
-		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest( ) );
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRetrievingRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesSuccess( sites ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesSuccess( mockSites ) );
 	} );
 } );
 
 test( 'retrieve sites action action creator with failure', () => {
-	global.fetch = jest.fn( () => {
-		return Promise.resolve( {
-			json: () => { return {
-				"error": {
-					"statusCode": 404,
-					"name": "Error",
-					"message": "could not find a model with id 6",
-					"code": "MODEL_NOT_FOUND",
-					"stack": "Error: could not find a model with id 6"
-				}
-			} }
-		} );
-	});
-
 	const dispatch = jest.fn();
+	const retrieveSiteFunc = actions.retrieveSites();
 
-	const retrieveSiteFunc = actions.retrieveSites( );
+	// Force a rejection to ensure the retrieveSitesFailure will be called.
+	api.doRequest.mockImplementation( () => {
+		return Promise.reject( Error( "Authorization required" ) );
+	} );
 
 	expect( retrieveSiteFunc ).toBeInstanceOf( Function );
 
+	let request = api.prepareInternalRequest( `Customers/10/sites/` );
+
 	return retrieveSiteFunc( dispatch ).then( () => {
-		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest( ) );
-		expect( global.fetch ).toHaveBeenCalledWith( expectedRetrievingRequest );
-		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesFailure( "could not find a model with id 6" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesRequest() );
+		expect( api.prepareInternalRequest ).toHaveBeenCalled();
+		expect( api.doRequest ).toHaveBeenCalledWith( request );
+		expect( dispatch ).toHaveBeenCalledWith( actions.retrieveSitesFailure( "Authorization required" ) );
 	} );
 } );

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -165,10 +166,10 @@ function SubscriptionHeader( props ) {
 export default injectIntl( SubscriptionHeader );
 
 SubscriptionHeader.propTypes = {
-	name: React.PropTypes.string.isRequired,
-	image: React.PropTypes.string,
-	byline: React.PropTypes.string,
-	description: React.PropTypes.string,
+	name: PropTypes.string.isRequired,
+	image: PropTypes.string,
+	byline: PropTypes.string,
+	description: PropTypes.string,
 };
 
 SubscriptionHeader.defaultProps = {

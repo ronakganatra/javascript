@@ -1,6 +1,6 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
-import { getAccessToken, getUserId } from "../functions/auth";
+import { doRequest, prepareInternalRequest } from "../functions/api";
+import { getUserId } from "../functions/auth";
 
 /*
  * Action types
@@ -62,38 +62,25 @@ export function getAllSubscriptions() {
 	return ( dispatch ) => {
 		dispatch( getAllSubscriptionsRequest() );
 
-		let apiUrl = getApiUrl();
 		let userId = getUserId();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Customers/${userId}/subscriptions/` );
 
-		let request = new Request( `${apiUrl}/Customers/${userId}/subscriptions/?access_token=${accessToken}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( getAllSubscriptionsSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( getAllSubscriptionsFailure( error.message ) );
-			} );
+			.catch( error => dispatch( getAllSubscriptionsFailure( error.message ) ) );
 	};
 }
 
 /**
  * An action creator for the opening add licenses pop-up action.
  *
- * @param {string} productId The plugin id.
+ * @param {string} storeUrl The store URL.
  * @returns {Object} An open add licenses pop-up action.
  */
-export function addLicensesPopupOpen( productId ) {
+export function addLicensesPopupOpen( storeUrl ) {
 	return {
 		type: ADD_LICENCES_POPUP_OPEN,
-		productId: productId,
+		storeUrl,
 	};
 }
 

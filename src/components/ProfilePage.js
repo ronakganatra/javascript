@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
@@ -8,6 +9,7 @@ import a11ySpeak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 
@@ -19,6 +21,10 @@ const messages = defineMessages( {
 	validationRequired: {
 		id: "validation.required",
 		defaultMessage: "{field} cannot be empty.",
+	},
+	duplicateEmail: {
+		id: "profile.error.duplicateEmail",
+		defaultMessage: "The email address could not be changed, it is probably already in use.",
 	},
 	labelEmail: {
 		id: "profile.label.email",
@@ -36,6 +42,10 @@ const messages = defineMessages( {
 		id: "profile.saving",
 		defaultMessage: "Saving...",
 	},
+	saved: {
+		id: "profile.saved",
+		defaultMessage: "Email address saved",
+	},
 	saveEmail: {
 		id: "profile.saveEmail",
 		defaultMessage: "Save email address",
@@ -48,8 +58,8 @@ const messages = defineMessages( {
 		id: "profile.delete",
 		defaultMessage: "Delete your account",
 	},
-	passwordReset: {
-		id: "profile.label.passwordReset",
+	passwordChange: {
+		id: "profile.passwordChange",
 		defaultMessage: "Change password",
 	},
 	passwordResetSend: {
@@ -58,7 +68,7 @@ const messages = defineMessages( {
 	},
 	passwordResetSending: {
 		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending password reset...",
+		defaultMessage: "Sending email...",
 	},
 	passwordResetSent: {
 		id: "profile.passwordResetSent",
@@ -68,8 +78,8 @@ const messages = defineMessages( {
 		id: "profile.gravatarLink",
 		defaultMessage: "Gravatar website",
 	},
-	labelProfilePicture: {
-		id: "profile.label.picture",
+	profilePicture: {
+		id: "profile.picture",
 		defaultMessage: "Profile picture",
 	},
 	profilePageLoaded: {
@@ -117,11 +127,23 @@ const TextInput = styled.input`
 	border:none;
 `;
 
-const FormError = styled.div`
+const FormMessage = styled.p`
+	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
+	margin: 0;
+	${ props => props.inline ? "display: inline-block;" : "display: block;" }
+`;
+
+FormMessage.propTypes = {
+	inline: PropTypes.bool,
+};
+
+FormMessage.defaultProps = {
+	inline: false,
+};
+
+const FormError = styled( FormMessage )`
+ 	padding: 0.5em;
 	background-color: ${ colors.$color_yellow };
-	padding: 0.5em;
-	margin-top: 0.5em;
-	color: ${ colors.$color_black };
 `;
 
 const PasswordReset = styled.section`
@@ -140,14 +162,13 @@ const DeleteButton = styled( RedButton )`
  * Returns the rendered Sites Page component.
  *
  * @param {Object} props The props to use.
- *
  * @returns {ReactElement} The rendered Sites component.
  */
 class ProfilePage extends React.Component {
 	/**
-	 * Sets the SitesPage object.
+	 * Sets the ProfilePage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sets (input) validation constraints, including email.
 	 *
 	 * @param {Object} props The props passed to the component.
 	 * @returns {void}
@@ -237,17 +258,10 @@ class ProfilePage extends React.Component {
 	 *
 	 * @returns {string} Text to be used on the submit button.
 	 */
-	submitButtonText() {
-		return this.isSaving() ? this.props.intl.formatMessage( messages.saving ) : this.props.intl.formatMessage( messages.saveEmail );
-	}
-
-	/**
-	 * Creates the text to be displayed on the save button.
-	 *
-	 * @returns {string} Text to be used on the submit button.
-	 */
 	deleteButtonText() {
-		return this.isDeleting() ? this.props.intl.formatMessage( messages.deletingAccount ) : this.props.intl.formatMessage( messages.deleteAccount );
+		return this.isDeleting()
+			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage}/>
+			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage }/>;
 	}
 
 	componentDidMount() {
@@ -272,6 +286,10 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.saving );
 		}
 
+		if ( this.isSaved() ) {
+			message = this.props.intl.formatMessage( messages.saved );
+		}
+
 		if ( this.isDeleting() ) {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
@@ -282,10 +300,6 @@ class ProfilePage extends React.Component {
 
 		if ( this.props.hasSendPasswordReset ) {
 			message = this.props.intl.formatMessage( messages.passwordResetSent );
-		}
-
-		if ( ! message ) {
-			return;
 		}
 
 		a11ySpeak( message, "assertive" );
@@ -301,6 +315,15 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
+	 * Whether the profile was updated successfully.
+	 *
+	 * @returns {boolean} Whether the profile was saved.
+	 */
+	isSaved() {
+		return this.props.isSaved;
+	}
+
+	/**
 	 * Whether we are currently disabling the account.
 	 *
 	 * @returns {boolean} Whether we are currently disabling the account.
@@ -310,24 +333,57 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Returns the password reset elements for the profile page.
+	 * Returns the save email elements for the profile page.
 	 *
-	 * @returns {ReactElement} The element for the password reset.
+	 * @returns {ReactElement} The elements for the save email.
 	 */
-	getPasswordReset() {
-		let disabled = false;
-		let passwordResetError;
+	getSaveButton() {
+		let emailSavingMessage;
 
-		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
+		if ( this.isSaving() ) {
+			let message = this.props.intl.formatMessage( messages.saving );
 
-		if ( this.props.isSendingPasswordReset ) {
-			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSending );
-			disabled = true;
+			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
 		}
 
-		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={ disabled }>{ passwordResetButtonText }</Button>;
+		return <div>
+			<SaveButton type="submit">
+				<FormattedMessage id={ messages.saveEmail.id } defaultMessage={ messages.saveEmail.defaultMessage } />
+			</SaveButton>
+			{ emailSavingMessage }
+		</div>;
+	}
+
+	/**
+	 * Returns the password reset elements for the profile page.
+	 *
+	 * @returns {ReactElement} The elements for the password reset.
+	 */
+	getPasswordReset() {
+		let onClickAction = this.props.onPasswordReset;
+		let passwordResetError;
+		let passwordResetMessage;
+
+		if ( this.props.isSendingPasswordReset ) {
+			let message = this.props.intl.formatMessage( messages.passwordResetSending );
+
+			/*
+			 * While sending the email: prevent calling the password reset
+			 * function multiple times but don't disable the button for better
+			 * accessibility (avoid keyboard focus loss).
+			 */
+			onClickAction = _noop;
+
+			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
+		}
+
 		if ( this.props.hasSendPasswordReset ) {
-			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+			let message = this.props.intl.formatMessage( messages.passwordResetSent );
+
+			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
+			a11ySpeak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {
@@ -335,14 +391,17 @@ class ProfilePage extends React.Component {
 		}
 
 		return <PasswordReset>
-			<Paragraph>{ this.props.intl.formatMessage( messages.passwordReset ) }</Paragraph>
+			<Paragraph>
+				<FormattedMessage id={ messages.passwordChange.id } defaultMessage={ messages.passwordChange.defaultMessage }/>
+			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage={ "To change your password follow the instructions in the password reset mail." } />
-			</p>
-			{ passwordResetButton }
+				defaultMessage="To change your password follow the instructions in the password reset email."
+			/></p>
+			<Button onClick={ onClickAction }><FormattedMessage id={ messages.passwordResetSend.id } defaultMessage={ messages.passwordResetSend.defaultMessage }/></Button>
 			{ passwordResetError }
+			{ passwordResetMessage }
 		</PasswordReset>;
 	}
 
@@ -361,6 +420,14 @@ class ProfilePage extends React.Component {
 		let handleSubmit = ( event ) => {
 			event.preventDefault();
 
+			/*
+			 * While saving: prevent multiple submissions but don't disable the
+			 * button for better accessibility (avoid keyboard focus loss).
+			 */
+			if ( this.isSaving() ) {
+				return;
+			}
+
 			this.props.onSaveProfile();
 		};
 
@@ -374,10 +441,7 @@ class ProfilePage extends React.Component {
 		if ( this.props.error !== "" ) {
 			let message = this.props.error;
 			if ( message === "Bad Request" ) {
-				message = <FormattedMessage
-					id="profile.error.duplicateEmail"
-					defaultMessage={ "The email address could not be changed, it is probably already in use." }
-				/>;
+				message = this.props.intl.formatMessage( messages.duplicateEmail );
 			}
 			globalError = <FormError role="alert">{ message }</FormError>;
 		}
@@ -388,7 +452,7 @@ class ProfilePage extends React.Component {
 					<Page>
 						<Column>
 							<form onSubmit={ handleSubmit }>
-								<Label htmlFor="email-address">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+								<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
 								<TextInput
 									id="email-address"
 									autocomplete="on"
@@ -398,15 +462,16 @@ class ProfilePage extends React.Component {
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
 								{ globalError }
-
-								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
+								{ this.getSaveButton() }
 							</form>
 
 							{ this.getPasswordReset() }
 						</Column>
 
 						<Column>
-							<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
+							<Paragraph>
+								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
+							</Paragraph>
 							<p>
 								<FormattedMessage
 									id="profile.description.picture"
@@ -424,7 +489,9 @@ class ProfilePage extends React.Component {
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
 							<form onSubmit={ handleDelete }>
-								<Paragraph>{ this.props.intl.formatMessage( messages.labelDelete ) }</Paragraph>
+								<Paragraph>
+									<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
+								</Paragraph>
 								<p>
 									<FormattedMessage
 										id="profile.delete.message"
@@ -444,24 +511,26 @@ class ProfilePage extends React.Component {
 
 ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
-	email: React.PropTypes.string.isRequired,
-	image: React.PropTypes.string,
-	isSaving: React.PropTypes.bool,
-	isDeleting: React.PropTypes.bool,
-	error: React.PropTypes.string,
-	isSendingPasswordReset: React.PropTypes.bool,
-	hasSendPasswordReset: React.PropTypes.bool,
-	passwordResetError: React.PropTypes.string,
-	onUpdateEmail: React.PropTypes.func.isRequired,
-	onSaveProfile: React.PropTypes.func.isRequired,
-	onDeleteProfile: React.PropTypes.func.isRequired,
-	onPasswordReset: React.PropTypes.func.isRequired,
+	email: PropTypes.string.isRequired,
+	image: PropTypes.string,
+	isSaving: PropTypes.bool,
+	isSaved: PropTypes.bool,
+	isDeleting: PropTypes.bool,
+	error: PropTypes.string,
+	isSendingPasswordReset: PropTypes.bool,
+	hasSendPasswordReset: PropTypes.bool,
+	passwordResetError: PropTypes.string,
+	onUpdateEmail: PropTypes.func.isRequired,
+	onSaveProfile: PropTypes.func.isRequired,
+	onDeleteProfile: PropTypes.func.isRequired,
+	onPasswordReset: PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
 	error: "",
 	isSaving: false,
+	isSaved: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
 	passwordResetError: "",

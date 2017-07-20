@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { LargeButtonLink, IconButtonTransparent, makeButtonFullWidth } from "./Button";
@@ -86,7 +87,7 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get another subscription"
@@ -94,9 +95,10 @@ function SiteSubscriptionDetail( props ) {
 			</IconButtonTransparent>
 		);
 	}
+
 	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreLicensesClick } >
+			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get a subscription"
@@ -141,26 +143,26 @@ function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
-	subscriptionId: React.PropTypes.string,
-	name: React.PropTypes.string.isRequired,
-	onAddMoreLicensesClick: React.PropTypes.func,
-	onClickToggle: React.PropTypes.func,
-	onToggleSubscription: React.PropTypes.func,
-	onToggleDisabled: React.PropTypes.func,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onShop: React.PropTypes.string.isRequired,
-	isEnabled: React.PropTypes.bool,
-	isAvailable: React.PropTypes.bool,
-	hasSubscriptions: React.PropTypes.bool,
-	icon: React.PropTypes.string.isRequired,
-	limit: React.PropTypes.number.isRequired,
-	used: React.PropTypes.number.isRequired,
-	background: React.PropTypes.string,
+	subscriptionId: PropTypes.string,
+	name: PropTypes.string.isRequired,
+	onAddMoreSubscriptionsClick: PropTypes.func,
+	onClickToggle: PropTypes.func,
+	onToggleSubscription: PropTypes.func,
+	onToggleDisabled: PropTypes.func,
+	onMoreInfoClick: PropTypes.func.isRequired,
+	onShop: PropTypes.string.isRequired,
+	isEnabled: PropTypes.bool,
+	isAvailable: PropTypes.bool,
+	hasSubscriptions: PropTypes.bool,
+	icon: PropTypes.string.isRequired,
+	limit: PropTypes.number.isRequired,
+	used: PropTypes.number.isRequired,
+	background: PropTypes.string,
 	intl: intlShape.isRequired,
-	currency: React.PropTypes.string,
-	popupOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
-	storeUrl: React.PropTypes.string.isRequired,
+	currency: PropTypes.string,
+	popupOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	storeUrl: PropTypes.string.isRequired,
 };
 
 SiteSubscriptionDetail.defaultProps = {

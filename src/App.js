@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 /* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
@@ -28,6 +29,15 @@ injectGlobal`
 		font-size: 1rem;
 		min-height: 100%;
 		background: ${colors.$color_grey_light};
+	}
+
+	a {
+		color: ${ colors.$color_blue };
+	}
+
+	a:hover,
+	a:focus {
+		color: ${ colors.$color_pink_dark };
 	}
 `;
 
@@ -66,8 +76,8 @@ const Routes = ( props ) => {
 };
 
 Routes.propTypes = {
-	userEnabled: React.PropTypes.bool,
-	history: React.PropTypes.object,
+	userEnabled: PropTypes.bool,
+	history: PropTypes.object,
 };
 
 const RoutesContainer = connect(
@@ -91,8 +101,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-	store: React.PropTypes.object,
-	history: React.PropTypes.object,
+	store: PropTypes.object,
+	history: PropTypes.object,
 };
 
 export default App;

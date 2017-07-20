@@ -1,4 +1,5 @@
 import util from "util";
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import a11ySpeak from "a11y-speak";
@@ -56,7 +57,7 @@ class SitesPage extends React.Component {
 	/**
 	 * Sets the SitesPage object.
 	 *
-	 * Used just to set the searchTimer, no need to pass props.
+	 * Sends the number of sites found in the search results to the screenreader.
 	 *
 	 * @returns {void}
 	 */
@@ -86,7 +87,23 @@ class SitesPage extends React.Component {
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		a11ySpeak( message );
 	}
+	componentWillReceiveProps( nextProps ) {
+		/*
+		 * While typing or pasting in the search field, `componentWillReceiveProps()`
+		 * continously passes a new `query` props. We use this at our advantage
+		 * to debounce the call to `a11ySpeak()`.
+		 * Note: remember for <input> and <textarea>, React `onChange` behaves
+		 * like the DOM's built-in oninput event handler.
+		 */
+		this.speakSearchResultsMessage( nextProps );
+	}
 
+	speakSearchResultsMessage( nextProps ) {
+		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
+			debouncedSpeak( message, "assertive" );
+		}
+	}
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
@@ -95,6 +112,7 @@ class SitesPage extends React.Component {
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
 			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
 		];
+
 		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
 							defaultMessage={ "We could not find { site } in your account." }
 							values={ { site: <strong>{ props.query }</strong> } } />,
@@ -104,17 +122,19 @@ class SitesPage extends React.Component {
 		if ( props.showLoader ) {
 			return <AnimatedLoader />;
 		}
+
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onConnect={ props.onConnect } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
 						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
+
 		if ( props.sites.length > 0 ) {
 			return (
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }>
+						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus } aria-label={ messages.addSite.defaultMessage }>
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
@@ -133,6 +153,7 @@ class SitesPage extends React.Component {
 				</div>
 			);
 		}
+
 		return (
 			<div>
 				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />
@@ -140,42 +161,24 @@ class SitesPage extends React.Component {
 			</div>
 		);
 	}
-
-	componentWillReceiveProps( nextProps ) {
-		/*
-		 * While typing or pasting in the search field, `componentWillReceiveProps()`
-		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
-		 * Note: remember for <input> and <textarea>, React `onChange` behaves
-		 * like the DOM's built-in oninput event handler.
-		 */
-		this.speakSearchResultsMessage( nextProps );
-	}
-
-	speakSearchResultsMessage( nextProps ) {
-		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
-			debouncedSpeak( message, "assertive" );
-		}
-	}
 }
 
 SitesPage.propTypes = {
-	linkingSiteUrl: React.PropTypes.string.isRequired,
-	addSite: React.PropTypes.func.isRequired,
-	onSearchChange: React.PropTypes.func.isRequired,
-	popupOpen: React.PropTypes.bool,
-	onConnect: React.PropTypes.func.isRequired,
-	onClose: React.PropTypes.func.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	onManage: React.PropTypes.func.isRequired,
-	errorFound: React.PropTypes.bool.isRequired,
-	errorMessage: React.PropTypes.string,
-	sites: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
+	linkingSiteUrl: PropTypes.string.isRequired,
+	addSite: PropTypes.func.isRequired,
+	onSearchChange: PropTypes.func.isRequired,
+	popupOpen: PropTypes.bool,
+	onConnect: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	onManage: PropTypes.func.isRequired,
+	errorFound: PropTypes.bool.isRequired,
+	errorMessage: PropTypes.string,
+	sites: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
 	intl: intlShape.isRequired,
-	query: React.PropTypes.string,
-	showLoader: React.PropTypes.bool,
+	query: PropTypes.string,
+	showLoader: PropTypes.bool,
 };
 
 SitesPage.defaultProps = {

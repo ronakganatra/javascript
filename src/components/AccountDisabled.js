@@ -3,7 +3,6 @@ import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import a11ySpeak from "a11y-speak";
 import styled from "styled-components";
-import colors from "yoast-components/style-guide/colors.json";
 import logo from "../images/logoColor.svg";
 
 const LogoImage = styled.img`
@@ -21,10 +20,6 @@ const AccountDisabledHeading = styled.h1`
 const PageContainer = styled.div`
 	margin-top: 10vh;
 	text-align: center;
-
-	a {
-		color: ${ colors.$color_blue };
-	}
 `;
 
 const AccountDisabledImage = styled.img`

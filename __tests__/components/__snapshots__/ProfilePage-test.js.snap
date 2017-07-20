@@ -18,7 +18,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -28,13 +30,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -42,27 +47,30 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={false}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Send password reset email
+            <span>
+              Send password reset email
+            </span>
           </button>
-          <div
-            className="yrpmy"
+          <p
+            className="fpGphL"
             role="alert"
           >
             An error occurred while sending password reset.
-          </div>
+          </p>
         </section>
       </div>
       <div
@@ -71,7 +79,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -97,29 +107,24 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -144,7 +149,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -154,19 +161,22 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             type="text"
             value="email@email.email"
           />
-          <div
-            className="yrpmy"
+          <p
+            className="fpGphL"
             role="alert"
           >
             An error occurred while saving profile.
+          </p>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
           </div>
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
         </form>
         <section
           className="dEsRUZ"
@@ -174,20 +184,23 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={false}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Send password reset email
+            <span>
+              Send password reset email
+            </span>
           </button>
         </section>
       </div>
@@ -197,7 +210,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -223,29 +238,24 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -270,7 +280,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -280,13 +292,16 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -294,14 +309,29 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
-          An email has been sent, please check your inbox.
+          <button
+            className="cHnBIQ"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+          <p
+            className="bIVyUv"
+          >
+            An email has been sent, please check your inbox.
+          </p>
         </section>
       </div>
       <div
@@ -310,7 +340,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -336,29 +368,24 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -383,7 +410,9 @@ exports[`components/ProfilePage saving profile 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -393,13 +422,21 @@ exports[`components/ProfilePage saving profile 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="bYXSqf"
-            disabled={true}
-            type="submit"
-          >
-            Saving...
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+            <p
+              className="fCYIZc"
+            >
+              Saving...
+            </p>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -407,20 +444,23 @@ exports[`components/ProfilePage saving profile 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={false}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Send password reset email
+            <span>
+              Send password reset email
+            </span>
           </button>
         </section>
       </div>
@@ -430,7 +470,9 @@ exports[`components/ProfilePage saving profile 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -456,29 +498,24 @@ exports[`components/ProfilePage saving profile 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -503,7 +540,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -513,13 +552,16 @@ exports[`components/ProfilePage sending password reset 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -527,21 +569,29 @@ exports[`components/ProfilePage sending password reset 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={true}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Sending password reset...
+            <span>
+              Send password reset email
+            </span>
           </button>
+          <p
+            className="fCYIZc"
+          >
+            Sending email...
+          </p>
         </section>
       </div>
       <div
@@ -550,7 +600,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -576,29 +628,24 @@ exports[`components/ProfilePage sending password reset 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -623,7 +670,9 @@ exports[`components/ProfilePage the default case 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -633,13 +682,16 @@ exports[`components/ProfilePage the default case 1`] = `
             type="text"
             value="test@test.test"
           />
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -647,20 +699,23 @@ exports[`components/ProfilePage the default case 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={false}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Send password reset email
+            <span>
+              Send password reset email
+            </span>
           </button>
         </section>
       </div>
@@ -670,7 +725,9 @@ exports[`components/ProfilePage the default case 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -701,29 +758,24 @@ exports[`components/ProfilePage the default case 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -748,7 +800,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             className="geijem"
             htmlFor="email-address"
           >
-            Email
+            <span>
+              Email
+            </span>
           </label>
           <input
             className="gEZOsv"
@@ -758,13 +812,16 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             type="text"
             value="email@email.email"
           />
-          <button
-            className="bYXSqf"
-            disabled={false}
-            type="submit"
-          >
-            Save email address
-          </button>
+          <div>
+            <button
+              className="fTwoQp"
+              type="submit"
+            >
+              <span>
+                Save email address
+              </span>
+            </button>
+          </div>
         </form>
         <section
           className="dEsRUZ"
@@ -772,27 +829,30 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           <p
             className="hQXFog"
           >
-            Change password
+            <span>
+              Change password
+            </span>
           </p>
           <p>
             <span>
-              To change your password follow the instructions in the password reset mail.
+              To change your password follow the instructions in the password reset email.
             </span>
           </p>
           <button
-            className="fzepBD"
-            disabled={false}
+            className="cHnBIQ"
             onClick={[Function]}
             type="button"
           >
-            Send password reset email
+            <span>
+              Send password reset email
+            </span>
           </button>
-          <div
-            className="yrpmy"
+          <p
+            className="fpGphL"
             role="alert"
           >
             An error occurred while sending password reset.
-          </div>
+          </p>
         </section>
       </div>
       <div
@@ -801,7 +861,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
         <p
           className="hQXFog"
         >
-          Profile picture
+          <span>
+            Profile picture
+          </span>
         </p>
         <p>
           <span>
@@ -827,29 +889,24 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Danger zone
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Danger zone
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>

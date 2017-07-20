@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import a11ySpeak from "a11y-speak";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
@@ -31,23 +32,10 @@ class SitePage extends React.Component {
 	}
 
 	getModal() {
-		// The default productId is null.
-		let productId = this.props.addSubscriptionModal.id;
+		let storeUrl = this.props.addSubscriptionModal.storeUrl || "";
+		let open = this.props.addSubscriptionModal.popupOpen;
 
-		// Find the plugin with the correct productId.
-		let plugins = _filter( this.props.plugins, plugin => plugin.id === productId );
-		// Only 0 or 1 plugins can be found.
-		let storeUrl = plugins.length ? plugins[ 0 ].storeUrl : "";
-
-		/*
-		 * Always render the modal and, when there are no plugins, set productId
-		 * to null to allow the modal to close correctly. See issue #619.
-		 */
-		if ( ! plugins.length ) {
-			productId = null;
-		}
-
-		return <AddLicensesModal isOpen={ productId !== null } onShop={ storeUrl } onClose={ this.props.onClose }/>;
+		return <AddLicensesModal isOpen={ open } onShop={ storeUrl } onClose={ this.props.onClose }/>;
 	}
 
 	render() {
@@ -62,13 +50,13 @@ class SitePage extends React.Component {
 		let siteNameDisplay = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
 		if ( ! props.loadingSubscriptions ) {
-			subscriptionList = <SiteSubscriptionDetailList siteSubscriptions={ props.subscriptions }
-														   plugins={ props.plugins }
-														   onAddMoreLicensesClick={ props.onAddMoreLicensesClick }
-														   onMoreInfoClick={ props.onMoreInfoClick }
-														   onToggleSubscription={ props.onToggleSubscription }
-														   onClose={ props.onClose }
-														   onToggleDisabled={ props.onToggleDisabled }
+			subscriptionList = <SiteSubscriptionDetailList
+			    plugins={ props.plugins }
+				onAddMoreSubscriptionsClick={ props.onAddMoreSubscriptionsClick }
+				onMoreInfoClick={ props.onMoreInfoClick }
+				onToggleSubscription={ props.onToggleSubscription }
+				onClose={ props.onClose }
+				onToggleDisabled={ props.onToggleDisabled }
 			/>;
 		}
 		return (
@@ -85,18 +73,18 @@ class SitePage extends React.Component {
 export default injectIntl( SitePage );
 
 SitePage.propTypes = {
-	site: React.PropTypes.object.isRequired,
-	uiSite: React.PropTypes.object,
-	subscriptions: React.PropTypes.arrayOf( React.PropTypes.object ),
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onClose: React.PropTypes.func.isRequired,
-	onToggleSubscription: React.PropTypes.func.isRequired,
+	site: PropTypes.object,
+	uiSite: PropTypes.object,
+	subscriptions: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	onAddMoreSubscriptionsClick: PropTypes.func.isRequired,
+	onMoreInfoClick: PropTypes.func.isRequired,
+	onClose: PropTypes.func.isRequired,
+	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	loadingSite: React.PropTypes.bool,
-	loadingSubscriptions: React.PropTypes.bool,
-	addSubscriptionModal: React.PropTypes.object,
+	loadingSite: PropTypes.bool,
+	loadingSubscriptions: PropTypes.bool,
+	addSubscriptionModal: PropTypes.object,
 };
 
 SitePage.defaultProps = {

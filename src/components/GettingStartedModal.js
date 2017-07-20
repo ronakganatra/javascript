@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
@@ -49,10 +50,10 @@ class BaseGettingStartedModal extends React.Component {
 }
 
 BaseGettingStartedModal.propTypes = {
-	className: React.PropTypes.string,
+	className: PropTypes.string,
 	intl: intlShape.isRequired,
-	isOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
+	isOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
 };
 
 BaseGettingStartedModal.defaultProps = {
@@ -68,12 +69,7 @@ const GettingStartedModal = styled( BaseGettingStartedModal )`
 		bottom: 0;
 		background-color: rgba(0, 0, 0, 0.6);
 		transition: background 100ms ease-out;
-	}
-
-	@media screen and (max-width: 1024px) {
-		&.my-yoast-modal__overlay {
-			bottom: 74px;
-		}
+		z-index: 999;
 	}
 
 	&.my-yoast-modal__content {

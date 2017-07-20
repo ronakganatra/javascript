@@ -14,7 +14,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="fIyvPW"
     >
       <a
-        className="iDMZUX"
+        className="kPmXcd"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -26,16 +26,13 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="hTpgWn"
+        className="brXJLz"
         href="http://yoast.com/wp-admin"
       >
         <span>
-          Open WordPress admin
-        </span>
-        <span>
-           
+          Open WordPress admin 
           <span
-            className="screen-reader-text"
+            className="screen-reader-text fuqaAG"
           >
             <span>
               (Opens in a new browser tab)
@@ -222,29 +219,24 @@ exports[`the site page component matches the snapshot 1`] = `
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Disconnect this site
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Disconnect this site
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>
@@ -268,7 +260,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="fIyvPW"
     >
       <a
-        className="iDMZUX"
+        className="kPmXcd"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -280,16 +272,13 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="hTpgWn"
+        className="brXJLz"
         href="http://yoast.com/wp-admin"
       >
         <span>
-          Open WordPress admin
-        </span>
-        <span>
-           
+          Open WordPress admin 
           <span
-            className="screen-reader-text"
+            className="screen-reader-text fuqaAG"
           >
             <span>
               (Opens in a new browser tab)
@@ -476,29 +465,24 @@ exports[`the site page component matches the snapshot for a site in a directory 
     >
       <button
         aria-expanded={false}
-        className="hJrCTB"
+        className="gCGqdM"
         onClick={[Function]}
       >
         <span
-          className="ObzGJ"
+          className="ioaeUl"
         >
-          <span>
-            Disconnect this site
-          </span>
-          <svg
-            fill="#555"
-            height={40}
-            viewBox="0 0 24 24"
-            width={40}
-          >
-            <path
-              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-            />
-          </svg>
+          Disconnect this site
         </span>
-        <span
-          className="GHtNJ"
-        />
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
       </button>
     </div>
   </div>

@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the responsive site header matches the snapshot 1`] = `
-<header
-  className="Bludo"
+<div
+  className="hoACPf"
   role="banner"
 >
   <button
-    className="iArdEu"
+    className="lhQpOQ"
     onClick={[Function]}
     type="button"
   >
@@ -20,13 +20,13 @@ exports[`the responsive site header matches the snapshot 1`] = `
   >
     <img
       alt="Home page"
-      className="hIISaB"
+      className="cfqaso"
       size="88px"
       src="logo.svg"
     />
   </a>
   <button
-    className="kdOWzz"
+    className="fwcNrp"
     onClick={[Function]}
     type="button"
   >
@@ -34,5 +34,5 @@ exports[`the responsive site header matches the snapshot 1`] = `
       Sign out
     </span>
   </button>
-</header>
+</div>
 `;

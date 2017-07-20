@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import logo from "../images/logo.svg";
@@ -11,14 +12,22 @@ import Link from "./Link.js";
  * @constructor
  */
 export function Logo( props ) {
-	return (
-		<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
-	);
+	switch ( props.context ) {
+		case "header":
+			return (
+				<Link to="/"><HeaderLogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+			);
+		case "sidebar":
+			return (
+				<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+			);
+	}
 }
 
 Logo.propTypes = {
-	size: React.PropTypes.string,
-	alt: React.PropTypes.string,
+	size: PropTypes.string,
+	alt: PropTypes.string,
+	context: PropTypes.string.isRequired,
 };
 
 Logo.defaultProps = {
@@ -37,9 +46,13 @@ const LogoImage = styled.img`
 `;
 
 LogoImage.propTypes = {
-	size: React.PropTypes.string,
+	size: PropTypes.string,
 };
 
 LogoImage.defaultProps = {
 	size: "200px",
 };
+
+const HeaderLogoImage = styled( LogoImage )`
+	margin: 12px auto;
+`;

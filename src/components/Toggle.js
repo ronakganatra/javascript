@@ -1,6 +1,19 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
+
+const messages = defineMessages( {
+	toggleLabelOn: {
+		id: "togglelabel.on",
+		defaultMessage: "On",
+	},
+	toggleLabelOff: {
+		id: "togglelabel.off",
+		defaultMessage: "Off",
+	},
+} );
 
 const ToggleBar = styled.div`
 	background-color: ${ props => props.isEnabled ? "#a5d6a7" : colors.$color_button_border }
@@ -67,11 +80,12 @@ class Toggle extends React.Component {
 	render() {
 		return <div>
 			<ToggleBar isEnabled={this.isEnabled()} onClick={this.onClick} onKeyDown={this.setEnablement} tabIndex="0"
-				role="checkbox" aria-label={this.props.ariaLabel} aria-checked={this.isEnabled()}
-			>
+				role="checkbox" aria-label={this.props.ariaLabel} aria-checked={this.isEnabled()} >
 				<ToggleBullet isEnabled={this.isEnabled()} />
 			</ToggleBar>
-			<ToggleVisualLabel aria-hidden="true">{ this.isEnabled() ? "On" : "Off" }</ToggleVisualLabel>
+			<ToggleVisualLabel aria-hidden="true">
+				{ this.isEnabled() ? this.props.intl.formatMessage( messages.toggleLabelOn ) : this.props.intl.formatMessage( messages.toggleLabelOff ) }
+			</ToggleVisualLabel>
 		</div>;
 	}
 
@@ -107,11 +121,12 @@ class Toggle extends React.Component {
 }
 
 Toggle.propTypes = {
-	isEnabled: React.PropTypes.bool,
-	ariaLabel: React.PropTypes.string.isRequired,
-	onSetEnablement: React.PropTypes.func,
-	disable: React.PropTypes.bool,
-	onToggleDisabled: React.PropTypes.func,
+	isEnabled: PropTypes.bool,
+	ariaLabel: PropTypes.string.isRequired,
+	onSetEnablement: PropTypes.func,
+	disable: PropTypes.bool,
+	onToggleDisabled: PropTypes.func,
+	intl: intlShape.isRequired,
 };
 
 Toggle.defaultProps = {
@@ -119,4 +134,4 @@ Toggle.defaultProps = {
 	onSetEnablement: () => {},
 };
 
-export default Toggle;
+export default injectIntl( Toggle );

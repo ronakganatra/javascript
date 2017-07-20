@@ -1,6 +1,6 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
-import { getAccessToken, getUserId } from "../functions/auth";
+import { prepareInternalRequest, doRequest } from "../functions/api";
+import { getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
 import { getAllProducts } from "./products";
 
@@ -86,14 +86,14 @@ export function linkSiteSuccess( site ) {
 /**
  * An action creator for the link site failure action.
  *
- * @param {string} errorText The error message.
+ * @param {string} error The error message.
  *
  * @returns {Object} A link site failure action.
  */
-export function linkSiteFailure( errorText ) {
+export function linkSiteFailure( error ) {
 	return {
 		type: LINK_SITE_FAILURE,
-		linkSiteError: errorText,
+		linkSiteError: error,
 	};
 }
 
@@ -109,28 +109,12 @@ export function linkSite( url ) {
 		dispatch( updateSiteUrl( url ) );
 		dispatch( linkSiteRequest() );
 
-		let apiUrl = getApiUrl();
 		let userId = getUserId();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Customers/${userId}/sites/`, "POST", { url } );
 
-		let request = new Request( `${apiUrl}/Customers/${userId}/sites/?access_token=${accessToken}`, {
-			method: "POST",
-			body: JSON.stringify( {
-				url,
-			} ),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( linkSiteFailure( error.message ) );
-			} );
+			.catch( error => dispatch( linkSiteFailure( error.message ) ) );
 	};
 }
 
@@ -194,24 +178,11 @@ export function retrieveSites() {
 	return ( dispatch ) => {
 		dispatch( retrieveSitesRequest() );
 
-		let apiUrl = getApiUrl();
 		let userId = getUserId();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Customers/${userId}/sites/` );
 
-		let request = new Request( `${apiUrl}/Customers/${userId}/sites/?access_token=${accessToken}`, {
-			method: "GET",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
+		return doRequest( request )
 			.then( json => dispatch( retrieveSitesSuccess( json ) ) )
-			.catch( ( error ) => {
-				dispatch( retrieveSitesFailure( error.message ) );
-			} );
+			.catch( error => dispatch( retrieveSitesFailure( error.message ) ) );
 	};
 }

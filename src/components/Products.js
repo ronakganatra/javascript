@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -11,7 +12,7 @@ const ProductsContainer = styled.div`
 	margin: 0 0 0 8px;
 	flex-wrap: wrap;
 	width: 100%;
-	align-items: flex-start;
+	align-items: stretch;
 `;
 
 const ProductsListHeading = styled( ListHeading )`
@@ -53,9 +54,9 @@ export default class Products extends React.Component {
 }
 
 Products.propTypes = {
-	byLine: React.PropTypes.element,
-	heading: React.PropTypes.string.isRequired,
-	noResults: React.PropTypes.string,
+	byLine: PropTypes.element,
+	heading: PropTypes.string.isRequired,
+	noResults: PropTypes.string,
 };
 
 Products.defaultProps = {

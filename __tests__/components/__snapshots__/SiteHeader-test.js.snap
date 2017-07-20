@@ -13,7 +13,7 @@ exports[`the site header matches the snapshot 1`] = `
     className="fIyvPW"
   >
     <a
-      className="iDMZUX"
+      className="kPmXcd"
       enabledStyle={true}
       href="/sites"
       iconSize="24px"
@@ -25,16 +25,13 @@ exports[`the site header matches the snapshot 1`] = `
     </a>
     <a
       aria-label={undefined}
-      className="hTpgWn"
+      className="brXJLz"
       href="http://placehold.it//wp-admin"
     >
       <span>
-        Open WordPress admin
-      </span>
-      <span>
-         
+        Open WordPress admin 
         <span
-          className="screen-reader-text"
+          className="screen-reader-text fuqaAG"
         >
           <span>
             (Opens in a new browser tab)

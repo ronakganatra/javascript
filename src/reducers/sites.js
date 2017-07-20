@@ -59,7 +59,7 @@ const rootState = {
  *
  * @returns {Object} The updated sites object.
  */
-function popupReducer( state, action ) {
+function popupReducer( state = rootState.ui.sites, action ) {
 	switch ( action.type ) {
 		case LINK_SITE_POPUP_OPEN:
 			return Object.assign( {}, state, {

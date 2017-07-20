@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
@@ -26,8 +27,8 @@ const SearchLabel = styled.label`
 `;
 
 SearchLabel.propTypes = {
-	className: React.PropTypes.string,
-	htmlFor: React.PropTypes.string,
+	className: PropTypes.string,
+	htmlFor: PropTypes.string,
 };
 
 SearchLabel.defaultProps = {
@@ -50,10 +51,10 @@ const SearchField = styled.input`
 `;
 
 SearchField.propTypes = {
-	id: React.PropTypes.string.isRequired,
-	type: React.PropTypes.string,
-	value: React.PropTypes.string,
-	"aria-describedby": React.PropTypes.string,
+	id: PropTypes.string.isRequired,
+	type: PropTypes.string,
+	value: PropTypes.string,
+	"aria-describedby": PropTypes.string,
 };
 
 SearchField.defaultProps = {
@@ -98,11 +99,11 @@ function Search( props ) {
 export default injectIntl( Search );
 
 Search.propTypes = {
-	searchLabel: React.PropTypes.string,
-	id: React.PropTypes.string.isRequired,
-	description: React.PropTypes.string,
-	descriptionId: React.PropTypes.string.isRequired,
-	onChange: React.PropTypes.func.isRequired,
-	query: React.PropTypes.string,
+	searchLabel: PropTypes.string,
+	id: PropTypes.string.isRequired,
+	description: PropTypes.string,
+	descriptionId: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired,
+	query: PropTypes.string,
 	intl: intlShape.isRequired,
 };

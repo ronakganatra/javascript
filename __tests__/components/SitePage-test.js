@@ -54,7 +54,7 @@ test('the site page component matches the snapshot', () => {
 						toggling: false,
 					},
 				} }
-				onAddMoreLicensesClick={ () => {} }
+				onAddMoreSubscriptionsClick={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }
@@ -116,7 +116,7 @@ test('the site page component matches the snapshot for a site in a directory', (
 						toggling: false,
 					},
 				} }
-				onAddMoreLicensesClick={ () => {} }
+				onAddMoreSubscriptionsClick={ () => {} }
 				onMoreInfoClick={ () => {} }
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }

@@ -1,7 +1,7 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import NewTabMessage from "../components/NewTabMessage";
-import colors from "yoast-components/style-guide/colors.json";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -25,7 +25,6 @@ const PageContainer = styled.div`
 
 	a {
 		font-size: 1.5em;
-		color: ${ colors.$color_blue };
 	}
 `;
 
@@ -54,10 +53,10 @@ export default function LandingPage( props ) {
 }
 
 LandingPage.propTypes = {
-	paragraphs: React.PropTypes.arrayOf( React.PropTypes.element ),
-	url: React.PropTypes.string,
-	urlText: React.PropTypes.string,
-	imageSource: React.PropTypes.string,
+	paragraphs: PropTypes.arrayOf( PropTypes.element ),
+	url: PropTypes.string,
+	urlText: PropTypes.string,
+	imageSource: PropTypes.string,
 };
 LandingPage.defaultProps = {
 	paragraphs: [],

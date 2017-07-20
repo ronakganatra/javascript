@@ -40,6 +40,15 @@ export function removeCookieSignage( cookie ) {
 }
 
 /**
+ * Determines whether or an access token is available.
+ *
+ * @returns {boolean} Whether or not an access token is available.
+ */
+export function hasAccessToken() {
+	return !! Cookies.get( "access_token" );
+}
+
+/**
  * Returns the access token known from the cookies.
  *
  * @returns {string} The available access token.

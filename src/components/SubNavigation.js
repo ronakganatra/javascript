@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
@@ -45,13 +46,12 @@ const LinkItem = styled( NavLink )`
 	&:hover,
 	&:focus,
 	&.${ activeStyle } {
-		font-weight: 400;
-		color: ${ colors.$color_pink_dark };
 		border-bottom-color: ${ colors.$color_pink_dark };
 		border-bottom-style: double;
 	}
 
 	&.${ activeStyle } {
+		color: ${ colors.$color_pink_dark };
 		border-bottom-style: solid;
 	}
 `;
@@ -79,7 +79,7 @@ export default function SubNavigation( props ) {
 }
 
 SubNavigation.propTypes = {
-	itemRoutes: React.PropTypes.array.isRequired,
+	itemRoutes: PropTypes.array.isRequired,
 };
 
 /**
@@ -100,5 +100,5 @@ export function SubNavigationItem( props ) {
 }
 
 SubNavigationItem.propTypes = {
-	itemRoutes: React.PropTypes.array.isRequired,
+	itemRoutes: PropTypes.array.isRequired,
 };

@@ -9,31 +9,24 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   >
     <button
       aria-expanded={true}
-      className="hJrCTB"
+      className="gCGqdM"
       onClick={[Function]}
     >
       <span
-        className="ObzGJ"
+        className="ioaeUl"
       >
-        <span>
-          Subscriptions
-        </span>
-        <svg
-          fill="#555"
-          height={40}
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
-          />
-        </svg>
+        Subscriptions
       </span>
-      <span
-        className="GHtNJ"
+      <svg
+        fill="#555"
+        height={40}
+        viewBox="0 0 24 24"
+        width={40}
       >
-        Active subscriptions for this site. If you don't have any subscriptions left, use the link to get additional subscriptions.
-      </span>
+        <path
+          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+        />
+      </svg>
     </button>
     <ul
       className="dITYws"
@@ -96,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="eRLPss"
+            className="jNEDIU"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -159,7 +152,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <button
-            className="hCeSSC"
+            className="dxNrSx"
             onClick={[Function]}
           >
             <span>
@@ -171,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="eRLPss"
+            className="jNEDIU"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >

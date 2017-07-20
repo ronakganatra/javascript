@@ -1,7 +1,6 @@
 import "whatwg-fetch";
-import { getApiUrl, handle401, verifyStatusCode } from "../functions/api";
-import { getAccessToken } from "../functions/auth";
 import { push } from "react-router-redux";
+import { prepareInternalRequest, doRequest } from "../functions/api";
 
 /**
  * Action types
@@ -86,24 +85,11 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
 
-		let request = new Request( `${apiUrl}/Sites/${siteId}/subscriptions/rel/${subscriptionId}/?access_token=${accessToken}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( response => response.json() )
-			.then( json => dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
-			.catch( ( error ) => {
-				dispatch( siteToggleSubscriptionFailure( error.message ) );
-			} );
+		return doRequest( request )
+			.then( dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
+			.catch( error => dispatch( siteToggleSubscriptionFailure( error.message ) ) );
 	};
 }
 
@@ -119,28 +105,13 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
 
-		let request = new Request( `${apiUrl}/Sites/${siteId}/subscriptions/rel/${subscriptionId}/?access_token=${accessToken}`, {
-			method: "DELETE",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( () => {
-				dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) );
-			} )
-			.catch( ( error ) => {
-				dispatch( siteToggleSubscriptionFailure( error.message ) );
-			} );
+		return doRequest( request )
+			.then( dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) ) )
+			.catch( error => dispatch( siteToggleSubscriptionFailure( error.message ) ) );
 	};
 }
-
 
 /**
  * An action creator for site removal.
@@ -153,28 +124,12 @@ export function siteRemove( siteId ) {
 	return ( dispatch ) => {
 		dispatch( siteRemoveStart( siteId ) );
 
-		let apiUrl = getApiUrl();
-		let accessToken = getAccessToken();
+		let request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
 
-		let request = new Request( `${apiUrl}/Sites/${siteId}/?access_token=${accessToken}`, {
-			method: "DELETE",
-			headers: {
-				"Content-Type": "application/json",
-			},
-		} );
-
-		return fetch( request )
-			.then( handle401 )
-			.then( verifyStatusCode )
-			.then( () => {
-				dispatch( siteRemoveSuccess( siteId ) );
-			} )
-			.then( () => {
-				dispatch( push( "/sites/" ) );
-			} )
-			.catch( ( error ) => {
-				dispatch( siteRemoveFailure( siteId, error.message ) );
-			} );
+		return doRequest( request )
+			.then( json => dispatch( siteRemoveSuccess( siteId ) ) )
+			.then( json => dispatch( push( "/sites/" ) ) )
+			.catch( error => dispatch( siteRemoveFailure( siteId, error.message ) ) );
 	};
 }
 

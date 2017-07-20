@@ -54,7 +54,6 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
-	dispatch( getAllSubscriptions() );
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
@@ -62,6 +61,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onManage: ( subscriptionId ) => {
 			dispatch( push( "/account/subscriptions/" + subscriptionId ) );
 		},
+		loadData: () => dispatch( getAllSubscriptions() ),
 	};
 };
 

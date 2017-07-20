@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import CollapsibleHeader from "./CollapsibleHeader";
@@ -68,8 +69,8 @@ function SiteDangerZone( props ) {
 }
 
 SiteDangerZone.propTypes = {
-	onRemove: React.PropTypes.func.isRequired,
-	removing: React.PropTypes.bool.isRequired,
+	onRemove: PropTypes.func.isRequired,
+	removing: PropTypes.bool.isRequired,
 	intl: intlShape.isRequired,
 };
 

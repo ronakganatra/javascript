@@ -1,24 +1,23 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
+import { createComponentWithIntl } from "../../utils";
 import Toggle from '../../src/components/Toggle';
 
 test('an enabled toggle which matches the snapshot', () => {
-	const component = renderer.create( <Toggle isEnabled={true} ariaLabel="Option" /> );
+	const component = createComponentWithIntl( <Toggle isEnabled={true} ariaLabel="Option" /> );
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 test('a disabled toggle which matches the snapshot', () => {
-	const component = renderer.create( <Toggle isEnabled={false} ariaLabel="Option" /> );
+	const component = createComponentWithIntl( <Toggle isEnabled={false} ariaLabel="Option" /> );
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
 
 test('an enabled toggle that is disabled', () => {
-	const component = renderer.create( <Toggle isEnabled={true} ariaLabel="Option" /> );
+	const component = createComponentWithIntl( <Toggle isEnabled={true} ariaLabel="Option" /> );
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
@@ -32,7 +31,7 @@ test('an enabled toggle that is disabled', () => {
 });
 
 test('a disabled toggle that is enabled', () => {
-	const component = renderer.create( <Toggle isEnabled={false} ariaLabel="Option" /> );
+	const component = createComponentWithIntl( <Toggle isEnabled={false} ariaLabel="Option" /> );
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();

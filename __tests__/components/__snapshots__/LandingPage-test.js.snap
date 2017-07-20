@@ -2,7 +2,7 @@
 
 exports[`the landing page component matches the snapshot 1`] = `
 <div
-  className="cuXUW"
+  className="kNIZiW"
 >
   <p>
     <span>
@@ -15,14 +15,11 @@ exports[`the landing page component matches the snapshot 1`] = `
       target="_blank"
     >
       yoast.com
-      <span>
-         
-        <span
-          className="screen-reader-text"
-        >
-          <span>
-            (Opens in a new browser tab)
-          </span>
+      <span
+        className="screen-reader-text fuqaAG"
+      >
+        <span>
+          (Opens in a new browser tab)
         </span>
       </span>
     </a>

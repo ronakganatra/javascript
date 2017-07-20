@@ -3,7 +3,6 @@ import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import a11ySpeak from "a11y-speak";
 import styled from "styled-components";
-import colors from "yoast-components/style-guide/colors.json";
 
 const NotFoundHeading = styled.h1`
 	font-weight: 700;
@@ -20,10 +19,6 @@ const PageContainer = styled.div`
 		max-width: 100%;
 		height: auto;
 		margin-top: 2em;
-	}
-
-	a {
-		color: ${ colors.$color_blue };
 	}
 `;
 

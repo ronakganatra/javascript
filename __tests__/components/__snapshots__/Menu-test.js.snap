@@ -9,7 +9,7 @@ exports[`the menu matches the snapshot 1`] = `
   >
     <li>
       <a
-        className="active-class-name hUsklo"
+        className="active-class-name esXMxt"
         href="/sites"
         onClick={[Function]}
         style={Object {}}
@@ -24,7 +24,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="hUsklo"
+        className="esXMxt"
         href="/courses"
         onClick={[Function]}
         style={undefined}
@@ -39,7 +39,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="hUsklo"
+        className="esXMxt"
         href="/downloads"
         onClick={[Function]}
         style={undefined}
@@ -54,7 +54,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
-        className="hUsklo"
+        className="esXMxt"
         href="/account"
         onClick={[Function]}
         style={undefined}

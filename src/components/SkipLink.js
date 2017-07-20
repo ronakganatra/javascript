@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 
@@ -14,7 +14,6 @@ const SkipLink = styled.a`
 	font-size: 14px;
 	line-height: 48px;
 	background: ${colors.$color_white};
-	color: ${colors.$color_blue};
 	border-radius: 3px;
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
 	text-decoration: underline;
@@ -23,11 +22,12 @@ const SkipLink = styled.a`
 
 	&:focus {
 		top: 10px;
+		color: ${ colors.$color_blue };
 	}
 `;
 
 SkipLink.propTypes = {
-	href: React.PropTypes.string.isRequired,
+	href: PropTypes.string.isRequired,
 };
 
 SkipLink.defaultProps = {

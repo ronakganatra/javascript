@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
@@ -8,10 +9,6 @@ const messages = defineMessages( {
 	manageTitle: {
 		id: "site_subscriptions.overview.title",
 		defaultMessage: "Subscriptions",
-	},
-	subtitle: {
-		id: "site_subscriptions.overview.subtitle",
-		defaultMessage: "Active subscriptions for this site. If you don't have any subscriptions left, use the link to get additional subscriptions.",
 	},
 } );
 
@@ -25,20 +22,21 @@ const messages = defineMessages( {
 function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
-			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } subtitle={ props.intl.formatMessage( messages.subtitle ) } items={ props.siteSubscriptions } isOpen={ true }>
+			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } isOpen={ true }>
 				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
 						let onToggleDisabled = () => {
-							return props.onToggleDisabled( plugin.id );
+							return props.onToggleDisabled( plugin.storeUrl );
 						};
-						let onAddMoreLicensesClick = () => {
-							return props.onAddMoreLicensesClick( plugin.id );
+
+						let onAddMoreSubscriptionsClick = () => {
+							return props.onAddMoreSubscriptionsClick( plugin.storeUrl );
 						};
 
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.glNumber }
-							onAddMoreLicensesClick={ onAddMoreLicensesClick }
+							onAddMoreSubscriptionsClick={ onAddMoreSubscriptionsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
 							onToggleSubscription={ props.onToggleSubscription }
@@ -54,19 +52,14 @@ function SiteSubscriptionDetailList( props ) {
 }
 
 SiteSubscriptionDetailList.propTypes = {
-	siteSubscriptions: React.PropTypes.array,
-	plugins: React.PropTypes.arrayOf( React.PropTypes.object ),
-	onAddMoreLicensesClick: React.PropTypes.func.isRequired,
-	onMoreInfoClick: React.PropTypes.func.isRequired,
-	onToggleSubscription: React.PropTypes.func.isRequired,
+	plugins: PropTypes.arrayOf( PropTypes.object ),
+	onAddMoreSubscriptionsClick: PropTypes.func.isRequired,
+	onMoreInfoClick: PropTypes.func.isRequired,
+	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	popupOpen: React.PropTypes.bool,
-	onClose: React.PropTypes.func.isRequired,
-	onToggleDisabled: React.PropTypes.func.isRequired,
-};
-
-SiteSubscriptionDetailList.defaultProps = {
-	siteSubscriptions: [],
+	popupOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	onToggleDisabled: PropTypes.func.isRequired,
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React from "react";
 import Subscription from "./Subscription";
 import { ListTable } from "./Tables";
@@ -36,20 +37,20 @@ export default function Subscriptions( props ) {
 }
 
 Subscriptions.propTypes = {
-	activeSubscriptions: React.PropTypes.arrayOf(
-		React.PropTypes.shape(
+	activeSubscriptions: PropTypes.arrayOf(
+		PropTypes.shape(
 			{
-				id: React.PropTypes.string.isRequired,
-				icon: React.PropTypes.string.isRequired,
-				name: React.PropTypes.string.isRequired,
-				used: React.PropTypes.number.isRequired,
-				limit: React.PropTypes.number.isRequired,
-				nextPayment: React.PropTypes.instanceOf( Date ).isRequired,
-				billingAmount: React.PropTypes.number.isRequired,
-				billingCurrency: React.PropTypes.string.isRequired,
-				status: React.PropTypes.string.isRequired,
+				id: PropTypes.string.isRequired,
+				icon: PropTypes.string.isRequired,
+				name: PropTypes.string.isRequired,
+				used: PropTypes.number.isRequired,
+				limit: PropTypes.number.isRequired,
+				nextPayment: PropTypes.instanceOf( Date ).isRequired,
+				billingAmount: PropTypes.number.isRequired,
+				billingCurrency: PropTypes.string.isRequired,
+				status: PropTypes.string.isRequired,
 			}
 		)
 	),
-	onManage: React.PropTypes.func.isRequired,
+	onManage: PropTypes.func.isRequired,
 };
