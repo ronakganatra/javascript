@@ -10,6 +10,7 @@ import a11ySpeak from "a11y-speak";
 import LandingPage from "./LandingPage";
 import noDownloads from "./../images/noDownloads.svg";
 import noResults from "./../images/SitesNoResults.svg";
+import NoResults from "./NoResults";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -103,9 +104,9 @@ class DownloadsPage extends React.Component {
 		</ByLine>;
 
 		let noDownloadsParagraphs = [
-			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
+			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page." />,
 			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="To browse our products, please visit:"/> ];
+			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/> ];
 
 		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.no-results"
 															   defaultMessage={ "We could not find any downloads matching { query }." }
@@ -135,11 +136,15 @@ class DownloadsPage extends React.Component {
 				</div>
 			);
 		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
-			return <LandingPage url="https://yoa.st/myyoast-download"
-								urlText="yoast.com"
-								imageSource={ noDownloads }
-								paragraphs={ noDownloadsParagraphs }
-			/>;
+			return (
+				<NoResults paragraphs={ noDownloadsParagraphs }
+					onClick={ () => {
+						window.open( "https://yoast.com/shop/" ).bind( this );
+					} }
+					imageSource={ noDownloads }
+					pageContext="noSubscriptions"
+				/>
+			);
 		}
 
 		return (

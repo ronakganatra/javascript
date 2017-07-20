@@ -90,7 +90,7 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
+			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
 			<FormattedMessage id="subscriptions.no-subscriptions.manage"
 							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
 so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
