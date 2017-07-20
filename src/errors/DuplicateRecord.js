@@ -6,10 +6,11 @@ class DuplicateRecord extends Error {
 	/**
 	 * Constructs the error message.
 	 *
+	 * @param {string} context The context in which the error was thrown.
 	 * @returns {void}
 	 */
-	constructor() {
-		let errorMessage = "It looks like you have already added this site to your My Yoast account.";
+	constructor( context ) {
+		let errorMessage = "It looks like you have already added this [PLACEHOLDER] to your My Yoast account.".replace( "[PLACEHOLDER]", context.toLocaleLowerCase() );
 		super( errorMessage );
 
 		this.name = this.constructor.name;

@@ -137,7 +137,9 @@ function handleResponse( response ) {
 function handleErrorResponse( response ) {
 	return response
 		.json()
-		.then( response => determineErrorMessage( response ) );
+		.then( response => {
+			determineErrorMessage( response );
+		} );
 }
 
 /**
@@ -152,7 +154,7 @@ function determineErrorMessage( response ) {
 	}
 
 	if ( response.error.code === "ER_DUP_ENTRY" ) {
-		throw new DuplicateRecord();
+		throw new DuplicateRecord( response.error.context );
 	}
 
 	throw new CustomerSupportError();
