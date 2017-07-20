@@ -1,11 +1,15 @@
-exports[`test the logo matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the logo matches the snapshot 1`] = `
 <a
   href="/"
-  onClick={[Function]}>
+  onClick={[Function]}
+>
   <img
     alt="My logo alt"
     className="dQZmZM"
     size="300px"
-    src="logo.svg" />
+    src="logo.svg"
+  />
 </a>
 `;

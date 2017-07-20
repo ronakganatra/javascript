@@ -1,18 +1,24 @@
-exports[`test the menu matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the menu matches the snapshot 1`] = `
 <nav
-  className="bpAoaQ">
+  className="bpAoaQ"
+>
   <ul
-    role="list">
+    role="list"
+  >
     <li>
       <a
         className="active-class-name hUsklo"
         href="/sites"
         onClick={[Function]}
-        style={Object {}}>
+        style={Object {}}
+      >
         <img
           alt=""
           className="fHJXFs"
-          src="sites.svg" />
+          src="sites.svg"
+        />
         Sites
       </a>
     </li>
@@ -21,11 +27,13 @@ exports[`test the menu matches the snapshot 1`] = `
         className="hUsklo"
         href="/courses"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
         <img
           alt=""
           className="fHJXFs"
-          src="courses.svg" />
+          src="courses.svg"
+        />
         Courses
       </a>
     </li>
@@ -34,11 +42,13 @@ exports[`test the menu matches the snapshot 1`] = `
         className="hUsklo"
         href="/downloads"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
         <img
           alt=""
           className="fHJXFs"
-          src="download.svg" />
+          src="download.svg"
+        />
         Downloads
       </a>
     </li>
@@ -47,11 +57,13 @@ exports[`test the menu matches the snapshot 1`] = `
         className="hUsklo"
         href="/account"
         onClick={[Function]}
-        style={undefined}>
+        style={undefined}
+      >
         <img
           alt=""
           className="fHJXFs"
-          src="user.svg" />
+          src="user.svg"
+        />
         Account
       </a>
     </li>

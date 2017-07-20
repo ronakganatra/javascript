@@ -1,39 +1,49 @@
-exports[`test the subscription header matches the snapshot 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the subscription header matches the snapshot 1`] = `
 <div
-  className="jQPrGG">
+  className="jQPrGG"
+>
   <div
-    className="jlVeDb">
+    className="jlVeDb"
+  >
     <a
       className="mMcmp"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Back
       </span>
     </a>
   </div>
   <div
-    className="fyzQxC">
+    className="fyzQxC"
+  >
     <h1
-      className="keuAmE">
+      className="keuAmE"
+    >
       Subscription
     </h1>
     
     <p
-      className="clDVnZ">
+      className="clDVnZ"
+    >
       
     </p>
   </div>
   <div
-    className="czrsFh">
+    className="czrsFh"
+  >
     <a
       className="fviucV"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"
-      onClick={[Function]}>
+      onClick={[Function]}
+    >
       <span>
         Back
       </span>
