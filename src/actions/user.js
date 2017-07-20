@@ -288,7 +288,7 @@ export function passwordResetSend( email ) {
 
 		let request = prepareRequest( getPasswordResetUrl(), "POST", body, { mode: "no-cors" } );
 		return doRequest( request )
-			.then( dispatch( passwordResetSuccess() ) )
+			.then( () => dispatch( passwordResetSuccess() ) )
 			.catch( error => dispatch( passwordResetFailure( error.message ) ) );
 	};
 }
