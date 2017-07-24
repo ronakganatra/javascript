@@ -503,11 +503,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
 
 exports[`the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="kNIZiW"
+  className="beArzs"
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads page.
     </span>
   </p>
   <p>
@@ -517,26 +517,21 @@ exports[`the downloads page component matches the snapshot when there are no dow
   </p>
   <p>
     <span>
-      To browse our products, please visit:
+      Press the button below to visit our shop and get your first product.
     </span>
   </p>
-  <p>
-    <a
-      href="https://yoa.st/myyoast-download"
-      target="_blank"
-    >
-      yoast.com
-      <span
-        className="screen-reader-text fuqaAG"
-      >
-        <span>
-          (Opens in a new browser tab)
-        </span>
-      </span>
-    </a>
-  </p>
+  <button
+    className="cyaQRf"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Shop
+    </span>
+  </button>
   <img
     alt=""
+    className="bTHZQB"
     src="noDownloads.svg"
   />
 </div>

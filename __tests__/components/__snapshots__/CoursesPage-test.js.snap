@@ -10,11 +10,17 @@ exports[`the courses page component matches the snapshot 1`] = `
     </span>
   </p>
   <p>
+    <button
+      className="fYqIOB"
+      onClick={[Function]}
+      type="button"
+    >
+      academy
+    </button>
     <a
       href="https://yoa.st/myyoast-academy"
       target="_blank"
     >
-      yoast.academy
       <span
         className="screen-reader-text fuqaAG"
       >

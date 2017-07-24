@@ -3,7 +3,6 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import LandingPage from "./LandingPage";
 import a11ySpeak from "a11y-speak";
 import constructionImage from "../images/construction.svg";
-import { LargeButton } from "../components/Button.js";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -40,19 +39,11 @@ class CoursesPage extends React.Component {
 	render() {
 		let paragraphs = [ <FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
 		return (
-			<div>
-				/*
-				<LandingPage url="https://yoa.st/myyoast-academy"
-							 urlText="yoast.academy"
-							 imageSource={ constructionImage }
-							 paragraphs={ paragraphs }
+			<LandingPage url="https://yoa.st/myyoast-academy"
+				urlText="academy"
+				imageSource={ constructionImage }
+				paragraphs={ paragraphs }
 				/>
-				*/
-				<LargeButton>Test</LargeButton>
-				<constructionImage/>
-
-			</div>
-
 		);
 	}
 }

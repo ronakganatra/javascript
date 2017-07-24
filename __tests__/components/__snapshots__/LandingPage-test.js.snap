@@ -10,11 +10,17 @@ exports[`the landing page component matches the snapshot 1`] = `
     </span>
   </p>
   <p>
+    <button
+      className="fYqIOB"
+      onClick={[Function]}
+      type="button"
+    >
+      yoast.com
+    </button>
     <a
       href="http://yoast.com"
       target="_blank"
     >
-      yoast.com
       <span
         className="screen-reader-text fuqaAG"
       >

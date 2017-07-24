@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import NewTabMessage from "../components/NewTabMessage";
+import { LargeButton } from "../components/Button.js";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -28,11 +29,11 @@ const PageContainer = styled.div`
 	}
 `;
 
+
 /**
  * Creates the Page  component
  *
- * @param {Object} props The props to use
- *
+ * @param {Object} props The props to use *
  * @returns {ReactElement} The rendered component.
  */
 export default function LandingPage( props ) {
@@ -42,8 +43,10 @@ export default function LandingPage( props ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
 			<p>
+				<LargeButton onClick={ () => {
+					window.open( props.url ).bind( this );
+				} }>{ props.urlText }</LargeButton>
 				<a href={ props.url } target="_blank">
-					{ props.urlText }
 					<NewTabMessage />
 				</a>
 			</p>
