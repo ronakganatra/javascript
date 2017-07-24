@@ -15,7 +15,7 @@ exports[`the courses page component matches the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      academy
+      open academy
     </button>
     <a
       href="https://yoa.st/myyoast-academy"
