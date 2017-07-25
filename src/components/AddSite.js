@@ -175,7 +175,7 @@ class AddSite extends React.Component {
 		const value = event.target.value;
 		this.props.onChange( value );
 		let validationError = this.validateUrl( value );
-		if( validationError ) {
+		if ( validationError ) {
 			this.setState( {
 				urlValidity: false,
 				validationError: validationError,
@@ -191,10 +191,10 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Validates URL and shows validation error if URL is unvalid.
+	 * Validates URL and shows validation error if URL is invalid.
 	 *
-	 * @param {string} input The URL to be validated
-	 * @returns {string} URL Validation error message
+	 * @param {string} input The URL to be validated.
+	 * @returns {string} URL Validation error message.
 	 */
 	validateUrl( input = "" ) {
 		if ( input === "" ) {
