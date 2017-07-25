@@ -137,16 +137,18 @@ class AddSite extends React.Component {
 			url: this.urlConstraints.bind( this ),
 		};
 
-		this.state={
+		this.state = {
 			validationError: null,
 			showValidationError: false,
 			urlValidity: false,
 		};
 		// Defines the debounced function for showing validation error.
 		this.showValidationMessageDebounced = _debounce( () => {
-			console.log( "Ok, ok I will work" );
 			this.setState( { showValidationError: true } );
 		}, 1000 );
+	}
+	componentWillUnmount() {
+		this.showValidationMessageDebounced.cancel();
 	}
 
 	/**
