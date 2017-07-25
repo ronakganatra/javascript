@@ -90,7 +90,7 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloads-page.by-line.plugins"
 				defaultMessage=" - Need help installing these? { link }."
-				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
+				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
 		</ByLine>;
 
@@ -98,7 +98,7 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloads-page.by-line.ebooks"
 				defaultMessage=" - Want to read more about SEO? { link }."
-				values={ { link: <a target="_blank" href="https://yoa.st/ebooks">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
+				values={ { link: <a target="_blank" href="https://yoa.st/ebooks" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
 			/>
 		</ByLine>;
 

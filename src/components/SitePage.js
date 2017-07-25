@@ -8,8 +8,6 @@ import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
 import AddLicensesModal from "./AddLicensesModal";
 
-import _filter from "lodash/filter";
-
 const messages = defineMessages( {
 	sitePageLoaded: {
 		id: "menu.site.loaded",
