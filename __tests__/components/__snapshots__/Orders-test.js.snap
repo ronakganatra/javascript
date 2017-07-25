@@ -66,6 +66,7 @@ exports[`The Orders component matches the snapshot 1`] = `
           aria-label="Download invoice"
           className="FJVi"
           href="http://somelink"
+          target={undefined}
         >
           <span
             className="screen-reader-text"

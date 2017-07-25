@@ -71,7 +71,7 @@ export default function AddLicenses( props ) {
 						<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
 					</LargeSecondaryButton>
 
-					<LargeButtonLink to={ props.onShop }>
+					<LargeButtonLink to={ props.onShop } target="_blank">
 						<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
 					</LargeButtonLink>
 				</Buttons>

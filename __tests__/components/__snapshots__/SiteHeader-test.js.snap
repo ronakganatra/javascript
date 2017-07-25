@@ -27,6 +27,7 @@ exports[`the site header matches the snapshot 1`] = `
       aria-label={undefined}
       className="brXJLz"
       href="http://placehold.it//wp-admin"
+      target="_blank"
     >
       <span>
         Open WordPress admin 
