@@ -53,7 +53,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="drublg"
+            className="lnJugF"
             onClick={[Function]}
             type="submit"
           >
@@ -129,7 +129,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="drublg"
+            className="lnJugF"
             onClick={[Function]}
             type="submit"
           >
@@ -205,7 +205,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="drublg"
+            className="lnJugF"
             onClick={[Function]}
             type="submit"
           >
@@ -281,7 +281,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
-            className="drublg"
+            className="lnJugF"
             onClick={[Function]}
             type="submit"
           >
@@ -357,7 +357,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
             </span>
           </button>
           <button
-            className="drublg"
+            className="lnJugF"
             onClick={[Function]}
             type="submit"
           >

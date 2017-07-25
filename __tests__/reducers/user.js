@@ -153,14 +153,18 @@ test( 'the disable user failure action', () => {
 describe( 'userEmailReducer', () => {
 	test( 'update request', () => {
 		const input = {
+			sendPasswordReset: false,
 			savingProfile: false,
+			profileSaved: false,
 			savingError: "An error",
 		};
 		const action = {
 			type: PROFILE_UPDATE_REQUEST,
 		};
 		const expected = {
+			sendPasswordReset: false,
 			savingProfile: true,
+			profileSaved: false,
 			savingError: "",
 		};
 
@@ -176,6 +180,7 @@ describe( 'userEmailReducer', () => {
 		const input = {
 			savingProfile: true,
 			savingError: "",
+			profileSaved: true,
 		};
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
@@ -183,6 +188,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const expected = {
 			savingProfile: false,
+			profileSaved: true,
 			savingError: "",
 			sendPasswordReset: false,
 			data: {
@@ -206,6 +212,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const expected = {
 			savingProfile: false,
+			profileSaved: false,
 			savingError: "An error",
 		};
 
@@ -217,6 +224,7 @@ describe( 'userEmailReducer', () => {
 	test( 'change email', () => {
 		const input = {
 			email: "previous email",
+			profileSaved: false,
 		};
 		const action = {
 			type: PROFILE_UPDATE_EMAIL,
@@ -224,6 +232,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const expected = {
 			email: "new email",
+			profileSaved: false,
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -236,6 +245,7 @@ describe( 'passwordResetReducer', () => {
 	test( "reset request", () => {
 		const input = {
 			sendingPasswordReset: false,
+			sendPasswordReset: false,
 			passwordResetError: "Some error",
 		};
 		const action = {
@@ -243,6 +253,7 @@ describe( 'passwordResetReducer', () => {
 		};
 		const expected = {
 			sendingPasswordReset: true,
+			sendPasswordReset: false,
 			passwordResetError: "",
 		};
 

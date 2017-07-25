@@ -52,6 +52,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
                - Need help installing these? 
               <a
                 href="https://yoa.st/myyoast-installation"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Read our installation guides
@@ -342,6 +343,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
                - Want to read more about SEO? 
               <a
                 href="https://yoa.st/ebooks"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Check out our other eBooks
