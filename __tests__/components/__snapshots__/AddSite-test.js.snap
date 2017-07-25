@@ -43,7 +43,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        className="drublg"
+        className="lnJugF"
         onClick={[Function]}
         type="submit"
       >
