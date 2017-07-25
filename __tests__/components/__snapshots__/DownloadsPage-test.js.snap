@@ -520,15 +520,22 @@ exports[`the downloads page component matches the snapshot when there are no dow
       Press the button below to visit our shop and get your first product.
     </span>
   </p>
-  <button
-    className="cyaQRf"
-    onClick={[Function]}
-    type="button"
+  <a
+    aria-label={undefined}
+    className="iQBxPy"
+    href="https://yoast.com/shop/"
   >
     <span>
       Shop
     </span>
-  </button>
+    <span
+      className="screen-reader-text fuqaAG"
+    >
+      <span>
+        (Opens in a new browser tab)
+      </span>
+    </span>
+  </a>
   <img
     alt=""
     className="bTHZQB"

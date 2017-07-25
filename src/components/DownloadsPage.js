@@ -138,9 +138,7 @@ class DownloadsPage extends React.Component {
 		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
 			return (
 				<NoResults paragraphs={ noDownloadsParagraphs }
-					onClick={ () => {
-						window.open( "https://yoast.com/shop/" ).bind( this );
-					} }
+					url="https://yoast.com/shop/"
 					imageSource={ noDownloads }
 					pageContext="noSubscriptions"
 				/>

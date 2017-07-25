@@ -2,7 +2,7 @@
 
 exports[`the landing page component matches the snapshot 1`] = `
 <div
-  className="kNIZiW"
+  className="fFcAEY"
 >
   <p>
     <span>
@@ -10,13 +10,20 @@ exports[`the landing page component matches the snapshot 1`] = `
     </span>
   </p>
   <p>
-    <button
-      className="fYqIOB"
-      onClick={[Function]}
-      type="button"
+    <a
+      aria-label={undefined}
+      className="eHAsuf"
+      href="http://yoast.com"
     >
       yoast.com
-    </button>
+      <span
+        className="screen-reader-text fuqaAG"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
     <a
       href="http://yoast.com"
       target="_blank"

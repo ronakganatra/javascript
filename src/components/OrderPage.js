@@ -101,9 +101,8 @@ class OrderPage extends React.Component {
 			);
 		}
 		return (
-			<NoResults paragraphs={ noOrdersParagraphs } onClick={ () => {
-				window.open( "https://yoast.com/shop/" ).bind( this );
-			} } imageSource={ noOrdersImage } pageContext="noOrders"/>
+			<NoResults paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
+					   imageSource={ noOrdersImage } pageContext="noOrders"/>
 		);
 	}
 

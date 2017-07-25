@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { LargeButton, LargeIconButton } from "../components/Button.js";
+import { LargeButtonLink, LargeIconButton } from "../components/Button.js";
 import plus from "../icons/plus.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
+import NewTabMessage from "../components/NewTabMessage";
 
 const messages = defineMessages( {
 	addSite: {
@@ -41,19 +42,20 @@ const NoResultsIconButton = styled( LargeIconButton )`
 	margin-bottom: 2em;
 `;
 
-const NoResultsButton = styled( LargeButton )`
+const NoResultsButtonLink = styled( LargeButtonLink )`
 	margin-bottom: 2em;
 `;
 
 /**
  * A function that modifies the button on the noResults page, depending on the context.
  *
- *  @param { function } onClick The onClick function that goes with the button.
+ * @param { url } url The URL of the website that is linked to.
+ * @param { function } onClick The onClick function that goes with the button.
  * @param { string } pageContext The context of the noResults page.
  *
  * @returns { ReactElement } The button on the noResults page.
  */
-function getNoResultsButton( onClick, pageContext ) {
+function getNoResultsButton( url, onClick, pageContext ) {
 	switch ( pageContext ) {
 		case "noSites":
 			return (
@@ -64,15 +66,17 @@ function getNoResultsButton( onClick, pageContext ) {
 		case "noOrders":
 		case "noSubscriptions":
 			return (
-				<NoResultsButton onClick={ onClick } >
+				<NoResultsButtonLink to={ url } linkTarget="_blank">
 					<FormattedMessage id={ messages.visitShop.id } defaultMessage={ messages.visitShop.defaultMessage } />
-				</NoResultsButton>
+					<NewTabMessage />
+				</NoResultsButtonLink>
 			);
 	}
 }
 
 getNoResultsButton.propTypes = {
-	onClick: PropTypes.func.isRequired,
+	url: PropTypes.string,
+	onClick: PropTypes.func,
 	pageContext: PropTypes.string.isRequired,
 };
 
@@ -90,7 +94,7 @@ function NoResults( props ) {
 			{ props.paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
-			{ getNoResultsButton( props.onClick, props.pageContext ) }
+			{ getNoResultsButton( props.url, props.onClick, props.pageContext ) }
 			<NoResultsImage src={ props.imageSource } alt="" />
 		</NoResultsContainer>
 	);
@@ -99,7 +103,8 @@ function NoResults( props ) {
 export default injectIntl( NoResults );
 
 NoResults.propTypes = {
-	onClick: PropTypes.func.isRequired,
+	url: PropTypes.string,
+	onClick: PropTypes.func,
 	paragraphs: PropTypes.arrayOf( PropTypes.element ),
 	imageSource: PropTypes.string.isRequired,
 	pageContext: PropTypes.string.isRequired,

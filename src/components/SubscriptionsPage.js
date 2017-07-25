@@ -122,9 +122,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 		return (
 			<NoResults
 				paragraphs={ noSubscriptionsParagraphs }
-				onClick={ () => {
-					window.open( "https://yoast.com/shop/" ).bind( this );
-				} }
+				url="https://yoast.com/shop/"
 				imageSource={ noSubscriptionsImage }
 				pageContext="noSubscriptions"
 			/>
