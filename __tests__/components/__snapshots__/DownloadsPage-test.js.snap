@@ -526,6 +526,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
     aria-label={undefined}
     className="iQBxPy"
     href="https://yoast.com/shop/"
+    target="_blank"
   >
     <span>
       Shop

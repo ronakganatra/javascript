@@ -14,6 +14,7 @@ exports[`the landing page component matches the snapshot 1`] = `
       aria-label={undefined}
       className="eHAsuf"
       href="http://yoast.com"
+      target="_blank"
     >
       yoast.com
       <span
