@@ -28,6 +28,7 @@ exports[`the site page component matches the snapshot 1`] = `
         aria-label={undefined}
         className="brXJLz"
         href="http://yoast.com/wp-admin"
+        target="_blank"
       >
         <span>
           Open WordPress admin 
@@ -274,6 +275,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
         aria-label={undefined}
         className="brXJLz"
         href="http://yoast.com/wp-admin"
+        target="_blank"
       >
         <span>
           Open WordPress admin 
