@@ -155,8 +155,8 @@ describe( 'userEmailReducer', () => {
 		const input = {
 			sendPasswordReset: false,
 			savingProfile: false,
+			saveEmailError: "An error",
 			profileSaved: false,
-			savingError: "An error",
 		};
 		const action = {
 			type: PROFILE_UPDATE_REQUEST,
@@ -165,7 +165,7 @@ describe( 'userEmailReducer', () => {
 			sendPasswordReset: false,
 			savingProfile: true,
 			profileSaved: false,
-			savingError: "",
+			saveEmailError: "",
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -179,7 +179,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const input = {
 			savingProfile: true,
-			savingError: "",
+			saveEmailError: "",
 			profileSaved: true,
 		};
 		const action = {
@@ -188,8 +188,8 @@ describe( 'userEmailReducer', () => {
 		};
 		const expected = {
 			savingProfile: false,
+			saveEmailError: "",
 			profileSaved: true,
-			savingError: "",
 			sendPasswordReset: false,
 			data: {
 				profile: profile,
@@ -204,7 +204,7 @@ describe( 'userEmailReducer', () => {
 	test( 'update failure', () => {
 		const input = {
 			savingProfile: true,
-			savingError: "",
+			saveEmailError: "",
 		};
 		const action = {
 			type: PROFILE_UPDATE_FAILURE,
@@ -213,7 +213,7 @@ describe( 'userEmailReducer', () => {
 		const expected = {
 			savingProfile: false,
 			profileSaved: false,
-			savingError: "An error",
+			saveEmailError: "An error",
 		};
 
 		const actual = userEmailReducer( input, action );

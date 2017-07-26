@@ -41,7 +41,7 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				error="An error occurred while saving profile." />
+				saveEmailError="An error occurred while saving profile." />
 		);
 
 		let tree = component.toJSON();

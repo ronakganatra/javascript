@@ -1,16 +1,16 @@
 /**
  * Creates a custom error message when a duplicate record is being inserted into the database.
  */
-class DuplicateRecord extends Error {
+class CustomerSupportError extends Error {
 
 	/**
 	 * Constructs the error message.
 	 *
-	 * @param {string} context The context in which the error was thrown.
 	 * @returns {void}
 	 */
-	constructor( context ) {
-		let errorMessage = "It looks like you have already added this [PLACEHOLDER] to your My Yoast account.".replace( "[PLACEHOLDER]", context.toLocaleLowerCase() );
+	constructor() {
+		// %s should be replaced with a link to the support e-mail.
+		let errorMessage = "Oops, something went wrong on our end, please try again. If this keeps happening, [customer_support_link]";
 		super( errorMessage );
 
 		this.name = this.constructor.name;
@@ -27,4 +27,4 @@ class DuplicateRecord extends Error {
 	}
 }
 
-exports.DuplicateRecord = DuplicateRecord;
+exports.CustomerSupportError = CustomerSupportError;
