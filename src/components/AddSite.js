@@ -246,7 +246,6 @@ class AddSite extends React.Component {
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
 
-					{ this.validateUrl( this.props.linkingSiteUrl ) }
 					<ErrorMessage errorMessage={ this.props.errorMessage } />
 
 					<Buttons>
