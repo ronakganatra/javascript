@@ -55,8 +55,7 @@ const SiteHeaderSitename = styled.h1`
 	font-weight: 300;
 	font-size: 2em;
 	margin: 0;
-	padding-top: 100px;
-	height: 186px;
+	min-height: 186px;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	-ms-word-break: break-all;
@@ -64,6 +63,7 @@ const SiteHeaderSitename = styled.h1`
 	// Firefox needs this for break word to work inside flex items.
 	min-width: 0;
 	text-align: center;
+	padding-bottom: 10px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		text-align: center;
@@ -99,7 +99,7 @@ function SiteHeader( props ) {
 			</SiteHeaderSitename>
 			<ButtonSection>
 				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
-				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } target="_blank">
+				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
 					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
 				</WPAdminButton>
 			</ButtonSection>

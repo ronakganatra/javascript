@@ -14,6 +14,7 @@ export const mapStateToProps = ( state ) => {
 			protocol: "https",
 		} ),
 		isSaving: state.user.savingProfile,
+		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
 		saveEmailError: state.user.saveEmailError,
 		isSendingPasswordReset: state.user.sendingPasswordReset,

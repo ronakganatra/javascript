@@ -8,8 +8,6 @@ import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
 import AddLicensesModal from "./AddLicensesModal";
 
-import _filter from "lodash/filter";
-
 const messages = defineMessages( {
 	sitePageLoaded: {
 		id: "menu.site.loaded",
@@ -73,7 +71,7 @@ class SitePage extends React.Component {
 export default injectIntl( SitePage );
 
 SitePage.propTypes = {
-	site: PropTypes.object.isRequired,
+	site: PropTypes.object,
 	uiSite: PropTypes.object,
 	subscriptions: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),

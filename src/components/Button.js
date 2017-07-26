@@ -41,9 +41,9 @@ const ButtonArchetype = styled.button`
 `;
 
 ButtonArchetype.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 ButtonArchetype.defaultProps = {
@@ -60,9 +60,9 @@ export const IconButtonArchetype = styled( ButtonArchetype )`
 `;
 
 IconButtonArchetype.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
-	iconSize: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 IconButtonArchetype.defaultProps = {
@@ -155,9 +155,9 @@ export const BeaconButton = styled( Button )`
 `;
 
 BeaconButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 BeaconButton.defaultProps = {
@@ -178,9 +178,9 @@ export const ChevronButton = styled( Button )`
 `;
 
 ChevronButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 ChevronButton.defaultProps = {

@@ -42,6 +42,7 @@ const initialState = {
 
 	savingProfile: false,
 	saveEmailError: "",
+	profileSaved: false,
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
 	passwordResetError: "",
@@ -96,20 +97,24 @@ export function userEmailReducer( state = initialState, action ) {
 	switch ( action.type ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
+				sendPasswordReset: false,
 				savingProfile: true,
 				saveEmailError: "",
+				profileSaved: false,
 			} );
 
 		case PROFILE_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
 				savingProfile: false,
 				saveEmailError: action.message,
+				profileSaved: false,
 			} );
 
 		case PROFILE_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
 				savingProfile: false,
 				sendPasswordReset: false,
+				profileSaved: true,
 				data: {
 					profile: action.profile,
 				},
@@ -118,6 +123,7 @@ export function userEmailReducer( state = initialState, action ) {
 		case PROFILE_UPDATE_EMAIL:
 			return Object.assign( {}, state, {
 				email: action.email,
+				profileSaved: false,
 			} );
 
 		default:
@@ -138,6 +144,7 @@ export function passwordResetReducer( state, action ) {
 			return Object.assign( {}, state, {
 				sendingPasswordReset: true,
 				passwordResetError: "",
+				sendPasswordReset: false,
 			} );
 
 		case RESET_PASSWORD_SUCCESS:
@@ -150,6 +157,7 @@ export function passwordResetReducer( state, action ) {
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
 				passwordResetError: action.message,
+				sendPasswordReset: false,
 			} );
 
 		default:
