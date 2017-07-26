@@ -59,6 +59,7 @@ exports[`A standard order 1`] = `
       aria-label="Download invoice"
       className="FJVi"
       href="http://somelink"
+      rel={undefined}
       target={undefined}
     >
       <span

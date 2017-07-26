@@ -99,7 +99,7 @@ function SiteHeader( props ) {
 			</SiteHeaderSitename>
 			<ButtonSection>
 				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
-				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
+				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank" linkRel="noopener noreferrer">
 					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
 				</WPAdminButton>
 			</ButtonSection>

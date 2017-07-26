@@ -23,6 +23,7 @@ export default class Link extends Component {
 				className={ this.props.className }
 				aria-label={ this.props.ariaLabel }
 				target={ this.props.linkTarget }
+				rel={ this.props.linkRel }
 				>
 				{ this.props.children }
 			</a>
@@ -36,4 +37,5 @@ Link.propTypes = {
 	children: PropTypes.any,
 	ariaLabel: PropTypes.string,
 	linkTarget: PropTypes.string,
+	linkRel: PropTypes.string,
 };

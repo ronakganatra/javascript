@@ -525,6 +525,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
   <p>
     <a
       href="https://yoa.st/myyoast-download"
+      rel="noopener noreferrer"
       target="_blank"
     >
       yoast.com
