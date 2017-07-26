@@ -227,8 +227,7 @@ class AddSite extends React.Component {
 				<ValidationText>
 					<FormattedMessage
 						id="sites.add-site.url-validation-message"
-						defaultMessage={ "{ validationError }" }
-						values={ { validationError: this.state.validationError } }
+						defaultMessage={ this.state.validationError }
 					/>
 				</ValidationText>
 			);
