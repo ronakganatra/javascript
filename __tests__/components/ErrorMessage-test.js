@@ -1,7 +1,7 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
 
-import ErrorMessage from '../../src/components/ErrorMessage';
+import ErrorMessage from '../../src/components/MessageBoxes';
 
 test('the ErrorMessage component matches the snapshot', () => {
 	const component = createComponentWithIntl(

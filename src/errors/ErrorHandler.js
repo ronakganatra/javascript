@@ -1,10 +1,8 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
 import warningTriangle from "../icons/exclamation-triangle.svg";
-import styled from "styled-components";
-import colors from "yoast-components/style-guide/colors.json";
-import defaults from "../config/defaults.json";
+import PropTypes from "prop-types";
+import { PurpleLink, NoActiveProductIcon, WarningText, WarningMessage } from "../components/MessageBoxes";
 
 let messages = defineMessages( {
 	contactSupportLink: {
@@ -12,39 +10,6 @@ let messages = defineMessages( {
 		defaultMessage: "please contact support",
 	},
 } );
-
-const YellowWarning = styled.div`
-	padding: 0.5em;
-	padding-left: ${ props => props.iconPadding ? "0" : "0.5em" };
-	background-color: ${ colors.$color_yellow };
-	margin: 0.5em 0;
-	overflow: auto;
-	display: flex;
-	align-items: center;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		flex-direction: column;
-		text-align: left;
-	}
-`;
-
-const NoActiveProductIcon = styled.img`
-	width: 15%;
-	height: 10%;
-	padding: 20px;
-	min-width: 75px;
-	display: flex;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		padding: 10px;
-	}
-`;
-
-const WarningText = styled.span`
-	font-size: 1em;
-`;
-
-const PurpleLink = styled.a`
-	color: ${ colors.$color_purple };
-`;
 
 /**
  * This class can render error messages in our custom style. It outputs the styled error message if its errorMessage prop is not empty.
@@ -55,7 +20,7 @@ const PurpleLink = styled.a`
  *
  * @returns {ReactElement} The rendered ErrorMessage component.
  */
-class ErrorMessage extends React.Component {
+class ErrorHandler extends React.Component {
 	/**
 	 * Sets the ErrorMessage object. This includes setting iconPadding to true, because by default the icon is shown. This requires altered padding-left.
 	 *
@@ -139,17 +104,21 @@ class ErrorMessage extends React.Component {
 			return null;
 		}
 
+		console.log( "ErrorMessage", errorMessage );
+
 		let messageFormatObject = this.handlePlaceholders( errorMessage );
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
 
+		// let MessageBox = ( statuscode === 500 ? WarningMessage : ErrorMessage )
+
 		return(
-			<YellowWarning role="alert" iconPadding={ this.iconPadding }>
+			<WarningMessage role="alert" iconPadding={ this.iconPadding }>
 				{ errorIcon }
 				<WarningText>
 					{ finalErrorMessage }
 				</WarningText>
-			</YellowWarning>
+			</WarningMessage>
 		);
 	}
 
@@ -160,19 +129,19 @@ class ErrorMessage extends React.Component {
 	 */
 	render() {
 		return (
-				this.getErrorMessage( this.props.errorMessage )
+			this.getErrorMessage( this.props.errorMessage )
 		);
 	}
 }
 
-ErrorMessage.propTypes = {
+ErrorHandler.propTypes = {
 	errorMessage: PropTypes.string,
 	showIcon: PropTypes.bool,
 };
 
-ErrorMessage.defaultProps = {
+ErrorHandler.defaultProps = {
 	errorMessage: "",
 	showIcon: true,
 };
 
-export default injectIntl( ErrorMessage );
+export default injectIntl( ErrorHandler );

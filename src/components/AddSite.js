@@ -10,7 +10,7 @@ import validate from "validate.js";
 import defaults from "../config/defaults.json";
 import a11ySpeak from "a11y-speak";
 import _debounce from "lodash/debounce";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../errors/ErrorHandler";
 
 const messages = defineMessages( {
 	validationFormatURL: {

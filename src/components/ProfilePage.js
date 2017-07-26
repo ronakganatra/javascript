@@ -12,7 +12,7 @@ import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "../errors/ErrorHandler";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
