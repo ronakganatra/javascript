@@ -163,20 +163,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             value="email@email.email"
           />
           <div
-            className="akGZW"
+            className="kGjlJb"
             role="alert"
           >
             <img
               alt=""
-              className="cfhiIS"
-              src="exclamation-triangle.svg"
+              className="kVdGAr"
+              src="exclamation-circle.svg"
             />
-            <span
-              className="dvtOGe"
-            >
-              <span>
-                An error occurred while saving profile.
-              </span>
+            <span>
+              An error occurred while saving profile.
             </span>
           </div>
           <div>
