@@ -254,9 +254,6 @@ class ProfilePage extends React.Component {
 		return fieldWarnings.map( ( error ) => {
 			return <ErrorHandler errorMessage={ error.options.message } type="warning"/>;
 		} );
-		// <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
-		// } );
-		// return 	<ErrorHandler errorMessage={ this.props.saveEmailError } />
 	}
 
 	/**
