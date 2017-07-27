@@ -1,8 +1,9 @@
 import React from "react";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
-import warningTriangle from "../icons/exclamation-triangle.svg";
 import PropTypes from "prop-types";
-import { PurpleLink, NoActiveProductIcon, WarningText, WarningMessage } from "../components/MessageBoxes";
+import { PurpleLink, ErrorMessage, WarningMessage, MessageIcon } from "../components/MessageBoxes";
+import exclamationTriangle from "../icons/exclamation-triangle.svg";
+import exclamationCircle from "../icons/exclamation-circle.svg";
 
 let messages = defineMessages( {
 	contactSupportLink: {
@@ -78,7 +79,7 @@ class ErrorHandler extends React.Component {
 	}
 
 	/**
-	 * Returns the warningTriangle Icon, or returns null and adjusts the padding accordingly.
+	 * Returns the exclamationTriangle Icon, or returns null and adjusts the padding accordingly.
 	 *
 	 * @param {Boolean} showIcon Whether to show the warning triangle icon (true) or not (false). Default = true.
 	 * @returns {ReactElement} Returns null in case the input is set to false, and the warning triangle icon if true.
@@ -89,7 +90,7 @@ class ErrorHandler extends React.Component {
 			return null;
 		}
 		return(
-			<NoActiveProductIcon src={ warningTriangle } alt=""/>
+			<MessageIcon src={ this.props.type === "warning" ? exclamationTriangle : exclamationCircle } alt=""/>
 		);
 	}
 
@@ -110,15 +111,13 @@ class ErrorHandler extends React.Component {
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
 
-		// let MessageBox = ( statuscode === 500 ? WarningMessage : ErrorMessage )
+		let MessageBox = ( this.props.type === "warning" ? WarningMessage : ErrorMessage );
 
 		return(
-			<WarningMessage role="alert" iconPadding={ this.iconPadding }>
+			<MessageBox role="alert" iconPadding={ this.iconPadding }>
 				{ errorIcon }
-				<WarningText>
-					{ finalErrorMessage }
-				</WarningText>
-			</WarningMessage>
+				{ finalErrorMessage }
+			</MessageBox>
 		);
 	}
 
@@ -136,6 +135,7 @@ class ErrorHandler extends React.Component {
 
 ErrorHandler.propTypes = {
 	errorMessage: PropTypes.string,
+	type: PropTypes.string,
 	showIcon: PropTypes.bool,
 };
 

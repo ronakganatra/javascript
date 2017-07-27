@@ -12,7 +12,7 @@ import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
-import ErrorMessage from "../errors/ErrorHandler";
+import ErrorHandler from "../errors/ErrorHandler";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -189,20 +189,20 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Runs the fields through the validator and returns the errors.
+	 * Runs the fields through the validator and returns the warnings.
 	 *
-	 * @returns {Array} All validation errors.
+	 * @returns {Array} All validation warnings.
 	 */
 	validateFields() {
-		let errors = validate( {
+		let warnings = validate( {
 			email: this.props.email,
 		}, this.constraints, { format: "detailed" } );
 
-		if ( _isUndefined( errors ) ) {
-			errors = [];
+		if ( _isUndefined( warnings ) ) {
+			warnings = [];
 		}
 
-		return errors;
+		return warnings;
 	}
 
 	/**
@@ -234,27 +234,29 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Displays the errors for the provided field.
+	 * Displays the warnings for the provided field.
 	 *
-	 * @param {Array} errors The errors that could be displayed.
-	 * @param {string} field Field to display errors for.
-	 * @returns {ReactElement[]} List of JSXElements if errors are found otherwise null.
+	 * @param {Array} warnings The warnings that could be displayed.
+	 * @param {string} field Field to display warnings for.
+	 * @returns {ReactElement[]} List of JSXElements if warnings are found otherwise null.
 	 */
-	displayErrors( errors, field ) {
-		// Find errors for the specified field.
-		let fieldErrors = errors.filter( error => {
+	displayWarnings( warnings, field ) {
+		// Find warnings for the specified field.
+		let fieldWarnings = warnings.filter( error => {
 			return error.attribute === field;
 		} );
 
-		// Return nothing if we don't have any errors.
-		if ( fieldErrors.length === 0 ) {
+		// Return nothing if we don't have any warnings.
+		if ( fieldWarnings.length === 0 ) {
 			return null;
 		}
-
-		// Display all remaining errors.
-		return fieldErrors.map( ( error ) => {
-			return <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
+		// Display all remaining warnings.
+		return fieldWarnings.map( ( error ) => {
+			return <ErrorHandler errorMessage={ error.options.message } type="warning"/>;
 		} );
+		// <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
+		// } );
+		// return 	<ErrorHandler errorMessage={ this.props.saveEmailError } />
 	}
 
 	/**
@@ -415,7 +417,7 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-		let errors = this.validateFields();
+		let warnings = this.validateFields();
 
 		let onUpdateEmail = ( event ) => {
 			this.props.onUpdateEmail( event.target.value );
@@ -455,8 +457,8 @@ class ProfilePage extends React.Component {
 									type="text"
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
-								{ this.displayErrors( errors, "email" ) }
-								<ErrorMessage errorMessage={ this.props.saveEmailError } />
+								{ this.displayWarnings( warnings, "email" ) }
+								<ErrorHandler errorMessage={ this.props.saveEmailError } />
 								{ this.getSaveButton() }
 							</form>
 

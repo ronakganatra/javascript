@@ -10,33 +10,34 @@ export const GeneralMessage = styled.div`
 	overflow: auto;
 	display: flex;
 	align-items: center;
+	justify-content: flex-start;
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		flex-direction: column;
 		text-align: left;
 	}
 `;
 
-export const WarningMessage = styled.div`
+export const WarningMessage = styled( GeneralMessage )`
 	background-color: ${ colors.$color_yellow };
 `;
 
-export const ErrorMessage = styled.div`
-	background-color: ${ colors.$color_red };
+export const ErrorMessage = styled( GeneralMessage )`
+	background-color: ${ colors.$color_error };
+	fill: red;
 `;
 
-export const NoActiveProductIcon = styled.img`
-	width: 15%;
-	height: 10%;
+export const MessageIcon = styled.img`
+	// Added min-height and width to make sure the images are always the same size.
+	min-width: 80px;
+	min-height: 80px;
+	max-width: 15%;
+	max-height: 10%;
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		padding: 10px;
 	}
-`;
-
-export const WarningText = styled.span`
-	font-size: 1em;
 `;
 
 export const PurpleLink = styled.a`
