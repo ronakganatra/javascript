@@ -23,7 +23,7 @@ export default class Link extends Component {
 				className={ this.props.className }
 				aria-label={ this.props.ariaLabel }
 				target={ this.props.linkTarget }
-				rel={ this.props.linkRel }
+				rel={ this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel }
 				>
 				{ this.props.children }
 			</a>

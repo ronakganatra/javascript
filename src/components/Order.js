@@ -85,7 +85,6 @@ function Order( props ) {
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }
 					linkTarget="_blank"
-					linkRel="noopener noreferrer"
 				>
 					<span className="screen-reader-text">{ invoiceMessage }</span>
 				</ResponsiveInvoiceButton>
