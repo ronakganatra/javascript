@@ -7,7 +7,6 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -114,7 +113,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
+					<NoResults paragraphs={ noSearchResultsParagraphs }
 								 imageSource={ noResultsImage }/>
 				</div>
 			);

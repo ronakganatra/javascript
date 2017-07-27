@@ -43,7 +43,7 @@ class CoursesPage extends React.Component {
 				urlText="open academy"
 				imageSource={ constructionImage }
 				paragraphs={ paragraphs }
-				/>
+			/>
 		);
 	}
 }

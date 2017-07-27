@@ -7,7 +7,6 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -95,8 +94,7 @@ class OrderPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
-								 imageSource={ noResultsImage }/>
+					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage }/>
 				</div>
 			);
 		}

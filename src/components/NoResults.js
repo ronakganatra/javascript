@@ -107,7 +107,7 @@ NoResults.propTypes = {
 	onClick: PropTypes.func,
 	paragraphs: PropTypes.arrayOf( PropTypes.element ),
 	imageSource: PropTypes.string.isRequired,
-	pageContext: PropTypes.string.isRequired,
+	pageContext: PropTypes.string,
 };
 
 NoResults.defaultProps = {

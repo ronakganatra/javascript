@@ -16,7 +16,9 @@ exports[`the courses page component matches the snapshot 1`] = `
       href="https://yoa.st/myyoast-academy"
       target="_blank"
     >
-      open academy
+      <span>
+        open academy
+      </span>
       <span
         className="screen-reader-text fuqaAG"
       >

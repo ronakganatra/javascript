@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import NewTabMessage from "../components/NewTabMessage";
 import { LargeButtonLink } from "../components/Button.js";
+import { FormattedMessage } from "react-intl";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -40,7 +41,7 @@ export default function LandingPage( props ) {
 			} ) }
 			<p>
 				<LargeButtonLink to={ props.url } linkTarget="_blank">
-					{ props.urlText }
+					<FormattedMessage id={ props.urlText } defaultMessage={ props.urlText }/>
 					<NewTabMessage />
 				</LargeButtonLink>
 				<a href={ props.url } target="_blank">
