@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
+import { capitalizer } from "../functions/string";
+
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.orders.allIds;
@@ -15,6 +17,7 @@ export const mapStateToProps = ( state ) => {
 			date: new Date( order.date ),
 			total: order.totalAmount,
 			status: order.status,
+			statusDisplayName: capitalizer( order.status ),
 			items: order.items,
 			currency: order.currency,
 		};

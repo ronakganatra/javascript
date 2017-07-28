@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate, FormattedMessage } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
 import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
@@ -77,7 +77,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<span>{ props.status }</span>
+				<FormattedMessage id={ props.status} defaultMessage={ props.statusDisplayName}/>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
@@ -102,6 +102,7 @@ Order.propTypes = {
 	intl: intlShape.isRequired,
 	items: PropTypes.array,
 	status: PropTypes.string,
+	statusDisplayName: PropTypes.string,
 	background: PropTypes.string,
 };
 
