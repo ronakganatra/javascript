@@ -104,7 +104,6 @@ class ErrorHandler extends React.Component {
 		if ( errorMessage === "" ) {
 			return null;
 		}
-		
 		let messageFormatObject = this.handlePlaceholders( errorMessage );
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
