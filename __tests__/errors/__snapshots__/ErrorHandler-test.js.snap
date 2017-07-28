@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the ErrorMessage component matches the snapshot 1`] = `
+exports[`the ErrorHandler component matches the snapshot 1`] = `
 <div
   className="kGjlJb"
   role="alert"
@@ -16,7 +16,7 @@ exports[`the ErrorMessage component matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`the ErrorMessage component with an implemented placeholder matches the snapshot 1`] = `
+exports[`the ErrorHandler component with an implemented placeholder matches the snapshot 1`] = `
 <div
   className="kGjlJb"
   role="alert"
@@ -41,7 +41,7 @@ exports[`the ErrorMessage component with an implemented placeholder matches the 
 </div>
 `;
 
-exports[`the ErrorMessage with no Icon requested matches the snapshot 1`] = `
+exports[`the ErrorHandler with no Icon requested matches the snapshot 1`] = `
 <div
   className="iCzRqJ"
   role="alert"
