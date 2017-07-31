@@ -1,10 +1,10 @@
 /**
- * @summary Sets the first letter of order status in capital
+ * Capitalizes the first word of a sentence or a single word.
  *
- * @param {string} string The order status that is loaded
- * @returns {string} The order status that is loaded
+ * @param {text} text The sentence or single word that has to be capitalized.
+ * @returns {string} The capitalized sentence or single word.
  */
-export function capitalizer( string ) {
-	return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
+export function capitalizer( text ) {
+	return text.charAt( 0 ).toUpperCase() + text.slice( 1 );
 }
 

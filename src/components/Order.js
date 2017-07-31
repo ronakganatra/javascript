@@ -77,7 +77,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<FormattedMessage id={ props.status} defaultMessage={ props.statusDisplayName}/>
+				<FormattedMessage id={ props.status } defaultMessage={ props.statusDisplayName } />
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
