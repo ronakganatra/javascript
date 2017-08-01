@@ -125,7 +125,8 @@ const TextInput = styled.input`
 	font-weight: 400;
 	width: 100%;
 	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-	border:none;
+	border: none;
+	height: 48px;
 `;
 
 const FormMessage = styled.p`

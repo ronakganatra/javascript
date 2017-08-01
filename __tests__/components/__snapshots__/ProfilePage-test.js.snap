@@ -23,7 +23,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -155,7 +155,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -292,7 +292,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -423,7 +423,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -554,7 +554,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -685,7 +685,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -816,7 +816,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bLIdHN"
             id="email-address"
             name="email"
             onChange={[Function]}
