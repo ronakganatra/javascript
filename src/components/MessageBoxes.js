@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
+import PropTypes from "prop-types";
 
 export const GeneralMessage = styled.div`
 	padding: 0.5em;
@@ -25,20 +26,24 @@ export const ErrorMessage = styled( GeneralMessage )`
 	background-color: ${ colors.$color_error };
 `;
 
-export const MessageIcon = styled.img`
-	// Added min-height and width to make sure the images are always the same size.
-	min-width: 80px;
-	min-height: 80px;
-	max-width: 15%;
-	max-height: 10%;
-	padding: 20px;
-	min-width: 75px;
-	display: flex;
-	fill: red;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		padding: 10px;
-	}
+export const MessageIcon = styled.span`
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: ${ props => props.iconSize };
+	background-image: url( ${ props => props.iconSource } );
+	height: ${ props => props.iconSize };
+	min-width: ${ props => props.iconSize };
+	margin: 0 1em;
 `;
+
+MessageIcon.PropTypes = {
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+};
+
+MessageIcon.defaultProps = {
+	iconSize: "2em",
+};
 
 export const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };

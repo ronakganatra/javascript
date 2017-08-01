@@ -89,8 +89,10 @@ class ErrorHandler extends React.Component {
 			this.iconPadding = false;
 			return null;
 		}
+
+		let icon = this.props.type === "warning" ? exclamationTriangle : exclamationCircle;
 		return(
-			<MessageIcon src={ this.props.type === "warning" ? exclamationTriangle : exclamationCircle } alt=""/>
+			<MessageIcon iconSource={ icon } alt=""/>
 		);
 	}
 
@@ -108,7 +110,8 @@ class ErrorHandler extends React.Component {
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
 
-		let MessageBox = ( this.props.type === "warning" ? WarningMessage : ErrorMessage );
+		let MessageType = this.props.type === "warning" ? WarningMessage : ErrorMessage;
+		let MessageBox = ( MessageType );
 
 		return(
 			<MessageBox role="alert" iconPadding={ this.iconPadding }>

@@ -250,6 +250,7 @@ class ProfilePage extends React.Component {
 		if ( fieldWarnings.length === 0 ) {
 			return null;
 		}
+
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning ) => {
 			return <ErrorHandler errorMessage={ warning.options.message } type="warning"/>;
