@@ -2,7 +2,7 @@
 
 exports[`the ErrorHandler component matches the snapshot 1`] = `
 <div
-  className="bSHTJz"
+  className="dNZhJi"
   role="alert"
 >
   <span
@@ -17,7 +17,7 @@ exports[`the ErrorHandler component matches the snapshot 1`] = `
 
 exports[`the ErrorHandler component with an implemented placeholder matches the snapshot 1`] = `
 <div
-  className="bSHTJz"
+  className="dNZhJi"
   role="alert"
 >
   <span
@@ -41,7 +41,7 @@ exports[`the ErrorHandler component with an implemented placeholder matches the 
 
 exports[`the ErrorHandler with no Icon requested matches the snapshot 1`] = `
 <div
-  className="lejoRT"
+  className="jXRLuD"
   role="alert"
 >
   <span>

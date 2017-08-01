@@ -163,7 +163,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             value="email@email.email"
           />
           <div
-            className="bSHTJz"
+            className="dNZhJi"
             role="alert"
           >
             <span
