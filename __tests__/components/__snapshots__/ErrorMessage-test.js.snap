@@ -2,73 +2,57 @@
 
 exports[`the ErrorMessage component matches the snapshot 1`] = `
 <div
-  className="akGZW"
+  className="eBJsJ"
   role="alert"
 >
-  <img
-    alt=""
-    className="cfhiIS"
-    src="exclamation-triangle.svg"
-  />
   <span
-    className="dvtOGe"
-  >
-    <span>
-      This is a test
-    </span>
+    className="kfPDzi"
+  />
+  <span>
+    This is a test
   </span>
 </div>
 `;
 
 exports[`the ErrorMessage component with an implemented placeholder matches the snapshot 1`] = `
 <div
-  className="akGZW"
+  className="eBJsJ"
   role="alert"
 >
-  <img
-    alt=""
-    className="cfhiIS"
-    src="exclamation-triangle.svg"
-  />
   <span
-    className="dvtOGe"
-  >
-    <span>
-      This is a test 
-      <a
-        className="jWXgwc"
-        href="mailto:support@yoast.com"
-      >
-        <span>
-          please contact support
-        </span>
-      </a>
-      .
-    </span>
+    className="kfPDzi"
+  />
+  <span>
+    This is a test 
+    <a
+      className="jWXgwc"
+      href="mailto:support@yoast.com"
+    >
+      <span>
+        please contact support
+      </span>
+    </a>
+    .
   </span>
 </div>
 `;
 
 exports[`the ErrorMessage with no Icon requested matches the snapshot 1`] = `
 <div
-  className="GlToM"
+  className="eBJsJ"
   role="alert"
 >
-  <span
-    className="dvtOGe"
-  >
-    <span>
-      This is a test 
-      <a
-        className="jWXgwc"
-        href="mailto:support@yoast.com"
-      >
-        <span>
-          please contact support
-        </span>
-      </a>
-      .
-    </span>
+  <span>
+    This is a test 
+    <a
+      className="jWXgwc"
+      href="mailto:support@yoast.com"
+    >
+      <span>
+        please contact support
+      </span>
+    </a>
+    .
   </span>
 </div>
 `;
