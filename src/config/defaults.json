@@ -3,6 +3,7 @@
     "breakpoint": {
       "tablet": 1355,
       "mobile": 800
-    }
+    },
+    "input": "48px"
   }
 }
