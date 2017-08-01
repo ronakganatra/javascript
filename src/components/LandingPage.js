@@ -42,7 +42,7 @@ export default function LandingPage( props ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
 			<p>
-				<a href={ props.url } target="_blank">
+				<a href={ props.url } target="_blank" rel="noopener noreferrer">
 					{ props.urlText }
 					<NewTabMessage />
 				</a>

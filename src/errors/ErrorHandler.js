@@ -79,7 +79,7 @@ class ErrorHandler extends React.Component {
 	}
 
 	/**
-	 * Returns the exclamationTriangle Icon, or returns null and adjusts the padding accordingly.
+	 * Returns the exclamationTriangle Icon in case of a warning and an exclamationCircle in case of an error.
 	 *
 	 * @param {Boolean} showIcon Whether to show the warning triangle icon (true) or not (false). Default = true.
 	 * @returns {ReactElement} Returns null in case the input is set to false, and the warning triangle icon if true.
@@ -87,6 +87,7 @@ class ErrorHandler extends React.Component {
 	renderIcon( showIcon ) {
 		if ( showIcon !== true ) {
 			this.iconPadding = false;
+
 			return null;
 		}
 
@@ -106,6 +107,7 @@ class ErrorHandler extends React.Component {
 		if ( errorMessage === "" ) {
 			return null;
 		}
+
 		let messageFormatObject = this.handlePlaceholders( errorMessage );
 		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );

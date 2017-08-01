@@ -2,13 +2,12 @@
 
 exports[`the ErrorHandler component matches the snapshot 1`] = `
 <div
-  className="kGjlJb"
+  className="bSHTJz"
   role="alert"
 >
-  <img
+  <span
     alt=""
-    className="kVdGAr"
-    src="exclamation-circle.svg"
+    className="gEFfcO"
   />
   <span>
     This is a test
@@ -18,13 +17,12 @@ exports[`the ErrorHandler component matches the snapshot 1`] = `
 
 exports[`the ErrorHandler component with an implemented placeholder matches the snapshot 1`] = `
 <div
-  className="kGjlJb"
+  className="bSHTJz"
   role="alert"
 >
-  <img
+  <span
     alt=""
-    className="kVdGAr"
-    src="exclamation-circle.svg"
+    className="gEFfcO"
   />
   <span>
     This is a test 
@@ -43,7 +41,7 @@ exports[`the ErrorHandler component with an implemented placeholder matches the 
 
 exports[`the ErrorHandler with no Icon requested matches the snapshot 1`] = `
 <div
-  className="iCzRqJ"
+  className="lejoRT"
   role="alert"
 >
   <span>
