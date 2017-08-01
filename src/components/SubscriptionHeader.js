@@ -12,7 +12,7 @@ const messages = defineMessages( {
 		defaultMessage: "Manage site page loaded",
 	},
 	backButton: {
-		id: "back-button",
+		id: "backButton",
 		defaultMessage: "Back",
 	},
 } );

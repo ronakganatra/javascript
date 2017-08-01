@@ -21,7 +21,7 @@ const messages = defineMessages( {
 		defaultMessage: "Account orders page loaded",
 	},
 	searchResults: {
-		id: "orders-search.results",
+		id: "ordersSearch.results",
 		defaultMessage: "Number of orders found: %d",
 	},
 } );
@@ -74,13 +74,13 @@ class OrderPage extends React.Component {
 		let props = this.props;
 
 		let noOrdersParagraphs = [
-			<FormattedMessage id="orders.no-orders.welcome" defaultMessage="Welcome to the orders overview" />,
-			<FormattedMessage id="orders.no-orders.manage"
+			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview" />,
+			<FormattedMessage id="orders.noOrders.manage"
 							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
-			<FormattedMessage id="orders.no-orders.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product."/>,
 		];
 		let noSearchResultsParagraphs = [
-			<FormattedMessage id="orders.search.no-results"
+			<FormattedMessage id="orders.search.noResults"
 							  defaultMessage={ "We could not find any orders matching { query }." }
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 

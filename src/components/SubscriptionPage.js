@@ -12,11 +12,11 @@ import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
-		id: "subscription-page.payment-details.title",
+		id: "subscriptionPage.paymentDetails.title",
 		defaultMessage: "Payment details",
 	},
 	invoicesTitle: {
-		id: "subscription-page.invoices.title",
+		id: "subscriptionPage.invoices.title",
 		defaultMessage: "Invoices",
 	},
 } );

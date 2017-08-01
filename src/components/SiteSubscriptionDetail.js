@@ -12,7 +12,7 @@ import util from "util";
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
-		id: "site.subscription-detail.toggle",
+		id: "site.subscriptionDetail.toggle",
 		defaultMessage: "Enable subscription for: %s",
 	},
 } );

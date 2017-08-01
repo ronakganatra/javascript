@@ -7,7 +7,7 @@ import GettingStarted from "../components/GettingStarted";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
-		id: "modal.arialabel.getting-started",
+		id: "modal.arialabel.gettingStarted",
 		defaultMessage: "Getting started",
 	},
 } );

@@ -109,7 +109,7 @@ class ErrorMessage extends React.Component {
 	formatErrorMessage( messageFormatObject ) {
 		return(
 			<FormattedMessage
-				id="sites.add-site.error"
+				id="sites.addSite.error"
 				defaultMessage={ messageFormatObject.defaultMessage }
 				values={ messageFormatObject.values }
 			/>
