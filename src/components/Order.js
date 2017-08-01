@@ -70,7 +70,7 @@ function Order( props ) {
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnMinWidth>
-			<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>

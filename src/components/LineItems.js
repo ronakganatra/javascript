@@ -2,11 +2,14 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 
-const Block = styled.span`
-	display: block;
-	overflow: hidden;
-	text-overflow: ellipsis;
+const ItemsContainer = styled.ul`
+	padding: 0;
+	list-style: none;
+	flex-shrink: 0;
+	align-items: flex-start;
 `;
+
+const Item = styled.li``;
 
 /**
  * LineItems.
@@ -16,9 +19,9 @@ const Block = styled.span`
  */
 function LineItems( props ) {
 	let items = props.items.map( ( item ) => {
-		return <Block key={item.id}>{ item.quantity }x { item.productName }</Block>;
+		return <Item key={item.id}>{ item.quantity }x { item.productName }</Item>;
 	} );
-	return <Block>{ items }</Block>;
+	return <ItemsContainer>{ items }</ItemsContainer>;
 }
 
 LineItems.propTypes = {
