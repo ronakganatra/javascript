@@ -63,6 +63,7 @@ function getNoResultsButton( url, onClick, pageContext ) {
 					<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 				</NoResultsIconButton>
 			);
+		case "noDownloads":
 		case "noOrders":
 		case "noSubscriptions":
 			return (

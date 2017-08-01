@@ -8,8 +8,8 @@ import Products from "./Products";
 import Search from "./Search";
 import a11ySpeak from "a11y-speak";
 import LandingPage from "./LandingPage";
-import noDownloads from "./../images/noDownloads.svg";
-import noResults from "./../images/SitesNoResults.svg";
+import noDownloadsImage from "./../images/noDownloads.svg";
+import noResultsImage from "./../images/SitesNoResults.svg";
 import NoResults from "./NoResults";
 
 const messages = defineMessages( {
@@ -130,7 +130,7 @@ class DownloadsPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage imageSource={ noResults }
+					<LandingPage imageSource={ noResultsImage }
 								 paragraphs={ noResultsParagraphs }
 					/>
 				</div>
@@ -139,8 +139,8 @@ class DownloadsPage extends React.Component {
 			return (
 				<NoResults paragraphs={ noDownloadsParagraphs }
 					url="https://yoast.com/shop/"
-					imageSource={ noDownloads }
-					pageContext="noSubscriptions"
+					imageSource={ noDownloadsImage }
+					pageContext="noDownloads"
 				/>
 			);
 		}

@@ -16,21 +16,7 @@ exports[`the landing page component matches the snapshot 1`] = `
       href="http://yoast.com"
       target="_blank"
     >
-      <span>
-        yoast.com
-      </span>
-      <span
-        className="screen-reader-text fuqaAG"
-      >
-        <span>
-          (Opens in a new browser tab)
-        </span>
-      </span>
-    </a>
-    <a
-      href="http://yoast.com"
-      target="_blank"
-    >
+      yoast.com
       <span
         className="screen-reader-text fuqaAG"
       >

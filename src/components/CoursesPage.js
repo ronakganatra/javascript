@@ -40,7 +40,7 @@ class CoursesPage extends React.Component {
 		let paragraphs = [ <FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
 		return (
 			<LandingPage url="https://yoa.st/myyoast-academy"
-				urlText="open academy"
+				urlText="Yoast Academy"
 				imageSource={ constructionImage }
 				paragraphs={ paragraphs }
 			/>
