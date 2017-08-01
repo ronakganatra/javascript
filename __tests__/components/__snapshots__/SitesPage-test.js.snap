@@ -7,7 +7,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   >
     <div>
       <label
-        className="gOZvhE"
+        className="lhQZFh"
         htmlFor="search"
       >
         <span
@@ -21,7 +21,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="cmupkN"
+        className="hadNju"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -154,7 +154,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   >
     <div>
       <label
-        className="gOZvhE"
+        className="lhQZFh"
         htmlFor="search"
       >
         <span
@@ -168,7 +168,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="cmupkN"
+        className="hadNju"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -261,7 +261,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   >
     <div>
       <label
-        className="gOZvhE"
+        className="lhQZFh"
         htmlFor="search"
       >
         <span
@@ -275,7 +275,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="cmupkN"
+        className="hadNju"
         id="search"
         onChange={[Function]}
         spellCheck="false"

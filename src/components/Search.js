@@ -22,7 +22,7 @@ const SearchLabel = styled.label`
 	background-position: left center;
 	background-repeat: no-repeat;
 	width: 40px;
-	height: 50px;
+	height: 48px;
 	float: left;
 `;
 
@@ -40,7 +40,6 @@ const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled.input`
-	height: 48px;
 	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
 	background: ${ colors.$color_white };
 	border: 0;

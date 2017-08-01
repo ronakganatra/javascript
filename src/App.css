@@ -105,3 +105,7 @@ select,
 textarea {
 	font-family: "Open Sans", sans-serif;
 }
+
+input {
+	height: 48px;
+}
