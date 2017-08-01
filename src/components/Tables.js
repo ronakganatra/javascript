@@ -28,7 +28,7 @@ export const Row = styled.li`
 	min-height: 100px;
 	display: flex;
 	padding: 24px 40px;
-	align-items: baseline;
+	align-items: ${ props => props.verticalAlign };
 	justify-content: space-between;
 
 	&:first-child {
@@ -47,11 +47,13 @@ export const Row = styled.li`
 Row.propTypes = {
 	background: PropTypes.string,
 	hasHeaderLabels: PropTypes.bool,
+	verticalAlign: PropTypes.string,
 };
 
 Row.defaultProps = {
 	background: colors.$color_white,
 	hasHeaderLabels: true,
+	verticalAlign: "center",
 };
 
 /*
