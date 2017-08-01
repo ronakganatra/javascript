@@ -23,7 +23,6 @@ export const WarningMessage = styled( GeneralMessage )`
 
 export const ErrorMessage = styled( GeneralMessage )`
 	background-color: ${ colors.$color_error };
-	fill: red;
 `;
 
 export const MessageIcon = styled.img`
@@ -35,6 +34,7 @@ export const MessageIcon = styled.img`
 	padding: 20px;
 	min-width: 75px;
 	display: flex;
+	fill: red;
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
 		padding: 10px;
 	}

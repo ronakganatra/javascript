@@ -238,12 +238,12 @@ class ProfilePage extends React.Component {
 	 *
 	 * @param {Array} warnings The warnings that could be displayed.
 	 * @param {string} field Field to display warnings for.
-	 * @returns {ReactElement[]} List of JSXElements if warnings are found otherwise null.
+	 * @returns {ReactElement[]} List of JSXElements if warnings are found. Otherwise null.
 	 */
 	displayWarnings( warnings, field ) {
 		// Find warnings for the specified field.
-		let fieldWarnings = warnings.filter( error => {
-			return error.attribute === field;
+		let fieldWarnings = warnings.filter( warning => {
+			return warning.attribute === field;
 		} );
 
 		// Return nothing if we don't have any warnings.
@@ -251,8 +251,8 @@ class ProfilePage extends React.Component {
 			return null;
 		}
 		// Display all remaining warnings.
-		return fieldWarnings.map( ( error ) => {
-			return <ErrorHandler errorMessage={ error.options.message } type="warning"/>;
+		return fieldWarnings.map( ( warning ) => {
+			return <ErrorHandler errorMessage={ warning.options.message } type="warning"/>;
 		} );
 	}
 
