@@ -28,7 +28,7 @@ export const Row = styled.li`
 	min-height: 100px;
 	display: flex;
 	padding: 24px 40px;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
 
 	&:first-child {
