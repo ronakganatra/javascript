@@ -119,7 +119,7 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
-const TextInput = styled ( InputField )`
+const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
