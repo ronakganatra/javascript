@@ -5,6 +5,7 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, mak
 import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
+import { capitalizer } from "../functions/string";
 import LineItems from "./LineItems";
 
 const messages = defineMessages( {
@@ -77,7 +78,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<FormattedMessage id={ props.status } defaultMessage={ props.statusDisplayName } />
+				<FormattedMessage id={ props.status } defaultMessage={ capitalizer( props.status ) } />
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
@@ -102,7 +103,6 @@ Order.propTypes = {
 	intl: intlShape.isRequired,
 	items: PropTypes.array,
 	status: PropTypes.string,
-	statusDisplayName: PropTypes.string,
 	background: PropTypes.string,
 };
 

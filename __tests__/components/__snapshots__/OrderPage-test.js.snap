@@ -88,7 +88,7 @@ exports[`The Orders component matches the snapshot 1`] = `
           className="gWfuXy"
         >
           <span>
-            completed
+            Completed
           </span>
         </span>
         <span

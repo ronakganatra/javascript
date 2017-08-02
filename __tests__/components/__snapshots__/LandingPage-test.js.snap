@@ -12,7 +12,6 @@ exports[`the landing page component matches the snapshot 1`] = `
   <p>
     <a
       href="http://yoast.com"
-      target="_blank"
     >
       yoast.com
       <span
