@@ -223,7 +223,6 @@ class AddSite extends React.Component {
 
 			return ( this.state.urlValidity ? this.props.onConnectClick : () => {} );
 		};
-		console.log( "Message", this.props.message );
 		return (
 			<AddSiteModal>
 				<AddSiteHeading>
