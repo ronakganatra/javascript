@@ -21,7 +21,7 @@ const messages = defineMessages( {
 		defaultMessage: "Sites page loaded",
 	},
 	searchResults: {
-		id: "sites-search.results",
+		id: "sitesSearch.results",
 		defaultMessage: "Number of sites found: %d",
 	},
 	searchLabel: {
@@ -29,7 +29,7 @@ const messages = defineMessages( {
 		defaultMessage: "Search sites",
 	},
 	addSite: {
-		id: "sites.add-site-button",
+		id: "sites.addSiteButton",
 		defaultMessage: "Add site",
 	},
 } );
@@ -107,16 +107,16 @@ class SitesPage extends React.Component {
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
-			<FormattedMessage id="sites.no-site.welcome" defaultMessage="Welcome to the sites overview" />,
-			<FormattedMessage id="sites.no-site.manage"
+			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview" />,
+			<FormattedMessage id="sites.noSite.manage"
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
-			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
+			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site."/>,
 		];
 
-		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
+		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sitesNoResult.notfound"
 							defaultMessage={ "We could not find { site } in your account." }
 							values={ { site: <strong>{ props.query }</strong> } } />,
-			<FormattedMessage id="sites.sites-no-result.add" defaultMessage="Do you want to add it?" />,
+			<FormattedMessage id="sites.sitesNoResult.add" defaultMessage="Do you want to add it?" />,
 		];
 
 		if ( props.showLoader ) {

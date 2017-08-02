@@ -71,7 +71,7 @@ class ErrorHandler extends React.Component {
 	toFormattedMessage( messageFormatObject ) {
 		return(
 			<FormattedMessage
-				id="sites.add-site.error"
+				id="sites.addSite.error"
 				defaultMessage={ messageFormatObject.defaultMessage }
 				values={ messageFormatObject.values }
 			/>

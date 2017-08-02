@@ -9,22 +9,22 @@ import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	heading: {
-		id: "site_danger_zone.heading",
+		id: "siteDangerZone.heading",
 		defaultMessage: "Disconnect this site",
 	},
 	siteRemovalExplanation: {
-		id: "site_danger_zone.site_disconnect.explanation",
+		id: "siteDangerZone.siteDisconnect.explanation",
 		defaultMessage:	"This will revoke the licenses of the active plugins listed" +
 						" above and remove the site from your my.yoast account. This" +
 						" will NOT delete your actual website or the plugins" +
 						" themselves. You can always re-add the plugins later.",
 	},
 	siteRemovalButtonText: {
-		id: "site_danger_zone.site_disconnect.button_text",
+		id: "siteDangerZone.siteDisconnect.buttonText",
 		defaultMessage: "Disconnect",
 	},
 	siteRemovalLoadingButtonText: {
-		id: "site_danger_zone.site_disconnect.loading_button_text",
+		id: "siteDangerZone.siteDisconnect.loadingButtonText",
 		defaultMessage: "Disconnecting site...",
 	},
 } );

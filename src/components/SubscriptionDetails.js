@@ -8,23 +8,23 @@ import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
-		id: "subscription-details.payment-details.title",
+		id: "subscriptionDetails.paymentDetails.title",
 		defaultMessage: "Payment details",
 	},
 	invoicesTitle: {
-		id: "subscription-details.invoices.title",
+		id: "subscriptionDetails.invoices.title",
 		defaultMessage: "Invoices",
 	},
 	startDate: {
-		id: "subscription-details.payment-details.start-date",
+		id: "subscriptionDetails.paymentDetails.start-date",
 		defaultMessage: "Start date",
 	},
 	nextBilling: {
-		id: "subscription-details.payment-details.next-billing",
+		id: "subscriptionDetails.paymentDetails.nextBilling",
 		defaultMessage: "Next billing",
 	},
 	invoiceButton: {
-		id: "subscription-details.buttons.invoice",
+		id: "subscriptionDetails.buttons.invoice",
 		defaultMessage: "Invoice",
 	},
 } );

@@ -12,7 +12,7 @@ import { BackButtonLink } from "./Button";
 
 const messages = defineMessages( {
 	backButton: {
-		id: "back-button",
+		id: "backButton",
 		defaultMessage: "Back",
 	},
 } );
@@ -100,7 +100,7 @@ function SiteHeader( props ) {
 			<ButtonSection>
 				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
 				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
-					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
+					<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
 				</WPAdminButton>
 			</ButtonSection>
 		</SiteHeaderContainer>
