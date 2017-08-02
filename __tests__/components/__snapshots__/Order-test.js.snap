@@ -48,8 +48,12 @@ exports[`A standard order 1`] = `
   <span
     className="gWfuXy"
   >
-    <span>
-      Completed
+    <span
+      className="fsnmAu"
+    >
+      <span>
+        completed
+      </span>
     </span>
   </span>
   <span
@@ -119,8 +123,12 @@ exports[`An Order with a disabled invoice button 1`] = `
   <span
     className="gWfuXy"
   >
-    <span>
-      Pending
+    <span
+      className="fsnmAu"
+    >
+      <span>
+        pending
+      </span>
     </span>
   </span>
   <span
