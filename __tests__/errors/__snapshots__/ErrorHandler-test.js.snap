@@ -1,60 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the ErrorHandler component matches the snapshot 1`] = `
-<div
-  className="dNZhJi"
-  role="alert"
->
-  <span
-    alt=""
-    className="gEFfcO"
-  />
-  <span>
-    This is a test
-  </span>
-</div>
-`;
+exports[`the ErrorHandler component matches the snapshot 1`] = `null`;
 
-exports[`the ErrorHandler component with an implemented placeholder matches the snapshot 1`] = `
-<div
-  className="dNZhJi"
-  role="alert"
->
-  <span
-    alt=""
-    className="gEFfcO"
-  />
-  <span>
-    This is a test 
-    <a
-      className="jWXgwc"
-      href="mailto:support@yoast.com"
-    >
-      <span>
-        please contact support
-      </span>
-    </a>
-    .
-  </span>
-</div>
-`;
+exports[`the ErrorHandler component with an implemented placeholder matches the snapshot 1`] = `null`;
 
-exports[`the ErrorHandler with no Icon requested matches the snapshot 1`] = `
-<div
-  className="jXRLuD"
-  role="alert"
->
-  <span>
-    This is a test 
-    <a
-      className="jWXgwc"
-      href="mailto:support@yoast.com"
-    >
-      <span>
-        please contact support
-      </span>
-    </a>
-    .
-  </span>
-</div>
-`;
+exports[`the ErrorHandler with no Icon requested matches the snapshot 1`] = `null`;
