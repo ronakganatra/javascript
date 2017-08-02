@@ -27,9 +27,9 @@ const PageContainer = styled.div`
 
 
 /**
- * Creates the Page  component
+ * Creates the Page component.
  *
- * @param {Object} props The props to use *
+ * @param {Object} props The props to use
  * @returns {ReactElement} The rendered component.
  */
 export default function LandingPage( props ) {
