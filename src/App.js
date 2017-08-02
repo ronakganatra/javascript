@@ -16,7 +16,6 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
-import defaults from "./config/defaults.json";
 
 /*
  * Helper method to write global CSS.
@@ -40,9 +39,6 @@ injectGlobal`
 	a:focus {
 		color: ${ colors.$color_pink_dark };
 	}
-	input {
-		height: ${ defaults.css.input };
-}
 `;
 
 const Routes = ( props ) => {
