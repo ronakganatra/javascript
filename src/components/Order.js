@@ -5,8 +5,8 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, mak
 import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
-import { capitalizer } from "../functions/string";
 import LineItems from "./LineItems";
+import styled from "styled-components";
 
 const messages = defineMessages( {
 	date: {
@@ -38,6 +38,10 @@ const messages = defineMessages( {
 		defaultMessage: "Download invoice",
 	},
 } );
+
+const Capitalizer = styled.span`
+	text-transform: capitalize;
+`;
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
@@ -78,7 +82,9 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<FormattedMessage id={ props.status } defaultMessage={ capitalizer( props.status ) } />
+				<Capitalizer>
+					<FormattedMessage id={ props.status } defaultMessage={ props.status } />
+				</Capitalizer>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
