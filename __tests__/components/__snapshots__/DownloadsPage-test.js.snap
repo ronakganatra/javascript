@@ -509,7 +509,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
 >
   <p>
     <span>
-      Welcome to the downloads page.
+      Welcome to the downloads page
     </span>
   </p>
   <p>
@@ -519,13 +519,14 @@ exports[`the downloads page component matches the snapshot when there are no dow
   </p>
   <p>
     <span>
-      Press the button below to visit our shop and get your first product.
+      To browse our products, please visit:
     </span>
   </p>
   <a
     aria-label={undefined}
     className="iQBxPy"
     href="https://yoast.com/shop/"
+    rel="noopener noreferrer"
     target="_blank"
   >
     <span>
@@ -533,6 +534,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
     </span>
     <span
       className="screen-reader-text fuqaAG"
+    >
       <span>
         (Opens in a new browser tab)
       </span>
