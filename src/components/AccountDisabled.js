@@ -31,7 +31,7 @@ const AccountDisabledImage = styled.img`
 
 const messages = defineMessages( {
 	accountDisabled: {
-		id: "account.disabled.short-message",
+		id: "account.disabled.shortMessage",
 		defaultMessage: "Account disabled",
 	},
 	supportTeam: {
@@ -54,9 +54,9 @@ class AccountDisabled extends React.Component {
 
 	render() {
 		let paragraphs = [
-			<FormattedMessage id="account.disabled.possible-action" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
+			<FormattedMessage id="account.disabled.possibleAction" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
 							  values={ { support: <a href="mailto:support@yoast.com">support team</a> } } />,
-			<FormattedMessage id="account.disabled.visit-yoast" defaultMessage={ "Visit { yoast }." }
+			<FormattedMessage id="account.disabled.visitYoast" defaultMessage={ "Visit { yoast }." }
 							  values={ { yoast: <a href="https://yoast.com">Yoast.com</a> } } />,
 		];
 		return (

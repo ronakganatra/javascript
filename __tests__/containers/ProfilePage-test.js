@@ -13,7 +13,7 @@ test('the mapStateToProps function', () => {
 				},
 			},
 			email: "test@test.test",
-			savingError: "An error",
+			saveEmailError: "An error",
 			savingProfile: false,
 			deletingProfile: false,
 			sendingPasswordReset: false,
@@ -30,7 +30,7 @@ test('the mapStateToProps function', () => {
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
-		error: "An error",
+		saveEmailError: "An error",
 
 		isSaving: false,
 		isDeleting: false,

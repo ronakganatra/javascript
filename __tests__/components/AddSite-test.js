@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { createComponentWithIntl } from "../../utils";
 
 import AddSite from '../../src/components/AddSite';

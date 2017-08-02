@@ -66,7 +66,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </button>
           <p
-            className="fpGphL"
+            className="jkaLiT"
             role="alert"
           >
             An error occurred while sending password reset.
@@ -162,12 +162,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             type="text"
             value="email@email.email"
           />
-          <p
-            className="fpGphL"
+          <div
+            className="eBJsJ"
             role="alert"
           >
-            An error occurred while saving profile.
-          </p>
+            <span
+              className="kfPDzi"
+            />
+            <span>
+              An error occurred while saving profile.
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -854,7 +859,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </button>
           <p
-            className="fpGphL"
+            className="jkaLiT"
             role="alert"
           >
             An error occurred while sending password reset.

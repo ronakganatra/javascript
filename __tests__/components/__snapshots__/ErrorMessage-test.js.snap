@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ErrorMessage component matches the snapshot 1`] = `
+<div
+  className="eBJsJ"
+  role="alert"
+>
+  <span
+    className="kfPDzi"
+  />
+  <span>
+    This is a test
+  </span>
+</div>
+`;
+
+exports[`the ErrorMessage component with an implemented placeholder matches the snapshot 1`] = `
+<div
+  className="eBJsJ"
+  role="alert"
+>
+  <span
+    className="kfPDzi"
+  />
+  <span>
+    This is a test 
+    <a
+      className="jWXgwc"
+      href="mailto:support@yoast.com"
+    >
+      <span>
+        please contact support
+      </span>
+    </a>
+    .
+  </span>
+</div>
+`;
+
+exports[`the ErrorMessage with no Icon requested matches the snapshot 1`] = `
+<div
+  className="eBJsJ"
+  role="alert"
+>
+  <span>
+    This is a test 
+    <a
+      className="jWXgwc"
+      href="mailto:support@yoast.com"
+    >
+      <span>
+        please contact support
+      </span>
+    </a>
+    .
+  </span>
+</div>
+`;

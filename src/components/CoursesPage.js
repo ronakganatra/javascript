@@ -10,7 +10,7 @@ const messages = defineMessages( {
 		defaultMessage: "Courses page loaded",
 	},
 	underConstruction: {
-		id: "courses.under-construction",
+		id: "courses.underConstruction",
 		defaultMessage: "This section is still under construction. To access your courses, please visit:",
 	},
 } );
@@ -37,7 +37,7 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
-		let paragraphs = [ <FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
+		let paragraphs = [ <FormattedMessage id="courses.underConstruction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
 		return (
 			<LandingPage url="https://yoa.st/myyoast-academy"
 				urlText="Yoast Academy"

@@ -12,6 +12,7 @@ import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
+import ErrorMessage from "./ErrorMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -144,6 +145,8 @@ FormMessage.defaultProps = {
 const FormError = styled( FormMessage )`
  	padding: 0.5em;
 	background-color: ${ colors.$color_yellow };
+	margin-top: 0.5em;
+	color: ${ colors.$color_black };
 `;
 
 const PasswordReset = styled.section`
@@ -162,6 +165,7 @@ const DeleteButton = styled( RedButton )`
  * Returns the rendered Sites Page component.
  *
  * @param {Object} props The props to use.
+ *
  * @returns {ReactElement} The rendered Sites component.
  */
 class ProfilePage extends React.Component {
@@ -437,15 +441,6 @@ class ProfilePage extends React.Component {
 			this.props.onDeleteProfile();
 		};
 
-		let globalError = null;
-		if ( this.props.error !== "" ) {
-			let message = this.props.error;
-			if ( message === "Bad Request" ) {
-				message = this.props.intl.formatMessage( messages.duplicateEmail );
-			}
-			globalError = <FormError role="alert">{ message }</FormError>;
-		}
-
 		return (
 			<div>
 				<Paper>
@@ -461,7 +456,7 @@ class ProfilePage extends React.Component {
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
 								{ this.displayErrors( errors, "email" ) }
-								{ globalError }
+								<ErrorMessage errorMessage={ this.props.saveEmailError } />
 								{ this.getSaveButton() }
 							</form>
 
@@ -524,11 +519,12 @@ ProfilePage.propTypes = {
 	onSaveProfile: PropTypes.func.isRequired,
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
+	saveEmailError: PropTypes.string,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
-	error: "",
+	saveEmailError: "",
 	isSaving: false,
 	isSaved: false,
 	isSendingPasswordReset: false,

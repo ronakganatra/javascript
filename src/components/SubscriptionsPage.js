@@ -20,7 +20,7 @@ const messages = defineMessages( {
 		defaultMessage: "Search subscriptions",
 	},
 	searchResults: {
-		id: "subscriptions-search.results",
+		id: "subscriptionsSearch.results",
 		defaultMessage: "Number of subscriptions found: %d",
 	},
 } );
@@ -89,14 +89,14 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
-			<FormattedMessage id="subscriptions.no-subscriptions.manage"
+			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
+			<FormattedMessage id="subscriptions.noSubscriptions.manage"
 							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
 so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
-			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
+			<FormattedMessage id="subscriptions.noSubscriptions.pressButton" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
 		];
 		let noSearchResultsParagraphs = [
-			<FormattedMessage id="subscriptions.search.no-results"
+			<FormattedMessage id="subscriptions.search.noResults"
 							  defaultMessage={ "We could not find any subscriptions matching { query }." }
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 

@@ -14,31 +14,31 @@ import NoResults from "./NoResults";
 
 const messages = defineMessages( {
 	searchResults: {
-		id: "downloads-page.search.results",
+		id: "downloadsPage.search.results",
 		defaultMessage: "Number of downloads found: %d",
 	},
 	searchLabel: {
-		id: "downloads-page.search.label",
+		id: "downloadsPage.search.label",
 		defaultMessage: "Search downloads",
 	},
 	downloadsPageLoaded: {
-		id: "downloads-page.page.loaded",
+		id: "downloadsPage.page.loaded",
 		defaultMessage: "Downloads page loaded",
 	},
 	pluginsDownloads: {
-		id: "downloads-page.downloads.plugins",
+		id: "downloadsPage.downloads.plugins",
 		defaultMessage: "Plugins",
 	},
 	eBooksDownloads: {
-		id: "downloads-page.downloads.eBooks",
+		id: "downloadsPage.downloads.eBooks",
 		defaultMessage: "eBooks",
 	},
 	installationGuides: {
-		id: "downloads-page.by-lines.installation-guides",
+		id: "downloadsPage.byLines.installationGuides",
 		defaultMessage: "Read our installation guides",
 	},
 	otherBooks: {
-		id: "downloads-page.by-lines.books-upsell",
+		id: "downloadsPage.byLines.booksUpsell",
 		defaultMessage: "Check out our other eBooks",
 	},
 } );
@@ -89,7 +89,7 @@ class DownloadsPage extends React.Component {
 	render() {
 		let pluginsByLine = <ByLine>
 			<FormattedMessage
-				id="downloads-page.by-line.plugins"
+				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
 				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
@@ -97,18 +97,18 @@ class DownloadsPage extends React.Component {
 
 		let eBooksByLine = <ByLine>
 			<FormattedMessage
-				id="downloads-page.by-line.ebooks"
+				id="downloadsPage.byLine.ebooks"
 				defaultMessage=" - Want to read more about SEO? { link }."
 				values={ { link: <a target="_blank" href="https://yoa.st/ebooks" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
 			/>
 		</ByLine>;
 
 		let noDownloadsParagraphs = [
-			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page." />,
-			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/> ];
+			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads page" />,
+			<FormattedMessage id="downloadsPage.noDownloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
+			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:"/> ];
 
-		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.no-results"
+		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.noResults"
 															   defaultMessage={ "We could not find any downloads matching { query }." }
 															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 

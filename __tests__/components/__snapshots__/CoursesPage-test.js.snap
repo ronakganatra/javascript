@@ -14,6 +14,7 @@ exports[`the courses page component matches the snapshot 1`] = `
       aria-label={undefined}
       className="eHAsuf"
       href="https://yoa.st/myyoast-academy"
+      rel="noopener noreferrer"
       target="_blank"
     >
       Yoast Academy

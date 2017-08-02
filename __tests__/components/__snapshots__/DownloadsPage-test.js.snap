@@ -533,7 +533,6 @@ exports[`the downloads page component matches the snapshot when there are no dow
     </span>
     <span
       className="screen-reader-text fuqaAG"
-    >
       <span>
         (Opens in a new browser tab)
       </span>
