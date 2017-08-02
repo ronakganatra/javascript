@@ -2,7 +2,7 @@
 
 exports[`A standard order 1`] = `
 <li
-  className="fhXzbr"
+  className="Njetd"
 >
   <span
     className="gRzsfa"
@@ -17,26 +17,26 @@ exports[`A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
-    <span
-      className="gLZwgs"
+    <ul
+      className="cSiVim"
     >
-      <span
-        className="gLZwgs"
+      <li
+        className="a"
       >
         1
         x 
         Name of the product
-      </span>
-      <span
-        className="gLZwgs"
+      </li>
+      <li
+        className="a"
       >
         2
         x 
         Another product
-      </span>
-    </span>
+      </li>
+    </ul>
   </span>
   <span
     className="FOjhs"
@@ -74,7 +74,7 @@ exports[`A standard order 1`] = `
 
 exports[`An Order with a disabled invoice button 1`] = `
 <li
-  className="fhXzbr"
+  className="Njetd"
 >
   <span
     className="gRzsfa"
@@ -89,26 +89,26 @@ exports[`An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
-    <span
-      className="gLZwgs"
+    <ul
+      className="cSiVim"
     >
-      <span
-        className="gLZwgs"
+      <li
+        className="a"
       >
         1
         x 
         Name of the product
-      </span>
-      <span
-        className="gLZwgs"
+      </li>
+      <li
+        className="a"
       >
         2
         x 
         Another product
-      </span>
-    </span>
+      </li>
+    </ul>
   </span>
   <span
     className="FOjhs"
