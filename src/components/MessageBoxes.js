@@ -4,10 +4,9 @@ import defaults from "../config/defaults.json";
 import PropTypes from "prop-types";
 
 export const GeneralMessage = styled.div`
-	padding: 0.5em;
-	padding-left: ${ props => props.iconPadding ? "0" : "0.5em" };
+	padding: 1em;
 	background-color: ${ colors.$color_yellow };
-	margin: 0.5em 0;
+	margin: 0.5em 0 0 0;
 	overflow: auto;
 	display: flex;
 	align-items: center;

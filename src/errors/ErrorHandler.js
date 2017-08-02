@@ -34,7 +34,7 @@ class ErrorHandler extends React.Component {
 	}
 
 	/**
-	 * Checks the errormessage for placeholders, replaces them with desired content. Outputs an object that can be used by formatErrorMessage().
+	 * Checks the errormessage for placeholders, replaces them with desired content. Outputs an object that can be used by formatMessage().
 	 *
 	 * @param {string} errorMessage The string to check for placeholders.
 	 * @returns {Object} An object with a defaultMessage and values, which can be used by FormattedMessage.
@@ -68,7 +68,7 @@ class ErrorHandler extends React.Component {
 	 * @param {Object} messageFormatObject An object containing a defaultMessage and values that replace defaultMessage sections.
 	 * @returns {ReactElement} A FormattedMessage component that contains the formatted error message.
 	 */
-	formatErrorMessage( messageFormatObject ) {
+	toFormattedMessage( messageFormatObject ) {
 		return(
 			<FormattedMessage
 				id="sites.add-site.error"
@@ -100,16 +100,16 @@ class ErrorHandler extends React.Component {
 	/**
 	 * Sets the error message to be rendered, or null.
 	 *
-	 * @param {string} errorMessage The error message to render.
+	 * @param {string} message The message to render.
 	 * @returns {ReactElement} The rendered JSX element.
 	 */
-	getErrorMessage( errorMessage ) {
-		if ( errorMessage === "" ) {
+	getMessage( message ) {
+		if ( message === "" ) {
 			return null;
 		}
 
-		let messageFormatObject = this.handlePlaceholders( errorMessage );
-		let finalErrorMessage = this.formatErrorMessage( messageFormatObject );
+		let messageFormatObject = this.handlePlaceholders( message );
+		let finalMessage = this.toFormattedMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
 
 		let MessageType = this.props.type === "warning" ? WarningMessage : ErrorMessage;
@@ -118,7 +118,7 @@ class ErrorHandler extends React.Component {
 		return(
 			<MessageBox role="alert" iconPadding={ this.iconPadding }>
 				{ errorIcon }
-				{ finalErrorMessage }
+				{ finalMessage }
 			</MessageBox>
 		);
 	}
@@ -130,19 +130,19 @@ class ErrorHandler extends React.Component {
 	 */
 	render() {
 		return (
-			this.getErrorMessage( this.props.errorMessage )
+			this.getMessage( this.props.message )
 		);
 	}
 }
 
 ErrorHandler.propTypes = {
-	errorMessage: PropTypes.string,
+	message: PropTypes.string,
 	type: PropTypes.string,
 	showIcon: PropTypes.bool,
 };
 
 ErrorHandler.defaultProps = {
-	errorMessage: "",
+	message: "",
 	showIcon: true,
 };
 
