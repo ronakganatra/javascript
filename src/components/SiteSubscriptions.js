@@ -6,11 +6,11 @@ import util from "util";
 
 const messages = defineMessages( {
 	active: {
-		id: "site-subscriptions.subscription.active",
+		id: "siteSubscriptions.subscription.active",
 		defaultMessage: "%s is active",
 	},
 	inactive: {
-		id: "site-subscriptions.subscription.inactive",
+		id: "siteSubscriptions.subscription.inactive",
 		defaultMessage: "%s is inactive",
 	},
 } );

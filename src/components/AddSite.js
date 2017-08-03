@@ -195,7 +195,7 @@ class AddSite extends React.Component {
 			return (
 				<ValidationText>
 					<FormattedMessage
-						id="sites.add-site.url-validation-message"
+						id="sites.addSite.urlValidationMessage"
 						defaultMessage={ this.state.validationError }
 					/>
 				</ValidationText>
@@ -227,12 +227,12 @@ class AddSite extends React.Component {
 		return (
 			<AddSiteModal>
 				<AddSiteHeading>
-					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
+					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
 				</AddSiteHeading>
 
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.add-site.enter-url"
+						<FormattedMessage id="sites.addSite.enterUrl"
 										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
 						/>
 					</label>
@@ -249,11 +249,11 @@ class AddSite extends React.Component {
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
 						} } enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>

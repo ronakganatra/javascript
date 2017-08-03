@@ -91,6 +91,7 @@ function Order( props ) {
 					ariaLabel={ invoiceLabel }
 					iconSource={ downloadIcon }
 					to={ props.invoiceLink }
+					linkTarget="_blank"
 				>
 					<span className="screen-reader-text">{ invoiceMessage }</span>
 				</ResponsiveInvoiceButton>

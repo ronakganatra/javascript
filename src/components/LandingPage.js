@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import Link from "./Link";
 import NewTabMessage from "../components/NewTabMessage";
 
 const PageContainer = styled.div`
@@ -42,10 +43,10 @@ export default function LandingPage( props ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
 			<p>
-				<a href={ props.url }>
+				<Link to={ props.url } linkTarget="_blank">
 					{ props.urlText }
 					<NewTabMessage />
-				</a>
+				</Link>
 			</p>
 			<img src={ props.imageSource } alt="" />
 		</PageContainer>

@@ -8,11 +8,11 @@ import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
 
 const messages = defineMessages( {
 	addSite: {
-		id: "noresults-addsite",
+		id: "noresultsAddsite",
 		defaultMessage: "Add site",
 	},
 	visitShop: {
-		id: "noresults-visit-shop",
+		id: "noresultsVisitShop",
 		defaultMessage: "Shop",
 	},
 } );
