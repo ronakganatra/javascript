@@ -4,17 +4,12 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import a11ySpeak from "a11y-speak";
 import styled from "styled-components";
 import logo from "../images/logoColor.svg";
+import { Heading } from "./Headings";
 
 const LogoImage = styled.img`
 	width: ${ props => props.size };
 	display: block;
 	margin: 30px auto 25px;
-`;
-
-const AccountDisabledHeading = styled.h1`
-	font-weight: 700;
-	font-size: 2.5em;
-	margin: 0;
 `;
 
 const PageContainer = styled.div`
@@ -64,7 +59,7 @@ class AccountDisabled extends React.Component {
 
 		<PageContainer>
 			<LogoImage src={ logo } size="200px" />
-			<AccountDisabledHeading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></AccountDisabledHeading>
+			<Heading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></Heading>
 			{ paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
