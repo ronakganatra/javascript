@@ -22,6 +22,7 @@ const SearchLabel = styled.label`
 	background-position: left center;
 	background-repeat: no-repeat;
 	width: 40px;
+	height: 50px;
 	float: left;
 `;
 

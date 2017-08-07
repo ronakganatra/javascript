@@ -8,7 +8,7 @@ export const InputField = styled.input`
 	background: ${ colors.$color_white };
 	border: 0;
 	padding: 0 0 0 10px;
-	font-size: 18px;
+	font-size: 1em;
 	font-family: "Open Sans", sans-serif;
 	height: ${ defaults.css.inputField.height };
 	width: ${ props => props.width };

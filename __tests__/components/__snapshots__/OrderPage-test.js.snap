@@ -4,7 +4,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 <div>
   <div>
     <label
-      className="jZrNuU"
+      className="gOZvhE"
       htmlFor="search"
     >
       <span
@@ -18,7 +18,7 @@ exports[`The Orders component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="dUDIjJ"
+      className="lcfQJn"
       id="search"
       onChange={[Function]}
       spellCheck="false"
