@@ -10,7 +10,7 @@ exports[`the account disabled component matches the snapshot 1`] = `
     src="logoColor.svg"
   />
   <h1
-    className="kchLit"
+    className="PcrFE"
   >
     <span>
       Account disabled
