@@ -74,7 +74,7 @@ class OrderPage extends React.Component {
 
 		let noOrdersParagraphs = [
 
-			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview" />,
+			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview." />,
 			<FormattedMessage id="orders.noOrders.manage"
 							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
 			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product."/>,

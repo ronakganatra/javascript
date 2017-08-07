@@ -6,7 +6,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -50,7 +50,7 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -85,7 +85,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>

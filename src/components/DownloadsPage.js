@@ -104,7 +104,7 @@ class DownloadsPage extends React.Component {
 		</ByLine>;
 
 		let noDownloadsParagraphs = [
-			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads page" />,
+			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads overview." />,
 			<FormattedMessage id="downloadsPage.noDownloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
 			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:"/> ];
 

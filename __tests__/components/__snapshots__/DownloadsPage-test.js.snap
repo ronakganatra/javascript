@@ -509,7 +509,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>

@@ -114,7 +114,7 @@ exports[`the sites page component with no sites matches the snapshot 1`] = `
   >
     <p>
       <span>
-        Welcome to the sites overview
+        Welcome to the sites overview.
       </span>
     </p>
     <p>
@@ -368,7 +368,7 @@ exports[`the sites page component without sites handling an onclick event on the
   >
     <p>
       <span>
-        Welcome to the sites overview
+        Welcome to the sites overview.
       </span>
     </p>
     <p>
@@ -408,7 +408,7 @@ exports[`the sites page component without sites handling an onclick event on the
   >
     <p>
       <span>
-        Welcome to the sites overview
+        Welcome to the sites overview.
       </span>
     </p>
     <p>
