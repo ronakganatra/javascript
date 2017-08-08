@@ -8,7 +8,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
 import defaults from "../config/defaults.json";
-import a11ySpeak from "a11y-speak";
+import speak from "a11y-speak";
 import _debounce from "lodash/debounce";
 import ErrorMessage from "./ErrorMessage";
 import { ModalHeading } from "./Headings";
@@ -20,7 +20,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 const AddSiteModal = styled.div`
 	max-width: 640px;
@@ -264,7 +264,7 @@ class AddSite extends React.Component {
 	speakSearchResultsMessage( prevProps ) {
 		/*
 		 * In order to use this.urlValidity we need to wait it's updated so we
-		 * use componentDidUpdate() to call the debounced a11ySpeak. As a
+		 * use componentDidUpdate() to call the debounced speak. As a
 		 * consequence, we need to use the lodash debounce.cancel() method to
 		 * cancel the delayed call. This is particularly important when typing
 		 * fast in the site URL field.

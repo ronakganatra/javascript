@@ -3,7 +3,7 @@ import React from "react";
 import Orders from "./Orders";
 import Search from "./Search";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import a11ySpeak from "a11y-speak";
+import speak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
@@ -25,7 +25,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * A function that returns the Order Page component, containing a search bar and the orders table.
@@ -66,7 +66,7 @@ class OrderPage extends React.Component {
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.ordersPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
@@ -109,7 +109,7 @@ class OrderPage extends React.Component {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
 		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
+		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */

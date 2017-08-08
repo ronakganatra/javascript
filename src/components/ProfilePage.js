@@ -5,7 +5,7 @@ import Paper from "./Paper";
 import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import validate from "validate.js";
-import a11ySpeak from "a11y-speak";
+import speak from "a11y-speak";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
@@ -266,7 +266,7 @@ class ProfilePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	componentDidUpdate() {
@@ -301,7 +301,7 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
-		a11ySpeak( message, "assertive" );
+		speak( message, "assertive" );
 	}
 
 	/**
@@ -343,7 +343,7 @@ class ProfilePage extends React.Component {
 			let message = this.props.intl.formatMessage( messages.saving );
 
 			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		return <div>
@@ -375,14 +375,14 @@ class ProfilePage extends React.Component {
 			onClickAction = _noop;
 
 			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		if ( this.props.hasSendPasswordReset ) {
 			let message = this.props.intl.formatMessage( messages.passwordResetSent );
 
 			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {

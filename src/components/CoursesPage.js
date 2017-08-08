@@ -1,7 +1,7 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import LandingPage from "./LandingPage";
-import a11ySpeak from "a11y-speak";
+import speak from "a11y-speak";
 import constructionImage from "../images/construction.svg";
 
 const messages = defineMessages( {
@@ -33,7 +33,7 @@ class CoursesPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {

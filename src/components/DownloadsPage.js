@@ -6,7 +6,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import Paper from "./Paper";
 import Products from "./Products";
 import Search from "./Search";
-import a11ySpeak from "a11y-speak";
+import speak from "a11y-speak";
 import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
@@ -67,7 +67,7 @@ class DownloadsPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.downloadsPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	/**
