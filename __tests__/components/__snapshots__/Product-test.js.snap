@@ -4,11 +4,11 @@ exports[`The Download component matches the snapshot 1`] = `
 <div
   className="iqMgVR"
 >
-  <h3
-    className="lmLbkz"
+  <span
+    className="bIVdbV"
   >
     Yoast SEO
-  </h3>
+  </span>
   <p
     className="hTVMCQ"
   >
@@ -65,11 +65,11 @@ exports[`The Download component without a currentVersion matches the snapshot 1`
 <div
   className="iqMgVR"
 >
-  <h3
-    className="lmLbkz"
+  <span
+    className="bIVdbV"
   >
     Yoast SEO
-  </h3>
+  </span>
   
   <img
     alt=""

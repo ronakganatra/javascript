@@ -9,6 +9,7 @@ import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
 import { BackButtonLink } from "./Button";
+import { Heading } from "./Headings";
 
 const messages = defineMessages( {
 	backButton: {
@@ -46,14 +47,13 @@ SiteHeaderContainer.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
 };
 
-const SiteHeaderSitename = styled.h1`
+const SiteHeaderSitename = styled( Heading )`
 	flex: 1 1 auto;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	color: ${colors.$color_white};
 	font-weight: 300;
-	font-size: 2em;
 	margin: 0;
 	min-height: 186px;
 	word-wrap: break-word;
