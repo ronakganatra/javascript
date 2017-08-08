@@ -23,12 +23,13 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div>
             <button
@@ -155,12 +156,13 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div
             className="eBJsJ"
@@ -292,12 +294,13 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div>
             <button
@@ -423,12 +426,13 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div>
             <button
@@ -554,12 +558,13 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div>
             <button
@@ -685,12 +690,13 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="test@test.test"
+            width="100%"
           />
           <div>
             <button
@@ -816,12 +822,13 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="gEZOsv"
+            className="bVhSIB"
             id="email-address"
             name="email"
             onChange={[Function]}
             type="text"
             value="email@email.email"
+            width="100%"
           />
           <div>
             <button
