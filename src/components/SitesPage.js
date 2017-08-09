@@ -2,7 +2,7 @@ import util from "util";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";

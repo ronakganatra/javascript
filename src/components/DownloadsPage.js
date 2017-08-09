@@ -6,7 +6,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import Paper from "./Paper";
 import Products from "./Products";
 import Search from "./Search";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";

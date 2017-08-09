@@ -1,7 +1,7 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import LandingPage from "./LandingPage";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 
 const messages = defineMessages( {

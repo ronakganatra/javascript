@@ -1,7 +1,7 @@
 import React from "react";
 import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import styled from "styled-components";
 import logo from "../images/logoColor.svg";
 import { Heading } from "./Headings";

@@ -5,7 +5,7 @@ import Paper from "./Paper";
 import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import validate from "validate.js";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";

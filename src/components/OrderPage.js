@@ -3,7 +3,7 @@ import React from "react";
 import Orders from "./Orders";
 import Search from "./Search";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";

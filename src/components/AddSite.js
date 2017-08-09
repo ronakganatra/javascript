@@ -8,7 +8,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
 import defaults from "../config/defaults.json";
-import speak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
 import ErrorMessage from "./ErrorMessage";
 import { ModalHeading } from "./Headings";
