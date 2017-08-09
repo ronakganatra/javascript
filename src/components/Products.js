@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import Product from "./Product";
-import { ListHeading } from "./ListHeading";
+import { ListHeading } from "./Headings";
 
 const ProductsContainer = styled.div`
 	display: flex;

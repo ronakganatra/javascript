@@ -11,6 +11,7 @@ import defaults from "../config/defaults.json";
 import a11ySpeak from "a11y-speak";
 import _debounce from "lodash/debounce";
 import ErrorHandler from "../errors/ErrorHandler";
+import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -38,13 +39,6 @@ const AddSiteImage = styled.img`
 	width: 100%;
 	margin: 1em 0 0;
 	vertical-align: bottom;
-`;
-
-const AddSiteHeading = styled.h1`
-	font-weight: 300;
-	font-size: 1.5em;
-	// margin: 0 0 8px 0;
-	margin: 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -225,9 +219,9 @@ class AddSite extends React.Component {
 		};
 		return (
 			<AddSiteModal>
-				<AddSiteHeading>
+				<ModalHeading>
 					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
-				</AddSiteHeading>
+				</ModalHeading>
 
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">

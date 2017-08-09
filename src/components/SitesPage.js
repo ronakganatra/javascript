@@ -107,7 +107,7 @@ class SitesPage extends React.Component {
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
-			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview" />,
+			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview." />,
 			<FormattedMessage id="sites.noSite.manage"
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
 			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site."/>,

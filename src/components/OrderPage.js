@@ -7,7 +7,6 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -74,7 +73,8 @@ class OrderPage extends React.Component {
 		let props = this.props;
 
 		let noOrdersParagraphs = [
-			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview" />,
+
+			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview." />,
 			<FormattedMessage id="orders.noOrders.manage"
 							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
 			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product."/>,
@@ -95,15 +95,13 @@ class OrderPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
-								 imageSource={ noResultsImage }/>
+					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
 		return (
-			<NoResults paragraphs={ noOrdersParagraphs } onClick={ () => {
-				window.open( "https://yoast.com/shop/" ).bind( this );
-			} } imageSource={ noOrdersImage } pageContext="noOrders"/>
+			<NoResults paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
+					   imageSource={ noOrdersImage } pageContext="noOrders"/>
 		);
 	}
 

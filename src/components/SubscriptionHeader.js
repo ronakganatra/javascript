@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
+import { Heading } from "./Headings";
 import { BackButtonLink, makeButtonFullWidth } from "./Button";
 import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
 
@@ -43,9 +44,8 @@ const HeaderContext = styled.div`
 	}
 `;
 
-const HeaderTitle = styled.h1`
+const HeaderTitle = styled( Heading )`
 	color: ${ colors.$color_white };
-	font-size: 2em;
 	line-height: 1.25;
 	font-weight: 400;
 	margin: 0;

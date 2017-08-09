@@ -7,7 +7,6 @@ import a11ySpeak from "a11y-speak";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -90,7 +89,7 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
+			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
 			<FormattedMessage id="subscriptions.noSubscriptions.manage"
 							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
 so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
@@ -114,7 +113,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
+					<NoResults paragraphs={ noSearchResultsParagraphs }
 								 imageSource={ noResultsImage }/>
 				</div>
 			);
@@ -122,9 +121,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 		return (
 			<NoResults
 				paragraphs={ noSubscriptionsParagraphs }
-				onClick={ () => {
-					window.open( "https://yoast.com/shop/" ).bind( this );
-				} }
+				url="https://yoast.com/shop/"
 				imageSource={ noSubscriptionsImage }
 				pageContext="noSubscriptions"
 			/>

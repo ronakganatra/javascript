@@ -13,6 +13,7 @@ import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ErrorHandler from "../errors/ErrorHandler";
+import { InputField } from "./InputField";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -118,14 +119,8 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
-const TextInput = styled.input`
+const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
-	padding: 0.8em;
-	line-height: 1.4;
-	font-weight: 400;
-	width: 100%;
-	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-	border:none;
 `;
 
 const FormMessage = styled.p`
