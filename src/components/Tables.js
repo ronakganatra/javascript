@@ -36,7 +36,7 @@ export const Row = styled.li`
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
-		padding: 24px;
+		padding: 24px 40px;
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {

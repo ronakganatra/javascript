@@ -381,11 +381,11 @@ export function makeResponsiveIconButton( component ) {
 			position: static;
 			clip-path: none;
 		}
-
 		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
 			padding-right: 0;
 			padding-left: 42px;
 			min-width: 0;
+			vertical-align: middle;
 
 			.screen-reader-text {
 				position: absolute;

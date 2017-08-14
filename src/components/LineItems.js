@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import defaults from "../config/defaults.json";
 
 const ItemsContainer = styled.ul`
 	padding: 0;
@@ -8,7 +9,7 @@ const ItemsContainer = styled.ul`
 	flex-shrink: 0;
 	align-items: flex-start;
 	
-		@media screen and ( max-width: 800px ) {
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		overflow:hidden;
 	}
 `;

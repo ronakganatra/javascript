@@ -2,7 +2,7 @@
 
 exports[`A standard order 1`] = `
 <li
-  className="Njetd"
+  className="bRBeej"
 >
   <span
     className="gRzsfa"
@@ -57,7 +57,7 @@ exports[`A standard order 1`] = `
   >
     <a
       aria-label="Download invoice"
-      className="FJVi"
+      className="cKTHFZ"
       href="http://somelink"
       rel="noopener noreferrer"
       target="_blank"
@@ -74,7 +74,7 @@ exports[`A standard order 1`] = `
 
 exports[`An Order with a disabled invoice button 1`] = `
 <li
-  className="Njetd"
+  className="bRBeej"
 >
   <span
     className="gRzsfa"
@@ -128,7 +128,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     className="gJSEqq"
   >
     <button
-      className="gbpVTx gKiRpK"
+      className="gqtpyi gKiRpK"
       disabled="disabled"
       to="http://somelink"
     >
