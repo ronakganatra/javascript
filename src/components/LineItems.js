@@ -7,6 +7,10 @@ const ItemsContainer = styled.ul`
 	list-style: none;
 	flex-shrink: 0;
 	align-items: flex-start;
+	
+		@media screen and ( max-width: 800px ) {
+		overflow:hidden;
+	}
 `;
 
 const Item = styled.li``;

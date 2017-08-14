@@ -20,7 +20,7 @@ exports[`A standard order 1`] = `
     className="iSxaIr"
   >
     <ul
-      className="cSiVim"
+      className="tvpac"
     >
       <li
         className="a"
@@ -92,7 +92,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     className="iSxaIr"
   >
     <ul
-      className="cSiVim"
+      className="tvpac"
     >
       <li
         className="a"

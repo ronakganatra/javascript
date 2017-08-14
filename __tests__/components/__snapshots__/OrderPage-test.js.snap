@@ -36,7 +36,7 @@ exports[`The Orders component matches the snapshot 1`] = `
     className="dnTGWH"
   >
     <ul
-      className="eoQoFN dITYws"
+      className="dITYws"
       onChange={[Function]}
       role="list"
     >
@@ -59,7 +59,7 @@ exports[`The Orders component matches the snapshot 1`] = `
           className="iSxaIr"
         >
           <ul
-            className="cSiVim"
+            className="tvpac"
           >
             <li
               className="a"
