@@ -78,7 +78,7 @@
     "redux-thunk": "^2.2.0",
     "styled-components": "^1.4.3",
     "validate.js": "^0.11.1",
-    "yoast-components": "https://github.com/Yoast/yoast-components.git#develop"
+    "yoast-components": "^2.8.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
