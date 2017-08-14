@@ -3,11 +3,10 @@ import React from "react";
 import Orders from "./Orders";
 import Search from "./Search";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -21,12 +20,12 @@ const messages = defineMessages( {
 		defaultMessage: "Account orders page loaded",
 	},
 	searchResults: {
-		id: "orders-search.results",
+		id: "ordersSearch.results",
 		defaultMessage: "Number of orders found: %d",
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * A function that returns the Order Page component, containing a search bar and the orders table.
@@ -67,20 +66,21 @@ class OrderPage extends React.Component {
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.ordersPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
 		let props = this.props;
 
 		let noOrdersParagraphs = [
-			<FormattedMessage id="orders.no-orders.welcome" defaultMessage="Welcome to the orders overview" />,
-			<FormattedMessage id="orders.no-orders.manage"
+
+			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview." />,
+			<FormattedMessage id="orders.noOrders.manage"
 							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
-			<FormattedMessage id="orders.no-orders.press-button" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product."/>,
 		];
 		let noSearchResultsParagraphs = [
-			<FormattedMessage id="orders.search.no-results"
+			<FormattedMessage id="orders.search.noResults"
 							  defaultMessage={ "We could not find any orders matching { query }." }
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
@@ -95,15 +95,13 @@ class OrderPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
-								 imageSource={ noResultsImage }/>
+					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
 		return (
-			<NoResults paragraphs={ noOrdersParagraphs } onClick={ () => {
-				window.open( "https://yoast.com/shop/" ).bind( this );
-			} } imageSource={ noOrdersImage } pageContext="noOrders"/>
+			<NoResults paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
+					   imageSource={ noOrdersImage } pageContext="noOrders"/>
 		);
 	}
 
@@ -111,7 +109,7 @@ class OrderPage extends React.Component {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
 		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
+		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */

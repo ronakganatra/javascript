@@ -3,11 +3,10 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import Subscriptions from "./Subscriptions";
 import Search from "./Search";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
-import LandingPage from "./LandingPage";
 import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -21,12 +20,12 @@ const messages = defineMessages( {
 		defaultMessage: "Search subscriptions",
 	},
 	searchResults: {
-		id: "subscriptions-search.results",
+		id: "subscriptionsSearch.results",
 		defaultMessage: "Number of subscriptions found: %d",
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * Returns the rendered SubscriptionsPage component.
@@ -54,14 +53,14 @@ class SubscriptionsPage extends React.Component {
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
 		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
+		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */
@@ -90,14 +89,14 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.no-subscriptions.welcome" defaultMessage="Welcome to the subscriptions overview" />,
-			<FormattedMessage id="subscriptions.no-subscriptions.manage"
+			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
+			<FormattedMessage id="subscriptions.noSubscriptions.manage"
 							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
 so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
-			<FormattedMessage id="subscriptions.no-subscriptions.press-button" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
+			<FormattedMessage id="subscriptions.noSubscriptions.pressButton" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
 		];
 		let noSearchResultsParagraphs = [
-			<FormattedMessage id="subscriptions.search.no-results"
+			<FormattedMessage id="subscriptions.search.noResults"
 							  defaultMessage={ "We could not find any subscriptions matching { query }." }
 							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
@@ -114,7 +113,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage paragraphs={ noSearchResultsParagraphs }
+					<NoResults paragraphs={ noSearchResultsParagraphs }
 								 imageSource={ noResultsImage }/>
 				</div>
 			);
@@ -122,9 +121,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 		return (
 			<NoResults
 				paragraphs={ noSubscriptionsParagraphs }
-				onClick={ () => {
-					window.open( "https://yoast.com/shop/" ).bind( this );
-				} }
+				url="https://yoast.com/shop/"
 				imageSource={ noSubscriptionsImage }
 				pageContext="noSubscriptions"
 			/>

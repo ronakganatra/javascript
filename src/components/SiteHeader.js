@@ -9,10 +9,11 @@ import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
 import { BackButtonLink } from "./Button";
+import { Heading } from "./Headings";
 
 const messages = defineMessages( {
 	backButton: {
-		id: "back-button",
+		id: "backButton",
 		defaultMessage: "Back",
 	},
 } );
@@ -46,14 +47,13 @@ SiteHeaderContainer.propTypes = {
 	imageUrl: PropTypes.string.isRequired,
 };
 
-const SiteHeaderSitename = styled.h1`
+const SiteHeaderSitename = styled( Heading )`
 	flex: 1 1 auto;
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
 	color: ${colors.$color_white};
 	font-weight: 300;
-	font-size: 2em;
 	margin: 0;
 	min-height: 186px;
 	word-wrap: break-word;
@@ -100,7 +100,7 @@ function SiteHeader( props ) {
 			<ButtonSection>
 				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
 				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
-					<FormattedMessage id="sites.buttons.visit-wp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
+					<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
 				</WPAdminButton>
 			</ButtonSection>
 		</SiteHeaderContainer>

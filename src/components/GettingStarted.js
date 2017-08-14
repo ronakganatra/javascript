@@ -4,18 +4,19 @@ import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth } from "./Button.js";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
+import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
 	knowledgeBase: {
-		id: "getting-started.text.kb",
+		id: "gettingStarted.text.kb",
 		defaultMessage: "Knowledge Base",
 	},
 	email: {
-		id: "getting-started.text.email",
+		id: "gettingStarted.text.email",
 		defaultMessage: "send us an email",
 	},
 	videoTitle: {
-		id: "getting-started.iframe.title",
+		id: "gettingStarted.iframe.title",
 		defaultMessage: "My Yoast introductory video",
 	},
 } );
@@ -23,12 +24,6 @@ const messages = defineMessages( {
 const GettingStartedModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-`;
-
-const GettingStartedHeading = styled.h1`
-	font-weight: 300;
-	font-size: 20px;
-	margin: 0 0 4;
 `;
 
 const GettingStartedText = styled.p`
@@ -75,12 +70,12 @@ const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 function GettingStarted( props ) {
 	return (
 		<GettingStartedModal role="document">
-			<GettingStartedHeading>
-				<FormattedMessage id="getting-started.header" defaultMessage="Getting started with My Yoast" />
-			</GettingStartedHeading>
+			<ModalHeading>
+				<FormattedMessage id="gettingStarted.header" defaultMessage="Getting started with My Yoast" />
+			</ModalHeading>
 			<GettingStartedText>
 				<FormattedMessage
-					id="getting-started.text"
+					id="gettingStarted.text"
 					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }. If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
 					values={ {
 						myYoast: "My Yoast",
@@ -92,7 +87,7 @@ function GettingStarted( props ) {
 			<VideoContainer><Video title={ props.intl.formatMessage( messages.videoTitle ) } height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
-					<FormattedMessage id="getting-started.got-it" defaultMessage="Got it" />
+					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
 				</ResponsiveLargeButton>
 			</Buttons>
 		</GettingStartedModal>

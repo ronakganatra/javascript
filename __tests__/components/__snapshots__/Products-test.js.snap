@@ -4,23 +4,23 @@ exports[`The Products component matches the snapshot 1`] = `
 <div
   className="dCSOIl"
 >
-  <h2
-    className="fdADGm"
+  <span
+    className="cWpYAO"
   >
     Products
     <span>
        - Buy here!
     </span>
-  </h2>
+  </span>
   
   <div
     className="iqMgVR"
   >
-    <h3
-      className="lmLbkz"
+    <span
+      className="bIVdbV"
     >
       Yoast SEO
-    </h3>
+    </span>
     <p
       className="hTVMCQ"
     >
@@ -74,11 +74,11 @@ exports[`The Products component matches the snapshot 1`] = `
   <div
     className="iqMgVR"
   >
-    <h3
-      className="lmLbkz"
+    <span
+      className="bIVdbV"
     >
       Local SEO
-    </h3>
+    </span>
     <p
       className="hTVMCQ"
     >
@@ -115,11 +115,11 @@ exports[`The Products component matches the snapshot 1`] = `
   <div
     className="iqMgVR"
   >
-    <h3
-      className="lmLbkz"
+    <span
+      className="bIVdbV"
     >
       Video SEO
-    </h3>
+    </span>
     <p
       className="hTVMCQ"
     >
@@ -190,11 +190,11 @@ exports[`The Products component matches the snapshot 1`] = `
   <div
     className="iqMgVR"
   >
-    <h3
-      className="lmLbkz"
+    <span
+      className="bIVdbV"
     >
       News SEO
-    </h3>
+    </span>
     <p
       className="hTVMCQ"
     >
@@ -265,11 +265,11 @@ exports[`The Products component matches the snapshot 1`] = `
   <div
     className="iqMgVR"
   >
-    <h3
-      className="lmLbkz"
+    <span
+      className="bIVdbV"
     >
       Yoast SEO for WooCommerce
-    </h3>
+    </span>
     <p
       className="hTVMCQ"
     >

@@ -5,13 +5,14 @@ import Paper from "./Paper";
 import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import validate from "validate.js";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
+import { InputField } from "./InputField";
 import ErrorMessage from "./ErrorMessage";
 
 const messages = defineMessages( {
@@ -118,14 +119,8 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
-const TextInput = styled.input`
+const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
-	padding: 0.8em;
-	line-height: 1.4;
-	font-weight: 400;
-	width: 100%;
-	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-	border:none;
 `;
 
 const FormMessage = styled.p`
@@ -271,7 +266,7 @@ class ProfilePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	componentDidUpdate() {
@@ -306,7 +301,7 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
-		a11ySpeak( message, "assertive" );
+		speak( message, "assertive" );
 	}
 
 	/**
@@ -348,7 +343,7 @@ class ProfilePage extends React.Component {
 			let message = this.props.intl.formatMessage( messages.saving );
 
 			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		return <div>
@@ -380,14 +375,14 @@ class ProfilePage extends React.Component {
 			onClickAction = _noop;
 
 			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		if ( this.props.hasSendPasswordReset ) {
 			let message = this.props.intl.formatMessage( messages.passwordResetSent );
 
 			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
-			a11ySpeak( message, "assertive" );
+			speak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {

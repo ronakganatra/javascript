@@ -1,7 +1,7 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import LandingPage from "./LandingPage";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 
 const messages = defineMessages( {
@@ -10,7 +10,7 @@ const messages = defineMessages( {
 		defaultMessage: "Courses page loaded",
 	},
 	underConstruction: {
-		id: "courses.under-construction",
+		id: "courses.underConstruction",
 		defaultMessage: "This section is still under construction. To access your courses, please visit:",
 	},
 } );
@@ -33,16 +33,16 @@ class CoursesPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
-		let paragraphs = [ <FormattedMessage id="courses.under-construction" defaultMessage="This section is still under construction. To access your courses, please visit:" /> ];
+		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id } defaultMessage={ messages.underConstruction.defaultMessage } /> ];
 		return (
 			<LandingPage url="https://yoa.st/myyoast-academy"
-				  urlText="yoast.academy"
-				  imageSource={ constructionImage }
-				  paragraphs={ paragraphs }
+				urlText="Yoast Academy"
+				imageSource={ constructionImage }
+				paragraphs={ paragraphs }
 			/>
 		);
 	}

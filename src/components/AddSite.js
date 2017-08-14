@@ -8,9 +8,10 @@ import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
 import defaults from "../config/defaults.json";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
 import ErrorMessage from "./ErrorMessage";
+import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -19,7 +20,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 const AddSiteModal = styled.div`
 	max-width: 640px;
@@ -38,13 +39,6 @@ const AddSiteImage = styled.img`
 	width: 100%;
 	margin: 1em 0 0;
 	vertical-align: bottom;
-`;
-
-const AddSiteHeading = styled.h1`
-	font-weight: 300;
-	font-size: 1.5em;
-	// margin: 0 0 8px 0;
-	margin: 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -195,7 +189,7 @@ class AddSite extends React.Component {
 			return (
 				<ValidationText>
 					<FormattedMessage
-						id="sites.add-site.url-validation-message"
+						id="sites.addSite.urlValidationMessage"
 						defaultMessage={ this.state.validationError }
 					/>
 				</ValidationText>
@@ -226,13 +220,13 @@ class AddSite extends React.Component {
 
 		return (
 			<AddSiteModal>
-				<AddSiteHeading>
-					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
-				</AddSiteHeading>
+				<ModalHeading>
+					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
+				</ModalHeading>
 
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.add-site.enter-url"
+						<FormattedMessage id="sites.addSite.enterUrl"
 										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
 						/>
 					</label>
@@ -249,11 +243,11 @@ class AddSite extends React.Component {
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
 						} } enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>
@@ -270,7 +264,7 @@ class AddSite extends React.Component {
 	speakSearchResultsMessage( prevProps ) {
 		/*
 		 * In order to use this.urlValidity we need to wait it's updated so we
-		 * use componentDidUpdate() to call the debounced a11ySpeak. As a
+		 * use componentDidUpdate() to call the debounced speak. As a
 		 * consequence, we need to use the lodash debounce.cancel() method to
 		 * cancel the delayed call. This is particularly important when typing
 		 * fast in the site URL field.

@@ -15,7 +15,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
       className="eUbKKo"
     >
       <h1
-        className="fMuHnF"
+        className="dQgKWp"
       >
         <span>
           Add Site
@@ -91,7 +91,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
       className="eUbKKo"
     >
       <h1
-        className="fMuHnF"
+        className="dQgKWp"
       >
         <span>
           Add Site
@@ -167,7 +167,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
       className="eUbKKo"
     >
       <h1
-        className="fMuHnF"
+        className="dQgKWp"
       >
         <span>
           Add Site
@@ -243,7 +243,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
       className="eUbKKo"
     >
       <h1
-        className="fMuHnF"
+        className="dQgKWp"
       >
         <span>
           Add Site
@@ -319,7 +319,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
       className="eUbKKo"
     >
       <h1
-        className="fMuHnF"
+        className="dQgKWp"
       >
         <span>
           Add Site

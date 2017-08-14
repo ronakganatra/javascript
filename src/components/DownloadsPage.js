@@ -6,38 +6,39 @@ import colors from "yoast-components/style-guide/colors.json";
 import Paper from "./Paper";
 import Products from "./Products";
 import Search from "./Search";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import LandingPage from "./LandingPage";
-import noDownloads from "./../images/noDownloads.svg";
-import noResults from "./../images/SitesNoResults.svg";
+import noDownloadsImage from "./../images/noDownloads.svg";
+import noResultsImage from "./../images/SitesNoResults.svg";
+import NoResults from "./NoResults";
 
 const messages = defineMessages( {
 	searchResults: {
-		id: "downloads-page.search.results",
+		id: "downloadsPage.search.results",
 		defaultMessage: "Number of downloads found: %d",
 	},
 	searchLabel: {
-		id: "downloads-page.search.label",
+		id: "downloadsPage.search.label",
 		defaultMessage: "Search downloads",
 	},
 	downloadsPageLoaded: {
-		id: "downloads-page.page.loaded",
+		id: "downloadsPage.page.loaded",
 		defaultMessage: "Downloads page loaded",
 	},
 	pluginsDownloads: {
-		id: "downloads-page.downloads.plugins",
+		id: "downloadsPage.downloads.plugins",
 		defaultMessage: "Plugins",
 	},
 	eBooksDownloads: {
-		id: "downloads-page.downloads.eBooks",
+		id: "downloadsPage.downloads.eBooks",
 		defaultMessage: "eBooks",
 	},
 	installationGuides: {
-		id: "downloads-page.by-lines.installation-guides",
+		id: "downloadsPage.byLines.installationGuides",
 		defaultMessage: "Read our installation guides",
 	},
 	otherBooks: {
-		id: "downloads-page.by-lines.books-upsell",
+		id: "downloadsPage.byLines.booksUpsell",
 		defaultMessage: "Check out our other eBooks",
 	},
 } );
@@ -66,7 +67,7 @@ class DownloadsPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.downloadsPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	/**
@@ -88,7 +89,7 @@ class DownloadsPage extends React.Component {
 	render() {
 		let pluginsByLine = <ByLine>
 			<FormattedMessage
-				id="downloads-page.by-line.plugins"
+				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
 				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
 			/>
@@ -96,18 +97,18 @@ class DownloadsPage extends React.Component {
 
 		let eBooksByLine = <ByLine>
 			<FormattedMessage
-				id="downloads-page.by-line.ebooks"
+				id="downloadsPage.byLine.ebooks"
 				defaultMessage=" - Want to read more about SEO? { link }."
 				values={ { link: <a target="_blank" href="https://yoa.st/ebooks" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
 			/>
 		</ByLine>;
 
 		let noDownloadsParagraphs = [
-			<FormattedMessage id="downloads-page.no-downloads.welcome" defaultMessage="Welcome to the downloads page" />,
-			<FormattedMessage id="downloads-page.no-downloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloads-page.no-downloads.press-button" defaultMessage="To browse our products, please visit:"/> ];
+			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads overview." />,
+			<FormattedMessage id="downloadsPage.noDownloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
+			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:"/> ];
 
-		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.no-results"
+		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.noResults"
 															   defaultMessage={ "We could not find any downloads matching { query }." }
 															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
@@ -129,17 +130,19 @@ class DownloadsPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage imageSource={ noResults }
+					<LandingPage imageSource={ noResultsImage }
 								 paragraphs={ noResultsParagraphs }
 					/>
 				</div>
 			);
 		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
-			return <LandingPage url="https://yoa.st/myyoast-download"
-								urlText="yoast.com"
-								imageSource={ noDownloads }
-								paragraphs={ noDownloadsParagraphs }
-			/>;
+			return (
+				<NoResults paragraphs={ noDownloadsParagraphs }
+					url="https://yoast.com/shop/"
+					imageSource={ noDownloadsImage }
+					pageContext="noDownloads"
+				/>
+			);
 		}
 
 		return (

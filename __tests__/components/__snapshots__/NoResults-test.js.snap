@@ -6,7 +6,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -19,15 +19,23 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
       Press the button below to visit yoast.com and look at our products.
     </span>
   </p>
-  <button
-    className="cyaQRf"
+  <a
+    className="iQBxPy"
+    href="/"
+    linkTarget="_blank"
     onClick={[Function]}
-    type="button"
   >
     <span>
       Shop
     </span>
-  </button>
+    <span
+      className="screen-reader-text fuqaAG"
+    >
+      <span>
+        (Opens in a new browser tab)
+      </span>
+    </span>
+  </a>
   <img
     alt=""
     className="bTHZQB"
@@ -42,7 +50,7 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -77,7 +85,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -90,15 +98,23 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
       Press the button below to visit yoast.com and look at our products.
     </span>
   </p>
-  <button
-    className="cyaQRf"
+  <a
+    className="iQBxPy"
+    href="/"
+    linkTarget="_blank"
     onClick={[Function]}
-    type="button"
   >
     <span>
       Shop
     </span>
-  </button>
+    <span
+      className="screen-reader-text fuqaAG"
+    >
+      <span>
+        (Opens in a new browser tab)
+      </span>
+    </span>
+  </a>
   <img
     alt=""
     className="bTHZQB"

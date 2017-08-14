@@ -14,10 +14,9 @@ let messages = defineMessages( {
 } );
 
 const YellowWarning = styled.div`
-	padding: 0.5em;
-	padding-left: ${ props => props.iconPadding ? "0" : "0.5em" };
+	padding: 1em;
 	background-color: ${ colors.$color_yellow };
-	margin: 0.5em 0;
+	margin: 0.5em 0 0 0;
 	overflow: auto;
 	display: flex;
 	align-items: center;
@@ -27,20 +26,25 @@ const YellowWarning = styled.div`
 	}
 `;
 
-const NoActiveProductIcon = styled.img`
-	width: 15%;
-	height: 10%;
-	padding: 20px;
-	min-width: 75px;
-	display: flex;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		padding: 10px;
-	}
+const NoActiveProductIcon = styled.span`
+	background-position: 50%;
+	background-repeat: no-repeat;
+	background-size: ${ props => props.iconSize };
+	background-image: url( ${ props => props.iconSource } );
+	
+	height: ${ props => props.iconSize };
+	min-width: ${ props => props.iconSize };
+	margin-right: 1em;
 `;
 
-const WarningText = styled.span`
-	font-size: 1em;
-`;
+NoActiveProductIcon.PropTypes = {
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+};
+
+NoActiveProductIcon.defaultProps = {
+	iconSize: "2em",
+};
 
 const PurpleLink = styled.a`
 	color: ${ colors.$color_purple };
@@ -105,7 +109,7 @@ class ErrorMessage extends React.Component {
 	formatErrorMessage( messageFormatObject ) {
 		return(
 			<FormattedMessage
-				id="sites.add-site.error"
+				id="sites.addSite.error"
 				defaultMessage={ messageFormatObject.defaultMessage }
 				values={ messageFormatObject.values }
 			/>
@@ -121,10 +125,11 @@ class ErrorMessage extends React.Component {
 	renderIcon( showIcon ) {
 		if ( showIcon !== true ) {
 			this.iconPadding = false;
+
 			return null;
 		}
-		return(
-			<NoActiveProductIcon src={ warningTriangle } alt=""/>
+		return (
+			<NoActiveProductIcon iconSource={ warningTriangle } />
 		);
 	}
 
@@ -146,9 +151,7 @@ class ErrorMessage extends React.Component {
 		return(
 			<YellowWarning role="alert" iconPadding={ this.iconPadding }>
 				{ errorIcon }
-				<WarningText>
-					{ finalErrorMessage }
-				</WarningText>
+				{ finalErrorMessage }
 			</YellowWarning>
 		);
 	}
