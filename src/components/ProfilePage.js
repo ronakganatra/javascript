@@ -12,7 +12,7 @@ import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
-import ErrorHandler from "../errors/ErrorHandler";
+import ErrorDisplay from "../errors/ErrorDisplay";
 import { InputField } from "./InputField";
 
 const messages = defineMessages( {
@@ -248,7 +248,8 @@ class ProfilePage extends React.Component {
 
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning ) => {
-			return <ErrorHandler message={ warning.options.message } type="warning"/>;
+			console.log( warning );
+			return <ErrorDisplay message={ warning.options.message } type="warning"/>;
 		} );
 	}
 
@@ -451,7 +452,7 @@ class ProfilePage extends React.Component {
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
 								{ this.displayWarnings( warnings, "email" ) }
-								<ErrorHandler message={ this.props.saveEmailError } />
+								<ErrorDisplay message={ this.props.saveEmailError } />
 								{ this.getSaveButton() }
 							</form>
 

@@ -1,8 +1,8 @@
 import "whatwg-fetch";
 import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
-import { DuplicateRecord } from "../errors/DuplicateRecord";
-import { CustomerSupportError } from "../errors/CustomerSupportError";
+// import { DuplicateRecord } from "../errors/DuplicateRecord";
+// import { CustomerSupportError } from "../errors/CustomerSupportError";
 
 /**
  * Determines whether or not a valid HTTP method was passed.
@@ -91,7 +91,8 @@ export function doRequest( request ) {
 	return fetch( request )
 		.then( handleResponse )
 		.catch( ( error ) => {
-			throw error;
+			console.log( "DO REQUEST CATCHES: ", error.error );
+			throw error.error;
 		} );
 }
 
@@ -137,28 +138,28 @@ function handleResponse( response ) {
 function handleErrorResponse( response ) {
 	return response
 		.json()
-		.then( response => {
-			determineErrorMessage( response );
+		.then( errorResponse => {
+			throw errorResponse;
 		} );
 }
 
-/**
- * Determines the error to throw.
- *
- * @param {object} response The error response that was passed along.
- * @returns {void}
- */
-function determineErrorMessage( response ) {
-	if ( ! response.error ) {
-		throw new CustomerSupportError();
-	}
-
-	if ( response.error.code === "ER_DUP_ENTRY" ) {
-		throw new DuplicateRecord( response.error.context );
-	}
-
-	throw new CustomerSupportError();
-}
+// /**
+//  * Determines the error to throw.
+//  *
+//  * @param {object} response The error response that was passed along.
+//  * @returns {void}
+//  */
+// function determineErrorMessage( response ) {
+// 	if ( ! response.error ) {
+// 		throw new CustomerSupportError();
+// 	}
+//
+// 	if ( response.error.code === "ER_DUP_ENTRY" ) {
+// 		throw new DuplicateRecord( response.error.context );
+// 	}
+//
+// 	throw new CustomerSupportError();
+// }
 
 /**
  * Returns the API URL that should be used to do AJAX requests to.

@@ -10,7 +10,7 @@ import validate from "validate.js";
 import defaults from "../config/defaults.json";
 import a11ySpeak from "a11y-speak";
 import _debounce from "lodash/debounce";
-import ErrorHandler from "../errors/ErrorHandler";
+import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
@@ -238,7 +238,7 @@ class AddSite extends React.Component {
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
 
-					<ErrorHandler message={ this.props.message } />
+					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
@@ -284,7 +284,7 @@ AddSite.propTypes = {
 	onConnectClick: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	query: PropTypes.string.isRequired,
-	message: PropTypes.string,
+	error: PropTypes.object,
 };
 
 export default injectIntl( AddSite );

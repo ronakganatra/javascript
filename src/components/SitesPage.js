@@ -126,7 +126,7 @@ class SitesPage extends React.Component {
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onConnect={ props.onConnect } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
+						  error={ props.error } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
 
 		if ( props.sites.length > 0 ) {
@@ -173,7 +173,7 @@ SitesPage.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	onManage: PropTypes.func.isRequired,
 	errorFound: PropTypes.bool.isRequired,
-	errorMessage: PropTypes.string,
+	error: PropTypes.object,
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	intl: intlShape.isRequired,
@@ -185,7 +185,7 @@ SitesPage.defaultProps = {
 	sites: [],
 	linkingSiteUrl: "",
 	popupOpen: false,
-	errorMessage: "",
+	error: "",
 	showLoader: false,
 };
 

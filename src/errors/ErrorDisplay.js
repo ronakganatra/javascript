@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { PurpleLink, ErrorMessage, WarningMessage, MessageIcon } from "../components/MessageBoxes";
 import exclamationTriangle from "../icons/exclamation-triangle.svg";
 import exclamationCircle from "../icons/exclamation-circle.svg";
+import errorMessageLookUp from "../errors/ErrorMessageLookup.json";
 
 let messages = defineMessages( {
 	contactSupportLink: {
@@ -21,7 +22,7 @@ let messages = defineMessages( {
  *
  * @returns {ReactElement} The rendered ErrorMessage component.
  */
-class ErrorHandler extends React.Component {
+class ErrorDisplay extends React.Component {
 	/**
 	 * Sets the ErrorMessage object. This includes setting iconPadding to true, because by default the icon is shown. This requires altered padding-left.
 	 *
@@ -100,20 +101,24 @@ class ErrorHandler extends React.Component {
 	/**
 	 * Sets the error message to be rendered, or null.
 	 *
-	 * @param {string} message The message to render.
+	 * @param {object} error The message to render.
 	 * @returns {ReactElement} The rendered JSX element.
 	 */
-	getMessage( message ) {
-		if ( message === "" ) {
+	getMessage( error ) {
+		if ( error === null ) {
+			console.log( "NULLERROR!" );
 			return null;
 		}
+		console.log( error.code );
 
-		let messageFormatObject = this.handlePlaceholders( message );
+		let recodedMessage = ( error.code && ( error.code in errorMessageLookUp ) ) ? errorMessageLookUp[ error.code ].message : errorMessageLookUp.GENERAL_SUPPORT_ERROR.message;
+		let messageType = ( error.code && ( error.code in errorMessageLookUp ) ) ? errorMessageLookUp[ error.code ].type : errorMessageLookUp.GENERAL_SUPPORT_ERROR.type;
+
+		let messageFormatObject = this.handlePlaceholders( recodedMessage );
 		let finalMessage = this.toFormattedMessage( messageFormatObject );
 		let errorIcon = this.renderIcon( this.props.showIcon );
 
-		let MessageType = this.props.type === "warning" ? WarningMessage : ErrorMessage;
-		let MessageBox = ( MessageType );
+		let MessageBox = ( messageType === "warning" ) ? WarningMessage : ErrorMessage;
 
 		return(
 			<MessageBox role="alert" iconPadding={ this.iconPadding }>
@@ -129,21 +134,22 @@ class ErrorHandler extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		console.log( "this.props.error: ", this.props.error );
 		return (
-			this.getMessage( this.props.message )
+			this.getMessage( this.props.error )
 		);
 	}
 }
 
-ErrorHandler.propTypes = {
-	message: PropTypes.string,
+ErrorDisplay.propTypes = {
+	error: PropTypes.object,
 	type: PropTypes.string,
 	showIcon: PropTypes.bool,
 };
 
-ErrorHandler.defaultProps = {
-	message: "",
+ErrorDisplay.defaultProps = {
+	error: null,
 	showIcon: true,
 };
 
-export default injectIntl( ErrorHandler );
+export default injectIntl( ErrorDisplay );
