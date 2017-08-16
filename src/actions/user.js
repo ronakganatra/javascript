@@ -201,7 +201,7 @@ export function profileUpdateRequest() {
 export function profileUpdateFailure( error ) {
 	return {
 		type: PROFILE_UPDATE_FAILURE,
-		message: error,
+		error: error,
 	};
 }
 
@@ -234,7 +234,7 @@ export function updateProfile( profile ) {
 
 		return doRequest( request )
 			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
-			.catch( error => dispatch( profileUpdateFailure( error.message ) ) );
+			.catch( error => dispatch( profileUpdateFailure( error ) ) );
 	};
 }
 

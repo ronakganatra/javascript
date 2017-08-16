@@ -248,8 +248,7 @@ class ProfilePage extends React.Component {
 
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning ) => {
-			console.log( warning );
-			return <ErrorDisplay message={ warning.options.message } type="warning"/>;
+			return <ErrorDisplay error={ warning } type="warning"/>;
 		} );
 	}
 
@@ -452,7 +451,7 @@ class ProfilePage extends React.Component {
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
 								{ this.displayWarnings( warnings, "email" ) }
-								<ErrorDisplay message={ this.props.saveEmailError } />
+								<ErrorDisplay error={ this.props.saveEmailError } />
 								{ this.getSaveButton() }
 							</form>
 

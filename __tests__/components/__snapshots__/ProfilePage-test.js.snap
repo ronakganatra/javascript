@@ -31,6 +31,18 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -165,7 +177,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             width="100%"
           />
           <div
-            className="gQbfVm"
+            className="dhWXhp"
             role="alert"
           >
             <span
@@ -173,7 +185,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               className="gEFfcO"
             />
             <span>
-              An error occurred while saving profile.
+              { errorMessage }
             </span>
           </div>
           <div>
@@ -303,6 +315,18 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -435,6 +459,18 @@ exports[`components/ProfilePage saving profile 1`] = `
             value="email@email.email"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -567,6 +603,18 @@ exports[`components/ProfilePage sending password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -699,6 +747,18 @@ exports[`components/ProfilePage the default case 1`] = `
             value="test@test.test"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"
@@ -831,6 +891,18 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             value="email@email.email"
             width="100%"
           />
+          <div
+            className="dhWXhp"
+            role="alert"
+          >
+            <span
+              alt=""
+              className="gEFfcO"
+            />
+            <span>
+              { errorMessage }
+            </span>
+          </div>
           <div>
             <button
               className="fTwoQp"

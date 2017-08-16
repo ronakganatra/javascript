@@ -3,6 +3,10 @@
     "message": "It looks like you have already added this [error_context] to your My Yoast account.",
     "type": "warning"
   },
+  "rest_invalid_param": {
+    "message": "The information you provided in the [invalid_param] field appears to be invalid. Please check whether everything is in order.",
+    "type": "error"
+  },
   "GENERAL_SUPPORT_ERROR": {
     "message": "Oops, something went wrong on our end, please try again. If this keeps happening, [customer_support_link]",
     "type": "error"
