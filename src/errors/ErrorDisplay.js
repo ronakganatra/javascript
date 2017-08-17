@@ -44,6 +44,7 @@ class ErrorDisplay extends React.Component {
 	 * @returns {Object} An object with a defaultMessage and values, which can be used by FormattedMessage.
 	 */
 	handlePlaceholders( errorMessage, error ) {
+		console.log( "errorMessage", errorMessage );
 		let defaultMessage = "{ errorMessage }";
 		let values = { errorMessage };
 
@@ -130,9 +131,10 @@ class ErrorDisplay extends React.Component {
 			return error;
 		}
 		// If the error is a server-side error sent from the API, it will have a field error, containing a useful error object.
-		if ( error.hasOwnProperty( "error" ) ) {
+		if ( error.hasOwnProperty( "error" ) && typeof error.error === "object" ) {
 			return error.error;
 		}
+		error.code = "GENERAL_SUPPORT_ERROR";
 		return error;
 	}
 
