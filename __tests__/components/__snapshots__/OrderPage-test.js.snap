@@ -56,7 +56,7 @@ exports[`The Orders component matches the snapshot 1`] = `
           MOOIE 123 TEST
         </span>
         <span
-          className="kIDkAC"
+          className="iSxaIr"
         >
           <span
             className="gLZwgs"
@@ -87,12 +87,8 @@ exports[`The Orders component matches the snapshot 1`] = `
         <span
           className="gWfuXy"
         >
-          <span
-            className="fsnmAu"
-          >
-            <span>
-              completed
-            </span>
+          <span>
+            completed
           </span>
         </span>
         <span

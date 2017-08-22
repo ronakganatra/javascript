@@ -68,7 +68,7 @@ let defaultExpected = {
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
 			"orderNumber": "YST201703",
-			"status": "completed",
+			"status": "Completed",
 			"date": new Date( "2017-06-01 21:04:28" ),
 			"total": "6900",
 			"currency": "USD",
@@ -81,7 +81,7 @@ let defaultExpected = {
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"orderNumber": "YST201701",
-			"status": "completed",
+			"status": "Completed",
 			"date": new Date( "2017-05-01 21:04:28" ),
 			"total": "6900",
 			"currency": "USD",
@@ -120,7 +120,7 @@ test('the mapStateToProps function when query contains part of formatted order d
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"orderNumber": "YST201701",
-				"status": "completed",
+				"status": "Completed",
 				"date": new Date( "2017-05-01 21:04:28" ),
 				"total": "6900",
 				"currency": "USD",

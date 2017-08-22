@@ -17,7 +17,7 @@ exports[`A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
     <span
       className="gLZwgs"
@@ -48,12 +48,8 @@ exports[`A standard order 1`] = `
   <span
     className="gWfuXy"
   >
-    <span
-      className="fsnmAu"
-    >
-      <span>
-        completed
-      </span>
+    <span>
+      completed
     </span>
   </span>
   <span
@@ -93,7 +89,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
     <span
       className="gLZwgs"
@@ -124,12 +120,8 @@ exports[`An Order with a disabled invoice button 1`] = `
   <span
     className="gWfuXy"
   >
-    <span
-      className="fsnmAu"
-    >
-      <span>
-        pending
-      </span>
+    <span>
+      pending
     </span>
   </span>
   <span

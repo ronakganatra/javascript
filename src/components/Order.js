@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate, FormattedMessage } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
 import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
-import styled from "styled-components";
 
 const messages = defineMessages( {
 	date: {
@@ -39,10 +38,6 @@ const messages = defineMessages( {
 	},
 } );
 
-const Capitalizer = styled.span`
-	text-transform: capitalize;
-`;
-
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
@@ -67,7 +62,7 @@ function Order( props ) {
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
-		<RowMobileCollapse background={ props.background }>
+		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnMinWidthResponsive>
@@ -75,16 +70,14 @@ function Order( props ) {
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnMinWidth>
-			<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<Capitalizer>
-					<FormattedMessage id={ props.status } defaultMessage={ props.status } />
-				</Capitalizer>
+				<span>{ props.status }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton
