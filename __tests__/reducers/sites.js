@@ -28,7 +28,7 @@ test( 'the popup close action', () => {
 	};
 	const expected = {
 		addSitePopupOpen: false,
-		linkSiteError: "",
+		linkSiteError: null,
 		linkSiteFailed: false,
 		linkingSiteUrl: "",
 	};
@@ -423,10 +423,10 @@ test( 'the reducers don\'t touch state with different actions', () => {
 		linkingSite: false,
 		linkingSiteUrl: "",
 		linkSiteFailed: false,
-		linkSiteError: "",
+		linkSiteError: null,
 		retrievingSites: false,
 		retrievingSitesFailed: false,
-		retrievingSitesError: "",
+		retrievingSitesError: null,
 		sitesRetrieved: true,
 	};
 

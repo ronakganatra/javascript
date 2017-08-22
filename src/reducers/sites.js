@@ -133,6 +133,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 				retrievingSites: false,
 				retrievingSitesFailed: false,
 				sitesRetrieved: true,
+				retrievingSitesError: null,
 			} );
 		case RETRIEVE_SITES_FAILURE:
 			return Object.assign( {}, state, {

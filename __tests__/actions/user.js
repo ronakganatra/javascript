@@ -124,10 +124,10 @@ test( 'disable user success action creator', () => {
 test( 'disable user failure action creator', () => {
 	const expected = {
 		type: actions.DISABLE_USER_FAILURE,
-		errorMessage: "Fail",
+		error: { error: "A disable user failure error" },
 	};
 
-	const actual = actions.disableUserFailure( "Fail" );
+	const actual = actions.disableUserFailure( { error: "A disable user failure error" } );
 
 	expect( actual ).toEqual( expected );
 } );
@@ -161,10 +161,10 @@ describe( 'Password reset', () => {
 	test( 'failure action', () => {
 		const expected = {
 			type: actions.RESET_PASSWORD_FAILURE,
-			message: "message",
+			error: { error: "A reset password failure error" },
 		};
 
-		const actual = actions.passwordResetFailure( "message" );
+		const actual = actions.passwordResetFailure( { error: "A reset password failure error" } );
 
 		expect( actual ).toEqual( expected );
 	} );
@@ -217,10 +217,10 @@ describe( 'Profile saving', () => {
 	test( 'failure action', () => {
 		const expected = {
 			type: actions.PROFILE_UPDATE_FAILURE,
-			message: "message",
+			error: { error: "A profile update failure error" },
 		};
 
-		const actual = actions.profileUpdateFailure( "message" );
+		const actual = actions.profileUpdateFailure( { error: "A profile update failure error" } );
 
 		expect( actual ).toEqual( expected );
 	} );
@@ -253,9 +253,10 @@ describe( 'Profile saving', () => {
 	} );
 
 	test( 'failed profile save', () => {
+		let error = { error: "errorMessage" };
 		// Force a rejection to ensure the profileUpdateFailure will be called.
 		api.doRequest.mockImplementation( () => {
-			return Promise.reject( Error( "An error occurred" ) );
+			return Promise.reject(  error );
 		} );
 
 		const dispatch = jest.fn();
@@ -266,7 +267,7 @@ describe( 'Profile saving', () => {
 			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateRequest() );
 			expect( api.prepareInternalRequest ).toHaveBeenCalled();
 			expect( api.doRequest ).toHaveBeenCalledWith( request );
-			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateFailure( "An error occurred" ) );
+			expect( dispatch ).toHaveBeenCalledWith( actions.profileUpdateFailure( error ) );
 
 		} );
 	} );

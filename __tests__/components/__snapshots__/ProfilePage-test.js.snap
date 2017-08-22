@@ -31,18 +31,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -81,9 +69,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           <p
             className="jkaLiT"
             role="alert"
-          >
-            An error occurred while sending password reset.
-          </p>
+          />
         </section>
       </div>
       <div
@@ -185,7 +171,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               className="gEFfcO"
             />
             <span>
-              { errorMessage }
+              Oops, something went wrong on our end, please try again. If this keeps happening, 
+              <a
+                className="jWXgwc"
+                href="mailto:support@yoast.com"
+              >
+                <span>
+                  please contact support
+                </span>
+              </a>
+              .
             </span>
           </div>
           <div>
@@ -315,18 +310,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -459,18 +442,6 @@ exports[`components/ProfilePage saving profile 1`] = `
             value="email@email.email"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -603,18 +574,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
             value="email@email.email"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -747,18 +706,6 @@ exports[`components/ProfilePage the default case 1`] = `
             value="test@test.test"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -891,18 +838,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             value="email@email.email"
             width="100%"
           />
-          <div
-            className="dhWXhp"
-            role="alert"
-          >
-            <span
-              alt=""
-              className="gEFfcO"
-            />
-            <span>
-              { errorMessage }
-            </span>
-          </div>
           <div>
             <button
               className="fTwoQp"
@@ -938,12 +873,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               Send password reset email
             </span>
           </button>
-          <p
-            className="jkaLiT"
-            role="alert"
-          >
-            An error occurred while sending password reset.
-          </p>
         </section>
       </div>
       <div

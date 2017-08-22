@@ -77,7 +77,7 @@ test('the mapStateToProps function', () => {
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
-		errorMessage: "",
+		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "",
 	};
@@ -111,7 +111,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
-		errorMessage: "",
+		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "https://yoast.com",
 	};
@@ -145,7 +145,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
-		errorMessage: "",
+		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "yoast.com",
 	};
@@ -171,7 +171,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
-		errorMessage: "",
+		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "yolo.test",
 	};
@@ -242,6 +242,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 		"userId": 1,
 		"subscriptions": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 	} };
+	state.ui.search.query = "";
 
 	let expected = {
 		sites: [ {
@@ -265,7 +266,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 		popupOpen: false,
 		showLoader: true,
 		errorFound: false,
-		errorMessage: "",
+		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "",
 	};

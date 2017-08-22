@@ -45,9 +45,9 @@ const initialState = {
 	profileSaved: false,
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
-	passwordResetError: "",
+	passwordResetError: null,
 	deletingProfile: false,
-	deleteProfileError: "",
+	deleteProfileError: null,
 };
 
 /**
@@ -143,7 +143,7 @@ export function passwordResetReducer( state, action ) {
 		case RESET_PASSWORD_REQUEST:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: true,
-				passwordResetError: "",
+				passwordResetError: null,
 				sendPasswordReset: false,
 			} );
 
@@ -156,7 +156,7 @@ export function passwordResetReducer( state, action ) {
 		case RESET_PASSWORD_FAILURE:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
-				passwordResetError: action.message,
+				passwordResetError: action.error,
 				sendPasswordReset: false,
 			} );
 
@@ -186,7 +186,7 @@ export function userDisableReducer( state = initialState, action ) {
 		case DISABLE_USER_FAILURE:
 			return Object.assign( {}, state, {
 				deletingProfile: false,
-				deleteProfileError: action.errorMessage,
+				deleteProfileError: action.error,
 			} );
 
 		default:

@@ -138,11 +138,11 @@ test( 'the disable user failure action', () => {
 	const input = {};
 	const action = {
 		type: DISABLE_USER_FAILURE,
-		errorMessage: "fail",
+		error: { error: "A disable user failure error." },
 	};
 	const expected = {
 		deletingProfile: false,
-		deleteProfileError: "fail",
+		deleteProfileError: { error: "A disable user failure error." },
 	};
 
 	const actual = userDisableReducer( input, action );
@@ -155,7 +155,7 @@ describe( 'userEmailReducer', () => {
 		const input = {
 			sendPasswordReset: false,
 			savingProfile: false,
-			saveEmailError: "An error",
+			saveEmailError: null,
 			profileSaved: false,
 		};
 		const action = {
@@ -165,7 +165,7 @@ describe( 'userEmailReducer', () => {
 			sendPasswordReset: false,
 			savingProfile: true,
 			profileSaved: false,
-			saveEmailError: "",
+			saveEmailError: null,
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -179,7 +179,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const input = {
 			savingProfile: true,
-			saveEmailError: "",
+			saveEmailError: null,
 			profileSaved: true,
 		};
 		const action = {
@@ -188,7 +188,7 @@ describe( 'userEmailReducer', () => {
 		};
 		const expected = {
 			savingProfile: false,
-			saveEmailError: "",
+			saveEmailError: null,
 			profileSaved: true,
 			sendPasswordReset: false,
 			data: {
@@ -204,16 +204,16 @@ describe( 'userEmailReducer', () => {
 	test( 'update failure', () => {
 		const input = {
 			savingProfile: true,
-			saveEmailError: "",
+			saveEmailError: null,
 		};
 		const action = {
 			type: PROFILE_UPDATE_FAILURE,
-			message: "An error",
+			error: { error: "An profile update failure error." },
 		};
 		const expected = {
 			savingProfile: false,
 			profileSaved: false,
-			saveEmailError: "An error",
+			saveEmailError: { error: "An profile update failure error." },
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -246,7 +246,7 @@ describe( 'passwordResetReducer', () => {
 		const input = {
 			sendingPasswordReset: false,
 			sendPasswordReset: false,
-			passwordResetError: "Some error",
+			passwordResetError: { error: "Some other error." },
 		};
 		const action = {
 			type: RESET_PASSWORD_REQUEST,
@@ -254,7 +254,7 @@ describe( 'passwordResetReducer', () => {
 		const expected = {
 			sendingPasswordReset: true,
 			sendPasswordReset: false,
-			passwordResetError: "",
+			passwordResetError: null,
 		};
 
 		const actual = passwordResetReducer( input, action );
@@ -284,16 +284,16 @@ describe( 'passwordResetReducer', () => {
 		const input = {
 			sendingPasswordReset: true,
 			sendPasswordReset: false,
-			passwordResetError: "",
+			passwordResetError: null,
 		};
 		const action = {
 			type: RESET_PASSWORD_FAILURE,
-			message: "An error",
+			error: { error: "A password reset failure error." },
 		};
 		const expected = {
 			sendingPasswordReset: false,
 			sendPasswordReset: false,
-			passwordResetError: "An error",
+			passwordResetError: { error: "A password reset failure error." },
 		};
 
 		const actual = passwordResetReducer( input, action );

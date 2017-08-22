@@ -386,7 +386,7 @@ class ProfilePage extends React.Component {
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError.message }</FormError>;
 		}
 
 		return <PasswordReset>
@@ -506,25 +506,24 @@ ProfilePage.propTypes = {
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
-	error: PropTypes.string,
 	isSendingPasswordReset: PropTypes.bool,
 	hasSendPasswordReset: PropTypes.bool,
-	passwordResetError: PropTypes.string,
+	passwordResetError: PropTypes.object,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func.isRequired,
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
-	saveEmailError: PropTypes.string,
+	saveEmailError: PropTypes.object,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
-	saveEmailError: "",
+	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
-	passwordResetError: "",
+	passwordResetError: null,
 };
 
 export default injectIntl( ProfilePage );

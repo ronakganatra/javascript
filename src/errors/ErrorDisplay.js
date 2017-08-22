@@ -44,7 +44,6 @@ class ErrorDisplay extends React.Component {
 	 * @returns {Object} An object with a defaultMessage and values, which can be used by FormattedMessage.
 	 */
 	handlePlaceholders( errorMessage, error ) {
-		console.log( "errorMessage", errorMessage );
 		let defaultMessage = "{ errorMessage }";
 		let values = { errorMessage };
 
