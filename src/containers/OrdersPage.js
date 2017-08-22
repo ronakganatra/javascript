@@ -22,7 +22,7 @@ export const mapStateToProps = ( state ) => {
 
 	// Only show completed orders.
 	orders = orders.filter( ( order ) => {
-		return order.status === "completed" || order.status === "refunded";
+		return order.status === "completed" || order.status === "processing" || order.status === "refunded";
 	} );
 
 	// Sort orders based on order date.

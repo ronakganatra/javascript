@@ -62,7 +62,7 @@ function Order( props ) {
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
 
 	return (
-		<RowMobileCollapse background={ props.background }>
+		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
 				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
 			</ColumnMinWidthResponsive>
@@ -70,7 +70,7 @@ function Order( props ) {
 						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
 				{ props.orderNumber }
 			</ColumnMinWidth>
-			<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.items ) }>
+			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items }/>
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>

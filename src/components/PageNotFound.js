@@ -1,7 +1,7 @@
 import React from "react";
 import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import styled from "styled-components";
 import { Heading } from "./Headings";
 
@@ -42,7 +42,7 @@ class PageNotFound extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.pageNotFound );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
