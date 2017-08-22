@@ -1,8 +1,6 @@
 import "whatwg-fetch";
 import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
-// import { DuplicateRecord } from "../errors/DuplicateRecord";
-// import { CustomerSupportError } from "../errors/CustomerSupportError";
 
 /**
  * Determines whether or not a valid HTTP method was passed.
