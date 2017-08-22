@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Orders component matches the snapshot 1`] = `
+<div>
+  <div>
+    <label
+      className="gOZvhE"
+      htmlFor="search"
+    >
+      <span
+        className="screen-reader-text foqgVb"
+      >
+        Search orders
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="lcfQJn"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value={undefined}
+    />
+    <p
+      className="screen-reader-text"
+      id="search-description"
+    >
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="dnTGWH"
+  >
+    <ul
+      className="dITYws"
+      onChange={[Function]}
+      role="list"
+    >
+      <li
+        className="dpKBnd"
+      >
+        <span
+          className="gRzsfa"
+        >
+          <span>
+            May 20, 2012
+          </span>
+        </span>
+        <span
+          className="fKqvxj"
+        >
+          MOOIE 123 TEST
+        </span>
+        <span
+          className="iSxaIr"
+        >
+          <ul
+            className="tvpac"
+          >
+            <li
+              className="a"
+            >
+              1
+              x 
+              Name of the product
+            </li>
+            <li
+              className="a"
+            >
+              2
+              x 
+              Another product
+            </li>
+          </ul>
+        </span>
+        <span
+          className="FOjhs"
+        >
+          <span>
+            €100.10
+          </span>
+        </span>
+        <span
+          className="gWfuXy"
+        >
+          <span>
+            completed
+          </span>
+        </span>
+        <span
+          className="gJSEqq"
+        >
+          <button
+            className="gqtpyi gKiRpK"
+            disabled="disabled"
+            to="http://somelink"
+          >
+            <span
+              className="screen-reader-text"
+            >
+              Invoice
+            </span>
+          </button>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
