@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import Link from "./Link";
 import NewTabMessage from "../components/NewTabMessage";
+import { LargeButtonLink } from "../components/Button.js";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -23,17 +23,13 @@ const PageContainer = styled.div`
 			max-width: 384px;
 		}
 	}
-
-	a {
-		font-size: 1.5em;
-	}
 `;
 
+
 /**
- * Creates the Page  component
+ * Creates the Page component.
  *
  * @param {Object} props The props to use
- *
  * @returns {ReactElement} The rendered component.
  */
 export default function LandingPage( props ) {
@@ -43,10 +39,10 @@ export default function LandingPage( props ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
 			<p>
-				<Link to={ props.url } linkTarget="_blank">
+				<LargeButtonLink to={ props.url } linkTarget="_blank">
 					{ props.urlText }
 					<NewTabMessage />
-				</Link>
+				</LargeButtonLink>
 			</p>
 			<img src={ props.imageSource } alt="" />
 		</PageContainer>

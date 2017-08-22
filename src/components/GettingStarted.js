@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth } from "./Button.js";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
+import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
 	knowledgeBase: {
@@ -23,12 +24,6 @@ const messages = defineMessages( {
 const GettingStartedModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-`;
-
-const GettingStartedHeading = styled.h1`
-	font-weight: 300;
-	font-size: 20px;
-	margin: 0 0 4;
 `;
 
 const GettingStartedText = styled.p`
@@ -75,9 +70,9 @@ const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 function GettingStarted( props ) {
 	return (
 		<GettingStartedModal role="document">
-			<GettingStartedHeading>
+			<ModalHeading>
 				<FormattedMessage id="gettingStarted.header" defaultMessage="Getting started with My Yoast" />
-			</GettingStartedHeading>
+			</ModalHeading>
 			<GettingStartedText>
 				<FormattedMessage
 					id="gettingStarted.text"

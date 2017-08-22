@@ -2,7 +2,7 @@
 
 exports[`the courses page component matches the snapshot 1`] = `
 <div
-  className="kNIZiW"
+  className="fFcAEY"
 >
   <p>
     <span>
@@ -12,12 +12,12 @@ exports[`the courses page component matches the snapshot 1`] = `
   <p>
     <a
       aria-label={undefined}
-      className={undefined}
+      className="eHAsuf"
       href="https://yoa.st/myyoast-academy"
       rel="noopener noreferrer"
       target="_blank"
     >
-      yoast.academy
+      Yoast Academy
       <span
         className="screen-reader-text fuqaAG"
       >

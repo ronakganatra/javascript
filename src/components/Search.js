@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
-import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import searchIcon from "../icons/search.svg";
+import { InputField } from "./InputField";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 const messages = defineMessages( {
@@ -39,14 +39,7 @@ SearchLabel.defaultProps = {
 const SearchLabelText = styled.span`
 `;
 
-const SearchField = styled.input`
-	height: 50px;
-	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
-	background: ${ colors.$color_white };
-	border: 0;
-	padding: 0 0 0 10px;
-	font-size: 18px;
-	font-family: "Open Sans", sans-serif;
+const SearchField = styled( InputField )`
 	width: calc(100% - 40px);
 `;
 

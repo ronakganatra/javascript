@@ -8,7 +8,7 @@ import { login, fetchUser } from "./actions/user";
 import { hasAccessToken, getAccessToken, getUserId } from "./functions/auth";
 import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
-import createLogger from "redux-logger";
+import { createLogger } from "redux-logger";
 import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";

@@ -18,7 +18,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="eCSBxO"
+      className="lcfQJn"
       id="search"
       onChange={[Function]}
       spellCheck="false"
@@ -41,8 +41,8 @@ exports[`the downloads page component matches the snapshot 1`] = `
       <div
         className="dCSOIl"
       >
-        <h2
-          className="fdADGm"
+        <span
+          className="cWpYAO"
         >
           Plugins
           <span
@@ -60,16 +60,16 @@ exports[`the downloads page component matches the snapshot 1`] = `
               .
             </span>
           </span>
-        </h2>
+        </span>
         
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Yoast SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -140,11 +140,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Local SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -181,11 +181,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Video SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -256,11 +256,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             News SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -332,8 +332,8 @@ exports[`the downloads page component matches the snapshot 1`] = `
       <div
         className="dCSOIl"
       >
-        <h2
-          className="fdADGm"
+        <span
+          className="cWpYAO"
         >
           eBooks
           <span
@@ -351,16 +351,16 @@ exports[`the downloads page component matches the snapshot 1`] = `
               .
             </span>
           </span>
-        </h2>
+        </span>
         
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -392,11 +392,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -428,11 +428,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -464,11 +464,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="bIVdbV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -505,11 +505,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
 
 exports[`the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="kNIZiW"
+  className="beArzs"
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -522,26 +522,27 @@ exports[`the downloads page component matches the snapshot when there are no dow
       To browse our products, please visit:
     </span>
   </p>
-  <p>
-    <a
-      aria-label={undefined}
-      className={undefined}
-      href="https://yoa.st/myyoast-download"
-      rel="noopener noreferrer"
-      target="_blank"
+  <a
+    aria-label={undefined}
+    className="iQBxPy"
+    href="https://yoast.com/shop/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span>
+      Shop
+    </span>
+    <span
+      className="screen-reader-text fuqaAG"
     >
-      yoast.com
-      <span
-        className="screen-reader-text fuqaAG"
-      >
-        <span>
-          (Opens in a new browser tab)
-        </span>
+      <span>
+        (Opens in a new browser tab)
       </span>
-    </a>
-  </p>
+    </span>
+  </a>
   <img
     alt=""
+    className="bTHZQB"
     src="noDownloads.svg"
   />
 </div>

@@ -2,7 +2,7 @@ import util from "util";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
@@ -44,7 +44,7 @@ const SiteAddContainer = styled.div`
 let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
 
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * Returns the rendered Sites Page component.
@@ -85,13 +85,13 @@ class SitesPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
 		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
+		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */
@@ -107,7 +107,7 @@ class SitesPage extends React.Component {
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
-			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview" />,
+			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview." />,
 			<FormattedMessage id="sites.noSite.manage"
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
 			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site."/>,

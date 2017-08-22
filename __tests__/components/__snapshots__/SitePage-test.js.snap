@@ -6,7 +6,7 @@ exports[`the site page component matches the snapshot 1`] = `
     className="kFyTbG"
   >
     <h1
-      className="hcMfBS"
+      className="dqjBBn"
     >
       yoast.com
     </h1>
@@ -254,7 +254,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     className="kFyTbG"
   >
     <h1
-      className="hcMfBS"
+      className="dqjBBn"
     >
       yoast.com/path/
     </h1>

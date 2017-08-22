@@ -1,14 +1,9 @@
 import React from "react";
 import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import styled from "styled-components";
-
-const NotFoundHeading = styled.h1`
-	font-weight: 700;
-	font-size: 2.5em;
-	margin: 0;
-`;
+import { Heading } from "./Headings";
 
 const PageContainer = styled.div`
 	margin-top: 10vh;
@@ -47,7 +42,7 @@ class PageNotFound extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.pageNotFound );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
@@ -58,7 +53,7 @@ class PageNotFound extends React.Component {
 
 
 		<PageContainer>
-			<NotFoundHeading><FormattedMessage id="page.notfound.header" defaultMessage={ "Oops" } /></NotFoundHeading>
+			<Heading><FormattedMessage id="page.notfound.header" defaultMessage={ "Oops" } /></Heading>
 			{ paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
