@@ -16,17 +16,17 @@ let messages = defineMessages( {
 /**
  * This class can render error messages in our custom style. It outputs the styled error message if its errorMessage prop is not empty.
  * Else, it renders null.
- * The parameter showIcon is set to true by default, and will render a warning triangle with adjusted padding-left.
- *
- * @param {Object} props The props to use.
  *
  * @returns {ReactElement} The rendered ErrorMessage component.
  */
 class ErrorDisplay extends React.Component {
 	/**
-	 * Sets the ErrorMessage object. This includes setting iconPadding to true, because by default the icon is shown. This requires altered padding-left.
+	 * Sets the ErrorMessage object.
+	 * The parameter showIcon is set to true by default, and will render a warning triangle with adjusted padding-left.
+	 * The constructor sets iconPadding to true, because by default the icon is shown. This requires altered padding-left.
 	 *
 	 * @param {Object} props The props passed to the component.
+	 *
 	 * @returns {void}
 	 */
 	constructor( props ) {
@@ -41,6 +41,7 @@ class ErrorDisplay extends React.Component {
 	 *
 	 * @param {string} errorMessage The string to check for placeholders.
 	 * @param {Object} error The error object.
+	 *
 	 * @returns {Object} An object with a defaultMessage and values, which can be used by FormattedMessage.
 	 */
 	handlePlaceholders( errorMessage, error ) {
@@ -55,12 +56,12 @@ class ErrorDisplay extends React.Component {
 					<FormattedMessage id={ messages.contactSupportLink.id } defaultMessage={ messages.contactSupportLink.defaultMessage } />
 				</PurpleLink> );
 			defaultMessage = "{ errorMessage }{ contactLink }.";
-			values = Object.assign( values, values, { errorMessage, contactLink } );
+			values = { errorMessage, contactLink };
 		}
 
 		// In the case of an [error_context] placeholder, replace with the contents of the context field present in certain errors.
 		if ( errorMessage.indexOf( "[error_context]" ) > -1 ) {
-			errorMessage = errorMessage.replace( "[error_context]", `${ this.props.error.context.toLowerCase() }` );
+			errorMessage = errorMessage.replace( "[error_context]", `${ error.context.toLowerCase() }` );
 			values = { errorMessage };
 		}
 
@@ -69,18 +70,14 @@ class ErrorDisplay extends React.Component {
 			values = { errorMessage };
 		}
 
-		return(
-		{
-			defaultMessage,
-			values,
-		}
-		);
+		return( { defaultMessage, values } );
 	}
 
 	/**
 	 * Formats an object containing a defaultMessage and values into a FormattedMessage component.
 	 *
 	 * @param {Object} messageFormatObject An object containing a defaultMessage and values that replace defaultMessage sections.
+	 *
 	 * @returns {ReactElement} A FormattedMessage component that contains the formatted error message.
 	 */
 	toFormattedMessage( messageFormatObject ) {
@@ -97,6 +94,7 @@ class ErrorDisplay extends React.Component {
 	 * Returns the exclamationTriangle Icon in case of a warning and an exclamationCircle in case of an error.
 	 *
 	 * @param {Boolean} showIcon Whether to show the warning triangle icon (true) or not (false). Default = true.
+	 *
 	 * @returns {ReactElement} Returns null in case the input is set to false, and the warning triangle icon if true.
 	 */
 	renderIcon( showIcon ) {
@@ -107,8 +105,9 @@ class ErrorDisplay extends React.Component {
 		}
 
 		let icon = this.messageType === "warning" ? exclamationTriangle : exclamationCircle;
+		// let altText = this.messageType === "warning" ? "Warning sign" : "Error sign";
 		return(
-			<MessageIcon iconSource={ icon } alt=""/>
+			<MessageIcon iconSource={ icon } alt={ "" }/>
 		);
 	}
 
@@ -117,6 +116,7 @@ class ErrorDisplay extends React.Component {
 	 * such that the rest of this class can handle all varieties.
 	 *
 	 * @param {Object} error The error object received.
+	 *
 	 * @returns {Object} An error object that this class can handle.
 	 */
 	unifyErrorStructure( error ) {
@@ -139,6 +139,7 @@ class ErrorDisplay extends React.Component {
 
 	/**
 	 * This function sets this.recodedMessage according to the error type and information in the lookup table.
+	 *
 	 * @param {Object} error The error object.
 	 *
 	 * @returns {void}
@@ -153,6 +154,7 @@ class ErrorDisplay extends React.Component {
 
 	/**
 	 * This function sets this.messageType according to the error type and information in the lookup table.
+	 *
 	 * @param {Object} error The error object.
 	 *
 	 * @returns {void}
@@ -168,7 +170,8 @@ class ErrorDisplay extends React.Component {
 	/**
 	 * Sets the error message to be rendered, or null.
 	 *
-	 * @param {object} error The message to render.
+	 * @param {object} error The message to render.*
+	 *
 	 * @returns {ReactElement} The to be rendered JSX element.
 	 */
 	setMessage( error ) {

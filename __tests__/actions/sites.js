@@ -131,7 +131,7 @@ test( 'link site action creator with failure', () => {
 	return linkSiteFunc( dispatch ).then( () => {
 		expect( dispatch ).toHaveBeenCalledWith( actions.updateSiteUrl( "http://yoast.com" ) );
 		expect( api.doRequest ).toHaveBeenCalledWith( request );
-		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( { message: "Attempted to insert a duplicate record in a unique field", } ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.linkSiteFailure( { message: "Attempted to insert a duplicate record in a unique field" } ) );
 	} );
 } );
 

@@ -185,7 +185,7 @@ SitesPage.defaultProps = {
 	sites: [],
 	linkingSiteUrl: "",
 	popupOpen: false,
-	error: "",
+	error: null,
 	showLoader: false,
 };
 
