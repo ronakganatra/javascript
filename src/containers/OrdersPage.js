@@ -9,7 +9,10 @@ export const mapStateToProps = ( state ) => {
 	let orders = allIds.map( ( orderId ) => {
 		let order = state.entities.orders.byId[ orderId ];
 
-		// Capitalize first letter in order status.
+		/*
+		Capitalize the first letter in the order.status string, by taking the first character and calling toUpperCase() on it.
+		Then, add the remainder of
+		 */
 		order.status = order.status.charAt( 0 ).toUpperCase() + order.status.slice( 1 );
 
 		return {
