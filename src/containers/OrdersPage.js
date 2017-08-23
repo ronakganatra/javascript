@@ -11,7 +11,7 @@ export const mapStateToProps = ( state ) => {
 
 		/*
 		Capitalize the first letter in the order.status string, by taking the first character and calling toUpperCase() on it.
-		Then, add the remainder of
+		Then, add the remainder of the string.
 		 */
 		order.status = order.status.charAt( 0 ).toUpperCase() + order.status.slice( 1 );
 
