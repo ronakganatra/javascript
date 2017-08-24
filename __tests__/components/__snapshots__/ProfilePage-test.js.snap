@@ -167,7 +167,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             role="alert"
           >
             <span
-              alt=""
+              alt="Error sign"
               className="gEFfcO"
             />
             <span>
