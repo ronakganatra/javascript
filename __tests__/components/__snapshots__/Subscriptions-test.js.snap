@@ -87,9 +87,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="hcokQE"
       >
-        <span>
-          October 13, 2014
-        </span>
+        -
       </span>
       <span
         className="lmMizz"

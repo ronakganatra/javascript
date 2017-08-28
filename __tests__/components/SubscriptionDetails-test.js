@@ -14,7 +14,40 @@ test('the subscription detail component matches the snapshot', () => {
 		<MemoryRouter>
 			<SubscriptionDetails
 				startDate={ new Date( "June 1, 2017" ) }
+				hasNextBilling={ true }
 				nextBilling={ new Date( "June 1, 2018" ) }
+				orders={ [
+					{
+						id: "1",
+						date: new Date( "July 21, 2016" ),
+						currency: "USD",
+						total: 100
+					},
+					{
+						id: "2",
+						date: new Date( "July 22, 2016" ),
+						currency: "USD",
+						total: 20000
+					}
+				] }
+				current={ 6 }
+				max={ 10 }
+				onInvoiceDownload={ () => {} }
+			/>
+		</MemoryRouter>
+	);
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
+test('the subscription detail component has no next billing', () => {
+	const component = createComponentWithIntl(
+		<MemoryRouter>
+			<SubscriptionDetails
+				startDate={ new Date( "June 1, 2017" ) }
+				hasNextBilling={ false }
+				nextBilling={ new Date() }
 				orders={ [
 					{
 						id: "1",
