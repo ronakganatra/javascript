@@ -63,7 +63,7 @@ exports[`The Orders component matches the snapshot 1`] = `
         className="gJSEqq"
       >
         <button
-          className="gqtpyi gKiRpK"
+          className="gqtpyi liRnCl"
           disabled="disabled"
           to="http://somelink"
         >

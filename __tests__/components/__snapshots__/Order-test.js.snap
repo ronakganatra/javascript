@@ -56,7 +56,7 @@ exports[`A standard order 1`] = `
     className="gJSEqq"
   >
     <button
-      className="gqtpyi gKiRpK"
+      className="gqtpyi liRnCl"
       disabled="disabled"
       to="http://somelink"
     >
@@ -126,7 +126,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     className="gJSEqq"
   >
     <button
-      className="gqtpyi gKiRpK"
+      className="gqtpyi liRnCl"
       disabled="disabled"
       to="http://somelink"
     >
