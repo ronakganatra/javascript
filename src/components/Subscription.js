@@ -53,6 +53,11 @@ function Subscription( props ) {
 		rowProps.background = props.background;
 	}
 
+	let nextPayment = "-";
+	if ( props.hasNextPayment ) {
+		nextPayment = <FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>;
+	}
+
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
@@ -66,7 +71,7 @@ function Subscription( props ) {
 				{ props.used }/{ props.limit }
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
-				<FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>
+				{nextPayment}
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
 				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
@@ -89,6 +94,7 @@ Subscription.propTypes = {
 	name: PropTypes.string.isRequired,
 	used: PropTypes.number.isRequired,
 	limit: PropTypes.number.isRequired,
+	hasNextPayment: PropTypes.bool.isRequired,
 	nextPayment: PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: PropTypes.number.isRequired,
 	billingCurrency: PropTypes.string.isRequired,

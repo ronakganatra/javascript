@@ -25,6 +25,7 @@ export default function Subscriptions( props ) {
 					name={ subscription.name }
 					used={ subscription.used }
 					limit={ subscription.limit }
+					hasNextPayment={ subscription.hasNextPayment }
 					nextPayment={ subscription.nextPayment }
 					billingAmount={ subscription.billingAmount }
 					billingCurrency={ subscription.billingCurrency }
@@ -45,6 +46,7 @@ Subscriptions.propTypes = {
 				name: PropTypes.string.isRequired,
 				used: PropTypes.number.isRequired,
 				limit: PropTypes.number.isRequired,
+				hasNextPayment: PropTypes.bool.isRequired,
 				nextPayment: PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: PropTypes.number.isRequired,
 				billingCurrency: PropTypes.string.isRequired,

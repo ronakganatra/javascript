@@ -41,6 +41,7 @@ let defaultExpected = {
 			"name": "Yoast SEO",
 			"used": 1,
 			"limit": 2,
+			"hasNextPayment": true,
 			"nextPayment": new Date( "2017-05-01 21:04:28" ),
 			"billingAmount": "6900",
 			"billingCurrency": "USD",
