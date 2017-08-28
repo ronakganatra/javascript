@@ -44,7 +44,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           className="eHlvIb"
         >
           <button
-            className="eyDOsO"
+            className="hUAvMB"
             onClick={[Function]}
             type="button"
           >
@@ -53,7 +53,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="lnJugF"
+            className="ibCohl"
             onClick={[Function]}
             type="submit"
           >
@@ -120,7 +120,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           className="eHlvIb"
         >
           <button
-            className="eyDOsO"
+            className="hUAvMB"
             onClick={[Function]}
             type="button"
           >
@@ -129,7 +129,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="lnJugF"
+            className="ibCohl"
             onClick={[Function]}
             type="submit"
           >
@@ -196,7 +196,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           className="eHlvIb"
         >
           <button
-            className="eyDOsO"
+            className="hUAvMB"
             onClick={[Function]}
             type="button"
           >
@@ -205,7 +205,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="lnJugF"
+            className="ibCohl"
             onClick={[Function]}
             type="submit"
           >
@@ -272,7 +272,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           className="eHlvIb"
         >
           <button
-            className="eyDOsO"
+            className="hUAvMB"
             onClick={[Function]}
             type="button"
           >
@@ -281,7 +281,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
-            className="lnJugF"
+            className="ibCohl"
             onClick={[Function]}
             type="submit"
           >
@@ -348,7 +348,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
           className="eHlvIb"
         >
           <button
-            className="eyDOsO"
+            className="hUAvMB"
             onClick={[Function]}
             type="button"
           >
@@ -357,7 +357,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
             </span>
           </button>
           <button
-            className="lnJugF"
+            className="ibCohl"
             onClick={[Function]}
             type="submit"
           >
