@@ -72,7 +72,7 @@ IconButtonArchetype.defaultProps = {
 
 // Styled ButtonArchetypes.
 export const Button = styled( ButtonArchetype )`
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 `;
 
 export const RedButton = styled( ButtonArchetype )`
@@ -93,7 +93,7 @@ export const LargeSecondaryButton = styled( ButtonArchetype )`
 		color: ${ colors.$color_white };
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 		border: none;
-		text-shadow: 0px 0px 1px #000;
+		text-shadow: 0px 0px 2px #000;
 	}
 `;
 
@@ -230,7 +230,7 @@ export const MobileHeaderButton = styled( IconButtonArchetype )`
 `;
 
 export const IconButton = styled( IconButtonArchetype )`
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 `;
 
 // Styled IconButtons.
@@ -252,7 +252,7 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 
 	&:hover,
 	&:focus {
