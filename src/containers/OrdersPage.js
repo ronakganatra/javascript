@@ -9,6 +9,12 @@ export const mapStateToProps = ( state ) => {
 	let orders = allIds.map( ( orderId ) => {
 		let order = state.entities.orders.byId[ orderId ];
 
+		/*
+		Capitalize the first letter in the order.status string, by taking the first character and calling toUpperCase() on it.
+		Then, add the remainder of the string.
+		 */
+		order.status = order.status.charAt( 0 ).toUpperCase() + order.status.slice( 1 );
+
 		return {
 			id: order.id,
 			orderNumber: order.invoiceNumber,
@@ -22,7 +28,7 @@ export const mapStateToProps = ( state ) => {
 
 	// Only show completed orders.
 	orders = orders.filter( ( order ) => {
-		return order.status === "completed" || order.status === "processing" || order.status === "refunded";
+		return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
 	} );
 
 	// Sort orders based on order date.
