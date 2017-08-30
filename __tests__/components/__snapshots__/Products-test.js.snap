@@ -17,7 +17,7 @@ exports[`The Products component matches the snapshot 1`] = `
     className="iqMgVR"
   >
     <span
-      className="bIVdbV"
+      className="jBkxVV"
     >
       Yoast SEO
     </span>
@@ -75,7 +75,7 @@ exports[`The Products component matches the snapshot 1`] = `
     className="iqMgVR"
   >
     <span
-      className="bIVdbV"
+      className="jBkxVV"
     >
       Local SEO
     </span>
@@ -116,7 +116,7 @@ exports[`The Products component matches the snapshot 1`] = `
     className="iqMgVR"
   >
     <span
-      className="bIVdbV"
+      className="jBkxVV"
     >
       Video SEO
     </span>
@@ -191,7 +191,7 @@ exports[`The Products component matches the snapshot 1`] = `
     className="iqMgVR"
   >
     <span
-      className="bIVdbV"
+      className="jBkxVV"
     >
       News SEO
     </span>
@@ -266,7 +266,7 @@ exports[`The Products component matches the snapshot 1`] = `
     className="iqMgVR"
   >
     <span
-      className="bIVdbV"
+      className="jBkxVV"
     >
       Yoast SEO for WooCommerce
     </span>
