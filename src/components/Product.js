@@ -61,7 +61,7 @@ const Download = styled.li`
 const ProductName = styled.span`
 	display: block;
 	font-size: 1.375em;
-	min-height: 2.4em;
+	min-height: 4em;
 	font-weight: 400;
 	line-height: 1.2;
 	margin: 0;
