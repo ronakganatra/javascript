@@ -151,14 +151,17 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
               0/2 remaining
             </span>
           </span>
-          <button
-            className="dDUvRh"
-            onClick={[Function]}
+          <a
+            aria-label={undefined}
+            className="cpCKfX"
+            href="http://url2.com"
+            rel={undefined}
+            target={undefined}
           >
             <span>
               Get another subscription
             </span>
-          </button>
+          </a>
         </span>
         <span
           className="fRNOok"
