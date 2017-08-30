@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonTransparent, makeButtonFullWidth } from "./Button";
+import { LargeButtonLink, IconButtonTransparent, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -9,7 +9,6 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } fro
 import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
-import Link from "./Link";
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
@@ -87,15 +86,14 @@ function SiteSubscriptionDetail( props ) {
 
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
+		console.log( "Props", props );
 		anotherLicense = (
-				<Link to="https://shop.com">
-					<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } >
+				<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
 					<FormattedMessage
 						id="site.subscriptions.licenses.add"
 						defaultMessage="Get another subscription"
 					/>
-					</IconButtonTransparent>
-				</Link>
+				</IconButtonTransparentLink>
 		);
 	}
 

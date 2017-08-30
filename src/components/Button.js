@@ -212,6 +212,41 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	}
 `;
 
+export const IconButtonTransparentLink = styled( Link )`
+	margin: 0;
+	// Buttons don't need vertical padding.
+	border: 0;
+	border-radius: 4px;
+	font: 400 14px/24px "Open Sans", sans-serif;
+	cursor: pointer;
+
+	${ buttonAnimations };
+
+	background-repeat: no-repeat;
+	background-image: url( ${ props => props.iconSource } );
+	background-size: ${ props => props.iconSize };
+	background-color: transparent;
+	background-position: 0.5em 50%;
+	color: ${ colors.$color_blue };
+	box-shadow: none;
+	text-transform: none;
+	height: 32px;
+	padding-left: 2em;
+
+	transition: background-color 150ms ease-out;  
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		background-color: ${ colors.$color_grey_light };
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 export const MobileHeaderButton = styled( IconButtonArchetype )`
 	background-color: transparent;
 	box-shadow: none;
