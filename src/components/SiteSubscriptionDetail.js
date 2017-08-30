@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonTransparent, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
+import { LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -99,12 +99,12 @@ function SiteSubscriptionDetail( props ) {
 
 	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
+			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get a subscription"
 				/>
-			</IconButtonTransparent>
+			</IconButtonTransparentLink>
 		);
 	}
 
