@@ -5,7 +5,7 @@ exports[`The Download component matches the snapshot 1`] = `
   className="iqMgVR"
 >
   <span
-    className="bIVdbV"
+    className="jBkxVV"
   >
     Yoast SEO
   </span>
@@ -66,7 +66,7 @@ exports[`The Download component without a currentVersion matches the snapshot 1`
   className="iqMgVR"
 >
   <span
-    className="bIVdbV"
+    className="jBkxVV"
   >
     Yoast SEO
   </span>
