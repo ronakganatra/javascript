@@ -58,7 +58,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -134,7 +134,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -210,7 +210,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -286,7 +286,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -362,7 +362,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>

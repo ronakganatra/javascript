@@ -246,7 +246,7 @@ class AddSite extends React.Component {
 						</WideSecondaryButton>
 						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
 						} } enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>
