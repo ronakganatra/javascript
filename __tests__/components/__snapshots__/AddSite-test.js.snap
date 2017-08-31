@@ -24,11 +24,11 @@ exports[`The AddSite component matches the snapshot 1`] = `
     </label>
     <input
       className="jeqQcj"
-      defaultValue=""
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
       type="url"
+      value=""
     />
     <div
       className="eHlvIb"
@@ -44,7 +44,6 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         className="ibCohl"
-        onClick={[Function]}
         type="submit"
       >
         <span>

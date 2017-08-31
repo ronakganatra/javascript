@@ -103,15 +103,10 @@ class AddSite extends React.Component {
 		this.state = {
 			validationError: null,
 			showValidationError: false,
-			urlValidity: false,
 		};
+
 		// Defines the debounced function for showing validation error.
-		this.showValidationMessageDebounced = _debounce( () => {
-			this.setState( { showValidationError: true } );
-		}, 1000 );
-	}
-	componentWillUnmount() {
-		this.showValidationMessageDebounced.cancel();
+		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
 	}
 
 	/**
@@ -137,20 +132,51 @@ class AddSite extends React.Component {
 	onWebsiteURLChange( event ) {
 		const value = event.target.value;
 		this.props.onChange( value );
-		let validationError = this.validateUrl( value );
+	}
+
+	/**
+	 * Run url validation and show/hide error if validation returns error.
+	 *
+	 * @param {string} url The url to validate.
+	 * @param {bool} debounced Show the error message debounced.
+	 *
+	 * @returns {void}
+	 */
+	runValidation( url, debounced = true ) {
+		let validationError = this.validateUrl( url );
 		if ( validationError ) {
-			this.setState( {
-				urlValidity: false,
-				validationError: validationError,
-			} );
-			this.showValidationMessageDebounced();
+			this.updateValidationMessage( validationError );
+			if( debounced ) {
+				this.showValidationMessageDebounced();
+			} else {
+				this.showValidationMessage();
+			}
 		} else {
-			this.setState( {
-				urlValidity: true,
-				validationError: null,
-			} );
+			this.updateValidationMessage( null );
 			this.hideValidationError();
 		}
+	}
+
+	/**
+	 * Shows the validation error.
+	 *
+	 * @returns {void}
+	 */
+	showValidationMessage() {
+		this.setState( { showValidationError: true } );
+	}
+
+	/**
+	 * Updates the validation message.
+	 *
+	 * @param {string} message The validation message.
+	 *
+	 * @returns {void}
+	 */
+	updateValidationMessage( message ) {
+		this.setState( {
+			validationError: message,
+		} );
 	}
 
 	/**
@@ -172,6 +198,11 @@ class AddSite extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Hides the validation message and cancels a potential debounced error.
+	 *
+	 * @returns {void}
+	 */
 	hideValidationError() {
 		this.setState( { showValidationError: false }, () => {
 			this.showValidationMessageDebounced.cancel();
@@ -201,63 +232,17 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Handles the website submit event.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @param {object} event The submit event.
+	 *
+	 * @returns {void}
 	 */
-	render() {
-		let suggestedValue = "";
-
-		if ( this.props.query.length > 0 ) {
-			suggestedValue = this.props.query;
+	handleSubmit( event ) {
+		event.preventDefault();
+		if( ! this.state.validationError ) {
+			this.props.onConnectClick();
 		}
-
-		let handleSubmit = ( event ) => {
-			event.preventDefault();
-
-			return ( this.state.urlValidity ? this.props.onConnectClick : () => {} );
-		};
-		return (
-			<AddSiteModal>
-				<ModalHeading>
-					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
-				</ModalHeading>
-
-				<form onSubmit={ handleSubmit } noValidate>
-					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.addSite.enterUrl"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
-						/>
-					</label>
-
-					<WebsiteURL
-						type="url"
-						id="add-site-input"
-						placeholder={ "https://example-site.com" }
-						defaultValue={ suggestedValue }
-						onChange={ this.onWebsiteURLChange.bind( this ) }
-					/>
-
-					<ErrorDisplay error={ this.props.error } />
-
-					<Buttons>
-						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
-						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
-						</WideLargeButton>
-					</Buttons>
-				</form>
-				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
-				<AddSiteImage src={ addSiteImage } alt=""/>
-			</AddSiteModal>
-		);
-	}
-
-	componentDidUpdate( prevProps ) {
-		this.speakSearchResultsMessage( prevProps );
 	}
 
 	speakSearchResultsMessage( prevProps ) {
@@ -270,10 +255,75 @@ class AddSite extends React.Component {
 		 */
 		debouncedSpeak.cancel();
 
-		if ( this.props.linkingSiteUrl.length > 0 && ( this.props.linkingSiteUrl !== prevProps.linkingSiteUrl ) && ! this.urlValidity ) {
+		if ( this.props.linkingSiteUrl.length > 0 && ( this.props.linkingSiteUrl !== prevProps.linkingSiteUrl ) && this.state.validationError ) {
 			let message = this.props.intl.formatMessage( messages.validationFormatURL );
 			debouncedSpeak( message, "assertive" );
 		}
+	}
+
+	componentDidMount() {
+		this.props.onChange( this.props.query );
+		this.runValidation( this.props.query, false );
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		if( this.props.linkingSiteUrl !== nextProps.linkingSiteUrl ) {
+			this.runValidation( nextProps.linkingSiteUrl );
+		}
+	}
+
+	componentDidUpdate( prevProps ) {
+		this.speakSearchResultsMessage( prevProps );
+	}
+
+	componentWillUnmount() {
+		this.showValidationMessageDebounced.cancel();
+	}
+
+	/**
+	 * Returns the rendered html.
+	 *
+	 * @returns {ReactElement} The rendered html.
+	 */
+	render() {
+		return (
+			<AddSiteModal>
+				<ModalHeading>
+					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
+				</ModalHeading>
+
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
+					<label htmlFor="add-site-input">
+						<FormattedMessage id="sites.addSite.enterUrl"
+										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+						/>
+					</label>
+
+					<WebsiteURL
+						type="url"
+						id="add-site-input"
+						placeholder={ "https://example-site.com" }
+						value={ this.props.linkingSiteUrl }
+						onChange={ this.onWebsiteURLChange.bind( this ) }
+					/>
+
+					<ErrorDisplay error={ this.props.error } />
+
+					<Buttons>
+						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
+						</WideSecondaryButton>
+						<WideLargeButton
+							type="submit"
+							enabledStyle={ ! this.state.validationError }>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
+						</WideLargeButton>
+					</Buttons>
+				</form>
+				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
+				<AddSiteImage src={ addSiteImage } alt=""/>
+			</AddSiteModal>
+		);
 	}
 }
 

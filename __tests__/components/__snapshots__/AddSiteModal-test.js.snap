@@ -34,11 +34,11 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
         </label>
         <input
           className="jeqQcj"
-          defaultValue=""
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
           className="eHlvIb"
@@ -54,7 +54,6 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           </button>
           <button
             className="ibCohl"
-            onClick={[Function]}
             type="submit"
           >
             <span>
@@ -110,11 +109,11 @@ exports[`the addSiteModal handling an onClose event 1`] = `
         </label>
         <input
           className="jeqQcj"
-          defaultValue=""
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
           className="eHlvIb"
@@ -130,7 +129,6 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           </button>
           <button
             className="ibCohl"
-            onClick={[Function]}
             type="submit"
           >
             <span>
@@ -186,11 +184,11 @@ exports[`the addSiteModal handling an onClose event 2`] = `
         </label>
         <input
           className="jeqQcj"
-          defaultValue=""
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
           className="eHlvIb"
@@ -206,7 +204,6 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           </button>
           <button
             className="ibCohl"
-            onClick={[Function]}
             type="submit"
           >
             <span>
@@ -262,11 +259,11 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
         </label>
         <input
           className="jeqQcj"
-          defaultValue=""
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
           className="eHlvIb"
@@ -282,7 +279,6 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           </button>
           <button
             className="ibCohl"
-            onClick={[Function]}
             type="submit"
           >
             <span>
@@ -338,11 +334,11 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
         </label>
         <input
           className="jeqQcj"
-          defaultValue=""
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
           className="eHlvIb"
@@ -358,7 +354,6 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
           </button>
           <button
             className="ibCohl"
-            onClick={[Function]}
             type="submit"
           >
             <span>
