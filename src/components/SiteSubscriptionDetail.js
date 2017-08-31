@@ -86,7 +86,6 @@ function SiteSubscriptionDetail( props ) {
 
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
-		console.log( "Props", props );
 		anotherLicense = (
 				<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
 					<FormattedMessage
