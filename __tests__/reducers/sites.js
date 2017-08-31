@@ -65,6 +65,7 @@ test( 'the link site success action in the uiSitesReducer', () => {
 	const expected = {
 		linkSiteFailed: false,
 		addSitePopupOpen: false,
+		linkSiteError: null,
 		linkingSiteUrl: "",
 		linkingSite: false,
 	};
