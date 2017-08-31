@@ -12,6 +12,44 @@ export function getAuthUrl() {
 }
 
 /**
+ * Sets the intendedDestination in the site-wide cookie containing the URL where the user intended to go.
+ *
+ * @returns {void}
+ */
+export function setPeriLoginCookie() {
+	Cookies.set( "intendedDestination", window.location.href );
+}
+
+/**
+ * Removes the intendedDestination from the site-wide cookie.
+ *
+ * @returns {void}
+ */
+export function removePeriLoginCookie() {
+	Cookies.remove( "intendedDestination" );
+}
+
+/**
+ * Checks whether the user should be redirected to the page he/she was before logging in.
+ *
+ * @returns {boolean} Whether or not a user should be redirected.
+ */
+export function shouldBeRedirected() {
+	console.log( !! Cookies.get( "intendedDestination" ) );
+	return !! Cookies.get( "intendedDestination" );
+}
+
+/**
+ * Directs the user to the my.yoast.com url they wanted to visit before logging in.
+ *
+ * @returns {bool} Whether or not we have been redirected.
+ */
+export function directToIntendedDestination() {
+	window.location.href = Cookies.get( "intendedDestination" );
+	removePeriLoginCookie();
+}
+
+/**
  * Returns the logout URL where the user can logout.
  *
  * @returns {string} The URL where the user can logout.
