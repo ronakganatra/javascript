@@ -101,6 +101,7 @@ export function linkReducer( state = rootState.ui.sites, action ) {
 				linkSiteFailed: false,
 				addSitePopupOpen: false,
 				linkingSiteUrl: "",
+				linkSiteError: null,
 				linkingSite: false,
 			} );
 		case LINK_SITE_FAILURE:
