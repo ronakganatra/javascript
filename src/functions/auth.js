@@ -35,7 +35,6 @@ export function removePeriLoginCookie() {
  * @returns {boolean} Whether or not a user should be redirected.
  */
 export function shouldBeRedirected() {
-	console.log( !! Cookies.get( "intendedDestination" ) );
 	return !! Cookies.get( "intendedDestination" );
 }
 
