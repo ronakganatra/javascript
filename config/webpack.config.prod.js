@@ -54,7 +54,7 @@ module.exports = {
   entry: [
     require.resolve('./polyfills'),
     "babel-polyfill",
-    paths.appIndexJs,
+    paths.appIndexJs
   ],
   output: {
     // The build folder.
