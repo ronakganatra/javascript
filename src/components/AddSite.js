@@ -245,7 +245,7 @@ class AddSite extends React.Component {
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ ! this.state.validationError }>
+						} } enabledStyle={ ! this.state.validationError } aria-label="add">
 							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
 					</Buttons>

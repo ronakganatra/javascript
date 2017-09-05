@@ -43,6 +43,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
+        aria-label="add"
         className="ibCohl"
         onClick={[Function]}
         type="submit"
