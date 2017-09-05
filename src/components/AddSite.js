@@ -226,7 +226,7 @@ class AddSite extends React.Component {
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">
 						<FormattedMessage id="sites.addSite.enterUrl"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+										  defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
 					</label>
 

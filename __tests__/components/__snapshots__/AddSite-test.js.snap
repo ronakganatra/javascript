@@ -19,7 +19,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       htmlFor="add-site-input"
     >
       <span>
-        Please enter the URL of the site you would like to link with your account:
+        Please enter the URL of the site you would like to add to your account:
       </span>
     </label>
     <input
