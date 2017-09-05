@@ -135,10 +135,10 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Run url validation and show/hide error if validation returns error.
+	 * Runs url validation and shows/hides error if validation returns error.
 	 *
-	 * @param {string} url The url to validate.
-	 * @param {bool} debounced Show the error message debounced.
+	 * @param {string} 	url The url to validate.
+	 * @param {bool} 	debounced Show the error message debounced.
 	 *
 	 * @returns {void}
 	 */
@@ -146,7 +146,7 @@ class AddSite extends React.Component {
 		let validationError = this.validateUrl( url );
 		if ( validationError ) {
 			this.updateValidationMessage( validationError );
-			if( debounced ) {
+			if ( debounced ) {
 				this.showValidationMessageDebounced();
 			} else {
 				this.showValidationMessage();
@@ -246,10 +246,7 @@ class AddSite extends React.Component {
 	}
 
 	speakSearchResultsMessage( prevProps ) {
-		/*
-		 * In order to use this.urlValidity we need to wait it's updated so we
-		 * use componentDidUpdate() to call the debounced speak. As a
-		 * consequence, we need to use the lodash debounce.cancel() method to
+		/* We need to use the lodash debounce.cancel() method to
 		 * cancel the delayed call. This is particularly important when typing
 		 * fast in the site URL field.
 		 */
@@ -262,12 +259,14 @@ class AddSite extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.onChange( this.props.query );
-		this.runValidation( this.props.query, false );
+		if ( this.props.query ) {
+			this.props.onChange( this.props.query );
+			this.runValidation( this.props.query, false );
+		}
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		if( this.props.linkingSiteUrl !== nextProps.linkingSiteUrl ) {
+		if ( this.props.linkingSiteUrl !== nextProps.linkingSiteUrl ) {
 			this.runValidation( nextProps.linkingSiteUrl );
 		}
 	}
