@@ -294,7 +294,7 @@ class AddSite extends React.Component {
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
 					<label htmlFor="add-site-input">
 						<FormattedMessage id="sites.addSite.enterUrl"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+										  defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
 					</label>
 
@@ -314,8 +314,10 @@ class AddSite extends React.Component {
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
-							enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
+							enabledStyle={ ! this.state.validationError }
+							aria-label="add"
+						>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>

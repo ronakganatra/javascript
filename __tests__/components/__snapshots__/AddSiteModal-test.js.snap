@@ -29,7 +29,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
@@ -53,11 +53,12 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
+            aria-label="add"
             className="ibCohl"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -104,7 +105,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
@@ -128,11 +129,12 @@ exports[`the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
+            aria-label="add"
             className="ibCohl"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -179,7 +181,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
@@ -203,11 +205,12 @@ exports[`the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
+            aria-label="add"
             className="ibCohl"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -254,7 +257,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
@@ -278,11 +281,12 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
+            aria-label="add"
             className="ibCohl"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -329,7 +333,7 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
@@ -353,11 +357,12 @@ exports[`the addSiteModal handling an onConnect event 2`] = `
             </span>
           </button>
           <button
+            aria-label="add"
             className="ibCohl"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
