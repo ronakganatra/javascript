@@ -19,7 +19,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       htmlFor="add-site-input"
     >
       <span>
-        Please enter the URL of the site you would like to link with your account:
+        Please enter the URL of the site you would like to add to your account:
       </span>
     </label>
     <input
@@ -43,12 +43,13 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
+        aria-label="add"
         className="ibCohl"
         onClick={[Function]}
         type="submit"
       >
         <span>
-          connect
+          add
         </span>
       </button>
     </div>

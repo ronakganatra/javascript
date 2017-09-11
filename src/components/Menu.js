@@ -193,7 +193,12 @@ function MainMenu( props ) {
 									 let title = props.intl.formatMessage( titles[ page.titleKey ] );
 
 									 return <li key={ page.titleKey }>
-										 <MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
+										 <MenuItem
+											activeClassName={ activeStyle }
+											to={ page.path }
+											isActive={ isActive }
+											ariaCurrent="page"
+										>
 											 <MenuIcon src={ page.iconSource } alt=""/>
 											 { title }
 										 </MenuItem>
