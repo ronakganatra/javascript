@@ -20,8 +20,6 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( speak, 1000 );
-
 const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
@@ -109,6 +107,8 @@ class AddSite extends React.Component {
 
 		// Defines the debounced function to show the validation error.
 		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
+		// Defines the debounced function to announce the validation error.
+		this.speakValidationMessageDebounced = _debounce( this.speakValidationMessage, 1000 );
 	}
 
 	/**
@@ -150,8 +150,10 @@ class AddSite extends React.Component {
 			this.updateValidationMessage( validationError );
 			if ( debounced ) {
 				this.showValidationMessageDebounced();
+				this.speakValidationMessageDebounced();
 			} else {
 				this.showValidationMessage();
+				this.speakValidationMessage();
 			}
 		} else {
 			this.updateValidationMessage( null );
@@ -208,6 +210,7 @@ class AddSite extends React.Component {
 	hideValidationError() {
 		this.setState( { showValidationError: false }, () => {
 			this.showValidationMessageDebounced.cancel();
+			this.speakValidationMessageDebounced.cancel();
 		} );
 	}
 
@@ -245,29 +248,19 @@ class AddSite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		if ( ! this.state.validationError && this.props.linkingSiteUrl !== "" ) {
+		if ( ! this.state.validationError && !! this.props.linkingSiteUrl ) {
 			this.props.onConnectClick();
 		}
 	}
 
 	/**
-	 * Sends the validation error message to the ARIA live assertive region.
-	 *
-	 * @param {object} prevProps The props before the component updates.
+	 * Sends a message to the ARIA live assertive region.
 	 *
 	 * @returns {void}
 	 */
-	speakValidationMessage( prevProps ) {
-		/*
-		 * We need to use lodash debounce.cancel() to cancel the delayed call.
-		 * This is particularly important when typing fast in the site URL field.
-		 */
-		debouncedSpeak.cancel();
-
-		if ( this.props.linkingSiteUrl.length > 0 && ( this.props.linkingSiteUrl !== prevProps.linkingSiteUrl ) && this.state.validationError ) {
-			let message = this.props.intl.formatMessage( messages.validationFormatURL );
-			debouncedSpeak( message, "assertive" );
-		}
+	speakValidationMessage() {
+		let message = this.props.intl.formatMessage( messages.validationFormatURL );
+		speak( message, "assertive" );
 	}
 
 	componentDidMount() {
@@ -283,12 +276,9 @@ class AddSite extends React.Component {
 		}
 	}
 
-	componentDidUpdate( prevProps ) {
-		this.speakValidationMessage( prevProps );
-	}
-
 	componentWillUnmount() {
 		this.showValidationMessageDebounced.cancel();
+		this.speakValidationMessageDebounced.cancel();
 	}
 
 	/**
@@ -305,8 +295,9 @@ class AddSite extends React.Component {
 
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
 					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.addSite.enterUrl"
-										  defaultMessage="Please enter the URL of the site you would like to add to your account:"
+						<FormattedMessage
+							id="sites.addSite.enterUrl"
+							defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
 					</label>
 
@@ -326,7 +317,7 @@ class AddSite extends React.Component {
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
-							enabledStyle={ this.props.linkingSiteUrl === "" ? this.state.validationError : ! this.state.validationError }
+							enabledStyle={ ! this.state.validationError && !! this.props.linkingSiteUrl }
 							aria-label="add"
 						>
 							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
