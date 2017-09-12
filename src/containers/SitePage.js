@@ -5,6 +5,7 @@ import SitePage from "../components/SitePage";
 import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
 import { getPlugins } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
+import _includes from "lodash/includes";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -101,6 +102,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
 	plugins = plugins.sort( ( a, b ) => {
+		// If the GL number is not present in the pluginsOrder array, force it to the bottom of the list.
+		if ( ! _includes( pluginsOrder, b.glNumber ) ) {
+			return -1;
+		}
+
 		return pluginsOrder.indexOf( a.glNumber ) > pluginsOrder.indexOf( b.glNumber );
 	} );
 
