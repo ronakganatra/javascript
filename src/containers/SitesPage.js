@@ -5,7 +5,7 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-import { getPlugins } from "../functions/products";
+import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -44,7 +44,7 @@ export const mapStateToProps = ( state ) => {
 
 	let error = state.ui.sites.linkSiteError;
 
-	let	plugins = getPlugins( state.entities.products.byId );
+	let	plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
 
 	return {
 		sites,

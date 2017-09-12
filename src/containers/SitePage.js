@@ -3,9 +3,8 @@ import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
-import { getPlugins } from "../functions/products";
+import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
-import _includes from "lodash/includes";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
@@ -90,25 +89,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return plugin;
 	} );
 
-	/* Defines an array of plugin glnumbers in order of popularity:
-     * Premium WP: "82101"
-     * Local WP: "82103"
-     * News WP : "82104"
-     * WooCommerce: "82105"
-     * Video WP: "82102"
-     * Local WooCommerce: "82106"
-     */
-	let pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
-
-	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
-	plugins = plugins.sort( ( a, b ) => {
-		// If the GL number is not present in the pluginsOrder array, force it to the bottom of the list.
-		if ( ! _includes( pluginsOrder, b.glNumber ) ) {
-			return -1;
-		}
-
-		return pluginsOrder.indexOf( a.glNumber ) > pluginsOrder.indexOf( b.glNumber );
-	} );
+	plugins = sortPluginsByPopularity( plugins );
 
 	return {
 		addSubscriptionModal,
