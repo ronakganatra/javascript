@@ -45,7 +45,7 @@ class BaseAddSiteModal extends React.Component {
 						onCancelClick={ this.props.onClose }
 						onChange={ this.props.onChange }
 						errorFound={ this.props.errorFound }
-						errorMessage={ this.props.errorMessage }
+						error={ this.props.error }
 						query={ this.props.query }
 						linkingSiteUrl={ this.props.linkingSiteUrl }
 					/>
@@ -63,14 +63,13 @@ BaseAddSiteModal.propTypes = {
 	onConnect: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	errorFound: PropTypes.bool.isRequired,
-	errorMessage: PropTypes.string,
+	error: PropTypes.object,
 	query: PropTypes.string.isRequired,
 	linkingSiteUrl: PropTypes.string.isRequired,
 };
 
 BaseAddSiteModal.defaultProps = {
 	isOpen: false,
-	errorMessage: "",
 	linkingSiteUrl: "",
 };
 

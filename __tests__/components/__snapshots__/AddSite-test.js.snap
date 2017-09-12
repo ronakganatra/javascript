@@ -5,7 +5,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   className="eUbKKo"
 >
   <h1
-    className="fMuHnF"
+    className="dQgKWp"
   >
     <span>
       Add Site
@@ -19,7 +19,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       htmlFor="add-site-input"
     >
       <span>
-        Please enter the URL of the site you would like to link with your account:
+        Please enter the URL of the site you would like to add to your account:
       </span>
     </label>
     <input
@@ -34,7 +34,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       className="eHlvIb"
     >
       <button
-        className="eyDOsO"
+        className="hUAvMB"
         onClick={[Function]}
         type="button"
       >
@@ -43,12 +43,13 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        className="drublg"
+        aria-label="add"
+        className="ibCohl"
         onClick={[Function]}
         type="submit"
       >
         <span>
-          connect
+          add
         </span>
       </button>
     </div>

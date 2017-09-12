@@ -41,12 +41,13 @@ const initialState = {
 	},
 
 	savingProfile: false,
-	savingError: "",
+	saveEmailError: null,
+	profileSaved: false,
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
-	passwordResetError: "",
+	passwordResetError: null,
 	deletingProfile: false,
-	deleteProfileError: "",
+	deleteProfileError: null,
 };
 
 /**
@@ -96,20 +97,24 @@ export function userEmailReducer( state = initialState, action ) {
 	switch ( action.type ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
+				sendPasswordReset: false,
 				savingProfile: true,
-				savingError: "",
+				saveEmailError: null,
+				profileSaved: false,
 			} );
 
 		case PROFILE_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
 				savingProfile: false,
-				savingError: action.message,
+				saveEmailError: action.error,
+				profileSaved: false,
 			} );
 
 		case PROFILE_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
 				savingProfile: false,
 				sendPasswordReset: false,
+				profileSaved: true,
 				data: {
 					profile: action.profile,
 				},
@@ -118,6 +123,7 @@ export function userEmailReducer( state = initialState, action ) {
 		case PROFILE_UPDATE_EMAIL:
 			return Object.assign( {}, state, {
 				email: action.email,
+				profileSaved: false,
 			} );
 
 		default:
@@ -137,7 +143,8 @@ export function passwordResetReducer( state, action ) {
 		case RESET_PASSWORD_REQUEST:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: true,
-				passwordResetError: "",
+				passwordResetError: null,
+				sendPasswordReset: false,
 			} );
 
 		case RESET_PASSWORD_SUCCESS:
@@ -149,7 +156,8 @@ export function passwordResetReducer( state, action ) {
 		case RESET_PASSWORD_FAILURE:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
-				passwordResetError: action.message,
+				passwordResetError: action.error,
+				sendPasswordReset: false,
 			} );
 
 		default:
@@ -178,7 +186,7 @@ export function userDisableReducer( state = initialState, action ) {
 		case DISABLE_USER_FAILURE:
 			return Object.assign( {}, state, {
 				deletingProfile: false,
-				deleteProfileError: action.errorMessage,
+				deleteProfileError: action.error,
 			} );
 
 		default:

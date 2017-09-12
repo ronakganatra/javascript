@@ -68,7 +68,7 @@ let defaultExpected = {
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
 			"orderNumber": "YST201703",
-			"status": "completed",
+			"status": "Completed",
 			"date": new Date( "2017-06-01 21:04:28" ),
 			"total": "6900",
 			"currency": "USD",
@@ -81,7 +81,7 @@ let defaultExpected = {
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"orderNumber": "YST201701",
-			"status": "completed",
+			"status": "Completed",
 			"date": new Date( "2017-05-01 21:04:28" ),
 			"total": "6900",
 			"currency": "USD",
@@ -100,27 +100,27 @@ test('the mapStateToProps function', () => {
 } );
 
 test('the mapStateToProps function when query contains part of an item product name', () => {
-	state.ui.search.query = "Yoast"
-	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } )
+	state.ui.search.query = "Yoast";
+	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
 test('the mapStateToProps function when query contains part of orderNumber', () => {
-	state.ui.search.query = "YST"
-	let expected = Object.assign( {}, defaultExpected, { query: "YST" } )
+	state.ui.search.query = "YST";
+	let expected = Object.assign( {}, defaultExpected, { query: "YST" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
 test('the mapStateToProps function when query contains part of formatted order date', () => {
-	state.ui.search.query = "May 1"
+	state.ui.search.query = "May 1";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"orderNumber": "YST201701",
-				"status": "completed",
+				"status": "Completed",
 				"date": new Date( "2017-05-01 21:04:28" ),
 				"total": "6900",
 				"currency": "USD",
@@ -138,18 +138,18 @@ test('the mapStateToProps function when query contains part of formatted order d
 } );
 
 test('the mapStateToProps function when query contains part of formatted total', () => {
-	state.ui.search.query = "69"
-	let expected = Object.assign( {}, defaultExpected, { query: "69" } )
+	state.ui.search.query = "69";
+	let expected = Object.assign( {}, defaultExpected, { query: "69" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
 test('the mapStateToProps function when query contains nonsense', () => {
-	state.ui.search.query = "afhsdkgfj"
+	state.ui.search.query = "afhsdkgfj";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [],
 		query: "afhsdkgfj"
-	} )
+	} );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );

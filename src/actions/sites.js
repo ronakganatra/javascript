@@ -86,7 +86,7 @@ export function linkSiteSuccess( site ) {
 /**
  * An action creator for the link site failure action.
  *
- * @param {string} error The error message.
+ * @param {Object} error The error object that was thrown.
  *
  * @returns {Object} A link site failure action.
  */
@@ -114,7 +114,7 @@ export function linkSite( url ) {
 
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
-			.catch( error => dispatch( linkSiteFailure( error.message ) ) );
+			.catch( error => dispatch( linkSiteFailure( error ) ) );
 	};
 }
 

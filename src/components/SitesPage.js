@@ -2,7 +2,7 @@ import util from "util";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
@@ -21,7 +21,7 @@ const messages = defineMessages( {
 		defaultMessage: "Sites page loaded",
 	},
 	searchResults: {
-		id: "sites-search.results",
+		id: "sitesSearch.results",
 		defaultMessage: "Number of sites found: %d",
 	},
 	searchLabel: {
@@ -29,7 +29,7 @@ const messages = defineMessages( {
 		defaultMessage: "Search sites",
 	},
 	addSite: {
-		id: "sites.add-site-button",
+		id: "sites.addSiteButton",
 		defaultMessage: "Add site",
 	},
 } );
@@ -44,7 +44,7 @@ const SiteAddContainer = styled.div`
 let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
 
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * Returns the rendered Sites Page component.
@@ -85,13 +85,13 @@ class SitesPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
 		 * continously passes a new `query` props. We use this at our advantage
-		 * to debounce the call to `a11ySpeak()`.
+		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */
@@ -107,16 +107,16 @@ class SitesPage extends React.Component {
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
-			<FormattedMessage id="sites.no-site.welcome" defaultMessage="Welcome to the sites overview" />,
-			<FormattedMessage id="sites.no-site.manage"
+			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview." />,
+			<FormattedMessage id="sites.noSite.manage"
 							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
-			<FormattedMessage id="sites.no-site.press-button" defaultMessage="Press the button below to add your first site."/>,
+			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site."/>,
 		];
 
-		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sites-no-result.notfound"
+		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sitesNoResult.notfound"
 							defaultMessage={ "We could not find { site } in your account." }
 							values={ { site: <strong>{ props.query }</strong> } } />,
-			<FormattedMessage id="sites.sites-no-result.add" defaultMessage="Do you want to add it?" />,
+			<FormattedMessage id="sites.sitesNoResult.add" defaultMessage="Do you want to add it?" />,
 		];
 
 		if ( props.showLoader ) {
@@ -126,7 +126,7 @@ class SitesPage extends React.Component {
 		let modal = (
 			<AddSiteModal isOpen={ props.popupOpen } onConnect={ props.onConnect } onClose={ props.onClose }
 						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  errorMessage={ props.errorMessage } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
+						  error={ props.error } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
 		);
 
 		if ( props.sites.length > 0 ) {
@@ -173,7 +173,7 @@ SitesPage.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	onManage: PropTypes.func.isRequired,
 	errorFound: PropTypes.bool.isRequired,
-	errorMessage: PropTypes.string,
+	error: PropTypes.object,
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	intl: intlShape.isRequired,
@@ -185,7 +185,7 @@ SitesPage.defaultProps = {
 	sites: [],
 	linkingSiteUrl: "",
 	popupOpen: false,
-	errorMessage: "",
+	error: null,
 	showLoader: false,
 };
 

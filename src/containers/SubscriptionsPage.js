@@ -16,6 +16,7 @@ export const mapStateToProps = ( state ) => {
 			name: subscription.name,
 			used: subscription.used,
 			limit: subscription.limit,
+			hasNextPayment: subscription.nextPayment !== null,
 			nextPayment: new Date( subscription.nextPayment ),
 			billingAmount: subscription.price,
 			billingCurrency: subscription.currency,

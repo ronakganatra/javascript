@@ -5,12 +5,15 @@ import Paper from "./Paper";
 import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import validate from "validate.js";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
+import ErrorDisplay from "../errors/ErrorDisplay";
+import { InputField } from "./InputField";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -20,6 +23,10 @@ const messages = defineMessages( {
 	validationRequired: {
 		id: "validation.required",
 		defaultMessage: "{field} cannot be empty.",
+	},
+	duplicateEmail: {
+		id: "profile.error.duplicateEmail",
+		defaultMessage: "The email address could not be changed, it is probably already in use.",
 	},
 	labelEmail: {
 		id: "profile.label.email",
@@ -37,6 +44,10 @@ const messages = defineMessages( {
 		id: "profile.saving",
 		defaultMessage: "Saving...",
 	},
+	saved: {
+		id: "profile.saved",
+		defaultMessage: "Email address saved",
+	},
 	saveEmail: {
 		id: "profile.saveEmail",
 		defaultMessage: "Save email address",
@@ -49,8 +60,8 @@ const messages = defineMessages( {
 		id: "profile.delete",
 		defaultMessage: "Delete your account",
 	},
-	passwordReset: {
-		id: "profile.label.passwordReset",
+	passwordChange: {
+		id: "profile.passwordChange",
 		defaultMessage: "Change password",
 	},
 	passwordResetSend: {
@@ -59,7 +70,7 @@ const messages = defineMessages( {
 	},
 	passwordResetSending: {
 		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending password reset...",
+		defaultMessage: "Sending email...",
 	},
 	passwordResetSent: {
 		id: "profile.passwordResetSent",
@@ -69,8 +80,8 @@ const messages = defineMessages( {
 		id: "profile.gravatarLink",
 		defaultMessage: "Gravatar website",
 	},
-	labelProfilePicture: {
-		id: "profile.label.picture",
+	profilePicture: {
+		id: "profile.picture",
 		defaultMessage: "Profile picture",
 	},
 	profilePageLoaded: {
@@ -108,19 +119,27 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
-const TextInput = styled.input`
+const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
-	padding: 0.8em;
-	line-height: 1.4;
-	font-weight: 400;
-	width: 100%;
-	box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
-	border:none;
 `;
 
-const FormError = styled.div`
+const FormMessage = styled.p`
+	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
+	margin: 0;
+	${ props => props.inline ? "display: inline-block;" : "display: block;" }
+`;
+
+FormMessage.propTypes = {
+	inline: PropTypes.bool,
+};
+
+FormMessage.defaultProps = {
+	inline: false,
+};
+
+const FormError = styled( FormMessage )`
+ 	padding: 0.5em;
 	background-color: ${ colors.$color_yellow };
-	padding: 0.5em;
 	margin-top: 0.5em;
 	color: ${ colors.$color_black };
 `;
@@ -165,20 +184,20 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Runs the fields through the validator and returns the errors.
+	 * Runs the fields through the validator and returns the warnings.
 	 *
-	 * @returns {Array} All validation errors.
+	 * @returns {Array} All validation warnings.
 	 */
 	validateFields() {
-		let errors = validate( {
+		let warnings = validate( {
 			email: this.props.email,
 		}, this.constraints, { format: "detailed" } );
 
-		if ( _isUndefined( errors ) ) {
-			errors = [];
+		if ( _isUndefined( warnings ) ) {
+			warnings = [];
 		}
 
-		return errors;
+		return warnings;
 	}
 
 	/**
@@ -210,36 +229,27 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Displays the errors for the provided field.
+	 * Displays the warnings for the provided field.
 	 *
-	 * @param {Array} errors The errors that could be displayed.
-	 * @param {string} field Field to display errors for.
-	 * @returns {ReactElement[]} List of JSXElements if errors are found otherwise null.
+	 * @param {Array} warnings The warnings that could be displayed.
+	 * @param {string} field Field to display warnings for.
+	 * @returns {ReactElement[]} List of JSXElements if warnings are found. Otherwise null.
 	 */
-	displayErrors( errors, field ) {
-		// Find errors for the specified field.
-		let fieldErrors = errors.filter( error => {
-			return error.attribute === field;
+	displayWarnings( warnings, field ) {
+		// Find warnings for the specified field.
+		let fieldWarnings = warnings.filter( warning => {
+			return warning.attribute === field;
 		} );
 
-		// Return nothing if we don't have any errors.
-		if ( fieldErrors.length === 0 ) {
+		// Return nothing if we don't have any warnings.
+		if ( fieldWarnings.length === 0 ) {
 			return null;
 		}
 
-		// Display all remaining errors.
-		return fieldErrors.map( ( error ) => {
-			return <FormError role="alert" key={ error.options.message }>{ error.options.message }</FormError>;
+		// Display all remaining warnings.
+		return fieldWarnings.map( ( warning ) => {
+			return <ErrorDisplay error={ warning } type="warning"/>;
 		} );
-	}
-
-	/**
-	 * Creates the text to be displayed on the save button.
-	 *
-	 * @returns {string} Text to be used on the submit button.
-	 */
-	submitButtonText() {
-		return this.isSaving() ? this.props.intl.formatMessage( messages.saving ) : this.props.intl.formatMessage( messages.saveEmail );
 	}
 
 	/**
@@ -248,13 +258,15 @@ class ProfilePage extends React.Component {
 	 * @returns {string} Text to be used on the submit button.
 	 */
 	deleteButtonText() {
-		return this.isDeleting() ? this.props.intl.formatMessage( messages.deletingAccount ) : this.props.intl.formatMessage( messages.deleteAccount );
+		return this.isDeleting()
+			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage}/>
+			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage }/>;
 	}
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	componentDidUpdate() {
@@ -273,6 +285,10 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.saving );
 		}
 
+		if ( this.isSaved() ) {
+			message = this.props.intl.formatMessage( messages.saved );
+		}
+
 		if ( this.isDeleting() ) {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
@@ -285,11 +301,7 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.passwordResetSent );
 		}
 
-		if ( ! message ) {
-			return;
-		}
-
-		a11ySpeak( message, "assertive" );
+		speak( message, "assertive" );
 	}
 
 	/**
@@ -302,6 +314,15 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
+	 * Whether the profile was updated successfully.
+	 *
+	 * @returns {boolean} Whether the profile was saved.
+	 */
+	isSaved() {
+		return this.props.isSaved;
+	}
+
+	/**
 	 * Whether we are currently disabling the account.
 	 *
 	 * @returns {boolean} Whether we are currently disabling the account.
@@ -311,39 +332,75 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Returns the password reset elements for the profile page.
+	 * Returns the save email elements for the profile page.
 	 *
-	 * @returns {ReactElement} The element for the password reset.
+	 * @returns {ReactElement} The elements for the save email.
 	 */
-	getPasswordReset() {
-		let disabled = false;
-		let passwordResetError;
+	getSaveButton() {
+		let emailSavingMessage;
 
-		let passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSend );
+		if ( this.isSaving() ) {
+			let message = this.props.intl.formatMessage( messages.saving );
 
-		if ( this.props.isSendingPasswordReset ) {
-			passwordResetButtonText = this.props.intl.formatMessage( messages.passwordResetSending );
-			disabled = true;
+			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			speak( message, "assertive" );
 		}
 
-		let passwordResetButton = <Button onClick={ this.props.onPasswordReset } disabled={ disabled }>{ passwordResetButtonText }</Button>;
+		return <div>
+			<SaveButton type="submit">
+				<FormattedMessage id={ messages.saveEmail.id } defaultMessage={ messages.saveEmail.defaultMessage } />
+			</SaveButton>
+			{ emailSavingMessage }
+		</div>;
+	}
+
+	/**
+	 * Returns the password reset elements for the profile page.
+	 *
+	 * @returns {ReactElement} The elements for the password reset.
+	 */
+	getPasswordReset() {
+		let onClickAction = this.props.onPasswordReset;
+		let passwordResetError;
+		let passwordResetMessage;
+
+		if ( this.props.isSendingPasswordReset ) {
+			let message = this.props.intl.formatMessage( messages.passwordResetSending );
+
+			/*
+			 * While sending the email: prevent calling the password reset
+			 * function multiple times but don't disable the button for better
+			 * accessibility (avoid keyboard focus loss).
+			 */
+			onClickAction = _noop;
+
+			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			speak( message, "assertive" );
+		}
+
 		if ( this.props.hasSendPasswordReset ) {
-			passwordResetButton = this.props.intl.formatMessage( messages.passwordResetSent );
+			let message = this.props.intl.formatMessage( messages.passwordResetSent );
+
+			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
+			speak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError }</FormError>;
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError.message }</FormError>;
 		}
 
 		return <PasswordReset>
-			<Paragraph>{ this.props.intl.formatMessage( messages.passwordReset ) }</Paragraph>
+			<Paragraph>
+				<FormattedMessage id={ messages.passwordChange.id } defaultMessage={ messages.passwordChange.defaultMessage }/>
+			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage="To change your password follow the instructions in the password reset mail." />
-			</p>
-			{ passwordResetButton }
+				defaultMessage="To change your password follow the instructions in the password reset email."
+			/></p>
+			<Button onClick={ onClickAction }><FormattedMessage id={ messages.passwordResetSend.id } defaultMessage={ messages.passwordResetSend.defaultMessage }/></Button>
 			{ passwordResetError }
+			{ passwordResetMessage }
 		</PasswordReset>;
 	}
 
@@ -353,7 +410,7 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-		let errors = this.validateFields();
+		let warnings = this.validateFields();
 
 		let onUpdateEmail = ( event ) => {
 			this.props.onUpdateEmail( event.target.value );
@@ -361,6 +418,14 @@ class ProfilePage extends React.Component {
 
 		let handleSubmit = ( event ) => {
 			event.preventDefault();
+
+			/*
+			 * While saving: prevent multiple submissions but don't disable the
+			 * button for better accessibility (avoid keyboard focus loss).
+			 */
+			if ( this.isSaving() ) {
+				return;
+			}
 
 			this.props.onSaveProfile();
 		};
@@ -371,25 +436,13 @@ class ProfilePage extends React.Component {
 			this.props.onDeleteProfile();
 		};
 
-		let globalError = null;
-		if ( this.props.error !== "" ) {
-			let message = this.props.error;
-			if ( message === "Bad Request" ) {
-				message = <FormattedMessage
-					id="profile.error.duplicateEmail"
-					defaultMessage="The email address could not be changed, it is probably already in use."
-				/>;
-			}
-			globalError = <FormError role="alert">{ message }</FormError>;
-		}
-
 		return (
 			<div>
 				<Paper>
 					<Page>
 						<Column>
 							<form onSubmit={ handleSubmit }>
-								<Label htmlFor="email-address">{ this.props.intl.formatMessage( messages.labelEmail ) }</Label>
+								<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
 								<TextInput
 									id="email-address"
 									autocomplete="on"
@@ -397,24 +450,25 @@ class ProfilePage extends React.Component {
 									type="text"
 									value={ this.props.email }
 									onChange={ onUpdateEmail }/>
-								{ this.displayErrors( errors, "email" ) }
-								{ globalError }
-
-								<SaveButton type="submit" disabled={ this.isSaving() }>{ this.submitButtonText() }</SaveButton>
+								{ this.displayWarnings( warnings, "email" ) }
+								<ErrorDisplay error={ this.props.saveEmailError } />
+								{ this.getSaveButton() }
 							</form>
 
 							{ this.getPasswordReset() }
 						</Column>
 
 						<Column>
-							<Paragraph>{ this.props.intl.formatMessage( messages.labelProfilePicture ) }</Paragraph>
+							<Paragraph>
+								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
+							</Paragraph>
 							<p>
 								<FormattedMessage
 									id="profile.description.picture"
 									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-														" an account with them yet, or want to change your existing" +
-														" picture, please visit the { link }." }
-									values={ { link: <a target="_blank" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+									" an account with them yet, or want to change your existing" +
+									" picture, please visit the { link }." }
+									values={ { link: <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
 								/>
 							</p>
 							{ image }
@@ -425,13 +479,15 @@ class ProfilePage extends React.Component {
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
 							<form onSubmit={ handleDelete }>
-								<Paragraph>{ this.props.intl.formatMessage( messages.labelDelete ) }</Paragraph>
+								<Paragraph>
+									<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
+								</Paragraph>
 								<p>
 									<FormattedMessage
 										id="profile.delete.message"
 										defaultMessage={ "Warning! If you delete your account you lose access to" +
-															" your downloads and you will no longer receive updates for any Premium" +
-															" plugins you've bought from us." } />
+										" your downloads and you will no longer receive updates for any Premium" +
+										" plugins you've bought from us." } />
 								</p>
 								<DeleteButton type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
 							</form>
@@ -448,24 +504,26 @@ ProfilePage.propTypes = {
 	email: PropTypes.string.isRequired,
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
+	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
-	error: PropTypes.string,
 	isSendingPasswordReset: PropTypes.bool,
 	hasSendPasswordReset: PropTypes.bool,
-	passwordResetError: PropTypes.string,
+	passwordResetError: PropTypes.object,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func.isRequired,
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
+	saveEmailError: PropTypes.object,
 };
 
 ProfilePage.defaultProps = {
 	email: "",
-	error: "",
+	saveEmailError: null,
 	isSaving: false,
+	isSaved: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
-	passwordResetError: "",
+	passwordResetError: null,
 };
 
 export default injectIntl( ProfilePage );

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ErrorDisplay component matches the snapshot 1`] = `null`;
+
+exports[`the ErrorDisplay component with an implemented placeholder matches the snapshot 1`] = `null`;
+
+exports[`the ErrorDisplay with no Icon requested matches the snapshot 1`] = `null`;

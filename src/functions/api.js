@@ -1,8 +1,6 @@
 import "whatwg-fetch";
 import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
-import { DuplicateRecord } from "../errors/DuplicateRecord";
-import { GenericServerError } from "../errors/GenericServerError";
 
 /**
  * Determines whether or not a valid HTTP method was passed.
@@ -91,7 +89,7 @@ export function doRequest( request ) {
 	return fetch( request )
 		.then( handleResponse )
 		.catch( ( error ) => {
-			throw error;
+			throw error.error;
 		} );
 }
 
@@ -137,25 +135,9 @@ function handleResponse( response ) {
 function handleErrorResponse( response ) {
 	return response
 		.json()
-		.then( response => determineErrorMessage( response ) );
-}
-
-/**
- * Determines the error to throw.
- *
- * @param {object} response The error response that was passed along.
- * @returns {void}
- */
-function determineErrorMessage( response ) {
-	if ( ! response.error ) {
-		throw new GenericServerError( response.statusText );
-	}
-
-	if ( response.error.code === "ER_DUP_ENTRY" ) {
-		throw new DuplicateRecord();
-	}
-
-	throw new GenericServerError( response.error.message );
+		.then( errorResponse => {
+			throw errorResponse;
+		} );
 }
 
 /**

@@ -2,7 +2,7 @@
 
 exports[`A standard order 1`] = `
 <li
-  className="fhXzbr"
+  className="bRBeej"
 >
   <span
     className="gRzsfa"
@@ -17,26 +17,26 @@ exports[`A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
-    <span
-      className="gLZwgs"
+    <ul
+      className="tvpac"
     >
-      <span
-        className="gLZwgs"
+      <li
+        className="a"
       >
         1
         x 
         Name of the product
-      </span>
-      <span
-        className="gLZwgs"
+      </li>
+      <li
+        className="a"
       >
         2
         x 
         Another product
-      </span>
-    </span>
+      </li>
+    </ul>
   </span>
   <span
     className="FOjhs"
@@ -55,24 +55,24 @@ exports[`A standard order 1`] = `
   <span
     className="gJSEqq"
   >
-    <a
-      aria-label="Download invoice"
-      className="FJVi"
-      href="http://somelink"
+    <button
+      className="gqtpyi liRnCl"
+      disabled="disabled"
+      to="http://somelink"
     >
       <span
         className="screen-reader-text"
       >
         Invoice
       </span>
-    </a>
+    </button>
   </span>
 </li>
 `;
 
 exports[`An Order with a disabled invoice button 1`] = `
 <li
-  className="fhXzbr"
+  className="bRBeej"
 >
   <span
     className="gRzsfa"
@@ -87,26 +87,26 @@ exports[`An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="kIDkAC"
+    className="iSxaIr"
   >
-    <span
-      className="gLZwgs"
+    <ul
+      className="tvpac"
     >
-      <span
-        className="gLZwgs"
+      <li
+        className="a"
       >
         1
         x 
         Name of the product
-      </span>
-      <span
-        className="gLZwgs"
+      </li>
+      <li
+        className="a"
       >
         2
         x 
         Another product
-      </span>
-    </span>
+      </li>
+    </ul>
   </span>
   <span
     className="FOjhs"
@@ -126,7 +126,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     className="gJSEqq"
   >
     <button
-      className="gbpVTx gKiRpK"
+      className="gqtpyi liRnCl"
       disabled="disabled"
       to="http://somelink"
     >

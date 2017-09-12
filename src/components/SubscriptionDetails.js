@@ -8,23 +8,23 @@ import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
-		id: "subscription-details.payment-details.title",
+		id: "subscriptionDetails.paymentDetails.title",
 		defaultMessage: "Payment details",
 	},
 	invoicesTitle: {
-		id: "subscription-details.invoices.title",
+		id: "subscriptionDetails.invoices.title",
 		defaultMessage: "Invoices",
 	},
 	startDate: {
-		id: "subscription-details.payment-details.start-date",
+		id: "subscriptionDetails.paymentDetails.start-date",
 		defaultMessage: "Start date",
 	},
 	nextBilling: {
-		id: "subscription-details.payment-details.next-billing",
+		id: "subscriptionDetails.paymentDetails.nextBilling",
 		defaultMessage: "Next billing",
 	},
 	invoiceButton: {
-		id: "subscription-details.buttons.invoice",
+		id: "subscriptionDetails.buttons.invoice",
 		defaultMessage: "Invoice",
 	},
 } );
@@ -56,6 +56,16 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
  * @constructor
  */
 function SubscriptionDetails( props ) {
+	let nextBilling = "-";
+	if ( props.hasNextBilling ) {
+		nextBilling = <FormattedDate
+			value={ props.nextBilling }
+			year='numeric'
+			month='long'
+			day='2-digit'
+		/>;
+	}
+
 	return (
 		<ListTable>
 			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
@@ -76,12 +86,7 @@ function SubscriptionDetails( props ) {
 					{ props.intl.formatMessage( messages.nextBilling ) }
 				</ColumnMinWidth>
 				<ColumnFixedWidthResponsive ellipsis={ true }>
-					<FormattedDate
-						value={ props.nextBilling }
-						year='numeric'
-						month='long'
-						day='2-digit'
-					/>
+					{ nextBilling }
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapseNoMinHeight>
 		</ListTable>
@@ -90,6 +95,7 @@ function SubscriptionDetails( props ) {
 
 SubscriptionDetails.propTypes = {
 	startDate: PropTypes.instanceOf( Date ).isRequired,
+	hasNextBilling: PropTypes.bool.isRequired,
 	nextBilling: PropTypes.instanceOf( Date ).isRequired,
 	orders: PropTypes.array.isRequired,
 	max: PropTypes.number.isRequired,

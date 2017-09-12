@@ -33,7 +33,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
       role="list"
     >
       <li
-        className="kwWqYb"
+        className="hbyjol"
       >
         <span
           className="fXreAk"
@@ -89,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="jNEDIU"
+            className="okbRP"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -100,7 +100,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         </span>
       </li>
       <li
-        className="caAtBd"
+        className="bsGmGL"
       >
         <span
           className="fXreAk"
@@ -152,7 +152,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <button
-            className="dxNrSx"
+            className="dDUvRh"
             onClick={[Function]}
           >
             <span>
@@ -164,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="jNEDIU"
+            className="okbRP"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >

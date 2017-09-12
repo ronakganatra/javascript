@@ -42,7 +42,7 @@ export const mapStateToProps = ( state ) => {
 
 	let errorFound = state.ui.sites.linkSiteFailed;
 
-	let errorMessage = state.ui.sites.linkSiteError;
+	let error = state.ui.sites.linkSiteError;
 
 	let	plugins = getPlugins( state.entities.products.byId );
 
@@ -50,7 +50,7 @@ export const mapStateToProps = ( state ) => {
 		sites,
 		popupOpen,
 		errorFound,
-		errorMessage,
+		error,
 		plugins,
 		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
 		query,

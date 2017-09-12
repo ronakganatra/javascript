@@ -41,7 +41,7 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				error="An error occurred while saving profile." />
+				saveEmailError={ {} } />
 		);
 
 		let tree = component.toJSON();
@@ -86,7 +86,7 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				passwordResetError={"An error occurred while sending password reset."} />
+				passwordResetError={ { error: "I'm an error" } } />
 		);
 
 		let tree = component.toJSON();
@@ -102,7 +102,7 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				passwordResetError={"An error occurred while sending password reset."} />
+				passwordResetError={ null } />
 		);
 
 		let tree = component.toJSON();

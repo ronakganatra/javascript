@@ -82,31 +82,31 @@ test('the site page component matches the snapshot for a site in a directory', (
 				} }
 				header="http://placehold.it/1480x380"
 				subscriptions={ [
-					  {
-						  id: "bla",
-						  productId: "Yoast SEO",
-						  startDate: "2017-04-11T00:00:00.000Z",
-						  endDate: "2017-04-11T00:00:00.000Z",
-						  subscriberId: 2,
-						  productLicenses: {
-							  amountAvailable: 10,
-							  amountUsed: 5,
-							  addMoreLicenses: "Add more licenses",
+					{
+						id: "bla",
+						productId: "Yoast SEO",
+						startDate: "2017-04-11T00:00:00.000Z",
+						endDate: "2017-04-11T00:00:00.000Z",
+						subscriberId: 2,
+						productLicenses: {
+							amountAvailable: 10,
+							amountUsed: 5,
+							addMoreLicenses: "Add more licenses",
 						  },
-						  productLogo: SeoIcon,
-					  },
-					  {
-						  id: "bla2",
-						  productId: "Local SEO",
-						  startDate: "2017-04-11T00:00:00.000Z",
-						  endDate: "2017-04-11T00:00:00.000Z",
-						  subscriberId: 2,
-						  productLicenses: {
-							  amountAvailable: 10,
-							  amountUsed: 7,
-							  addMoreLicenses: "Add more licenses",
-						  },
-						  productLogo: LocalIcon,
+						productLogo: SeoIcon,
+					},
+					{
+						id: "bla2",
+						productId: "Local SEO",
+						startDate: "2017-04-11T00:00:00.000Z",
+						endDate: "2017-04-11T00:00:00.000Z",
+						subscriberId: 2,
+						productLicenses: {
+							amountAvailable: 10,
+							amountUsed: 7,
+							addMoreLicenses: "Add more licenses",
+						},
+						productLogo: LocalIcon,
 					  },
 				] }
 				uiSite={ {

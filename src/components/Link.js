@@ -22,7 +22,11 @@ export default class Link extends Component {
 				href={ this.props.to }
 				className={ this.props.className }
 				aria-label={ this.props.ariaLabel }
-			>{ this.props.children }</a>
+				target={ this.props.linkTarget }
+				rel={ this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel }
+				>
+				{ this.props.children }
+			</a>
 			: <RouterLink { ...this.props } />;
 	}
 }
@@ -32,4 +36,6 @@ Link.propTypes = {
 	className: PropTypes.string,
 	children: PropTypes.any,
 	ariaLabel: PropTypes.string,
+	linkTarget: PropTypes.string,
+	linkRel: PropTypes.string,
 };

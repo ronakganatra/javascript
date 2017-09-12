@@ -41,9 +41,9 @@ const ButtonArchetype = styled.button`
 `;
 
 ButtonArchetype.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 ButtonArchetype.defaultProps = {
@@ -60,9 +60,9 @@ export const IconButtonArchetype = styled( ButtonArchetype )`
 `;
 
 IconButtonArchetype.PropTypes = {
-	iconSource: React.PropTypes.string.isRequired,
-	iconSize: React.PropTypes.string,
-	enabledStyle: React.PropTypes.bool,
+	iconSource: PropTypes.string.isRequired,
+	iconSize: PropTypes.string,
+	enabledStyle: PropTypes.bool,
 };
 
 IconButtonArchetype.defaultProps = {
@@ -72,7 +72,7 @@ IconButtonArchetype.defaultProps = {
 
 // Styled ButtonArchetypes.
 export const Button = styled( ButtonArchetype )`
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 `;
 
 export const RedButton = styled( ButtonArchetype )`
@@ -93,7 +93,7 @@ export const LargeSecondaryButton = styled( ButtonArchetype )`
 		color: ${ colors.$color_white };
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 		border: none;
-		text-shadow: 0px 0px 1px #000;
+		text-shadow: 0px 0px 2px #000;
 	}
 `;
 
@@ -155,9 +155,9 @@ export const BeaconButton = styled( Button )`
 `;
 
 BeaconButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 BeaconButton.defaultProps = {
@@ -178,9 +178,9 @@ export const ChevronButton = styled( Button )`
 `;
 
 ChevronButton.propTypes = {
-	onClick: React.PropTypes.func,
-	type: React.PropTypes.string,
-	"aria-label": React.PropTypes.string,
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
 };
 
 ChevronButton.defaultProps = {
@@ -230,7 +230,7 @@ export const MobileHeaderButton = styled( IconButtonArchetype )`
 `;
 
 export const IconButton = styled( IconButtonArchetype )`
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 `;
 
 // Styled IconButtons.
@@ -252,7 +252,7 @@ export const ButtonLink = styled( Link )`
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
-	text-shadow: 0px 0px 1px #000;
+	text-shadow: 0px 0px 2px #000;
 
 	&:hover,
 	&:focus {
@@ -381,11 +381,11 @@ export function makeResponsiveIconButton( component ) {
 			position: static;
 			clip-path: none;
 		}
-
 		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
 			padding-right: 0;
 			padding-left: 42px;
 			min-width: 0;
+			vertical-align: middle;
 
 			.screen-reader-text {
 				position: absolute;

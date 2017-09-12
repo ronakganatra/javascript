@@ -1,14 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import SiteHeader from "./SiteHeader";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
 import AddLicensesModal from "./AddLicensesModal";
-
-import _filter from "lodash/filter";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -28,7 +26,7 @@ class SitePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitePageLoaded );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	getModal() {

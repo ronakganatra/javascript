@@ -3,14 +3,15 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
 import addSiteImage from "../images/addsite.svg";
-import noActiveProductIcon from "../icons/exclamation-triangle.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
 import defaults from "../config/defaults.json";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
+import ErrorDisplay from "../errors/ErrorDisplay";
+import { ModalHeading } from "./Headings";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -19,7 +20,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( a11ySpeak, 1000 );
+let debouncedSpeak = _debounce( speak, 1000 );
 
 const AddSiteModal = styled.div`
 	max-width: 640px;
@@ -38,13 +39,6 @@ const AddSiteImage = styled.img`
 	width: 100%;
 	margin: 1em 0 0;
 	vertical-align: bottom;
-`;
-
-const AddSiteHeading = styled.h1`
-	font-weight: 300;
-	font-size: 1.5em;
-	// margin: 0 0 8px 0;
-	margin: 0;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -80,42 +74,11 @@ const Buttons = styled.div`
 	}
 `;
 
-const YellowWarning = styled.p`
-	padding: 4px;
-	background-color: ${ colors.$color_yellow };
-	overflow: auto;
-	display: flex;
-	align-items: center;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		flex-direction: column;
-		text-align: left;
-	}
-`;
-
-const NoActiveProductIcon = styled.img`
-	width: 15%;
-	height: 10%;
-	padding: 20px;
-	min-width: 75px;
-	display: flex;
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile } ) {
-		padding: 10px;
-	}
-`;
-
-const WarningText = styled.span`
-	font-size: 1em;
-`;
-
 const ValidationText = styled.div`
 	font-size: 1em;
 	color: ${ colors.$color_red};
 	margin: 1em 0;
 	min-height: 1.8em;
-`;
-
-const PurpleLink = styled.a`
-	color: ${ colors.$color_purple };
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
@@ -133,11 +96,22 @@ class AddSite extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.urlValidity = false;
-
 		this.constraints = {
 			url: this.urlConstraints.bind( this ),
 		};
+
+		this.state = {
+			validationError: null,
+			showValidationError: false,
+			urlValidity: false,
+		};
+		// Defines the debounced function for showing validation error.
+		this.showValidationMessageDebounced = _debounce( () => {
+			this.setState( { showValidationError: true } );
+		}, 1000 );
+	}
+	componentWillUnmount() {
+		this.showValidationMessageDebounced.cancel();
 	}
 
 	/**
@@ -161,21 +135,47 @@ class AddSite extends React.Component {
 	 * @returns {void}
 	 */
 	onWebsiteURLChange( event ) {
-		this.props.onChange( event.target.value );
+		const value = event.target.value;
+		this.props.onChange( value );
+		let validationError = this.validateUrl( value );
+		if ( validationError ) {
+			this.setState( {
+				urlValidity: false,
+				validationError: validationError,
+			} );
+			this.showValidationMessageDebounced();
+		} else {
+			this.setState( {
+				urlValidity: true,
+				validationError: null,
+			} );
+			this.hideValidationError();
+		}
 	}
 
+	/**
+	 * Validates URL and shows validation error if URL is invalid.
+	 *
+	 * @param {string} input The URL to be validated.
+	 * @returns {string} URL Validation error message.
+	 */
 	validateUrl( input = "" ) {
-		this.urlValidity = true;
-
 		if ( input === "" ) {
-			this.urlValidity = false;
+			return null;
 		}
 
 		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
-			this.urlValidity = false;
+			return result[ 0 ].options.message;
 		}
+		return null;
+	}
+
+	hideValidationError() {
+		this.setState( { showValidationError: false }, () => {
+			this.showValidationMessageDebounced.cancel();
+		} );
 	}
 
 	/**
@@ -185,53 +185,18 @@ class AddSite extends React.Component {
 	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
 	 */
 	urlValidityMessage( input = "" ) {
-		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
-
-		if ( ! this.urlValidity && input !== "" ) {
+		if ( this.state.showValidationError && input !== "" ) {
 			return (
 				<ValidationText>
 					<FormattedMessage
-						id="sites.add-site.url-validation-message"
-						defaultMessage={ "{ validationMessage }" }
-						values={ { validationMessage: result[ 0 ].options.message } }
+						id="sites.addSite.urlValidationMessage"
+						defaultMessage={ this.state.validationError }
 					/>
 				</ValidationText>
 			);
 		}
-
 		return (
 			<ValidationText />
-		);
-	}
-
-	/**
-	 * Renders an error message
-	 *
-	 * @param {boolean} errorFound Whether an error has been thrown.
-	 * @param {string} errorMessage The error message to render.
-	 * @returns {ReactElement} The rendered element.
-	 */
-	getErrorMessage( errorFound, errorMessage ) {
-		if ( ! errorFound ) {
-			return null;
-		}
-
-		return (
-			<YellowWarning role="alert" >
-				<NoActiveProductIcon src={ noActiveProductIcon } alt=""/>
-				<WarningText>
-					<FormattedMessage
-						id="sites.add-site.no-active-product"
-						defaultMessage={ "Oops! It looks like something went wrong... When we tried to link your site, we received this message: { errorMessage } If you need help, { link }" }
-						values={ {
-							link: <PurpleLink href="/"><FormattedMessage
-								id="sites.add-site-no-active-product.link"
-								defaultMessage="read this page."/></PurpleLink>,
-							errorMessage: <i>"{ errorMessage }."</i>,
-						} }
-					/>
-				</WarningText>
-			</YellowWarning>
 		);
 	}
 
@@ -250,19 +215,18 @@ class AddSite extends React.Component {
 		let handleSubmit = ( event ) => {
 			event.preventDefault();
 
-			return ( this.urlValidity ? this.props.onConnectClick : () => {} );
+			return ( this.state.urlValidity ? this.props.onConnectClick : () => {} );
 		};
-
 		return (
 			<AddSiteModal>
-				<AddSiteHeading>
-					<FormattedMessage id="sites.add-site.header" defaultMessage="Add Site"/>
-				</AddSiteHeading>
+				<ModalHeading>
+					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
+				</ModalHeading>
 
 				<form onSubmit={ handleSubmit } noValidate>
 					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.add-site.enter-url"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+						<FormattedMessage id="sites.addSite.enterUrl"
+										  defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
 					</label>
 
@@ -274,16 +238,15 @@ class AddSite extends React.Component {
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
 
-					{ this.validateUrl( this.props.linkingSiteUrl ) }
-					{ this.getErrorMessage( this.props.errorFound, this.props.errorMessage ) }
+					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
 						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.add-site.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ this.urlValidity }>
-							<FormattedMessage id="sites.add-site.connect" defaultMessage="connect"/>
+						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
+						} } enabledStyle={ ! this.state.validationError } aria-label="add">
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>
@@ -300,7 +263,7 @@ class AddSite extends React.Component {
 	speakSearchResultsMessage( prevProps ) {
 		/*
 		 * In order to use this.urlValidity we need to wait it's updated so we
-		 * use componentDidUpdate() to call the debounced a11ySpeak. As a
+		 * use componentDidUpdate() to call the debounced speak. As a
 		 * consequence, we need to use the lodash debounce.cancel() method to
 		 * cancel the delayed call. This is particularly important when typing
 		 * fast in the site URL field.
@@ -320,9 +283,8 @@ AddSite.propTypes = {
 	onCancelClick: PropTypes.func.isRequired,
 	onConnectClick: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
-	errorFound: PropTypes.bool.isRequired,
 	query: PropTypes.string.isRequired,
-	errorMessage: PropTypes.string,
+	error: PropTypes.object,
 };
 
 export default injectIntl( AddSite );

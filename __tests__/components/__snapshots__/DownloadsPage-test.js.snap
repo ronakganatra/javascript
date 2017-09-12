@@ -18,7 +18,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="eCSBxO"
+      className="lcfQJn"
       id="search"
       onChange={[Function]}
       spellCheck="false"
@@ -41,8 +41,8 @@ exports[`the downloads page component matches the snapshot 1`] = `
       <div
         className="dCSOIl"
       >
-        <h2
-          className="fdADGm"
+        <span
+          className="cWpYAO"
         >
           Plugins
           <span
@@ -52,6 +52,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
                - Need help installing these? 
               <a
                 href="https://yoa.st/myyoast-installation"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Read our installation guides
@@ -59,16 +60,16 @@ exports[`the downloads page component matches the snapshot 1`] = `
               .
             </span>
           </span>
-        </h2>
+        </span>
         
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Yoast SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -88,7 +89,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -105,7 +106,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for Drupal"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -122,7 +123,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for Typo3"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -139,11 +140,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Local SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -163,7 +164,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Local SEO for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -180,11 +181,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Video SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -204,7 +205,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Video SEO for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -221,7 +222,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Video SEO for Drupal"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -238,7 +239,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Video SEO for Typo3"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -255,11 +256,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             News SEO
-          </h3>
+          </span>
           <p
             className="hTVMCQ"
           >
@@ -279,7 +280,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download News SEO for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -296,7 +297,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download News SEO for Drupal"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -313,7 +314,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download News SEO for Typo3"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -331,8 +332,8 @@ exports[`the downloads page component matches the snapshot 1`] = `
       <div
         className="dCSOIl"
       >
-        <h2
-          className="fdADGm"
+        <span
+          className="cWpYAO"
         >
           eBooks
           <span
@@ -342,6 +343,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
                - Want to read more about SEO? 
               <a
                 href="https://yoa.st/ebooks"
+                rel="noopener noreferrer"
                 target="_blank"
               >
                 Check out our other eBooks
@@ -349,16 +351,16 @@ exports[`the downloads page component matches the snapshot 1`] = `
               .
             </span>
           </span>
-        </h2>
+        </span>
         
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -373,7 +375,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -390,11 +392,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -409,7 +411,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -426,11 +428,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -445,7 +447,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -462,11 +464,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
         <div
           className="iqMgVR"
         >
-          <h3
-            className="lmLbkz"
+          <span
+            className="jBkxVV"
           >
             Yoast SEO for WooCommerce
-          </h3>
+          </span>
           
           <img
             alt=""
@@ -481,7 +483,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="khPZvO"
+                className="iipSSv"
                 onClick={[Function]}
               >
                 Download
@@ -503,11 +505,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
 
 exports[`the downloads page component matches the snapshot when there are no downloads 1`] = `
 <div
-  className="kNIZiW"
+  className="beArzs"
 >
   <p>
     <span>
-      Welcome to the downloads page
+      Welcome to the downloads overview.
     </span>
   </p>
   <p>
@@ -520,23 +522,27 @@ exports[`the downloads page component matches the snapshot when there are no dow
       To browse our products, please visit:
     </span>
   </p>
-  <p>
-    <a
-      href="https://yoa.st/myyoast-download"
-      target="_blank"
+  <a
+    aria-label={undefined}
+    className="ewhypI"
+    href="https://yoast.com/shop/"
+    rel="noopener noreferrer"
+    target="_blank"
+  >
+    <span>
+      Shop
+    </span>
+    <span
+      className="screen-reader-text fuqaAG"
     >
-      yoast.com
-      <span
-        className="screen-reader-text fuqaAG"
-      >
-        <span>
-          (Opens in a new browser tab)
-        </span>
+      <span>
+        (Opens in a new browser tab)
       </span>
-    </a>
-  </p>
+    </span>
+  </a>
   <img
     alt=""
+    className="bTHZQB"
     src="noDownloads.svg"
   />
 </div>

@@ -7,7 +7,7 @@ import { ListTable } from "./Tables";
 import Paper from "./Paper";
 const messages = defineMessages( {
 	manageTitle: {
-		id: "site_subscriptions.overview.title",
+		id: "siteSubscriptions.overview.title",
 		defaultMessage: "Subscriptions",
 	},
 } );

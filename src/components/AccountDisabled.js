@@ -1,20 +1,15 @@
 import React from "react";
 import pageNotFoundImage from "../images/PageNotFound.svg";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import a11ySpeak from "a11y-speak";
+import { speak } from "@wordpress/a11y";
 import styled from "styled-components";
 import logo from "../images/logoColor.svg";
+import { Heading } from "./Headings";
 
 const LogoImage = styled.img`
 	width: ${ props => props.size };
 	display: block;
 	margin: 30px auto 25px;
-`;
-
-const AccountDisabledHeading = styled.h1`
-	font-weight: 700;
-	font-size: 2.5em;
-	margin: 0;
 `;
 
 const PageContainer = styled.div`
@@ -31,7 +26,7 @@ const AccountDisabledImage = styled.img`
 
 const messages = defineMessages( {
 	accountDisabled: {
-		id: "account.disabled.short-message",
+		id: "account.disabled.shortMessage",
 		defaultMessage: "Account disabled",
 	},
 	supportTeam: {
@@ -49,14 +44,14 @@ class AccountDisabled extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.accountDisabled );
-		a11ySpeak( message );
+		speak( message );
 	}
 
 	render() {
 		let paragraphs = [
-			<FormattedMessage id="account.disabled.possible-action" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
+			<FormattedMessage id="account.disabled.possibleAction" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
 							  values={ { support: <a href="mailto:support@yoast.com">support team</a> } } />,
-			<FormattedMessage id="account.disabled.visit-yoast" defaultMessage={ "Visit { yoast }." }
+			<FormattedMessage id="account.disabled.visitYoast" defaultMessage={ "Visit { yoast }." }
 							  values={ { yoast: <a href="https://yoast.com">Yoast.com</a> } } />,
 		];
 		return (
@@ -64,7 +59,7 @@ class AccountDisabled extends React.Component {
 
 		<PageContainer>
 			<LogoImage src={ logo } size="200px" />
-			<AccountDisabledHeading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></AccountDisabledHeading>
+			<Heading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></Heading>
 			{ paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }

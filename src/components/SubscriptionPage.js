@@ -4,7 +4,7 @@ import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
-import { ListHeading } from "./ListHeading";
+import { ListHeading } from "./Headings";
 import Orders from "./Orders";
 import Paper from "./Paper";
 import styled from "styled-components";
@@ -12,11 +12,11 @@ import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
-		id: "subscription-page.payment-details.title",
+		id: "subscriptionPage.paymentDetails.title",
 		defaultMessage: "Payment details",
 	},
 	invoicesTitle: {
-		id: "subscription-page.invoices.title",
+		id: "subscriptionPage.invoices.title",
 		defaultMessage: "Invoices",
 	},
 } );

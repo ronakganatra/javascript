@@ -6,7 +6,7 @@ exports[`the site page component matches the snapshot 1`] = `
     className="kFyTbG"
   >
     <h1
-      className="irnCFt"
+      className="dqjBBn"
     >
       yoast.com
     </h1>
@@ -14,7 +14,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="fIyvPW"
     >
       <a
-        className="kPmXcd"
+        className="kdYbCD"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -26,8 +26,10 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="brXJLz"
+        className="dIzknZ"
         href="http://yoast.com/wp-admin"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <span>
           Open WordPress admin 
@@ -252,7 +254,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     className="kFyTbG"
   >
     <h1
-      className="irnCFt"
+      className="dqjBBn"
     >
       yoast.com/path/
     </h1>
@@ -260,7 +262,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="fIyvPW"
     >
       <a
-        className="kPmXcd"
+        className="kdYbCD"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -272,8 +274,10 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="brXJLz"
+        className="dIzknZ"
         href="http://yoast.com/wp-admin"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         <span>
           Open WordPress admin 

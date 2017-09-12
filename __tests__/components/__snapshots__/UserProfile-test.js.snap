@@ -19,7 +19,7 @@ exports[`the user profile logout button handling an onclick event 1`] = `
       This is a name
     </p>
     <button
-      className="bPIpZK"
+      className="fJHKuB"
       onClick={[Function]}
       type="button"
     >
@@ -48,7 +48,7 @@ exports[`the user profile logout button handling an onclick event 2`] = `
       This is a name
     </p>
     <button
-      className="bPIpZK"
+      className="fJHKuB"
       onClick={[Function]}
       type="button"
     >
@@ -77,7 +77,7 @@ exports[`the user profile matches the snapshot 1`] = `
       This is a name
     </p>
     <button
-      className="bPIpZK"
+      className="fJHKuB"
       onClick={[Function]}
       type="button"
     >
@@ -106,7 +106,7 @@ exports[`the user profile matches the snapshot 2`] = `
       This is a name
     </p>
     <button
-      className="bPIpZK"
+      className="fJHKuB"
       onClick={[Function]}
       type="button"
     >

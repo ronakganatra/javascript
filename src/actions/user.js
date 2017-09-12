@@ -137,21 +137,19 @@ export function disableUserSuccess() {
 /**
  * An action creator for the receive user action.
  *
- * @param {Object} errorMessage The user data that was successfully received.
- * @returns {Object} A receive user action.
+ * @param {Object} error The error that was thrown.
+ * @returns {Object} A disable user failure action.
  */
-export function disableUserFailure( errorMessage ) {
+export function disableUserFailure( error ) {
 	return {
 		type: DISABLE_USER_FAILURE,
-		errorMessage: errorMessage,
+		error: error,
 	};
 }
 
 /**
  * An action creator for the fetch user action.
  *
- * @param {string} accessToken A valid access token for the user.
- * @param {string} userId The user ID for the user that we want to fetch.
  * @returns {Object} A fetch user action.
  */
 export function disableUser() {
@@ -164,7 +162,7 @@ export function disableUser() {
 
 		return doRequest( request )
 			.then( json => dispatch( disableUserSuccess() ) )
-			.catch( error => dispatch( disableUserFailure( error.message ) ) );
+			.catch( error => dispatch( disableUserFailure( error ) ) );
 	};
 }
 
@@ -195,13 +193,13 @@ export function profileUpdateRequest() {
 /**
  * An action creator for the profile update failure action.
  *
- * @param {string} error The error that occurred.
+ * @param {Object} error The error that occurred.
  * @returns {Object} The profile update failure action.
  */
 export function profileUpdateFailure( error ) {
 	return {
 		type: PROFILE_UPDATE_FAILURE,
-		message: error,
+		error: error,
 	};
 }
 
@@ -234,7 +232,7 @@ export function updateProfile( profile ) {
 
 		return doRequest( request )
 			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
-			.catch( error => dispatch( profileUpdateFailure( error.message ) ) );
+			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }
 
@@ -252,13 +250,13 @@ export function passwordResetRequest() {
 /**
  * An action creator for the password reset failure action.
  *
- * @param {string} errorMessage The error that occurred.
+ * @param {Object} error The error that occurred.
  * @returns {Object} The action.
  */
-export function passwordResetFailure( errorMessage ) {
+export function passwordResetFailure( error ) {
 	return {
 		type: RESET_PASSWORD_FAILURE,
-		message: errorMessage,
+		error: error,
 	};
 }
 
@@ -288,7 +286,7 @@ export function passwordResetSend( email ) {
 
 		let request = prepareRequest( getPasswordResetUrl(), "POST", body, { mode: "no-cors" } );
 		return doRequest( request )
-			.then( dispatch( passwordResetSuccess() ) )
-			.catch( error => dispatch( passwordResetFailure( error.message ) ) );
+			.then( () => dispatch( passwordResetSuccess() ) )
+			.catch( error => dispatch( passwordResetFailure( error ) ) );
 	};
 }

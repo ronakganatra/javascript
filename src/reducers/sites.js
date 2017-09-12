@@ -33,8 +33,8 @@ const rootState = {
 			// Whether or not linking of a site has failed.
 			linkSiteFailed: false,
 
-			// The error message we retrieved from the server about why the linking of the server failed.
-			linkSiteError: "",
+			// The error object we retrieved from the server, which contains information on why the linking of the server failed.
+			linkSiteError: null,
 
 			// Whether or not we are currently doing a request to the server to retrieve the sites.
 			retrievingSites: false,
@@ -69,7 +69,7 @@ function popupReducer( state = rootState.ui.sites, action ) {
 			return Object.assign( {}, state, {
 				addSitePopupOpen: false,
 				linkSiteFailed: false,
-				linkSiteError: "",
+				linkSiteError: null,
 				linkingSiteUrl: "",
 			} );
 		default:
@@ -101,6 +101,7 @@ export function linkReducer( state = rootState.ui.sites, action ) {
 				linkSiteFailed: false,
 				addSitePopupOpen: false,
 				linkingSiteUrl: "",
+				linkSiteError: null,
 				linkingSite: false,
 			} );
 		case LINK_SITE_FAILURE:
@@ -133,6 +134,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 				retrievingSites: false,
 				retrievingSitesFailed: false,
 				sitesRetrieved: true,
+				retrievingSitesError: null,
 			} );
 		case RETRIEVE_SITES_FAILURE:
 			return Object.assign( {}, state, {
