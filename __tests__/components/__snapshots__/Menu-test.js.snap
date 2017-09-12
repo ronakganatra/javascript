@@ -9,7 +9,8 @@ exports[`the menu matches the snapshot 1`] = `
   >
     <li>
       <a
-        className="active-class-name esXMxt"
+        aria-current="true"
+        className="esXMxt active-class-name"
         href="/sites"
         onClick={[Function]}
         style={Object {}}
@@ -24,6 +25,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="esXMxt"
         href="/courses"
         onClick={[Function]}
@@ -39,6 +41,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="esXMxt"
         href="/downloads"
         onClick={[Function]}
@@ -54,6 +57,7 @@ exports[`the menu matches the snapshot 1`] = `
     </li>
     <li>
       <a
+        aria-current={false}
         className="esXMxt"
         href="/account"
         onClick={[Function]}

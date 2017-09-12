@@ -240,12 +240,12 @@ class AddSite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		if( ! this.state.validationError ) {
+		if( ! this.state.validationError && this.props.linkingSiteUrl !== "" ) {
 			this.props.onConnectClick();
 		}
 	}
 
-	speakSearchResultsMessage( prevProps ) {
+	speakValidationMessage( prevProps ) {
 		/* We need to use the lodash debounce.cancel() method to
 		 * cancel the delayed call. This is particularly important when typing
 		 * fast in the site URL field.
@@ -272,7 +272,7 @@ class AddSite extends React.Component {
 	}
 
 	componentDidUpdate( prevProps ) {
-		this.speakSearchResultsMessage( prevProps );
+		this.speakValidationMessage( prevProps );
 	}
 
 	componentWillUnmount() {
