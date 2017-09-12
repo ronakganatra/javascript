@@ -13,6 +13,9 @@ import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
+import url from "url";
+import Cookies from "js-cookie";
+
 addLocaleData( en );
 
 let history = createHistory();
@@ -27,6 +30,18 @@ export const store = createStore(
 		routerMiddleware( history )
 	)
 );
+
+if ( process.env.NODE_ENV === "development" ) {
+	let parsedUrl = url.parse( document.location.href, true );
+
+	let newAccessToken = parsedUrl.query[ "access-token" ];
+	let newUserId = parsedUrl.query[ "user-id" ];
+
+	if ( newAccessToken && newUserId ) {
+		Cookies.set( "access_token", newAccessToken );
+		Cookies.set( "userId", newUserId );
+	}
+}
 
 /**
  * Bootstrapping the App, so that we can call it after checking whether users need to be redirected.
