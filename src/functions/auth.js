@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import getEnv from "./getEnv";
 import _defaultTo from "lodash/defaultTo";
+import url from "url";
 
 /**
  * Returns the auth URL where the user can authenticate themselves.
@@ -111,4 +112,43 @@ export function getUserId() {
 export function removeCookies() {
 	Cookies.remove( "access_token" );
 	Cookies.remove( "userId" );
+}
+
+/**
+ * Returns Cookie credentials from the URL parameters.
+ *
+ * @returns {{accessToken, userId}} The Cookie credentials.
+ */
+export function getCookieParams() {
+	let parsedUrl = url.parse( document.location.href, true );
+
+	return {
+		accessToken: parsedUrl.query.access_token,
+		userId:      parsedUrl.query.user_id,
+	};
+}
+
+/**
+ * Checks if the URL parameters contain Cookie credentials.
+ *
+ * @returns {boolean} Whether the url params contain Cookie credentials.
+ */
+export function hasCookieParams() {
+	let cookieParams = getCookieParams();
+
+	return ( cookieParams.accessToken && cookieParams.userId );
+}
+
+/**
+ * Sets Cookie credentials from the parameters.
+ *
+ * @returns {void}
+ */
+export function setCookieFromParams() {
+	let cookieParams = getCookieParams();
+
+	if ( cookieParams.accessToken && cookieParams.userId ) {
+		Cookies.set( "access_token", cookieParams.accessToken );
+		Cookies.set( "userId", cookieParams.userId );
+	}
 }

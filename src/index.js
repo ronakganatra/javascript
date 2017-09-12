@@ -5,7 +5,8 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { login, fetchUser } from "./actions/user";
-import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directToIntendedDestination, shouldBeRedirected } from "./functions/auth";
+import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directToIntendedDestination,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams } from "./functions/auth";
 import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -13,8 +14,6 @@ import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
-import url from "url";
-import Cookies from "js-cookie";
 
 addLocaleData( en );
 
@@ -31,24 +30,16 @@ export const store = createStore(
 	)
 );
 
-if ( process.env.NODE_ENV === "development" ) {
-	let parsedUrl = url.parse( document.location.href, true );
-
-	let newAccessToken = parsedUrl.query[ "access-token" ];
-	let newUserId = parsedUrl.query[ "user-id" ];
-
-	if ( newAccessToken && newUserId ) {
-		Cookies.set( "access_token", newAccessToken );
-		Cookies.set( "userId", newUserId );
-	}
-}
-
 /**
  * Bootstrapping the App, so that we can call it after checking whether users need to be redirected.
  *
  * @returns {void}
  */
 function app() {
+	if ( hasCookieParams() ) {
+		setCookieFromParams();
+	}
+
 	if ( hasAccessToken() ) {
 		store.dispatch( login( getAccessToken(), getUserId() ) );
 		store.dispatch( fetchUser( getUserId() ) );

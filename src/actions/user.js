@@ -108,14 +108,6 @@ export function fetchUser( userId ) {
 
 		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
-			// .catch( () => {
-			// 	dispatch( receiveUser( {
-			// 		profile: {
-			// 			email: "fakedemail@yoast.com",
-			// 			enabled: true,
-			// 		},
-			// 	} ) );
-			// } )
 			.catch( redirectToLogin );
 	};
 }
