@@ -27,11 +27,12 @@ const AddSiteModal = styled.div`
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;
+
 	label {
 		display: inline-block;
 		font-weight: 300;
 		font-size: 1em;
-		margin: 16px 0 8px 0;
+		margin: 16px 0 8px;
 	}
 `;
 
@@ -49,17 +50,18 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
-	// margin-top: 8px;
 ` );
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
 	padding: 8px 0;
 	text-align: right;
+
 	a,
 	button {
 		margin-left: 12px;
 	}
+
 	@media screen and (max-width: ${ defaults.css.breakpoint.mobile }px) {
 		display: flex;
 		flex-direction: column;
@@ -68,7 +70,7 @@ const Buttons = styled.div`
 
 		a,
 		button {
-			margin-left: 0px;
+			margin-left: 0;
 			margin-bottom: 8px;
 		}
 	}
@@ -105,7 +107,7 @@ class AddSite extends React.Component {
 			showValidationError: false,
 		};
 
-		// Defines the debounced function for showing validation error.
+		// Defines the debounced function to show the validation error.
 		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
 	}
 
@@ -137,8 +139,8 @@ class AddSite extends React.Component {
 	/**
 	 * Runs url validation and shows/hides error if validation returns error.
 	 *
-	 * @param {string} 	url The url to validate.
-	 * @param {bool} 	debounced Show the error message debounced.
+	 * @param {string} url       The url to validate.
+	 * @param {bool}   debounced Wheter to show the debounced error message.
 	 *
 	 * @returns {void}
 	 */
@@ -210,7 +212,10 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Checks whether an URL was entered.
+	 * Renders the validation error message container.
+	 *
+	 * When there are no errors, this container is rendered empty and acts like
+	 * a "placeholder" taking space in the page to avoid "jumps" in the layout.
 	 *
 	 * @param {string} input The string in the input field.
 	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
@@ -232,7 +237,7 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Handles the website submit event.
+	 * Handles the submit event.
 	 *
 	 * @param {object} event The submit event.
 	 *
@@ -240,15 +245,22 @@ class AddSite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		if( ! this.state.validationError && this.props.linkingSiteUrl !== "" ) {
+		if ( ! this.state.validationError && this.props.linkingSiteUrl !== "" ) {
 			this.props.onConnectClick();
 		}
 	}
 
+	/**
+	 * Sends the validation error message to the ARIA live assertive region.
+	 *
+	 * @param {object} prevProps The props before the component updates.
+	 *
+	 * @returns {void}
+	 */
 	speakValidationMessage( prevProps ) {
-		/* We need to use the lodash debounce.cancel() method to
-		 * cancel the delayed call. This is particularly important when typing
-		 * fast in the site URL field.
+		/*
+		 * We need to use lodash debounce.cancel() to cancel the delayed call.
+		 * This is particularly important when typing fast in the site URL field.
 		 */
 		debouncedSpeak.cancel();
 
@@ -309,7 +321,7 @@ class AddSite extends React.Component {
 					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
-						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
+						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton
