@@ -124,7 +124,7 @@ export function getCookieParams() {
 
 	return {
 		accessToken: parsedUrl.query.access_token,
-		userId:      parsedUrl.query.user_id,
+		userId: parsedUrl.query.user_id,
 	};
 }
 
