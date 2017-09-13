@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl } from "../functions/auth";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl, hasCookieParams } from "../functions/auth";
 
 /*
  * Action types
@@ -103,6 +103,20 @@ export function redirectToLogin() {
 export function fetchUser( userId ) {
 	return ( dispatch ) => {
 		dispatch( requestUser() );
+
+		// If our credentials came from the parameters then bypass the profile request.
+		if ( hasCookieParams() ) {
+			let request = prepareInternalRequest( `Customers/${userId}/` );
+
+			return doRequest( request )
+				.then( json =>
+					dispatch( receiveUser( {
+						profile: {
+							email: `Impersonating: ${json.email}`,
+							enabled: true,
+						},
+					} ) ) ).catch( redirectToLogin );
+		}
 
 		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
