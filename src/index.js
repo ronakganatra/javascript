@@ -5,7 +5,8 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import { login, fetchUser } from "./actions/user";
-import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directToIntendedDestination, shouldBeRedirected } from "./functions/auth";
+import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directToIntendedDestination,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams } from "./functions/auth";
 import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -13,6 +14,7 @@ import { addLocaleData }from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
+
 addLocaleData( en );
 
 let history = createHistory();
@@ -34,6 +36,10 @@ export const store = createStore(
  * @returns {void}
  */
 function app() {
+	if ( hasCookieParams() ) {
+		setCookieFromParams();
+	}
+
 	if ( hasAccessToken() ) {
 		store.dispatch( login( getAccessToken(), getUserId() ) );
 		store.dispatch( fetchUser( getUserId() ) );

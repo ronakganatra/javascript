@@ -34,6 +34,7 @@ jest.mock( "../../src/functions/auth", () => {
 		getPasswordResetUrl: jest.fn( () => { return "http://reset.your.passwo.rd" } ),
 		getLogoutUrl: jest.fn( () => { return "http://log.out" } ),
 		removeCookies: jest.fn( () => {} ),
+		hasCookieParams: jest.fn( () => false ),
 	}
 } );
 
