@@ -1,0 +1,1 @@
+../../../client/src/functions/auth.js
