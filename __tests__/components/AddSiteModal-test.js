@@ -73,8 +73,4 @@ test('the addSiteModal handling an onConnect event', () => {
 
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
-
-	// re-rendering
-	tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
 } );

@@ -139,8 +139,8 @@ class AddSite extends React.Component {
 	/**
 	 * Runs url validation and shows/hides error if validation returns error.
 	 *
-	 * @param {string} url       The url to validate.
-	 * @param {bool}   debounced Wheter to show the debounced error message.
+	 * @param {string}  url       The url to validate.
+	 * @param {boolean} debounced Whether to show the debounced error message.
 	 *
 	 * @returns {void}
 	 */
