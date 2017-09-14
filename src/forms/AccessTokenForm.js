@@ -1,0 +1,48 @@
+import React, {Component} from "react";
+
+class AccessTokenForm extends Component {
+	/**
+	 * Sets the initial state for this form.
+	 *
+	 * @returns {void}
+	 */
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			accessToken: props.accessToken,
+		};
+
+		this.handleChange = this.handleChange.bind( this );
+	}
+
+	/**
+	 * Callback used when the access token input changes.
+	 *
+	 * @param {Object} event The change event.
+	 *
+	 * @returns {void}
+	 */
+	handleChange( event ) {
+		let accessToken = event.target.value;
+
+		this.setState( { accessToken, } );
+
+		this.props.updateAccessToken( accessToken );
+	}
+
+	/**
+	 * Renders this component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
+	render() {
+		return(
+			<form>
+				<input className="wide" type="text" onChange={ this.handleChange } value={ this.state.accessToken } />
+			</form>
+		)
+	}
+}
+
+export default AccessTokenForm;
