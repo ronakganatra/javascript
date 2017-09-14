@@ -1,19 +1,30 @@
 import React from "react";
 import BaseResult from "./BaseResult";
-import OrdersResult from "./OrdersResult";
+import { getSearchCallback } from "../functions/callbacks";
+import { datePresenter } from "../functions/presenters";
 
 export default class SubscriptionsResult extends React.Component {
+	subscriberIdPresenter( id ) {
+		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
+
+		return <button type="button" onClick={ findCustomer }>Find Customer</button>;
+	}
+
 	/**
 	 * Presents an orders value using the OrdersResult component.
 	 *
-	 * @param {string} attribute The attribute to present.
-	 * @param {*}      order     The value to present.
-	 * @param {string} key       The key to use for components that present this object.
+	 * @param {Array} orders The value to present.
 	 *
 	 * @returns {ReactElement} the SubscriptionsResult component.
 	 */
-	ordersValuePresenter( attribute, order, key ) {
-		return <OrdersResult key={ key } result={ order }/>;
+	ordersPresenter( orders ) {
+		let items = orders && orders.map( function ( order ) {
+			let orderFinder = getSearchCallback( this.props.search, { resource: "Orders", attribute: "id", searchValue: order.id } );
+
+			return <li key={ order.id }><button onClick={ orderFinder.bind( this ) }>Find Order: #{ order.invoiceNumber }</button></li>;
+		}, this );
+
+		return <ul>{ items }</ul>;
 	}
 
 	/**
@@ -22,6 +33,11 @@ export default class SubscriptionsResult extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		return <BaseResult { ...this.props } ordersValuePresenter={ this.ordersValuePresenter }/>
+		return <BaseResult { ...this.props }
+						   startDatePresenter={ datePresenter }
+						   endDatePresenter={ datePresenter }
+						   nextPaymentPresenter={ datePresenter }
+						   ordersPresenter={ this.ordersPresenter.bind( this ) }
+						   subscriberIdPresenter={ this.subscriberIdPresenter.bind( this ) }/>;
 	}
 }

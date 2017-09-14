@@ -54,22 +54,13 @@ table {
   border-collapse: collapse;
 }
 
-table + table {
-  margin-top: 5px;
-}
-
-/* These two weird statements make nested tables more readable, up to four levels deep. */
-table:nth-child(odd), table table, table table table:nth-child(odd), table table table table {
-  background-color: #eee;
-}
-
-table, table table:nth-child(odd), table table table, table table table table:nth-child(odd) {
-  background-color: white;
-}
-
 th, td {
   border: 1px solid black;
   padding: 5px;
   text-align: left;
   vertical-align: top;
+}
+
+td ul {
+  margin: 0;
 }

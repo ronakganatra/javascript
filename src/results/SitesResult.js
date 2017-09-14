@@ -1,19 +1,30 @@
 import React from "react";
 import BaseResult from "./BaseResult";
-import SubscriptionsResult from "./SubscriptionsResult";
+import { getSearchCallback } from "../functions/callbacks";
+import { datePresenter } from "../functions/presenters";
 
 export default class SitesResult extends React.Component {
+	userIdPresenter( id ) {
+		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
+
+		return <button type="button" onClick={ findCustomer }>Find Customer</button>;
+	}
+
 	/**
-	 * Presents a subscriptions value using the SubscriptionsResult component.
+	 * Presents an orders value using the OrdersResult component.
 	 *
-	 * @param {string} attribute    The attribute to present.
-	 * @param {*}      subscription The value to present.
-	 * @param {string} key          The key to use for components that present this object.
+	 * @param {Array} orders The value to present.
 	 *
 	 * @returns {ReactElement} the SubscriptionsResult component.
 	 */
-	subscriptionsValuePresenter( attribute, subscription, key ) {
-		return <SubscriptionsResult key={ key } result={ subscription }/>;
+	subscriptionsPresenter( subscriptions ) {
+		let items = subscriptions && subscriptions.map( function ( subscription ) {
+			let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "id", searchValue: subscription.id } );
+
+			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: #{ subscription.name }</button></li>;
+		}, this );
+
+		return <ul>{ items }</ul>;
 	}
 
 	/**
@@ -22,6 +33,9 @@ export default class SitesResult extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		return <BaseResult { ...this.props } subscriptionsValuePresenter={ this.subscriptionsValuePresenter }/>
+		return <BaseResult { ...this.props }
+						   userIdPresenter={ this.userIdPresenter.bind( this ) }
+						   creationDatePresenter={ datePresenter }
+						   subscriptionsPresenter={ this.subscriptionsPresenter.bind( this ) }/>
 	}
 }

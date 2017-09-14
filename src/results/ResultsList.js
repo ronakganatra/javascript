@@ -4,6 +4,7 @@ import OrdersResult from "./OrdersResult";
 import BaseResult from "./BaseResult";
 import SitesResult from "./SitesResult";
 import SubscriptionsResult from "./SubscriptionsResult";
+import config from "../config.json";
 
 const Results = {
 	Customers: CustomersResult,
@@ -11,6 +12,8 @@ const Results = {
 	Sites: SitesResult,
 	Subscriptions: SubscriptionsResult
 };
+
+const Display = config.display;
 
 export default class ResultsList extends React.Component {
 	/**
@@ -25,9 +28,14 @@ export default class ResultsList extends React.Component {
 
 		return <Element
 			key={ result.id }
+			attributes={ Display[ this.props.resource ] }
 			result={ result }
 			api={ this.props.api }
 			search={ this.props.search }/>;
+	}
+
+	generateHeaderCells() {
+		return Display[ this.props.resource ].map( attribute => <th key={ attribute }>{ attribute }</th> )
 	}
 
 	/**
@@ -37,9 +45,14 @@ export default class ResultsList extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
+			<table>
+				<thead>
+					<tr>{ this.generateHeaderCells() }</tr>
+				</thead>
+				<tbody>
 				{ this.props.results.map( this.getResultElement, this ) }
-			</div>
+				</tbody>
+			</table>
 		)
 	}
 }

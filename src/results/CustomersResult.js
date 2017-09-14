@@ -39,7 +39,7 @@ export default class CustomersResult extends React.Component {
 		} );
 	}
 
-	getAccessTokenElement() {
+	impersonatePresenter() {
 		if ( this.state.accessTokenStatus === "notCreated" ) {
 			return <button type="button" onClick={ this.createAccessToken }>Create Access Token</button>;
 		}
@@ -57,57 +57,34 @@ export default class CustomersResult extends React.Component {
 		return <span>Invalid Access Token status.</span>;
 	}
 
+	sitesPresenter() {
+		let findSites = getSearchCallback( this.props.search, { resource: "Sites", attribute: "userId", searchValue: this.props.result.id } );
+
+		return <button type="button" onClick={ findSites }>Find Sites</button>;
+	}
+
+	ordersPresenter() {
+		let findOrders = getSearchCallback( this.props.search, { resource: "Orders", attribute: "customerId", searchValue: this.props.result.id } );
+
+		return <button type="button" onClick={ findOrders }>Find Orders</button>;
+	}
+
+	subscriptionsPresenter() {
+		let findSubscriptions = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "subscriberId", searchValue: this.props.result.id } );
+
+		return <button type="button" onClick={ findSubscriptions }>Find Subscriptions</button>;
+	}
+
 	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		let accessTokenStatus = this.getAccessTokenElement();
-
-		let findSites = getSearchCallback( this.props.search, { resource: "Sites", attribute: "userId", searchValue: this.props.result.id } );
-		let findOrders = getSearchCallback( this.props.search, { resource: "Orders", attribute: "customerId", searchValue: this.props.result.id } );
-		let findSubscriptions = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "subscriberId", searchValue: this.props.result.id } );
-
-		let impersonateKey = this.props.result.id + '-impersonate';
-		let impersonateRow = (
-			<tr key={ impersonateKey }>
-				<th>impersonate</th>
-				<td>{ accessTokenStatus }</td>
-			</tr>
-		);
-
-		let sitesKey = this.props.result.id + '-sites';
-		let sitesRow = (
-			<tr key={ sitesKey }>
-				<th>sites</th>
-				<td>
-					<button type="button" onClick={ findSites }>Find Sites</button>
-				</td>
-			</tr>
-		);
-
-		let ordersKey = this.props.result.id + '-orders';
-		let ordersRow = (
-			<tr key={ ordersKey }>
-				<th>orders</th>
-				<td>
-					<button type="button" onClick={ findOrders }>Find Orders</button>
-				</td>
-			</tr>
-		);
-
-		let subscriptionsKey = this.props.result.id + '-subscriptions';
-		let subscriptionsRow = (
-			<tr key={ subscriptionsKey }>
-				<th>subscriptions</th>
-				<td>
-					<button type="button" onClick={ findSubscriptions }>Find Subscriptions</button>
-				</td>
-			</tr>
-		);
-
-
-		return <BaseResult { ...this.props } additionalRows={ [ impersonateRow, sitesRow, ordersRow, subscriptionsRow ] }/>
+		return <BaseResult { ...this.props }
+						   impersonatePresenter={ this.impersonatePresenter.bind( this ) }
+						   sitesPresenter={ this.sitesPresenter.bind( this ) }
+						   ordersPresenter={ this.ordersPresenter.bind( this ) }
+						   subscriptionsPresenter={ this.subscriptionsPresenter.bind( this ) }/>
 	}
 }

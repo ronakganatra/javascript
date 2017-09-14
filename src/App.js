@@ -1,4 +1,5 @@
 import React from "react";
+import { getAccessToken } from "./clientImports/auth"
 import "./App.css";
 import AccessTokenForm from './forms/AccessTokenForm';
 import SearchForm from './forms/SearchForm';
@@ -13,6 +14,10 @@ class App extends React.Component {
 		super();
 
 		let accessToken = localStorage.getItem( "yoast-support-access-token" );
+
+		if ( accessToken === null ) {
+			accessToken = getAccessToken();
+		}
 
 		this.state = {
 			accessToken: accessToken,
@@ -84,7 +89,7 @@ class App extends React.Component {
 		filters[ query.attribute ] = query.searchValue;
 
 
-		let search = this.api.search( query.resource, { where: filters, limit: 10 } );
+		let search = this.api.search( query.resource, { where: filters, limit: 500 } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}

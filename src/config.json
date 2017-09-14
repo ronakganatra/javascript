@@ -1,6 +1,12 @@
 {
   "searchable": {
-    "Customers": ["email"],
-    "Orders":	 ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerCompany"]
+    "Orders":	 ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName"],
+    "Customers": ["email"]
+  },
+  "display": {
+    "Customers": ["email", "username", "sites", "orders", "subscriptions", "impersonate"],
+    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "items", "manage"],
+    "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
+    "Sites": ["url", "userId", "creationDate", "subscriptions"]
   }
 }

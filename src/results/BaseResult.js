@@ -2,78 +2,36 @@ import React from "react";
 
 export default class BaseResult extends React.Component {
 	/**
-	 * Default presenter for arrays.
-	 * Each value of the array can be presented with its own presenter named {attribute}ValuePresenter.
-	 *
-	 * @param {string} attribute The attribute to present.
-	 * @param {Array}  results   The array to present.
-	 * @param {string} key       The key to assign to the component.
-	 *
-	 * @returns {Array} The presented array.
-	 */
-	defaultArrayPresenter( attribute, results, key ) {
-		return results.map( function ( result ) {
-			let resultKey = key + "-" + result.id;
-
-			return this.presentValue( attribute + "Value", result, resultKey );
-		}, this );
-	}
-
-	/**
-	 * Default presenter for Objects.
-	 * Returns this same component, can be overriden by pasing a function named {attribute}Presenter to the props.
-	 *
-	 * @param {string} attribute The attribute to present.
-	 * @param {Object} result    The object to present.
-	 * @param {string} key       The key to assign to the component.
-	 *
-	 * @returns {ReactElement} The presented component.
-	 */
-	defaultObjectPresenter( attribute, result, key ) {
-		return <BaseResult key={ key } result={ result } api={ this.props.api } search={ this.props.search }/>;
-	}
-
-	/**
 	 * Finds the correct presenter for this value and presents it.
 	 *
 	 * @param {string} attribute The attribute to present.
 	 * @param {*}      value     The value to present.
-	 * @param {string} key       The key to use for components that present this object.
 	 *
 	 * @returns {ReactElement|string}
 	 */
-	presentValue( attribute, value, key ) {
+	presentValue( attribute, value ) {
 		if ( this.props[ attribute + "Presenter" ] ) {
-			return this.props[ attribute + "Presenter" ]( attribute, value, key );
+			return this.props[ attribute + "Presenter" ]( value );
 		}
 
-		if ( value instanceof Array ) {
-			return this.defaultArrayPresenter( attribute, value, key );
-		}
-
-		if ( value instanceof Object ) {
-			return this.defaultObjectPresenter( attribute, value, key );
+		if ( value instanceof Array || value instanceof Object ) {
+			return JSON.stringify( value );
 		}
 
 		return value;
 	}
 
 	/**
-	 * Generates table rows for each property of this component's result.
+	 * Generates table cells for each property of this component's result.
 	 *
-	 * @returns {Array} An array of table rows.
+	 * @returns {Array} An array of table cells.
 	 */
-	generateResultRows() {
-		return Object.keys( this.props.result ).map( function ( attribute ) {
+	generateResultCells() {
+		return this.props.attributes.map( function ( attribute ) {
 			let key   = this.props.result.id + '-' + attribute;
-			let value = this.presentValue( attribute, this.props.result[ attribute ], key );
+			let value = this.presentValue( attribute, this.props.result[ attribute ] );
 
-			return (
-				<tr key={ key }>
-					<th>{ attribute }</th>
-					<td>{ value }</td>
-				</tr>
-			)
+			return <td key={ key }>{ value }</td>;
 		}, this );
 	}
 
@@ -83,13 +41,6 @@ export default class BaseResult extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		return (
-			<table>
-				<tbody>
-					{ this.generateResultRows() }
-					{ this.props.additionalRows }
-				</tbody>
-			</table>
-		)
+		return <tr>{ this.generateResultCells() }</tr>;
 	}
 }
