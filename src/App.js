@@ -88,10 +88,10 @@ class App extends React.Component {
 		}
 
 		let filters = {};
-		filters[ query.attribute ] = { like: `%${ query.searchValue }%`, options: "i" };
+		filters[ query.attribute ] = { like: `${ query.searchValue }`, options: "i" };
 
 		let order = `${ query.attribute } DESC`;
-		if ( order !== config.order[ query.resource ] ) {
+		if ( config.order[ query.resource ] && order !== config.order[ query.resource ] ) {
 			order += `, ${ config.order[ query.resource ] }`;
 		}
 
