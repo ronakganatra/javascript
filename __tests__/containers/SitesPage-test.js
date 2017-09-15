@@ -22,6 +22,7 @@ let state = {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					"status": "active",
 				},
 			},
 		},
@@ -63,6 +64,7 @@ test('the mapStateToProps function', () => {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"status": "active",
 			} ],
 		} ],
 		plugins: [
@@ -97,6 +99,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"status": "active",
 			} ],
 		} ],
 		plugins: [
@@ -131,6 +134,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"status": "active",
 			} ],
 		} ],
 		plugins: [
@@ -252,6 +256,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"status": "active",
 			} ],
 		} ],
 		plugins: [
