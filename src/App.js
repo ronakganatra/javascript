@@ -79,6 +79,7 @@ class App extends React.Component {
 	search( query, skipHistory ) {
 		this.setState( {
 			query: query,
+			results: []
 		} );
 
 		if ( ! skipHistory ) {

@@ -4,6 +4,23 @@ import { getSearchCallback } from "../functions/callbacks";
 import { datePresenter } from "../functions/presenters";
 
 export default class SubscriptionsResult extends React.Component {
+	/**
+	 * Constructs the component and binds several functions.
+	 */
+	constructor() {
+		super();
+
+		this.subscriberIdPresenter = this.subscriberIdPresenter.bind( this );
+		this.ordersPresenter       = this.ordersPresenter.bind( this );
+	}
+
+	/**
+	 * Presents the subscriberId as a button to find that subscriber.
+	 *
+	 * @param {string} id The ID of the subscriber.
+	 *
+	 * @returns {ReactElement} A button to find the subscriber.
+	 */
 	subscriberIdPresenter( id ) {
 		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
 
@@ -11,11 +28,11 @@ export default class SubscriptionsResult extends React.Component {
 	}
 
 	/**
-	 * Presents an orders value using the OrdersResult component.
+	 * Presents the orders value as a list of buttons to find related orders.
 	 *
 	 * @param {Array} orders The value to present.
 	 *
-	 * @returns {ReactElement} the SubscriptionsResult component.
+	 * @returns {ReactElement} A list of buttons to find the orders.
 	 */
 	ordersPresenter( orders ) {
 		let items = orders && orders.map( function ( order ) {
@@ -37,7 +54,7 @@ export default class SubscriptionsResult extends React.Component {
 						   startDatePresenter={ datePresenter }
 						   endDatePresenter={ datePresenter }
 						   nextPaymentPresenter={ datePresenter }
-						   ordersPresenter={ this.ordersPresenter.bind( this ) }
-						   subscriberIdPresenter={ this.subscriberIdPresenter.bind( this ) }/>;
+						   ordersPresenter={ this.ordersPresenter }
+						   subscriberIdPresenter={ this.subscriberIdPresenter }/>;
 	}
 }

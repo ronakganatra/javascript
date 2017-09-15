@@ -4,6 +4,23 @@ import { getSearchCallback } from "../functions/callbacks";
 import { datePresenter } from "../functions/presenters";
 
 export default class SitesResult extends React.Component {
+	/**
+	 * Constructs the component and binds several functions.
+	 */
+	constructor() {
+		super();
+
+		this.userIdPresenter        = this.userIdPresenter.bind( this );
+		this.subscriptionsPresenter = this.subscriptionsPresenter.bind( this );
+	}
+
+	/**
+	 * Presents a button to search for the owner of this site.
+	 *
+	 * @param {string} id The id of the owner.
+	 *
+	 * @returns {ReactElement} A button to search for the owner of this site.
+	 */
 	userIdPresenter( id ) {
 		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
 
@@ -21,7 +38,7 @@ export default class SitesResult extends React.Component {
 		let items = subscriptions && subscriptions.map( function ( subscription ) {
 			let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "id", searchValue: subscription.id } );
 
-			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: #{ subscription.name }</button></li>;
+			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: { subscription.name }</button></li>;
 		}, this );
 
 		return <ul>{ items }</ul>;
@@ -34,8 +51,8 @@ export default class SitesResult extends React.Component {
 	 */
 	render() {
 		return <BaseResult { ...this.props }
-						   userIdPresenter={ this.userIdPresenter.bind( this ) }
+						   userIdPresenter={ this.userIdPresenter }
 						   creationDatePresenter={ datePresenter }
-						   subscriptionsPresenter={ this.subscriptionsPresenter.bind( this ) }/>
+						   subscriptionsPresenter={ this.subscriptionsPresenter }/>
 	}
 }

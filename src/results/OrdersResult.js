@@ -4,6 +4,23 @@ import { getSearchCallback } from "../functions/callbacks";
 import { datePresenter, dollarPresenter, euroPresenter } from "../functions/presenters";
 
 export default class OrdersResult extends React.Component {
+	/**
+	 * Constructs the component and binds several functions.
+	 */
+	constructor() {
+		super();
+
+		this.customerIdPresenter = this.customerIdPresenter.bind( this );
+		this.managePresenter     = this.managePresenter.bind( this );
+	}
+
+	/**
+	 * Presents a button to search for the customer of this order.
+	 *
+	 * @param {string} id The id of the customer.
+	 *
+	 * @returns {ReactElement} A button to search for the customer of this order.
+	 */
 	customerIdPresenter( id ) {
 		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
 
@@ -21,6 +38,11 @@ export default class OrdersResult extends React.Component {
 		return <ul>{ items && items.map( item => <li key={ item.id }>{ item.productName }</li>)}</ul>;
 	}
 
+	/**
+	 * Presents a link to manage this order in the WooCommerce backend.
+	 *
+	 * @returns {ReactElement} A link to manage this order in the WooCommerce backend.
+	 */
 	managePresenter() {
 		let url = `https://yoast.com/wp/wp-admin/post.php?post=${ this.props.result.sourceId }&action=edit`;
 		if ( this.props.result.sourceShopId === 2 ) {
@@ -39,10 +61,10 @@ export default class OrdersResult extends React.Component {
 		let currencyPresenter = ( this.props.result.currency === "USD" ? dollarPresenter : euroPresenter );
 
 		return <BaseResult { ...this.props }
-						   customerIdPresenter={ this.customerIdPresenter.bind( this ) }
+						   customerIdPresenter={ this.customerIdPresenter }
 						   totalAmountPresenter={ currencyPresenter }
 						   datePresenter={ datePresenter }
-						   managePresenter={ this.managePresenter.bind( this ) }
+						   managePresenter={ this.managePresenter }
 						   itemsPresenter={ OrdersResult.itemsPresenter }/>;
 	}
 }

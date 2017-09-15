@@ -16,7 +16,11 @@ export default class CustomersResult extends React.Component {
 			accessToken: null,
 		};
 
-		this.createAccessToken = this.createAccessToken.bind( this );
+		this.createAccessToken      = this.createAccessToken.bind( this );
+		this.impersonatePresenter   = this.impersonatePresenter.bind( this );
+		this.sitesPresenter         = this.sitesPresenter.bind( this );
+		this.ordersPresenter        = this.ordersPresenter.bind( this );
+		this.subscriptionsPresenter = this.subscriptionsPresenter.bind( this );
 	}
 
 	/**
@@ -39,6 +43,11 @@ export default class CustomersResult extends React.Component {
 		} );
 	}
 
+	/**
+	 * Presents the current status of impersonating a user.
+	 *
+	 * @returns {ReactElement} An element corresponding to this component's internal access token status.
+	 */
 	impersonatePresenter() {
 		if ( this.state.accessTokenStatus === "notCreated" ) {
 			return <button type="button" onClick={ this.createAccessToken }>Create Access Token</button>;
@@ -57,18 +66,33 @@ export default class CustomersResult extends React.Component {
 		return <span>Invalid Access Token status.</span>;
 	}
 
+	/**
+	 * Presents a button to search all of this user's sites.
+	 *
+	 * @returns {ReactElement} A button to search all of this user's sites.
+	 */
 	sitesPresenter() {
 		let findSites = getSearchCallback( this.props.search, { resource: "Sites", attribute: "userId", searchValue: this.props.result.id } );
 
 		return <button type="button" onClick={ findSites }>Find Sites</button>;
 	}
 
+	/**
+	 * Presents a button to search all of this user's orders.
+	 *
+	 * @returns {ReactElement} A button to search all of this user's orders.
+	 */
 	ordersPresenter() {
 		let findOrders = getSearchCallback( this.props.search, { resource: "Orders", attribute: "customerId", searchValue: this.props.result.id } );
 
 		return <button type="button" onClick={ findOrders }>Find Orders</button>;
 	}
 
+	/**
+	 * Presents a button to search all of this user's subscriptions.
+	 *
+	 * @returns {ReactElement} A button to search all of this user's subscriptions.
+	 */
 	subscriptionsPresenter() {
 		let findSubscriptions = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "subscriberId", searchValue: this.props.result.id } );
 
@@ -82,9 +106,9 @@ export default class CustomersResult extends React.Component {
 	 */
 	render() {
 		return <BaseResult { ...this.props }
-						   impersonatePresenter={ this.impersonatePresenter.bind( this ) }
-						   sitesPresenter={ this.sitesPresenter.bind( this ) }
-						   ordersPresenter={ this.ordersPresenter.bind( this ) }
-						   subscriptionsPresenter={ this.subscriptionsPresenter.bind( this ) }/>
+						   impersonatePresenter={ this.impersonatePresenter }
+						   sitesPresenter={ this.sitesPresenter }
+						   ordersPresenter={ this.ordersPresenter }
+						   subscriptionsPresenter={ this.subscriptionsPresenter }/>
 	}
 }

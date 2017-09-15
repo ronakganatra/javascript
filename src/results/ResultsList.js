@@ -34,6 +34,11 @@ export default class ResultsList extends React.Component {
 			search={ this.props.search }/>;
 	}
 
+	/**
+	 * Generates the header cells for the results.
+	 *
+	 * @returns {Array<ReactElement>} An array of header cells.
+	 */
 	generateHeaderCells() {
 		return Display[ this.props.resource ].map( attribute => <th key={ attribute }>{ attribute }</th> )
 	}
