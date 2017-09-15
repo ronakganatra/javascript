@@ -5,7 +5,7 @@
   },
   "display": {
     "Customers": ["email", "username", "sites", "orders", "subscriptions", "impersonate"],
-    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "items", "manage"],
+    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "items", "manage"],
     "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
     "Sites": ["url", "userId", "creationDate", "subscriptions"]
   }
