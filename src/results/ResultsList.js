@@ -43,8 +43,6 @@ export default class ResultsList extends React.Component {
 	 * @returns {Array<ReactElement>} An array of header cells.
 	 */
 	generateHeaderCells() {
-		let headers = Headers[ this.props.resource ] || {};
-
 		return Display[ this.props.resource ].map( function ( attribute ) {
 			let header = capitalize( attribute );
 			if ( Headers[ this.props.resource ] && Headers[ this.props.resource ][ attribute ] ) {
