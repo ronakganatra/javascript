@@ -23,9 +23,13 @@ export const mapStateToProps = ( state ) => {
 			siteProps.siteIcon = site.icon;
 		}
 
-		let activeSubscriptions = site.subscriptions.map( ( subscriptionId ) => {
-			return state.entities.subscriptions.byId[ subscriptionId ];
-		} );
+		let activeSubscriptions = site.subscriptions
+			.map( ( subscriptionId ) => {
+				return state.entities.subscriptions.byId[ subscriptionId ];
+			} )
+			.filter( ( subscription ) => {
+				return subscription.status === "active";
+			} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
 		return siteProps;
