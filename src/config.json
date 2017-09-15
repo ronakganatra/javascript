@@ -30,5 +30,8 @@
       "userId": "Customer",
       "creationDate": "Creation date"
     }
+  },
+  "order": {
+    "Orders": "invoiceNumber DESC"
   }
 }

@@ -5,6 +5,7 @@ import AccessTokenForm from './forms/AccessTokenForm';
 import SearchForm from './forms/SearchForm';
 import Api from './Api';
 import ResultsList from "./results/ResultsList";
+import config from "./config.json";
 
 class App extends React.Component {
 	/**
@@ -87,10 +88,14 @@ class App extends React.Component {
 		}
 
 		let filters = {};
-		filters[ query.attribute ] = query.searchValue;
+		filters[ query.attribute ] = { like: `%${ query.searchValue }%`, options: "i" };
 
+		let order = `${ query.attribute } DESC`;
+		if ( order !== config.order[ query.resource ] ) {
+			order += `, ${ config.order[ query.resource ] }`;
+		}
 
-		let search = this.api.search( query.resource, { where: filters, limit: 500 } );
+		let search = this.api.search( query.resource, { where: filters, limit: 500, order: order } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}
