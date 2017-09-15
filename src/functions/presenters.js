@@ -1,13 +1,4 @@
-/**
- * Pads a string or number with zeroes, for use with currencies.
- *
- * @param {string|number} value
- *
- * @returns {string}
- */
-function zeroPad( value ) {
-	return value.toString().padStart( 2, '0' );
-}
+import { zeroPad } from "./helpers";
 
 /**
  * Presents a numerical value as a euro currency string.

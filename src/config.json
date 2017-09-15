@@ -1,12 +1,34 @@
 {
   "searchable": {
-    "Orders":	 ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName"],
+    "Orders":	 ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName"],
     "Customers": ["email"]
   },
   "display": {
     "Customers": ["email", "username", "sites", "orders", "subscriptions", "impersonate"],
-    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "items", "manage"],
+    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
     "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
     "Sites": ["url", "userId", "creationDate", "subscriptions"]
+  },
+  "headers": {
+    "Orders": {
+      "customerEmail": "Email",
+      "customerFirstName": "First name",
+      "customerLastName": "Last name",
+      "customerId": "Customer",
+      "totalAmount": "Price",
+      "paymentProvider": "Payment method",
+      "items": "Products"
+    },
+    "Subscriptions": {
+      "name": "Product",
+      "subscriberId": "Customer",
+      "startDate": "Start date",
+      "endDate": "End date",
+      "nextPayment": "Next payment"
+    },
+    "Sites": {
+      "userId": "Customer",
+      "creationDate": "Creation date"
+    }
   }
 }

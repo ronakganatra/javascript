@@ -5,6 +5,7 @@ import BaseResult from "./BaseResult";
 import SitesResult from "./SitesResult";
 import SubscriptionsResult from "./SubscriptionsResult";
 import config from "../config.json";
+import { capitalize } from "../functions/helpers";
 
 const Results = {
 	Customers: CustomersResult,
@@ -14,6 +15,8 @@ const Results = {
 };
 
 const Display = config.display;
+
+const Headers = config.headers;
 
 export default class ResultsList extends React.Component {
 	/**
@@ -40,7 +43,16 @@ export default class ResultsList extends React.Component {
 	 * @returns {Array<ReactElement>} An array of header cells.
 	 */
 	generateHeaderCells() {
-		return Display[ this.props.resource ].map( attribute => <th key={ attribute }>{ attribute }</th> )
+		let headers = Headers[ this.props.resource ] || {};
+
+		return Display[ this.props.resource ].map( function ( attribute ) {
+			let header = capitalize( attribute );
+			if ( Headers[ this.props.resource ] && Headers[ this.props.resource ][ attribute ] ) {
+				header = Headers[ this.props.resource ][ attribute ];
+			}
+
+			return <th key={ attribute }>{ header }</th>;
+		}, this );
 	}
 
 	/**

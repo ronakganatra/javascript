@@ -1,8 +1,10 @@
 import React from "react";
 import config from "../config.json";
+import { capitalize } from "../functions/helpers"
 
 const Searchable     = config.searchable;
 const SearchableKeys = Object.keys( Searchable );
+const Headers        = config.headers;
 
 export default class SearchForm extends React.Component {
 	/**
@@ -70,13 +72,16 @@ export default class SearchForm extends React.Component {
 	/**
 	 * Generates options for an array of option values.
 	 *
-	 * @param {Object} options An array of options to generate option element for.
+	 * @param {Object} options      An object of options to generate option element for.
+	 * @param {Object} translations An object with
 	 *
 	 * @returns {ReactElement} The options.
 	 */
-	static generateOptions( options ) {
+	static generateOptions( options, translations = {} ) {
 		return options.map( function ( option ) {
-			return <option key={option}>{option}</option>;
+			let display = translations[ option ] || capitalize( option );
+
+			return <option key={ option } value={ option }>{ display }</option>;
 		} );
 	}
 
@@ -105,7 +110,7 @@ export default class SearchForm extends React.Component {
 					{ SearchForm.generateOptions( SearchableKeys ) }
 				</select>
 				<select onChange={ this.handleAttributeChange } value={ this.state.attribute }>
-					{ SearchForm.generateOptions( Searchable[ this.state.resource ] ) }
+					{ SearchForm.generateOptions( Searchable[ this.state.resource ], Headers[ this.state.resource ] ) }
 				</select>
 				<input type="text" onChange={ this.handleSearchValueChange } value={ this.state.searchValue } />
 				<button type="submit">Search</button>
