@@ -74,7 +74,7 @@ export function getPasswordResetUrl() {
  * @returns {string} The raw value.
  */
 export function removeCookieSignage( cookie ) {
-	return cookie.replace( /s:([^\.]+)\..*/, "$1" );
+	return cookie.replace( /s:([^.]+)\..*/, "$1" );
 }
 
 /**
