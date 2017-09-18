@@ -12,7 +12,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -33,15 +33,15 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
             className="hUAvMB"
@@ -54,8 +54,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           </button>
           <button
             aria-label="add"
-            className="ibCohl"
-            onClick={[Function]}
+            className="kaSgRI"
             type="submit"
           >
             <span>
@@ -89,7 +88,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -110,15 +109,15 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
             className="hUAvMB"
@@ -131,8 +130,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           </button>
           <button
             aria-label="add"
-            className="ibCohl"
-            onClick={[Function]}
+            className="kaSgRI"
             type="submit"
           >
             <span>
@@ -166,7 +164,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -187,15 +185,15 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
             className="hUAvMB"
@@ -208,8 +206,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           </button>
           <button
             aria-label="add"
-            className="ibCohl"
-            onClick={[Function]}
+            className="kaSgRI"
             type="submit"
           >
             <span>
@@ -243,7 +240,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -264,15 +261,15 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
             className="hUAvMB"
@@ -285,85 +282,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           </button>
           <button
             aria-label="add"
-            className="ibCohl"
-            onClick={[Function]}
-            type="submit"
-          >
-            <span>
-              add
-            </span>
-          </button>
-        </div>
-      </form>
-      <div
-        className="ehuLPF"
-      />
-      <img
-        alt=""
-        className="ireVCO"
-        src="addsite.svg"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`the addSiteModal handling an onConnect event 2`] = `
-<div>
-  <div
-    className="ZwEmN my-yoast-modal__content"
-    contentLabel="Add a new site"
-    id="Modal"
-    isOpen={true}
-    onRequestClose={[Function]}
-    overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
-    <div
-      className="eUbKKo"
-    >
-      <h1
-        className="dQgKWp"
-      >
-        <span>
-          Add Site
-        </span>
-      </h1>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}
-      >
-        <label
-          htmlFor="add-site-input"
-        >
-          <span>
-            Please enter the URL of the site you would like to add to your account:
-          </span>
-        </label>
-        <input
-          className="jeqQcj"
-          defaultValue=""
-          id="add-site-input"
-          onChange={[Function]}
-          placeholder="https://example-site.com"
-          type="url"
-        />
-        <div
-          className="eHlvIb"
-        >
-          <button
-            className="hUAvMB"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              cancel
-            </span>
-          </button>
-          <button
-            aria-label="add"
-            className="ibCohl"
-            onClick={[Function]}
+            className="kaSgRI"
             type="submit"
           >
             <span>

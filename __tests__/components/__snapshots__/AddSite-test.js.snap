@@ -2,7 +2,7 @@
 
 exports[`The AddSite component matches the snapshot 1`] = `
 <div
-  className="eUbKKo"
+  className="lcOdPt"
 >
   <h1
     className="dQgKWp"
@@ -23,15 +23,15 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </span>
     </label>
     <input
-      className="jeqQcj"
-      defaultValue=""
+      className="jssTrf"
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
       type="url"
+      value=""
     />
     <div
-      className="eHlvIb"
+      className="bQLojW"
     >
       <button
         className="hUAvMB"
@@ -44,8 +44,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         aria-label="add"
-        className="ibCohl"
-        onClick={[Function]}
+        className="kaSgRI"
         type="submit"
       >
         <span>
