@@ -13,10 +13,10 @@ it( "renders without crashing", () => {
 		rootReducer,
 		applyMiddleware( thunkMiddleware )
 	);
-	const history = createHistory();
+	const history = {};
 
 	const component = renderer.create(
-		<App store={store} history={ history } />
+		<App store={store} />
 	);
 
 	let tree = component.toJSON();

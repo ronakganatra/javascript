@@ -197,7 +197,8 @@ test('the mapStateToProps function', () => {
 } );
 
 test('the mapDispatchToProps function to call siteRemove action with onRemove when confirm is true', () => {
-	window.confirm = jest.fn( ( msg ) => { return true; } );
+	global.window = {};
+	global.window.confirm = jest.fn( ( msg ) => { return true; } );
 
 	const dispatch = jest.fn();
 	let ownProps = {
@@ -216,7 +217,8 @@ test('the mapDispatchToProps function to call siteRemove action with onRemove wh
 } );
 
 test('the mapDispatchToProps function to NOT call siteRemove action with onRemove when confirm is false', () => {
-	window.confirm = jest.fn( ( msg ) => { return false; } );
+	global.window = {};
+	global.window.confirm = jest.fn( ( msg ) => { return false; } );
 
 	const dispatch = jest.fn();
 	let ownProps = {
