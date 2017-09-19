@@ -52,7 +52,7 @@ let invoiceStatuses = [ "completed", "refunded", "processing" ];
  */
 function Order( props ) {
 	let InvoiceButton = LargeIconButtonLink;
-	if ( ! invoiceStatuses.includes( props.status ) ) {
+	if ( ! invoiceStatuses.includes( props.status.toLowerCase() ) ) {
 		InvoiceButton = disable( IconButton );
 	}
 
