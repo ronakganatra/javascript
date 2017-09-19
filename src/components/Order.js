@@ -42,7 +42,7 @@ let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth 
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
-let invoiceStatuses = [ "Completed", "Refunded", "Processing" ];
+let invoiceStatuses = [ "Completed", "Refunded", "Processing", "completed" ];
 
 /**
  * A page order list using table abstraction.
@@ -77,7 +77,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<span>{ props.status }</span>
+				<span>{ props.status.charAt( 0 ).toUpperCase() + props.status.slice( 1 ) }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveInvoiceButton

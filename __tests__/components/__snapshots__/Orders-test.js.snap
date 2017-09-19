@@ -56,23 +56,25 @@ exports[`The Orders component matches the snapshot 1`] = `
         className="gWfuXy"
       >
         <span>
-          completed
+          Completed
         </span>
       </span>
       <span
         className="gJSEqq"
       >
-        <button
-          className="gqtpyi liRnCl"
-          disabled="disabled"
-          to="http://somelink"
+        <a
+          aria-label="Download invoice"
+          className="ZPOCW"
+          href="http://somelink"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <span
             className="screen-reader-text"
           >
             Invoice
           </span>
-        </button>
+        </a>
       </span>
     </li>
   </ul>

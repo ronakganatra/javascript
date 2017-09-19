@@ -60,7 +60,6 @@ class SubscriptionPage extends React.Component {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader />;
 		}
-
 		let subscription = this.props.subscription;
 
 		return <section>
@@ -81,7 +80,6 @@ class SubscriptionPage extends React.Component {
 					max={ subscription.limit }
 					current={ 1 }
 					orders={ this.props.orders }
-					onInvoiceDownload={ this.props.onInvoiceDownload }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
@@ -106,14 +104,12 @@ SubscriptionPage.propTypes = {
 		} ),
 	} ),
 	orders: PropTypes.array,
-	onInvoiceDownload: PropTypes.func,
 	intl: intlShape.isRequired,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
-	onInvoiceDownload: () => {},
 };
 
 export default injectIntl( SubscriptionPage );

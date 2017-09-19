@@ -100,7 +100,6 @@ SubscriptionDetails.propTypes = {
 	orders: PropTypes.array.isRequired,
 	max: PropTypes.number.isRequired,
 	current: PropTypes.number.isRequired,
-	onInvoiceDownload: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	subscription: PropTypes.string,
 };

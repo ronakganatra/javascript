@@ -51,9 +51,7 @@ const getOrdersAndSubscriptions = ( dispatch ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getOrdersAndSubscriptions( dispatch ) );
 
-	return {
-		onInvoiceDownload: () => {},
-	};
+	return;
 };
 
 const SubscriptionsPageContainer = connect(

@@ -10,7 +10,6 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       className="isgbHI"
     >
       <a
-        aria-current={false}
         className="jUdSwI"
         href="/account/subscriptions"
         onClick={[Function]}
@@ -25,7 +24,6 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       className="isgbHI"
     >
       <a
-        aria-current={false}
         className="jUdSwI"
         href="/account/orders"
         onClick={[Function]}
@@ -40,7 +38,6 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       className="isgbHI"
     >
       <a
-        aria-current={false}
         className="jUdSwI"
         href="/account/profile"
         onClick={[Function]}
