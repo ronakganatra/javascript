@@ -42,7 +42,7 @@ let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth 
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
-let invoiceStatuses = [ "Completed", "Refunded", "Processing" ];
+let invoiceStatuses = [ "completed", "refunded", "processing" ];
 
 /**
  * A page order list using table abstraction.
