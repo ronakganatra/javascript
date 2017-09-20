@@ -466,8 +466,8 @@ class ProfilePage extends React.Component {
 								<FormattedMessage
 									id="profile.description.picture"
 									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-									" an account with them yet, or want to change your existing" +
-									" picture, please visit the { link }." }
+									" an account with them yet, or want to change your existing picture, please visit" +
+									" the { link }. Changes may take up to an hour to become visible here." }
 									values={ { link: <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
 								/>
 							</p>
