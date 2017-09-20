@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
-import { LargeIconButtonLink, disable, IconButton, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
+import { LargeIconButtonLink, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
@@ -42,8 +42,6 @@ let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth 
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
-let invoiceStatuses = [ "completed", "refunded", "processing" ];
-
 /**
  * A page order list using table abstraction.
  *
@@ -51,12 +49,7 @@ let invoiceStatuses = [ "completed", "refunded", "processing" ];
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
-	let InvoiceButton = LargeIconButtonLink;
-	if ( ! invoiceStatuses.includes( props.status.toLowerCase() ) ) {
-		InvoiceButton = disable( IconButton );
-	}
-
-	let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( InvoiceButton ) );
+	let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
 
 	let invoiceMessage = props.intl.formatMessage( messages.invoice );
 	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
