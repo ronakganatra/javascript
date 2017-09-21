@@ -75,6 +75,7 @@ class SubscriptionPage extends React.Component {
 				</ListHeading>
 				<SubscriptionDetails
 					startDate={ new Date( subscription.startDate ) }
+					hasNextBilling={ subscription.nextPayment !== null }
 					nextBilling={ new Date( subscription.nextPayment ) }
 					endDate={ new Date( subscription.endDate ) }
 					max={ subscription.limit }
