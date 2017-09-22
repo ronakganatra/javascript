@@ -136,7 +136,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 						</BeaconButtonContainer>
 						<Content>
 							<LicenseActivationMessage />
-							<WrappedComponent { ...this.props }/>
+							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>
 					</Main>
