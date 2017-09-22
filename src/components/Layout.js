@@ -13,6 +13,7 @@ import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
+import LicenseActivationMessage from "./LicenseActivationMessage";
 
 const messages = defineMessages( {
 	beacon: {
@@ -134,7 +135,8 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
 						</BeaconButtonContainer>
 						<Content>
-							<WrappedComponent { ...this.props } />
+							<LicenseActivationMessage />
+							<WrappedComponent { ...this.props }/>
 							<GettingStartedModalContainer />
 						</Content>
 					</Main>
