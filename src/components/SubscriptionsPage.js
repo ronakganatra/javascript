@@ -91,8 +91,8 @@ class SubscriptionsPage extends React.Component {
 		let noSubscriptionsParagraphs = [
 			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
 			<FormattedMessage id="subscriptions.noSubscriptions.manage"
-							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
-so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
+							  defaultMessage="When you buy one of our plugins or services, you start a new subscription which will be billed
+							  annually. At the end of each billing cycle you can choose to renew your subscription or let it expire." />,
 			<FormattedMessage id="subscriptions.noSubscriptions.pressButton" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
 		];
 		let noSearchResultsParagraphs = [
