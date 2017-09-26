@@ -82,10 +82,10 @@ class SubscriptionsPage extends React.Component {
 	getSearch() {
 		return <Search
 			id="search"
-			searchLabel={this.props.intl.formatMessage( messages.searchLabel )}
+			searchLabel={ this.props.intl.formatMessage( messages.searchLabel ) }
 			descriptionId="search-description"
-			query={this.props.query}
-			onChange={this.props.onSearchChange}
+			query={ this.props.query }
+			onChange={ this.props.onSearchChange }
 		/>;
 	}
 
@@ -101,32 +101,32 @@ class SubscriptionsPage extends React.Component {
 		];
 		let noSearchResultsParagraphs = [
 			<FormattedMessage id="subscriptions.search.noResults"
-			                  defaultMessage={"We could not find any subscriptions matching { query }."}
-			                  values={{ query: <strong>{this.props.query}</strong> }}/> ];
+			                  defaultMessage={ "We could not find any subscriptions matching { query }." }
+			                  values={ { query: <strong>{ this.props.query }</strong> } }/> ];
 
 		let props = this.props;
 
 		if ( props.activeSubscriptions.length > 0 ) {
 			return (
 				<div>
-					{this.getSearch()}
-					<Subscriptions {...props} />
+					{ this.getSearch() }
+					<Subscriptions { ...props } />
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {
 			return (
 				<div>
-					{this.getSearch()}
-					<NoResults paragraphs={noSearchResultsParagraphs}
-					           imageSource={noResultsImage}/>
+					{ this.getSearch() }
+					<NoResults paragraphs={ noSearchResultsParagraphs }
+					           imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
 		return (
 			<NoResults
-				paragraphs={noSubscriptionsParagraphs}
+				paragraphs={ noSubscriptionsParagraphs }
 				url="https://yoast.com/shop/"
-				imageSource={noSubscriptionsImage}
+				imageSource={ noSubscriptionsImage }
 				pageContext="noSubscriptions"
 			/>
 		);
