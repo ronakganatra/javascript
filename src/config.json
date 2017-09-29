@@ -1,7 +1,8 @@
 {
   "searchable": {
-    "Orders":	 ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName"],
-    "Customers": ["email"]
+    "Orders":	      ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName"],
+    "Customers":      ["email"],
+    "Sites":          ["url"]
   },
   "display": {
     "Customers": ["email", "username", "sites", "orders", "subscriptions", "impersonate"],
@@ -33,5 +34,8 @@
   },
   "order": {
     "Orders": "invoiceNumber DESC"
+  },
+  "includes": {
+    "Sites": ["user"]
   }
 }
