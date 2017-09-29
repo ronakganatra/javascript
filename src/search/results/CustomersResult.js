@@ -1,6 +1,6 @@
 import React from "react";
 import BaseResult from "./BaseResult";
-import {getSearchCallback} from "../functions/callbacks";
+import {getSearchCallback} from "../../functions/callbacks";
 
 export default class CustomersResult extends React.Component {
 	/**

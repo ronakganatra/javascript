@@ -4,8 +4,8 @@ import OrdersResult from "./OrdersResult";
 import BaseResult from "./BaseResult";
 import SitesResult from "./SitesResult";
 import SubscriptionsResult from "./SubscriptionsResult";
-import config from "../config.json";
-import { capitalize } from "../functions/helpers";
+import config from "../../config.json";
+import { capitalize } from "../../functions/helpers";
 
 const Results = {
 	Customers: CustomersResult,

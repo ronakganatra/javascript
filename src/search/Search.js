@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import SearchForm from './forms/SearchForm';
+import SearchForm from './SearchForm';
 import ResultsList from "./results/ResultsList";
-import config from "./config.json";
+import config from "../config.json";
 
 class Search extends React.Component {
 	/**

@@ -1,10 +1,11 @@
 import React from "react";
 import { getAccessToken } from "./clientImports/auth"
 import "./App.css";
-import AccessTokenForm from './forms/AccessTokenForm';
+import AccessTokenForm from './menu/AccessTokenForm';
 import Api from './Api';
-import Search from "./Search";
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom'
+import Search from "./search/Search";
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import Navigation from "./menu/Navigation";
 
 class App extends React.Component {
 	/**
@@ -52,10 +53,10 @@ class App extends React.Component {
 		return (
 			<Router>
 				<div className="App">
-					<AccessTokenForm accessToken={ this.state.accessToken } updateAccessToken={ this.updateAccessToken }/>
-					<nav>
-						<Link to="/search">Search</Link>
-					</nav>
+					<div className="Menu">
+						<AccessTokenForm accessToken={ this.state.accessToken } updateAccessToken={ this.updateAccessToken }/>
+						<Navigation/>
+					</div>
 					<Redirect from="/" to="/search" />
 					<Route path="/search" render={ () => <Search api={ this.api } /> }/>
 				</div>
