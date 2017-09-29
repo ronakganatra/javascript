@@ -71,8 +71,7 @@ class App extends React.Component {
 	 *
 	 * @param {Object}  query             The query to run.
 	 * @param {string}  query.resource    The resource to query.
-	 * @param {string}  query.attribute   The attribute to query.
-	 * @param {string}  query.searchValue The value to query.
+	 * @param {array}   query.filters     The filters to apply to the query.
 	 * @param {boolean} skipHistory       Whether or not this state should be added to the history stack.
 	 *
 	 * @returns {void}
@@ -87,15 +86,21 @@ class App extends React.Component {
 			window.history.pushState( query, "Support" );
 		}
 
-		let filters = {};
-		filters[ query.attribute ] = { like: query.searchValue, options: "i" };
+		let filters = [];
+		let order   = [];
+		query.filters.forEach( ( filter ) => {
+			filters.push( { [ filter[ 0 ] ]: { like: filter[ 1 ], options: "i" } } );
+			order.push( `${ filter[ 0 ] } DESC` );
+		} );
 
-		let order = `${ query.attribute } DESC`;
-		if ( config.order[ query.resource ] && order !== config.order[ query.resource ] ) {
-			order += `, ${ config.order[ query.resource ] }`;
+		if ( config.order[ query.resource ] ) {
+			order.push( `${ config.order[ query.resource ] }` );
 		}
 
-		let search = this.api.search( query.resource, { where: filters, limit: 500, order: order } );
+		// Make order unique.
+		order = Array.from( new Set( order ) );
+
+		let search = this.api.search( query.resource, { where: { and: filters }, limit: 500, order: order.join( ", " ) } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}

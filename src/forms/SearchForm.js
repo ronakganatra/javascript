@@ -16,15 +16,14 @@ export default class SearchForm extends React.Component {
 		super( props );
 
 		this.state = {
-			resource:    SearchableKeys[0],
-			attribute:   Searchable[ SearchableKeys[0] ][0],
-			searchValue: "",
+			resource: SearchableKeys[0],
+			filters:  [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
 		};
 
-		this.handleResourceChange    = this.handleResourceChange.bind( this );
-		this.handleAttributeChange   = this.handleAttributeChange.bind( this );
-		this.handleSearchValueChange = this.handleSearchValueChange.bind( this );
-		this.submit                  = this.submit.bind( this );
+		this.handleResourceChange = this.handleResourceChange.bind( this );
+		this.addFilter            = this.addFilter.bind( this );
+		this.removeFilter         = this.removeFilter.bind( this );
+		this.submit               = this.submit.bind( this );
 	}
 
 	/**
@@ -38,35 +37,41 @@ export default class SearchForm extends React.Component {
 		let resource = event.target.value;
 
 		this.setState( {
-			resource:  resource,
-			attribute: Searchable[ resource ][0]
+			resource: resource,
+			filters:  [ [ Searchable[ resource ][0], '' ] ]
 		} );
 	}
 
 	/**
 	 * Callback used when the attribute select changes.
 	 *
+	 * @param {number} i     The number filter to change.
 	 * @param {Object} event The change event.
 	 *
 	 * @returns {void}
 	 */
-	handleAttributeChange( event ) {
-		this.setState( {
-			attribute: event.target.value,
-		} );
+	handleAttributeChange( i, event ) {
+		let filters = this.state.filters;
+
+		filters[ i ][0] = event.target.value;
+
+		this.setState( { filters } );
 	}
 
 	/**
 	 * Callback used when the search value input changes.
 	 *
+	 * @param {number} i     The number filter to change.
 	 * @param {Object} event The change event.
 	 *
 	 * @returns {void}
 	 */
-	handleSearchValueChange( event ) {
-		this.setState( {
-			searchValue: event.target.value,
-		} );
+	handleSearchValueChange( i, event ) {
+		let filters = this.state.filters;
+
+		filters[ i ][1] = event.target.value;
+
+		this.setState( { filters } );
 	}
 
 	/**
@@ -83,6 +88,22 @@ export default class SearchForm extends React.Component {
 
 			return <option key={ option } value={ option }>{ display }</option>;
 		} );
+	}
+
+	addFilter() {
+		let filters = this.state.filters;
+
+		filters.push( [ Searchable[ this.state.resource ][0], '' ] );
+
+		this.setState( { filters } );
+	}
+
+	removeFilter() {
+		let filters = this.state.filters;
+
+		filters.pop();
+
+		this.setState( { filters } );
 	}
 
 	/**
@@ -106,14 +127,30 @@ export default class SearchForm extends React.Component {
 	render() {
 		return(
 			<form onSubmit={ this.submit }>
-				<select onChange={ this.handleResourceChange } value={ this.state.resource }>
-					{ SearchForm.generateOptions( SearchableKeys ) }
-				</select>
-				<select onChange={ this.handleAttributeChange } value={ this.state.attribute }>
-					{ SearchForm.generateOptions( Searchable[ this.state.resource ], Headers[ this.state.resource ] ) }
-				</select>
-				<input type="text" onChange={ this.handleSearchValueChange } value={ this.state.searchValue } />
-				<button type="submit">Search</button>
+				<fieldset>
+					<select className="wide" onChange={ this.handleResourceChange } value={ this.state.resource }>
+						{ SearchForm.generateOptions( SearchableKeys ) }
+					</select>
+					<button type="submit">Search</button>
+				</fieldset>
+				{ this.state.filters.map( ( filter, i ) =>
+					<fieldset key={ i }>
+						<select onChange={ this.handleAttributeChange.bind( this, i ) } value={ filter[0] }>
+							{ SearchForm.generateOptions( Searchable[ this.state.resource ], Headers[ this.state.resource ] ) }
+						</select>
+						<input type="text" onChange={ this.handleSearchValueChange.bind( this, i ) } value={ filter[1] } />
+						{ i === 0 &&
+						  <button type="button" onClick={ this.addFilter }>Add filter</button>
+						}
+						{ i === this.state.filters.length - 1 && this.state.filters.length > 1 &&
+						  	<button type="button" onClick={ this.removeFilter }>Remove filter</button>
+						}
+					</fieldset>
+				) }
+				<fieldset>
+
+
+				</fieldset>
 			</form>
 		)
 	}

@@ -27,20 +27,38 @@ form {
   margin-top: 10px;
 }
 
-input, select {
+form fieldset {
+  width: 774px;
+  margin: 0 auto;
+  padding: 2px;
+  border: none;
+  text-align: left;
+}
+
+form input, form select, form button {
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: white;
-  width: 200px;
-  margin-right: 5px;
 }
 
-input.wide {
-  width: 710px;
+form input {
+  width: 246px;
 }
 
-button[type=submit] {
-  width: 100px;
+form select, form button {
+  width: 250px;
+}
+
+form input:not(:first-child), form select:not(:first-child), form button {
+  margin-left: 12px;
+}
+
+input.wide, select.wide {
+  width: 512px;
+}
+
+input.widest, select.widest {
+  width: 770px;
 }
 
 div > table {

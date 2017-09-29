@@ -39,7 +39,7 @@ class AccessTokenForm extends React.Component {
 	render() {
 		return(
 			<form>
-				<input className="wide" type="text" onChange={ this.handleChange } value={ this.state.accessToken } />
+				<input className="widest" type="text" onChange={ this.handleChange } value={ this.state.accessToken } />
 			</form>
 		)
 	}
