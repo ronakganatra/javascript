@@ -77,6 +77,10 @@ class App extends React.Component {
 	 * @returns {void}
 	 */
 	search( query, skipHistory ) {
+		if ( ! query.filters ) {
+			return;
+		}
+
 		this.setState( {
 			query: query,
 			results: []
@@ -89,8 +93,10 @@ class App extends React.Component {
 		let filters = [];
 		let order   = [];
 		query.filters.forEach( ( filter ) => {
-			filters.push( { [ filter[ 0 ] ]: { like: filter[ 1 ], options: "i" } } );
-			order.push( `${ filter[ 0 ] } DESC` );
+			if ( filter[1] && filter[1].length > 0 ) {
+				filters.push( { [ filter[ 0 ] ]: { like: filter[ 1 ], options: "i" } } );
+				order.push( `${ filter[ 0 ] } DESC` );
+			}
 		} );
 
 		if ( config.order[ query.resource ] ) {
