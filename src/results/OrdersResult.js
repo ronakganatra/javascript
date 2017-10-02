@@ -22,7 +22,7 @@ export default class OrdersResult extends React.Component {
 	 * @returns {ReactElement} A button to search for the customer of this order.
 	 */
 	customerIdPresenter( id ) {
-		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
+		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", filters: [ [ "id", id ] ] } );
 
 		return <button type="button" onClick={ findCustomer }>Find Customer</button>;
 	}

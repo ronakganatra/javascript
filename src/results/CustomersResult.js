@@ -80,7 +80,7 @@ export default class CustomersResult extends React.Component {
 	 * @returns {ReactElement} A button to search all of this user's sites.
 	 */
 	sitesPresenter() {
-		let findSites = getSearchCallback( this.props.search, { resource: "Sites", attribute: "userId", searchValue: this.props.result.id } );
+		let findSites = getSearchCallback( this.props.search, { resource: "Sites", filters: [ [ "userId", this.props.result.id ] ] } );
 
 		return <button type="button" onClick={ findSites }>Find Sites</button>;
 	}
@@ -91,7 +91,7 @@ export default class CustomersResult extends React.Component {
 	 * @returns {ReactElement} A button to search all of this user's orders.
 	 */
 	ordersPresenter() {
-		let findOrders = getSearchCallback( this.props.search, { resource: "Orders", attribute: "customerId", searchValue: this.props.result.id } );
+		let findOrders = getSearchCallback( this.props.search, { resource: "Orders", filters: [ [ "customerId", this.props.result.id ] ] } );
 
 		return <button type="button" onClick={ findOrders }>Find Orders</button>;
 	}
@@ -102,7 +102,7 @@ export default class CustomersResult extends React.Component {
 	 * @returns {ReactElement} A button to search all of this user's subscriptions.
 	 */
 	subscriptionsPresenter() {
-		let findSubscriptions = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "subscriberId", searchValue: this.props.result.id } );
+		let findSubscriptions = getSearchCallback( this.props.search, { resource: "Subscriptions", filters: [ [ "subscriberId", this.props.result.id ] ] } );
 
 		return <button type="button" onClick={ findSubscriptions }>Find Subscriptions</button>;
 	}

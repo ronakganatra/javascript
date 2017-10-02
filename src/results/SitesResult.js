@@ -22,7 +22,7 @@ export default class SitesResult extends React.Component {
 	 * @returns {ReactElement} A button to search for the owner of this site.
 	 */
 	userIdPresenter( id ) {
-		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", attribute: "id", searchValue: id } );
+		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", filters: [ [ "id", id ] ] } );
 
 		return <button type="button" onClick={ findCustomer }>Find Customer</button>;
 	}
@@ -36,7 +36,7 @@ export default class SitesResult extends React.Component {
 	 */
 	subscriptionsPresenter( subscriptions ) {
 		let items = subscriptions && subscriptions.map( function ( subscription ) {
-			let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", attribute: "id", searchValue: subscription.id } );
+			let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", filters: [ [ "id", subscription.id ] ] } );
 
 			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: { subscription.name }</button></li>;
 		}, this );
