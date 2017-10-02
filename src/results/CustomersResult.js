@@ -29,6 +29,10 @@ export default class CustomersResult extends React.Component {
 	 * @returns {void}
 	 */
 	createAccessToken() {
+		if ( ! this.props.result.enabled ) {
+			return;
+		}
+
 		let self = this;
 
 		this.setState( {
@@ -49,6 +53,10 @@ export default class CustomersResult extends React.Component {
 	 * @returns {ReactElement} An element corresponding to this component's internal access token status.
 	 */
 	impersonatePresenter() {
+		if ( ! this.props.result.enabled ) {
+			return <span>This customer has been deleted.</span>;
+		}
+
 		if ( this.state.accessTokenStatus === "notCreated" ) {
 			return <button type="button" onClick={ this.createAccessToken }>Create Access Token</button>;
 		}
