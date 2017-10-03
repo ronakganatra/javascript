@@ -6,6 +6,7 @@ import Link from "./Link";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
 import questionCircle from "../icons/question-circle.svg";
+import closeCross from "../icons/times.svg";
 import defaults from "../config/defaults.json";
 
 let buttonAnimations = `
@@ -209,6 +210,24 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	&:active {
 		transform: translateY( 1px );
 		box-shadow: none;
+	}
+`;
+
+export const CloseButtonTopRight = styled( IconButtonArchetype )`
+	background-color: transparent;
+	background-position: 50%;
+	padding-left: 0px;
+	height: 32px;
+	width: 32px;
+	box-shadow: none;
+	display: inline-block;
+	background-image: url( ${ closeCross } );
+	
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		background-color: transparent;
+		opacity: .5;
 	}
 `;
 
