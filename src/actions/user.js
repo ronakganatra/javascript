@@ -223,10 +223,9 @@ export function profileUpdateFailure( error ) {
  * @param {Object} profile The updated profile.
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess( profile ) {
+export function profileUpdateSuccess() {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
-		profile,
 	};
 }
 
@@ -245,7 +244,7 @@ export function updateProfile( profile ) {
 		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
-			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
+			.then( dispatch( profileUpdateSuccess() ) )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }

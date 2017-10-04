@@ -116,7 +116,7 @@ export function userEmailReducer( state = initialState, action ) {
 				sendPasswordReset: false,
 				profileSaved: true,
 				data: {
-					profile: action.profile,
+					profile: Object.assign( {}, state.data.profile, { email: state.email } ),
 				},
 			} );
 
