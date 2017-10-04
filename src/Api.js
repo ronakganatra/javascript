@@ -1,17 +1,27 @@
+import { getUserId } from "./functions/auth";
+import { getMyYoastHost, getWooCommerceHost } from "./functions/helpers";
+
 export default class Api {
 	/**
 	 * Creates an API object using the given access token.
 	 *
-	 * @param {string} accessToken The access token to use.
+	 * @param {string}   accessToken       The access token to use.
+	 * @param {function} updateAccessToken A function to update the access token.
 	 */
-	constructor( accessToken ) {
-		if ( window.location.host.indexOf( 'localhost' ) !== -1 ) {
-			this.host = "http://localhost:3000";
-		} else {
-			this.host = "https://my.yoast.com";
-		}
+	constructor( accessToken, updateAccessToken ) {
+		this.host = getMyYoastHost();
+		this.wooHost = getWooCommerceHost();
 
-		this.accessToken = accessToken;
+		this.accessToken       = accessToken;
+		this.userId            = null;
+		this.wooAccessToken    = null;
+		this.updateAccessToken = updateAccessToken;
+
+		this.handleJSONReponse = this.handleJSONReponse.bind( this );
+
+		if ( accessToken !== null ) {
+			this.getWooAccessToken();
+		}
 	}
 
 	/**
@@ -26,9 +36,55 @@ export default class Api {
 		let param = encodeURIComponent( JSON.stringify( filter ) );
 		let url   = this.host + "/api/" + resource + "?filter=" + param + "&access_token=" + this.accessToken;
 
-		return fetch( url, { method: "GET" } ).then(
-			function (response) { return response.json(); }
-		);
+		return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
+	}
+
+	wooTransferPreview( fromId, toId, shopId ) {
+		return this.getWooAccessToken().then( () => {
+			let url = this.wooHost + `${ shopId === 2 ? "/eu" : "" }/wp-json/yoast-account-transfer/v1/transfer`;
+			url += `?from_id=${ fromId }&to_id=${ toId }&access_token=${ this.wooAccessToken }`;
+
+			return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
+		} );
+	}
+
+	wooTransfer( fromId, toId, shopId ) {
+		return this.getWooAccessToken().then( () => {
+			let data = new FormData();
+			let url  = this.wooHost + `${ shopId === 2 ? "/eu" : "" }/wp-json/yoast-account-transfer/v1/transfer`;
+			url += `?access_token=${ this.wooAccessToken }`;
+
+			data.append( "from_id", fromId );
+			data.append( "to_id", toId );
+
+			return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
+		} );
+	}
+
+	/**
+	 * Handles a JSON response.
+	 *
+	 * @param response The response.
+	 *
+	 * @returns {Promise.<*>} A promise with the parsed JSON data.
+	 */
+	handleJSONReponse( response ) {
+		if ( ! response ) {
+			return Promise.reject( "Could not read response data!" );
+		}
+
+		if ( response.status === 200 ) {
+			return response.json();
+		}
+
+		if ( response.status === 401 ) {
+			this.accessToken = null;
+			this.userId = null;
+			this.wooAccessToken = null;
+			this.updateAccessToken( null );
+		}
+
+		return Promise.reject( `Invalid status code: ${ response.status }` );
 	}
 
 	/**
@@ -44,8 +100,38 @@ export default class Api {
 
 		data.append( "ttl", 3600 );
 
-		return fetch( url, { method: "POST", data: data } ).then(
-			function (response) { return response.json(); }
-		);
+		return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
+	}
+
+	getCurrentUser() {
+		let url = this.host + `/api/Customers/current?access_token=${ this.accessToken }`;
+
+		if ( this.userId !== null ) {
+			return Promise.resolve( this.userId );
+		}
+
+		return fetch( url, { method: "GET" } )
+			.then( this.handleJSONReponse )
+			.then( response => {
+				this.userId = response.id;
+				return Promise.resolve( this.userId );
+			} );
+	}
+
+	getWooAccessToken() {
+		return this.getCurrentUser().then( () => {
+			let url = this.host + `/api/Customers/${ this.userId }/identities?access_token=${ this.accessToken }`;
+
+			if ( this.wooAccessToken !== null ) {
+				return Promise.resolve( this.wooAccessToken );
+			}
+
+			return fetch( url, { method: "GET" } )
+				.then( this.handleJSONReponse )
+				.then( response => {
+					this.wooAccessToken = response[0].credentials.accessToken;
+					return Promise.resolve( this.wooAccessToken );
+				} );
+		} );
 	}
 }

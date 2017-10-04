@@ -1,10 +1,11 @@
 import React from "react";
-import { getAccessToken } from "./clientImports/auth"
+import { getAccessToken } from "./functions/auth"
 import "./App.css";
 import AccessTokenForm from './menu/AccessTokenForm';
 import Api from './Api';
 import Search from "./search/Search";
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import Transfer from "./transfer/Transfer";
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 
 class App extends React.Component {
@@ -26,7 +27,7 @@ class App extends React.Component {
 
 		this.updateAccessToken = this.updateAccessToken.bind( this );
 
-		this.api = new Api( accessToken );
+		this.api = new Api( accessToken, this.updateAccessToken );
 	}
 
 	/**
@@ -41,7 +42,7 @@ class App extends React.Component {
 
 		this.setState( { accessToken } );
 
-		this.api = new Api( accessToken );
+		this.api = new Api( accessToken, this.updateAccessToken );
 	}
 
 	/**
@@ -50,15 +51,28 @@ class App extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		console.log( this.state.accessToken);
 		return (
 			<Router>
 				<div className="App">
-					<div className="Menu">
-						<AccessTokenForm accessToken={ this.state.accessToken } updateAccessToken={ this.updateAccessToken }/>
-						<Navigation/>
-					</div>
-					<Redirect from="/" to="/search" />
-					<Route path="/search" render={ () => <Search api={ this.api } /> }/>
+					{ this.state.accessToken &&
+					  	<div className="LoggedIn">
+							<div className="Menu">
+								<Navigation/>
+							</div>
+							<div className="Main">
+								<Route exact path="/" render={ () => <Redirect to="/search"/> } />
+								<Route path="/search" render={ () => <Search api={ this.api } /> } />
+								<Route path="/transfer" render={ () => <Transfer api={ this.api } /> } />
+							</div>
+						</div>
+					}
+					{ ! this.state.accessToken &&
+					  	<div className="Main">
+				  			<h2>Please enter a valid access token</h2>
+				  			<AccessTokenForm accessToken={ this.state.accessToken } updateAccessToken={ this.updateAccessToken } />
+						</div>
+					}
 				</div>
 			</Router>
 		);

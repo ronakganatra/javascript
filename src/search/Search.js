@@ -4,6 +4,13 @@ import SearchForm from './SearchForm';
 import ResultsList from "./results/ResultsList";
 import config from "../config.json";
 
+export const InitialState = {
+	searched: false,
+	found: false,
+	error: false,
+	results: null,
+};
+
 class Search extends React.Component {
 	/**
 	 * Creates the main component and set it's initial state.
@@ -11,12 +18,7 @@ class Search extends React.Component {
 	constructor() {
 		super();
 
-		this.state = {
-			searched: false,
-			found: false,
-			error: false,
-			results: null,
-		};
+		this.state = InitialState;
 
 		this.search         = this.search.bind( this );
 		this.handleResponse = this.handleResponse.bind( this );
@@ -25,6 +27,10 @@ class Search extends React.Component {
 
 	componentWillReceiveProps( nextProps ) {
 		let state = nextProps.location.state;
+
+		if ( nextProps.history.action === "PUSH" ) {
+			return;
+		}
 
 		if ( state && state.resource && state.filters ) {
 			this.search( state, true );
@@ -78,12 +84,6 @@ class Search extends React.Component {
 	 * @param {Object} responseData The results of the search request.
 	 */
 	handleResponse( responseData ) {
-		// For some reason successful requests with bad status codes still hit the success handler.
-		if ( responseData.error ) {
-			this.handleError( responseData.error );
-			return;
-		}
-
 		if ( responseData.length === 0 ) {
 			this.setState( {
 				searched: true,

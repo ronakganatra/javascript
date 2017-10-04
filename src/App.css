@@ -1,26 +1,65 @@
-.App {
+html {
+  height: 100%;
+}
+
+body, #root, .App {
+  min-height: 100%;
+}
+
+.Menu {
+  background-color: #1E8483;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.Menu a {
+  display: inline-block;
+  padding: 10px;
   color: white;
+  text-decoration: none;
 }
 
-.App-intro {
-  font-size: large;
+.Menu .active {
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.Main {
+  margin-left: 200px;
+  text-align: center;
+}
+
+.Confirmation {
+  display: inline-block;
+  min-width: 770px;
+  text-align: left;
+}
+
+.Confirmation .Reset {
+  background-color: #dc3232;
+  border-color: #dc3232;
+  color: white;
+  margin-left: 20px;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.Confirmation .Confirm {
+  background-color: #66A421;
+  border-color: #66A421;
+  color: white;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+.Preview > div {
+  margin-top: 20px;
+}
+
+.Preview .warning {
+  color: #ee7c1b;
+}
+
+.Preview .error {
+  color: #dc3232;
 }
 
 form {
@@ -35,7 +74,7 @@ form fieldset {
   text-align: left;
 }
 
-form input, form select, form button {
+form input, form select, button {
   border-radius: 4px;
   border: 1px solid #ccc;
   background-color: white;
@@ -47,6 +86,12 @@ form input {
 
 form select, form button {
   width: 250px;
+}
+
+form button[type=submit] {
+  background-color: #66A421;
+  color: white;
+  border-color: #66A421;
 }
 
 form input:not(:first-child), form select:not(:first-child), form button {

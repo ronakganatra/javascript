@@ -1,0 +1,77 @@
+import React from "react";
+import _isEmpty from "lodash/isEmpty";
+import { getOrderUrl } from "../functions/helpers"
+
+export default class TransferPreview extends React.Component {
+	constructor( props ) {
+		super( props );
+
+		let orders        = { 1: {}, 2: {} };
+		let subscriptions = { 1: {}, 2: {} };
+
+		props.orders.forEach( order => orders[ order.sourceShopId ][ order.sourceId ] = order );
+		props.subscriptions.forEach( subscription => subscriptions[ subscription.sourceShopId ][ subscription.sourceId ] = subscription );
+
+		[ { id: 1, data: props.usShopData }, { id: 2, data: props.euShopData } ].forEach( shop => {
+			if ( shop.data ) {
+				shop.data.order_ids.forEach( order_id => {
+					if ( orders[ shop.id ][ order_id ] ) {
+						orders[ shop.id ][ order_id ].inWoo = true;
+						return;
+					}
+					orders[ shop.id ][ order_id ] = { sourceShopId: shop.id, sourceId: order_id, inWoo: true }
+				} );
+
+				shop.data.subscription_ids.forEach( subscription_id => {
+					if ( subscriptions[ shop.id ][ subscription_id ] ) {
+						subscriptions[ shop.id ][ subscription_id ].inWoo = true;
+						return;
+					}
+					subscriptions[ shop.id ][ subscription_id ] = { sourceShopId: shop.id, sourceId: subscription_id, inWoo: true }
+				} );
+			}
+		} );
+
+		this.state = { orders, subscriptions };
+	}
+
+	getObjectList( list, displayKey ) {
+		return (
+			<ul>
+				{ Object.keys( list ).map( sourceId => {
+					let obj = list[ sourceId ];
+					return (
+						<li key={sourceId} className={ [ obj[ displayKey ] ? "" : "warning", obj.inWoo ? "" : "error" ].join(" ") }>
+							<span>{ obj[ displayKey ] || "NOT SYNCED TO MY-YOAST!" }&nbsp;</span>
+							{ obj.inWoo ? <a href={ getOrderUrl( obj.sourceId, obj.sourceShopId ) } target="_blank">WooCommerce link</a> : <strong>( NOT FOUND IN WOOCOMMERCE! WILL NOT BE TRANSFERRED! )</strong> }
+						</li>
+					);
+				} ) }
+			</ul>
+		);
+	}
+
+	render() {
+		return (
+			<div className="Preview">
+				<div><strong>From customer:</strong> { this.props.fromCustomer.userEmail } ( { this.props.fromCustomer.username } )</div>
+				<div><strong>To customer:</strong> { this.props.toCustomer.userEmail } ( { this.props.toCustomer.username } )</div>
+				{ ( ! _isEmpty( this.state.orders[1] ) ) &&
+					<div><strong>US Orders:</strong> { this.getObjectList( this.state.orders[1], "invoiceNumber" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.orders[2] ) ) &&
+				  <div><strong>EU Orders:</strong> { this.getObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.subscriptions[1] ) ) &&
+				  <div><strong>US Subscriptions:</strong> { this.getObjectList( this.state.subscriptions[1], "name" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.subscriptions[2] ) ) &&
+				  <div><strong>EU Subscriptions:</strong> { this.getObjectList( this.state.subscriptions[2], "name" ) }</div>
+				}
+				{ ( ! _isEmpty( this.props.sites ) ) &&
+				  <div><strong>Sites:</strong> <ul>{ this.props.sites.map( site => <li key={ site.id }>site.url</li> ) }</ul></div>
+				}
+			</div>
+		)
+	}
+}
