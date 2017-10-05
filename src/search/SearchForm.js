@@ -17,8 +17,8 @@ class SearchForm extends React.Component {
 		super( props );
 
 		this.state = {
-			resource: SearchableKeys[0],
-			filters:  [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
+			resource: props.resource || SearchableKeys[0],
+			filters:  props.filters  || [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
 		};
 
 		this.handleResourceChange = this.handleResourceChange.bind( this );
@@ -28,10 +28,8 @@ class SearchForm extends React.Component {
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		let state = nextProps.location.state;
-
-		if ( state && state.resource && state.attribute && state.searchValue ) {
-			this.setState( state );
+		if ( nextProps.query && nextProps.query.resource && nextProps.query.filters ) {
+			this.setState( nextProps.query );
 		}
 	}
 

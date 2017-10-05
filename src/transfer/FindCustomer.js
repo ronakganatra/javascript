@@ -7,7 +7,7 @@ const InitialState = {
 	found:    false,
 	error:    false,
 	results:  [],
-	email:    "",
+	query:    "",
 };
 
 const CustomersHeader = config.headers['Customers'] || {};
@@ -19,7 +19,7 @@ export default class FindCustomer extends React.Component {
 		this.state = InitialState;
 
 		this.search            = this.search.bind( this );
-		this.handleEmailChange = this.handleEmailChange.bind( this );
+		this.handleQueryChange = this.handleQueryChange.bind( this );
 		this.handleResponse    = this.handleResponse.bind( this );
 		this.handleError       = this.handleError.bind( this );
 	}
@@ -29,10 +29,10 @@ export default class FindCustomer extends React.Component {
 	 *
 	 * @param event The change event.
 	 */
-	handleEmailChange( event ) {
-		let email = event.target.value;
+	handleQueryChange( event ) {
+		let query = event.target.value;
 
-		this.setState( { email } );
+		this.setState( { query } );
 	}
 
 	/**
@@ -43,7 +43,11 @@ export default class FindCustomer extends React.Component {
 	search( event ) {
 		event.preventDefault();
 
-		let like   = { like: this.state.email, options: "i" };
+		if ( this.state.query === "" ) {
+			return;
+		}
+
+		let like   = { like: this.state.query, options: "i" };
 		let search = this.props.api.search( "Customers", { where: { or: [ { email: like }, { userEmail: like }, { username: like }, { userFirstName: like }, { userLastName: like } ] } } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
@@ -147,7 +151,7 @@ export default class FindCustomer extends React.Component {
 		return (
 			<div>
 				<form onSubmit={ this.search }>
-					<input className="wide" onChange={ this.handleEmailChange } value={ this.state.email } />
+					<input className="wide" onChange={ this.handleQueryChange } value={ this.state.query } />
 					<button type="submit">Search</button>
 				</form>
 				<h2>{ this.getHeader() }</h2>

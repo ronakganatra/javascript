@@ -8,6 +8,7 @@ export default class TransferPreview extends React.Component {
 
 		let orders        = { 1: {}, 2: {} };
 		let subscriptions = { 1: {}, 2: {} };
+		let others        = { 1: {}, 2: {} };
 
 		props.orders.forEach( order => orders[ order.sourceShopId ][ order.sourceId ] = order );
 		props.subscriptions.forEach( subscription => subscriptions[ subscription.sourceShopId ][ subscription.sourceId ] = subscription );
@@ -29,10 +30,18 @@ export default class TransferPreview extends React.Component {
 					}
 					subscriptions[ shop.id ][ subscription_id ] = { sourceShopId: shop.id, sourceId: subscription_id, inWoo: true }
 				} );
+
+				shop.data.other_ids.forEach( other_id => {
+					if ( others[ shop.id ][ other_id ] ) {
+						others[ shop.id ][ other_id ].inWoo = true;
+						return;
+					}
+					others[ shop.id ][ other_id ] = { sourceShopId: shop.id, sourceId: other_id, inWoo: true }
+				} );
 			}
 		} );
 
-		this.state = { orders, subscriptions };
+		this.state = { orders, subscriptions, others };
 	}
 
 	getObjectList( list, displayKey ) {
@@ -54,22 +63,30 @@ export default class TransferPreview extends React.Component {
 	render() {
 		return (
 			<div className="Preview">
-				<div><strong>From customer:</strong> { this.props.fromCustomer.userEmail } ( { this.props.fromCustomer.username } )</div>
-				<div><strong>To customer:</strong> { this.props.toCustomer.userEmail } ( { this.props.toCustomer.username } )</div>
+				<h2>Customers</h2>
+				<div><strong>All data will be transferred from:</strong> { this.props.fromCustomer.userEmail } ( { this.props.fromCustomer.username } )</div>
+				<div><strong>All data will be transferred to:</strong> { this.props.toCustomer.userEmail } ( { this.props.toCustomer.username } )</div>
+				<h2>Data</h2>
 				{ ( ! _isEmpty( this.state.orders[1] ) ) &&
-					<div><strong>US Orders:</strong> { this.getObjectList( this.state.orders[1], "invoiceNumber" ) }</div>
+					<div><strong>US Orders:</strong>{ this.getObjectList( this.state.orders[1], "invoiceNumber" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.orders[2] ) ) &&
-				  <div><strong>EU Orders:</strong> { this.getObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
+				  <div><strong>EU Orders:</strong>{ this.getObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.subscriptions[1] ) ) &&
-				  <div><strong>US Subscriptions:</strong> { this.getObjectList( this.state.subscriptions[1], "name" ) }</div>
+				  <div><strong>US Subscriptions:</strong>{ this.getObjectList( this.state.subscriptions[1], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.subscriptions[2] ) ) &&
-				  <div><strong>EU Subscriptions:</strong> { this.getObjectList( this.state.subscriptions[2], "name" ) }</div>
+				  <div><strong>EU Subscriptions:</strong>{ this.getObjectList( this.state.subscriptions[2], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.sites ) ) &&
-				  <div><strong>Sites:</strong> <ul>{ this.props.sites.map( site => <li key={ site.id }>site.url</li> ) }</ul></div>
+				  <div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>site.url</li> ) }</ul></div>
+				}
+				{ ( ! _isEmpty( this.state.others[1] ) ) &&
+				  <div><strong>US Other:</strong>{ this.getObjectList( this.state.other[1], "sourceId" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.others[2] ) ) &&
+				  <div><strong>EU Other:</strong>{ this.getObjectList( this.state.other[2], "sourceId" ) }</div>
 				}
 			</div>
 		)

@@ -2,9 +2,13 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import SearchForm from './SearchForm';
 import ResultsList from "./results/ResultsList";
+import Loader from "../shared/Loader";
+import queryString from "query-string";
 import config from "../config.json";
 
 export const InitialState = {
+	query: null,
+	searching: false,
 	searched: false,
 	found: false,
 	error: false,
@@ -15,25 +19,32 @@ class Search extends React.Component {
 	/**
 	 * Creates the main component and set it's initial state.
 	 */
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
 
 		this.state = InitialState;
 
 		this.search         = this.search.bind( this );
 		this.handleResponse = this.handleResponse.bind( this );
 		this.handleError    = this.handleError.bind( this );
+
+		this.loadQueryFromQueryString( props.location.search );
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		let state = nextProps.location.state;
-
 		if ( nextProps.history.action === "PUSH" ) {
 			return;
 		}
 
-		if ( state && state.resource && state.filters ) {
-			this.search( state, true );
+		this.loadQueryFromQueryString( nextProps.location.search );
+	}
+
+	loadQueryFromQueryString( string ) {
+		let query = queryString.parse( string, { arrayFormat: "bracket" } );
+
+		if ( query.resource && query.filters && query.filters.length > 0 ) {
+			query.filters = query.filters.map( filter => filter.split(",") );
+			setTimeout( this.search.bind( this, query, true ) );
 		}
 	}
 
@@ -49,12 +60,15 @@ class Search extends React.Component {
 	 */
 	search( query, skipHistory ) {
 		this.setState( {
+			searching: true,
 			query: query,
 			results: []
 		} );
 
+		console.log( query );
+
 		if ( ! skipHistory ) {
-			this.props.history.push( "/Search", query );
+			this.props.history.push( "/Search?" + queryString.stringify( query, { arrayFormat: "bracket" } ) );
 		}
 
 		let filters = [];
@@ -86,6 +100,7 @@ class Search extends React.Component {
 	handleResponse( responseData ) {
 		if ( responseData.length === 0 ) {
 			this.setState( {
+				searching: false,
 				searched: true,
 				found: false,
 				error: false,
@@ -94,6 +109,7 @@ class Search extends React.Component {
 		}
 
 		this.setState( {
+			searching: false,
 			searched: true,
 			found: true,
 			error: false,
@@ -108,6 +124,7 @@ class Search extends React.Component {
 		console.log( error );
 
 		this.setState( {
+			searching: false,
 			error: true,
 			searched: true,
 			found: false,
@@ -124,7 +141,7 @@ class Search extends React.Component {
 			return "Found " + this.state.results.length + " result(s)";
 		}
 
-		if ( ! this.state.found && ! this.state.error ) {
+		if ( ! this.state.searching && ! this.state.found && ! this.state.error ) {
 			return "No results found";
 		}
 
@@ -143,17 +160,24 @@ class Search extends React.Component {
 	render() {
 		let result = null;
 		let header = this.getHeader();
-		if ( this.state.searched && this.state.found && this.props.location.state ) {
+
+		console.log( this.state );
+
+		if ( this.state.searching ) {
+			result = <Loader />;
+		}
+
+		if ( this.state.searched && this.state.found && this.state.query ) {
 			result = <ResultsList
 				results={ this.state.results }
 				api={ this.api }
 				search={ this.search }
-				resource={ this.props.location.state.resource } />;
+				resource={ this.state.query.resource } />;
 		}
 
 		return (
 			<div className="Search">
-				<SearchForm search={ this.search }/>
+				<SearchForm search={ this.search } query={ this.state.query }/>
 
 				<h2>{header}</h2>
 				{result}

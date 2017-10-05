@@ -1,4 +1,3 @@
-import { getUserId } from "./functions/auth";
 import { getMyYoastHost, getWooCommerceHost } from "./functions/helpers";
 
 export default class Api {

@@ -2,7 +2,11 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import FindCustomer from "./FindCustomer";
 import TransferPreview from "./TransferPreview";
+import Loader from "../shared/Loader";
 import _merge from "lodash/merge";
+import _find from "lodash/find";
+import _compact from "lodash/compact";
+import queryString from "query-string";
 
 export const InitialState = {
 	fromCustomer:   null,
@@ -12,37 +16,54 @@ export const InitialState = {
 	subscriptions:  null,
 	sites:          null,
 	myYoastFetched: false,
-	usShop:         false,
 	usShopData:     null,
 	usTransfer:     false,
-	euShop:         false,
 	euShopData:     null,
 	euTransfer:     false,
 };
 
 class Transfer extends React.Component {
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
 
 		this.state = InitialState;
 
 		this.reset          = this.reset.bind( this );
 		this.transfer       = this.transfer.bind( this );
 		this.selectCustomer = this.selectCustomer.bind( this );
+
+		this.loadCustomersFromQueryString( props.location.search );
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		let state = nextProps.location.state;
-
 		if ( nextProps.history.action === "PUSH" ) {
 			return;
 		}
 
-		this.setState( _merge( {}, InitialState, state ) );
+		this.loadCustomersFromQueryString( nextProps.location.search );
+	}
 
-		if ( state && state.fromCustomer && state.toCustomer ) {
-			this.getPreview();
+	loadCustomersFromQueryString( string ) {
+		let query = queryString.parse( string );
+		let ids   = _compact( [ query.fromCustomerId, query.toCustomerId ] );
+
+		if ( ids.length === 0 ) {
+			this.setState( InitialState );
+			return;
 		}
+
+		this.props.api.search( 'Customers', { where: { id: { inq: ids } }, limit: 2 } )
+			.then( customers => {
+				let fromCustomer = _find( customers, { id: query.fromCustomerId } );
+				if ( query.toCustomerId ) {
+					let toCustomer = _find( customers, { id: query.toCustomerId } );
+					this.setState( _merge( {}, InitialState, { fromCustomer, toCustomer } ) );
+					this.getPreview();
+					return;
+				}
+
+				this.setState( _merge( {}, InitialState, { fromCustomer } ) );
+			} );
 	}
 
 	reset() {
@@ -53,27 +74,20 @@ class Transfer extends React.Component {
 		let api    = this.props.api;
 		let fromId = this.state.fromCustomer.sourceId;
 		let toId   = this.state.toCustomer.sourceId;
-		let usShop = this.state.usShop;
-		let euShop = this.state.euShop;
 
-		if ( usShop ) {
-			api.wooTransfer( fromId, toId, 1 ).then( result => this.setState( { usTransfer: true } ) );
-		}
-
-		if ( euShop ) {
-			api.wooTransfer( fromId, toId, 2 ).then( result => this.setState( { euTransfer: true } ) );
-		}
+		api.wooTransfer( fromId, toId, 1 ).then( result => this.setState( { usTransfer: true } ) );
+		api.wooTransfer( fromId, toId, 2 ).then( result => this.setState( { euTransfer: true } ) );
 	}
 
 	selectCustomer( customer ) {
 		if ( this.state.fromCustomer === null ) {
 			this.setState( { fromCustomer: customer } );
-			this.props.history.push( "/transfer", { fromCustomer: customer } );
+			this.props.history.push( "/transfer?" + queryString.stringify( { fromCustomerId: customer.id } ) );
 			return;
 		}
 
 		this.setState( { toCustomer: customer } );
-		this.props.history.push( "/transfer", { fromCustomer: this.state.fromCustomer, toCustomer: customer } );
+		this.props.history.push( "/transfer?" + queryString.stringify( { fromCustomerId: this.state.fromCustomer.id, toCustomerId: customer.id } ) );
 		this.getPreview();
 	}
 
@@ -90,18 +104,11 @@ class Transfer extends React.Component {
 		Promise.all( promises ).then( () => {
 			let fromId = this.state.fromCustomer.sourceId;
 			let toId   = this.state.toCustomer.sourceId;
-			let usShop = this.state.orders.some( order => order.sourceShopId === 1 ) || this.state.subscriptions.some( subscription => subscription.sourceShopId === 1 );
-			let euShop = this.state.orders.some( order => order.sourceShopId === 2 ) || this.state.subscriptions.some( subscription => subscription.sourceShopId === 2 );
 
-			this.setState( { euShop, usShop, myYoastFetched: true } );
+			this.setState( { myYoastFetched: true } );
 
-			if ( usShop ) {
-				api.wooTransferPreview( fromId, toId, 1 ).then( result => this.setState( { usShopData: result } ) );
-			}
-
-			if ( euShop ) {
-				api.wooTransferPreview( fromId, toId, 2 ).then( result => this.setState( { euShopData: result } ) );
-			}
+			api.wooTransferPreview( fromId, toId, 1 ).then( result => this.setState( { usShopData: result } ) );
+			api.wooTransferPreview( fromId, toId, 2 ).then( result => this.setState( { euShopData: result } ) );
 		} );
 	}
 
@@ -110,33 +117,31 @@ class Transfer extends React.Component {
 	}
 
 	hasPreview() {
-		// Check if data has been received for MyYoast and if data should be received for one of the shops check if it has been.
+		// Check if data has been received for MyYoast and for both shops.
 		return (
 			this.state.myYoastFetched &&
-			( this.state.usShop === false || this.state.usShopData !== null ) &&
-			( this.state.euShop === false || this.state.euShopData !== null )
+			this.state.usShopData !== null &&
+			this.state.euShopData !== null
 		);
 	}
 
 	hasTransferred() {
-		return (
-			( this.state.usShop === false || this.state.usTransfer ) &&
-			( this.state.euShop === false || this.state.euTransfer )
-		);
+		return this.state.usTransfer && this.state.euTransfer;
 	}
 
 	render() {
 		if ( ! this.hasCustomers() ) {
 			return (
 				<div>
-					{ this.state.fromCustomer && <p>From customer: { this.state.fromCustomer.userEmail } ( { this.state.fromCustomer.username } )</p> }
+					<h2>{ this.state.fromCustomer ? "Find a Customer to transfer to" : "Find a Customer to transfer from" }</h2>
+					{ this.state.fromCustomer && <p>All data will be transferred from: { this.state.fromCustomer.userEmail } ( { this.state.fromCustomer.username } )</p> }
 					<FindCustomer api={ this.props.api } selectCallback={ this.selectCustomer }/>
 				</div>
 			);
 		}
 
 		if ( ! this.hasPreview() ) {
-			return <h2>Loading data.</h2>;
+			return <Loader />
 		}
 
 		if ( ! this.hasTransferred() ) {
@@ -144,7 +149,7 @@ class Transfer extends React.Component {
 				<div className="Confirmation">
 					<TransferPreview { ...this.state }/>
 					<button className="Confirm" type="button" onClick={ this.transfer }>Confirm</button>
-					<button className="Reset" type="button" onClick={ this.reset }>Reset</button>
+					<button className="Reset" type="button" onClick={ this.reset }>Cancel</button>
 				</div>
 			)
 		}

@@ -5,7 +5,7 @@ import AccessTokenForm from './menu/AccessTokenForm';
 import Api from './Api';
 import Search from "./search/Search";
 import Transfer from "./transfer/Transfer";
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 
 class App extends React.Component {
