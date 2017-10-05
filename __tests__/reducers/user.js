@@ -174,25 +174,30 @@ describe( 'userEmailReducer', () => {
 	} );
 
 	test( 'update success', () => {
-		const profile = {
-			email: "email.email.email",
-		};
 		const input = {
+			email: "new.email",
 			savingProfile: true,
 			saveEmailError: null,
 			profileSaved: true,
+			data: {
+				profile: {
+					email: "email.email.email",
+				}
+			},
 		};
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
-			profile: profile,
 		};
 		const expected = {
+			email: "new.email",
 			savingProfile: false,
 			saveEmailError: null,
 			profileSaved: true,
 			sendPasswordReset: false,
 			data: {
-				profile: profile,
+				profile: {
+					email: "new.email",
+				}
 			},
 		};
 
