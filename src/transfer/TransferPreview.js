@@ -15,33 +15,25 @@ export default class TransferPreview extends React.Component {
 
 		[ { id: 1, data: props.usShopData }, { id: 2, data: props.euShopData } ].forEach( shop => {
 			if ( shop.data ) {
-				shop.data.order_ids.forEach( order_id => {
-					if ( orders[ shop.id ][ order_id ] ) {
-						orders[ shop.id ][ order_id ].inWoo = true;
-						return;
-					}
-					orders[ shop.id ][ order_id ] = { sourceShopId: shop.id, sourceId: order_id, inWoo: true }
-				} );
-
-				shop.data.subscription_ids.forEach( subscription_id => {
-					if ( subscriptions[ shop.id ][ subscription_id ] ) {
-						subscriptions[ shop.id ][ subscription_id ].inWoo = true;
-						return;
-					}
-					subscriptions[ shop.id ][ subscription_id ] = { sourceShopId: shop.id, sourceId: subscription_id, inWoo: true }
-				} );
-
-				shop.data.other_ids.forEach( other_id => {
-					if ( others[ shop.id ][ other_id ] ) {
-						others[ shop.id ][ other_id ].inWoo = true;
-						return;
-					}
-					others[ shop.id ][ other_id ] = { sourceShopId: shop.id, sourceId: other_id, inWoo: true }
-				} );
+				orders        = TransferPreview.fillOrderData( orders, shop.data.order_ids, shop.id );
+				subscriptions = TransferPreview.fillOrderData( subscriptions, shop.data.subscription_ids, shop.id );
+				others        = TransferPreview.fillOrderData( others, shop.data.other_ids, shop.id );
 			}
 		} );
 
 		this.state = { orders, subscriptions, others };
+	}
+
+	static fillOrderData( destination, source, shopId ) {
+		source.forEach( id => {
+			if ( destination[ shopId ][ id ] ) {
+				destination[ shopId ][ id ].inWoo = true;
+				return;
+			}
+			destination[ shopId ][ id ] = { sourceShopId: shopId, sourceId: id, inWoo: true }
+		} );
+
+		return destination;
 	}
 
 	getObjectList( list, displayKey ) {
