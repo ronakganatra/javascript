@@ -66,8 +66,6 @@ class Search extends React.Component {
 			results: []
 		} );
 
-		console.log( query );
-
 		if ( ! skipHistory ) {
 			this.props.history.push( path( "/Search?" + queryString.stringify( query, { arrayFormat: "bracket" } ) ) );
 		}
@@ -162,8 +160,6 @@ class Search extends React.Component {
 		let result = null;
 		let header = this.getHeader();
 
-		console.log( this.state );
-
 		if ( this.state.searching ) {
 			result = <Loader />;
 		}
@@ -171,7 +167,7 @@ class Search extends React.Component {
 		if ( this.state.searched && this.state.found && this.state.query ) {
 			result = <ResultsList
 				results={ this.state.results }
-				api={ this.api }
+				api={ this.props.api }
 				search={ this.search }
 				resource={ this.state.query.resource } />;
 		}

@@ -8,8 +8,8 @@ export default class CustomersResult extends React.Component {
 	 *
 	 * @returns {void}
 	 */
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
 
 		this.state = {
 			accessTokenStatus: "notCreated",
