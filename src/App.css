@@ -23,7 +23,6 @@ body, #root, .App {
 }
 
 .Main {
-  margin-left: 200px;
   text-align: center;
 }
 
@@ -107,12 +106,10 @@ input.widest, select.widest {
 }
 
 div > table {
-  width: 90%;
-  margin: 10px 5%;
+  margin: 0 auto;
 }
 
 table {
-  width: 100%;
   border: 1px solid black;
   border-collapse: collapse;
 }
