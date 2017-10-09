@@ -220,7 +220,6 @@ export function profileUpdateFailure( error ) {
 /**
  * An action creator for the profile update success action.
  *
- * @param {Object} profile The updated profile.
  * @returns {Object} The profile update success action.
  */
 export function profileUpdateSuccess() {
