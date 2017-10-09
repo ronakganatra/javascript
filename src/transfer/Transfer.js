@@ -7,6 +7,7 @@ import _merge from "lodash/merge";
 import _find from "lodash/find";
 import _compact from "lodash/compact";
 import queryString from "query-string";
+import { path } from "../functions/helpers";
 
 export const InitialState = {
 	fromCustomer:   null,
@@ -82,12 +83,12 @@ class Transfer extends React.Component {
 	selectCustomer( customer ) {
 		if ( this.state.fromCustomer === null ) {
 			this.setState( { fromCustomer: customer } );
-			this.props.history.push( "/transfer?" + queryString.stringify( { fromCustomerId: customer.id } ) );
+			this.props.history.push( path( "/transfer?" + queryString.stringify( { fromCustomerId: customer.id } ) ) );
 			return;
 		}
 
 		this.setState( { toCustomer: customer } );
-		this.props.history.push( "/transfer?" + queryString.stringify( { fromCustomerId: this.state.fromCustomer.id, toCustomerId: customer.id } ) );
+		this.props.history.push( path( "/transfer?" + queryString.stringify( { fromCustomerId: this.state.fromCustomer.id, toCustomerId: customer.id } ) ) );
 		this.getPreview();
 	}
 
