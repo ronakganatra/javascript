@@ -36,7 +36,7 @@ export function getWooCommerceHost() {
 	if ( isLocalEnv() ) {
 		return "http://yoast.dev";
 	} else {
-		return "https://www.yoast.com";
+		return "https://yoast.com";
 	}
 }
 
