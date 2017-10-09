@@ -5,6 +5,7 @@ import ResultsList from "./results/ResultsList";
 import Loader from "../shared/Loader";
 import queryString from "query-string";
 import config from "../config.json";
+import { path } from "../functions/helpers";
 
 export const InitialState = {
 	query: null,
@@ -68,7 +69,7 @@ class Search extends React.Component {
 		console.log( query );
 
 		if ( ! skipHistory ) {
-			this.props.history.push( "/Search?" + queryString.stringify( query, { arrayFormat: "bracket" } ) );
+			this.props.history.push( path( "/Search?" + queryString.stringify( query, { arrayFormat: "bracket" } ) ) );
 		}
 
 		let filters = [];
