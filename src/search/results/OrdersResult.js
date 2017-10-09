@@ -1,7 +1,8 @@
 import React from "react";
 import BaseResult from "./BaseResult";
-import { getSearchCallback } from "../functions/callbacks";
-import { datePresenter, dollarPresenter, euroPresenter } from "../functions/presenters";
+import { getSearchCallback } from "../../functions/callbacks";
+import { datePresenter, dollarPresenter, euroPresenter } from "../../functions/presenters";
+import { getOrderUrl } from "../../functions/helpers";
 
 export default class OrdersResult extends React.Component {
 	/**
@@ -44,10 +45,7 @@ export default class OrdersResult extends React.Component {
 	 * @returns {ReactElement} A link to manage this order in the WooCommerce backend.
 	 */
 	managePresenter() {
-		let url = `https://yoast.com/wp/wp-admin/post.php?post=${ this.props.result.sourceId }&action=edit`;
-		if ( this.props.result.sourceShopId === 2 ) {
-			url = `https://yoast.com/eu/wp-admin/post.php?post=${ this.props.result.sourceId }&action=edit`;
-		}
+		let url = getOrderUrl( this.props.result.sourceId, this.props.result.sourceShopId );
 
 		return <a href={ url } target="_blank">Manage order</a>;
 	}

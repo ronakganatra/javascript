@@ -1,12 +1,13 @@
 import React from "react";
 import config from "../config.json";
 import { capitalize } from "../functions/helpers"
+import { withRouter } from "react-router-dom";
 
 const Searchable     = config.searchable;
 const SearchableKeys = Object.keys( Searchable );
 const Headers        = config.headers;
 
-export default class SearchForm extends React.Component {
+class SearchForm extends React.Component {
 	/**
 	 * Sets the initial state for this form.
 	 *
@@ -16,14 +17,20 @@ export default class SearchForm extends React.Component {
 		super( props );
 
 		this.state = {
-			resource: SearchableKeys[0],
-			filters:  [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
+			resource: props.resource || SearchableKeys[0],
+			filters:  props.filters  || [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
 		};
 
 		this.handleResourceChange = this.handleResourceChange.bind( this );
 		this.addFilter            = this.addFilter.bind( this );
 		this.removeFilter         = this.removeFilter.bind( this );
 		this.submit               = this.submit.bind( this );
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		if ( nextProps.query && nextProps.query.resource && nextProps.query.filters ) {
+			this.setState( nextProps.query );
+		}
 	}
 
 	/**
@@ -114,7 +121,7 @@ export default class SearchForm extends React.Component {
 	 * @returns {void}
 	 */
 	submit( event ) {
-		this.props.searchCallback( this.state );
+		this.props.search( this.state );
 
 		event.preventDefault();
 	}
@@ -155,3 +162,7 @@ export default class SearchForm extends React.Component {
 		)
 	}
 }
+
+const SearchFormWithRouter = withRouter( SearchForm );
+
+export default SearchFormWithRouter;

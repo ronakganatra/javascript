@@ -1,7 +1,7 @@
 import React from "react";
 import BaseResult from "./BaseResult";
-import { getSearchCallback } from "../functions/callbacks";
-import { datePresenter } from "../functions/presenters";
+import { getSearchCallback } from "../../functions/callbacks";
+import { datePresenter } from "../../functions/presenters";
 
 export default class SubscriptionsResult extends React.Component {
 	/**
