@@ -48,7 +48,7 @@ export default class FindCustomer extends React.Component {
 		}
 
 		let like   = { like: this.state.query, options: "i" };
-		let search = this.props.api.search( "Customers", { where: { or: [ { email: like }, { userEmail: like }, { username: like }, { userFirstName: like }, { userLastName: like } ] } } );
+		let search = this.props.api.search( "Customers", { where: { or: [ { email: like }, { userEmail: like }, { username: like }, { userFirstName: like }, { userLastName: like } ] }, limit: 500 } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}
