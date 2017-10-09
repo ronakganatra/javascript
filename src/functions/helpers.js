@@ -20,8 +20,12 @@ export function capitalize (string) {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+let isLocalEnv = function () {
+	return window.location.host.indexOf( "localhost" ) !== -1;
+};
+
 export function getMyYoastHost() {
-	if ( window.location.host.indexOf( "localhost" ) !== -1 ) {
+	if ( isLocalEnv() ) {
 		return "http://localhost:3000";
 	} else {
 		return "https://my.yoast.com";
@@ -29,7 +33,7 @@ export function getMyYoastHost() {
 }
 
 export function getWooCommerceHost() {
-	if ( window.location.host.indexOf( "localhost" ) !== -1 ) {
+	if ( isLocalEnv() ) {
 		return "http://yoast.dev";
 	} else {
 		return "https://www.yoast.com";
@@ -43,4 +47,12 @@ export function getOrderUrl( orderId, shopId ) {
 		return `${ host }/eu/wp-admin/post.php?post=${ orderId }&action=edit`;
 	}
 	return `${ host }/wp/wp-admin/post.php?post=${ orderId }&action=edit`;
+}
+
+export function getPathPrefix() {
+	return isLocalEnv() ? "" : "/manage";
+}
+
+export function path( path ) {
+	return getPathPrefix() + path;
 }

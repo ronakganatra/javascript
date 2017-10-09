@@ -7,6 +7,9 @@ import Search from "./search/Search";
 import Transfer from "./transfer/Transfer";
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
+import { getPathPrefix, path } from "./functions/helpers";
+
+const pathPrefix = getPathPrefix();
 
 class App extends React.Component {
 	/**
@@ -51,7 +54,6 @@ class App extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		console.log( this.state.accessToken);
 		return (
 			<Router>
 				<div className="App">
@@ -61,9 +63,9 @@ class App extends React.Component {
 								<Navigation/>
 							</div>
 							<div className="Main">
-								<Route exact path="/" render={ () => <Redirect to="/search"/> } />
-								<Route path="/search" render={ () => <Search api={ this.api } /> } />
-								<Route path="/transfer" render={ () => <Transfer api={ this.api } /> } />
+								<Route exact path={ path( "/" ) } render={ () => <Redirect to={ path( "/search" ) } /> } />
+								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } /> } />
+								<Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } />
 							</div>
 						</div>
 					}
