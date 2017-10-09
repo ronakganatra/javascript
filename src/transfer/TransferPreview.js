@@ -72,7 +72,7 @@ export default class TransferPreview extends React.Component {
 				  <div><strong>EU Subscriptions:</strong>{ this.getObjectList( this.state.subscriptions[2], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.sites ) ) &&
-				  <div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>site.url</li> ) }</ul></div>
+				  <div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul></div>
 				}
 				{ ( ! _isEmpty( this.state.others[1] ) ) &&
 				  <div><strong>US Other:</strong>{ this.getObjectList( this.state.other[1], "sourceId" ) }</div>
