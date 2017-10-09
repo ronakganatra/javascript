@@ -7,9 +7,7 @@ import Search from "./search/Search";
 import Transfer from "./transfer/Transfer";
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
-import { getPathPrefix, path } from "./functions/helpers";
-
-const pathPrefix = getPathPrefix();
+import { path } from "./functions/helpers";
 
 class App extends React.Component {
 	/**
