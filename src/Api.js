@@ -38,9 +38,15 @@ export default class Api {
 		return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
 	}
 
+	getWooUrl( shopId ) {
+		let shopPostfix = shopId === 2 ? "/eu" : "";
+
+		return this.wooHost + shopPostfix + "/wp-json";
+	}
+
 	wooTransferPreview( fromId, toId, shopId ) {
 		return this.getWooAccessToken().then( () => {
-			let url = this.wooHost + `${ shopId === 2 ? "/eu" : "" }/wp-json/yoast-account-transfer/v1/transfer`;
+			let url = this.getWooUrl( shopId ) + `/yoast-account-transfer/v1/transfer`;
 			url += `?from_id=${ fromId }&to_id=${ toId }&access_token=${ this.wooAccessToken }`;
 
 			return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
@@ -50,13 +56,22 @@ export default class Api {
 	wooTransfer( fromId, toId, shopId ) {
 		return this.getWooAccessToken().then( () => {
 			let data = new FormData();
-			let url  = this.wooHost + `${ shopId === 2 ? "/eu" : "" }/wp-json/yoast-account-transfer/v1/transfer`;
+			let url  = this.getWooUrl( shopId ) + `/yoast-account-transfer/v1/transfer`;
 			url += `?access_token=${ this.wooAccessToken }`;
 
 			data.append( "from_id", fromId );
 			data.append( "to_id", toId );
 
 			return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
+		} );
+	}
+
+	wooRefund( orderId, shopId ) {
+		return this.getWooAccessToken().then( () => {
+			let url = this.getWooUrl( shopId ) + `/yoastcom/v1/refund/${orderId}`;
+			url += `?access_token=${ this.wooAccessToken }`;
+
+			return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
 		} );
 	}
 
@@ -83,7 +98,16 @@ export default class Api {
 			this.updateAccessToken( null );
 		}
 
-		return Promise.reject( `Invalid status code: ${ response.status }` );
+		return response.json()
+			.then( ( json ) => {
+				let error = new Error( `Invalid status code: ${ response.status }` );
+
+				if ( json.code && json.message ) {
+					error = new Error( json.message, json.code );
+				}
+
+				throw error;
+			} );
 	}
 
 	/**

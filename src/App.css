@@ -57,7 +57,7 @@ body, #root, .App {
   color: #ee7c1b;
 }
 
-.Preview .error {
+.Preview .error, .error-message {
   color: #dc3232;
 }
 
@@ -87,10 +87,15 @@ form select, form button {
   width: 250px;
 }
 
-form button[type=submit] {
+form button[type=submit], .form-submit {
   background-color: #66A421;
   color: white;
   border-color: #66A421;
+}
+
+.refund-submit {
+  margin-top: 1em;
+  width: 250px;
 }
 
 form input:not(:first-child), form select:not(:first-child), form button {

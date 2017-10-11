@@ -8,6 +8,7 @@ import Transfer from "./transfer/Transfer";
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 import { path } from "./functions/helpers";
+import Refund from "./refund/Refund";
 
 class App extends React.Component {
 	/**
@@ -64,6 +65,7 @@ class App extends React.Component {
 								<Route exact path={ path( "/" ) } render={ () => <Redirect to={ path( "/search" ) } /> } />
 								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } /> } />
 								<Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } />
+								<Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } />
 							</div>
 						</div>
 					}
