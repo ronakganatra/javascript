@@ -49,7 +49,6 @@ class Refund extends React.Component {
 			});
 		}
 
-		let like   = { like: this.state.query, options: "i" };
 		let search = this.props.api.search( "Orders", {
 			where: { invoiceNumber: this.state.orderNumber }, limit: 1
 		} );
