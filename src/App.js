@@ -19,6 +19,10 @@ class App extends React.Component {
 
 		let accessToken = localStorage.getItem( "yoast-support-access-token" );
 
+		if ( accessToken === 'null' ) {
+			accessToken = null;
+		}
+
 		if ( accessToken === null ) {
 			accessToken = getAccessToken();
 		}

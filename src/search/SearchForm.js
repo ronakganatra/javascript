@@ -1,5 +1,6 @@
 import React from "react";
 import config from "../config.json";
+import _includes from "lodash/includes";
 import { capitalize } from "../functions/helpers"
 import { withRouter } from "react-router-dom";
 
@@ -16,10 +17,14 @@ class SearchForm extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		this.state = {
-			resource: props.resource || SearchableKeys[0],
-			filters:  props.filters  || [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
-		};
+		if ( SearchForm.validQuery( props.query ) ) {
+			this.state = props.query;
+		} else {
+			this.state = {
+				resource: SearchableKeys[0],
+				filters:  [ [ Searchable[ SearchableKeys[0] ][0], '' ] ]
+			};
+		}
 
 		this.handleResourceChange = this.handleResourceChange.bind( this );
 		this.addFilter            = this.addFilter.bind( this );
@@ -28,9 +33,22 @@ class SearchForm extends React.Component {
 	}
 
 	componentWillReceiveProps( nextProps ) {
-		if ( nextProps.query && nextProps.query.resource && nextProps.query.filters ) {
+		if ( SearchForm.validQuery( nextProps.query ) ) {
+
 			this.setState( nextProps.query );
 		}
+	}
+
+	static validQuery( query ) {
+		if ( ! query || ! query.resource || ! query.filters ) {
+			return false;
+		}
+
+		if ( ! Searchable[ query.resource ] ) {
+			return false;
+		}
+
+		return query.filters.every( filter => filter[0] && _includes( Searchable[ query.resource ], filter[0] ) );
 	}
 
 	/**
