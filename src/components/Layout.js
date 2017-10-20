@@ -37,7 +37,7 @@ const Sidebar = styled.div`
 	background-color: ${colors.$color_pink_dark};
 	// Firefox needs this for user-email break word to work inside flex items.
 	max-width: 300px;
-	padding-left: 20px;
+	padding-left: 16px;
 
 	@media screen and ( max-width: 1024px ) {
 		position: fixed;
@@ -59,8 +59,8 @@ const Sidebar = styled.div`
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
-	margin: 42px 2%;
-	padding: 40px 0;
+	margin: 0 2%;
+	padding: 24px 0;
 	// Firefox needs this for site-name break word to work.
 	min-width: 0;
 

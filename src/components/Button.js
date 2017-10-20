@@ -32,7 +32,7 @@ const ButtonArchetype = styled.button`
 	border: 0;
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
@@ -92,7 +92,7 @@ export const LargeSecondaryButton = styled( ButtonArchetype )`
 	&:focus {
 		background-color: ${ colors.$color_green_medium_light };
 		color: ${ colors.$color_white };
-		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 		border: none;
 		text-shadow: 0px 0px 2px #000;
 	}
@@ -264,7 +264,7 @@ export const ButtonLink = styled( Link )`
 	padding: 12px 16px;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	// line height 24 + padding 12 + 12 = 48
 	font: 400 14px/24px "Open Sans", sans-serif;
