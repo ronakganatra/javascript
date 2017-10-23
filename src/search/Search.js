@@ -86,7 +86,7 @@ class Search extends React.Component {
 		// Make order unique.
 		order = Array.from( new Set( order ) );
 
-		let search = this.props.api.search( query.resource, { where: { and: filters }, limit: 500, order: order.join( ", " ) } );
+		let search = this.props.api.search( query.resource, { where: { and: filters }, limit: 1000, order: order.join( ", " ) } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}
