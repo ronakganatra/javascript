@@ -3,7 +3,7 @@
 exports[`components/ProfilePage failure during password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -23,7 +23,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -33,7 +33,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -58,7 +58,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -100,7 +100,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -134,7 +134,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 exports[`components/ProfilePage failure during profile save 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -154,7 +154,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -185,7 +185,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </div>
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -210,7 +210,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -248,7 +248,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -282,7 +282,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 exports[`components/ProfilePage has sent password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -302,7 +302,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -312,7 +312,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -337,7 +337,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -380,7 +380,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -414,7 +414,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 exports[`components/ProfilePage saving profile 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -434,7 +434,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -444,7 +444,7 @@ exports[`components/ProfilePage saving profile 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -474,7 +474,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -512,7 +512,7 @@ exports[`components/ProfilePage saving profile 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -546,7 +546,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 exports[`components/ProfilePage sending password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -566,7 +566,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -576,7 +576,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -601,7 +601,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -644,7 +644,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -678,7 +678,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
 exports[`components/ProfilePage the default case 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -698,7 +698,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -708,7 +708,7 @@ exports[`components/ProfilePage the default case 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -733,7 +733,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -776,7 +776,7 @@ exports[`components/ProfilePage the default case 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -810,7 +810,7 @@ exports[`components/ProfilePage the default case 1`] = `
 exports[`components/ProfilePage while deleting the account 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -830,7 +830,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="bVhSIB"
+            className="dqHqlH"
             id="email-address"
             name="email"
             onChange={[Function]}
@@ -840,7 +840,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           />
           <div>
             <button
-              className="ebOGvJ"
+              className="kTWWIm"
               type="submit"
             >
               <span>
@@ -865,7 +865,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="cRbutZ"
             onClick={[Function]}
             type="button"
           >
@@ -903,7 +903,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"

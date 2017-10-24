@@ -14,7 +14,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="fIyvPW"
     >
       <a
-        className="kdYbCD"
+        className="egjDgm"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -26,7 +26,7 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="dIzknZ"
+        className="cBYUMF"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"
@@ -214,7 +214,7 @@ exports[`the site page component matches the snapshot 1`] = `
     </g>
   </svg>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"
@@ -260,7 +260,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="fIyvPW"
     >
       <a
-        className="kdYbCD"
+        className="egjDgm"
         enabledStyle={true}
         href="/sites"
         iconSize="24px"
@@ -272,7 +272,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="dIzknZ"
+        className="cBYUMF"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"
@@ -460,7 +460,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     </g>
   </svg>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="cxrbkq"

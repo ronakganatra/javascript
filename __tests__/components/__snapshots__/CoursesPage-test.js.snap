@@ -12,7 +12,7 @@ exports[`the courses page component matches the snapshot 1`] = `
   <p>
     <a
       aria-label={undefined}
-      className="dQHIsN"
+      className="gXvvaK"
       href="https://yoa.st/myyoast-academy"
       rel="noopener noreferrer"
       target="_blank"

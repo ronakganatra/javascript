@@ -44,7 +44,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gYFJLW"
             onClick={[Function]}
             type="button"
           >
@@ -54,7 +54,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           </button>
           <button
             aria-label="add"
-            className="kaSgRI"
+            className="ejHzsB"
             type="submit"
           >
             <span>
@@ -120,7 +120,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gYFJLW"
             onClick={[Function]}
             type="button"
           >
@@ -130,7 +130,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           </button>
           <button
             aria-label="add"
-            className="kaSgRI"
+            className="ejHzsB"
             type="submit"
           >
             <span>
@@ -196,7 +196,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gYFJLW"
             onClick={[Function]}
             type="button"
           >
@@ -206,7 +206,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           </button>
           <button
             aria-label="add"
-            className="kaSgRI"
+            className="ejHzsB"
             type="submit"
           >
             <span>
@@ -272,7 +272,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gYFJLW"
             onClick={[Function]}
             type="button"
           >
@@ -282,7 +282,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           </button>
           <button
             aria-label="add"
-            className="kaSgRI"
+            className="ejHzsB"
             type="submit"
           >
             <span>

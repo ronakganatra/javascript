@@ -2,7 +2,7 @@
 
 exports[`the text button matches the snapshot 1`] = `
 <button
-  className="cimvvM"
+  className="tGPwh"
 >
   ButtonValue
 </button>
