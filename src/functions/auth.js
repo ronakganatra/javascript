@@ -55,7 +55,7 @@ export function directToIntendedDestination() {
  * @returns {string} The URL where the user can logout.
  */
 export function getLogoutUrl() {
-	return getEnv( "LOGOUT_URL", "http://yoast.dev/wp/wp-login.php?action=logout" );
+	return getEnv( "LOGOUT_URL", "http://yoast.test/wp/wp-login.php?action=logout" );
 }
 
 /**
@@ -64,7 +64,7 @@ export function getLogoutUrl() {
  * @returns {string} The URL where the user can reset their password.
  */
 export function getPasswordResetUrl() {
-	return getEnv( "PASSWORD_RESET_URL", "http://yoast.dev/wp-login.php?action=lostpassword" );
+	return getEnv( "PASSWORD_RESET_URL", "http://yoast.test/wp-login.php?action=lostpassword" );
 }
 
 /**
