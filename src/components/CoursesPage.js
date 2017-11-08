@@ -37,12 +37,22 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
-		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id } defaultMessage={ messages.underConstruction.defaultMessage } /> ];
+		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
+											defaultMessage={ messages.underConstruction.defaultMessage }/> ];
+		if ( process.env.NODE_ENV === "development" ) {
+			return (
+				<LandingPage url="https://yoa.st/myyoast-academy"
+							 urlText="Yoast Academy Dev"
+							 imageSource={ constructionImage }
+							 paragraphs={ paragraphs }
+				/>
+			);
+		}
 		return (
 			<LandingPage url="https://yoa.st/myyoast-academy"
-				urlText="Yoast Academy"
-				imageSource={ constructionImage }
-				paragraphs={ paragraphs }
+						 urlText="Yoast Academy"
+						 imageSource={ constructionImage }
+						 paragraphs={ paragraphs }
 			/>
 		);
 	}
