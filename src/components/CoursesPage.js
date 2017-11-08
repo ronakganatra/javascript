@@ -3,6 +3,8 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import LandingPage from "./LandingPage";
 import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
+import SubNavigation, { SubNavigationItem } from "./SubNavigation";
+// import retrieveCourses from "../actions/courses";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -14,6 +16,26 @@ const messages = defineMessages( {
 		defaultMessage: "This section is still under construction. To access your courses, please visit:",
 	},
 } );
+
+let itemRoutes = [
+	{
+		component: "CoursesProgress",
+		path: "/courses/progress",
+		title: "Progress",
+		isActive: ( match, location ) => {
+			if ( match ) {
+				return match;
+			}
+
+			return location.pathname === "/courses" || location.pathname === "/courses/";
+		},
+	},
+	{
+		component: "CoursesEnrollments",
+		path: "/courses/enrollments",
+		title: "Enrollments",
+	},
+];
 
 /**
  * A function that returns the Courses Page component.
@@ -37,15 +59,15 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
+		// retrieveCourses();
 		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
 											defaultMessage={ messages.underConstruction.defaultMessage }/> ];
 		if ( process.env.NODE_ENV === "development" ) {
 			return (
-				<LandingPage url="https://yoa.st/myyoast-academy"
-							 urlText="Yoast Academy Dev"
-							 imageSource={ constructionImage }
-							 paragraphs={ paragraphs }
-				/>
+				<div>
+					<SubNavigation itemRoutes={itemRoutes} />
+					<SubNavigationItem itemRoutes={itemRoutes} />
+				</div>
 			);
 		}
 		return (

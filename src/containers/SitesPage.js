@@ -8,6 +8,8 @@ import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
+	console.log( "state", state );
+
 	let allIds = state.entities.sites.allIds;
 
 	let sites = allIds.map( ( siteId ) => {
