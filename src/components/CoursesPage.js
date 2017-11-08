@@ -59,9 +59,8 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
-		// retrieveCourses();
 		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
-											defaultMessage={ messages.underConstruction.defaultMessage }/> ];
+			defaultMessage={ messages.underConstruction.defaultMessage }/> ];
 		if ( process.env.NODE_ENV === "development" ) {
 			return (
 				<div>
