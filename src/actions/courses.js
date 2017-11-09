@@ -1,5 +1,5 @@
 import { prepareInternalRequest, doRequest } from "../functions/api";
-import { getUserId } from "../functions/auth";
+// import { getUserId } from "../functions/auth";
 
 export const RETRIEVE_COURSES_REQUEST = "RETRIEVE_COURSES_REQUEST";
 export const RETRIEVE_COURSES_SUCCESS = "RETRIEVE_COURSES_SUCCESS";
@@ -51,12 +51,11 @@ export function retrieveCourses() {
 	return ( dispatch ) => {
 		dispatch( retrieveCoursesRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/courses/` );
-
+		// let userId = getUserId();
+		let request = prepareInternalRequest( "Courses/" );
 		return doRequest( request )
 		.then( json =>
-			console.log( json ) )
+			console.log( "Json", json ) )
 		// dispatch( retrieveCoursesSuccess( json ) ) )
 		.catch( error => dispatch( retrieveCoursesFailure( error.message ) ) );
 	};

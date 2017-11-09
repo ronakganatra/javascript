@@ -5,6 +5,9 @@ import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 // import retrieveCourses from "../actions/courses";
+import CoursesProgress from "./CoursesProgress";
+import CoursesEnrollments from "./CoursesEnrollments";
+import PropTypes from "prop-types";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -19,7 +22,7 @@ const messages = defineMessages( {
 
 let itemRoutes = [
 	{
-		component: "CoursesProgress",
+		component: CoursesProgress,
 		path: "/courses/progress",
 		title: "Progress",
 		isActive: ( match, location ) => {
@@ -31,7 +34,7 @@ let itemRoutes = [
 		},
 	},
 	{
-		component: "CoursesEnrollments",
+		component: CoursesEnrollments,
 		path: "/courses/enrollments",
 		title: "Enrollments",
 	},
@@ -53,6 +56,8 @@ class CoursesPage extends React.Component {
 	}
 
 	componentDidMount() {
+		this.props.loadData();
+
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
@@ -83,4 +88,5 @@ export default injectIntl( CoursesPage );
 
 CoursesPage.propTypes = {
 	intl: intlShape.isRequired,
+	loadData: PropTypes.func,
 };
