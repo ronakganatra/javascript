@@ -5,8 +5,8 @@ import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 // import retrieveCourses from "../actions/courses";
-import CoursesProgress from "./CoursesProgress";
-import CoursesEnrollments from "./CoursesEnrollments";
+// import CoursesProgress from "./CoursesProgress";
+import CoursesEnrollments from "../containers/CoursesEnrollments";
 import PropTypes from "prop-types";
 
 const messages = defineMessages( {
@@ -22,7 +22,7 @@ const messages = defineMessages( {
 
 let itemRoutes = [
 	{
-		component: CoursesProgress,
+		component: CoursesEnrollments,
 		path: "/courses/progress",
 		title: "Progress",
 		isActive: ( match, location ) => {
@@ -69,8 +69,8 @@ class CoursesPage extends React.Component {
 		if ( process.env.NODE_ENV === "development" ) {
 			return (
 				<div>
-					<SubNavigation itemRoutes={itemRoutes} />
-					<SubNavigationItem itemRoutes={itemRoutes} />
+					<SubNavigation itemRoutes={ itemRoutes } />
+					<SubNavigationItem itemRoutes={ itemRoutes } />
 				</div>
 			);
 		}

@@ -3,19 +3,16 @@ import { retrieveCourses } from "../actions/courses";
 import CoursesPage from "../components/CoursesPage";
 
 export const mapStateToProps = ( state ) => {
-	let allIds = state.entities.orders.allIds;
-	console.log( "state", state );
+	let allIds = state.entities.courses.allIds;
 	let courses = allIds.map( ( courseId ) => {
 		let course = state.entities.courses.byId[ courseId ];
 
 		let courseProps = {
 			id: course.id,
-			status: course.status,
-			progress: course.progress,
-			courseId: course.courseId,
-			buyerId: course.buyerId,
-			studentId: course.studentId,
-			orderId: course.orderId,
+			name: course.name,
+			description: course.description,
+			courseUrl: course.courseUrl,
+			certificateUrl: course.certificateUrl,
 		};
 
 		return courseProps;

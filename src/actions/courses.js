@@ -1,9 +1,14 @@
 import { prepareInternalRequest, doRequest } from "../functions/api";
-// import { getUserId } from "../functions/auth";
+import { getUserId } from "../functions/auth";
 
 export const RETRIEVE_COURSES_REQUEST = "RETRIEVE_COURSES_REQUEST";
 export const RETRIEVE_COURSES_SUCCESS = "RETRIEVE_COURSES_SUCCESS";
 export const RETRIEVE_COURSES_FAILURE = "RETRIEVE_COURSES_FAILURE";
+export const RETRIEVE_COURSESENROLLMENTS_REQUEST = "RETRIEVE_COURSESENROLLMENTS_REQUEST";
+export const RETRIEVE_COURSESENROLLMENTS_SUCCESS = "RETRIEVE_COURSESENROLLMENTS_SUCCESS";
+export const RETRIEVE_COURSESENROLLMENTS_FAILURE = "RETRIEVE_COURSESENROLLMENTS_FAILURE";
+
+
 /**
  * An action creator for the server request action.
  *
@@ -42,8 +47,47 @@ export function retrieveCoursesFailure( errorText ) {
 		retrieveError: errorText,
 	};
 }
+
 /**
- * An action creator for the retrieve courses action.
+ * An action creator for the server request action.
+ *
+ * @returns {Object} A server request action.
+ */
+export function retrieveCoursesEnrollmentsRequest() {
+	return {
+		type: RETRIEVE_COURSESENROLLMENTS_REQUEST,
+	};
+}
+
+/**
+ * An action creator for the retrieve courses success action.
+ *
+ * @param {Array} courses The courses to be retrieved.
+ *
+ * @returns {Object} A retrieve courses success action.
+ */
+export function retrieveCoursesEnrollmentsSuccess( courses ) {
+	return {
+		type: RETRIEVE_COURSESENROLLMENTS_SUCCESS,
+		coursesEnrollments: courses,
+	};
+}
+
+/**
+ * An action creator for the retrieve courses failure action.
+ *
+ * @param {string} errorText The error message.
+ *
+ * @returns {Object} A retrieve courses failure action.
+ */
+export function retrieveCoursesEnrollmentsFailure( errorText ) {
+	return {
+		type: RETRIEVE_COURSESENROLLMENTS_FAILURE,
+		retrieveError: errorText,
+	};
+}
+/**
+ * An action creator for the retrieve courseEnrollments action.
  *
  * @returns {Object} A retrieve courses action.
  */
@@ -51,13 +95,30 @@ export function retrieveCourses() {
 	return ( dispatch ) => {
 		dispatch( retrieveCoursesRequest() );
 
-		// let userId = getUserId();
 		let request = prepareInternalRequest( "Courses" );
-		// http://localhost:3000/api/CourseEnrollments?access_token=7e6VA8AyMy3TxzaWD7MCwPoAd0PtOVdKQvE8j01FmvmY1gqw8gxV9GfpC59hRHV9
 
 		return doRequest( request )
 		.then( json =>
 		dispatch( retrieveCoursesSuccess( json ) ) )
 		.catch( error => dispatch( retrieveCoursesFailure( error.message ) ) );
+	};
+}
+
+/**
+ * An action creator for the retrieve courseEnrollments action.
+ *
+ * @returns {Object} A retrieve courses action.
+ */
+export function retrieveCoursesEnrollments() {
+	return ( dispatch ) => {
+		dispatch( retrieveCoursesEnrollmentsRequest() );
+		let userId = getUserId();
+
+		let request = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
+
+		return doRequest( request )
+		.then( json =>
+			dispatch( retrieveCoursesEnrollmentsSuccess( json ) ) )
+		.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error.message ) ) );
 	};
 }
