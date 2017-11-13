@@ -52,11 +52,12 @@ export function retrieveCourses() {
 		dispatch( retrieveCoursesRequest() );
 
 		// let userId = getUserId();
-		let request = prepareInternalRequest( "Courses/" );
+		let request = prepareInternalRequest( "Courses" );
+		// http://localhost:3000/api/CourseEnrollments?access_token=7e6VA8AyMy3TxzaWD7MCwPoAd0PtOVdKQvE8j01FmvmY1gqw8gxV9GfpC59hRHV9
+
 		return doRequest( request )
 		.then( json =>
-			console.log( "Json", json ) )
-		// dispatch( retrieveCoursesSuccess( json ) ) )
+		dispatch( retrieveCoursesSuccess( json ) ) )
 		.catch( error => dispatch( retrieveCoursesFailure( error.message ) ) );
 	};
 }

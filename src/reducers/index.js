@@ -1,6 +1,7 @@
 import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
+import { byIdCoursesReducer, allIdsCoursesReducer } from "./courses.js";
 import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
@@ -40,9 +41,16 @@ export const entitiesOrdersReducer = combineReducers( {
 	allIds: allIdsOrdersReducer,
 } );
 
+export const entitiesCourcesReducer = combineReducers( {
+	byId: byIdCoursesReducer,
+	allIds: allIdsCoursesReducer,
+} );
+
+
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
+	courses: entitiesCourcesReducer,
 	products: entitiesProductsReducer,
 	orders: entitiesOrdersReducer,
 } );
