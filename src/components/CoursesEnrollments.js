@@ -1,5 +1,5 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { ListTable, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "./Tables";
@@ -21,9 +21,9 @@ const messages = defineMessages( {
 		id: "siteSubscriptions.overview.title",
 		defaultMessage: "Subscriptions",
 	},
-	siteName: {
-		id: "site.overview.siteName",
-		defaultMessage: "Site name",
+	courseName: {
+		id: "progress.overview.courseName",
+		defaultMessage: "Course name",
 	},
 	activeSubscriptions: {
 		id: "site.overview.activeSubscriptions",
@@ -78,22 +78,23 @@ class CoursesEnrollments extends React.Component {
 
 		let buyerEmail = (
 			<ColumnFixedWidth>
-				e-mail@vandekop.er
+				{ this.props.coursesEnrollments.map( function( course ) {
+					return course.buyerEmail;
+				} ) }
 			</ColumnFixedWidth>
 		);
-
 		return (
 			<Paper>
 				<ListTable>
 					{ this.props.coursesEnrollments.map( function( course ) {
 						return (
 							<Row key={ course.id }>
-								<ColumnIcon separator={ true }><CourseIcon src="https://yoast.com/app/uploads/2015/06/Yoast_SEO_Icon_500x500.png" alt=""/></ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel="Course Name">
-									{ course.courseId }
+								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+								<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
+									{ course.courseName }
 								</ColumnPrimary>
 								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
-									{ course.studentId }
+									{ course.studentName }
 								</ColumnPrimary>
 								{ ( currentUser === course.buyerId ) ? manageButton : buyerEmail }
 							</Row> );

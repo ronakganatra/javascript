@@ -6,27 +6,24 @@ export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
-
 		let courseProps = {
 			id: course.id,
-			status: course.status,
 			progress: course.progress,
 			courseId: course.courseId,
+			courseName: course.course.name,
+			icon: course.course.product.icon,
 			buyerId: course.buyerId,
+			buyerEmail: course.order.customerEmail,
 			studentId: course.studentId,
-			orderId: course.orderId,
+			studentName: course.student.userFirstName  + " " + course.student.userLastName,
 		};
 
 		return courseProps;
 	} );
 
-	let finishedCourses = coursesEnrollments.filter( ( course ) => {
-		return course.status === "completed";
-	} );
 
 	return {
 		coursesEnrollments,
-		finishedCourses,
 	};
 };
 
