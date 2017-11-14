@@ -26,6 +26,7 @@ export const mapStateToProps = ( state ) => {
 	} );
 
 	return {
+		coursesEnrollments,
 		finishedCourses,
 	};
 };

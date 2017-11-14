@@ -56,7 +56,8 @@ class CoursesPage extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.loadData();
+		this.props.loadCourses();
+		this.props.loadCoursesEnrollments();
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -64,6 +65,7 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
+		// console.log( "CoursPage Props", this.props );
 		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
 			defaultMessage={ messages.underConstruction.defaultMessage }/> ];
 		if ( process.env.NODE_ENV === "development" ) {
@@ -88,5 +90,6 @@ export default injectIntl( CoursesPage );
 
 CoursesPage.propTypes = {
 	intl: intlShape.isRequired,
-	loadData: PropTypes.func,
+	loadCourses: PropTypes.func,
+	loadCoursesEnrollments: PropTypes.func,
 };

@@ -1,13 +1,16 @@
 import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
-// import retrieveCourses from "../actions/courses";
-// import CoursesProgress from "./CoursesProgress";
-// import CoursesEnrollments from "../containers/CoursesEnrollments";
 import PropTypes from "prop-types";
-// import { ListTable } from "./Tables";
-// import Paper from "./Paper";
-// import CollapsibleHeader from "./CollapsibleHeader";
+import { ListTable, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "./Tables";
+import MediaQuery from "react-responsive";
+import Paper from "./Paper";
+import { Row } from "./Tables";
+import styled from "styled-components";
+import { getUserId } from "../functions/auth";
+import defaults from "../config/defaults.json";
+import { LargeButton } from "../components/Button.js";
+import { ChevronButton } from "../components/Button.js";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -18,8 +21,23 @@ const messages = defineMessages( {
 		id: "siteSubscriptions.overview.title",
 		defaultMessage: "Subscriptions",
 	},
+	siteName: {
+		id: "site.overview.siteName",
+		defaultMessage: "Site name",
+	},
+	activeSubscriptions: {
+		id: "site.overview.activeSubscriptions",
+		defaultMessage: "Active subscriptions",
+	},
+	manage: {
+		id: "site.overview.manage",
+		defaultMessage: "Manage",
+	},
 } );
 
+const CourseIcon = styled.img`
+	height: inherit;
+`;
 /**
  * A function that returns the Courses Page component.
  *
@@ -44,8 +62,44 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	render() {
+		let currentUser = getUserId();
+
+		let manageButton = (
+			<ColumnFixedWidth>
+				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+					<LargeButton onClick={ () => {} }>Manage</LargeButton>
+				</MediaQuery>
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+					<ChevronButton aria-label="Manage"
+								   onClick={ () => {} } />
+				</MediaQuery>
+			</ColumnFixedWidth>
+		);
+
+		let buyerEmail = (
+			<ColumnFixedWidth>
+				e-mail@vandekop.er
+			</ColumnFixedWidth>
+		);
+
 		return (
-			<h1>test</h1>
+			<Paper>
+				<ListTable>
+					{ this.props.coursesEnrollments.map( function( course ) {
+						return (
+							<Row key={ course.id }>
+								<ColumnIcon separator={ true }><CourseIcon src="https://yoast.com/app/uploads/2015/06/Yoast_SEO_Icon_500x500.png" alt=""/></ColumnIcon>
+								<ColumnPrimary ellipsis={ true } headerLabel="Course Name">
+									{ course.courseId }
+								</ColumnPrimary>
+								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
+									{ course.studentId }
+								</ColumnPrimary>
+								{ ( currentUser === course.buyerId ) ? manageButton : buyerEmail }
+							</Row> );
+					} ) }
+				</ListTable>
+			</Paper>
 		);
 	}
 }
@@ -53,6 +107,7 @@ class CoursesEnrollments extends React.Component {
 CoursesEnrollments.propTypes = {
 	intl: intlShape.isRequired,
 	loadData: PropTypes.func,
+	coursesEnrollments: PropTypes.array,
 };
 
 export default injectIntl( CoursesEnrollments );
