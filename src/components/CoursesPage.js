@@ -4,8 +4,6 @@ import LandingPage from "./LandingPage";
 import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
-// import retrieveCourses from "../actions/courses";
-// import CoursesProgress from "./CoursesProgress";
 import CoursesEnrollments from "../containers/CoursesEnrollments";
 import PropTypes from "prop-types";
 
@@ -65,7 +63,6 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
-		// console.log( "CoursPage Props", this.props );
 		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
 			defaultMessage={ messages.underConstruction.defaultMessage }/> ];
 		if ( process.env.NODE_ENV === "development" ) {

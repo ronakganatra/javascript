@@ -3,7 +3,6 @@ import { retrieveCoursesEnrollments } from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
-	console.log( "State in de container", state );
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
