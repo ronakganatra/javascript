@@ -92,7 +92,6 @@ class CoursesEnrollments extends React.Component {
 				);
 			}
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
-				console.log( "3" );
 				return (
 					<ColumnFixedWidth>
 						{ this.props.coursesEnrollments.map( function( course ) {
