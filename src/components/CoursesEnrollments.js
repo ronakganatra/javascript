@@ -64,31 +64,44 @@ class CoursesEnrollments extends React.Component {
 	render() {
 		let currentUser = getUserId();
 
-		let manageButton = (
-			<ColumnFixedWidth>
-				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-					<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
-				</MediaQuery>
-				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-					<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
-								   onClick={ () => {} } />
-				</MediaQuery>
-			</ColumnFixedWidth>
-		);
-
-		// let courseOwner = (
-		// 	<ColumnFixedWidth>
-		// 		{ this.props.coursesEnrollments.map( function( course ) {
-		// 			return ( course.buyerName + "<br />" + course.buyerEmail );
-		// 		} ) }
-		// 	</ColumnFixedWidth>
-		// );
-
-		let courseInProgress = (
-			<ColumnFixedWidth>
-				Course in Progress
-			</ColumnFixedWidth>
-		);
+		/**
+		 * Sets the Course status column.
+		 * @param {Object} course the course object.
+		 * @returns {void}
+		 */
+		let studentOrBuyer = ( course ) => {
+			if ( currentUser === course.buyerId && course.status === "not started" ) {
+				console.log( "1", course );
+				return (
+					<ColumnFixedWidth>
+						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+							<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
+						</MediaQuery>
+						<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+							<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
+										   onClick={ () => {} } />
+						</MediaQuery>
+					</ColumnFixedWidth>
+				);
+			}
+			if ( currentUser === course.buyerId && course.status !== "not started" ) {
+				return (
+					<ColumnFixedWidth>
+						Course in Progress
+					</ColumnFixedWidth>
+				);
+			}
+			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
+				console.log( "3" );
+				return (
+					<ColumnFixedWidth>
+						{ this.props.coursesEnrollments.map( function( course ) {
+							return ( course.buyerName + "<br />" + course.buyerEmail );
+						} ) }
+					</ColumnFixedWidth>
+				);
+			}
+		};
 
 		return (
 			<Paper>
@@ -105,7 +118,7 @@ class CoursesEnrollments extends React.Component {
 									{ course.studentEmail }
 								</ColumnPrimary>
 								<ColumnPrimary ellipsis={ true } headerLabel={ ( currentUser === course.buyerId ) ? "Manage user" : "Course owner"  }>
-									{ ( currentUser === course.buyerId && course.status === "not started" ) ? manageButton : courseInProgress }
+									{ studentOrBuyer( course ) }
 								</ColumnPrimary>
 							</Row> );
 					} ) }
