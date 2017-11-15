@@ -14,6 +14,9 @@ export const mapStateToProps = ( state ) => {
 			icon: course.course.product.icon,
 			buyerId: course.buyerId,
 			buyerEmail: course.order.customerEmail,
+			buyerName: course.buyer.userFirstName  + " " + course.buyer.userLastName,
+			status: course.status,
+			studentEmail: course.student.email,
 			studentId: course.studentId,
 			studentName: course.student.userFirstName  + " " + course.student.userLastName,
 		};

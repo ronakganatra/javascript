@@ -29,9 +29,9 @@ const messages = defineMessages( {
 		id: "site.overview.activeSubscriptions",
 		defaultMessage: "Active subscriptions",
 	},
-	manage: {
-		id: "site.overview.manage",
-		defaultMessage: "Manage",
+	editStudent: {
+		id: "enrollments.overview.editStudent",
+		defaultMessage: "Edit student",
 	},
 } );
 
@@ -67,22 +67,29 @@ class CoursesEnrollments extends React.Component {
 		let manageButton = (
 			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-					<LargeButton onClick={ () => {} }>Manage</LargeButton>
+					<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-					<ChevronButton aria-label="Manage"
+					<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
 								   onClick={ () => {} } />
 				</MediaQuery>
 			</ColumnFixedWidth>
 		);
 
-		let buyerEmail = (
+		// let courseOwner = (
+		// 	<ColumnFixedWidth>
+		// 		{ this.props.coursesEnrollments.map( function( course ) {
+		// 			return ( course.buyerName + "<br />" + course.buyerEmail );
+		// 		} ) }
+		// 	</ColumnFixedWidth>
+		// );
+
+		let courseInProgress = (
 			<ColumnFixedWidth>
-				{ this.props.coursesEnrollments.map( function( course ) {
-					return course.buyerEmail;
-				} ) }
+				Course in Progress
 			</ColumnFixedWidth>
 		);
+
 		return (
 			<Paper>
 				<ListTable>
@@ -94,9 +101,12 @@ class CoursesEnrollments extends React.Component {
 									{ course.courseName }
 								</ColumnPrimary>
 								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
-									{ course.studentName }
+									<strong>{ course.studentName }</strong><br />
+									{ course.studentEmail }
 								</ColumnPrimary>
-								{ ( currentUser === course.buyerId ) ? manageButton : buyerEmail }
+								<ColumnPrimary ellipsis={ true } headerLabel={ ( currentUser === course.buyerId ) ? "Manage user" : "Course owner"  }>
+									{ ( currentUser === course.buyerId && course.status === "not started" ) ? manageButton : courseInProgress }
+								</ColumnPrimary>
 							</Row> );
 					} ) }
 				</ListTable>
