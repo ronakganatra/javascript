@@ -116,7 +116,11 @@ class CoursesProgress extends React.Component {
 		 */
 		function progressButtonUrl( progressButtonLabel, course ) {
 			if ( progressButtonLabel !== "Unlock now" ) {
-				return progressButtonLabel === "Certificate" ? course.certificateUrl : course.courseUrl;
+				if ( progressButtonLabel !== "Enroll" ) {
+					return progressButtonLabel === "Certificate" ? course.certificateUrl : course.courseUrl;
+				}
+				// Should be updated when the Enroll modal is ready.
+				return course.courseUrl;
 			}
 			// Shop URL should be updated to specific courses via yoast.com sync.
 			return course.storeUrl;
