@@ -71,7 +71,6 @@ class CoursesEnrollments extends React.Component {
 		 */
 		let studentOrBuyer = ( course ) => {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {
-				console.log( "1", course );
 				return (
 					<ColumnFixedWidth>
 						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
