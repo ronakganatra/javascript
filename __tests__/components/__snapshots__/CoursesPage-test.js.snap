@@ -1,5 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`The courses page component matches the snapshot 1`] = `
+<div>
+  <ul
+    className="fXEqiq"
+    role="list"
+  >
+    <li
+      className="isgbHI"
+    >
+      <a
+        aria-current={false}
+        className="jUdSwI"
+        href="/courses/progress"
+        onClick={[Function]}
+        style={undefined}
+      >
+         
+        Progress
+         
+      </a>
+    </li>
+    <li
+      className="isgbHI"
+    >
+      <a
+        aria-current={false}
+        className="jUdSwI"
+        href="/courses/enrollments"
+        onClick={[Function]}
+        style={undefined}
+      >
+         
+        Enrollments
+         
+      </a>
+    </li>
+  </ul>
+  <div />
+</div>
+`;
+
 exports[`the courses page component matches the snapshot 1`] = `
 <div
   className="fFcAEY"
