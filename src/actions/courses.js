@@ -37,14 +37,14 @@ export function retrieveCoursesSuccess( courses ) {
 /**
  * An action creator for the retrieve courses failure action.
  *
- * @param {string} errorText The error message.
+ * @param {string} error The error message.
  *
  * @returns {Object} A retrieve courses failure action.
  */
-export function retrieveCoursesFailure( errorText ) {
+export function retrieveCoursesFailure( error ) {
 	return {
 		type: RETRIEVE_COURSES_FAILURE,
-		retrieveError: errorText,
+		error: error,
 	};
 }
 
@@ -76,14 +76,14 @@ export function retrieveCoursesEnrollmentsSuccess( courses ) {
 /**
  * An action creator for the retrieve courses failure action.
  *
- * @param {string} errorText The error message.
+ * @param {string} error The error message.
  *
  * @returns {Object} A retrieve courses failure action.
  */
-export function retrieveCoursesEnrollmentsFailure( errorText ) {
+export function retrieveCoursesEnrollmentsFailure( error ) {
 	return {
 		type: RETRIEVE_COURSESENROLLMENTS_FAILURE,
-		retrieveError: errorText,
+		error: error,
 	};
 }
 /**
@@ -100,7 +100,7 @@ export function retrieveCourses() {
 		return doRequest( request )
 		.then( json =>
 		dispatch( retrieveCoursesSuccess( json ) ) )
-		.catch( error => dispatch( retrieveCoursesFailure( error.message ) ) );
+		.catch( error => dispatch( retrieveCoursesFailure( error ) ) );
 	};
 }
 
@@ -119,6 +119,6 @@ export function retrieveCoursesEnrollments() {
 		return doRequest( request )
 		.then( json =>
 			dispatch( retrieveCoursesEnrollmentsSuccess( json ) ) )
-		.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error.message ) ) );
+		.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error ) ) );
 	};
 }

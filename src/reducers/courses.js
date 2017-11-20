@@ -50,7 +50,7 @@ export function uiCoursesReducer( state = rootState.ui.courses, action ) {
 		case RETRIEVE_COURSES_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingCourses: false,
-				error: action.message,
+				error: action.error,
 			} );
 		default:
 			return state;
@@ -78,7 +78,7 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
 		case RETRIEVE_COURSESENROLLMENTS_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingCoursesEnrollments: false,
-				error: action.message,
+				error: action.error,
 			} );
 		default:
 			return state;
