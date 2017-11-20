@@ -95,7 +95,7 @@ class CoursesEnrollments extends React.Component {
 					<ColumnFixedWidth>
 						{ this.props.coursesEnrollments.map( function( course ) {
 							return (
-								<span>
+								<span key={ course.id }>
 									<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
 									{ course.buyerName }
 									<br />
