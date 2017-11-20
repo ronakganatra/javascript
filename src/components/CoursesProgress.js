@@ -151,7 +151,7 @@ class CoursesProgress extends React.Component {
 									{ enrollmentsStatus.status }
 								</ColumnPrimaryResponsive>
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Progress">
-									{ enrollmentsStatus.progress }
+									{ enrollmentsStatus.progress }%
 								</ColumnPrimaryResponsive>
 
 								<ColumnFixedWidthResponsive>
