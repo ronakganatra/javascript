@@ -14,9 +14,6 @@ import { LargeButtonLink } from "./Button";
 const CourseIcon = styled.img`
 	height: inherit;
 `;
-const CourseButtonLink = styled( LargeButtonLink )`
-	margin-bottom: 2em;
-`;
 
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
@@ -130,10 +127,9 @@ class CoursesProgress extends React.Component {
 		let allEnrollments = _groupBy( this.props.coursesEnrollments, "courseId" );
 		return (
 			<Paper>
-				<ListTable { ...this.props }>
+				<ListTable>
 					{
 						this.props.courses.map ( ( course ) => {
-							console.log( "course", course );
 							if ( course.product === null ) {
 								return;
 							}
@@ -156,9 +152,9 @@ class CoursesProgress extends React.Component {
 									{ enrollmentsStatus.progress }
 								</ColumnPrimaryResponsive>
 								<ColumnFixedWidthResponsive>
-									<CourseButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
+									<LargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
 										{ progressButtonLabel }
-									</CourseButtonLink>
+									</LargeButtonLink>
 								</ColumnFixedWidthResponsive>
 							</Row>
 							);
