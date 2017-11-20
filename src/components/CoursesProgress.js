@@ -119,7 +119,7 @@ class CoursesProgress extends React.Component {
 				return progressButtonLabel === "Certificate" ? course.certificateUrl : course.courseUrl;
 			}
 			// Shop URL should be updated to specific courses via yoast.com sync.
-			return "https://yoast.com/academy/courses/";
+			return course.storeUrl;
 		}
 
 		let allEnrollments = _groupBy( this.props.coursesEnrollments, "courseId" );
@@ -128,6 +128,9 @@ class CoursesProgress extends React.Component {
 			<Paper>
 				<ListTable { ...this.props }>
 					{ this.props.courses.map ( ( course ) => {
+						if ( course.product === null ) {
+							return;
+						}
 						let enrollments = allEnrollments[ course.id ] || [];
 						let enrollmentsStatus = getEnrollmentsStatus( enrollments );
 						let progressButtonLabel = progressButton( enrollmentsStatus );
@@ -135,7 +138,7 @@ class CoursesProgress extends React.Component {
 						return (
 							<Row key={ course.id }>
 								<ColumnIcon separator={ true }>
-									<CourseIcon src="https://yoast.com/app/uploads/2015/06/Yoast_SEO_Icon_500x500.png" alt=""/>
+									<CourseIcon src={ course.icon } alt=""/>
 								</ColumnIcon>
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Course">
 									{ course.name }
