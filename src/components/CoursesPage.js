@@ -38,6 +38,7 @@ let itemRoutes = [
 			return location.pathname === "/courses" || location.pathname === "/courses/";
 		},
 	},
+
 ];
 
 /**
@@ -69,6 +70,12 @@ class CoursesPage extends React.Component {
 				<div>
 					<SubNavigation itemRoutes={ itemRoutes } />
 					<SubNavigationItem itemRoutes={ itemRoutes } />
+					<SubNavigationItem itemRoutes={ [
+						{
+							path: "/courses",
+							component: CoursesEnrollments,
+						},
+					] } />
 				</div>
 			);
 		}
