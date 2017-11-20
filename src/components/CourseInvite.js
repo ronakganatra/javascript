@@ -1,12 +1,14 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
 import { addPlaceholderStyles } from "../styles/inputs";
 import colors from "yoast-components/style-guide/colors.json";
 import { ModalHeading } from "./Headings";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
 import defaults from "../config/defaults.json";
+import validate from "validate.js";
+import _isUndefined from "lodash/isUndefined";
 
 // import ErrorDisplay from "../errors/ErrorDisplay";
 
@@ -22,6 +24,17 @@ import defaults from "../config/defaults.json";
 // 		defaultMessage: "Please enter a valid email address.",
 // 	},
 // } );
+
+const messages = defineMessages( {
+	inviteEmail: {
+		id: "invite.modal.email.invalid",
+		defaultMessage: "Please enter a valid email address.",
+	},
+	confirmationEmailNotEqual: {
+		id: "invite.modal.confirmation.unequal",
+		defaultMessage: "Email addresses do not match. Please ensure you have entered the correct email address.",
+	},
+} );
 
 const CourseInviteModal = styled.div`
 	max-width: 640px;
@@ -94,6 +107,14 @@ class CourseInvite extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
+
+		this.validateFields = this.validateFields.bind( this );
+
+		// Validation constraints.
+		this.constraints = {
+			email: this.emailConstraints.bind( this ),
+			confirmationEmail: { equality: { attribute: "email", message: this.props.intl.formatMessage( messages.confirmationEmailNotEqual ) } },
+		};
 	}
 
 	/**
@@ -137,11 +158,62 @@ class CourseInvite extends React.Component {
 	}
 
 	/**
+	 * Runs the fields through the validator and returns the warnings.
+	 *
+	 * @returns {Array} All validation warnings.
+	 */
+	validateFields() {
+		let warnings = validate( {
+			email: this.props.inviteStudentEmail,
+			confirmationEmail: this.props.inviteStudentEmailConfirmation,
+		}, this.constraints, { format: "detailed" } );
+
+		if ( _isUndefined( warnings ) ) {
+			warnings = [];
+		}
+
+		console.log( warnings );
+
+		return warnings;
+	}
+
+	/**
+	 * Creates the email constraints for validation.
+	 *
+	 * @param {string} value Current email value.
+	 * @returns {Object} The constraint.
+	 */
+	emailConstraints( value ) {
+		let output = {
+			email: {
+				message: this.props.intl.formatMessage( messages.inviteEmail, {
+					field: "Email",
+				} ),
+			},
+		};
+
+		if ( ! value || value.length === 0 ) {
+			output = {
+				presence: {
+					message: this.props.intl.formatMessage( messages.inviteEmail, {
+						field: "Email",
+					} ),
+				},
+			};
+		}
+
+		return output;
+	}
+
+	/**
 	 * Returns the rendered html.
 	 *
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		let warnings = this.validateFields();
+		console.log( warnings );
+
 		return (
 			<CourseInviteModal>
 				<ModalHeading>
@@ -155,7 +227,6 @@ class CourseInvite extends React.Component {
 							defaultMessage="Please enter the email address of the student you would like to invite to this course:"
 						/>
 					</label>
-
 					<StudentEmailInput
 						type="email"
 						id="course-invite-email-input"
@@ -200,6 +271,8 @@ CourseInvite.propTypes = {
 	onCancelClick: PropTypes.func.isRequired,
 	onInviteClick: PropTypes.func.isRequired,
 	error: PropTypes.object,
+	inviteStudentEmail: PropTypes.string,
+	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
 	emailsAreEqual: PropTypes.bool,
