@@ -111,6 +111,16 @@ class CourseInvite extends React.Component {
 		// }
 	}
 
+	onEmailInputChange( event ) {
+		const value = event.target.value;
+		this.props.onStudentEmailChange( value );
+	}
+
+	onEmailConfirmationInputChange( event ) {
+		const value = event.target.value;
+		this.props.onStudentEmailConfirmationChange( value );
+	}
+
 	/**
 	 * Returns the rendered html.
 	 *
@@ -135,7 +145,7 @@ class CourseInvite extends React.Component {
 						type="email"
 						id="course-invite-email-input"
 						placeholder={ "Student email" }
-						onChange={ this.props.onStudentEmailChange.bind( this ) }
+						onChange={ this.onEmailInputChange.bind( this ) }
 					/>
 
 					<label htmlFor="course-invite-email-confirmation">
@@ -149,7 +159,7 @@ class CourseInvite extends React.Component {
 						type="email"
 						id="course-invite-email-confirmation"
 						placeholder={ "Student email" }
-						onChange={ this.props.onStudentEmailConfirmationChange.bind( this ) }
+						onChange={ this.onEmailConfirmationInputChange.bind( this ) }
 					/>
 
 					<Buttons>

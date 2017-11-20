@@ -109,6 +109,8 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
 		case COURSE_INVITE_MODAL_CLOSE:
 			return Object.assign( {}, state, {
 				courseInviteModalOpen: false,
+				onStudentEmailChange: "",
+				onStudentEmailConfirmationChange: "",
 			} );
 		case UPDATE_STUDENT_EMAIL:
 			return Object.assign( {}, state, {

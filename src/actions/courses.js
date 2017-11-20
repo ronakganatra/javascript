@@ -44,7 +44,7 @@ export function courseInviteModalClose() {
 export function updateInviteStudentEmail( studentEmail ) {
 	return {
 		type: UPDATE_STUDENT_EMAIL,
-		studentName: studentEmail,
+		studentEmail: studentEmail,
 	};
 }
 
@@ -58,7 +58,7 @@ export function updateInviteStudentEmail( studentEmail ) {
 export function updateInviteStudentEmailConfirmation( studentEmail ) {
 	return {
 		type: UPDATE_STUDENT_EMAIL_CONFIRMATION,
-		studentName: studentEmail,
+		studentEmail: studentEmail,
 	};
 }
 
