@@ -1,11 +1,10 @@
 import { connect } from "react-redux";
-import { retrieveCoursesEnrollments } from "../actions/courses";
+import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
 import _filter from "lodash/filter";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
-	console.log( "Allids", allIds );
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
 		let courseName = course.course.name;
@@ -53,7 +52,8 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		loadData: () => dispatch( retrieveCoursesEnrollments() ),
+		loadCourses: () => dispatch( retrieveCourses() ),
+		loadCoursesEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
 	};
 };
 

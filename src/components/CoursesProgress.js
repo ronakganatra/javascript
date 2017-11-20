@@ -48,7 +48,8 @@ class CoursesProgress extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.loadData();
+		this.props.loadCourses();
+		this.props.loadCoursesEnrollments();
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -56,6 +57,7 @@ class CoursesProgress extends React.Component {
 	}
 
 	render() {
+		console.log( "Props", this.props );
 		/**
 		 * Defines the label of the button.
 		 *
@@ -122,24 +124,24 @@ class CoursesProgress extends React.Component {
 				// Should be updated when the Enroll modal is ready.
 				return course.courseUrl;
 			}
-			// Shop URL should be updated to specific courses via yoast.com sync.
 			return course.storeUrl;
 		}
 
 		let allEnrollments = _groupBy( this.props.coursesEnrollments, "courseId" );
-
 		return (
 			<Paper>
 				<ListTable { ...this.props }>
-					{ this.props.courses.map ( ( course ) => {
-						if ( course.product === null ) {
-							return;
-						}
-						let enrollments = allEnrollments[ course.id ] || [];
-						let enrollmentsStatus = getEnrollmentsStatus( enrollments );
-						let progressButtonLabel = progressButton( enrollmentsStatus );
+					{
+						this.props.courses.map ( ( course ) => {
+							console.log( "course", course );
+							if ( course.product === null ) {
+								return;
+							}
+							let enrollments = allEnrollments[ course.id ] || [];
+							let enrollmentsStatus = getEnrollmentsStatus( enrollments );
+							let progressButtonLabel = progressButton( enrollmentsStatus );
 
-						return (
+							return (
 							<Row key={ course.id }>
 								<ColumnIcon separator={ true }>
 									<CourseIcon src={ course.icon } alt=""/>
@@ -159,8 +161,8 @@ class CoursesProgress extends React.Component {
 									</CourseButtonLink>
 								</ColumnFixedWidthResponsive>
 							</Row>
-						);
-					} ) }
+							);
+						} ) }
 				</ListTable>
 			</Paper>
 		);
@@ -171,7 +173,8 @@ CoursesProgress.propTypes = {
 	intl: intlShape.isRequired,
 	coursesEnrollments:PropTypes.array,
 	courses:PropTypes.array,
-	loadData: PropTypes.func,
+	loadCourses: PropTypes.func,
+	loadCoursesEnrollments: PropTypes.func,
 };
 
 export default injectIntl( CoursesProgress );
