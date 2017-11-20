@@ -71,6 +71,7 @@ class CoursesEnrollments extends React.Component {
 			onClose={ this.props.inviteModalClose }
 			onStudentEmailChange={ this.props.onStudentEmailChange }
 			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+			emailsAreEqual={ this.props.emailsAreEqual }
 		/>;
 	}
 
@@ -160,6 +161,7 @@ CoursesEnrollments.propTypes = {
 	onInviteClick: PropTypes.func,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
+	emailsAreEqual: PropTypes.bool,
 };
 
 export default injectIntl( CoursesEnrollments );

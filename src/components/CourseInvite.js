@@ -106,16 +106,31 @@ class CourseInvite extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		this.props.onInviteClick();
-		// if ( "email is valid" ) {
-		// 	this.props.onInviteClick();
-		// }
+		if ( this.props.emailsAreEqual === true ) {
+			console.log( "AWW YISSS" );
+			this.props.onInviteClick();
+		}
 	}
 
+	/**
+	 * Extract the string in the email input field when changed.
+	 *
+	 * @param {Object} event The input field change event.
+	 *
+	 * @returns {void}
+	 */
 	onEmailInputChange( event ) {
 		const value = event.target.value;
 		this.props.onStudentEmailChange( value );
 	}
 
+	/**
+	 * Extract the string in the email confirmation input field when changed.
+	 *
+	 * @param {Object} event The input field change event.
+	 *
+	 * @returns {void}
+	 */
 	onEmailConfirmationInputChange( event ) {
 		const value = event.target.value;
 		this.props.onStudentEmailConfirmationChange( value );
@@ -187,6 +202,7 @@ CourseInvite.propTypes = {
 	error: PropTypes.object,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
+	emailsAreEqual: PropTypes.bool,
 };
 
 export default injectIntl( CourseInvite );

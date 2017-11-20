@@ -27,10 +27,13 @@ export const mapStateToProps = ( state ) => {
 		return courseProps;
 	} );
 
-	let inviteModalIsOpen= state.ui.courseInviteModal.courseInviteModalOpen;
+	let inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
+
+	let emailsAreEqual = state.ui.courseInviteModal.studentEmail !== "" && state.ui.courseInviteModal.studentEmail === state.ui.courseInviteModal.studentEmailConfirmation;
 
 	return {
 		inviteModalIsOpen,
+		emailsAreEqual,
 		coursesEnrollments,
 	};
 };

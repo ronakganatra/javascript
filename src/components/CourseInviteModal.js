@@ -44,6 +44,7 @@ class BaseCourseInviteModal extends React.Component {
 					onCancelClick={ this.props.onClose }
 					onStudentEmailChange={ this.props.onStudentEmailChange }
 					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+					emailsAreEqual={ this.props.emailsAreEqual }
 				/>
 			</Modal>
 		);
@@ -58,6 +59,7 @@ BaseCourseInviteModal.propTypes = {
 	onInviteClick: PropTypes.func.isRequired,
 	onStudentEmailChange: PropTypes.func.isRequired,
 	onStudentEmailConfirmationChange: PropTypes.func.isRequired,
+	emailsAreEqual: PropTypes.bool,
 	errorFound: PropTypes.bool.isRequired,
 	error: PropTypes.object,
 };
