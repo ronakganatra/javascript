@@ -1,5 +1,7 @@
-import { RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
-	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE } from "../actions/courses";
+import {
+	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
+	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, ACADEMY_INVITE_MODAL_OPEN, ACADEMY_INVITE_MODAL_CLOSE,
+} from "../actions/courses";
 import _union from "lodash/union";
 
 /**
@@ -79,6 +81,14 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
 			return Object.assign( {}, state, {
 				retrievingCoursesEnrollments: false,
 				error: action.error,
+			} );
+		case ACADEMY_INVITE_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				academyInviteModalOpen: true,
+			} );
+		case ACADEMY_INVITE_MODAL_CLOSE:
+			return Object.assign( {}, state, {
+				academyInviteModalOpen: false,
 			} );
 		default:
 			return state;

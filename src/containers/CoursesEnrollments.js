@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { retrieveCoursesEnrollments } from "../actions/courses";
+import { academyInviteModalClose, academyInviteModalOpen, retrieveCoursesEnrollments } from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
@@ -24,8 +24,11 @@ export const mapStateToProps = ( state ) => {
 		return courseProps;
 	} );
 
+	let inviteModalIsOpen= state.ui.coursesEnrollments.academyInviteModalOpen;
+
 
 	return {
+		inviteModalIsOpen,
 		coursesEnrollments,
 	};
 };
@@ -33,6 +36,8 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		loadData: () => dispatch( retrieveCoursesEnrollments() ),
+		inviteModalOpen: () => dispatch( academyInviteModalOpen() ),
+		inviteModalClose: () => dispatch( academyInviteModalClose() ),
 	};
 };
 

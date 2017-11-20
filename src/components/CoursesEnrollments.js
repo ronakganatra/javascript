@@ -11,6 +11,7 @@ import { getUserId } from "../functions/auth";
 import defaults from "../config/defaults.json";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
+import AcademyInviteModal from "./AcademyInviteModal";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -61,6 +62,12 @@ class CoursesEnrollments extends React.Component {
 		speak( message );
 	}
 
+	getModal() {
+		let open = this.props.inviteModalIsOpen;
+
+		return <AcademyInviteModal isOpen={ open } onClose={ this.props.inviteModalClose }/>;
+	}
+
 	render() {
 		let currentUser = getUserId();
 
@@ -74,11 +81,11 @@ class CoursesEnrollments extends React.Component {
 				return (
 					<ColumnFixedWidth>
 						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-							<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
+							<LargeButton onClick={ this.props.inviteModalOpen }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
 						</MediaQuery>
 						<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 							<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
-										   onClick={ () => {} } />
+										   onClick={ this.props.inviteModalOpen } />
 						</MediaQuery>
 					</ColumnFixedWidth>
 				);
@@ -110,34 +117,41 @@ class CoursesEnrollments extends React.Component {
 		};
 
 		return (
-			<Paper>
-				<ListTable>
-					{ this.props.coursesEnrollments.map( function( course ) {
-						return (
-							<Row key={ course.id }>
-								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
-									{ course.courseName }
-								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
-									<strong>{ course.studentName }</strong><br />
-									{ course.studentEmail }
-								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } >
-									{ studentOrBuyer( course ) }
-								</ColumnPrimary>
-							</Row> );
-					} ) }
-				</ListTable>
-			</Paper>
+			<div>
+				<Paper>
+					<ListTable>
+						{ this.props.coursesEnrollments.map( function( course ) {
+							return (
+								<Row key={ course.id }>
+									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+									<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
+										{ course.courseName }
+									</ColumnPrimary>
+									<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
+										<strong>{ course.studentName }</strong><br />
+										{ course.studentEmail }
+									</ColumnPrimary>
+									<ColumnPrimary ellipsis={ true } >
+										{ studentOrBuyer( course ) }
+									</ColumnPrimary>
+								</Row> );
+						} ) }
+					</ListTable>
+				</Paper>
+				{ this.getModal() }
+			</div>
 		);
 	}
 }
 
 CoursesEnrollments.propTypes = {
+	inviteModalOpen: PropTypes.func.isRequired,
+	inviteModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	loadData: PropTypes.func,
 	coursesEnrollments: PropTypes.array,
+	inviteModalIsOpen: PropTypes.bool,
+	onInviteClick: PropTypes.func,
 };
 
 export default injectIntl( CoursesEnrollments );
