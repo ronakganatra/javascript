@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { academyInviteModalClose, academyInviteModalOpen, retrieveCoursesEnrollments } from "../actions/courses";
+import {
+	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
+	retrieveCoursesEnrollments, updateInviteStudentEmailConfirmation,
+} from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
@@ -24,8 +27,7 @@ export const mapStateToProps = ( state ) => {
 		return courseProps;
 	} );
 
-	let inviteModalIsOpen= state.ui.coursesEnrollments.academyInviteModalOpen;
-
+	let inviteModalIsOpen= state.ui.courseInviteModal.courseInviteModalOpen;
 
 	return {
 		inviteModalIsOpen,
@@ -36,8 +38,12 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		loadData: () => dispatch( retrieveCoursesEnrollments() ),
-		inviteModalOpen: () => dispatch( academyInviteModalOpen() ),
-		inviteModalClose: () => dispatch( academyInviteModalClose() ),
+		inviteModalOpen: () => dispatch( courseInviteModalOpen() ),
+		inviteModalClose: () => dispatch( courseInviteModalClose() ),
+		onClose: () => dispatch( courseInviteModalClose() ),
+		onInviteClick: () => dispatch( () => {} ),
+		onStudentEmailChange: ( studentEmail ) => dispatch( updateInviteStudentEmail( studentEmail ) ),
+		onStudentEmailConfirmationChange: ( studentEmail ) => dispatch( updateInviteStudentEmailConfirmation( studentEmail ) ),
 	};
 };
 

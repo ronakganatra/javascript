@@ -3,12 +3,12 @@ import React from "react";
 import Modal from "react-modal";
 import styled, { keyframes } from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import AcademyInvite from "../components/AcademyInvite";
+import CourseInvite from "./CourseInvite";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
 		id: "modal.arialabel.invite",
-		defaultMessage: "Send academy invite",
+		defaultMessage: "Send course invite",
 	},
 } );
 
@@ -18,7 +18,7 @@ const messages = defineMessages( {
  */
 Modal.setAppElement( "#root" );
 
-class BaseAcademyInviteModal extends React.Component {
+class BaseCourseInviteModal extends React.Component {
 
 	constructor( props ) {
 		super( props );
@@ -31,41 +31,39 @@ class BaseAcademyInviteModal extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
-				<Modal
-					isOpen={ this.props.isOpen }
-					onRequestClose={ this.props.onClose }
-					role="dialog"
-					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
-					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
-					className={ `${ this.props.className } my-yoast-modal__content` }
-				>
-					<AcademyInvite
-						onConnectClick={ this.props.onConnect }
-						onCancelClick={ this.props.onClose }
-					/>
-				</Modal>
-			</div>
+			<Modal
+				isOpen={ this.props.isOpen }
+				onRequestClose={ this.props.onClose }
+				role="dialog"
+				contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
+				overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
+				className={ `${ this.props.className } my-yoast-modal__content` }
+			>
+				<CourseInvite
+					onInviteClick={ this.props.onInviteClick }
+					onCancelClick={ this.props.onClose }
+					onStudentEmailChange={ this.props.onStudentEmailChange }
+					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+				/>
+			</Modal>
 		);
 	}
 }
 
-BaseAcademyInviteModal.propTypes = {
+BaseCourseInviteModal.propTypes = {
 	className: PropTypes.string,
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
-	onConnect: PropTypes.func.isRequired,
-	onChange: PropTypes.func.isRequired,
+	onInviteClick: PropTypes.func.isRequired,
+	onStudentEmailChange: PropTypes.func.isRequired,
+	onStudentEmailConfirmationChange: PropTypes.func.isRequired,
 	errorFound: PropTypes.bool.isRequired,
 	error: PropTypes.object,
-	query: PropTypes.string.isRequired,
-	linkingSiteUrl: PropTypes.string.isRequired,
 };
 
-BaseAcademyInviteModal.defaultProps = {
+BaseCourseInviteModal.defaultProps = {
 	isOpen: false,
-	linkingSiteUrl: "",
 };
 
 const fadeModalIn = keyframes`
@@ -80,7 +78,7 @@ const fadeModalIn = keyframes`
 	}
 `;
 
-const AcademyInviteModal = styled( BaseAcademyInviteModal )`
+const CourseInviteModal = styled( BaseCourseInviteModal )`
 	&.my-yoast-modal__overlay {
 		position: fixed;
 		top: 0;
@@ -137,4 +135,4 @@ const AcademyInviteModal = styled( BaseAcademyInviteModal )`
 	}
 `;
 
-export default injectIntl( AcademyInviteModal );
+export default injectIntl( CourseInviteModal );

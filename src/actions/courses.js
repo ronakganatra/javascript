@@ -7,17 +7,19 @@ export const RETRIEVE_COURSES_FAILURE = "RETRIEVE_COURSES_FAILURE";
 export const RETRIEVE_COURSESENROLLMENTS_REQUEST = "RETRIEVE_COURSESENROLLMENTS_REQUEST";
 export const RETRIEVE_COURSESENROLLMENTS_SUCCESS = "RETRIEVE_COURSESENROLLMENTS_SUCCESS";
 export const RETRIEVE_COURSESENROLLMENTS_FAILURE = "RETRIEVE_COURSESENROLLMENTS_FAILURE";
-export const ACADEMY_INVITE_MODAL_OPEN = "ACADEMY_INVITE_MODAL_OPEN";
-export const ACADEMY_INVITE_MODAL_CLOSE = "ACADEMY_INVITE_MODAL_CLOSE";
+export const COURSE_INVITE_MODAL_OPEN = "COURSE_INVITE_MODAL_OPEN";
+export const COURSE_INVITE_MODAL_CLOSE = "COURSE_INVITE_MODAL_CLOSE";
+export const UPDATE_STUDENT_EMAIL = "UPDATE_STUDENT_EMAIL";
+export const UPDATE_STUDENT_EMAIL_CONFIRMATION = "UPDATE_STUDENT_EMAIL_CONFIRMATION";
 
 /**
  * An action creator for the academy invite modal open action.
  *
  * @returns {Object} An academy invite modal open action.
  */
-export function academyInviteModalOpen() {
+export function courseInviteModalOpen() {
 	return {
-		type: ACADEMY_INVITE_MODAL_OPEN,
+		type: COURSE_INVITE_MODAL_OPEN,
 	};
 }
 
@@ -26,9 +28,37 @@ export function academyInviteModalOpen() {
  *
  * @returns {Object} An academy invite modal close action.
  */
-export function academyInviteModalClose() {
+export function courseInviteModalClose() {
 	return {
-		type: ACADEMY_INVITE_MODAL_CLOSE,
+		type: COURSE_INVITE_MODAL_CLOSE,
+	};
+}
+
+/**
+ * An action creator for the update invite student email action.
+ *
+ * @param {string} studentEmail The name of the student to invite.
+ *
+ * @returns {Object} An invite update student name action.
+ */
+export function updateInviteStudentEmail( studentEmail ) {
+	return {
+		type: UPDATE_STUDENT_EMAIL,
+		studentName: studentEmail,
+	};
+}
+
+/**
+ * An action creator for the update invite student email confirmation action.
+ *
+ * @param {string} studentEmail The email of the to be invited student.
+ *
+ * @returns {Object} An update invite student email confirmation action.
+ */
+export function updateInviteStudentEmailConfirmation( studentEmail ) {
+	return {
+		type: UPDATE_STUDENT_EMAIL_CONFIRMATION,
+		studentName: studentEmail,
 	};
 }
 

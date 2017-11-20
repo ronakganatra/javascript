@@ -1,6 +1,7 @@
 import {
 	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
-	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, ACADEMY_INVITE_MODAL_OPEN, ACADEMY_INVITE_MODAL_CLOSE,
+	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN, COURSE_INVITE_MODAL_CLOSE,
+	UPDATE_STUDENT_EMAIL, UPDATE_STUDENT_EMAIL_CONFIRMATION,
 } from "../actions/courses";
 import _union from "lodash/union";
 
@@ -26,6 +27,11 @@ const rootState = {
 		coursesEnrollments: {
 			retrievingCoursesEnrollments: false,
 			error: "",
+		},
+		courseInviteModal: {
+			courseInviteModalOpen: false,
+			studentEmail: "",
+			studentEmailConfirmation: "",
 		},
 	},
 };
@@ -82,13 +88,35 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
 				retrievingCoursesEnrollments: false,
 				error: action.error,
 			} );
-		case ACADEMY_INVITE_MODAL_OPEN:
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the coursesEnrollments object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated CoursesEnrollments object.
+ */
+export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteModal, action ) {
+	switch ( action.type ) {
+		case COURSE_INVITE_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				academyInviteModalOpen: true,
+				courseInviteModalOpen: true,
 			} );
-		case ACADEMY_INVITE_MODAL_CLOSE:
+		case COURSE_INVITE_MODAL_CLOSE:
 			return Object.assign( {}, state, {
-				academyInviteModalOpen: false,
+				courseInviteModalOpen: false,
+			} );
+		case UPDATE_STUDENT_EMAIL:
+			return Object.assign( {}, state, {
+				studentEmail: action.studentEmail,
+			} );
+		case UPDATE_STUDENT_EMAIL_CONFIRMATION:
+			return Object.assign( {}, state, {
+				studentEmailConfirmation: action.studentEmail,
 			} );
 		default:
 			return state;

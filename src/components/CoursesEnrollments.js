@@ -11,7 +11,7 @@ import { getUserId } from "../functions/auth";
 import defaults from "../config/defaults.json";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
-import AcademyInviteModal from "./AcademyInviteModal";
+import CourseInviteModal from "./CourseInviteModal";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -65,7 +65,13 @@ class CoursesEnrollments extends React.Component {
 	getModal() {
 		let open = this.props.inviteModalIsOpen;
 
-		return <AcademyInviteModal isOpen={ open } onClose={ this.props.inviteModalClose }/>;
+		return <CourseInviteModal
+			isOpen={ open }
+			onInviteClick={ this.props.onInviteClick }
+			onClose={ this.props.inviteModalClose }
+			onStudentEmailChange={ this.props.onStudentEmailChange }
+			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+		/>;
 	}
 
 	render() {
@@ -152,6 +158,8 @@ CoursesEnrollments.propTypes = {
 	coursesEnrollments: PropTypes.array,
 	inviteModalIsOpen: PropTypes.bool,
 	onInviteClick: PropTypes.func,
+	onStudentEmailChange: PropTypes.func,
+	onStudentEmailConfirmationChange: PropTypes.func,
 };
 
 export default injectIntl( CoursesEnrollments );

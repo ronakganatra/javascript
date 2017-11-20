@@ -1,7 +1,8 @@
 import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
-import { byIdCoursesReducer, allIdsCoursesReducer, uiCoursesReducer, uiCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesEnrollmentsReducer } from "./courses.js";
+import { byIdCoursesReducer, allIdsCoursesReducer, uiCoursesReducer, uiCoursesEnrollmentsReducer,
+	byIdCoursesEnrollmentsReducer, allIdsCoursesEnrollmentsReducer, uiCourseInviteModalReducer } from "./courses.js";
 import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
@@ -17,6 +18,7 @@ export const uiReducer = combineReducers( {
 	subscriptions: uiAllSubscriptionsReducer,
 	courses: uiCoursesReducer,
 	coursesEnrollments: uiCoursesEnrollmentsReducer,
+	courseInviteModal: uiCourseInviteModalReducer,
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
