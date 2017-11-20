@@ -9,6 +9,7 @@ import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button
 import defaults from "../config/defaults.json";
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
+import ErrorDisplay from "../errors/ErrorDisplay";
 
 // import ErrorDisplay from "../errors/ErrorDisplay";
 
@@ -108,6 +109,8 @@ class CourseInvite extends React.Component {
 	constructor( props ) {
 		super( props );
 
+		this.state = { warnings: [] };
+
 		this.validateFields = this.validateFields.bind( this );
 
 		// Validation constraints.
@@ -126,8 +129,8 @@ class CourseInvite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		this.props.onInviteClick();
-		if ( this.props.emailsAreEqual === true ) {
+		this.setState( { warnings: this.validateFields() } );
+		if ( this.state.warnings.length <= 0 ) {
 			console.log( "AWW YISSS" );
 			this.props.onInviteClick();
 		}
@@ -172,8 +175,6 @@ class CourseInvite extends React.Component {
 			warnings = [];
 		}
 
-		console.log( warnings );
-
 		return warnings;
 	}
 
@@ -206,14 +207,35 @@ class CourseInvite extends React.Component {
 	}
 
 	/**
+	 * Displays the warnings for the provided field.
+	 *
+	 * @param {Array} warnings The warnings that could be displayed.
+	 * @param {string} field Field to display warnings for.
+	 * @returns {ReactElement[]} List of JSXElements if warnings are found. Otherwise null.
+	 */
+	displayWarnings( warnings, field ) {
+		// Find warnings for the specified field.
+		let fieldWarnings = warnings.filter( warning => {
+			return warning.attribute === field;
+		} );
+
+		// Return nothing if we don't have any warnings.
+		if ( fieldWarnings.length === 0 ) {
+			return null;
+		}
+
+		// Display all remaining warnings.
+		return fieldWarnings.map( ( warning, index ) => {
+			return <ErrorDisplay key={ index } error={ warning } type="warning"/>;
+		} );
+	}
+
+	/**
 	 * Returns the rendered html.
 	 *
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
-		let warnings = this.validateFields();
-		console.log( warnings );
-
 		return (
 			<CourseInviteModal>
 				<ModalHeading>
@@ -233,6 +255,7 @@ class CourseInvite extends React.Component {
 						placeholder={ "Student email" }
 						onChange={ this.onEmailInputChange.bind( this ) }
 					/>
+					{ this.displayWarnings( this.state.warnings, "email" ) }
 
 					<label htmlFor="course-invite-email-confirmation">
 						<FormattedMessage
@@ -247,6 +270,7 @@ class CourseInvite extends React.Component {
 						placeholder={ "Student email" }
 						onChange={ this.onEmailConfirmationInputChange.bind( this ) }
 					/>
+					{ this.displayWarnings( this.state.warnings, "confirmationEmail" ) }
 
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
@@ -275,7 +299,6 @@ CourseInvite.propTypes = {
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
-	emailsAreEqual: PropTypes.bool,
 };
 
 export default injectIntl( CourseInvite );

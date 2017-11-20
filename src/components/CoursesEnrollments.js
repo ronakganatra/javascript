@@ -73,7 +73,6 @@ class CoursesEnrollments extends React.Component {
 			inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
 			onStudentEmailChange={ this.props.onStudentEmailChange }
 			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
-			emailsAreEqual={ this.props.emailsAreEqual }
 		/>;
 	}
 
@@ -165,7 +164,6 @@ CoursesEnrollments.propTypes = {
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
-	emailsAreEqual: PropTypes.bool,
 };
 
 export default injectIntl( CoursesEnrollments );

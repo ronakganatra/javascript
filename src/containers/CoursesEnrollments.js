@@ -31,11 +31,8 @@ export const mapStateToProps = ( state ) => {
 	let inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
 	let inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
 
-	let emailsAreEqual = inviteStudentEmail !== "" && inviteStudentEmail === inviteStudentEmailConfirmation;
-
 	return {
 		inviteModalIsOpen,
-		emailsAreEqual,
 		inviteStudentEmail,
 		inviteStudentEmailConfirmation,
 		coursesEnrollments,
