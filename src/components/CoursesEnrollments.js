@@ -23,7 +23,7 @@ const messages = defineMessages( {
 	},
 	courseName: {
 		id: "progress.overview.courseName",
-		defaultMessage: "Course name",
+		defaultMessage: "Course",
 	},
 	activeSubscriptions: {
 		id: "site.overview.activeSubscriptions",
@@ -54,6 +54,7 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log( "test " );
 		this.props.loadData();
 
 		// Announce navigation to assistive technologies.

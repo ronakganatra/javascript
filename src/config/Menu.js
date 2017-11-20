@@ -5,7 +5,7 @@ import downloadsIcon from "../icons/download.svg";
 import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
-import CoursesPage from "../components/CoursesPage";
+import CoursesPage from "../containers/CoursesPage";
 
 let menuItems = [
 	{

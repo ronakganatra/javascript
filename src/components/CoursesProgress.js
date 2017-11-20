@@ -7,9 +7,12 @@ import { ListTable, Row, ColumnIcon } from "./Tables";
 import Paper from "./Paper";
 import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
-
 import { ColumnPrimary, ColumnFixedWidth, responsiveHeaders, makeFullWidth } from "./Tables";
-import { LargeButtonLink } from "./Button";
+import { LargeButtonLink, makeButtonFullWidth, ChevronButtonLink } from "./Button";
+import MediaQuery from "react-responsive";
+import defaults from "../config/defaults.json";
+
+let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const CourseIcon = styled.img`
 	height: inherit;
@@ -54,7 +57,7 @@ class CoursesProgress extends React.Component {
 	}
 
 	render() {
-		console.log( "Props", this.props );
+		console.log( "props", this.props );
 		/**
 		 * Defines the label of the button.
 		 *
@@ -151,11 +154,18 @@ class CoursesProgress extends React.Component {
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Progress">
 									{ enrollmentsStatus.progress }
 								</ColumnPrimaryResponsive>
+
 								<ColumnFixedWidthResponsive>
-									<LargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
-										{ progressButtonLabel }
-									</LargeButtonLink>
+									<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+										<ResponsiveLargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
+											{ progressButtonLabel }
+										</ResponsiveLargeButtonLink>
+									</MediaQuery>
+									<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+										<ChevronButtonLink to={ course.courseUrl } linkTarget="_blank" />
+									</MediaQuery>
 								</ColumnFixedWidthResponsive>
+
 							</Row>
 							);
 						} ) }

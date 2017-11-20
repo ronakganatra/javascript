@@ -27,8 +27,6 @@ export const mapStateToProps = ( state ) => {
 	let courses = _filter( allIds.map( ( courseId ) => {
 		let course = state.entities.courses.byId[ courseId ];
 
-		console.log( course );
-
 		if ( ! course.product ) {
 			return false;
 		}
