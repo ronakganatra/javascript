@@ -1,35 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the courses page component matches the snapshot 1`] = `
-<div
-  className="fFcAEY"
->
-  <p>
-    <span>
-      This section is still under construction. To access your courses, please visit:
-    </span>
-  </p>
-  <p>
-    <a
-      aria-label={undefined}
-      className="dQHIsN"
-      href="https://yoa.st/myyoast-academy"
-      rel="noopener noreferrer"
-      target="_blank"
+<div>
+  <ul
+    className="fXEqiq"
+    role="list"
+  >
+    <li
+      className="isgbHI"
     >
-      Yoast Academy
-      <span
-        className="screen-reader-text fuqaAG"
+      <a
+        aria-current={false}
+        className="jUdSwI"
+        href="/courses/progress"
+        onClick={[Function]}
+        style={undefined}
       >
-        <span>
-          (Opens in a new browser tab)
-        </span>
-      </span>
-    </a>
-  </p>
-  <img
-    alt=""
-    src="construction.svg"
-  />
+         
+        Progress
+         
+      </a>
+    </li>
+    <li
+      className="isgbHI"
+    >
+      <a
+        aria-current={false}
+        className="jUdSwI"
+        href="/courses/enrollments"
+        onClick={[Function]}
+        style={undefined}
+      >
+         
+        Enrollments
+         
+      </a>
+    </li>
+  </ul>
+  <div />
 </div>
 `;
