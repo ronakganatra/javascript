@@ -7,17 +7,15 @@ import { MemoryRouter as Router } from "react-router-dom";
 
 jest.mock( "../../src/functions/features", () => {
 	return {
-		hasAccessToFeature: jest.fn( () => {
-			return false;
-		} ),
+		hasAccessToFeature: jest.fn(),
 	}
 });
 
 test('the courses page component matches the snapshot', () => {
+	hasAccessToFeature.mockImplementation( () => false );
+
 	const component = createComponentWithIntl(
-		<MemoryRouter>
-			<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCoursesEnrollments={ () => { "dispatch action retrieveCoursesEnrollments" } } />
-		</MemoryRouter>
+		<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCoursesEnrollments={ () => { "dispatch action retrieveCoursesEnrollments" } } />
 		);
 
 	let tree = component.toJSON();
@@ -26,9 +24,7 @@ test('the courses page component matches the snapshot', () => {
 });
 
 test( "The courses page component matches the snapshot", () => {
-	hasAccessToFeature.mockImplementation( () => {
-		return true;
-	} );
+	hasAccessToFeature.mockImplementation( () => true );
 
 	const component = createComponentWithIntl(
 		<Router>
