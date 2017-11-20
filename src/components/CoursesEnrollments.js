@@ -1,5 +1,5 @@
 import React from "react";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { ListTable, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "./Tables";
@@ -94,7 +94,15 @@ class CoursesEnrollments extends React.Component {
 				return (
 					<ColumnFixedWidth>
 						{ this.props.coursesEnrollments.map( function( course ) {
-							return ( course.buyerName + "<br />" + course.buyerEmail );
+							return (
+								<span>
+									<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
+									{ course.buyerName }
+									<br />
+									<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
+									{ course.buyerEmail }
+								</span>
+							);
 						} ) }
 					</ColumnFixedWidth>
 				);
@@ -115,7 +123,7 @@ class CoursesEnrollments extends React.Component {
 									<strong>{ course.studentName }</strong><br />
 									{ course.studentEmail }
 								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } headerLabel={ ( currentUser === course.buyerId ) ? "Manage user" : "Course owner"  }>
+								<ColumnPrimary ellipsis={ true } >
 									{ studentOrBuyer( course ) }
 								</ColumnPrimary>
 							</Row> );

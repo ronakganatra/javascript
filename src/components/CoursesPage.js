@@ -55,9 +55,6 @@ class CoursesPage extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.loadCourses();
-		this.props.loadCoursesEnrollments();
-
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
