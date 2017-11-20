@@ -37,8 +37,8 @@ export const mapStateToProps = ( state ) => {
 			description: course.description,
 			courseUrl: course.courseUrl,
 			certificateUrl: course.certificateUrl,
-			storeUrl:course.product.storeUrl,
-			icon:course.product.icon,
+			storeUrl: course.product.storeUrl,
+			icon: course.product.icon,
 		};
 	} ), course => course !== false );
 

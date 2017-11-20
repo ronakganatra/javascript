@@ -57,7 +57,6 @@ class CoursesProgress extends React.Component {
 	}
 
 	render() {
-		console.log( "props", this.props );
 		/**
 		 * Defines the label of the button.
 		 *
@@ -132,8 +131,8 @@ class CoursesProgress extends React.Component {
 			<Paper>
 				<ListTable>
 					{
-						this.props.courses.map ( ( course ) => {
-							if ( course.product === null ) {
+						this.props.courses.map( ( course ) => {
+							if( course.product === null ) {
 								return;
 							}
 							let enrollments = allEnrollments[ course.id ] || [];
@@ -165,7 +164,6 @@ class CoursesProgress extends React.Component {
 										<ChevronButtonLink to={ course.courseUrl } linkTarget="_blank" />
 									</MediaQuery>
 								</ColumnFixedWidthResponsive>
-
 							</Row>
 							);
 						} ) }
@@ -177,8 +175,8 @@ class CoursesProgress extends React.Component {
 
 CoursesProgress.propTypes = {
 	intl: intlShape.isRequired,
-	coursesEnrollments:PropTypes.array,
-	courses:PropTypes.array,
+	coursesEnrollments: PropTypes.array,
+	courses: PropTypes.array,
 	loadCourses: PropTypes.func,
 	loadCoursesEnrollments: PropTypes.func,
 };
