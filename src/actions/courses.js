@@ -1,5 +1,6 @@
 import { prepareInternalRequest, doRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
+import _unionBy from "lodash/unionBy";
 
 export const RETRIEVE_COURSES_REQUEST = "RETRIEVE_COURSES_REQUEST";
 export const RETRIEVE_COURSES_SUCCESS = "RETRIEVE_COURSES_SUCCESS";
@@ -18,11 +19,14 @@ export const SEND_COURSE_INVITE_FAILURE = "SEND_COURSE_INVITE_FAILURE";
 /**
  * An action creator for the academy invite modal open action.
  *
+ * @param {string} courseEnrollmentId The id of the courseEnrollment
+ *
  * @returns {Object} An academy invite modal open action.
  */
-export function courseInviteModalOpen() {
+export function courseInviteModalOpen( courseEnrollmentId ) {
 	return {
 		type: COURSE_INVITE_MODAL_OPEN,
+		courseEnrollmentId: courseEnrollmentId,
 	};
 }
 
@@ -79,11 +83,14 @@ export function sendCourseInviteRequest() {
 /**
  * An action creator for the send course invite success action.
  *
+ * @param {Object} updatedCourseEnrollment The Course Enrollment that was updated.
+ *
  * @returns {Object} A send course invite success action.
  */
-export function sendCourseInviteSuccess() {
+export function sendCourseInviteSuccess( updatedCourseEnrollment ) {
 	return {
 		type: SEND_COURSE_INVITE_SUCCESS,
+		updatedCourseEnrollment,
 	};
 }
 
@@ -97,7 +104,7 @@ export function sendCourseInviteSuccess() {
 export function sendCourseInviteFailure( error ) {
 	return {
 		type: SEND_COURSE_INVITE_FAILURE,
-		error: error,
+		error,
 	};
 }
 
@@ -206,32 +213,31 @@ export function retrieveCoursesEnrollments() {
 		dispatch( retrieveCoursesEnrollmentsRequest() );
 		let userId = getUserId();
 
-		let request = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
+		let studentRequest = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
+		let ownedRequest   = prepareInternalRequest( `Customers/${userId}/ownedCourseEnrollments/` );
 
-		return doRequest( request )
-		.then( json =>
-			dispatch( retrieveCoursesEnrollmentsSuccess( json ) ) )
-		.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error ) ) );
+		return Promise.all( [ doRequest( studentRequest ), doRequest( ownedRequest ) ] )
+			.then( ( [ studentJson, ownedJson ] ) => dispatch( retrieveCoursesEnrollmentsSuccess( _unionBy( studentJson, ownedJson, "id" ) ) ) )
+			.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error ) ) );
 	};
 }
 
 /**
  * An action creator for the send course invite action.
  *
+ * @param {string} courseEnrollmentId The id of the courseEnrollment.
  * @param {string} emailInvitee The email address of the student that should be invited.
  *
  * @returns {Object} A send course invite action.
  */
-export function sendCourseInvite( emailInvitee ) {
+export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 	return ( dispatch ) => {
 		dispatch( sendCourseInviteRequest() );
-		let courseEnrollmentId = "test";
 
 		let request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
 
 		return doRequest( request )
-			.then( json =>
-				dispatch( sendCourseInviteSuccess( json ) ) )
+			.then( json => dispatch( sendCourseInviteSuccess( json ) ) )
 			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
 	};
 }

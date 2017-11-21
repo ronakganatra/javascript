@@ -32,10 +32,13 @@ const rootState = {
 		},
 		courseInviteModal: {
 			courseInviteModalOpen: false,
+			openedCourseEnrollmentId: "",
 			studentEmail: "",
 			studentEmailConfirmation: "",
-			requestingCourseInvite: false,
 			inviteCourseError: {},
+		},
+		courseInviteRequest: {
+			requestingCourseInvite: false,
 		},
 	},
 };
@@ -105,16 +108,19 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
  * @returns {Object} The updated invite modal object.
  */
 export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteModal, action ) {
+	/* eslint complexity: ["error", 7]*/
 	switch ( action.type ) {
 		case COURSE_INVITE_MODAL_OPEN:
 			return Object.assign( {}, state, {
 				courseInviteModalOpen: true,
+				openedCourseEnrollmentId: action.courseEnrollmentId,
 			} );
 		case COURSE_INVITE_MODAL_CLOSE:
 			return Object.assign( {}, state, {
 				courseInviteModalOpen: false,
-				onStudentEmail: "",
-				onStudentEmailConfirmation: "",
+				openedCourseEnrollmentId: "",
+				studentEmail: "",
+				studentEmailConfirmation: "",
 			} );
 		case UPDATE_STUDENT_EMAIL:
 			return Object.assign( {}, state, {
@@ -123,6 +129,14 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
 		case UPDATE_STUDENT_EMAIL_CONFIRMATION:
 			return Object.assign( {}, state, {
 				studentEmailConfirmation: action.studentEmail,
+			} );
+		case SEND_COURSE_INVITE_SUCCESS:
+			return Object.assign( {}, state, {
+				courseInviteModalOpen: false,
+			} );
+		case SEND_COURSE_INVITE_FAILURE:
+			return Object.assign( {}, state, {
+				inviteCourseError: action.error,
 			} );
 		default:
 			return state;
@@ -136,7 +150,7 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
  * @param {Object} action The current action received.
  * @returns {Object} The updated invite modal object.
  */
-export function uiInviteRequestReducer( state = rootState.ui.courseInviteModal, action ) {
+export function uiCourseInviteRequestReducer( state = rootState.ui.courseInviteRequest, action ) {
 	switch ( action.type ) {
 		case SEND_COURSE_INVITE_REQUEST:
 			return Object.assign( {}, state, {
@@ -145,12 +159,10 @@ export function uiInviteRequestReducer( state = rootState.ui.courseInviteModal, 
 		case SEND_COURSE_INVITE_SUCCESS:
 			return Object.assign( {}, state, {
 				requestingCourseInvite: false,
-				courseInviteModalOpen: false,
 			} );
 		case SEND_COURSE_INVITE_FAILURE:
 			return Object.assign( {}, state, {
 				requestingCourseInvite: false,
-				inviteCourseError: action.error,
 			} );
 		default:
 			return state;
@@ -216,7 +228,12 @@ export function byIdCoursesEnrollmentsReducer( state = rootState.entities.course
 			} );
 
 			return courses;
+		case SEND_COURSE_INVITE_SUCCESS:
+			courses = Object.assign( {}, state );
 
+			courses[ action.updatedCourseEnrollment.id ] = action.updatedCourseEnrollment;
+
+			return courses;
 		default:
 			return state;
 	}

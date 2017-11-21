@@ -89,11 +89,11 @@ class CoursesEnrollments extends React.Component {
 				return (
 					<ColumnFixedWidth>
 						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-							<LargeButton onClick={ this.props.inviteModalOpen }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
+							<LargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
 						</MediaQuery>
 						<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 							<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
-										   onClick={ this.props.inviteModalOpen } />
+										   onClick={ () => this.props.inviteModalOpen( course.id ) } />
 						</MediaQuery>
 					</ColumnFixedWidth>
 				);

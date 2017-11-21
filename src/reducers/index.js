@@ -10,6 +10,7 @@ import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
 import { uiHelpBeaconModalReducer } from "./helpBeacon";
 import { uiSearch } from "./search.js";
+import { uiCourseInviteRequestReducer } from "./courses";
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
@@ -19,6 +20,7 @@ export const uiReducer = combineReducers( {
 	courses: uiCoursesReducer,
 	coursesEnrollments: uiCoursesEnrollmentsReducer,
 	courseInviteModal: uiCourseInviteModalReducer,
+	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
