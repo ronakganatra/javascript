@@ -46,6 +46,7 @@ class BaseCourseInviteModal extends React.Component {
 					inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
 					onStudentEmailChange={ this.props.onStudentEmailChange }
 					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+					courseInviteError={ this.props.courseInviteError }
 				/>
 			</Modal>
 		);
@@ -63,7 +64,7 @@ BaseCourseInviteModal.propTypes = {
 	onStudentEmailChange: PropTypes.func.isRequired,
 	onStudentEmailConfirmationChange: PropTypes.func.isRequired,
 	errorFound: PropTypes.bool.isRequired,
-	error: PropTypes.object,
+	courseInviteError: PropTypes.object,
 };
 
 BaseCourseInviteModal.defaultProps = {

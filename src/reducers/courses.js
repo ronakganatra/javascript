@@ -35,7 +35,7 @@ const rootState = {
 			openedCourseEnrollmentId: "",
 			studentEmail: "",
 			studentEmailConfirmation: "",
-			inviteCourseError: {},
+			courseInviteError: null,
 		},
 		courseInviteRequest: {
 			requestingCourseInvite: false,
@@ -121,6 +121,7 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
 				openedCourseEnrollmentId: "",
 				studentEmail: "",
 				studentEmailConfirmation: "",
+				courseInviteError: null,
 			} );
 		case UPDATE_STUDENT_EMAIL:
 			return Object.assign( {}, state, {
@@ -133,10 +134,11 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
 		case SEND_COURSE_INVITE_SUCCESS:
 			return Object.assign( {}, state, {
 				courseInviteModalOpen: false,
+				courseInviteError: null,
 			} );
 		case SEND_COURSE_INVITE_FAILURE:
 			return Object.assign( {}, state, {
-				inviteCourseError: action.error,
+				courseInviteError: action.error,
 			} );
 		default:
 			return state;

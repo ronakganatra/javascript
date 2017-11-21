@@ -125,9 +125,10 @@ class CourseInvite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		this.setState( { warnings: this.validateFields() } );
-		if ( this.state.warnings.length <= 0 ) {
-			console.log( "AWW YISSS" );
+		let warnings = this.validateFields();
+		this.setState( { warnings } );
+
+		if ( warnings.length === 0 ) {
 			this.props.onInviteClick();
 		}
 	}
@@ -233,6 +234,7 @@ class CourseInvite extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		console.log( this.validateFields() );
 		return (
 			<CourseInviteModal>
 				<ModalHeading>
@@ -268,7 +270,7 @@ class CourseInvite extends React.Component {
 						onChange={ this.onEmailConfirmationInputChange.bind( this ) }
 					/>
 					{ this.displayWarnings( this.state.warnings, "confirmationEmail" ) }
-
+					<ErrorDisplay error={ this.props.courseInviteError } />
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="academy.invite.cancel" defaultMessage="cancel"/>
@@ -291,7 +293,7 @@ CourseInvite.propTypes = {
 	intl: intlShape.isRequired,
 	onCancelClick: PropTypes.func.isRequired,
 	onInviteClick: PropTypes.func.isRequired,
-	error: PropTypes.object,
+	courseInviteError: PropTypes.object,
 	inviteStudentEmail: PropTypes.string,
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
