@@ -11,6 +11,9 @@ export const COURSE_INVITE_MODAL_OPEN = "COURSE_INVITE_MODAL_OPEN";
 export const COURSE_INVITE_MODAL_CLOSE = "COURSE_INVITE_MODAL_CLOSE";
 export const UPDATE_STUDENT_EMAIL = "UPDATE_STUDENT_EMAIL";
 export const UPDATE_STUDENT_EMAIL_CONFIRMATION = "UPDATE_STUDENT_EMAIL_CONFIRMATION";
+export const SEND_COURSE_INVITE_REQUEST = "SEND_COURSE_INVITE_REQUEST";
+export const SEND_COURSE_INVITE_SUCCESS = "SEND_COURSE_INVITE_SUCCESS";
+export const SEND_COURSE_INVITE_FAILURE = "SEND_COURSE_INVITE_FAILURE";
 
 /**
  * An action creator for the academy invite modal open action.
@@ -59,6 +62,42 @@ export function updateInviteStudentEmailConfirmation( studentEmail ) {
 	return {
 		type: UPDATE_STUDENT_EMAIL_CONFIRMATION,
 		studentEmail: studentEmail,
+	};
+}
+
+/**
+ * An action creator for the send course invite request action.
+ *
+ * @returns {Object} A send course invite request action.
+ */
+export function sendCourseInviteRequest() {
+	return {
+		type: SEND_COURSE_INVITE_REQUEST,
+	};
+}
+
+/**
+ * An action creator for the send course invite success action.
+ *
+ * @returns {Object} A send course invite success action.
+ */
+export function sendCourseInviteSuccess() {
+	return {
+		type: SEND_COURSE_INVITE_SUCCESS,
+	};
+}
+
+/**
+ * An action creator for the send course invite failure action.
+ *
+ * @param {Object} error The error object that was thrown.
+ *
+ * @returns {Object} A send course invite failure action.
+ */
+export function sendCourseInviteFailure( error ) {
+	return {
+		type: SEND_COURSE_INVITE_FAILURE,
+		error: error,
 	};
 }
 
@@ -158,9 +197,9 @@ export function retrieveCourses() {
 }
 
 /**
- * An action creator for the retrieve courseEnrollments action.
+ * An action creator for the retrieve coursesEnrollments action.
  *
- * @returns {Object} A retrieve courses action.
+ * @returns {Object} A retrieve courses enrollments action.
  */
 export function retrieveCoursesEnrollments() {
 	return ( dispatch ) => {
@@ -173,5 +212,26 @@ export function retrieveCoursesEnrollments() {
 		.then( json =>
 			dispatch( retrieveCoursesEnrollmentsSuccess( json ) ) )
 		.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error ) ) );
+	};
+}
+
+/**
+ * An action creator for the send course invite action.
+ *
+ * @param {string} emailInvitee The email address of the student that should be invited.
+ *
+ * @returns {Object} A send course invite action.
+ */
+export function sendCourseInvite( emailInvitee ) {
+	return ( dispatch ) => {
+		dispatch( sendCourseInviteRequest() );
+		let courseEnrollmentId = "test";
+
+		let request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
+
+		return doRequest( request )
+			.then( json =>
+				dispatch( sendCourseInviteSuccess( json ) ) )
+			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
 	};
 }

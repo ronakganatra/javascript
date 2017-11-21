@@ -1,7 +1,9 @@
 import {
 	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
-	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN, COURSE_INVITE_MODAL_CLOSE,
-	UPDATE_STUDENT_EMAIL, UPDATE_STUDENT_EMAIL_CONFIRMATION,
+	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN,
+	COURSE_INVITE_MODAL_CLOSE,
+	UPDATE_STUDENT_EMAIL, UPDATE_STUDENT_EMAIL_CONFIRMATION, SEND_COURSE_INVITE_REQUEST, SEND_COURSE_INVITE_SUCCESS,
+	SEND_COURSE_INVITE_FAILURE,
 } from "../actions/courses";
 import _union from "lodash/union";
 
@@ -32,6 +34,8 @@ const rootState = {
 			courseInviteModalOpen: false,
 			studentEmail: "",
 			studentEmailConfirmation: "",
+			requestingCourseInvite: false,
+			inviteCourseError: {},
 		},
 	},
 };
@@ -94,11 +98,11 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
 }
 
 /**
- * A reducer for the coursesEnrollments object within the ui object.
+ * A reducer for the invite modal object within the invite modal object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated CoursesEnrollments object.
+ * @returns {Object} The updated invite modal object.
  */
 export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteModal, action ) {
 	switch ( action.type ) {
@@ -119,6 +123,34 @@ export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteMod
 		case UPDATE_STUDENT_EMAIL_CONFIRMATION:
 			return Object.assign( {}, state, {
 				studentEmailConfirmation: action.studentEmail,
+			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the invite request within the ui invite modal object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated invite modal object.
+ */
+export function uiInviteRequestReducer( state = rootState.ui.courseInviteModal, action ) {
+	switch ( action.type ) {
+		case SEND_COURSE_INVITE_REQUEST:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: true,
+			} );
+		case SEND_COURSE_INVITE_SUCCESS:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: false,
+				courseInviteModalOpen: false,
+			} );
+		case SEND_COURSE_INVITE_FAILURE:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: false,
+				inviteCourseError: action.error,
 			} );
 		default:
 			return state;
