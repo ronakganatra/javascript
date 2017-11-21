@@ -49,6 +49,10 @@ const CourseInviteModal = styled.div`
 		font-size: 1em;
 		margin: 16px 0 8px;
 	}
+
+	#confirmation-label {
+		margin-top: 32px;
+	}
 `;
 
 const StudentEmailInput = addPlaceholderStyles( styled.input`
@@ -65,6 +69,7 @@ const Buttons = styled.div`
 	flex: 1 0 200px;
 	padding: 8px 0;
 	text-align: right;
+	margin: 32px 0 16px;
 
 	a,
 	button {
@@ -84,15 +89,6 @@ const Buttons = styled.div`
 		}
 	}
 `;
-
-/*
-const ValidationText = styled.div`
-	font-size: 1em;
-	color: ${ colors.$color_red};
-	margin: 1em 0;
-	min-height: 1.8em;
-`;
-*/
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
@@ -199,6 +195,7 @@ class CourseInvite extends React.Component {
 					message: this.props.intl.formatMessage( messages.inviteEmail, {
 						field: "Email",
 					} ),
+					allowEmpty: false,
 				},
 			};
 		}
@@ -257,7 +254,7 @@ class CourseInvite extends React.Component {
 					/>
 					{ this.displayWarnings( this.state.warnings, "email" ) }
 
-					<label htmlFor="course-invite-email-confirmation">
+					<label htmlFor="course-invite-email-confirmation" id="confirmation-label">
 						<FormattedMessage
 							id="course.invite.email.confirmation"
 							defaultMessage="Please confirm the email address by typing it again:"
@@ -267,7 +264,7 @@ class CourseInvite extends React.Component {
 					<StudentEmailInput
 						type="email"
 						id="course-invite-email-confirmation"
-						placeholder={ "Student email" }
+						placeholder={ "Confirm student email" }
 						onChange={ this.onEmailConfirmationInputChange.bind( this ) }
 					/>
 					{ this.displayWarnings( this.state.warnings, "confirmationEmail" ) }
