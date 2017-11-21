@@ -11,21 +11,6 @@ import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import ErrorDisplay from "../errors/ErrorDisplay";
 
-// import ErrorDisplay from "../errors/ErrorDisplay";
-
-// import validate from "validate.js";
-
-// import { speak } from "@wordpress/a11y";
-// import _debounce from "lodash/debounce";
-// import ErrorDisplay from "../errors/ErrorDisplay";
-
-// const messages = defineMessages( {
-// 	validationFormatEmail: {
-// 		id: "validation.format.email",
-// 		defaultMessage: "Please enter a valid email address.",
-// 	},
-// } );
-
 const messages = defineMessages( {
 	inviteEmail: {
 		id: "invite.modal.email.invalid",
@@ -234,7 +219,6 @@ class CourseInvite extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
-		console.log( this.validateFields() );
 		return (
 			<CourseInviteModal>
 				<ModalHeading>

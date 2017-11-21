@@ -133,6 +133,11 @@ class ErrorDisplay extends React.Component {
 		if ( error.hasOwnProperty( "error" ) && typeof error.error === "object" ) {
 			return error.error;
 		}
+		// If the error originates from the LearnDash API, its name will start with learndash. It has no error.code.
+		if ( error.hasOwnProperty( "name" ) && error.name.startsWith( "learndash" ) ) {
+			error.code = error.name;
+			return error;
+		}
 		error.code = "GENERAL_SUPPORT_ERROR";
 		return error;
 	}

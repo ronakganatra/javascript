@@ -63,7 +63,6 @@ BaseCourseInviteModal.propTypes = {
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func.isRequired,
 	onStudentEmailConfirmationChange: PropTypes.func.isRequired,
-	errorFound: PropTypes.bool.isRequired,
 	courseInviteError: PropTypes.object,
 };
 

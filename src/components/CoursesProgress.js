@@ -121,7 +121,7 @@ class CoursesProgress extends React.Component {
 					return progressButtonLabel === "Certificate" ? course.certificateUrl : course.courseUrl;
 				}
 				// Should be updated when the Enroll modal is ready.
-				return course.courseUrl;
+				return "/courses/enrollments";
 			}
 			return course.storeUrl;
 		}
