@@ -285,6 +285,29 @@ ButtonLink.PropTypes = {
 	to: PropTypes.string.isRequired,
 };
 
+export const ChevronButtonLink = styled( ButtonLink )`
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: url( ${ chevronRight } );
+	background-position: center;
+	background-size: 32px;
+	width:  48px;
+	height: 48px;
+	cursor: pointer;
+	box-shadow: none;
+`;
+
+ChevronButtonLink.propTypes = {
+	onClick: PropTypes.func,
+	type: PropTypes.string,
+	"aria-label": PropTypes.string,
+};
+
+ChevronButtonLink.defaultProps = {
+	type: "button",
+	"aria-label": "",
+};
+
 export const LargeButtonLink = styled( ButtonLink )`
 	min-width: 152px;
 `;

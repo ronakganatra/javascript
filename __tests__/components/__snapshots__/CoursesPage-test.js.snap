@@ -38,6 +38,7 @@ exports[`The courses page component matches the snapshot 1`] = `
     </li>
   </ul>
   <div />
+  <div />
 </div>
 `;
 

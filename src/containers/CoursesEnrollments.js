@@ -19,7 +19,7 @@ export const mapStateToProps = ( state ) => {
 			buyerEmail: course.order.customerEmail,
 			buyerName: course.buyer.userFirstName  + " " + course.buyer.userLastName,
 			status: course.status,
-			studentEmail: course.student.email,
+			studentEmail: course.student.userEmail,
 			studentId: course.studentId,
 			studentName: course.student.userFirstName  + " " + course.student.userLastName,
 		};

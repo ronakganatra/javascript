@@ -5,6 +5,7 @@ import { speak } from "@wordpress/a11y";
 import constructionImage from "../images/construction.svg";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 import CoursesEnrollments from "../containers/CoursesEnrollments";
+import CoursesProgress from "../containers/CoursesProgress";
 import PropTypes from "prop-types";
 import { hasAccessToFeature } from "../functions/features";
 
@@ -21,9 +22,14 @@ const messages = defineMessages( {
 
 let itemRoutes = [
 	{
-		component: CoursesEnrollments,
+		component: CoursesProgress,
 		path: "/courses/progress",
 		title: "Progress",
+	},
+	{
+		component: CoursesEnrollments,
+		path: "/courses/enrollments",
+		title: "Enrollments",
 		isActive: ( match, location ) => {
 			if ( match ) {
 				return match;
@@ -32,11 +38,7 @@ let itemRoutes = [
 			return location.pathname === "/courses" || location.pathname === "/courses/";
 		},
 	},
-	{
-		component: CoursesEnrollments,
-		path: "/courses/enrollments",
-		title: "Enrollments",
-	},
+
 ];
 
 /**
@@ -68,6 +70,12 @@ class CoursesPage extends React.Component {
 				<div>
 					<SubNavigation itemRoutes={ itemRoutes } />
 					<SubNavigationItem itemRoutes={ itemRoutes } />
+					<SubNavigationItem itemRoutes={ [
+						{
+							path: "/courses",
+							component: CoursesEnrollments,
+						},
+					] } />
 				</div>
 			);
 		}

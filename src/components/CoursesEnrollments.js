@@ -24,7 +24,7 @@ const messages = defineMessages( {
 	},
 	courseName: {
 		id: "progress.overview.courseName",
-		defaultMessage: "Course name",
+		defaultMessage: "Course",
 	},
 	activeSubscriptions: {
 		id: "site.overview.activeSubscriptions",
