@@ -17,6 +17,9 @@ function isExternal( url ) {
  */
 export default class Link extends Component {
 	render() {
+		const internalProps = Object.assign( {}, this.props );
+		delete internalProps.linkTarget;
+
 		return isExternal( this.props.to )
 			? <a
 				href={ this.props.to }
@@ -27,7 +30,7 @@ export default class Link extends Component {
 				>
 				{ this.props.children }
 			</a>
-			: <RouterLink { ...this.props } />;
+			: <RouterLink { ...internalProps } />;
 	}
 }
 

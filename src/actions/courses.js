@@ -237,7 +237,10 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 		let request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
 
 		return doRequest( request )
-			.then( json => dispatch( sendCourseInviteSuccess( json ) ) )
+			.then( ( json ) => {
+				dispatch( sendCourseInviteSuccess( json ) );
+				dispatch( retrieveCoursesEnrollments() );
+			} )
 			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
 	};
 }
