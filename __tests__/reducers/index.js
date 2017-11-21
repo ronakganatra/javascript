@@ -1,9 +1,9 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer} from "../../src/reducers/index"
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer, entitiesCoursesReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
-import { allIdsCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer } from "../../src/reducers/courses";
+import { allIdsCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer, RETRIEVE_COURSES_SUCCESS } from "../../src/reducers/courses";
 import { GET_SITE_PRODUCTS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
@@ -82,6 +82,18 @@ test( 'ui reducer', () => {
 	expect( uiSitesReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
+test( 'entities courses reducer', () => {
+	const state = { allIds: {}, byId: {} };
+	const action = {
+		type: RETRIEVE_COURSES_SUCCESS,
+	};
+	const expected = { allIds: { name: "allIdsCoursesReducer"}, byId: { name: "byIdCoursesReducer" } };
+	const actual = entitiesCoursesReducer( state, action );
+	expect( actual ).toEqual( expected );
+	expect( byIdCoursesReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsCoursesReducer ).toHaveBeenCalledWith( {}, action );
+} );
+
 test( 'entities site reducer', () => {
 	const state = { allIds: {}, byId: {} };
 	const action = {
@@ -119,7 +131,7 @@ test( 'entities products reducer', () => {
 } );
 
 test( 'entities reducer', () => {
-	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} } };
+	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} }, courses: { allIds: {}, byId: {} } };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
