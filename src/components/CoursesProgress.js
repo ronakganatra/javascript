@@ -26,9 +26,6 @@ let ColumnStatus = styled( ColumnFixedWidth )`
 	flex-basis: 140px;
 `;
 
-// let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
-// let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-
 const messages = defineMessages( {
 	course: {
 		id: "progress.overview.courseName",
