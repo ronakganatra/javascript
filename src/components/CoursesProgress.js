@@ -1,5 +1,5 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -7,7 +7,7 @@ import { ListTable, Row, ColumnIcon } from "./Tables";
 import Paper from "./Paper";
 import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
-import { ColumnPrimary, ColumnFixedWidth, responsiveHeaders, makeFullWidth } from "./Tables";
+import { ColumnFixedWidth, ColumnPrimary } from "./Tables";
 import { LargeButtonLink, makeButtonFullWidth, ChevronButtonLink } from "./Button";
 import MediaQuery from "react-responsive";
 import defaults from "../config/defaults.json";
@@ -18,10 +18,30 @@ const CourseIcon = styled.img`
 	height: inherit;
 `;
 
-let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
-let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+let ColumnProgress = styled( ColumnFixedWidth )`
+	flex-basis: 140px;
+`;
+
+let ColumnStatus = styled( ColumnFixedWidth )`
+	flex-basis: 140px;
+`;
+
+// let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+// let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 
 const messages = defineMessages( {
+	course: {
+		id: "progress.overview.courseName",
+		defaultMessage: "Course",
+	},
+	progress: {
+		id: "progress.overview.progress",
+		defaultMessage: "Progress",
+	},
+	status: {
+		id: "progress.overview.status",
+		defaultMessage: "Status",
+	},
 	coursesPageLoaded: {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
@@ -66,16 +86,16 @@ class CoursesProgress extends React.Component {
 		 */
 		function progressButton( enrollmentsStatus ) {
 			if ( enrollmentsStatus.progress === 100 ) {
-				return "Certificate";
+				return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
 			}
 			if ( enrollmentsStatus.progress > 0 ) {
-				return "Continue";
+				return <FormattedMessage id="button.continue" defaultMessage="Continue" />;
 			}
 			if ( enrollmentsStatus.student ) {
-				return "Get started";
+				return <FormattedMessage id="button.getstarted" defaultMessage="Get Started " />;
 			}
 			if ( enrollmentsStatus.buyer ) {
-				return "Enroll";
+				return <FormattedMessage id="button.enroll" defaultMessage="Enroll " />;
 			}
 			return "Unlock now";
 		}
@@ -144,17 +164,17 @@ class CoursesProgress extends React.Component {
 								<ColumnIcon separator={ true }>
 									<CourseIcon src={ course.icon } alt=""/>
 								</ColumnIcon>
-								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Course">
+								<ColumnPrimary ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.name }
-								</ColumnPrimaryResponsive>
-								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Status">
+								</ColumnPrimary>
+								<ColumnStatus ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.status ) }>
 									{ enrollmentsStatus.status }
-								</ColumnPrimaryResponsive>
-								<ColumnPrimaryResponsive ellipsis={ true } headerLabel="Progress">
+								</ColumnStatus>
+								<ColumnProgress ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
 									{ enrollmentsStatus.progress }%
-								</ColumnPrimaryResponsive>
+								</ColumnProgress>
 
-								<ColumnFixedWidthResponsive>
+								<ColumnFixedWidth>
 									<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 										<ResponsiveLargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
 											{ progressButtonLabel }
@@ -163,7 +183,7 @@ class CoursesProgress extends React.Component {
 									<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 										<ChevronButtonLink to={ course.courseUrl } linkTarget="_blank" />
 									</MediaQuery>
-								</ColumnFixedWidthResponsive>
+								</ColumnFixedWidth>
 							</Row>
 							);
 						} ) }

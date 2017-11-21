@@ -2,38 +2,36 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import { ListTable, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "./Tables";
 import MediaQuery from "react-responsive";
 import Paper from "./Paper";
-import { Row } from "./Tables";
+import { Row, ColumnPrimary, ListTable, ColumnIcon, ColumnFixedWidth } from "./Tables";
 import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import defaults from "../config/defaults.json";
-import { LargeButton } from "../components/Button.js";
-import { ChevronButton } from "../components/Button.js";
+import { LargeButton, ChevronButton } from "../components/Button.js";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
 	},
-	manageTitle: {
-		id: "siteSubscriptions.overview.title",
-		defaultMessage: "Subscriptions",
-	},
-	courseName: {
-		id: "progress.overview.courseName",
+	course: {
+		id: "enrollments.overview.courseName",
 		defaultMessage: "Course",
 	},
-	activeSubscriptions: {
-		id: "site.overview.activeSubscriptions",
-		defaultMessage: "Active subscriptions",
+	studentName: {
+		id: "enrollments.overview.studentName",
+		defaultMessage: "Student Name",
 	},
 	editStudent: {
 		id: "enrollments.overview.editStudent",
 		defaultMessage: "Edit student",
 	},
 } );
+
+let ColumnStudentName = styled( ColumnFixedWidth )`
+	flex-basis: 280px;
+`;
 
 const CourseIcon = styled.img`
 	height: inherit;
@@ -112,20 +110,18 @@ class CoursesEnrollments extends React.Component {
 		return (
 			<Paper>
 				<ListTable>
-					{ this.props.coursesEnrollments.map( function( course ) {
+					{ this.props.coursesEnrollments.map( ( course ) => {
 						return (
 							<Row key={ course.id }>
 								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
+								<ColumnPrimary ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.courseName }
 								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
+								<ColumnStudentName ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
 									<strong>{ course.studentName }</strong><br />
 									{ course.studentEmail }
-								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } >
+								</ColumnStudentName>
 									{ studentOrBuyer( course ) }
-								</ColumnPrimary>
 							</Row> );
 					} ) }
 				</ListTable>
