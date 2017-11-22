@@ -6,7 +6,6 @@ import getEnv from "./getEnv";
  * To enable a certain feature for all users just remove the feature flag from this array.
  */
 const featureFlags = [
-	"COURSES",
 ];
 
 /**
