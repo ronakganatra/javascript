@@ -1,5 +1,10 @@
-import { RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
-	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE } from "../actions/courses";
+import {
+	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
+	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN,
+	COURSE_INVITE_MODAL_CLOSE,
+	UPDATE_STUDENT_EMAIL, UPDATE_STUDENT_EMAIL_CONFIRMATION, SEND_COURSE_INVITE_REQUEST, SEND_COURSE_INVITE_SUCCESS,
+	SEND_COURSE_INVITE_FAILURE,
+} from "../actions/courses";
 import _union from "lodash/union";
 
 /**
@@ -24,6 +29,16 @@ const rootState = {
 		coursesEnrollments: {
 			retrievingCoursesEnrollments: false,
 			error: "",
+		},
+		courseInviteModal: {
+			courseInviteModalOpen: false,
+			openedCourseEnrollmentId: "",
+			studentEmail: "",
+			studentEmailConfirmation: "",
+			courseInviteError: null,
+		},
+		courseInviteRequest: {
+			requestingCourseInvite: false,
 		},
 	},
 };
@@ -79,6 +94,77 @@ export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollm
 			return Object.assign( {}, state, {
 				retrievingCoursesEnrollments: false,
 				error: action.error,
+			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the invite modal object within the invite modal object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated invite modal object.
+ */
+export function uiCourseInviteModalReducer( state = rootState.ui.courseInviteModal, action ) {
+	/* eslint complexity: ["error", 7]*/
+	switch ( action.type ) {
+		case COURSE_INVITE_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				courseInviteModalOpen: true,
+				openedCourseEnrollmentId: action.courseEnrollmentId,
+			} );
+		case COURSE_INVITE_MODAL_CLOSE:
+			return Object.assign( {}, state, {
+				courseInviteModalOpen: false,
+				openedCourseEnrollmentId: "",
+				studentEmail: "",
+				studentEmailConfirmation: "",
+				courseInviteError: null,
+			} );
+		case UPDATE_STUDENT_EMAIL:
+			return Object.assign( {}, state, {
+				studentEmail: action.studentEmail,
+			} );
+		case UPDATE_STUDENT_EMAIL_CONFIRMATION:
+			return Object.assign( {}, state, {
+				studentEmailConfirmation: action.studentEmail,
+			} );
+		case SEND_COURSE_INVITE_SUCCESS:
+			return Object.assign( {}, state, {
+				courseInviteModalOpen: false,
+				courseInviteError: null,
+			} );
+		case SEND_COURSE_INVITE_FAILURE:
+			return Object.assign( {}, state, {
+				courseInviteError: action.error,
+			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the invite request within the ui invite modal object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated invite modal object.
+ */
+export function uiCourseInviteRequestReducer( state = rootState.ui.courseInviteRequest, action ) {
+	switch ( action.type ) {
+		case SEND_COURSE_INVITE_REQUEST:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: true,
+			} );
+		case SEND_COURSE_INVITE_SUCCESS:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: false,
+			} );
+		case SEND_COURSE_INVITE_FAILURE:
+			return Object.assign( {}, state, {
+				requestingCourseInvite: false,
 			} );
 		default:
 			return state;
@@ -144,7 +230,12 @@ export function byIdCoursesEnrollmentsReducer( state = rootState.entities.course
 			} );
 
 			return courses;
+		case SEND_COURSE_INVITE_SUCCESS:
+			courses = Object.assign( {}, state );
 
+			courses[ action.updatedCourseEnrollment.id ] = action.updatedCourseEnrollment;
+
+			return courses;
 		default:
 			return state;
 	}

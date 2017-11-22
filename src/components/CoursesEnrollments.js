@@ -9,8 +9,9 @@ import {
 } from "./Tables";
 import styled from "styled-components";
 import { getUserId } from "../functions/auth";
-import { LargeButton } from "../components/Button.js";
-import { makeButtonFullWidth } from "./Button";
+import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
+import CourseInviteModal from "./CourseInviteModal";
+
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -62,6 +63,21 @@ class CoursesEnrollments extends React.Component {
 		speak( message );
 	}
 
+	getModal() {
+		let open = this.props.inviteModalIsOpen;
+
+		return <CourseInviteModal
+			isOpen={ open }
+			onInviteClick={ this.props.onInviteClick }
+			onClose={ this.props.inviteModalClose }
+			inviteStudentEmail={ this.props.inviteStudentEmail }
+			inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
+			onStudentEmailChange={ this.props.onStudentEmailChange }
+			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+			courseInviteError={ this.props.courseInviteError }
+		/>;
+	}
+
 	render() {
 		let currentUser = getUserId();
 
@@ -74,7 +90,7 @@ class CoursesEnrollments extends React.Component {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {
 				return (
 					<ColumnMinWidthResponsive>
-						<ResponsiveLargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
+						<ResponsiveLargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
 					</ColumnMinWidthResponsive>
 				);
 			}
@@ -88,6 +104,7 @@ class CoursesEnrollments extends React.Component {
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
 				return (
 					<ColumnMinWidthResponsive>
+
 						<span key={ course.id }>
 							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
 							{ course.buyerName }
@@ -101,32 +118,44 @@ class CoursesEnrollments extends React.Component {
 		};
 
 		return (
-			<Paper>
-				<ListTable>
-					{ this.props.coursesEnrollments.map( ( course ) => {
-						return (
-							<RowMobileCollapse key={ course.id }>
-								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
-								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
-									{ course.courseName }
-								</ColumnPrimaryResponsive>
-								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
-									<strong>{ course.studentName }</strong><br />
-									{ course.studentEmail }
-								</ColumnMinWidthResponsive>
-								{ studentOrBuyer( course ) }
-							</RowMobileCollapse> );
-					} ) }
-				</ListTable>
-			</Paper>
+			<div>
+				<Paper>
+					<ListTable>
+						{ this.props.coursesEnrollments.map( ( course ) => {
+							return (
+								<RowMobileCollapse key={ course.id }>
+									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+									<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
+										{ course.courseName }
+									</ColumnPrimaryResponsive>
+									<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
+										<strong>{ course.studentName }</strong><br />
+										{ course.studentEmail }
+									</ColumnMinWidthResponsive>
+									{ studentOrBuyer( course ) }
+								</RowMobileCollapse> );
+						} ) }
+					</ListTable>
+				</Paper>
+				{ this.getModal() }
+			</div>
 		);
 	}
 }
 
 CoursesEnrollments.propTypes = {
+	inviteModalOpen: PropTypes.func.isRequired,
+	inviteModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	loadData: PropTypes.func,
 	coursesEnrollments: PropTypes.array,
+	inviteModalIsOpen: PropTypes.bool,
+	onInviteClick: PropTypes.func,
+	inviteStudentEmail: PropTypes.string,
+	inviteStudentEmailConfirmation: PropTypes.string,
+	onStudentEmailChange: PropTypes.func,
+	onStudentEmailConfirmationChange: PropTypes.func,
+	courseInviteError: PropTypes.object,
 };
 
 export default injectIntl( CoursesEnrollments );
