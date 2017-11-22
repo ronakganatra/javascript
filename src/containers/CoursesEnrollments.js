@@ -1,5 +1,8 @@
 import { connect } from "react-redux";
-import { retrieveCoursesEnrollments } from "../actions/courses";
+import {
+	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
+	retrieveCoursesEnrollments, updateInviteStudentEmailConfirmation, sendCourseInvite,
+} from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
@@ -16,16 +19,26 @@ export const mapStateToProps = ( state ) => {
 			buyerEmail: course.order.customerEmail,
 			buyerName: course.buyer.userFirstName  + " " + course.buyer.userLastName,
 			status: course.status,
-			studentEmail: course.student.userEmail,
+			studentEmail: course.student ? course.student.userEmail : "",
 			studentId: course.studentId,
-			studentName: course.student.userFirstName  + " " + course.student.userLastName,
+			studentName: course.student ? course.student.userFirstName  + " " + course.student.userLastName : "",
 		};
 
 		return courseProps;
 	} );
 
+	let inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
+	let inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
+	let inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
+	let openedCourseEnrollmentId = state.ui.courseInviteModal.openedCourseEnrollmentId;
+	let courseInviteError = state.ui.courseInviteModal.courseInviteError;
 
 	return {
+		openedCourseEnrollmentId,
+		courseInviteError,
+		inviteModalIsOpen,
+		inviteStudentEmail,
+		inviteStudentEmailConfirmation,
 		coursesEnrollments,
 	};
 };
@@ -33,12 +46,30 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		loadData: () => dispatch( retrieveCoursesEnrollments() ),
+		inviteModalOpen: ( courseEnrollmentId ) => dispatch( courseInviteModalOpen( courseEnrollmentId ) ),
+		inviteModalClose: () => dispatch( courseInviteModalClose() ),
+		onClose: () => dispatch( courseInviteModalClose() ),
+		onInviteClick: ( courseEnrollmentId, emailInvitee ) => dispatch( sendCourseInvite( courseEnrollmentId, emailInvitee ) ),
+		onStudentEmailChange: ( studentEmail ) => dispatch( updateInviteStudentEmail( studentEmail ) ),
+		onStudentEmailConfirmationChange: ( studentEmail ) => dispatch( updateInviteStudentEmailConfirmation( studentEmail ) ),
 	};
+};
+
+export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
+	let courseEnrollmentId = stateProps.openedCourseEnrollmentId;
+	let emailInvitee = stateProps.inviteStudentEmail;
+
+	let onInviteClick = () => {
+		dispatchProps.onInviteClick( courseEnrollmentId, emailInvitee );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onInviteClick } );
 };
 
 const CoursesEnrollmentsContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+	mapDispatchToProps,
+	mergeProps
 )( CoursesEnrollments );
 
 export default CoursesEnrollmentsContainer;

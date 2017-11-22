@@ -11,6 +11,7 @@ import { getUserId } from "../functions/auth";
 import defaults from "../config/defaults.json";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
+import CourseInviteModal from "./CourseInviteModal";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -61,6 +62,21 @@ class CoursesEnrollments extends React.Component {
 		speak( message );
 	}
 
+	getModal() {
+		let open = this.props.inviteModalIsOpen;
+
+		return <CourseInviteModal
+			isOpen={ open }
+			onInviteClick={ this.props.onInviteClick }
+			onClose={ this.props.inviteModalClose }
+			inviteStudentEmail={ this.props.inviteStudentEmail }
+			inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
+			onStudentEmailChange={ this.props.onStudentEmailChange }
+			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+			courseInviteError={ this.props.courseInviteError }
+		/>;
+	}
+
 	render() {
 		let currentUser = getUserId();
 
@@ -74,11 +90,11 @@ class CoursesEnrollments extends React.Component {
 				return (
 					<ColumnFixedWidth>
 						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-							<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
+							<LargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
 						</MediaQuery>
 						<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 							<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
-										   onClick={ () => {} } />
+										   onClick={ () => this.props.inviteModalOpen( course.id ) } />
 						</MediaQuery>
 					</ColumnFixedWidth>
 				);
@@ -93,51 +109,59 @@ class CoursesEnrollments extends React.Component {
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
 				return (
 					<ColumnFixedWidth>
-						{ this.props.coursesEnrollments.map( function( course ) {
-							return (
-								<span key={ course.id }>
-									<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
-									{ course.buyerName }
-									<br />
-									<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
-									{ course.buyerEmail }
-								</span>
-							);
-						} ) }
+						<span key={ course.id }>
+							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
+							{ course.buyerName }
+							<br />
+							<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
+							{ course.buyerEmail }
+						</span>
 					</ColumnFixedWidth>
 				);
 			}
 		};
 
 		return (
-			<Paper>
-				<ListTable>
-					{ this.props.coursesEnrollments.map( function( course ) {
-						return (
-							<Row key={ course.id }>
-								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
-									{ course.courseName }
-								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
-									<strong>{ course.studentName }</strong><br />
-									{ course.studentEmail }
-								</ColumnPrimary>
-								<ColumnPrimary ellipsis={ true } >
-									{ studentOrBuyer( course ) }
-								</ColumnPrimary>
-							</Row> );
-					} ) }
-				</ListTable>
-			</Paper>
+			<div>
+				<Paper>
+					<ListTable>
+						{ this.props.coursesEnrollments.map( function( course ) {
+							return (
+								<Row key={ course.id }>
+									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+									<ColumnPrimary ellipsis={ true } headerLabel={ "Course Name" }>
+										{ course.courseName }
+									</ColumnPrimary>
+									<ColumnPrimary ellipsis={ true } headerLabel="Student Name">
+										<strong>{ course.studentName }</strong><br />
+										{ course.studentEmail }
+									</ColumnPrimary>
+									<ColumnPrimary ellipsis={ true } >
+										{ studentOrBuyer( course ) }
+									</ColumnPrimary>
+								</Row> );
+						} ) }
+					</ListTable>
+				</Paper>
+				{ this.getModal() }
+			</div>
 		);
 	}
 }
 
 CoursesEnrollments.propTypes = {
+	inviteModalOpen: PropTypes.func.isRequired,
+	inviteModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	loadData: PropTypes.func,
 	coursesEnrollments: PropTypes.array,
+	inviteModalIsOpen: PropTypes.bool,
+	onInviteClick: PropTypes.func,
+	inviteStudentEmail: PropTypes.string,
+	inviteStudentEmailConfirmation: PropTypes.string,
+	onStudentEmailChange: PropTypes.func,
+	onStudentEmailConfirmationChange: PropTypes.func,
+	courseInviteError: PropTypes.object,
 };
 
 export default injectIntl( CoursesEnrollments );
