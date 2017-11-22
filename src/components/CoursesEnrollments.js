@@ -12,7 +12,6 @@ import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import CourseInviteModal from "./CourseInviteModal";
 
-
 const messages = defineMessages( {
 	coursesPageLoaded: {
 		id: "menu.courses.loaded",
@@ -101,7 +100,7 @@ class CoursesEnrollments extends React.Component {
 					</ColumnMinWidthResponsive>
 				);
 			}
-			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
+			if ( currentUser === course.studentId && course.studentId !== course.buyerId && course.buyerId ) {
 				return (
 					<ColumnMinWidthResponsive>
 
@@ -115,6 +114,8 @@ class CoursesEnrollments extends React.Component {
 					</ColumnMinWidthResponsive>
 				);
 			}
+
+			return <ColumnMinWidthResponsive />;
 		};
 
 		return (
