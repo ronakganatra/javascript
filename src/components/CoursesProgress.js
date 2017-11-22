@@ -3,14 +3,17 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { ListTable, Row, ColumnIcon } from "./Tables";
+import {
+	ListTable, ColumnIcon, makeFullWidth, responsiveHeaders, ColumnMinWidth,
+	ColumnFixedWidth, RowMobileCollapse,
+} from "./Tables";
 import Paper from "./Paper";
 import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
-import { ColumnFixedWidth, ColumnPrimary } from "./Tables";
-import { LargeButtonLink, makeButtonFullWidth, ChevronButtonLink } from "./Button";
-import MediaQuery from "react-responsive";
-import defaults from "../config/defaults.json";
+import { ColumnPrimary } from "./Tables";
+import { LargeButtonLink, makeButtonFullWidth } from "./Button";
+// import MediaQuery from "react-responsive";
+// import defaults from "../config/defaults.json";
 
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
@@ -18,13 +21,9 @@ const CourseIcon = styled.img`
 	height: inherit;
 `;
 
-let ColumnProgress = styled( ColumnFixedWidth )`
-	flex-basis: 140px;
-`;
-
-let ColumnStatus = styled( ColumnFixedWidth )`
-	flex-basis: 140px;
-`;
+let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
 const messages = defineMessages( {
 	course: {
@@ -157,31 +156,25 @@ class CoursesProgress extends React.Component {
 							let progressButtonLabel = progressButton( enrollmentsStatus );
 
 							return (
-							<Row key={ course.id }>
+							<RowMobileCollapse key={ course.id }>
 								<ColumnIcon separator={ true }>
 									<CourseIcon src={ course.icon } alt=""/>
 								</ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
+								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.name }
-								</ColumnPrimary>
-								<ColumnStatus ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.status ) }>
+								</ColumnPrimaryResponsive>
+								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.status ) }>
 									{ enrollmentsStatus.status }
-								</ColumnStatus>
-								<ColumnProgress ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
+								</ColumnMinWidthResponsive>
+								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
 									{ enrollmentsStatus.progress }%
-								</ColumnProgress>
-
-								<ColumnFixedWidth>
-									<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-										<ResponsiveLargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
-											{ progressButtonLabel }
-										</ResponsiveLargeButtonLink>
-									</MediaQuery>
-									<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-										<ChevronButtonLink to={ course.courseUrl } linkTarget="_blank" />
-									</MediaQuery>
-								</ColumnFixedWidth>
-							</Row>
+								</ColumnMinWidthResponsive>
+								<ColumnFixedWidthResponsive>
+									<ResponsiveLargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
+										{ progressButtonLabel }
+									</ResponsiveLargeButtonLink>
+								</ColumnFixedWidthResponsive>
+							</RowMobileCollapse>
 							);
 						} ) }
 				</ListTable>
