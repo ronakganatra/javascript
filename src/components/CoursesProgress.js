@@ -12,6 +12,9 @@ import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
 import { ColumnPrimary } from "./Tables";
 import { LargeButtonLink, makeButtonFullWidth } from "./Button";
+import isEmpty from "lodash/isEmpty";
+import NoResults from "./NoResults";
+import noSitesImage from "./../images/noSites.svg";
 
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
@@ -68,6 +71,21 @@ class CoursesProgress extends React.Component {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
+	}
+
+	/**
+	 * Returns a view to show when there are no courses to show.
+	 *
+	 * @returns {Object} The element to render.
+	 */
+	renderNoResults() {
+		let noSitesParagraphs = [
+			<FormattedMessage id="courses.noCourseProgress.welcome" defaultMessage="Welcome to the Course Progress overview." />,
+			<FormattedMessage id="courses.noCourseProgress.start" defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
+			<FormattedMessage id="courses.noCourseProgress.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+		];
+
+		return <NoResults url="https://yoast.com/courses" paragraphs={ noSitesParagraphs } pageContext="url" imageSource={ noSitesImage } />;
 	}
 
 	render() {
@@ -140,12 +158,22 @@ class CoursesProgress extends React.Component {
 			return course.storeUrl;
 		}
 
-		let allEnrollments = _groupBy( this.props.coursesEnrollments, "courseId" );
+		let { courses, coursesEnrollments } = this.props;
+		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
+
+		if ( isEmpty( allEnrollments ) ) {
+			return this.renderNoResults();
+		}
+
+		courses = courses.filter( ( course ) => {
+			return ! isEmpty( allEnrollments[ course.id ] );
+		} );
+
 		return (
 			<Paper>
 				<ListTable>
 					{
-						this.props.courses.map( ( course ) => {
+						courses.map( ( course ) => {
 							if( course.product === null ) {
 								return;
 							}

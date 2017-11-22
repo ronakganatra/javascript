@@ -11,7 +11,9 @@ import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import CourseInviteModal from "./CourseInviteModal";
-
+import isEmpty from "lodash/isEmpty";
+import NoResults from "./NoResults";
+import noSitesImage from "./../images/noSites.svg";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -63,6 +65,21 @@ class CoursesEnrollments extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Returns a view to show when there are no courses to show.
+	 *
+	 * @returns {Object} The element to render.
+	 */
+	renderNoResults() {
+		let noSitesParagraphs = [
+			<FormattedMessage id="courses.noEnrollments.welcome" defaultMessage="Welcome to the Course Enrollments overview." />,
+			<FormattedMessage id="courses.noEnrollments.find" defaultMessage="Here you can find all the Yoast Academy courses you own." />,
+			<FormattedMessage id="courses.noEnrollments.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+		];
+
+		return <NoResults url="https://yoast.com/courses" paragraphs={ noSitesParagraphs } pageContext="url" imageSource={ noSitesImage } />;
+	}
+
 	getModal() {
 		let open = this.props.inviteModalIsOpen;
 
@@ -79,6 +96,12 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	render() {
+		const { coursesEnrollments } = this.props;
+
+		if ( isEmpty( coursesEnrollments ) ) {
+			return this.renderNoResults();
+		}
+
 		let currentUser = getUserId();
 
 		/**
@@ -121,7 +144,7 @@ class CoursesEnrollments extends React.Component {
 			<div>
 				<Paper>
 					<ListTable>
-						{ this.props.coursesEnrollments.map( ( course ) => {
+						{ coursesEnrollments.map( ( course ) => {
 							return (
 								<RowMobileCollapse key={ course.id }>
 									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>

@@ -66,6 +66,7 @@ function getNoResultsButton( url, onClick, pageContext ) {
 		case "noDownloads":
 		case "noOrders":
 		case "noSubscriptions":
+		case "url":
 			return (
 				<NoResultsButtonLink to={ url } linkTarget="_blank">
 					<FormattedMessage id={ messages.visitShop.id } defaultMessage={ messages.visitShop.defaultMessage } />
