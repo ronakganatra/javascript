@@ -166,17 +166,19 @@ class CoursesProgress extends React.Component {
 
 		/** Defines the URL of the progressButton based on its label.
 		 *
-		 * @param {string} progressButtonLabel The label of the progress button.
-		 * @param {obj} course The course with the URLs.
+		 * @param {array} enrollmentsStatus The course that is enrolled.
+		 * @param {obj}   course            The course with the URLs.
 		 *
 		 * @returns {string} The URL of the progress button.
 		 */
-		function progressButtonUrl( progressButtonLabel, course ) {
-			if ( progressButtonLabel !== "Unlock now" ) {
-				if ( progressButtonLabel !== "Enroll" ) {
-					return progressButtonLabel === "Certificate" ? course.certificateUrl : course.courseUrl;
-				}
-				// Should be updated when the Enroll modal is ready.
+		function progressButtonUrl( enrollmentsStatus, course ) {
+			if ( enrollmentsStatus.progress === 100 ) {
+				return course.certificateUrl;
+			}
+			if ( enrollmentsStatus.student ) {
+				return course.courseUrl;
+			}
+			if ( enrollmentsStatus.buyer ) {
 				return "/courses/enrollments";
 			}
 			return course.storeUrl;
@@ -213,14 +215,11 @@ class CoursesProgress extends React.Component {
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.name }
 								</ColumnPrimaryResponsive>
-								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.status ) }>
-									{ enrollmentsStatus.status }
-								</ColumnMinWidthResponsive>
 								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
 									{ enrollmentsStatus.progress }%
 								</ColumnMinWidthResponsive>
 								<ColumnFixedWidthResponsive>
-									<ResponsiveLargeButtonLink to={ progressButtonUrl( progressButtonLabel, course ) } linkTarget="_blank">
+									<ResponsiveLargeButtonLink to={ progressButtonUrl( enrollmentsStatus, course ) } linkTarget="_blank">
 										{ progressButtonLabel }
 									</ResponsiveLargeButtonLink>
 								</ColumnFixedWidthResponsive>
