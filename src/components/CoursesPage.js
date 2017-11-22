@@ -25,11 +25,6 @@ let itemRoutes = [
 		component: CoursesProgress,
 		path: "/courses/progress",
 		title: "Progress",
-	},
-	{
-		component: CoursesEnrollments,
-		path: "/courses/enrollments",
-		title: "Enrollments",
 		isActive: ( match, location ) => {
 			if ( match ) {
 				return match;
@@ -37,6 +32,11 @@ let itemRoutes = [
 
 			return location.pathname === "/courses" || location.pathname === "/courses/";
 		},
+	},
+	{
+		component: CoursesEnrollments,
+		path: "/courses/enrollments",
+		title: "Enrollments",
 	},
 
 ];
@@ -73,7 +73,7 @@ class CoursesPage extends React.Component {
 					<SubNavigationItem itemRoutes={ [
 						{
 							path: "/courses",
-							component: CoursesEnrollments,
+							component: CoursesProgress,
 						},
 					] } />
 				</div>
