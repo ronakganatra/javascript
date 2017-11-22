@@ -79,13 +79,13 @@ class CoursesProgress extends React.Component {
 	 * @returns {Object} The element to render.
 	 */
 	renderNoResults() {
-		let noSitesParagraphs = [
+		let paragraphs = [
 			<FormattedMessage id="courses.noCourseProgress.welcome" defaultMessage="Welcome to the Course Progress overview." />,
 			<FormattedMessage id="courses.noCourseProgress.start" defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
 			<FormattedMessage id="courses.noCourseProgress.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
 		];
 
-		return <NoResults url="https://yoast.com/courses" paragraphs={ noSitesParagraphs } pageContext="url" imageSource={ noSitesImage } />;
+		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
 	}
 
 	render() {

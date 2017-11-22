@@ -66,18 +66,18 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	/**
-	 * Returns a view to show when there are no courses to show.
+	 * Returns a view to show when there are no enrollments to show.
 	 *
 	 * @returns {Object} The element to render.
 	 */
 	renderNoResults() {
-		let noSitesParagraphs = [
+		let paragraphs = [
 			<FormattedMessage id="courses.noEnrollments.welcome" defaultMessage="Welcome to the Course Enrollments overview." />,
 			<FormattedMessage id="courses.noEnrollments.find" defaultMessage="Here you can find all the Yoast Academy courses you own." />,
 			<FormattedMessage id="courses.noEnrollments.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
 		];
 
-		return <NoResults url="https://yoast.com/courses" paragraphs={ noSitesParagraphs } pageContext="url" imageSource={ noSitesImage } />;
+		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
 	}
 
 	getModal() {
