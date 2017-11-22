@@ -11,6 +11,10 @@ import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import CourseInviteModal from "./CourseInviteModal";
+import isEmpty from "lodash/isEmpty";
+import NoResults from "./NoResults";
+import noSitesImage from "./../images/noSites.svg";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -30,6 +34,28 @@ const messages = defineMessages( {
 		defaultMessage: "Edit student",
 	},
 } );
+
+const CourseColumnIcon = styled( ColumnIcon )`
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	padding-right: 40px;
+	text-align: center;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: none;
+	}
+
+	&:after {
+		position: absolute;
+		padding: 0;
+		right: 0;
+	}
+	
+	img {
+		margin: auto;
+		height: 100%;
+	}
+`;
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
@@ -62,6 +88,21 @@ class CoursesEnrollments extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Returns a view to show when there are no enrollments to show.
+	 *
+	 * @returns {Object} The element to render.
+	 */
+	renderNoResults() {
+		let paragraphs = [
+			<FormattedMessage id="courses.noEnrollments.welcome" defaultMessage="Welcome to the Course Enrollments overview." />,
+			<FormattedMessage id="courses.noEnrollments.find" defaultMessage="Here you can find all the Yoast Academy courses you own." />,
+			<FormattedMessage id="courses.noEnrollments.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+		];
+
+		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
+	}
+
 	getModal() {
 		let open = this.props.inviteModalIsOpen;
 
@@ -78,6 +119,12 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	render() {
+		const { coursesEnrollments } = this.props;
+
+		if ( isEmpty( coursesEnrollments ) ) {
+			return this.renderNoResults();
+		}
+
 		let currentUser = getUserId();
 
 		/**
@@ -122,10 +169,10 @@ class CoursesEnrollments extends React.Component {
 			<div>
 				<Paper>
 					<ListTable>
-						{ this.props.coursesEnrollments.map( ( course ) => {
+						{ coursesEnrollments.map( ( course ) => {
 							return (
 								<RowMobileCollapse key={ course.id }>
-									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+									<CourseColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></CourseColumnIcon>
 									<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 										{ course.courseName }
 									</ColumnPrimaryResponsive>
