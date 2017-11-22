@@ -12,8 +12,6 @@ import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
 import { ColumnPrimary } from "./Tables";
 import { LargeButtonLink, makeButtonFullWidth } from "./Button";
-// import MediaQuery from "react-responsive";
-// import defaults from "../config/defaults.json";
 
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
