@@ -109,17 +109,13 @@ class CoursesEnrollments extends React.Component {
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
 				return (
 					<ColumnFixedWidth>
-						{ this.props.coursesEnrollments.map( function( course ) {
-							return (
-								<span key={ course.id }>
-									<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
-									{ course.buyerName }
-									<br />
-									<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
-									{ course.buyerEmail }
-								</span>
-							);
-						} ) }
+						<span key={ course.id }>
+							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
+							{ course.buyerName }
+							<br />
+							<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
+							{ course.buyerEmail }
+						</span>
 					</ColumnFixedWidth>
 				);
 			}
