@@ -12,11 +12,34 @@ import _groupBy from "lodash/groupBy";
 import { getUserId } from "../functions/auth";
 import { ColumnPrimary } from "./Tables";
 import { LargeButtonLink, makeButtonFullWidth } from "./Button";
+import defaults from "../config/defaults.json";
 
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const CourseIcon = styled.img`
 	height: inherit;
+`;
+
+const CourseColumnIcon = styled( ColumnIcon )`
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	padding-right: 40px;
+	text-align: center;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: none;
+	}
+
+	&:after {
+		position: absolute;
+		padding: 0;
+		right: 0;
+	}
+	
+	img {
+		margin: auto;
+		height: 100%;
+	}
 `;
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
@@ -155,9 +178,9 @@ class CoursesProgress extends React.Component {
 
 							return (
 							<RowMobileCollapse key={ course.id }>
-								<ColumnIcon separator={ true }>
+								<CourseColumnIcon separator={ true }>
 									<CourseIcon src={ course.icon } alt=""/>
-								</ColumnIcon>
+								</CourseColumnIcon>
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.name }
 								</ColumnPrimaryResponsive>

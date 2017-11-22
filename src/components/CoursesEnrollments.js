@@ -11,6 +11,7 @@ import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import CourseInviteModal from "./CourseInviteModal";
+import defaults from "../config/defaults.json";
 
 
 const messages = defineMessages( {
@@ -31,6 +32,28 @@ const messages = defineMessages( {
 		defaultMessage: "Edit student",
 	},
 } );
+
+const CourseColumnIcon = styled( ColumnIcon )`
+	display: inline-block;
+	position: relative;
+	width: 100px;
+	padding-right: 40px;
+	text-align: center;
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: none;
+	}
+
+	&:after {
+		position: absolute;
+		padding: 0;
+		right: 0;
+	}
+	
+	img {
+		margin: auto;
+		height: 100%;
+	}
+`;
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
@@ -124,7 +147,7 @@ class CoursesEnrollments extends React.Component {
 						{ this.props.coursesEnrollments.map( ( course ) => {
 							return (
 								<RowMobileCollapse key={ course.id }>
-									<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
+									<CourseColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></CourseColumnIcon>
 									<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 										{ course.courseName }
 									</ColumnPrimaryResponsive>
