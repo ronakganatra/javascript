@@ -2,13 +2,15 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import MediaQuery from "react-responsive";
 import Paper from "./Paper";
-import { Row, ColumnPrimary, ListTable, ColumnIcon, ColumnFixedWidth } from "./Tables";
+import {
+	ColumnPrimary, ListTable, ColumnIcon, RowMobileCollapse, makeFullWidth,
+	responsiveHeaders, ColumnMinWidth,
+} from "./Tables";
 import styled from "styled-components";
 import { getUserId } from "../functions/auth";
-import defaults from "../config/defaults.json";
-import { LargeButton, ChevronButton } from "../components/Button.js";
+import { LargeButton } from "../components/Button.js";
+import { makeButtonFullWidth } from "./Button";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -29,9 +31,11 @@ const messages = defineMessages( {
 	},
 } );
 
-let ColumnStudentName = styled( ColumnFixedWidth )`
-	flex-basis: 280px;
-`;
+let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+// let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+
+let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 const CourseIcon = styled.img`
 	height: inherit;
@@ -70,39 +74,29 @@ class CoursesEnrollments extends React.Component {
 		let studentOrBuyer = ( course ) => {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {
 				return (
-					<ColumnFixedWidth>
-						<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-							<LargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</LargeButton>
-						</MediaQuery>
-						<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-							<ChevronButton aria-label={ this.props.intl.formatMessage( messages.editStudent ) }
-										   onClick={ () => {} } />
-						</MediaQuery>
-					</ColumnFixedWidth>
+					<ColumnMinWidthResponsive>
+						<ResponsiveLargeButton onClick={ () => {} }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
+					</ColumnMinWidthResponsive>
 				);
 			}
 			if ( currentUser === course.buyerId && course.status !== "not started" ) {
 				return (
-					<ColumnFixedWidth>
+					<ColumnMinWidthResponsive>
 						Course in Progress
-					</ColumnFixedWidth>
+					</ColumnMinWidthResponsive>
 				);
 			}
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId ) {
 				return (
-					<ColumnFixedWidth>
-						{ this.props.coursesEnrollments.map( function( course ) {
-							return (
-								<span key={ course.id }>
-									<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
-									{ course.buyerName }
-									<br />
-									<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
-									{ course.buyerEmail }
-								</span>
-							);
-						} ) }
-					</ColumnFixedWidth>
+					<ColumnMinWidthResponsive>
+						<span key={ course.id }>
+							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
+							{ course.buyerName }
+							<br />
+							<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
+							{ course.buyerEmail }
+						</span>
+					</ColumnMinWidthResponsive>
 				);
 			}
 		};
@@ -112,17 +106,17 @@ class CoursesEnrollments extends React.Component {
 				<ListTable>
 					{ this.props.coursesEnrollments.map( ( course ) => {
 						return (
-							<Row key={ course.id }>
+							<RowMobileCollapse key={ course.id }>
 								<ColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></ColumnIcon>
-								<ColumnPrimary ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
+								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 									{ course.courseName }
-								</ColumnPrimary>
-								<ColumnStudentName ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
+								</ColumnPrimaryResponsive>
+								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
 									<strong>{ course.studentName }</strong><br />
 									{ course.studentEmail }
-								</ColumnStudentName>
-									{ studentOrBuyer( course ) }
-							</Row> );
+								</ColumnMinWidthResponsive>
+								{ studentOrBuyer( course ) }
+							</RowMobileCollapse> );
 					} ) }
 				</ListTable>
 			</Paper>
