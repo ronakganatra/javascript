@@ -16,7 +16,7 @@ import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
-
+import Link from "./Link";
 
 let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
@@ -213,7 +213,7 @@ class CoursesProgress extends React.Component {
 									<CourseIcon src={ course.icon } alt=""/>
 								</CourseColumnIcon>
 								<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
-									{ course.name }
+									<Link to={ course.courseUrl } linkTarget="_blank">{ course.name }</Link>
 								</ColumnPrimaryResponsive>
 								<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
 									{ enrollmentsStatus.progress }%
