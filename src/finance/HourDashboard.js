@@ -4,7 +4,7 @@ import moment from "moment-timezone";
 import _sumBy from "lodash/sumBy";
 import _times from "lodash/times";
 import crypto from "crypto";
-import {dollarPresenter, euroPresenter} from "../functions/presenters";
+import {dollarPresenter} from "../functions/presenters";
 
 export default class HourDashboard extends React.Component {
 	constructor( props ) {
