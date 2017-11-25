@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 import { path } from "./functions/helpers";
 import Refund from "./refund/Refund";
+import HourDashboard from "./finance/HourDashboard";
 
 class App extends React.Component {
 	/**
@@ -70,6 +71,7 @@ class App extends React.Component {
 								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } /> } />
 								<Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } />
 								<Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } />
+								<Route path={ path( "/finance" ) } render={ () => <HourDashboard api={ this.api } /> } />
 							</div>
 						</div>
 					}

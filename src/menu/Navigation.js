@@ -11,6 +11,7 @@ export default class Navigation extends React.Component {
 				<Link to={ { pathname: path( "/search" ), state: TransferState } }>Search</Link>
 				<Link to={ { pathname: path( "/transfer" ), state: SearchState } }>Transfer</Link>
 				<Link to={ { pathname: path( "/refund" ), state: {} } }>Refund</Link>
+				<Link to={ { pathname: path( "/finance" ), state: {} } }>Finance</Link>
 			</nav>
 		)
 	}
