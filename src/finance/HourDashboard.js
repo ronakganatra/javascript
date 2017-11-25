@@ -52,7 +52,7 @@ export default class HourDashboard extends React.Component {
 					let date = moment( refund.date ).tz( "Europe/Amsterdam" );
 					let hour = date.format( "Y-M-D H:00" );
 					let day = date.format( "Y-M-D" );
-					let revenue = _sumBy( refund.refundLineItems, "subtotalAmount" );
+					let revenue = _sumBy( refund.refundLineItems, "subtotalAmount" ) * -1;
 
 					hourlyStatistics = HourDashboard.collectStatistics( hourlyStatistics, hour, revenue );
 					dailyStatistics = HourDashboard.collectStatistics( dailyStatistics, day, revenue );
