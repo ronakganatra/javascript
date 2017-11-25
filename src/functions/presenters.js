@@ -6,7 +6,7 @@ function currencyString( value ) {
 	let amounts = [];
 
 	while ( rest > 1000 ) {
-		amounts.unshift( rest % 1000 );
+		amounts.unshift( zeroPad( rest % 1000, 3 ) );
 		rest = Math.floor( rest / 1000 );
 	}
 	amounts.unshift( rest );

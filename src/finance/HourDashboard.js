@@ -38,12 +38,13 @@ export default class HourDashboard extends React.Component {
 					let date = moment( order.date ).tz( "Europe/Amsterdam" );
 					let hour = date.format( "Y-M-D H:00" );
 					let day = date.format( "Y-M-D" );
+					let revenue = order.subtotalAmount - order.discountTotal;
 
-					hourlyStatistics = HourDashboard.collectStatistics( hourlyStatistics, hour, order.subtotalAmount );
-					dailyStatistics = HourDashboard.collectStatistics( dailyStatistics, day, order.subtotalAmount );
+					hourlyStatistics = HourDashboard.collectStatistics( hourlyStatistics, hour, revenue );
+					dailyStatistics = HourDashboard.collectStatistics( dailyStatistics, day, revenue );
 
 					if ( date.hour() <= currentHour ) {
-						untilNowStatistics = HourDashboard.collectStatistics( untilNowStatistics, day, order.subtotalAmount );
+						untilNowStatistics = HourDashboard.collectStatistics( untilNowStatistics, day, revenue );
 					}
 				}
 
