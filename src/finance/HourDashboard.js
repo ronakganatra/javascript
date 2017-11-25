@@ -104,7 +104,7 @@ export default class HourDashboard extends React.Component {
 
 	render() {
 		if ( this.state.password === null || crypto.createHash( "sha256" ).update( this.state.password ).digest().toString( "hex" ) !== "4fda9df9de63c96b3973f20e6446f4e4327cdbf0ace08fe51db483abbd20bfc6" ) {
-			return <form><input className="widest" onChange={ this.handlePasswordChange } /></form>;
+			return <form><label>Password: <input className="widest" onChange={ this.handlePasswordChange } /></label></form>;
 		}
 
 		if ( ! this.state.loaded ) {
