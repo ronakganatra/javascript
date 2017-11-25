@@ -8,7 +8,7 @@ function currencyString( value ) {
 	console.log( value, rest );
 
 	while ( rest > 1000 ) {
-		amounts.push( rest % 1000 );
+		amounts.unshift( rest % 1000 );
 		rest = Math.floor( rest / 1000 );
 	}
 	amounts.unshift( rest );
