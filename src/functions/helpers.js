@@ -2,11 +2,12 @@
  * Pads a string or number with zeroes, for use with currencies.
  *
  * @param {string|number} value
+ * @param {number}        zeroes
  *
  * @returns {string}
  */
-export function zeroPad( value ) {
-	return value.toString().padStart( 2, '0' );
+export function zeroPad( value, zeroes = 2 ) {
+	return value.toString().padStart( zeroes, '0' );
 }
 
 /**
