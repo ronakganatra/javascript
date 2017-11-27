@@ -27,7 +27,7 @@ export default class HourDashboard extends React.Component {
 
 		Promise.all( [
 			this.props.api.search( "Orders", { where: { date: { gt: twoWeeksAgo }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
-			this.props.api.search( "Refunds", { where: { date: { gt: twoWeeksAgo }, include: [ "refundLineItems" ] } } )
+			this.props.api.search( "Refunds", { where: { date: { gt: twoWeeksAgo } }, include: [ "refundLineItems" ] } )
 		] ).then( ( [ orders, refunds ] ) => {
 				let hourlyStatistics = {};
 				let dailyStatistics = {};
