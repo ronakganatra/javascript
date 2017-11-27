@@ -444,6 +444,13 @@ class ProfilePage extends React.Component {
 							<form onSubmit={ handleSubmit }>
 								<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
 								<TextInput
+									width="50%"
+									id="first-name"
+									name="first name"
+									type="text"
+									value={ this.props.firstName }
+								/>
+								<TextInput
 									id="email-address"
 									autocomplete="on"
 									name="email"
@@ -502,6 +509,7 @@ class ProfilePage extends React.Component {
 ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: PropTypes.string.isRequired,
+	firstName: PropTypes.string,
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
@@ -518,6 +526,7 @@ ProfilePage.propTypes = {
 
 ProfilePage.defaultProps = {
 	email: "",
+	userFirstName: "",
 	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,

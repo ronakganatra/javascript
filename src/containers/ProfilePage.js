@@ -7,6 +7,7 @@ let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.
 export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.email,
+		firstName: state.user.data.profile.firstName,
 		image: url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
