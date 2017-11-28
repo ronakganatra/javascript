@@ -54,15 +54,15 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@wordpress/a11y@0.1.0-beta.1":
-  version "0.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@wordpress/a11y/-/a11y-0.1.0-beta.1.tgz#cf41cd5b05a487dc9cfc83ed759dfdb57ec04d57"
+"@wordpress/a11y@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@wordpress/a11y/-/a11y-1.0.1.tgz#a4670fe1f1c4921dfcf300906c70f7aef8bd01e5"
   dependencies:
-    "@wordpress/dom-ready" "^0.1.0-beta.1"
+    "@wordpress/dom-ready" "^0.1.0-beta.6"
 
-"@wordpress/dom-ready@^0.1.0-beta.1":
-  version "0.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@wordpress/dom-ready/-/dom-ready-0.1.0-beta.1.tgz#3988b276c439c4102ebb90d2b1fd2d3b563a026a"
+"@wordpress/dom-ready@^0.1.0-beta.6":
+  version "0.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/@wordpress/dom-ready/-/dom-ready-0.1.0-beta.6.tgz#ff3e5468920d08362cc636dd0622fb2c14b19da5"
 
 "a11y-speak@git+https://github.com/Yoast/a11y-speak.git#master":
   version "0.0.1"
