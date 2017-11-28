@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions/user";
+import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, PROFILE_UPDATE_FIRST_NAME } from "../actions/user";
 import {
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
@@ -37,9 +37,13 @@ const initialState = {
 		profile: {
 			username: "",
 			email: "",
+			userFirstName: "",
+			userLastName: "",
 		},
 	},
 
+	updatingFirstName: "",
+	updatingLastName: "",
 	savingProfile: false,
 	saveEmailError: null,
 	profileSaved: false,
@@ -124,6 +128,11 @@ export function userEmailReducer( state = initialState, action ) {
 			return Object.assign( {}, state, {
 				email: action.email,
 				profileSaved: false,
+			} );
+
+		case PROFILE_UPDATE_FIRST_NAME:
+			return Object.assign( {}, state, {
+				updatingFirstName: action.updatingFirstName,
 			} );
 
 		default:

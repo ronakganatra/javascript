@@ -12,8 +12,10 @@ export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
-export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
 export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
+export const PROFILE_UPDATE_FIRST_NAME = "PROFILE_UPDATE_FIRST_NAME";
+
+export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
 export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 
@@ -190,6 +192,19 @@ export function profileUpdateEmail( email ) {
 	return {
 		type: PROFILE_UPDATE_EMAIL,
 		email: email,
+	};
+}
+
+/**
+ * An action creator for the update first name action.
+ *
+ * @param {string} updatingFirstName The changing first name of the customer.
+ * @returns {Object} An update first name action.
+ */
+export function profileUpdateFirstName( updatingFirstName ) {
+	return {
+		type: PROFILE_UPDATE_FIRST_NAME,
+		updatingFirstName,
 	};
 }
 
