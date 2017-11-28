@@ -61,6 +61,20 @@ const FormMessage = styled.p`
 	${ props => props.inline ? "display: inline-block;" : "display: block;" }
 `;
 
+const FormGroup = styled.div`
+	display: inline-flex;
+	width: 100%;
+`;
+
+const LabelBlock = styled.div`
+	display: inline-block;
+	width: 100%;
+
+	&#left{
+		margin-right: 8px;
+	};
+`;
+
 /**
  * Returns the rendered ProfileForm component, which is a form that .
  *
@@ -253,31 +267,45 @@ class ProfileForm extends React.Component {
 		let warnings = this.validateFields();
 
 		return (
-			<div>
-				<form onSubmit={ this.handleSubmit }>
-					<Label htmlFor="first-name">First name</Label>
-					<TextInput
-						width="50%"
-						id="first-name"
-						name="first name"
-						type="text"
-						value={ this.props.updatingFirstName }
-						onChange={ this.onUpdateFirstName }
-					/>
-					<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
-					<TextInput
-						id="email-address"
-						autocomplete="on"
-						name="email"
-						type="text"
-						value={ this.props.email }
-						onChange={ this.onUpdateEmail }
-					/>
-					{ this.displayWarnings( warnings, "email" ) }
-					<ErrorDisplay error={ this.props.saveEmailError } />
-					{ this.getSaveButton() }
-				</form>
-			</div>
+			<form onSubmit={ this.handleSubmit }>
+				<FormGroup>
+					<LabelBlock id="left">
+						<Label htmlFor="first-name">First name</Label>
+						<TextInput
+							width="100%"
+							margin-right="5px"
+							id="first-name"
+							name="first name"
+							type="text"
+							value={ this.props.updatingFirstName }
+							onChange={ this.onUpdateFirstName }
+						/>
+					</LabelBlock>
+					<LabelBlock>
+						<Label htmlFor="last-name">Last name</Label>
+						<TextInput
+							width="100%"
+							id="last-name"
+							name="last name"
+							type="text"
+							value={ this.props.updatingFirstName }
+							onChange={ this.onUpdateFirstName }
+						/>
+					</LabelBlock>
+				</FormGroup>
+				<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
+				<TextInput
+					id="email-address"
+					autocomplete="on"
+					name="email"
+					type="text"
+					value={ this.props.email }
+					onChange={ this.onUpdateEmail }
+				/>
+				{ this.displayWarnings( warnings, "email" ) }
+				<ErrorDisplay error={ this.props.saveEmailError } />
+				{ this.getSaveButton() }
+			</form>
 		);
 	}
 }
