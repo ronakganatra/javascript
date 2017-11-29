@@ -182,11 +182,18 @@ describe( 'userEmailReducer', () => {
 			data: {
 				profile: {
 					email: "email.email.email",
+					userFirstName: "testFirst",
+					userLastName: "testLast",
 				}
 			},
 		};
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
+			profile: {
+				email: "new.email",
+				userFirstName: "newFirst",
+				userLastName: "newLast",
+			}
 		};
 		const expected = {
 			email: "new.email",
@@ -197,6 +204,8 @@ describe( 'userEmailReducer', () => {
 			data: {
 				profile: {
 					email: "new.email",
+					userFirstName: "newFirst",
+					userLastName: "newLast",
 				}
 			},
 		};
