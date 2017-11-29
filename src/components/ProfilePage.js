@@ -284,6 +284,7 @@ class ProfilePage extends React.Component {
 								updatingFirstName={ this.props.updatingFirstName }
 								onUpdateFirstName={ this.props.onUpdateFirstName }
 								userFirstName={ this.props.userFirstName }
+								userLastName={ this.props.userLastName }
 								email={ this.props.email }
 								onUpdateEmail={ this.props.onUpdateEmail }
 								onSaveProfile={ this.props.onSaveProfile }
@@ -336,6 +337,7 @@ ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: PropTypes.string.isRequired,
 	userFirstName: PropTypes.string,
+	userLastName: PropTypes.string,
 	updatingFirstName: PropTypes.string,
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
@@ -355,6 +357,7 @@ ProfilePage.propTypes = {
 ProfilePage.defaultProps = {
 	email: "",
 	userFirstName: "",
+	userLastName: "",
 	updatingFirstName: "",
 	saveEmailError: null,
 	isSaving: false,

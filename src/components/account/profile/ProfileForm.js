@@ -94,9 +94,15 @@ class ProfileForm extends React.Component {
 	constructor( props ) {
 		super( props );
 
+		this.state = {
+			userFirstName: this.props.userFirstName,
+			userLastName: this.props.userLastName,
+		};
+
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
-		this.onUpdateFirstName = this.onUpdateFirstName.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
+		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
+		this.onUpdateLastName  = this.onUpdateName.bind( this, "last" );
 
 		// Validation constraints.
 		this.constraints = {
@@ -237,8 +243,10 @@ class ProfileForm extends React.Component {
 		this.props.onUpdateEmail( event.target.value );
 	}
 
-	onUpdateFirstName( event ) {
-		this.props.onUpdateFirstName( event.target.value );
+	onUpdateName( type, event ) {
+		type === "first"
+			? this.setState( { userFirstName: event.target.value } )
+			: this.setState( { userLastName: event.target.value } );
 	}
 
 	handleSubmit( event ) {
@@ -251,8 +259,15 @@ class ProfileForm extends React.Component {
 		if ( this.isSaving() ) {
 			return;
 		}
+		let profile = {
+			/* eslint-disable camelcase */
+			first_name: this.state.userFirstName,
+			last_name: this.state.userLastName,
+			/* eslint-enable camelcase */
+			email: this.props.email,
+		};
 
-		this.props.onSaveProfile();
+		this.props.onSaveProfile( profile );
 	}
 
 	componentDidUpdate() {
@@ -277,7 +292,7 @@ class ProfileForm extends React.Component {
 							id="first-name"
 							name="first name"
 							type="text"
-							value={ this.props.updatingFirstName }
+							value={ this.state.userFirstName }
 							onChange={ this.onUpdateFirstName }
 						/>
 					</LabelBlock>
@@ -288,8 +303,8 @@ class ProfileForm extends React.Component {
 							id="last-name"
 							name="last name"
 							type="text"
-							value={ this.props.updatingFirstName }
-							onChange={ this.onUpdateFirstName }
+							value={ this.state.userLastName }
+							onChange={ this.onUpdateLastName }
 						/>
 					</LabelBlock>
 				</FormGroup>
@@ -317,6 +332,7 @@ ProfileForm.propTypes = {
 	onSaveProfile: PropTypes.func,
 	email: PropTypes.string,
 	userFirstName: PropTypes.string,
+	userLastName: PropTypes.string,
 	updatingFirstName: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
@@ -327,6 +343,7 @@ ProfileForm.propTypes = {
 ProfileForm.defaultProps = {
 	email: "",
 	userFirstName: "",
+	userLastName: "",
 	updatingFirstName: "",
 	isSaving: false,
 	isSaved: false,

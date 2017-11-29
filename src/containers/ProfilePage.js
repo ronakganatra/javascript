@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import {
-	profileUpdateEmail, updateProfile, passwordResetSend, disableUser,
-	profileUpdateFirstName,
+	profileUpdateEmail, passwordResetSend, disableUser,
+	profileUpdateFirstName, updateProfile,
 } from "../actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
@@ -11,6 +11,7 @@ export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.email,
 		userFirstName: state.user.data.profile.userFirstName,
+		userLastName: state.user.data.profile.userLastName,
 		image: url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
@@ -37,6 +38,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( profileUpdateFirstName( updatingFirstName ) );
 		},
 		onSaveProfile: ( profile ) => {
+			console.log( profile );
 			dispatch( updateProfile( profile ) );
 		},
 		onDeleteProfile: ( profile ) => {
@@ -56,16 +58,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let email = stateProps.email;
 
-	const onSaveProfile = () => {
-		dispatchProps.onSaveProfile( { email } );
-	};
-
 	const onPasswordReset = () => {
 		dispatchProps.onPasswordReset( email );
 	};
 
 	return Object.assign( {}, ownProps, stateProps, dispatchProps, {
-		onSaveProfile,
 		onPasswordReset,
 	} );
 };
