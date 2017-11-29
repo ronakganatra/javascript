@@ -51,7 +51,7 @@ const TextInput = styled( InputField )`
 
 const Label = styled.label`
 	display: block;
-	margin-bottom: 0.5em;
+	margin: 0.5em 0;
 	font-size: 1.1em;
 `;
 
@@ -64,6 +64,10 @@ const FormMessage = styled.p`
 const FormGroup = styled.div`
 	display: inline-flex;
 	width: 100%;
+
+	label:first-child{
+		margin-top: 0;
+	}
 `;
 
 const LabelBlock = styled.div`
