@@ -36,7 +36,7 @@ export default class TransferPreview extends React.Component {
 		return destination;
 	}
 
-	getObjectList( list, displayKey ) {
+	getWooObjectList(list, displayKey ) {
 		return (
 			<ul>
 				{ Object.keys( list ).map( sourceId => {
@@ -52,6 +52,28 @@ export default class TransferPreview extends React.Component {
 		);
 	}
 
+	getCourseEnrollmentsList() {
+		return (
+			<ul>
+				{ this.props.courseEnrollments.map( courseEnrollment => {
+					let isStudent = courseEnrollment.studentId === this.props.fromCustomer.id;
+					let inAcademy = this.props.academyData.course_ids.indexOf( courseEnrollment.course.sourceId.toString() ) !== -1;
+					console.log( courseEnrollment, isStudent, inAcademy );
+					return <li key={courseEnrollment.id} className={ isStudent && ! inAcademy ? "warning" : "" }>
+						<span>{ courseEnrollment.course.name } ( {courseEnrollment.status} )&nbsp;</span>
+						{ ( courseEnrollment.studentId === this.props.fromCustomer.id ) &&
+							"User is buyer. "
+						}
+						{ ( isStudent ) &&
+							"User is student. " +
+							( inAcademy ?	"Access will be transferred." :	"( NOT FOUND IN ACADEMY! ACCESS WILL NOT BE TRANSFERRED! )" )
+						}
+					</li>;
+				} ) }
+			</ul>
+		)
+	}
+
 	render() {
 		return (
 			<div className="Preview">
@@ -60,25 +82,28 @@ export default class TransferPreview extends React.Component {
 				<div><strong>All data will be transferred to:</strong> { this.props.toCustomer.userEmail } ( { this.props.toCustomer.username } )</div>
 				<h2>Data</h2>
 				{ ( ! _isEmpty( this.state.orders[1] ) ) &&
-					<div><strong>US Orders:</strong>{ this.getObjectList( this.state.orders[1], "invoiceNumber" ) }</div>
+					<div><strong>US Orders:</strong>{ this.getWooObjectList( this.state.orders[1], "invoiceNumber" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.orders[2] ) ) &&
-				  <div><strong>EU Orders:</strong>{ this.getObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
+					<div><strong>EU Orders:</strong>{ this.getWooObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.subscriptions[1] ) ) &&
-				  <div><strong>US Subscriptions:</strong>{ this.getObjectList( this.state.subscriptions[1], "name" ) }</div>
+					<div><strong>US Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[1], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.subscriptions[2] ) ) &&
-				  <div><strong>EU Subscriptions:</strong>{ this.getObjectList( this.state.subscriptions[2], "name" ) }</div>
+					<div><strong>EU Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[2], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.sites ) ) &&
-				  <div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul></div>
+					<div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul></div>
 				}
 				{ ( ! _isEmpty( this.state.others[1] ) ) &&
-				  <div><strong>US Other:</strong>{ this.getObjectList( this.state.other[1], "sourceId" ) }</div>
+					<div><strong>US Other:</strong>{ this.getWooObjectList( this.state.other[1], "sourceId" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.others[2] ) ) &&
-				  <div><strong>EU Other:</strong>{ this.getObjectList( this.state.other[2], "sourceId" ) }</div>
+					<div><strong>EU Other:</strong>{ this.getWooObjectList( this.state.other[2], "sourceId" ) }</div>
+				}
+				{ ( ! _isEmpty( this.props.courseEnrollments ) ) &&
+					<div><strong>Academy:</strong>{ this.getCourseEnrollmentsList() }</div>
 				}
 			</div>
 		)

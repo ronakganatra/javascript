@@ -41,6 +41,14 @@ export function getWooCommerceHost() {
 	}
 }
 
+export function getLearndashHost() {
+	if ( isLocalEnv() ) {
+		return "http://yoast.academy.test";
+	} else {
+		return "https://academy.yoast.com";
+	}
+}
+
 export function getOrderUrl( orderId, shopId ) {
 	let host = getWooCommerceHost();
 
