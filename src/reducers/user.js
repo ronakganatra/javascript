@@ -120,7 +120,11 @@ export function userEmailReducer( state = initialState, action ) {
 				sendPasswordReset: false,
 				profileSaved: true,
 				data: {
-					profile: Object.assign( {}, state.data.profile, { email: state.email } ),
+					profile: Object.assign( {}, state.data.profile, {
+						email: state.email,
+						userFirstName: action.profile.userFirstName,
+						userLastName: action.profile.userLastName,
+					} ),
 				},
 			} );
 

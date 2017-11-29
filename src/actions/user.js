@@ -235,11 +235,13 @@ export function profileUpdateFailure( error ) {
 /**
  * An action creator for the profile update success action.
  *
+ * @param {Object} newProfile The profile after a successful profile update.
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess() {
+export function profileUpdateSuccess( newProfile ) {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
+		profile: newProfile,
 	};
 }
 
@@ -258,7 +260,10 @@ export function updateProfile( profile ) {
 		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
-			.then( dispatch( profileUpdateSuccess() ) )
+			.then( ( response ) => {
+				console.log( response );
+				dispatch( profileUpdateSuccess( response ) );
+			} )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }
