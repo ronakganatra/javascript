@@ -55,7 +55,7 @@
     "whatwg-fetch": "^2.0.2"
   },
   "dependencies": {
-    "@wordpress/a11y": "0.1.0-beta.1",
+    "@wordpress/a11y": "1.0.1",
     "babel-polyfill": "^6.26.0",
     "cookie-parser": "^1.4.3",
     "gravatar": "^1.6.0",
