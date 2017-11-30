@@ -13,7 +13,7 @@ import noResultsImage from "./../images/SitesNoResults.svg";
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
 		id: "menu.account.subscriptions.loaded",
-		defaultMessage: "account subscriptions page loaded",
+		defaultMessage: "Account subscriptions page loaded",
 	},
 	searchLabel: {
 		id: "search.label.subscriptions",
