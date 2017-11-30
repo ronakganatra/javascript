@@ -7,6 +7,7 @@ import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
@@ -121,6 +122,7 @@ class ProfileForm extends React.Component {
 		this.state = {
 			userFirstName: this.props.userFirstName,
 			userLastName: this.props.userLastName,
+			email: this.props.email,
 		};
 
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
@@ -160,7 +162,7 @@ class ProfileForm extends React.Component {
 	 */
 	validateFields() {
 		let warnings = validate( {
-			email: this.props.email,
+			email: this.state.email,
 		}, this.constraints, { format: "detailed" } );
 
 		if ( _isUndefined( warnings ) ) {
@@ -261,11 +263,11 @@ class ProfileForm extends React.Component {
 	 * @returns {boolean} Whether we are currently saving.
 	 */
 	isSaved() {
-		return this.props.isSaved;
+		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
 	onUpdateEmail( event ) {
-		this.props.onUpdateEmail( event.target.value );
+		this.setState( { email: event.target.value } );
 	}
 
 	onUpdateName( type, event ) {
@@ -289,7 +291,7 @@ class ProfileForm extends React.Component {
 			first_name: this.state.userFirstName,
 			last_name: this.state.userLastName,
 			/* eslint-enable camelcase */
-			email: this.props.email,
+			email: this.state.email,
 		};
 
 		this.props.onSaveProfile( profile );
@@ -342,7 +344,7 @@ class ProfileForm extends React.Component {
 						autocomplete="on"
 						name="email"
 						type="text"
-						value={ this.props.email }
+						value={ this.state.email }
 						onChange={ this.onUpdateEmail }
 					/>
 					{ this.displayWarnings( warnings, "email" ) }

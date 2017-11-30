@@ -123,7 +123,7 @@ export function userEmailReducer( state = initialState, action ) {
 				profileSaved: true,
 				data: {
 					profile: Object.assign( {}, state.data.profile, {
-						email: state.email,
+						email: action.profile.userEmail,
 						userFirstName: action.profile.userFirstName,
 						userLastName: action.profile.userLastName,
 					} ),
