@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import {
 	profileUpdateEmail, passwordResetSend, disableUser,
-	profileUpdateFirstName, updateProfile,
+	profileUpdateFirstName, updateProfile, resetSaveMessage,
 } from "../actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
@@ -38,8 +38,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( profileUpdateFirstName( updatingFirstName ) );
 		},
 		onSaveProfile: ( profile ) => {
-			console.log( profile );
 			dispatch( updateProfile( profile ) );
+		},
+		resetSaveMessage: () => {
+			dispatch( resetSaveMessage() );
 		},
 		onDeleteProfile: ( profile ) => {
 			// eslint-disable-next-line

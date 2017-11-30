@@ -281,14 +281,7 @@ class ProfilePage extends React.Component {
 					<Page>
 						<Column>
 							<ProfileForm
-								updatingFirstName={ this.props.updatingFirstName }
-								onUpdateFirstName={ this.props.onUpdateFirstName }
-								userFirstName={ this.props.userFirstName }
-								userLastName={ this.props.userLastName }
-								email={ this.props.email }
-								onUpdateEmail={ this.props.onUpdateEmail }
-								onSaveProfile={ this.props.onSaveProfile }
-								saveEmailError={ this.props.saveEmailError }
+								{ ...this.props }
 							/>
 							{ this.getPasswordReset() }
 						</Column>

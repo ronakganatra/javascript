@@ -42,7 +42,7 @@ const messages = defineMessages( {
 	},
 	saved: {
 		id: "profile.saved",
-		defaultMessage: "Profile address saved",
+		defaultMessage: "Profile saved",
 	},
 	saveProfile: {
 		id: "profile.save",
@@ -67,6 +67,11 @@ const FormMessage = styled.p`
 	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
 	margin: 0;
 	${ props => props.inline ? "display: inline-block;" : "display: block;" }
+
+	@media screen and ( max-width: 400px ) {
+		padding: 0.5em 0 0 0;
+		display: block;
+	}
 `;
 
 const FormGroup = styled.form`
@@ -225,8 +230,8 @@ class ProfileForm extends React.Component {
 	getSaveButton() {
 		let emailSavingMessage;
 
-		if ( this.isSaving() ) {
-			let message = this.props.intl.formatMessage( messages.saving );
+		if ( this.isSaving() || this.isSaved() ) {
+			let message = this.props.intl.formatMessage( this.isSaving() ? messages.saving : messages.saved );
 
 			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
 			speak( message, "assertive" );
@@ -293,6 +298,10 @@ class ProfileForm extends React.Component {
 		this.announceActions();
 	}
 
+	componentWillUnmount() {
+		this.props.resetSaveMessage();
+	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
@@ -357,6 +366,7 @@ ProfileForm.propTypes = {
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
 	saveEmailError: PropTypes.object,
+	resetSaveMessage: PropTypes.func,
 };
 
 ProfileForm.defaultProps = {

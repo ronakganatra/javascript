@@ -642,6 +642,11 @@ exports[`components/ProfilePage saving profile 1`] = `
                   Save profile
                 </span>
               </button>
+              <p
+                className="jsQqqN"
+              >
+                Saving...
+              </p>
             </div>
           </div>
         </form>

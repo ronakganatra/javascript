@@ -1,4 +1,7 @@
-import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, PROFILE_UPDATE_FIRST_NAME } from "../actions/user";
+import {
+	LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, PROFILE_UPDATE_FIRST_NAME,
+	RESET_SAVE_MESSAGE,
+} from "../actions/user";
 import {
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
@@ -12,6 +15,7 @@ import {
 	DISABLE_USER_SUCCESS,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
+// import { LOCATION_CHANGE } from "react-router-redux";
 
 const initialState = {
 	// Whether or not the user is enabled.
@@ -90,6 +94,7 @@ export function userDataReducer( state = initialState, action ) {
 	}
 }
 
+/* eslint-disable complexity */
 /**
  *  A reducer for the email string within the user object.
  *
@@ -134,6 +139,12 @@ export function userEmailReducer( state = initialState, action ) {
 				profileSaved: false,
 			} );
 
+		// Reset profileSaved when leaving the page.
+		case RESET_SAVE_MESSAGE:
+			return Object.assign( {}, state, {
+				profileSaved: false,
+			} );
+
 		case PROFILE_UPDATE_FIRST_NAME:
 			return Object.assign( {}, state, {
 				updatingFirstName: action.updatingFirstName,
@@ -143,6 +154,8 @@ export function userEmailReducer( state = initialState, action ) {
 			return state;
 	}
 }
+/* eslint-enable complexity */
+
 
 /**
  * A reducer for the password reset.

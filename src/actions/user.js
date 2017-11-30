@@ -14,6 +14,7 @@ export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
 export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 export const PROFILE_UPDATE_FIRST_NAME = "PROFILE_UPDATE_FIRST_NAME";
+export const RESET_SAVE_MESSAGE = "RESET_SAVE_MESSAGE";
 
 export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
@@ -246,6 +247,17 @@ export function profileUpdateSuccess( newProfile ) {
 }
 
 /**
+ * An action creator for the reset save message action.
+ *
+ * @returns {Object} The reset save message action.
+ */
+export function resetSaveMessage() {
+	return {
+		type: RESET_SAVE_MESSAGE,
+	};
+}
+
+/**
  * An action creator to update the profile of the user.
  *
  * @param {Object} profile The profile object.
@@ -261,7 +273,6 @@ export function updateProfile( profile ) {
 
 		return doRequest( request )
 			.then( ( response ) => {
-				console.log( response );
 				dispatch( profileUpdateSuccess( response ) );
 			} )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
