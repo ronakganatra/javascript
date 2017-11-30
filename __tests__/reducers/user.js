@@ -97,7 +97,6 @@ test( 'the fetch user request success action', () => {
 				email: "an email",
 			},
 		},
-		email: "an email",
 	};
 
 	const actual = userReducer( input, action );
@@ -175,7 +174,6 @@ describe( 'userEmailReducer', () => {
 
 	test( 'update success', () => {
 		const input = {
-			email: "new.email",
 			savingProfile: true,
 			saveEmailError: null,
 			profileSaved: true,
@@ -190,13 +188,12 @@ describe( 'userEmailReducer', () => {
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
 			profile: {
-				email: "new.email",
+				userEmail: "new.email",
 				userFirstName: "newFirst",
 				userLastName: "newLast",
 			}
 		};
 		const expected = {
-			email: "new.email",
 			savingProfile: false,
 			saveEmailError: null,
 			profileSaved: true,
@@ -222,31 +219,12 @@ describe( 'userEmailReducer', () => {
 		};
 		const action = {
 			type: PROFILE_UPDATE_FAILURE,
-			error: { error: "An profile update failure error." },
+			error: { error: "A profile update failure error." },
 		};
 		const expected = {
 			savingProfile: false,
 			profileSaved: false,
-			saveEmailError: { error: "An profile update failure error." },
-		};
-
-		const actual = userEmailReducer( input, action );
-
-		expect( actual ).toEqual( expected );
-	} );
-
-	test( 'change email', () => {
-		const input = {
-			email: "previous email",
-			profileSaved: false,
-		};
-		const action = {
-			type: PROFILE_UPDATE_EMAIL,
-			email: "new email",
-		};
-		const expected = {
-			email: "new email",
-			profileSaved: false,
+			saveEmailError: { error: "A profile update failure error." },
 		};
 
 		const actual = userEmailReducer( input, action );
