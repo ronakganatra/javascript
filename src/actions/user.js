@@ -12,7 +12,6 @@ export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
-export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 export const RESET_SAVE_MESSAGE = "RESET_SAVE_MESSAGE";
 
 export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
@@ -179,19 +178,6 @@ export function disableUser() {
 		return doRequest( request )
 			.then( json => dispatch( disableUserSuccess() ) )
 			.catch( error => dispatch( disableUserFailure( error ) ) );
-	};
-}
-
-/**
- * An action creator for the update email action.
- *
- * @param {string} email The changing email address of the customer.
- * @returns {Object} A change email action.
- */
-export function profileUpdateEmail( email ) {
-	return {
-		type: PROFILE_UPDATE_EMAIL,
-		email: email,
 	};
 }
 
