@@ -1,8 +1,9 @@
 import {
-	LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS, PROFILE_UPDATE_FIRST_NAME,
+	LOGIN,
+	LOGOUT,
+	FETCH_USER_REQUEST,
+	FETCH_USER_SUCCESS,
 	RESET_SAVE_MESSAGE,
-} from "../actions/user";
-import {
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
 	PROFILE_UPDATE_SUCCESS,
@@ -15,7 +16,6 @@ import {
 	DISABLE_USER_SUCCESS,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
-// import { LOCATION_CHANGE } from "react-router-redux";
 
 const initialState = {
 	// Whether or not the user is enabled.
@@ -45,9 +45,6 @@ const initialState = {
 			userLastName: "",
 		},
 	},
-
-	updatingFirstName: "",
-	updatingLastName: "",
 	savingProfile: false,
 	saveEmailError: null,
 	profileSaved: false,
@@ -143,11 +140,6 @@ export function userEmailReducer( state = initialState, action ) {
 		case RESET_SAVE_MESSAGE:
 			return Object.assign( {}, state, {
 				profileSaved: false,
-			} );
-
-		case PROFILE_UPDATE_FIRST_NAME:
-			return Object.assign( {}, state, {
-				updatingFirstName: action.updatingFirstName,
 			} );
 
 		default:

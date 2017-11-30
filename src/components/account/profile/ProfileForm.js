@@ -217,8 +217,9 @@ class ProfileForm extends React.Component {
 		}
 
 		// Display all remaining warnings.
-		return fieldWarnings.map( ( warning ) => {
-			return <ErrorDisplay error={ warning } type="warning"/>;
+		return fieldWarnings.map( ( warning, index ) => {
+			let warningKey = warning.attribute + index;
+			return <ErrorDisplay key={ warningKey } error={ warning } type="warning"/>;
 		} );
 	}
 
@@ -355,13 +356,11 @@ class ProfileForm extends React.Component {
 
 ProfileForm.propTypes = {
 	intl: intlShape.isRequired,
-	onUpdateEmail: PropTypes.func,
-	onUpdateFirstName: PropTypes.func,
+	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func,
 	email: PropTypes.string,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
-	updatingFirstName: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
@@ -373,10 +372,9 @@ ProfileForm.defaultProps = {
 	email: "",
 	userFirstName: "",
 	userLastName: "",
-	updatingFirstName: "",
 	isSaving: false,
 	isSaved: false,
-	passwordResetError: null,
+	isDeleting: false,
 };
 
 export default injectIntl( ProfileForm );

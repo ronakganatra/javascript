@@ -1,8 +1,11 @@
 import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import {
-	profileUpdateEmail, passwordResetSend, disableUser,
-	profileUpdateFirstName, updateProfile, resetSaveMessage,
+	profileUpdateEmail,
+	passwordResetSend,
+	disableUser,
+	updateProfile,
+	resetSaveMessage,
 } from "../actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
@@ -18,7 +21,6 @@ export const mapStateToProps = ( state ) => {
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
-		updatingFirstName: state.user.updatingFirstName,
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
@@ -33,9 +35,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onUpdateEmail: ( email ) => {
 			dispatch( profileUpdateEmail( email ) );
-		},
-		onUpdateFirstName: ( updatingFirstName ) => {
-			dispatch( profileUpdateFirstName( updatingFirstName ) );
 		},
 		onSaveProfile: ( profile ) => {
 			dispatch( updateProfile( profile ) );

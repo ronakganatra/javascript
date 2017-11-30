@@ -197,19 +197,6 @@ export function profileUpdateEmail( email ) {
 }
 
 /**
- * An action creator for the update first name action.
- *
- * @param {string} updatingFirstName The changing first name of the customer.
- * @returns {Object} An update first name action.
- */
-export function profileUpdateFirstName( updatingFirstName ) {
-	return {
-		type: PROFILE_UPDATE_FIRST_NAME,
-		updatingFirstName,
-	};
-}
-
-/**
  * An action creator for the profile update request action.
  *
  * @returns {Object} The profile update request action.
