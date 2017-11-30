@@ -1,6 +1,8 @@
 import { userReducer } from "./user";
 import { combineReducers } from "redux";
 import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
+import { byIdCoursesReducer, allIdsCoursesReducer, uiCoursesReducer, uiCoursesEnrollmentsReducer,
+	byIdCoursesEnrollmentsReducer, allIdsCoursesEnrollmentsReducer, uiCourseInviteModalReducer } from "./courses.js";
 import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
 import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
@@ -8,12 +10,17 @@ import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
 import { uiHelpBeaconModalReducer } from "./helpBeacon";
 import { uiSearch } from "./search.js";
+import { uiCourseInviteRequestReducer } from "./courses";
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
 	site: uiSiteReducer,
 	search: uiSearch,
 	subscriptions: uiAllSubscriptionsReducer,
+	courses: uiCoursesReducer,
+	coursesEnrollments: uiCoursesEnrollmentsReducer,
+	courseInviteModal: uiCourseInviteModalReducer,
+	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
@@ -40,9 +47,22 @@ export const entitiesOrdersReducer = combineReducers( {
 	allIds: allIdsOrdersReducer,
 } );
 
+export const entitiesCoursesReducer = combineReducers( {
+	byId: byIdCoursesReducer,
+	allIds: allIdsCoursesReducer,
+} );
+
+export const entitiesCoursesEnrollmentsReducer = combineReducers( {
+	byId: byIdCoursesEnrollmentsReducer,
+	allIds: allIdsCoursesEnrollmentsReducer,
+} );
+
+
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
+	courses: entitiesCoursesReducer,
+	coursesEnrollments: entitiesCoursesEnrollmentsReducer,
 	products: entitiesProductsReducer,
 	orders: entitiesOrdersReducer,
 } );

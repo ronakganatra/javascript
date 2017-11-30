@@ -22,7 +22,6 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
   <a
     className="fZQsms"
     href="/"
-    linkTarget="_blank"
     onClick={[Function]}
   >
     <span>
@@ -101,7 +100,6 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
   <a
     className="fZQsms"
     href="/"
-    linkTarget="_blank"
     onClick={[Function]}
   >
     <span>
