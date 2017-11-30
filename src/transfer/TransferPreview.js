@@ -58,7 +58,6 @@ export default class TransferPreview extends React.Component {
 				{ this.props.courseEnrollments.map( courseEnrollment => {
 					let isStudent = courseEnrollment.studentId === this.props.fromCustomer.id;
 					let inAcademy = this.props.academyData.course_ids.indexOf( courseEnrollment.course.sourceId.toString() ) !== -1;
-					console.log( courseEnrollment, isStudent, inAcademy );
 					return <li key={courseEnrollment.id} className={ isStudent && ! inAcademy ? "warning" : "" }>
 						<span>{ courseEnrollment.course.name } ( {courseEnrollment.status} )&nbsp;</span>
 						{ ( courseEnrollment.studentId === this.props.fromCustomer.id ) &&
