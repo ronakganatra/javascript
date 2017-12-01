@@ -12,8 +12,9 @@ export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
+export const RESET_SAVE_MESSAGE = "RESET_SAVE_MESSAGE";
+
 export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
-export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
 export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 
@@ -181,19 +182,6 @@ export function disableUser() {
 }
 
 /**
- * An action creator for the update email action.
- *
- * @param {string} email The changing email address of the customer.
- * @returns {Object} A change email action.
- */
-export function profileUpdateEmail( email ) {
-	return {
-		type: PROFILE_UPDATE_EMAIL,
-		email: email,
-	};
-}
-
-/**
  * An action creator for the profile update request action.
  *
  * @returns {Object} The profile update request action.
@@ -220,11 +208,24 @@ export function profileUpdateFailure( error ) {
 /**
  * An action creator for the profile update success action.
  *
+ * @param {Object} newProfile The profile after a successful profile update.
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess() {
+export function profileUpdateSuccess( newProfile ) {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
+		profile: newProfile,
+	};
+}
+
+/**
+ * An action creator for the reset save message action.
+ *
+ * @returns {Object} The reset save message action.
+ */
+export function resetSaveMessage() {
+	return {
+		type: RESET_SAVE_MESSAGE,
 	};
 }
 
@@ -243,7 +244,9 @@ export function updateProfile( profile ) {
 		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
-			.then( dispatch( profileUpdateSuccess() ) )
+			.then( ( response ) => {
+				dispatch( profileUpdateSuccess( response ) );
+			} )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }

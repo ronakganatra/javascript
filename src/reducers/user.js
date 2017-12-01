@@ -1,9 +1,12 @@
-import { LOGIN, LOGOUT, FETCH_USER_REQUEST, FETCH_USER_SUCCESS } from "../actions/user";
 import {
+	LOGIN,
+	LOGOUT,
+	FETCH_USER_REQUEST,
+	FETCH_USER_SUCCESS,
+	RESET_SAVE_MESSAGE,
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
 	PROFILE_UPDATE_SUCCESS,
-	PROFILE_UPDATE_EMAIL,
 	RESET_PASSWORD_REQUEST,
 	RESET_PASSWORD_FAILURE,
 	RESET_PASSWORD_SUCCESS,
@@ -29,17 +32,15 @@ const initialState = {
 	// The user ID for fetching the user.
 	userId: null,
 
-	// The email in the UI.
-	email: "",
-
 	// The userdata as retrieved from the server.
 	data: {
 		profile: {
 			username: "",
 			email: "",
+			userFirstName: "",
+			userLastName: "",
 		},
 	},
-
 	savingProfile: false,
 	saveEmailError: null,
 	profileSaved: false,
@@ -77,7 +78,6 @@ export function userDataReducer( state = initialState, action ) {
 		case FETCH_USER_SUCCESS:
 			return Object.assign( {}, state, {
 				data: action.user,
-				email: action.user.profile.email,
 				enabled: action.user.profile.enabled,
 				isFetching: false,
 			} );
@@ -86,6 +86,7 @@ export function userDataReducer( state = initialState, action ) {
 	}
 }
 
+/* eslint-disable complexity */
 /**
  *  A reducer for the email string within the user object.
  *
@@ -116,13 +117,17 @@ export function userEmailReducer( state = initialState, action ) {
 				sendPasswordReset: false,
 				profileSaved: true,
 				data: {
-					profile: Object.assign( {}, state.data.profile, { email: state.email } ),
+					profile: Object.assign( {}, state.data.profile, {
+						email: action.profile.userEmail,
+						userFirstName: action.profile.userFirstName,
+						userLastName: action.profile.userLastName,
+					} ),
 				},
 			} );
 
-		case PROFILE_UPDATE_EMAIL:
+		// Reset profileSaved when leaving the page.
+		case RESET_SAVE_MESSAGE:
 			return Object.assign( {}, state, {
-				email: action.email,
 				profileSaved: false,
 			} );
 
@@ -130,6 +135,8 @@ export function userEmailReducer( state = initialState, action ) {
 			return state;
 	}
 }
+/* eslint-enable complexity */
+
 
 /**
  * A reducer for the password reset.

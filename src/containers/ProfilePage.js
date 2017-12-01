@@ -1,12 +1,20 @@
 import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
-import { profileUpdateEmail, updateProfile, passwordResetSend, disableUser } from "../actions/user";
+import {
+	profileUpdateEmail,
+	passwordResetSend,
+	disableUser,
+	updateProfile,
+	resetSaveMessage,
+} from "../actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
 	return {
-		email: state.user.email,
+		email: state.user.data.profile.email,
+		userFirstName: state.user.data.profile.userFirstName,
+		userLastName: state.user.data.profile.userLastName,
 		image: url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
@@ -31,6 +39,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSaveProfile: ( profile ) => {
 			dispatch( updateProfile( profile ) );
 		},
+		resetSaveMessage: () => {
+			dispatch( resetSaveMessage() );
+		},
 		onDeleteProfile: ( profile ) => {
 			// eslint-disable-next-line
 			if ( window.confirm( "WARNING! This action CANNOT be undone.\n\n" +
@@ -48,16 +59,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let email = stateProps.email;
 
-	const onSaveProfile = () => {
-		dispatchProps.onSaveProfile( { email } );
-	};
-
 	const onPasswordReset = () => {
 		dispatchProps.onPasswordReset( email );
 	};
 
 	return Object.assign( {}, ownProps, stateProps, dispatchProps, {
-		onSaveProfile,
 		onPasswordReset,
 	} );
 };

@@ -4,16 +4,13 @@ import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-i
 import Paper from "./Paper";
 import { Button, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
-import validate from "validate.js";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
-import _isUndefined from "lodash/isUndefined";
 import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
-import ErrorDisplay from "../errors/ErrorDisplay";
-import { InputField } from "./InputField";
+import ProfileForm from "./account/profile/ProfileForm.js";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -108,19 +105,9 @@ const Column = styled.div`
 	}
 `;
 
-const Label = styled.label`
-	display: block;
-	margin-bottom: 0.5em;
-	font-size: 1.1em;
-`;
-
 const Paragraph = styled.p`
 	margin-bottom: 0.5em;
 	font-size: 1.1em;
-`;
-
-const TextInput = styled( InputField )`
-	background-color: ${ colors.$color_background_light };
 `;
 
 const FormMessage = styled.p`
@@ -148,10 +135,6 @@ const PasswordReset = styled.section`
 	margin: 1em 0;
 `;
 
-const SaveButton = styled( Button )`
-	margin: 1em 0;
-`;
-
 const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
@@ -174,82 +157,7 @@ class ProfilePage extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
-
-		this.validateFields = this.validateFields.bind( this );
-
-		// Validation constraints.
-		this.constraints = {
-			email: this.emailConstraints.bind( this ),
-		};
-	}
-
-	/**
-	 * Runs the fields through the validator and returns the warnings.
-	 *
-	 * @returns {Array} All validation warnings.
-	 */
-	validateFields() {
-		let warnings = validate( {
-			email: this.props.email,
-		}, this.constraints, { format: "detailed" } );
-
-		if ( _isUndefined( warnings ) ) {
-			warnings = [];
-		}
-
-		return warnings;
-	}
-
-	/**
-	 * Creates the email constraints for validation.
-	 *
-	 * @param {string} value Current email value.
-	 * @returns {Object} The constraint.
-	 */
-	emailConstraints( value ) {
-		let output = {
-			email: {
-				message: this.props.intl.formatMessage( messages.validationFormatEmail, {
-					field: "Email",
-				} ),
-			},
-		};
-
-		if ( ! value || value.length === 0 ) {
-			output = {
-				presence: {
-					message: this.props.intl.formatMessage( messages.validationRequired, {
-						field: "Email",
-					} ),
-				},
-			};
-		}
-
-		return output;
-	}
-
-	/**
-	 * Displays the warnings for the provided field.
-	 *
-	 * @param {Array} warnings The warnings that could be displayed.
-	 * @param {string} field Field to display warnings for.
-	 * @returns {ReactElement[]} List of JSXElements if warnings are found. Otherwise null.
-	 */
-	displayWarnings( warnings, field ) {
-		// Find warnings for the specified field.
-		let fieldWarnings = warnings.filter( warning => {
-			return warning.attribute === field;
-		} );
-
-		// Return nothing if we don't have any warnings.
-		if ( fieldWarnings.length === 0 ) {
-			return null;
-		}
-
-		// Display all remaining warnings.
-		return fieldWarnings.map( ( warning ) => {
-			return <ErrorDisplay error={ warning } type="warning"/>;
-		} );
+		this.handleDelete = this.handleDelete.bind( this );
 	}
 
 	/**
@@ -281,14 +189,6 @@ class ProfilePage extends React.Component {
 	announceActions() {
 		let message = "";
 
-		if ( this.isSaving() ) {
-			message = this.props.intl.formatMessage( messages.saving );
-		}
-
-		if ( this.isSaved() ) {
-			message = this.props.intl.formatMessage( messages.saved );
-		}
-
 		if ( this.isDeleting() ) {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
@@ -305,53 +205,12 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Whether we are currently saving.
-	 *
-	 * @returns {boolean} Whether we are currently saving.
-	 */
-	isSaving() {
-		return this.props.isSaving;
-	}
-
-	/**
-	 * Whether the profile was updated successfully.
-	 *
-	 * @returns {boolean} Whether the profile was saved.
-	 */
-	isSaved() {
-		return this.props.isSaved;
-	}
-
-	/**
 	 * Whether we are currently disabling the account.
 	 *
 	 * @returns {boolean} Whether we are currently disabling the account.
 	 */
 	isDeleting() {
 		return this.props.isDeleting;
-	}
-
-	/**
-	 * Returns the save email elements for the profile page.
-	 *
-	 * @returns {ReactElement} The elements for the save email.
-	 */
-	getSaveButton() {
-		let emailSavingMessage;
-
-		if ( this.isSaving() ) {
-			let message = this.props.intl.formatMessage( messages.saving );
-
-			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		return <div>
-			<SaveButton type="submit">
-				<FormattedMessage id={ messages.saveEmail.id } defaultMessage={ messages.saveEmail.defaultMessage } />
-			</SaveButton>
-			{ emailSavingMessage }
-		</div>;
 	}
 
 	/**
@@ -404,60 +263,28 @@ class ProfilePage extends React.Component {
 		</PasswordReset>;
 	}
 
+	handleDelete( event ) {
+		event.preventDefault();
+
+		this.props.onDeleteProfile();
+	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-		let warnings = this.validateFields();
-
-		let onUpdateEmail = ( event ) => {
-			this.props.onUpdateEmail( event.target.value );
-		};
-
-		let handleSubmit = ( event ) => {
-			event.preventDefault();
-
-			/*
-			 * While saving: prevent multiple submissions but don't disable the
-			 * button for better accessibility (avoid keyboard focus loss).
-			 */
-			if ( this.isSaving() ) {
-				return;
-			}
-
-			this.props.onSaveProfile();
-		};
-
-		let handleDelete = ( event ) => {
-			event.preventDefault();
-
-			this.props.onDeleteProfile();
-		};
-
 		return (
 			<div>
 				<Paper>
 					<Page>
 						<Column>
-							<form onSubmit={ handleSubmit }>
-								<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
-								<TextInput
-									id="email-address"
-									autocomplete="on"
-									name="email"
-									type="text"
-									value={ this.props.email }
-									onChange={ onUpdateEmail }/>
-								{ this.displayWarnings( warnings, "email" ) }
-								<ErrorDisplay error={ this.props.saveEmailError } />
-								{ this.getSaveButton() }
-							</form>
-
+							<ProfileForm
+								{ ...this.props }
+							/>
 							{ this.getPasswordReset() }
 						</Column>
-
 						<Column>
 							<Paragraph>
 								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
@@ -478,7 +305,7 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
-							<form onSubmit={ handleDelete }>
+							<form onSubmit={ this.handleDelete }>
 								<Paragraph>
 									<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
 								</Paragraph>
@@ -502,6 +329,8 @@ class ProfilePage extends React.Component {
 ProfilePage.propTypes = {
 	intl: intlShape.isRequired,
 	email: PropTypes.string.isRequired,
+	userFirstName: PropTypes.string,
+	userLastName: PropTypes.string,
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
@@ -518,6 +347,8 @@ ProfilePage.propTypes = {
 
 ProfilePage.defaultProps = {
 	email: "",
+	userFirstName: "",
+	userLastName: "",
 	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,
