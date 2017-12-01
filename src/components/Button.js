@@ -171,7 +171,7 @@ export const ChevronButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ chevronRight } );
 	background-position: center;
-	background-size: 32px;
+	background-size: 24px;
 	width:  48px;
 	height: 48px;
 	cursor: pointer;
@@ -290,7 +290,7 @@ export const ChevronButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ chevronRight } );
 	background-position: center;
-	background-size: 32px;
+	background-size: 24px;
 	width:  48px;
 	height: 48px;
 	cursor: pointer;

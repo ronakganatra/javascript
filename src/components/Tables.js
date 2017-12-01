@@ -27,12 +27,12 @@ export const Row = styled.li`
 	background: ${ props => props.background };
 	min-height: 100px;
 	display: flex;
-	padding: 24px 40px;
+	padding: 16px 24px;
 	align-items: ${ props => props.verticalAlign };
 	justify-content: space-between;
 
 	&:first-child {
-		margin-top: ${ props => props.hasHeaderLabels ? "60px" : "0" };
+		margin-top: ${ props => props.hasHeaderLabels ? "48px" : "0" };
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
@@ -167,7 +167,7 @@ export const ColumnMinWidth = styled( ColumnBase )`
  * smaller.
  */
 export const ColumnIcon = styled( ColumnFixedWidth )`
-	height: 60px;
+	height: 48px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		height: 48px;

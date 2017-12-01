@@ -2,7 +2,7 @@
 
 exports[`an add more licenses button should be shown when no more licenses are available 1`] = `
 <li
-  className="bsGmGL"
+  className="hVoDT"
 >
   <span
     className="fXreAk"
@@ -72,7 +72,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
 
 exports[`the sitesubscription matches the snapshot 1`] = `
 <li
-  className="bsGmGL"
+  className="hVoDT"
 >
   <span
     className="fXreAk"

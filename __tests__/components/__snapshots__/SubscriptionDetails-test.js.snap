@@ -6,7 +6,7 @@ exports[`the subscription detail component has no next billing 1`] = `
   role="list"
 >
   <li
-    className="dHDlPW"
+    className="gIbGvK"
   >
     <span
       className="fRQKF"
@@ -22,7 +22,7 @@ exports[`the subscription detail component has no next billing 1`] = `
     </span>
   </li>
   <li
-    className="hmtxnw"
+    className="hUNZzs"
   >
     <span
       className="fRQKF"
@@ -44,7 +44,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
   role="list"
 >
   <li
-    className="dHDlPW"
+    className="gIbGvK"
   >
     <span
       className="fRQKF"
@@ -60,7 +60,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
     </span>
   </li>
   <li
-    className="hmtxnw"
+    className="hUNZzs"
   >
     <span
       className="fRQKF"
