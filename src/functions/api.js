@@ -55,7 +55,7 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
 	};
 
 	if ( method !== "GET" && method !== "HEAD" ) {
-		options.body = preparePayload(method, payload);
+		options.body = preparePayload( method, payload );
 	}
 
 	options = Object.assign( {}, options, additionalOptions );
