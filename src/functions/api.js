@@ -27,10 +27,6 @@ function determineValidMethod( method ) {
  * @returns {Object} null, a FormData object, or a stringified object.
  */
 function preparePayload( method, payload ) {
-	if ( method === "GET" || method === "HEAD" ) {
-		return null;
-	}
-
 	if ( payload instanceof FormData ) {
 		return payload;
 	}
@@ -58,7 +54,9 @@ export function prepareRequest( url, method = "GET", payload = {}, additionalOpt
 		headers: { "Content-Type": "application/json" },
 	};
 
-	options.body = preparePayload( method, payload );
+	if ( method !== "GET" && method !== "HEAD" ) {
+		options.body = preparePayload( method, payload );
+	}
 
 	options = Object.assign( {}, options, additionalOptions );
 
