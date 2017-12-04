@@ -1,6 +1,8 @@
 import { zeroPad } from "./helpers";
 
 function currencyString( value ) {
+	let negative = value < 0;
+	value = Math.abs( value );
 	let cents = zeroPad( value % 100 );
 	let rest  = Math.floor( value / 100 );
 	let amounts = [];
@@ -11,7 +13,7 @@ function currencyString( value ) {
 	}
 	amounts.unshift( rest );
 
-	return amounts.join( "." ) + "," + cents;
+	return ( negative ? "-" : "" ) + amounts.join( "." ) + "," + cents;
 }
 
 /**

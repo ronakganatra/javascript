@@ -9,9 +9,9 @@ export default class Navigation extends React.Component {
 		return (
 			<nav>
 				<Link to={ { pathname: path( "/search" ), state: TransferState } }>Search</Link>
-				<Link to={ { pathname: path( "/transfer" ), state: SearchState } }>Transfer</Link>
-				<Link to={ { pathname: path( "/refund" ), state: {} } }>Refund</Link>
-				<Link to={ { pathname: path( "/finance" ), state: {} } }>Finance</Link>
+				{ this.props.accessibleByRoles( [ 'support' ] ) && <Link to={ { pathname: path( "/transfer" ), state: SearchState } }>Transfer</Link> }
+				{ this.props.accessibleByRoles( [ 'support' ] ) && <Link to={ { pathname: path( "/refund" ), state: {} } }>Refund</Link> }
+				{ this.props.accessibleByRoles( [ 'finance' ] ) && <Link to={ { pathname: path( "/finance" ), state: {} } }>Finance</Link> }
 			</nav>
 		)
 	}

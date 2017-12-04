@@ -14,6 +14,7 @@ export default class Api {
 
 		this.accessToken       = accessToken;
 		this.userId            = null;
+		this.userRoles         = null;
 		this.wooAccessToken    = null;
 		this.updateAccessToken = updateAccessToken;
 
@@ -162,6 +163,23 @@ export default class Api {
 				this.userId = response.id;
 				return Promise.resolve( this.userId );
 			} );
+	}
+
+	getUserRoles() {
+		if ( this.userRoles !== null ) {
+			return Promise.resolve( this.userRoles );
+		}
+
+		return this.getCurrentUser().then( id => {
+			let url = this.host + `/api/Customers/${ id }/roles?access_token=${ this.accessToken }`;
+
+			return fetch( url, { method: "GET" } )
+		} ).then(
+			this.handleJSONReponse
+		).then( roles => {
+			this.userRoles = roles.map( role => role.name );
+			return Promise.resolve( this.userRoles );
+		} )
 	}
 
 	getWooAccessToken() {

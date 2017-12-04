@@ -1,78 +1,81 @@
 import React from "react";
 import Loader from "../shared/Loader";
 import moment from "moment-timezone";
-import _sumBy from "lodash/sumBy";
 import _times from "lodash/times";
-import crypto from "crypto";
-import {dollarPresenter} from "../functions/presenters";
+import { dollarPresenter } from "../functions/presenters";
+import FinanceStatistic from "./FinanceStatistic";
 
-export default class HourDashboard extends React.Component {
+export default class HourlyDashboard extends React.Component {
+	untilNowCondition( item ) {
+		return moment( item.date ).tz( "Europe/Amsterdam" ).hour() <= this.currentHour;
+	}
+
 	constructor( props ) {
 		super( props );
 
 		this.state = {
-			password: window.localStorage.getItem( "yoast-finance-password" ),
 			hourlyStatistics: {},
 			loaded: false
 		};
 
-		this.handlePasswordChange = this.handlePasswordChange.bind( this );
+		this.untilNowCondition = this.untilNowCondition.bind( this );
 
-		this.getOrders();
+		this.hourlyStatistic = new FinanceStatistic( {
+			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D-H" ),
+			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D-H" ),
+			orderCollectors: {
+				revenue:    FinanceStatistic.getOrderRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+			refundCollectors: {
+				revenue:    FinanceStatistic.getRefundRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+		} );
+		this.dailyStatistic = new FinanceStatistic( {
+			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
+			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
+			orderCollectors: {
+				revenue:    FinanceStatistic.getOrderRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+			refundCollectors: {
+				revenue:    FinanceStatistic.getRefundRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+		} );
+		this.untilNowStatistic = new FinanceStatistic( {
+			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
+			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
+			orderCollectors: {
+				revenue:    FinanceStatistic.getOrderRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+			orderCondition: this.untilNowCondition,
+			refundCollectors: {
+				revenue:    FinanceStatistic.getRefundRevenue,
+				orderTotal: FinanceStatistic.transactionsCount,
+			},
+			refundCondition: this.untilNowCondition,
+		} );
+		this.currentHour = moment().tz( "Europe/Amsterdam" ).hour();
+
+		this.getStatistics();
 	}
 
-	getOrders() {
+	getStatistics() {
 		let twoWeeksAgo = moment().startOf( "day" ).subtract( 2, "weeks" ).toDate();
-		let currentHour = moment().hour();
 
 		Promise.all( [
 			this.props.api.search( "Orders", { where: { date: { gt: twoWeeksAgo }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
 			this.props.api.search( "Refunds", { where: { date: { gt: twoWeeksAgo } }, include: [ "refundLineItems" ] } )
 		] ).then( ( [ orders, refunds ] ) => {
-				let hourlyStatistics = {};
-				let dailyStatistics = {};
-				let untilNowStatistics = {};
-
-				for ( let i = 0; i < orders.length; i++ ) {
-					let order = orders[ i ];
-					let date = moment( order.date ).tz( "Europe/Amsterdam" );
-					let hour = date.format( "Y-M-D H:00" );
-					let day = date.format( "Y-M-D" );
-					let revenue = order.subtotalAmount - order.discountTotal;
-
-					hourlyStatistics = HourDashboard.collectStatistics( hourlyStatistics, hour, revenue );
-					dailyStatistics = HourDashboard.collectStatistics( dailyStatistics, day, revenue );
-
-					if ( date.hour() <= currentHour ) {
-						untilNowStatistics = HourDashboard.collectStatistics( untilNowStatistics, day, revenue );
-					}
-				}
-
-				for ( let i = 0; i < refunds.length; i++ ) {
-					let refund = refunds[ i ];
-					let date = moment( refund.date ).tz( "Europe/Amsterdam" );
-					let hour = date.format( "Y-M-D H:00" );
-					let day = date.format( "Y-M-D" );
-					let revenue = _sumBy( refund.refundLineItems, "subtotalAmount" ) * -1;
-
-					hourlyStatistics = HourDashboard.collectStatistics( hourlyStatistics, hour, revenue );
-					dailyStatistics = HourDashboard.collectStatistics( dailyStatistics, day, revenue );
-
-					if ( date.hour() <= currentHour ) {
-						untilNowStatistics = HourDashboard.collectStatistics( untilNowStatistics, day, revenue );
-					}
-				}
+				let hourlyStatistics = this.hourlyStatistic.collect( orders, refunds );
+				let dailyStatistics = this.dailyStatistic.collect( orders, refunds );
+				let untilNowStatistics = this.untilNowStatistic.collect( orders, refunds );
 
 				this.setState( { hourlyStatistics, dailyStatistics, untilNowStatistics, loaded: true } );
 			} );
-	}
-
-	static collectStatistics( statistics, key, revenue ) {
-		statistics[ key ] = statistics[ key ] || { revenue: 0, orderTotal: 0 };
-		statistics[ key ].orderTotal += 1;
-		statistics[ key ].revenue += revenue;
-
-		return statistics;
 	}
 
 	getHourlyStatistic( date, hour ) {
@@ -96,18 +99,7 @@ export default class HourDashboard extends React.Component {
 		);
 	}
 
-	handlePasswordChange( event ) {
-		let password = event.target.value;
-
-		window.localStorage.setItem( "yoast-finance-password", password );
-		this.setState( { password } );
-	}
-
 	render() {
-		if ( this.state.password === null || crypto.createHash( "sha256" ).update( this.state.password ).digest().toString( "hex" ) !== "4fda9df9de63c96b3973f20e6446f4e4327cdbf0ace08fe51db483abbd20bfc6" ) {
-			return <form><label>Password: <input className="widest" onChange={ this.handlePasswordChange } /></label></form>;
-		}
-
 		if ( ! this.state.loaded ) {
 			return <Loader />;
 		}
@@ -116,7 +108,6 @@ export default class HourDashboard extends React.Component {
 		let yesterday = today.clone().subtract( 1 , "day" );
 		let lastWeek = today.clone().subtract( 1, "week" );
 		let twoWeeksAgo = today.clone().subtract( 2, "weeks" );
-		let currenHour = moment().hour();
 
 		return (
 			<table className="FinanceDashboard">
@@ -132,7 +123,7 @@ export default class HourDashboard extends React.Component {
 				<tbody>
 					{ _times( 24, i => {
 						return (
-							<tr key={ i } className={ i === currenHour ? "now" : "" }>
+							<tr key={ i } className={ i === this.currentHour ? "now" : "" }>
 								<td>{ i }</td>
 								<td>{ dollarPresenter( this.getHourlyStatistic( today, i ).revenue ) }</td>
 								<td>{ this.getHourlyStatistic( today, i ).orderTotal }</td>
