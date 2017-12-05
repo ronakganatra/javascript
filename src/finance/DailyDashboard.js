@@ -3,6 +3,7 @@ import moment from "moment-timezone";
 import Loader from "../shared/Loader";
 import FinanceStatistic from "./FinanceStatistic";
 import { dollarPresenter } from "../functions/presenters";
+import { table } from "../functions/table";
 
 export default class DailyDashboard extends React.Component {
 	constructor( props ) {
@@ -14,6 +15,15 @@ export default class DailyDashboard extends React.Component {
 			totalStatistics: null,
 		};
 
+		this.setDailyStatistic();
+		this.setTotalStatistic();
+
+		this.startDate = moment().tz( "Europe/Amsterdam" ).subtract( 5, "days" ).startOf( "month" );
+
+		this.getStatistics();
+	}
+
+	setDailyStatistic() {
 		this.dailyStatistic = new FinanceStatistic( {
 			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
@@ -26,6 +36,9 @@ export default class DailyDashboard extends React.Component {
 				refundTotal:   FinanceStatistic.transactionsCount,
 			},
 		} );
+	}
+
+	setTotalStatistic() {
 		this.totalStatistic = new FinanceStatistic( {
 			orderGroupBy: FinanceStatistic.totalGroup,
 			refundGroupBy: FinanceStatistic.totalGroup,
@@ -39,9 +52,6 @@ export default class DailyDashboard extends React.Component {
 			},
 		} );
 
-		this.startDate = moment().tz( "Europe/Amsterdam" ).subtract( 5, "days" ).startOf( "month" );
-
-		this.getStatistics();
 	}
 
 	getStatistics() {
@@ -65,6 +75,26 @@ export default class DailyDashboard extends React.Component {
 		);
 	}
 
+	getDailyRow( date ) {
+		return [
+			date.format( "ddd, MMM DD, YYYY" ),
+			dollarPresenter( this.getDailyStatistic( date ).orderRevenue ) ,
+			this.getDailyStatistic( date ).orderTotal,
+			{ className: 'negative', content: dollarPresenter( this.getDailyStatistic( date ).refundRevenue ) },
+			{ className: 'negative', content: this.getDailyStatistic( date ).refundTotal },
+		];
+	}
+
+	getTotalRow() {
+		return [
+			'Total',
+			dollarPresenter( this.state.totalStatistics.total.orderRevenue ),
+			this.state.totalStatistics.total.orderTotal,
+			{ className: 'negative', content: dollarPresenter( this.state.totalStatistics.total.refundRevenue ) },
+			{ className: 'negative', content: this.state.totalStatistics.total.refundTotal },
+		];
+	}
+
 	render() {
 		if ( ! this.state.loaded ) {
 			return <Loader />;
@@ -75,41 +105,11 @@ export default class DailyDashboard extends React.Component {
 		let rows  = [];
 
 		while ( date.isBefore( today ) ) {
-			rows.push(
-				<tr key={ date.format("Y-M-D") }>
-					<td>{ date.format( "ddd, MMM DD, YYYY" ) }</td>
-					<td>{ dollarPresenter( this.getDailyStatistic( date ).orderRevenue ) }</td>
-					<td>{ this.getDailyStatistic( date ).orderTotal }</td>
-					<td className="negative">{ dollarPresenter( this.getDailyStatistic( date ).refundRevenue ) }</td>
-					<td className="negative">{ this.getDailyStatistic( date ).refundTotal }</td>
-				</tr>
-			);
-
+			rows.push( this.getDailyRow( date ) );
 			date = date.add( 1, "day" );
 		}
+		rows.push( this.getTotalRow() );
 
-		return (
-			<table className="FinanceDashboard">
-				<thead>
-				<tr>
-					<th>Day</th>
-					<th>Turnover</th>
-					<th>Transactions</th>
-					<th>Refunded</th>
-					<th>Refunds</th>
-				</tr>
-				</thead>
-				<tbody>
-					{ rows }
-					<tr key="total">
-						<td>{ dollarPresenter( -1 ) }</td>
-						<td>{ dollarPresenter( this.state.totalStatistics.total.orderRevenue ) }</td>
-						<td>{ this.state.totalStatistics.total.orderTotal }</td>
-						<td className="negative">{ dollarPresenter( this.state.totalStatistics.total.refundRevenue ) }</td>
-						<td className="negative">{ this.state.totalStatistics.total.refundTotal }</td>
-					</tr>
-				</tbody>
-			</table>
-		)
+		return table( [ "Day", "Turnover", "Transactions", "Refunded", "Refunds" ], rows, { className: "FinanceDashboard" } );
 	}
 }

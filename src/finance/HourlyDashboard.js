@@ -1,7 +1,7 @@
 import React from "react";
 import Loader from "../shared/Loader";
 import moment from "moment-timezone";
-import _times from "lodash/times";
+import { table } from "../functions/table";
 import { dollarPresenter } from "../functions/presenters";
 import FinanceStatistic from "./FinanceStatistic";
 
@@ -20,6 +20,16 @@ export default class HourlyDashboard extends React.Component {
 
 		this.untilNowCondition = this.untilNowCondition.bind( this );
 
+		this.setHourlyStatistic();
+		this.setUntilNowStatistic();
+		this.setDailyStatistic();
+
+		this.currentHour = moment().tz( "Europe/Amsterdam" ).hour();
+
+		this.getStatistics();
+	}
+
+	setHourlyStatistic() {
 		this.hourlyStatistic = new FinanceStatistic( {
 			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D-H" ),
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D-H" ),
@@ -32,6 +42,9 @@ export default class HourlyDashboard extends React.Component {
 				orderTotal: FinanceStatistic.transactionsCount,
 			},
 		} );
+	}
+
+	setDailyStatistic() {
 		this.dailyStatistic = new FinanceStatistic( {
 			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
@@ -44,6 +57,9 @@ export default class HourlyDashboard extends React.Component {
 				orderTotal: FinanceStatistic.transactionsCount,
 			},
 		} );
+	}
+
+	setUntilNowStatistic() {
 		this.untilNowStatistic = new FinanceStatistic( {
 			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
@@ -58,9 +74,6 @@ export default class HourlyDashboard extends React.Component {
 			},
 			refundCondition: this.untilNowCondition,
 		} );
-		this.currentHour = moment().tz( "Europe/Amsterdam" ).hour();
-
-		this.getStatistics();
 	}
 
 	getStatistics() {
@@ -99,67 +112,70 @@ export default class HourlyDashboard extends React.Component {
 		);
 	}
 
+	getHourlyRow( dates, hour ) {
+		let row = [ hour ];
+
+		for ( let i = 0; i < dates.length; i ++ ) {
+			let date = dates[ i ];
+			row.push( dollarPresenter( this.getHourlyStatistic( date, hour ).revenue ) );
+			row.push( this.getHourlyStatistic( date, hour ).orderTotal );
+		}
+
+		if ( hour === this.currentHour ) {
+			return { className: "now", content: row };
+		}
+
+		return row;
+	}
+
+	getUntilNowRow( dates ) {
+		let row = [ "Total" ];
+
+		for ( let i = 0; i < dates.length; i ++ ) {
+			let date = dates[ i ];
+			row.push( dollarPresenter( this.getUntilNowStatistic( date ).revenue ) );
+			row.push( this.getUntilNowStatistic( date ).orderTotal );
+		}
+
+		return { className: "now", content: row };
+	}
+
+	getTotalRow( dates ) {
+		let row = [ "Total" ];
+
+		for ( let i = 0; i < dates.length; i ++ ) {
+			let date = dates[ i ];
+			row.push( dollarPresenter( this.getDailyStatistic( date ).revenue ) );
+			row.push( this.getDailyStatistic( date ).orderTotal );
+		}
+
+		return row;
+	}
+
 	render() {
 		if ( ! this.state.loaded ) {
 			return <Loader />;
 		}
 
 		let today = moment().startOf( "day" );
-		let yesterday = today.clone().subtract( 1 , "day" );
-		let lastWeek = today.clone().subtract( 1, "week" );
-		let twoWeeksAgo = today.clone().subtract( 2, "weeks" );
+		let dates = [
+			today,
+			today.clone().subtract( 1 , "day" ),
+			today.clone().subtract( 1, "week" ),
+			today.clone().subtract( 2, "weeks" )
+		];
+		let rows = [];
 
-		return (
-			<table className="FinanceDashboard">
-				<thead>
-					<tr>
-						<th>Hour</th>
-						<th colSpan="2">Today</th>
-						<th colSpan="2">Yesterday</th>
-						<th colSpan="2">Last week</th>
-						<th colSpan="2">Two weeks ago</th>
-					</tr>
-				</thead>
-				<tbody>
-					{ _times( 24, i => {
-						return (
-							<tr key={ i } className={ i === this.currentHour ? "now" : "" }>
-								<td>{ i }</td>
-								<td>{ dollarPresenter( this.getHourlyStatistic( today, i ).revenue ) }</td>
-								<td>{ this.getHourlyStatistic( today, i ).orderTotal }</td>
-								<td>{ dollarPresenter( this.getHourlyStatistic( yesterday, i ).revenue ) }</td>
-								<td>{ this.getHourlyStatistic( yesterday, i ).orderTotal }</td>
-								<td>{ dollarPresenter( this.getHourlyStatistic( lastWeek, i ).revenue ) }</td>
-								<td>{ this.getHourlyStatistic( lastWeek, i ).orderTotal }</td>
-								<td>{ dollarPresenter( this.getHourlyStatistic( twoWeeksAgo, i ).revenue ) }</td>
-								<td>{ this.getHourlyStatistic( twoWeeksAgo, i ).orderTotal }</td>
-							</tr>
-						);
-					} ) }
-					<tr key="untilNow" className="now">
-						<td>Total</td>
-						<td>{ dollarPresenter( this.getUntilNowStatistic( today ).revenue ) }</td>
-						<td>{ this.getUntilNowStatistic( today ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getUntilNowStatistic( yesterday ).revenue ) }</td>
-						<td>{ this.getUntilNowStatistic( yesterday ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getUntilNowStatistic( lastWeek ).revenue ) }</td>
-						<td>{ this.getUntilNowStatistic( lastWeek ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getUntilNowStatistic( twoWeeksAgo ).revenue ) }</td>
-						<td>{ this.getUntilNowStatistic( twoWeeksAgo ).orderTotal }</td>
-					</tr>
-					<tr key="day">
-						<td>Total</td>
-						<td>{ dollarPresenter( this.getDailyStatistic( today ).revenue ) }</td>
-						<td>{ this.getDailyStatistic( today ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getDailyStatistic( yesterday ).revenue ) }</td>
-						<td>{ this.getDailyStatistic( yesterday ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getDailyStatistic( lastWeek ).revenue ) }</td>
-						<td>{ this.getDailyStatistic( lastWeek ).orderTotal }</td>
-						<td>{ dollarPresenter( this.getDailyStatistic( twoWeeksAgo ).revenue ) }</td>
-						<td>{ this.getDailyStatistic( twoWeeksAgo ).orderTotal }</td>
-					</tr>
-				</tbody>
-			</table>
-		)
+		for( let i = 0; i < 24; i++ ) {
+			rows.push( this.getHourlyRow( dates, i ) );
+		}
+		rows.push( this.getUntilNowRow( dates ) );
+		rows.push( this.getTotalRow( dates ) );
+
+		return table(
+			[ "Hour", { colSpan: 2, content: "Today" }, { colSpan: 2, content: "Yesterday" }, { colSpan: 2, content: "Last week" }, { colSpan: 2, content: "Two weeks ago" } ],
+			rows,
+			{ className: "FinanceDashboard" }
+		);
 	}
 }
