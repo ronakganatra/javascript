@@ -29,7 +29,7 @@ const ButtonArchetype = styled.button`
 	margin: 0;
 	// Buttons don't need vertical padding.
 	padding: 0 16px;
-	border: 0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
