@@ -34,7 +34,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       className="bQLojW"
     >
       <button
-        className="gYFJLW"
+        className="hZduuu"
         onClick={[Function]}
         type="button"
       >
@@ -44,7 +44,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         aria-label="add"
-        className="ejHzsB"
+        className="gDCjcJ"
         type="submit"
       >
         <span>
