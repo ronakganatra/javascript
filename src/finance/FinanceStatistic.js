@@ -105,10 +105,8 @@ export default class FinanceStatistic {
 		for ( let i = 0; i < collection.length; i++ ) {
 			let item  = collection[ i ];
 
-			if ( _isFunction( condition ) ) {
-				if ( ! condition( item ) ) {
-					continue;
-				}
+			if ( _isFunction( condition ) && ! condition( item ) ) {
+				continue;
 			}
 
 			let group = groupBy( item );
