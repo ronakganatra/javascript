@@ -65,11 +65,15 @@ const Main = styled.main`
 	min-width: 0;
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 4% 4% 0 4%;
-		padding: 40px 0 100px 0;
+		margin: 48px 4% 0 4%;
+		padding: 24px 0 100px 0;
 		position: relative;
 		z-index: 0;
 	}
+`;
+
+const SingleMain = styled( Main )`
+	margin: 48px 2% 0 2%;
 `;
 
 const Content = styled.div`
@@ -97,12 +101,12 @@ export const inSingleLayout = ( WrappedComponent ) => {
 					<header role="banner">
 						<MobileHeaderContainer/>
 					</header>
-					<Main>
+					<SingleMain>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>
-					</Main>
+					</SingleMain>
 				</Layout>
 			);
 		}

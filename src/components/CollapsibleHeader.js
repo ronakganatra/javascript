@@ -6,7 +6,7 @@ import { SVGIcon } from "./SVGIcon";
 import defaults from "../config/defaults.json";
 
 const CollapsibleHeaderContainer = styled.div`
-	margin-top: 20px;
+	margin-top: 24px;
 	background-color: ${ colors.$color_white };
 `;
 
