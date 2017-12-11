@@ -9,10 +9,10 @@ exports[`the sites component matches the snapshot 1`] = `
     role="list"
   >
     <li
-      className="lkpwtF"
+      className="efVmJq"
     >
       <span
-        className="jNxQvi"
+        className="hCewQe"
       >
         <img
           alt=""
@@ -56,10 +56,10 @@ exports[`the sites component matches the snapshot 1`] = `
       />
     </li>
     <li
-      className="gmTagR"
+      className="jUIuvZ"
     >
       <span
-        className="jNxQvi"
+        className="hCewQe"
       >
         <img
           alt=""
@@ -103,10 +103,10 @@ exports[`the sites component matches the snapshot 1`] = `
       />
     </li>
     <li
-      className="lkpwtF"
+      className="efVmJq"
     >
       <span
-        className="jNxQvi"
+        className="hCewQe"
       >
         <img
           alt=""

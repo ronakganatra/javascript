@@ -53,10 +53,10 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
       role="list"
     >
       <li
-        className="lkpwtF"
+        className="efVmJq"
       >
         <span
-          className="jNxQvi"
+          className="hCewQe"
         >
           <img
             alt=""
@@ -196,10 +196,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
       role="list"
     >
       <li
-        className="lkpwtF"
+        className="efVmJq"
       >
         <span
-          className="jNxQvi"
+          className="hCewQe"
         >
           <img
             alt=""
@@ -301,10 +301,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
       role="list"
     >
       <li
-        className="lkpwtF"
+        className="efVmJq"
       >
         <span
-          className="jNxQvi"
+          className="hCewQe"
         >
           <img
             alt=""
