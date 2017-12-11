@@ -111,7 +111,7 @@ export default class FinanceStatistic {
 
 			let group = groupBy( item );
 
-			statistics[ group ] = FinanceStatistic.collectFromItem( statistics[ group ], item, group, collectors );
+			statistics[ group ] = FinanceStatistic.collectFromItem( statistics[ group ], item, collectors );
 		}
 
 		return statistics;

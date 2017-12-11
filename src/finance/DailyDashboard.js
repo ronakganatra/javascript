@@ -4,6 +4,7 @@ import Loader from "../shared/Loader";
 import FinanceStatistic from "./FinanceStatistic";
 import { dollarPresenter } from "../functions/presenters";
 import { table } from "../functions/table";
+import _merge from "lodash/merge";
 
 export default class DailyDashboard extends React.Component {
 	constructor( props ) {
@@ -69,9 +70,9 @@ export default class DailyDashboard extends React.Component {
 	}
 
 	getDailyStatistic( date ) {
-		return (
-			this.state.dailyStatistics[ date.format( "Y-M-D" ) ] ||
-			{ orderRevenue: 0, orderTotal: 0, refundRevenue: 0, refundTotal: 0 }
+		return _merge(
+			{ orderRevenue: 0, orderTotal: 0, refundRevenue: 0, refundTotal: 0 },
+			this.state.dailyStatistics[ date.format( "Y-M-D" ) ]
 		);
 	}
 
@@ -88,10 +89,10 @@ export default class DailyDashboard extends React.Component {
 	getTotalRow() {
 		return [
 			'Total',
-			dollarPresenter( this.state.totalStatistics.total.orderRevenue ),
-			this.state.totalStatistics.total.orderTotal,
-			{ className: 'negative', content: dollarPresenter( this.state.totalStatistics.total.refundRevenue ) },
-			{ className: 'negative', content: this.state.totalStatistics.total.refundTotal },
+			dollarPresenter( this.state.totalStatistics.total.orderRevenue || 0 ),
+			this.state.totalStatistics.total.orderTotal || 0,
+			{ className: 'negative', content: dollarPresenter( this.state.totalStatistics.total.refundRevenue || 0 ) },
+			{ className: 'negative', content: this.state.totalStatistics.total.refundTotal || 0 },
 		];
 	}
 
