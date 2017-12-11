@@ -5,7 +5,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={true}
@@ -89,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="evHvHG"
+            className="dYezNC"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -152,7 +152,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <button
-            className="bAAMCW"
+            className="iIaFJD"
             onClick={[Function]}
           >
             <span>
@@ -164,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="evHvHG"
+            className="dYezNC"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >

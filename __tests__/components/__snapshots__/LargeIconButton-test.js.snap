@@ -2,7 +2,7 @@
 
 exports[`the round add button matches the snapshot 1`] = `
 <button
-  className="rLYQo"
+  className="dqjZWs"
   onClick={[Function]}
 >
   ButtonValue
@@ -11,7 +11,7 @@ exports[`the round add button matches the snapshot 1`] = `
 
 exports[`the round add button with button type given matches the snapshot 1`] = `
 <button
-  className="rLYQo"
+  className="dqjZWs"
   onClick={[Function]}
   type="button"
 >

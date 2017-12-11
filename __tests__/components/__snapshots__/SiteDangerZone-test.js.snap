@@ -5,7 +5,7 @@ exports[`the site dangerzone matches the snapshot 1`] = `
   className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={false}
@@ -37,7 +37,7 @@ exports[`the site dangerzone onRemove handling 1`] = `
   className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={false}
@@ -69,7 +69,7 @@ exports[`the site dangerzone onRemove handling 2`] = `
   className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={false}
@@ -101,7 +101,7 @@ exports[`the site dangerzone with removing = true matches the snapshot 1`] = `
   className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={false}

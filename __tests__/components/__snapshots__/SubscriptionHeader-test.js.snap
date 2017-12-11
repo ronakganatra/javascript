@@ -8,7 +8,7 @@ exports[`the subscription header matches the snapshot 1`] = `
     className="jlVeDb"
   >
     <a
-      className="gvKVhn"
+      className="cRxLRn"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"
@@ -38,7 +38,7 @@ exports[`the subscription header matches the snapshot 1`] = `
     className="czrsFh"
   >
     <a
-      className="fidrmo"
+      className="jbWEvQ"
       enabledStyle={true}
       href="/account/subscriptions"
       iconSize="24px"

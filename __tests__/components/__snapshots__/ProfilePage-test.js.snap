@@ -80,7 +80,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -106,7 +106,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -151,7 +151,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -280,7 +280,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </div>
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -306,7 +306,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -347,7 +347,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -455,7 +455,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -481,7 +481,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -527,7 +527,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -635,7 +635,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -666,7 +666,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -707,7 +707,7 @@ exports[`components/ProfilePage saving profile 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -815,7 +815,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -841,7 +841,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -887,7 +887,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -995,7 +995,7 @@ exports[`components/ProfilePage the default case 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -1021,7 +1021,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -1067,7 +1067,7 @@ exports[`components/ProfilePage the default case 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -1175,7 +1175,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             />
             <div>
               <button
-                className="ihJcQJ"
+                className="bMEzo"
                 type="submit"
               >
                 <span>
@@ -1201,7 +1201,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="hMQfcg"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -1242,7 +1242,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}

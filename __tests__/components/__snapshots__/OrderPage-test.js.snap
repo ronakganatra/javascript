@@ -96,7 +96,7 @@ exports[`The Orders component matches the snapshot 1`] = `
         >
           <a
             aria-label="Download invoice"
-            className="hAeoM"
+            className="icYxat"
             href="http://somelink"
             rel="noopener noreferrer"
             target="_blank"
