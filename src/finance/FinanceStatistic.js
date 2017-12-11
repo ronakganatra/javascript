@@ -53,6 +53,9 @@ export default class FinanceStatistic {
 	 * @returns {number} The revenue of the given refund.
 	 */
 	static getRefundRevenue( refund ) {
+		if ( refund.refundLineItems.length === 0 && refund.order ) {
+			return ( refund.order.subtotalAmount - refund.order.discountTotal ) * -1;
+		}
 		return _sumBy( refund.refundLineItems, "subtotalAmount" ) * -1;
 	}
 

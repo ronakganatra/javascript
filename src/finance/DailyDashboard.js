@@ -60,7 +60,7 @@ export default class DailyDashboard extends React.Component {
 
 		Promise.all( [
 			this.props.api.search( "Orders", { where: { date: { gt: startDate }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
-			this.props.api.search( "Refunds", { where: { date: { gt: startDate } }, include: [ "refundLineItems" ] } )
+			this.props.api.search( "Refunds", { where: { date: { gt: startDate } }, include: [ "refundLineItems", "order" ] } )
 		] ).then( ( [ orders, refunds ] ) => {
 			let dailyStatistics = this.dailyStatistic.collect( orders, refunds );
 			let totalStatistics = this.totalStatistic.collect( orders, refunds );

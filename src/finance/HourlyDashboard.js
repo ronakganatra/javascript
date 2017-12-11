@@ -81,7 +81,7 @@ export default class HourlyDashboard extends React.Component {
 
 		Promise.all( [
 			this.props.api.search( "Orders", { where: { date: { gt: twoWeeksAgo }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
-			this.props.api.search( "Refunds", { where: { date: { gt: twoWeeksAgo } }, include: [ "refundLineItems" ] } )
+			this.props.api.search( "Refunds", { where: { date: { gt: twoWeeksAgo } }, include: [ "refundLineItems", "order" ] } )
 		] ).then( ( [ orders, refunds ] ) => {
 				let hourlyStatistics = this.hourlyStatistic.collect( orders, refunds );
 				let dailyStatistics = this.dailyStatistic.collect( orders, refunds );
@@ -93,7 +93,7 @@ export default class HourlyDashboard extends React.Component {
 
 	getHourlyStatistic( date, hour ) {
 		return (
-			this.state.hourlyStatistics[ date.clone().hour( hour ).format( "Y-M-D H:00" ) ] ||
+			this.state.hourlyStatistics[ date.clone().hour( hour ).format( "Y-M-D-H" ) ] ||
 			{ revenue: 0, orderTotal: 0 }
 		);
 	}
