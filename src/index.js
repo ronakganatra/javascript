@@ -15,8 +15,6 @@ import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
 
-addLocaleData( en );
-
 let history = createHistory();
 
 const loggerMiddleware = createLogger();
@@ -36,6 +34,8 @@ export const store = createStore(
  * @returns {void}
  */
 function app() {
+	addLocaleData( en );
+
 	if ( hasCookieParams() ) {
 		setCookieFromParams();
 	}
@@ -57,5 +57,16 @@ function app() {
 if ( shouldBeRedirected() ) {
 	directToIntendedDestination();
 } else {
-	app();
+	if ( global.Intl ) {
+		app();
+	} else {
+		require.ensure(
+			[ "intl", "intl/locale-data/jsonp/en.js" ],
+			require => {
+				require( "intl" );
+				require( "intl/locale-data/jsonp/en.js" );
+				app();
+			}
+		);
+	}
 }
