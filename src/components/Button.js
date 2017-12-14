@@ -223,6 +223,7 @@ export const CloseButtonTopRight = styled( IconButtonArchetype )`
 	padding-left: 0px;
 	height: 32px;
 	width: 32px;
+	border-bottom: none;
 	box-shadow: none;
 	display: inline-block;
 	background-image: url( ${ closeCross } );
