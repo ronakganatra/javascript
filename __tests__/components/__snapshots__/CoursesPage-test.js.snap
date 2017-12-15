@@ -7,11 +7,11 @@ exports[`The courses page component matches the snapshot 1`] = `
     role="list"
   >
     <li
-      className="isgbHI"
+      className="iUHhtG"
     >
       <a
         aria-current={false}
-        className="jUdSwI"
+        className="iXGvEz"
         href="/courses/progress"
         onClick={[Function]}
         style={undefined}
@@ -22,11 +22,11 @@ exports[`The courses page component matches the snapshot 1`] = `
       </a>
     </li>
     <li
-      className="isgbHI"
+      className="iUHhtG"
     >
       <a
         aria-current={false}
-        className="jUdSwI"
+        className="iXGvEz"
         href="/courses/enrollments"
         onClick={[Function]}
         style={undefined}
@@ -54,7 +54,7 @@ exports[`the courses page component matches the snapshot 1`] = `
   <p>
     <a
       aria-label={undefined}
-      className="dQHIsN"
+      className="fuzoSS"
       href="https://yoa.st/myyoast-academy"
       rel="noopener noreferrer"
       target="_blank"

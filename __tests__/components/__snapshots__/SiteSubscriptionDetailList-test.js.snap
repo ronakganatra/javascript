@@ -2,10 +2,10 @@
 
 exports[`the site subscription detail list component matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
+  className="ittEMS"
 >
   <div
-    className="cxrbkq"
+    className="czfHmS"
   >
     <button
       aria-expanded={true}
@@ -33,7 +33,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
       role="list"
     >
       <li
-        className="hbyjol"
+        className="cLjpSp"
       >
         <span
           className="fXreAk"
@@ -89,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="okbRP"
+            className="dYezNC"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -100,7 +100,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         </span>
       </li>
       <li
-        className="bsGmGL"
+        className="dhJSTz"
       >
         <span
           className="fXreAk"
@@ -152,7 +152,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <button
-            className="dDUvRh"
+            className="iIaFJD"
             onClick={[Function]}
           >
             <span>
@@ -164,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="okbRP"
+            className="dYezNC"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >

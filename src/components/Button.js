@@ -30,13 +30,15 @@ const ButtonArchetype = styled.button`
 	// Buttons don't need vertical padding.
 	padding: 0 16px;
 	border: 0;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	cursor: pointer;
+	vertical-align: top;
 
 	${ buttonAnimations };
 `;
@@ -92,8 +94,8 @@ export const LargeSecondaryButton = styled( ButtonArchetype )`
 	&:focus {
 		background-color: ${ colors.$color_green_medium_light };
 		color: ${ colors.$color_white };
-		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
-		border: none;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+		border: 0;
 		text-shadow: 0px 0px 2px #000;
 	}
 `;
@@ -171,11 +173,12 @@ export const ChevronButton = styled( Button )`
 	background-repeat: no-repeat;
 	background-image: url( ${ chevronRight } );
 	background-position: center;
-	background-size: 32px;
+	background-size: 24px;
 	width:  48px;
 	height: 48px;
 	cursor: pointer;
 	box-shadow: none;
+	border: 0;
 `;
 
 ChevronButton.propTypes = {
@@ -198,6 +201,7 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	text-transform: none;
 	height: 32px;
 	padding-left: 2em;
+	border: 0;
 
 	transition: background-color 150ms ease-out;  
 
@@ -219,6 +223,7 @@ export const CloseButtonTopRight = styled( IconButtonArchetype )`
 	padding-left: 0px;
 	height: 32px;
 	width: 32px;
+	border-bottom: none;
 	box-shadow: none;
 	display: inline-block;
 	background-image: url( ${ closeCross } );
@@ -236,6 +241,7 @@ export const MobileHeaderButton = styled( IconButtonArchetype )`
 	box-shadow: none;
 	display: block;
 	position: fixed;
+	border: 0;
 
 	&:hover,
 	&:focus {
@@ -264,14 +270,16 @@ export const ButtonLink = styled( Link )`
 	padding: 12px 16px;
 	background-color: ${ colors.$color_green_medium_light };
 	color: ${ colors.$color_white };
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
+	vertical-align: top;
 	// line height 24 + padding 12 + 12 = 48
 	font: 400 14px/24px "Open Sans", sans-serif;
 	text-transform: uppercase;
 	text-decoration: none;
 	text-align: center;
 	text-shadow: 0px 0px 2px #000;
+	border-bottom: 2px solid rgba(0,0,0,0.2);
 
 	&:hover,
 	&:focus {
@@ -290,11 +298,12 @@ export const ChevronButtonLink = styled( ButtonLink )`
 	background-repeat: no-repeat;
 	background-image: url( ${ chevronRight } );
 	background-position: center;
-	background-size: 32px;
+	background-size: 24px;
 	width:  48px;
 	height: 48px;
 	cursor: pointer;
 	box-shadow: none;
+	border: 0;
 `;
 
 ChevronButtonLink.propTypes = {

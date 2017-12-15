@@ -21,7 +21,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="lcfQJn"
+        className="ivxhtZ"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -37,7 +37,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     </div>
     <button
       aria-label="Add site"
-      className="flWTNT"
+      className="kIObTh"
       onClick={[Function]}
     >
       <span>
@@ -46,17 +46,17 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     </button>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="cmzwAQ"
+        className="efVmJq"
       >
         <span
-          className="cDqrvr"
+          className="hCewQe"
         >
           <img
             alt=""
@@ -126,7 +126,7 @@ exports[`the sites page component with no sites matches the snapshot 1`] = `
       </span>
     </p>
     <button
-      className="apAiK"
+      className="DvyHD"
       onClick={[Function]}
     >
       <span>
@@ -164,7 +164,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="lcfQJn"
+        className="ivxhtZ"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -180,7 +180,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
     <button
       aria-label="Add site"
-      className="flWTNT"
+      className="kIObTh"
       onClick={[Function]}
     >
       <span>
@@ -189,17 +189,17 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </button>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="cmzwAQ"
+        className="efVmJq"
       >
         <span
-          className="cDqrvr"
+          className="hCewQe"
         >
           <img
             alt=""
@@ -269,7 +269,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="lcfQJn"
+        className="ivxhtZ"
         id="search"
         onChange={[Function]}
         spellCheck="false"
@@ -285,7 +285,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
     <button
       aria-label="Add site"
-      className="flWTNT"
+      className="kIObTh"
       onClick={[Function]}
     >
       <span>
@@ -294,17 +294,17 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </button>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="cmzwAQ"
+        className="efVmJq"
       >
         <span
-          className="cDqrvr"
+          className="hCewQe"
         >
           <img
             alt=""
@@ -374,7 +374,7 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="apAiK"
+      className="DvyHD"
       onClick={[Function]}
     >
       <span>
@@ -412,7 +412,7 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="apAiK"
+      className="DvyHD"
       onClick={[Function]}
     >
       <span>

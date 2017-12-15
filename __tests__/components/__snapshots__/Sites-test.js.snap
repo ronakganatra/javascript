@@ -2,17 +2,17 @@
 
 exports[`the sites component matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
+  className="ittEMS"
 >
   <ul
     className="dITYws"
     role="list"
   >
     <li
-      className="cmzwAQ"
+      className="efVmJq"
     >
       <span
-        className="cDqrvr"
+        className="hCewQe"
       >
         <img
           alt=""
@@ -56,10 +56,10 @@ exports[`the sites component matches the snapshot 1`] = `
       />
     </li>
     <li
-      className="krjUTE"
+      className="jUIuvZ"
     >
       <span
-        className="cDqrvr"
+        className="hCewQe"
       >
         <img
           alt=""
@@ -103,10 +103,10 @@ exports[`the sites component matches the snapshot 1`] = `
       />
     </li>
     <li
-      className="cmzwAQ"
+      className="efVmJq"
     >
       <span
-        className="cDqrvr"
+        className="hCewQe"
       >
         <img
           alt=""

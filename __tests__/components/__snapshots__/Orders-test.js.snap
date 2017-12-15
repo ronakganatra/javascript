@@ -2,14 +2,14 @@
 
 exports[`The Orders component matches the snapshot 1`] = `
 <div
-  className="dnTGWH"
+  className="ittEMS"
 >
   <ul
     className="dITYws"
     role="list"
   >
     <li
-      className="dpKBnd"
+      className="hppKDh"
     >
       <span
         className="gRzsfa"
@@ -64,7 +64,7 @@ exports[`The Orders component matches the snapshot 1`] = `
       >
         <a
           aria-label="Download invoice"
-          className="ZPOCW"
+          className="icYxat"
           href="http://somelink"
           rel="noopener noreferrer"
           target="_blank"

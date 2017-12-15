@@ -40,7 +40,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Yoast SEO for Wordpress"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -57,7 +57,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Yoast SEO for Drupal"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -98,7 +98,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Local SEO for Wordpress"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -139,7 +139,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Video SEO for Wordpress"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -156,7 +156,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Video SEO for Drupal"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -173,7 +173,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Video SEO for Typo3"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -214,7 +214,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download News SEO for Wordpress"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -231,7 +231,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download News SEO for Drupal"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -248,7 +248,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download News SEO for Typo3"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download
@@ -289,7 +289,7 @@ exports[`The Products component matches the snapshot 1`] = `
       >
         <button
           aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-          className="iipSSv"
+          className="ktEcVI"
           onClick={[Function]}
         >
           Download

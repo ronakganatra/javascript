@@ -7,11 +7,11 @@ exports[`the subnavigation component matches the snapshot 1`] = `
     role="list"
   >
     <li
-      className="isgbHI"
+      className="iUHhtG"
     >
       <a
         aria-current={false}
-        className="jUdSwI"
+        className="iXGvEz"
         href="/account/subscriptions"
         onClick={[Function]}
         style={undefined}
@@ -22,11 +22,11 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       </a>
     </li>
     <li
-      className="isgbHI"
+      className="iUHhtG"
     >
       <a
         aria-current={false}
-        className="jUdSwI"
+        className="iXGvEz"
         href="/account/orders"
         onClick={[Function]}
         style={undefined}
@@ -37,11 +37,11 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       </a>
     </li>
     <li
-      className="isgbHI"
+      className="iUHhtG"
     >
       <a
         aria-current={false}
-        className="jUdSwI"
+        className="iXGvEz"
         href="/account/profile"
         onClick={[Function]}
         style={undefined}

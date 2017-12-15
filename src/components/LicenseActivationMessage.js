@@ -19,7 +19,7 @@ const messages = defineMessages( {
 
 const MessageContainer = styled.div`
 	background-color: ${ colors.$color_ok };
-	box-shadow: 0 2px 10px 1px rgba(0,0,0,0.2);
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 	padding: 8px 32px;
 	margin-bottom: 32px;
 	text-align: center;
