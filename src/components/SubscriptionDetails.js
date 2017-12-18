@@ -64,6 +64,13 @@ function SubscriptionDetails( props ) {
 			month='long'
 			day='2-digit'
 		/>;
+	} else if ( props.hasEndDate ) {
+		nextBilling = <FormattedDate
+			value={ props.endDate }
+			year='numeric'
+			month='long'
+			day='2-digit'
+		/>;
 	}
 
 	return (
@@ -97,6 +104,8 @@ SubscriptionDetails.propTypes = {
 	startDate: PropTypes.instanceOf( Date ).isRequired,
 	hasNextBilling: PropTypes.bool.isRequired,
 	nextBilling: PropTypes.instanceOf( Date ).isRequired,
+	hasEndDate: PropTypes.bool.isRequired,
+	endDate: PropTypes.instanceOf( Date ).isRequired,
 	orders: PropTypes.array.isRequired,
 	max: PropTypes.number.isRequired,
 	current: PropTypes.number.isRequired,

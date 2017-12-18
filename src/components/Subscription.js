@@ -56,6 +56,8 @@ function Subscription( props ) {
 	let nextPayment = "-";
 	if ( props.hasNextPayment ) {
 		nextPayment = <FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>;
+	} else if ( props.hasEndDate ) {
+		nextPayment = <FormattedDate value={ props.endDate } day="numeric" month="long" year="numeric"/>;
 	}
 
 	return (
@@ -96,6 +98,8 @@ Subscription.propTypes = {
 	limit: PropTypes.number.isRequired,
 	hasNextPayment: PropTypes.bool.isRequired,
 	nextPayment: PropTypes.instanceOf( Date ).isRequired,
+	hasEndDate: PropTypes.bool.isRequired,
+	endDate: PropTypes.instanceOf( Date ).isRequired,
 	billingAmount: PropTypes.number.isRequired,
 	billingCurrency: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
