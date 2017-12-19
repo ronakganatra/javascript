@@ -150,6 +150,12 @@ export default class Api {
 		return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
 	}
 
+	enableCustomer( customerId ) {
+		let url = this.host + "/api/Customers/" + customerId + "/enable?access_token=" + this.accessToken;
+
+		return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
+	}
+
 	getCurrentUser() {
 		let url = this.host + `/api/Customers/current?access_token=${ this.accessToken }`;
 
