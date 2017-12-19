@@ -57,19 +57,12 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
  */
 function SubscriptionDetails( props ) {
 	let nextBilling = "-";
-	if ( props.hasNextBilling ) {
+	if ( props.hasNextBilling || props.hasEndDate ) {
 		nextBilling = <FormattedDate
-			value={ props.nextBilling }
-			year='numeric'
-			month='long'
-			day='2-digit'
-		/>;
-	} else if ( props.hasEndDate ) {
-		nextBilling = <FormattedDate
-			value={ props.endDate }
-			year='numeric'
-			month='long'
-			day='2-digit'
+			value={ props.nextBilling || props.endDate }
+			year="numeric"
+			month="long"
+			day="2-digit"
 		/>;
 	}
 

@@ -54,10 +54,13 @@ function Subscription( props ) {
 	}
 
 	let nextPayment = "-";
-	if ( props.hasNextPayment ) {
-		nextPayment = <FormattedDate value={ props.nextPayment } day="numeric" month="long" year="numeric"/>;
-	} else if ( props.hasEndDate ) {
-		nextPayment = <FormattedDate value={ props.endDate } day="numeric" month="long" year="numeric"/>;
+	if ( props.hasNextPayment || props.hasEndDate ) {
+		nextPayment = <FormattedDate
+			value={ props.nextPayment || props.endDate }
+			year="numeric"
+			month="long"
+			day="numeric"
+		/>;
 	}
 
 	return (
