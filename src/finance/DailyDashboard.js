@@ -29,10 +29,12 @@ export default class DailyDashboard extends React.Component {
 			orderGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
 			orderCollectors: {
+				revenue:      FinanceStatistic.getOrderRevenue,
 				orderRevenue: FinanceStatistic.getOrderRevenue,
 				orderTotal:   FinanceStatistic.transactionsCount,
 			},
 			refundCollectors: {
+				revenue:       FinanceStatistic.getRefundRevenue,
 				refundRevenue: FinanceStatistic.getRefundRevenue,
 				refundTotal:   FinanceStatistic.transactionsCount,
 			},
@@ -44,10 +46,12 @@ export default class DailyDashboard extends React.Component {
 			orderGroupBy: FinanceStatistic.totalGroup,
 			refundGroupBy: FinanceStatistic.totalGroup,
 			orderCollectors: {
+				revenue:      FinanceStatistic.getOrderRevenue,
 				orderRevenue: FinanceStatistic.getOrderRevenue,
 				orderTotal:   FinanceStatistic.transactionsCount,
 			},
 			refundCollectors: {
+				revenue:       FinanceStatistic.getRefundRevenue,
 				refundRevenue: FinanceStatistic.getRefundRevenue,
 				refundTotal:   FinanceStatistic.transactionsCount,
 			},
@@ -71,7 +75,7 @@ export default class DailyDashboard extends React.Component {
 
 	getDailyStatistic( date ) {
 		return _merge(
-			{ orderRevenue: 0, orderTotal: 0, refundRevenue: 0, refundTotal: 0 },
+			{ orderRevenue: 0, orderTotal: 0, refundRevenue: 0, refundTotal: 0, revenue: 0 },
 			this.state.dailyStatistics[ date.format( "Y-M-D" ) ]
 		);
 	}
@@ -83,6 +87,7 @@ export default class DailyDashboard extends React.Component {
 			this.getDailyStatistic( date ).orderTotal,
 			{ className: 'negative', content: dollarPresenter( this.getDailyStatistic( date ).refundRevenue ) },
 			{ className: 'negative', content: this.getDailyStatistic( date ).refundTotal },
+			dollarPresenter( this.getDailyStatistic( date ).revenue ) ,
 		];
 	}
 
@@ -93,6 +98,7 @@ export default class DailyDashboard extends React.Component {
 			this.state.totalStatistics.total.orderTotal || 0,
 			{ className: 'negative', content: dollarPresenter( this.state.totalStatistics.total.refundRevenue || 0 ) },
 			{ className: 'negative', content: this.state.totalStatistics.total.refundTotal || 0 },
+			dollarPresenter( this.state.totalStatistics.total.revenue || 0 ),
 		];
 	}
 
@@ -111,6 +117,6 @@ export default class DailyDashboard extends React.Component {
 		}
 		rows.push( this.getTotalRow() );
 
-		return table( [ "Day", "Turnover", "Transactions", "Refunded", "Refunds" ], rows, { className: "FinanceDashboard" } );
+		return table( [ "Day", "Turnover", "Transactions", "Refunded", "Refunds", "Revenue" ], rows, { className: "FinanceDashboard" } );
 	}
 }
