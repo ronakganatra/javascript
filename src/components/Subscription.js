@@ -56,7 +56,7 @@ function Subscription( props ) {
 	let nextPayment = "-";
 	if ( props.hasNextPayment || props.hasEndDate ) {
 		nextPayment = <FormattedDate
-			value={ props.nextPayment || props.endDate }
+			value={ props.hasNextPayment ? props.nextPayment : props.endDate }
 			year="numeric"
 			month="long"
 			day="numeric"

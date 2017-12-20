@@ -59,7 +59,7 @@ function SubscriptionDetails( props ) {
 	let nextBilling = "-";
 	if ( props.hasNextBilling || props.hasEndDate ) {
 		nextBilling = <FormattedDate
-			value={ props.nextBilling || props.endDate }
+			value={ props.hasNextBilling ? props.nextBilling : props.endDate }
 			year="numeric"
 			month="long"
 			day="2-digit"
