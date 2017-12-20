@@ -14,9 +14,11 @@ export default class CustomersResult extends React.Component {
 		this.state = {
 			accessTokenStatus: "notCreated",
 			accessToken: null,
+			restored: false,
 		};
 
 		this.createAccessToken      = this.createAccessToken.bind( this );
+		this.enableCustomer         = this.enableCustomer.bind( this );
 		this.impersonatePresenter   = this.impersonatePresenter.bind( this );
 		this.sitesPresenter         = this.sitesPresenter.bind( this );
 		this.ordersPresenter        = this.ordersPresenter.bind( this );
@@ -29,21 +31,25 @@ export default class CustomersResult extends React.Component {
 	 * @returns {void}
 	 */
 	createAccessToken() {
-		if ( ! this.props.result.enabled ) {
+		if ( ! this.props.result.enabled && ! this.state.restored ) {
 			return;
 		}
-
-		let self = this;
 
 		this.setState( {
 			accessTokenStatus: "creating",
 		} );
 
-		this.props.api.createAccessToken( this.props.result.id ).then( function ( result ) {
-			self.setState({
+		this.props.api.createAccessToken( this.props.result.id ).then( ( result ) => {
+			this.setState( {
 				accessTokenStatus: "created",
 				accessToken: result.id,
-			});
+			} );
+		} );
+	}
+
+	enableCustomer() {
+		this.props.api.enableCustomer( this.props.result.id ).then( () => {
+			this.setState( { restored: true } );
 		} );
 	}
 
@@ -53,8 +59,13 @@ export default class CustomersResult extends React.Component {
 	 * @returns {ReactElement} An element corresponding to this component's internal access token status.
 	 */
 	impersonatePresenter() {
-		if ( ! this.props.result.enabled ) {
-			return <span>This customer has been deleted.</span>;
+		if ( ! this.props.result.enabled && ! this.state.restored ) {
+			return (
+				<span>
+					This customer has been deleted.
+					<button type="button" onClick={ this.enableCustomer }>Revert</button>
+				</span>
+			);
 		}
 
 		if ( this.state.accessTokenStatus === "notCreated" ) {
