@@ -87,7 +87,7 @@ export default class DailyDashboard extends React.Component {
 			this.getDailyStatistic( date ).orderTotal,
 			{ className: 'negative', content: dollarPresenter( this.getDailyStatistic( date ).refundRevenue ) },
 			{ className: 'negative', content: this.getDailyStatistic( date ).refundTotal },
-			dollarPresenter( this.getDailyStatistic( date ).revenue ) ,
+			dollarPresenter( this.getDailyStatistic( date ).revenue ),
 		];
 	}
 
