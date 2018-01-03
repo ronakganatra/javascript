@@ -62,7 +62,7 @@ export const IconButtonArchetype = styled( ButtonArchetype )`
 	padding-left: 56px;
 `;
 
-IconButtonArchetype.PropTypes = {
+IconButtonArchetype.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 	iconSize: PropTypes.string,
 	enabledStyle: PropTypes.bool,
@@ -109,7 +109,7 @@ export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 `;
 
-TextButton.PropTypes = {
+TextButton.propTypes = {
 	buttonWidth: PropTypes.string,
 	enabledStyle: PropTypes.bool,
 };
@@ -289,7 +289,7 @@ export const ButtonLink = styled( Link )`
 	${ buttonAnimations }
 `;
 
-ButtonLink.PropTypes = {
+ButtonLink.propTypes = {
 	to: PropTypes.string.isRequired,
 };
 
@@ -329,7 +329,7 @@ export const IconButtonLink = styled( ButtonLink )`
 	padding-left: 36px;
 `;
 
-IconButtonLink.PropTypes = {
+IconButtonLink.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 	iconSize: PropTypes.string,
 	enabledStyle: PropTypes.bool,
@@ -352,7 +352,7 @@ export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
 `;
 
-TextButtonLink.PropTypes = {
+TextButtonLink.propTypes = {
 	buttonWidth: PropTypes.string,
 };
 
@@ -370,7 +370,7 @@ export const IconRightButtonLink = styled( ButtonLink )`
 	padding-right: 56px;
 `;
 
-IconRightButtonLink.PropTypes = {
+IconRightButtonLink.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 };
 
