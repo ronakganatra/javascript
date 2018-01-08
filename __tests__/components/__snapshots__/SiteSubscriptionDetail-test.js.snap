@@ -58,7 +58,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
     className="kVHWFy"
   >
     <a
-      className="dYezNC"
+      className="etcAJA"
       href="/account/subscriptions/subId"
       onClick={[Function]}
     >
@@ -128,7 +128,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
     className="kVHWFy"
   >
     <a
-      className="dYezNC"
+      className="etcAJA"
       href="/account/subscriptions/subId"
       onClick={[Function]}
     >

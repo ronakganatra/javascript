@@ -268,7 +268,7 @@ export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
 	padding: 12px 16px;
-	background-color: ${ colors.$color_green_medium_light };
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };;
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
@@ -291,6 +291,11 @@ export const ButtonLink = styled( Link )`
 
 ButtonLink.propTypes = {
 	to: PropTypes.string.isRequired,
+	enabledStyle: PropTypes.bool,
+};
+
+ButtonLink.defaultProps = {
+	enabledStyle: true,
 };
 
 export const ChevronButtonLink = styled( ButtonLink )`
@@ -345,8 +350,13 @@ export const LargeIconButtonLink = styled( IconButtonLink )`
 `;
 
 export const BackButtonLink = styled( LargeIconButtonLink )`
-	background-image: url( ${ angleLeft } );
 `;
+
+BackButtonLink.defaultProps = {
+	iconSource: angleLeft,
+	enabledStyle: true,
+	iconSize: "24px",
+};
 
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };

@@ -8,6 +8,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	let subscriptionId = ownProps.match.params.id;
 
 	let subscription = state.entities.subscriptions.byId[ subscriptionId ];
+
 	if ( _isUndefined( subscription ) ) {
 		return {
 			isLoading: true,
@@ -51,7 +52,7 @@ const getOrdersAndSubscriptions = ( dispatch ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getOrdersAndSubscriptions( dispatch ) );
 
-	return;
+	return {};
 };
 
 const SubscriptionsPageContainer = connect(

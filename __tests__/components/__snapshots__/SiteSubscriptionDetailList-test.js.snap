@@ -89,7 +89,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="dYezNC"
+            className="etcAJA"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -164,7 +164,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="fRNOok"
         >
           <a
-            className="dYezNC"
+            className="etcAJA"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >

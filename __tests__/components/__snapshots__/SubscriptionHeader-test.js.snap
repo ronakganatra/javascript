@@ -8,10 +8,8 @@ exports[`the subscription header matches the snapshot 1`] = `
     className="jlVeDb"
   >
     <a
-      className="cRxLRn"
-      enabledStyle={true}
+      className="jyTnCM"
       href="/account/subscriptions"
-      iconSize="24px"
       onClick={[Function]}
     >
       <span>
@@ -38,10 +36,8 @@ exports[`the subscription header matches the snapshot 1`] = `
     className="czrsFh"
   >
     <a
-      className="jbWEvQ"
-      enabledStyle={true}
+      className="aKRrP"
       href="/account/subscriptions"
-      iconSize="24px"
       onClick={[Function]}
     >
       <span>

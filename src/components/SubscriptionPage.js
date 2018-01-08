@@ -66,7 +66,6 @@ class SubscriptionPage extends React.Component {
 			<Header
 				name={ subscription.name }
 				byline={ subscription.limit + " site subscription" }
-				description={ subscription.product.description }
 				image={ subscription.product.icon }
 			/>
 			<Paper>
@@ -101,7 +100,6 @@ SubscriptionPage.propTypes = {
 		endDate: PropTypes.string,
 		nextPayment: PropTypes.string,
 		product: PropTypes.shape( {
-			description: PropTypes.string.isRequired,
 			icon: PropTypes.string.isRequired,
 		} ),
 	} ),

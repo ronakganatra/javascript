@@ -524,7 +524,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
   </p>
   <a
     aria-label={undefined}
-    className="fmDkWj"
+    className="gGtGty"
     href="https://yoast.com/shop/"
     rel="noopener noreferrer"
     target="_blank"

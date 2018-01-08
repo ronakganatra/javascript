@@ -20,7 +20,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
     </span>
   </p>
   <a
-    className="fmDkWj"
+    className="gGtGty"
     href="/"
     onClick={[Function]}
   >
@@ -98,7 +98,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
     </span>
   </p>
   <a
-    className="fmDkWj"
+    className="gGtGty"
     href="/"
     onClick={[Function]}
   >
