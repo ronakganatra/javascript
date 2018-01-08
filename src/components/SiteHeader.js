@@ -44,7 +44,11 @@ const SiteHeaderContainer = styled.div`
 `;
 
 SiteHeaderContainer.propTypes = {
-	imageUrl: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string,
+};
+
+SiteHeaderContainer.defaultProps = {
+	imageUrl: "",
 };
 
 const SiteHeaderSitename = styled( Heading )`
@@ -115,5 +119,5 @@ SiteHeader.defaultProps = {
 SiteHeader.propTypes = {
 	name: PropTypes.string.isRequired,
 	url: PropTypes.string.isRequired,
-	imageUrl: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string,
 };
