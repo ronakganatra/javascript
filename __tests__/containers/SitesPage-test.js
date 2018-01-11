@@ -25,6 +25,9 @@ let state = {
 					"status": "active",
 				},
 			},
+			allIds: [
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			]
 		},
 		products: {
 			"byId": {
@@ -183,6 +186,50 @@ test('the mapStateToProps function when query does not match any site.', () => {
 	expect( mapStateToProps( state ) ).toEqual( expected );
 
 	state.ui.search.query = ""
+} );
+
+test('the mapStateToProps function when no subscriptions have been retrieved yet.', () => {
+	state.entities.subscriptions.byId = {};
+	state.entities.subscriptions.allIds = {};
+
+	let expected = {
+		sites: [ {
+			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			"siteName": "yoast.com",
+			"url": "https://yoast.com",
+			"activeSubscriptions": [],
+		} ],
+		plugins: [
+			{
+				"glNumber": 111,
+				"ids": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+				"icon": "test.png",
+				"name": "Yoast SEO",
+				"type": "plugin",
+			}
+		],
+		popupOpen: false,
+		showLoader: true,
+		errorFound: false,
+		error: "",
+		linkingSiteUrl: "http://yoast.com",
+		query: "",
+	};
+
+	expect( mapStateToProps( state ) ).toEqual( expected );
+
+	state.entities.subscriptions = {
+		"byId": {
+			"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"status": "active",
+			},
+		},
+		allIds: [
+			"497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		]
+	};
 } );
 
 test('the mapDispatchToProps function to call linkSitePopupOpen action with onClick', () => {
