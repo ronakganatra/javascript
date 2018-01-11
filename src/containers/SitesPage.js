@@ -23,12 +23,17 @@ export const mapStateToProps = ( state ) => {
 			siteProps.siteIcon = site.icon;
 		}
 
+		if ( state.entities.subscriptions.allIds.length === 0 ) {
+			siteProps.activeSubscriptions = [];
+			return siteProps;
+		}
+
 		let activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
 				return state.entities.subscriptions.byId[ subscriptionId ];
 			} )
 			.filter( ( subscription ) => {
-				return subscription.status === "active";
+				return subscription && subscription.status === "active";
 			} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
