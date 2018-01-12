@@ -226,7 +226,6 @@ export const CloseButtonTopRight = styled( IconButtonArchetype )`
 	border-bottom: none;
 	box-shadow: none;
 	display: inline-block;
-	background-image: url( ${ closeCross } );
 	
 	&:hover,
 	&:focus {
@@ -235,6 +234,11 @@ export const CloseButtonTopRight = styled( IconButtonArchetype )`
 		opacity: .5;
 	}
 `;
+
+CloseButtonTopRight.defaultProps = {
+	iconSource: closeCross,
+	iconSize: "24px",
+};
 
 export const MobileHeaderButton = styled( IconButtonArchetype )`
 	background-color: transparent;
