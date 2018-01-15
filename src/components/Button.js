@@ -388,26 +388,19 @@ IconRightButtonLink.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 };
 
-export const IconButtonTransparentLink = styled( Link )`
-	margin: 0;
-	// Buttons don't need vertical padding.
+export const IconButtonTransparentLink = styled( IconButtonLink )`
 	border: 0;
-	border-radius: 4px;
-	font: 400 14px/24px "Open Sans", sans-serif;
 	cursor: pointer;
-
-	${ buttonAnimations };
-
-	background-repeat: no-repeat;
-	background-image: url( ${ props => props.iconSource } );
-	background-size: ${ props => props.iconSize };
 	background-color: transparent;
 	background-position: 0.5em 50%;
 	color: ${ colors.$color_blue };
 	box-shadow: none;
 	text-transform: none;
-	height: 32px;
 	padding-left: 2em;
+	font: 400 14px/24px "Open Sans", sans-serif;
+	text-shadow: none;
+	height: 32px;
+	padding: 4px 16px 0 2em;
 
 	transition: background-color 150ms ease-out;  
 
@@ -415,6 +408,7 @@ export const IconButtonTransparentLink = styled( Link )`
 	&:focus {
 		box-shadow: none;
 		background-color: ${ colors.$color_grey_light };
+		color: ${ colors.$color_blue };
 	}
 
 	&:active {
@@ -422,10 +416,6 @@ export const IconButtonTransparentLink = styled( Link )`
 		box-shadow: none;
 	}
 `;
-IconButtonTransparentLink.PropTypes = {
-	iconSource: PropTypes.string.isRequired,
-	iconSize: PropTypes.string,
-};
 
 // Style related functions.
 
