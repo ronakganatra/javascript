@@ -60,14 +60,12 @@ class SubscriptionPage extends React.Component {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader />;
 		}
-
 		let subscription = this.props.subscription;
 
 		return <section>
 			<Header
 				name={ subscription.name }
 				byline={ subscription.limit + " site subscription" }
-				description={ subscription.product.description }
 				image={ subscription.product.icon }
 			/>
 			<Paper>
@@ -76,12 +74,13 @@ class SubscriptionPage extends React.Component {
 				</ListHeading>
 				<SubscriptionDetails
 					startDate={ new Date( subscription.startDate ) }
+					hasNextBilling={ subscription.nextPayment !== null }
 					nextBilling={ new Date( subscription.nextPayment ) }
+					hasEndDate={ subscription.endDate !== null }
 					endDate={ new Date( subscription.endDate ) }
 					max={ subscription.limit }
 					current={ 1 }
 					orders={ this.props.orders }
-					onInvoiceDownload={ this.props.onInvoiceDownload }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
@@ -101,19 +100,16 @@ SubscriptionPage.propTypes = {
 		endDate: PropTypes.string,
 		nextPayment: PropTypes.string,
 		product: PropTypes.shape( {
-			description: PropTypes.string.isRequired,
 			icon: PropTypes.string.isRequired,
 		} ),
 	} ),
 	orders: PropTypes.array,
-	onInvoiceDownload: PropTypes.func,
 	intl: intlShape.isRequired,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
-	onInvoiceDownload: () => {},
 };
 
 export default injectIntl( SubscriptionPage );

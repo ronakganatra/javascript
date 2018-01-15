@@ -5,7 +5,7 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-import { getPlugins } from "../functions/products";
+import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -23,9 +23,18 @@ export const mapStateToProps = ( state ) => {
 			siteProps.siteIcon = site.icon;
 		}
 
-		let activeSubscriptions = site.subscriptions.map( ( subscriptionId ) => {
-			return state.entities.subscriptions.byId[ subscriptionId ];
-		} );
+		if ( state.entities.subscriptions.allIds.length === 0 ) {
+			siteProps.activeSubscriptions = [];
+			return siteProps;
+		}
+
+		let activeSubscriptions = site.subscriptions
+			.map( ( subscriptionId ) => {
+				return state.entities.subscriptions.byId[ subscriptionId ];
+			} )
+			.filter( ( subscription ) => {
+				return subscription && subscription.status === "active";
+			} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
 		return siteProps;
@@ -44,7 +53,7 @@ export const mapStateToProps = ( state ) => {
 
 	let error = state.ui.sites.linkSiteError;
 
-	let	plugins = getPlugins( state.entities.products.byId );
+	let	plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
 
 	return {
 		sites,

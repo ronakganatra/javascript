@@ -3,7 +3,7 @@ import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
-import { getPlugins } from "../functions/products";
+import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -89,16 +89,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return plugin;
 	} );
 
-	plugins = plugins.sort( ( a, b ) => {
-		if ( a.hasSubscriptions ) {
-			if ( a.isAvailable === false && b.isAvailable === true ) {
-				return 1;
-			}
-			return -1;
-		}
-
-		return 1;
-	} );
+	plugins = sortPluginsByPopularity( plugins );
 
 	return {
 		addSubscriptionModal,

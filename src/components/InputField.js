@@ -4,7 +4,7 @@ import styled from "styled-components";
 import defaults from "../config/defaults.json";
 
 export const InputField = styled.input`
-	box-shadow: inset 0px 2px 8px 0px rgba(0,0,0,0.3);
+	box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
 	background: ${ colors.$color_white };
 	border: 0;
 	padding: 0 0 0 10px;

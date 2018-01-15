@@ -13,6 +13,7 @@ let state = {
 					"used": 1,
 					"limit": 2,
 					"nextPayment": "2017-05-01 21:04:28",
+					"endDate": null,
 					"price": "6900",
 					"currency": "USD",
 					"product": {
@@ -43,6 +44,8 @@ let defaultExpected = {
 			"limit": 2,
 			"hasNextPayment": true,
 			"nextPayment": new Date( "2017-05-01 21:04:28" ),
+			"hasEndDate": false,
+			"endDate": new Date( null ),
 			"billingAmount": "6900",
 			"billingCurrency": "USD",
 			"icon": "icon.jpg",

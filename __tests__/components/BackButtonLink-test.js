@@ -1,7 +1,7 @@
 
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { MemoryRouter as Router } from 'react-router-dom';
 import { BackButtonLink } from '../../src/components/Button';
 
 test('the round back button matches the snapshot', () => {

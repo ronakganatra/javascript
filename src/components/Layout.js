@@ -13,6 +13,7 @@ import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
+import LicenseActivationMessage from "./LicenseActivationMessage";
 
 const messages = defineMessages( {
 	beacon: {
@@ -36,7 +37,7 @@ const Sidebar = styled.div`
 	background-color: ${colors.$color_pink_dark};
 	// Firefox needs this for user-email break word to work inside flex items.
 	max-width: 300px;
-	padding-left: 20px;
+	padding-left: 16px;
 
 	@media screen and ( max-width: 1024px ) {
 		position: fixed;
@@ -58,17 +59,21 @@ const Sidebar = styled.div`
 const Main = styled.main`
 	flex: 1 1 auto;
 	background: ${colors.$color_grey_light};
-	margin: 42px 2%;
-	padding: 40px 0;
+	margin: 0 2%;
+	padding: 24px 0;
 	// Firefox needs this for site-name break word to work.
 	min-width: 0;
 
 	@media screen and ( max-width: 1024px ) {
-		margin: 4% 4% 0 4%;
-		padding: 40px 0 100px 0;
+		margin: 48px 4% 0 4%;
+		padding: 24px 0 100px 0;
 		position: relative;
 		z-index: 0;
 	}
+`;
+
+const SingleMain = styled( Main )`
+	margin: 48px 2% 0 2%;
 `;
 
 const Content = styled.div`
@@ -96,12 +101,12 @@ export const inSingleLayout = ( WrappedComponent ) => {
 					<header role="banner">
 						<MobileHeaderContainer/>
 					</header>
-					<Main>
+					<SingleMain>
 						<Content>
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>
-					</Main>
+					</SingleMain>
 				</Layout>
 			);
 		}
@@ -134,6 +139,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
 						</BeaconButtonContainer>
 						<Content>
+							<LicenseActivationMessage />
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>

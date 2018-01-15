@@ -1,6 +1,6 @@
 import "whatwg-fetch";
 import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl } from "../functions/auth";
+import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl, hasCookieParams } from "../functions/auth";
 
 /*
  * Action types
@@ -12,8 +12,9 @@ export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
+export const RESET_SAVE_MESSAGE = "RESET_SAVE_MESSAGE";
+
 export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
-export const PROFILE_UPDATE_EMAIL = "PROFILE_UPDATE_EMAIL";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
 export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 
@@ -104,6 +105,20 @@ export function fetchUser( userId ) {
 	return ( dispatch ) => {
 		dispatch( requestUser() );
 
+		// If our credentials came from the parameters then bypass the profile request.
+		if ( hasCookieParams() ) {
+			let request = prepareInternalRequest( `Customers/${userId}/` );
+
+			return doRequest( request )
+				.then( json =>
+					dispatch( receiveUser( {
+						profile: {
+							email: `Impersonating: ${json.email}`,
+							enabled: true,
+						},
+					} ) ) ).catch( redirectToLogin );
+		}
+
 		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
 		return doRequest( request )
@@ -167,19 +182,6 @@ export function disableUser() {
 }
 
 /**
- * An action creator for the update email action.
- *
- * @param {string} email The changing email address of the customer.
- * @returns {Object} A change email action.
- */
-export function profileUpdateEmail( email ) {
-	return {
-		type: PROFILE_UPDATE_EMAIL,
-		email: email,
-	};
-}
-
-/**
  * An action creator for the profile update request action.
  *
  * @returns {Object} The profile update request action.
@@ -206,13 +208,24 @@ export function profileUpdateFailure( error ) {
 /**
  * An action creator for the profile update success action.
  *
- * @param {Object} profile The updated profile.
+ * @param {Object} newProfile The profile after a successful profile update.
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess( profile ) {
+export function profileUpdateSuccess( newProfile ) {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
-		profile,
+		profile: newProfile,
+	};
+}
+
+/**
+ * An action creator for the reset save message action.
+ *
+ * @returns {Object} The reset save message action.
+ */
+export function resetSaveMessage() {
+	return {
+		type: RESET_SAVE_MESSAGE,
 	};
 }
 
@@ -231,7 +244,9 @@ export function updateProfile( profile ) {
 		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
-			.then( profile => dispatch( profileUpdateSuccess( profile ) ) )
+			.then( ( response ) => {
+				dispatch( profileUpdateSuccess( response ) );
+			} )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }

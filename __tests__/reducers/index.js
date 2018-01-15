@@ -1,8 +1,9 @@
 import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
-import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer} from "../../src/reducers/index"
+import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer, entitiesCoursesReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
+import { allIdsCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer, RETRIEVE_COURSES_SUCCESS } from "../../src/reducers/courses";
 import { GET_SITE_PRODUCTS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
@@ -49,6 +50,15 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/courses.js", () => {
+	return {
+		allIdsCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesEnrollmentsReducer" }; } ),
+		byIdCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "byIdCoursesEnrollmentsReducer" }; } ),
+		allIdsCoursesReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesReducer" }; } ),
+		byIdCoursesReducer: jest.fn( ( state = {} ) => { return { name: "byIdCoursesReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/products.js", () => {
 	return {
 		byIdProductsReducer: jest.fn( ( state = {} ) => { return { name: "byIdProductsReducer" }; } ),
@@ -70,6 +80,18 @@ test( 'ui reducer', () => {
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
 	expect( uiSitesReducer ).toHaveBeenCalledWith( {}, action );
+} );
+
+test( 'entities courses reducer', () => {
+	const state = { allIds: {}, byId: {} };
+	const action = {
+		type: RETRIEVE_COURSES_SUCCESS,
+	};
+	const expected = { allIds: { name: "allIdsCoursesReducer"}, byId: { name: "byIdCoursesReducer" } };
+	const actual = entitiesCoursesReducer( state, action );
+	expect( actual ).toEqual( expected );
+	expect( byIdCoursesReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsCoursesReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
 test( 'entities site reducer', () => {
@@ -109,7 +131,7 @@ test( 'entities products reducer', () => {
 } );
 
 test( 'entities reducer', () => {
-	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} } };
+	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} }, courses: { allIds: {}, byId: {} } };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
@@ -117,8 +139,10 @@ test( 'entities reducer', () => {
 	const expected = {
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
 		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
-		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer"} },
-		orders: { allIds: [], byId: {} }
+		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer" } },
+		orders: { allIds: [], byId: {} },
+		courses: { byId: { name: "byIdCoursesReducer" }, allIds: { name: "allIdsCoursesReducer" } },
+		coursesEnrollments: { byId: { name: "byIdCoursesEnrollmentsReducer" }, allIds: { name: "allIdsCoursesEnrollmentsReducer" } },
 	};
 
 	const actual = entitiesReducer( state, action );
@@ -146,6 +170,14 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			orders: {
 				byId: {},
 				allIds:[],
+			},
+			courses: {
+				byId: { name: "byIdCoursesReducer" },
+				allIds: { name: "allIdsCoursesReducer" },
+			},
+			coursesEnrollments: {
+				byId: { name: "byIdCoursesEnrollmentsReducer" },
+				allIds: { name: "allIdsCoursesEnrollmentsReducer" },
 			},
 			sites: {
 				byId: { name: "byIdReducer" },

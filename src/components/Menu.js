@@ -63,8 +63,8 @@ const MenuItem = styled( NavLink )`
 	line-height: 1.4;
 	font-size: 22px;
 	font-weight: 300;
-	padding: 2rem 1rem;
-	margin-left: 1.5rem;
+	padding: 24px;
+	margin-left: 24px;
 	color: ${ colors.$color_background_light };
 	text-decoration: none;
 
@@ -193,7 +193,12 @@ function MainMenu( props ) {
 									 let title = props.intl.formatMessage( titles[ page.titleKey ] );
 
 									 return <li key={ page.titleKey }>
-										 <MenuItem activeClassName={ activeStyle } to={ page.path } isActive={ isActive }>
+										 <MenuItem
+											activeClassName={ activeStyle }
+											to={ page.path }
+											isActive={ isActive }
+											ariaCurrent="page"
+										>
 											 <MenuIcon src={ page.iconSource } alt=""/>
 											 { title }
 										 </MenuItem>

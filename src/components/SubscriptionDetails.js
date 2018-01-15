@@ -57,12 +57,12 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
  */
 function SubscriptionDetails( props ) {
 	let nextBilling = "-";
-	if ( props.hasNextBilling ) {
+	if ( props.hasNextBilling || props.hasEndDate ) {
 		nextBilling = <FormattedDate
-			value={ props.nextBilling }
-			year='numeric'
-			month='long'
-			day='2-digit'
+			value={ props.hasNextBilling ? props.nextBilling : props.endDate }
+			year="numeric"
+			month="long"
+			day="2-digit"
 		/>;
 	}
 
@@ -97,10 +97,11 @@ SubscriptionDetails.propTypes = {
 	startDate: PropTypes.instanceOf( Date ).isRequired,
 	hasNextBilling: PropTypes.bool.isRequired,
 	nextBilling: PropTypes.instanceOf( Date ).isRequired,
+	hasEndDate: PropTypes.bool.isRequired,
+	endDate: PropTypes.instanceOf( Date ).isRequired,
 	orders: PropTypes.array.isRequired,
 	max: PropTypes.number.isRequired,
 	current: PropTypes.number.isRequired,
-	onInvoiceDownload: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	subscription: PropTypes.string,
 };

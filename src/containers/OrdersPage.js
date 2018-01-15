@@ -26,7 +26,7 @@ export const mapStateToProps = ( state ) => {
 		};
 	} );
 
-	// Only show completed orders.
+	// Only show completed, processing and refunded orders.
 	orders = orders.filter( ( order ) => {
 		return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
 	} );

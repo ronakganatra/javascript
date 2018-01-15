@@ -3,7 +3,7 @@
 exports[`components/ProfilePage failure during password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -12,34 +12,82 @@ exports[`components/ProfilePage failure during password reset 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -58,7 +106,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -92,7 +140,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -100,10 +148,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -134,7 +182,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 exports[`components/ProfilePage failure during profile save 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -143,55 +191,103 @@ exports[`components/ProfilePage failure during profile save 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
-          >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
           <div
-            className="dhWXhp"
-            role="alert"
+            className="fiYUmk"
+            id="left"
           >
-            <span
-              alt="Error sign"
-              className="gEFfcO"
-            />
-            <span>
-              Oops, something went wrong on our end, please try again. If this keeps happening, 
-              <a
-                className="jWXgwc"
-                href="mailto:support@yoast.com"
-              >
-                <span>
-                  please contact support
-                </span>
-              </a>
-              .
-            </span>
-          </div>
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div
+              className="dhWXhp"
+              role="alert"
+            >
+              <span
+                alt="Error sign"
+                className="gEFfcO"
+              />
+              <span>
+                Oops, something went wrong on our end, please try again. If this keeps happening, 
+                <a
+                  className="jWXgwc"
+                  href="mailto:support@yoast.com"
+                >
+                  <span>
+                    please contact support
+                  </span>
+                </a>
+                .
+              </span>
+            </div>
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -210,7 +306,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -240,7 +336,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -248,10 +344,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -282,7 +378,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 exports[`components/ProfilePage has sent password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -291,34 +387,82 @@ exports[`components/ProfilePage has sent password reset 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -337,7 +481,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -372,7 +516,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -380,10 +524,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -414,7 +558,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 exports[`components/ProfilePage saving profile 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -423,39 +567,87 @@ exports[`components/ProfilePage saving profile 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
-            <p
-              className="fCYIZc"
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
             >
-              Saving...
-            </p>
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+              <p
+                className="jsQqqN"
+              >
+                Saving...
+              </p>
+            </div>
           </div>
         </form>
         <section
@@ -474,7 +666,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -504,7 +696,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -512,10 +704,10 @@ exports[`components/ProfilePage saving profile 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -546,7 +738,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 exports[`components/ProfilePage sending password reset 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -555,34 +747,82 @@ exports[`components/ProfilePage sending password reset 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -601,7 +841,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -636,7 +876,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -644,10 +884,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -678,7 +918,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
 exports[`components/ProfilePage the default case 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -687,34 +927,82 @@ exports[`components/ProfilePage the default case 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="test@test.test"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="test@test.test"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -733,7 +1021,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -763,7 +1051,7 @@ exports[`components/ProfilePage the default case 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         <img
@@ -776,10 +1064,10 @@ exports[`components/ProfilePage the default case 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}
@@ -810,7 +1098,7 @@ exports[`components/ProfilePage the default case 1`] = `
 exports[`components/ProfilePage while deleting the account 1`] = `
 <div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
       className="djUbXD"
@@ -819,34 +1107,82 @@ exports[`components/ProfilePage while deleting the account 1`] = `
         className="iBTcsR"
       >
         <form
+          className="fjJEFi"
           onSubmit={[Function]}
         >
-          <label
-            className="geijem"
-            htmlFor="email-address"
+          <div
+            className="fiYUmk"
+            id="left"
           >
-            <span>
-              Email
-            </span>
-          </label>
-          <input
-            className="bVhSIB"
-            id="email-address"
-            name="email"
-            onChange={[Function]}
-            type="text"
-            value="email@email.email"
-            width="100%"
-          />
-          <div>
-            <button
-              className="ebOGvJ"
-              type="submit"
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
             >
               <span>
-                Save email address
+                First name
               </span>
-            </button>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
           </div>
         </form>
         <section
@@ -865,7 +1201,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="dnUHjI"
+            className="kGgCRK"
             onClick={[Function]}
             type="button"
           >
@@ -895,7 +1231,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             >
               Gravatar website
             </a>
-            .
+            . Changes may take up to an hour to become visible here.
           </span>
         </p>
         
@@ -903,10 +1239,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     </div>
   </div>
   <div
-    className="dnTGWH"
+    className="ittEMS"
   >
     <div
-      className="cxrbkq"
+      className="czfHmS"
     >
       <button
         aria-expanded={false}

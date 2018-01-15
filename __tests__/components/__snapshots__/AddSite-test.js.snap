@@ -2,7 +2,7 @@
 
 exports[`The AddSite component matches the snapshot 1`] = `
 <div
-  className="eUbKKo"
+  className="lcOdPt"
 >
   <h1
     className="dQgKWp"
@@ -19,22 +19,22 @@ exports[`The AddSite component matches the snapshot 1`] = `
       htmlFor="add-site-input"
     >
       <span>
-        Please enter the URL of the site you would like to link with your account:
+        Please enter the URL of the site you would like to add to your account:
       </span>
     </label>
     <input
-      className="jeqQcj"
-      defaultValue=""
+      className="jssTrf"
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
       type="url"
+      value=""
     />
     <div
-      className="eHlvIb"
+      className="bQLojW"
     >
       <button
-        className="hUAvMB"
+        className="gtZwWe"
         onClick={[Function]}
         type="button"
       >
@@ -43,12 +43,12 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        className="ibCohl"
-        onClick={[Function]}
+        aria-label="add"
+        className="kfvUGg"
         type="submit"
       >
         <span>
-          connect
+          add
         </span>
       </button>
     </div>

@@ -27,6 +27,8 @@ export default function Subscriptions( props ) {
 					limit={ subscription.limit }
 					hasNextPayment={ subscription.hasNextPayment }
 					nextPayment={ subscription.nextPayment }
+					hasEndDate={ subscription.hasEndDate }
+					endDate={ subscription.endDate }
 					billingAmount={ subscription.billingAmount }
 					billingCurrency={ subscription.billingCurrency }
 					onManage={ onManageHandler }
@@ -48,6 +50,8 @@ Subscriptions.propTypes = {
 				limit: PropTypes.number.isRequired,
 				hasNextPayment: PropTypes.bool.isRequired,
 				nextPayment: PropTypes.instanceOf( Date ).isRequired,
+				hasEndDate: PropTypes.bool.isRequired,
+				endDate: PropTypes.instanceOf( Date ).isRequired,
 				billingAmount: PropTypes.number.isRequired,
 				billingCurrency: PropTypes.string.isRequired,
 				status: PropTypes.string.isRequired,

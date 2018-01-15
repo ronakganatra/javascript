@@ -73,11 +73,4 @@ test('the addSiteModal handling an onConnect event', () => {
 
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
-
-	// manually trigger the callback.
-	tree.children[0].children[0].children[1].children[2].children[1].props.onClick();
-
-	// re-rendering
-	tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
 } );

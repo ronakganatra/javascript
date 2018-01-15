@@ -3,8 +3,24 @@
     "message": "It looks like you have already added this [error_context] to your My Yoast account.",
     "type": "warning"
   },
+  "rest_user_invalid_email": {
+    "message": "The email you provided could not be used. It is likely already in use by another account.",
+    "type": "error"
+  },
   "rest_invalid_param": {
     "message": "The information you provided in the [invalid_param] field appears to be invalid. Please check whether everything is in order.",
+    "type": "error"
+  },
+  "learndash_course_not_enrolled": {
+   "message": "The user is not enrolled in this course.",
+    "type": "error"
+  },
+  "learndash_course_already_started": {
+    "message": "The currently enrolled student has already started this course. You cannot enroll a new student to a course that has been started.",
+    "type": "error"
+  },
+  "learndash_course_already_enrolled": {
+    "message": "That student is already enrolled in this course.",
     "type": "error"
   },
   "GENERAL_SUPPORT_ERROR": {

@@ -1,6 +1,5 @@
 import React from "react";
 import { mapStateToProps, mapDispatchToProps } from "../../src/containers/ProfilePage"
-import { profileUpdateEmail } from "../../src/actions/user";
 import { url } from "gravatar";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
@@ -9,12 +8,14 @@ test('the mapStateToProps function', () => {
 		user: {
 			data: {
 				profile: {
-					email: "test@test.test"
+					email: "test@test.test",
+					userFirstName: "firstName",
+					userLastName: "lastName",
 				},
 			},
-			email: "test@test.test",
 			saveEmailError: "An error",
 			savingProfile: false,
+			profileSaved: false,
 			deletingProfile: false,
 			sendingPasswordReset: false,
 			sendPasswordReset: false,
@@ -30,8 +31,10 @@ test('the mapStateToProps function', () => {
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
+		userFirstName: "firstName",
+		userLastName: "lastName",
 		saveEmailError: "An error",
-
+		isSaved: false,
 		isSaving: false,
 		isDeleting: false,
 		isSendingPasswordReset: false,
@@ -40,14 +43,4 @@ test('the mapStateToProps function', () => {
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
-} );
-
-test('the mapDispatchToProps function to call profileUpdateEmail action with onChangeEmail when confirm is true', () => {
-	const dispatch = jest.fn();
-
-	let props = mapDispatchToProps( dispatch );
-
-	props.onUpdateEmail( "test@test.test" );
-
-	expect( dispatch ).toHaveBeenCalledWith( profileUpdateEmail( "test@test.test" ) );
 } );

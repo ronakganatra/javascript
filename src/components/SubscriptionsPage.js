@@ -59,19 +59,21 @@ class SubscriptionsPage extends React.Component {
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
-		 * continously passes a new `query` props. We use this at our advantage
+		 * continuously passes a new `query` props. We use this at our advantage
 		 * to debounce the call to `speak()`.
 		 * Note: remember for <input> and <textarea>, React `onChange` behaves
 		 * like the DOM's built-in oninput event handler.
 		 */
 		this.speakSearchResultsMessage( nextProps );
 	}
+
 	speakSearchResultsMessage( nextProps ) {
-		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+		if ( nextProps.query.length > 0 && this.props.query !== nextProps.query ) {
 			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.activeSubscriptions.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}
+
 	/**
 	 * Return the search bar.
 	 *
@@ -89,16 +91,18 @@ class SubscriptionsPage extends React.Component {
 
 	render() {
 		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.noSubscriptions.welcome" defaultMessage="Welcome to the subscriptions overview." />,
+			<FormattedMessage id="subscriptions.noSubscriptions.welcome"
+			                  defaultMessage="Welcome to the subscriptions overview."/>,
 			<FormattedMessage id="subscriptions.noSubscriptions.manage"
-							  defaultMessage="When you buy one of our plugins or services, a new subscription starts. Subscriptions automatically renew each year (or month),
-so you can enjoy uninterrupted access to the product you bought, including free updates and new versions." />,
-			<FormattedMessage id="subscriptions.noSubscriptions.pressButton" defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
+			                  defaultMessage="When you buy one of our plugins or services, you start a new subscription which will be billed
+							  annually. At the end of each billing cycle you can choose to renew your subscription or let it expire."/>,
+			<FormattedMessage id="subscriptions.noSubscriptions.pressButton"
+			                  defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
 		];
 		let noSearchResultsParagraphs = [
 			<FormattedMessage id="subscriptions.search.noResults"
-							  defaultMessage={ "We could not find any subscriptions matching { query }." }
-							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
+			                  defaultMessage={ "We could not find any subscriptions matching { query }." }
+			                  values={ { query: <strong>{ this.props.query }</strong> } }/> ];
 
 		let props = this.props;
 
@@ -114,7 +118,7 @@ so you can enjoy uninterrupted access to the product you bought, including free 
 				<div>
 					{ this.getSearch() }
 					<NoResults paragraphs={ noSearchResultsParagraphs }
-								 imageSource={ noResultsImage }/>
+					           imageSource={ noResultsImage }/>
 				</div>
 			);
 		}
@@ -138,7 +142,8 @@ SubscriptionsPage.propTypes = {
 };
 
 SubscriptionsPage.defaultProps = {
-	loadData: () => {},
+	loadData: () => {
+	},
 };
 
 export default injectIntl( SubscriptionsPage );

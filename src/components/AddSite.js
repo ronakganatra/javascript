@@ -20,18 +20,17 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( speak, 1000 );
-
 const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;
+
 	label {
 		display: inline-block;
 		font-weight: 300;
 		font-size: 1em;
-		margin: 16px 0 8px 0;
+		margin: 16px 0 8px;
 	}
 `;
 
@@ -49,17 +48,18 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
-	// margin-top: 8px;
 ` );
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
 	padding: 8px 0;
 	text-align: right;
+
 	a,
 	button {
 		margin-left: 12px;
 	}
+
 	@media screen and (max-width: ${ defaults.css.breakpoint.mobile }px) {
 		display: flex;
 		flex-direction: column;
@@ -68,7 +68,7 @@ const Buttons = styled.div`
 
 		a,
 		button {
-			margin-left: 0px;
+			margin-left: 0;
 			margin-bottom: 8px;
 		}
 	}
@@ -103,15 +103,12 @@ class AddSite extends React.Component {
 		this.state = {
 			validationError: null,
 			showValidationError: false,
-			urlValidity: false,
 		};
-		// Defines the debounced function for showing validation error.
-		this.showValidationMessageDebounced = _debounce( () => {
-			this.setState( { showValidationError: true } );
-		}, 1000 );
-	}
-	componentWillUnmount() {
-		this.showValidationMessageDebounced.cancel();
+
+		// Defines the debounced function to show the validation error.
+		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
+		// Defines the debounced function to announce the validation error.
+		this.speakValidationMessageDebounced = _debounce( this.speakValidationMessage, 1000 );
 	}
 
 	/**
@@ -137,20 +134,53 @@ class AddSite extends React.Component {
 	onWebsiteURLChange( event ) {
 		const value = event.target.value;
 		this.props.onChange( value );
-		let validationError = this.validateUrl( value );
+	}
+
+	/**
+	 * Runs url validation and shows/hides error if validation returns error.
+	 *
+	 * @param {string}  url       The url to validate.
+	 * @param {boolean} debounced Whether to show the debounced error message.
+	 *
+	 * @returns {void}
+	 */
+	runValidation( url, debounced = true ) {
+		let validationError = this.validateUrl( url );
 		if ( validationError ) {
-			this.setState( {
-				urlValidity: false,
-				validationError: validationError,
-			} );
-			this.showValidationMessageDebounced();
+			this.updateValidationMessage( validationError );
+			if ( debounced ) {
+				this.showValidationMessageDebounced();
+				this.speakValidationMessageDebounced();
+			} else {
+				this.showValidationMessage();
+				this.speakValidationMessage();
+			}
 		} else {
-			this.setState( {
-				urlValidity: true,
-				validationError: null,
-			} );
+			this.updateValidationMessage( null );
 			this.hideValidationError();
 		}
+	}
+
+	/**
+	 * Shows the validation error.
+	 *
+	 * @returns {void}
+	 */
+	showValidationMessage() {
+		this.setState( { showValidationError: true } );
+	}
+
+	/**
+	 * Updates the validation message.
+	 *
+	 * @param {string} message The validation message.
+	 *
+	 * @returns {void}
+	 */
+	updateValidationMessage( message ) {
+		this.setState( {
+			validationError: message,
+		} );
 	}
 
 	/**
@@ -172,14 +202,23 @@ class AddSite extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Hides the validation message and cancels a potential debounced error.
+	 *
+	 * @returns {void}
+	 */
 	hideValidationError() {
 		this.setState( { showValidationError: false }, () => {
 			this.showValidationMessageDebounced.cancel();
+			this.speakValidationMessageDebounced.cancel();
 		} );
 	}
 
 	/**
-	 * Checks whether an URL was entered.
+	 * Renders the validation error message container.
+	 *
+	 * When there are no errors, this container is rendered empty and acts like
+	 * a "placeholder" taking space in the page to avoid "jumps" in the layout.
 	 *
 	 * @param {string} input The string in the input field.
 	 * @returns {ReactElement} Returns a div that is either empty or contains an error message.
@@ -201,32 +240,64 @@ class AddSite extends React.Component {
 	}
 
 	/**
+	 * Handles the submit event.
+	 *
+	 * @param {object} event The submit event.
+	 *
+	 * @returns {void}
+	 */
+	handleSubmit( event ) {
+		event.preventDefault();
+		if ( ! this.state.validationError && !! this.props.linkingSiteUrl ) {
+			this.props.onConnectClick();
+		}
+	}
+
+	/**
+	 * Sends a message to the ARIA live assertive region.
+	 *
+	 * @returns {void}
+	 */
+	speakValidationMessage() {
+		let message = this.props.intl.formatMessage( messages.validationFormatURL );
+		speak( message, "assertive" );
+	}
+
+	componentDidMount() {
+		if ( this.props.query ) {
+			this.props.onChange( this.props.query );
+			this.runValidation( this.props.query, false );
+		}
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		if ( this.props.linkingSiteUrl !== nextProps.linkingSiteUrl ) {
+			this.runValidation( nextProps.linkingSiteUrl );
+		}
+	}
+
+	componentWillUnmount() {
+		this.showValidationMessageDebounced.cancel();
+		this.speakValidationMessageDebounced.cancel();
+	}
+
+	/**
 	 * Returns the rendered html.
 	 *
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
-		let suggestedValue = "";
-
-		if ( this.props.query.length > 0 ) {
-			suggestedValue = this.props.query;
-		}
-
-		let handleSubmit = ( event ) => {
-			event.preventDefault();
-
-			return ( this.state.urlValidity ? this.props.onConnectClick : () => {} );
-		};
 		return (
 			<AddSiteModal>
 				<ModalHeading>
 					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
 				</ModalHeading>
 
-				<form onSubmit={ handleSubmit } noValidate>
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
 					<label htmlFor="add-site-input">
-						<FormattedMessage id="sites.addSite.enterUrl"
-										  defaultMessage="Please enter the URL of the site you would like to link with your account:"
+						<FormattedMessage
+							id="sites.addSite.enterUrl"
+							defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
 					</label>
 
@@ -234,19 +305,22 @@ class AddSite extends React.Component {
 						type="url"
 						id="add-site-input"
 						placeholder={ "https://example-site.com" }
-						defaultValue={ suggestedValue }
+						value={ this.props.linkingSiteUrl }
 						onChange={ this.onWebsiteURLChange.bind( this ) }
 					/>
 
 					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
-						<WideSecondaryButton type="button" onClick={ this.props.onCancelClick } >
+						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<WideLargeButton type="submit" onClick={ this.state.urlValidity ? this.props.onConnectClick : () => {
-						} } enabledStyle={ ! this.state.validationError }>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="connect"/>
+						<WideLargeButton
+							type="submit"
+							enabledStyle={ ! this.state.validationError && !! this.props.linkingSiteUrl }
+							aria-label="add"
+						>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>
@@ -254,26 +328,6 @@ class AddSite extends React.Component {
 				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
-	}
-
-	componentDidUpdate( prevProps ) {
-		this.speakSearchResultsMessage( prevProps );
-	}
-
-	speakSearchResultsMessage( prevProps ) {
-		/*
-		 * In order to use this.urlValidity we need to wait it's updated so we
-		 * use componentDidUpdate() to call the debounced speak. As a
-		 * consequence, we need to use the lodash debounce.cancel() method to
-		 * cancel the delayed call. This is particularly important when typing
-		 * fast in the site URL field.
-		 */
-		debouncedSpeak.cancel();
-
-		if ( this.props.linkingSiteUrl.length > 0 && ( this.props.linkingSiteUrl !== prevProps.linkingSiteUrl ) && ! this.urlValidity ) {
-			let message = this.props.intl.formatMessage( messages.validationFormatURL );
-			debouncedSpeak( message, "assertive" );
-		}
 	}
 }
 

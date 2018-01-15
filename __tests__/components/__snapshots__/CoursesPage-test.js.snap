@@ -1,5 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`The courses page component matches the snapshot 1`] = `
+<div>
+  <ul
+    className="fXEqiq"
+    role="list"
+  >
+    <li
+      className="iUHhtG"
+    >
+      <a
+        aria-current={false}
+        className="iXGvEz"
+        href="/courses/progress"
+        onClick={[Function]}
+        style={undefined}
+      >
+         
+        Progress
+         
+      </a>
+    </li>
+    <li
+      className="iUHhtG"
+    >
+      <a
+        aria-current={false}
+        className="iXGvEz"
+        href="/courses/enrollments"
+        onClick={[Function]}
+        style={undefined}
+      >
+         
+        Enrollments
+         
+      </a>
+    </li>
+  </ul>
+  <div />
+  <div />
+</div>
+`;
+
 exports[`the courses page component matches the snapshot 1`] = `
 <div
   className="fFcAEY"
@@ -12,7 +54,7 @@ exports[`the courses page component matches the snapshot 1`] = `
   <p>
     <a
       aria-label={undefined}
-      className="dQHIsN"
+      className="egXoWD"
       href="https://yoa.st/myyoast-academy"
       rel="noopener noreferrer"
       target="_blank"

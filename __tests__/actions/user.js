@@ -2,6 +2,12 @@ import * as actions from "../../src/actions/user";
 import * as api from "../../src/functions/api";
 import { getPasswordResetUrl } from "../../src/functions/auth";
 
+global.document = {
+	location: {
+		href: ""
+	}
+};
+
 jest.mock( "whatwg-fetch" );
 
 jest.mock( "../../src/functions/api", () => {
@@ -34,6 +40,7 @@ jest.mock( "../../src/functions/auth", () => {
 		getPasswordResetUrl: jest.fn( () => { return "http://reset.your.passwo.rd" } ),
 		getLogoutUrl: jest.fn( () => { return "http://log.out" } ),
 		removeCookies: jest.fn( () => {} ),
+		hasCookieParams: jest.fn( () => false ),
 	}
 } );
 
@@ -177,29 +184,6 @@ describe( 'Password reset', () => {
 		const actual = actions.passwordResetSuccess();
 
 		expect( actual ).toEqual( expected );
-	} );
-
-	test( 'actual reset', () => {
-		const dispatch = jest.fn();
-		const resetPasswordFunc = actions.passwordResetSend( "email@email.email" );
-
-		const expectedBody = new FormData();
-		expectedBody.append( "user_login", "email@email.email" );
-
-		const request = api.prepareRequest(
-			getPasswordResetUrl(),
-			"POST",
-			expectedBody,
-			{ mode: "no-cors" } );
-
-		expect( resetPasswordFunc ).toBeInstanceOf( Function );
-
-		return resetPasswordFunc( dispatch ).then( () => {
-			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetRequest() );
-			expect( api.prepareRequest ).toHaveBeenCalled();
-			expect( api.doRequest ).toHaveBeenCalledWith( request );
-			expect( dispatch ).toHaveBeenCalledWith( actions.passwordResetSuccess() );
-		} );
 	} );
 } );
 

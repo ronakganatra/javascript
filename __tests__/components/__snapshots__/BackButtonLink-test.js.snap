@@ -2,10 +2,8 @@
 
 exports[`the round back button matches the snapshot 1`] = `
 <a
-  className="igsbdj"
-  enabledStyle={true}
+  className="jyTnCM"
   href="/"
-  iconSize="24px"
   onClick={[Function]}
 >
   ButtonValue
@@ -14,10 +12,8 @@ exports[`the round back button matches the snapshot 1`] = `
 
 exports[`the round back button with button type given matches the snapshot 1`] = `
 <a
-  className="igsbdj"
-  enabledStyle={true}
+  className="jyTnCM"
   href="/"
-  iconSize="24px"
   onClick={[Function]}
   type="button"
 >

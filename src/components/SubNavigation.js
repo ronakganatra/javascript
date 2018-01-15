@@ -21,6 +21,7 @@ const SubNavigationContainer = styled.ul`
 
 const SubNavigationEntry = styled.li`
 	min-width: 200px;
+	font-size: 1.2em;
 
 	@media screen and ( max-width: 600px ) {
 		width: 150px;
@@ -36,10 +37,6 @@ const LinkItem = styled( NavLink )`
 
 	margin-bottom: -4px;
 	border-bottom: 4px solid transparent;
-
-	@media screen and ( min-width: 600px ) {
-		padding: 0.5em 2.5em;
-	}
 
 	transition: border 200ms ease-out;
 

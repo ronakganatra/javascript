@@ -12,7 +12,7 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -29,22 +29,22 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gtZwWe"
             onClick={[Function]}
             type="button"
           >
@@ -53,12 +53,12 @@ exports[`The AddSiteModal component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="ibCohl"
-            onClick={[Function]}
+            aria-label="add"
+            className="kfvUGg"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -88,7 +88,7 @@ exports[`the addSiteModal handling an onClose event 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -105,22 +105,22 @@ exports[`the addSiteModal handling an onClose event 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gtZwWe"
             onClick={[Function]}
             type="button"
           >
@@ -129,12 +129,12 @@ exports[`the addSiteModal handling an onClose event 1`] = `
             </span>
           </button>
           <button
-            className="ibCohl"
-            onClick={[Function]}
+            aria-label="add"
+            className="kfvUGg"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -164,7 +164,7 @@ exports[`the addSiteModal handling an onClose event 2`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -181,22 +181,22 @@ exports[`the addSiteModal handling an onClose event 2`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gtZwWe"
             onClick={[Function]}
             type="button"
           >
@@ -205,12 +205,12 @@ exports[`the addSiteModal handling an onClose event 2`] = `
             </span>
           </button>
           <button
-            className="ibCohl"
-            onClick={[Function]}
+            aria-label="add"
+            className="kfvUGg"
             type="submit"
           >
             <span>
-              connect
+              add
             </span>
           </button>
         </div>
@@ -240,7 +240,7 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
     role="dialog"
   >
     <div
-      className="eUbKKo"
+      className="lcOdPt"
     >
       <h1
         className="dQgKWp"
@@ -257,22 +257,22 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
           htmlFor="add-site-input"
         >
           <span>
-            Please enter the URL of the site you would like to link with your account:
+            Please enter the URL of the site you would like to add to your account:
           </span>
         </label>
         <input
-          className="jeqQcj"
-          defaultValue=""
+          className="jssTrf"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
           type="url"
+          value=""
         />
         <div
-          className="eHlvIb"
+          className="bQLojW"
         >
           <button
-            className="hUAvMB"
+            className="gtZwWe"
             onClick={[Function]}
             type="button"
           >
@@ -281,88 +281,12 @@ exports[`the addSiteModal handling an onConnect event 1`] = `
             </span>
           </button>
           <button
-            className="ibCohl"
-            onClick={[Function]}
+            aria-label="add"
+            className="kfvUGg"
             type="submit"
           >
             <span>
-              connect
-            </span>
-          </button>
-        </div>
-      </form>
-      <div
-        className="ehuLPF"
-      />
-      <img
-        alt=""
-        className="ireVCO"
-        src="addsite.svg"
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`the addSiteModal handling an onConnect event 2`] = `
-<div>
-  <div
-    className="ZwEmN my-yoast-modal__content"
-    contentLabel="Add a new site"
-    id="Modal"
-    isOpen={true}
-    onRequestClose={[Function]}
-    overlayClassName="ZwEmN my-yoast-modal__overlay"
-    role="dialog"
-  >
-    <div
-      className="eUbKKo"
-    >
-      <h1
-        className="dQgKWp"
-      >
-        <span>
-          Add Site
-        </span>
-      </h1>
-      <form
-        noValidate={true}
-        onSubmit={[Function]}
-      >
-        <label
-          htmlFor="add-site-input"
-        >
-          <span>
-            Please enter the URL of the site you would like to link with your account:
-          </span>
-        </label>
-        <input
-          className="jeqQcj"
-          defaultValue=""
-          id="add-site-input"
-          onChange={[Function]}
-          placeholder="https://example-site.com"
-          type="url"
-        />
-        <div
-          className="eHlvIb"
-        >
-          <button
-            className="hUAvMB"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              cancel
-            </span>
-          </button>
-          <button
-            className="ibCohl"
-            onClick={[Function]}
-            type="submit"
-          >
-            <span>
-              connect
+              add
             </span>
           </button>
         </div>
