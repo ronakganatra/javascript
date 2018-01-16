@@ -59,7 +59,8 @@ const ProductName = styled.span`
 const SubscriptionUsage = styled.span`
 	display: ${ props => props.hasSubscriptions ? "inline-block" : "none" };
 	font-weight: 300;
-	margin-right: 10px;
+	margin-right: 8px;
+	margin-top: 4px;
 `;
 
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
@@ -87,7 +88,7 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
+			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" }>
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get another subscription"
