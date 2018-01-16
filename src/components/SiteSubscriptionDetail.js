@@ -87,12 +87,12 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-				<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
-					<FormattedMessage
-						id="site.subscriptions.licenses.add"
-						defaultMessage="Get another subscription"
-					/>
-				</IconButtonTransparentLink>
+			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
+				<FormattedMessage
+					id="site.subscriptions.licenses.add"
+					defaultMessage="Get another subscription"
+				/>
+			</IconButtonTransparentLink>
 		);
 	}
 

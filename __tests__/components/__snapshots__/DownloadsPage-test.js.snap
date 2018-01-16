@@ -523,7 +523,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
     </span>
   </p>
   <a
-    aria-label={undefined}
+    aria-label={null}
     className="gGtGty"
     href="https://yoast.com/shop/"
     rel="noopener noreferrer"
