@@ -17,7 +17,7 @@ export default class DailyDashboard extends React.Component {
 			loaded: false,
 			dailyStatistics: null,
 			totalStatistics: null,
-			month: moment().tz( "Europe/Amsterdam" ).format( "MM" ),
+			month: moment().tz( "Europe/Amsterdam" ).format( "MMM" ),
 			year: moment().tz( "Europe/Amsterdam" ).format( "YYYY" ),
 		};
 
@@ -145,15 +145,7 @@ export default class DailyDashboard extends React.Component {
 		} );
 	}
 
-	onDateChanged() {
-		this.setState( { selectedDate: moment().tz( "Europe/Amsterdam" ).set( {"year": this.state.year, "month": this.state.month } ) }, this.getStatistics );
-	}
-
-	render() {
-		if ( ! this.state.loaded ) {
-			return <Loader />;
-		}
-
+	generateRows(){
 		let today = moment().tz( "Europe/Amsterdam" );
 		let date = this.state.selectedDate.clone().startOf( "month" );
 		let endDate = this.state.selectedDate.clone().endOf( "month" );
@@ -168,6 +160,27 @@ export default class DailyDashboard extends React.Component {
 			date = date.add( 1, "day" );
 		}
 		rows.push( this.getTotalRow() );
+		return rows;
+	}
+
+	onDateChanged( e ) {
+		if ( this.state.month !== this.state.selectedDate.format( "MMM" ) || this.state.year !== this.state.selectedDate.format( "YYYY" ) ) {
+			this.setState( {
+				selectedDate: moment().tz( "Europe/Amsterdam" ).set( {
+					"year": this.state.year,
+					"month": this.state.month,
+				} ),
+			}, this.getStatistics );
+		}
+		e.preventDefault();
+	}
+
+	render() {
+		if ( ! this.state.loaded ) {
+			return <Loader />;
+		}
+
+		let rows = this.generateRows();
 
 		return (
 			<div>
@@ -177,7 +190,7 @@ export default class DailyDashboard extends React.Component {
 							{ this.generateMonthOptions() }
 						</select>
 						<select onChange={ this.handleYearChange.bind( this ) }  value={ this.state.year }>
-							{ this.generateYearOptions( today.format( "YYYY" ) ) }
+							{ this.generateYearOptions( moment().tz( "Europe/Amsterdam" ).format( "YYYY" ) ) }
 						</select>
 						<button onClick={ this.onDateChanged } >Search</button>
 					</fieldset>
