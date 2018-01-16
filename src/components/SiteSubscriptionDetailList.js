@@ -29,14 +29,9 @@ function SiteSubscriptionDetailList( props ) {
 							return props.onToggleDisabled( plugin.storeUrl );
 						};
 
-						let onAddMoreSubscriptionsClick = () => {
-							return props.onAddMoreSubscriptionsClick( plugin.storeUrl );
-						};
-
 						return <SiteSubscriptionDetail
 							{ ...plugin }
 							key={ plugin.glNumber }
-							onAddMoreSubscriptionsClick={ onAddMoreSubscriptionsClick }
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
 							onToggleSubscription={ props.onToggleSubscription }
@@ -53,7 +48,6 @@ function SiteSubscriptionDetailList( props ) {
 
 SiteSubscriptionDetailList.propTypes = {
 	plugins: PropTypes.arrayOf( PropTypes.object ),
-	onAddMoreSubscriptionsClick: PropTypes.func.isRequired,
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,

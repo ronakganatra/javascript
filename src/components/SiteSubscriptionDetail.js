@@ -146,7 +146,6 @@ function SiteSubscriptionDetail( props ) {
 SiteSubscriptionDetail.propTypes = {
 	subscriptionId: PropTypes.string,
 	name: PropTypes.string.isRequired,
-	onAddMoreSubscriptionsClick: PropTypes.func,
 	onClickToggle: PropTypes.func,
 	onToggleSubscription: PropTypes.func,
 	onToggleDisabled: PropTypes.func,
