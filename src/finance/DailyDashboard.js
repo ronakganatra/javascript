@@ -5,21 +5,28 @@ import FinanceStatistic from "./FinanceStatistic";
 import { dollarPresenter } from "../functions/presenters";
 import { table } from "../functions/table";
 import _merge from "lodash/merge";
+import _times from "lodash/times";
+
 
 export default class DailyDashboard extends React.Component {
 	constructor( props ) {
 		super( props );
 
 		this.state = {
+			selectedDate: moment().tz( "Europe/Amsterdam" ),
 			loaded: false,
 			dailyStatistics: null,
 			totalStatistics: null,
+			month: moment().tz( "Europe/Amsterdam" ).format( "MM" ),
+			year: moment().tz( "Europe/Amsterdam" ).format( "YYYY" ),
 		};
+
+		this.onDateChanged = this.onDateChanged.bind( this );
+		this.handleMonthChange = this.handleMonthChange.bind( this );
+		this.handleYearChange = this.handleYearChange.bind( this);
 
 		this.setDailyStatistic();
 		this.setTotalStatistic();
-
-		this.startDate = moment().tz( "Europe/Amsterdam" ).subtract( 5, "days" ).startOf( "month" );
 
 		this.getStatistics();
 	}
@@ -60,11 +67,14 @@ export default class DailyDashboard extends React.Component {
 	}
 
 	getStatistics() {
-		let startDate = this.startDate.toDate();
+		let startDate = this.state.selectedDate.clone().startOf( "month" ).toDate();
+		let endDate = this.state.selectedDate.clone().endOf( "month" ).toDate();
+
+		this.setState( { loaded: false } );
 
 		Promise.all( [
-			this.props.api.search( "Orders", { where: { date: { gt: startDate }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
-			this.props.api.search( "Refunds", { where: { date: { gt: startDate } }, include: [ "refundLineItems", "order" ] } )
+			this.props.api.search( "Orders", { where: { date: { between: [ startDate, endDate ] }, status: { inq: [ "completed", "processing", "refunded" ] } } } ),
+			this.props.api.search( "Refunds", { where: { date: { between: [ startDate, endDate ] } }, include: [ "refundLineItems", "order" ] } ),
 		] ).then( ( [ orders, refunds ] ) => {
 			let dailyStatistics = this.dailyStatistic.collect( orders, refunds );
 			let totalStatistics = this.totalStatistic.collect( orders, refunds );
@@ -80,26 +90,63 @@ export default class DailyDashboard extends React.Component {
 		);
 	}
 
+	getTotalStatistic() {
+		return _merge(
+			{ orderRevenue: 0, orderTotal: 0, refundRevenue: 0, refundTotal: 0, revenue: 0 },
+			this.state.totalStatistics.total
+		);
+	}
+
 	getDailyRow( date ) {
+		let dailyStatistic = this.getDailyStatistic( date );
+
 		return [
 			date.format( "ddd, MMM DD, YYYY" ),
-			dollarPresenter( this.getDailyStatistic( date ).orderRevenue ) ,
-			this.getDailyStatistic( date ).orderTotal,
-			{ className: 'negative', content: dollarPresenter( this.getDailyStatistic( date ).refundRevenue ) },
-			{ className: 'negative', content: this.getDailyStatistic( date ).refundTotal },
-			dollarPresenter( this.getDailyStatistic( date ).revenue ),
+			dollarPresenter( dailyStatistic.orderRevenue ) ,
+			dailyStatistic.orderTotal,
+			{ className: "negative", content: dollarPresenter( dailyStatistic.refundRevenue ) },
+			{ className: "negative", content: dailyStatistic.refundTotal },
+			dollarPresenter( dailyStatistic.revenue ),
 		];
 	}
 
 	getTotalRow() {
+		let totalStatistic = this.getTotalStatistic();
+
 		return [
-			'Total',
-			dollarPresenter( this.state.totalStatistics.total.orderRevenue || 0 ),
-			this.state.totalStatistics.total.orderTotal || 0,
-			{ className: 'negative', content: dollarPresenter( this.state.totalStatistics.total.refundRevenue || 0 ) },
-			{ className: 'negative', content: this.state.totalStatistics.total.refundTotal || 0 },
-			dollarPresenter( this.state.totalStatistics.total.revenue || 0 ),
+			"Total",
+			dollarPresenter( totalStatistic.orderRevenue ),
+			totalStatistic.orderTotal || 0,
+			{ className: "negative", content: dollarPresenter( totalStatistic.refundRevenue ) },
+			{ className: "negative", content: totalStatistic.refundTotal || 0 },
+			dollarPresenter( totalStatistic.revenue || 0 ),
 		];
+	}
+
+	handleMonthChange( e ){
+		this.setState( { month: e.target.value } );
+	}
+
+	handleYearChange( e ){
+		this.setState( { year: e.target.value } );
+	}
+
+	generateMonthOptions(){
+		return _times( 12, function( n ) {
+			let m = moment.monthsShort();
+			return <option key={ n } value={ m[ n ] }>{ m[ n ] }</option>;
+		} );
+	}
+
+	generateYearOptions( year ){
+		return _times( 5, function( n ) {
+			let y = year - n
+			return <option key={ n } value={ y }>{ y }</option>;
+		} );
+	}
+
+	onDateChanged() {
+		this.setState( { selectedDate: moment().tz( "Europe/Amsterdam" ).set( {"year": this.state.year, "month": this.state.month } ) }, this.getStatistics );
 	}
 
 	render() {
@@ -107,16 +154,36 @@ export default class DailyDashboard extends React.Component {
 			return <Loader />;
 		}
 
-		let date  = this.startDate.clone();
 		let today = moment().tz( "Europe/Amsterdam" );
+		let date = this.state.selectedDate.clone().startOf( "month" );
+		let endDate = this.state.selectedDate.clone().endOf( "month" );
 		let rows  = [];
 
-		while ( date.isBefore( today ) ) {
+		if ( endDate > today ) {
+			endDate = today;
+		}
+
+		while ( date.isBefore( endDate ) ) {
 			rows.push( this.getDailyRow( date ) );
 			date = date.add( 1, "day" );
 		}
 		rows.push( this.getTotalRow() );
 
-		return table( [ "Day", "Turnover", "Transactions", "Refunded", "Refunds", "Revenue" ], rows, { className: "FinanceDashboard" } );
+		return (
+			<div>
+				<form onSubmit={ this.onDateChanged }>
+					<fieldset>
+						<select onChange={ this.handleMonthChange.bind( this ) } value={ this.state.month }>
+							{ this.generateMonthOptions() }
+						</select>
+						<select onChange={ this.handleYearChange.bind( this ) }  value={ this.state.year }>
+							{ this.generateYearOptions( today.format( "YYYY" ) ) }
+						</select>
+						<button onClick={ this.onDateChanged } >Search</button>
+					</fieldset>
+				</form>
+				{ table( [ "Day", "Turnover", "Transactions", "Refunded", "Refunds", "Revenue" ], rows, { className: "FinanceDashboard" } ) }
+			</div>
+		);
 	}
 }
