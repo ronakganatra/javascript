@@ -43,7 +43,7 @@ export function getWooCommerceHost() {
 
 export function getLearndashHost() {
 	if ( isLocalEnv() ) {
-		return "http://yoast.academy.test";
+		return "http://academy.yoast.test";
 	} else {
 		return "https://academy.yoast.com";
 	}
