@@ -240,6 +240,7 @@ exports[`the site page component matches the snapshot 1`] = `
       </button>
     </div>
   </div>
+  <div />
 </div>
 `;
 
@@ -483,5 +484,6 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </button>
     </div>
   </div>
+  <div />
 </div>
 `;

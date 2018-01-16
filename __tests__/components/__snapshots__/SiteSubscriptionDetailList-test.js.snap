@@ -78,7 +78,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             Yoast SEO Premium
           </span>
           <span
-            className="hkQMsn"
+            className="iqbChj"
           >
             <span>
               1/2 remaining
@@ -145,7 +145,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             Yoast SEO Local
           </span>
           <span
-            className="hkQMsn"
+            className="iqbChj"
           >
             <span>
               0/2 remaining

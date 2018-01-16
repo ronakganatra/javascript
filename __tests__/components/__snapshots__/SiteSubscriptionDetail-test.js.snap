@@ -47,7 +47,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
       Subscription name
     </span>
     <span
-      className="hkQMsn"
+      className="iqbChj"
     >
       <span>
         0/20 remaining
@@ -117,7 +117,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       Subscription name
     </span>
     <span
-      className="hkQMsn"
+      className="iqbChj"
     >
       <span>
         6/20 remaining
