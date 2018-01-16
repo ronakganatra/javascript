@@ -23,7 +23,7 @@ exports[`the site page component matches the snapshot 1`] = `
         </span>
       </a>
       <a
-        aria-label={null}
+        aria-label={undefined}
         className="gxyAca"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
@@ -266,7 +266,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
         </span>
       </a>
       <a
-        aria-label={null}
+        aria-label={undefined}
         className="gxyAca"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
