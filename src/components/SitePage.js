@@ -6,6 +6,7 @@ import SiteHeader from "./SiteHeader";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
+import AddLicensesModal from "./AddLicensesModal";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -26,6 +27,13 @@ class SitePage extends React.Component {
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.sitePageLoaded );
 		speak( message );
+	}
+
+	getModal() {
+		let storeUrl = this.props.addSubscriptionModal.storeUrl || "";
+		let open = this.props.addSubscriptionModal.popupOpen;
+
+		return <AddLicensesModal isOpen={ open } onShop={ storeUrl } onClose={ this.props.onClose }/>;
 	}
 
 	render() {
@@ -54,6 +62,7 @@ class SitePage extends React.Component {
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
 				{ subscriptionList }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
+				{ this.getModal() }
 			</div>
 		);
 	}
