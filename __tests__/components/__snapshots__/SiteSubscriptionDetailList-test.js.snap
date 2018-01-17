@@ -155,11 +155,18 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             aria-label={undefined}
             className="kbIRni"
             href="http://url2.com"
-            rel={undefined}
-            target={undefined}
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <span>
               Get another subscription
+            </span>
+            <span
+              className="screen-reader-text fuqaAG"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
             </span>
           </a>
         </span>
