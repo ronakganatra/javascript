@@ -132,9 +132,10 @@ export default class DailyDashboard extends React.Component {
 	}
 
 	generateMonthOptions(){
-		return _times( 12, function( n ) {
-			let m = moment.monthsShort();
-			return <option key={ n } value={ m[ n ] }>{ m[ n ] }</option>;
+		let m = moment.monthsShort();
+
+		return m.map( ( month ) => {
+			return <option key={ month } value={ month }>{ month }</option>;
 		} );
 	}
 
