@@ -140,8 +140,8 @@ export default class DailyDashboard extends React.Component {
 	}
 
 	generateYearOptions( year ){
-		return _times( 5, function( n ) {
-			let y = year - n
+		return _times( 5, ( n ) => {
+			let y = year - n;
 			return <option key={ n } value={ y }>{ y }</option>;
 		} );
 	}
