@@ -27,8 +27,6 @@ export default class DailyDashboard extends React.Component {
 
 		this.setDailyStatistic();
 		this.setTotalStatistic();
-
-		this.getStatistics();
 	}
 
 	setDailyStatistic() {
@@ -174,6 +172,10 @@ export default class DailyDashboard extends React.Component {
 			}, this.getStatistics );
 		}
 		e.preventDefault();
+	}
+
+	componentDidMount(){
+		this.getStatistics()
 	}
 
 	render() {
