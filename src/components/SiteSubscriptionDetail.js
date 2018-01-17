@@ -9,6 +9,7 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } fro
 import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
+import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
@@ -88,22 +89,24 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" }>
+			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" }>
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get another subscription"
 				/>
+				<NewTabMessage/>
 			</IconButtonTransparentLink>
 		);
 	}
 
 	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
-			<IconButtonTransparentLink to={ props.storeUrl } iconSource={ plusIcon } iconSize={ "1em" } >
+			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get a subscription"
 				/>
+				<NewTabMessage/>
 			</IconButtonTransparentLink>
 		);
 	}
