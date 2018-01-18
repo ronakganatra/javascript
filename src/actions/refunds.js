@@ -61,7 +61,7 @@ export function getRefunds() {
 		dispatch( getRefundsRequest() );
 
 		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/orders/` );
+		let request = prepareInternalRequest( `Customers/${userId}/findRefunds/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getRefundsSuccess( json ) ) )

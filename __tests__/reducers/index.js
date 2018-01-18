@@ -50,6 +50,14 @@ jest.mock( "../../src/reducers/subscriptions.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/refunds.js", () => {
+	return {
+		allIdsRefundsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsRefundsReducer" }; } ),
+		byIdRefundsReducer: jest.fn( ( state = {} ) => { return { name: "byIdRefundsReducer" }; } ),
+		uiRefundsReducer: jest.fn( ( state = {} ) => { return { name: "uiRefundsReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/courses.js", () => {
 	return {
 		allIdsCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesEnrollmentsReducer" }; } ),
@@ -74,7 +82,7 @@ test( 'ui reducer', () => {
 	};
 
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, sites: { name: "uiSitesReducer" },
-		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" },
+		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
 		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" },  };
 
 	const actual = uiReducer( state, action );
@@ -140,6 +148,7 @@ test( 'entities reducer', () => {
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
 		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
 		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer" } },
+		refunds: { allIds: { name: "allIdsRefundsReducer" }, byId: { name: "byIdRefundsReducer" } },
 		orders: { allIds: [], byId: {} },
 		courses: { byId: { name: "byIdCoursesReducer" }, allIds: { name: "allIdsCoursesReducer" } },
 		coursesEnrollments: { byId: { name: "byIdCoursesEnrollmentsReducer" }, allIds: { name: "allIdsCoursesEnrollmentsReducer" } },
@@ -179,6 +188,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				byId: { name: "byIdCoursesEnrollmentsReducer" },
 				allIds: { name: "allIdsCoursesEnrollmentsReducer" },
 			},
+			refunds: {
+				byId: { name: "byIdRefundsReducer" },
+				allIds: { name: "allIdsRefundsReducer" },
+			},
 			sites: {
 				byId: { name: "byIdReducer" },
 				allIds: { name: "allIdsReducer" },
@@ -197,6 +210,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 		},
 		ui: {
 			sites: { name: "uiSitesReducer" },
+			refunds: { name: "uiRefundsReducer" },
 			search: {
 				query: "",
 			},

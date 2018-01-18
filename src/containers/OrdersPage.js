@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
+import { getRefunds } from "../actions/refunds";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.orders.allIds;
@@ -63,7 +64,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
-		loadData: () => dispatch( getOrders() ),
+		loadData: () => {
+			dispatch( getOrders() );
+			dispatch( getRefunds() );
+		},
 	};
 };
 
