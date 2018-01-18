@@ -388,6 +388,35 @@ IconRightButtonLink.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 };
 
+export const IconButtonTransparentLink = styled( IconButtonLink )`
+	border: 0;
+	cursor: pointer;
+	background-color: transparent;
+	background-position: 0.5em 50%;
+	color: ${ colors.$color_blue };
+	box-shadow: none;
+	text-transform: none;
+	padding-left: 2em;
+	font: 400 14px/24px "Open Sans", sans-serif;
+	text-shadow: none;
+	height: 32px;
+	padding: 4px 16px 0 2em;
+
+	transition: background-color 150ms ease-out;  
+
+	&:hover,
+	&:focus {
+		box-shadow: none;
+		background-color: ${ colors.$color_grey_light };
+		color: ${ colors.$color_blue };
+	}
+
+	&:active {
+		transform: translateY( 1px );
+		box-shadow: none;
+	}
+`;
+
 // Style related functions.
 
 /**

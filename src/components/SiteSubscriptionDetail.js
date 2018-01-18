@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonTransparent, makeButtonFullWidth } from "./Button";
+import { LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -9,6 +9,7 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } fro
 import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
+import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
@@ -59,7 +60,8 @@ const ProductName = styled.span`
 const SubscriptionUsage = styled.span`
 	display: ${ props => props.hasSubscriptions ? "inline-block" : "none" };
 	font-weight: 300;
-	margin-right: 10px;
+	margin-right: 8px;
+	margin-top: 4px;
 `;
 
 let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
@@ -87,23 +89,25 @@ function SiteSubscriptionDetail( props ) {
 	let anotherLicense = null;
 	if ( licensesRemaining === 0 && props.isEnabled === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
+			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" }>
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get another subscription"
 				/>
-			</IconButtonTransparent>
+				<NewTabMessage/>
+			</IconButtonTransparentLink>
 		);
 	}
 
 	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
 		anotherLicense = (
-			<IconButtonTransparent iconSource={ plusIcon } iconSize={ "1em" } onClick={ props.onAddMoreSubscriptionsClick } >
+			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" } >
 				<FormattedMessage
 					id="site.subscriptions.licenses.add"
 					defaultMessage="Get a subscription"
 				/>
-			</IconButtonTransparent>
+				<NewTabMessage/>
+			</IconButtonTransparentLink>
 		);
 	}
 
@@ -145,7 +149,6 @@ function SiteSubscriptionDetail( props ) {
 SiteSubscriptionDetail.propTypes = {
 	subscriptionId: PropTypes.string,
 	name: PropTypes.string.isRequired,
-	onAddMoreSubscriptionsClick: PropTypes.func,
 	onClickToggle: PropTypes.func,
 	onToggleSubscription: PropTypes.func,
 	onToggleDisabled: PropTypes.func,

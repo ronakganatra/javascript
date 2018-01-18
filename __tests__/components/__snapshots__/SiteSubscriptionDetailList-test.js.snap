@@ -78,7 +78,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             Yoast SEO Premium
           </span>
           <span
-            className="hkQMsn"
+            className="iqbChj"
           >
             <span>
               1/2 remaining
@@ -145,20 +145,30 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             Yoast SEO Local
           </span>
           <span
-            className="hkQMsn"
+            className="iqbChj"
           >
             <span>
               0/2 remaining
             </span>
           </span>
-          <button
-            className="iIaFJD"
-            onClick={[Function]}
+          <a
+            aria-label={undefined}
+            className="kbIRni"
+            href="http://url2.com"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <span>
               Get another subscription
             </span>
-          </button>
+            <span
+              className="screen-reader-text fuqaAG"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
         </span>
         <span
           className="fRNOok"
