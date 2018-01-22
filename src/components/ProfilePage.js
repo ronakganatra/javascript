@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
-import { Button, RedButton } from "./Button";
+import { Button, LargeButton, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -12,6 +12,8 @@ import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import CreateTokenModal from "./account/profile/CreateTokenModal";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -144,6 +146,11 @@ const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
 
+const CreateTokenButton = styled( LargeButton )`
+	margin: 32px;
+	display: initial;
+`;
+
 /**
  * Returns the rendered Sites Page component.
  *
@@ -274,12 +281,32 @@ class ProfilePage extends React.Component {
 		this.props.onDeleteProfile();
 	}
 
+	getModal() {
+		let modal = (
+			<CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } />
+		);
+		return this.props.createTokenModalIsOpen ? modal : null;
+	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+
+		let DevTools = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
+			? <Paper>
+				<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+					<ComposerTokens {...this.props} hasPaper={false}/>
+					<CreateTokenButton
+						onClick={ this.props.onCreateTokenModalOpen }
+					>
+						Create Token
+					</CreateTokenButton>
+				</CollapsibleHeader>
+			</Paper>
+			: null;
 		return (
 			<div>
 				<Paper>
@@ -307,11 +334,8 @@ class ProfilePage extends React.Component {
 						</Column>
 					</Page>
 				</Paper>
-				<Paper>
-					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) } isOpen={ false }>
-						<ComposerTokens { ...this.props } hasPaper={ false }/>
-					</CollapsibleHeader>
-				</Paper>
+				{ DevTools }
+				{ this.getModal() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
@@ -353,6 +377,9 @@ ProfilePage.propTypes = {
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
+	onCreateTokenModalOpen: PropTypes.func.isRequired,
+	onCreateTokenModalClose: PropTypes.func.isRequired,
+	createTokenModalIsOpen: PropTypes.bool.isRequired,
 };
 
 ProfilePage.defaultProps = {

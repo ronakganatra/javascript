@@ -8,8 +8,8 @@ import {
 	GET_ALL_SUBSCRIPTIONS_REQUEST,
 	GET_ALL_SUBSCRIPTIONS_SUCCESS,
 	GET_ALL_SUBSCRIPTIONS_FAILURE,
-	ADD_LICENCES_POPUP_OPEN,
-	ADD_LICENCES_POPUP_CLOSE,
+	ADD_LICENCES_MODAL_OPEN,
+	ADD_LICENCES_MODAL_CLOSE,
 } from "../../src/actions/subscriptions";
 
 import { siteAddSubscriptionSuccess, siteRemoveSubscriptionSuccess } from "../../src/actions/site";
@@ -31,20 +31,20 @@ test( 'The uiAllSubscriptionsReducer processes the get all subscription request 
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'The uiAddSubscriptionModalReducer processes the add licenses popup open action', () => {
+test( 'The uiAddSubscriptionModalReducer processes the add licenses modal open action', () => {
 	const state = {
 		storeUrl: null,
-		popupOpen: false,
+		modalOpen: false,
 	};
 
 	const action = {
-		type: ADD_LICENCES_POPUP_OPEN,
+		type: ADD_LICENCES_MODAL_OPEN,
 		storeUrl: "http://yoast.test/shop/product-url",
 	};
 
 	const expected = {
 		storeUrl: "http://yoast.test/shop/product-url",
-		popupOpen: true,
+		modalOpen: true,
 	};
 
 	const actual = uiAddSubscriptionModalReducer( state, action );
@@ -52,19 +52,19 @@ test( 'The uiAddSubscriptionModalReducer processes the add licenses popup open a
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'The uiAddSubscriptionModalReducer processes the add licenses popup close action', () => {
+test( 'The uiAddSubscriptionModalReducer processes the add licenses modal close action', () => {
 	const state = {
 		storeUrl: "http://yoast.test/shop/product-url",
-		popupOpen: true,
+		modalOpen: true,
 	};
 
 	const action = {
-		type: ADD_LICENCES_POPUP_CLOSE,
+		type: ADD_LICENCES_MODAL_CLOSE,
 	};
 
 	const expected = {
 		storeUrl: null,
-		popupOpen: false,
+		modalOpen: false,
 	};
 
 	const actual = uiAddSubscriptionModalReducer( state, action );

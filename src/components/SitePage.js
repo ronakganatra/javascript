@@ -31,7 +31,7 @@ class SitePage extends React.Component {
 
 	getModal() {
 		let storeUrl = this.props.addSubscriptionModal.storeUrl || "";
-		let open = this.props.addSubscriptionModal.popupOpen;
+		let open = this.props.addSubscriptionModal.modalOpen;
 
 		return <AddLicensesModal isOpen={ open } onShop={ storeUrl } onClose={ this.props.onClose }/>;
 	}
