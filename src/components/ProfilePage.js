@@ -11,6 +11,7 @@ import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
+import ComposerTokens from "./account/profile/ComposerTokens";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -32,6 +33,10 @@ const messages = defineMessages( {
 	labelDelete: {
 		id: "profile.label.delete",
 		defaultMessage: "Delete account",
+	},
+	developerTokens: {
+		id: "profile.label.developerTokens",
+		defaultMessage: "Developer Tokens",
 	},
 	dangerZone: {
 		id: "profile.label.dangerZone",
@@ -301,6 +306,11 @@ class ProfilePage extends React.Component {
 							{ image }
 						</Column>
 					</Page>
+				</Paper>
+				<Paper>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) } isOpen={ false }>
+						<ComposerTokens { ...this.props } hasPaper={ false }/>
+					</CollapsibleHeader>
 				</Paper>
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>

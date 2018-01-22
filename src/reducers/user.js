@@ -116,13 +116,13 @@ export function userEmailReducer( state = initialState, action ) {
 				savingProfile: false,
 				sendPasswordReset: false,
 				profileSaved: true,
-				data: {
+				data: Object.assign( {}, state.data, {
 					profile: Object.assign( {}, state.data.profile, {
 						email: action.profile.userEmail,
 						userFirstName: action.profile.userFirstName,
 						userLastName: action.profile.userLastName,
 					} ),
-				},
+				} ),
 			} );
 
 		// Reset profileSaved when leaving the page.
