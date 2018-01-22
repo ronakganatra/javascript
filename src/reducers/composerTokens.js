@@ -134,6 +134,7 @@ export function uiRenameComposerTokensReducer( state = rootState.ui.composerToke
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
 				renamingComposerToken: false,
+				createTokenModalOpen: false,
 			} );
 		case RENAME_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
