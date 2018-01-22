@@ -52,7 +52,6 @@ const StudentEmailInput = addPlaceholderStyles( styled.input`
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
-	padding: 8px 0;
 	text-align: right;
 	margin: 32px 0 16px;
 

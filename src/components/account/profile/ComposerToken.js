@@ -50,7 +50,7 @@ function ComposerToken( props ) {
 			</ColumnPrimaryResponsive>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveManageButton
-					ariaLabel={ manageLabel }
+					aria-label={ manageLabel }
 					to="#"
 					linkTarget="_blank"
 				>

@@ -3,6 +3,7 @@ import React from "react";
 import Modal from "react-modal";
 import styled, { keyframes } from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import CreateToken from "./CreateToken";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
@@ -39,9 +40,16 @@ class BaseCreateTokenModal extends React.Component {
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<div>
-						<button>YIPPIE!</button>
-					</div>
+					<CreateToken
+						onClose={ this.props.onClose }
+						onCreateClick={ () => {
+							console.log( "Create clicked!" );
+						} }
+						onChange={ () => {
+							console.log( "SOMETHING CHANGED!" );
+						} }
+						tokenDescriptionInput={ "" }
+					/>
 				</Modal>
 			</div>
 		);
