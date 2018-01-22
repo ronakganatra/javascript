@@ -8,7 +8,7 @@ import {
 	resetSaveMessage,
 } from "../actions/user";
 import { url } from "gravatar";
-import { fetchComposerTokens } from "../actions/composerTokens";
+import { createTokenModalClosed, createTokenModalOpen, fetchComposerTokens } from "../actions/composerTokens";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
@@ -30,6 +30,7 @@ export const mapStateToProps = ( state ) => {
 		isSendingPasswordReset: state.user.sendingPasswordReset,
 		hasSendPasswordReset: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,
+		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalOpen,
 	};
 };
 
@@ -56,6 +57,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onPasswordReset: ( email ) => {
 			dispatch( passwordResetSend( email ) );
+		},
+		onCreateTokenModalOpen: () => {
+			dispatch( createTokenModalOpen() );
+		},
+		onCreateTokenModalClose: () => {
+			dispatch( createTokenModalClosed() );
 		},
 	};
 };

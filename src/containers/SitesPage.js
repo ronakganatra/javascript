@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { linkSitePopupClose, linkSitePopupOpen,
+import { linkSiteModalClose, linkSiteModalOpen,
 				 linkSite, updateSiteUrl, loadSites } from "../actions/sites";
 import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
@@ -47,7 +47,7 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
-	let popupOpen = state.ui.sites.addSitePopupOpen;
+	let modalOpen = state.ui.sites.addSiteModalOpen;
 
 	let errorFound = state.ui.sites.linkSiteFailed;
 
@@ -57,7 +57,7 @@ export const mapStateToProps = ( state ) => {
 
 	return {
 		sites,
-		popupOpen,
+		modalOpen,
 		errorFound,
 		error,
 		plugins,
@@ -72,17 +72,17 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 
 	return {
 		onClick: () => {
-			dispatch( linkSitePopupOpen() );
+			dispatch( linkSiteModalOpen() );
 		},
 		addSite: ( url ) => {
-			dispatch( linkSitePopupOpen() );
+			dispatch( linkSiteModalOpen() );
 			dispatch( updateSiteUrl( url ) );
 		},
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
 		},
 		onClose: () => {
-			dispatch( linkSitePopupClose() );
+			dispatch( linkSiteModalClose() );
 		},
 		onConnect: ( url ) => {
 			dispatch( linkSite( url ) );

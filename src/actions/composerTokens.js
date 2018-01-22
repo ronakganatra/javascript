@@ -17,6 +17,31 @@ export const DISABLE_COMPOSER_TOKEN_REQUEST = "DISABLE_COMPOSER_TOKEN_REQUEST";
 export const DISABLE_COMPOSER_TOKEN_FAILURE = "DISABLE_COMPOSER_TOKEN_FAILURE";
 export const DISABLE_COMPOSER_TOKEN_SUCCESS = "DISABLE_COMPOSER_TOKEN_SUCCESS";
 
+export const CREATE_TOKEN_MODAL_OPEN = "CREATE_TOKEN_MODAL_OPEN";
+export const CREATE_TOKEN_MODAL_CLOSED = "CREATE_TOKEN_MODAL_CLOSED";
+
+/**
+ * An action creator for the create token modal open action.
+ *
+ * @returns {Object} The create token modal open action.
+ */
+export function createTokenModalOpen() {
+	return {
+		type: CREATE_TOKEN_MODAL_OPEN,
+	};
+}
+
+/**
+ * An action creator for the create token modal open action.
+ *
+ * @returns {Object} The create token modal open action.
+ */
+export function createTokenModalClosed() {
+	return {
+		type: CREATE_TOKEN_MODAL_CLOSED,
+	};
+}
+
 /**
  * An action creator for the fetch composer tokens request action.
  *

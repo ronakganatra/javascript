@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
-import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
+import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
@@ -108,10 +108,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onToggleDisabled: ( subscriptionId ) => {
-			dispatch( addLicensesPopupOpen( subscriptionId ) );
+			dispatch( addLicensesModalOpen( subscriptionId ) );
 		},
 		onClose: () => {
-			dispatch( addLicensesPopupClose() );
+			dispatch( addLicensesModalClose() );
 		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {

@@ -18,6 +18,8 @@ import {
 	DISABLE_COMPOSER_TOKEN_FAILURE,
 	DISABLE_COMPOSER_TOKEN_REQUEST,
 	DISABLE_COMPOSER_TOKEN_SUCCESS,
+	CREATE_TOKEN_MODAL_OPEN,
+	CREATE_TOKEN_MODAL_CLOSED,
 } from "../actions/composerTokens";
 import _union from "lodash/union";
 import reduceReducers from "reduce-reducers";
@@ -42,6 +44,7 @@ const rootState = {
 			renameError: "",
 			disablingComposerToken: false,
 			disableError: "",
+			createTokenModalOpen: false,
 		},
 	},
 };
@@ -100,6 +103,14 @@ export function uiCreateComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				creatingComposerToken: false,
 				creationError: action.error.message,
+			} );
+		case CREATE_TOKEN_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				createTokenModalOpen: true,
+			} );
+		case CREATE_TOKEN_MODAL_CLOSED:
+			return Object.assign( {}, state, {
+				createTokenModalOpen: false,
 			} );
 		default:
 			return state;
