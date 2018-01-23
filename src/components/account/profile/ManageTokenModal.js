@@ -7,8 +7,8 @@ import ManageToken from "./ManageToken";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
-		id: "modal.arialabel.create",
-		defaultMessage: "Create a new token",
+		id: "modal.arialabel.manage",
+		defaultMessage: "Manage this token",
 	},
 } );
 
@@ -40,14 +40,12 @@ class BaseManageTokenModal extends React.Component {
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<div>
-						<ManageToken
-							onSaveTokenClick={ this.props.onSaveTokenClick }
-							onDisableTokenClick={ this.props.onDisableTokenClick }
-							onClose={ this.props.onClose }
-							manageTokenData={ this.props.manageTokenData }
-						/>
-					</div>
+					<ManageToken
+						onSaveTokenClick={ this.props.onSaveTokenClick }
+						onDisableTokenClick={ this.props.onDisableTokenClick }
+						onClose={ this.props.onClose }
+						manageTokenData={ this.props.manageTokenData }
+					/>
 				</Modal>
 			</div>
 		);

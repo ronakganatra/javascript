@@ -12,7 +12,6 @@ import Paper from "../../Paper";
  * @constructor
  */
 export default function ComposerTokens( props ) {
-	console.log( props );
 	let composerTokensTable = <ListTable { ...props }>
 		{ props.composerTokens.map( ( composerToken ) => {
 			return <ComposerToken
