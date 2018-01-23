@@ -7,6 +7,7 @@ import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
 import _isEmpty from "lodash/isEmpty";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	downloadButton: {
@@ -90,6 +91,16 @@ function Product( props ) {
 		productVersion = <ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>;
 	}
 
+	let ComposerButton = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
+		? <Download>
+			<LargeButton onClick={ () => {
+				props.onComposerHelpModalOpen( props.name );
+			} }
+			>
+				<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="Composer" />
+			</LargeButton>
+		</Download>
+		: null;
 	return (
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
@@ -109,14 +120,7 @@ function Product( props ) {
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
-				<Download>
-					<LargeButton onClick={ () => {
-						props.onComposerHelpModalOpen( props.name );
-					} }
-					>
-						<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="Composer" />
-					</LargeButton>
-				</Download>
+				{ ComposerButton }
 			</Downloads>
 		</ProductContainer>
 	);
