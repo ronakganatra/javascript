@@ -59,6 +59,7 @@ const Buttons = styled.div`
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
+const WideRedButton = makeButtonFullWidth( RedButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 
@@ -149,13 +150,13 @@ class ManageToken extends React.Component {
 						<WideSecondaryButton onClick={ this.props.onClose } >
 							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
-						<RedButton
+						<WideRedButton
 							onClick={ () => {
 								this.props.onDisableTokenClick( this.state.tokenId );
 							} }
 						>
 							<FormattedMessage id="profile.manage-token.disable" defaultMessage="disable"/>
-						</RedButton>
+						</WideRedButton>
 						<WideLargeButton
 							type="submit"
 							aria-label="save token"

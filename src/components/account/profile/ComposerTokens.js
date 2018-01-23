@@ -12,19 +12,26 @@ import Paper from "../../Paper";
  * @constructor
  */
 export default function ComposerTokens( props ) {
+	let activeComposerTokens = props.composerTokens.filter( ( composerToken ) => {
+		return composerToken.enabled === true;
+	} );
 	let composerTokensTable = <ListTable { ...props }>
-		{ props.composerTokens.map( ( composerToken ) => {
-			return <ComposerToken
-				{ ...composerToken }
-				key={ composerToken.id }
-				onManageTokenClick={ props.onManageTokenClick }
-			/>;
-		} ) }
+		{ activeComposerTokens
+			.map( ( composerToken ) => {
+				return <ComposerToken
+					{ ...composerToken }
+					key={ composerToken.id }
+					onManageTokenClick={ props.onManageTokenClick }
+				/>;
+			} )
+		}
 	</ListTable>;
 
 	if ( props.hasPaper ) {
 		return <Paper>{ composerTokensTable }</Paper>;
 	}
+
+	console.log( composerTokensTable );
 
 	return composerTokensTable;
 }

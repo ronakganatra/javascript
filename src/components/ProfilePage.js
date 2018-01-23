@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
-import { Button, LargeButton, RedButton } from "./Button";
+import { Button, LargeButton, makeButtonFullWidth, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -147,10 +147,11 @@ const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
 
-const CreateTokenModalButton = styled( LargeButton )`
-	margin: 32px;
-	display: initial;
+const CreateButtonArea = styled.div`
+	padding: 16px;
 `;
+
+const WideLargeButton = makeButtonFullWidth( LargeButton );
 
 /**
  * Returns the rendered Sites Page component.
@@ -309,14 +310,16 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
 						<ComposerTokens {...this.props} hasPaper={false} />
-						<CreateTokenModalButton
-							onClick={ this.props.onCreateTokenModalOpen }
-						>
-							<FormattedMessage
-								id="profile.tokens.create"
-								defaultMessage="Create token"
-							/>
-						</CreateTokenModalButton>
+						<CreateButtonArea>
+							<WideLargeButton
+								onClick={ this.props.onCreateTokenModalOpen }
+							>
+								<FormattedMessage
+									id="profile.tokens.create"
+									defaultMessage="Create token"
+								/>
+							</WideLargeButton>
+						</CreateButtonArea>
 					</CollapsibleHeader>
 				</Paper>
 				{ this.getModal() }

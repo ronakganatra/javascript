@@ -264,7 +264,7 @@ export function allIdsComposerTokensReducer( state = rootState.entities.composer
 		case CREATE_COMPOSER_TOKEN_SUCCESS:
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
 		case DISABLE_COMPOSER_TOKEN_SUCCESS:
-			return _union( state, [ action.composerToken ] );
+			return _union( state, [ action.composerToken.id ] );
 		default:
 			return state;
 	}
