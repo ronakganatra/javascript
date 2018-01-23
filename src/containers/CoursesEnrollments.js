@@ -9,13 +9,18 @@ export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
+		let icon = course.course.iconUrl;
+
+		if ( ! icon ) {
+			icon = course.course.product ? course.course.product.icon : "";
+		}
 
 		return {
 			id: course.id,
 			progress: course.progress,
 			courseId: course.courseId,
 			courseName: course.course.name,
-			icon: course.course.product ? course.course.product.icon : "",
+			icon: icon,
 			buyerId: course.buyerId,
 			buyerEmail: course.order ? course.order.customerEmail : "",
 			buyerName: course.order ? course.buyer.userFirstName  + " " + course.buyer.userLastName : "",
