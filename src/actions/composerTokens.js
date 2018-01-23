@@ -148,12 +148,14 @@ export function createComposerToken( data ) {
 	return ( dispatch ) => {
 		dispatch( createComposerTokenRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/ComposerTokens/`, "POST", data );
+		let request = prepareInternalRequest( "/ComposerTokens/generate/", "POST", data );
 
 		return doRequest( request )
 			.then( ( response ) => {
 				dispatch( createComposerTokenSuccess( response ) );
+			} )
+			.then( () => {
+				dispatch( createTokenModalClosed() );
 			} )
 			.catch( ( error ) => dispatch( createComposerTokenFailure( error ) ) );
 	};

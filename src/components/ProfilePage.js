@@ -146,7 +146,7 @@ const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
 
-const CreateTokenButton = styled( LargeButton )`
+const CreateTokenModalButton = styled( LargeButton )`
 	margin: 32px;
 	display: initial;
 `;
@@ -282,10 +282,10 @@ class ProfilePage extends React.Component {
 	}
 
 	getModal() {
-		let modal = (
-			<CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } />
+		let createTokenModal = (
+			<CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } onCreateClick={ this.props.onCreateTokenClick } />
 		);
-		return this.props.createTokenModalIsOpen ? modal : null;
+		return this.props.createTokenModalIsOpen ? createTokenModal : null;
 	}
 
 	/**
@@ -296,16 +296,22 @@ class ProfilePage extends React.Component {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
 
 		let DevTools = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
-			? <Paper>
-				<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
-					<ComposerTokens {...this.props} hasPaper={false}/>
-					<CreateTokenButton
-						onClick={ this.props.onCreateTokenModalOpen }
-					>
-						Create Token
-					</CreateTokenButton>
-				</CollapsibleHeader>
-			</Paper>
+			? <div>
+				<Paper>
+					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+						<ComposerTokens {...this.props} hasPaper={false}/>
+						<CreateTokenModalButton
+							onClick={ this.props.onCreateTokenModalOpen }
+						>
+							<FormattedMessage
+								id="profile.tokens.create"
+								defaultMessage="Create token"
+							/>
+						</CreateTokenModalButton>
+					</CollapsibleHeader>
+				</Paper>
+				{ this.getModal() }
+			</div>
 			: null;
 		return (
 			<div>
@@ -335,7 +341,6 @@ class ProfilePage extends React.Component {
 					</Page>
 				</Paper>
 				{ DevTools }
-				{ this.getModal() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
@@ -380,6 +385,7 @@ ProfilePage.propTypes = {
 	onCreateTokenModalOpen: PropTypes.func.isRequired,
 	onCreateTokenModalClose: PropTypes.func.isRequired,
 	createTokenModalIsOpen: PropTypes.bool.isRequired,
+	onCreateTokenClick: PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {

@@ -101,7 +101,9 @@ class CreateToken extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( this.state.tokenDescriptionInput !== "" ) {
-			this.props.onCreateClick();
+			this.props.onCreateClick( {
+				name: this.state.tokenDescriptionInput,
+			} );
 		}
 	}
 

@@ -42,9 +42,7 @@ class BaseCreateTokenModal extends React.Component {
 				>
 					<CreateToken
 						onClose={ this.props.onClose }
-						onCreateClick={ () => {
-							console.log( "Create clicked!" );
-						} }
+						onCreateClick={ this.props.onCreateClick }
 						onChange={ () => {
 							console.log( "SOMETHING CHANGED!" );
 						} }
@@ -59,6 +57,7 @@ class BaseCreateTokenModal extends React.Component {
 BaseCreateTokenModal.propTypes = {
 	intl: intlShape.isRequired,
 	onClose: PropTypes.func.isRequired,
+	onCreateClick: PropTypes.func.isRequired,
 	isOpen: PropTypes.bool,
 	className: PropTypes.string,
 };

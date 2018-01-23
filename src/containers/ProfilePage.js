@@ -8,7 +8,10 @@ import {
 	resetSaveMessage,
 } from "../actions/user";
 import { url } from "gravatar";
-import { createTokenModalClosed, createTokenModalOpen, fetchComposerTokens } from "../actions/composerTokens";
+import {
+	createComposerToken, createTokenModalClosed, createTokenModalOpen,
+	fetchComposerTokens,
+} from "../actions/composerTokens";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
@@ -63,6 +66,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onCreateTokenModalClose: () => {
 			dispatch( createTokenModalClosed() );
+		},
+		onCreateTokenClick: ( data ) => {
+			dispatch( createComposerToken( data ) );
 		},
 	};
 };
