@@ -92,6 +92,7 @@ export const mapStateToProps = ( state ) => {
 		eBooks,
 		plugins,
 		composerHelpModalIsOpen: state.ui.composerTokens.composerHelpModalIsOpen,
+		composerHelpProductName: state.ui.composerTokens.composerHelpProductName,
 	};
 };
 
@@ -106,8 +107,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onComposerHelpModalClose: () => {
 			dispatch( composerHelpModalClosed() );
 		},
-		onComposerHelpModalOpen: () => {
-			dispatch( composerHelpModalOpen() );
+		onComposerHelpModalOpen: ( productName ) => {
+			dispatch( composerHelpModalOpen( productName ) );
 		},
 	};
 };

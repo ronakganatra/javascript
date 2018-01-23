@@ -75,13 +75,15 @@ export function manageTokenModalClosed() {
 }
 
 /**
- * An action creator for the create token modal open action.
+ * An action creator for the composer help modal open action.
  *
- * @returns {Object} The create token modal open action.
+ * @param {string} productName A string that contains the name of the product for which composer help is requested.
+ * @returns {Object} The composer help modal open action.
  */
-export function composerHelpModalOpen() {
+export function composerHelpModalOpen( productName ) {
 	return {
 		type: COMPOSER_HELP_MODAL_OPEN,
+		productName,
 	};
 }
 

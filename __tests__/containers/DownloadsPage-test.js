@@ -88,6 +88,10 @@ test( "the mapStateToProps function", () => {
 			search: {
 				query: "d",
 			},
+			composerTokens: {
+				composerHelpModalIsOpen: false,
+				composerHelpProductName: "",
+			},
 		},
 	};
 
@@ -111,6 +115,8 @@ test( "the mapStateToProps function", () => {
 			glNumber: 111,
 		} ],
 		query: "d",
+		composerHelpModalIsOpen: false,
+		composerHelpProductName: "",
 	};
 
 	let actual = mapStateToProps( state );
@@ -210,6 +216,10 @@ test( "the mapStateToProps function without search results", () => {
 			search: {
 				query: "q",
 			},
+			composerTokens: {
+				composerHelpModalIsOpen: false,
+				composerHelpProductName: "",
+			},
 		},
 	};
 
@@ -217,6 +227,8 @@ test( "the mapStateToProps function without search results", () => {
 		eBooks: [],
 		plugins: [],
 		query: "q",
+		composerHelpModalIsOpen: false,
+		composerHelpProductName: "",
 	};
 
 	let actual = mapStateToProps( state );

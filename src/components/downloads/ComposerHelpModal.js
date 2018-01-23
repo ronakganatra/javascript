@@ -3,6 +3,7 @@ import React from "react";
 import Modal from "react-modal";
 import styled, { keyframes } from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import ComposerHelp from "./ComposerHelp";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
@@ -39,7 +40,7 @@ class BaseComposerHelpModal extends React.Component {
 					   overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					   className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<button>Lolol</button>
+					<ComposerHelp { ...this.props } />
 				</Modal>
 			</div>
 		);

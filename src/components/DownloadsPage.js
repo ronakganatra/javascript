@@ -88,7 +88,7 @@ class DownloadsPage extends React.Component {
 
 	getModal() {
 		return this.props.composerHelpModalIsOpen
-			? <ComposerHelpModal isOpen={ this.props.composerHelpModalIsOpen } onClose={ this.props.onComposerHelpModalClose } />
+			? <ComposerHelpModal isOpen={ this.props.composerHelpModalIsOpen } onClose={ this.props.onComposerHelpModalClose } productName={ this.props.composerHelpProductName } />
 			: null;
 	}
 
@@ -179,6 +179,7 @@ DownloadsPage.propTypes = {
 	composerHelpModalIsOpen: PropTypes.bool,
 	onComposerHelpModalOpen: PropTypes.func.isRequired,
 	onComposerHelpModalClose: PropTypes.func.isRequired,
+	composerHelpProductName: PropTypes.string,
 };
 
 DownloadsPage.defaultProps = {

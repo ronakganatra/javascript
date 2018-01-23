@@ -110,7 +110,10 @@ function Product( props ) {
 						</Download> );
 				} )	}
 				<Download>
-					<LargeButton onClick={ props.onComposerHelpModalOpen }>
+					<LargeButton onClick={ () => {
+						props.onComposerHelpModalOpen( props.name );
+					} }
+					>
 						<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="Composer" />
 					</LargeButton>
 				</Download>
@@ -129,7 +132,6 @@ Product.propTypes = {
 };
 
 Product.defaultProps = {
-	onComposerHelpModalOpen: () => {},
 };
 
 export default injectIntl( Product );

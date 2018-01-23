@@ -61,6 +61,7 @@ Products.propTypes = {
 	noResults: PropTypes.string,
 	onComposerHelpModalOpen: PropTypes.func,
 	onComposerHelpModalClose: PropTypes.func,
+	composerHelpProductName: PropTypes.string,
 };
 
 Products.defaultProps = {
