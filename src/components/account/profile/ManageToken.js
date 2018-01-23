@@ -7,7 +7,6 @@ import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../../../styles/inputs";
 import defaults from "../../../config/defaults.json";
 
-// import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "../../Headings";
 import { RedButton } from "../../Button";
 import ErrorDisplay from "../../../errors/ErrorDisplay";

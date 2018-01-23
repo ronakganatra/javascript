@@ -57,19 +57,6 @@ exports[`The Download component matches the snapshot 1`] = `
         for Drupal
       </p>
     </li>
-    <li
-      className="jVUpbY"
-    >
-      <button
-        className="gfCqnN"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Composer
-        </span>
-      </button>
-    </li>
   </ul>
 </div>
 `;
@@ -125,19 +112,6 @@ exports[`The Download component without a currentVersion matches the snapshot 1`
       >
         for Drupal
       </p>
-    </li>
-    <li
-      className="jVUpbY"
-    >
-      <button
-        className="gfCqnN"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Composer
-        </span>
-      </button>
     </li>
   </ul>
 </div>
