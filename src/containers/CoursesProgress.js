@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
-import _filter from "lodash/filter";
 import { getUserId } from "../functions/auth";
 
 export const mapStateToProps = ( state ) => {
@@ -10,11 +9,10 @@ export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
-		let courseName = course.course.name;
 
-		let courseProps = {
+		return {
 			id: course.id,
-			name: courseName,
+			name: course.course.name,
 			status: course.status,
 			progress: course.progress,
 			courseId: course.courseId,
@@ -22,21 +20,20 @@ export const mapStateToProps = ( state ) => {
 			studentId: course.studentId,
 			orderId: course.orderId,
 		};
-
-		return courseProps;
 	} );
 
 	// Only show enrollments where you are actually a student:
-	coursesEnrollments = coursesEnrollments.filter( ( enrollment ) => {
+	coursesEnrollments = coursesEnrollments.filter( enrollment => {
 		return enrollment.studentId === currentUserId;
 	} );
 
 	allIds = state.entities.courses.allIds;
-	let courses = _filter( allIds.map( ( courseId ) => {
+	let courses = allIds.map( ( courseId ) => {
 		let course = state.entities.courses.byId[ courseId ];
+		let icon = course.iconUrl;
 
-		if ( ! course.product ) {
-			return false;
+		if ( ! icon ) {
+			icon = course.product ? course.product.icon : "";
 		}
 
 		return {
@@ -45,10 +42,9 @@ export const mapStateToProps = ( state ) => {
 			description: course.description,
 			courseUrl: course.courseUrl,
 			certificateUrl: course.certificateUrl,
-			storeUrl: course.product.storeUrl,
-			icon: course.product.icon,
+			icon: icon,
 		};
-	} ), course => course !== false );
+	} );
 
 	return {
 		courses,

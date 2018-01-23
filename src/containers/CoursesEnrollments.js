@@ -7,12 +7,26 @@ import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( ( courseId ) => {
+	let coursesEnrollments = allIds.map( courseId => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
 		let icon = course.course.iconUrl;
+		let buyerEmail = "";
+		let buyerName = "";
+		let studentEmail = "";
+		let studentName = "";
 
 		if ( ! icon ) {
 			icon = course.course.product ? course.course.product.icon : "";
+		}
+
+		if ( course.order ) {
+			buyerName = course.buyer.userFirstName  + " " + course.buyer.userLastName;
+			buyerEmail = course.order.customerEmail;
+		}
+
+		if ( course.student ) {
+			studentName = course.student.userFirstName  + " " + course.student.userLastName;
+			studentEmail = course.student.userEmail;
 		}
 
 		return {
@@ -22,12 +36,12 @@ export const mapStateToProps = ( state ) => {
 			courseName: course.course.name,
 			icon: icon,
 			buyerId: course.buyerId,
-			buyerEmail: course.order ? course.order.customerEmail : "",
-			buyerName: course.order ? course.buyer.userFirstName  + " " + course.buyer.userLastName : "",
+			buyerEmail,
+			buyerName,
 			status: course.status,
-			studentEmail: course.student ? course.student.userEmail : "",
+			studentEmail,
 			studentId: course.studentId,
-			studentName: course.student ? course.student.userFirstName  + " " + course.student.userLastName : "",
+			studentName,
 		};
 	} );
 
