@@ -9,6 +9,7 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
+import { composerHelpModalClosed, composerHelpModalOpen } from "../actions/composerTokens";
 
 const getEbookProducts = ( state ) =>  {
 	let eBooks =  getEbooks( state.entities.products.byId );
@@ -90,6 +91,7 @@ export const mapStateToProps = ( state ) => {
 		query,
 		eBooks,
 		plugins,
+		composerHelpModalIsOpen: state.ui.composerTokens.composerHelpModalIsOpen,
 	};
 };
 
@@ -100,6 +102,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
+		},
+		onComposerHelpModalClose: () => {
+			dispatch( composerHelpModalClosed() );
+		},
+		onComposerHelpModalOpen: () => {
+			dispatch( composerHelpModalOpen() );
 		},
 	};
 };

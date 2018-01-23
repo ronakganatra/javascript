@@ -19,7 +19,8 @@ import {
 	DISABLE_COMPOSER_TOKEN_REQUEST,
 	DISABLE_COMPOSER_TOKEN_SUCCESS,
 	CREATE_TOKEN_MODAL_OPEN,
-	CREATE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_OPEN,
+	CREATE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_OPEN, COMPOSER_HELP_MODAL_OPEN,
+	COMPOSER_HELP_MODAL_CLOSED,
 } from "../actions/composerTokens";
 import _union from "lodash/union";
 import reduceReducers from "reduce-reducers";
@@ -44,6 +45,7 @@ const rootState = {
 			renameError: "",
 			disablingComposerToken: false,
 			disableError: "",
+			composerHelpModalIsOpen: false,
 			createTokenModalIsOpen: false,
 			manageTokenModalIsOpen: false,
 			manageTokenData: null,
@@ -167,6 +169,7 @@ export function uiDisableComposerTokensReducer( state = rootState.ui.composerTok
 	}
 }
 
+/* eslint-disable complexity */
 /**
  * A reducer for the composerTokens object within the ui object.
  *
@@ -194,6 +197,14 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 				manageTokenModalIsOpen: false,
 				manageTokenData: null,
 			} );
+		case COMPOSER_HELP_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				composerHelpModalIsOpen: true,
+			} );
+		case COMPOSER_HELP_MODAL_CLOSED:
+			return Object.assign( {}, state, {
+				composerHelpModalIsOpen: false,
+			} );
 		default:
 			return state;
 	}
@@ -206,6 +217,7 @@ let uiComposerTokensState = reduceReducers(
 	uiDisableComposerTokensReducer,
 	uiModalsComposerTokensReducer
 );
+/* eslint-enable complexity */
 
 /**
  * A combineReducer for the user object.

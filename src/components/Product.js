@@ -2,9 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { IconButton } from "./Button";
+import { IconButton, LargeButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
 import _isEmpty from "lodash/isEmpty";
 
@@ -109,6 +109,11 @@ function Product( props ) {
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
+				<Download>
+					<LargeButton onClick={ props.onComposerHelpModalOpen }>
+						<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="Composer" />
+					</LargeButton>
+				</Download>
 			</Downloads>
 		</ProductContainer>
 	);
@@ -120,6 +125,11 @@ Product.propTypes = {
 	icon: PropTypes.string.isRequired,
 	buttons: PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
+	onComposerHelpModalOpen: PropTypes.func,
+};
+
+Product.defaultProps = {
+	onComposerHelpModalOpen: () => {},
 };
 
 export default injectIntl( Product );

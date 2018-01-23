@@ -46,6 +46,8 @@ export default class Products extends React.Component {
 							currentVersion={ product.currentVersion }
 							icon={ product.icon }
 							buttons={ product.buttons }
+							onComposerHelpModalOpen={ props.onComposerHelpModalOpen }
+							onComposerHelpModalClose={ props.onComposerHelpModalClose }
 						/>;
 					} ) }
 			</ProductsContainer>
@@ -57,9 +59,13 @@ Products.propTypes = {
 	byLine: PropTypes.element,
 	heading: PropTypes.string.isRequired,
 	noResults: PropTypes.string,
+	onComposerHelpModalOpen: PropTypes.func,
+	onComposerHelpModalClose: PropTypes.func,
 };
 
 Products.defaultProps = {
 	byLine: null,
 	noResults: "",
+	onComposerHelpModalClose: () => {},
+	onComposerHelpModalOpen: () => {},
 };

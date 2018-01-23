@@ -23,6 +23,9 @@ export const CREATE_TOKEN_MODAL_CLOSED = "CREATE_TOKEN_MODAL_CLOSED";
 export const MANAGE_TOKEN_MODAL_OPEN = "MANAGE_TOKEN_MODAL_OPEN";
 export const MANAGE_TOKEN_MODAL_CLOSED = "MANAGE_TOKEN_MODAL_CLOSED";
 
+export const COMPOSER_HELP_MODAL_OPEN = "COMPOSER_HELP_MODAL_OPEN";
+export const COMPOSER_HELP_MODAL_CLOSED = "COMPOSER_HELP_MODAL_CLOSED";
+
 /**
  * An action creator for the create token modal open action.
  *
@@ -61,13 +64,35 @@ export function manageTokenModalOpen( data ) {
 }
 
 /**
- * An action creator for the manage token modal open action.
+ * An action creator for the manage token modal closed action.
  *
- * @returns {Object} The manage token modal open action.
+ * @returns {Object} The manage token modal closed action.
  */
 export function manageTokenModalClosed() {
 	return {
 		type: MANAGE_TOKEN_MODAL_CLOSED,
+	};
+}
+
+/**
+ * An action creator for the create token modal open action.
+ *
+ * @returns {Object} The create token modal open action.
+ */
+export function composerHelpModalOpen() {
+	return {
+		type: COMPOSER_HELP_MODAL_OPEN,
+	};
+}
+
+/**
+ * An action creator for the composer help modal closed action.
+ *
+ * @returns {Object} The composer help modal closed action.
+ */
+export function composerHelpModalClosed() {
+	return {
+		type: COMPOSER_HELP_MODAL_CLOSED,
 	};
 }
 
