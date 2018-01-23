@@ -31,8 +31,6 @@ export default function ComposerTokens( props ) {
 		return <Paper>{ composerTokensTable }</Paper>;
 	}
 
-	console.log( composerTokensTable );
-
 	return composerTokensTable;
 }
 

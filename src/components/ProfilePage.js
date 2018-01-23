@@ -285,7 +285,12 @@ class ProfilePage extends React.Component {
 
 	getModal() {
 		if ( this.props.createTokenModalIsOpen ) {
-			return <CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } onCreateClick={ this.props.onCreateTokenClick } />;
+			return <CreateTokenModal
+				isOpen={ this.props.createTokenModalIsOpen }
+				onClose={ this.props.onCreateTokenModalClose }
+				onCreateClick={ this.props.onCreateTokenClick }
+				error={ this.props.tokenError }
+			/>;
 		} else if ( this.props.manageTokenModalIsOpen ) {
 			return <ManageTokenModal
 				isOpen={ this.props.manageTokenModalIsOpen }
@@ -293,6 +298,7 @@ class ProfilePage extends React.Component {
 				onSaveTokenClick={ this.props.onSaveTokenClick }
 				onDisableTokenClick={ this.props.onDisableTokenClick }
 				manageTokenData={ this.props.manageTokenData }
+				error={ this.props.tokenError }
 			/>;
 		}
 		return null;
@@ -404,6 +410,7 @@ ProfilePage.propTypes = {
 	onSaveTokenClick: PropTypes.func.isRequired,
 	onDisableTokenClick: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object,
+	tokenError: PropTypes.object,
 };
 
 ProfilePage.defaultProps = {
@@ -417,6 +424,7 @@ ProfilePage.defaultProps = {
 	hasSendPasswordReset: false,
 	passwordResetError: null,
 	manageTokenData: null,
+	tokenError: null,
 };
 
 export default injectIntl( ProfilePage );

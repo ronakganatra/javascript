@@ -38,18 +38,15 @@ const rootState = {
 	ui: {
 		composerTokens: {
 			retrievingComposerTokens: false,
-			retrievalError: "",
 			creatingComposerToken: false,
-			creationError: "",
 			renamingComposerToken: false,
-			renameError: "",
 			disablingComposerToken: false,
-			disableError: "",
 			composerHelpModalIsOpen: false,
 			composerHelpProductName: "",
 			createTokenModalIsOpen: false,
 			manageTokenModalIsOpen: false,
 			manageTokenData: null,
+			tokenError: null,
 		},
 	},
 };
@@ -70,16 +67,17 @@ export function uiFetchComposerTokensReducer( state = rootState.ui.composerToken
 		case FETCH_COMPOSER_TOKENS_REQUEST:
 			return Object.assign( {}, state, {
 				retrievingComposerTokens: true,
-				retrievalError: "",
+				tokenError: null,
 			} );
 		case FETCH_COMPOSER_TOKENS_SUCCESS:
 			return Object.assign( {}, state, {
 				retrievingComposerTokens: false,
+				tokenError: null,
 			} );
 		case FETCH_COMPOSER_TOKENS_FAILURE:
 			return Object.assign( {}, state, {
 				retrievingComposerTokens: false,
-				retrievalError: action.error.message,
+				tokenError: action.error,
 			} );
 		default:
 			return state;
@@ -98,7 +96,7 @@ export function uiCreateComposerTokensReducer( state = rootState.ui.composerToke
 		case CREATE_COMPOSER_TOKEN_REQUEST:
 			return Object.assign( {}, state, {
 				creatingComposerToken: true,
-				creationError: "",
+				tokenError: null,
 			} );
 		case CREATE_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
@@ -107,7 +105,7 @@ export function uiCreateComposerTokensReducer( state = rootState.ui.composerToke
 		case CREATE_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
 				creatingComposerToken: false,
-				creationError: action.error.message,
+				tokenError: action.error,
 			} );
 		default:
 			return state;
@@ -126,7 +124,7 @@ export function uiRenameComposerTokensReducer( state = rootState.ui.composerToke
 		case RENAME_COMPOSER_TOKEN_REQUEST:
 			return Object.assign( {}, state, {
 				renamingComposerToken: true,
-				renameError: "",
+				tokenError: null,
 			} );
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
@@ -135,7 +133,7 @@ export function uiRenameComposerTokensReducer( state = rootState.ui.composerToke
 		case RENAME_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
 				renamingComposerToken: false,
-				renameError: action.error.message,
+				tokenError: action.error,
 			} );
 		default:
 			return state;
@@ -154,7 +152,7 @@ export function uiDisableComposerTokensReducer( state = rootState.ui.composerTok
 		case DISABLE_COMPOSER_TOKEN_REQUEST:
 			return Object.assign( {}, state, {
 				disablingComposerToken: true,
-				disableError: "",
+				tokenError: null,
 			} );
 		case DISABLE_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
@@ -163,7 +161,7 @@ export function uiDisableComposerTokensReducer( state = rootState.ui.composerTok
 		case DISABLE_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
 				disablingComposerToken: false,
-				disableError: action.error.message,
+				tokenError: action.error,
 			} );
 		default:
 			return state;
@@ -187,6 +185,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 		case CREATE_TOKEN_MODAL_CLOSED:
 			return Object.assign( {}, state, {
 				createTokenModalIsOpen: false,
+				tokenError: null,
 			} );
 		case MANAGE_TOKEN_MODAL_OPEN:
 			return Object.assign( {}, state, {
@@ -197,6 +196,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				manageTokenModalIsOpen: false,
 				manageTokenData: null,
+				tokenError: null,
 			} );
 		case COMPOSER_HELP_MODAL_OPEN:
 			return Object.assign( {}, state, {
@@ -207,6 +207,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				composerHelpModalIsOpen: false,
 				composerHelpProductName: "",
+				tokenError: null,
 			} );
 		default:
 			return state;

@@ -44,6 +44,7 @@ class BaseCreateTokenModal extends React.Component {
 						onClose={ this.props.onClose }
 						onCreateClick={ this.props.onCreateClick }
 						tokenDescriptionInput={ "" }
+						error={ this.props.error }
 					/>
 				</Modal>
 			</div>
@@ -57,6 +58,7 @@ BaseCreateTokenModal.propTypes = {
 	onCreateClick: PropTypes.func.isRequired,
 	isOpen: PropTypes.bool,
 	className: PropTypes.string,
+	error: PropTypes.object,
 };
 
 BaseCreateTokenModal.defaultProps = {

@@ -10,6 +10,7 @@ import defaults from "../../../config/defaults.json";
 // import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "../../Headings";
 import { RedButton } from "../../Button";
+import ErrorDisplay from "../../../errors/ErrorDisplay";
 
 const ManageTokenModal = styled.div`
 	margin: auto;
@@ -142,9 +143,7 @@ class ManageToken extends React.Component {
 						onChange={ this.onTokenDescriptionChange.bind( this ) }
 					/>
 
-					{
-						/* <ErrorDisplay error={ this.props.error } /> */
-					}
+					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onClose } >
@@ -176,6 +175,7 @@ ManageToken.propTypes = {
 	onDisableTokenClick: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object.isRequired,
+	error: PropTypes.object,
 };
 
 export default injectIntl( ManageToken );

@@ -45,6 +45,7 @@ class BaseManageTokenModal extends React.Component {
 						onDisableTokenClick={ this.props.onDisableTokenClick }
 						onClose={ this.props.onClose }
 						manageTokenData={ this.props.manageTokenData }
+						error={ this.props.error }
 					/>
 				</Modal>
 			</div>
@@ -60,6 +61,7 @@ BaseManageTokenModal.propTypes = {
 	isOpen: PropTypes.bool,
 	className: PropTypes.string,
 	manageTokenData: PropTypes.object.isRequired,
+	error: PropTypes.object,
 };
 
 BaseManageTokenModal.defaultProps = {

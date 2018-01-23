@@ -36,6 +36,7 @@ export const mapStateToProps = ( state ) => {
 		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
 		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
 		manageTokenData: state.ui.composerTokens.manageTokenData,
+		tokenError: state.ui.composerTokens.tokenError,
 	};
 };
 
