@@ -299,7 +299,7 @@ class ProfilePage extends React.Component {
 			? <div>
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
-						<ComposerTokens {...this.props} hasPaper={false}/>
+						<ComposerTokens {...this.props} hasPaper={false} />
 						<CreateTokenModalButton
 							onClick={ this.props.onCreateTokenModalOpen }
 						>
@@ -386,6 +386,7 @@ ProfilePage.propTypes = {
 	onCreateTokenModalClose: PropTypes.func.isRequired,
 	createTokenModalIsOpen: PropTypes.bool.isRequired,
 	onCreateTokenClick: PropTypes.func.isRequired,
+	onManageTokenClick: PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {

@@ -19,7 +19,7 @@ import {
 	DISABLE_COMPOSER_TOKEN_REQUEST,
 	DISABLE_COMPOSER_TOKEN_SUCCESS,
 	CREATE_TOKEN_MODAL_OPEN,
-	CREATE_TOKEN_MODAL_CLOSED,
+	CREATE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_CLOSED, MANAGE_TOKEN_MODAL_OPEN,
 } from "../actions/composerTokens";
 import _union from "lodash/union";
 import reduceReducers from "reduce-reducers";
@@ -45,6 +45,7 @@ const rootState = {
 			disablingComposerToken: false,
 			disableError: "",
 			createTokenModalOpen: false,
+			manageTokenModalOpen: false,
 		},
 	},
 };
@@ -103,14 +104,6 @@ export function uiCreateComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				creatingComposerToken: false,
 				creationError: action.error.message,
-			} );
-		case CREATE_TOKEN_MODAL_OPEN:
-			return Object.assign( {}, state, {
-				createTokenModalOpen: true,
-			} );
-		case CREATE_TOKEN_MODAL_CLOSED:
-			return Object.assign( {}, state, {
-				createTokenModalOpen: false,
 			} );
 		default:
 			return state;
@@ -174,11 +167,42 @@ export function uiDisableComposerTokensReducer( state = rootState.ui.composerTok
 	}
 }
 
+/**
+ * A reducer for the composerTokens object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated ComposerTokens object.
+ */
+export function uiModalsComposerTokensReducer( state = rootState.ui.composerTokens, action ) {
+	switch ( action.type ) {
+		case CREATE_TOKEN_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				createTokenModalOpen: true,
+			} );
+		case CREATE_TOKEN_MODAL_CLOSED:
+			return Object.assign( {}, state, {
+				createTokenModalOpen: false,
+			} );
+		case MANAGE_TOKEN_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				manageTokenModalOpen: true,
+			} );
+		case MANAGE_TOKEN_MODAL_CLOSED:
+			return Object.assign( {}, state, {
+				manageTokenModalOpen: false,
+			} );
+		default:
+			return state;
+	}
+}
+
 let uiComposerTokensState = reduceReducers(
 	uiFetchComposerTokensReducer,
 	uiCreateComposerTokensReducer,
 	uiRenameComposerTokensReducer,
-	uiDisableComposerTokensReducer
+	uiDisableComposerTokensReducer,
+	uiModalsComposerTokensReducer
 );
 
 /**

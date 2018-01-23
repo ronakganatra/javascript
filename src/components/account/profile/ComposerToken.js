@@ -3,7 +3,7 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "../../Tables";
 import { makeButtonFullWidth, makeResponsiveIconButton } from "../../Button";
-import { LargeButtonLink } from "../../Button";
+import { LargeButton } from "../../Button";
 
 const messages = defineMessages( {
 	token: {
@@ -35,7 +35,7 @@ let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWi
  * @returns {ReactElement} A row of order stuff.
  */
 function ComposerToken( props ) {
-	let ResponsiveManageButton = makeButtonFullWidth( makeResponsiveIconButton( LargeButtonLink ) );
+	let ResponsiveManageButton = makeButtonFullWidth( makeResponsiveIconButton( LargeButton ) );
 
 	let manageMessage = props.intl.formatMessage( messages.manage );
 	let manageLabel = props.intl.formatMessage( messages.manageLabel );
@@ -51,8 +51,9 @@ function ComposerToken( props ) {
 			<ColumnFixedWidthResponsive>
 				<ResponsiveManageButton
 					aria-label={ manageLabel }
-					to="#"
-					linkTarget="_blank"
+					onClick={ () => {
+						props.onManageTokenClick( props.id );
+					} }
 				>
 					<span className="screen-reader-text">{ manageMessage }</span>
 				</ResponsiveManageButton>
@@ -64,6 +65,7 @@ function ComposerToken( props ) {
 ComposerToken.propTypes = {
 	id: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	onManageTokenClick: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	background: PropTypes.string,
 };

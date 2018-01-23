@@ -70,6 +70,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onCreateTokenClick: ( data ) => {
 			dispatch( createComposerToken( data ) );
 		},
+		onManageTokenClick: ( id ) => {
+			console.log( id );
+		},
 	};
 };
 

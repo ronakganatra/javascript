@@ -17,6 +17,7 @@ export default function ComposerTokens( props ) {
 			return <ComposerToken
 				{ ...composerToken }
 				key={ composerToken.id }
+				onManageTokenClick={ props.onManageTokenClick }
 			/>;
 		} ) }
 	</ListTable>;
@@ -29,6 +30,7 @@ export default function ComposerTokens( props ) {
 }
 
 ComposerTokens.propTypes = {
+	onManageTokenClick: PropTypes.func.isRequired,
 	composerTokens: PropTypes.array,
 	hasPaper: PropTypes.bool,
 };

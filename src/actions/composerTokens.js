@@ -20,6 +20,9 @@ export const DISABLE_COMPOSER_TOKEN_SUCCESS = "DISABLE_COMPOSER_TOKEN_SUCCESS";
 export const CREATE_TOKEN_MODAL_OPEN = "CREATE_TOKEN_MODAL_OPEN";
 export const CREATE_TOKEN_MODAL_CLOSED = "CREATE_TOKEN_MODAL_CLOSED";
 
+export const MANAGE_TOKEN_MODAL_OPEN = "MANAGE_TOKEN_MODAL_OPEN";
+export const MANAGE_TOKEN_MODAL_CLOSED = "MANAGE_TOKEN_MODAL_CLOSED";
+
 /**
  * An action creator for the create token modal open action.
  *
@@ -39,6 +42,28 @@ export function createTokenModalOpen() {
 export function createTokenModalClosed() {
 	return {
 		type: CREATE_TOKEN_MODAL_CLOSED,
+	};
+}
+
+/**
+ * An action creator for the manage token modal open action.
+ *
+ * @returns {Object} The manage token modal open action.
+ */
+export function manageTokenModalOpen() {
+	return {
+		type: MANAGE_TOKEN_MODAL_OPEN,
+	};
+}
+
+/**
+ * An action creator for the manage token modal open action.
+ *
+ * @returns {Object} The manage token modal open action.
+ */
+export function manageTokenModalClosed() {
+	return {
+		type: MANAGE_TOKEN_MODAL_CLOSED,
 	};
 }
 
