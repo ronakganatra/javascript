@@ -44,8 +44,9 @@ const rootState = {
 			renameError: "",
 			disablingComposerToken: false,
 			disableError: "",
-			createTokenModalOpen: false,
-			manageTokenModalOpen: false,
+			createTokenModalIsOpen: false,
+			manageTokenModalIsOpen: false,
+			manageTokenData: null,
 		},
 	},
 };
@@ -127,7 +128,6 @@ export function uiRenameComposerTokensReducer( state = rootState.ui.composerToke
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
 				renamingComposerToken: false,
-				createTokenModalOpen: false,
 			} );
 		case RENAME_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
@@ -178,19 +178,21 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 	switch ( action.type ) {
 		case CREATE_TOKEN_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				createTokenModalOpen: true,
+				createTokenModalIsOpen: true,
 			} );
 		case CREATE_TOKEN_MODAL_CLOSED:
 			return Object.assign( {}, state, {
-				createTokenModalOpen: false,
+				createTokenModalIsOpen: false,
 			} );
 		case MANAGE_TOKEN_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				manageTokenModalOpen: true,
+				manageTokenModalIsOpen: true,
+				manageTokenData: action.data,
 			} );
 		case MANAGE_TOKEN_MODAL_CLOSED:
 			return Object.assign( {}, state, {
-				manageTokenModalOpen: false,
+				manageTokenModalIsOpen: false,
+				manageTokenData: null,
 			} );
 		default:
 			return state;

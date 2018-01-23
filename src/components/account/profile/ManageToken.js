@@ -9,8 +9,9 @@ import defaults from "../../../config/defaults.json";
 
 // import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "../../Headings";
+import { RedButton } from "../../Button";
 
-const CreateTokenModal = styled.div`
+const ManageTokenModal = styled.div`
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;
@@ -61,7 +62,7 @@ const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 
-class CreateToken extends React.Component {
+class ManageToken extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
 	 *
@@ -71,9 +72,9 @@ class CreateToken extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
-
 		this.state = {
-			tokenDescriptionInput: "",
+			tokenDescriptionInput: props.manageTokenData.name,
+			tokenId: props.manageTokenData.id,
 		};
 	}
 
@@ -101,9 +102,11 @@ class CreateToken extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( this.state.tokenDescriptionInput !== "" ) {
-			this.props.onCreateClick( {
+			let data = {
+				id: this.props.manageTokenData.id,
 				name: this.state.tokenDescriptionInput,
-			} );
+			};
+			this.props.onSaveTokenClick( data );
 		}
 	}
 
@@ -114,23 +117,26 @@ class CreateToken extends React.Component {
 	 */
 	render() {
 		return (
-			<CreateTokenModal>
+			<ManageTokenModal>
 				<ModalHeading>
-					<FormattedMessage id="profile.createToken.header" defaultMessage="Create token"/>
+					<FormattedMessage id="profile.manageToken.header" defaultMessage="Manage token"/>
 				</ModalHeading>
-
+				<FormattedMessage
+					id="profile.manage-token.modal-description"
+					defaultMessage="Here you can edit this token's description, or disable the token."
+				/>
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="create-token-description-input">
+					<label htmlFor="change-token-description-input">
 						<FormattedMessage
-							id="profile.create-token.token-description"
-							defaultMessage="Please enter a description for the token you want to create:"
+							id="profile.manage-token.token-description"
+							defaultMessage="You can type a new description for the token here, in case you want to change it:"
 						/>
 					</label>
 
 					<TokenDescription
 						type="text"
-						id="create-token-description-input"
-						placeholder={ "What's this token for?" }
+						id="change-token-description-input"
+						placeholder={ this.state.tokenDescriptionInput }
 						value={ this.state.tokenDescriptionInput }
 						onChange={ this.onTokenDescriptionChange.bind( this ) }
 					/>
@@ -140,26 +146,35 @@ class CreateToken extends React.Component {
 					}
 
 					<Buttons>
-							<WideSecondaryButton onClick={ this.props.onClose } >
-								<FormattedMessage id="profile.createToken.cancel" defaultMessage="cancel"/>
-							</WideSecondaryButton>
-							<WideLargeButton
-								type="submit"
-								aria-label="create token"
-							>
-								<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
-							</WideLargeButton>
+						<WideSecondaryButton onClick={ this.props.onClose } >
+							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="cancel"/>
+						</WideSecondaryButton>
+						<RedButton
+							onClick={ () => {
+								this.props.onDisableTokenClick( this.state.tokenId );
+							} }
+						>
+							<FormattedMessage id="profile.manage-token.disable" defaultMessage="disable"/>
+						</RedButton>
+						<WideLargeButton
+							type="submit"
+							aria-label="save token"
+						>
+							<FormattedMessage id="profile.manage-token.save" defaultMessage="save"/>
+						</WideLargeButton>
 					</Buttons>
 				</form>
-			</CreateTokenModal>
+			</ManageTokenModal>
 		);
 	}
 }
 
-CreateToken.propTypes = {
+ManageToken.propTypes = {
 	intl: intlShape.isRequired,
-	onCreateClick: PropTypes.func.isRequired,
+	onSaveTokenClick: PropTypes.func.isRequired,
+	onDisableTokenClick: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
+	manageTokenData: PropTypes.object.isRequired,
 };
 
-export default injectIntl( CreateToken );
+export default injectIntl( ManageToken );

@@ -48,11 +48,15 @@ export function createTokenModalClosed() {
 /**
  * An action creator for the manage token modal open action.
  *
+ * @param {Object} data The data object of the token that should be managed in the modal.
+ * @param {string} data.id The id of the composer token.
+ * @param {string} data.name The name of the composer token.
  * @returns {Object} The manage token modal open action.
  */
-export function manageTokenModalOpen() {
+export function manageTokenModalOpen( data ) {
 	return {
 		type: MANAGE_TOKEN_MODAL_OPEN,
+		data: data,
 	};
 }
 
@@ -226,21 +230,24 @@ export function renameComposerTokenSuccess( composerToken ) {
 /**
  * An action creator to rename the composer tokens of the user.
  *
- * @param {string} id The id of the composer token to rename.
  * @param {Object} data Data to use to rename the composer token.
+ * @param {string} data.id The id of the composer token to rename.
  * @param {string} data.name The name of the composer token.
  *
  * @returns {Function} A function that renames a user's composer tokens.
  */
-export function renameComposerToken( id, data ) {
+export function renameComposerToken( data ) {
 	return ( dispatch ) => {
 		dispatch( renameComposerTokenRequest() );
 
-		let request = prepareInternalRequest( `ComposerTokens/${id}/rename/`, "POST", data );
+		let request = prepareInternalRequest( `ComposerTokens/${data.id}/rename/`, "POST", data );
 
 		return doRequest( request )
 			.then( ( response ) => {
 				dispatch( renameComposerTokenSuccess( response ) );
+			} )
+			.then( () => {
+				dispatch( manageTokenModalClosed() );
 			} )
 			.catch( ( error ) => dispatch( renameComposerTokenFailure( error ) ) );
 	};
@@ -299,6 +306,9 @@ export function disableComposerToken( id ) {
 		return doRequest( request )
 			.then( ( response ) => {
 				dispatch( disableComposerTokenSuccess( response ) );
+			} )
+			.then( () => {
+				dispatch( manageTokenModalClosed() );
 			} )
 			.catch( ( error ) => dispatch( disableComposerTokenFailure( error ) ) );
 	};

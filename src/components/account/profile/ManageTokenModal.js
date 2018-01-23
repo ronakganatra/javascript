@@ -3,7 +3,7 @@ import React from "react";
 import Modal from "react-modal";
 import styled, { keyframes } from "styled-components";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import CreateToken from "./CreateToken";
+import ManageToken from "./ManageToken";
 
 const messages = defineMessages( {
 	modalAriaLabel: {
@@ -18,7 +18,7 @@ const messages = defineMessages( {
  */
 Modal.setAppElement( "#root" );
 
-class BaseCreateTokenModal extends React.Component {
+class BaseManageTokenModal extends React.Component {
 
 	constructor( props ) {
 		super( props );
@@ -32,7 +32,7 @@ class BaseCreateTokenModal extends React.Component {
 	render() {
 		return (
 			<div>
-				<Modal { ...this.props }
+				<Modal
 					isOpen={ this.props.isOpen }
 					onRequestClose={ this.props.onClose }
 					role="dialog"
@@ -40,26 +40,31 @@ class BaseCreateTokenModal extends React.Component {
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<CreateToken
-						onClose={ this.props.onClose }
-						onCreateClick={ this.props.onCreateClick }
-						tokenDescriptionInput={ "" }
-					/>
+					<div>
+						<ManageToken
+							onSaveTokenClick={ this.props.onSaveTokenClick }
+							onDisableTokenClick={ this.props.onDisableTokenClick }
+							onClose={ this.props.onClose }
+							manageTokenData={ this.props.manageTokenData }
+						/>
+					</div>
 				</Modal>
 			</div>
 		);
 	}
 }
 
-BaseCreateTokenModal.propTypes = {
+BaseManageTokenModal.propTypes = {
 	intl: intlShape.isRequired,
 	onClose: PropTypes.func.isRequired,
-	onCreateClick: PropTypes.func.isRequired,
+	onSaveTokenClick: PropTypes.func.isRequired,
+	onDisableTokenClick: PropTypes.func.isRequired,
 	isOpen: PropTypes.bool,
 	className: PropTypes.string,
+	manageTokenData: PropTypes.object.isRequired,
 };
 
-BaseCreateTokenModal.defaultProps = {
+BaseManageTokenModal.defaultProps = {
 	isOpen: false,
 };
 
@@ -75,7 +80,7 @@ const fadeModalIn = keyframes`
 	}
 `;
 
-const CreateTokenModal = styled( BaseCreateTokenModal )`
+const ManageTokenModal = styled( BaseManageTokenModal )`
 	&.my-yoast-modal__overlay {
 		position: fixed;
 		top: 0;
@@ -132,4 +137,4 @@ const CreateTokenModal = styled( BaseCreateTokenModal )`
 	}
 `;
 
-export default injectIntl( CreateTokenModal );
+export default injectIntl( ManageTokenModal );

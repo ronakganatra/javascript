@@ -52,7 +52,10 @@ function ComposerToken( props ) {
 				<ResponsiveManageButton
 					aria-label={ manageLabel }
 					onClick={ () => {
-						props.onManageTokenClick( props.id );
+						props.onManageTokenClick( {
+							name: props.name,
+							id: props.id,
+						} );
 					} }
 				>
 					<span className="screen-reader-text">{ manageMessage }</span>

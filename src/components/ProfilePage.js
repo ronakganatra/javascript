@@ -14,6 +14,7 @@ import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import CreateTokenModal from "./account/profile/CreateTokenModal";
+import ManageTokenModal from "./account/profile/ManageTokenModal";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -282,10 +283,18 @@ class ProfilePage extends React.Component {
 	}
 
 	getModal() {
-		let createTokenModal = (
-			<CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } onCreateClick={ this.props.onCreateTokenClick } />
-		);
-		return this.props.createTokenModalIsOpen ? createTokenModal : null;
+		if ( this.props.createTokenModalIsOpen ) {
+			return <CreateTokenModal isOpen={ this.props.createTokenModalIsOpen } onClose={ this.props.onCreateTokenModalClose } onCreateClick={ this.props.onCreateTokenClick } />;
+		} else if ( this.props.manageTokenModalIsOpen ) {
+			return <ManageTokenModal
+				isOpen={ this.props.manageTokenModalIsOpen }
+				onClose={ this.props.onManageTokenModalClose }
+				onSaveTokenClick={ this.props.onSaveTokenClick }
+				onDisableTokenClick={ this.props.onDisableTokenClick }
+				manageTokenData={ this.props.manageTokenData }
+			/>;
+		}
+		return null;
 	}
 
 	/**
@@ -386,7 +395,12 @@ ProfilePage.propTypes = {
 	onCreateTokenModalClose: PropTypes.func.isRequired,
 	createTokenModalIsOpen: PropTypes.bool.isRequired,
 	onCreateTokenClick: PropTypes.func.isRequired,
+	manageTokenModalIsOpen: PropTypes.bool.isRequired,
 	onManageTokenClick: PropTypes.func.isRequired,
+	onManageTokenModalClose: PropTypes.func.isRequired,
+	onSaveTokenClick: PropTypes.func.isRequired,
+	onDisableTokenClick: PropTypes.func.isRequired,
+	manageTokenData: PropTypes.object,
 };
 
 ProfilePage.defaultProps = {
@@ -399,6 +413,7 @@ ProfilePage.defaultProps = {
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
 	passwordResetError: null,
+	manageTokenData: null,
 };
 
 export default injectIntl( ProfilePage );

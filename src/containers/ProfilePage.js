@@ -9,8 +9,8 @@ import {
 } from "../actions/user";
 import { url } from "gravatar";
 import {
-	createComposerToken, createTokenModalClosed, createTokenModalOpen,
-	fetchComposerTokens,
+	createComposerToken, createTokenModalClosed, createTokenModalOpen, disableComposerToken,
+	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
 } from "../actions/composerTokens";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
@@ -33,7 +33,9 @@ export const mapStateToProps = ( state ) => {
 		isSendingPasswordReset: state.user.sendingPasswordReset,
 		hasSendPasswordReset: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,
-		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalOpen,
+		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
+		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
+		manageTokenData: state.ui.composerTokens.manageTokenData,
 	};
 };
 
@@ -70,8 +72,17 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onCreateTokenClick: ( data ) => {
 			dispatch( createComposerToken( data ) );
 		},
-		onManageTokenClick: ( id ) => {
-			console.log( id );
+		onManageTokenClick: ( data ) => {
+			dispatch( manageTokenModalOpen( data ) );
+		},
+		onManageTokenModalClose: () => {
+			dispatch( manageTokenModalClosed() );
+		},
+		onSaveTokenClick: ( data ) => {
+			dispatch( renameComposerToken( data ) );
+		},
+		onDisableTokenClick: ( data ) => {
+			dispatch( disableComposerToken( data ) );
 		},
 	};
 };
