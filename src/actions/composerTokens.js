@@ -78,12 +78,17 @@ export function manageTokenModalClosed() {
  * An action creator for the composer help modal open action.
  *
  * @param {string} productName A string that contains the name of the product for which composer help is requested.
+ * @param {string} glNumber Unique bookkeeping number of the product.
+ * @param {object} [composerToken] A composer token to display for instructions if it exists.
+ *
  * @returns {Object} The composer help modal open action.
  */
-export function composerHelpModalOpen( productName ) {
+export function composerHelpModalOpen( productName, glNumber, composerToken ) {
 	return {
 		type: COMPOSER_HELP_MODAL_OPEN,
 		productName,
+		glNumber,
+		composerToken,
 	};
 }
 

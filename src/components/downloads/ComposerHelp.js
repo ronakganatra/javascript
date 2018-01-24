@@ -1,9 +1,22 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButton, makeButtonFullWidth } from "../Button.js";
+import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../Button";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 import { ModalHeading } from "../Headings";
+
+const GlNumberMapping = {
+	82103: "wordpress-seo-local",
+	82106: "wordpress-seo-local-woocommerce",
+	82101: "wordpress-seo-premium",
+	82102: "wpseo-video",
+	82105: "wpseo-woocommerce",
+	82104: "yoast-news-seo",
+};
+
+const CreateButton = styled( makeButtonFullWidth( LargeButton ) )`
+	margin-top: 16px;
+`;
 
 const ComposerHelpModal = styled.div`
 	max-width: 640px;
@@ -20,7 +33,20 @@ const Buttons = styled.div`
 	margin: 16px;
 `;
 
-const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
+const CodeBlock = styled.pre`
+	background-color: #efefef;
+	padding: 4px 8px;
+	max-width: 100%;
+	overflow-x: scroll;
+`;
+
+const ShellCodeBlock = styled( CodeBlock )`
+	&:before {
+		content: "$ "
+	}
+`;
+
+const ResponsiveLargeButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
  * Renders the ComposerHelp component.
@@ -36,7 +62,7 @@ function ComposerHelp( props ) {
 			<ModalHeading>
 				<FormattedMessage
 					id="composer-help.header"
-					defaultMessage="How to install {product} using composer"
+					defaultMessage="How to install the {product} using composer"
 					values={ {
 						product: props.productName,
 					} }
@@ -44,10 +70,53 @@ function ComposerHelp( props ) {
 			</ModalHeading>
 			<HelpText>
 				<FormattedMessage
-					id="composer-help.text"
-					defaultMessage="Here you can enter all the copy that is needed for a pleasant composer token install experience."
+					id="composer-help.introduction"
+					defaultMessage="Composer is a tool used by many developers to install and update plugins.
+					Through My Yoast you can use Composer to get easy access to your premium plugins.
+					Follow the instructions below to get started!"
 				/>
 			</HelpText>
+			{ props.composerToken
+				? <HelpText>
+					<FormattedMessage
+						id="composer-help.register-token"
+						defaultMessage="You can register your token with composer by running the command below:"
+					/>
+					<ShellCodeBlock>composer config -g http-basic.my.yoast.com token { props.composerToken.id }</ShellCodeBlock>
+					<FormattedMessage
+						id="composer-help.register-token"
+						defaultMessage="You can then add our secure repository by adding the following line to your composer.json:"
+					/>
+					<CodeBlock>"repositories": [ { "{" } "type": "composer", "url": "https://my.yoast.com/packages/" } ]</CodeBlock>
+					<FormattedMessage
+						id="composer-help.register-token"
+						defaultMessage="Now you can install the {product} by running:"
+						values={ {
+							product: props.productName,
+						} }
+					/>
+					<ShellCodeBlock>composer install yoast/{ GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
+				</HelpText>
+				: <HelpText>
+					<FormattedMessage
+						id="composer-help.create-token"
+						defaultMessage="Before you can install the {product} using composer you will need to create a
+						token to access our secure repository. You can do this on the Account page in the Profile section
+						or by clicking the button below."
+						values={ {
+							product: props.productName,
+						} }
+					/>
+					<CreateButton
+						type="submit"
+						aria-label="create token"
+						onClick={ props.createComposerToken }
+					>
+						<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
+					</CreateButton>
+				</HelpText>
+			}
+
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
@@ -60,6 +129,9 @@ function ComposerHelp( props ) {
 ComposerHelp.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	productName: PropTypes.string,
+	productGlNumber: PropTypes.number,
+	composerToken: PropTypes.object,
+	createComposerToken: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 };
 

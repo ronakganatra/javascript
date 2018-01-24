@@ -43,6 +43,8 @@ const rootState = {
 			disablingComposerToken: false,
 			composerHelpModalIsOpen: false,
 			composerHelpProductName: "",
+			composerHelpProductGlNumber: 0,
+			composerHelpComposerToken: null,
 			createTokenModalIsOpen: false,
 			manageTokenModalIsOpen: false,
 			manageTokenData: null,
@@ -202,13 +204,24 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				composerHelpModalIsOpen: true,
 				composerHelpProductName: action.productName,
+				composerHelpProductGlNumber: action.glNumber,
+				composerHelpComposerToken: action.composerToken,
 			} );
 		case COMPOSER_HELP_MODAL_CLOSED:
 			return Object.assign( {}, state, {
 				composerHelpModalIsOpen: false,
 				composerHelpProductName: "",
+				composerHelpProductGlNumber: 0,
+				composerHelpComposerToken: null,
 				tokenError: null,
 			} );
+		case CREATE_COMPOSER_TOKEN_SUCCESS:
+			if ( state.composerHelpModalIsOpen ) {
+				return Object.assign( {}, state, {
+					composerHelpComposerToken: action.composerToken,
+				} );
+			}
+			return state;
 		default:
 			return state;
 	}

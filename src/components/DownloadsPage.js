@@ -88,7 +88,13 @@ class DownloadsPage extends React.Component {
 
 	getModal() {
 		return this.props.composerHelpModalIsOpen
-			? <ComposerHelpModal isOpen={ this.props.composerHelpModalIsOpen } onClose={ this.props.onComposerHelpModalClose } productName={ this.props.composerHelpProductName } />
+			? <ComposerHelpModal
+				isOpen={ this.props.composerHelpModalIsOpen }
+				onClose={ this.props.onComposerHelpModalClose }
+				productName={ this.props.composerHelpProductName }
+				productGlNumber={ this.props.composerHelpProductGlNumber }
+				createComposerToken={ this.props.composerHelpCreateComposerToken }
+				composerToken={ this.props.composerToken } />
 			: null;
 	}
 
@@ -123,6 +129,7 @@ class DownloadsPage extends React.Component {
 									byLine={ pluginsByLine }
 									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
 									noResults={ this.props.plugins.length > 0 ? "" : "No results" }
+									composerToken={ this.props.composerToken }
 									onComposerHelpModalOpen={ this.props.onComposerHelpModalOpen }
 									onComposerHelpModalClose={ this.props.onComposerHelpModalClose }
 		/>;
@@ -176,10 +183,14 @@ DownloadsPage.propTypes = {
 	onSearchChange: PropTypes.func.isRequired,
 	eBooks: PropTypes.array,
 	plugins: PropTypes.array,
+	composerToken: PropTypes.object,
 	composerHelpModalIsOpen: PropTypes.bool,
 	onComposerHelpModalOpen: PropTypes.func.isRequired,
 	onComposerHelpModalClose: PropTypes.func.isRequired,
+	composerHelpCreateComposerToken: PropTypes.func.isRequired,
 	composerHelpProductName: PropTypes.string,
+	composerHelpProductGlNumber: PropTypes.string,
+	composerHelpComposerToken: PropTypes.object,
 };
 
 DownloadsPage.defaultProps = {

@@ -2,7 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { IconButton, LargeButton } from "./Button";
+import { IconButton } from "./Button";
+import Link from "./Link";
 import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
@@ -91,14 +92,14 @@ function Product( props ) {
 		productVersion = <ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>;
 	}
 
-	let ComposerButton = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
+	let ComposerLink = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
 		? <Download>
-			<LargeButton onClick={ () => {
-				props.onComposerHelpModalOpen( props.name );
+			<Link to="#" onClick={ () => {
+				props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
 			} }
 			>
-				<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="Composer" />
-			</LargeButton>
+				<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="or install with Composer" />
+			</Link>
 		</Download>
 		: null;
 	return (
@@ -120,7 +121,7 @@ function Product( props ) {
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
-				{ ComposerButton }
+				{ ComposerLink }
 			</Downloads>
 		</ProductContainer>
 	);
@@ -128,10 +129,12 @@ function Product( props ) {
 
 Product.propTypes = {
 	name: PropTypes.string.isRequired,
+	glNumber: PropTypes.string,
 	currentVersion: PropTypes.string,
 	icon: PropTypes.string.isRequired,
 	buttons: PropTypes.array.isRequired,
 	intl: intlShape.isRequired,
+	composerToken: PropTypes.object,
 	onComposerHelpModalOpen: PropTypes.func,
 };
 

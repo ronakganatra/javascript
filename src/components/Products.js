@@ -43,9 +43,11 @@ export default class Products extends React.Component {
 						return <Product
 							key={ product.glNumber }
 							name={ product.name }
+							glNumber={ product.glNumber }
 							currentVersion={ product.currentVersion }
 							icon={ product.icon }
 							buttons={ product.buttons }
+							composerToken={ props.composerToken }
 							onComposerHelpModalOpen={ props.onComposerHelpModalOpen }
 							onComposerHelpModalClose={ props.onComposerHelpModalClose }
 						/>;
@@ -59,6 +61,7 @@ Products.propTypes = {
 	byLine: PropTypes.element,
 	heading: PropTypes.string.isRequired,
 	noResults: PropTypes.string,
+	composerToken: PropTypes.object,
 	onComposerHelpModalOpen: PropTypes.func,
 	onComposerHelpModalClose: PropTypes.func,
 	composerHelpProductName: PropTypes.string,

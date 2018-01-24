@@ -9,7 +9,10 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
-import { composerHelpModalClosed, composerHelpModalOpen } from "../actions/composerTokens";
+import {
+	composerHelpModalClosed, composerHelpModalOpen,
+	createComposerToken, fetchComposerTokens,
+} from "../actions/composerTokens";
 
 const getEbookProducts = ( state ) =>  {
 	let eBooks =  getEbooks( state.entities.products.byId );
@@ -87,12 +90,25 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
+	let composerToken = null;
+	for ( let i = 0; i < state.entities.composerTokens.allIds.length; i++ ) {
+		let id = state.entities.composerTokens.allIds[ i ];
+		let token = state.entities.composerTokens.byId[ id ];
+
+		if ( token.enabled ) {
+			composerToken = token;
+			break;
+		}
+	}
+
 	return {
 		query,
 		eBooks,
 		plugins,
+		composerToken,
 		composerHelpModalIsOpen: state.ui.composerTokens.composerHelpModalIsOpen,
 		composerHelpProductName: state.ui.composerTokens.composerHelpProductName,
+		composerHelpProductGlNumber: state.ui.composerTokens.composerHelpProductGlNumber,
 	};
 };
 
@@ -100,6 +116,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getAllProducts() );
 	dispatch( getAllSubscriptions() );
 	dispatch( getOrders() );
+	dispatch( fetchComposerTokens() );
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
@@ -107,8 +124,11 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onComposerHelpModalClose: () => {
 			dispatch( composerHelpModalClosed() );
 		},
-		onComposerHelpModalOpen: ( productName ) => {
-			dispatch( composerHelpModalOpen( productName ) );
+		onComposerHelpModalOpen: ( productName, glNumber, composerToken ) => {
+			dispatch( composerHelpModalOpen( productName, glNumber, composerToken ) );
+		},
+		composerHelpCreateComposerToken: () => {
+			dispatch( createComposerToken( { name: "Default Token" } ) );
 		},
 	};
 };

@@ -83,6 +83,10 @@ test( "the mapStateToProps function", () => {
 				},
 				allIds: [ "3" ],
 			},
+			composerTokens: {
+				byId: {},
+				allIds: []
+			},
 		},
 		ui: {
 			search: {
@@ -91,6 +95,7 @@ test( "the mapStateToProps function", () => {
 			composerTokens: {
 				composerHelpModalIsOpen: false,
 				composerHelpProductName: "",
+				composerHelpProductGlNumber: 0,
 			},
 		},
 	};
@@ -115,7 +120,9 @@ test( "the mapStateToProps function", () => {
 			glNumber: 111,
 		} ],
 		query: "d",
+		composerToken: null,
 		composerHelpModalIsOpen: false,
+		composerHelpProductGlNumber: 0,
 		composerHelpProductName: "",
 	};
 
@@ -211,6 +218,10 @@ test( "the mapStateToProps function without search results", () => {
 				},
 				allIds: [ "3" ],
 			},
+			composerTokens: {
+				byId: {},
+				allIds: []
+			},
 		},
 		ui: {
 			search: {
@@ -218,6 +229,7 @@ test( "the mapStateToProps function without search results", () => {
 			},
 			composerTokens: {
 				composerHelpModalIsOpen: false,
+				composerHelpProductGlNumber: 0,
 				composerHelpProductName: "",
 			},
 		},
@@ -227,8 +239,10 @@ test( "the mapStateToProps function without search results", () => {
 		eBooks: [],
 		plugins: [],
 		query: "q",
+		composerToken: null,
 		composerHelpModalIsOpen: false,
 		composerHelpProductName: "",
+		composerHelpProductGlNumber: 0,
 	};
 
 	let actual = mapStateToProps( state );
