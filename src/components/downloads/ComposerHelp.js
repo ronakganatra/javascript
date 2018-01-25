@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../Button";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 import { ModalHeading } from "../Headings";
+import defaults from "../../config/defaults.json";
 
 const GlNumberMapping = {
 	82103: "wordpress-seo-local",
@@ -13,10 +14,6 @@ const GlNumberMapping = {
 	82105: "wpseo-woocommerce",
 	82104: "yoast-news-seo",
 };
-
-const CreateButton = styled( makeButtonFullWidth( LargeButton ) )`
-	margin-top: 16px;
-`;
 
 const ComposerHelpModal = styled.div`
 	max-width: 640px;
@@ -30,7 +27,18 @@ const HelpText = styled.div`
 const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
-	margin: 16px;
+	padding: 16px 0;
+
+	button {
+		margin-left: 12px;
+	}
+
+	@media screen and (max-width: ${ defaults.css.breakpoint.mobile }px) {
+		button {
+			margin-left: 0;
+			margin-bottom: 8px;
+		}
+	}
 `;
 
 const CodeBlock = styled.pre`
@@ -46,6 +54,7 @@ const ShellCodeBlock = styled( CodeBlock )`
 	}
 `;
 
+const CreateButton = makeButtonFullWidth( LargeButton );
 const ResponsiveLargeButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
@@ -107,17 +116,19 @@ function ComposerHelp( props ) {
 							product: props.productName,
 						} }
 					/>
-					<CreateButton
-						type="submit"
-						aria-label="create token"
-						onClick={ props.createComposerToken }
-					>
-						<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
-					</CreateButton>
 				</HelpText>
 			}
-
 			<Buttons>
+				{ props.composerToken
+					? null
+					: <CreateButton
+					type="submit"
+					aria-label="create token"
+					onClick={ props.createComposerToken }
+				>
+					<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
+				</CreateButton>
+				}
 				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
 				</ResponsiveLargeButton>
