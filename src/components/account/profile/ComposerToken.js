@@ -3,7 +3,10 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "../../Tables";
 import { makeButtonFullWidth, makeResponsiveIconButton } from "../../Button";
-import { LargeButton } from "../../Button";
+import { LargeIconButton } from "../../Button";
+import editPencil from "../../../icons/edit-pencil.svg";
+import styled from "styled-components";
+import defaults from "../../../config/defaults.json";
 
 const messages = defineMessages( {
 	token: {
@@ -27,6 +30,19 @@ const messages = defineMessages( {
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+let ResponsiveIconButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
+
+let NameColumn = styled( ColumnMinWidthResponsive )`
+	max-width: 200px;
+`;
+let TokenColumn = styled( ColumnPrimaryResponsive )`
+	word-break: break-all;
+`;
+let ResponsiveManageButton = styled( ResponsiveIconButton )`
+		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
+			padding-left: 56px;
+		}
+`;
 
 /**
  * A page order list using table abstraction.
@@ -35,19 +51,17 @@ let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWi
  * @returns {ReactElement} A row of order stuff.
  */
 function ComposerToken( props ) {
-	let ResponsiveManageButton = makeButtonFullWidth( makeResponsiveIconButton( LargeButton ) );
-
 	let manageMessage = props.intl.formatMessage( messages.manage );
 	let manageLabel = props.intl.formatMessage( messages.manageLabel );
 
 	return (
 		<RowMobileCollapse background={ props.background }>
-			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.name ) }>
+			<NameColumn ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.name ) }>
 				{ props.name }
-			</ColumnMinWidthResponsive>
-			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.token ) }>
+			</NameColumn>
+			<TokenColumn headerLabel={ props.intl.formatMessage( messages.token ) }>
 				{ props.id }
-			</ColumnPrimaryResponsive>
+			</TokenColumn>
 			<ColumnFixedWidthResponsive>
 				<ResponsiveManageButton
 					aria-label={ manageLabel }
@@ -57,6 +71,7 @@ function ComposerToken( props ) {
 							id: props.id,
 						} );
 					} }
+					iconSource={ editPencil }
 				>
 					<span className="screen-reader-text">{ manageMessage }</span>
 				</ResponsiveManageButton>
