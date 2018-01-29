@@ -83,7 +83,10 @@ class CourseEnrollment extends React.Component {
 
 	getProgressButtonLabel() {
 		if ( this.state.progress === 100 ) {
-			return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
+			if ( this.props.course.certificateUrl ) {
+				return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
+			}
+			return <FormattedMessage id="button.retake" defaultMessage="Retake Course" />;
 		}
 		if ( this.state.progress > 0 ) {
 			return <FormattedMessage id="button.continue" defaultMessage="Continue" />;
@@ -97,7 +100,7 @@ class CourseEnrollment extends React.Component {
 	}
 
 	getProgressButtonUrl() {
-		if ( this.state.progress === 100 ) {
+		if ( this.state.progress === 100 && this.props.course.certificateUrl ) {
 			return this.props.course.certificateUrl;
 		}
 		if ( this.state.student ) {
