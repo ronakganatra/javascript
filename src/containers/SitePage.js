@@ -39,7 +39,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active";
+		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
 	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
