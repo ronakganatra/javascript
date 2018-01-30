@@ -85,9 +85,8 @@ class CreateToken extends React.Component {
 	 * @returns {void}
 	 */
 	onTokenDescriptionChange( event ) {
-		const value = event.target.value;
 		this.setState( {
-			tokenDescriptionInput: value,
+			tokenDescriptionInput: event.target.value,
 		} );
 	}
 
@@ -113,6 +112,7 @@ class CreateToken extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		let enabledStyle = this.state.tokenDescriptionInput !== "";
 		return (
 			<CreateTokenModal>
 				<ModalHeading>
@@ -144,8 +144,9 @@ class CreateToken extends React.Component {
 							<WideLargeButton
 								type="submit"
 								aria-label="create token"
+								enabledStyle={ enabledStyle }
 							>
-								<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
+								<FormattedMessage id="profile.create-sites.create" defaultMessage="create token" />
 							</WideLargeButton>
 					</Buttons>
 				</form>

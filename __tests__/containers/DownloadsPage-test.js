@@ -32,7 +32,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						"glNumber": 111,
+						"glNumber": "111",
 					},
 					"2": {
 						"id": "2",
@@ -48,7 +48,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						"glNumber": 222,
+						"glNumber": "222",
 					},
 					"3": {
 						"id": "3",
@@ -64,7 +64,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
-						"glNumber": 333
+						"glNumber": "333",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -95,7 +95,7 @@ test( "the mapStateToProps function", () => {
 			composerTokens: {
 				composerHelpModalIsOpen: false,
 				composerHelpProductName: "",
-				composerHelpProductGlNumber: 0,
+				composerHelpProductGlNumber: "0",
 			},
 		},
 	};
@@ -108,7 +108,7 @@ test( "the mapStateToProps function", () => {
 			icon: "icon.jpg",
 			ids: [ "3" ],
 			name: "download1",
-			glNumber: 333,
+			glNumber: "333",
 		}],
 		plugins: [ {
 			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
@@ -117,12 +117,12 @@ test( "the mapStateToProps function", () => {
 			icon: "icon.jpg",
 			ids: [ "1" ],
 			name: "download1",
-			glNumber: 111,
+			glNumber: "111",
 		} ],
 		query: "d",
 		composerToken: null,
 		composerHelpModalIsOpen: false,
-		composerHelpProductGlNumber: 0,
+		composerHelpProductGlNumber: "0",
 		composerHelpProductName: "",
 	};
 
@@ -165,7 +165,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: 111,
+						glNumber: "111",
 					},
 					"2": {
 						"id": "2",
@@ -182,7 +182,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: 222,
+						glNumber: "222",
 					},
 					"3": {
 						"id": "3",
@@ -199,7 +199,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
-						glNumber: 333,
+						glNumber: "333",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -229,7 +229,7 @@ test( "the mapStateToProps function without search results", () => {
 			},
 			composerTokens: {
 				composerHelpModalIsOpen: false,
-				composerHelpProductGlNumber: 0,
+				composerHelpProductGlNumber: "0",
 				composerHelpProductName: "",
 			},
 		},
@@ -242,7 +242,7 @@ test( "the mapStateToProps function without search results", () => {
 		composerToken: null,
 		composerHelpModalIsOpen: false,
 		composerHelpProductName: "",
-		composerHelpProductGlNumber: 0,
+		composerHelpProductGlNumber: "0",
 	};
 
 	let actual = mapStateToProps( state );

@@ -140,7 +140,7 @@ function ComposerHelp( props ) {
 ComposerHelp.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	productName: PropTypes.string,
-	productGlNumber: PropTypes.number,
+	productGlNumber: PropTypes.string,
 	composerToken: PropTypes.object,
 	createComposerToken: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
