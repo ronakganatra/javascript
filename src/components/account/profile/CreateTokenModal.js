@@ -19,11 +19,6 @@ const messages = defineMessages( {
 Modal.setAppElement( "#root" );
 
 class BaseCreateTokenModal extends React.Component {
-
-	constructor( props ) {
-		super( props );
-	}
-
 	/**
 	 * Returns the rendered html.
 	 *
