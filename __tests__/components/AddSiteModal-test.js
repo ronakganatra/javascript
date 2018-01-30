@@ -1,7 +1,8 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-
-import AddSiteModal from '../../src/components/AddSiteModal';
+import MyYoastModal from "../../src/components/MyYoastModal";
+import AddSite from "../../src/components/AddSite";
+import { defineMessages } from "react-intl";
 
 jest.mock( "react-modal", () => {
 	function Modal(props) {
@@ -13,64 +14,46 @@ jest.mock( "react-modal", () => {
 	return Modal;
 } );
 
-test('The AddSiteModal component matches the snapshot', () => {
-	const component = createComponentWithIntl(
-		<AddSiteModal onClose={ () => {
-			console.log( "clicked on Cancel" );
-		} } onConnect={ () => {
-			console.log( "clicked on Link" );
-		} } isOpen={ true }
-					  onChange={ () => {} }
-					  errorFound={ false }
-					  query=""
-					  linkingSiteUrl=""
-		/>
+let messages= defineMessages( {
+	modalAriaLabel: {
+		id: "message.id",
+		defaultMessage: "message.defaultMessage",
+	}
+} );
 
+test('The MyYoastModal for the AddSite component matches the snapshot', () => {
+	const component = createComponentWithIntl(
+		<MyYoastModal
+			onClose={
+				() => {
+					console.log( "clicked on Cancel" );
+				}
+			}
+			isOpen={
+				true
+			}
+			messages={ messages }
+			modalComponent={
+				<AddSite
+					onConnectClick={
+						() => { console.log( "clicked on Link" );
+						}
+					}
+					onCancelClick={
+						() => {
+							console.log( "clicked on Cancel" );
+						}
+					}
+					onChange={ () => {} }
+					errorFound={ "" }
+					error={ null }
+					query={ "" }
+					linkingSiteUrl={ "" }
+				/>
+			}
+		/>
 	);
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
-
-test('the addSiteModal handling an onClose event', () => {
-	const component = createComponentWithIntl(
-		<AddSiteModal onClose={ () => {
-			console.log( "clicked on Cancel" );
-		} } onConnect={ () => {
-			console.log( "clicked on Link" );
-		} } isOpen={ true }
-					  onChange={ () => {} }
-					  errorFound={ false }
-					  query=""
-					  linkingSiteUrl=""
-		/>
-	);
-
-	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-
-	// manually trigger the callback.
-	tree.children[0].props.onRequestClose();
-
-	// re-rendering
-	tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-} );
-
-test('the addSiteModal handling an onConnect event', () => {
-	const component = createComponentWithIntl(
-		<AddSiteModal onClose={ () => {
-			console.log( "clicked on Cancel" );
-		} } onConnect={ () => {
-			console.log( "clicked on Link" );
-		} } isOpen={ true }
-					  onChange={ () => {} }
-					  errorFound={ false }
-					  query=""
-					  linkingSiteUrl=""
-		/>
-	);
-
-	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-} );
