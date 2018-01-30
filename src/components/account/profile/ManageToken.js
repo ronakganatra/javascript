@@ -117,6 +117,7 @@ class ManageToken extends React.Component {
 	 * @returns {ReactElement} The rendered html.
 	 */
 	render() {
+		let enabledStyle = this.state.tokenDescriptionInput !== "";
 		return (
 			<ManageTokenModal>
 				<ModalHeading>
@@ -158,6 +159,7 @@ class ManageToken extends React.Component {
 						<WideLargeButton
 							type="submit"
 							aria-label="save token"
+							enabledStyle={ enabledStyle }
 						>
 							<FormattedMessage id="profile.manage-token.save" defaultMessage="save"/>
 						</WideLargeButton>
