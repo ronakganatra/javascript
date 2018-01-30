@@ -2,15 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Modal from "react-modal";
 import styled from "styled-components";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
-import AddLicenses from "../components/AddLicenses";
-
-const messages = defineMessages( {
-	modalAriaLabel: {
-		id: "modal.arialabel.add",
-		defaultMessage: "Add licenses",
-	},
-} );
+import { injectIntl, intlShape } from "react-intl";
 
 /*
  * Makes the `aria-hidden="true"` attribute being applied on the root element
@@ -18,7 +10,7 @@ const messages = defineMessages( {
  */
 Modal.setAppElement( "#root" );
 
-class BaseAddLicensesModal extends React.Component {
+class BaseMyYoastModal extends React.Component {
 
 	constructor( props ) {
 		super( props );
@@ -36,33 +28,31 @@ class BaseAddLicensesModal extends React.Component {
 					isOpen={ this.props.isOpen }
 					onRequestClose={ this.props.onClose }
 					role="dialog"
-					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
+					contentLabel={ this.props.intl.formatMessage( this.props.messages.modalAriaLabel ) }
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<AddLicenses
-						onShop={ this.props.onShop }
-						onClose={ this.props.onClose }
-					/>
+					{ this.props.modalComponent }
 				</Modal>
 			</div>
 		);
 	}
 }
 
-BaseAddLicensesModal.propTypes = {
+BaseMyYoastModal.propTypes = {
+	modalComponent: PropTypes.element.isRequired,
 	className: PropTypes.string,
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
-	onShop: PropTypes.string.isRequired,
+	messages: PropTypes.object.isRequired,
 };
 
-BaseAddLicensesModal.defaultProps = {
+BaseMyYoastModal.defaultProps = {
 	isOpen: false,
 };
 
-const AddLicensesModal = styled( BaseAddLicensesModal )`
+const MyYoastModal = styled( BaseMyYoastModal )`
 	&.my-yoast-modal__overlay {
 		position: fixed;
 		top: 0;
@@ -110,4 +100,4 @@ const AddLicensesModal = styled( BaseAddLicensesModal )`
 	}
 `;
 
-export default injectIntl( AddLicensesModal );
+export default injectIntl( MyYoastModal );
