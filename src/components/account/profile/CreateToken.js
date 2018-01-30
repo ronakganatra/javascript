@@ -78,9 +78,9 @@ class CreateToken extends React.Component {
 	}
 
 	/**
-	 * Calls onChange function when website url changes.
+	 * Calls onChange function when token description changes.
 	 *
-	 * @param {Object} event The event returned by the WebsiteURLChange.
+	 * @param {Object} event The event returned by the change in the tokenDescription.
 	 *
 	 * @returns {void}
 	 */
