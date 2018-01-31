@@ -1,14 +1,22 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { injectIntl, intlShape, FormattedMessage } from "react-intl";
+import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button.js";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../../../styles/inputs";
 import defaults from "../../../config/defaults.json";
-
 import { ModalHeading } from "../../Headings";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
+
+let messages = defineMessages(
+	{
+		placeholderMessage: {
+			id: "token-description.placeholder",
+			defaultMessage: "What's this token for?",
+		},
+	}
+);
 
 const CreateTokenModal = styled.div`
 	margin: auto;
@@ -130,7 +138,7 @@ class CreateToken extends React.Component {
 					<TokenDescription
 						type="text"
 						id="create-token-description-input"
-						placeholder={ "What's this token for?" }
+						placeholder={ this.props.intl.formatMessage( messages.placeholderMessage ) }
 						value={ this.state.tokenDescriptionInput }
 						onChange={ this.onTokenDescriptionChange.bind( this ) }
 					/>

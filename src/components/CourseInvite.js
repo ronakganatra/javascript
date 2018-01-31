@@ -20,6 +20,14 @@ const messages = defineMessages( {
 		id: "invite.modal.confirmation.unequal",
 		defaultMessage: "Email addresses do not match. Please ensure you have entered the correct email address.",
 	},
+	studentMail: {
+		id: "invite.modal.student.email",
+		defaultMessage: "Student email",
+	},
+	studentMailConfirm: {
+		id: "invite.modal.student.email-confirm",
+		defaultMessage: "Confirm student email",
+	},
 } );
 
 const CourseInviteModal = styled.div`
@@ -234,7 +242,7 @@ class CourseInvite extends React.Component {
 					<StudentEmailInput
 						type="email"
 						id="course-invite-email-input"
-						placeholder={ "Student email" }
+						placeholder={ this.props.intl.formatMessage( messages.studentMail ) }
 						onChange={ this.onEmailInputChange.bind( this ) }
 					/>
 					{ this.displayWarnings( this.state.warnings, "email" ) }
@@ -249,7 +257,7 @@ class CourseInvite extends React.Component {
 					<StudentEmailInput
 						type="email"
 						id="course-invite-email-confirmation"
-						placeholder={ "Confirm student email" }
+						placeholder={ this.props.intl.formatMessage( messages.studentMailConfirm ) }
 						onChange={ this.onEmailConfirmationInputChange.bind( this ) }
 					/>
 					{ this.displayWarnings( this.state.warnings, "confirmationEmail" ) }
