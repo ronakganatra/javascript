@@ -15,7 +15,7 @@ import {
 } from "../actions/composerTokens";
 
 const getEbookProducts = ( state ) =>  {
-	let eBooks =  getEbooks( state.entities.products.byId );
+	let eBooks = getEbooks( state.entities.products.byId );
 	let completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
 	let lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
@@ -26,7 +26,7 @@ const getEbookProducts = ( state ) =>  {
 	return _filter( eBooks, ( eBook ) => {
 		let boughtEbook = false;
 		eBook.ids.forEach( ( eBookId ) => {
-			if ( _includes( boughtProductIds,  eBookId ) ) {
+			if ( _includes( boughtProductIds, eBookId ) ) {
 				boughtEbook = true;
 			}
 		} );
@@ -34,7 +34,7 @@ const getEbookProducts = ( state ) =>  {
 	} );
 };
 
-const getPluginProducts = ( state ) =>  {
+const getPluginProducts = ( state ) => {
 	let plugins = getPlugins( state.entities.products.byId );
 	let activeSubscriptions = _filter( state.entities.subscriptions.byId, { status: "active" } );
 	let activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
@@ -43,7 +43,7 @@ const getPluginProducts = ( state ) =>  {
 	return _filter( plugins, ( plugin ) => {
 		let boughtPlugin = false;
 		plugin.ids.forEach( ( pluginId ) => {
-			if ( _includes( activeSubscriptionIds,  pluginId ) ) {
+			if ( _includes( activeSubscriptionIds, pluginId ) ) {
 				boughtPlugin = true;
 			}
 		} );
