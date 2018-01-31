@@ -40,17 +40,18 @@ class SitePage extends React.Component {
 			},
 		} );
 
-		return <MyYoastModal
-			modalComponent={
+		return (
+			<MyYoastModal
+				isOpen={ open }
+				onClose={ this.props.onClose }
+				messages={ messages }
+			>
 				<AddLicenses
 					onClose={ this.props.onClose }
 					onShop={ storeUrl }
 				/>
-			}
-			isOpen={ open }
-			onClose={ this.props.onClose }
-			messages={ messages }
-		/>;
+			</MyYoastModal>
+		);
 	}
 
 	render() {

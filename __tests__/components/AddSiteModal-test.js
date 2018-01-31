@@ -33,25 +33,24 @@ test('The MyYoastModal for the AddSite component matches the snapshot', () => {
 				true
 			}
 			messages={ messages }
-			modalComponent={
-				<AddSite
-					onConnectClick={
-						() => { console.log( "clicked on Link" );
-						}
+		>
+			<AddSite
+				onConnectClick={
+					() => { console.log( "clicked on Link" );
 					}
-					onCancelClick={
-						() => {
-							console.log( "clicked on Cancel" );
-						}
+				}
+				onCancelClick={
+					() => {
+						console.log( "clicked on Cancel" );
 					}
-					onChange={ () => {} }
-					errorFound={ "" }
-					error={ null }
-					query={ "" }
-					linkingSiteUrl={ "" }
-				/>
-			}
-		/>
+				}
+				onChange={ () => {} }
+				errorFound={ "" }
+				error={ null }
+				query={ "" }
+				linkingSiteUrl={ "" }
+			/>
+		</MyYoastModal>
 	);
 
 	let tree = component.toJSON();

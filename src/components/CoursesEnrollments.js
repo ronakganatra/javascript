@@ -114,21 +114,23 @@ class CoursesEnrollments extends React.Component {
 			},
 		} );
 
-		return <MyYoastModal
-			isOpen={ open }
-			onClose={ this.props.inviteModalClose }
-			messages={ messages }
-			modalComponent={
-				<CourseInvite
-					inviteStudentEmail={ this.props.inviteStudentEmail }
-					inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
-					onStudentEmailChange={ this.props.onStudentEmailChange }
-					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
-					courseInviteError={ this.props.courseInviteError }
-					onCancelClick={ this.props.inviteModalClose }
-					onInviteClick={ this.props.onInviteClick }
-				/> }
-		/>;
+		return (
+			<MyYoastModal
+				isOpen={ open }
+				onClose={ this.props.inviteModalClose }
+				messages={ messages }
+				>
+					<CourseInvite
+						inviteStudentEmail={ this.props.inviteStudentEmail }
+						inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
+						onStudentEmailChange={ this.props.onStudentEmailChange }
+						onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+						courseInviteError={ this.props.courseInviteError }
+						onCancelClick={ this.props.inviteModalClose }
+						onInviteClick={ this.props.onInviteClick }
+					/>
+			</MyYoastModal>
+		);
 	}
 
 	render() {

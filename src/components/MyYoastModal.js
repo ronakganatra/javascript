@@ -32,7 +32,7 @@ class BaseMyYoastModal extends React.Component {
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					{ this.props.modalComponent }
+					{ this.props.children }
 				</Modal>
 			</div>
 		);
@@ -40,7 +40,7 @@ class BaseMyYoastModal extends React.Component {
 }
 
 BaseMyYoastModal.propTypes = {
-	modalComponent: PropTypes.element.isRequired,
+	children: PropTypes.element,
 	className: PropTypes.string,
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,

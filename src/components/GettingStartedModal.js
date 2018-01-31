@@ -35,11 +35,11 @@ class GettingStartedModal extends React.Component {
 				isOpen={ this.props.isOpen }
 				onClose={ this.props.onClose }
 				messages={ messages }
-				modalComponent={
-					<GettingStarted
-						onClose={ this.props.onClose }
-					/> }
-			/>
+			>
+				<GettingStarted
+					onClose={ this.props.onClose }
+				/>
+			</MyYoastModal>
 		);
 	}
 }

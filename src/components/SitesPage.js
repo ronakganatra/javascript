@@ -118,18 +118,17 @@ class SitesPage extends React.Component {
 				isOpen={ this.props.popupOpen }
 				onClose={ this.props.onClose }
 				messages={ modalMessages }
-				modalComponent={
-					<AddSite
-						onConnectClick={ this.props.onConnect }
-						onCancelClick={ this.props.onClose }
-						onChange={ this.props.onChange }
-						errorFound={ this.props.errorFound }
-						error={ this.props.error }
-						query={ this.props.query }
-						linkingSiteUrl={ this.props.linkingSiteUrl }
-					/>
-				}
-			/>
+			>
+				<AddSite
+					onConnectClick={ this.props.onConnect }
+					onCancelClick={ this.props.onClose }
+					onChange={ this.props.onChange }
+					errorFound={ this.props.errorFound }
+					error={ this.props.error }
+					query={ this.props.query }
+					linkingSiteUrl={ this.props.linkingSiteUrl }
+				/>
+			</MyYoastModal>
 		);
 	}
 
