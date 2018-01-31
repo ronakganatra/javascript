@@ -296,7 +296,7 @@ class ProfilePage extends React.Component {
 				isOpen={ this.props.manageTokenModalIsOpen }
 				onClose={ this.props.onManageTokenModalClose }
 				onSaveTokenClick={ this.props.onSaveTokenClick }
-				onDisableTokenClick={ this.props.onDisableTokenClick }
+				onDeleteTokenClick={ this.props.onDeleteTokenClick }
 				manageTokenData={ this.props.manageTokenData }
 				error={ this.props.tokenError }
 			/>;
@@ -408,7 +408,7 @@ ProfilePage.propTypes = {
 	onManageTokenClick: PropTypes.func.isRequired,
 	onManageTokenModalClose: PropTypes.func.isRequired,
 	onSaveTokenClick: PropTypes.func.isRequired,
-	onDisableTokenClick: PropTypes.func.isRequired,
+	onDeleteTokenClick: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object,
 	tokenError: PropTypes.object,
 };

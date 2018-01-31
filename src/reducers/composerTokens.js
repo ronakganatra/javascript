@@ -15,9 +15,9 @@ import {
 	RENAME_COMPOSER_TOKEN_FAILURE,
 	RENAME_COMPOSER_TOKEN_REQUEST,
 	RENAME_COMPOSER_TOKEN_SUCCESS,
-	DISABLE_COMPOSER_TOKEN_FAILURE,
-	DISABLE_COMPOSER_TOKEN_REQUEST,
-	DISABLE_COMPOSER_TOKEN_SUCCESS,
+	DELETE_COMPOSER_TOKEN_FAILURE,
+	DELETE_COMPOSER_TOKEN_REQUEST,
+	DELETE_COMPOSER_TOKEN_SUCCESS,
 	CREATE_TOKEN_MODAL_OPEN,
 	CREATE_TOKEN_MODAL_CLOSED,
 	MANAGE_TOKEN_MODAL_CLOSED,
@@ -152,18 +152,18 @@ export function uiRenameComposerTokensReducer( state = rootState.ui.composerToke
  * @param {Object} action The current action received.
  * @returns {Object} The updated ComposerTokens object.
  */
-export function uiDisableComposerTokensReducer( state = rootState.ui.composerTokens, action ) {
+export function uiDeleteComposerTokensReducer( state = rootState.ui.composerTokens, action ) {
 	switch ( action.type ) {
-		case DISABLE_COMPOSER_TOKEN_REQUEST:
+		case DELETE_COMPOSER_TOKEN_REQUEST:
 			return Object.assign( {}, state, {
 				disablingComposerToken: true,
 				tokenError: null,
 			} );
-		case DISABLE_COMPOSER_TOKEN_SUCCESS:
+		case DELETE_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
 				disablingComposerToken: false,
 			} );
-		case DISABLE_COMPOSER_TOKEN_FAILURE:
+		case DELETE_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
 				disablingComposerToken: false,
 				tokenError: action.error,
@@ -234,7 +234,7 @@ let uiComposerTokensState = reduceReducers(
 	uiFetchComposerTokensReducer,
 	uiCreateComposerTokensReducer,
 	uiRenameComposerTokensReducer,
-	uiDisableComposerTokensReducer,
+	uiDeleteComposerTokensReducer,
 	uiModalsComposerTokensReducer
 );
 /* eslint-enable complexity */
@@ -272,7 +272,7 @@ export function byIdComposerTokensReducer( state = rootState.entities.composerTo
 			return composerTokens;
 		case CREATE_COMPOSER_TOKEN_SUCCESS:
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
-		case DISABLE_COMPOSER_TOKEN_SUCCESS:
+		case DELETE_COMPOSER_TOKEN_SUCCESS:
 			composerTokens = Object.assign( {}, state );
 
 			composerTokens[ action.composerToken.id ] = action.composerToken;
@@ -296,7 +296,7 @@ export function allIdsComposerTokensReducer( state = rootState.entities.composer
 			return _union( state, action.composerTokens.map( order => order.id ) );
 		case CREATE_COMPOSER_TOKEN_SUCCESS:
 		case RENAME_COMPOSER_TOKEN_SUCCESS:
-		case DISABLE_COMPOSER_TOKEN_SUCCESS:
+		case DELETE_COMPOSER_TOKEN_SUCCESS:
 			return _union( state, [ action.composerToken.id ] );
 		default:
 			return state;

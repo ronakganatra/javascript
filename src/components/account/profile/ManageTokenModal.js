@@ -42,7 +42,7 @@ class BaseManageTokenModal extends React.Component {
 				>
 					<ManageToken
 						onSaveTokenClick={ this.props.onSaveTokenClick }
-						onDisableTokenClick={ this.props.onDisableTokenClick }
+						onDeleteTokenClick={ this.props.onDeleteTokenClick }
 						onClose={ this.props.onClose }
 						manageTokenData={ this.props.manageTokenData }
 						error={ this.props.error }
@@ -57,7 +57,7 @@ BaseManageTokenModal.propTypes = {
 	intl: intlShape.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onSaveTokenClick: PropTypes.func.isRequired,
-	onDisableTokenClick: PropTypes.func.isRequired,
+	onDeleteTokenClick: PropTypes.func.isRequired,
 	isOpen: PropTypes.bool,
 	className: PropTypes.string,
 	manageTokenData: PropTypes.object.isRequired,

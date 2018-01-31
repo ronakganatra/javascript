@@ -151,10 +151,10 @@ class ManageToken extends React.Component {
 						</WideSecondaryButton>
 						<WideRedButton
 							onClick={ () => {
-								this.props.onDisableTokenClick( this.state.tokenId );
+								this.props.onDeleteTokenClick( this.state.tokenId );
 							} }
 						>
-							<FormattedMessage id="profile.manage-token.disable" defaultMessage="disable"/>
+							<FormattedMessage id="profile.manage-token.delete" defaultMessage="delete"/>
 						</WideRedButton>
 						<WideLargeButton
 							type="submit"
@@ -173,7 +173,7 @@ class ManageToken extends React.Component {
 ManageToken.propTypes = {
 	intl: intlShape.isRequired,
 	onSaveTokenClick: PropTypes.func.isRequired,
-	onDisableTokenClick: PropTypes.func.isRequired,
+	onDeleteTokenClick: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object.isRequired,
 	error: PropTypes.object,

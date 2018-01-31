@@ -9,7 +9,7 @@ import {
 } from "../actions/user";
 import { url } from "gravatar";
 import {
-	createComposerToken, createTokenModalClosed, createTokenModalOpen, disableComposerToken,
+	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
 	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
 } from "../actions/composerTokens";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
@@ -82,8 +82,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSaveTokenClick: ( data ) => {
 			dispatch( renameComposerToken( data ) );
 		},
-		onDisableTokenClick: ( data ) => {
-			dispatch( disableComposerToken( data ) );
+		onDeleteTokenClick: ( data ) => {
+			dispatch( deleteComposerToken( data ) );
 		},
 	};
 };

@@ -13,9 +13,9 @@ export const RENAME_COMPOSER_TOKEN_REQUEST = "RENAME_COMPOSER_TOKEN_REQUEST";
 export const RENAME_COMPOSER_TOKEN_FAILURE = "RENAME_COMPOSER_TOKEN_FAILURE";
 export const RENAME_COMPOSER_TOKEN_SUCCESS = "RENAME_COMPOSER_TOKEN_SUCCESS";
 
-export const DISABLE_COMPOSER_TOKEN_REQUEST = "DISABLE_COMPOSER_TOKEN_REQUEST";
-export const DISABLE_COMPOSER_TOKEN_FAILURE = "DISABLE_COMPOSER_TOKEN_FAILURE";
-export const DISABLE_COMPOSER_TOKEN_SUCCESS = "DISABLE_COMPOSER_TOKEN_SUCCESS";
+export const DELETE_COMPOSER_TOKEN_REQUEST = "DELETE_COMPOSER_TOKEN_REQUEST";
+export const DELETE_COMPOSER_TOKEN_FAILURE = "DELETE_COMPOSER_TOKEN_FAILURE";
+export const DELETE_COMPOSER_TOKEN_SUCCESS = "DELETE_COMPOSER_TOKEN_SUCCESS";
 
 export const CREATE_TOKEN_MODAL_OPEN = "CREATE_TOKEN_MODAL_OPEN";
 export const CREATE_TOKEN_MODAL_CLOSED = "CREATE_TOKEN_MODAL_CLOSED";
@@ -287,63 +287,63 @@ export function renameComposerToken( data ) {
 }
 
 /**
- * An action creator for the disable composer tokens request action.
+ * An action creator for the delete composer tokens request action.
  *
- * @returns {Object} The disable composer tokens request action.
+ * @returns {Object} The delete composer tokens request action.
  */
-export function disableComposerTokenRequest() {
+export function deleteComposerTokenRequest() {
 	return {
-		type: DISABLE_COMPOSER_TOKEN_REQUEST,
+		type: DELETE_COMPOSER_TOKEN_REQUEST,
 	};
 }
 
 /**
- * An action creator for the disable composer tokens failure action.
+ * An action creator for the delete composer tokens failure action.
  *
  * @param {Object} error The error that occurred.
- * @returns {Object} The disable composer tokens failure action.
+ * @returns {Object} The delete composer tokens failure action.
  */
-export function disableComposerTokenFailure( error ) {
+export function deleteComposerTokenFailure( error ) {
 	return {
-		type: DISABLE_COMPOSER_TOKEN_FAILURE,
+		type: DELETE_COMPOSER_TOKEN_FAILURE,
 		error: error,
 	};
 }
 
 /**
- * An action creator for the disable composer tokens success action.
+ * An action creator for the delete composer tokens success action.
  *
- * @param {Array} composerToken The composer token disabled after a successful disable composer tokens.
- * @returns {Object} The disable composer tokens success action.
+ * @param {Array} composerToken The composer token deleted after a successful delete composer tokens.
+ * @returns {Object} The delete composer tokens success action.
  */
-export function disableComposerTokenSuccess( composerToken ) {
+export function deleteComposerTokenSuccess( composerToken ) {
 	return {
-		type: DISABLE_COMPOSER_TOKEN_SUCCESS,
+		type: DELETE_COMPOSER_TOKEN_SUCCESS,
 		composerToken: composerToken,
 	};
 }
 
 /**
- * An action creator to disable the composer tokens of the user.
+ * An action creator to delete the composer tokens of the user.
  *
- * @param {string} id The id of the composer token to disable.
+ * @param {string} id The id of the composer token to delete.
  *
- * @returns {Function} A function that disables a user's composer tokens.
+ * @returns {Function} A function that deletes a user's composer tokens.
  */
-export function disableComposerToken( id ) {
+export function deleteComposerToken( id ) {
 	return ( dispatch ) => {
-		dispatch( disableComposerTokenRequest() );
+		dispatch( deleteComposerTokenRequest() );
 
-		let request = prepareInternalRequest( `ComposerTokens/${id}/disable/`, "POST" );
+		let request = prepareInternalRequest( `ComposerTokens/${id}/delete/`, "POST" );
 
 		return doRequest( request )
 			.then( ( response ) => {
-				dispatch( disableComposerTokenSuccess( response ) );
+				dispatch( deleteComposerTokenSuccess( response ) );
 			} )
 			.then( () => {
 				dispatch( manageTokenModalClosed() );
 				dispatch( fetchComposerTokens() );
 			} )
-			.catch( ( error ) => dispatch( disableComposerTokenFailure( error ) ) );
+			.catch( ( error ) => dispatch( deleteComposerTokenFailure( error ) ) );
 	};
 }
