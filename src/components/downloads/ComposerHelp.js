@@ -119,9 +119,8 @@ function ComposerHelp( props ) {
 				</HelpText>
 			}
 			<Buttons>
-				{ props.composerToken
-					? null
-					: <CreateButton
+				{ ! props.composerToken &&
+				<CreateButton
 					type="submit"
 					aria-label="create token"
 					onClick={ props.createComposerToken }
