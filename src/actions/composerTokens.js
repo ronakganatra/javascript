@@ -280,6 +280,7 @@ export function renameComposerToken( data ) {
 			} )
 			.then( () => {
 				dispatch( manageTokenModalClosed() );
+				dispatch( fetchComposerTokens() );
 			} )
 			.catch( ( error ) => dispatch( renameComposerTokenFailure( error ) ) );
 	};
@@ -341,6 +342,7 @@ export function disableComposerToken( id ) {
 			} )
 			.then( () => {
 				dispatch( manageTokenModalClosed() );
+				dispatch( fetchComposerTokens() );
 			} )
 			.catch( ( error ) => dispatch( disableComposerTokenFailure( error ) ) );
 	};
