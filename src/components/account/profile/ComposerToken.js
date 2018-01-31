@@ -32,6 +32,10 @@ let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) 
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 let ResponsiveIconButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
 
+let TokenRow = styled( RowMobileCollapse )`
+	padding: 16px 32px;
+`;
+
 let NameColumn = styled( ColumnMinWidthResponsive )`
 	max-width: 200px;
 `;
@@ -55,7 +59,7 @@ function ComposerToken( props ) {
 	let manageLabel = props.intl.formatMessage( messages.manageLabel );
 
 	return (
-		<RowMobileCollapse background={ props.background }>
+		<TokenRow background={ props.background }>
 			<NameColumn ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.name ) }>
 				{ props.name }
 			</NameColumn>
@@ -76,7 +80,7 @@ function ComposerToken( props ) {
 					<span className="screen-reader-text">{ manageMessage }</span>
 				</ResponsiveManageButton>
 			</ColumnFixedWidthResponsive>
-		</RowMobileCollapse>
+		</TokenRow>
 	);
 }
 
