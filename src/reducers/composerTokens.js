@@ -250,6 +250,7 @@ let uiComposerTokensState = reduceReducers(
 export function uiComposerTokensReducer( state = rootState.ui.composerTokens, action ) {
 	return uiComposerTokensState( state, action );
 }
+
 /**
  * A reducer for the byIdComposerTokensReducer list.
  *
