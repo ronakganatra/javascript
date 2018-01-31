@@ -33,7 +33,7 @@ export const mapStateToProps = ( state ) => {
 				return state.entities.subscriptions.byId[ subscriptionId ];
 			} )
 			.filter( ( subscription ) => {
-				return subscription && subscription.status === "active";
+				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );
 			} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
