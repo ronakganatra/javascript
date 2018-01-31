@@ -128,7 +128,7 @@ function ComposerHelp( props ) {
 					<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
 				</CreateButton>
 				}
-				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
+				<ResponsiveLargeButton onClick={ props.onClose } >
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
 				</ResponsiveLargeButton>
 			</Buttons>
