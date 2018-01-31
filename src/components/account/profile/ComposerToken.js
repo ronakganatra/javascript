@@ -88,8 +88,4 @@ ComposerToken.propTypes = {
 	background: PropTypes.string,
 };
 
-ComposerToken.defaultProps = {
-	background: "",
-};
-
 export default injectIntl( ComposerToken );
