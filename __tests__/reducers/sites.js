@@ -1,6 +1,10 @@
 import { uiSitesReducer, allIdsReducer, byIdReducer } from "../../src/reducers/sites.js";
 import {
-	LINK_SITE_MODAL_OPEN, LINK_SITE_MODAL_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+	LINK_SITE_MODAL_OPEN,
+	LINK_SITE_MODAL_CLOSE,
+	UPDATE_SITE_URL,
+	LINK_SITE_SUCCESS,
+	LINK_SITE_FAILURE,
 	RETRIEVE_SITES_SUCCESS
 } from "../../src/actions/sites";
 import { SITE_REMOVE_SUCCESS } from "../../src/actions/site";
