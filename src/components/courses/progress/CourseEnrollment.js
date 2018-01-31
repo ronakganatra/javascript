@@ -113,7 +113,7 @@ class CourseEnrollment extends React.Component {
 
 	render() {
 		return (
-			<RowMobileCollapse key={ this.props.course.id }>
+			<RowMobileCollapse key={ this.props.course.id } background={ this.props.background } >
 				<CourseColumnIcon separator={ true }>
 					<CourseIcon src={ this.props.course.icon } alt=""/>
 				</CourseColumnIcon>
@@ -137,6 +137,7 @@ CourseEnrollment.propTypes = {
 	intl: intlShape.isRequired,
 	courseEnrollments: PropTypes.array,
 	course: PropTypes.object,
+	background: PropTypes.string,
 };
 
 export default injectIntl( CourseEnrollment );

@@ -81,7 +81,7 @@ function ComposerHelp( props ) {
 				<FormattedMessage
 					id="composer-help.introduction"
 					defaultMessage="Composer is a tool used by many developers to install and update plugins.
-					Through My Yoast you can use Composer to get easy access to your premium plugins.
+					Through MyYoast you can use Composer to get easy access to your premium plugins.
 					Follow the instructions below to get started!"
 				/>
 			</HelpText>
