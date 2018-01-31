@@ -118,6 +118,10 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
+const ComposerIntroductionArea = styled.div`
+	padding: 0 32px 24px 32px;
+`;
+
 const FormMessage = styled.p`
 	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
 	margin: 0;
@@ -148,7 +152,7 @@ const DeleteButton = styled( RedButton )`
 `;
 
 const CreateButtonArea = styled.div`
-	padding: 16px;
+	padding: 16px 32px;
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
@@ -283,6 +287,11 @@ class ProfilePage extends React.Component {
 		this.props.onDeleteProfile();
 	}
 
+	/**
+	 * Will open a modal if its respective "isOpen" boolean is set to true.
+	 *
+	 * @returns {*} Returns either a CreateTokenModal, a ManageTokenModal, or null, depending on whether one of these modals is open.
+	 */
 	getModal() {
 		if ( this.props.createTokenModalIsOpen ) {
 			return <CreateTokenModal
@@ -305,16 +314,45 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Renders the element.
-	 * @returns {JSXElement} The rendered JSX Element.
+	 *
+	 * @returns {boolean} True when there are active composer tokens among the composertokens for this user. False otherwise.
 	 */
-	render() {
-		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+	hasActiveComposerTokens() {
+		let tokens = this.props.composerTokens && this.props.composerTokens.filter( ( composerToken ) => {
+			return composerToken.enabled === true;
+		} );
 
-		let DevTools = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
+		return tokens.length > 0;
+	}
+
+	/**
+	 * A function that prepares the DevTools element.
+	 *
+	 * @returns {(JSXElement|null)} Either a JSX element containing the DevTools section of the profile page, or null,
+	 * depending on whether the user has access to this feature via the feature toggle.
+	 */
+	getDevTools() {
+		let ComposerIntroduction =
+			<ComposerIntroductionArea>
+				{
+					this.hasActiveComposerTokens()
+						? <FormattedMessage
+							id="profile.composer-introduction"
+							defaultMessage="Here you can find a list of the Composer tokens that you have registered."
+						/>
+						: <FormattedMessage
+							id="profile.composer-introduction"
+							defaultMessage="Composer is a tool used by many developers to install and update plugins.
+							Through MyYoast you can use Composer to get easy access to your premium plugins. Please see the Downloads page for additional information."
+						/>
+				}
+			</ComposerIntroductionArea>;
+
+		return hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
 			? <div>
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+						{ ComposerIntroduction }
 						<ComposerTokens {...this.props} hasPaper={false} />
 						<CreateButtonArea>
 							<WideLargeButton
@@ -331,6 +369,14 @@ class ProfilePage extends React.Component {
 				{ this.getModal() }
 			</div>
 			: null;
+	}
+	/**
+	 * Renders the element.
+	 * @returns {JSXElement} The rendered JSX Element.
+	 */
+	render() {
+		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+
 		return (
 			<div>
 				<Paper>
@@ -358,7 +404,7 @@ class ProfilePage extends React.Component {
 						</Column>
 					</Page>
 				</Paper>
-				{ DevTools }
+				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
@@ -411,6 +457,7 @@ ProfilePage.propTypes = {
 	onDeleteTokenClick: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object,
 	tokenError: PropTypes.object,
+	composerTokens: PropTypes.array,
 };
 
 ProfilePage.defaultProps = {
