@@ -138,7 +138,4 @@ Product.propTypes = {
 	onComposerHelpModalOpen: PropTypes.func,
 };
 
-Product.defaultProps = {
-};
-
 export default injectIntl( Product );

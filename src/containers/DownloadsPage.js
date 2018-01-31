@@ -14,7 +14,7 @@ import {
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
 
-const getEbookProducts = ( state ) =>  {
+const getEbookProducts = ( state ) => {
 	let eBooks = getEbooks( state.entities.products.byId );
 	let completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
 	let lineItems = _flatMap( completedOrders, ( order ) => {
