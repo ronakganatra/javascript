@@ -33,12 +33,12 @@ class BaseComposerHelpModal extends React.Component {
 		return (
 			<div>
 				<Modal { ...this.props }
-					   isOpen={ this.props.isOpen }
-					   onRequestClose={ this.props.onClose }
-					   role="dialog"
-					   contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
-					   overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
-					   className={ `${ this.props.className } my-yoast-modal__content` }
+					isOpen={ this.props.isOpen }
+					onRequestClose={ this.props.onClose }
+					role="dialog"
+					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
+					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
+					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
 					<ComposerHelp { ...this.props } />
 				</Modal>
