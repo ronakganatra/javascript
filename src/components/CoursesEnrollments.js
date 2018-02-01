@@ -119,7 +119,7 @@ class CoursesEnrollments extends React.Component {
 				isOpen={ open }
 				onClose={ this.props.inviteModalClose }
 				messages={ messages }
-				>
+			>
 					<CourseInvite
 						inviteStudentEmail={ this.props.inviteStudentEmail }
 						inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
@@ -145,7 +145,7 @@ class CoursesEnrollments extends React.Component {
 		/**
 		 * Sets the Course status column.
 		 * @param {Object} course the course object.
-		 * @returns {void}
+		 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
 		 */
 		let studentOrBuyer = ( course ) => {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {

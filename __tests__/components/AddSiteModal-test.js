@@ -24,26 +24,13 @@ let messages= defineMessages( {
 test('The MyYoastModal for the AddSite component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MyYoastModal
-			onClose={
-				() => {
-					console.log( "clicked on Cancel" );
-				}
-			}
-			isOpen={
-				true
-			}
+			onClose={ () => { console.log( "clicked on Cancel" ); } }
+			isOpen={ true }
 			messages={ messages }
 		>
 			<AddSite
-				onConnectClick={
-					() => { console.log( "clicked on Link" );
-					}
-				}
-				onCancelClick={
-					() => {
-						console.log( "clicked on Cancel" );
-					}
-				}
+				onConnectClick={ () => { console.log( "clicked on Link" ); } }
+				onCancelClick={ () => { console.log( "clicked on Cancel" ); } }
 				onChange={ () => {} }
 				errorFound={ "" }
 				error={ null }
