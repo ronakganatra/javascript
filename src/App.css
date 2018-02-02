@@ -77,6 +77,10 @@ body, #root, .App {
     color: #dc3232;
 }
 
+.FinanceDashboard td {
+    white-space: pre;
+}
+
 form {
   margin-top: 10px;
 }

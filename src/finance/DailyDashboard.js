@@ -189,10 +189,10 @@ export default class DailyDashboard extends React.Component {
 			<div>
 				<form onSubmit={ this.onDateChanged }>
 					<fieldset>
-						<select onChange={ this.handleMonthChange.bind( this ) } value={ this.state.month }>
+						<select onChange={ this.handleMonthChange } value={ this.state.month }>
 							{ this.generateMonthOptions() }
 						</select>
-						<select onChange={ this.handleYearChange.bind( this ) }  value={ this.state.year }>
+						<select onChange={ this.handleYearChange }  value={ this.state.year }>
 							{ this.generateYearOptions( moment().tz( "Europe/Amsterdam" ).format( "YYYY" ) ) }
 						</select>
 						<button onClick={ this.onDateChanged } >Search</button>

@@ -114,6 +114,7 @@ export default class FinanceStatistic {
 
 			let group = groupBy( item );
 
+			statistics[ group ] = statistics[ group ] || { group };
 			statistics[ group ] = FinanceStatistic.collectFromItem( statistics[ group ], item, collectors );
 		}
 
@@ -129,8 +130,6 @@ export default class FinanceStatistic {
 	 * @returns {*}
 	 */
 	static collectFromItem( itemStatistics, item, collectors ) {
-		itemStatistics = itemStatistics || {};
-
 		for ( let statistic in collectors ) {
 			if ( ! collectors.hasOwnProperty( statistic ) ) {
 				continue;
