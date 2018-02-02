@@ -1,4 +1,4 @@
-import { getMyYoastHost, getWooCommerceHost } from "./functions/helpers";
+import {getLearndashHost, getMyYoastHost, getWooCommerceHost} from "./functions/helpers";
 
 export default class Api {
 	/**
@@ -10,9 +10,11 @@ export default class Api {
 	constructor( accessToken, updateAccessToken ) {
 		this.host = getMyYoastHost();
 		this.wooHost = getWooCommerceHost();
+		this.learndashHost = getLearndashHost();
 
 		this.accessToken       = accessToken;
 		this.userId            = null;
+		this.userRoles         = null;
 		this.wooAccessToken    = null;
 		this.updateAccessToken = updateAccessToken;
 
@@ -53,10 +55,32 @@ export default class Api {
 		} );
 	}
 
+	learndashTransferPreview( fromId, toId ) {
+		return this.getWooAccessToken().then( () => {
+			let url = this.learndashHost + `/wp-json/yoast-account-transfer/v1/transfer`;
+			url += `?from_id=${ fromId }&to_id=${ toId }&access_token=${ this.wooAccessToken }`;
+
+			return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
+		} );
+	}
+
 	wooTransfer( fromId, toId, shopId ) {
 		return this.getWooAccessToken().then( () => {
 			let data = new FormData();
 			let url  = this.getWooUrl( shopId ) + `/yoast-account-transfer/v1/transfer`;
+			url += `?access_token=${ this.wooAccessToken }`;
+
+			data.append( "from_id", fromId );
+			data.append( "to_id", toId );
+
+			return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
+		} );
+	}
+
+	learndashTransfer( fromId, toId ) {
+		return this.getWooAccessToken().then( () => {
+			let data = new FormData();
+			let url = this.learndashHost + `/wp-json/yoast-account-transfer/v1/transfer`;
 			url += `?access_token=${ this.wooAccessToken }`;
 
 			data.append( "from_id", fromId );
@@ -126,6 +150,12 @@ export default class Api {
 		return fetch( url, { method: "POST", body: data } ).then( this.handleJSONReponse );
 	}
 
+	enableCustomer( customerId ) {
+		let url = this.host + "/api/Customers/" + customerId + "/enable?access_token=" + this.accessToken;
+
+		return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
+	}
+
 	getCurrentUser() {
 		let url = this.host + `/api/Customers/current?access_token=${ this.accessToken }`;
 
@@ -139,6 +169,23 @@ export default class Api {
 				this.userId = response.id;
 				return Promise.resolve( this.userId );
 			} );
+	}
+
+	getUserRoles() {
+		if ( this.userRoles !== null ) {
+			return Promise.resolve( this.userRoles );
+		}
+
+		return this.getCurrentUser().then( id => {
+			let url = this.host + `/api/Customers/${ id }/roles?access_token=${ this.accessToken }`;
+
+			return fetch( url, { method: "GET" } )
+		} ).then(
+			this.handleJSONReponse
+		).then( roles => {
+			this.userRoles = roles.map( role => role.name );
+			return Promise.resolve( this.userRoles );
+		} )
 	}
 
 	getWooAccessToken() {

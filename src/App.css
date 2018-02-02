@@ -61,6 +61,22 @@ body, #root, .App {
   color: #dc3232;
 }
 
+.FinanceDashboard, .FinanceLinks {
+    margin-top: 20px;
+}
+
+.FinanceLinks a {
+    margin: 0 5px;
+}
+
+.FinanceDashboard tr.now {
+    background-color: #66A421;
+}
+
+.FinanceDashboard td.negative {
+    color: #dc3232;
+}
+
 form {
   margin-top: 10px;
 }

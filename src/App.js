@@ -9,6 +9,9 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 import { path } from "./functions/helpers";
 import Refund from "./refund/Refund";
+import Finance from "./finance/Finance";
+import Loader from "./shared/Loader";
+import _intersection from "lodash/intersection";
 
 class App extends React.Component {
 	/**
@@ -29,11 +32,17 @@ class App extends React.Component {
 
 		this.state = {
 			accessToken: accessToken,
+			roles: null
 		};
 
 		this.updateAccessToken = this.updateAccessToken.bind( this );
+		this.accessibleByRoles = this.accessibleByRoles.bind( this );
 
 		this.api = new Api( accessToken, this.updateAccessToken );
+
+		this.api.getUserRoles().then( roles => {
+			this.setState( { roles: roles } )
+		} )
 	}
 
 	/**
@@ -52,24 +61,44 @@ class App extends React.Component {
 	}
 
 	/**
+	 * Returns whether or not the current user has one of the supplied roles or is admin.
+	 *
+	 * @param {array} roles The roles that should have access.
+	 *
+	 * @returns {boolean} Whether or not the current user has access.
+	 */
+	accessibleByRoles( roles ) {
+		if ( this.state.role === null ) {
+			return false;
+		}
+
+		return _intersection( this.state.roles, roles.concat( [ 'admin' ] ) ).length > 0;
+	}
+
+	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		if ( this.state.roles === null ) {
+			return <Loader />
+		}
+
 		return (
 			<Router>
 				<div className="App">
 					{ this.state.accessToken &&
 					  	<div className="LoggedIn">
 							<div className="Menu">
-								<Navigation/>
+								<Navigation accessibleByRoles={ this.accessibleByRoles }/>
 							</div>
 							<div className="Main">
 								<Route exact path={ path( "/" ) } render={ () => <Redirect to={ path( "/search" ) } /> } />
 								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } /> } />
-								<Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } />
-								<Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } />
+								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } /> }
+								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } /> }
+								{ this.accessibleByRoles( [ 'finance' ] ) && <Route path={ path( "/finance" ) } render={ () => <Finance api={ this.api } /> } /> }
 							</div>
 						</div>
 					}

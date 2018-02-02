@@ -1,0 +1,24 @@
+import React from "react";
+import { Link, Route, Redirect } from "react-router-dom";
+import { path } from "../functions/helpers";
+import HourlyDashboard from "./HourlyDashboard";
+import DailyDashboard from "./DailyDashboard";
+
+export default class Finance extends React.Component {
+	render() {
+		return (
+			<div>
+				<div className="FinanceLinks">
+					<Link to={ { pathname: path( "/finance/hourly" ), state: {} } }>Hourly</Link>
+					<Link to={ { pathname: path( "/finance/daily" ), state: {} } }>Daily</Link>
+				</div>
+				<div>
+					<Route exact path={ path( "/finance" ) } render={ () => <Redirect to={ path( "/finance/hourly" ) } /> } />
+					<Route path={ path( "/finance/hourly" ) } render={ () => <HourlyDashboard api={ this.props.api } /> } />
+					<Route path={ path( "/finance/daily" ) } render={ () => <DailyDashboard api={ this.props.api } /> } />
+				</div>
+			</div>
+		);
+
+	}
+}

@@ -10,17 +10,20 @@ import queryString from "query-string";
 import { path } from "../functions/helpers";
 
 export const InitialState = {
-	fromCustomer:   null,
-	toCustomer:     null,
-	previewReady:   false,
-	orders:         null,
-	subscriptions:  null,
-	sites:          null,
-	myYoastFetched: false,
-	usShopData:     null,
-	usTransfer:     false,
-	euShopData:     null,
-	euTransfer:     false,
+	fromCustomer:      null,
+	toCustomer:        null,
+	previewReady:      false,
+	orders:            null,
+	subscriptions:     null,
+	sites:             null,
+	courseEnrollments: null,
+	myYoastFetched:    false,
+	usShopData:        null,
+	usTransfer:        false,
+	euShopData:        null,
+	euTransfer:        false,
+	academyData:       null,
+	academyTransfer:   false,
 };
 
 class Transfer extends React.Component {
@@ -78,6 +81,7 @@ class Transfer extends React.Component {
 
 		api.wooTransfer( fromId, toId, 1 ).then( result => this.setState( { usTransfer: true } ) );
 		api.wooTransfer( fromId, toId, 2 ).then( result => this.setState( { euTransfer: true } ) );
+		api.learndashTransfer( fromId, toId ).then( result => this.setState( { academyTransfer: true } ) );
 	}
 
 	selectCustomer( customer ) {
@@ -100,6 +104,7 @@ class Transfer extends React.Component {
 			api.search( "Orders", { where: { customerId: id } } ).then( results => this.setState( { orders: results } ) ),
 			api.search( "Subscriptions", { where: { subscriberId: id } } ).then( results => this.setState( { subscriptions: results } ) ),
 			api.search( "Sites", { where: { userId: id } } ).then( results => this.setState( { sites: results } ) ),
+			api.search( "CourseEnrollments", { where: { or: [ { studentId: id }, { buyerId: id } ] }, include: [ "course" ] } ).then( results => this.setState( { courseEnrollments: results } ) ),
 		];
 
 		Promise.all( promises ).then( () => {
@@ -110,6 +115,7 @@ class Transfer extends React.Component {
 
 			api.wooTransferPreview( fromId, toId, 1 ).then( result => this.setState( { usShopData: result } ) );
 			api.wooTransferPreview( fromId, toId, 2 ).then( result => this.setState( { euShopData: result } ) );
+			api.learndashTransferPreview( fromId, toId ).then( result => this.setState( { academyData: result } ) );
 		} );
 	}
 
@@ -122,12 +128,13 @@ class Transfer extends React.Component {
 		return (
 			this.state.myYoastFetched &&
 			this.state.usShopData !== null &&
-			this.state.euShopData !== null
+			this.state.euShopData !== null &&
+			this.state.academyData !== null
 		);
 	}
 
 	hasTransferred() {
-		return this.state.usTransfer && this.state.euTransfer;
+		return this.state.usTransfer && this.state.euTransfer && this.state.academyTransfer;
 	}
 
 	render() {

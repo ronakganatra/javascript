@@ -1,5 +1,21 @@
 import { zeroPad } from "./helpers";
 
+function currencyString( value ) {
+	let negative = value < 0;
+	value = Math.abs( value );
+	let cents = zeroPad( value % 100 );
+	let rest  = Math.floor( value / 100 );
+	let amounts = [];
+
+	while ( rest > 1000 ) {
+		amounts.unshift( zeroPad( rest % 1000, 3 ) );
+		rest = Math.floor( rest / 1000 );
+	}
+	amounts.unshift( rest );
+
+	return ( negative ? "-" : "" ) + amounts.join( "." ) + "," + cents;
+}
+
 /**
  * Presents a numerical value as a euro currency string.
  *
@@ -9,10 +25,10 @@ import { zeroPad } from "./helpers";
  */
 export function euroPresenter( value ) {
 	if ( value === null ) {
-		return;
+		return "";
 	}
 
-	return `€ ${ Math.floor( value / 100 ) },${ zeroPad( value % 100 ) }`;
+	return `€ ${ currencyString( value ) }`;
 }
 
 /**
@@ -24,10 +40,10 @@ export function euroPresenter( value ) {
  */
 export function dollarPresenter( value ) {
 	if ( value === null ) {
-		return;
+		return "";
 	}
 
-	return `$ ${ Math.floor( value / 100 ) },${ zeroPad( value % 100 ) }`;
+	return `$ ${ currencyString( value ) }`;
 }
 
 /**
@@ -39,7 +55,7 @@ export function dollarPresenter( value ) {
  */
 export function datePresenter( value ) {
 	if ( value === null ) {
-		return;
+		return "";
 	}
 
 	let date = new Date(value);
