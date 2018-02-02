@@ -37,23 +37,23 @@ beforeEach( () => {
 	api.doRequest.mockClear();
 } );
 
-test( 'opening link site pop-up action creator', () => {
+test( 'opening link site modal action creator', () => {
 	const expected = {
-		type: actions.LINK_SITE_POPUP_OPEN,
+		type: actions.LINK_SITE_MODAL_OPEN,
 	};
 
-	const actual = actions.linkSitePopupOpen( );
+	const actual = actions.linkSiteModalOpen( );
 
 	expect( actual ).toEqual( expected );
 } );
 
 
-test( 'closing link site pop-up action creator', () => {
+test( 'closing link site modal action creator', () => {
 	const expected = {
-		type: actions.LINK_SITE_POPUP_CLOSE,
+		type: actions.LINK_SITE_MODAL_CLOSE,
 	};
 
-	const actual = actions.linkSitePopupClose();
+	const actual = actions.linkSiteModalClose();
 
 	expect( actual ).toEqual( expected );
 } );

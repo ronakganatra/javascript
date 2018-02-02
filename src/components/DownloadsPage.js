@@ -11,6 +11,7 @@ import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 import NoResults from "./NoResults";
+import ComposerHelpModal from "./downloads/ComposerHelpModal";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -85,6 +86,17 @@ class DownloadsPage extends React.Component {
 		/>;
 	}
 
+	getModal() {
+		return this.props.composerHelpModalIsOpen
+			? <ComposerHelpModal
+				isOpen={ this.props.composerHelpModalIsOpen }
+				onClose={ this.props.onComposerHelpModalClose }
+				productName={ this.props.composerHelpProductName }
+				productGlNumber={ this.props.composerHelpProductGlNumber }
+				createComposerToken={ this.props.composerHelpCreateComposerToken }
+				composerToken={ this.props.composerToken } />
+			: null;
+	}
 
 	render() {
 		let pluginsByLine = <ByLine>
@@ -117,6 +129,9 @@ class DownloadsPage extends React.Component {
 									byLine={ pluginsByLine }
 									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
 									noResults={ this.props.plugins.length > 0 ? "" : "No results" }
+									composerToken={ this.props.composerToken }
+									onComposerHelpModalOpen={ this.props.onComposerHelpModalOpen }
+									onComposerHelpModalClose={ this.props.onComposerHelpModalClose }
 		/>;
 
 		let eBookDownloads = <Products
@@ -154,6 +169,7 @@ class DownloadsPage extends React.Component {
 						{ eBookDownloads }
 					</ProductOverviewContainer>
 				</Paper>
+				{ this.getModal() }
 			</div>
 		);
 	}
@@ -167,10 +183,19 @@ DownloadsPage.propTypes = {
 	onSearchChange: PropTypes.func.isRequired,
 	eBooks: PropTypes.array,
 	plugins: PropTypes.array,
+	composerToken: PropTypes.object,
+	composerHelpModalIsOpen: PropTypes.bool,
+	onComposerHelpModalOpen: PropTypes.func.isRequired,
+	onComposerHelpModalClose: PropTypes.func.isRequired,
+	composerHelpCreateComposerToken: PropTypes.func.isRequired,
+	composerHelpProductName: PropTypes.string,
+	composerHelpProductGlNumber: PropTypes.string,
+	composerHelpComposerToken: PropTypes.object,
 };
 
 DownloadsPage.defaultProps = {
 	query: "",
 	eBooks: [],
 	plugins: [],
+	composerHelpModalIsOpen: false,
 };

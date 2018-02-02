@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 
 import GettingStartedModal from "../components/GettingStartedModal";
-import { helpBeaconPopupClose } from "../actions/helpBeacon";
+import { helpBeaconModalClose } from "../actions/helpBeacon";
 
 export const mapStateToProps = ( state ) => {
-	let isOpen = state.ui.helpBeaconModal.popupOpen;
+	let isOpen = state.ui.helpBeaconModal.modalOpen;
 
 	return {
 		isOpen,
@@ -14,7 +14,7 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onClose: () => {
-			dispatch( helpBeaconPopupClose() );
+			dispatch( helpBeaconModalClose() );
 		},
 	};
 };

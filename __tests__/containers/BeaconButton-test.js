@@ -1,6 +1,6 @@
 import React from 'react';
 import { mapStateToProps, mapDispatchToProps } from '../../src/containers/BeaconButton';
-import { helpBeaconPopupOpen } from "../../src/actions/helpBeacon";
+import { helpBeaconModalOpen } from "../../src/actions/helpBeacon";
 
 test( "the mapStateToProps function", () => {
 	let state = {
@@ -12,7 +12,7 @@ test( "the mapStateToProps function", () => {
 		ui: {
 			search: {},
 			helpBeaconModal: {
-				popupOpen: true,
+				modalOpen: true,
 			},
 		},
 	};
@@ -26,12 +26,12 @@ test( "the mapStateToProps function", () => {
 	expect( actual ).toEqual ( expected );
 } );
 
-test( "the mapDispatchToProps function to call onClick action with helpBeaconPopupOpen", () => {
+test( "the mapDispatchToProps function to call onClick action with helpBeaconModalOpen", () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps(dispatch);
 
 	props.onClick();
 
-	expect( dispatch ).toHaveBeenCalledWith( helpBeaconPopupOpen() );
+	expect( dispatch ).toHaveBeenCalledWith( helpBeaconModalOpen() );
 } );

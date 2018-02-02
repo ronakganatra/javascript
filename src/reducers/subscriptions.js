@@ -1,5 +1,5 @@
 import { GET_ALL_SUBSCRIPTIONS_FAILURE, GET_ALL_SUBSCRIPTIONS_REQUEST, GET_ALL_SUBSCRIPTIONS_SUCCESS,
-	ADD_LICENCES_POPUP_CLOSE, ADD_LICENCES_POPUP_OPEN } from "../actions/subscriptions";
+	ADD_LICENCES_MODAL_CLOSE, ADD_LICENCES_MODAL_OPEN } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import _union from "lodash/union";
 
@@ -21,7 +21,7 @@ const rootState = {
 		},
 		addSubscriptionModal: {
 			storeUrl: null,
-			popupOpen: false,
+			modalOpen: false,
 		},
 	},
 };
@@ -67,15 +67,15 @@ export function uiAllSubscriptionsReducer( state = rootState.ui.subscriptions, a
  */
 export function uiAddSubscriptionModalReducer( state = rootState.ui.addSubscriptionModal, action ) {
 	switch ( action.type ) {
-		case ADD_LICENCES_POPUP_OPEN:
+		case ADD_LICENCES_MODAL_OPEN:
 			return Object.assign( {}, state, {
 				storeUrl: action.storeUrl,
-				popupOpen: true,
+				modalOpen: true,
 			} );
-		case ADD_LICENCES_POPUP_CLOSE:
+		case ADD_LICENCES_MODAL_CLOSE:
 			return Object.assign( {}, state, {
 				storeUrl: null,
-				popupOpen: false,
+				modalOpen: false,
 			} );
 		default:
 			return state;

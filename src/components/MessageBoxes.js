@@ -35,7 +35,7 @@ export const MessageIcon = styled.span`
 	margin: 0 1em;
 `;
 
-MessageIcon.PropTypes = {
+MessageIcon.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 	iconSize: PropTypes.string,
 };
