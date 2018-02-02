@@ -1,5 +1,355 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`components/ProfilePage If there are active composer tokens 1`] = `
+<div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="djUbXD"
+    >
+      <div
+        className="iBTcsR"
+      >
+        <form
+          className="fjJEFi"
+          onSubmit={[Function]}
+        >
+          <div
+            className="fiYUmk"
+            id="left"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <section
+          className="dEsRUZ"
+        >
+          <p
+            className="hQXFog"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="kGgCRK"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+        </section>
+      </div>
+      <div
+        className="iBTcsR"
+      >
+        <p
+          className="hQXFog"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="czfHmS"
+    >
+      <button
+        aria-expanded={false}
+        className="gCGqdM"
+        onClick={[Function]}
+      >
+        <span
+          className="ioaeUl"
+        >
+          Danger zone
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
+<div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="djUbXD"
+    >
+      <div
+        className="iBTcsR"
+      >
+        <form
+          className="fjJEFi"
+          onSubmit={[Function]}
+        >
+          <div
+            className="fiYUmk"
+            id="left"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="fiYUmk"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="kKDPag"
+          >
+            <label
+              className="cxheQW"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="ljGRnG"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div>
+              <button
+                className="bMEzo"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <section
+          className="dEsRUZ"
+        >
+          <p
+            className="hQXFog"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="kGgCRK"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+        </section>
+      </div>
+      <div
+        className="iBTcsR"
+      >
+        <p
+          className="hQXFog"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="czfHmS"
+    >
+      <button
+        aria-expanded={false}
+        className="gCGqdM"
+        onClick={[Function]}
+      >
+        <span
+          className="ioaeUl"
+        >
+          Danger zone
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`components/ProfilePage failure during password reset 1`] = `
 <div>
   <div

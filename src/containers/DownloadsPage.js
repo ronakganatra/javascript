@@ -9,9 +9,13 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
+import {
+	composerHelpModalClosed, composerHelpModalOpen,
+	createComposerToken, fetchComposerTokens,
+} from "../actions/composerTokens";
 
-const getEbookProducts = ( state ) =>  {
-	let eBooks =  getEbooks( state.entities.products.byId );
+const getEbookProducts = ( state ) => {
+	let eBooks = getEbooks( state.entities.products.byId );
 	let completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
 	let lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
@@ -22,7 +26,7 @@ const getEbookProducts = ( state ) =>  {
 	return _filter( eBooks, ( eBook ) => {
 		let boughtEbook = false;
 		eBook.ids.forEach( ( eBookId ) => {
-			if ( _includes( boughtProductIds,  eBookId ) ) {
+			if ( _includes( boughtProductIds, eBookId ) ) {
 				boughtEbook = true;
 			}
 		} );
@@ -30,7 +34,7 @@ const getEbookProducts = ( state ) =>  {
 	} );
 };
 
-const getPluginProducts = ( state ) =>  {
+const getPluginProducts = ( state ) => {
 	let plugins = getPlugins( state.entities.products.byId );
 	let activeSubscriptions = _filter( state.entities.subscriptions.byId, { status: "active" } );
 	let activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
@@ -39,7 +43,7 @@ const getPluginProducts = ( state ) =>  {
 	return _filter( plugins, ( plugin ) => {
 		let boughtPlugin = false;
 		plugin.ids.forEach( ( pluginId ) => {
-			if ( _includes( activeSubscriptionIds,  pluginId ) ) {
+			if ( _includes( activeSubscriptionIds, pluginId ) ) {
 				boughtPlugin = true;
 			}
 		} );
@@ -86,10 +90,25 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
+	let composerToken = null;
+	for ( let i = 0; i < state.entities.composerTokens.allIds.length; i++ ) {
+		let id = state.entities.composerTokens.allIds[ i ];
+		let token = state.entities.composerTokens.byId[ id ];
+
+		if ( token.enabled ) {
+			composerToken = token;
+			break;
+		}
+	}
+
 	return {
 		query,
 		eBooks,
 		plugins,
+		composerToken,
+		composerHelpModalIsOpen: state.ui.composerTokens.composerHelpModalIsOpen,
+		composerHelpProductName: state.ui.composerTokens.composerHelpProductName,
+		composerHelpProductGlNumber: state.ui.composerTokens.composerHelpProductGlNumber,
 	};
 };
 
@@ -97,9 +116,19 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( getAllProducts() );
 	dispatch( getAllSubscriptions() );
 	dispatch( getOrders() );
+	dispatch( fetchComposerTokens() );
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );
+		},
+		onComposerHelpModalClose: () => {
+			dispatch( composerHelpModalClosed() );
+		},
+		onComposerHelpModalOpen: ( productName, glNumber, composerToken ) => {
+			dispatch( composerHelpModalOpen( productName, glNumber, composerToken ) );
+		},
+		composerHelpCreateComposerToken: () => {
+			dispatch( createComposerToken( { name: "Default Token" } ) );
 		},
 	};
 };

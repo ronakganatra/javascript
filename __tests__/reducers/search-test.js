@@ -1,6 +1,6 @@
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
-import { LINK_SITE_POPUP_CLOSE, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
+import { LINK_SITE_MODAL_CLOSE, LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
 import { LOCATION_CHANGE } from "react-router-redux";
 
 
@@ -21,12 +21,12 @@ test( 'The uiSearch processes the search query change action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'The uiSearch processes the link site popup close action', () => {
+test( 'The uiSearch processes the link site modal close action', () => {
 	const state = {
 		query: "b",
 	};
 	const action = {
-		type: LINK_SITE_POPUP_CLOSE,
+		type: LINK_SITE_MODAL_CLOSE,
 	};
 	const expected = {
 		query: "",
