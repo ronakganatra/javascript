@@ -9,6 +9,7 @@ import _sortBy from "lodash/fp/sortBy";
 import _map from "lodash/fp/map";
 import _join from "lodash/fp/join";
 import _each from "lodash/fp/each";
+import _filter from "lodash/fp/filter";
 
 export default class CartCompositionDashboard extends React.Component {
 	constructor( props ) {
@@ -33,6 +34,7 @@ export default class CartCompositionDashboard extends React.Component {
 		this.statistic = new FinanceStatistic( {
 			orderGroupBy: order => {
 				return _flow(
+					_filter( item => ! item.parentId ),
 					_sortBy( "productName" ),
 					_map( "productName" ),
 					_join( "\n" )
@@ -54,7 +56,7 @@ export default class CartCompositionDashboard extends React.Component {
 			"Orders",
 			{
 				where: { date: { between: [ startDate, endDate ] }, status: { inq: [ "completed", "processing", "refunded" ] } },
-				include: { items: "product" }
+				include: "items",
 			}
 		).then( orders => {
 			let statistics = this.statistic.collect( orders, [] );
