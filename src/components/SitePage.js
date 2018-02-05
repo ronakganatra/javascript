@@ -45,7 +45,7 @@ class SitePage extends React.Component {
 			<MyYoastModal
 				isOpen={ open }
 				onClose={ this.props.onClose }
-				messages={ messages }
+				modalAriaLabel={ messages.modalAriaLabel }
 			>
 				<AddLicenses
 					onClose={ this.props.onClose }

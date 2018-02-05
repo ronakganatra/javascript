@@ -5,11 +5,9 @@ import { defineMessages, injectIntl, intlShape } from "react-intl";
 import GettingStarted from "../components/GettingStarted";
 import MyYoastModal from "./MyYoastModal";
 
-const messages = defineMessages( {
-	modalAriaLabel: {
-		id: "modal.arialabel.gettingStarted",
-		defaultMessage: "Getting started",
-	},
+const modalAriaLabel = defineMessages( {
+	id: "modal.arialabel.gettingStarted",
+	defaultMessage: "Getting started",
 } );
 
 /*
@@ -34,7 +32,7 @@ class GettingStartedModal extends React.Component {
 			<MyYoastModal
 				isOpen={ this.props.isOpen }
 				onClose={ this.props.onClose }
-				messages={ messages }
+				modalAriaLabel={ modalAriaLabel }
 			>
 				<GettingStarted
 					onClose={ this.props.onClose }

@@ -107,17 +107,15 @@ class SitesPage extends React.Component {
 	}
 
 	getModal() {
-		let modalMessages = defineMessages( {
-			modalAriaLabel: {
-				id: "modal.arialabel.add",
-				defaultMessage: "Add a new site",
-			},
+		let modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.add",
+			defaultMessage: "Add a new site",
 		} );
 		return(
 			<MyYoastModal
 				isOpen={ this.props.modalOpen }
 				onClose={ this.props.onClose }
-				messages={ modalMessages }
+				modalAriaLabel={ modalAriaLabel }
 			>
 				<AddSite
 					onConnectClick={ this.props.onConnect }

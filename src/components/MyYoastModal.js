@@ -28,7 +28,7 @@ class BaseMyYoastModal extends React.Component {
 					isOpen={ this.props.isOpen }
 					onRequestClose={ this.props.onClose }
 					role="dialog"
-					contentLabel={ this.props.intl.formatMessage( this.props.messages.modalAriaLabel ) }
+					contentLabel={ this.props.intl.formatMessage( this.props.modalAriaLabel ) }
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
@@ -45,7 +45,7 @@ BaseMyYoastModal.propTypes = {
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
-	messages: PropTypes.object.isRequired,
+	modalAriaLabel: PropTypes.object.isRequired,
 };
 
 BaseMyYoastModal.defaultProps = {
@@ -76,7 +76,7 @@ const MyYoastModal = styled( BaseMyYoastModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 24px 40px 0px 40px;
+		padding: 24px 24px 0px 24px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;

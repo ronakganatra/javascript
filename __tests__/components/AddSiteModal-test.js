@@ -26,7 +26,7 @@ test('The MyYoastModal for the AddSite component matches the snapshot', () => {
 		<MyYoastModal
 			onClose={ () => { console.log( "clicked on Cancel" ); } }
 			isOpen={ true }
-			messages={ messages }
+			modalAriaLabel={ messages.modalAriaLabel }
 		>
 			<AddSite
 				onConnectClick={ () => { console.log( "clicked on Link" ); } }

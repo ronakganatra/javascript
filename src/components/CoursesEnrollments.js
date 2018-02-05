@@ -107,18 +107,16 @@ class CoursesEnrollments extends React.Component {
 	getModal() {
 		let open = this.props.inviteModalIsOpen;
 
-		const messages = defineMessages( {
-			modalAriaLabel: {
-				id: "modal.arialabel.invite",
-				defaultMessage: "Send course invite",
-			},
+		const modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.invite",
+			defaultMessage: "Send course invite",
 		} );
 
 		return (
 			<MyYoastModal
 				isOpen={ open }
 				onClose={ this.props.inviteModalClose }
-				messages={ messages }
+				modalAriaLabel={ modalAriaLabel }
 			>
 					<CourseInvite
 						inviteStudentEmail={ this.props.inviteStudentEmail }
