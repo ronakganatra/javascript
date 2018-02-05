@@ -115,7 +115,7 @@ class SitesPage extends React.Component {
 		} );
 		return(
 			<MyYoastModal
-				isOpen={ this.props.popupOpen }
+				isOpen={ this.props.modalOpen }
 				onClose={ this.props.onClose }
 				messages={ modalMessages }
 			>
@@ -189,7 +189,7 @@ SitesPage.propTypes = {
 	linkingSiteUrl: PropTypes.string.isRequired,
 	addSite: PropTypes.func.isRequired,
 	onSearchChange: PropTypes.func.isRequired,
-	popupOpen: PropTypes.bool,
+	modalOpen: PropTypes.bool,
 	onConnect: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
@@ -206,7 +206,7 @@ SitesPage.propTypes = {
 SitesPage.defaultProps = {
 	sites: [],
 	linkingSiteUrl: "",
-	popupOpen: false,
+	modalOpen: false,
 	error: null,
 	showLoader: false,
 };

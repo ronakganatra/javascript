@@ -35,7 +35,7 @@ function SiteSubscriptionDetailList( props ) {
 							onMoreInfoClick={ props.onMoreInfoClick }
 							onToggleDisabled={ onToggleDisabled }
 							onToggleSubscription={ props.onToggleSubscription }
-							popupOpen={ props.popupOpen }
+							modalOpen={ props.modalOpen }
 							onClose={ props.onClose }
 							onShop={ plugin.storeUrl }
 						/>;
@@ -51,7 +51,7 @@ SiteSubscriptionDetailList.propTypes = {
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	popupOpen: PropTypes.bool,
+	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	onToggleDisabled: PropTypes.func.isRequired,
 };

@@ -1,17 +1,21 @@
 import { uiSitesReducer, allIdsReducer, byIdReducer } from "../../src/reducers/sites.js";
 import {
-	LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+	LINK_SITE_MODAL_OPEN,
+	LINK_SITE_MODAL_CLOSE,
+	UPDATE_SITE_URL,
+	LINK_SITE_SUCCESS,
+	LINK_SITE_FAILURE,
 	RETRIEVE_SITES_SUCCESS
 } from "../../src/actions/sites";
 import { SITE_REMOVE_SUCCESS } from "../../src/actions/site";
 
-test( 'the popup open action', () => {
+test( 'the modal open action', () => {
 	const state = {};
 	const action = {
-		type: LINK_SITE_POPUP_OPEN,
+		type: LINK_SITE_MODAL_OPEN,
 	};
 	const expected = {
-		addSitePopupOpen: true,
+		addSiteModalOpen: true,
 	};
 
 	const actual = uiSitesReducer( state, action );
@@ -19,15 +23,15 @@ test( 'the popup open action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the popup close action', () => {
+test( 'the modal close action', () => {
 	const state = {
-		addSitePopupOpen: true,
+		addSiteModalOpen: true,
 	};
 	const action = {
-		type: LINK_SITE_POPUP_CLOSE,
+		type: LINK_SITE_MODAL_CLOSE,
 	};
 	const expected = {
-		addSitePopupOpen: false,
+		addSiteModalOpen: false,
 		linkSiteError: null,
 		linkSiteFailed: false,
 		linkingSiteUrl: "",
@@ -64,7 +68,7 @@ test( 'the link site success action in the uiSitesReducer', () => {
 	};
 	const expected = {
 		linkSiteFailed: false,
-		addSitePopupOpen: false,
+		addSiteModalOpen: false,
 		linkSiteError: null,
 		linkingSiteUrl: "",
 		linkingSite: false,
@@ -420,7 +424,7 @@ test( 'the reducers don\'t touch state with different actions', () => {
 		user: {}
 	};
 	const state = {
-		addSitePopupOpen: false,
+		addSiteModalOpen: false,
 		linkingSite: false,
 		linkingSiteUrl: "",
 		linkSiteFailed: false,

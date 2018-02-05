@@ -8,8 +8,8 @@ import { getAllProducts } from "./products";
  * Action types
  */
 
-export const LINK_SITE_POPUP_OPEN = "LINK_SITE_POPUP_OPEN";
-export const LINK_SITE_POPUP_CLOSE = "LINK_SITE_POPUP_CLOSE";
+export const LINK_SITE_MODAL_OPEN = "LINK_SITE_MODAL_OPEN";
+export const LINK_SITE_MODAL_CLOSE = "LINK_SITE_MODAL_CLOSE";
 export const LINK_SITE_REQUEST = "LINK_SITE_REQUEST";
 export const LINK_SITE_SUCCESS = "LINK_SITE_SUCCESS";
 export const LINK_SITE_FAILURE = "LINK_SITE_FAILURE";
@@ -23,24 +23,24 @@ export const RETRIEVE_SITES_FAILURE = "RETRIEVE_SITES_FAILURE";
  */
 
 /**
- * An action creator for the opening link site pop-up action.
+ * An action creator for the opening link site modal action.
  *
- * @returns {Object} An open link site pop-up action.
+ * @returns {Object} An open link site modal action.
  */
-export function linkSitePopupOpen() {
+export function linkSiteModalOpen() {
 	return {
-		type: LINK_SITE_POPUP_OPEN,
+		type: LINK_SITE_MODAL_OPEN,
 	};
 }
 
 /**
- * An action creator for the closing link site pop-up action.
+ * An action creator for the closing link site modal action.
  *
- * @returns {Object} A close link site pop-up action.
+ * @returns {Object} A close link site modal action.
  */
-export function linkSitePopupClose() {
+export function linkSiteModalClose() {
 	return {
-		type: LINK_SITE_POPUP_CLOSE,
+		type: LINK_SITE_MODAL_CLOSE,
 	};
 }
 

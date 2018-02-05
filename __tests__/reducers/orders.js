@@ -207,7 +207,7 @@ test( "the reducers don't touch state with different actions", () => {
 	};
 
 	const state = {
-		addSitePopupOpen: false,
+		addSiteModalOpen: false,
 		linkingSite: false,
 		linkingSiteUrl: "",
 		linkSiteFailed: false,

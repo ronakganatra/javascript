@@ -74,7 +74,15 @@ class CoursesProgress extends React.Component {
 					{ courses.map( ( course ) => {
 						let enrollments = allEnrollments[ course.id ] || [];
 
-						return <CourseEnrollment key={ course.id } course={ course } courseEnrollments={ enrollments } intl={ this.props.intl } />;
+						return(
+							<CourseEnrollment
+								key={ course.id }
+								course={ course }
+								courseEnrollments={ enrollments }
+								intl={ this.props.intl }
+								background={ this.props.background }
+							/>
+						);
 					} ) }
 				</ListTable>
 			</Paper>
@@ -88,6 +96,7 @@ CoursesProgress.propTypes = {
 	courses: PropTypes.array,
 	loadCourses: PropTypes.func,
 	loadCoursesEnrollments: PropTypes.func,
+	background: PropTypes.string,
 };
 
 export default injectIntl( CoursesProgress );

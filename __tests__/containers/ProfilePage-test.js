@@ -21,10 +21,24 @@ test('the mapStateToProps function', () => {
 			sendPasswordReset: false,
 			passwordResetError: "Password reset error",
 		},
+		entities: {
+			composerTokens: {
+				byId: {},
+				allIds: [],
+			}
+		},
+		ui: {
+			composerTokens: {
+				createTokenModalIsOpen: false,
+				manageTokenModalIsOpen: false,
+				manageTokenData: null,
+			},
+		},
 	};
 
 	let expected = {
 		email: "test@test.test",
+		composerTokens: [],
 		image: url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
@@ -40,6 +54,9 @@ test('the mapStateToProps function', () => {
 		isSendingPasswordReset: false,
 		hasSendPasswordReset: false,
 		passwordResetError: "Password reset error",
+		manageTokenData: null,
+		createTokenModalIsOpen: false,
+		manageTokenModalIsOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );

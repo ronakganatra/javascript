@@ -8,6 +8,10 @@ import {
 	resetSaveMessage,
 } from "../actions/user";
 import { url } from "gravatar";
+import {
+	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
+	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
+} from "../actions/composerTokens";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
@@ -15,6 +19,7 @@ export const mapStateToProps = ( state ) => {
 		email: state.user.data.profile.email,
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
+		composerTokens: Object.values( state.entities.composerTokens.byId ),
 		image: url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
@@ -28,10 +33,16 @@ export const mapStateToProps = ( state ) => {
 		isSendingPasswordReset: state.user.sendingPasswordReset,
 		hasSendPasswordReset: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,
+		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
+		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
+		manageTokenData: state.ui.composerTokens.manageTokenData,
+		tokenError: state.ui.composerTokens.tokenError,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
+	dispatch( fetchComposerTokens() );
+
 	return {
 		onUpdateEmail: ( email ) => {
 			dispatch( profileUpdateEmail( email ) );
@@ -52,6 +63,27 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onPasswordReset: ( email ) => {
 			dispatch( passwordResetSend( email ) );
+		},
+		onCreateTokenModalOpen: () => {
+			dispatch( createTokenModalOpen() );
+		},
+		onCreateTokenModalClose: () => {
+			dispatch( createTokenModalClosed() );
+		},
+		onCreateTokenClick: ( data ) => {
+			dispatch( createComposerToken( data ) );
+		},
+		onManageTokenClick: ( data ) => {
+			dispatch( manageTokenModalOpen( data ) );
+		},
+		onManageTokenModalClose: () => {
+			dispatch( manageTokenModalClosed() );
+		},
+		onSaveTokenClick: ( data ) => {
+			dispatch( renameComposerToken( data ) );
+		},
+		onDeleteTokenClick: ( data ) => {
+			dispatch( deleteComposerToken( data ) );
 		},
 	};
 };
