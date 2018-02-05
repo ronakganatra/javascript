@@ -3,12 +3,12 @@
 exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
 <div>
   <div
-    className="kcKiRA my-yoast-modal__content"
+    className="dwnCHM my-yoast-modal__content"
     contentLabel="message.defaultMessage"
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="kcKiRA my-yoast-modal__overlay"
+    overlayClassName="dwnCHM my-yoast-modal__overlay"
     role="dialog"
   >
     <div
