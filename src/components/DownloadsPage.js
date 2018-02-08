@@ -11,7 +11,8 @@ import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 import NoResults from "./NoResults";
-import ComposerHelpModal from "./downloads/ComposerHelpModal";
+import MyYoastModal from "./MyYoastModal";
+import ComposerHelp from "./downloads/ComposerHelp";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -87,14 +88,24 @@ class DownloadsPage extends React.Component {
 	}
 
 	getModal() {
+		let modalAriaLabel = {
+			id: "modal.arialabel.create",
+			defaultMessage: "Create a new token",
+		};
 		return this.props.composerHelpModalIsOpen
-			? <ComposerHelpModal
+			? <MyYoastModal
 				isOpen={ this.props.composerHelpModalIsOpen }
 				onClose={ this.props.onComposerHelpModalClose }
-				productName={ this.props.composerHelpProductName }
-				productGlNumber={ this.props.composerHelpProductGlNumber }
-				createComposerToken={ this.props.composerHelpCreateComposerToken }
-				composerToken={ this.props.composerToken } />
+				modalAriaLabel={ modalAriaLabel }
+			>
+				<ComposerHelp
+					onClose={ this.props.onComposerHelpModalClose }
+					productName={ this.props.composerHelpProductName }
+					productGlNumber={ this.props.composerHelpProductGlNumber }
+					createComposerToken={ this.props.composerHelpCreateComposerToken }
+					composerToken={ this.props.composerToken }
+				/>
+			</MyYoastModal>
 			: null;
 	}
 

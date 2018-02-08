@@ -4,7 +4,6 @@ import React from "react";
 import styled from "styled-components";
 import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import AddSiteModal from "./AddSiteModal";
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
@@ -14,6 +13,8 @@ import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
+import AddSite from "./AddSite";
+import MyYoastModal from "./MyYoastModal";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -104,6 +105,31 @@ class SitesPage extends React.Component {
 			debouncedSpeak( message, "assertive" );
 		}
 	}
+
+	getModal() {
+		let modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.add",
+			defaultMessage: "Add a new site",
+		} );
+		return(
+			<MyYoastModal
+				isOpen={ this.props.modalOpen }
+				onClose={ this.props.onClose }
+				modalAriaLabel={ modalAriaLabel }
+			>
+				<AddSite
+					onConnectClick={ this.props.onConnect }
+					onCancelClick={ this.props.onClose }
+					onChange={ this.props.onChange }
+					errorFound={ this.props.errorFound }
+					error={ this.props.error }
+					query={ this.props.query }
+					linkingSiteUrl={ this.props.linkingSiteUrl }
+				/>
+			</MyYoastModal>
+		);
+	}
+
 	render() {
 		let props = this.props;
 		let noSitesParagraphs = [
@@ -123,12 +149,6 @@ class SitesPage extends React.Component {
 			return <AnimatedLoader />;
 		}
 
-		let modal = (
-			<AddSiteModal isOpen={ props.modalOpen } onConnect={ props.onConnect } onClose={ props.onClose }
-						  onChange={ props.onChange } errorFound={ props.errorFound }
-						  error={ props.error } query={ props.query } linkingSiteUrl={ props.linkingSiteUrl } />
-		);
-
 		if ( props.sites.length > 0 ) {
 			return (
 				<div>
@@ -139,7 +159,7 @@ class SitesPage extends React.Component {
 						</ResponsiveIconButton>
 					</SiteAddContainer>
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
-					{ modal }
+					{ this.getModal() }
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {
@@ -149,7 +169,7 @@ class SitesPage extends React.Component {
 						{ this.getSearch() }
 					</SiteAddContainer>
 					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites"/>
-					{ modal }
+					{ this.getModal() }
 				</div>
 			);
 		}
@@ -157,7 +177,7 @@ class SitesPage extends React.Component {
 		return (
 			<div>
 				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />
-				{ modal }
+				{ this.getModal() }
 			</div>
 		);
 	}

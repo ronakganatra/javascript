@@ -13,8 +13,9 @@ import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
-import CreateTokenModal from "./account/profile/CreateTokenModal";
-import ManageTokenModal from "./account/profile/ManageTokenModal";
+import MyYoastModal from "./MyYoastModal";
+import CreateToken from "./account/profile/CreateToken";
+import ManageToken from "./account/profile/ManageToken";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -293,22 +294,54 @@ class ProfilePage extends React.Component {
 	 * @returns {*} Returns either a CreateTokenModal, a ManageTokenModal, or null, depending on whether one of these modals is open.
 	 */
 	getModal() {
-		if ( this.props.createTokenModalIsOpen ) {
-			return <CreateTokenModal
-				isOpen={ this.props.createTokenModalIsOpen }
-				onClose={ this.props.onCreateTokenModalClose }
-				onCreateClick={ this.props.onCreateTokenClick }
-				error={ this.props.tokenError }
-			/>;
-		} else if ( this.props.manageTokenModalIsOpen ) {
-			return <ManageTokenModal
-				isOpen={ this.props.manageTokenModalIsOpen }
-				onClose={ this.props.onManageTokenModalClose }
-				onSaveTokenClick={ this.props.onSaveTokenClick }
-				onDeleteTokenClick={ this.props.onDeleteTokenClick }
-				manageTokenData={ this.props.manageTokenData }
-				error={ this.props.tokenError }
-			/>;
+		if ( this.props.createTokenModalIsOpen || this.props.manageTokenModalIsOpen ) {
+			let modalContent = null;
+			let modalIsOpen;
+			let onClose;
+			let modalAriaLabel;
+
+			if ( this.props.createTokenModalIsOpen ) {
+				modalIsOpen = this.props.createTokenModalIsOpen;
+				onClose = this.props.onCreateTokenModalClose;
+				modalAriaLabel = defineMessages(
+					{
+						id: "modal.arialabel.create",
+						defaultMessage: "Create token",
+					}
+				);
+
+				modalContent =
+					<CreateToken
+						onClose={this.props.onCreateTokenModalClose}
+						onCreateClick={this.props.onCreateTokenClick}
+						error={this.props.tokenError}
+					/>;
+			} else if ( this.props.manageTokenModalIsOpen ) {
+				modalIsOpen = this.props.manageTokenModalIsOpen;
+				onClose = this.props.onManageTokenModalClose;
+				modalAriaLabel = defineMessages( {
+					id: "modal.arialabel.manage",
+					defaultMessage: "Manage token",
+				} );
+
+				modalContent =
+					<ManageToken
+						onClose={this.props.onManageTokenModalClose}
+						onSaveTokenClick={this.props.onSaveTokenClick}
+						onDeleteTokenClick={this.props.onDeleteTokenClick}
+						manageTokenData={this.props.manageTokenData}
+						error={this.props.tokenError}
+					/>;
+			}
+			return (
+				<MyYoastModal
+					isOpen={ modalIsOpen }
+					onClose={ onClose }
+					modalAriaLabel={ modalAriaLabel }
+				>
+					{ modalContent }
+				</MyYoastModal>
+			);
 		}
 		return null;
 	}

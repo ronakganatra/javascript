@@ -36,6 +36,7 @@ const Buttons = styled.div`
 	text-align: right;
 	flex: 200px 1 0;
 	margin-top: 18px;
+	margin-bottom: 24px;
 `;
 
 const VideoContainer = styled.div`

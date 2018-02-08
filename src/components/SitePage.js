@@ -6,7 +6,8 @@ import SiteHeader from "./SiteHeader";
 import SiteSubscriptionDetailList from "./SiteSubscriptionDetailList";
 import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
-import AddLicensesModal from "./AddLicensesModal";
+import AddLicenses from "./AddLicenses";
+import MyYoastModal from "./MyYoastModal";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -33,7 +34,25 @@ class SitePage extends React.Component {
 		let storeUrl = this.props.addSubscriptionModal.storeUrl || "";
 		let open = this.props.addSubscriptionModal.modalOpen;
 
-		return <AddLicensesModal isOpen={ open } onShop={ storeUrl } onClose={ this.props.onClose }/>;
+		const messages = defineMessages( {
+			modalAriaLabel: {
+				id: "modal.arialabel.add",
+				defaultMessage: "Add licenses",
+			},
+		} );
+
+		return (
+			<MyYoastModal
+				isOpen={ open }
+				onClose={ this.props.onClose }
+				modalAriaLabel={ messages.modalAriaLabel }
+			>
+				<AddLicenses
+					onClose={ this.props.onClose }
+					onShop={ storeUrl }
+				/>
+			</MyYoastModal>
+		);
 	}
 
 	render() {

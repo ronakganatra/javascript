@@ -1,16 +1,8 @@
 import PropTypes from "prop-types";
 import React from "react";
 import Modal from "react-modal";
-import styled, { keyframes } from "styled-components";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
-import CreateToken from "./CreateToken";
-
-const messages = defineMessages( {
-	modalAriaLabel: {
-		id: "modal.arialabel.create",
-		defaultMessage: "Create a new token",
-	},
-} );
+import styled from "styled-components";
+import { injectIntl, intlShape } from "react-intl";
 
 /*
  * Makes the `aria-hidden="true"` attribute being applied on the root element
@@ -18,7 +10,12 @@ const messages = defineMessages( {
  */
 Modal.setAppElement( "#root" );
 
-class BaseCreateTokenModal extends React.Component {
+class BaseMyYoastModal extends React.Component {
+
+	constructor( props ) {
+		super( props );
+	}
+
 	/**
 	 * Returns the rendered html.
 	 *
@@ -27,52 +24,35 @@ class BaseCreateTokenModal extends React.Component {
 	render() {
 		return (
 			<div>
-				<Modal { ...this.props }
+				<Modal
 					isOpen={ this.props.isOpen }
 					onRequestClose={ this.props.onClose }
 					role="dialog"
-					contentLabel={ this.props.intl.formatMessage( messages.modalAriaLabel ) }
+					contentLabel={ this.props.intl.formatMessage( this.props.modalAriaLabel ) }
 					overlayClassName={ `${ this.props.className } my-yoast-modal__overlay` }
 					className={ `${ this.props.className } my-yoast-modal__content` }
 				>
-					<CreateToken
-						onClose={ this.props.onClose }
-						onCreateClick={ this.props.onCreateClick }
-						tokenDescriptionInput={ "" }
-						error={ this.props.error }
-					/>
+					{ this.props.children }
 				</Modal>
 			</div>
 		);
 	}
 }
 
-BaseCreateTokenModal.propTypes = {
-	intl: intlShape.isRequired,
-	onClose: PropTypes.func.isRequired,
-	onCreateClick: PropTypes.func.isRequired,
-	isOpen: PropTypes.bool,
+BaseMyYoastModal.propTypes = {
+	children: PropTypes.element,
 	className: PropTypes.string,
-	error: PropTypes.object,
+	intl: intlShape.isRequired,
+	isOpen: PropTypes.bool,
+	onClose: PropTypes.func.isRequired,
+	modalAriaLabel: PropTypes.object.isRequired,
 };
 
-BaseCreateTokenModal.defaultProps = {
+BaseMyYoastModal.defaultProps = {
 	isOpen: false,
 };
 
-const fadeModalIn = keyframes`
-	from {
-		transform: translate(-50%, -80%);
-		opacity: 0;
-	}
-
-	to {
-		transform: translate(-50%, -50%);
-		opacity: 1;
-	}
-`;
-
-const CreateTokenModal = styled( BaseCreateTokenModal )`
+const MyYoastModal = styled( BaseMyYoastModal )`
 	&.my-yoast-modal__overlay {
 		position: fixed;
 		top: 0;
@@ -96,24 +76,15 @@ const CreateTokenModal = styled( BaseCreateTokenModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 1em 1.5em 0;
+		padding: 24px 24px 0px 24px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
-
-		animation-iteration-count: 1;
-		animation-duration: 300ms;
-		animation-timing-function: ease;
-		animation-delay: 50ms;
-		animation-direction: normal;
-		animation-fill-mode: both;
-		animation-play-state: running;
-		animation-name: ${ fadeModalIn };
-
+		
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
 		}
-
+		
 		@media screen and ( max-height: 640px ) {
 			overflow-y: auto;
 		}
@@ -129,4 +100,4 @@ const CreateTokenModal = styled( BaseCreateTokenModal )`
 	}
 `;
 
-export default injectIntl( CreateTokenModal );
+export default injectIntl( MyYoastModal );
