@@ -125,7 +125,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onRemove: () => {
 			// eslint-disable-next-line
-			if ( window.confirm( "Are you sure you want to remove this site from my.yoast?" ) ) {
+			if ( window.confirm( "Are you sure you want to remove this site from MyYoast?" ) ) {
 				dispatch( siteRemove( siteId ) );
 			}
 		},

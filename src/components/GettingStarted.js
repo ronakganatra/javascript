@@ -17,7 +17,7 @@ const messages = defineMessages( {
 	},
 	videoTitle: {
 		id: "gettingStarted.iframe.title",
-		defaultMessage: "My Yoast introductory video",
+		defaultMessage: "MyYoast introductory video",
 	},
 } );
 
@@ -71,14 +71,14 @@ function GettingStarted( props ) {
 	return (
 		<GettingStartedModal role="document">
 			<ModalHeading>
-				<FormattedMessage id="gettingStarted.header" defaultMessage="Getting started with My Yoast" />
+				<FormattedMessage id="gettingStarted.header" defaultMessage="Getting started with MyYoast" />
 			</ModalHeading>
 			<GettingStartedText>
 				<FormattedMessage
 					id="gettingStarted.text"
 					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }. If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
 					values={ {
-						myYoast: "My Yoast",
+						myYoast: "MyYoast",
 						KBLink: <a target="_blank" href="https://yoa.st/12q" rel="noopener noreferrer">{ props.intl.formatMessage( messages.knowledgeBase ) }<NewTabMessage /></a>,
 						emailLink: <a href="mailto:support@yoast.com">{ props.intl.formatMessage( messages.email ) }</a>,
 					} }

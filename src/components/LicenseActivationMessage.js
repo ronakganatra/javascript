@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const messages = defineMessages( {
 	description: {
 		id: "licenseactivation.description",
-		defaultMessage: "With the introduction of My Yoast, you no longer need a license key to activate your Yoast plugins on your website.",
+		defaultMessage: "With the introduction of MyYoast, you no longer need a license key to activate your Yoast plugins on your website.",
 	},
 	cta: {
 		id: "licenseactivation.CTA",

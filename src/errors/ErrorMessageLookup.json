@@ -1,6 +1,6 @@
 {
   "ER_DUP_ENTRY": {
-    "message": "It looks like you have already added this [error_context] to your My Yoast account.",
+    "message": "It looks like you have already added this [error_context] to your MyYoast account.",
     "type": "warning"
   },
   "rest_user_invalid_email": {
