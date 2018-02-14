@@ -1,7 +1,7 @@
 /**
  * Initial state
  */
-import { LINK_SITE_POPUP_OPEN, LINK_SITE_POPUP_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
+import { LINK_SITE_MODAL_OPEN, LINK_SITE_MODAL_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
 	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUCCESS } from "../actions/site";
 
@@ -22,7 +22,7 @@ const rootState = {
 	ui: {
 		sites: {
 			// Whether or not we are currently adding a new site.
-			addSitePopupOpen: false,
+			addSiteModalOpen: false,
 
 			// Whether or not we are currently doing a request to the server to add/link a new site.
 			linkingSite: false,
@@ -52,22 +52,22 @@ const rootState = {
 };
 
 /**
- * A reducer for the pop-up actions within the ui object.
+ * A reducer for the modal actions within the ui object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
  *
  * @returns {Object} The updated sites object.
  */
-function popupReducer( state = rootState.ui.sites, action ) {
+function modalReducer( state = rootState.ui.sites, action ) {
 	switch ( action.type ) {
-		case LINK_SITE_POPUP_OPEN:
+		case LINK_SITE_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				addSitePopupOpen: true,
+				addSiteModalOpen: true,
 			} );
-		case LINK_SITE_POPUP_CLOSE:
+		case LINK_SITE_MODAL_CLOSE:
 			return Object.assign( {}, state, {
-				addSitePopupOpen: false,
+				addSiteModalOpen: false,
 				linkSiteFailed: false,
 				linkSiteError: null,
 				linkingSiteUrl: "",
@@ -99,7 +99,7 @@ export function linkReducer( state = rootState.ui.sites, action ) {
 		case LINK_SITE_SUCCESS:
 			return Object.assign( {}, state, {
 				linkSiteFailed: false,
-				addSitePopupOpen: false,
+				addSiteModalOpen: false,
 				linkingSiteUrl: "",
 				linkSiteError: null,
 				linkingSite: false,
@@ -147,7 +147,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 	}
 }
 
-let uiSites = reduceReducers( linkReducer, retrieveSitesReducer, popupReducer );
+let uiSites = reduceReducers( linkReducer, retrieveSitesReducer, modalReducer );
 
 /**
  * A reducer for the sites object within the ui object.

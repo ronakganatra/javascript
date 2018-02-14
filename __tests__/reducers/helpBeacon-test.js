@@ -1,13 +1,13 @@
 import { uiHelpBeaconModalReducer } from "../../src/reducers/helpBeacon.js";
-import { HELP_BEACON_POPUP_OPEN, HELP_BEACON_POPUP_CLOSE } from "../../src/actions/helpBeacon";
+import { HELP_BEACON_MODAL_OPEN, HELP_BEACON_MODAL_CLOSE } from "../../src/actions/helpBeacon";
 
-test( 'the help beacon popup open action', () => {
+test( 'the help beacon modal open action', () => {
 	const state = {};
 	const action = {
-		type: HELP_BEACON_POPUP_OPEN,
+		type: HELP_BEACON_MODAL_OPEN,
 	};
 	const expected = {
-		popupOpen: true,
+		modalOpen: true,
 	};
 
 	const actual = uiHelpBeaconModalReducer( state, action );
@@ -15,15 +15,15 @@ test( 'the help beacon popup open action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the help beacon popup close action', () => {
+test( 'the help beacon modal close action', () => {
 	const state = {
-		popupOpen: true,
+		modalOpen: true,
 	};
 	const action = {
-		type: HELP_BEACON_POPUP_CLOSE,
+		type: HELP_BEACON_MODAL_CLOSE,
 	};
 	const expected = {
-		popupOpen: false,
+		modalOpen: false,
 	};
 
 	const actual = uiHelpBeaconModalReducer( state, action );

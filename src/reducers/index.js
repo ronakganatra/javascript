@@ -12,6 +12,8 @@ import { uiHelpBeaconModalReducer } from "./helpBeacon";
 import { uiSearch } from "./search.js";
 import { uiCourseInviteRequestReducer } from "./courses";
 import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
+import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
+
 
 export const uiReducer = combineReducers( {
 	sites: uiSitesReducer,
@@ -27,6 +29,7 @@ export const uiReducer = combineReducers( {
 	refunds: uiRefundsReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,
+	composerTokens: uiComposerTokensReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
@@ -64,6 +67,10 @@ export const entitiesCoursesEnrollmentsReducer = combineReducers( {
 	allIds: allIdsCoursesEnrollmentsReducer,
 } );
 
+export const entitiesComposerTokensReducer = combineReducers( {
+	byId: byIdComposerTokensReducer,
+	allIds: allIdsComposerTokensReducer,
+} );
 
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
@@ -73,6 +80,7 @@ export const entitiesReducer = combineReducers( {
 	products: entitiesProductsReducer,
 	orders: entitiesOrdersReducer,
 	refunds: entitiesRefundsReducer,
+	composerTokens: entitiesComposerTokensReducer,
 } );
 
 export const rootReducer = combineReducers( {

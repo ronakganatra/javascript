@@ -1,22 +1,22 @@
 import * as actions from "../../src/actions/helpBeacon";
 
-test( 'opening help beacon pop-up action creator', () => {
+test( 'opening help beacon modal action creator', () => {
 	const expected = {
-		type: actions.HELP_BEACON_POPUP_OPEN,
+		type: actions.HELP_BEACON_MODAL_OPEN,
 	};
 
-	const actual = actions.helpBeaconPopupOpen( );
+	const actual = actions.helpBeaconModalOpen( );
 
 	expect( actual ).toEqual( expected );
 } );
 
 
-test( 'closing help beacon pop-up action creator', () => {
+test( 'closing help beacon modal action creator', () => {
 	const expected = {
-		type: actions.HELP_BEACON_POPUP_CLOSE,
+		type: actions.HELP_BEACON_MODAL_CLOSE,
 	};
 
-	const actual = actions.helpBeaconPopupClose();
+	const actual = actions.helpBeaconModalClose();
 
 	expect( actual ).toEqual( expected );
 } );

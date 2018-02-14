@@ -15,7 +15,7 @@ const messages = defineMessages( {
 	siteRemovalExplanation: {
 		id: "siteDangerZone.siteDisconnect.explanation",
 		defaultMessage:	"This will revoke the licenses of the active plugins listed" +
-						" above and remove the site from your my.yoast account. This" +
+						" above and remove the site from your MyYoast account. This" +
 						" will NOT delete your actual website or the plugins" +
 						" themselves. You can always re-add the plugins later.",
 	},

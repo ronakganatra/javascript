@@ -1,4 +1,4 @@
-import { HELP_BEACON_POPUP_OPEN, HELP_BEACON_POPUP_CLOSE } from "../actions/helpBeacon";
+import { HELP_BEACON_MODAL_OPEN, HELP_BEACON_MODAL_CLOSE } from "../actions/helpBeacon";
 
 /*
  * Initial state
@@ -18,10 +18,10 @@ const rootState = {
 		},
 		addSubscriptionModal: {
 			id: null,
-			popupOpen: false,
+			modalOpen: false,
 		},
 		helpBeaconModal: {
-			popupOpen: false,
+			modalOpen: false,
 		},
 	},
 };
@@ -39,13 +39,13 @@ const rootState = {
  */
 export function uiHelpBeaconModalReducer( state = rootState.ui.helpBeaconModal, action ) {
 	switch ( action.type ) {
-		case HELP_BEACON_POPUP_OPEN:
+		case HELP_BEACON_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				popupOpen: true,
+				modalOpen: true,
 			} );
-		case HELP_BEACON_POPUP_CLOSE:
+		case HELP_BEACON_MODAL_CLOSE:
 			return Object.assign( {}, state, {
-				popupOpen: false,
+				modalOpen: false,
 			} );
 		default:
 			return state;

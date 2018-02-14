@@ -11,7 +11,9 @@ describe( 'components/ProfilePage', () => {
 				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
-				onPasswordReset={ () => {} }/>
+				onPasswordReset={ () => {} }
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -26,7 +28,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				isSaving={true} />
+				isSaving={true}
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -41,7 +45,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				saveEmailError={ {} } />
+				saveEmailError={ {} }
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -56,7 +62,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				isSendingPasswordReset={true} />
+				isSendingPasswordReset={true}
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -71,7 +79,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				hasSendPasswordReset={true} />
+				hasSendPasswordReset={true}
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -86,7 +96,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				passwordResetError={ { error: "I'm an error" } } />
+				passwordResetError={ { error: "I'm an error" } }
+				composerTokens={ [] }
+			/>
 		);
 
 		let tree = component.toJSON();
@@ -102,7 +114,53 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				passwordResetError={ null } />
+				passwordResetError={ null }
+				composerTokens={ [] }
+			/>
+		);
+
+		let tree = component.toJSON();
+		expect( tree ).toMatchSnapshot();
+	} );
+
+	test('If there are active composer tokens', () => {
+		const component = createComponentWithIntl(
+			<ProfilePage
+				email="email@email.email"
+				isDeleting={ false }
+				onUpdateEmail={ () => {} }
+				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
+				onPasswordReset={ () => {} }
+				passwordResetError={ null }
+				composerTokens={ [ {
+					enabled: true,
+					id: "1",
+					name: "abc",
+				} ] }
+			/>
+		);
+
+		let tree = component.toJSON();
+		expect( tree ).toMatchSnapshot();
+	} );
+
+	test('If there are deleted composer tokens', () => {
+		const component = createComponentWithIntl(
+			<ProfilePage
+				email="email@email.email"
+				isDeleting={ false }
+				onUpdateEmail={ () => {} }
+				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
+				onPasswordReset={ () => {} }
+				passwordResetError={ null }
+				composerTokens={ [ {
+					enabled: false,
+					id: "1",
+					name: "abc",
+				} ] }
+			/>
 		);
 
 		let tree = component.toJSON();

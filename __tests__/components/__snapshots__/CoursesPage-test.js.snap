@@ -16,9 +16,7 @@ exports[`The courses page component matches the snapshot 1`] = `
         onClick={[Function]}
         style={undefined}
       >
-         
         Progress
-         
       </a>
     </li>
     <li
@@ -31,9 +29,7 @@ exports[`The courses page component matches the snapshot 1`] = `
         onClick={[Function]}
         style={undefined}
       >
-         
         Enrollments
-         
       </a>
     </li>
   </ul>

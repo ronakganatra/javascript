@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import Paper from "./Paper";
-import { Button, RedButton } from "./Button";
+import { Button, LargeButton, makeButtonFullWidth, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -11,6 +11,11 @@ import _noop from "lodash/noop";
 import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
+import ComposerTokens from "./account/profile/ComposerTokens";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import MyYoastModal from "./MyYoastModal";
+import CreateToken from "./account/profile/CreateToken";
+import ManageToken from "./account/profile/ManageToken";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -32,6 +37,10 @@ const messages = defineMessages( {
 	labelDelete: {
 		id: "profile.label.delete",
 		defaultMessage: "Delete account",
+	},
+	developerTokens: {
+		id: "profile.label.developerTokens",
+		defaultMessage: "Developer Tokens",
 	},
 	dangerZone: {
 		id: "profile.label.dangerZone",
@@ -110,6 +119,10 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
+const ComposerIntroductionArea = styled.div`
+	padding: 0 32px 24px 32px;
+`;
+
 const FormMessage = styled.p`
 	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
 	margin: 0;
@@ -138,6 +151,12 @@ const PasswordReset = styled.section`
 const DeleteButton = styled( RedButton )`
 	margin: 1em 0;
 `;
+
+const CreateButtonArea = styled.div`
+	padding: 16px 32px;
+`;
+
+const WideLargeButton = makeButtonFullWidth( LargeButton );
 
 /**
  * Returns the rendered Sites Page component.
@@ -270,11 +289,127 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
+	 * Will open a modal if its respective "isOpen" boolean is set to true.
+	 *
+	 * @returns {*} Returns either a CreateTokenModal, a ManageTokenModal, or null, depending on whether one of these modals is open.
+	 */
+	getModal() {
+		if ( this.props.createTokenModalIsOpen || this.props.manageTokenModalIsOpen ) {
+			let modalContent = null;
+			let modalIsOpen;
+			let onClose;
+			let modalAriaLabel;
+
+			if ( this.props.createTokenModalIsOpen ) {
+				modalIsOpen = this.props.createTokenModalIsOpen;
+				onClose = this.props.onCreateTokenModalClose;
+				modalAriaLabel = defineMessages(
+					{
+						id: "modal.arialabel.create",
+						defaultMessage: "Create token",
+					}
+				);
+
+				modalContent =
+					<CreateToken
+						onClose={this.props.onCreateTokenModalClose}
+						onCreateClick={this.props.onCreateTokenClick}
+						error={this.props.tokenError}
+					/>;
+			} else if ( this.props.manageTokenModalIsOpen ) {
+				modalIsOpen = this.props.manageTokenModalIsOpen;
+				onClose = this.props.onManageTokenModalClose;
+				modalAriaLabel = defineMessages( {
+					id: "modal.arialabel.manage",
+					defaultMessage: "Manage token",
+				} );
+
+				modalContent =
+					<ManageToken
+						onClose={this.props.onManageTokenModalClose}
+						onSaveTokenClick={this.props.onSaveTokenClick}
+						onDeleteTokenClick={this.props.onDeleteTokenClick}
+						manageTokenData={this.props.manageTokenData}
+						error={this.props.tokenError}
+					/>;
+			}
+			return (
+				<MyYoastModal
+					isOpen={ modalIsOpen }
+					onClose={ onClose }
+					modalAriaLabel={ modalAriaLabel }
+				>
+					{ modalContent }
+				</MyYoastModal>
+			);
+		}
+		return null;
+	}
+
+	/**
+	 *
+	 * @returns {boolean} True when there are active composer tokens among the composertokens for this user. False otherwise.
+	 */
+	hasActiveComposerTokens() {
+		let tokens = this.props.composerTokens && this.props.composerTokens.filter( ( composerToken ) => {
+			return composerToken.enabled === true;
+		} );
+
+		return tokens.length > 0;
+	}
+
+	/**
+	 * A function that prepares the DevTools element.
+	 *
+	 * @returns {(JSXElement|null)} Either a JSX element containing the DevTools section of the profile page, or null,
+	 * depending on whether the user has access to this feature via the feature toggle.
+	 */
+	getDevTools() {
+		let ComposerIntroduction =
+			<ComposerIntroductionArea>
+				{
+					this.hasActiveComposerTokens()
+						? <FormattedMessage
+							id="profile.composer-introduction"
+							defaultMessage="Here you can find a list of the Composer tokens that you have registered."
+						/>
+						: <FormattedMessage
+							id="profile.composer-introduction"
+							defaultMessage="Composer is a tool used by many developers to install and update plugins.
+							Through MyYoast you can use Composer to get easy access to your premium plugins. Please see the Downloads page for additional information."
+						/>
+				}
+			</ComposerIntroductionArea>;
+
+		return hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
+			? <div>
+				<Paper>
+					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+						{ ComposerIntroduction }
+						<ComposerTokens {...this.props} hasPaper={false} />
+						<CreateButtonArea>
+							<WideLargeButton
+								onClick={ this.props.onCreateTokenModalOpen }
+							>
+								<FormattedMessage
+									id="profile.tokens.create"
+									defaultMessage="Create token"
+								/>
+							</WideLargeButton>
+						</CreateButtonArea>
+					</CollapsibleHeader>
+				</Paper>
+				{ this.getModal() }
+			</div>
+			: null;
+	}
+	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+
 		return (
 			<div>
 				<Paper>
@@ -302,6 +437,7 @@ class ProfilePage extends React.Component {
 						</Column>
 					</Page>
 				</Paper>
+				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
 						<Page>
@@ -343,6 +479,18 @@ ProfilePage.propTypes = {
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
+	onCreateTokenModalOpen: PropTypes.func.isRequired,
+	onCreateTokenModalClose: PropTypes.func.isRequired,
+	createTokenModalIsOpen: PropTypes.bool.isRequired,
+	onCreateTokenClick: PropTypes.func.isRequired,
+	manageTokenModalIsOpen: PropTypes.bool.isRequired,
+	onManageTokenClick: PropTypes.func.isRequired,
+	onManageTokenModalClose: PropTypes.func.isRequired,
+	onSaveTokenClick: PropTypes.func.isRequired,
+	onDeleteTokenClick: PropTypes.func.isRequired,
+	manageTokenData: PropTypes.object,
+	tokenError: PropTypes.object,
+	composerTokens: PropTypes.array,
 };
 
 ProfilePage.defaultProps = {
@@ -355,6 +503,8 @@ ProfilePage.defaultProps = {
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
 	passwordResetError: null,
+	manageTokenData: null,
+	tokenError: null,
 };
 
 export default injectIntl( ProfilePage );

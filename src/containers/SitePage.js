@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
 import SitePage from "../components/SitePage";
-import { addLicensesPopupOpen, addLicensesPopupClose } from "../actions/subscriptions";
+import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
@@ -39,7 +39,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active";
+		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
 	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
@@ -108,10 +108,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onMoreInfoClick: () => {},
 		onToggleDisabled: ( subscriptionId ) => {
-			dispatch( addLicensesPopupOpen( subscriptionId ) );
+			dispatch( addLicensesModalOpen( subscriptionId ) );
 		},
 		onClose: () => {
-			dispatch( addLicensesPopupClose() );
+			dispatch( addLicensesModalClose() );
 		},
 		onToggleSubscription: ( subscriptionId, enabled ) => {
 			if ( enabled ) {
@@ -125,7 +125,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onRemove: () => {
 			// eslint-disable-next-line
-			if ( window.confirm( "Are you sure you want to remove this site from my.yoast?" ) ) {
+			if ( window.confirm( "Are you sure you want to remove this site from MyYoast?" ) ) {
 				dispatch( siteRemove( siteId ) );
 			}
 		},

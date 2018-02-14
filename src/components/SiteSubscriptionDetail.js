@@ -163,7 +163,7 @@ SiteSubscriptionDetail.propTypes = {
 	background: PropTypes.string,
 	intl: intlShape.isRequired,
 	currency: PropTypes.string,
-	popupOpen: PropTypes.bool,
+	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
 };

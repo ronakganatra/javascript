@@ -9,6 +9,9 @@ import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
 import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/sites";
 import { userReducer } from "../../src/reducers/user";
+import { CREATE_COMPOSER_TOKEN_REQUEST } from "../../src/actions/composerTokens";
+import { allIdsComposerTokensReducer, byIdComposerTokensReducer } from "../../src/reducers/composerTokens";
+import { entitiesComposerTokensReducer } from "../../src/reducers";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -75,13 +78,20 @@ jest.mock( "../../src/reducers/products.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/composerTokens.js", () => {
+	return {
+		byIdComposerTokensReducer: jest.fn( ( state = {} ) => { return { name: "byIdComposerTokensReducer" }; } ),
+		allIdsComposerTokensReducer: jest.fn( ( state = {} ) => { return { name: "allIdsComposerTokensReducer" }; } ),
+		uiComposerTokensReducer: jest.fn( ( state = {} ) => { return { name: "uiComposerTokensReducer" }; } ),
+	}
+} );
+
 test( 'ui reducer', () => {
 	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-
-	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, sites: { name: "uiSitesReducer" },
+	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
 		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" },  };
 
@@ -100,6 +110,18 @@ test( 'entities courses reducer', () => {
 	expect( actual ).toEqual( expected );
 	expect( byIdCoursesReducer ).toHaveBeenCalledWith( {}, action );
 	expect( allIdsCoursesReducer ).toHaveBeenCalledWith( {}, action );
+} );
+
+test( 'entities composerTokens reducer', () => {
+	const state = { allIds: {}, byId: {} };
+	const action = {
+		type: CREATE_COMPOSER_TOKEN_REQUEST,
+	};
+	const expected = { allIds: { name: "allIdsComposerTokensReducer"}, byId: { name: "byIdComposerTokensReducer" } };
+	const actual = entitiesComposerTokensReducer( state, action );
+	expect( actual ).toEqual( expected );
+	expect( byIdComposerTokensReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsComposerTokensReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
 test( 'entities site reducer', () => {
@@ -139,12 +161,13 @@ test( 'entities products reducer', () => {
 } );
 
 test( 'entities reducer', () => {
-	const state = { sites: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} }, courses: { allIds: {}, byId: {} } };
+	const state = { sites: { allIds: {}, byId: {} }, composerTokens: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} }, courses: { allIds: {}, byId: {} } };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 
 	const expected = {
+		composerTokens: { allIds: { name: "allIdsComposerTokensReducer" }, byId: { name: "byIdComposerTokensReducer" } },
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
 		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
 		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer" } },
@@ -184,6 +207,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				byId: { name: "byIdCoursesReducer" },
 				allIds: { name: "allIdsCoursesReducer" },
 			},
+			composerTokens: {
+				byId: { name: "byIdComposerTokensReducer" },
+				allIds: { name: "allIdsComposerTokensReducer" },
+			},
 			coursesEnrollments: {
 				byId: { name: "byIdCoursesEnrollmentsReducer" },
 				allIds: { name: "allIdsCoursesEnrollmentsReducer" },
@@ -211,6 +238,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 		ui: {
 			sites: { name: "uiSitesReducer" },
 			refunds: { name: "uiRefundsReducer" },
+			composerTokens: { name: "uiComposerTokensReducer"},
 			search: {
 				query: "",
 			},

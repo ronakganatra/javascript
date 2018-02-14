@@ -10,11 +10,12 @@ import {
 import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
-import CourseInviteModal from "./CourseInviteModal";
 import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
+import MyYoastModal from "./MyYoastModal";
+import CourseInvite from "./CourseInvite";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -106,16 +107,28 @@ class CoursesEnrollments extends React.Component {
 	getModal() {
 		let open = this.props.inviteModalIsOpen;
 
-		return <CourseInviteModal
-			isOpen={ open }
-			onInviteClick={ this.props.onInviteClick }
-			onClose={ this.props.inviteModalClose }
-			inviteStudentEmail={ this.props.inviteStudentEmail }
-			inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
-			onStudentEmailChange={ this.props.onStudentEmailChange }
-			onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
-			courseInviteError={ this.props.courseInviteError }
-		/>;
+		const modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.invite",
+			defaultMessage: "Send course invite",
+		} );
+
+		return (
+			<MyYoastModal
+				isOpen={ open }
+				onClose={ this.props.inviteModalClose }
+				modalAriaLabel={ modalAriaLabel }
+			>
+					<CourseInvite
+						inviteStudentEmail={ this.props.inviteStudentEmail }
+						inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
+						onStudentEmailChange={ this.props.onStudentEmailChange }
+						onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+						courseInviteError={ this.props.courseInviteError }
+						onCancelClick={ this.props.inviteModalClose }
+						onInviteClick={ this.props.onInviteClick }
+					/>
+			</MyYoastModal>
+		);
 	}
 
 	render() {
@@ -130,7 +143,7 @@ class CoursesEnrollments extends React.Component {
 		/**
 		 * Sets the Course status column.
 		 * @param {Object} course the course object.
-		 * @returns {void}
+		 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
 		 */
 		let studentOrBuyer = ( course ) => {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {

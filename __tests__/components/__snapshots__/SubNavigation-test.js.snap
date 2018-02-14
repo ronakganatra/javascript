@@ -16,9 +16,7 @@ exports[`the subnavigation component matches the snapshot 1`] = `
         onClick={[Function]}
         style={undefined}
       >
-         
         Subscriptions
-         
       </a>
     </li>
     <li
@@ -31,9 +29,7 @@ exports[`the subnavigation component matches the snapshot 1`] = `
         onClick={[Function]}
         style={undefined}
       >
-         
         Orders
-         
       </a>
     </li>
     <li
@@ -46,9 +42,7 @@ exports[`the subnavigation component matches the snapshot 1`] = `
         onClick={[Function]}
         style={undefined}
       >
-         
         Profile
-         
       </a>
     </li>
   </ul>

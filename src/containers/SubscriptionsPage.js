@@ -29,7 +29,7 @@ export const mapStateToProps = ( state ) => {
 	} );
 
 	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active";
+		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
 	let query = state.ui.search.query;

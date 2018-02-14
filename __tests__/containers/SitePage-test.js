@@ -1,8 +1,6 @@
 import React from 'react';
 import { mapStateToProps, mapDispatchToProps } from '../../src/containers/SitePage'
-import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../../src/actions/sites";
 import { siteRemove } from "../../src/actions/site";
-import { push } from "react-router-redux";
 
 jest.mock( "../../src/actions/site", () => {
 	return {

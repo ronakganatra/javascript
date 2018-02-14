@@ -1,6 +1,6 @@
 import React from 'react';
 import { mapStateToProps, mapDispatchToProps } from '../../src/containers/SitesPage'
-import { linkSitePopupClose, linkSitePopupOpen, updateSiteUrl } from "../../src/actions/sites";
+import { linkSiteModalClose, linkSiteModalOpen, updateSiteUrl } from "../../src/actions/sites";
 import { push } from "react-router-redux";
 
 let state = {
@@ -49,7 +49,7 @@ let state = {
 			query: "",
 		},
 		sites: {
-			addSitePopupOpen: false,
+			addSiteModalOpen: false,
 			linkingSite: false,
 			linkingSiteUrl: "http://yoast.com",
 			linkSiteFailed: false,
@@ -79,7 +79,7 @@ test('the mapStateToProps function', () => {
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",
@@ -114,7 +114,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",
@@ -149,7 +149,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",
@@ -175,7 +175,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",
@@ -208,7 +208,7 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",
@@ -232,34 +232,34 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 	};
 } );
 
-test('the mapDispatchToProps function to call linkSitePopupOpen action with onClick', () => {
+test('the mapDispatchToProps function to call linkSiteModalOpen action with onClick', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
 
 	props.onClick();
 
-	expect( dispatch ).toHaveBeenCalledWith( linkSitePopupOpen() );
+	expect( dispatch ).toHaveBeenCalledWith( linkSiteModalOpen() );
 } );
 
-test('the mapDispatchToProps function to call linkSitePopupOpen action with addSite', () => {
+test('the mapDispatchToProps function to call linkSiteModalOpen action with addSite', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
 
 	props.addSite();
 
-	expect( dispatch ).toHaveBeenCalledWith( linkSitePopupOpen() );
+	expect( dispatch ).toHaveBeenCalledWith( linkSiteModalOpen() );
 } );
 
-test('the mapDispatchToProps function to call linkSitePopupClose action with onClose', () => {
+test('the mapDispatchToProps function to call linkSiteModalClose action with onClose', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
 
 	props.onClose();
 
-	expect( dispatch ).toHaveBeenCalledWith( linkSitePopupClose() );
+	expect( dispatch ).toHaveBeenCalledWith( linkSiteModalClose() );
 } );
 
 test('the mapDispatchToProps function to call updateSiteUrl action with onChange', () => {
@@ -315,7 +315,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 				"type": "plugin",
 			}
 		],
-		popupOpen: false,
+		modalOpen: false,
 		showLoader: true,
 		errorFound: false,
 		error: "",

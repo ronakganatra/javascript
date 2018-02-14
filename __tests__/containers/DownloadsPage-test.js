@@ -32,7 +32,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						"glNumber": 111,
+						"glNumber": "111",
 					},
 					"2": {
 						"id": "2",
@@ -48,7 +48,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						"glNumber": 222,
+						"glNumber": "222",
 					},
 					"3": {
 						"id": "3",
@@ -64,7 +64,7 @@ test( "the mapStateToProps function", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
-						"glNumber": 333
+						"glNumber": "333",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -83,10 +83,19 @@ test( "the mapStateToProps function", () => {
 				},
 				allIds: [ "3" ],
 			},
+			composerTokens: {
+				byId: {},
+				allIds: []
+			},
 		},
 		ui: {
 			search: {
 				query: "d",
+			},
+			composerTokens: {
+				composerHelpModalIsOpen: false,
+				composerHelpProductName: "",
+				composerHelpProductGlNumber: "0",
 			},
 		},
 	};
@@ -99,7 +108,7 @@ test( "the mapStateToProps function", () => {
 			icon: "icon.jpg",
 			ids: [ "3" ],
 			name: "download1",
-			glNumber: 333,
+			glNumber: "333",
 		}],
 		plugins: [ {
 			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
@@ -108,9 +117,13 @@ test( "the mapStateToProps function", () => {
 			icon: "icon.jpg",
 			ids: [ "1" ],
 			name: "download1",
-			glNumber: 111,
+			glNumber: "111",
 		} ],
 		query: "d",
+		composerToken: null,
+		composerHelpModalIsOpen: false,
+		composerHelpProductGlNumber: "0",
+		composerHelpProductName: "",
 	};
 
 	let actual = mapStateToProps( state );
@@ -152,7 +165,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: 111,
+						glNumber: "111",
 					},
 					"2": {
 						"id": "2",
@@ -169,7 +182,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: 222,
+						glNumber: "222",
 					},
 					"3": {
 						"id": "3",
@@ -186,7 +199,7 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
-						glNumber: 333,
+						glNumber: "333",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -205,10 +218,19 @@ test( "the mapStateToProps function without search results", () => {
 				},
 				allIds: [ "3" ],
 			},
+			composerTokens: {
+				byId: {},
+				allIds: []
+			},
 		},
 		ui: {
 			search: {
 				query: "q",
+			},
+			composerTokens: {
+				composerHelpModalIsOpen: false,
+				composerHelpProductGlNumber: "0",
+				composerHelpProductName: "",
 			},
 		},
 	};
@@ -217,6 +239,10 @@ test( "the mapStateToProps function without search results", () => {
 		eBooks: [],
 		plugins: [],
 		query: "q",
+		composerToken: null,
+		composerHelpModalIsOpen: false,
+		composerHelpProductName: "",
+		composerHelpProductGlNumber: "0",
 	};
 
 	let actual = mapStateToProps( state );
