@@ -13,7 +13,7 @@ const rootState = {
 	ui: {
 		invoices: {
 			invoicesModalIsOpen: false,
-			orderId: "",
+			invoicesModalOrderId: "",
 			error: "",
 		},
 	},

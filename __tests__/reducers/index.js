@@ -61,6 +61,12 @@ jest.mock( "../../src/reducers/refunds.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/invoices.js", () => {
+	return {
+		uiInvoicesReducer: jest.fn( ( state = {} ) => { return { name: "uiInvoicesReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/courses.js", () => {
 	return {
 		allIdsCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesEnrollmentsReducer" }; } ),
@@ -93,7 +99,7 @@ test( 'ui reducer', () => {
 	};
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" },  };
+		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoices: { name: "uiInvoicesReducer" }, };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -251,6 +257,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			},
 			addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" },
 			helpBeaconModal: { name: "uiHelpBeaconModalReducer" },
+			invoices: { name: "uiInvoicesReducer" },
 
 		},
 		user: { name: "userReducer" },

@@ -5,7 +5,7 @@ import { onSearchQueryChange } from "../../src/actions/search";
 let state = {
 	entities: {
 		orders: {
-			"byId": {
+			byId: {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"invoiceNumber": "YST201701",
@@ -52,6 +52,10 @@ let state = {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f3",
 			],
 		},
+		refunds: {
+			byId: {},
+			allIds: [],
+		},
 	},
 	router: {
 		location: "orders/thisIsAnId",
@@ -59,6 +63,11 @@ let state = {
 	ui: {
 		search: {
 			query: "",
+		},
+		invoices: {
+			invoicesModalIsOpen: false,
+			error: "",
+			invoicesModalOrderId: "",
 		},
 	},
 };
@@ -93,6 +102,12 @@ let defaultExpected = {
 		},
 	],
 	query: "",
+	refunds: [],
+	invoices: {
+		invoicesModalIsOpen: false,
+		error: "",
+		invoicesModalOrderId: "",
+	},
 };
 
 test('the mapStateToProps function', () => {
@@ -132,7 +147,7 @@ test('the mapStateToProps function when query contains part of formatted order d
 			},
 		],
 		query: "May 1"
-	} )
+	} );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
