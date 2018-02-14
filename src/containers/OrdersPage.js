@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
+import { closeInvoicesModal, openInvoicesModal } from "../actions/invoices";
 import { getRefunds } from "../actions/refunds";
 
 export const mapStateToProps = ( state ) => {
@@ -37,6 +38,17 @@ export const mapStateToProps = ( state ) => {
 		return b.date - a.date;
 	} );
 
+	let refunds = state.entities.refunds.allIds.map(
+		( refundId ) => {
+			return state.entities.refunds.byId[ refundId ];
+		}
+	);
+
+	let invoices={
+		invoicesModalIsOpen: state.ui.invoices.invoicesModalIsOpen,
+		invoicesModalOrderId: state.ui.invoices.orderId,
+	};
+
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
@@ -55,6 +67,8 @@ export const mapStateToProps = ( state ) => {
 
 	return {
 		orders,
+		refunds,
+		invoices,
 		query,
 	};
 };
@@ -67,6 +81,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		loadData: () => {
 			dispatch( getOrders() );
 			dispatch( getRefunds() );
+		},
+		onInvoicesClick: ( orderId ) => {
+			dispatch( openInvoicesModal( orderId ) );
+		},
+		onInvoicesClose: () => {
+			dispatch( closeInvoicesModal() );
 		},
 	};
 };

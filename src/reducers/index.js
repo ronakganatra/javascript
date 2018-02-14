@@ -13,6 +13,7 @@ import { uiSearch } from "./search.js";
 import { uiCourseInviteRequestReducer } from "./courses";
 import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
+import { uiInvoicesReducer } from "./invoices";
 
 
 export const uiReducer = combineReducers( {
@@ -26,6 +27,7 @@ export const uiReducer = combineReducers( {
 	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
+	invoices: uiInvoicesReducer,
 	refunds: uiRefundsReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,

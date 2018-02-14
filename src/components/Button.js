@@ -57,9 +57,9 @@ ButtonArchetype.defaultProps = {
 export const IconButtonArchetype = styled( ButtonArchetype )`
 	background-repeat: no-repeat;
 	background-image: url( ${ props => props.iconSource } );
-	background-position: 16px 50%;
+	background-position: 8px 50%;
 	background-size: ${ props => props.iconSize };
-	padding-left: 56px;
+	padding-left: 36px;
 `;
 
 IconButtonArchetype.propTypes = {
