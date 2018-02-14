@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
-import { LargeIconButtonLink, makeButtonFullWidth, makeResponsiveIconButton } from "./Button";
-import downloadIcon from "../icons/download.svg";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
+import InvoiceButtonArea from "./account/orders/InvoiceButtonArea";
 
 const messages = defineMessages( {
 	date: {
@@ -49,11 +48,6 @@ let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWi
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
-	let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
-
-	let invoiceMessage = props.intl.formatMessage( messages.invoice );
-	let invoiceLabel = props.intl.formatMessage( messages.invoiceLabel );
-
 	return (
 		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -73,14 +67,9 @@ function Order( props ) {
 				<span>{ props.status.charAt( 0 ).toUpperCase() + props.status.slice( 1 ) }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
-				<ResponsiveInvoiceButton
-					ariaLabel={ invoiceLabel }
-					iconSource={ downloadIcon }
-					to={ props.invoiceLink }
-					linkTarget="_blank"
-				>
-					<span className="screen-reader-text">{ invoiceMessage }</span>
-				</ResponsiveInvoiceButton>
+				<InvoiceButtonArea
+					{ ...props }
+				/>
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapse>
 	);
@@ -92,7 +81,6 @@ Order.propTypes = {
 	orderNumber: PropTypes.string.isRequired,
 	total: PropTypes.number.isRequired,
 	currency: PropTypes.string.isRequired,
-	invoiceLink: PropTypes.string,
 	intl: intlShape.isRequired,
 	items: PropTypes.array,
 	status: PropTypes.string,
