@@ -3,7 +3,6 @@ import React from "react";
 import Order from "./Order";
 import { ListTable } from "./Tables";
 import Paper from "./Paper";
-import { getInvoiceUrl } from "../functions/api";
 
 /**
  * Returns the rendered Orders component.
@@ -15,12 +14,11 @@ import { getInvoiceUrl } from "../functions/api";
 export default function Orders( props ) {
 	let ordersTable = <ListTable { ...props }>
 		{ props.orders.map( ( order ) => {
-			let invoiceURI = getInvoiceUrl( order.id );
-
 			return <Order
 				{ ...order }
+				refunds={ props.refunds }
+				onInvoicesClick={ props.onInvoicesClick }
 				key={ order.id }
-				invoiceLink={ invoiceURI }
 			/>;
 		} ) }
 	</ListTable>;
@@ -34,10 +32,14 @@ export default function Orders( props ) {
 
 Orders.propTypes = {
 	orders: PropTypes.array,
+	refunds: PropTypes.array,
+	onInvoicesClick: PropTypes.func,
+	onInvoicesClose: PropTypes.func,
 	hasPaper: PropTypes.bool,
 };
 
 Orders.defaultProps = {
 	orders: [],
+	refunds: [],
 	hasPaper: true,
 };
