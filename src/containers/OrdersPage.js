@@ -44,7 +44,7 @@ export const mapStateToProps = ( state ) => {
 		}
 	);
 
-	let invoices={
+	let invoices = {
 		invoicesModalIsOpen: state.ui.invoices.invoicesModalIsOpen,
 		invoicesModalOrderId: state.ui.invoices.invoicesModalOrderId,
 		error: state.ui.invoices.error,
