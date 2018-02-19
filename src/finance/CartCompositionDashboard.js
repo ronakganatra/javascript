@@ -41,7 +41,11 @@ export default class CartCompositionDashboard extends React.Component {
 				)( order.items ) || "Unknown"
 			},
 			refundGroupBy: FinanceStatistic.groupByDate( "Y-M-D" ),
-			orderCollectors: { count: FinanceStatistic.transactionsCount },
+			orderCollectors: {
+				transactionCount: FinanceStatistic.transactionsCount,
+				personCount: order => order.customerCompany ? 0 : 1,
+				companyCount: order => order.customerCompany ? 1 : 0,
+			},
 			refundCollectors: {},
 		} );
 	}
@@ -107,9 +111,17 @@ export default class CartCompositionDashboard extends React.Component {
 		let total = 0;
 
 		return _flow(
-			_each( statistic => total += statistic.count ),
-			_sortBy( row => row.count * -1 ),
-			_map( row => [ row.group, row.count, Math.floor( row.count / total * 100 ) + "%" ] )
+			_each( row => total += row.transactionCount ),
+			_sortBy( row => row.transactionCount * -1 ),
+			_map( row => {
+				return [
+					row.group,
+					row.transactionCount,
+					( row.transactionCount / total * 100 ).toFixed( 2 ) + "%",
+					row.personCount + " ( " + ( row.transactionCount ? ( row.personCount / row.transactionCount * 100 ).toFixed( 2 ) : "0.00" ) + "% )",
+					row.companyCount + " ( " + ( row.transactionCount ? ( row.companyCount / row.transactionCount * 100 ).toFixed( 2 ) : "0.00" ) + "% )",
+				]
+			} )
 		)( this.state.statistics );
 	}
 
@@ -137,7 +149,7 @@ export default class CartCompositionDashboard extends React.Component {
 						<button onClick={ this.onDateChanged } >Search</button>
 					</fieldset>
 				</form>
-				{ table( [ "Cart Composition", "Total", "Percentage" ], rows, { className: "FinanceDashboard" } ) }
+				{ table( [ "Cart Composition", "Total", "Percentage", "Of which Persons", "Of which Companies" ], rows, { className: "FinanceDashboard" } ) }
 			</div>
 		);
 	}
