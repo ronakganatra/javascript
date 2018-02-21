@@ -19,7 +19,7 @@ export default function Orders( props ) {
 				refunds={ props.refunds }
 				onInvoicesClick={ props.onInvoicesClick }
 				onInvoicesClose={ props.onInvoicesClose }
-				invoices={ props.invoices }
+				invoiceModalProps={ props.invoiceModalProps }
 				key={ order.id }
 			/>;
 		} ) }
@@ -38,7 +38,7 @@ Orders.propTypes = {
 	onInvoicesClick: PropTypes.func,
 	onInvoicesClose: PropTypes.func,
 	hasPaper: PropTypes.bool,
-	invoices: PropTypes.shape( {
+	invoiceModalProps: PropTypes.shape( {
 		invoicesModalIsOpen: PropTypes.bool,
 		invoicesModalOrderId: PropTypes.string,
 		error: PropTypes.object,

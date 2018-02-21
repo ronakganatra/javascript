@@ -41,10 +41,10 @@ export const mapStateToProps = ( state ) => {
 		}
 	);
 
-	let invoices = {
-		invoicesModalIsOpen: state.ui.invoices.invoicesModalIsOpen,
-		invoicesModalOrderId: state.ui.invoices.invoicesModalOrderId,
-		error: state.ui.invoices.error,
+	let invoiceModalProps = {
+		invoicesModalIsOpen: state.ui.invoiceModal.invoicesModalIsOpen,
+		invoicesModalOrderId: state.ui.invoiceModal.invoicesModalOrderId,
+		error: state.ui.invoiceModal.error,
 	};
 
 	let query = state.ui.search.query;
@@ -66,7 +66,7 @@ export const mapStateToProps = ( state ) => {
 	return {
 		orders,
 		refunds,
-		invoices,
+		invoiceModalProps,
 		query,
 	};
 };

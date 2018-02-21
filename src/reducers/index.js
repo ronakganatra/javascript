@@ -27,7 +27,7 @@ export const uiReducer = combineReducers( {
 	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
 	orders: uiOrdersReducer,
-	invoices: uiInvoicesReducer,
+	invoiceModal: uiInvoicesReducer,
 	refunds: uiRefundsReducer,
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,

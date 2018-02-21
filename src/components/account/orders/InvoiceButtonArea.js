@@ -54,14 +54,14 @@ class InvoiceButtonArea extends React.Component {
 		let theModal = (
 			<MyYoastModal
 				onClose={ this.props.onInvoicesClose }
-				isOpen={ this.props.invoices.invoicesModalOrderId === this.props.id }
+				isOpen={ this.props.invoiceModalProps.invoicesModalOrderId === this.props.id }
 				modalAriaLabel={ messages.invoicesModalLabel }
 			>
 				<InvoicesModal { ...this.props } />
 			</MyYoastModal>
 		);
 
-		return this.props.invoices.invoicesModalOrderId
+		return this.props.invoiceModalProps.invoicesModalOrderId
 			? theModal
 			: null;
 	}
@@ -122,7 +122,7 @@ InvoiceButtonArea.propTypes = {
 	intl: intlShape,
 	onInvoicesClick: PropTypes.func,
 	onInvoicesClose: PropTypes.func,
-	invoices: PropTypes.shape( {
+	invoiceModalProps: PropTypes.shape( {
 		invoicesModalIsOpen: PropTypes.bool,
 		invoicesModalOrderId: PropTypes.string,
 	} ),

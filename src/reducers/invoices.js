@@ -11,7 +11,7 @@ const rootState = {
 		},
 	},
 	ui: {
-		invoices: {
+		invoiceModal: {
 			invoicesModalIsOpen: false,
 			invoicesModalOrderId: "",
 			error: null,
@@ -30,7 +30,7 @@ const rootState = {
  * @param {Object} action The current action received.
  * @returns {Object} The updated invoices object.
  */
-export function uiInvoicesReducer( state = rootState.ui.invoices, action ) {
+export function uiInvoicesReducer( state = rootState.ui.invoiceModal, action ) {
 	switch ( action.type ) {
 		case OPEN_INVOICES_MODAL:
 			return Object.assign( {}, state, {
