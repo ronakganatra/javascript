@@ -1,5 +1,5 @@
 import React from "react";
-import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { getInvoiceUrl } from "../../../functions/api";
 import { LargeIconButton, LargeIconButtonLink, makeButtonFullWidth, makeResponsiveIconButton } from "../../Button";
 import downloadIcon from "../../../icons/download.svg";
@@ -15,6 +15,10 @@ const messages = defineMessages( {
 	invoiceLabel: {
 		id: "orders.overview.invoice.label",
 		defaultMessage: "Download invoice",
+	},
+	invoiceModal: {
+		id: "orders.overview.invoiceModal",
+		defaultMessage: "Invoices",
 	},
 	invoicesModalLabel: {
 		id: "orders.overview.invoices.modal.label",
@@ -60,6 +64,7 @@ class InvoiceButtonArea extends React.Component {
 		let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
 
 		let invoiceMessage = this.props.intl.formatMessage( messages.invoice );
+		let invoiceModalMessage = this.props.intl.formatMessage( messages.invoiceModal );
 		let invoiceLabel = this.props.intl.formatMessage( messages.invoiceLabel );
 
 		if ( this.props.hasMultipleInvoices ) {
@@ -71,10 +76,7 @@ class InvoiceButtonArea extends React.Component {
 						return this.props.onInvoicesClick( this.props.orderId );
 					} }
 				>
-					<FormattedMessage
-						defaultMessage={ "invoices" }
-						id={ "invoices-modal-button" }
-					/>
+					<span className="screen-reader-text" >{ invoiceModalMessage }</span>
 				</ResponsiveInvoiceButton>
 			);
 		}
