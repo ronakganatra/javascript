@@ -35,12 +35,13 @@ export function uiInvoicesReducer( state = rootState.ui.invoices, action ) {
 		case OPEN_INVOICES_MODAL:
 			return Object.assign( {}, state, {
 				invoicesModalIsOpen: true,
-				orderId: action.orderId,
+				invoicesModalOrderId: action.orderId,
 				error: "",
 			} );
 		case CLOSE_INVOICES_MODAL:
 			return Object.assign( {}, state, {
 				invoicesModalIsOpen: false,
+				invoicesModalOrderId: "",
 			} );
 		default:
 			return state;

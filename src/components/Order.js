@@ -5,6 +5,7 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, mak
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
 import InvoiceButtonArea from "./account/orders/InvoiceButtonArea";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 const messages = defineMessages( {
 	date: {
@@ -64,7 +65,7 @@ function Order( props ) {
 				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<span>{ props.status.charAt( 0 ).toUpperCase() + props.status.slice( 1 ) }</span>
+				<span>{ capitalizeFirstLetter( props.status ) }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
 				<InvoiceButtonArea

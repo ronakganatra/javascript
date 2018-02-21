@@ -4,6 +4,7 @@ import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { closeInvoicesModal, openInvoicesModal } from "../actions/invoices";
 import { getRefunds } from "../actions/refunds";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.orders.allIds;
@@ -11,11 +12,7 @@ export const mapStateToProps = ( state ) => {
 	let orders = allIds.map( ( orderId ) => {
 		let order = state.entities.orders.byId[ orderId ];
 
-		/*
-		Capitalize the first letter in the order.status string, by taking the first character and calling toUpperCase() on it.
-		Then, add the remainder of the string.
-		 */
-		order.status = order.status.charAt( 0 ).toUpperCase() + order.status.slice( 1 );
+		order.status = capitalizeFirstLetter( order.status );
 
 		return {
 			id: order.id,

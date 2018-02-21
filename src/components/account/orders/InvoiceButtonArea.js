@@ -6,6 +6,8 @@ import downloadIcon from "../../../icons/download.svg";
 import PropTypes from "prop-types";
 import _filter from "lodash/filter";
 import _isEmpty from "lodash/isEmpty";
+import { InvoicesModal } from "./InvoicesModal";
+import MyYoastModal from "../../MyYoastModal";
 
 const messages = defineMessages( {
 	invoice: {
@@ -15,6 +17,10 @@ const messages = defineMessages( {
 	invoiceLabel: {
 		id: "orders.overview.invoice.label",
 		defaultMessage: "Download invoice",
+	},
+	invoicesModalLabel: {
+		id: "orders.overview.invoices.modal.label",
+		defaultMessage: "View and download invoices",
 	},
 } );
 
@@ -33,8 +39,31 @@ class InvoiceButtonArea extends React.Component {
 		super( props );
 	}
 
+	/**
+	 * Will get the refunds belonging to the relevant order.
+	 *
+	 * @param {string} orderId The id of the relevant order.
+	 * @param {Object} refunds The refunds for this customer.
+	 * @returns {Array} The refunds belonging to this order for this customer.
+	 */
 	getRefunds( orderId, refunds ) {
 		return _filter( refunds, { orderId: orderId } );
+	}
+
+	getModal() {
+		let theModal = (
+			<MyYoastModal
+				onClose={ this.props.onInvoicesClose }
+				isOpen={ this.props.invoices.invoicesModalOrderId === this.props.id }
+				modalAriaLabel={ messages.invoicesModalLabel }
+			>
+				<InvoicesModal { ...this.props } />
+			</MyYoastModal>
+		);
+
+		return this.props.invoices.invoicesModalOrderId
+			? theModal
+			: null;
 	}
 
 	getButton() {
@@ -77,7 +106,10 @@ class InvoiceButtonArea extends React.Component {
 
 	render() {
 		return(
-			this.getButton()
+			<div>
+				{ this.getButton() }
+				{ this.getModal() }
+			</div>
 		);
 	}
 }
@@ -89,4 +121,10 @@ InvoiceButtonArea.propTypes = {
 	refunds: PropTypes.array.isRequired,
 	intl: intlShape,
 	onInvoicesClick: PropTypes.func,
+	onInvoicesClose: PropTypes.func,
+	invoices: PropTypes.shape( {
+		invoicesModalIsOpen: PropTypes.bool,
+		invoicesModalOrderId: PropTypes.string,
+	} ),
+	orders: PropTypes.object,
 };
