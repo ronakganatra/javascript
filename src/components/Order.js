@@ -4,8 +4,8 @@ import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate }
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
 import formatAmount from "../../../shared/currency";
 import LineItems from "./LineItems";
-import InvoiceButtonArea from "./account/orders/InvoiceButtonArea";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import InvoicesDownloadContainer from "../containers/InvoicesDownload";
 
 const messages = defineMessages( {
 	date: {
@@ -68,9 +68,7 @@ function Order( props ) {
 				<span>{ capitalizeFirstLetter( props.status ) }</span>
 			</ColumnMinWidthResponsive>
 			<ColumnFixedWidthResponsive>
-				<InvoiceButtonArea
-					{ ...props }
-				/>
+				<InvoicesDownloadContainer orderId={ props.id } />
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapse>
 	);

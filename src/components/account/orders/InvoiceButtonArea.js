@@ -4,8 +4,6 @@ import { getInvoiceUrl } from "../../../functions/api";
 import { LargeIconButton, LargeIconButtonLink, makeButtonFullWidth, makeResponsiveIconButton } from "../../Button";
 import downloadIcon from "../../../icons/download.svg";
 import PropTypes from "prop-types";
-import _filter from "lodash/filter";
-import _isEmpty from "lodash/isEmpty";
 import { InvoicesModal } from "./InvoicesModal";
 import MyYoastModal from "../../MyYoastModal";
 
@@ -39,22 +37,11 @@ class InvoiceButtonArea extends React.Component {
 		super( props );
 	}
 
-	/**
-	 * Will get the refunds belonging to the relevant order.
-	 *
-	 * @param {string} orderId The id of the relevant order.
-	 * @param {Object} refunds The refunds for this customer.
-	 * @returns {Array} The refunds belonging to this order for this customer.
-	 */
-	getRefunds( orderId, refunds ) {
-		return _filter( refunds, { orderId: orderId } );
-	}
-
 	getModal() {
 		let theModal = (
 			<MyYoastModal
 				onClose={ this.props.onInvoicesClose }
-				isOpen={ this.props.invoiceModalProps.invoicesModalOrderId === this.props.id }
+				isOpen={ this.props.invoiceModalProps.invoicesModalOrderId === this.props.orderId }
 				modalAriaLabel={ messages.invoicesModalLabel }
 			>
 				<InvoicesModal { ...this.props } />
@@ -67,22 +54,21 @@ class InvoiceButtonArea extends React.Component {
 	}
 
 	getButton() {
-		let invoiceURI = getInvoiceUrl( this.props.id );
+		let invoiceURI = getInvoiceUrl( this.props.orderId );
 
 		let ResponsiveInvoiceLink = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
 		let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
 
 		let invoiceMessage = this.props.intl.formatMessage( messages.invoice );
 		let invoiceLabel = this.props.intl.formatMessage( messages.invoiceLabel );
-		let refunds = this.getRefunds( this.props.id, this.props.refunds );
 
-		if ( ! _isEmpty( refunds ) ) {
+		if ( this.props.hasMultipleInvoices ) {
 			return (
 				<ResponsiveInvoiceButton
 					ariaLabel={ invoiceLabel }
 					iconSource={ downloadIcon }
 					onClick={ () => {
-						return this.props.onInvoicesClick( this.props.id );
+						return this.props.onInvoicesClick( this.props.orderId );
 					} }
 				>
 					<FormattedMessage
@@ -117,8 +103,8 @@ class InvoiceButtonArea extends React.Component {
 export default injectIntl( InvoiceButtonArea );
 
 InvoiceButtonArea.propTypes = {
-	id: PropTypes.string.isRequired,
-	refunds: PropTypes.array.isRequired,
+	orderId: PropTypes.string.isRequired,
+	hasMultipleInvoices: PropTypes.bool,
 	intl: intlShape,
 	onInvoicesClick: PropTypes.func,
 	onInvoicesClose: PropTypes.func,
@@ -126,5 +112,5 @@ InvoiceButtonArea.propTypes = {
 		invoicesModalIsOpen: PropTypes.bool,
 		invoicesModalOrderId: PropTypes.string,
 	} ),
-	orders: PropTypes.object,
+	order: PropTypes.object,
 };
