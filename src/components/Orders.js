@@ -16,10 +16,6 @@ export default function Orders( props ) {
 		{ props.orders.map( ( order ) => {
 			return <Order
 				{ ...order }
-				refunds={ props.refunds }
-				onInvoicesClick={ props.onInvoicesClick }
-				onInvoicesClose={ props.onInvoicesClose }
-				invoiceModalProps={ props.invoiceModalProps }
 				key={ order.id }
 			/>;
 		} ) }
@@ -34,19 +30,10 @@ export default function Orders( props ) {
 
 Orders.propTypes = {
 	orders: PropTypes.array,
-	refunds: PropTypes.array,
-	onInvoicesClick: PropTypes.func,
-	onInvoicesClose: PropTypes.func,
 	hasPaper: PropTypes.bool,
-	invoiceModalProps: PropTypes.shape( {
-		invoicesModalIsOpen: PropTypes.bool,
-		invoicesModalOrderId: PropTypes.string,
-		error: PropTypes.object,
-	} ),
 };
 
 Orders.defaultProps = {
 	orders: [],
-	refunds: [],
 	hasPaper: true,
 };

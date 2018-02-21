@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
-import { closeInvoicesModal, openInvoicesModal } from "../actions/invoices";
 import { getRefunds } from "../actions/refunds";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
@@ -35,18 +34,6 @@ export const mapStateToProps = ( state ) => {
 		return b.date - a.date;
 	} );
 
-	let refunds = state.entities.refunds.allIds.map(
-		( refundId ) => {
-			return state.entities.refunds.byId[ refundId ];
-		}
-	);
-
-	let invoiceModalProps = {
-		invoicesModalIsOpen: state.ui.invoiceModal.invoicesModalIsOpen,
-		invoicesModalOrderId: state.ui.invoiceModal.invoicesModalOrderId,
-		error: state.ui.invoiceModal.error,
-	};
-
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
@@ -65,8 +52,6 @@ export const mapStateToProps = ( state ) => {
 
 	return {
 		orders,
-		refunds,
-		invoiceModalProps,
 		query,
 	};
 };
@@ -79,12 +64,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		loadData: () => {
 			dispatch( getOrders() );
 			dispatch( getRefunds() );
-		},
-		onInvoicesClick: ( orderId ) => {
-			dispatch( openInvoicesModal( orderId ) );
-		},
-		onInvoicesClose: () => {
-			dispatch( closeInvoicesModal() );
 		},
 	};
 };
