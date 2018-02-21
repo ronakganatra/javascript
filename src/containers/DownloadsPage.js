@@ -36,10 +36,13 @@ const getEbookProducts = ( state ) => {
 
 const getPluginProducts = ( state ) => {
 	let plugins = getPlugins( state.entities.products.byId );
-	let activeSubscriptions = _filter( state.entities.subscriptions.byId, { status: "active" } );
+
+	let activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+
 	let activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
 	} );
+
 	return _filter( plugins, ( plugin ) => {
 		let boughtPlugin = false;
 		plugin.ids.forEach( ( pluginId ) => {
