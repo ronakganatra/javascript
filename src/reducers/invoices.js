@@ -14,7 +14,7 @@ const rootState = {
 		invoices: {
 			invoicesModalIsOpen: false,
 			invoicesModalOrderId: "",
-			error: "",
+			error: null,
 		},
 	},
 };
@@ -36,7 +36,7 @@ export function uiInvoicesReducer( state = rootState.ui.invoices, action ) {
 			return Object.assign( {}, state, {
 				invoicesModalIsOpen: true,
 				invoicesModalOrderId: action.orderId,
-				error: "",
+				error: null,
 			} );
 		case CLOSE_INVOICES_MODAL:
 			return Object.assign( {}, state, {
