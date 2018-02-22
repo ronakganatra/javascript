@@ -48,7 +48,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	// The ownProps parameter is also returned, implicitly. So the props contain orderId, for example.
 	return {
-		order,
 		invoices,
 		hasMultipleInvoices,
 		invoiceModalProps,
