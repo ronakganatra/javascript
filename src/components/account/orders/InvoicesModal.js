@@ -7,13 +7,12 @@ import {
 } from "../../Tables";
 import Paper from "../../Paper";
 import { ModalHeading } from "../../Headings";
-import { defineMessages, FormattedDate, FormattedMessage, intlShape } from "react-intl";
+import { defineMessages, FormattedDate, FormattedMessage, intlShape, FormattedNumber } from "react-intl";
 import styled from "styled-components";
 import downloadIcon from "../../../icons/download.svg";
-import { LargeIconButtonLink, makeButtonFullWidth } from "../../Button";
+import { LargeButton, LargeIconButtonLink, makeButtonFullWidth } from "../../Button";
 import { getInvoiceUrl } from "../../../functions/api";
-// import formatAmount from "../../../../../shared/currency";
-// import FormattedNumber from "react-intl/src/components/number";
+import formatAmount from "../../../../../shared/currency";
 
 const messages = defineMessages( {
 	date: {
@@ -22,11 +21,15 @@ const messages = defineMessages( {
 	},
 	type: {
 		id: "invoice.type",
-		defaultMessage: "Order",
+		defaultMessage: "Type",
 	},
-	invoice: {
-		id: "orders.overview.invoice",
-		defaultMessage: "Invoice",
+	amount: {
+		id: "invoice.amount",
+		defaultMessage: "Amount",
+	},
+	download: {
+		id: "orders.overview.download",
+		defaultMessage: "Download",
 	},
 	invoiceLabel: {
 		id: "orders.overview.invoice.label",
@@ -37,12 +40,17 @@ const messages = defineMessages( {
 const ModalDiv = styled.div`
 	width: 704px;
 	max-width: 100%;
-	padding-bottom: 16px;
+	button:last-child {
+		margin: 16px 0;
+		float: right;
+	}
 `;
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+
+let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 /**
  * Returns the rendered InvoicesModal component.
@@ -63,18 +71,21 @@ export class InvoicesModal extends React.Component {
 	makeInvoiceRow( invoice ) {
 		let id = invoice.orderId ? invoice.orderId : invoice.refundId;
 
-		// todo: make this work for refund invoices URLs too! Probably make a method in this class.
+		// Todo: make this work for refund invoices URLs too! Probably make a method in this class.
 		let invoiceURI = getInvoiceUrl( id );
 
 		let ResponsiveInvoiceLink = makeButtonFullWidth( LargeIconButtonLink );
 
 		return (
-			<RowMobileCollapse verticalAlign={ "baseline" } background={ this.props.background } key={ id }>
+			<RowMobileCollapse verticalAlign={ "center" } background={ this.props.background } key={ id }>
 				<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.date ) }>
 					<FormattedDate value={ invoice.date } day="numeric" month="long" year="numeric"/>
 				</ColumnPrimaryResponsive>
 				<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.type ) }>
 					<span>{ invoice.type }</span>
+				</ColumnMinWidthResponsive>
+				<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.amount ) }>
+					<FormattedNumber value={ formatAmount( invoice.totalAmount ) } style="currency" currency={ invoice.currency }/>
 				</ColumnMinWidthResponsive>
 				<ColumnFixedWidthResponsive>
 					<ResponsiveInvoiceLink
@@ -83,7 +94,7 @@ export class InvoicesModal extends React.Component {
 						to={ invoiceURI }
 						linkTarget="_blank"
 					>
-						<span>{ this.props.intl.formatMessage( messages.invoice ) }</span>
+						<span>{ this.props.intl.formatMessage( messages.download ) }</span>
 					</ResponsiveInvoiceLink>
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapse>
@@ -91,7 +102,6 @@ export class InvoicesModal extends React.Component {
 	}
 
 	render() {
-		console.log( this.props );
 		let invoicesTable = <ListTable { ...this.props }>
 			{ this.props.invoices.map( ( invoice ) => {
 				return this.makeInvoiceRow( invoice );
@@ -108,10 +118,18 @@ export class InvoicesModal extends React.Component {
 					<FormattedMessage
 						id="invoice.modal.heading"
 						defaultMessage={ "Invoices for order { invoiceNumber }" }
-						values={ { invoiceNumber: this.props.invoices[ 0 ].invoiceNumber } }
+						values={ { invoiceNumber: <strong>{ this.props.invoices[ 0 ].invoiceNumber }</strong> } }
 					/>
 				</ModalHeading>
 				 { invoicesTable }
+				<ResponsiveLargeButton
+					onClick={ this.props.onInvoicesClose }
+				>
+					<FormattedMessage
+						id="invoice.modal.close"
+						defaultMessage="Close"
+					/>
+				</ResponsiveLargeButton>
 			</ModalDiv>
 		);
 	}

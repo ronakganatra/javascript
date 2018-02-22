@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 import { closeInvoicesModal, openInvoicesModal } from "../actions/invoices";
-// import InvoicesDownload from "../components/account/orders/InvoicesDownload";
 import _filter from "lodash/filter";
 import InvoiceButtonArea from "../components/account/orders/InvoiceButtonArea";
-// import _isEmpty from "lodash/filter";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	// Filter orders for the orderId passed to the container.
