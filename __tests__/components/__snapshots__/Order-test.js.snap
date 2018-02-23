@@ -59,7 +59,7 @@ exports[`A standard order 1`] = `
       <a
         aria-label="Download invoice"
         className="hmGMxK"
-        href="http://localhost:3000/api/Orders/1/invoice?access_token="
+        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -133,7 +133,7 @@ exports[`An Order with a disabled invoice button 1`] = `
       <a
         aria-label="Download invoice"
         className="hmGMxK"
-        href="http://localhost:3000/api/Orders/1/invoice?access_token="
+        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"
       >
