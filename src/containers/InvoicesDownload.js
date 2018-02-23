@@ -22,7 +22,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		invoiceNumber: order.invoiceNumber,
 	} ];
 
-	invoices.concat( refundsForThisOrder.map( ( refund ) => ( {
+	invoices = invoices.concat( refundsForThisOrder.map( ( refund ) => ( {
 		refundId: refund.id,
 		date: refund.date,
 		type: "Credit note",
