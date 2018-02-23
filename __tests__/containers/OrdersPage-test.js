@@ -64,11 +64,6 @@ let state = {
 		search: {
 			query: "",
 		},
-		invoices: {
-			invoicesModalIsOpen: false,
-			error: "",
-			invoicesModalOrderId: "",
-		},
 	},
 };
 
@@ -102,12 +97,6 @@ let defaultExpected = {
 		},
 	],
 	query: "",
-	refunds: [],
-	invoices: {
-		invoicesModalIsOpen: false,
-		error: "",
-		invoicesModalOrderId: "",
-	},
 };
 
 test('the mapStateToProps function', () => {

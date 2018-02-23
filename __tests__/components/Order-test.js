@@ -1,9 +1,14 @@
 import React from "react";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
 import { createComponentWithIntl } from "../../utils";
 import { MemoryRouter } from "react-router-dom";
 import Order from "../../src/components/Order";
 
+const mockStore = configureStore( [] );
+
 let baseOrder = {
+	id: "1",
 	date: new Date( "01/01/2012" ),
 	orderNumber: "MOOIE 456 TEST",
 	items: [
@@ -23,17 +28,39 @@ let baseOrder = {
 	status: "completed",
 };
 
-test( "A standard order", () => {
-	let order = baseOrder;
+let storeState = {
+	entities: {
+		orders: {
+			byId: {
+				"1": baseOrder,
+			},
+			allIds: [ "1" ],
+		},
+		refunds: {
+			byId: {},
+			allIds: [],
+		}
+	},
+	ui: {
+		invoiceModal: {
+			invoicesModalIsOpen: false,
+			invoicesModalOrderId: "",
+			error: null,
+		},
+	},
+};
 
+test( "A standard order", () => {
 	const component = createComponentWithIntl(
-		<MemoryRouter>
-			<Order
-				id="a"
-				invoiceLink="http://somelink"
-				{ ...order }
-			/>
-		</MemoryRouter>
+		<Provider store={ mockStore( storeState ) }>
+			<MemoryRouter>
+				<Order
+					id="a"
+					invoiceLink="http://somelink"
+					{ ...baseOrder }
+				/>
+			</MemoryRouter>
+		</Provider>
 	);
 
 	let tree = component.toJSON();
@@ -44,13 +71,15 @@ test( "An Order with a disabled invoice button", () => {
 	let order = Object.assign( {}, baseOrder, { status: "pending" } );
 
 	const component = createComponentWithIntl(
-		<MemoryRouter>
-			<Order
-				id="a"
-				invoiceLink="http://somelink"
-				{ ...order }
-			/>
-		</MemoryRouter>
+		<Provider store={ mockStore( storeState ) }>
+			<MemoryRouter>
+				<Order
+					id="a"
+					invoiceLink="http://somelink"
+					{ ...order }
+				/>
+			</MemoryRouter>
+		</Provider>
 	);
 
 	let tree = component.toJSON();

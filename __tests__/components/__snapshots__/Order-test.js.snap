@@ -55,19 +55,21 @@ exports[`A standard order 1`] = `
   <span
     className="gJSEqq"
   >
-    <a
-      aria-label="Download invoice"
-      className="hmGMxK"
-      href="http://localhost:3000/api/Orders/a/invoice?access_token="
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <span
-        className="screen-reader-text"
+    <div>
+      <a
+        aria-label="Download invoice"
+        className="hmGMxK"
+        href="http://localhost:3000/api/Orders/1/invoice?access_token="
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Invoice
-      </span>
-    </a>
+        <span
+          className="screen-reader-text"
+        >
+          Invoice
+        </span>
+      </a>
+    </div>
   </span>
 </li>
 `;
@@ -127,19 +129,21 @@ exports[`An Order with a disabled invoice button 1`] = `
   <span
     className="gJSEqq"
   >
-    <a
-      aria-label="Download invoice"
-      className="hmGMxK"
-      href="http://localhost:3000/api/Orders/a/invoice?access_token="
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <span
-        className="screen-reader-text"
+    <div>
+      <a
+        aria-label="Download invoice"
+        className="hmGMxK"
+        href="http://localhost:3000/api/Orders/1/invoice?access_token="
+        rel="noopener noreferrer"
+        target="_blank"
       >
-        Invoice
-      </span>
-    </a>
+        <span
+          className="screen-reader-text"
+        >
+          Invoice
+        </span>
+      </a>
+    </div>
   </span>
 </li>
 `;

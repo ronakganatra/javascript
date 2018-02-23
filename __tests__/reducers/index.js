@@ -99,7 +99,7 @@ test( 'ui reducer', () => {
 	};
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoices: { name: "uiInvoicesReducer" }, };
+		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -257,8 +257,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			},
 			addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" },
 			helpBeaconModal: { name: "uiHelpBeaconModalReducer" },
-			invoices: { name: "uiInvoicesReducer" },
-
+			invoiceModal: { name: "uiInvoicesReducer" },
 		},
 		user: { name: "userReducer" },
 	};

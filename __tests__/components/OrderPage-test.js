@@ -1,7 +1,11 @@
 import React from "react";
+import configureStore from "redux-mock-store";
+import { Provider } from "react-redux";
 import { createComponentWithIntl } from "../../utils";
 import OrderPage from "../../src/components/OrderPage";
 import { MemoryRouter } from "react-router-dom";
+
+const mockStore = configureStore( [] );
 
 jest.mock( "../../src/functions/api", () => {
 	return {
@@ -33,10 +37,34 @@ test( "The Orders component matches the snapshot", () => {
 		},
 	];
 
+	let storeState = {
+		entities: {
+			orders: {
+				byId: {
+					"1": orders[ 0 ],
+				},
+				allIds: [ "1" ],
+			},
+			refunds: {
+				byId: {},
+				allIds: [],
+			}
+		},
+		ui: {
+			invoiceModal: {
+				invoicesModalIsOpen: false,
+				invoicesModalOrderId: "",
+				error: null,
+			},
+		},
+	};
+
 	const component = createComponentWithIntl(
-		<MemoryRouter>
-			<OrderPage orders={ orders } onSearchChange={ () => {} } />
-		</MemoryRouter>
+		<Provider store={ mockStore( storeState ) }>
+			<MemoryRouter>
+				<OrderPage orders={ orders } onSearchChange={ () => {} } />
+			</MemoryRouter>
+		</Provider>
 	);
 
 	let tree = component.toJSON();
