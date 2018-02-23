@@ -31,7 +31,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		invoiceLink: "",
 	} ) ) );
 
-	invoices = _sortBy( invoices, 'date' );
+	invoices = _sortBy( invoices, "date" );
 
 	let hasMultipleInvoices = invoices.length > 1;
 

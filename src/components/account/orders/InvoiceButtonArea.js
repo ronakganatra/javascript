@@ -58,7 +58,7 @@ class InvoiceButtonArea extends React.Component {
 	}
 
 	getButton() {
-		let invoiceURI = getInvoiceUrl( this.props.orderId );
+		let invoiceURI = getInvoiceUrl( "Orders", this.props.orderId );
 
 		let ResponsiveInvoiceLink = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
 		let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
