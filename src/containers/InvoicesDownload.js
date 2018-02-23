@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { closeInvoicesModal, openInvoicesModal } from "../actions/invoices";
 import _filter from "lodash/filter";
+import _sortBy from "lodash/sortBy";
 import InvoiceButtonArea from "../components/account/orders/InvoiceButtonArea";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -21,22 +22,20 @@ export const mapStateToProps = ( state, ownProps ) => {
 		invoiceNumber: order.invoiceNumber,
 	} ];
 
-	refundsForThisOrder.map( ( refund ) => {
-		invoices.push( {
-			refundId: refund.id,
-			date: refund.date,
-			type: "Credit note",
-			totalAmount: refund.amount,
-			currency: order.currency,
-			invoiceLink: "",
-		} );
-	} );
+	invoices.concat( refundsForThisOrder.map( ( refund ) => ( {
+		refundId: refund.id,
+		date: refund.date,
+		type: "Credit note",
+		totalAmount: refund.amount,
+		currency: order.currency,
+		invoiceLink: "",
+	} ) ) );
+
+	invoices = _sortBy( invoices, 'date' );
 
 	let hasMultipleInvoices = invoices.length > 1;
 
 	// Only show invoices for completed orders and refunds??? May not be needed depending on final data structure.
-
-	// Todo: Sort invoices based on date!
 
 	let invoiceModalProps = {
 		invoicesModalIsOpen: state.ui.invoiceModal.invoicesModalIsOpen,
