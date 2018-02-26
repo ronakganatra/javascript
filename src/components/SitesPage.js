@@ -15,6 +15,7 @@ import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
 import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
+import ConfigurationRequestForm from "./sites/ConfigurationRequestForm";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -158,6 +159,7 @@ class SitesPage extends React.Component {
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
+					<ConfigurationRequestForm sites={ props.sites } />
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ this.getModal() }
 				</div>

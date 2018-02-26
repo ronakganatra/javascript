@@ -2,7 +2,7 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import {
 	ColumnPrimary, ListTable, ColumnIcon, RowMobileCollapse, makeFullWidth,
 	responsiveHeaders, ColumnMinWidth,
