@@ -14,7 +14,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="fIyvPW"
     >
       <a
-        className="ksOeHp"
+        className="eDcVVU"
         href="/sites"
         onClick={[Function]}
       >
@@ -24,7 +24,7 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="gxyAca"
+        className="eoFijw"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"
@@ -258,7 +258,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="fIyvPW"
     >
       <a
-        className="ksOeHp"
+        className="eDcVVU"
         href="/sites"
         onClick={[Function]}
       >
@@ -268,7 +268,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="gxyAca"
+        className="eoFijw"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"

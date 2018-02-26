@@ -2,10 +2,10 @@
 
 exports[`A standard order 1`] = `
 <li
-  className="fyDrf"
+  className="jltHGC"
 >
   <span
-    className="gRzsfa"
+    className="klYpfM"
   >
     <span>
       January 1, 2012
@@ -17,7 +17,7 @@ exports[`A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="iSxaIr"
+    className="dcmygm"
   >
     <ul
       className="tvpac"
@@ -39,27 +39,27 @@ exports[`A standard order 1`] = `
     </ul>
   </span>
   <span
-    className="FOjhs"
+    className="eVaDaw"
   >
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="gWfuXy"
+    className="hRhztn"
   >
     <span>
       Completed
     </span>
   </span>
   <span
-    className="gJSEqq"
+    className="kikiOW"
   >
     <div>
       <a
         aria-label="Download invoice"
         className="hmGMxK"
-        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
+        href="http://localhost:3000/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"
       >
@@ -76,10 +76,10 @@ exports[`A standard order 1`] = `
 
 exports[`An Order with a disabled invoice button 1`] = `
 <li
-  className="fyDrf"
+  className="jltHGC"
 >
   <span
-    className="gRzsfa"
+    className="klYpfM"
   >
     <span>
       January 1, 2012
@@ -91,7 +91,7 @@ exports[`An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="iSxaIr"
+    className="dcmygm"
   >
     <ul
       className="tvpac"
@@ -113,27 +113,27 @@ exports[`An Order with a disabled invoice button 1`] = `
     </ul>
   </span>
   <span
-    className="FOjhs"
+    className="eVaDaw"
   >
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="gWfuXy"
+    className="hRhztn"
   >
     <span>
       Pending
     </span>
   </span>
   <span
-    className="gJSEqq"
+    className="kikiOW"
   >
     <div>
       <a
         aria-label="Download invoice"
         className="hmGMxK"
-        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
+        href="http://localhost:3000/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"
       >

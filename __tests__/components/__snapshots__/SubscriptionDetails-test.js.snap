@@ -14,7 +14,7 @@ exports[`the subscription detail component has no next billing 1`] = `
       Start date
     </span>
     <span
-      className="hBSCLY"
+      className="bDjWBw"
     >
       <span>
         June 01, 2017
@@ -30,7 +30,7 @@ exports[`the subscription detail component has no next billing 1`] = `
       Next billing
     </span>
     <span
-      className="hBSCLY"
+      className="bDjWBw"
     >
       -
     </span>
@@ -52,7 +52,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
       Start date
     </span>
     <span
-      className="hBSCLY"
+      className="bDjWBw"
     >
       <span>
         June 01, 2017
@@ -68,7 +68,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
       Next billing
     </span>
     <span
-      className="hBSCLY"
+      className="bDjWBw"
     >
       <span>
         June 01, 2018
