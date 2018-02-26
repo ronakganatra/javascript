@@ -5,12 +5,11 @@ import {
 	ListTable, makeFullWidth, responsiveHeaders,
 	RowMobileCollapse,
 } from "../../Tables";
-import Paper from "../../Paper";
 import { ModalHeading } from "../../Headings";
 import { defineMessages, FormattedDate, FormattedMessage, intlShape, FormattedNumber } from "react-intl";
 import styled from "styled-components";
 import downloadIcon from "../../../icons/download.svg";
-import { LargeButton, LargeIconButtonLink, makeButtonFullWidth } from "../../Button";
+import { LargeIconButtonLink, LargeSecondaryButton, makeButtonFullWidth } from "../../Button";
 import { getInvoiceUrl } from "../../../functions/api";
 import formatAmount from "../../../../../shared/currency";
 
@@ -46,11 +45,15 @@ const ModalDiv = styled.div`
 	}
 `;
 
+let FullWidthRow = styled( RowMobileCollapse )`
+	margin: 0 -16px;
+`;
+
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
 let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
-let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
+let CloseButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
  * Returns the rendered InvoicesModal component.
@@ -77,7 +80,7 @@ export class InvoicesModal extends React.Component {
 		let ResponsiveInvoiceLink = makeButtonFullWidth( LargeIconButtonLink );
 
 		return (
-			<RowMobileCollapse verticalAlign={ "center" } background={ this.props.background } key={ id }>
+			<FullWidthRow verticalAlign={ "center" } background={ this.props.background } key={ id }>
 				<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.date ) }>
 					<FormattedDate value={ invoice.date } day="numeric" month="long" year="numeric"/>
 				</ColumnPrimaryResponsive>
@@ -97,7 +100,7 @@ export class InvoicesModal extends React.Component {
 						<span>{ this.props.intl.formatMessage( messages.download ) }</span>
 					</ResponsiveInvoiceLink>
 				</ColumnFixedWidthResponsive>
-			</RowMobileCollapse>
+			</FullWidthRow>
 		);
 	}
 
@@ -107,10 +110,6 @@ export class InvoicesModal extends React.Component {
 				return this.makeInvoiceRow( invoice );
 			} ) }
 		</ListTable>;
-
-		if ( this.props.hasPaper ) {
-			invoicesTable = <Paper>{ invoicesTable }</Paper>;
-		}
 
 		return(
 			<ModalDiv>
@@ -122,14 +121,14 @@ export class InvoicesModal extends React.Component {
 					/>
 				</ModalHeading>
 				 { invoicesTable }
-				<ResponsiveLargeButton
+				<CloseButton
 					onClick={ this.props.onInvoicesClose }
 				>
 					<FormattedMessage
 						id="invoice.modal.close"
 						defaultMessage="Close"
 					/>
-				</ResponsiveLargeButton>
+				</CloseButton>
 			</ModalDiv>
 		);
 	}
@@ -141,11 +140,6 @@ InvoicesModal.propTypes = {
 	onInvoicesClick: PropTypes.func,
 	onInvoicesClose: PropTypes.func,
 	invoicesModalOrderId: PropTypes.string,
-	hasPaper: PropTypes.bool,
 	background: PropTypes.string,
 	intl: intlShape,
-};
-
-InvoicesModal.defaultProps = {
-	hasPaper: true,
 };

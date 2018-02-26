@@ -76,7 +76,7 @@ const MyYoastModal = styled( BaseMyYoastModal )`
 		border: 0;
 		border-radius: 0;
 		margin-right: -50%;
-		padding: 24px 24px 0px 24px;
+		padding: 24px 16px 0px 16px;
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
