@@ -32,7 +32,7 @@ export const Row = styled.li`
 	justify-content: space-between;
 
 	&:first-child {
-		margin-top: ${ props => props.hasHeaderLabels ? "48px" : "0" };
+		margin-top: ${ props => props.hasHeaderLabels ? "64px" : "0" };
 	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
@@ -216,6 +216,10 @@ export function makeFullWidth( component ) {
 			margin-top: 1em;
 			padding-right: 0;
 			padding-left: 0;
+
+			&:first-child {
+				margin-top: 0px;
+			}
 		}
 	`;
 }
