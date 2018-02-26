@@ -72,7 +72,7 @@ export class InvoicesModal extends React.Component {
 	}
 
 	makeInvoiceRow( invoice ) {
-		let id = invoice.orderId ? invoice.orderId : invoice.refundId;
+		let id = invoice.refundId ? invoice.refundId : invoice.orderId;
 
 		let invoiceURI = getInvoiceUrl( invoice.orderId, invoice.refundId );
 
