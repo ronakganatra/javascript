@@ -166,10 +166,14 @@ export function handle401( response ) {
 /**
  * Returns the invoice URL for a certain invoice.
  *
- * @param {string} resource The resource of this invoice.
  * @param {string} orderId  The id of the invoice's resource.
+ * @param {string} refundId The id of the invoice's refund.
+ *
  * @returns {string} The URL to the order invoice.
  */
-export function getInvoiceUrl( resource, orderId ) {
-	return getApiUrl() + "/" + resource + "/" + orderId + "/invoice?access_token=" + getAccessToken();
+export function getInvoiceUrl( orderId, refundId = null ) {
+	if ( refundId ) {
+		return getApiUrl() + "/Orders/" + orderId + "/refunds/" + refundId + "/invoice?access_token=" + getAccessToken();
+	}
+	return getApiUrl() + "/Orders/" + orderId + "/invoice?access_token=" + getAccessToken();
 }

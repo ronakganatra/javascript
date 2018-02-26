@@ -72,10 +72,9 @@ export class InvoicesModal extends React.Component {
 	}
 
 	makeInvoiceRow( invoice ) {
-		let resource = invoice.orderId ? "Orders"        : "Refunds";
-		let id       = invoice.orderId ? invoice.orderId : invoice.refundId;
+		let id = invoice.orderId ? invoice.orderId : invoice.refundId;
 
-		let invoiceURI = getInvoiceUrl( resource, id );
+		let invoiceURI = getInvoiceUrl( invoice.orderId, invoice.refundId );
 
 		let ResponsiveInvoiceLink = makeButtonFullWidth( LargeIconButtonLink );
 
