@@ -33,7 +33,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
       role="list"
     >
       <li
-        className="cLjpSp"
+        className="dhJSTz"
       >
         <span
           className="fXreAk"
@@ -100,7 +100,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         </span>
       </li>
       <li
-        className="dhJSTz"
+        className="cLjpSp"
       >
         <span
           className="fXreAk"
