@@ -159,7 +159,7 @@ class SitesPage extends React.Component {
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
-					<ConfigurationRequestForm sites={ props.sites } />
+					<ConfigurationRequestForm sites={ props.sites } onConfigurationRequestClick={ props.onConfigurationRequestClick } />
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ this.getModal() }
 				</div>
@@ -201,6 +201,7 @@ SitesPage.propTypes = {
 	intl: intlShape.isRequired,
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
+	onConfigurationRequestClick: PropTypes.func,
 };
 
 SitesPage.defaultProps = {

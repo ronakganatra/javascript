@@ -6,6 +6,7 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
+import { configurationRequestModalOpen } from "../actions/configurationRequest";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -92,6 +93,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onManage: ( siteId ) => {
 			dispatch( push( "/sites/" + siteId ) );
+		},
+		onConfigurationRequestClick: ( siteId ) => {
+			dispatch( configurationRequestModalOpen( siteId ) );
 		},
 	};
 };
