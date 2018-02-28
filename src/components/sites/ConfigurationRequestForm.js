@@ -6,15 +6,17 @@ import { LargeButton, makeButtonFullWidth } from "../Button";
 import { SubHeading } from "../Headings";
 import styled from "styled-components";
 import defaults from "../../config/defaults.json";
+// import colors from "yoast-components/style-guide/colors.json";
 import Select from "react-select";
 
 let messages = defineMessages( {
 	configurationAvailable: {
 		id: "requestConfiguration.configurationAvailable",
-		defaultMessage: "You have purchased {configurationAvailable} configuration { singlePlural }, which you can apply to one of your websites.",
+		defaultMessage: "You have {configurationAvailable} available configuration { singlePlural }, which you can apply to { singleWebsite }your websites.",
 	},
 	configurationHowTo: {
 		id: "requestConfiguration.configurationHowTo",
+		defaultMessage: "Select a website in the drop-down list below, and click on \"request configuration service\" to open the intake form.",
 	},
 } );
 
@@ -105,7 +107,13 @@ class ConfigurationRequestForm extends React.Component {
 							values={ {
 								configurationAvailable: configAvailable,
 								singlePlural: configAvailable > 1 ? "services" : "service",
+								singleWebsite: configAvailable > 1 ? "" : "one of ",
 							} }
+						/>
+						<br />
+						<FormattedMessage
+							id={ messages.configurationHowTo.id }
+							defaultMessage={ messages.configurationHowTo.defaultMessage }
 						/>
 					</p>
 					<SelectArea>
