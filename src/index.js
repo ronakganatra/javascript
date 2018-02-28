@@ -17,15 +17,24 @@ import { routerMiddleware } from "react-router-redux";
 
 let history = createHistory();
 
-const loggerMiddleware = createLogger();
+/**
+ * If we are in a development environment, we want the store to include the redux-logger.
+ * On a production build we want the logger to be omitted.
+ */
+let middleware = [
+	thunkMiddleware,
+	routerMiddleware( history ),
+];
+
+if( process.env.NODE_ENV === "development" ) {
+	const loggerMiddleware = createLogger();
+
+	middleware.push( loggerMiddleware );
+}
 
 export const store = createStore(
 	rootReducer,
-	applyMiddleware(
-		thunkMiddleware,
-		loggerMiddleware,
-		routerMiddleware( history )
-	)
+	applyMiddleware( ...middleware )
 );
 
 /**
