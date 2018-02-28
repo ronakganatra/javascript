@@ -43,9 +43,18 @@ let SelectArea = styled.span`
 
 let YoastSelect = styled( Select )`
 	width: 100%;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+	border: 0;
+
+	&.is-focused:not(.is-open) > .Select-control {
+		border: 0;
+		box-shadow: none;
+		background: #fff;
+	}
 
 	.Select-control {
 		height: 48px;
+		border-radius: 0;
 	}
 	
 	.Select-placeholder {
