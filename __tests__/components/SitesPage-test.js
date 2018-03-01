@@ -9,6 +9,11 @@ jest.mock( "../../src/reducers/search.js", () => {
 	}
 } );
 
+jest.mock( "react-select", () => {
+		return "mockSelectComponent"
+	}
+);
+
 let plugins = [
 	{
 		glNumber: 111,
@@ -43,17 +48,18 @@ let activeSubscriptions = [
 	{
 		productId: "2",
 	},
-]
+];
 
-test('the sites page component with no sites matches the snapshot', () => {
-	const component = createComponentWithIntl(
-		<SitesPage sites={ [] } addSite={ () => {} } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ true } query="" onManage={ () => {} } plugins={ [] } />
-	);
-
-	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-} );
+/*
+Always opening all features, since we don't have to test whether the toggle works.
+This way we can immediately test the new components, and don't have to add tests when we remove the feature flag.
+*/
+jest.mock( "../../src/functions/features", () => {
+		return {
+			hasAccessToFeature: jest.fn( () => { return true; } ),
+		};
+	}
+);
 
 test('the sites page component with a site matches the snapshot', () => {
 	const site = {
