@@ -27,9 +27,7 @@ let middleware = [
 ];
 
 if( process.env.NODE_ENV === "development" ) {
-	const loggerMiddleware = createLogger();
-
-	middleware.push( loggerMiddleware );
+	middleware.push( createLogger() );
 }
 
 export const store = createStore(
