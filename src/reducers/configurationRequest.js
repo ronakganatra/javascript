@@ -4,14 +4,8 @@ import { CONFIGURATION_REQUEST_MODAL_CLOSE, CONFIGURATION_REQUEST_MODAL_OPEN } f
  * Initial state
  */
 const rootState = {
-	entities: {
-		configurations: {
-			byId: {},
-			allIds: [],
-		},
-	},
 	ui: {
-		configurations: {
+		configurationRequest: {
 			configRequestModalOpen: false,
 			configRequestModalSiteId: "",
 		},
@@ -29,7 +23,7 @@ const rootState = {
  * @param {Object} action The current action received.
  * @returns {Object} The updated ComposerTokens object.
  */
-export function uiConfigurationRequestReducer( state = rootState.ui.configurations, action ) {
+export function uiConfigurationRequestReducer( state = rootState.ui.configurationRequest, action ) {
 	switch ( action.type ) {
 		case CONFIGURATION_REQUEST_MODAL_OPEN:
 			return Object.assign( {}, state, {

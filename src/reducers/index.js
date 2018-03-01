@@ -33,7 +33,7 @@ export const uiReducer = combineReducers( {
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,
 	composerTokens: uiComposerTokensReducer,
-	configurations: uiConfigurationRequestReducer,
+	configurationRequest: uiConfigurationRequestReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {

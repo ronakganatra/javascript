@@ -62,6 +62,7 @@ test('the sites page component with a site matches the snapshot', () => {
 		activeSubscriptions: activeSubscriptions,
 		siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 	};
+
 	const component = createComponentWithIntl(
 		<SitesPage sites={ [ site ] } addSite={ () => {} } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } plugins={ plugins } />
