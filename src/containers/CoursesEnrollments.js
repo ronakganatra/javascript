@@ -9,6 +9,12 @@ export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( courseId => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
+
+		// We don't want to display refunded course enrollments.
+		if ( course.status === "refunded" ) {
+			return false;
+		}
+
 		let icon = course.course.iconUrl;
 		let buyerEmail = "";
 		let buyerName = "";
@@ -43,7 +49,7 @@ export const mapStateToProps = ( state ) => {
 			studentId: course.studentId,
 			studentName,
 		};
-	} );
+	} ).filter( ( enrollment ) => !! enrollment );
 
 	let inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
 	let inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
