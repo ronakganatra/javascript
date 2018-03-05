@@ -7,12 +7,13 @@ import { ModalHeading } from "../Headings";
 import defaults from "../../config/defaults.json";
 
 const GlNumberMapping = {
-	82103: "wordpress-seo-local",
-	82106: "wordpress-seo-local-woocommerce",
-	82101: "wordpress-seo-premium",
-	82102: "wpseo-video",
-	82105: "wpseo-woocommerce",
-	82104: "yoast-news-seo",
+	82103: "yoast/wordpress-seo-local",
+	82106: "yoast/wordpress-seo-local-woocommerce",
+	82101: "yoast/wordpress-seo-premium",
+	82102: "yoast/wpseo-video",
+	82105: "yoast/wpseo-woocommerce",
+	82104: "yoast/yoast-news-seo",
+	82108: "yoast-seo-for-typo3/yoast_seo_premium",
 };
 
 const ComposerHelpModal = styled.div`
@@ -104,7 +105,7 @@ function ComposerHelp( props ) {
 							product: props.productName,
 						} }
 					/>
-					<ShellCodeBlock>composer install yoast/{ GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
+					<ShellCodeBlock>composer install { GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
 				</HelpText>
 				: <HelpText>
 					<FormattedMessage
