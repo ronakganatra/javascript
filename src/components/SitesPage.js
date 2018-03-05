@@ -86,9 +86,11 @@ class SitesPage extends React.Component {
 	}
 
 	getConfigurationRequest() {
-		return hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE )
-			? <ConfigurationRequestForm sites={ this.props.sites } onConfigurationRequestClick={ this.props.onConfigurationRequestClick } />
-			: null;
+		if ( hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
+			return <ConfigurationRequestForm sites={this.props.sites}
+											 onConfigurationRequestClick={this.props.onConfigurationRequestClick}/>;
+		}
+		return null;
 	}
 
 	componentDidMount() {
