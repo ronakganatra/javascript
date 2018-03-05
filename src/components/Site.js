@@ -10,6 +10,7 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
 import defaults from "../config/defaults.json";
+import { getPluginsForSiteType } from "../functions/products";
 
 const messages = defineMessages( {
 	siteName: {
@@ -49,6 +50,7 @@ function Site( props ) {
 	}
 
 	let siteIcon = props.siteIcon || defaultSiteIcon;
+	let plugins  = getPluginsForSiteType( props.siteType, props.plugins );
 
 	return (
 		<Row { ...rowProps }>
@@ -58,7 +60,7 @@ function Site( props ) {
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
-				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ props.plugins } />
+				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ plugins } />
 			</ColumnSubscriptions>
 			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
@@ -75,6 +77,7 @@ function Site( props ) {
 
 Site.propTypes = {
 	siteName: PropTypes.string.isRequired,
+	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
 	siteIcon: PropTypes.string,
