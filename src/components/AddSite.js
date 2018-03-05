@@ -12,6 +12,7 @@ import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 import YoastSelect from "./general/YoastSelect";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -108,6 +109,45 @@ class AddSite extends React.Component {
 		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
 		// Defines the debounced function to announce the validation error.
 		this.speakValidationMessageDebounced = _debounce( this.speakValidationMessage, 1000 );
+	}
+
+	/**
+	 * Tests whether customer has access to composer token feature. If so, returns a drop-down selector for CMS type.
+	 * If not, returns null.
+	 *
+	 * @returns {*} Either null or html for the CMS type drop-down.
+	 */
+	getPlatformSelect() {
+		if( hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+			return(
+				<div>
+					<label htmlFor="selectCMS">
+						<FormattedMessage
+							id="sites.addSite.enterUrl"
+							defaultMessage="Please select the platform that your website runs on:"
+						/>
+					</label>
+					<YoastSelect
+						name="selectCMS"
+						value={ this.state.selectedOption.value }
+						onChange={ this.handleChange.bind( this ) }
+						searchable={ false }
+						clearable={ false }
+						options={ [
+							{
+								value: "WordPress",
+								label: "WordPress",
+							},
+							{
+								value: "TYPO3",
+								label: "TYPO3",
+							},
+						] }
+					/>
+				</div>
+			);
+		}
+		return null;
 	}
 
 	/**
@@ -316,29 +356,7 @@ class AddSite extends React.Component {
 
 					<ErrorDisplay error={ this.props.error } />
 
-					<label htmlFor="selectCMS">
-						<FormattedMessage
-							id="sites.addSite.enterUrl"
-							defaultMessage="Please select the platform that your website runs on:"
-						/>
-					</label>
-					<YoastSelect
-						name="selectCMS"
-						value={ this.state.selectedOption.value }
-						onChange={ this.handleChange.bind( this ) }
-						searchable={ false }
-						clearable={ false }
-						options={ [
-							{
-								value: "WordPress",
-								label: "WordPress",
-							},
-							{
-								value: "typo3",
-								label: "typo3",
-							},
-						] }
-					/>
+					{ this.getPlatformSelect() }
 					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
