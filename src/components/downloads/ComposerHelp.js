@@ -105,7 +105,7 @@ function ComposerHelp( props ) {
 							product: props.productName,
 						} }
 					/>
-					<ShellCodeBlock>composer install { GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
+					<ShellCodeBlock>composer require { GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
 				</HelpText>
 				: <HelpText>
 					<FormattedMessage
