@@ -18,6 +18,7 @@ test('the mapStateToProps function', () => {
 							"url": "http://yoast.com",
 							"creationDate": "2017-03-21T08:54:09.415Z",
 							"userId": 1,
+							"type": "wordpress",
 						}
 					},
 					allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
@@ -113,6 +114,7 @@ test('the mapStateToProps function', () => {
 			"url": "http://yoast.com",
 			"creationDate": "2017-03-21T08:54:09.415Z",
 			"userId": 1,
+			"type": "wordpress",
 		},
 		subscriptions: [ {
 			id: "subscriptiontestId",

@@ -10,7 +10,7 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
 import defaults from "../config/defaults.json";
-import { getPluginsForSiteType } from "../functions/products";
+import {getPluginsForSiteType, PLUGIN_MAPPING} from "../functions/products";
 
 const messages = defineMessages( {
 	siteName: {
@@ -50,7 +50,8 @@ function Site( props ) {
 	}
 
 	let siteIcon = props.siteIcon || defaultSiteIcon;
-	let plugins  = getPluginsForSiteType( props.siteType, props.plugins );
+	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
+
 
 	return (
 		<Row { ...rowProps }>
