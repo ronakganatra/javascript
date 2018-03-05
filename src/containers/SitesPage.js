@@ -84,8 +84,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClose: () => {
 			dispatch( linkSiteModalClose() );
 		},
-		onConnect: ( url ) => {
-			dispatch( linkSite( url ) );
+		onConnect: ( url, type ) => {
+			dispatch( linkSite( url, type ) );
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
@@ -103,8 +103,8 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onConnect = () => {
-		dispatchProps.onConnect( url );
+	let onConnect = ( type ) => {
+		dispatchProps.onConnect( url, type );
 	};
 
 	let addSite = () => {

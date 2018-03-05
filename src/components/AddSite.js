@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
-import addSiteImage from "../images/addsite.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
@@ -12,6 +11,7 @@ import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
+import YoastSelect from "./general/YoastSelect";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -34,12 +34,6 @@ const AddSiteModal = styled.div`
 	}
 `;
 
-const AddSiteImage = styled.img`
-	width: 100%;
-	margin: 1em 0 0;
-	vertical-align: bottom;
-`;
-
 const WebsiteURL = addPlaceholderStyles( styled.input`
 	width: 100%;
 	height: 48px;
@@ -48,11 +42,12 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	margin-bottom: 8px;
 ` );
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
-	padding: 8px 0;
+	padding-bottom: 16px;
 	text-align: right;
 
 	a,
@@ -103,6 +98,10 @@ class AddSite extends React.Component {
 		this.state = {
 			validationError: null,
 			showValidationError: false,
+			selectedOption: {
+				value: "WordPress",
+				label: "WordPress",
+			},
 		};
 
 		// Defines the debounced function to show the validation error.
@@ -249,8 +248,14 @@ class AddSite extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( ! this.state.validationError && !! this.props.linkingSiteUrl ) {
-			this.props.onConnectClick();
+			this.props.onConnectClick( this.state.selectedOption.value );
 		}
+	}
+
+	handleChange( selectedOption ) {
+		this.setState( {
+			selectedOption,
+		} );
 	}
 
 	/**
@@ -311,6 +316,30 @@ class AddSite extends React.Component {
 
 					<ErrorDisplay error={ this.props.error } />
 
+					<label htmlFor="selectCMS">
+						<FormattedMessage
+							id="sites.addSite.enterUrl"
+							defaultMessage="Please select the platform that your website runs on:"
+						/>
+					</label>
+					<YoastSelect
+						name="selectCMS"
+						value={ this.state.selectedOption.value }
+						onChange={ this.handleChange.bind( this ) }
+						searchable={ false }
+						clearable={ false }
+						options={ [
+							{
+								value: "WordPress",
+								label: "WordPress",
+							},
+							{
+								value: "typo3",
+								label: "typo3",
+							},
+						] }
+					/>
+					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
@@ -324,8 +353,6 @@ class AddSite extends React.Component {
 						</WideLargeButton>
 					</Buttons>
 				</form>
-				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
-				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
 	}

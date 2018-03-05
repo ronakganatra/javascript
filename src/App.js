@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-/* eslint-disable no-unused-expressions */
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
 import "./App.css";
+import "react-select/dist/react-select.css";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectGlobal } from "styled-components";
 import { IntlProvider } from "react-intl";
@@ -21,6 +21,7 @@ import SubscriptionPageContainer from "./containers/SubscriptionPage";
  * Helper method to write global CSS.
  * Only use it for the rare @font-face definition or body styling.
  */
+/* eslint-disable no-unused-expressions */
 injectGlobal`
 	body {
 		margin: 0;
@@ -40,6 +41,7 @@ injectGlobal`
 		color: ${ colors.$color_pink_dark };
 	}
 `;
+/* eslint-enable no-unused-expressions */
 
 const Routes = ( props ) => {
 	if ( props.userEnabled === false ) {
