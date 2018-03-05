@@ -6,7 +6,7 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
-import { configurationRequestModalOpen } from "../actions/configurationRequest";
+import { configurationRequestModalClose, configurationRequestModalOpen } from "../actions/configurationRequest";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -59,6 +59,7 @@ export const mapStateToProps = ( state ) => {
 	return {
 		sites,
 		modalOpen,
+		configRequestModalOpen: state.ui.configurationRequest.configRequestModalOpen,
 		errorFound,
 		error,
 		plugins,
@@ -96,6 +97,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onConfigurationRequestClick: ( siteId ) => {
 			dispatch( configurationRequestModalOpen( siteId ) );
+		},
+		onConfigurationModalClose: () => {
+			dispatch( configurationRequestModalClose() );
 		},
 	};
 };

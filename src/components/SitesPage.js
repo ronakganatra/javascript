@@ -17,6 +17,7 @@ import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
 import ConfigurationRequestForm from "./sites/ConfigurationRequestForm";
 import { CONFIGURATION_SERVICE_FEATURE, hasAccessToFeature } from "../functions/features";
+import ConfigurationRequest from "./sites/ConfigurationRequest";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -115,27 +116,43 @@ class SitesPage extends React.Component {
 	}
 
 	getModal() {
-		let modalAriaLabel = defineMessages( {
-			id: "modal.arialabel.add",
-			defaultMessage: "Add a new site",
-		} );
-		return(
-			<MyYoastModal
-				isOpen={ this.props.modalOpen }
-				onClose={ this.props.onClose }
-				modalAriaLabel={ modalAriaLabel }
-			>
-				<AddSite
-					onConnectClick={ this.props.onConnect }
-					onCancelClick={ this.props.onClose }
-					onChange={ this.props.onChange }
-					errorFound={ this.props.errorFound }
-					error={ this.props.error }
-					query={ this.props.query }
-					linkingSiteUrl={ this.props.linkingSiteUrl }
-				/>
-			</MyYoastModal>
-		);
+		if ( this.props.modalOpen ) {
+			let modalAriaLabel = defineMessages( {
+				id: "modal.arialabel.add",
+				defaultMessage: "Add a new site",
+			} );
+			return (
+				<MyYoastModal
+					isOpen={this.props.modalOpen}
+					onClose={this.props.onClose}
+					modalAriaLabel={modalAriaLabel}
+				>
+					<AddSite
+						onConnectClick={this.props.onConnect}
+						onCancelClick={this.props.onClose}
+						onChange={this.props.onChange}
+						errorFound={this.props.errorFound}
+						error={this.props.error}
+						query={this.props.query}
+						linkingSiteUrl={this.props.linkingSiteUrl}
+					/>
+				</MyYoastModal>
+			);
+		} else if ( this.props.configRequestModalOpen ) {
+			let modalAriaLabel = defineMessages( {
+				id: "modal.arialabel.configuration-service",
+				defaultMessage: "Request our configuration service",
+			} );
+			return (
+				<MyYoastModal
+					isOpen={ this.props.configRequestModalOpen }
+					onClose={ this.props.onConfigurationModalClose }
+					modalAriaLabel={modalAriaLabel}
+				>
+					<ConfigurationRequest onClose={ this.props.onConfigurationModalClose }/>
+				</MyYoastModal>
+			);
+		}
 	}
 
 	render() {
@@ -209,6 +226,8 @@ SitesPage.propTypes = {
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
 	onConfigurationRequestClick: PropTypes.func,
+	configRequestModalOpen: PropTypes.bool,
+	onConfigurationModalClose: PropTypes.func,
 };
 
 SitesPage.defaultProps = {
