@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import Site from "./Site";
 import { ListTable } from "./Tables";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 /**
  * Returns the rendered Sites component.
  *

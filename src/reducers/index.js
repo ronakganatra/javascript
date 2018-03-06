@@ -14,6 +14,7 @@ import { uiCourseInviteRequestReducer } from "./courses";
 import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
 import { uiInvoicesReducer } from "./invoices";
+import { uiConfigurationRequestReducer } from "./configurationRequest";
 
 
 export const uiReducer = combineReducers( {
@@ -32,6 +33,7 @@ export const uiReducer = combineReducers( {
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,
 	composerTokens: uiComposerTokensReducer,
+	configurationRequest: uiConfigurationRequestReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {

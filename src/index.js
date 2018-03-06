@@ -10,7 +10,7 @@ import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directTo
 import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
-import { addLocaleData }from "react-intl";
+import { addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";

@@ -274,7 +274,7 @@ export function ListTable( props ) {
 	if ( props.doZebra ) {
 		zebraProps.children = children.map( ( child, index ) => {
 			return React.cloneElement( child, {
-				background: ( index % 2 === 1 ) ? colors.$color_white : colors.$color_background_light,
+				background: ( index % 2 === 1 ) ? colors.$color_background_light : colors.$color_white,
 			} );
 		} );
 	}
