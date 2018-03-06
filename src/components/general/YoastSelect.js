@@ -9,7 +9,6 @@ let YoastSelect = styled( Select )`
 
 	&.is-focused:not(.is-open) > .Select-control {
 		border-color: #ccc;
-		border-color: #FF0000;
 		box-shadow: none;
 		background: ${ colors.$color_white };
 	}
@@ -36,6 +35,8 @@ let YoastSelect = styled( Select )`
 	}
 
 	.Select-option {
+		color: #000;
+
 		&.is-selected {
 			background-color: #6dff003d;
 		}

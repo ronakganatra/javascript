@@ -1,14 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage } from "react-intl";
-// import styled from "styled-components";
-// import colors from "yoast-components/style-guide/colors.json";
-// import defaults from "../config/defaults.json";
 import YoastSelect, { SelectArea } from "../../general/YoastSelect";
 import CollapsibleHeader from "../../CollapsibleHeader";
 import { Paper, WhitePage } from "../../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../../Button";
-// import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../../../functions/features";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -52,6 +49,9 @@ class PlatformSelect extends React.Component {
 	}
 
 	render() {
+		if( ! hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+			return null;
+		}
 		return(
 			<Paper>
 				<CollapsibleHeader title={ this.props.title }>
