@@ -12,6 +12,17 @@ import { LargeButton, makeButtonFullWidth } from "../../Button";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
+const SITE_TYPE_OPTIONS = {
+	wordpress: {
+		value: "wordpress",
+		label: "WordPress",
+	},
+	typo3: {
+		value: "typo3",
+		label: "TYPO3",
+	},
+};
+
 class PlatformSelect extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
@@ -22,21 +33,16 @@ class PlatformSelect extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
+
+		let value = props.siteType;
+		let label = SITE_TYPE_OPTIONS[ value ].label;
+
 		this.state = {
 			selectedOption: {
-				value: "wordpress",
-				label: "WordPress",
+				value,
+				label,
 			},
 		};
-
-		if( props.siteType === "typo3" ) {
-			this.setState( {
-				selectedOption: {
-					value: "typo3",
-					label: "TYPO3",
-				},
-			} );
-		}
 	}
 
 	handleChange( selectedOption ) {
@@ -65,16 +71,7 @@ class PlatformSelect extends React.Component {
 								inputProps={
 									{ id: "selectPlatform" }
 								}
-								options={ [
-									{
-										value: "wordpress",
-										label: "WordPress",
-									},
-									{
-										value: "typo3",
-										label: "TYPO3",
-									},
-								] }
+								options={ Object.values( SITE_TYPE_OPTIONS ) }
 							/>
 							<WideLargeButton
 								onClick={ () => {

@@ -194,11 +194,15 @@ export function siteChangePlatformRequest() {
 /**
  * An action creator for indicating successful changing of the platform.
  *
+ * @param {string} siteId   The id of the site the platform has changed for.
+ * @param {string} siteType The type of platform the site has changed to.
  * @returns {Object} A site change platform success action.
  */
-export function siteChangePlatformSuccess() {
+export function siteChangePlatformSuccess( siteId, siteType ) {
 	return {
 		type: SITE_CHANGE_PLATFORM_SUCCESS,
+		siteId,
+		siteType,
 	};
 }
 
@@ -212,7 +216,7 @@ export function siteChangePlatformSuccess() {
 export function siteChangePlatformFailure( error ) {
 	return {
 		type: SITE_CHANGE_PLATFORM_FAILURE,
-		error: error,
+		error,
 	};
 }
 
@@ -231,7 +235,7 @@ export function siteChangePlatform( siteId, siteType ) {
 		let request = prepareInternalRequest( `Sites/${siteId}/`, "PATCH", { type: siteType } );
 
 		return doRequest( request )
-			.then( json => dispatch( siteChangePlatformSuccess() ) )
+			.then( json => dispatch( siteChangePlatformSuccess( json.id, json.type ) ) )
 			.catch( error => dispatch( siteChangePlatformFailure( error ) ) );
 	};
 }
