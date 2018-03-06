@@ -27,7 +27,6 @@ const GettingStartedModal = styled.div`
 `;
 
 const GettingStartedText = styled.p`
-	font-weight: 300;
 	font-size: 16px;
 	margin-top: 18px;
 `;

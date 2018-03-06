@@ -1,6 +1,7 @@
 import Select from "react-select";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
+import defaults from "../../config/defaults.json";
 
 let YoastSelect = styled( Select )`
 	width: 100%;
@@ -8,6 +9,7 @@ let YoastSelect = styled( Select )`
 
 	&.is-focused:not(.is-open) > .Select-control {
 		border-color: #ccc;
+		border-color: #FF0000;
 		box-shadow: none;
 		background: ${ colors.$color_white };
 	}
@@ -45,3 +47,22 @@ let YoastSelect = styled( Select )`
 `;
 
 export default YoastSelect;
+
+export const SelectArea = styled.span`
+	display: flex;
+	width: 100%;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: block;
+		height: auto;
+	}
+
+	>:last-child {
+		margin-left: 8px;
+		
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			margin-left: 0;
+			margin-top: 8px;
+		}
+	}
+`;
