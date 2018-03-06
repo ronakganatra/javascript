@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import colors from "yoast-components/style-guide/colors.json";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import Products from "./Products";
 import Search from "./Search";
 import { speak } from "@wordpress/a11y";

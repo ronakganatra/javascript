@@ -1,14 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import Paper from "./Paper";
+import { Paper, Page } from "./PaperStyles";
 import { Button, LargeButton, makeButtonFullWidth, RedButton } from "./Button";
 import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _noop from "lodash/noop";
-import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
@@ -95,17 +94,6 @@ const messages = defineMessages( {
 		defaultMessage: "Account profile page loaded",
 	},
 } );
-
-const Page = styled.div`
-	padding: 2em;
-	background-color: ${ colors.$color_white };
-	display: flex;
-	justify-content: space-between;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		display: block;
-	}
-`;
 
 const Column = styled.div`
 	flex-basis: 48%;

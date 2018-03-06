@@ -3,7 +3,7 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { ListTable } from "./Tables";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import _groupBy from "lodash/groupBy";
 import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CollapsibleHeader from "./CollapsibleHeader";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { RedButton } from "./Button";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
