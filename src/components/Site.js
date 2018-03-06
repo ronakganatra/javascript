@@ -10,7 +10,7 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
 import defaults from "../config/defaults.json";
-import {getPluginsForSiteType, PLUGIN_MAPPING} from "../functions/products";
+import { PLUGIN_MAPPING } from "../functions/products";
 
 const messages = defineMessages( {
 	siteName: {

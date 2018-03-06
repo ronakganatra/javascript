@@ -9,8 +9,8 @@ import _includes from "lodash/includes";
 /** Product helpers */
 
 export const PLUGIN_MAPPING = {
-	wordpress: 'plugin',
-	typo3: 'typo3-plugin',
+	wordpress: "plugin",
+	typo3: "typo3-plugin",
 };
 
 /**
