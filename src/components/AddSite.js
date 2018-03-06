@@ -100,7 +100,7 @@ class AddSite extends React.Component {
 			validationError: null,
 			showValidationError: false,
 			selectedOption: {
-				value: "WordPress",
+				value: "wordpress",
 				label: "WordPress",
 			},
 		};
@@ -135,11 +135,11 @@ class AddSite extends React.Component {
 						clearable={ false }
 						options={ [
 							{
-								value: "WordPress",
+								value: "wordpress",
 								label: "WordPress",
 							},
 							{
-								value: "TYPO3",
+								value: "typo3",
 								label: "TYPO3",
 							},
 						] }
