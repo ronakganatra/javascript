@@ -8,7 +8,7 @@ let YoastSelect = styled( Select )`
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 
 	&.is-focused:not(.is-open) > .Select-control {
-		border-color: #ccc;
+		border-color: ${ colors.$color_green_medium_light };
 		box-shadow: none;
 		background: ${ colors.$color_white };
 	}
