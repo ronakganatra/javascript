@@ -12,7 +12,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
     role="dialog"
   >
     <div
-      className="lcOdPt"
+      className="kJvgwK"
     >
       <h1
         className="dQgKWp"
@@ -33,7 +33,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
           </span>
         </label>
         <input
-          className="jssTrf"
+          className="daTiNl"
           id="add-site-input"
           onChange={[Function]}
           placeholder="https://example-site.com"
@@ -41,7 +41,10 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
           value=""
         />
         <div
-          className="bQLojW"
+          className="ehuLPF"
+        />
+        <div
+          className="dUdmLN"
         >
           <button
             className="gtZwWe"
@@ -63,14 +66,6 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
           </button>
         </div>
       </form>
-      <div
-        className="ehuLPF"
-      />
-      <img
-        alt=""
-        className="ireVCO"
-        src="addsite.svg"
-      />
     </div>
   </div>
 </div>
