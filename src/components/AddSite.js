@@ -24,12 +24,10 @@ const messages = defineMessages( {
 const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	font-weight: 300;
 	font-size: 1em;
 
 	label {
 		display: inline-block;
-		font-weight: 300;
 		font-size: 1em;
 		margin: 16px 0 8px;
 	}
@@ -121,14 +119,14 @@ class AddSite extends React.Component {
 		if( hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
 			return(
 				<div>
-					<label htmlFor="selectCMS">
+					<label htmlFor="selectPlatform">
 						<FormattedMessage
 							id="sites.addSite.enterUrl"
-							defaultMessage="Please select the platform that your website runs on:"
+							defaultMessage="Please select the platform that your website is running on:"
 						/>
 					</label>
 					<YoastSelect
-						name="selectCMS"
+						name="selectPlatform"
 						value={ this.state.selectedOption.value }
 						onChange={ this.handleChange.bind( this ) }
 						searchable={ false }

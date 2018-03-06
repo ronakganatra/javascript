@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
+import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
@@ -128,6 +128,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			if ( window.confirm( "Are you sure you want to remove this site from MyYoast?" ) ) {
 				dispatch( siteRemove( siteId ) );
 			}
+		},
+		onConfirmPlatformChange: ( id, type ) => {
+			dispatch( siteChangePlatform( id, type ) );
 		},
 	};
 };

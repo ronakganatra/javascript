@@ -20,12 +20,10 @@ let messages = defineMessages(
 
 const CreateTokenModal = styled.div`
 	margin: auto;
-	font-weight: 300;
 	font-size: 1em;
 
 	label {
 		display: inline-block;
-		font-weight: 300;
 		font-size: 1em;
 		margin: 16px 0 8px;
 	}

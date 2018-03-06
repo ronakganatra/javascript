@@ -3,10 +3,9 @@ import React from "react";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import { Paper, WhitePage } from "../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../Button";
-import YoastSelect from "../general/YoastSelect";
+import YoastSelect, { SelectArea } from "../general/YoastSelect";
 import { SubHeading } from "../Headings";
 import styled from "styled-components";
-import defaults from "../../config/defaults.json";
 
 let messages = defineMessages( {
 	configurationAvailable: {
@@ -28,25 +27,6 @@ let messages = defineMessages( {
 let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	white-space: nowrap;
 	min-width: initial;
-`;
-
-let SelectArea = styled.span`
-	display: flex;
-	width: 100%;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		display: block;
-		height: auto;
-	}
-
-	>:last-child {
-		margin-left: 8px;
-		
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			margin-left: 0;
-			margin-top: 8px;
-		}
-	}
 `;
 
 /**

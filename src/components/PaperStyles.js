@@ -9,6 +9,12 @@ export const Paper = styled.div`
 export const WhitePage = styled.div`
 	background-color: ${ colors.$color_white };
 	padding: 16px 24px;
+
+	label {
+		display: inline-block;
+		font-size: 1em;
+		margin: 16px 0 8px;
+	}
 `;
 
 export const Page = styled( WhitePage )`
