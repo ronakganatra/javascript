@@ -89,6 +89,7 @@ class SitePage extends React.Component {
 					siteId={ props.site.id }
 					siteType={ props.site.type }
 					onConfirm={ props.onConfirmPlatformChange }
+					disablePlatformSelect={ props.disablePlatformSelect }
 				/>
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 				{ this.getModal() }
@@ -112,6 +113,7 @@ SitePage.propTypes = {
 	loadingSubscriptions: PropTypes.bool,
 	addSubscriptionModal: PropTypes.object,
 	onConfirmPlatformChange: PropTypes.func,
+	disablePlatformSelect: PropTypes.bool,
 };
 
 SitePage.defaultProps = {

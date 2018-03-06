@@ -91,6 +91,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	plugins = sortPluginsByPopularity( plugins );
 
+	let disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
+
 	return {
 		addSubscriptionModal,
 		site,
@@ -98,6 +100,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		plugins,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
 		uiSite: state.ui.site,
+		disablePlatformSelect,
 	};
 };
 

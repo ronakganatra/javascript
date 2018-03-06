@@ -48,6 +48,37 @@ class PlatformSelect extends React.Component {
 		} );
 	}
 
+	/**
+	 * Handles the confirm event.
+	 *
+	 * @param {object} event The confirm event.
+	 *
+	 * @returns {void}
+	 */
+	handleConfirm( event ) {
+		event.preventDefault();
+		if ( ! this.props.disablePlatformSelect ) {
+			this.props.onConfirm( this.props.siteId, this.state.selectedOption.value );
+		}
+	}
+
+	getInformationParagraph( disabled ) {
+		return(
+			<div>
+				<p><FormattedMessage
+					id="sites.details.changePlatformType.label"
+					defaultMessage="Here you can select the platform that your website is running on."
+				/></p>
+				{ disabled &&
+					<p><FormattedMessage
+						id="sites.details.changePlatformType.disabled"
+						defaultMessage="This option is currently disabled because you still have plugins active on this site."
+					/></p>
+				}
+			</div>
+		);
+	}
+
 	render() {
 		if( ! hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
 			return null;
@@ -56,10 +87,11 @@ class PlatformSelect extends React.Component {
 			<Paper>
 				<CollapsibleHeader title={ this.props.title }>
 					<WhitePage>
-						<label htmlFor="selectPlatform">
+						{ this.getInformationParagraph( this.props.disablePlatformSelect ) }
+						<label htmlFor="selectPlatform" onClick={ () => this.selectRef && this.selectRef.focus() }>
 							<FormattedMessage
-								id="sites.details.changePlatformType"
-								defaultMessage="Please select the platform that your website is running on:"
+								id="sites.details.changePlatformType.enabled"
+								defaultMessage="Please select a platform:"
 							/>
 						</label>
 						<SelectArea>
@@ -68,15 +100,19 @@ class PlatformSelect extends React.Component {
 								onChange={ this.handleChange.bind( this ) }
 								searchable={ false }
 								clearable={ false }
-								inputProps={
-									{ id: "selectPlatform" }
-								}
+								tabSelectsValue={ true }
+								inputProps={ {
+									id: "selectPlatform",
+								} }
+								innerRef={ ( ref ) => {
+									this.selectRef = ref;
+								} }
+								disabled={ this.props.disablePlatformSelect }
 								options={ Object.values( SITE_TYPE_OPTIONS ) }
 							/>
 							<WideLargeButton
-								onClick={ () => {
-									this.props.onConfirm( this.props.siteId, this.state.selectedOption.value );
-								} }
+								onClick={ this.handleConfirm.bind( this ) }
+								enabledStyle={ ! this.props.disablePlatformSelect }
 							>
 								<FormattedMessage
 									id="sites.details.platformConfirm"
@@ -96,6 +132,7 @@ PlatformSelect.propTypes = {
 	siteType: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	onConfirm: PropTypes.func,
+	disablePlatformSelect: PropTypes.bool,
 	intl: intlShape.isRequired,
 };
 

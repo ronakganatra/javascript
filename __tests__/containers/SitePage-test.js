@@ -190,6 +190,7 @@ test('the mapStateToProps function', () => {
 				toggling: false,
 			},
 		},
+		disablePlatformSelect: false,
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
