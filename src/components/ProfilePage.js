@@ -11,7 +11,6 @@ import _noop from "lodash/noop";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
-import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import MyYoastModal from "./MyYoastModal";
 import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
@@ -369,8 +368,8 @@ class ProfilePage extends React.Component {
 				}
 			</ComposerIntroductionArea>;
 
-		return hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
-			? <div>
+		return (
+			<div>
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
 						{ ComposerIntroduction }
@@ -389,7 +388,7 @@ class ProfilePage extends React.Component {
 				</Paper>
 				{ this.getModal() }
 			</div>
-			: null;
+		);
 	}
 	/**
 	 * Renders the element.

@@ -1,7 +1,6 @@
 import { getUserId } from "./auth";
 import getEnv from "./getEnv";
 
-export const COMPOSER_TOKEN_FEATURE = "COMPOSER_TOKEN";
 export const CONFIGURATION_SERVICE_FEATURE = "CONFIGURATION_SERVICE";
 
 /*
@@ -9,7 +8,6 @@ export const CONFIGURATION_SERVICE_FEATURE = "CONFIGURATION_SERVICE";
  * To enable a certain feature for all users just remove the feature flag from this array.
  */
 const featureFlags = [
-	COMPOSER_TOKEN_FEATURE,
 	CONFIGURATION_SERVICE_FEATURE,
 ];
 
