@@ -10,7 +10,7 @@ import _includes from "lodash/includes";
 
 export const PLUGIN_MAPPING = {
 	wordpress: "plugin",
-	typo3: "typo3-plugin",
+	typo3: "typo3-extension",
 };
 
 /**

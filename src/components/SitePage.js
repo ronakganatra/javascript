@@ -82,7 +82,7 @@ class SitePage extends React.Component {
 		}
 		return (
 			<div>
-				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
+				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" }/>
 				{ subscriptionList }
 				<PlatformSelect
 					title={ props.intl.formatMessage( messages.changeSitePlatform ) }
