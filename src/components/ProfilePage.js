@@ -14,6 +14,7 @@ import ComposerTokens from "./account/profile/ComposerTokens";
 import MyYoastModal from "./MyYoastModal";
 import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -352,6 +353,10 @@ class ProfilePage extends React.Component {
 	 * depending on whether the user has access to this feature via the feature toggle.
 	 */
 	getDevTools() {
+		if ( ! this.hasActiveComposerTokens() && ! hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+			return null;
+		}
+
 		let ComposerIntroduction =
 			<ComposerIntroductionArea>
 				{
