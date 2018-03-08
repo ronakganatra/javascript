@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "./Button.js";
-import addSiteImage from "../images/addsite.svg";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
@@ -12,6 +11,8 @@ import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
+import YoastSelect from "./general/YoastSelect";
+import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -23,21 +24,13 @@ const messages = defineMessages( {
 const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
-	font-weight: 300;
 	font-size: 1em;
 
 	label {
 		display: inline-block;
-		font-weight: 300;
 		font-size: 1em;
 		margin: 16px 0 8px;
 	}
-`;
-
-const AddSiteImage = styled.img`
-	width: 100%;
-	margin: 1em 0 0;
-	vertical-align: bottom;
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -48,11 +41,12 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	margin-bottom: 8px;
 ` );
 
 const Buttons = styled.div`
 	flex: 1 0 200px;
-	padding: 8px 0;
+	padding-bottom: 16px;
 	text-align: right;
 
 	a,
@@ -103,12 +97,55 @@ class AddSite extends React.Component {
 		this.state = {
 			validationError: null,
 			showValidationError: false,
+			selectedOption: {
+				value: "wordpress",
+				label: "WordPress",
+			},
 		};
 
 		// Defines the debounced function to show the validation error.
 		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
 		// Defines the debounced function to announce the validation error.
 		this.speakValidationMessageDebounced = _debounce( this.speakValidationMessage, 1000 );
+	}
+
+	/**
+	 * Tests whether customer has access to composer token feature. If so, returns a drop-down selector for CMS type.
+	 * If not, returns null.
+	 *
+	 * @returns {*} Either null or html for the CMS type drop-down.
+	 */
+	getPlatformSelect() {
+		if( hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+			return(
+				<div>
+					<label htmlFor="selectPlatform">
+						<FormattedMessage
+							id="sites.addSite.enterUrl"
+							defaultMessage="Please select the platform that your website is running on:"
+						/>
+					</label>
+					<YoastSelect
+						name="selectPlatform"
+						value={ this.state.selectedOption.value }
+						onChange={ this.handleChange.bind( this ) }
+						searchable={ false }
+						clearable={ false }
+						options={ [
+							{
+								value: "wordpress",
+								label: "WordPress",
+							},
+							{
+								value: "typo3",
+								label: "TYPO3",
+							},
+						] }
+					/>
+				</div>
+			);
+		}
+		return null;
 	}
 
 	/**
@@ -249,8 +286,14 @@ class AddSite extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( ! this.state.validationError && !! this.props.linkingSiteUrl ) {
-			this.props.onConnectClick();
+			this.props.onConnectClick( this.state.selectedOption.value );
 		}
+	}
+
+	handleChange( selectedOption ) {
+		this.setState( {
+			selectedOption,
+		} );
 	}
 
 	/**
@@ -311,6 +354,8 @@ class AddSite extends React.Component {
 
 					<ErrorDisplay error={ this.props.error } />
 
+					{ this.getPlatformSelect() }
+					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
@@ -324,8 +369,6 @@ class AddSite extends React.Component {
 						</WideLargeButton>
 					</Buttons>
 				</form>
-				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
-				<AddSiteImage src={ addSiteImage } alt=""/>
 			</AddSiteModal>
 		);
 	}

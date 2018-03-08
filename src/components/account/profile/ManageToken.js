@@ -18,7 +18,6 @@ const ManageTokenModal = styled.div`
 
 	label {
 		display: inline-block;
-		font-weight: 300;
 		font-size: 1em;
 		margin: 16px 0 8px;
 	}

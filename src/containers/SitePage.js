@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription, siteRemove } from "../actions/site";
+import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
-import { getPlugins, sortPluginsByPopularity } from "../functions/products";
+import { getPluginsForSiteType, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
@@ -42,7 +42,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	let plugins = getPlugins( state.entities.products.byId ).map( ( plugin ) => {
+	let plugins = getPluginsForSiteType( site.type, state.entities.products.byId ).map( ( plugin ) => {
 		// Set defaults
 		plugin.limit = 0;
 		plugin.isEnabled = false;
@@ -91,6 +91,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	plugins = sortPluginsByPopularity( plugins );
 
+	let disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
+
 	return {
 		addSubscriptionModal,
 		site,
@@ -98,6 +100,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		plugins,
 		loadingSubscriptions: state.ui.subscriptions.requesting,
 		uiSite: state.ui.site,
+		disablePlatformSelect,
 	};
 };
 
@@ -128,6 +131,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			if ( window.confirm( "Are you sure you want to remove this site from MyYoast?" ) ) {
 				dispatch( siteRemove( siteId ) );
 			}
+		},
+		onConfirmPlatformChange: ( id, type ) => {
+			dispatch( siteChangePlatform( id, type ) );
 		},
 	};
 };

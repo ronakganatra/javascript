@@ -12,7 +12,6 @@ const AddLicensesModal = styled.div`
 `;
 
 const AddLicensesText = styled.p`
-	font-weight: 300;
 	font-size: 16px;
 `;
 
