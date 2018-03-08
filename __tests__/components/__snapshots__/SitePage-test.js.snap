@@ -510,24 +510,6 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
           Back
         </span>
       </a>
-      <a
-        aria-label={undefined}
-        className="eoFijw"
-        href="http://yoast.com/wp-admin"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <span>
-          Open WordPress admin 
-          <span
-            className="screen-reader-text fuqaAG"
-          >
-            <span>
-              (Opens in a new browser tab)
-            </span>
-          </span>
-        </span>
-      </a>
     </div>
   </div>
   <svg
