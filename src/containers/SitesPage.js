@@ -6,6 +6,7 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
+import { configurationRequestModalOpen } from "../actions/configurationRequest";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.sites.allIds;
@@ -16,6 +17,7 @@ export const mapStateToProps = ( state ) => {
 		let siteProps = {
 			id: site.id,
 			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
+			siteType: site.type,
 			url: site.url,
 		};
 
@@ -84,14 +86,17 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onClose: () => {
 			dispatch( linkSiteModalClose() );
 		},
-		onConnect: ( url ) => {
-			dispatch( linkSite( url ) );
+		onConnect: ( url, type ) => {
+			dispatch( linkSite( url, type ) );
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
 		},
 		onManage: ( siteId ) => {
 			dispatch( push( "/sites/" + siteId ) );
+		},
+		onConfigurationRequestClick: ( siteId ) => {
+			dispatch( configurationRequestModalOpen( siteId ) );
 		},
 	};
 };
@@ -103,8 +108,8 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onConnect = () => {
-		dispatchProps.onConnect( url );
+	let onConnect = ( type ) => {
+		dispatchProps.onConnect( url, type );
 	};
 
 	let addSite = () => {

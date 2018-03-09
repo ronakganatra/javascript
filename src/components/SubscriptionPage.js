@@ -6,7 +6,7 @@ import SubscriptionDetails from "./SubscriptionDetails";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListHeading } from "./Headings";
 import Orders from "./Orders";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
 

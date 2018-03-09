@@ -22,7 +22,7 @@ export const WarningMessage = styled( GeneralMessage )`
 `;
 
 export const ErrorMessage = styled( GeneralMessage )`
-	background-color: ${ colors.$color_error };
+	background-color: ${ colors.$color_error_message };
 `;
 
 export const MessageIcon = styled.span`

@@ -92,6 +92,12 @@ jest.mock( "../../src/reducers/composerTokens.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/configurationRequest.js", () => {
+	return {
+		uiConfigurationRequestReducer: jest.fn( ( state = {} ) => { return { name: "uiConfigurationRequestReducer" }; } ),
+	}
+} );
+
 test( 'ui reducer', () => {
 	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {} };
 	const action = {
@@ -99,7 +105,7 @@ test( 'ui reducer', () => {
 	};
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, };
+		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, configurationRequest: { name: "uiConfigurationRequestReducer" } };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -245,6 +251,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			sites: { name: "uiSitesReducer" },
 			refunds: { name: "uiRefundsReducer" },
 			composerTokens: { name: "uiComposerTokensReducer"},
+			configurationRequest: { name: "uiConfigurationRequestReducer" },
 			search: {
 				query: "",
 			},

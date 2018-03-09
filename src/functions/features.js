@@ -2,6 +2,7 @@ import { getUserId } from "./auth";
 import getEnv from "./getEnv";
 
 export const COMPOSER_TOKEN_FEATURE = "COMPOSER_TOKEN";
+export const CONFIGURATION_SERVICE_FEATURE = "CONFIGURATION_SERVICE";
 
 /*
  * Feature flags is the array of currently available feature flags.
@@ -9,6 +10,7 @@ export const COMPOSER_TOKEN_FEATURE = "COMPOSER_TOKEN";
  */
 const featureFlags = [
 	COMPOSER_TOKEN_FEATURE,
+	CONFIGURATION_SERVICE_FEATURE,
 ];
 
 /**

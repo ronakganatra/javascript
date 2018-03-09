@@ -2,10 +2,10 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import {
 	ColumnPrimary, ListTable, ColumnIcon, RowMobileCollapse, makeFullWidth,
-	responsiveHeaders, ColumnMinWidth,
+	responsiveHeaders, ColumnMinWidth, ColumnFixedWidth,
 } from "./Tables";
 import styled from "styled-components";
 import { getUserId } from "../functions/auth";
@@ -60,6 +60,10 @@ const CourseColumnIcon = styled( ColumnIcon )`
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+let ColumnFixedWidthResponsive = styled( makeFullWidth( responsiveHeaders( ColumnFixedWidth ) ) )`
+	flex: 0 0 192px;
+	text-align: center;
+`;
 
 let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -148,22 +152,24 @@ class CoursesEnrollments extends React.Component {
 		let studentOrBuyer = ( course ) => {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {
 				return (
-					<ColumnMinWidthResponsive>
+					<ColumnFixedWidthResponsive>
 						<ResponsiveLargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
-					</ColumnMinWidthResponsive>
+					</ColumnFixedWidthResponsive>
 				);
 			}
 			if ( currentUser === course.buyerId && course.status !== "not started" ) {
 				return (
-					<ColumnMinWidthResponsive>
-						Course in Progress
-					</ColumnMinWidthResponsive>
+					<ColumnFixedWidthResponsive>
+							<FormattedMessage
+								id="courses.enrollments.progress"
+								defaultMessage="Course in progress"
+							/>
+					</ColumnFixedWidthResponsive>
 				);
 			}
 			if ( currentUser === course.studentId && course.studentId !== course.buyerId && course.buyerId ) {
 				return (
-					<ColumnMinWidthResponsive>
-
+					<ColumnFixedWidthResponsive>
 						<span key={ course.id }>
 							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
 							{ course.buyerName }
@@ -171,11 +177,11 @@ class CoursesEnrollments extends React.Component {
 							<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
 							{ course.buyerEmail }
 						</span>
-					</ColumnMinWidthResponsive>
+					</ColumnFixedWidthResponsive>
 				);
 			}
 
-			return <ColumnMinWidthResponsive />;
+			return <ColumnFixedWidthResponsive />;
 		};
 
 		return (

@@ -15,6 +15,8 @@ import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
 import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
+import ConfigurationRequestForm from "./sites/ConfigurationRequestForm";
+import { CONFIGURATION_SERVICE_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -81,6 +83,14 @@ class SitesPage extends React.Component {
 			onChange={ this.props.onSearchChange }
 			query={ this.props.query }
 		/>;
+	}
+
+	getConfigurationRequest() {
+		if ( hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
+			return <ConfigurationRequestForm sites={this.props.sites}
+											 onConfigurationRequestClick={this.props.onConfigurationRequestClick}/>;
+		}
+		return null;
 	}
 
 	componentDidMount() {
@@ -158,6 +168,7 @@ class SitesPage extends React.Component {
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
+					{ this.getConfigurationRequest() }
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ this.getModal() }
 				</div>
@@ -199,6 +210,7 @@ SitesPage.propTypes = {
 	intl: intlShape.isRequired,
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
+	onConfigurationRequestClick: PropTypes.func,
 };
 
 SitesPage.defaultProps = {

@@ -3,12 +3,12 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { ListTable } from "./Tables";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 import _groupBy from "lodash/groupBy";
 import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";
 import noSitesImage from "./../images/noSites.svg";
-import CourseEnrollment from "./courses/progress/CourseEnrollment";
+import CourseProgress from "./courses/progress/CourseProgress";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -75,7 +75,7 @@ class CoursesProgress extends React.Component {
 						let enrollments = allEnrollments[ course.id ] || [];
 
 						return(
-							<CourseEnrollment
+							<CourseProgress
 								key={ course.id }
 								course={ course }
 								courseEnrollments={ enrollments }

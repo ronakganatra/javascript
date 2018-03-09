@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import ComposerToken from "./ComposerToken";
 import { ListTable } from "../../Tables";
-import Paper from "../../Paper";
+import Paper from "../../PaperStyles";
 
 /**
  * Returns the rendered Orders component.

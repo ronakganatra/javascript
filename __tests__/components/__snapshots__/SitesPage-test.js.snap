@@ -48,12 +48,51 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   <div
     className="ittEMS"
   >
+    <div
+      className="kgUdcm"
+    >
+      <h2
+        className="fjTZRq"
+      >
+        Configuration Service
+      </h2>
+      <p>
+        <span>
+          You have 1 available configuration service, which you can apply to one of your websites.
+        </span>
+        <br />
+        <span>
+          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
+        </span>
+      </p>
+      <span
+        className="eldrKc"
+      >
+        <mockSelectComponent
+          className="fNaNUR"
+          name="form-field-name"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          className="joGbpC"
+          onClick={[Function]}
+          type="button"
+        >
+          Request configuration service
+        </button>
+      </span>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="eotMRg"
+        className="cgxxQv"
       >
         <span
           className="hCewQe"
@@ -100,44 +139,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         />
       </li>
     </ul>
-  </div>
-  <div />
-</div>
-`;
-
-exports[`the sites page component with no sites matches the snapshot 1`] = `
-<div>
-  <div
-    className="beArzs"
-  >
-    <p>
-      <span>
-        Welcome to the sites overview.
-      </span>
-    </p>
-    <p>
-      <span>
-        Here you will be able to manage all your sites that are running Yoast subscriptions.
-      </span>
-    </p>
-    <p>
-      <span>
-        Press the button below to add your first site.
-      </span>
-    </p>
-    <button
-      className="inpHnp"
-      onClick={[Function]}
-    >
-      <span>
-        Add site
-      </span>
-    </button>
-    <img
-      alt=""
-      className="bTHZQB"
-      src="noSites.svg"
-    />
   </div>
   <div />
 </div>
@@ -191,12 +192,51 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="ittEMS"
   >
+    <div
+      className="kgUdcm"
+    >
+      <h2
+        className="fjTZRq"
+      >
+        Configuration Service
+      </h2>
+      <p>
+        <span>
+          You have 1 available configuration service, which you can apply to one of your websites.
+        </span>
+        <br />
+        <span>
+          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
+        </span>
+      </p>
+      <span
+        className="eldrKc"
+      >
+        <mockSelectComponent
+          className="fNaNUR"
+          name="form-field-name"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          className="joGbpC"
+          onClick={[Function]}
+          type="button"
+        >
+          Request configuration service
+        </button>
+      </span>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="eotMRg"
+        className="cgxxQv"
       >
         <span
           className="hCewQe"
@@ -296,12 +336,51 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="ittEMS"
   >
+    <div
+      className="kgUdcm"
+    >
+      <h2
+        className="fjTZRq"
+      >
+        Configuration Service
+      </h2>
+      <p>
+        <span>
+          You have 1 available configuration service, which you can apply to one of your websites.
+        </span>
+        <br />
+        <span>
+          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
+        </span>
+      </p>
+      <span
+        className="eldrKc"
+      >
+        <mockSelectComponent
+          className="fNaNUR"
+          name="form-field-name"
+          onChange={[Function]}
+          value=""
+        />
+        <button
+          className="joGbpC"
+          onClick={[Function]}
+          type="button"
+        >
+          Request configuration service
+        </button>
+      </span>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
     <ul
       className="dITYws"
       role="list"
     >
       <li
-        className="eotMRg"
+        className="cgxxQv"
       >
         <span
           className="hCewQe"

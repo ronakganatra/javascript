@@ -4,7 +4,7 @@ import CollapsibleHeader from "./CollapsibleHeader";
 import SiteSubscriptionDetail from "./SiteSubscriptionDetail";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListTable } from "./Tables";
-import Paper from "./Paper";
+import { Paper } from "./PaperStyles";
 const messages = defineMessages( {
 	manageTitle: {
 		id: "siteSubscriptions.overview.title",

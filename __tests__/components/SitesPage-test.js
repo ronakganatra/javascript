@@ -9,30 +9,39 @@ jest.mock( "../../src/reducers/search.js", () => {
 	}
 } );
 
+jest.mock( "react-select", () => {
+		return "mockSelectComponent"
+	}
+);
+
 let plugins = [
 	{
 		glNumber: 111,
 		ids: [ "1" ],
 		icon: "test.jpg",
 		name: "Test",
+		type: "plugin",
 	},
 	{
 		glNumber: 222,
 		ids: [ "2" ],
 		icon: "test.jpg",
 		name: "Test2",
+		type: "plugin",
 	},
 	{
 		glNumber: 333,
 		ids: [ "3" ],
 		icon: "test.jpg",
 		name: "Test3",
+		type: "plugin",
 	},
 	{
 		glNumber: 444,
 		ids: [ "4" ],
 		icon: "test.jpg",
 		name: "Test4",
+		type: "plugin",
 	}
 ];
 
@@ -43,17 +52,18 @@ let activeSubscriptions = [
 	{
 		productId: "2",
 	},
-]
+];
 
-test('the sites page component with no sites matches the snapshot', () => {
-	const component = createComponentWithIntl(
-		<SitesPage sites={ [] } addSite={ () => {} } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ true } query="" onManage={ () => {} } plugins={ [] } />
-	);
-
-	let tree = component.toJSON();
-	expect( tree ).toMatchSnapshot();
-} );
+/*
+Always opening all features, since we don't have to test whether the toggle works.
+This way we can immediately test the new components, and don't have to add tests when we remove the feature flag.
+*/
+jest.mock( "../../src/functions/features", () => {
+		return {
+			hasAccessToFeature: jest.fn( () => { return true; } ),
+		};
+	}
+);
 
 test('the sites page component with a site matches the snapshot', () => {
 	const site = {
@@ -61,7 +71,9 @@ test('the sites page component with a site matches the snapshot', () => {
 		siteName: "www.yoast.com",
 		activeSubscriptions: activeSubscriptions,
 		siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+		siteType: "wordpress"
 	};
+
 	const component = createComponentWithIntl(
 		<SitesPage sites={ [ site ] } addSite={ () => {} } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
 				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } plugins={ plugins } />
@@ -94,6 +106,7 @@ test('the sites page component with sites handling an onclick event on the add s
 		<SitesPage sites={ [
 			{ id: "7e54b616-59a7-4389-af3e-c2e0c093b955",
 				siteName: "www.yoast.com",
+				siteType: "wordpress",
 				activeSubscriptions: activeSubscriptions,
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 			},] } addSite={ () => { return 'Add site'; } } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
