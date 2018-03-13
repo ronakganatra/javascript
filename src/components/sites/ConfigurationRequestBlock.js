@@ -50,15 +50,15 @@ let SelectArea = styled.span`
 `;
 
 /**
- * Returns the rendered ConfigurationRequestForm component.
+ * Returns the rendered ConfigurationRequestBlock component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered ConfigurationRequestForm component.
+ * @returns {ReactElement} The rendered ConfigurationRequestBlock component.
  */
-class ConfigurationRequestForm extends React.Component {
+class ConfigurationRequestBlock extends React.Component {
 	/**
-	 * Sets the ConfigurationRequestForm component.
+	 * Sets the ConfigurationRequestBlock component.
 	 * @param {Object} props All of the props passed to this component.
 	 * @returns {void}
 	 */
@@ -140,9 +140,9 @@ class ConfigurationRequestForm extends React.Component {
 	}
 }
 
-export default injectIntl( ConfigurationRequestForm );
+export default injectIntl( ConfigurationRequestBlock );
 
-ConfigurationRequestForm.propTypes = {
+ConfigurationRequestBlock.propTypes = {
 	onConfigurationRequestClick: PropTypes.func,
 	sites: PropTypes.array,
 	intl: intlShape.isRequired,

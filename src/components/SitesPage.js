@@ -15,9 +15,9 @@ import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
 import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
-import ConfigurationRequestForm from "./sites/ConfigurationRequestForm";
+import ConfigurationRequestForm from "./sites/ConfigurationRequestBlock";
 import { CONFIGURATION_SERVICE_FEATURE, hasAccessToFeature } from "../functions/features";
-import ConfigurationRequest from "./sites/ConfigurationRequest";
+import ConfigurationRequest from "./sites/configuration-request/ConfigurationRequestForm";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {

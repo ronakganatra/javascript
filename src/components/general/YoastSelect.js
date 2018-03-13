@@ -2,7 +2,7 @@ import Select from "react-select";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 
-let YoastSelect = styled( Select )`
+const YoastSelect = styled( Select )`
 	width: 100%;
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 
