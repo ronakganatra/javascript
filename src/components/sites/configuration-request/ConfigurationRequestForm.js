@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import Stepper from "../../general/Stepper";
 import AdministratorLoginStep from "./AdministratorLoginStep";
+import BackupStep from "./BackupStep";
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
@@ -19,14 +20,22 @@ class ConfigurationRequest extends React.Component {
 
 		this.state = {
 			administratorLoginConfirmed: false,
+			createBackup: null,
 		};
 
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
+		this.setBackupCreation = this.setBackupCreation.bind( this );
 	}
 
 	setAdministratorLoginConfirmation( data ) {
 		this.setState( {
 			administratorLoginConfirmed: data.confirmed,
+		} );
+	}
+
+	setBackupCreation( data ) {
+		this.setState( {
+			createBackup: data.createBackup,
 		} );
 	}
 
@@ -46,8 +55,8 @@ class ConfigurationRequest extends React.Component {
 														   onSubmit={ this.setAdministratorLoginConfirmation } />,
 					},
 					{
-						label: "Step 2",
-						component: <div>Test</div>,
+						label: <FormattedMessage id="requestConfiguration.backup" defaultMessage="Backup"/>,
+						component: <BackupStep createBackup={ this.state.createBackup } onSubmit={ this.setBackupCreation } />,
 					},
 					{
 						label: "Step 3",
