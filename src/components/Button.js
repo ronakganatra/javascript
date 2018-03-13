@@ -165,7 +165,6 @@ BeaconButton.propTypes = {
 
 BeaconButton.defaultProps = {
 	type: "button",
-	"aria-label": "",
 };
 
 export const ChevronButton = styled( Button )`
@@ -189,7 +188,6 @@ ChevronButton.propTypes = {
 
 ChevronButton.defaultProps = {
 	type: "button",
-	"aria-label": "",
 };
 
 // Styled IconButtonArchetypes.
@@ -203,7 +201,7 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	padding-left: 2em;
 	border: 0;
 
-	transition: background-color 150ms ease-out;  
+	transition: background-color 150ms ease-out;
 
 	&:hover,
 	&:focus {
@@ -226,7 +224,7 @@ export const CloseButtonTopRight = styled( IconButtonArchetype )`
 	border-bottom: none;
 	box-shadow: none;
 	display: inline-block;
-	
+
 	&:hover,
 	&:focus {
 		box-shadow: none;
@@ -323,7 +321,6 @@ ChevronButtonLink.propTypes = {
 
 ChevronButtonLink.defaultProps = {
 	type: "button",
-	"aria-label": "",
 };
 
 export const LargeButtonLink = styled( ButtonLink )`
@@ -402,7 +399,7 @@ export const IconButtonTransparentLink = styled( IconButtonLink )`
 	height: 32px;
 	padding: 4px 16px 0 2em;
 
-	transition: background-color 150ms ease-out;  
+	transition: background-color 150ms ease-out;
 
 	&:hover,
 	&:focus {
