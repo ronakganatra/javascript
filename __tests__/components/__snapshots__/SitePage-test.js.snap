@@ -219,7 +219,7 @@ exports[`the site page component matches the snapshot 1`] = `
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -228,8 +228,11 @@ exports[`the site page component matches the snapshot 1`] = `
           Select the platform your site is running on
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -248,7 +251,7 @@ exports[`the site page component matches the snapshot 1`] = `
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -257,8 +260,11 @@ exports[`the site page component matches the snapshot 1`] = `
           Disconnect this site
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -492,7 +498,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -501,8 +507,11 @@ exports[`the site page component matches the snapshot for a site in a directory 
           Select the platform your site is running on
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -521,7 +530,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -530,8 +539,11 @@ exports[`the site page component matches the snapshot for a site in a directory 
           Disconnect this site
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -747,7 +759,7 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -756,8 +768,11 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
           Select the platform your site is running on
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -776,7 +791,7 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
     >
       <button
         aria-expanded={false}
-        className="gCGqdM"
+        className="eCVlAl"
         onClick={[Function]}
       >
         <span
@@ -785,8 +800,11 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
           Disconnect this site
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
