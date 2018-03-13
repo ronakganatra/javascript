@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Stepper from "../../general/Stepper";
 import AdministratorLoginStep from "./AdministratorLoginStep";
 import BackupStep from "./BackupStep";
+import ImportDataStep from "./ImportDataStep";
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
@@ -59,8 +60,8 @@ class ConfigurationRequest extends React.Component {
 						component: <BackupStep createBackup={ this.state.createBackup } onSubmit={ this.setBackupCreation } />,
 					},
 					{
-						label: "Step 3",
-						component: <div>Test</div>,
+						label: <FormattedMessage id="requestConfiguration.importData" defaultMessage="Import data from another SEO plugin"/>,
+						component: <ImportDataStep />,
 					},
 				] } />
 			</ConfigurationRequestModal>
