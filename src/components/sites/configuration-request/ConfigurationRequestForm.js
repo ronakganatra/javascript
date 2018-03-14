@@ -6,6 +6,7 @@ import Stepper from "../../general/Stepper";
 import AdministratorLoginStep from "./AdministratorLoginStep";
 import BackupStep from "./BackupStep";
 import ImportDataStep from "./ImportDataStep";
+import GoogleSearchConsole from "./GoogleSearchConsole";
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
@@ -23,10 +24,12 @@ class ConfigurationRequest extends React.Component {
 			administratorLoginConfirmed: false,
 			createBackup: null,
 			importData: null,
+			googleSearchConsole: null,
 		};
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
 		this.setImportData = this.setImportData.bind( this );
+		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
 	}
 
 	setAdministratorLoginConfirmation( data ) {
@@ -44,6 +47,12 @@ class ConfigurationRequest extends React.Component {
 	setImportData( data ) {
 		this.setState( {
 			importData: data.importData,
+		} );
+	}
+
+	setGoogleSearchConsole( data ) {
+		this.setState( {
+			googleSearchConsole: data.googleSearchConsole,
 		} );
 	}
 
@@ -69,6 +78,10 @@ class ConfigurationRequest extends React.Component {
 					{
 						label: <FormattedMessage id="requestConfiguration.importData" defaultMessage="Import data from another SEO plugin"/>,
 						component: <ImportDataStep importData={ this.state.importData } onSubmit={ this.setImportData }/>,
+					},
+					{
+						label: <FormattedMessage id="requestConfiguration.googleSearchConsole" defaultMessage="Google search console"/>,
+						component: <GoogleSearchConsole googleSearchConsole={ this.state.googleSearchConsole } onSubmit={ this.setGoogleSearchConsole }/>,
 					},
 
 				] } />
