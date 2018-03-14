@@ -26,10 +26,6 @@ let messages = defineMessages( {
 	},
 } );
 
-const StyledLabel = styled.label`
-	margin-left: 12px;
-`;
-
 const ButtonsContainer = styled.p`
 	> button:not(:first-child) {
 		margin-left: 12px;
@@ -40,9 +36,9 @@ const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 class ImportDataStep extends React.Component {
+
 	constructor( props ) {
 		super( props );
-
 		this.state = {
 			importData: props.importData,
 		};
@@ -52,13 +48,13 @@ class ImportDataStep extends React.Component {
 	}
 
 	handleInput( event ) {
-		console.log( "event_waarde", event );
 		this.setState( {
-			importData: event,
+			importData: event.value,
 		} );
 	}
 
 	handleContinue() {
+		console.log( "handlecontinue:", this.state.importData );
 		if ( this.state.importData === null ) {
 			return;
 		}
@@ -70,7 +66,6 @@ class ImportDataStep extends React.Component {
 
 	render() {
 		let value = this.state.importData;
-		console.log( "value", value );
 		return (
 			<div>
 				<p>
@@ -79,11 +74,11 @@ class ImportDataStep extends React.Component {
 						defaultMessage={ messages.importDataRequired.defaultMessage } />
 				</p>
 
-					<StyledLabel htmlFor="importDataExists">
-						<FormattedMessage
-							id={ messages.importDataExists.id }
-							defaultMessage={ messages.importDataExists.defaultMessage } />
-					</StyledLabel>
+				<label htmlFor="importDataExists">
+					<FormattedMessage
+						id={ messages.importDataExists.id }
+						defaultMessage={ messages.importDataExists.defaultMessage } />
+				</label>
 
 				<YoastSelect
 					name="form-field-name"
@@ -110,7 +105,7 @@ class ImportDataStep extends React.Component {
 }
 
 ImportDataStep.propTypes = {
-	importData: PropTypes.bool,
+	importData: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	goToPreviousStep: PropTypes.func,
 	completeStep: PropTypes.func,

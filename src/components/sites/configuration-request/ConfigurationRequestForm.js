@@ -24,9 +24,10 @@ class ConfigurationRequest extends React.Component {
 			createBackup: null,
 			importData: null,
 		};
-
+		console.log( "state config req:", this.state );
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
+		this.setImportData = this.setImportData.bind( this );
 	}
 
 	setAdministratorLoginConfirmation( data ) {
@@ -42,7 +43,6 @@ class ConfigurationRequest extends React.Component {
 	}
 
 	setImportData( data ) {
-		console.log( "importdata", data );
 		this.setState( {
 			importData: data.importData,
 		} );
@@ -69,8 +69,9 @@ class ConfigurationRequest extends React.Component {
 					},
 					{
 						label: <FormattedMessage id="requestConfiguration.importData" defaultMessage="Import data from another SEO plugin"/>,
-						component: <ImportDataStep onSubmit={ this.setImportData }/>,
+						component: <ImportDataStep importData={ this.state.importData } onSubmit={ this.setImportData }/>,
 					},
+
 				] } />
 			</ConfigurationRequestModal>
 		);
