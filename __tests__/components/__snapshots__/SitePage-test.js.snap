@@ -225,6 +225,35 @@ exports[`the site page component matches the snapshot 1`] = `
         <span
           className="ioaeUl"
         >
+          Select the platform your site is running on
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="czfHmS"
+    >
+      <button
+        aria-expanded={false}
+        className="gCGqdM"
+        onClick={[Function]}
+      >
+        <span
+          className="ioaeUl"
+        >
           Disconnect this site
         </span>
         <svg
@@ -469,6 +498,35 @@ exports[`the site page component matches the snapshot for a site in a directory 
         <span
           className="ioaeUl"
         >
+          Select the platform your site is running on
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="czfHmS"
+    >
+      <button
+        aria-expanded={false}
+        className="gCGqdM"
+        onClick={[Function]}
+      >
+        <span
+          className="ioaeUl"
+        >
           Disconnect this site
         </span>
         <svg
@@ -681,6 +739,35 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
       </g>
     </g>
   </svg>
+  <div
+    className="ittEMS"
+  >
+    <div
+      className="czfHmS"
+    >
+      <button
+        aria-expanded={false}
+        className="gCGqdM"
+        onClick={[Function]}
+      >
+        <span
+          className="ioaeUl"
+        >
+          Select the platform your site is running on
+        </span>
+        <svg
+          fill="#555"
+          height={40}
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
   <div
     className="ittEMS"
   >

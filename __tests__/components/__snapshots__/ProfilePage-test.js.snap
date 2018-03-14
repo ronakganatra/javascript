@@ -143,6 +143,37 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="ittEMS"
+    >
+      <div
+        className="czfHmS"
+      >
+        <button
+          aria-expanded={false}
+          className="gCGqdM"
+          onClick={[Function]}
+        >
+          <span
+            className="ioaeUl"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            fill="#555"
+            height={40}
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="ittEMS"
   >

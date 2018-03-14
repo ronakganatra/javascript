@@ -12,7 +12,6 @@ import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 import YoastSelect from "./general/YoastSelect";
-import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -116,36 +115,33 @@ class AddSite extends React.Component {
 	 * @returns {*} Either null or html for the CMS type drop-down.
 	 */
 	getPlatformSelect() {
-		if( hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
-			return(
-				<div>
-					<label htmlFor="selectPlatform">
-						<FormattedMessage
-							id="sites.addSite.enterUrl"
-							defaultMessage="Please select the platform that your website is running on:"
-						/>
-					</label>
-					<YoastSelect
-						name="selectPlatform"
-						value={ this.state.selectedOption.value }
-						onChange={ this.handleChange.bind( this ) }
-						searchable={ false }
-						clearable={ false }
-						options={ [
-							{
-								value: "wordpress",
-								label: "WordPress",
-							},
-							{
-								value: "typo3",
-								label: "TYPO3",
-							},
-						] }
+		return(
+			<div>
+				<label htmlFor="selectPlatform">
+					<FormattedMessage
+						id="sites.addSite.enterUrl"
+						defaultMessage="Please select the platform that your website is running on:"
 					/>
-				</div>
-			);
-		}
-		return null;
+				</label>
+				<YoastSelect
+					name="selectPlatform"
+					value={ this.state.selectedOption.value }
+					onChange={ this.handleChange.bind( this ) }
+					searchable={ false }
+					clearable={ false }
+					options={ [
+						{
+							value: "wordpress",
+							label: "WordPress",
+						},
+						{
+							value: "typo3",
+							label: "TYPO3",
+						},
+					] }
+				/>
+			</div>
+		);
 	}
 
 	/**

@@ -5,7 +5,6 @@ import YoastSelect, { SelectArea } from "../../general/YoastSelect";
 import CollapsibleHeader from "../../CollapsibleHeader";
 import { Paper, WhitePage } from "../../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../../Button";
-import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../../../functions/features";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -80,9 +79,6 @@ class PlatformSelect extends React.Component {
 	}
 
 	render() {
-		if( ! hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
-			return null;
-		}
 		return(
 			<Paper>
 				<CollapsibleHeader title={ this.props.title }>
