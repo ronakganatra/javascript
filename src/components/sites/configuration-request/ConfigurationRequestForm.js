@@ -24,7 +24,6 @@ class ConfigurationRequest extends React.Component {
 			createBackup: null,
 			importData: null,
 		};
-		console.log( "state config req:", this.state );
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
 		this.setImportData = this.setImportData.bind( this );

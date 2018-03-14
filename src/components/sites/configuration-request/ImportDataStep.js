@@ -54,7 +54,6 @@ class ImportDataStep extends React.Component {
 	}
 
 	handleContinue() {
-		console.log( "handlecontinue:", this.state.importData );
 		if ( this.state.importData === null ) {
 			return;
 		}
@@ -82,6 +81,7 @@ class ImportDataStep extends React.Component {
 
 				<YoastSelect
 					name="form-field-name"
+					placeholder="No plugin selected"
 					value={ value }
 					onChange={ this.handleInput }
 					options={ pluginOptions }
