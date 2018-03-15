@@ -118,9 +118,9 @@ class GoogleSearchConsole extends React.Component {
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.googleSearchConsole !== null }
-						aria-label="continue"
+						aria-label="submit"
 					>
-						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
+						<FormattedMessage id="requestConfiguration.submit" defaultMessage="submit"/>
 					</WideLargeButton>
 				</ButtonsContainer>
 			</div>
