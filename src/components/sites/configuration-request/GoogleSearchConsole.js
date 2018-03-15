@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { defineMessages, FormattedMessage } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 
 
@@ -12,7 +12,11 @@ let messages = defineMessages( {
 	},
 	googleSearchConsoleConnected: {
 		id: "requestConfiguration.googleSearchConsoleConnected",
-		defaultMessage: "I've added yoastconfiguration@gmail.com as a full user to my Google Search Console account. (recommended)",
+		defaultMessage: "I've added yoastconfiguration@gmail.com as a full user to my Google Search Console account. (recommended) - { link } ",
+	},
+	googleSearchConsoleConnectedLink: {
+		id: "requestConfiguration.googleSearchConsoleConnectedLink",
+		defaultMessage: "Open instructions",
 	},
 	googleSearchConsoleMissing: {
 		id: "requestConfiguration.googleSearchConsoleMissing",
@@ -79,7 +83,18 @@ class GoogleSearchConsole extends React.Component {
 					<StyledLabel htmlFor="googleSearchConsoleConnected">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleConnected.id }
-							defaultMessage={ messages.googleSearchConsoleConnected.defaultMessage } />
+							defaultMessage={ messages.googleSearchConsoleConnected.defaultMessage }
+							values={ {
+								link:
+									<a
+										target="_blank"
+										href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
+										rel="noopener noreferrer"
+									>
+										<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
+									</a>,
+							} }
+						/>
 					</StyledLabel>
 				</p>
 				<p>
@@ -114,11 +129,12 @@ class GoogleSearchConsole extends React.Component {
 }
 
 GoogleSearchConsole.propTypes = {
+	intl: intlShape,
 	googleSearchConsole: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
 	goToPreviousStep: PropTypes.func,
 	completeStep: PropTypes.func,
 };
 
-export default GoogleSearchConsole;
+export default injectIntl( GoogleSearchConsole );
 
