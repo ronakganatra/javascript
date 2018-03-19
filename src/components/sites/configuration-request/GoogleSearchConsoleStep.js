@@ -37,7 +37,7 @@ const ButtonsContainer = styled.p`
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
-class GoogleSearchConsole extends React.Component {
+class GoogleSearchConsoleStep extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -128,7 +128,7 @@ class GoogleSearchConsole extends React.Component {
 	}
 }
 
-GoogleSearchConsole.propTypes = {
+GoogleSearchConsoleStep.propTypes = {
 	intl: intlShape,
 	googleSearchConsole: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
@@ -136,5 +136,5 @@ GoogleSearchConsole.propTypes = {
 	completeStep: PropTypes.func,
 };
 
-export default injectIntl( GoogleSearchConsole );
+export default injectIntl( GoogleSearchConsoleStep );
 

@@ -123,7 +123,7 @@ export function fetchComposerTokensRequest() {
 export function fetchComposerTokensFailure( error ) {
 	return {
 		type: FETCH_COMPOSER_TOKENS_FAILURE,
-		error: error,
+		error,
 	};
 }
 
@@ -136,7 +136,7 @@ export function fetchComposerTokensFailure( error ) {
 export function fetchComposerTokensSuccess( composerTokens ) {
 	return {
 		type: FETCH_COMPOSER_TOKENS_SUCCESS,
-		composerTokens: composerTokens,
+		composerTokens,
 	};
 }
 
@@ -180,7 +180,7 @@ export function createComposerTokenRequest() {
 export function createComposerTokenFailure( error ) {
 	return {
 		type: CREATE_COMPOSER_TOKEN_FAILURE,
-		error: error,
+		error,
 	};
 }
 
@@ -193,7 +193,7 @@ export function createComposerTokenFailure( error ) {
 export function createComposerTokenSuccess( composerToken ) {
 	return {
 		type: CREATE_COMPOSER_TOKEN_SUCCESS,
-		composerToken: composerToken,
+		composerToken,
 	};
 }
 

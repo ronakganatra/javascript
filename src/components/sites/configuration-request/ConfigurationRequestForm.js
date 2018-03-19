@@ -6,7 +6,7 @@ import Stepper from "../../general/Stepper";
 import AdministratorLoginStep from "./AdministratorLoginStep";
 import BackupStep from "./BackupStep";
 import ImportDataStep from "./ImportDataStep";
-import GoogleSearchConsole from "./GoogleSearchConsole";
+import GoogleSearchConsoleStep from "./GoogleSearchConsoleStep";
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
@@ -26,10 +26,12 @@ class ConfigurationRequest extends React.Component {
 			importData: null,
 			googleSearchConsole: null,
 		};
+
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
 		this.setImportData = this.setImportData.bind( this );
 		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
+		this.createConfigurationRequest = this.createConfigurationRequest.bind( this );
 	}
 
 	setAdministratorLoginConfirmation( data ) {
@@ -56,6 +58,10 @@ class ConfigurationRequest extends React.Component {
 		} );
 	}
 
+	createConfigurationRequest() {
+
+	}
+
 	/**
 	 * Returns the rendered html.
 	 *
@@ -64,7 +70,7 @@ class ConfigurationRequest extends React.Component {
 	render() {
 		return (
 			<ConfigurationRequestModal>
-				<Stepper steps={ [
+				<Stepper onComplete={ this.createConfigurationRequest } steps={ [
 					{
 						label: <FormattedMessage id="requestConfiguration.administratorLogin" defaultMessage="Administrator login"/>,
 						component: <AdministratorLoginStep onClose={ this.props.onClose }
@@ -81,7 +87,7 @@ class ConfigurationRequest extends React.Component {
 					},
 					{
 						label: <FormattedMessage id="requestConfiguration.googleSearchConsole" defaultMessage="Google search console"/>,
-						component: <GoogleSearchConsole googleSearchConsole={ this.state.googleSearchConsole } onSubmit={ this.setGoogleSearchConsole }/>,
+						component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole } onSubmit={ this.setGoogleSearchConsole }/>,
 					},
 
 				] } />
