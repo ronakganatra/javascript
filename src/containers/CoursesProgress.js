@@ -10,6 +10,11 @@ export const mapStateToProps = ( state ) => {
 	let coursesEnrollments = allIds.map( ( courseId ) => {
 		let course = state.entities.coursesEnrollments.byId[ courseId ];
 
+		// We don't want to display refunded course enrollments.
+		if ( course.status === "refunded" ) {
+			return false;
+		}
+
 		return {
 			id: course.id,
 			name: course.course.name,
@@ -20,7 +25,7 @@ export const mapStateToProps = ( state ) => {
 			studentId: course.studentId,
 			orderId: course.orderId,
 		};
-	} );
+	} ).filter( ( enrollment ) => !! enrollment );
 
 	// Only show enrollments where you are actually a student:
 	coursesEnrollments = coursesEnrollments.filter( enrollment => {
