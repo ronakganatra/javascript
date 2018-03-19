@@ -25,6 +25,9 @@ const InactiveStepperIcon = styled( StepperIcon )`
 `;
 
 const StepperLabel = styled.a`
+	background: transparent;
+	border: 0;
+	padding: 0;
 	display: block;
 	height: 30px;
 	color: ${ colors.$color_black };
@@ -101,7 +104,7 @@ class Step extends React.Component {
 
 		return (
 			<div>
-				<StepperLabel onClick={ () => goToStep( index ) }>
+				<StepperLabel type="button" href="#" onClick={ () => goToStep( index ) }>
 					{ this.getIcon() }
 					{ label }
 				</StepperLabel>

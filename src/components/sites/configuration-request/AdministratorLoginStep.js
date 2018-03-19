@@ -87,7 +87,6 @@ class AdministratorLoginStep extends React.Component {
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.confirmed }
-						aria-label="continue"
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>

@@ -49,8 +49,6 @@ class BackupStep extends React.Component {
 	}
 
 	handleInput( event ) {
-		console.log( event.target.value );
-
 		this.setState( {
 			createBackup: event.target.value === "true",
 		} );
