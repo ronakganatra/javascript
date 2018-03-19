@@ -24,7 +24,7 @@ const InactiveStepperIcon = styled( StepperIcon )`
 	background-color: ${ colors.$color_grey_disabled };
 `;
 
-const StepperLabel = styled.a`
+const StepperLabel = styled.button`
 	background: transparent;
 	border: 0;
 	padding: 0;
