@@ -66,20 +66,24 @@ class ConfigurationRequest extends React.Component {
 			<ConfigurationRequestModal>
 				<Stepper steps={ [
 					{
+						step: "step 0: ",
 						label: <FormattedMessage id="requestConfiguration.administratorLogin" defaultMessage="Administrator login"/>,
 						component: <AdministratorLoginStep onClose={ this.props.onClose }
 														   confirmed={ this.state.administratorLoginConfirmed }
 														   onSubmit={ this.setAdministratorLoginConfirmation } />,
 					},
 					{
+						step: "step 1: ",
 						label: <FormattedMessage id="requestConfiguration.backup" defaultMessage="Backup"/>,
 						component: <BackupStep createBackup={ this.state.createBackup } onSubmit={ this.setBackupCreation } />,
 					},
 					{
+						step: "step 2: ",
 						label: <FormattedMessage id="requestConfiguration.importData" defaultMessage="Import data from another SEO plugin"/>,
 						component: <ImportDataStep importData={ this.state.importData } onSubmit={ this.setImportData }/>,
 					},
 					{
+						step: "step 3: ",
 						label: <FormattedMessage id="requestConfiguration.googleSearchConsole" defaultMessage="Google search console"/>,
 						component: <GoogleSearchConsole googleSearchConsole={ this.state.googleSearchConsole } onSubmit={ this.setGoogleSearchConsole }/>,
 					},

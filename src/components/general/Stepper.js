@@ -90,6 +90,7 @@ class Step extends React.Component {
 			index,
 			total,
 			label,
+			step,
 			component,
 		} = this.props;
 
@@ -104,7 +105,7 @@ class Step extends React.Component {
 
 		return (
 			<div>
-				<StepperLabel type="button" href="#" onClick={ () => goToStep( index ) }>
+				<StepperLabel aria-label={ step + label.props.defaultMessage } type="button" href="#" onClick={ () => goToStep( index ) }>
 					{ this.getIcon() }
 					{ label }
 				</StepperLabel>
