@@ -105,11 +105,16 @@ class Step extends React.Component {
 
 		return (
 			<div>
-				<StepperLabel aria-label={ step + label.props.defaultMessage } type="button" href="#" onClick={ () => goToStep( index ) }>
+				<StepperLabel aria-label={ step + ": " + label.props.defaultMessage }
+							  type="button"
+							  href="#"
+							  onClick={ () => goToStep( index ) }
+							  aria-current={ active ? step : "" }
+				>
 					{ this.getIcon() }
 					{ label }
 				</StepperLabel>
-				<StepperContent>
+				<StepperContent >
 					{ active && child }
 				</StepperContent>
 			</div>
