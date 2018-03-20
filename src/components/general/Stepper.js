@@ -75,10 +75,10 @@ class Step extends React.Component {
 		}
 
 		if ( this.props.active ) {
-			return <ActiveStepperIcon>{ this.props.index }</ActiveStepperIcon>;
+			return <ActiveStepperIcon>{ this.props.index + 1}</ActiveStepperIcon>;
 		}
 
-		return <InactiveStepperIcon>{ this.props.index }</InactiveStepperIcon>;
+		return <InactiveStepperIcon>{ this.props.index + 1 }</InactiveStepperIcon>;
 	}
 
 	render() {
