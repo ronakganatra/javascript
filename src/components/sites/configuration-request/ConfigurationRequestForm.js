@@ -8,6 +8,11 @@ import BackupStep from "./BackupStep";
 import ImportDataStep from "./ImportDataStep";
 import GoogleSearchConsoleStep from "./GoogleSearchConsoleStep";
 import { ModalHeading } from "../../Headings";
+import { CloseButtonTopRight } from "../../Button";
+
+let CloseIcon = styled( CloseButtonTopRight )`
+	    margin-left: 330px;
+`;
 
 const messages = defineMessages( {
 	administratorLogin: {
@@ -153,6 +158,10 @@ class ConfigurationRequest extends React.Component {
 									defaultMessage={ "Configuration service { step }/4"}
 									values={ { step: this.state.activeStep + 1 } }
 									/>
+					<CloseIcon
+						onClick={ this.props.onClose }
+					>
+					</CloseIcon>
 				</ModalHeading>
 				<Stepper activeStep={ this.state.activeStep }
 					goToStep={ this.goToStep }
