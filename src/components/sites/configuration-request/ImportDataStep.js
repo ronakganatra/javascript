@@ -45,7 +45,6 @@ class ImportDataStep extends React.Component {
 
 		this.handleInput = this.handleInput.bind( this );
 		this.handleContinue = this.handleContinue.bind( this );
-		this.handleBack = this.handleBack.bind( this );
 	}
 
 	handleInput( event ) {
@@ -62,11 +61,6 @@ class ImportDataStep extends React.Component {
 		this.props.onSubmit( this.state );
 
 		this.props.completeStep();
-	}
-
-	handleBack() {
-		this.props.goToPreviousStep();
-		this.props.onBack();
 	}
 
 	render() {
@@ -93,7 +87,7 @@ class ImportDataStep extends React.Component {
 					options={ pluginOptions }
 				/>
 				<ButtonsContainer>
-					<WideSecondaryButton onClick={ this.handleBack } >
+					<WideSecondaryButton onClick={ this.props.onBack } >
 						<FormattedMessage id="requestConfiguration.close" defaultMessage="back"/>
 					</WideSecondaryButton>
 					<WideLargeButton
@@ -114,7 +108,6 @@ ImportDataStep.propTypes = {
 	importData: PropTypes.number,
 	onSubmit: PropTypes.func.isRequired,
 	onBack: PropTypes.func,
-	goToPreviousStep: PropTypes.func,
 	completeStep: PropTypes.func,
 };
 

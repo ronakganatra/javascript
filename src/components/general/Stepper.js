@@ -35,6 +35,10 @@ const StepperLabel = styled.button`
 	line-height: 30px;
 	cursor: pointer;
 	margin: 5px 0;
+	
+	&:focus {
+		outline: none;
+	}
 `;
 
 const StepperContent = styled.div`
@@ -55,12 +59,16 @@ class Step extends React.Component {
 		this.resetStep = this.resetStep.bind( this );
 	}
 
+	componentWillReceiveProps( nextProps ) {
+		if ( this.props.active === false && nextProps.active === true && this.labelRef ) {
+			this.labelRef.focus();
+		}
+	}
+
 	completeStep() {
 		this.setState( {
 			completed: true,
 		} );
-
-		this.props.goToNextStep();
 	}
 
 	resetStep() {
@@ -84,8 +92,6 @@ class Step extends React.Component {
 	render() {
 		const {
 			goToStep,
-			goToNextStep,
-			goToPreviousStep,
 			active,
 			index,
 			total,
@@ -95,8 +101,6 @@ class Step extends React.Component {
 		} = this.props;
 
 		let child = React.cloneElement( component, {
-			goToNextStep,
-			goToPreviousStep,
 			completeStep: this.completeStep,
 			resetStep: this.resetStep,
 			stepIndex: index,
@@ -105,11 +109,14 @@ class Step extends React.Component {
 
 		return (
 			<div>
-				<StepperLabel aria-label={ step + ": " + label.props.defaultMessage }
+				<StepperLabel aria-label={ step + ": " + label }
 							  type="button"
 							  href="#"
 							  onClick={ () => goToStep( index ) }
 							  aria-current={ active ? step : "" }
+							  innerRef={ ( labelRef ) => {
+								this.labelRef = labelRef;
+							  } }
 				>
 					{ this.getIcon() }
 					{ label }
@@ -122,50 +129,17 @@ class Step extends React.Component {
 	}
 }
 
+Step.propTypes = {
+	active: PropTypes.bool.isRequired,
+	index: PropTypes.number.isRequired,
+	goToStep: PropTypes.func.isRequired,
+	total: PropTypes.number.isRequired,
+	label: PropTypes.string.isRequired,
+	step: PropTypes.string.isRequired,
+	component: PropTypes.element.isRequired,
+};
+
 class Stepper extends React.Component {
-	constructor( props ) {
-		super( props );
-
-		this.state = {
-			activeStep: 0,
-		};
-
-		this.goToStep = this.goToStep.bind( this );
-		this.goToNextStep = this.goToNextStep.bind( this );
-		this.goToPreviousStep = this.goToPreviousStep.bind( this );
-	}
-
-	goToStep( num ) {
-		if ( num >= 0 && num < this.props.steps.length  ) {
-			this.setState( {
-				activeStep: num,
-			} );
-		}
-	}
-
-	goToNextStep() {
-		const { activeStep } = this.state;
-
-		if ( activeStep < this.props.steps.length - 1 ) {
-			this.setState( {
-				activeStep: activeStep + 1,
-			} );
-			return;
-		}
-
-		this.props.onComplete();
-	}
-
-	goToPreviousStep() {
-		const { activeStep } = this.state;
-
-		if ( activeStep > 0 ) {
-			this.setState( {
-				activeStep: activeStep - 1,
-			} );
-		}
-	}
-
 	render() {
 		return (
 			<div>
@@ -176,10 +150,8 @@ class Stepper extends React.Component {
 							{ ...step }
 							index={ index }
 							total={ this.props.steps.length }
-							active={ this.state.activeStep === index }
-							goToStep={ this.goToStep }
-							goToNextStep={ this.goToNextStep }
-							goToPreviousStep={ this.goToPreviousStep }
+							active={ this.props.activeStep === index }
+							goToStep={ this.props.goToStep }
 						/>
 				) }
 			</div>
@@ -188,8 +160,9 @@ class Stepper extends React.Component {
 }
 
 Stepper.propTypes = {
-	onComplete: PropTypes.func.isRequired,
 	steps: PropTypes.arrayOf( PropTypes.object ).isRequired,
+	activeStep: PropTypes.number.isRequired,
+	goToStep: PropTypes.func.isRequired,
 };
 
 export default Stepper;

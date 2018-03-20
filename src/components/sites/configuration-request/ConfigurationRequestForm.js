@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedMessage, injectIntl } from "react-intl";
+import { FormattedMessage, injectIntl, defineMessages, intlShape } from "react-intl";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import Stepper from "../../general/Stepper";
@@ -8,6 +8,25 @@ import BackupStep from "./BackupStep";
 import ImportDataStep from "./ImportDataStep";
 import GoogleSearchConsoleStep from "./GoogleSearchConsoleStep";
 import { ModalHeading } from "../../Headings";
+
+const messages = defineMessages( {
+	administratorLogin: {
+		id: "requestConfiguration.administratorLogin",
+		defaultMessage: "Administrator login",
+	},
+	backup: {
+		id: "requestConfiguration.backup",
+		defaultMessage: "Backup",
+	},
+	importData: {
+		id:"requestConfiguration.importData",
+		defaultMessage:"Import data from another SEO plugin",
+	},
+	googleSearchConsole: {
+		id: "requestConfiguration.googleSearchConsole",
+		defaultMessage: "Google search console",
+	},
+} );
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
@@ -97,32 +116,33 @@ class ConfigurationRequest extends React.Component {
 									values={ { step: this.state.activeStep + 1 } }
 									/>
 				</ModalHeading>
-				<Stepper goToStep={ this.goToStep }
+				<Stepper activeStep={ this.state.activeStep }
+					goToStep={ this.goToStep }
 					steps={ [
 						{
 							step: "step 1",
-							label: <FormattedMessage id="requestConfiguration.administratorLogin" defaultMessage="Administrator login"/>,
+							label: this.props.intl.formatMessage( messages.administratorLogin ),
 							component: <AdministratorLoginStep onClose={ this.props.onClose }
 														confirmed={ this.state.administratorLoginConfirmed }
 														onSubmit={ this.setAdministratorLoginConfirmation }/>,
 						},
 						{
 							step: "step 2",
-							label: <FormattedMessage id="requestConfiguration.backup" defaultMessage="Backup"/>,
+							label: this.props.intl.formatMessage( messages.backup ),
 							component: <BackupStep createBackup={ this.state.createBackup }
 											onSubmit={ this.setBackupCreation }
 											onBack={ this.goStepBack }/>,
 						},
 						{
 							step: "step 3",
-							label: <FormattedMessage id="requestConfiguration.importData" defaultMessage="Import data from another SEO plugin"/>,
+							label: this.props.intl.formatMessage( messages.importData ),
 							component: <ImportDataStep importData={ this.state.importData }
 												onSubmit={ this.setImportData }
 												onBack={ this.goStepBack }/>,
 						},
 						{
 							step: "step 4",
-							label: <FormattedMessage id="requestConfiguration.googleSearchConsole" defaultMessage="Google search console"/>,
+							label: this.props.intl.formatMessage( messages.googleSearchConsole ),
 							component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole }
 														onSubmit={ this.setGoogleSearchConsole }
 														onBack={ this.goStepBack }/>,
@@ -137,6 +157,7 @@ ConfigurationRequest.propTypes = {
 	onClose: PropTypes.func,
 	onBack: PropTypes.func,
 	goToStep: PropTypes.func,
+	intl: intlShape.isRequired,
 };
 
 export default injectIntl( ConfigurationRequest );
