@@ -19,8 +19,8 @@ const messages = defineMessages( {
 		defaultMessage: "Backup",
 	},
 	importData: {
-		id:"requestConfiguration.importData",
-		defaultMessage:"Import data from another SEO plugin",
+		id: "requestConfiguration.importData",
+		defaultMessage: "Import data from another SEO plugin",
 	},
 	googleSearchConsole: {
 		id: "requestConfiguration.googleSearchConsole",
@@ -57,39 +57,77 @@ class ConfigurationRequest extends React.Component {
 		this.createConfigurationRequest = this.createConfigurationRequest.bind( this );
 	}
 
+	/**
+	 * Holds the input from the administrator login confirmation step in the state
+	 * and goes to the next step of the stepper.
+	 *
+	 * @param {bool} data The data to confirm the administrator login.
+	 *
+	 * @returns {void}
+	 */
 	setAdministratorLoginConfirmation( data ) {
 		this.setState( {
 			administratorLoginConfirmed: data.confirmed,
 			activeStep: 1,
 		} );
 	}
-
+	/**
+	 * Holds the input from the backup step in the state
+	 * and goes to the next step of the stepper.
+	 *
+	 * @param {bool} data The data whether a backup should be created.
+	 *
+	 * @returns {void}
+	 */
 	setBackupCreation( data ) {
 		this.setState( {
 			createBackup: data.createBackup,
 			activeStep: 2,
 		} );
 	}
-
+	/**
+	 * Holds the input from the import data step in the state
+	 * and goes to the next step of the stepper.
+	 *
+	 * @param {string} data The data to select the plugin to be imported form.
+	 *
+	 * @returns {void}
+	 */
 	setImportData( data ) {
 		this.setState( {
 			importData: data.importData,
 			activeStep: 3,
 		} );
 	}
-
+	/**
+	 * Holds the input from the google search console step in the state.
+	 *
+	 * @param {bool} data The data whether the site should be connected to the google search console.
+	 *
+	 * @returns {void}
+	 */
 	setGoogleSearchConsole( data ) {
 		this.setState( {
 			googleSearchConsole: data.googleSearchConsole,
 		} );
 	}
-
+	/**
+	 * Goes one step back of the stepper using the back button.
+	 *
+	 * @returns {void}
+	 */
 	goStepBack() {
 		this.setState( {
 			activeStep: this.state.activeStep - 1,
 		} );
 	}
-
+	/**
+	 * Navigates to the step of the stepper that has been clicked.
+	 *
+	 * @param {number} num The number of the step that has been clicked.
+	 *
+	 * @returns {void}
+	 */
 	goToStep( num ) {
 		if ( num >= 0 && num < 4  ) {
 			this.setState( {
