@@ -40,7 +40,13 @@ class AdministratorLoginStep extends React.Component {
 		this.toggleConfirmed = this.toggleConfirmed.bind( this );
 		this.handleContinue = this.handleContinue.bind( this );
 	}
-
+	/**
+	* Toggles the checkbox to the administrator login information was sent.
+	*
+	* @param {object} event The event of toggeling the administrator login information checkbox.
+	*
+	* @returns {void}
+	*/
 	toggleConfirmed( event ) {
 		if ( this.state.confirmed ) {
 			this.props.resetStep();
@@ -50,7 +56,12 @@ class AdministratorLoginStep extends React.Component {
 			confirmed: event.target.checked,
 		} );
 	}
-
+	/**
+	 * Handles the continue button, when the administrator login information is confirmed the corresponding step is completed,
+	 * and holds the user input in the props.
+	 *
+	 * @returns {void}
+	 */
 	handleContinue() {
 		this.props.onSubmit( this.state );
 

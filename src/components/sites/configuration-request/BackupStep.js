@@ -47,13 +47,24 @@ class BackupStep extends React.Component {
 		this.handleInput = this.handleInput.bind( this );
 		this.handleContinue = this.handleContinue.bind( this );
 	}
-
+	/**
+	 * Handles the input from the checkboxes of the backup step, by holding the input in the state.
+	 *
+	 * @param {object} event The event handling the input from the backup step.
+	 *
+	 * @returns {void}
+	 */
 	handleInput( event ) {
 		this.setState( {
 			createBackup: event.target.value === "true",
 		} );
 	}
-
+	/**
+	 * Handles the continue button, when a checkbox of the backup step is checked, the corresponding step is completed,
+	 * and holds the user input in the props.
+	 *
+	 * @returns {void}
+	 */
 	handleContinue() {
 		if ( this.state.createBackup === null ) {
 			return;

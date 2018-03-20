@@ -46,13 +46,24 @@ class ImportDataStep extends React.Component {
 		this.handleInput = this.handleInput.bind( this );
 		this.handleContinue = this.handleContinue.bind( this );
 	}
-
+	/**
+	 * Handles selected option of the selector in the import data step, by holding the selected option in the state.
+	 *
+	 * @param {object} event The event handling the input from the backup step.
+	 *
+	 * @returns {void}
+	 */
 	handleInput( event ) {
 		this.setState( {
 			importData: event.value,
 		} );
 	}
-
+	/**
+	 * Handles the continue button, when an option in the plugin selector is selected, the corresponding step is completed,
+	 * and holds the user input in the props.
+	 *
+	 * @returns {void}
+	 */
 	handleContinue() {
 		if ( this.state.importData === null ) {
 			return;

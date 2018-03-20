@@ -48,13 +48,24 @@ class GoogleSearchConsoleStep extends React.Component {
 		this.handleInput = this.handleInput.bind( this );
 		this.handleContinue = this.handleContinue.bind( this );
 	}
-
+	/**
+	 * Handles the input from the checkboxes of the google search console step, by holding the input in the state.
+	 *
+	 * @param {object} event The event handling the input from the google search console step.
+	 *
+	 * @returns {void}
+	 */
 	handleInput( event ) {
 		this.setState( {
 			googleSearchConsole: event.target.value === "true",
 		} );
 	}
-
+	/**
+	 * Handles the continue button, when a checkbox of the google search console step is checked, the corresponding step is completed,
+	 * and holds the user input in the props.
+	 *
+	 * @returns {void}
+	 */
 	handleContinue() {
 		if ( this.state.googleSearchConsole === null ) {
 			return;
