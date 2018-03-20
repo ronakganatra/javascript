@@ -6,7 +6,7 @@ import Stepper from "../../general/Stepper";
 import AdministratorLoginStep from "./AdministratorLoginStep";
 import BackupStep from "./BackupStep";
 import ImportDataStep from "./ImportDataStep";
-import GoogleSearchConsole from "./GoogleSearchConsole";
+import GoogleSearchConsoleStep from "./GoogleSearchConsoleStep";
 import { ModalHeading } from "../../Headings";
 
 const ConfigurationRequestModal = styled.div`
@@ -28,12 +28,14 @@ class ConfigurationRequest extends React.Component {
 			googleSearchConsole: null,
 			activeStep: 0,
 		};
+
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
 		this.setImportData = this.setImportData.bind( this );
 		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
 		this.goStepBack = this.goStepBack.bind( this );
 		this.goToStep = this.goToStep.bind( this );
+		this.createConfigurationRequest = this.createConfigurationRequest.bind( this );
 	}
 
 	setAdministratorLoginConfirmation( data ) {
@@ -77,6 +79,10 @@ class ConfigurationRequest extends React.Component {
 		}
 	}
 
+	createConfigurationRequest() {
+
+	}
+
 	/**
 	 * Returns the rendered html.
 	 *
@@ -117,11 +123,10 @@ class ConfigurationRequest extends React.Component {
 						{
 							step: "step 4",
 							label: <FormattedMessage id="requestConfiguration.googleSearchConsole" defaultMessage="Google search console"/>,
-							component: <GoogleSearchConsole googleSearchConsole={ this.state.googleSearchConsole }
+							component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole }
 														onSubmit={ this.setGoogleSearchConsole }
 														onBack={ this.goStepBack }/>,
 						},
-
 					] } />
 			</ConfigurationRequestModal>
 		);

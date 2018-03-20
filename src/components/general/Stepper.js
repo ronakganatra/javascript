@@ -1,6 +1,6 @@
-/* eslint-disable */
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import colors from "yoast-components/style-guide/colors.json";
 
 const StepperIcon = styled.span`
@@ -153,7 +153,7 @@ class Stepper extends React.Component {
 			return;
 		}
 
-		this.props.onCompletedStepper();
+		this.props.onComplete();
 	}
 
 	goToPreviousStep() {
@@ -186,5 +186,10 @@ class Stepper extends React.Component {
 		);
 	}
 }
+
+Stepper.propTypes = {
+	onComplete: PropTypes.func.isRequired,
+	steps: PropTypes.arrayOf( PropTypes.object ).isRequired,
+};
 
 export default Stepper;
