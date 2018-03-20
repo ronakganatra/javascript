@@ -1,17 +1,439 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the sites page component with a site matches the snapshot 1`] = `
+.c8 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c8:hover,
+.c8:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c8:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c7 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c17 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c16 {
+  min-width: 152px;
+}
+
+.c6 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c5 {
+  min-width: 152px;
+}
+
+.c23 {
+  height: inherit;
+}
+
+.c18 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c18 li:first-child > span::before {
+  left: auto;
+}
+
+.c19 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c19:first-child {
+  margin-top: 64px;
+}
+
+.c22 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c22:first-child {
+  padding-left: 0;
+}
+
+.c22::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c22::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c25 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c25:first-child {
+  padding-left: 0;
+}
+
+.c25::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c27 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c27:first-child {
+  padding-left: 0;
+}
+
+.c27::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
+}
+
+.c30 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c30:first-child {
+  padding-left: 0;
+}
+
+.c30::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c24 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c21 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c20 {
+  height: 48px;
+}
+
+.c28 {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c28:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
+  -webkit-flex-basis: 340px;
+  -ms-flex-preferred-size: 340px;
+  flex-basis: 340px;
+}
+
+.c9 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c10 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c10 label {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c1 {
+  background-image: url( search.svg );
+  background-size: 25px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 50px;
+  float: left;
+}
+
+.c2 {
+  width: calc(100% - 40px);
+}
+
+.c11 {
+  font-weight: 300;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.c13 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c13.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c13 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c13 .Select-placeholder {
+  line-height: 48px;
+}
+
+.c13.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c13 .Select-value-label {
+  line-height: 48px;
+}
+
+.c13 .Select-input {
+  line-height: 48px;
+}
+
+.c13 .Select-option {
+  color: #000;
+}
+
+.c13 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c13 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c12 >:last-child {
+  margin-left: 8px;
+}
+
+.c14 {
+  white-space: nowrap;
+  min-width: initial;
+}
+
+.c0 {
+  text-align: center;
+}
+
+.c0 button {
+  margin: 20px 0 36px 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    display: block;
+    height: auto;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 >:last-child {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div>
   <div
-    className="jCgOYH"
+    className="c0"
   >
     <div>
       <label
-        className="gOZvhE"
+        className="c1"
         htmlFor="search"
       >
         <span
-          className="screen-reader-text foqgVb"
+          className="screen-reader-text "
         >
           Search sites
         </span>
@@ -21,12 +443,13 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="ivxhtZ"
+        className="c2 c3"
         id="search"
         onChange={[Function]}
         spellCheck="false"
         type="text"
         value=""
+        width="100%"
       />
       <p
         className="screen-reader-text"
@@ -37,8 +460,9 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     </div>
     <button
       aria-label="Add site"
-      className="jAmObn"
+      className="c4 c5 c6 c7 c8"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Add site
@@ -46,13 +470,13 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     </button>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <div
-      className="kgUdcm"
+      className="c10"
     >
       <h2
-        className="fjTZRq"
+        className="c11"
       >
         Configuration Service
       </h2>
@@ -66,16 +490,16 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         </span>
       </p>
       <span
-        className="eldrKc"
+        className="c12"
       >
         <mockSelectComponent
-          className="fNaNUR"
+          className="c13"
           name="form-field-name"
           onChange={[Function]}
           value=""
         />
         <button
-          className="joGbpC"
+          className="c14 c15 c16 c17 c8"
           onClick={[Function]}
           type="button"
         >
@@ -85,57 +509,57 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     </div>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <ul
-      className="dITYws"
+      className="c18"
       role="list"
     >
       <li
-        className="cgxxQv"
+        className="c19"
       >
         <span
-          className="hCewQe"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="bjVGHc"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="kVUeYb"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="deHdHN"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="fXreAk"
+          className="c21 c30"
         />
       </li>
     </ul>
@@ -145,17 +569,439 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 `;
 
 exports[`the sites page component with sites handling an onclick event on the add site button 1`] = `
+.c8 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c8:hover,
+.c8:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c8:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c7 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c17 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c16 {
+  min-width: 152px;
+}
+
+.c6 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c5 {
+  min-width: 152px;
+}
+
+.c23 {
+  height: inherit;
+}
+
+.c18 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c18 li:first-child > span::before {
+  left: auto;
+}
+
+.c19 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c19:first-child {
+  margin-top: 64px;
+}
+
+.c22 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c22:first-child {
+  padding-left: 0;
+}
+
+.c22::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c22::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c25 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c25:first-child {
+  padding-left: 0;
+}
+
+.c25::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c27 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c27:first-child {
+  padding-left: 0;
+}
+
+.c27::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
+}
+
+.c30 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c30:first-child {
+  padding-left: 0;
+}
+
+.c30::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c24 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c21 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c20 {
+  height: 48px;
+}
+
+.c28 {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c28:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
+  -webkit-flex-basis: 340px;
+  -ms-flex-preferred-size: 340px;
+  flex-basis: 340px;
+}
+
+.c9 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c10 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c10 label {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c1 {
+  background-image: url( search.svg );
+  background-size: 25px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 50px;
+  float: left;
+}
+
+.c2 {
+  width: calc(100% - 40px);
+}
+
+.c11 {
+  font-weight: 300;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.c13 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c13.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c13 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c13 .Select-placeholder {
+  line-height: 48px;
+}
+
+.c13.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c13 .Select-value-label {
+  line-height: 48px;
+}
+
+.c13 .Select-input {
+  line-height: 48px;
+}
+
+.c13 .Select-option {
+  color: #000;
+}
+
+.c13 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c13 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c12 >:last-child {
+  margin-left: 8px;
+}
+
+.c14 {
+  white-space: nowrap;
+  min-width: initial;
+}
+
+.c0 {
+  text-align: center;
+}
+
+.c0 button {
+  margin: 20px 0 36px 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    display: block;
+    height: auto;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 >:last-child {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div>
   <div
-    className="jCgOYH"
+    className="c0"
   >
     <div>
       <label
-        className="gOZvhE"
+        className="c1"
         htmlFor="search"
       >
         <span
-          className="screen-reader-text foqgVb"
+          className="screen-reader-text "
         >
           Search sites
         </span>
@@ -165,12 +1011,13 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="ivxhtZ"
+        className="c2 c3"
         id="search"
         onChange={[Function]}
         spellCheck="false"
         type="text"
         value=""
+        width="100%"
       />
       <p
         className="screen-reader-text"
@@ -181,8 +1028,9 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
     <button
       aria-label="Add site"
-      className="jAmObn"
+      className="c4 c5 c6 c7 c8"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Add site
@@ -190,13 +1038,13 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </button>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <div
-      className="kgUdcm"
+      className="c10"
     >
       <h2
-        className="fjTZRq"
+        className="c11"
       >
         Configuration Service
       </h2>
@@ -210,16 +1058,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
         </span>
       </p>
       <span
-        className="eldrKc"
+        className="c12"
       >
         <mockSelectComponent
-          className="fNaNUR"
+          className="c13"
           name="form-field-name"
           onChange={[Function]}
           value=""
         />
         <button
-          className="joGbpC"
+          className="c14 c15 c16 c17 c8"
           onClick={[Function]}
           type="button"
         >
@@ -229,57 +1077,57 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <ul
-      className="dITYws"
+      className="c18"
       role="list"
     >
       <li
-        className="cgxxQv"
+        className="c19"
       >
         <span
-          className="hCewQe"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="bjVGHc"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="kVUeYb"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="deHdHN"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="fXreAk"
+          className="c21 c30"
         />
       </li>
     </ul>
@@ -289,17 +1137,439 @@ exports[`the sites page component with sites handling an onclick event on the ad
 `;
 
 exports[`the sites page component with sites handling an onclick event on the add site button 2`] = `
+.c8 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c8:hover,
+.c8:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c8:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c7 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c17 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c16 {
+  min-width: 152px;
+}
+
+.c6 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c5 {
+  min-width: 152px;
+}
+
+.c23 {
+  height: inherit;
+}
+
+.c18 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c18 li:first-child > span::before {
+  left: auto;
+}
+
+.c19 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c19:first-child {
+  margin-top: 64px;
+}
+
+.c22 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c22:first-child {
+  padding-left: 0;
+}
+
+.c22::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c22::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c25 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c25:first-child {
+  padding-left: 0;
+}
+
+.c25::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c27 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c27:first-child {
+  padding-left: 0;
+}
+
+.c27::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
+}
+
+.c30 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c30:first-child {
+  padding-left: 0;
+}
+
+.c30::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c24 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c21 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c20 {
+  height: 48px;
+}
+
+.c28 {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c28:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
+  -webkit-flex-basis: 340px;
+  -ms-flex-preferred-size: 340px;
+  flex-basis: 340px;
+}
+
+.c9 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c10 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c10 label {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c1 {
+  background-image: url( search.svg );
+  background-size: 25px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 50px;
+  float: left;
+}
+
+.c2 {
+  width: calc(100% - 40px);
+}
+
+.c11 {
+  font-weight: 300;
+  font-size: 1.3em;
+  margin: 0;
+}
+
+.c13 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c13.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c13 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c13 .Select-placeholder {
+  line-height: 48px;
+}
+
+.c13.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c13 .Select-value-label {
+  line-height: 48px;
+}
+
+.c13 .Select-input {
+  line-height: 48px;
+}
+
+.c13 .Select-option {
+  color: #000;
+}
+
+.c13 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c13 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+.c12 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.c12 >:last-child {
+  margin-left: 8px;
+}
+
+.c14 {
+  white-space: nowrap;
+  min-width: initial;
+}
+
+.c0 {
+  text-align: center;
+}
+
+.c0 button {
+  margin: 20px 0 36px 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    display: block;
+    height: auto;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 >:last-child {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div>
   <div
-    className="jCgOYH"
+    className="c0"
   >
     <div>
       <label
-        className="gOZvhE"
+        className="c1"
         htmlFor="search"
       >
         <span
-          className="screen-reader-text foqgVb"
+          className="screen-reader-text "
         >
           Search sites
         </span>
@@ -309,12 +1579,13 @@ exports[`the sites page component with sites handling an onclick event on the ad
         autoCapitalize="off"
         autoComplete="off"
         autoCorrect="off"
-        className="ivxhtZ"
+        className="c2 c3"
         id="search"
         onChange={[Function]}
         spellCheck="false"
         type="text"
         value=""
+        width="100%"
       />
       <p
         className="screen-reader-text"
@@ -325,8 +1596,9 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
     <button
       aria-label="Add site"
-      className="jAmObn"
+      className="c4 c5 c6 c7 c8"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Add site
@@ -334,13 +1606,13 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </button>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <div
-      className="kgUdcm"
+      className="c10"
     >
       <h2
-        className="fjTZRq"
+        className="c11"
       >
         Configuration Service
       </h2>
@@ -354,16 +1626,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
         </span>
       </p>
       <span
-        className="eldrKc"
+        className="c12"
       >
         <mockSelectComponent
-          className="fNaNUR"
+          className="c13"
           name="form-field-name"
           onChange={[Function]}
           value=""
         />
         <button
-          className="joGbpC"
+          className="c14 c15 c16 c17 c8"
           onClick={[Function]}
           type="button"
         >
@@ -373,57 +1645,57 @@ exports[`the sites page component with sites handling an onclick event on the ad
     </div>
   </div>
   <div
-    className="ittEMS"
+    className="c9"
   >
     <ul
-      className="dITYws"
+      className="c18"
       role="list"
     >
       <li
-        className="cgxxQv"
+        className="c19"
       >
         <span
-          className="hCewQe"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="bjVGHc"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="kVUeYb"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="deHdHN"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="dhzOCo"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="snIQS"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="fXreAk"
+          className="c21 c30"
         />
       </li>
     </ul>
@@ -433,9 +1705,84 @@ exports[`the sites page component with sites handling an onclick event on the ad
 `;
 
 exports[`the sites page component without sites handling an onclick event on the add site button 1`] = `
+.c5 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c5:hover,
+.c5:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c5:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c4 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c3 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c2 {
+  min-width: 152px;
+}
+
+.c0 {
+  color: #000;
+  text-align: center;
+  align: center;
+  margin-top: 10vh;
+}
+
+.c6 {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.c1 {
+  margin-bottom: 2em;
+}
+
+@media screen and ( max-width:400px ) {
+  .c6 {
+    max-width: 240px;
+  }
+}
+
+@media screen and ( min-width:400px ) {
+  .c6 {
+    max-width: 384px;
+  }
+}
+
 <div>
   <div
-    className="beArzs"
+    className="c0"
   >
     <p>
       <span>
@@ -453,8 +1800,9 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="inpHnp"
+      className="c1 c2 c3 c4 c5"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Add site
@@ -462,7 +1810,7 @@ exports[`the sites page component without sites handling an onclick event on the
     </button>
     <img
       alt=""
-      className="bTHZQB"
+      className="c6"
       src="noSites.svg"
     />
   </div>
@@ -471,9 +1819,84 @@ exports[`the sites page component without sites handling an onclick event on the
 `;
 
 exports[`the sites page component without sites handling an onclick event on the add site button 2`] = `
+.c5 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c5:hover,
+.c5:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c5:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c4 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c3 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c2 {
+  min-width: 152px;
+}
+
+.c0 {
+  color: #000;
+  text-align: center;
+  align: center;
+  margin-top: 10vh;
+}
+
+.c6 {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.c1 {
+  margin-bottom: 2em;
+}
+
+@media screen and ( max-width:400px ) {
+  .c6 {
+    max-width: 240px;
+  }
+}
+
+@media screen and ( min-width:400px ) {
+  .c6 {
+    max-width: 384px;
+  }
+}
+
 <div>
   <div
-    className="beArzs"
+    className="c0"
   >
     <p>
       <span>
@@ -491,8 +1914,9 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="inpHnp"
+      className="c1 c2 c3 c4 c5"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Add site
@@ -500,7 +1924,7 @@ exports[`the sites page component without sites handling an onclick event on the
     </button>
     <img
       alt=""
-      className="bTHZQB"
+      className="c6"
       src="noSites.svg"
     />
   </div>

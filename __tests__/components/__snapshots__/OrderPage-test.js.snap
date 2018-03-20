@@ -1,14 +1,502 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Orders component matches the snapshot 1`] = `
+.c4 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c4 li:first-child > span::before {
+  left: auto;
+}
+
+.c6 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6:first-child {
+  margin-top: 64px;
+}
+
+.c10 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10:first-child {
+  padding-left: 0;
+}
+
+.c10::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Date";
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Order";
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c15:first-child {
+  padding-left: 0;
+}
+
+.c15::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Items";
+}
+
+.c18 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c18:first-child {
+  padding-left: 0;
+}
+
+.c18::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Total";
+}
+
+.c20 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c20:first-child {
+  padding-left: 0;
+}
+
+.c20::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Status";
+}
+
+.c24 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c24:first-child {
+  padding-left: 0;
+}
+
+.c24::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c23 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c9 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c16 {
+  padding: 0;
+  list-style: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c29 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c29:hover,
+.c29:focus {
+  color: #fff;
+}
+
+.c29:hover,
+.c29:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c29:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c28 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c27 {
+  min-width: 152px;
+}
+
+.c3 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c2 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  background-image: url( search.svg );
+  background-size: 25px;
+  background-position: left center;
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 50px;
+  float: left;
+}
+
+.c1 {
+  width: calc(100% - 40px);
+}
+
+.c26 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c5:first-child {
+    margin-top: 0;
+  }
+
+  .c5 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c10 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c18 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c16 {
+    overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Date:";
+  }
+
+  .c8 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
+  }
+
+  .c17 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c19 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c7:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Items:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c12:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c22 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c21:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c26 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c26 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div>
   <div>
     <label
-      className="gOZvhE"
+      className="c0"
       htmlFor="search"
     >
       <span
-        className="screen-reader-text foqgVb"
+        className="screen-reader-text "
       >
         Search orders
       </span>
@@ -18,12 +506,13 @@ exports[`The Orders component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="ivxhtZ"
+      className="c1 c2"
       id="search"
       onChange={[Function]}
       spellCheck="false"
       type="text"
       value={undefined}
+      width="100%"
     />
     <p
       className="screen-reader-text"
@@ -33,43 +522,43 @@ exports[`The Orders component matches the snapshot 1`] = `
     </p>
   </div>
   <div
-    className="ittEMS"
+    className="c3"
   >
     <ul
-      className="dITYws"
+      className="c4"
       onChange={[Function]}
       role="list"
     >
       <li
-        className="HqsqI"
+        className="c5 c6"
       >
         <span
-          className="klYpfM"
+          className="c7 c8 c9 c10"
         >
           <span>
             May 20, 2012
           </span>
         </span>
         <span
-          className="fKqvxj"
+          className="c9 c11"
         >
           MOOIE 123 TEST
         </span>
         <span
-          className="dcmygm"
+          className="c12 c13 c14 c15"
         >
           <ul
-            className="tvpac"
+            className="c16"
           >
             <li
-              className="a"
+              className=""
             >
               1
               x 
               Name of the product
             </li>
             <li
-              className="a"
+              className=""
             >
               2
               x 
@@ -78,26 +567,26 @@ exports[`The Orders component matches the snapshot 1`] = `
           </ul>
         </span>
         <span
-          className="eVaDaw"
+          className="c7 c17 c9 c18"
         >
           <span>
             €100.10
           </span>
         </span>
         <span
-          className="hRhztn"
+          className="c7 c19 c9 c20"
         >
           <span>
             Completed
           </span>
         </span>
         <span
-          className="kikiOW"
+          className="c21 c22 c23 c24"
         >
           <div>
             <a
               aria-label="Download invoice"
-              className="hmGMxK"
+              className="c25 c26 c27 c28 c29"
               href="http://somelink"
               rel="noopener noreferrer"
               target="_blank"

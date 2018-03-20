@@ -1,103 +1,433 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Subscriptions component matches the snapshot 1`] = `
+.c1 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c1 li:first-child > span::before {
+  left: auto;
+}
+
+.c2 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2:first-child {
+  margin-top: 64px;
+}
+
+.c15 {
+  background: #f7f7f7;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c15:first-child {
+  margin-top: 64px;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c5::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c8 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c8:first-child {
+  padding-left: 0;
+}
+
+.c8::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Product";
+}
+
+.c10 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10:first-child {
+  padding-left: 0;
+}
+
+.c10::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Level";
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Used";
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Next billing";
+}
+
+.c13 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c13:first-child {
+  padding-left: 0;
+}
+
+.c13::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Amount";
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c7 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c4 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c9 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c3 {
+  height: 48px;
+}
+
+.c6 {
+  height: inherit;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c10 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c13 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
 <div
-  className="ittEMS"
+  className="c0"
 >
   <ul
-    className="dITYws"
+    className="c1"
     role="list"
   >
     <li
-      className="cgxxQv"
+      className="c2"
     >
       <span
-        className="hCewQe"
+        className="c3 c4 c5"
       >
         <img
           alt=""
-          className="bjVGHc"
+          className="c6"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
         />
       </span>
       <span
-        className="hNmLMm"
+        className="c7 c8"
       >
         SEO Premium for WordPress
       </span>
       <span
-        className="hPaOmn"
+        className="c9 c10"
       >
         20 sites
       </span>
       <span
-        className="gVetyu"
+        className="c9 c11"
       >
         4
         /
         20
       </span>
       <span
-        className="hcokQE"
+        className="c9 c12"
       >
         <span>
           October 13, 2014
         </span>
       </span>
       <span
-        className="lmMizz"
+        className="c9 c13"
       >
         <span>
           $122.00
         </span>
       </span>
       <span
-        className="fXreAk"
+        className="c4 c14"
       />
     </li>
     <li
-      className="eotMRg"
+      className="c15"
     >
       <span
-        className="hCewQe"
+        className="c3 c4 c5"
       >
         <img
           alt=""
-          className="bjVGHc"
+          className="c6"
           src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
         />
       </span>
       <span
-        className="hNmLMm"
+        className="c7 c8"
       >
         SEO Premium for WordPress
       </span>
       <span
-        className="hPaOmn"
+        className="c9 c10"
       >
         20 sites
       </span>
       <span
-        className="gVetyu"
+        className="c9 c11"
       >
         3
         /
         20
       </span>
       <span
-        className="hcokQE"
+        className="c9 c12"
       >
         -
       </span>
       <span
-        className="lmMizz"
+        className="c9 c13"
       >
         <span>
           $125.12
         </span>
       </span>
       <span
-        className="fXreAk"
+        className="c4 c14"
       />
     </li>
   </ul>
