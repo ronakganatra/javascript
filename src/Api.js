@@ -50,6 +50,8 @@ export default class Api {
 			case 7:
 				shopPostfix = "/uk";
 				break;
+			default:
+				break;
 		}
 
 		return this.wooHost + shopPostfix + "/wp-json";
