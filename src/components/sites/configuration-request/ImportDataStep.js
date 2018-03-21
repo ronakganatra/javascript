@@ -5,6 +5,7 @@ import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Bu
 import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
 
+
 const pluginOptions = [
 	{ value: 0, label: "No plugin" },
 	{ value: 1, label: "HeadSpace2" },

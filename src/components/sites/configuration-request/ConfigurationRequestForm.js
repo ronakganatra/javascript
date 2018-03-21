@@ -35,7 +35,7 @@ const messages = defineMessages( {
 
 const ConfigurationRequestModal = styled.div`
 	width: 640px;
-	min-width: 90%;
+	max-width: 100%;
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;

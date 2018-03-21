@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import colors from "yoast-components/style-guide/colors.json";
-
-const StepContainer = styled.div`
-	max-width: 310px;
-`;
+import defaults from "../../config/defaults.json";
 
 const StepperIcon = styled.span`
 	display: inline-block;
@@ -28,7 +25,8 @@ const InactiveStepperIcon = styled( StepperIcon )`
 	background-color: ${ colors.$color_grey_disabled };
 `;
 
-const StepperLabel = styled.button`
+const StepperButton = styled.button`
+	display: block;
 	background: transparent;
 	border: 0;
 	padding: 0;
@@ -39,10 +37,19 @@ const StepperLabel = styled.button`
 	line-height: 30px;
 	cursor: pointer;
 	margin: 5px 0;
+	text-align: left;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		margin-bottom: 50px;
+	}
 	
 	&:focus {
 		outline: none;
 	}
+`;
+
+const StepperLabel = styled.span`
+	display: inline;
 `;
 
 const StepperContent = styled.div`
@@ -111,24 +118,35 @@ class Step extends React.Component {
 			stepTotal: total,
 		} );
 
+		const ExtraStyledLabel = styled.span`
+			display: inline;
+
+			@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+				margin-left: 40px;
+				margin-top: -110px;
+				padding-bottom: 100px;
+				display: inline-block;
+			}
+		`;
+
 		return (
-			<StepContainer>
-				<StepperLabel aria-label={ step + ": " + label }
-							  type="button"
-							  href="#"
-							  onClick={ () => goToStep( index ) }
-							  aria-current={ active ? step : "" }
-							  innerRef={ ( labelRef ) => {
-								this.labelRef = labelRef;
-							  } }
-				>
-					{ this.getIcon() }
-					{ label }
-				</StepperLabel>
+			<div>
+				<StepperButton aria-label={ step + ": " + label }
+								  type="button"
+								  href="#"
+								  onClick={ () => goToStep( index ) }
+								  aria-current={ active ? step : "" }
+								  innerRef={ ( labelRef ) => {
+									this.labelRef = labelRef;
+								  } }
+					>
+						{ this.getIcon() }
+						<StepperLabel>{ label === "Import data from another SEO plugin" ? <ExtraStyledLabel>{ label }</ExtraStyledLabel> : label }</StepperLabel>
+				</StepperButton>
 				<StepperContent >
 					{ active && child }
 				</StepperContent>
-			</StepContainer>
+			</div>
 		);
 	}
 }
