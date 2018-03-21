@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
-
+import ButtonsContainer from "../../general/ButtonsContainer";
 
 let messages = defineMessages( {
 	googleSearchConsoleRequired: {
@@ -26,12 +26,6 @@ let messages = defineMessages( {
 
 const StyledLabel = styled.label`
 	margin-left: 12px;
-`;
-
-const ButtonsContainer = styled.p`
-	> button:not(:first-child) {
-		margin-left: 12px;
-	}
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );

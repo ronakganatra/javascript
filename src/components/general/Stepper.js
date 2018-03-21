@@ -3,6 +3,10 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import colors from "yoast-components/style-guide/colors.json";
 
+const StepContainer = styled.div`
+	max-width: 310px;
+`;
+
 const StepperIcon = styled.span`
 	display: inline-block;
 	height: 30px;
@@ -108,7 +112,7 @@ class Step extends React.Component {
 		} );
 
 		return (
-			<div>
+			<StepContainer>
 				<StepperLabel aria-label={ step + ": " + label }
 							  type="button"
 							  href="#"
@@ -124,7 +128,7 @@ class Step extends React.Component {
 				<StepperContent >
 					{ active && child }
 				</StepperContent>
-			</div>
+			</StepContainer>
 		);
 	}
 }

@@ -83,10 +83,12 @@ const MyYoastModal = styled( BaseMyYoastModal )`
 		
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
+			overflow-x: hidden;
 		}
 		
 		@media screen and ( max-height: 640px ) {
 			overflow-y: auto;
+			overflow-x: hidden;
 		}
 	}
 

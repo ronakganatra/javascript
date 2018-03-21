@@ -7,11 +7,11 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../styles/inputs";
 import validate from "validate.js";
-import defaults from "../config/defaults.json";
 import { speak } from "@wordpress/a11y";
 import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
+import ButtonsContainer from "./general/ButtonsContainer";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -49,30 +49,6 @@ const WebsiteURL = addPlaceholderStyles( styled.input`
 	font-size: 1em;
 	border: 0;
 ` );
-
-const Buttons = styled.div`
-	flex: 1 0 200px;
-	padding: 8px 0;
-	text-align: right;
-
-	a,
-	button {
-		margin-left: 12px;
-	}
-
-	@media screen and (max-width: ${ defaults.css.breakpoint.mobile }px) {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-
-		a,
-		button {
-			margin-left: 0;
-			margin-bottom: 8px;
-		}
-	}
-`;
 
 const ValidationText = styled.div`
 	font-size: 1em;
@@ -311,7 +287,7 @@ class AddSite extends React.Component {
 
 					<ErrorDisplay error={ this.props.error } />
 
-					<Buttons>
+					<ButtonsContainer>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
 							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
 						</WideSecondaryButton>
@@ -322,7 +298,7 @@ class AddSite extends React.Component {
 						>
 							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
 						</WideLargeButton>
-					</Buttons>
+					</ButtonsContainer>
 				</form>
 				{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 				<AddSiteImage src={ addSiteImage } alt=""/>

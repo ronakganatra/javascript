@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import YoastSelect from "../../general/YoastSelect";
+import ButtonsContainer from "../../general/ButtonsContainer";
 
 const pluginOptions = [
 	{ value: 0, label: "No plugin" },
@@ -25,12 +25,6 @@ let messages = defineMessages( {
 		defaultMessage: "Import from:",
 	},
 } );
-
-const ButtonsContainer = styled.p`
-	> button:not(:first-child) {
-		margin-left: 12px;
-	}
-`;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
