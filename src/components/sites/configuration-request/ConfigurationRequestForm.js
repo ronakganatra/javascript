@@ -11,7 +11,7 @@ import { ModalHeading } from "../../Headings";
 import { CloseButtonTopRight } from "../../Button";
 
 let CloseIcon = styled( CloseButtonTopRight )`
-	    margin-left: 330px;
+	float: right;
 `;
 
 const messages = defineMessages( {

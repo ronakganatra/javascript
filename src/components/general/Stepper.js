@@ -53,13 +53,6 @@ const StepperLabel = styled.span`
 	}
 `;
 
-/* Extra style
-const ExtraStyle = styled.span`
-
-`;
-
-*/
-
 const StepperContent = styled.div`
 	padding: 5px 0 5px 25px;
 	margin-left: 15px;
