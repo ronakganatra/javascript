@@ -15,6 +15,7 @@ const StepperIcon = styled.span`
 	margin-right: 10px;
 	text-align: center;
 	line-height: 20px;
+	float: left;
 `;
 
 const ActiveStepperIcon = styled( StepperIcon )`
@@ -38,19 +39,26 @@ const StepperButton = styled.button`
 	cursor: pointer;
 	margin: 5px 0;
 	text-align: left;
-	
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		margin-bottom: 50px;
-	}
-	
+
 	&:focus {
 		outline: none;
 	}
 `;
 
 const StepperLabel = styled.span`
-	display: inline;
+	display: inline-block;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		font-size: 16px;
+	}
 `;
+
+/* Extra style
+const ExtraStyle = styled.span`
+
+`;
+
+*/
 
 const StepperContent = styled.div`
 	padding: 5px 0 5px 25px;
@@ -118,20 +126,8 @@ class Step extends React.Component {
 			stepTotal: total,
 		} );
 
-		const ExtraStyledLabel = styled.span`
-			display: inline;
-
-			@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-				margin-left: 40px;
-				margin-top: -110px;
-				padding-bottom: 100px;
-				display: inline-block;
-			}
-		`;
-
 		return (
-			<div>
-				<StepperButton aria-label={ step + ": " + label }
+			<div><StepperButton aria-label={ step + ": " + label }
 								  type="button"
 								  href="#"
 								  onClick={ () => goToStep( index ) }
@@ -141,7 +137,7 @@ class Step extends React.Component {
 								  } }
 					>
 						{ this.getIcon() }
-						<StepperLabel>{ label === "Import data from another SEO plugin" ? <ExtraStyledLabel>{ label }</ExtraStyledLabel> : label }</StepperLabel>
+					<StepperLabel>{ label }</StepperLabel>
 				</StepperButton>
 				<StepperContent >
 					{ active && child }
