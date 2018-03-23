@@ -1,8 +1,167 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the menu matches the snapshot 1`] = `
+.c0 {
+  clear: both;
+}
+
+.c0 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.c0 li {
+  display: inline;
+}
+
+.c1 {
+  display: block;
+  line-height: 1.4;
+  font-size: 22px;
+  font-weight: 300;
+  padding: 24px;
+  margin-left: 24px;
+  color: #f7f7f7;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: color 0.1s ease-out,background-color 0.1s ease-out,padding 50ms ease-out,-webkit-transform 100ms ease-out;
+  -webkit-transition: color 0.1s ease-out,background-color 0.1s ease-out,padding 50ms ease-out,transform 100ms ease-out;
+  transition: color 0.1s ease-out,background-color 0.1s ease-out,padding 50ms ease-out,transform 100ms ease-out;
+}
+
+.c1:hover,
+.c1:focus {
+  padding-left: 1.25rem;
+  color: #f7f7f7;
+  -webkit-transition: padding 100ms ease-out;
+  transition: padding 100ms ease-out;
+}
+
+.c1.active-class-name {
+  color: #ccc;
+  background-color: #f1f1f1;
+  box-shadow: inset 12px 0 6px -10px rgba(0,0,0,0.3);
+  font-weight: 400;
+  color: #a4286a;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.c1.active-class-name:hover,
+.c1.active-class-name:focus {
+  padding-left: 1rem;
+}
+
+.c1.active-class-name:before,
+.c1.active-class-name:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.25rem;
+  position: absolute;
+  left: 0;
+  background: transparent;
+}
+
+.c1.active-class-name:before {
+  border-bottom-right-radius: 20px 10px;
+  top: -0.25rem;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.3);
+}
+
+.c1.active-class-name:after {
+  border-top-right-radius: 20px 10px;
+  bottom: -0.25rem;
+  box-shadow: 0 -1px 8px 0 rgba(0,0,0,0.3);
+}
+
+.c2 {
+  display: none;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c0 {
+    margin: 0 4%;
+    text-align: center;
+  }
+
+  .c0 ul {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .c0 li {
+    -webkit-flex: 1 1 0%;
+    -ms-flex: 1 1 0%;
+    flex: 1 1 0%;
+    min-width: 40px;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    display: inline-block;
+    width: 100%;
+    height: 4.5rem;
+    margin: 0;
+    padding: 0.5rem 0 0;
+    border-bottom: 0.25rem solid transparent;
+    box-shadow: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: inherit;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .c1:hover,
+  .c1:focus {
+    padding-left: 0;
+    -webkit-transform: scale( 1.08 );
+    -ms-transform: scale( 1.08 );
+    transform: scale( 1.08 );
+  }
+
+  .c1.active-class-name {
+    border-bottom: 0.25rem solid #fff;
+    color: #fff;
+    background-color: transparent;
+    -webkit-transform: scale( 1.08 );
+    -ms-transform: scale( 1.08 );
+    transform: scale( 1.08 );
+    box-shadow: none;
+  }
+
+  .c1.active-class-name:hover,
+  .c1.active-class-name:focus {
+    padding-left: 0;
+    -webkit-transform: scale( 1.08 );
+    -ms-transform: scale( 1.08 );
+    transform: scale( 1.08 );
+  }
+
+  .c1.active-class-name:before,
+  .c1.active-class-name:after {
+    content: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c2 {
+    display: block;
+    height: 40px;
+    width: 40px;
+    margin: 0 auto -3px;
+  }
+}
+
 <nav
-  className="bpAoaQ"
+  className="c0"
 >
   <ul
     role="list"
@@ -10,14 +169,14 @@ exports[`the menu matches the snapshot 1`] = `
     <li>
       <a
         aria-current="page"
-        className="UlzNo active-class-name"
+        className="c1 active-class-name"
         href="/sites"
         onClick={[Function]}
         style={Object {}}
       >
         <img
           alt=""
-          className="fHJXFs"
+          className="c2"
           src="sites.svg"
         />
         Sites
@@ -26,14 +185,14 @@ exports[`the menu matches the snapshot 1`] = `
     <li>
       <a
         aria-current={false}
-        className="UlzNo"
+        className="c1"
         href="/courses"
         onClick={[Function]}
         style={undefined}
       >
         <img
           alt=""
-          className="fHJXFs"
+          className="c2"
           src="courses.svg"
         />
         Courses
@@ -42,14 +201,14 @@ exports[`the menu matches the snapshot 1`] = `
     <li>
       <a
         aria-current={false}
-        className="UlzNo"
+        className="c1"
         href="/downloads"
         onClick={[Function]}
         style={undefined}
       >
         <img
           alt=""
-          className="fHJXFs"
+          className="c2"
           src="download.svg"
         />
         Downloads
@@ -58,14 +217,14 @@ exports[`the menu matches the snapshot 1`] = `
     <li>
       <a
         aria-current={false}
-        className="UlzNo"
+        className="c1"
         href="/account"
         onClick={[Function]}
         style={undefined}
       >
         <img
           alt=""
-          className="fHJXFs"
+          className="c2"
           src="user.svg"
         />
         Account

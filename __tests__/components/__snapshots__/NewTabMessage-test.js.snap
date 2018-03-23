@@ -1,8 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the new tab message component matches the snapshot 1`] = `
+.c0 {
+  padding-top: 0.5em;
+}
+
 <span
-  className="screen-reader-text fuqaAG"
+  className="screen-reader-text c0"
 >
   <span>
     (Opens in a new browser tab)

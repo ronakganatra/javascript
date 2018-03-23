@@ -1,8 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the NoResults component matches the snapshot in the case of no orders 1`] = `
+.c3 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c3:hover,
+.c3:focus {
+  color: #fff;
+}
+
+.c3:hover,
+.c3:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c3:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c2 {
+  min-width: 152px;
+}
+
+.c4 {
+  padding-top: 0.5em;
+}
+
+.c0 {
+  color: #000;
+  text-align: center;
+  align: center;
+  margin-top: 10vh;
+}
+
+.c5 {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.c1 {
+  margin-bottom: 2em;
+}
+
+@media screen and ( max-width:400px ) {
+  .c5 {
+    max-width: 240px;
+  }
+}
+
+@media screen and ( min-width:400px ) {
+  .c5 {
+    max-width: 384px;
+  }
+}
+
 <div
-  className="beArzs"
+  className="c0"
 >
   <p>
     <span>
@@ -20,7 +94,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
     </span>
   </p>
   <a
-    className="gGtGty"
+    className="c1 c2 c3"
     href="/"
     onClick={[Function]}
   >
@@ -28,7 +102,7 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
       Shop
     </span>
     <span
-      className="screen-reader-text fuqaAG"
+      className="screen-reader-text c4"
     >
       <span>
         (Opens in a new browser tab)
@@ -37,15 +111,90 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
   </a>
   <img
     alt=""
-    className="bTHZQB"
+    className="c5"
     src="noSites.svg"
   />
 </div>
 `;
 
 exports[`the NoResults component matches the snapshot in the case of no sites 1`] = `
+.c5 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c5:hover,
+.c5:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c5:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c4 {
+  background-repeat: no-repeat;
+  background-image: url( plus.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c3 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c2 {
+  min-width: 152px;
+}
+
+.c0 {
+  color: #000;
+  text-align: center;
+  align: center;
+  margin-top: 10vh;
+}
+
+.c6 {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.c1 {
+  margin-bottom: 2em;
+}
+
+@media screen and ( max-width:400px ) {
+  .c6 {
+    max-width: 240px;
+  }
+}
+
+@media screen and ( min-width:400px ) {
+  .c6 {
+    max-width: 384px;
+  }
+}
+
 <div
-  className="beArzs"
+  className="c0"
 >
   <p>
     <span>
@@ -63,8 +212,9 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
     </span>
   </p>
   <button
-    className="inpHnp"
+    className="c1 c2 c3 c4 c5"
     onClick={[Function]}
+    type="button"
   >
     <span>
       Add site
@@ -72,15 +222,89 @@ exports[`the NoResults component matches the snapshot in the case of no sites 1`
   </button>
   <img
     alt=""
-    className="bTHZQB"
+    className="c6"
     src="noSites.svg"
   />
 </div>
 `;
 
 exports[`the NoResults component matches the snapshot in the case of no subscriptions 1`] = `
+.c3 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c3:hover,
+.c3:focus {
+  color: #fff;
+}
+
+.c3:hover,
+.c3:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c3:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c2 {
+  min-width: 152px;
+}
+
+.c4 {
+  padding-top: 0.5em;
+}
+
+.c0 {
+  color: #000;
+  text-align: center;
+  align: center;
+  margin-top: 10vh;
+}
+
+.c5 {
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.c1 {
+  margin-bottom: 2em;
+}
+
+@media screen and ( max-width:400px ) {
+  .c5 {
+    max-width: 240px;
+  }
+}
+
+@media screen and ( min-width:400px ) {
+  .c5 {
+    max-width: 384px;
+  }
+}
+
 <div
-  className="beArzs"
+  className="c0"
 >
   <p>
     <span>
@@ -98,7 +322,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
     </span>
   </p>
   <a
-    className="gGtGty"
+    className="c1 c2 c3"
     href="/"
     onClick={[Function]}
   >
@@ -106,7 +330,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
       Shop
     </span>
     <span
-      className="screen-reader-text fuqaAG"
+      className="screen-reader-text c4"
     >
       <span>
         (Opens in a new browser tab)
@@ -115,7 +339,7 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
   </a>
   <img
     alt=""
-    className="bTHZQB"
+    className="c5"
     src="noSites.svg"
   />
 </div>

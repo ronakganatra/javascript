@@ -1,11 +1,161 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Products component matches the snapshot 1`] = `
+.c11 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c11:hover,
+.c11:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c11:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c10 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c9 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c3 {
+  margin: 8px;
+  padding: 16px 16px 0 16px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.c6 {
+  width: 112px;
+  height: 112px;
+  padding: 0 0 5px 0;
+  margin-top: 24px;
+}
+
+.c7 {
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.c8 {
+  list-style: none;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.c4 {
+  display: block;
+  font-size: 1.375em;
+  min-height: 4em;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.c5 {
+  font-weight: 300;
+}
+
+.c12 {
+  font-size: 0.875em;
+  font-weight: 300;
+  margin: 2px 0 0;
+}
+
+.c2 {
+  display: block;
+  font-size: 1em;
+  padding: 24px 40px;
+  font-weight: 400;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #fff;
+  padding: 0 24px 24px 24px;
+  margin: 0 0 0 8px;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-align-items: stretch;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+}
+
+.c1 {
+  width: calc( 100% - 16px );
+  font-size: 22px;
+  margin: 0 0 24px 0px;
+  padding: 0 0 24px 0;
+}
+
+@media screen and ( min-width:1356px ) {
+  .c3 {
+    width: calc( ( 100% - 32px - 32px ) / 4 );
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c3 {
+    width: calc( ( 100% - 32px ) / 2 );
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
 <div
-  className="dCSOIl"
+  className="c0"
 >
   <span
-    className="cWpYAO"
+    className="c1 c2"
   >
     Products
     <span>
@@ -14,57 +164,59 @@ exports[`The Products component matches the snapshot 1`] = `
   </span>
   
   <div
-    className="iqMgVR"
+    className="c3"
   >
     <span
-      className="jBkxVV"
+      className="c4"
     >
       Yoast SEO
     </span>
     <p
-      className="hTVMCQ"
+      className="c5"
     >
        
       version 4.7
     </p>
     <img
       alt=""
-      className="bAfIbR"
+      className="c6"
       src="Yoast_SEO_Icon_Small.svg"
     />
     <ul
-      className="boOFOz"
+      className="c7"
     >
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Yoast SEO for Wordpress"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Yoast SEO for Drupal"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Drupal
         </p>
@@ -72,40 +224,41 @@ exports[`The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="iqMgVR"
+    className="c3"
   >
     <span
-      className="jBkxVV"
+      className="c4"
     >
       Local SEO
     </span>
     <p
-      className="hTVMCQ"
+      className="c5"
     >
        
       version 4.7
     </p>
     <img
       alt=""
-      className="bAfIbR"
+      className="c6"
       src="Yoast_SEO_Icon_Small.svg"
     />
     <ul
-      className="boOFOz"
+      className="c7"
     >
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Local SEO for Wordpress"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Wordpress
         </p>
@@ -113,74 +266,77 @@ exports[`The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="iqMgVR"
+    className="c3"
   >
     <span
-      className="jBkxVV"
+      className="c4"
     >
       Video SEO
     </span>
     <p
-      className="hTVMCQ"
+      className="c5"
     >
        
       version 4.7
     </p>
     <img
       alt=""
-      className="bAfIbR"
+      className="c6"
       src="Yoast_SEO_Icon_Small.svg"
     />
     <ul
-      className="boOFOz"
+      className="c7"
     >
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Video SEO for Wordpress"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Video SEO for Drupal"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Drupal
         </p>
       </li>
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Video SEO for Typo3"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Typo3
         </p>
@@ -188,74 +344,77 @@ exports[`The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="iqMgVR"
+    className="c3"
   >
     <span
-      className="jBkxVV"
+      className="c4"
     >
       News SEO
     </span>
     <p
-      className="hTVMCQ"
+      className="c5"
     >
        
       version 4.7
     </p>
     <img
       alt=""
-      className="bAfIbR"
+      className="c6"
       src="Yoast_SEO_Icon_Small.svg"
     />
     <ul
-      className="boOFOz"
+      className="c7"
     >
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download News SEO for Wordpress"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Wordpress
         </p>
       </li>
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download News SEO for Drupal"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Drupal
         </p>
       </li>
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download News SEO for Typo3"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Typo3
         </p>
@@ -263,40 +422,41 @@ exports[`The Products component matches the snapshot 1`] = `
     </ul>
   </div>
   <div
-    className="iqMgVR"
+    className="c3"
   >
     <span
-      className="jBkxVV"
+      className="c4"
     >
       Yoast SEO for WooCommerce
     </span>
     <p
-      className="hTVMCQ"
+      className="c5"
     >
        
       version 4.7
     </p>
     <img
       alt=""
-      className="bAfIbR"
+      className="c6"
       src="Yoast_SEO_Icon_Small.svg"
     />
     <ul
-      className="boOFOz"
+      className="c7"
     >
       <li
-        className="jVUpbY"
+        className="c8"
       >
         <button
           aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-          className="gbLEpa"
+          className="c9 c10 c11"
           onClick={[Function]}
+          type="button"
         >
           Download
         </button>
         <p
           aria-hidden="true"
-          className="cBxjGK"
+          className="c12"
         >
           for Wordpress
         </p>

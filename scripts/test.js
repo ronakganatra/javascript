@@ -20,5 +20,4 @@ if ( process.env.CI ) {
   argv.push( '--runInBand' );
 }
 
-
 jest.run(argv);
