@@ -3,8 +3,12 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import {
-	ColumnIcon, makeFullWidth, responsiveHeaders, ColumnMinWidth,
-	ColumnFixedWidth, RowMobileCollapse,
+	ColumnIcon,
+	makeFullWidth,
+	responsiveHeaders,
+	ColumnMinWidth,
+	RowMobileCollapse,
+	ColumnFixedWidth,
 } from "../../Tables";
 import { getUserId } from "../../../functions/auth";
 import { ColumnPrimary } from "../../Tables";
@@ -42,7 +46,10 @@ const CourseColumnIcon = styled( ColumnIcon )`
 
 let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
 let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+let ColumnFixedWidthResponsive = styled( makeFullWidth( responsiveHeaders( ColumnFixedWidth ) ) )`
+	flex: 0 0 192px;
+	text-align: center;
+`;
 
 const messages = defineMessages( {
 	course: {
@@ -59,7 +66,7 @@ const messages = defineMessages( {
 	},
 } );
 
-class CourseEnrollment extends React.Component {
+class CourseProgress extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -133,12 +140,12 @@ class CourseEnrollment extends React.Component {
 	}
 }
 
-CourseEnrollment.propTypes = {
+CourseProgress.propTypes = {
 	intl: intlShape.isRequired,
 	courseEnrollments: PropTypes.array,
 	course: PropTypes.object,
 	background: PropTypes.string,
 };
 
-export default injectIntl( CourseEnrollment );
+export default injectIntl( CourseProgress );
 

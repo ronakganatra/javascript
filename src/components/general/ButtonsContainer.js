@@ -3,7 +3,7 @@ import defaults from "../../config/defaults.json";
 
 const ButtonsContainer = styled.div`
 	flex: 1 0 200px;
-	padding: 8px 0;
+	padding-bottom: 16px;
 	text-align: right;
 
 	a,

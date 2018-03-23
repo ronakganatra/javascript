@@ -1,5 +1,6 @@
 process.env.NODE_ENV = 'test';
 process.env.PUBLIC_URL = '';
+process.env.REACT_APP_API_URL = 'https://my.yoast.com/api';
 
 // Load environment variables from .env file. Suppress warnings using silent
 // if this file is missing. dotenv will never modify any environment variables
@@ -18,6 +19,5 @@ if (!process.env.CI && argv.indexOf('--coverage') < 0) {
 if ( process.env.CI ) {
   argv.push( '--runInBand' );
 }
-
 
 jest.run(argv);

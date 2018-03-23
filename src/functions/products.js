@@ -8,6 +8,11 @@ import _includes from "lodash/includes";
 
 /** Product helpers */
 
+export const PLUGIN_MAPPING = {
+	wordpress: "plugin",
+	typo3: "typo3-extension",
+};
+
 /**
  * Filters out duplicate products based on the GL number.
  *
@@ -91,8 +96,37 @@ function sortPluginsByPopularity( plugins ) {
 	return plugins;
 }
 
+/**
+ * A function to get all plugins from a list of products.
+ *
+ * @param {Object[]} products A collection of products.
+ * @returns {Array} A collection of plugin products.
+ */
+export function getPlugins( products ) {
+	// Only get products with the passed type.
+	products = _pickBy( products, product => Object.values( PLUGIN_MAPPING ).indexOf( product.type ) !== -1 );
+	let filteredProducts = filterOutDuplicates( products );
+
+	return Object.keys( filteredProducts ).map( ( key, index ) => {
+		return filteredProducts[ key ];
+	} );
+}
+
+/**
+ * A function to get plugins for a specific site type from a list of products.
+ *
+ * @param {string}   siteType A sitetype that should be present in PLUGIN_MAPPING.
+ * @param {Object[]} products A collection of products.
+ * @returns {Array} A collection of plugin products.
+ */
+export function getPluginsForSiteType( siteType, products ) {
+	if ( PLUGIN_MAPPING[ siteType ] ) {
+		return filterProductsByType( PLUGIN_MAPPING[ siteType ], products );
+	}
+	return [];
+}
+
 export const getEbooks = _partial( filterProductsByType, "ebook" );
 export const getCares = _partial( filterProductsByType, "care" );
 export const getCourses = _partial( filterProductsByType, "course" );
-export const getPlugins = _partial( filterProductsByType, "plugin" );
 export { sortPluginsByPopularity };

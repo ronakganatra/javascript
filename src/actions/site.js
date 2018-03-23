@@ -13,6 +13,9 @@ export const SITE_REMOVE_SUBSCRIPTION_SUCCESS = "SITE_REMOVE_SUBSCRIPTION_SUCCES
 export const SITE_REMOVE_START = "SITE_REMOVE_START";
 export const SITE_REMOVE_SUCCESS = "SITE_REMOVE_SUCCESS";
 export const SITE_REMOVE_FAILURE = "SITE_REMOVE_FAILURE";
+export const SITE_CHANGE_PLATFORM_REQUEST = "SITE_CHANGE_PLATFORM_REQUEST";
+export const SITE_CHANGE_PLATFORM_SUCCESS = "SITE_CHANGE_PLATFORM_SUCCESS";
+export const SITE_CHANGE_PLATFORM_FAILURE = "SITE_CHANGE_PLATFORM_FAILURE";
 
 /**
  * Action creators
@@ -174,5 +177,65 @@ export function siteRemoveFailure( siteId, errorText ) {
 		type: SITE_REMOVE_FAILURE,
 		siteId: siteId,
 		siteRemoveError: errorText,
+	};
+}
+
+/**
+ * An action creator for indicating successful changing of the platform.
+ *
+ * @returns {Object} A site change platform success action.
+ */
+export function siteChangePlatformRequest() {
+	return {
+		type: SITE_CHANGE_PLATFORM_REQUEST,
+	};
+}
+
+/**
+ * An action creator for indicating successful changing of the platform.
+ *
+ * @param {string} siteId   The id of the site the platform has changed for.
+ * @param {string} siteType The type of platform the site has changed to.
+ * @returns {Object} A site change platform success action.
+ */
+export function siteChangePlatformSuccess( siteId, siteType ) {
+	return {
+		type: SITE_CHANGE_PLATFORM_SUCCESS,
+		siteId,
+		siteType,
+	};
+}
+
+/**
+ * An action creator for indicating failure during the changing of the platform.
+ *
+ * @param {Object} error The error thrown.
+ *
+ * @returns {Object} A site change platform failure action.
+ */
+export function siteChangePlatformFailure( error ) {
+	return {
+		type: SITE_CHANGE_PLATFORM_FAILURE,
+		error,
+	};
+}
+
+/**
+ * An action creator for changing the platform of a site.
+ *
+ * @param {string} siteId The id of the site to change the platform for.
+ * @param {string} siteType The type of platform the site should change to.
+ *
+ * @returns {Object} A site change platform action.
+ */
+export function siteChangePlatform( siteId, siteType ) {
+	return ( dispatch ) => {
+		dispatch( siteChangePlatformRequest() );
+
+		let request = prepareInternalRequest( `Sites/${siteId}/`, "PATCH", { type: siteType } );
+
+		return doRequest( request )
+			.then( json => dispatch( siteChangePlatformSuccess( json.id, json.type ) ) )
+			.catch( error => dispatch( siteChangePlatformFailure( error ) ) );
 	};
 }
