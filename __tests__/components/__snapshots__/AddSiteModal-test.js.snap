@@ -133,6 +133,19 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   margin: 0;
 }
 
+.c7 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c7 a,
+.c7 button {
+  margin-left: 12px;
+}
+
 .c5 {
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -214,19 +227,6 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   color: #646464;
 }
 
-.c7 {
-  -webkit-flex: 1 0 200px;
-  -ms-flex: 1 0 200px;
-  flex: 1 0 200px;
-  padding-bottom: 16px;
-  text-align: right;
-}
-
-.c7 a,
-.c7 button {
-  margin-left: 12px;
-}
-
 .c6 {
   font-size: 1em;
   color: #dc3232;
@@ -237,12 +237,14 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
 @media screen and ( max-width:500px ) {
   .c0.my-yoast-modal__content {
     overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 
 @media screen and ( max-height:640px ) {
   .c0.my-yoast-modal__content {
     overflow-y: auto;
+    overflow-x: hidden;
   }
 }
 

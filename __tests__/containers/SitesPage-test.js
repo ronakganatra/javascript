@@ -55,6 +55,10 @@ let state = {
 			linkSiteFailed: false,
 			linkSiteError: "",
 		},
+		configurationRequest: {
+			configRequestModalOpen: false,
+			configRequestModalSiteId: "",
+		}
 	},
 };
 
@@ -85,6 +89,7 @@ test('the mapStateToProps function', () => {
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
@@ -92,7 +97,7 @@ test('the mapStateToProps function', () => {
 } );
 
 test('the mapStateToProps function when query contains url of site', () => {
-	state.ui.search.query = "https://yoast.com"
+	state.ui.search.query = "https://yoast.com";
 
 	let expected = {
 		sites: [ {
@@ -120,6 +125,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "https://yoast.com",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
@@ -127,7 +133,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 } );
 
 test('the mapStateToProps function when query just contains the hostname of site', () => {
-	state.ui.search.query = "yoast.com"
+	state.ui.search.query = "yoast.com";
 
 	let expected = {
 		sites: [ {
@@ -155,6 +161,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "yoast.com",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
@@ -162,7 +169,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 } );
 
 test('the mapStateToProps function when query does not match any site.', () => {
-	state.ui.search.query = "yolo.test"
+	state.ui.search.query = "yolo.test";
 
 	let expected = {
 		sites: [],
@@ -181,6 +188,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "yolo.test",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
@@ -214,6 +222,7 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
@@ -321,6 +330,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 		error: "",
 		linkingSiteUrl: "http://yoast.com",
 		query: "",
+		configRequestModalOpen: false,
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );

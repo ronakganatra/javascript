@@ -564,7 +564,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
       </li>
     </ul>
   </div>
-  <div />
 </div>
 `;
 
@@ -1132,7 +1131,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
       </li>
     </ul>
   </div>
-  <div />
 </div>
 `;
 
@@ -1700,7 +1698,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
       </li>
     </ul>
   </div>
-  <div />
 </div>
 `;
 
@@ -1814,7 +1811,6 @@ exports[`the sites page component without sites handling an onclick event on the
       src="noSites.svg"
     />
   </div>
-  <div />
 </div>
 `;
 
@@ -1928,6 +1924,5 @@ exports[`the sites page component without sites handling an onclick event on the
       src="noSites.svg"
     />
   </div>
-  <div />
 </div>
 `;

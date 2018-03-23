@@ -92,6 +92,19 @@ exports[`The AddSite component matches the snapshot 1`] = `
   margin: 0;
 }
 
+.c6 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c6 a,
+.c6 button {
+  margin-left: 12px;
+}
+
 .c4 {
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -171,19 +184,6 @@ exports[`The AddSite component matches the snapshot 1`] = `
 
 .c2:-ms-input-placeholder {
   color: #646464;
-}
-
-.c6 {
-  -webkit-flex: 1 0 200px;
-  -ms-flex: 1 0 200px;
-  flex: 1 0 200px;
-  padding-bottom: 16px;
-  text-align: right;
-}
-
-.c6 a,
-.c6 button {
-  margin-left: 12px;
 }
 
 .c5 {
