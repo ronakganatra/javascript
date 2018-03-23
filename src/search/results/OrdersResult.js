@@ -1,7 +1,7 @@
 import React from "react";
 import BaseResult from "./BaseResult";
 import { getSearchCallback } from "../../functions/callbacks";
-import { datePresenter, dollarPresenter, euroPresenter } from "../../functions/presenters";
+import { datePresenter, currencyPresenter } from "../../functions/presenters";
 import { getOrderUrl } from "../../functions/helpers";
 
 export default class OrdersResult extends React.Component {
@@ -11,8 +11,9 @@ export default class OrdersResult extends React.Component {
 	constructor() {
 		super();
 
-		this.customerIdPresenter = this.customerIdPresenter.bind( this );
-		this.managePresenter     = this.managePresenter.bind( this );
+		this.customerIdPresenter  = this.customerIdPresenter.bind( this );
+		this.totalAmountPresenter = this.totalAmountPresenter.bind( this );
+		this.managePresenter      = this.managePresenter.bind( this );
 	}
 
 	/**
@@ -50,17 +51,19 @@ export default class OrdersResult extends React.Component {
 		return <a href={ url } target="_blank">Manage order</a>;
 	}
 
+	totalAmountPresenter() {
+		return currencyPresenter( this.props.result.currency, this.props.result.totalAmount );
+	}
+
 	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		let currencyPresenter = ( this.props.result.currency === "USD" ? dollarPresenter : euroPresenter );
-
 		return <BaseResult { ...this.props }
 						   customerIdPresenter={ this.customerIdPresenter }
-						   totalAmountPresenter={ currencyPresenter }
+						   totalAmountPresenter={ this.totalAmountPresenter }
 						   datePresenter={ datePresenter }
 						   managePresenter={ this.managePresenter }
 						   itemsPresenter={ OrdersResult.itemsPresenter }/>;

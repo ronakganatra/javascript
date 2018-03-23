@@ -16,34 +16,20 @@ function currencyString( value ) {
 	return ( negative ? "-" : "" ) + amounts.join( "." ) + "," + cents;
 }
 
-/**
- * Presents a numerical value as a euro currency string.
- *
- * @param {number} value The amount in cents.
- *
- * @returns {string} A currency string.
- */
-export function euroPresenter( value ) {
-	if ( value === null ) {
-		return "";
+export function currencyPresenter( currency, value ) {
+	let currencySymbol;
+	switch( currency ) {
+		case "EUR":
+			currencySymbol = "€";
+			break;
+		case "GBP":
+			currencySymbol = "£";
+			break;
+		default:
+			currencySymbol = "$";
 	}
 
-	return `€ ${ currencyString( value ) }`;
-}
-
-/**
- * Presents a numerical value as a dollar currency string.
- *
- * @param {number} value The amount in cents.
- *
- * @returns {string} A currency string.
- */
-export function dollarPresenter( value ) {
-	if ( value === null ) {
-		return "";
-	}
-
-	return `$ ${ currencyString( value ) }`;
+	return `${ currencySymbol } ${ currencyString( value ) }`;
 }
 
 /**

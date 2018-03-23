@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment-timezone";
 import Loader from "../shared/Loader";
 import FinanceStatistic from "./FinanceStatistic";
-import { dollarPresenter } from "../functions/presenters";
+import { currencyPresenter } from "../functions/presenters";
 import { table } from "../functions/table";
 import _merge from "lodash/merge";
 import _times from "lodash/times";
@@ -100,11 +100,11 @@ export default class DailyDashboard extends React.Component {
 
 		return [
 			date.format( "ddd, MMM DD, YYYY" ),
-			dollarPresenter( dailyStatistic.orderRevenue ) ,
+			currencyPresenter( "USD", dailyStatistic.orderRevenue ) ,
 			dailyStatistic.orderTotal,
-			{ className: "negative", content: dollarPresenter( dailyStatistic.refundRevenue ) },
+			{ className: "negative", content: currencyPresenter( "USD", dailyStatistic.refundRevenue ) },
 			{ className: "negative", content: dailyStatistic.refundTotal },
-			dollarPresenter( dailyStatistic.revenue ),
+			currencyPresenter( "USD", dailyStatistic.revenue ),
 		];
 	}
 
@@ -113,11 +113,11 @@ export default class DailyDashboard extends React.Component {
 
 		return [
 			"Total",
-			dollarPresenter( totalStatistic.orderRevenue ),
+			currencyPresenter( "USD", totalStatistic.orderRevenue ),
 			totalStatistic.orderTotal || 0,
-			{ className: "negative", content: dollarPresenter( totalStatistic.refundRevenue ) },
+			{ className: "negative", content: currencyPresenter( "USD", totalStatistic.refundRevenue ) },
 			{ className: "negative", content: totalStatistic.refundTotal || 0 },
-			dollarPresenter( totalStatistic.revenue || 0 ),
+			currencyPresenter( "USD", totalStatistic.revenue || 0 ),
 		];
 	}
 
