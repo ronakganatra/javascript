@@ -126,7 +126,6 @@ exports[`the beacon button matches the snapshot 1`] = `
 }
 
 <button
-  aria-label=""
   className="c0 c1 c2"
   type="button"
 >
