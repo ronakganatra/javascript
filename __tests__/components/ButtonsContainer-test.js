@@ -1,7 +1,7 @@
 import React from 'react';
 import ButtonsContainer from "../../src/components/ButtonsContainer";
 
-test('The AdministratorLoginStep component matches the snapshot', () => {
+test('The ButtonsContainer component matches the snapshot', () => {
 	const component = (
 		<ButtonsContainer>
 			<a>link</a>
