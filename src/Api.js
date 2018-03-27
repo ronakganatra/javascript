@@ -41,7 +41,18 @@ export default class Api {
 	}
 
 	getWooUrl( shopId ) {
-		let shopPostfix = shopId === 2 ? "/eu" : "";
+		let shopPostfix = "";
+
+		switch( shopId ) {
+			case 2:
+				shopPostfix = "/eu";
+				break;
+			case 7:
+				shopPostfix = "/uk";
+				break;
+			default:
+				break;
+		}
 
 		return this.wooHost + shopPostfix + "/wp-json";
 	}

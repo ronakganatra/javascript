@@ -2,7 +2,7 @@ import React from "react";
 import Loader from "../shared/Loader";
 import moment from "moment-timezone";
 import { table } from "../functions/table";
-import { dollarPresenter } from "../functions/presenters";
+import { currencyPresenter } from "../functions/presenters";
 import FinanceStatistic from "./FinanceStatistic";
 
 export default class HourlyDashboard extends React.Component {
@@ -117,7 +117,7 @@ export default class HourlyDashboard extends React.Component {
 
 		for ( let i = 0; i < dates.length; i ++ ) {
 			let date = dates[ i ];
-			row.push( dollarPresenter( this.getHourlyStatistic( date, hour ).revenue ) );
+			row.push( currencyPresenter( "USD", this.getHourlyStatistic( date, hour ).revenue ) );
 			row.push( this.getHourlyStatistic( date, hour ).orderTotal );
 		}
 
@@ -133,7 +133,7 @@ export default class HourlyDashboard extends React.Component {
 
 		for ( let i = 0; i < dates.length; i ++ ) {
 			let date = dates[ i ];
-			row.push( dollarPresenter( this.getUntilNowStatistic( date ).revenue ) );
+			row.push( currencyPresenter( "USD", this.getUntilNowStatistic( date ).revenue ) );
 			row.push( this.getUntilNowStatistic( date ).orderTotal );
 		}
 
@@ -145,7 +145,7 @@ export default class HourlyDashboard extends React.Component {
 
 		for ( let i = 0; i < dates.length; i ++ ) {
 			let date = dates[ i ];
-			row.push( dollarPresenter( this.getDailyStatistic( date ).revenue ) );
+			row.push( currencyPresenter( "USD", this.getDailyStatistic( date ).revenue ) );
 			row.push( this.getDailyStatistic( date ).orderTotal );
 		}
 

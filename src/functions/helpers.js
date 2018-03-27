@@ -55,6 +55,10 @@ export function getOrderUrl( orderId, shopId ) {
 	if ( shopId === 2 ) {
 		return `${ host }/eu/wp-admin/post.php?post=${ orderId }&action=edit`;
 	}
+	if ( shopId === 7 ) {
+		return `${ host }/uk/wp-admin/post.php?post=${ orderId }&action=edit`;
+	}
+
 	return `${ host }/wp/wp-admin/post.php?post=${ orderId }&action=edit`;
 }
 

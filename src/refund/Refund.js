@@ -1,7 +1,7 @@
 import React from "react";
 import _debounce from "lodash/debounce";
 import _isString from "lodash/isString";
-import { datePresenter, euroPresenter, dollarPresenter } from "../functions/presenters";
+import { datePresenter, currencyPresenter } from "../functions/presenters";
 import Loader from "../shared/Loader";
 
 const initialState = {
@@ -129,7 +129,7 @@ class Refund extends React.Component {
 						<tr><td>First Name</td><td> {order.customerFirstName}</td></tr>
 						<tr><td>Last Name</td><td>{ order.customerLastName}</td></tr>
 						<tr><td>Email</td><td> {order.customerEmail}</td></tr>
-						<tr><td>Amount</td><td> {order.currency === "USD" ? dollarPresenter(order.totalAmount) : euroPresenter(order.totalAmount)}</td></tr>
+						<tr><td>Amount</td><td> {currencyPresenter( order.currency, order.totalAmount )}</td></tr>
 					</tbody>
 				</table>
 

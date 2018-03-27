@@ -6,14 +6,18 @@ export default class TransferPreview extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		let orders        = { 1: {}, 2: {} };
-		let subscriptions = { 1: {}, 2: {} };
-		let others        = { 1: {}, 2: {} };
+		let orders        = { 1: {}, 2: {}, 7: {} };
+		let subscriptions = { 1: {}, 2: {}, 7: {} };
+		let others        = { 1: {}, 2: {}, 7: {} };
 
 		props.orders.forEach( order => orders[ order.sourceShopId ][ order.sourceId ] = order );
 		props.subscriptions.forEach( subscription => subscriptions[ subscription.sourceShopId ][ subscription.sourceId ] = subscription );
 
-		[ { id: 1, data: props.usShopData }, { id: 2, data: props.euShopData } ].forEach( shop => {
+		[
+			{ id: 1, data: props.usShopData },
+			{ id: 2, data: props.euShopData },
+			{ id: 7, data: props.ukShopData },
+		].forEach( shop => {
 			if ( shop.data ) {
 				orders        = TransferPreview.fillOrderData( orders, shop.data.order_ids, shop.id );
 				subscriptions = TransferPreview.fillOrderData( subscriptions, shop.data.subscription_ids, shop.id );
@@ -86,11 +90,17 @@ export default class TransferPreview extends React.Component {
 				{ ( ! _isEmpty( this.state.orders[2] ) ) &&
 					<div><strong>EU Orders:</strong>{ this.getWooObjectList( this.state.orders[2], "invoiceNumber" ) }</div>
 				}
+				{ ( ! _isEmpty( this.state.orders[7] ) ) &&
+					<div><strong>UK Orders:</strong>{ this.getWooObjectList( this.state.orders[7], "invoiceNumber" ) }</div>
+				}
 				{ ( ! _isEmpty( this.state.subscriptions[1] ) ) &&
 					<div><strong>US Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[1], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.state.subscriptions[2] ) ) &&
 					<div><strong>EU Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[2], "name" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.subscriptions[7] ) ) &&
+					<div><strong>UK Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[7], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.sites ) ) &&
 					<div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul></div>
@@ -100,6 +110,9 @@ export default class TransferPreview extends React.Component {
 				}
 				{ ( ! _isEmpty( this.state.others[2] ) ) &&
 					<div><strong>EU Other:</strong>{ this.getWooObjectList( this.state.other[2], "sourceId" ) }</div>
+				}
+				{ ( ! _isEmpty( this.state.others[7] ) ) &&
+					<div><strong>UK Other:</strong>{ this.getWooObjectList( this.state.other[7], "sourceId" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.courseEnrollments ) ) &&
 					<div><strong>Academy:</strong>{ this.getCourseEnrollmentsList() }</div>

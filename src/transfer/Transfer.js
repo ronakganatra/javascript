@@ -22,6 +22,8 @@ export const InitialState = {
 	usTransfer:        false,
 	euShopData:        null,
 	euTransfer:        false,
+	ukShopData:        null,
+	ukTransfer:        false,
 	academyData:       null,
 	academyTransfer:   false,
 };
@@ -81,6 +83,7 @@ class Transfer extends React.Component {
 
 		api.wooTransfer( fromId, toId, 1 ).then( result => this.setState( { usTransfer: true } ) );
 		api.wooTransfer( fromId, toId, 2 ).then( result => this.setState( { euTransfer: true } ) );
+		api.wooTransfer( fromId, toId, 7 ).then( result => this.setState( { ukTransfer: true } ) );
 		api.learndashTransfer( fromId, toId ).then( result => this.setState( { academyTransfer: true } ) );
 	}
 
@@ -115,6 +118,7 @@ class Transfer extends React.Component {
 
 			api.wooTransferPreview( fromId, toId, 1 ).then( result => this.setState( { usShopData: result } ) );
 			api.wooTransferPreview( fromId, toId, 2 ).then( result => this.setState( { euShopData: result } ) );
+			api.wooTransferPreview( fromId, toId, 7 ).then( result => this.setState( { ukShopData: result } ) );
 			api.learndashTransferPreview( fromId, toId ).then( result => this.setState( { academyData: result } ) );
 		} );
 	}
