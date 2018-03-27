@@ -1,11 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the page not found component matches the snapshot 1`] = `
+.c1 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c0 {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.c0 img {
+  width: 384px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 2em;
+}
+
 <div
-  className="bqOpUy"
+  className="c0"
 >
   <h1
-    className="PcrFE"
+    className="c1"
   >
     <span>
       Oops

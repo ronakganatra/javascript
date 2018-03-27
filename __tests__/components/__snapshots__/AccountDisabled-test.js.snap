@@ -1,16 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the account disabled component matches the snapshot 1`] = `
+.c2 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c1 {
+  width: 200px;
+  display: block;
+  margin: 30px auto 25px;
+}
+
+.c0 {
+  margin-top: 10vh;
+  text-align: center;
+}
+
+.c3 {
+  width: 384px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 2em;
+}
+
 <div
-  className="cttIji"
+  className="c0"
 >
   <img
-    className="jEhkge"
+    className="c1"
     size="200px"
     src="logoColor.svg"
   />
   <h1
-    className="PcrFE"
+    className="c2"
   >
     <span>
       Account disabled
@@ -40,7 +63,7 @@ exports[`the account disabled component matches the snapshot 1`] = `
   </p>
   <img
     alt=""
-    className="kKZHaX"
+    className="c3"
     src="PageNotFound.svg"
   />
 </div>

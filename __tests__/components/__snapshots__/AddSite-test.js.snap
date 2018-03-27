@@ -1,11 +1,245 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The AddSite component matches the snapshot 1`] = `
+.c9 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c9:hover,
+.c9:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c9:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c13 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c13:hover,
+.c13:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c13:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c8 {
+  color: #000;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+}
+
+.c8:hover,
+.c8:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c11 {
+  min-width: 152px;
+}
+
+.c1 {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.c4 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c4.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c4 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c4 .Select-placeholder {
+  line-height: 48px;
+}
+
+.c4.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c4 .Select-value-label {
+  line-height: 48px;
+}
+
+.c4 .Select-input {
+  line-height: 48px;
+}
+
+.c4 .Select-option {
+  color: #000;
+}
+
+.c4 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c4 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+.c0 {
+  max-width: 640px;
+  margin: auto;
+  font-size: 1em;
+}
+
+.c0 label {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
+.c3 {
+  width: 100%;
+  height: 48px;
+  box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
+  background: #ddd;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  border: 0;
+  margin-bottom: 8px;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #646464;
+}
+
+.c2::-moz-placeholder {
+  color: #646464;
+  opacity: 1;
+}
+
+.c2:-ms-input-placeholder {
+  color: #646464;
+}
+
+.c6 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c6 a,
+.c6 button {
+  margin-left: 12px;
+}
+
+.c5 {
+  font-size: 1em;
+  color: #dc3232;
+  margin: 1em 0;
+  min-height: 1.8em;
+}
+
+@media screen and (max-width:800px) {
+  .c6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .c6 a,
+  .c6 button {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div
-  className="kJvgwK"
+  className="c0"
 >
   <h1
-    className="dQgKWp"
+    className="c1"
   >
     <span>
       Add Site
@@ -23,7 +257,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </span>
     </label>
     <input
-      className="daTiNl"
+      className="c2 c3"
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
@@ -39,7 +273,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </label>
       <div
-        className="Select fNaNUR has-value Select--single"
+        className="Select c4 has-value Select--single"
         style={undefined}
       >
         <input
@@ -109,13 +343,13 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      className="ehuLPF"
+      className="c5"
     />
     <div
-      className="dUdmLN"
+      className="c6"
     >
       <button
-        className="gtZwWe"
+        className="c7 c8 c9"
         onClick={[Function]}
         type="button"
       >
@@ -125,7 +359,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         aria-label="add"
-        className="kfvUGg"
+        className="c10 c11 c12 c13"
         type="submit"
       >
         <span>

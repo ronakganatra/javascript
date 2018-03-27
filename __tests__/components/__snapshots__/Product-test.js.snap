@@ -1,58 +1,164 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Download component matches the snapshot 1`] = `
+.c8 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c8:hover,
+.c8:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c8:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c7 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c6 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin: 8px;
+  padding: 16px 16px 0 16px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.c3 {
+  width: 112px;
+  height: 112px;
+  padding: 0 0 5px 0;
+  margin-top: 24px;
+}
+
+.c4 {
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.c5 {
+  list-style: none;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.c1 {
+  display: block;
+  font-size: 1.375em;
+  min-height: 4em;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.c2 {
+  font-weight: 300;
+}
+
+.c9 {
+  font-size: 0.875em;
+  font-weight: 300;
+  margin: 2px 0 0;
+}
+
+@media screen and ( min-width:1356px ) {
+  .c0 {
+    width: calc( ( 100% - 32px - 32px ) / 4 );
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    width: calc( ( 100% - 32px ) / 2 );
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <div
-  className="iqMgVR"
+  className="c0"
 >
   <span
-    className="jBkxVV"
+    className="c1"
   >
     Yoast SEO
   </span>
   <p
-    className="hTVMCQ"
+    className="c2"
   >
      
     version 4.7
   </p>
   <img
     alt=""
-    className="bAfIbR"
+    className="c3"
     src="Yoast_SEO_Icon_Small.svg"
   />
   <ul
-    className="boOFOz"
+    className="c4"
   >
     <li
-      className="jVUpbY"
+      className="c5"
     >
       <button
         aria-label="Download Yoast SEO for Wordpress"
-        className="gbLEpa"
+        className="c6 c7 c8"
         onClick={[Function]}
+        type="button"
       >
         Download
       </button>
       <p
         aria-hidden="true"
-        className="cBxjGK"
+        className="c9"
       >
         for Wordpress
       </p>
     </li>
     <li
-      className="jVUpbY"
+      className="c5"
     >
       <button
         aria-label="Download Yoast SEO for Drupal"
-        className="gbLEpa"
+        className="c6 c7 c8"
         onClick={[Function]}
+        type="button"
       >
         Download
       </button>
       <p
         aria-hidden="true"
-        className="cBxjGK"
+        className="c9"
       >
         for Drupal
       </p>
@@ -62,53 +168,155 @@ exports[`The Download component matches the snapshot 1`] = `
 `;
 
 exports[`The Download component without a currentVersion matches the snapshot 1`] = `
+.c7 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c7:hover,
+.c7:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c7:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c6 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c5 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin: 8px;
+  padding: 16px 16px 0 16px;
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+.c2 {
+  width: 112px;
+  height: 112px;
+  padding: 0 0 5px 0;
+  margin-top: 24px;
+}
+
+.c3 {
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.c4 {
+  list-style: none;
+  text-align: center;
+  margin: 24px 0 0;
+}
+
+.c1 {
+  display: block;
+  font-size: 1.375em;
+  min-height: 4em;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.c8 {
+  font-size: 0.875em;
+  font-weight: 300;
+  margin: 2px 0 0;
+}
+
+@media screen and ( min-width:1356px ) {
+  .c0 {
+    width: calc( ( 100% - 32px - 32px ) / 4 );
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    width: calc( ( 100% - 32px ) / 2 );
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    width: 100%;
+  }
+}
+
 <div
-  className="iqMgVR"
+  className="c0"
 >
   <span
-    className="jBkxVV"
+    className="c1"
   >
     Yoast SEO
   </span>
   
   <img
     alt=""
-    className="bAfIbR"
+    className="c2"
     src="Yoast_SEO_Icon_Small.svg"
   />
   <ul
-    className="boOFOz"
+    className="c3"
   >
     <li
-      className="jVUpbY"
+      className="c4"
     >
       <button
         aria-label="Download Yoast SEO for Wordpress"
-        className="gbLEpa"
+        className="c5 c6 c7"
         onClick={[Function]}
+        type="button"
       >
         Download
       </button>
       <p
         aria-hidden="true"
-        className="cBxjGK"
+        className="c8"
       >
         for Wordpress
       </p>
     </li>
     <li
-      className="jVUpbY"
+      className="c4"
     >
       <button
         aria-label="Download Yoast SEO for Drupal"
-        className="gbLEpa"
+        className="c5 c6 c7"
         onClick={[Function]}
+        type="button"
       >
         Download
       </button>
       <p
         aria-hidden="true"
-        className="cBxjGK"
+        className="c8"
       >
         for Drupal
       </p>
