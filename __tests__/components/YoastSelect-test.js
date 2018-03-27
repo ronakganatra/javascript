@@ -8,11 +8,12 @@ test('The YoastSelect component matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-// test('an enabled toggle which matches the snapshot', () => {
-// 	const component = createComponentWithIntl( <Toggle isEnabled={true} ariaLabel="Option" /> );
-//
-// 	let tree = component.toJSON();
-// 	expect(tree).toMatchSnapshot();
-// });
+test ( 'An opened YoastSelect which matches the snapshot', () => {
+	const component = <YoastSelect openOnClick={ true } placeholder="No plugin selected"/>
+
+	let tree = component.toJSON();
+	expect(tree).toMatchSnapshot();
+});
+
 
 
