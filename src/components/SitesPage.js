@@ -117,44 +117,68 @@ class SitesPage extends React.Component {
 		}
 	}
 
+	/**
+	 * Gets the related modal (AddSite or Configuration) to open.
+	 *
+	 * @returns {func} The getAddSiteModal() function to open the AddSite modal
+	 * @returns {func} The getConfigurationRequestModal() function to open the ConfigurationRequest modal
+	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
-			let modalAriaLabel = defineMessages( {
-				id: "modal.arialabel.add",
-				defaultMessage: "Add a new site",
-			} );
-			return (
-				<MyYoastModal
-					isOpen={this.props.modalOpen}
-					onClose={this.props.onClose}
-					modalAriaLabel={modalAriaLabel}
-				>
-					<AddSite
-						onConnectClick={this.props.onConnect}
-						onCancelClick={this.props.onClose}
-						onChange={this.props.onChange}
-						errorFound={this.props.errorFound}
-						error={this.props.error}
-						query={this.props.query}
-						linkingSiteUrl={this.props.linkingSiteUrl}
-					/>
-				</MyYoastModal>
-			);
+			return this.getAddSiteModal();
 		} else if ( this.props.configRequestModalOpen ) {
-			let modalAriaLabel = defineMessages( {
-				id: "modal.arialabel.configuration-service",
-				defaultMessage: "Request our configuration service",
-			} );
-			return (
-				<MyYoastModal
-					isOpen={ this.props.configRequestModalOpen }
-					onClose={ this.props.onConfigurationModalClose }
-					modalAriaLabel={modalAriaLabel}
-				>
-					<ConfigurationRequest onClose={ this.props.onConfigurationModalClose }/>
-				</MyYoastModal>
-			);
+			return this.getConfigRequestModal();
 		}
+	}
+
+	/**
+	 * Gets the AddSite modal.
+	 *
+	 * @returns {object} The AddSite modal rendered and opened.
+	 */
+	getAddSiteModal() {
+		let modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.add",
+			defaultMessage: "Add a new site",
+		} );
+		return (
+			<MyYoastModal
+				isOpen={this.props.modalOpen}
+				onClose={this.props.onClose}
+				modalAriaLabel={modalAriaLabel}
+			>
+				<AddSite
+					onConnectClick={this.props.onConnect}
+					onCancelClick={this.props.onClose}
+					onChange={this.props.onChange}
+					errorFound={this.props.errorFound}
+					error={this.props.error}
+					query={this.props.query}
+					linkingSiteUrl={this.props.linkingSiteUrl}
+				/>
+			</MyYoastModal>
+		);
+	}
+
+	/**
+	 * Gets the ConfigurationRequest modal.
+	 *
+	 * @returns {object} The ConfigurationRequest modal rendered and opened.
+	 */
+	getConfigRequestModal() {
+		let modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.configuration-service",
+			defaultMessage: "Request our configuration service",
+		} );
+		return (
+			<MyYoastModal
+				isOpen={ this.props.configRequestModalOpen }
+				onClose={ this.props.onConfigurationModalClose }
+				modalAriaLabel={modalAriaLabel}
+			>
+				<ConfigurationRequest onClose={ this.props.onConfigurationModalClose }/>
+			</MyYoastModal>
+		);
 	}
 
 	render() {
