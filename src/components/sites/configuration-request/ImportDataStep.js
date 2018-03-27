@@ -7,11 +7,11 @@ import ButtonsContainer from "../../general/ButtonsContainer";
 
 
 const pluginOptions = [
-	{ value: 0, label: "No plugin" },
-	{ value: 1, label: "HeadSpace2" },
-	{ value: 2, label: "All-in-One SEO" },
-	{ value: 3, label: "JetPack SEO" },
-	{ value: 4, label: "WooThemes SEO framework" },
+	{ value: "No plugin", label: "No plugin" },
+	{ value: "HeadSpace2", label: "HeadSpace2" },
+	{ value: "All-in-One SEO", label: "All-in-One SEO" },
+	{ value: "JetPack SEO", label: "JetPack SEO" },
+	{ value: "WooThemes SEO framework", label: "WooThemes SEO framework" },
 ];
 
 let messages = defineMessages( {
