@@ -1,7 +1,7 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
 import MyYoastModal from "../../src/components/MyYoastModal";
-import ConfigurationRequestForm from "../../src/components/ConfigurationRequestForm";
+import ConfigurationRequestForm from "../../src/components/sites/configuration-request/ConfigurationRequestForm";
 import { defineMessages } from "react-intl";
 
 jest.mock( "react-modal", () => {
