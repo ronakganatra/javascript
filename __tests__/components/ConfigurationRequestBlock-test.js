@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-import ConfigurationRequestBlock from "../../src/components/ConfigurationRequestBlock";
+import ConfigurationRequestBlock from "../../src/components/sites/ConfigurationRequestBlock";
 
 test('The ConfigurationRequestBlock component matches the snapshot', () => {
 	const component = createComponentWithIntl(

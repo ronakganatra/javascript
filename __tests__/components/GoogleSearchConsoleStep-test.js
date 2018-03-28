@@ -1,6 +1,6 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-import GoogleSearchConsoleStep from "../../src/components/GoogleSearchConsoleStep";
+import GoogleSearchConsoleStep from "../../src/components/sites/configuration-request/GoogleSearchConsoleStep";
 
 test('The GoogleSearchConsoleStep component matches the snapshot', () => {
 	const component = createComponentWithIntl(
