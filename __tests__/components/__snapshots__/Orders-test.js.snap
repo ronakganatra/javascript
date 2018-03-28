@@ -1,43 +1,506 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Orders component matches the snapshot 1`] = `
+.c1 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c1 li:first-child > span::before {
+  left: auto;
+}
+
+.c3 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3:first-child {
+  margin-top: 64px;
+}
+
+.c7 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c7:first-child {
+  padding-left: 0;
+}
+
+.c7::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Date";
+}
+
+.c8 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c8:first-child {
+  padding-left: 0;
+}
+
+.c8::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Order";
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Items";
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c15:first-child {
+  padding-left: 0;
+}
+
+.c15::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Total";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Status";
+}
+
+.c21 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c11 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c20 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c6 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c13 {
+  padding: 0;
+  list-style: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+}
+
+.c26 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c26:hover,
+.c26:focus {
+  color: #fff;
+}
+
+.c26:hover,
+.c26:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c26:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c25 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c24 {
+  min-width: 152px;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c2:first-child {
+    margin-top: 0;
+  }
+
+  .c2 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c7 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Date:";
+  }
+
+  .c5 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
+  }
+
+  .c14 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c16::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c16 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c4:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Items:";
+  }
+
+  .c10 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c9:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c19 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c18:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c23 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c23 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 <div
-  className="ittEMS"
+  className="c0"
 >
   <ul
-    className="dITYws"
+    className="c1"
     role="list"
   >
     <li
-      className="HqsqI"
+      className="c2 c3"
     >
       <span
-        className="klYpfM"
+        className="c4 c5 c6 c7"
       >
         <span>
           May 20, 2012
         </span>
       </span>
       <span
-        className="fKqvxj"
+        className="c6 c8"
       >
         MOOIE 123 TEST
       </span>
       <span
-        className="dcmygm"
+        className="c9 c10 c11 c12"
       >
         <ul
-          className="tvpac"
+          className="c13"
         >
           <li
-            className="a"
+            className=""
           >
             1
             x 
             Name of the product
           </li>
           <li
-            className="a"
+            className=""
           >
             2
             x 
@@ -46,26 +509,26 @@ exports[`The Orders component matches the snapshot 1`] = `
         </ul>
       </span>
       <span
-        className="eVaDaw"
+        className="c4 c14 c6 c15"
       >
         <span>
           €100.10
         </span>
       </span>
       <span
-        className="hRhztn"
+        className="c4 c16 c6 c17"
       >
         <span>
           Completed
         </span>
       </span>
       <span
-        className="kikiOW"
+        className="c18 c19 c20 c21"
       >
         <div>
           <a
             aria-label="Download invoice"
-            className="hmGMxK"
+            className="c22 c23 c24 c25 c26"
             href="http://somelink"
             rel="noopener noreferrer"
             target="_blank"

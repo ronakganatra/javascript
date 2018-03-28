@@ -3,7 +3,6 @@ import App from "../src/App";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../src/reducers";
 import renderer from 'react-test-renderer';
-import createHistory from "history/createBrowserHistory";
 import thunkMiddleware from "redux-thunk";
 
 jest.mock( "whatwg-fetch" );

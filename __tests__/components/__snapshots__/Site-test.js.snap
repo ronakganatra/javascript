@@ -1,51 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the site component matches the snapshot 1`] = `
+.c4 {
+  height: inherit;
+}
+
+.c0 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0:first-child {
+  margin-top: 64px;
+}
+
+.c3 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c3:first-child {
+  padding-left: 0;
+}
+
+.c3::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c3::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c6 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c6:first-child {
+  padding-left: 0;
+}
+
+.c6::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c8 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c8:first-child {
+  padding-left: 0;
+}
+
+.c8::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c5 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c2 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c1 {
+  height: 48px;
+}
+
+.c9 {
+  opacity: 1;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c9:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c10 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c10:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c7 {
+  -webkit-flex-basis: 340px;
+  -ms-flex-preferred-size: 340px;
+  flex-basis: 340px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c3 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c6 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
 <li
-  className="cgxxQv"
+  className="c0"
 >
   <span
-    className="hCewQe"
+    className="c1 c2 c3"
   >
     <img
       alt=""
-      className="bjVGHc"
+      className="c4"
       src="sites_black.svg"
     />
   </span>
   <span
-    className="kVUeYb"
+    className="c5 c6"
   >
     yoast.com
   </span>
   <span
-    className="deHdHN"
+    className="c7 c2 c8"
   >
     <span>
       <img
         alt="Test is active"
-        className="dhzOCo"
+        className="c9"
         src="test.jpg"
       />
       <img
         alt="Test2 is active"
-        className="dhzOCo"
+        className="c9"
         src="test.jpg"
       />
       <img
         alt="Test3 is inactive"
-        className="snIQS"
+        className="c10"
         src="test.jpg"
       />
       <img
         alt="Test4 is inactive"
-        className="snIQS"
+        className="c10"
         src="test.jpg"
       />
     </span>
   </span>
   <span
-    className="fXreAk"
+    className="c2 c11"
   />
 </li>
 `;

@@ -23,6 +23,7 @@ function Sites( props ) {
 						key={ site.id }
 						siteIcon={ site.siteIcon }
 						siteName={ site.siteName }
+						siteType={ site.siteType }
 						activeSubscriptions={ site.activeSubscriptions }
 						plugins={ props.plugins }
 						onClickManage={ onManageHandler }

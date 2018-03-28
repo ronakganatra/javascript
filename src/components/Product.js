@@ -92,16 +92,19 @@ function Product( props ) {
 		productVersion = <ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>;
 	}
 
-	let ComposerLink = hasAccessToFeature( COMPOSER_TOKEN_FEATURE )
-		? <Download>
+	let ComposerLink = null;
+
+	if ( props.glNumber === "82108" || hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+		ComposerLink = <Download>
 			<Link to="#" onClick={ () => {
 				props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
 			} }
 			>
 				<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="or install with Composer" />
 			</Link>
-		</Download>
-		: null;
+		</Download>;
+	}
+
 	return (
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>

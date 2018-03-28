@@ -1,9 +1,23 @@
 /**
  * Initial state
  */
-import { LINK_SITE_MODAL_OPEN, LINK_SITE_MODAL_CLOSE, UPDATE_SITE_URL, LINK_SITE_SUCCESS, LINK_SITE_FAILURE,
-	RETRIEVE_SITES_REQUEST, RETRIEVE_SITES_FAILURE, RETRIEVE_SITES_SUCCESS, LINK_SITE_REQUEST } from "../actions/sites";
-import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUCCESS } from "../actions/site";
+import {
+	LINK_SITE_MODAL_OPEN,
+	LINK_SITE_MODAL_CLOSE,
+	UPDATE_SITE_URL,
+	LINK_SITE_SUCCESS,
+	LINK_SITE_FAILURE,
+	RETRIEVE_SITES_REQUEST,
+	RETRIEVE_SITES_FAILURE,
+	RETRIEVE_SITES_SUCCESS,
+	LINK_SITE_REQUEST,
+} from "../actions/sites";
+import {
+	SITE_ADD_SUBSCRIPTION_SUCCESS,
+	SITE_REMOVE_SUBSCRIPTION_SUCCESS,
+	SITE_REMOVE_SUCCESS,
+	SITE_CHANGE_PLATFORM_SUCCESS,
+} from "../actions/site";
 
 import _isUndefined from "lodash/isUndefined";
 import _pull from "lodash/pull";
@@ -175,6 +189,7 @@ function pluckSubscriptionIds( site ) {
 	return Object.assign( {}, site, { subscriptions: site.subscriptions.map( subscription => subscription.id ) } );
 }
 
+/* eslint-disable complexity */
 /**
  * A reducer for the byId object.
  *
@@ -197,6 +212,10 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 			} );
 			break;
 
+		case SITE_CHANGE_PLATFORM_SUCCESS:
+			sites[ action.siteId ].type = action.siteType;
+			break;
+
 		case SITE_ADD_SUBSCRIPTION_SUCCESS:
 			sites[ action.siteId ].subscriptions.push( action.subscriptionId );
 			break;
@@ -209,8 +228,10 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 			_unset( sites, action.siteId );
 			break;
 	}
+
 	return sites;
 }
+/* eslint-enable complexity */
 
 /**
  * A reducer for the allIds array.

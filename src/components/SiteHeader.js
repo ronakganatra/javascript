@@ -103,9 +103,12 @@ function SiteHeader( props ) {
 			</SiteHeaderSitename>
 			<ButtonSection>
 				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
-				<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
-					<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }" values={ { opensInNewTab: <NewTabMessage /> } } />
-				</WPAdminButton>
+				{ props.adminButton &&
+					<WPAdminButton iconSource={angleRight} to={ `${ props.url }/wp-admin` } linkTarget="_blank">
+						<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }"
+										  values={ { opensInNewTab: <NewTabMessage/> } }/>
+					</WPAdminButton>
+				}
 			</ButtonSection>
 		</SiteHeaderContainer>
 	);
@@ -119,5 +122,6 @@ SiteHeader.defaultProps = {
 SiteHeader.propTypes = {
 	name: PropTypes.string.isRequired,
 	url: PropTypes.string.isRequired,
+	adminButton: PropTypes.bool.isRequired,
 	imageUrl: PropTypes.string,
 };

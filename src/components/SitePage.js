@@ -8,11 +8,16 @@ import SiteDangerZone from "./SiteDangerZone";
 import AnimatedLoader from "./Loader";
 import AddLicenses from "./AddLicenses";
 import MyYoastModal from "./MyYoastModal";
+import PlatformSelect from "./sites/details/PlatformSelect";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
 		id: "menu.site.loaded",
 		defaultMessage: "Manage site page loaded",
+	},
+	changeSitePlatform: {
+		id: "site.details.platform-select-header",
+		defaultMessage: "Select the platform your site is running on",
 	},
 } );
 
@@ -77,8 +82,15 @@ class SitePage extends React.Component {
 		}
 		return (
 			<div>
-				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header }/>
+				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" }/>
 				{ subscriptionList }
+				<PlatformSelect
+					title={ props.intl.formatMessage( messages.changeSitePlatform ) }
+					siteId={ props.site.id }
+					siteType={ props.site.type }
+					onConfirm={ props.onConfirmPlatformChange }
+					disablePlatformSelect={ props.disablePlatformSelect }
+				/>
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 				{ this.getModal() }
 			</div>
@@ -100,6 +112,8 @@ SitePage.propTypes = {
 	loadingSite: PropTypes.bool,
 	loadingSubscriptions: PropTypes.bool,
 	addSubscriptionModal: PropTypes.object,
+	onConfirmPlatformChange: PropTypes.func,
+	disablePlatformSelect: PropTypes.bool,
 };
 
 SitePage.defaultProps = {
