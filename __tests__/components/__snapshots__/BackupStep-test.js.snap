@@ -12,7 +12,7 @@ exports[`The BackupStep component matches the snapshot 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;q
+  text-transform: uppercase;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
