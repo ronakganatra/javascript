@@ -94,8 +94,11 @@ exports[`the site dangerzone matches the snapshot 1`] = `
         Disconnect this site
       </span>
       <svg
+        aria-hidden="true"
         fill="#555"
+        focusable="false"
         height={40}
+        role="img"
         viewBox="0 0 24 24"
         width={40}
       >
@@ -202,8 +205,11 @@ exports[`the site dangerzone onRemove handling 1`] = `
         Disconnect this site
       </span>
       <svg
+        aria-hidden="true"
         fill="#555"
+        focusable="false"
         height={40}
+        role="img"
         viewBox="0 0 24 24"
         width={40}
       >
@@ -310,8 +316,11 @@ exports[`the site dangerzone onRemove handling 2`] = `
         Disconnect this site
       </span>
       <svg
+        aria-hidden="true"
         fill="#555"
+        focusable="false"
         height={40}
+        role="img"
         viewBox="0 0 24 24"
         width={40}
       >
@@ -418,8 +427,11 @@ exports[`the site dangerzone with removing = true matches the snapshot 1`] = `
         Disconnect this site
       </span>
       <svg
+        aria-hidden="true"
         fill="#555"
+        focusable="false"
         height={40}
+        role="img"
         viewBox="0 0 24 24"
         width={40}
       >

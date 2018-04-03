@@ -427,8 +427,11 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         Subscriptions
       </span>
       <svg
+        aria-hidden="true"
         fill="#555"
+        focusable="false"
         height={40}
+        role="img"
         viewBox="0 0 24 24"
         width={40}
       >

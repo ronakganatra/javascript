@@ -377,8 +377,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             Developer Tokens
           </span>
           <svg
+            aria-hidden="true"
             fill="#555"
+            focusable="false"
             height={40}
+            role="img"
             viewBox="0 0 24 24"
             width={40}
           >
@@ -407,8 +410,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -798,8 +804,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -1001,9 +1010,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c15 {
+  margin-top: 0.5em;
   padding: 0.5em;
   background-color: #ffeb3b;
-  margin-top: 0.5em;
   color: #000;
 }
 
@@ -1206,8 +1215,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -1664,8 +1676,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -2066,8 +2081,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -2475,8 +2493,11 @@ exports[`components/ProfilePage saving profile 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -2877,8 +2898,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -3282,8 +3306,11 @@ exports[`components/ProfilePage the default case 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >
@@ -3673,8 +3700,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           Danger zone
         </span>
         <svg
+          aria-hidden="true"
           fill="#555"
+          focusable="false"
           height={40}
+          role="img"
           viewBox="0 0 24 24"
           width={40}
         >

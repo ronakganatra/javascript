@@ -126,9 +126,9 @@ FormMessage.defaultProps = {
 };
 
 const FormError = styled( FormMessage )`
- 	padding: 0.5em;
-	background-color: ${ colors.$color_yellow };
 	margin-top: 0.5em;
+	padding: 0.5em;
+	background-color: ${ colors.$color_yellow };
 	color: ${ colors.$color_black };
 `;
 
