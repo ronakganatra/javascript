@@ -10,14 +10,14 @@ test('The Stepper component matches the snapshot', () => {
 		<Stepper
 			steps={ [
 				{
-					step: "step 1",
-					label: "Administrator Login",
+					stepAriaLabel: "Step 1: Administrator login",
+					label: "Administrator login",
 					component: <AdminstratorLoginStep onClose={ () => { console.log( "clicked on Close" ); } }
 													   confirmed={ true }
 													   onSubmit={ () => { console.log( "clicked on Continue" ); } }/>,
 				},
 				{
-					step: "step 2",
+					stepAriaLabel: "Step 2: Backup",
 					label: "Backup",
 					component: <BackupStep
 						createBackup={ true }
@@ -34,4 +34,3 @@ test('The Stepper component matches the snapshot', () => {
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
-

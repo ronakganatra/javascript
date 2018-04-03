@@ -15,21 +15,37 @@ const messages = defineMessages( {
 		id: "requestConfiguration.administratorLogin",
 		defaultMessage: "Administrator login",
 	},
+	administratorLoginStepLabel: {
+		id: "requestConfiguration.administratorLogin",
+		defaultMessage: "Step 1: Administrator login",
+	},
 	backup: {
 		id: "requestConfiguration.backup",
 		defaultMessage: "Backup",
 	},
-	close: {
-		id: "requestConfiguration.close",
-		defaultMessage: "Close",
+	backupStepLabel: {
+		id: "requestConfiguration.backup",
+		defaultMessage: "Step 2: Backup",
 	},
 	importData: {
 		id: "requestConfiguration.importData",
 		defaultMessage: "Import data from another SEO plugin",
 	},
+	importDataStepLabel: {
+		id: "requestConfiguration.importData",
+		defaultMessage: "Step 3: Import data from another SEO plugin",
+	},
 	googleSearchConsole: {
 		id: "requestConfiguration.googleSearchConsole",
 		defaultMessage: "Google search console",
+	},
+	googleSearchConsoleStepLabel: {
+		id: "requestConfiguration.googleSearchConsole",
+		defaultMessage: "Step 4: Google search console",
+	},
+	close: {
+		id: "requestConfiguration.close",
+		defaultMessage: "Close",
 	},
 } );
 
@@ -182,28 +198,28 @@ class ConfigurationRequest extends React.Component {
 						goToStep={ this.goToStep }
 						steps={ [
 							{
-								step: "step 1",
+								stepAriaLabel: this.props.intl.formatMessage( messages.administratorLoginStepLabel ),
 								label: this.props.intl.formatMessage( messages.administratorLogin ),
 								component: <AdministratorLoginStep onClose={ this.props.onClose }
 															confirmed={ this.state.administratorLoginConfirmed }
 															onSubmit={ this.setAdministratorLoginConfirmation }/>,
 							},
 							{
-								step: "step 2",
+								stepAriaLabel: this.props.intl.formatMessage( messages.backupStepLabel ),
 								label: this.props.intl.formatMessage( messages.backup ),
 								component: <BackupStep createBackup={ this.state.createBackup }
 												onSubmit={ this.setBackupCreation }
 												onBack={ this.goStepBack }/>,
 							},
 							{
-								step: "step 3",
+								stepAriaLabel: this.props.intl.formatMessage( messages.importDataStepLabel ),
 								label: this.props.intl.formatMessage( messages.importData ),
 								component: <ImportDataStep importData={ this.state.importData }
 													onSubmit={ this.setImportData }
 													onBack={ this.goStepBack }/>,
 							},
 							{
-								step: "step 4",
+								stepAriaLabel: this.props.intl.formatMessage( messages.googleSearchConsoleStepLabel ),
 								label: this.props.intl.formatMessage( messages.googleSearchConsole ),
 								component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole }
 															onSubmit={ this.setGoogleSearchConsole }

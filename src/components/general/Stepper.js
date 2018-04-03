@@ -102,7 +102,7 @@ class Step extends React.Component {
 			index,
 			total,
 			label,
-			step,
+			stepAriaLabel,
 			component,
 		} = this.props;
 
@@ -116,7 +116,7 @@ class Step extends React.Component {
 		return (
 			<div>
 				<StepperButton
-					aria-label={ step + ": " + label }
+					aria-label={ stepAriaLabel }
 					type="button"
 					onClick={ () => goToStep( index ) }
 					aria-current={ active ? "step" : "false" }
@@ -141,7 +141,7 @@ Step.propTypes = {
 	goToStep: PropTypes.func.isRequired,
 	total: PropTypes.number.isRequired,
 	label: PropTypes.string.isRequired,
-	step: PropTypes.string.isRequired,
+	stepAriaLabel: PropTypes.string.isRequired,
 	component: PropTypes.element.isRequired,
 };
 
