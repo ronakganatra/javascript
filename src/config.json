@@ -5,10 +5,11 @@
     "Sites":     ["url"]
   },
   "display": {
-    "Customers": ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "impersonate"],
+    "Customers": ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions"],
     "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
     "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
-    "Sites": ["url", "userId", "creationDate", "subscriptions"]
+    "Sites": ["url", "userId", "creationDate", "subscriptions"],
+    "CustomerNotes": ["summary", "nextDate", "authorId", "createdAt","actions"]
   },
   "headers": {
     "Customers": {
@@ -35,6 +36,11 @@
     "Sites": {
       "userId": "Customer",
       "creationDate": "Creation date"
+    },
+    "CustomerNotes": {
+      "nextDate": "Next date",
+      "authorId": "Author",
+      "createdAt": "Created at"
     }
   },
   "order": {

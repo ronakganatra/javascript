@@ -40,6 +40,31 @@ export default class Api {
 		return fetch( url, { method: "GET" } ).then( this.handleJSONReponse );
 	}
 
+	saveNote( note ) {
+		let url    = this.host + "/api/CustomerNotes";
+		let method = "POST";
+
+		if ( note.id ) {
+			url   += "/" + note.id;
+			method = "PATCH";
+			delete note.id;
+		}
+
+		url += "?access_token=" + this.accessToken;
+
+		return fetch(
+			url,
+			{
+				method,
+				body: JSON.stringify( note ),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+			}
+		).then( this.handleJSONReponse );
+	}
+
 	getWooUrl( shopId ) {
 		let shopPostfix = "";
 

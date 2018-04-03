@@ -166,10 +166,12 @@ class Search extends React.Component {
 
 		if ( this.state.searched && this.state.found && this.state.query ) {
 			result = <ResultsList
+				query={ this.state.query }
 				results={ this.state.results }
 				api={ this.props.api }
 				search={ this.search }
-				resource={ this.state.query.resource } />;
+				resource={ this.state.query.resource }
+				accessibleByRoles={ this.props.accessibleByRoles }/>;
 		}
 
 		return (

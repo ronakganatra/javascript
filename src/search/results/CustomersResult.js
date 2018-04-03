@@ -19,7 +19,7 @@ export default class CustomersResult extends React.Component {
 
 		this.createAccessToken      = this.createAccessToken.bind( this );
 		this.enableCustomer         = this.enableCustomer.bind( this );
-		this.impersonatePresenter   = this.impersonatePresenter.bind( this );
+		this.actionsPresenter       = this.actionsPresenter.bind( this );
 		this.sitesPresenter         = this.sitesPresenter.bind( this );
 		this.ordersPresenter        = this.ordersPresenter.bind( this );
 		this.subscriptionsPresenter = this.subscriptionsPresenter.bind( this );
@@ -53,12 +53,38 @@ export default class CustomersResult extends React.Component {
 		} );
 	}
 
+	actionsPresenter() {
+		let financeActions = null;
+		if ( this.props.accessibleByRoles( [ 'finance' ] ) ) {
+			console.log( "Finance!" );
+			financeActions = <div key="financeActions">{ this.financeActions() }</div>;
+		}
+
+		let supportActions = null;
+		if ( this.props.accessibleByRoles( [ 'support' ] ) ) {
+			supportActions = <div key="supportActions">{ this.supportActions() }</div>;
+		}
+
+		return (
+			<div>
+				{ financeActions }
+				{ supportActions }
+			</div>
+		);
+	}
+
+	financeActions() {
+		let findCustomerNotes = getSearchCallback( this.props.search, { resource: "CustomerNotes", filters: [ [ "customerId", this.props.result.id ] ] } );
+
+		return <button type="button" onClick={ findCustomerNotes }>Show notes</button>;
+	}
+
 	/**
 	 * Presents the current status of impersonating a user.
 	 *
 	 * @returns {ReactElement} An element corresponding to this component's internal access token status.
 	 */
-	impersonatePresenter() {
+	supportActions() {
 		if ( ! this.props.result.enabled && ! this.state.restored ) {
 			return (
 				<span>
@@ -125,7 +151,7 @@ export default class CustomersResult extends React.Component {
 	 */
 	render() {
 		return <BaseResult { ...this.props }
-						   impersonatePresenter={ this.impersonatePresenter }
+						   actionsPresenter={ this.actionsPresenter }
 						   sitesPresenter={ this.sitesPresenter }
 						   ordersPresenter={ this.ordersPresenter }
 						   subscriptionsPresenter={ this.subscriptionsPresenter }/>

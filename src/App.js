@@ -95,7 +95,7 @@ class App extends React.Component {
 							</div>
 							<div className="Main">
 								<Route exact path={ path( "/" ) } render={ () => <Redirect to={ path( "/search" ) } /> } />
-								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } /> } />
+								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } accessibleByRoles={ this.accessibleByRoles } /> } />
 								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } /> }
 								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } /> }
 								{ this.accessibleByRoles( [ 'finance' ] ) && <Route path={ path( "/finance" ) } render={ () => <Finance api={ this.api } /> } /> }

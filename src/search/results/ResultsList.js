@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import CustomersResult from "./CustomersResult";
 import OrdersResult from "./OrdersResult";
 import BaseResult from "./BaseResult";
@@ -6,12 +6,19 @@ import SitesResult from "./SitesResult";
 import SubscriptionsResult from "./SubscriptionsResult";
 import config from "../../config.json";
 import { capitalize } from "../../functions/helpers";
+import NotesResult from "./NotesResult";
+import NotesForm from "../actions/NotesForm";
 
 const Results = {
 	Customers: CustomersResult,
 	Orders: OrdersResult,
 	Sites: SitesResult,
-	Subscriptions: SubscriptionsResult
+	Subscriptions: SubscriptionsResult,
+	CustomerNotes: NotesResult,
+};
+
+const Actions = {
+	CustomerNotes: NotesForm,
 };
 
 const Display = config.display;
@@ -34,7 +41,8 @@ export default class ResultsList extends React.Component {
 			attributes={ Display[ this.props.resource ] }
 			result={ result }
 			api={ this.props.api }
-			search={ this.props.search }/>;
+			search={ this.props.search }
+			accessibleByRoles={ this.props.accessibleByRoles }/>;
 	}
 
 	/**
@@ -54,20 +62,38 @@ export default class ResultsList extends React.Component {
 	}
 
 	/**
+	 * Gets a component to display Actions for all results.
+	 *
+	 * @returns {ReactElement} The actions for all results.
+	 */
+	getResultActions() {
+		let Element = Actions[ this.props.resource ];
+
+		if ( Element ) {
+			return <Element { ...this.props } />;
+		}
+
+		return null;
+	}
+
+	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (
-			<table>
-				<thead>
-					<tr>{ this.generateHeaderCells() }</tr>
-				</thead>
-				<tbody>
-				{ this.props.results.map( this.getResultElement, this ) }
-				</tbody>
-			</table>
+			<Fragment>
+				{ this.getResultActions() }
+				<table>
+					<thead>
+						<tr>{ this.generateHeaderCells() }</tr>
+					</thead>
+					<tbody>
+					{ this.props.results.map( this.getResultElement, this ) }
+					</tbody>
+				</table>
+			</Fragment>
 		)
 	}
 }
