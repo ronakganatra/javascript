@@ -2,7 +2,7 @@
 
 exports[`The Stepper component matches the snapshot 1`] = `
 .c2 {
-  display: inline-block;
+  float: left;
   height: 30px;
   width: 30px;
   color: #fff;
@@ -12,7 +12,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
   margin-right: 10px;
   text-align: center;
   line-height: 20px;
-  float: left;
 }
 
 .c5 {
@@ -28,7 +27,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
   background: transparent;
   border: 0;
   padding: 0;
-  display: block;
   height: 30px;
   color: #000;
   font-size: 18px;
@@ -36,10 +34,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
   cursor: pointer;
   margin: 5px 0;
   text-align: left;
-}
-
-.c0:focus {
-  outline: none;
 }
 
 .c3 {
@@ -271,7 +265,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            aria-label="continue"
             className="c11 c12 c13 c10"
             onClick={[Function]}
             type="submit"

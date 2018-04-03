@@ -111,7 +111,6 @@ class BackupStep extends React.Component {
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.createBackup !== null }
-						aria-label="continue"
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>

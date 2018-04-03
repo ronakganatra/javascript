@@ -88,8 +88,10 @@ class SitesPage extends React.Component {
 
 	getConfigurationRequest() {
 		if ( hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
-			return <ConfigurationRequestForm sites={this.props.sites}
-											 onConfigurationRequestClick={this.props.onConfigurationRequestClick}/>;
+			return <ConfigurationRequestForm
+				sites={ this.props.sites }
+				onConfigurationRequestClick={ this.props.onConfigurationRequestClick }
+			/>;
 		}
 		return null;
 	}
@@ -143,18 +145,18 @@ class SitesPage extends React.Component {
 		} );
 		return (
 			<MyYoastModal
-				isOpen={this.props.modalOpen}
-				onClose={this.props.onClose}
-				modalAriaLabel={modalAriaLabel}
+				isOpen={ this.props.modalOpen }
+				onClose={ this.props.onClose }
+				modalAriaLabel={ modalAriaLabel }
 			>
 				<AddSite
-					onConnectClick={this.props.onConnect}
-					onCancelClick={this.props.onClose}
-					onChange={this.props.onChange}
-					errorFound={this.props.errorFound}
-					error={this.props.error}
-					query={this.props.query}
-					linkingSiteUrl={this.props.linkingSiteUrl}
+					onConnectClick={ this.props.onConnect }
+					onCancelClick={ this.props.onClose }
+					onChange={ this.props.onChange }
+					errorFound={ this.props.errorFound }
+					error={ this.props.error }
+					query={ this.props.query }
+					linkingSiteUrl={ this.props.linkingSiteUrl }
 				/>
 			</MyYoastModal>
 		);
@@ -174,7 +176,7 @@ class SitesPage extends React.Component {
 			<MyYoastModal
 				isOpen={ this.props.configRequestModalOpen }
 				onClose={ this.props.onConfigurationModalClose }
-				modalAriaLabel={modalAriaLabel}
+				modalAriaLabel={ modalAriaLabel }
 			>
 				<ConfigurationRequest onClose={ this.props.onConfigurationModalClose }/>
 			</MyYoastModal>

@@ -125,7 +125,6 @@ class GoogleSearchConsoleStep extends React.Component {
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.googleSearchConsole !== null }
-						aria-label="submit"
 					>
 						<FormattedMessage id="requestConfiguration.submit" defaultMessage="submit"/>
 					</WideLargeButton>
@@ -144,4 +143,3 @@ GoogleSearchConsoleStep.propTypes = {
 };
 
 export default injectIntl( GoogleSearchConsoleStep );
-

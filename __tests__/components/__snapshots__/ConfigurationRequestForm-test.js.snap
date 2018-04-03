@@ -43,7 +43,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
 }
 
 .c9 {
-  display: inline-block;
+  float: left;
   height: 30px;
   width: 30px;
   color: #fff;
@@ -53,7 +53,6 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   margin-right: 10px;
   text-align: center;
   line-height: 20px;
-  float: left;
 }
 
 .c8 {
@@ -69,7 +68,6 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   background: transparent;
   border: 0;
   padding: 0;
-  display: block;
   height: 30px;
   color: #000;
   font-size: 18px;
@@ -77,10 +75,6 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   cursor: pointer;
   margin: 5px 0;
   text-align: left;
-}
-
-.c7:focus {
-  outline: none;
 }
 
 .c10 {

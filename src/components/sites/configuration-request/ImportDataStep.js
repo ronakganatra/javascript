@@ -100,7 +100,6 @@ class ImportDataStep extends React.Component {
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.importData !== null }
-						aria-label="continue"
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>

@@ -134,7 +134,7 @@ class ConfigurationRequest extends React.Component {
 	 * @returns {void}
 	 */
 	goToStep( num ) {
-		if ( num >= 0 && num < 4  ) {
+		if ( num >= 0 && num < 4 ) {
 			this.setState( {
 				activeStep: num,
 			} );

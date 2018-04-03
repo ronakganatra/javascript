@@ -5,7 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../../config/defaults.json";
 
 const StepperIcon = styled.span`
-	display: inline-block;
+	float: left;
 	height: 30px;
 	width: 30px;
 	color: ${ colors.$color_white };
@@ -15,7 +15,6 @@ const StepperIcon = styled.span`
 	margin-right: 10px;
 	text-align: center;
 	line-height: 20px;
-	float: left;
 `;
 
 const ActiveStepperIcon = styled( StepperIcon )`
@@ -31,7 +30,6 @@ const StepperButton = styled.button`
 	background: transparent;
 	border: 0;
 	padding: 0;
-	display: block;
 	height: 30px;
 	color: ${ colors.$color_black };
 	font-size: 18px;
@@ -39,10 +37,6 @@ const StepperButton = styled.button`
 	cursor: pointer;
 	margin: 5px 0;
 	text-align: left;
-
-	&:focus {
-		outline: none;
-	}
 `;
 
 const StepperLabel = styled.span`
@@ -95,7 +89,7 @@ class Step extends React.Component {
 		}
 
 		if ( this.props.active ) {
-			return <ActiveStepperIcon>{ this.props.index + 1}</ActiveStepperIcon>;
+			return <ActiveStepperIcon>{ this.props.index + 1 }</ActiveStepperIcon>;
 		}
 
 		return <InactiveStepperIcon>{ this.props.index + 1 }</InactiveStepperIcon>;
@@ -120,18 +114,20 @@ class Step extends React.Component {
 		} );
 
 		return (
-			<div><StepperButton aria-label={ step + ": " + label }
-								  type="button"
-								  onClick={ () => goToStep( index ) }
-								  aria-current={ active ? step : "" }
-								  innerRef={ ( labelRef ) => {
-									this.labelRef = labelRef;
-								  } }
-					>
-						{ this.getIcon() }
+			<div>
+				<StepperButton
+					aria-label={ step + ": " + label }
+					type="button"
+					onClick={ () => goToStep( index ) }
+					aria-current={ active ? step : "" }
+					innerRef={ ( labelRef ) => {
+						this.labelRef = labelRef;
+					} }
+				>
+					{ this.getIcon() }
 					<StepperLabel>{ label }</StepperLabel>
 				</StepperButton>
-				<StepperContent >
+				<StepperContent>
 					{ active && child }
 				</StepperContent>
 			</div>

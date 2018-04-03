@@ -180,7 +180,6 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
       </span>
     </button>
     <button
-      aria-label="submit"
       className="c5 c6 c7 c4"
       onClick={[Function]}
       type="submit"
