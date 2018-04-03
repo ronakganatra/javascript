@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import ButtonsContainer from "../../general/ButtonsContainer";
+import NewTabMessage from "../../../components/NewTabMessage";
 
 let messages = defineMessages( {
 	googleSearchConsoleRequired: {
@@ -98,6 +99,7 @@ class GoogleSearchConsoleStep extends React.Component {
 										rel="noopener noreferrer"
 									>
 										<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
+										<NewTabMessage />
 									</a>,
 							} }
 						/>
