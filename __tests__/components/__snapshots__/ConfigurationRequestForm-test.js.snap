@@ -323,7 +323,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
       <div>
         <div>
           <button
-            aria-current="step 1"
+            aria-current="step"
             aria-label="step 1: Administrator login"
             className="c7"
             onClick={[Function]}
@@ -392,7 +392,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
         </div>
         <div>
           <button
-            aria-current=""
+            aria-current="false"
             aria-label="step 2: Backup"
             className="c7"
             onClick={[Function]}
@@ -415,7 +415,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
         </div>
         <div>
           <button
-            aria-current=""
+            aria-current="false"
             aria-label="step 3: Import data from another SEO plugin"
             className="c7"
             onClick={[Function]}
@@ -438,7 +438,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
         </div>
         <div>
           <button
-            aria-current=""
+            aria-current="false"
             aria-label="step 4: Google search console"
             className="c7"
             onClick={[Function]}

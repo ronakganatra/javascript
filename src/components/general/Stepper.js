@@ -119,7 +119,7 @@ class Step extends React.Component {
 					aria-label={ step + ": " + label }
 					type="button"
 					onClick={ () => goToStep( index ) }
-					aria-current={ active ? step : "" }
+					aria-current={ active ? "step" : "false" }
 					innerRef={ ( labelRef ) => {
 						this.labelRef = labelRef;
 					} }

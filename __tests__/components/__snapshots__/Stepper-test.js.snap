@@ -169,7 +169,7 @@ exports[`The Stepper component matches the snapshot 1`] = `
 <div>
   <div>
     <button
-      aria-current=""
+      aria-current="false"
       aria-label="step 1: Administrator Login"
       className="c0"
       onClick={[Function]}
@@ -192,7 +192,7 @@ exports[`The Stepper component matches the snapshot 1`] = `
   </div>
   <div>
     <button
-      aria-current="step 2"
+      aria-current="step"
       aria-label="step 2: Backup"
       className="c0"
       onClick={[Function]}
