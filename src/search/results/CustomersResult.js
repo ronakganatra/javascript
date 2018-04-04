@@ -56,7 +56,6 @@ export default class CustomersResult extends React.Component {
 	actionsPresenter() {
 		let financeActions = null;
 		if ( this.props.accessibleByRoles( [ 'finance' ] ) ) {
-			console.log( "Finance!" );
 			financeActions = <div key="financeActions">{ this.financeActions() }</div>;
 		}
 
