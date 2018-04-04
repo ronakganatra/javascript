@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../../config/defaults.json";
+import check from "../../../src/icons/check.svg";
 
 const StepperIcon = styled.span`
 	float: left;
@@ -15,6 +16,13 @@ const StepperIcon = styled.span`
 	margin-right: 10px;
 	text-align: center;
 	line-height: 20px;
+`;
+
+const IconCompleted = styled( StepperIcon )`
+	background-color: transparent;
+	background-image: url( ${ check } );
+    background-size: 65%;
+    background-repeat: no-repeat;
 `;
 
 const ActiveStepperIcon = styled( StepperIcon )`
@@ -85,7 +93,7 @@ class Step extends React.Component {
 
 	getIcon() {
 		if ( this.state.completed ) {
-			return <ActiveStepperIcon>✓</ActiveStepperIcon>;
+			return <ActiveStepperIcon><IconCompleted/></ActiveStepperIcon>;
 		}
 
 		if ( this.props.active ) {
