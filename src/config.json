@@ -9,7 +9,7 @@
     "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
     "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
     "Sites": ["url", "userId", "creationDate", "subscriptions"],
-    "CustomerNotes": ["summary", "nextDate", "authorId", "createdAt","actions"]
+    "CustomerNotes": ["content", "nextContactDate", "authorId", "createdAt","actions"]
   },
   "headers": {
     "Customers": {
@@ -38,7 +38,7 @@
       "creationDate": "Creation date"
     },
     "CustomerNotes": {
-      "nextDate": "Next date",
+      "nextContactDate": "Next contact date",
       "authorId": "Author",
       "createdAt": "Created at"
     }

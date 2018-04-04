@@ -11,39 +11,39 @@ export default class NotesResult extends React.Component {
 
 		this.state = {
 			editing: false,
-			summary: props.result.summary || "",
-			nextDate: props.result.nextDate || "",
+			content: props.result.content || "",
+			nextContactDate: props.result.nextContactDate || "",
 		};
 
-		this.toggleEditing        = this.toggleEditing.bind( this );
-		this.handleSummaryChange  = this.handleSummaryChange.bind( this );
-		this.handleNextDateChange = this.handleNextDateChange.bind( this );
-		this.handleSave           = this.handleSave.bind( this );
-		this.summaryPresenter     = this.summaryPresenter.bind( this );
-		this.nextDatePresenter    = this.nextDatePresenter.bind( this );
-		this.actionsPresenter     = this.actionsPresenter.bind( this );
-		this.authorIdPresenter    = this.authorIdPresenter.bind( this );
+		this.toggleEditing               = this.toggleEditing.bind( this );
+		this.handleSummaryChange         = this.handleSummaryChange.bind( this );
+		this.handleNextContactDateChange = this.handleNextContactDateChange.bind( this );
+		this.handleSave                  = this.handleSave.bind( this );
+		this.contentPresenter            = this.contentPresenter.bind( this );
+		this.nextContactDatePresenter    = this.nextContactDatePresenter.bind( this );
+		this.actionsPresenter            = this.actionsPresenter.bind( this );
+		this.authorIdPresenter           = this.authorIdPresenter.bind( this );
 	}
 
 	toggleEditing() {
 		this.setState( { editing: ! this.state.editing } );
 	}
 
-	summaryPresenter() {
+	contentPresenter() {
 		if ( this.state.editing ) {
-			return <textarea value={ this.state.summary } onChange={ this.handleSummaryChange } />;
+			return <textarea value={ this.state.content } onChange={ this.handleSummaryChange } />;
 		}
-		return this.state.summary;
+		return this.state.content;
 	}
 
-	nextDatePresenter() {
+	nextContactDatePresenter() {
 		if ( this.state.editing ) {
-			return <input type="date" value={ this.state.nextDate } onChange={ this.handleNextDateChange } />;
+			return <input type="date" value={ this.state.nextContactDate } onChange={ this.handleNextContactDateChange } />;
 		}
-		if ( this.state.nextDate === "" ) {
+		if ( this.state.nextContactDate === "" ) {
 			return "";
 		}
-		return datePresenter( this.state.nextDate );
+		return datePresenter( this.state.nextContactDate );
 	}
 
 	/**
@@ -68,26 +68,26 @@ export default class NotesResult extends React.Component {
 	}
 
 	handleSummaryChange( event ) {
-		let summary = event.target.value;
+		let content = event.target.value;
 
-		this.setState( { summary } );
+		this.setState( { content } );
 	}
 
-	handleNextDateChange( event ) {
-		let nextDate = new Date( event.target.value );
+	handleNextContactDateChange( event ) {
+		let nextContactDate = new Date( event.target.value );
 
-		if ( isNaN( nextDate.getTime() ) ) {
-			nextDate = null;
+		if ( isNaN( nextContactDate.getTime() ) ) {
+			nextContactDate = null;
 		}
 
-		this.setState( { nextDate } );
+		this.setState( { nextContactDate } );
 	}
 
 	handleSave() {
 		let note = Object.assign( {}, this.state, { id: this.props.result.id } );
 
-		if ( note.nextDate === "" ) {
-			note.nextDate = null;
+		if ( note.nextContactDate === "" ) {
+			note.nextContactDate = null;
 		}
 
 		this.props.api.saveNote( note ).then( this.toggleEditing );
@@ -103,8 +103,8 @@ export default class NotesResult extends React.Component {
 
 		return <BaseResult
 			{ ...this.props }
-			summaryPresenter={ this.summaryPresenter }
-			nextDatePresenter={ this.nextDatePresenter }
+			contentPresenter={ this.contentPresenter }
+			nextContactDatePresenter={ this.nextContactDatePresenter }
 			authorIdPresenter={ this.authorIdPresenter }
 			createdAtPresenter={ datePresenter }
 			actionsPresenter={ this.actionsPresenter }/>;
