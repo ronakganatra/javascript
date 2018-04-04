@@ -68,9 +68,7 @@ export default class NotesResult extends React.Component {
 	}
 
 	handleSummaryChange( event ) {
-		let content = event.target.value;
-
-		this.setState( { content } );
+		this.setState( { content: event.target.value } );
 	}
 
 	handleNextContactDateChange( event ) {
@@ -99,8 +97,6 @@ export default class NotesResult extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		console.log( "Editing = ", this.state.editing );
-
 		return <BaseResult
 			{ ...this.props }
 			contentPresenter={ this.contentPresenter }

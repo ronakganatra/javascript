@@ -4,8 +4,6 @@ class NotesForm extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		console.log( props );
-
 		this.state = {
 			summary: "",
 			nextDate: "",
