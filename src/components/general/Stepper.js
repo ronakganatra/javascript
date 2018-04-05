@@ -5,6 +5,12 @@ import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../../config/defaults.json";
 import check from "../../../src/icons/check.svg";
 
+const IconCompleted = styled.img`
+	height: auto;
+	display: block;
+	margin: 0 auto;
+`;
+
 const StepperIcon = styled.span`
 	float: left;
 	height: 30px;
@@ -16,13 +22,6 @@ const StepperIcon = styled.span`
 	margin-right: 10px;
 	text-align: center;
 	line-height: 20px;
-`;
-
-const IconCompleted = styled( StepperIcon )`
-	background-color: transparent;
-	background-image: url( ${ check } );
-    background-size: 65%;
-    background-repeat: no-repeat;
 `;
 
 const ActiveStepperIcon = styled( StepperIcon )`
@@ -93,7 +92,7 @@ class Step extends React.Component {
 
 	getIcon() {
 		if ( this.state.completed ) {
-			return <ActiveStepperIcon><IconCompleted/></ActiveStepperIcon>;
+			return <ActiveStepperIcon><IconCompleted src={ check } alt="" /></ActiveStepperIcon>;
 		}
 
 		if ( this.props.active ) {
