@@ -317,6 +317,14 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 @media screen and ( max-width:800px ) {
+  .c19 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c6 {
     padding: 16px;
   }
@@ -399,14 +407,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 
   .c18:first-child {
     margin-top: 0px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c19 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 

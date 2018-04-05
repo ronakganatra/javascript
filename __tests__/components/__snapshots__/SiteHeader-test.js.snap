@@ -50,7 +50,7 @@ exports[`the site header matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c9 {
+.c8 {
   background-repeat: no-repeat;
   background-image: url( angle-right.svg );
   background-position: right 16px center;
@@ -59,7 +59,7 @@ exports[`the site header matches the snapshot 1`] = `
   padding-right: 56px;
 }
 
-.c10 {
+.c9 {
   padding-top: 0.5em;
 }
 
@@ -171,19 +171,6 @@ exports[`the site header matches the snapshot 1`] = `
   }
 }
 
-@media screen and ( max-width:800px ) {
-  .c8 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c8:first-child {
-    margin-top: 0px;
-  }
-}
-
 <div
   className="c0"
 >
@@ -206,7 +193,7 @@ exports[`the site header matches the snapshot 1`] = `
     </a>
     <a
       aria-label={undefined}
-      className="c8 c9 c7"
+      className="c4 c8 c7"
       href="http://placehold.it//wp-admin"
       rel="noopener noreferrer"
       target="_blank"
@@ -214,7 +201,7 @@ exports[`the site header matches the snapshot 1`] = `
       <span>
         Open WordPress admin 
         <span
-          className="screen-reader-text c10"
+          className="screen-reader-text c9"
         >
           <span>
             (Opens in a new browser tab)
