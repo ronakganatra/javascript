@@ -76,7 +76,7 @@ exports[`The Stepper component matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c13 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -97,7 +97,7 @@ exports[`The Stepper component matches the snapshot 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c12 {
+.c11 {
   min-width: 152px;
 }
 
@@ -124,6 +124,14 @@ exports[`The Stepper component matches the snapshot 1`] = `
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 @media screen and (max-width:800px) {
   .c7 {
     display: -webkit-box;
@@ -147,22 +155,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
   .c7 button {
     margin-left: 0;
     margin-bottom: 8px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c11 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c8 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 
@@ -265,7 +257,7 @@ exports[`The Stepper component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            className="c11 c12 c13 c10"
+            className="c8 c11 Button-kDSBcD c12 c10"
             onClick={[Function]}
             type="submit"
           >

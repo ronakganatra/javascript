@@ -59,7 +59,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   background-color: #a4286a;
 }
 
-.c22 {
+.c21 {
   background-color: #a0a5aa;
 }
 
@@ -117,7 +117,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   box-shadow: none;
 }
 
-.c21 {
+.c20 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -135,12 +135,12 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c20:hover,
+.c20:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c20:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -155,7 +155,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   padding-left: 36px;
 }
 
-.c20 {
+.c19 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -176,7 +176,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   text-shadow: 0px 0px 2px #000;
 }
 
-.c19 {
+.c18 {
   min-width: 152px;
 }
 
@@ -261,6 +261,14 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c16 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 @media screen and (max-width:800px) {
   .c15 {
     display: -webkit-box;
@@ -287,22 +295,6 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   }
 }
 
-@media screen and ( max-width:800px ) {
-  .c18 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c16 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
 <div>
   <div
     className="c0 my-yoast-modal__content"
@@ -310,7 +302,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="sc-bdVaJa c0 my-yoast-modal__overlay"
+    overlayClassName="MyYoastModal-gnWJis c0 my-yoast-modal__overlay"
     role="dialog"
   >
     <div
@@ -390,7 +382,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
                     </span>
                   </button>
                   <button
-                    className="c18 c19 c20 c21"
+                    className="c16 c18 Button-kDSBcD c19 c20"
                     onClick={[Function]}
                     type="submit"
                   >
@@ -411,7 +403,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
               type="button"
             >
               <span
-                className="c22 c11"
+                className="c21 c11"
               >
                 2
               </span>
@@ -434,7 +426,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
               type="button"
             >
               <span
-                className="c22 c11"
+                className="c21 c11"
               >
                 3
               </span>
@@ -457,7 +449,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
               type="button"
             >
               <span
-                className="c22 c11"
+                className="c21 c11"
               >
                 4
               </span>

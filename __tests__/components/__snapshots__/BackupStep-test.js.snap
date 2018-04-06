@@ -31,7 +31,7 @@ exports[`The BackupStep component matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c7 {
+.c6 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -52,7 +52,7 @@ exports[`The BackupStep component matches the snapshot 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c6 {
+.c5 {
   min-width: 152px;
 }
 
@@ -71,6 +71,14 @@ exports[`The BackupStep component matches the snapshot 1`] = `
 
 .c0 {
   margin-left: 12px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
 }
 
 @media screen and (max-width:800px) {
@@ -96,22 +104,6 @@ exports[`The BackupStep component matches the snapshot 1`] = `
   .c1 button {
     margin-left: 0;
     margin-bottom: 8px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 
@@ -168,7 +160,7 @@ exports[`The BackupStep component matches the snapshot 1`] = `
       </span>
     </button>
     <button
-      className="c5 c6 c7 c4"
+      className="c2 c5 Button-kDSBcD c6 c4"
       onClick={[Function]}
       type="submit"
     >
