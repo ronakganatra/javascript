@@ -22,7 +22,7 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
   padding: 0 16px;
   border: 0;
   border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #64a60a;
+  background-color: #a0a5aa;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;

@@ -1,10 +1,10 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
-
 
 const pluginOptions = [
 	{ value: "No plugin", label: "No plugin" },
@@ -29,6 +29,10 @@ let messages = defineMessages( {
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
+
+const TopSpaceButtonContainer = styled( ButtonsContainer )`
+	padding-top: 16px;
+`;
 
 class ImportDataStep extends React.Component {
 
@@ -92,7 +96,7 @@ class ImportDataStep extends React.Component {
 					onChange={ this.handleInput }
 					options={ pluginOptions }
 				/>
-				<ButtonsContainer>
+				<TopSpaceButtonContainer>
 					<WideSecondaryButton onClick={ this.props.onBack } >
 						<FormattedMessage id="requestConfiguration.close" defaultMessage="back"/>
 					</WideSecondaryButton>
@@ -103,7 +107,7 @@ class ImportDataStep extends React.Component {
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>
-				</ButtonsContainer>
+				</TopSpaceButtonContainer>
 			</div>
 		);
 	}

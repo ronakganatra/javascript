@@ -6,9 +6,9 @@ import defaults from "../../config/defaults.json";
 import check from "../../../src/icons/check.svg";
 
 const IconCompleted = styled.img`
-	height: auto;
+	height: 16px;
 	display: block;
-	margin: 0 auto;
+	margin: 2px auto;
 `;
 
 const StepperIcon = styled.span`
@@ -54,10 +54,22 @@ const StepperLabel = styled.span`
 	}
 `;
 
+// We need this to be a styled component so we can reference it from other styled components.
+const StepperContainer = styled.div``;
+
 const StepperContent = styled.div`
-	padding: 5px 0 5px 25px;
+	padding: 0 0 10px 25px;
 	margin-left: 15px;
-	border-left: 1px solid ${ colors.$color_grey_disabled }
+	border-left: 1px solid ${ colors.$color_grey_disabled };
+	
+	${StepperContainer}:last-child & {
+		margin: 0 0 10px 15px;
+		padding: 0 0 0 25px;
+	}
+	
+	> div > p:first-child {
+		margin-top: 0;
+	}
 `;
 
 class Step extends React.Component {
@@ -121,7 +133,7 @@ class Step extends React.Component {
 		} );
 
 		return (
-			<div>
+			<StepperContainer>
 				<StepperButton
 					aria-label={ stepAriaLabel }
 					type="button"
@@ -137,7 +149,7 @@ class Step extends React.Component {
 				<StepperContent>
 					{ active && child }
 				</StepperContent>
-			</div>
+			</StepperContainer>
 		);
 	}
 }

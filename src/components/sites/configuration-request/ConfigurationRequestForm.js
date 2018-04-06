@@ -66,6 +66,7 @@ const CloseIconButton = styled( CloseButtonTopRight )`
 `;
 
 const StyledContainer = styled.div`
+	padding: 10px 0;
 	clear: both;
 `;
 

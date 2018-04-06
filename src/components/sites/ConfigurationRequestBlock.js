@@ -48,6 +48,9 @@ class ConfigurationRequestBlock extends React.Component {
 		this.state = {
 			selectedOption: "",
 		};
+
+		this.handleChange = this.handleChange.bind( this );
+		this.handleSubmit = this.handleSubmit.bind( this );
 	}
 
 	/**
@@ -61,6 +64,17 @@ class ConfigurationRequestBlock extends React.Component {
 		this.setState( {
 			selectedOption,
 		} );
+	}
+
+	/**
+	 * Handles submitting the form, passing the selectedOption to the callback.
+	 *
+	 * @returns {void}
+	 */
+	handleSubmit() {
+		if ( this.state.selectedOption ) {
+			this.props.onConfigurationRequestClick( this.state.selectedOption.value );
+		}
 	}
 
 	/**
@@ -103,13 +117,12 @@ class ConfigurationRequestBlock extends React.Component {
 						<YoastSelect
 							name="form-field-name"
 							value={ value }
-							onChange={ this.handleChange.bind( this ) }
+							onChange={ this.handleChange }
 							options={ siteOptions }
 						/>
 						<ResponsiveButton
-							onClick={ () => {
-								this.props.onConfigurationRequestClick( value );
-							} }
+							enabledStyle={ !! value }
+							onClick={ this.handleSubmit }
 						>
 							{ this.props.intl.formatMessage( messages.requestButton ) }
 						</ResponsiveButton>

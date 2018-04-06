@@ -42,7 +42,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   margin-left: 1em;
 }
 
-.c11 {
+.c12 {
   float: left;
   height: 30px;
   width: 30px;
@@ -55,15 +55,15 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   line-height: 20px;
 }
 
-.c10 {
+.c11 {
   background-color: #a4286a;
 }
 
-.c21 {
+.c22 {
   background-color: #a0a5aa;
 }
 
-.c9 {
+.c10 {
   display: block;
   background: transparent;
   border: 0;
@@ -77,14 +77,23 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   text-align: left;
 }
 
-.c12 {
+.c13 {
   display: inline-block;
 }
 
-.c13 {
-  padding: 5px 0 5px 25px;
+.c14 {
+  padding: 0 0 10px 25px;
   margin-left: 15px;
   border-left: 1px solid #a0a5aa;
+}
+
+.c9:last-child .c14 {
+  margin: 0 0 10px 15px;
+  padding: 0 0 0 25px;
+}
+
+.c14 > div > p:first-child {
+  margin-top: 0;
 }
 
 .c7 {
@@ -117,7 +126,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   box-shadow: none;
 }
 
-.c20 {
+.c21 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -135,12 +144,12 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   transition: background-color 150ms ease-out;
 }
 
-.c20:hover,
-.c20:focus {
+.c21:hover,
+.c21:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c20:active {
+.c21:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -155,11 +164,11 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   padding-left: 36px;
 }
 
-.c19 {
+.c20 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c17 {
+.c18 {
   color: #000;
   box-shadow: none;
   background-color: #fff;
@@ -167,8 +176,8 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   min-width: 152px;
 }
 
-.c17:hover,
-.c17:focus {
+.c18:hover,
+.c18:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -176,7 +185,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   text-shadow: 0px 0px 2px #000;
 }
 
-.c18 {
+.c19 {
   min-width: 152px;
 }
 
@@ -198,7 +207,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   opacity: .5;
 }
 
-.c15 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
@@ -206,12 +215,12 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   text-align: right;
 }
 
-.c15 a,
-.c15 button {
+.c16 a,
+.c16 button {
   margin-left: 12px;
 }
 
-.c14 {
+.c15 {
   margin-left: 12px;
 }
 
@@ -238,6 +247,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
 }
 
 .c8 {
+  padding: 10px 0;
   clear: both;
 }
 
@@ -256,13 +266,13 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
 }
 
 @media screen and ( max-width:800px ) {
-  .c12 {
+  .c13 {
     font-size: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c17 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -270,7 +280,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
 }
 
 @media screen and (max-width:800px) {
-  .c15 {
+  .c16 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -288,8 +298,8 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
     justify-content: center;
   }
 
-  .c15 a,
-  .c15 button {
+  .c16 a,
+  .c16 button {
     margin-left: 0;
     margin-bottom: 8px;
   }
@@ -325,27 +335,29 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
         className="c8"
       >
         <div>
-          <div>
+          <div
+            className="c9 "
+          >
             <button
               aria-current="step"
               aria-label="Step 1: Administrator login"
-              className="c9"
+              className="c10"
               onClick={[Function]}
               type="button"
             >
               <span
-                className="c10 c11"
+                className="c11 c12"
               >
                 1
               </span>
               <span
-                className="c12"
+                className="c13"
               >
                 Administrator login
               </span>
             </button>
             <div
-              className="c13"
+              className="c14"
             >
               <div>
                 <p>
@@ -361,7 +373,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
                     type="checkbox"
                   />
                   <label
-                    className="c14"
+                    className="c15"
                     htmlFor="administratorLoginConfirmation"
                   >
                     <span>
@@ -370,10 +382,10 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
                   </label>
                 </p>
                 <div
-                  className="c15"
+                  className="c16"
                 >
                   <button
-                    className="c16 c17 c7"
+                    className="c17 c18 c7"
                     onClick={[Function]}
                     type="button"
                   >
@@ -382,7 +394,7 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
                     </span>
                   </button>
                   <button
-                    className="c16 c18 Button-kDSBcD c19 c20"
+                    className="c17 c19 Button-kDSBcD c20 c21"
                     onClick={[Function]}
                     type="submit"
                   >
@@ -394,73 +406,79 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
               </div>
             </div>
           </div>
-          <div>
+          <div
+            className="c9 "
+          >
             <button
               aria-current="false"
               aria-label="Step 2: Backup"
-              className="c9"
+              className="c10"
               onClick={[Function]}
               type="button"
             >
               <span
-                className="c21 c11"
+                className="c22 c12"
               >
                 2
               </span>
               <span
-                className="c12"
+                className="c13"
               >
                 Backup
               </span>
             </button>
             <div
-              className="c13"
+              className="c14"
             />
           </div>
-          <div>
+          <div
+            className="c9 "
+          >
             <button
               aria-current="false"
               aria-label="Step 3: Import data from another SEO plugin"
-              className="c9"
+              className="c10"
               onClick={[Function]}
               type="button"
             >
               <span
-                className="c21 c11"
+                className="c22 c12"
               >
                 3
               </span>
               <span
-                className="c12"
+                className="c13"
               >
                 Import data from another SEO plugin
               </span>
             </button>
             <div
-              className="c13"
+              className="c14"
             />
           </div>
-          <div>
+          <div
+            className="c9 "
+          >
             <button
               aria-current="false"
               aria-label="Step 4: Google search console"
-              className="c9"
+              className="c10"
               onClick={[Function]}
               type="button"
             >
               <span
-                className="c21 c11"
+                className="c22 c12"
               >
                 4
               </span>
               <span
-                className="c12"
+                className="c13"
               >
                 Google search console
               </span>
             </button>
             <div
-              className="c13"
+              className="c14"
             />
           </div>
         </div>

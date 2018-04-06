@@ -31,6 +31,36 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   box-shadow: none;
 }
 
+.c17 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c17:hover,
+.c17:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c17:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
@@ -55,11 +85,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c22 {
+.c23 {
   height: inherit;
 }
 
-.c17 {
+.c18 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -67,11 +97,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c17 li:first-child > span::before {
+.c18 li:first-child > span::before {
   left: auto;
 }
 
-.c18 {
+.c19 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -89,20 +119,20 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c18:first-child {
+.c19:first-child {
   margin-top: 64px;
 }
 
-.c21 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c21:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c21::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -111,7 +141,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: none;
 }
 
-.c21::after {
+.c22::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -120,7 +150,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "";
 }
 
-.c24 {
+.c25 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -128,11 +158,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c24:first-child {
+.c25:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c25::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -141,7 +171,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "Site name";
 }
 
-.c26 {
+.c27 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -149,11 +179,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c27:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c27::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -162,16 +192,16 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "Active subscriptions";
 }
 
-.c29 {
+.c30 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c29:first-child {
+.c30:first-child {
   padding-left: 0;
 }
 
-.c29::before {
+.c30::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -180,36 +210,24 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: none;
 }
 
-.c23 {
+.c24 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c20 {
+.c21 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c19 {
+.c20 {
   height: 48px;
 }
 
-.c27 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c27:nth-child(n+7) {
-  margin-top: 10px;
-}
-
 .c28 {
-  opacity: 0.2;
+  opacity: 1;
   width: 40px;
   height: 40px;
   float: left;
@@ -220,7 +238,19 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-top: 10px;
 }
 
-.c25 {
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -351,50 +381,50 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c19 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c21::after {
+  .c22::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c21 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c24 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c26 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c26 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c29 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c23 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -491,7 +521,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
           value=""
         />
         <button
-          className="c14 c4 c15 Button-kDSBcD c16 c8"
+          className="c14 c4 c15 Button-kDSBcD c16 c17"
           onClick={[Function]}
           type="button"
         >
@@ -504,54 +534,54 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     className="c9"
   >
     <ul
-      className="c17"
+      className="c18"
       role="list"
     >
       <li
-        className="c18"
+        className="c19"
       >
         <span
-          className="c19 c20 c21"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="c22"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c23 c24"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="c25 c20 c26"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c20 c29"
+          className="c21 c30"
         />
       </li>
     </ul>
@@ -590,6 +620,36 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
+.c17 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c17:hover,
+.c17:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c17:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
@@ -614,11 +674,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c22 {
+.c23 {
   height: inherit;
 }
 
-.c17 {
+.c18 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -626,11 +686,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c17 li:first-child > span::before {
+.c18 li:first-child > span::before {
   left: auto;
 }
 
-.c18 {
+.c19 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -648,20 +708,20 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c18:first-child {
+.c19:first-child {
   margin-top: 64px;
 }
 
-.c21 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c21:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c21::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -670,7 +730,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c21::after {
+.c22::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -679,7 +739,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "";
 }
 
-.c24 {
+.c25 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -687,11 +747,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c24:first-child {
+.c25:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c25::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -700,7 +760,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Site name";
 }
 
-.c26 {
+.c27 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -708,11 +768,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c27:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c27::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -721,16 +781,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c29 {
+.c30 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c29:first-child {
+.c30:first-child {
   padding-left: 0;
 }
 
-.c29::before {
+.c30::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -739,36 +799,24 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c23 {
+.c24 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c20 {
+.c21 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c19 {
+.c20 {
   height: 48px;
 }
 
-.c27 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c27:nth-child(n+7) {
-  margin-top: 10px;
-}
-
 .c28 {
-  opacity: 0.2;
+  opacity: 1;
   width: 40px;
   height: 40px;
   float: left;
@@ -779,7 +827,19 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-top: 10px;
 }
 
-.c25 {
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -910,50 +970,50 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c19 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c21::after {
+  .c22::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c21 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c24 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c26 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c26 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c29 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c23 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -1050,7 +1110,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
           value=""
         />
         <button
-          className="c14 c4 c15 Button-kDSBcD c16 c8"
+          className="c14 c4 c15 Button-kDSBcD c16 c17"
           onClick={[Function]}
           type="button"
         >
@@ -1063,54 +1123,54 @@ exports[`the sites page component with sites handling an onclick event on the ad
     className="c9"
   >
     <ul
-      className="c17"
+      className="c18"
       role="list"
     >
       <li
-        className="c18"
+        className="c19"
       >
         <span
-          className="c19 c20 c21"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="c22"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c23 c24"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="c25 c20 c26"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c20 c29"
+          className="c21 c30"
         />
       </li>
     </ul>
@@ -1149,6 +1209,36 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
+.c17 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c17:hover,
+.c17:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c17:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
@@ -1173,11 +1263,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c22 {
+.c23 {
   height: inherit;
 }
 
-.c17 {
+.c18 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1185,11 +1275,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c17 li:first-child > span::before {
+.c18 li:first-child > span::before {
   left: auto;
 }
 
-.c18 {
+.c19 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -1207,20 +1297,20 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c18:first-child {
+.c19:first-child {
   margin-top: 64px;
 }
 
-.c21 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c21:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c21::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1229,7 +1319,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c21::after {
+.c22::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -1238,7 +1328,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "";
 }
 
-.c24 {
+.c25 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1246,11 +1336,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c24:first-child {
+.c25:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c25::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1259,7 +1349,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Site name";
 }
 
-.c26 {
+.c27 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1267,11 +1357,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c27:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c27::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1280,16 +1370,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c29 {
+.c30 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c29:first-child {
+.c30:first-child {
   padding-left: 0;
 }
 
-.c29::before {
+.c30::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1298,36 +1388,24 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c23 {
+.c24 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c20 {
+.c21 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c19 {
+.c20 {
   height: 48px;
 }
 
-.c27 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c27:nth-child(n+7) {
-  margin-top: 10px;
-}
-
 .c28 {
-  opacity: 0.2;
+  opacity: 1;
   width: 40px;
   height: 40px;
   float: left;
@@ -1338,7 +1416,19 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-top: 10px;
 }
 
-.c25 {
+.c29 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c29:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c26 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -1469,50 +1559,50 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c19 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c21::after {
+  .c22::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c21 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c25 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c27 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c27 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c24 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c26 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c26 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c29 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c23 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -1609,7 +1699,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
           value=""
         />
         <button
-          className="c14 c4 c15 Button-kDSBcD c16 c8"
+          className="c14 c4 c15 Button-kDSBcD c16 c17"
           onClick={[Function]}
           type="button"
         >
@@ -1622,54 +1712,54 @@ exports[`the sites page component with sites handling an onclick event on the ad
     className="c9"
   >
     <ul
-      className="c17"
+      className="c18"
       role="list"
     >
       <li
-        className="c18"
+        className="c19"
       >
         <span
-          className="c19 c20 c21"
+          className="c20 c21 c22"
         >
           <img
             alt=""
-            className="c22"
+            className="c23"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c23 c24"
+          className="c24 c25"
         >
           www.yoast.com
         </span>
         <span
-          className="c25 c20 c26"
+          className="c26 c21 c27"
         >
           <span>
             <img
               alt="Test is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c27"
+              className="c28"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c28"
+              className="c29"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c20 c29"
+          className="c21 c30"
         />
       </li>
     </ul>
