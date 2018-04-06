@@ -164,7 +164,7 @@ class Search extends React.Component {
 			result = <Loader />;
 		}
 
-		if ( this.state.searched && this.state.found && this.state.query ) {
+		if ( this.state.searched && this.state.query ) {
 			result = <ResultsList
 				query={ this.state.query }
 				results={ this.state.results }

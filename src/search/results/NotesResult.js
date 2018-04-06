@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment-timezone";
 import BaseResult from "./BaseResult";
 import { datePresenter } from "../../functions/presenters";
 
@@ -38,7 +39,11 @@ export default class NotesResult extends React.Component {
 
 	nextContactDatePresenter() {
 		if ( this.state.editing ) {
-			return <input type="date" value={ this.state.nextContactDate } onChange={ this.handleNextContactDateChange } />;
+			let nextContactDateString =  this.state.nextContactDate ?
+				moment( this.state.nextContactDate ).format( "YYYY-MM-DD" ) :
+				"";
+
+			return <input type="date" value={ nextContactDateString } onChange={ this.handleNextContactDateChange } />;
 		}
 		if ( this.state.nextContactDate === "" ) {
 			return "";
@@ -83,10 +88,6 @@ export default class NotesResult extends React.Component {
 
 	handleSave() {
 		let note = Object.assign( {}, this.state, { id: this.props.result.id } );
-
-		if ( note.nextContactDate === "" ) {
-			note.nextContactDate = null;
-		}
 
 		this.props.api.saveNote( note ).then( this.toggleEditing );
 	}
