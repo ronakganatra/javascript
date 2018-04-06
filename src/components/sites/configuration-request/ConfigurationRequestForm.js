@@ -163,6 +163,17 @@ class ConfigurationRequest extends React.Component {
 	 * @returns {void}
 	 */
 	goToStep( num ) {
+		let previousStepCompleted = [
+			true,
+			this.state.administratorLoginConfirmed,
+			this.state.createBackup !== null,
+			this.state.importData !== null,
+		][ num ];
+
+		if ( ! previousStepCompleted ) {
+			return;
+		}
+
 		if ( num >= 0 && num < 4 ) {
 			this.setState( {
 				activeStep: num,

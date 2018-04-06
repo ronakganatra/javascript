@@ -166,9 +166,15 @@ exports[`The ImportDataStep component matches the snapshot 1`] = `
     </span>
   </label>
   <div
-    className="Select c0 is-clearable is-searchable Select--single"
+    className="Select c0 has-value is-searchable Select--single"
     style={undefined}
   >
+    <input
+      disabled={false}
+      name="form-field-name"
+      type="hidden"
+      value="none"
+    />
     <div
       className="Select-control"
       onKeyDown={[Function]}
@@ -183,9 +189,18 @@ exports[`The ImportDataStep component matches the snapshot 1`] = `
         id="react-select-2--value"
       >
         <div
-          className="Select-placeholder"
+          className="Select-value"
+          style={undefined}
+          title={undefined}
         >
-          No plugin selected
+          <span
+            aria-selected="true"
+            className="Select-value-label"
+            id="react-select-2--value-item"
+            role="option"
+          >
+            No plugin
+          </span>
         </div>
         <div
           className="Select-input"

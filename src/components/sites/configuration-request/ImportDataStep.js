@@ -7,11 +7,11 @@ import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
 
 const pluginOptions = [
-	{ value: "No plugin", label: "No plugin" },
-	{ value: "HeadSpace2", label: "HeadSpace2" },
-	{ value: "All-in-One SEO", label: "All-in-One SEO" },
-	{ value: "JetPack SEO", label: "JetPack SEO" },
-	{ value: "WooThemes SEO framework", label: "WooThemes SEO framework" },
+	{ value: "none", label: "No plugin" },
+	{ value: "headspace2", label: "HeadSpace2" },
+	{ value: "all-in-one_seo", label: "All-in-One SEO" },
+	{ value: "jetpack_seo", label: "JetPack SEO" },
+	{ value: "woothemes_seo_framework", label: "WooThemes SEO framework" },
 ];
 
 let messages = defineMessages( {
@@ -39,7 +39,7 @@ class ImportDataStep extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			importData: props.importData,
+			importData: props.importData || pluginOptions[ 0 ].value,
 		};
 
 		this.handleInput = this.handleInput.bind( this );
@@ -69,7 +69,6 @@ class ImportDataStep extends React.Component {
 		}
 
 		this.props.onSubmit( this.state );
-
 		this.props.completeStep();
 	}
 
@@ -95,6 +94,7 @@ class ImportDataStep extends React.Component {
 					value={ value }
 					onChange={ this.handleInput }
 					options={ pluginOptions }
+					clearable={ false }
 				/>
 				<TopSpaceButtonContainer>
 					<WideSecondaryButton onClick={ this.props.onBack } >

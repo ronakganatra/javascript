@@ -67,7 +67,6 @@ class GoogleSearchConsoleStep extends React.Component {
 		}
 
 		this.props.onSubmit( this.state );
-
 		this.props.completeStep();
 	}
 

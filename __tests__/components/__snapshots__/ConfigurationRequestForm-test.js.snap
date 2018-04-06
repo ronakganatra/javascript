@@ -77,6 +77,10 @@ exports[`The MyYoastModal for the ConfigurationRequestForm component matches the
   text-align: left;
 }
 
+.c10:focus {
+  outline: 0;
+}
+
 .c13 {
   display: inline-block;
 }

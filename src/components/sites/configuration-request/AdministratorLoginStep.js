@@ -57,11 +57,12 @@ class AdministratorLoginStep extends React.Component {
 	 * @returns {void}
 	 */
 	handleContinue() {
-		this.props.onSubmit( this.state );
-
-		if ( this.state.confirmed ) {
-			this.props.completeStep();
+		if ( ! this.state.confirmed ) {
+			return;
 		}
+
+		this.props.onSubmit( this.state );
+		this.props.completeStep();
 	}
 
 	render() {
