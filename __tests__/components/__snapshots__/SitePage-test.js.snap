@@ -50,7 +50,7 @@ exports[`the site page component matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c9 {
+.c8 {
   background-repeat: no-repeat;
   background-image: url( angle-right.svg );
   background-position: right 16px center;
@@ -59,7 +59,7 @@ exports[`the site page component matches the snapshot 1`] = `
   padding-right: 56px;
 }
 
-.c10 {
+.c9 {
   padding-top: 0.5em;
 }
 
@@ -138,12 +138,12 @@ exports[`the site page component matches the snapshot 1`] = `
   height: 100px;
 }
 
-.c13 {
+.c12 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -166,7 +166,7 @@ exports[`the site page component matches the snapshot 1`] = `
   color: #000;
 }
 
-.c14 svg {
+.c13 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -179,7 +179,7 @@ exports[`the site page component matches the snapshot 1`] = `
   align-self: flex-start;
 }
 
-.c15 {
+.c14 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -190,13 +190,13 @@ exports[`the site page component matches the snapshot 1`] = `
   align-self: center;
 }
 
-.c12 {
+.c11 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c11 {
-  -webkit-animation: eaZiAa 1.15s infinite;
-  animation: eaZiAa 1.15s infinite;
+.c10 {
+  -webkit-animation: dHZYI 1.15s infinite;
+  animation: dHZYI 1.15s infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
   -webkit-animation-timing-function: cubic-bezier(0.96,0.02,0.63,0.86);
@@ -240,33 +240,20 @@ exports[`the site page component matches the snapshot 1`] = `
   }
 }
 
-@media screen and ( max-width:800px ) {
-  .c8 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c8:first-child {
-    margin-top: 0px;
-  }
-}
-
 @media screen and ( max-width:1355px ) {
-  .c14 {
+  .c13 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c14 {
+  .c13 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c14 svg {
+  .c13 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -296,7 +283,7 @@ exports[`the site page component matches the snapshot 1`] = `
       </a>
       <a
         aria-label={undefined}
-        className="c8 c9 c7"
+        className="c4 c8 c7"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"
@@ -304,7 +291,7 @@ exports[`the site page component matches the snapshot 1`] = `
         <span>
           Open WordPress admin 
           <span
-            className="screen-reader-text c10"
+            className="screen-reader-text c9"
           >
             <span>
               (Opens in a new browser tab)
@@ -315,7 +302,7 @@ exports[`the site page component matches the snapshot 1`] = `
     </div>
   </div>
   <svg
-    className="c11 yoast-loader"
+    className="c10 yoast-loader"
     id="Y__x2B__bg"
     version="1.1"
     viewBox="0 0 500 500"
@@ -484,18 +471,18 @@ exports[`the site page component matches the snapshot 1`] = `
     </g>
   </svg>
   <div
-    className="c12"
+    className="c11"
   >
     <div
-      className="c13"
+      className="c12"
     >
       <button
         aria-expanded={false}
-        className="c14"
+        className="c13"
         onClick={[Function]}
       >
         <span
-          className="c15"
+          className="c14"
         >
           Select the platform your site is running on
         </span>
@@ -516,18 +503,18 @@ exports[`the site page component matches the snapshot 1`] = `
     </div>
   </div>
   <div
-    className="c12"
+    className="c11"
   >
     <div
-      className="c13"
+      className="c12"
     >
       <button
         aria-expanded={false}
-        className="c14"
+        className="c13"
         onClick={[Function]}
       >
         <span
-          className="c15"
+          className="c14"
         >
           Disconnect this site
         </span>
@@ -601,7 +588,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
   min-width: 152px;
 }
 
-.c9 {
+.c8 {
   background-repeat: no-repeat;
   background-image: url( angle-right.svg );
   background-position: right 16px center;
@@ -610,7 +597,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
   padding-right: 56px;
 }
 
-.c10 {
+.c9 {
   padding-top: 0.5em;
 }
 
@@ -689,12 +676,12 @@ exports[`the site page component matches the snapshot for a site in a directory 
   height: 100px;
 }
 
-.c13 {
+.c12 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c14 {
+.c13 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -717,7 +704,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
   color: #000;
 }
 
-.c14 svg {
+.c13 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -730,7 +717,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
   align-self: flex-start;
 }
 
-.c15 {
+.c14 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -741,13 +728,13 @@ exports[`the site page component matches the snapshot for a site in a directory 
   align-self: center;
 }
 
-.c12 {
+.c11 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c11 {
-  -webkit-animation: eaZiAa 1.15s infinite;
-  animation: eaZiAa 1.15s infinite;
+.c10 {
+  -webkit-animation: dHZYI 1.15s infinite;
+  animation: dHZYI 1.15s infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
   -webkit-animation-timing-function: cubic-bezier(0.96,0.02,0.63,0.86);
@@ -791,33 +778,20 @@ exports[`the site page component matches the snapshot for a site in a directory 
   }
 }
 
-@media screen and ( max-width:800px ) {
-  .c8 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c8:first-child {
-    margin-top: 0px;
-  }
-}
-
 @media screen and ( max-width:1355px ) {
-  .c14 {
+  .c13 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c14 {
+  .c13 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c14 svg {
+  .c13 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -847,7 +821,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       </a>
       <a
         aria-label={undefined}
-        className="c8 c9 c7"
+        className="c4 c8 c7"
         href="http://yoast.com/wp-admin"
         rel="noopener noreferrer"
         target="_blank"
@@ -855,7 +829,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
         <span>
           Open WordPress admin 
           <span
-            className="screen-reader-text c10"
+            className="screen-reader-text c9"
           >
             <span>
               (Opens in a new browser tab)
@@ -866,7 +840,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
     </div>
   </div>
   <svg
-    className="c11 yoast-loader"
+    className="c10 yoast-loader"
     id="Y__x2B__bg"
     version="1.1"
     viewBox="0 0 500 500"
@@ -1035,18 +1009,18 @@ exports[`the site page component matches the snapshot for a site in a directory 
     </g>
   </svg>
   <div
-    className="c12"
+    className="c11"
   >
     <div
-      className="c13"
+      className="c12"
     >
       <button
         aria-expanded={false}
-        className="c14"
+        className="c13"
         onClick={[Function]}
       >
         <span
-          className="c15"
+          className="c14"
         >
           Select the platform your site is running on
         </span>
@@ -1067,18 +1041,18 @@ exports[`the site page component matches the snapshot for a site in a directory 
     </div>
   </div>
   <div
-    className="c12"
+    className="c11"
   >
     <div
-      className="c13"
+      className="c12"
     >
       <button
         aria-expanded={false}
-        className="c14"
+        className="c13"
         onClick={[Function]}
       >
         <span
-          className="c15"
+          className="c14"
         >
           Disconnect this site
         </span>
@@ -1284,8 +1258,8 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
 }
 
 .c8 {
-  -webkit-animation: eaZiAa 1.15s infinite;
-  animation: eaZiAa 1.15s infinite;
+  -webkit-animation: dHZYI 1.15s infinite;
+  animation: dHZYI 1.15s infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
   -webkit-animation-timing-function: cubic-bezier(0.96,0.02,0.63,0.86);

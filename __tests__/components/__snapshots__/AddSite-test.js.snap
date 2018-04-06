@@ -31,7 +31,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c13 {
+.c12 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -49,19 +49,19 @@ exports[`The AddSite component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c13:hover,
-.c13:focus {
+.c12:hover,
+.c12:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c13:active {
+.c12:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c12 {
+.c11 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -82,7 +82,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c11 {
+.c10 {
   min-width: 152px;
 }
 
@@ -193,6 +193,14 @@ exports[`The AddSite component matches the snapshot 1`] = `
   min-height: 1.8em;
 }
 
+@media screen and ( max-width:800px ) {
+  .c7 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 @media screen and (max-width:800px) {
   .c6 {
     display: -webkit-box;
@@ -216,22 +224,6 @@ exports[`The AddSite component matches the snapshot 1`] = `
   .c6 button {
     margin-left: 0;
     margin-bottom: 8px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c10 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c7 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 
@@ -359,7 +351,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         aria-label="add"
-        className="c10 c11 c12 c13"
+        className="c7 c10 Button-kDSBcD c11 c12"
         type="submit"
       >
         <span>

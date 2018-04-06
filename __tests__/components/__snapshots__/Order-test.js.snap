@@ -64,16 +64,16 @@ exports[`A standard order 1`] = `
   content: "Order";
 }
 
-.c10 {
+.c9 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c10:first-child {
+.c9:first-child {
   padding-left: 0;
 }
 
-.c10::before {
+.c9::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -82,7 +82,7 @@ exports[`A standard order 1`] = `
   content: "Items";
 }
 
-.c13 {
+.c12 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -90,11 +90,11 @@ exports[`A standard order 1`] = `
   white-space: nowrap;
 }
 
-.c13:first-child {
+.c12:first-child {
   padding-left: 0;
 }
 
-.c13::before {
+.c12::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -103,7 +103,7 @@ exports[`A standard order 1`] = `
   content: "Total";
 }
 
-.c15 {
+.c14 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -111,11 +111,11 @@ exports[`A standard order 1`] = `
   white-space: nowrap;
 }
 
-.c15:first-child {
+.c14:first-child {
   padding-left: 0;
 }
 
-.c15::before {
+.c14::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -124,16 +124,16 @@ exports[`A standard order 1`] = `
   content: "Status";
 }
 
-.c19 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c19:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c19::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -142,13 +142,13 @@ exports[`A standard order 1`] = `
   content: none;
 }
 
-.c9 {
+.c8 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c18 {
+.c16 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -160,7 +160,7 @@ exports[`A standard order 1`] = `
   flex: 1 0 100px;
 }
 
-.c11 {
+.c10 {
   padding: 0;
   list-style: none;
   -webkit-flex-shrink: 0;
@@ -172,7 +172,13 @@ exports[`A standard order 1`] = `
   align-items: flex-start;
 }
 
-.c24 {
+.c19 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+.c22 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -192,24 +198,24 @@ exports[`A standard order 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c22:hover,
+.c22:focus {
   color: #fff;
 }
 
-.c24:hover,
-.c24:focus {
+.c22:hover,
+.c22:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c22:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c23 {
+.c21 {
   background-repeat: no-repeat;
   background-image: url( download.svg );
   background-position: 8px 50%;
@@ -217,14 +223,8 @@ exports[`A standard order 1`] = `
   padding-left: 36px;
 }
 
-.c22 {
+.c20 {
   min-width: 152px;
-}
-
-.c21 .screen-reader-text {
-  position: static;
-  -webkit-clip-path: none;
-  clip-path: none;
 }
 
 @media screen and ( max-width:800px ) {
@@ -276,31 +276,31 @@ exports[`A standard order 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c10 {
+  .c9 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c13 {
+  .c12 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c15 {
+  .c14 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c19 {
+  .c17 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c9 {
+  .c8 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -308,8 +308,46 @@ exports[`A standard order 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c11 {
+  .c10 {
     overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c19 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c19 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c2:first-child {
+    margin-top: 0px;
   }
 }
 
@@ -328,48 +366,7 @@ exports[`A standard order 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c12::before {
-    float: left;
-    min-width: 60px;
-    line-height: inherit;
-    font-weight: 700;
-    content: "Total:";
-  }
-
-  .c12 > span {
-    line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c14::before {
-    float: left;
-    min-width: 60px;
-    line-height: inherit;
-    font-weight: 700;
-    content: "Status:";
-  }
-
-  .c14 > span {
-    line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c2:first-child {
-    margin-top: 0px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c8::before {
+  .c7::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -377,26 +374,41 @@ exports[`A standard order 1`] = `
     content: "Items:";
   }
 
-  .c8 > span {
+  .c7 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c7 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
+  .c11::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
   }
 
-  .c7:first-child {
-    margin-top: 0px;
+  .c11 > span {
+    line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17::before {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -404,46 +416,8 @@ exports[`A standard order 1`] = `
     content: none;
   }
 
-  .c17 > span {
+  .c15 > span {
     line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c16 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c16:first-child {
-    margin-top: 0px;
-  }
-}
-
-@media screen and (min-width:801px) and (max-width:1355px) {
-  .c21 {
-    padding-right: 0;
-    padding-left: 42px;
-    min-width: 0;
-    vertical-align: middle;
-  }
-
-  .c21 .screen-reader-text {
-    position: absolute;
-    -webkit-clip: rect(1px,1px,1px,1px);
-    clip: rect(1px,1px,1px,1px);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c20 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 
@@ -451,7 +425,7 @@ exports[`A standard order 1`] = `
   className="c0 c1"
 >
   <span
-    className="c2 c3 c4 c5"
+    className="c2 Tables-fvscPb c3 c4 c5"
   >
     <span>
       January 1, 2012
@@ -463,10 +437,10 @@ exports[`A standard order 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="c7 c8 c9 c10"
+    className="c2 Tables-fvscPb c7 c8 c9"
   >
     <ul
-      className="c11"
+      className="c10"
     >
       <li
         className=""
@@ -485,26 +459,26 @@ exports[`A standard order 1`] = `
     </ul>
   </span>
   <span
-    className="c2 c12 c4 c13"
+    className="c2 Tables-fvscPb c11 c4 c12"
   >
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="c2 c14 c4 c15"
+    className="c2 Tables-fvscPb c13 c4 c14"
   >
     <span>
       Completed
     </span>
   </span>
   <span
-    className="c16 c17 c18 c19"
+    className="c2 Tables-fvscPb c15 c16 c17"
   >
     <div>
       <a
         aria-label="Download invoice"
-        className="c20 c21 c22 c23 c24"
+        className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"
@@ -584,16 +558,16 @@ exports[`An Order with a disabled invoice button 1`] = `
   content: "Order";
 }
 
-.c10 {
+.c9 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c10:first-child {
+.c9:first-child {
   padding-left: 0;
 }
 
-.c10::before {
+.c9::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -602,7 +576,7 @@ exports[`An Order with a disabled invoice button 1`] = `
   content: "Items";
 }
 
-.c13 {
+.c12 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -610,11 +584,11 @@ exports[`An Order with a disabled invoice button 1`] = `
   white-space: nowrap;
 }
 
-.c13:first-child {
+.c12:first-child {
   padding-left: 0;
 }
 
-.c13::before {
+.c12::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -623,7 +597,7 @@ exports[`An Order with a disabled invoice button 1`] = `
   content: "Total";
 }
 
-.c15 {
+.c14 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -631,11 +605,11 @@ exports[`An Order with a disabled invoice button 1`] = `
   white-space: nowrap;
 }
 
-.c15:first-child {
+.c14:first-child {
   padding-left: 0;
 }
 
-.c15::before {
+.c14::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -644,16 +618,16 @@ exports[`An Order with a disabled invoice button 1`] = `
   content: "Status";
 }
 
-.c19 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c19:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c19::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -662,13 +636,13 @@ exports[`An Order with a disabled invoice button 1`] = `
   content: none;
 }
 
-.c9 {
+.c8 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c18 {
+.c16 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -680,7 +654,7 @@ exports[`An Order with a disabled invoice button 1`] = `
   flex: 1 0 100px;
 }
 
-.c11 {
+.c10 {
   padding: 0;
   list-style: none;
   -webkit-flex-shrink: 0;
@@ -692,7 +666,13 @@ exports[`An Order with a disabled invoice button 1`] = `
   align-items: flex-start;
 }
 
-.c24 {
+.c19 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+.c22 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -712,24 +692,24 @@ exports[`An Order with a disabled invoice button 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c22:hover,
+.c22:focus {
   color: #fff;
 }
 
-.c24:hover,
-.c24:focus {
+.c22:hover,
+.c22:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c22:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c23 {
+.c21 {
   background-repeat: no-repeat;
   background-image: url( download.svg );
   background-position: 8px 50%;
@@ -737,14 +717,8 @@ exports[`An Order with a disabled invoice button 1`] = `
   padding-left: 36px;
 }
 
-.c22 {
+.c20 {
   min-width: 152px;
-}
-
-.c21 .screen-reader-text {
-  position: static;
-  -webkit-clip-path: none;
-  clip-path: none;
 }
 
 @media screen and ( max-width:800px ) {
@@ -796,31 +770,31 @@ exports[`An Order with a disabled invoice button 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c10 {
+  .c9 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c13 {
+  .c12 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c15 {
+  .c14 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c19 {
+  .c17 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c9 {
+  .c8 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -828,8 +802,46 @@ exports[`An Order with a disabled invoice button 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c11 {
+  .c10 {
     overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c19 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c19 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c2:first-child {
+    margin-top: 0px;
   }
 }
 
@@ -848,48 +860,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c12::before {
-    float: left;
-    min-width: 60px;
-    line-height: inherit;
-    font-weight: 700;
-    content: "Total:";
-  }
-
-  .c12 > span {
-    line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c14::before {
-    float: left;
-    min-width: 60px;
-    line-height: inherit;
-    font-weight: 700;
-    content: "Status:";
-  }
-
-  .c14 > span {
-    line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c2:first-child {
-    margin-top: 0px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c8::before {
+  .c7::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -897,26 +868,41 @@ exports[`An Order with a disabled invoice button 1`] = `
     content: "Items:";
   }
 
-  .c8 > span {
+  .c7 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c7 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
+  .c11::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
   }
 
-  .c7:first-child {
-    margin-top: 0px;
+  .c11 > span {
+    line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17::before {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -924,46 +910,8 @@ exports[`An Order with a disabled invoice button 1`] = `
     content: none;
   }
 
-  .c17 > span {
+  .c15 > span {
     line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c16 {
-    min-width: 100%;
-    margin-top: 1em;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .c16:first-child {
-    margin-top: 0px;
-  }
-}
-
-@media screen and (min-width:801px) and (max-width:1355px) {
-  .c21 {
-    padding-right: 0;
-    padding-left: 42px;
-    min-width: 0;
-    vertical-align: middle;
-  }
-
-  .c21 .screen-reader-text {
-    position: absolute;
-    -webkit-clip: rect(1px,1px,1px,1px);
-    clip: rect(1px,1px,1px,1px);
-    -webkit-clip-path: inset(50%);
-    clip-path: inset(50%);
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c20 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
   }
 }
 
@@ -971,7 +919,7 @@ exports[`An Order with a disabled invoice button 1`] = `
   className="c0 c1"
 >
   <span
-    className="c2 c3 c4 c5"
+    className="c2 Tables-fvscPb c3 c4 c5"
   >
     <span>
       January 1, 2012
@@ -983,10 +931,10 @@ exports[`An Order with a disabled invoice button 1`] = `
     MOOIE 456 TEST
   </span>
   <span
-    className="c7 c8 c9 c10"
+    className="c2 Tables-fvscPb c7 c8 c9"
   >
     <ul
-      className="c11"
+      className="c10"
     >
       <li
         className=""
@@ -1005,26 +953,26 @@ exports[`An Order with a disabled invoice button 1`] = `
     </ul>
   </span>
   <span
-    className="c2 c12 c4 c13"
+    className="c2 Tables-fvscPb c11 c4 c12"
   >
     <span>
       $100.00
     </span>
   </span>
   <span
-    className="c2 c14 c4 c15"
+    className="c2 Tables-fvscPb c13 c4 c14"
   >
     <span>
       Pending
     </span>
   </span>
   <span
-    className="c16 c17 c18 c19"
+    className="c2 Tables-fvscPb c15 c16 c17"
   >
     <div>
       <a
         aria-label="Download invoice"
-        className="c20 c21 c22 c23 c24"
+        className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         rel="noopener noreferrer"
         target="_blank"

@@ -72,7 +72,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c14 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -90,19 +90,19 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c14:hover,
-.c14:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c14:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c13 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -123,7 +123,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c12 {
+.c11 {
   min-width: 152px;
 }
 
@@ -248,6 +248,14 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
 @media screen and (max-width:800px) {
   .c7 {
     display: -webkit-box;
@@ -274,22 +282,6 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   }
 }
 
-@media screen and ( max-width:800px ) {
-  .c11 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c8 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
 <div>
   <div
     className="c0 my-yoast-modal__content"
@@ -297,7 +289,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
     id="Modal"
     isOpen={true}
     onRequestClose={[Function]}
-    overlayClassName="sc-bdVaJa c0 my-yoast-modal__overlay"
+    overlayClassName="MyYoastModal-gnWJis c0 my-yoast-modal__overlay"
     role="dialog"
   >
     <div
@@ -424,7 +416,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
           </button>
           <button
             aria-label="add"
-            className="c11 c12 c13 c14"
+            className="c8 c11 Button-kDSBcD c12 c13"
             type="submit"
           >
             <span>
