@@ -92,7 +92,7 @@ class Step extends React.Component {
 
 	getIcon() {
 		if ( this.state.completed ) {
-			return <ActiveStepperIcon><IconCompleted src={ check } alt="" /></ActiveStepperIcon>;
+			return <ActiveStepperIcon><IconCompleted src={ check }/></ActiveStepperIcon>;
 		}
 
 		if ( this.props.active ) {
