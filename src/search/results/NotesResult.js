@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import BaseResult from "./BaseResult";
 import { datePresenter } from "../../functions/presenters";
 
