@@ -7,7 +7,7 @@ class NotesForm extends React.Component {
 
 		this.state = {
 			content: "",
-			nextContactDate: "",
+			nextContactDate: null,
 		};
 
 		this.handleContentChange         = this.handleContentChange.bind( this );
@@ -22,6 +22,8 @@ class NotesForm extends React.Component {
 	handleNextContactDateChange( event ) {
 		let nextContactDate = new Date( event.target.value );
 
+		console.log( nextContactDate );
+
 		if ( isNaN( nextContactDate.getTime() ) ) {
 			nextContactDate = null;
 		}
@@ -32,9 +34,13 @@ class NotesForm extends React.Component {
 	handleSave( event ) {
 		let note = Object.assign( {}, this.state, { customerId: this.props.query.filters[0][1], authorId: this.props.api.userId } );
 
-		this.props.api.saveNote( note ).then( () => window.location.reload() );
-
 		event.preventDefault();
+
+		if ( ! note.content ) {
+			return;
+		}
+
+		this.props.api.saveNote( note ).then( () => window.location.reload() );
 	}
 
 	render() {
@@ -43,7 +49,7 @@ class NotesForm extends React.Component {
 		}
 
 		let nextContactDateString =  this.state.nextContactDate ?
-			moment( this.state.nextContactDate ).format( "YYYY-MM-DD" ) :
+			moment( this.state.nextContactDate ).format( "YYYY-MM-DDTHH:mm" ) :
 			"";
 
 		return (
@@ -53,7 +59,7 @@ class NotesForm extends React.Component {
 					<textarea id="content" className="widest" value={ this.state.content } onChange={ this.handleContentChange } />
 				</fieldset>
 				<fieldset>
-					<input id="nextContactDate" className="wide" type="date" value={ nextContactDateString } onChange={ this.handleNextContactDateChange } />
+					<input id="nextContactDate" className="wide" type="datetime-local" value={ nextContactDateString } onChange={ this.handleNextContactDateChange } />
 					<button type="submit" onClick={ this.handleSave }>Save</button>
 				</fieldset>
 			</form>

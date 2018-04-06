@@ -12,8 +12,8 @@ export default class NotesResult extends React.Component {
 
 		this.state = {
 			editing: false,
-			content: props.result.content || "",
-			nextContactDate: props.result.nextContactDate || "",
+			content: props.result.content,
+			nextContactDate: props.result.nextContactDate,
 		};
 
 		this.toggleEditing               = this.toggleEditing.bind( this );
@@ -40,10 +40,10 @@ export default class NotesResult extends React.Component {
 	nextContactDatePresenter() {
 		if ( this.state.editing ) {
 			let nextContactDateString =  this.state.nextContactDate ?
-				moment( this.state.nextContactDate ).format( "YYYY-MM-DD" ) :
+				moment( this.state.nextContactDate ).format( "YYYY-MM-DDTHH:mm" ) :
 				"";
 
-			return <input type="date" value={ nextContactDateString } onChange={ this.handleNextContactDateChange } />;
+			return <input type="datetime-local" value={ nextContactDateString } onChange={ this.handleNextContactDateChange } />;
 		}
 		if ( this.state.nextContactDate === "" ) {
 			return "";
@@ -88,6 +88,10 @@ export default class NotesResult extends React.Component {
 
 	handleSave() {
 		let note = Object.assign( {}, this.state, { id: this.props.result.id } );
+
+		if ( ! note.content ) {
+			return;
+		}
 
 		this.props.api.saveNote( note ).then( this.toggleEditing );
 	}

@@ -149,7 +149,7 @@ table {
 }
 
 .Search table {
-    min-width: 774px;
+    width: 774px;
 }
 
 th, td {
