@@ -1,5 +1,5 @@
 import React from 'react';
-import ImportDataStep from "../../src/components/sites/configuration-request/ImportDataStep";
+import ImportDataStep from "../../src/components/sites/configuration-service-requests/ImportDataStep";
 import { createComponentWithIntl } from "../../utils";
 
 test('The ImportDataStep component matches the snapshot', () => {

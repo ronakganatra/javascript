@@ -6,12 +6,10 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
-import { configurationRequestModalClose, configurationRequestModalOpen } from "../actions/configurationRequest";
+import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen, loadConfigurationServiceRequests } from "../actions/configurationServiceRequest";
 
 export const mapStateToProps = ( state ) => {
-	let allIds = state.entities.sites.allIds;
-
-	let sites = allIds.map( ( siteId ) => {
+	let sites = state.entities.sites.allIds.map( ( siteId ) => {
 		let site = state.entities.sites.byId[ siteId ];
 
 		let siteProps = {
@@ -42,6 +40,10 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
+	let availableConfigurationServiceRequests = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
+		return state.entities.configurationServiceRequests.byId[ id ];
+	} ).filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		sites = sites.filter( ( site ) => {
@@ -60,7 +62,8 @@ export const mapStateToProps = ( state ) => {
 	return {
 		sites,
 		modalOpen,
-		configRequestModalOpen: state.ui.configurationRequest.configRequestModalOpen,
+		configurationServiceRequestModalOpen: state.ui.configurationServiceRequests.configurationServiceRequestModalOpen,
+		availableConfigurationServiceRequests,
 		errorFound,
 		error,
 		plugins,
@@ -72,6 +75,7 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( loadSites() );
+	dispatch( loadConfigurationServiceRequests() );
 
 	return {
 		onClick: () => {
@@ -97,10 +101,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( push( "/sites/" + siteId ) );
 		},
 		onConfigurationRequestClick: ( siteId ) => {
-			dispatch( configurationRequestModalOpen( siteId ) );
+			dispatch( configurationServiceRequestModalOpen( siteId ) );
+		},
+		onSubmitConfigurationServices: () => {
 		},
 		onConfigurationModalClose: () => {
-			dispatch( configurationRequestModalClose() );
+			dispatch( configurationServiceRequestModalClose() );
 		},
 	};
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import BackupStep from "../../src/components/sites/configuration-request/BackupStep";
+import BackupStep from "../../src/components/sites/configuration-service-requests/BackupStep";
 import { createComponentWithIntl } from "../../utils";
 
 test('The BackupStep component matches the snapshot', () => {

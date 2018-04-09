@@ -31,50 +31,12 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c17 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c17:hover,
-.c17:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c17:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c16 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c15 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -85,11 +47,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c23 {
+.c15 {
   height: inherit;
 }
 
-.c18 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -97,11 +59,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c18 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c19 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -119,8 +81,77 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c19:first-child {
+.c11:first-child {
   margin-top: 64px;
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c19 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
 }
 
 .c22 {
@@ -141,92 +172,23 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: none;
 }
 
-.c22::after {
-  position: relative;
-  display: inline-block;
-  border-right: 2px solid #ddd;
-  padding-right: 24px;
-  height: 48px;
-  content: "";
-}
-
-.c25 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c25:first-child {
-  padding-left: 0;
-}
-
-.c25::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Site name";
-}
-
-.c27 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c27:first-child {
-  padding-left: 0;
-}
-
-.c27::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Active subscriptions";
-}
-
-.c30 {
-  font-size: 14px;
-  padding-left: 40px;
-}
-
-.c30:first-child {
-  padding-left: 0;
-}
-
-.c30::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: none;
-}
-
-.c24 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c21 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c20 {
+.c12 {
   height: 48px;
 }
 
-.c28 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -234,11 +196,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c28:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c29 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -246,11 +208,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c26 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -258,17 +220,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -296,74 +247,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c13 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c13.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c13 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c13 .Select-placeholder {
-  line-height: 48px;
-}
-
-.c13.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c13 .Select-value-label {
-  line-height: 48px;
-}
-
-.c13 .Select-input {
-  line-height: 48px;
-}
-
-.c13 .Select-option {
-  color: #000;
-}
-
-.c13 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c13 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c12 >:last-child {
-  margin-left: 8px;
-}
-
-.c14 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
 .c0 {
   text-align: center;
 }
@@ -381,14 +264,39 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c19 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22::after {
+  .c14::after {
     padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
   }
 }
 
@@ -398,50 +306,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   }
 }
 
-@media screen and ( max-width:1355px ) {
-  .c25 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c27 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
 @media screen and ( max-width:800px ) {
-  .c27 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c30 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c24 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -494,94 +363,55 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <span
-        className="c12"
-      >
-        <mockSelectComponent
-          className="c13"
-          name="form-field-name"
-          onChange={[Function]}
-          value=""
-        />
-        <button
-          className="c14 c4 c15 Button-kDSBcD c16 c17"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c18"
+      className="c10"
       role="list"
     >
       <li
-        className="c19"
+        className="c11"
       >
         <span
-          className="c20 c21 c22"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c23"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c24 c25"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c26 c21 c27"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c21 c30"
+          className="c13 c22"
         />
       </li>
     </ul>
@@ -620,50 +450,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
-.c17 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c17:hover,
-.c17:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c17:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c16 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c15 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -674,11 +466,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c23 {
+.c15 {
   height: inherit;
 }
 
-.c18 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -686,11 +478,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c18 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c19 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -708,8 +500,77 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c19:first-child {
+.c11:first-child {
   margin-top: 64px;
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c19 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
 }
 
 .c22 {
@@ -730,92 +591,23 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c22::after {
-  position: relative;
-  display: inline-block;
-  border-right: 2px solid #ddd;
-  padding-right: 24px;
-  height: 48px;
-  content: "";
-}
-
-.c25 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c25:first-child {
-  padding-left: 0;
-}
-
-.c25::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Site name";
-}
-
-.c27 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c27:first-child {
-  padding-left: 0;
-}
-
-.c27::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Active subscriptions";
-}
-
-.c30 {
-  font-size: 14px;
-  padding-left: 40px;
-}
-
-.c30:first-child {
-  padding-left: 0;
-}
-
-.c30::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: none;
-}
-
-.c24 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c21 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c20 {
+.c12 {
   height: 48px;
 }
 
-.c28 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -823,11 +615,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c28:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c29 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -835,11 +627,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c26 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -847,17 +639,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -885,74 +666,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c13 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c13.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c13 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c13 .Select-placeholder {
-  line-height: 48px;
-}
-
-.c13.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c13 .Select-value-label {
-  line-height: 48px;
-}
-
-.c13 .Select-input {
-  line-height: 48px;
-}
-
-.c13 .Select-option {
-  color: #000;
-}
-
-.c13 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c13 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c12 >:last-child {
-  margin-left: 8px;
-}
-
-.c14 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
 .c0 {
   text-align: center;
 }
@@ -970,14 +683,39 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c19 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22::after {
+  .c14::after {
     padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
   }
 }
 
@@ -987,50 +725,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   }
 }
 
-@media screen and ( max-width:1355px ) {
-  .c25 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c27 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
 @media screen and ( max-width:800px ) {
-  .c27 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c30 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c24 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -1083,94 +782,55 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <span
-        className="c12"
-      >
-        <mockSelectComponent
-          className="c13"
-          name="form-field-name"
-          onChange={[Function]}
-          value=""
-        />
-        <button
-          className="c14 c4 c15 Button-kDSBcD c16 c17"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c18"
+      className="c10"
       role="list"
     >
       <li
-        className="c19"
+        className="c11"
       >
         <span
-          className="c20 c21 c22"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c23"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c24 c25"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c26 c21 c27"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c21 c30"
+          className="c13 c22"
         />
       </li>
     </ul>
@@ -1209,50 +869,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
-.c17 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c17:hover,
-.c17:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c17:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c16 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c15 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -1263,11 +885,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c23 {
+.c15 {
   height: inherit;
 }
 
-.c18 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1275,11 +897,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c18 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c19 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -1297,8 +919,77 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c19:first-child {
+.c11:first-child {
   margin-top: 64px;
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c19 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
 }
 
 .c22 {
@@ -1319,92 +1010,23 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c22::after {
-  position: relative;
-  display: inline-block;
-  border-right: 2px solid #ddd;
-  padding-right: 24px;
-  height: 48px;
-  content: "";
-}
-
-.c25 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c25:first-child {
-  padding-left: 0;
-}
-
-.c25::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Site name";
-}
-
-.c27 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c27:first-child {
-  padding-left: 0;
-}
-
-.c27::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Active subscriptions";
-}
-
-.c30 {
-  font-size: 14px;
-  padding-left: 40px;
-}
-
-.c30:first-child {
-  padding-left: 0;
-}
-
-.c30::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: none;
-}
-
-.c24 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c21 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c20 {
+.c12 {
   height: 48px;
 }
 
-.c28 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -1412,11 +1034,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c28:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c29 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -1424,11 +1046,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c26 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -1436,17 +1058,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -1474,74 +1085,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c13 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c13.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c13 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c13 .Select-placeholder {
-  line-height: 48px;
-}
-
-.c13.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c13 .Select-value-label {
-  line-height: 48px;
-}
-
-.c13 .Select-input {
-  line-height: 48px;
-}
-
-.c13 .Select-option {
-  color: #000;
-}
-
-.c13 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c13 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c12 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c12 >:last-child {
-  margin-left: 8px;
-}
-
-.c14 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
 .c0 {
   text-align: center;
 }
@@ -1559,14 +1102,39 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c19 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22::after {
+  .c14::after {
     padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
   }
 }
 
@@ -1576,50 +1144,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   }
 }
 
-@media screen and ( max-width:1355px ) {
-  .c25 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c27 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
 @media screen and ( max-width:800px ) {
-  .c27 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c30 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c24 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -1672,94 +1201,55 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <span
-        className="c12"
-      >
-        <mockSelectComponent
-          className="c13"
-          name="form-field-name"
-          onChange={[Function]}
-          value=""
-        />
-        <button
-          className="c14 c4 c15 Button-kDSBcD c16 c17"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c18"
+      className="c10"
       role="list"
     >
       <li
-        className="c19"
+        className="c11"
       >
         <span
-          className="c20 c21 c22"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c23"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c24 c25"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c26 c21 c27"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c28"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c29"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c21 c30"
+          className="c13 c22"
         />
       </li>
     </ul>

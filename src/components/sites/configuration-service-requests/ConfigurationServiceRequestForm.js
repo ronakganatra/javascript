@@ -70,7 +70,7 @@ const StyledContainer = styled.div`
 	clear: both;
 `;
 
-class ConfigurationRequest extends React.Component {
+class ConfigurationServiceRequestForm extends React.Component {
 	constructor( props ) {
 		super( props );
 
@@ -244,11 +244,11 @@ class ConfigurationRequest extends React.Component {
 	}
 }
 
-ConfigurationRequest.propTypes = {
+ConfigurationServiceRequestForm.propTypes = {
 	onClose: PropTypes.func,
 	onBack: PropTypes.func,
 	goToStep: PropTypes.func,
 	intl: intlShape.isRequired,
 };
 
-export default injectIntl( ConfigurationRequest );
+export default injectIntl( ConfigurationServiceRequestForm );

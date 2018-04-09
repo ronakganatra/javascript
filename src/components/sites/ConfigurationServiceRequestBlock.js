@@ -30,15 +30,15 @@ let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 `;
 
 /**
- * Returns the rendered ConfigurationRequestBlock component.
+ * Returns the rendered ConfigurationServiceRequestBlock component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered ConfigurationRequestBlock component.
+ * @returns {ReactElement} The rendered ConfigurationServiceRequestBlock component.
  */
-class ConfigurationRequestBlock extends React.Component {
+class ConfigurationServiceRequestBlock extends React.Component {
 	/**
-	 * Sets the ConfigurationRequestBlock component.
+	 * Sets the ConfigurationServiceRequestBlock component.
 	 * @param {Object} props All of the props passed to this component.
 	 * @returns {void}
 	 */
@@ -92,7 +92,7 @@ class ConfigurationRequestBlock extends React.Component {
 	}
 
 	render() {
-		let configAvailable = 1;
+		let configAvailable = this.props.amountAvailable;
 		let value = this.state.selectedOption && this.state.selectedOption.value;
 		let siteOptions = this.getOptions();
 		return (
@@ -133,10 +133,11 @@ class ConfigurationRequestBlock extends React.Component {
 	}
 }
 
-export default injectIntl( ConfigurationRequestBlock );
+export default injectIntl( ConfigurationServiceRequestBlock );
 
-ConfigurationRequestBlock.propTypes = {
+ConfigurationServiceRequestBlock.propTypes = {
 	onConfigurationRequestClick: PropTypes.func,
-	sites: PropTypes.array,
+	sites: PropTypes.array.isRequired,
+	amountAvailable: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,
 };

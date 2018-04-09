@@ -1,10 +1,11 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
-import ConfigurationRequestBlock from "../../src/components/sites/ConfigurationRequestBlock";
+import ConfigurationServiceRequestBlock from "../../src/components/sites/ConfigurationServiceRequestBlock";
 
-test('The ConfigurationRequestBlock component matches the snapshot', () => {
+test('The ConfigurationServiceRequestBlock component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-			<ConfigurationRequestBlock
+			<ConfigurationServiceRequestBlock
+				amountAvailable={ 1 }
 				onConfigurationRequestClick={ () => { console.log( "clicked on Request Configuration Service" ); } }
 				sites={ [ "https/:a.com", "https/:b.com", "https/:c.com" ] }
 			/>

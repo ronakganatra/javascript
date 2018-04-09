@@ -1,7 +1,7 @@
 import React from 'react';
 import Stepper from "../../src/components/general/Stepper";
-import BackupStep from "../../src/components/sites/configuration-request/BackupStep";
-import AdminstratorLoginStep from "../../src/components/sites/configuration-request/AdministratorLoginStep";
+import BackupStep from "../../src/components/sites/configuration-service-requests/BackupStep";
+import AdminstratorLoginStep from "../../src/components/sites/configuration-service-requests/AdministratorLoginStep";
 import { createComponentWithIntl } from "../../utils";
 
 

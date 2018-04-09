@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
+exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`] = `
 .c0 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
