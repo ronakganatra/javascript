@@ -149,7 +149,7 @@ table {
 }
 
 .Search table {
-    width: 774px;
+    max-width: 90%;
 }
 
 th, td {
