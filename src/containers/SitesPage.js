@@ -51,6 +51,8 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
+	let configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
+
 	let modalOpen = state.ui.sites.addSiteModalOpen;
 
 	let errorFound = state.ui.sites.linkSiteFailed;
@@ -63,6 +65,7 @@ export const mapStateToProps = ( state ) => {
 		sites,
 		modalOpen,
 		configurationServiceRequestModalOpen: state.ui.configurationServiceRequests.configurationServiceRequestModalOpen,
+		configurationServiceRequestModalSiteId,
 		availableConfigurationServiceRequests,
 		errorFound,
 		error,

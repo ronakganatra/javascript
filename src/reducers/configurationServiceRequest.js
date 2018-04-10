@@ -37,10 +37,12 @@ const rootState = {
  * @returns {Object} The updated ConfigurationServiceRequests object.
  */
 export function uiConfigurationServiceRequestReducer( state = rootState.ui.configurationServiceRequest, action ) {
+	console.log( "config_action:", action );
 	switch ( action.type ) {
 		case CONFIGURATION_SERVICE_REQUEST_MODAL_OPEN:
 			return Object.assign( {}, state, {
 				configurationServiceRequestModalOpen: true,
+				configurationServiceRequestModalSiteId: action.siteId,
 			} );
 		case CONFIGURATION_SERVICE_REQUEST_MODAL_CLOSE:
 			return Object.assign( {}, state, {

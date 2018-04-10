@@ -188,7 +188,11 @@ class SitesPage extends React.Component {
 				onClose={ this.props.onConfigurationModalClose }
 				modalAriaLabel={ modalAriaLabel }
 			>
-				<ConfigurationServiceRequestForm onClose={ this.props.onConfigurationModalClose }/>
+				<ConfigurationServiceRequestForm
+					onClose={ this.props.onConfigurationModalClose }
+					configurationServiceRequestModalSiteId={ this.props.configurationServiceRequestModalSiteId }
+					configurationServiceRequest={ this.props.availableConfigurationServiceRequests[ 0 ] }
+				/>
 			</MyYoastModal>
 		);
 	}
@@ -266,12 +270,14 @@ SitesPage.propTypes = {
 	showLoader: PropTypes.bool,
 	onConfigurationRequestClick: PropTypes.func,
 	configurationServiceRequestModalOpen: PropTypes.bool,
+	configurationServiceRequestModalSiteId: PropTypes.string,
 	onConfigurationModalClose: PropTypes.func,
 };
 
 SitesPage.defaultProps = {
 	sites: [],
 	availableConfigurationServiceRequests: [],
+	configurationServiceRequestModalSiteId: "",
 	linkingSiteUrl: "",
 	modalOpen: false,
 	error: null,

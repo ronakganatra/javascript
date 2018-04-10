@@ -114,7 +114,7 @@ class ImportDataStep extends React.Component {
 }
 
 ImportDataStep.propTypes = {
-	importData: PropTypes.number,
+	importData: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	onBack: PropTypes.func,
 	completeStep: PropTypes.func,

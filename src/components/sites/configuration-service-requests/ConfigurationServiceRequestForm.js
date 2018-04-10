@@ -144,6 +144,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 		this.setState( {
 			googleSearchConsole: data.googleSearchConsole,
 		} );
+		this.createConfigurationRequest();
 	}
 	/**
 	 * Goes one step back of the stepper using the back button.
@@ -182,7 +183,15 @@ class ConfigurationServiceRequestForm extends React.Component {
 	}
 
 	createConfigurationRequest() {
-
+		let data = {
+			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
+			createBackup: this.state.createBackup,
+			importData: this.state.importData,
+			googleSearchConsole: this.state.googleSearchConsole,
+			configurationServiceRequestModalSiteId: this.props.configurationServiceRequestModalSiteId,
+			configurationServiceRequestId: this.props.configurationServiceRequest.id,
+		};
+		console.log( "createConfigurationRequest:", data );
 	}
 
 	/**
@@ -249,6 +258,8 @@ ConfigurationServiceRequestForm.propTypes = {
 	onBack: PropTypes.func,
 	goToStep: PropTypes.func,
 	intl: intlShape.isRequired,
+	configurationServiceRequestModalSiteId: PropTypes.string.isRequired,
+	configurationServiceRequest: PropTypes.object.isRequired,
 };
 
 export default injectIntl( ConfigurationServiceRequestForm );
