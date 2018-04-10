@@ -164,6 +164,13 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
         Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
       </span>
     </p>
+    <label
+      htmlFor="configuration-service-select-website"
+    >
+      <span>
+        Select a website
+      </span>
+    </label>
     <span
       className="c3"
     >
@@ -206,7 +213,7 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
                 aria-labelledby={undefined}
                 aria-owns=""
                 className={undefined}
-                id={undefined}
+                id="configuration-service-select-website"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}

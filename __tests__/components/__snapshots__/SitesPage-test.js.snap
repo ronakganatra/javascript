@@ -511,11 +511,19 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
           Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
         </span>
       </p>
+      <label
+        htmlFor="configuration-service-select-website"
+      >
+        <span>
+          Select a website
+        </span>
+      </label>
       <span
         className="c12"
       >
         <mockSelectComponent
           className="c13"
+          id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
           value=""
@@ -1100,11 +1108,19 @@ exports[`the sites page component with sites handling an onclick event on the ad
           Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
         </span>
       </p>
+      <label
+        htmlFor="configuration-service-select-website"
+      >
+        <span>
+          Select a website
+        </span>
+      </label>
       <span
         className="c12"
       >
         <mockSelectComponent
           className="c13"
+          id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
           value=""
@@ -1689,11 +1705,19 @@ exports[`the sites page component with sites handling an onclick event on the ad
           Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
         </span>
       </p>
+      <label
+        htmlFor="configuration-service-select-website"
+      >
+        <span>
+          Select a website
+        </span>
+      </label>
       <span
         className="c12"
       >
         <mockSelectComponent
           className="c13"
+          id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
           value=""

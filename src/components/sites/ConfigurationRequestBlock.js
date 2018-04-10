@@ -18,6 +18,10 @@ let messages = defineMessages( {
 		id: "requestConfiguration.configurationHowTo",
 		defaultMessage: "Select a website in the drop-down list below, and click on \"request configuration service\" to open the intake form.",
 	},
+	configurationLabel: {
+		id: "requestConfiguration.selectLabel",
+		defaultMessage: "Select a website",
+	},
 	requestButton: {
 		id: "requestConfiguration.modalButton",
 		defaultMessage: "Request configuration service",
@@ -113,12 +117,19 @@ class ConfigurationRequestBlock extends React.Component {
 							defaultMessage={ messages.configurationHowTo.defaultMessage }
 						/>
 					</p>
+					<label htmlFor="configuration-service-select-website">
+						<FormattedMessage
+							id={ messages.configurationLabel.id }
+							defaultMessage={ messages.configurationLabel.defaultMessage }
+						/>
+					</label>
 					<SelectArea>
 						<YoastSelect
 							name="form-field-name"
 							value={ value }
 							onChange={ this.handleChange }
 							options={ siteOptions }
+							id="configuration-service-select-website"
 						/>
 						<ResponsiveButton
 							enabledStyle={ !! value }
