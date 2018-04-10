@@ -40,11 +40,11 @@ export function uiConfigurationServiceRequestReducer( state = rootState.ui.confi
 	switch ( action.type ) {
 		case CONFIGURATION_SERVICE_REQUEST_MODAL_OPEN:
 			return Object.assign( {}, state, {
-				configRequestModalOpen: true,
+				configurationServiceRequestModalOpen: true,
 			} );
 		case CONFIGURATION_SERVICE_REQUEST_MODAL_CLOSE:
 			return Object.assign( {}, state, {
-				configRequestModalOpen: false,
+				configurationServiceRequestModalOpen: false,
 			} );
 		default:
 			return state;

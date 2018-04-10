@@ -138,7 +138,7 @@ class SitesPage extends React.Component {
 	getModal() {
 		if ( this.props.modalOpen ) {
 			return this.getAddSiteModal();
-		} else if ( this.props.configRequestModalOpen ) {
+		} else if ( this.props.configurationServiceRequestModalOpen ) {
 			return this.getConfigRequestModal();
 		}
 	}
@@ -184,7 +184,7 @@ class SitesPage extends React.Component {
 		} );
 		return (
 			<MyYoastModal
-				isOpen={ this.props.configRequestModalOpen }
+				isOpen={ this.props.configurationServiceRequestModalOpen }
 				onClose={ this.props.onConfigurationModalClose }
 				modalAriaLabel={ modalAriaLabel }
 			>
@@ -265,7 +265,7 @@ SitesPage.propTypes = {
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
 	onConfigurationRequestClick: PropTypes.func,
-	configRequestModalOpen: PropTypes.bool,
+	configurationServiceRequestModalOpen: PropTypes.bool,
 	onConfigurationModalClose: PropTypes.func,
 };
 
