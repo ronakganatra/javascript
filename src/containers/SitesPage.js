@@ -5,6 +5,7 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
+import _difference from "lodash/difference";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
@@ -41,9 +42,27 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
-	let availableConfigurationServiceRequests = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
+	let allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
-	} ).filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	} );
+
+	let removeUnavailableSites = sites.map( ( site ) => {
+		let configurationServiceRequestedSitesId = allConfigurationServices.map( ( configurationServiceRequestedSite ) => {
+			return configurationServiceRequestedSite.siteId;
+		} );
+
+		let includesSiteId = configurationServiceRequestedSitesId.includes( site.id );
+
+		if ( ! includesSiteId ) {
+			return site;
+		}
+		return {};
+	} );
+
+	let availableSites = _difference( removeUnavailableSites, [ {} ] );
+	console.log( "availablesites", availableSites );
+
+	let availableConfigurationServices = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
@@ -67,7 +86,8 @@ export const mapStateToProps = ( state ) => {
 		modalOpen,
 		configurationServiceRequestModalOpen: state.ui.configurationServiceRequests.configurationServiceRequestModalOpen,
 		configurationServiceRequestModalSiteId,
-		availableConfigurationServiceRequests,
+		availableSites,
+		availableConfigurationServices,
 		errorFound,
 		error,
 		plugins,

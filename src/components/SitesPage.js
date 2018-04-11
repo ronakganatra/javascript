@@ -86,8 +86,8 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
-	getConfigurationRequest() {
-		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
+	getConfigurationRequest( id, data ) {
+		if ( this.props.availableConfigurationServices.length === 0 ) {
 			return null;
 		}
 
@@ -100,8 +100,8 @@ class SitesPage extends React.Component {
 		}
 
 		return <ConfigurationServiceRequestBlock
-			amountAvailable={ this.props.availableConfigurationServiceRequests.length }
-			sites={ this.props.sites }
+			amountAvailable={ this.props.availableConfigurationServices.length }
+			sites={ this.props.availableSites }
 			onConfigurationRequestClick={ this.props.onConfigurationRequestClick }
 		/>;
 	}
@@ -191,7 +191,7 @@ class SitesPage extends React.Component {
 				<ConfigurationServiceRequestForm
 					onClose={ this.props.onConfigurationModalClose }
 					configurationServiceRequestModalSiteId={ this.props.configurationServiceRequestModalSiteId }
-					configurationServiceRequest={ this.props.availableConfigurationServiceRequests[ 0 ] }
+					configurationServiceRequest={ this.props.availableConfigurationServices[ 0 ] }
 					submitConfigurationService={ this.props.submitConfigurationService }
 				/>
 			</MyYoastModal>
@@ -268,7 +268,9 @@ SitesPage.propTypes = {
 
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
-	availableConfigurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
+	configurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
+	availableConfigurationServices: PropTypes.arrayOf( PropTypes.object ),
+	availableSites: PropTypes.arrayOf( PropTypes.object ),
 
 	linkingSiteUrl: PropTypes.string.isRequired,
 	query: PropTypes.string,
@@ -282,7 +284,8 @@ SitesPage.propTypes = {
 
 SitesPage.defaultProps = {
 	sites: [],
-	availableConfigurationServiceRequests: [],
+	availableConfigurationServices: [],
+	availableSites: [],
 	configurationServiceRequestModalSiteId: "",
 	linkingSiteUrl: "",
 	modalOpen: false,
