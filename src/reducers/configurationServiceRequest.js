@@ -74,7 +74,7 @@ export function byIdConfigurationServiceRequestsReducer( state = rootState.entit
 		case UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS:
 			configurationServiceRequests = Object.assign( {}, state );
 
-			configurationServiceRequests[ action.configurationServiceRequest.id ] = action.configurationServiceRequest;
+			configurationServiceRequests[ action.configurationService.id ] = action.configurationService;
 
 			return configurationServiceRequests;
 		default:
@@ -94,7 +94,7 @@ export function allIdsConfigurationServiceRequestsReducer( state = rootState.ent
 		case FETCH_CONFIGURATION_SERVICE_REQUESTS_SUCCESS:
 			return _union( state, action.configurationServiceRequests.map( configurationServiceRequest => configurationServiceRequest.id ) );
 		case UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS:
-			return _union( state, [ action.configurationServiceRequest.id ] );
+			return _union( state, [ action.configurationService.id ] );
 		default:
 			return state;
 	}

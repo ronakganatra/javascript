@@ -192,6 +192,7 @@ class SitesPage extends React.Component {
 					onClose={ this.props.onConfigurationModalClose }
 					configurationServiceRequestModalSiteId={ this.props.configurationServiceRequestModalSiteId }
 					configurationServiceRequest={ this.props.availableConfigurationServiceRequests[ 0 ] }
+					submitConfigurationService={ this.props.submitConfigurationService }
 				/>
 			</MyYoastModal>
 		);
@@ -252,26 +253,31 @@ class SitesPage extends React.Component {
 }
 
 SitesPage.propTypes = {
-	linkingSiteUrl: PropTypes.string.isRequired,
 	addSite: PropTypes.func.isRequired,
 	onSearchChange: PropTypes.func.isRequired,
-	modalOpen: PropTypes.bool,
 	onConnect: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onManage: PropTypes.func.isRequired,
+	submitConfigurationService: PropTypes.func.isRequired,
+	onConfigurationModalClose: PropTypes.func.isRequired,
+	onConfigurationRequestClick: PropTypes.func.isRequired,
+
 	errorFound: PropTypes.bool.isRequired,
 	error: PropTypes.object,
+
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	availableConfigurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
-	intl: intlShape.isRequired,
+
+	linkingSiteUrl: PropTypes.string.isRequired,
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
-	onConfigurationRequestClick: PropTypes.func,
+	modalOpen: PropTypes.bool,
 	configurationServiceRequestModalOpen: PropTypes.bool,
 	configurationServiceRequestModalSiteId: PropTypes.string,
-	onConfigurationModalClose: PropTypes.func,
+
+	intl: intlShape.isRequired,
 };
 
 SitesPage.defaultProps = {

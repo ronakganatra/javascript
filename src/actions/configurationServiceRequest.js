@@ -126,7 +126,6 @@ export function updateConfigurationServiceRequestFailure( error ) {
  * @returns {Object} The update configuration services success action.
  */
 export function updateConfigurationServiceRequestSuccess( configurationService ) {
-	console.log( "action configurationService:", configurationService );
 	return {
 		type: UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS,
 		configurationService,
@@ -136,14 +135,13 @@ export function updateConfigurationServiceRequestSuccess( configurationService )
 /**
  * An action creator to update the configuration services of the user.
  *
+ * @param {string} id   The ID of the configuration service request.
  * @param {Object} data Data to use to update the configuration service.
  *
  * @returns {Function} A function that updates a user's configuration services.
  */
-export function configureConfigurationServiceRequest( data ) {
+export function configureConfigurationServiceRequest( id, data ) {
 	return ( dispatch ) => {
-		let id = data.id;
-
 		dispatch( updateConfigurationServiceRequest() );
 
 		let request = prepareInternalRequest( `/ConfigurationServiceRequests/${id}/configure/`, "POST", data );

@@ -49,7 +49,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const ConfigurationRequestModal = styled.div`
+const ConfigurationRequestModalStyle = styled.div`
 	width: 640px;
 	max-width: 100%;
 	margin: auto;
@@ -78,7 +78,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 			administratorLoginConfirmed: false,
 			createBackup: null,
 			importData: null,
-			googleSearchConsole: null,
+			searchConsoleRequired: null,
 			activeStep: 0,
 		};
 
@@ -88,7 +88,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
 		this.goStepBack = this.goStepBack.bind( this );
 		this.goToStep = this.goToStep.bind( this );
-		this.createConfigurationRequest = this.createConfigurationRequest.bind( this );
+		this.createConfigurationServiceRequest = this.createConfigurationServiceRequest.bind( this );
 	}
 
 	/**
@@ -141,12 +141,9 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 * @returns {void}
 	 */
 	setGoogleSearchConsole( data ) {
-		console.log( "test_dataGSC", data.googleSearchConsole );
 		this.setState( {
-			googleSearchConsole: data.googleSearchConsole,
-		} );
-		console.log( "state GSC", this.state );
-		this.createConfigurationRequest();
+			searchConsoleRequired: data.searchConsoleRequired,
+		}, this.createConfigurationServiceRequest );
 	}
 	/**
 	 * Goes one step back of the stepper using the back button.
@@ -184,17 +181,17 @@ class ConfigurationServiceRequestForm extends React.Component {
 		}
 	}
 
-	createConfigurationRequest() {
+	createConfigurationServiceRequest() {
+		let id = this.props.configurationServiceRequest.id;
 		let data = {
 			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
 			createBackup: this.state.createBackup,
 			importData: this.state.importData,
-			googleSearchConsole: this.state.googleSearchConsole,
-			configurationServiceRequestModalSiteId: this.props.configurationServiceRequestModalSiteId,
-			configurationServiceRequestId: this.props.configurationServiceRequest.id,
-			configurationServiceRequestStatus: this.props.configurationServiceRequest.status,
+			searchConsoleRequired: this.state.searchConsoleRequired,
+			siteId: this.props.configurationServiceRequestModalSiteId,
 		};
-		console.log( "createConfigurationRequest:", data, this.props.configurationServiceRequest );
+
+		this.props.submitConfigurationService( id, data );
 	}
 
 	/**
@@ -204,7 +201,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 */
 	render() {
 		return (
-			<ConfigurationRequestModal>
+			<ConfigurationRequestModalStyle>
 				<StyledModalHeading>
 					<FormattedMessage
 						id="sites.configurationRequest.header"
@@ -245,13 +242,13 @@ class ConfigurationServiceRequestForm extends React.Component {
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.googleSearchConsoleStepLabel ),
 								label: this.props.intl.formatMessage( messages.googleSearchConsole ),
-								component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole }
+								component: <GoogleSearchConsoleStep searchConsoleRequired={ this.state.searchConsoleRequired }
 															onSubmit={ this.setGoogleSearchConsole }
 															onBack={ this.goStepBack }/>,
 							},
 						] } />
 				</StyledContainer>
-			</ConfigurationRequestModal>
+			</ConfigurationRequestModalStyle>
 		);
 	}
 }
@@ -263,6 +260,7 @@ ConfigurationServiceRequestForm.propTypes = {
 	intl: intlShape.isRequired,
 	configurationServiceRequestModalSiteId: PropTypes.string.isRequired,
 	configurationServiceRequest: PropTypes.object.isRequired,
+	submitConfigurationService: PropTypes.func,
 };
 
 export default injectIntl( ConfigurationServiceRequestForm );

@@ -107,9 +107,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onConfigurationRequestClick: ( siteId ) => {
 			dispatch( configurationServiceRequestModalOpen( siteId ) );
 		},
-		submitConfigurationServices: ( data ) => {
-			dispatch( configureConfigurationServiceRequest( data ) );
-			console.log( "configureFunction:", data );
+		submitConfigurationService: ( id, data ) => {
+			dispatch( configureConfigurationServiceRequest( id, data ) );
 		},
 		onConfigurationModalClose: () => {
 			dispatch( configurationServiceRequestModalClose() );
@@ -132,11 +131,7 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		dispatchProps.addSite( url );
 	};
 
-	let submitConfigurationServices = ( data ) => {
-		dispatchProps.submitConfigurationServices( data );
-	};
-
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite, submitConfigurationServices } );
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite } );
 };
 
 const SitesPageContainer = connect(
