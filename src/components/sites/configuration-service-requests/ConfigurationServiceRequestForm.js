@@ -141,9 +141,11 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 * @returns {void}
 	 */
 	setGoogleSearchConsole( data ) {
+		console.log( "test_dataGSC", data.googleSearchConsole );
 		this.setState( {
 			googleSearchConsole: data.googleSearchConsole,
 		} );
+		console.log( "state GSC", this.state );
 		this.createConfigurationRequest();
 	}
 	/**
@@ -190,8 +192,9 @@ class ConfigurationServiceRequestForm extends React.Component {
 			googleSearchConsole: this.state.googleSearchConsole,
 			configurationServiceRequestModalSiteId: this.props.configurationServiceRequestModalSiteId,
 			configurationServiceRequestId: this.props.configurationServiceRequest.id,
+			configurationServiceRequestStatus: this.props.configurationServiceRequest.status,
 		};
-		console.log( "createConfigurationRequest:", data );
+		console.log( "createConfigurationRequest:", data, this.props.configurationServiceRequest );
 	}
 
 	/**

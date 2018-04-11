@@ -6,7 +6,8 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
-import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen, loadConfigurationServiceRequests } from "../actions/configurationServiceRequest";
+import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
+	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 
 export const mapStateToProps = ( state ) => {
 	let sites = state.entities.sites.allIds.map( ( siteId ) => {
@@ -106,7 +107,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onConfigurationRequestClick: ( siteId ) => {
 			dispatch( configurationServiceRequestModalOpen( siteId ) );
 		},
-		onSubmitConfigurationServices: () => {
+		submitConfigurationServices: ( data ) => {
+			dispatch( configureConfigurationServiceRequest( data ) );
+			console.log( "configureFunction:", data );
 		},
 		onConfigurationModalClose: () => {
 			dispatch( configurationServiceRequestModalClose() );
@@ -129,7 +132,11 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		dispatchProps.addSite( url );
 	};
 
-	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite } );
+	let submitConfigurationServices = ( data ) => {
+		dispatchProps.submitConfigurationServices( data );
+	};
+
+	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onConnect, addSite, submitConfigurationServices } );
 };
 
 const SitesPageContainer = connect(

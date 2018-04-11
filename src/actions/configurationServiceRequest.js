@@ -126,6 +126,7 @@ export function updateConfigurationServiceRequestFailure( error ) {
  * @returns {Object} The update configuration services success action.
  */
 export function updateConfigurationServiceRequestSuccess( configurationService ) {
+	console.log( "action configurationService:", configurationService );
 	return {
 		type: UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS,
 		configurationService,
