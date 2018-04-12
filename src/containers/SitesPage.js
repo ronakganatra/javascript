@@ -5,7 +5,6 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-import _difference from "lodash/difference";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
@@ -46,21 +45,11 @@ export const mapStateToProps = ( state ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
 	} );
 
-	let removeUnavailableSites = sites.map( ( site ) => {
-		let configurationServiceRequestedSitesId = allConfigurationServices.map( ( configurationServiceRequestedSite ) => {
-			return configurationServiceRequestedSite.siteId;
-		} );
-
-		let includesSiteId = configurationServiceRequestedSitesId.includes( site.id );
-
-		if ( ! includesSiteId ) {
-			return site;
-		}
-		return {};
+	let siteIdsThatHaveAConfigurationRequestService = allConfigurationServices.map( ( configurationServiceRequestedSite ) => {
+		return configurationServiceRequestedSite.siteId;
 	} );
 
-	let availableSites = _difference( removeUnavailableSites, [ {} ] );
-	console.log( "availablesites", availableSites );
+	let availableSites = sites.filter( ( site ) => ! siteIdsThatHaveAConfigurationRequestService.includes( site.id ) );
 
 	let availableConfigurationServices = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 

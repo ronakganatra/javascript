@@ -77,14 +77,14 @@ class ConfigurationServiceRequestForm extends React.Component {
 		this.state = {
 			administratorLoginConfirmed: false,
 			createBackup: null,
-			importData: null,
+			importFrom: null,
 			searchConsoleRequired: null,
 			activeStep: 0,
 		};
 
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
-		this.setImportData = this.setImportData.bind( this );
+		this.setImportFrom = this.setImportFrom.bind( this );
 		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
 		this.goStepBack = this.goStepBack.bind( this );
 		this.goToStep = this.goToStep.bind( this );
@@ -127,9 +127,9 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 *
 	 * @returns {void}
 	 */
-	setImportData( data ) {
+	setImportFrom( data ) {
 		this.setState( {
-			importData: data.importData,
+			importFrom: data.importFrom,
 			activeStep: 3,
 		} );
 	}
@@ -167,7 +167,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 			true,
 			this.state.administratorLoginConfirmed,
 			this.state.createBackup !== null,
-			this.state.importData !== null,
+			this.state.importFrom !== null,
 		][ num ];
 
 		if ( ! previousStepCompleted ) {
@@ -186,7 +186,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 		let data = {
 			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
 			createBackup: this.state.createBackup,
-			importData: this.state.importData,
+			importFrom: this.state.importFrom,
 			searchConsoleRequired: this.state.searchConsoleRequired,
 			siteId: this.props.configurationServiceRequestModalSiteId,
 		};
@@ -235,8 +235,8 @@ class ConfigurationServiceRequestForm extends React.Component {
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.importDataStepLabel ),
 								label: this.props.intl.formatMessage( messages.importData ),
-								component: <ImportDataStep importData={ this.state.importData }
-													onSubmit={ this.setImportData }
+								component: <ImportDataStep importFrom={ this.state.importFrom }
+													onSubmit={ this.setImportFrom }
 													onBack={ this.goStepBack }/>,
 							},
 							{
@@ -263,4 +263,7 @@ ConfigurationServiceRequestForm.propTypes = {
 	submitConfigurationService: PropTypes.func,
 };
 
+ConfigurationServiceRequestForm.defaultProps = {
+	configurationServiceRequest: {},
+};
 export default injectIntl( ConfigurationServiceRequestForm );

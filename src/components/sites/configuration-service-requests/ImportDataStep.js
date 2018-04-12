@@ -39,7 +39,7 @@ class ImportDataStep extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.state = {
-			importData: props.importData || pluginOptions[ 0 ].value,
+			importFrom: props.importFrom || pluginOptions[ 0 ].value,
 		};
 
 		this.handleInput = this.handleInput.bind( this );
@@ -54,7 +54,7 @@ class ImportDataStep extends React.Component {
 	 */
 	handleInput( event ) {
 		this.setState( {
-			importData: event.value,
+			importFrom: event.value,
 		} );
 	}
 	/**
@@ -64,7 +64,7 @@ class ImportDataStep extends React.Component {
 	 * @returns {void}
 	 */
 	handleContinue() {
-		if ( this.state.importData === null ) {
+		if ( this.state.importFrom === null ) {
 			return;
 		}
 
@@ -73,7 +73,7 @@ class ImportDataStep extends React.Component {
 	}
 
 	render() {
-		let value = this.state.importData;
+		let value = this.state.importFrom;
 		return (
 			<div>
 				<p>
@@ -103,7 +103,7 @@ class ImportDataStep extends React.Component {
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
-						enabledStyle={ this.state.importData !== null }
+						enabledStyle={ this.state.importFrom !== null }
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>
@@ -114,7 +114,7 @@ class ImportDataStep extends React.Component {
 }
 
 ImportDataStep.propTypes = {
-	importData: PropTypes.string,
+	importFrom: PropTypes.string,
 	onSubmit: PropTypes.func.isRequired,
 	onBack: PropTypes.func,
 	completeStep: PropTypes.func,
