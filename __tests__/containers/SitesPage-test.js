@@ -397,7 +397,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 				"status": "active"
 			} ],
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			"siteName": "yoast.com",
+			"siteName": "yoast.com/extrapath",
 			"url":"https://yoast.com",
 		} ],
 		modalOpen: false,
