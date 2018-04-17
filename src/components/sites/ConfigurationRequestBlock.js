@@ -22,6 +22,10 @@ let messages = defineMessages( {
 		id: "requestConfiguration.selectLabel",
 		defaultMessage: "Select a website:",
 	},
+	configurationSelectPlaceholder: {
+		id: "requestConfiguration.selectPlaceholder",
+		defaultMessage: "Open the list of websites...",
+	},
 	requestButton: {
 		id: "requestConfiguration.modalButton",
 		defaultMessage: "Request configuration service",
@@ -134,6 +138,7 @@ class ConfigurationRequestBlock extends React.Component {
 							onChange={ this.handleChange }
 							options={ siteOptions }
 							id="configuration-service-select-website"
+							placeholder={ messages.configurationSelectPlaceholder.defaultMessage }
 						/>
 						<ResponsiveButton
 							enabledStyle={ !! value }

@@ -72,6 +72,7 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
 
 .c5 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c5.Select--single > .Select-control .Select-value {
@@ -199,7 +200,7 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
             <div
               className="Select-placeholder"
             >
-              Select...
+              Open the list of websites...
             </div>
             <div
               className="Select-input"

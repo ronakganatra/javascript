@@ -320,6 +320,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 
 .c14 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c14.Select--single > .Select-control .Select-value {
@@ -531,6 +532,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
           id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
+          placeholder="Open the list of websites..."
           value=""
         />
         <button
@@ -922,6 +924,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c14 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c14.Select--single > .Select-control .Select-value {
@@ -1133,6 +1136,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
           id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
+          placeholder="Open the list of websites..."
           value=""
         />
         <button
@@ -1524,6 +1528,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c14 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c14.Select--single > .Select-control .Select-value {
@@ -1735,6 +1740,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
           id="configuration-service-select-website"
           name="form-field-name"
           onChange={[Function]}
+          placeholder="Open the list of websites..."
           value=""
         />
         <button

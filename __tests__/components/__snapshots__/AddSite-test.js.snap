@@ -123,6 +123,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
 
 .c4 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c4.Select--single > .Select-control .Select-value {

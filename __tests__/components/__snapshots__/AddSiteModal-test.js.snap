@@ -164,6 +164,7 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
 
 .c5 .Select-placeholder {
   line-height: 48px;
+  color: #646464;
 }
 
 .c5.Select--single > .Select-control .Select-value {
