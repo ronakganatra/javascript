@@ -76,26 +76,6 @@ export function fetchConfigurationServiceRequestsSuccess( configurationServiceRe
 }
 
 /**
- * An action creator to fetch the configuration services of the user.
- *
- * @returns {Function} A function that fetches a user's configuration services.
- */
-export function loadConfigurationServiceRequests() {
-	return ( dispatch ) => {
-		dispatch( fetchConfigurationServiceRequests() );
-
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/ConfigurationServiceRequests/`, "GET" );
-
-		return doRequest( request )
-			.then( ( response ) => {
-				dispatch( fetchConfigurationServiceRequestsSuccess( response ) );
-			} )
-			.catch( ( error ) => dispatch( fetchConfigurationServiceRequestsFailure( error ) ) );
-	};
-}
-
-/**
  * An action creator for the update configuration services request action.
  *
  * @returns {Object} The update configuration services request action.
@@ -133,7 +113,27 @@ export function updateConfigurationServiceRequestSuccess( configurationService )
 }
 
 /**
- * An action creator to update the configuration services of the user.
+ * A helper function to fetch the configuration services of the user.
+ *
+ * @returns {Function} A function that fetches a user's configuration services.
+ */
+export function loadConfigurationServiceRequests() {
+	return ( dispatch ) => {
+		dispatch( fetchConfigurationServiceRequests() );
+
+		let userId = getUserId();
+		let request = prepareInternalRequest( `Customers/${userId}/ConfigurationServiceRequests/`, "GET" );
+
+		return doRequest( request )
+			.then( ( response ) => {
+				dispatch( fetchConfigurationServiceRequestsSuccess( response ) );
+			} )
+			.catch( ( error ) => dispatch( fetchConfigurationServiceRequestsFailure( error ) ) );
+	};
+}
+
+/**
+ * A helper function to update the configuration services of the user.
  *
  * @param {string} id   The ID of the configuration service request.
  * @param {Object} data Data to use to update the configuration service.

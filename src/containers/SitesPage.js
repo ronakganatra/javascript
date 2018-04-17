@@ -45,11 +45,11 @@ export const mapStateToProps = ( state ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
 	} );
 
-	let siteIdsThatHaveAConfigurationRequestService = allConfigurationServices.map( ( configurationServiceRequestedSite ) => {
-		return configurationServiceRequestedSite.siteId;
+	let siteIdsWithConfigurationServiceRequest = allConfigurationServices.map( ( RequestedSite ) => {
+		return RequestedSite.siteId;
 	} );
 
-	let availableSites = sites.filter( ( site ) => ! siteIdsThatHaveAConfigurationRequestService.includes( site.id ) );
+	let availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
 
 	let availableConfigurationServices = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
@@ -59,6 +59,8 @@ export const mapStateToProps = ( state ) => {
 			return site.siteName.includes( query ) || site.url.includes( query );
 		} );
 	}
+
+	let configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	let configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
@@ -70,19 +72,23 @@ export const mapStateToProps = ( state ) => {
 
 	let	plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
 
+	let linkingSiteUrl = state.ui.sites.linkingSiteUrl;
+
+	let showLoader = ! state.ui.sites.sitesRetrieved;
+
 	return {
 		sites,
 		modalOpen,
-		configurationServiceRequestModalOpen: state.ui.configurationServiceRequests.configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen,
 		configurationServiceRequestModalSiteId,
 		availableSites,
 		availableConfigurationServices,
 		errorFound,
 		error,
 		plugins,
-		linkingSiteUrl: state.ui.sites.linkingSiteUrl,
+		linkingSiteUrl,
 		query,
-		showLoader: ! state.ui.sites.sitesRetrieved,
+		showLoader,
 	};
 };
 
