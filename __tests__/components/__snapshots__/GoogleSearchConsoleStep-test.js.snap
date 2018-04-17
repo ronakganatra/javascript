@@ -153,7 +153,7 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
   </p>
   <p>
     <input
-      checked={true}
+      checked={false}
       id="googleSearchConsoleMissing"
       onChange={[Function]}
       type="radio"
