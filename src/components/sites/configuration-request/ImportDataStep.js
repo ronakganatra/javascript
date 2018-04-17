@@ -6,14 +6,6 @@ import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Bu
 import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
 
-const pluginOptions = [
-	{ value: "none", label: "No plugin" },
-	{ value: "headspace2", label: "HeadSpace2" },
-	{ value: "all-in-one_seo", label: "All-in-One SEO" },
-	{ value: "jetpack_seo", label: "JetPack SEO" },
-	{ value: "woothemes_seo_framework", label: "WooThemes SEO framework" },
-];
-
 let messages = defineMessages( {
 	importDataRequired: {
 		id: "requestConfiguration.importDataCheck",
@@ -25,13 +17,31 @@ let messages = defineMessages( {
 		id: "requestConfiguration.importDataLabel",
 		defaultMessage: "Import from:",
 	},
+	noPluginSelected: {
+		id: "requestConfiguration.noPluginSelected",
+		defaultMessage: "No plugin selected",
+	},
 } );
+
+const pluginOptions = [
+	{ value: "none", label: messages.noPluginSelected.defaultMessage },
+	{ value: "headspace2", label: "HeadSpace2" },
+	{ value: "all-in-one_seo", label: "All-in-One SEO" },
+	{ value: "jetpack_seo", label: "JetPack SEO" },
+	{ value: "woothemes_seo_framework", label: "WooThemes SEO framework" },
+];
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 const TopSpaceButtonContainer = styled( ButtonsContainer )`
 	padding-top: 16px;
+`;
+
+const StyledLabel = styled.label`
+	display: inline-block;
+	font-size: 1em;
+	margin: 0 0 8px;
 `;
 
 class ImportDataStep extends React.Component {
@@ -82,15 +92,15 @@ class ImportDataStep extends React.Component {
 						defaultMessage={ messages.importDataRequired.defaultMessage } />
 				</p>
 
-				<label htmlFor="importDataExists">
+				<StyledLabel htmlFor="import-data-exists">
 					<FormattedMessage
 						id={ messages.importDataExists.id }
 						defaultMessage={ messages.importDataExists.defaultMessage } />
-				</label>
+				</StyledLabel>
 
 				<YoastSelect
 					name="form-field-name"
-					placeholder="No plugin selected"
+					id="import-data-exists"
 					value={ value }
 					onChange={ this.handleInput }
 					options={ pluginOptions }

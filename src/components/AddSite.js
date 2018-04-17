@@ -50,6 +50,12 @@ const ValidationText = styled.div`
 	min-height: 1.8em;
 `;
 
+const StyledSpan = styled.span`
+	display: inline-block;
+	font-size: 1em;
+	margin: 16px 0 8px;
+`;
+
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
@@ -93,18 +99,24 @@ class AddSite extends React.Component {
 	getPlatformSelect() {
 		return(
 			<div>
-				<label htmlFor="selectPlatform">
+				<StyledSpan
+					id="add-site-select-platform-label"
+					onClick={ () => this.selectRef && this.selectRef.focus() }
+				>
 					<FormattedMessage
 						id="sites.addSite.enterUrl"
 						defaultMessage="Please select the platform that your website is running on:"
 					/>
-				</label>
+				</StyledSpan>
 				<YoastSelect
 					name="selectPlatform"
 					value={ this.state.selectedOption.value }
 					onChange={ this.handleChange.bind( this ) }
 					searchable={ false }
 					clearable={ false }
+					innerRef={ ( ref ) => {
+						this.selectRef = ref;
+					} }
 					options={ [
 						{
 							value: "wordpress",
@@ -115,6 +127,7 @@ class AddSite extends React.Component {
 							label: "TYPO3",
 						},
 					] }
+					aria-labelledby="add-site-select-platform-label"
 				/>
 			</div>
 		);
