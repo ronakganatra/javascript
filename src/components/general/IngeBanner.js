@@ -17,7 +17,7 @@ const messages = defineMessages( {
 	message: {
 		id: "ingeBanner.message",
 		defaultMessage: "Inge is always ready to listen to her colleagues, she works really hard to get things done and" +
-		"wants to make Yoast better, together. So you want something done? Inge is the one!",
+		" wants to make Yoast better, together. So you want something done? Inge is the one!",
 	},
 } );
 
