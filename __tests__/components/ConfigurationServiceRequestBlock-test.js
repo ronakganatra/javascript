@@ -6,7 +6,7 @@ test('The ConfigurationServiceRequestBlock component matches the snapshot', () =
 	const component = createComponentWithIntl(
 			<ConfigurationServiceRequestBlock
 				amountAvailable={ 1 }
-				onConfigurationRequestClick={ () => { console.log( "clicked on Request Configuration Service" ); } }
+				openConfigurationServiceRequestModal={ () => { console.log( "clicked on Request Configuration Service" ); } }
 				sites={ [ "https/:a.com", "https/:b.com", "https/:c.com" ] }
 			/>
 	);

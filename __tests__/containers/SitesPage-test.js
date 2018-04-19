@@ -87,7 +87,7 @@ test('the mapStateToProps function', () => {
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -136,7 +136,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -185,7 +185,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -225,7 +225,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -272,7 +272,7 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [],
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -389,7 +389,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 				"type": "plugin",
 			}
 		],
-		availableConfigurationServices: [],
+		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",

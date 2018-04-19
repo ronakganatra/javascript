@@ -86,8 +86,8 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
-	getConfigurationRequest( id, data ) {
-		if ( this.props.availableConfigurationServices.length === 0 ) {
+	getConfigurationServiceRequest( id, data ) {
+		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
 			return null;
 		}
 
@@ -100,9 +100,9 @@ class SitesPage extends React.Component {
 		}
 
 		return <ConfigurationServiceRequestBlock
-			amountAvailable={ this.props.availableConfigurationServices.length }
+			amountAvailable={ this.props.availableConfigurationServiceRequests.length }
 			sites={ this.props.availableSites }
-			onConfigurationRequestClick={ this.props.onConfigurationRequestClick }
+			openConfigurationServiceRequestModal={ this.props.openConfigurationServiceRequestModal }
 		/>;
 	}
 
@@ -133,13 +133,13 @@ class SitesPage extends React.Component {
 	 * Gets the related modal (AddSite or Configuration) to open.
 	 *
 	 * @returns {func} The getAddSiteModal() function to open the AddSite modal
-	 * @returns {func} The getConfigurationRequestModal() function to open the ConfigurationServiceRequestForm modal
+	 * @returns {func} The getConfigurationServiceRequestModal() function to open the ConfigurationServiceRequestForm modal
 	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
 			return this.getAddSiteModal();
 		} else if ( this.props.configurationServiceRequestModalOpen ) {
-			return this.getConfigRequestModal();
+			return this.getConfigurationServiceRequestModal();
 		}
 	}
 
@@ -177,7 +177,7 @@ class SitesPage extends React.Component {
 	 *
 	 * @returns {object} The ConfigurationServiceRequestForm modal rendered and opened.
 	 */
-	getConfigRequestModal() {
+	getConfigurationServiceRequestModal() {
 		let modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
@@ -191,8 +191,8 @@ class SitesPage extends React.Component {
 				<ConfigurationServiceRequestForm
 					onClose={ this.props.onConfigurationModalClose }
 					configurationServiceRequestModalSiteId={ this.props.configurationServiceRequestModalSiteId }
-					configurationServiceRequest={ this.props.availableConfigurationServices[ 0 ] }
-					submitConfigurationService={ this.props.submitConfigurationService }
+					configurationServiceRequest={ this.props.availableConfigurationServiceRequests[ 0 ] }
+					configureConfigurationServiceRequest={ this.props.configureConfigurationServiceRequest }
 				/>
 			</MyYoastModal>
 		);
@@ -226,7 +226,7 @@ class SitesPage extends React.Component {
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
-					{ this.getConfigurationRequest() }
+					{ this.getConfigurationServiceRequest() }
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ this.getModal() }
 				</div>
@@ -259,9 +259,9 @@ SitesPage.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onManage: PropTypes.func.isRequired,
-	submitConfigurationService: PropTypes.func.isRequired,
+	configureConfigurationServiceRequest: PropTypes.func.isRequired,
 	onConfigurationModalClose: PropTypes.func.isRequired,
-	onConfigurationRequestClick: PropTypes.func.isRequired,
+	openConfigurationServiceRequestModal: PropTypes.func.isRequired,
 
 	errorFound: PropTypes.bool.isRequired,
 	error: PropTypes.object,
@@ -269,7 +269,7 @@ SitesPage.propTypes = {
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	configurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
-	availableConfigurationServices: PropTypes.arrayOf( PropTypes.object ),
+	availableConfigurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
 	availableSites: PropTypes.arrayOf( PropTypes.object ),
 
 	linkingSiteUrl: PropTypes.string.isRequired,
@@ -284,7 +284,7 @@ SitesPage.propTypes = {
 
 SitesPage.defaultProps = {
 	sites: [],
-	availableConfigurationServices: [],
+	availableConfigurationServiceRequests: [],
 	availableSites: [],
 	configurationServiceRequestModalSiteId: "",
 	linkingSiteUrl: "",

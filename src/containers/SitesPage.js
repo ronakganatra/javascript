@@ -51,7 +51,7 @@ export const mapStateToProps = ( state ) => {
 
 	let availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
 
-	let availableConfigurationServices = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	let availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
 	let query = state.ui.search.query;
 	if ( query.length > 0 ) {
@@ -82,7 +82,7 @@ export const mapStateToProps = ( state ) => {
 		configurationServiceRequestModalOpen,
 		configurationServiceRequestModalSiteId,
 		availableSites,
-		availableConfigurationServices,
+		availableConfigurationServiceRequests,
 		errorFound,
 		error,
 		plugins,
@@ -119,10 +119,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onManage: ( siteId ) => {
 			dispatch( push( "/sites/" + siteId ) );
 		},
-		onConfigurationRequestClick: ( siteId ) => {
+		openConfigurationServiceRequestModal: ( siteId ) => {
 			dispatch( configurationServiceRequestModalOpen( siteId ) );
 		},
-		submitConfigurationService: ( id, data ) => {
+		configureConfigurationServiceRequest: ( id, data ) => {
 			dispatch( configureConfigurationServiceRequest( id, data ) );
 		},
 		onConfigurationModalClose: () => {

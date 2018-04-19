@@ -73,7 +73,7 @@ class ConfigurationServiceRequestBlock extends React.Component {
 	 */
 	handleSubmit() {
 		if ( this.state.selectedOption ) {
-			this.props.onConfigurationRequestClick( this.state.selectedOption.value );
+			this.props.openConfigurationServiceRequestModal( this.state.selectedOption.value );
 		}
 	}
 
@@ -136,7 +136,7 @@ class ConfigurationServiceRequestBlock extends React.Component {
 export default injectIntl( ConfigurationServiceRequestBlock );
 
 ConfigurationServiceRequestBlock.propTypes = {
-	onConfigurationRequestClick: PropTypes.func,
+	openConfigurationServiceRequestModal: PropTypes.func,
 	sites: PropTypes.array.isRequired,
 	amountAvailable: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,

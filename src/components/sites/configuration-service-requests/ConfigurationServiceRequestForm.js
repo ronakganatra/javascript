@@ -49,7 +49,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const ConfigurationRequestModalStyle = styled.div`
+const StyledConfigurationServiceRequestForm = styled.div`
 	width: 640px;
 	max-width: 100%;
 	margin: auto;
@@ -191,7 +191,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 			siteId: this.props.configurationServiceRequestModalSiteId,
 		};
 
-		this.props.submitConfigurationService( id, data );
+		this.props.configureConfigurationServiceRequest( id, data );
 	}
 
 	/**
@@ -201,7 +201,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 */
 	render() {
 		return (
-			<ConfigurationRequestModalStyle>
+			<StyledConfigurationServiceRequestForm>
 				<StyledModalHeading>
 					<FormattedMessage
 						id="sites.configurationRequest.header"
@@ -248,7 +248,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 							},
 						] } />
 				</StyledContainer>
-			</ConfigurationRequestModalStyle>
+			</StyledConfigurationServiceRequestForm>
 		);
 	}
 }
@@ -260,7 +260,7 @@ ConfigurationServiceRequestForm.propTypes = {
 	intl: intlShape.isRequired,
 	configurationServiceRequestModalSiteId: PropTypes.string.isRequired,
 	configurationServiceRequest: PropTypes.object.isRequired,
-	submitConfigurationService: PropTypes.func,
+	configureConfigurationServiceRequest: PropTypes.func,
 };
 
 ConfigurationServiceRequestForm.defaultProps = {
