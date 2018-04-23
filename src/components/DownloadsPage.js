@@ -149,7 +149,6 @@ class DownloadsPage extends React.Component {
 									products={ this.props.eBooks }
 									byLine={ eBooksByLine }
 									heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
-									noResults={ this.props.eBooks.length > 0 ? "" : "No results" }
 		/>;
 
 		if ( this.props.query.length > 0 && ( this.props.plugins.length === 0 && this.props.eBooks.length === 0 ) ) {
@@ -177,7 +176,7 @@ class DownloadsPage extends React.Component {
 				<Paper>
 					<ProductOverviewContainer>
 						{ pluginDownloads }
-						{ eBookDownloads }
+						{ this.props.eBooks.length > 0 ? eBookDownloads : "" }
 					</ProductOverviewContainer>
 				</Paper>
 				{ this.getModal() }
