@@ -76,7 +76,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 
 		this.state = {
 			administratorLoginConfirmed: false,
-			createBackup: null,
+			backupRequired: null,
 			importFrom: null,
 			searchConsoleRequired: null,
 			activeStep: 0,
@@ -115,7 +115,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 */
 	setBackupCreation( data ) {
 		this.setState( {
-			createBackup: data.createBackup,
+			backupRequired: data.backupRequired,
 			activeStep: 2,
 		} );
 	}
@@ -166,7 +166,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 		let previousStepCompleted = [
 			true,
 			this.state.administratorLoginConfirmed,
-			this.state.createBackup !== null,
+			this.state.backupRequired !== null,
 			this.state.importFrom !== null,
 		][ num ];
 
@@ -185,7 +185,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 		let id = this.props.configurationServiceRequest.id;
 		let data = {
 			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
-			createBackup: this.state.createBackup,
+			backupRequired: this.state.backupRequired,
 			importFrom: this.state.importFrom,
 			searchConsoleRequired: this.state.searchConsoleRequired,
 			siteId: this.props.configurationServiceRequestModalSiteId,
@@ -228,7 +228,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.backupStepLabel ),
 								label: this.props.intl.formatMessage( messages.backup ),
-								component: <BackupStep createBackup={ this.state.createBackup }
+								component: <BackupStep backupRequired={ this.state.backupRequired }
 												onSubmit={ this.setBackupCreation }
 												onBack={ this.goStepBack }/>,
 							},

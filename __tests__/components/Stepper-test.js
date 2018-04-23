@@ -20,7 +20,7 @@ test('The Stepper component matches the snapshot', () => {
 					stepAriaLabel: "Step 2: Backup",
 					label: "Backup",
 					component: <BackupStep
-						createBackup={ true }
+						backupRequired={ true }
 						onSubmit={ () => { console.log( "clicked on Continue" ) } }
 						onBack={ () => { console.log( "clicked on Back" ); } }
 						completeStep={ () => { console.log( "clicked on Continue" ); } } />
