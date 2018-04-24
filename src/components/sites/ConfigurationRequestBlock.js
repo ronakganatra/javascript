@@ -18,6 +18,14 @@ let messages = defineMessages( {
 		id: "requestConfiguration.configurationHowTo",
 		defaultMessage: "Select a website in the drop-down list below, and click on \"request configuration service\" to open the intake form.",
 	},
+	configurationLabel: {
+		id: "requestConfiguration.selectLabel",
+		defaultMessage: "Select a website:",
+	},
+	configurationSelectPlaceholder: {
+		id: "requestConfiguration.selectPlaceholder",
+		defaultMessage: "Open the list of websites...",
+	},
 	requestButton: {
 		id: "requestConfiguration.modalButton",
 		defaultMessage: "Request configuration service",
@@ -27,6 +35,10 @@ let messages = defineMessages( {
 let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	white-space: nowrap;
 	min-width: initial;
+`;
+
+const StyledLabel = styled.label`
+	font-weight: 700;
 `;
 
 /**
@@ -113,12 +125,20 @@ class ConfigurationRequestBlock extends React.Component {
 							defaultMessage={ messages.configurationHowTo.defaultMessage }
 						/>
 					</p>
+					<StyledLabel htmlFor="configuration-service-select-website">
+						<FormattedMessage
+							id={ messages.configurationLabel.id }
+							defaultMessage={ messages.configurationLabel.defaultMessage }
+						/>
+					</StyledLabel>
 					<SelectArea>
 						<YoastSelect
 							name="form-field-name"
 							value={ value }
 							onChange={ this.handleChange }
 							options={ siteOptions }
+							id="configuration-service-select-website"
+							placeholder={ messages.configurationSelectPlaceholder.defaultMessage }
 						/>
 						<ResponsiveButton
 							enabledStyle={ !! value }
