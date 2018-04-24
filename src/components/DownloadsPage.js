@@ -176,7 +176,7 @@ class DownloadsPage extends React.Component {
 				<Paper>
 					<ProductOverviewContainer>
 						{ pluginDownloads }
-						{ this.props.eBooks.length > 0 ? eBookDownloads : "" }
+						{ this.props.eBooks.length > 0 ? eBookDownloads : null }
 					</ProductOverviewContainer>
 				</Paper>
 				{ this.getModal() }
