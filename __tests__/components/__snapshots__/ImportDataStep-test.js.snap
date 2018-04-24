@@ -115,14 +115,14 @@ exports[`The ImportDataStep component matches the snapshot 1`] = `
   margin-left: 12px;
 }
 
-.c2 {
-  padding-top: 16px;
-}
-
 .c0 {
   display: inline-block;
   font-size: 1em;
-  margin: 0 0 8px;
+  margin: 16px 0 8px;
+}
+
+.c2 {
+  padding-top: 16px;
 }
 
 @media screen and ( max-width:800px ) {

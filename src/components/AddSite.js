@@ -12,6 +12,7 @@ import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 import ButtonsContainer from "./general/ButtonsContainer";
 import YoastSelect from "./general/YoastSelect";
+import { StyledLabel, SpanStyledAsLabel } from "./Labels";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -24,12 +25,6 @@ const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-size: 1em;
-
-	label {
-		display: inline-block;
-		font-size: 1em;
-		margin: 16px 0 8px;
-	}
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -48,12 +43,6 @@ const ValidationText = styled.div`
 	color: ${ colors.$color_red};
 	margin: 1em 0;
 	min-height: 1.8em;
-`;
-
-const StyledSpan = styled.span`
-	display: inline-block;
-	font-size: 1em;
-	margin: 16px 0 8px;
 `;
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
@@ -99,7 +88,7 @@ class AddSite extends React.Component {
 	getPlatformSelect() {
 		return(
 			<div>
-				<StyledSpan
+				<SpanStyledAsLabel
 					id="add-site-select-platform-label"
 					onClick={ () => this.selectRef && this.selectRef.focus() }
 				>
@@ -107,7 +96,7 @@ class AddSite extends React.Component {
 						id="sites.addSite.enterUrl"
 						defaultMessage="Please select the platform that your website is running on:"
 					/>
-				</StyledSpan>
+				</SpanStyledAsLabel>
 				<YoastSelect
 					name="selectPlatform"
 					value={ this.state.selectedOption.value }
@@ -322,12 +311,12 @@ class AddSite extends React.Component {
 				</ModalHeading>
 
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="add-site-input">
+					<StyledLabel htmlFor="add-site-input">
 						<FormattedMessage
 							id="sites.addSite.enterUrl"
 							defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
-					</label>
+					</StyledLabel>
 
 					<WebsiteURL
 						type="url"

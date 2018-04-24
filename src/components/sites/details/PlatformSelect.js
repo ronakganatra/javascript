@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage } from "react-intl";
-import styled from "styled-components";
 import YoastSelect, { SelectArea } from "../../general/YoastSelect";
 import CollapsibleHeader from "../../CollapsibleHeader";
 import { Paper, WhitePage } from "../../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../../Button";
+import { SpanStyledAsLabel } from "../../Labels";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -19,12 +19,6 @@ const SITE_TYPE_OPTIONS = {
 		label: "TYPO3",
 	},
 };
-
-const StyledSpan = styled.span`
-	display: inline-block;
-	font-size: 1em;
-	margin: 16px 0 8px;
-`;
 
 class PlatformSelect extends React.Component {
 	/**
@@ -91,7 +85,7 @@ class PlatformSelect extends React.Component {
 				<CollapsibleHeader title={ this.props.title }>
 					<WhitePage>
 						{ this.getInformationParagraph( this.props.disablePlatformSelect ) }
-						<StyledSpan
+						<SpanStyledAsLabel
 							id="select-platform-label"
 							onClick={ () => this.selectRef && this.selectRef.focus() }
 						>
@@ -99,7 +93,7 @@ class PlatformSelect extends React.Component {
 								id="sites.details.changePlatformType.enabled"
 								defaultMessage="Please select a platform:"
 							/>
-						</StyledSpan>
+						</SpanStyledAsLabel>
 						<SelectArea>
 							<YoastSelect
 								value={ this.state.selectedOption.value }

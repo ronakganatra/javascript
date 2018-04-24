@@ -10,12 +10,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -125,17 +119,18 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -173,7 +168,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -438,12 +433,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -553,17 +542,18 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -601,7 +591,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -832,12 +822,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -947,17 +931,18 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -995,7 +980,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -1243,12 +1228,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -1395,17 +1374,18 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c14 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -1443,7 +1423,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c18 {
@@ -1704,12 +1684,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -1819,17 +1793,18 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -1867,7 +1842,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -2109,12 +2084,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -2224,17 +2193,18 @@ exports[`components/ProfilePage saving profile 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c13 {
@@ -2278,7 +2248,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c15 {
@@ -2521,12 +2491,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -2636,17 +2600,18 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -2684,7 +2649,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -2926,12 +2891,6 @@ exports[`components/ProfilePage the default case 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -3050,17 +3009,18 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -3098,7 +3058,7 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -3334,12 +3294,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -3449,17 +3403,18 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -3497,7 +3452,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {

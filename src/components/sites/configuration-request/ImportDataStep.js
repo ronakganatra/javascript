@@ -5,6 +5,7 @@ import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
+import { StyledLabel } from "../../Labels";
 
 let messages = defineMessages( {
 	importDataRequired: {
@@ -36,12 +37,6 @@ const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 const TopSpaceButtonContainer = styled( ButtonsContainer )`
 	padding-top: 16px;
-`;
-
-const StyledLabel = styled.label`
-	display: inline-block;
-	font-size: 1em;
-	margin: 0 0 8px;
 `;
 
 class ImportDataStep extends React.Component {

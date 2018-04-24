@@ -6,6 +6,7 @@ import { LargeButton, makeButtonFullWidth } from "../Button";
 import YoastSelect, { SelectArea } from "../general/YoastSelect";
 import { SubHeading } from "../Headings";
 import styled from "styled-components";
+import { StyledLabel } from "../Labels";
 
 let messages = defineMessages( {
 	configurationAvailable: {
@@ -35,10 +36,6 @@ let messages = defineMessages( {
 let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	white-space: nowrap;
 	min-width: initial;
-`;
-
-const StyledLabel = styled.label`
-	font-weight: 700;
 `;
 
 /**

@@ -10,12 +10,6 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
   padding: 16px 24px;
 }
 
-.c1 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c10 {
   height: 48px;
   margin: 0;
@@ -118,13 +112,15 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
   margin: 0;
 }
 
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+}
+
 .c6 {
   white-space: nowrap;
   min-width: initial;
-}
-
-.c3 {
-  font-weight: 700;
 }
 
 @media screen and ( max-width:800px ) {

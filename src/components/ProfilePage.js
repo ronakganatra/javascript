@@ -98,7 +98,7 @@ const messages = defineMessages( {
 const Column = styled.div`
 	flex-basis: 48%;
 	p:first-child {
-		margin-top: 0;
+		margin-top: 16px;
 	}
 `;
 
