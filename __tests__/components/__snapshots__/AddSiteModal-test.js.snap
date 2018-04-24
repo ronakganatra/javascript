@@ -196,12 +196,14 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
+  font-weight: 700;
 }
 
 .c6 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
+  font-weight: 700;
 }
 
 .c1 {

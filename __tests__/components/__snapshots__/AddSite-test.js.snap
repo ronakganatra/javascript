@@ -155,12 +155,14 @@ exports[`The AddSite component matches the snapshot 1`] = `
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
+  font-weight: 700;
 }
 
 .c5 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
+  font-weight: 700;
 }
 
 .c0 {
