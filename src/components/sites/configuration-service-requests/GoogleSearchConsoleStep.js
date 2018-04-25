@@ -83,8 +83,8 @@ class GoogleSearchConsoleStep extends React.Component {
 						id="googleSearchConsoleConnected"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.searchConsoleRequired === false }
-						value="false"/>
+						checked={ this.state.searchConsoleRequired === true }
+						value="true"/>
 					<StyledLabel htmlFor="googleSearchConsoleConnected">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleConnected.id }
@@ -108,8 +108,8 @@ class GoogleSearchConsoleStep extends React.Component {
 						id="googleSearchConsoleMissing"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.searchConsoleRequired === true }
-						value="true"/>
+						checked={ this.state.searchConsoleRequired === false }
+						value="false"/>
 					<StyledLabel htmlFor="googleSearchConsoleMissing">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleMissing.id }
