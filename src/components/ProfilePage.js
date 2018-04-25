@@ -15,6 +15,7 @@ import MyYoastModal from "./MyYoastModal";
 import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -401,6 +402,7 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
+		const gravatarLinkContent = <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) } <NewTabMessage /></a>;
 
 		return (
 			<div>
@@ -422,7 +424,7 @@ class ProfilePage extends React.Component {
 									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
 									" an account with them yet, or want to change your existing picture, please visit" +
 									" the { link }. Changes may take up to an hour to become visible here." }
-									values={ { link: <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) }</a> } }
+									values={ { link: gravatarLinkContent } }
 								/>
 							</p>
 							{ image }
