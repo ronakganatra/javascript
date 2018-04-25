@@ -300,7 +300,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
       className="c11"
     >
       <span>
-        0/20 remaining
+        20/20 used
       </span>
     </span>
   </span>
@@ -620,7 +620,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       className="c11"
     >
       <span>
-        6/20 remaining
+        14/20 used
       </span>
     </span>
   </span>
