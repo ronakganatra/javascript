@@ -31,50 +31,12 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c18 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c18:hover,
-.c18:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c18:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c17 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c16 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -85,11 +47,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c24 {
+.c15 {
   height: inherit;
 }
 
-.c19 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -97,11 +59,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c19 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c20 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -119,20 +81,20 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c20:first-child {
+.c11:first-child {
   margin-top: 64px;
 }
 
-.c23 {
+.c14 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c23:first-child {
+.c14:first-child {
   padding-left: 0;
 }
 
-.c23::before {
+.c14::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -141,7 +103,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: none;
 }
 
-.c23::after {
+.c14::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -150,7 +112,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "";
 }
 
-.c26 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -158,11 +120,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -171,7 +133,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "Site name";
 }
 
-.c28 {
+.c19 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -179,11 +141,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c28:first-child {
+.c19:first-child {
   padding-left: 0;
 }
 
-.c28::before {
+.c19::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -192,16 +154,16 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "Active subscriptions";
 }
 
-.c31 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c31:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c31::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -210,23 +172,23 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: none;
 }
 
-.c25 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c22 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c21 {
+.c12 {
   height: 48px;
 }
 
-.c29 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -234,11 +196,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c30 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -246,11 +208,11 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c30:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c27 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -258,17 +220,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -296,79 +247,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c14 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c14.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c14 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c14 .Select-placeholder {
-  line-height: 48px;
-  color: #646464;
-}
-
-.c14.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c14 .Select-value-label {
-  line-height: 48px;
-}
-
-.c14 .Select-input {
-  line-height: 48px;
-}
-
-.c14 .Select-option {
-  color: #000;
-}
-
-.c14 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c14 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c13 >:last-child {
-  margin-left: 8px;
-}
-
-.c15 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
-.c12 {
-  font-weight: 700;
-}
-
 .c0 {
   text-align: center;
 }
@@ -386,67 +264,53 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c20 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23::after {
+  .c14::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c14 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c26 {
+  .c17 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c19 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c19 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c31 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -499,104 +363,55 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <label
-        className="c12"
-        htmlFor="configuration-service-select-website"
-      >
-        <span>
-          Select a website:
-        </span>
-      </label>
-      <span
-        className="c13"
-      >
-        <mockSelectComponent
-          className="c14"
-          id="configuration-service-select-website"
-          name="form-field-name"
-          onChange={[Function]}
-          placeholder="Open the list of websites..."
-          value=""
-        />
-        <button
-          className="c15 c4 c16 Button-kDSBcD c17 c18"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c19"
+      className="c10"
       role="list"
     >
       <li
-        className="c20"
+        className="c11"
       >
         <span
-          className="c21 c22 c23"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c24"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c25 c26"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c27 c22 c28"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c22 c31"
+          className="c13 c22"
         />
       </li>
     </ul>
@@ -635,50 +450,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
-.c18 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c18:hover,
-.c18:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c18:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c17 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c16 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -689,11 +466,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c24 {
+.c15 {
   height: inherit;
 }
 
-.c19 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -701,11 +478,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c19 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c20 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -723,20 +500,20 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c20:first-child {
+.c11:first-child {
   margin-top: 64px;
 }
 
-.c23 {
+.c14 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c23:first-child {
+.c14:first-child {
   padding-left: 0;
 }
 
-.c23::before {
+.c14::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -745,7 +522,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c23::after {
+.c14::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -754,7 +531,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "";
 }
 
-.c26 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -762,11 +539,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -775,7 +552,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Site name";
 }
 
-.c28 {
+.c19 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -783,11 +560,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c28:first-child {
+.c19:first-child {
   padding-left: 0;
 }
 
-.c28::before {
+.c19::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -796,16 +573,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c31 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c31:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c31::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -814,23 +591,23 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c25 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c22 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c21 {
+.c12 {
   height: 48px;
 }
 
-.c29 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -838,11 +615,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c30 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -850,11 +627,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c30:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c27 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -862,17 +639,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -900,79 +666,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c14 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c14.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c14 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c14 .Select-placeholder {
-  line-height: 48px;
-  color: #646464;
-}
-
-.c14.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c14 .Select-value-label {
-  line-height: 48px;
-}
-
-.c14 .Select-input {
-  line-height: 48px;
-}
-
-.c14 .Select-option {
-  color: #000;
-}
-
-.c14 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c14 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c13 >:last-child {
-  margin-left: 8px;
-}
-
-.c15 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
-.c12 {
-  font-weight: 700;
-}
-
 .c0 {
   text-align: center;
 }
@@ -990,67 +683,53 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c20 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23::after {
+  .c14::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c14 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c26 {
+  .c17 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c19 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c19 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c31 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -1103,104 +782,55 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <label
-        className="c12"
-        htmlFor="configuration-service-select-website"
-      >
-        <span>
-          Select a website:
-        </span>
-      </label>
-      <span
-        className="c13"
-      >
-        <mockSelectComponent
-          className="c14"
-          id="configuration-service-select-website"
-          name="form-field-name"
-          onChange={[Function]}
-          placeholder="Open the list of websites..."
-          value=""
-        />
-        <button
-          className="c15 c4 c16 Button-kDSBcD c17 c18"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c19"
+      className="c10"
       role="list"
     >
       <li
-        className="c20"
+        className="c11"
       >
         <span
-          className="c21 c22 c23"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c24"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c25 c26"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c27 c22 c28"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c22 c31"
+          className="c13 c22"
         />
       </li>
     </ul>
@@ -1239,50 +869,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
   box-shadow: none;
 }
 
-.c18 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #a0a5aa;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c18:hover,
-.c18:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c18:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
 .c7 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
   background-size: 24px;
   padding-left: 36px;
-}
-
-.c17 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c16 {
-  min-width: 152px;
 }
 
 .c6 {
@@ -1293,11 +885,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
-.c24 {
+.c15 {
   height: inherit;
 }
 
-.c19 {
+.c10 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -1305,11 +897,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: 100%;
 }
 
-.c19 li:first-child > span::before {
+.c10 li:first-child > span::before {
   left: auto;
 }
 
-.c20 {
+.c11 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -1327,20 +919,20 @@ exports[`the sites page component with sites handling an onclick event on the ad
   justify-content: space-between;
 }
 
-.c20:first-child {
+.c11:first-child {
   margin-top: 64px;
 }
 
-.c23 {
+.c14 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c23:first-child {
+.c14:first-child {
   padding-left: 0;
 }
 
-.c23::before {
+.c14::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1349,7 +941,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c23::after {
+.c14::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -1358,7 +950,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "";
 }
 
-.c26 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1366,11 +958,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c26:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c26::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1379,7 +971,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Site name";
 }
 
-.c28 {
+.c19 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1387,11 +979,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   white-space: nowrap;
 }
 
-.c28:first-child {
+.c19:first-child {
   padding-left: 0;
 }
 
-.c28::before {
+.c19::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1400,16 +992,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c31 {
+.c22 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c31:first-child {
+.c22:first-child {
   padding-left: 0;
 }
 
-.c31::before {
+.c22::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -1418,23 +1010,23 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: none;
 }
 
-.c25 {
+.c16 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c22 {
+.c13 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c21 {
+.c12 {
   height: 48px;
 }
 
-.c29 {
+.c20 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -1442,11 +1034,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c29:nth-child(n+7) {
+.c20:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c30 {
+.c21 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -1454,11 +1046,11 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c30:nth-child(n+7) {
+.c21:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c27 {
+.c18 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
@@ -1466,17 +1058,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c9 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c10 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c10 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c3 {
@@ -1504,79 +1085,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   width: calc(100% - 40px);
 }
 
-.c11 {
-  font-weight: 300;
-  font-size: 1.3em;
-  margin: 0;
-}
-
-.c14 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c14.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c14 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c14 .Select-placeholder {
-  line-height: 48px;
-  color: #646464;
-}
-
-.c14.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c14 .Select-value-label {
-  line-height: 48px;
-}
-
-.c14 .Select-input {
-  line-height: 48px;
-}
-
-.c14 .Select-option {
-  color: #000;
-}
-
-.c14 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c14 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c13 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-}
-
-.c13 >:last-child {
-  margin-left: 8px;
-}
-
-.c15 {
-  white-space: nowrap;
-  min-width: initial;
-}
-
-.c12 {
-  font-weight: 700;
-}
-
 .c0 {
   text-align: center;
 }
@@ -1594,67 +1102,53 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:800px ) {
-  .c20 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23::after {
+  .c14::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c14 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c26 {
+  .c17 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c19 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c19 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c31 {
+  .c22 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c16 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 {
-    display: block;
-    height: auto;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c13 >:last-child {
-    margin-left: 0;
-    margin-top: 8px;
   }
 }
 
@@ -1707,104 +1201,55 @@ exports[`the sites page component with sites handling an onclick event on the ad
   <div
     className="c9"
   >
-    <div
-      className="c10"
-    >
-      <h2
-        className="c11"
-      >
-        Configuration Service
-      </h2>
-      <p>
-        <span>
-          You have 1 available configuration service, which you can apply to one of your websites.
-        </span>
-        <br />
-        <span>
-          Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
-        </span>
-      </p>
-      <label
-        className="c12"
-        htmlFor="configuration-service-select-website"
-      >
-        <span>
-          Select a website:
-        </span>
-      </label>
-      <span
-        className="c13"
-      >
-        <mockSelectComponent
-          className="c14"
-          id="configuration-service-select-website"
-          name="form-field-name"
-          onChange={[Function]}
-          placeholder="Open the list of websites..."
-          value=""
-        />
-        <button
-          className="c15 c4 c16 Button-kDSBcD c17 c18"
-          onClick={[Function]}
-          type="button"
-        >
-          Request configuration service
-        </button>
-      </span>
-    </div>
-  </div>
-  <div
-    className="c9"
-  >
     <ul
-      className="c19"
+      className="c10"
       role="list"
     >
       <li
-        className="c20"
+        className="c11"
       >
         <span
-          className="c21 c22 c23"
+          className="c12 c13 c14"
         >
           <img
             alt=""
-            className="c24"
+            className="c15"
             src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
           />
         </span>
         <span
-          className="c25 c26"
+          className="c16 c17"
         >
           www.yoast.com
         </span>
         <span
-          className="c27 c22 c28"
+          className="c18 c13 c19"
         >
           <span>
             <img
               alt="Test is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test2 is active"
-              className="c29"
+              className="c20"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c30"
+              className="c21"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c22 c31"
+          className="c13 c22"
         />
       </li>
     </ul>

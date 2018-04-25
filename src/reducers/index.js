@@ -14,7 +14,7 @@ import { uiCourseInviteRequestReducer } from "./courses";
 import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
 import { uiInvoicesReducer } from "./invoices";
-import { uiConfigurationRequestReducer } from "./configurationRequest";
+import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
 
 
 export const uiReducer = combineReducers( {
@@ -33,7 +33,7 @@ export const uiReducer = combineReducers( {
 	addSubscriptionModal: uiAddSubscriptionModalReducer,
 	helpBeaconModal: uiHelpBeaconModalReducer,
 	composerTokens: uiComposerTokensReducer,
-	configurationRequest: uiConfigurationRequestReducer,
+	configurationServiceRequests: uiConfigurationServiceRequestReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
@@ -76,6 +76,11 @@ export const entitiesComposerTokensReducer = combineReducers( {
 	allIds: allIdsComposerTokensReducer,
 } );
 
+export const entitiesConfigurationServiceRequestsReducer = combineReducers( {
+	byId: byIdConfigurationServiceRequestsReducer,
+	allIds: allIdsConfigurationServiceRequestsReducer,
+} );
+
 export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
@@ -85,6 +90,7 @@ export const entitiesReducer = combineReducers( {
 	orders: entitiesOrdersReducer,
 	refunds: entitiesRefundsReducer,
 	composerTokens: entitiesComposerTokensReducer,
+	configurationServiceRequests: entitiesConfigurationServiceRequestsReducer,
 } );
 
 export const rootReducer = combineReducers( {

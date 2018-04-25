@@ -10,12 +10,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -62,12 +56,12 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c15 {
+.c16 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -90,7 +84,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c16 svg {
+.c17 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -103,7 +97,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c17 {
+.c18 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -125,17 +119,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -166,6 +162,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   margin-bottom: 0;
 }
 
+.c15 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -173,7 +173,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -192,19 +192,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 {
+  .c17 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c17 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 svg {
+  .c17 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -351,6 +351,14 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c15"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -364,15 +372,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c0"
     >
       <div
-        className="c15"
+        className="c16"
       >
         <button
           aria-expanded={false}
-          className="c16"
+          className="c17"
           onClick={[Function]}
         >
           <span
-            className="c17"
+            className="c18"
           >
             Developer Tokens
           </span>
@@ -397,15 +405,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
     className="c0"
   >
     <div
-      className="c15"
+      className="c16"
     >
       <button
         aria-expanded={false}
-        className="c16"
+        className="c17"
         onClick={[Function]}
       >
         <span
-          className="c17"
+          className="c18"
         >
           Danger zone
         </span>
@@ -438,12 +446,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   padding: 16px 24px;
 }
 
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
 .c1 {
   background-color: #fff;
   display: -webkit-box;
@@ -490,12 +492,12 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c15 {
+.c16 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -518,7 +520,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: #000;
 }
 
-.c16 svg {
+.c17 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -531,7 +533,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c17 {
+.c18 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -553,17 +555,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -594,6 +598,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   margin-bottom: 0;
 }
 
+.c15 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -601,7 +609,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -620,19 +628,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 {
+  .c17 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c17 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 svg {
+  .c17 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -779,6 +787,14 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c15"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -791,15 +807,15 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
     className="c0"
   >
     <div
-      className="c15"
+      className="c16"
     >
       <button
         aria-expanded={false}
-        className="c16"
+        className="c17"
         onClick={[Function]}
       >
         <span
-          className="c17"
+          className="c18"
         >
           Danger zone
         </span>
@@ -830,12 +846,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -884,12 +894,12 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c17 {
+.c18 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c18 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -912,7 +922,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c18 svg {
+.c19 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -925,7 +935,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c19 {
+.c20 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -947,17 +957,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -988,6 +1000,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-bottom: 0;
 }
 
+.c17 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -995,7 +1011,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -1027,19 +1043,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c18 {
+  .c19 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c19 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c18 svg {
+  .c19 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1190,6 +1206,14 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c17"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -1202,15 +1226,15 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     className="c0"
   >
     <div
-      className="c17"
+      className="c18"
     >
       <button
         aria-expanded={false}
-        className="c18"
+        className="c19"
         onClick={[Function]}
       >
         <span
-          className="c19"
+          className="c20"
         >
           Danger zone
         </span>
@@ -1241,12 +1265,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -1295,12 +1313,12 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c19 {
+.c20 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c20 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1323,7 +1341,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c20 svg {
+.c21 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1336,7 +1354,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c21 {
+.c22 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1395,17 +1413,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c14 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -1436,6 +1456,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin-bottom: 0;
 }
 
+.c19 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -1443,7 +1467,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c18 {
@@ -1462,19 +1486,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c20 {
+  .c21 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c20 {
+  .c21 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c20 svg {
+  .c21 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1651,6 +1675,14 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c19"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -1663,15 +1695,15 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     className="c0"
   >
     <div
-      className="c19"
+      className="c20"
     >
       <button
         aria-expanded={false}
-        className="c20"
+        className="c21"
         onClick={[Function]}
       >
         <span
-          className="c21"
+          className="c22"
         >
           Danger zone
         </span>
@@ -1702,12 +1734,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -1756,12 +1782,12 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1784,7 +1810,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c17 svg {
+.c18 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1797,7 +1823,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c18 {
+.c19 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1819,17 +1845,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -1860,6 +1888,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   margin-bottom: 0;
 }
 
+.c16 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -1867,7 +1899,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -1892,19 +1924,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 {
+  .c18 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17 {
+  .c18 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 svg {
+  .c18 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2056,6 +2088,14 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c16"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -2068,15 +2108,15 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     className="c0"
   >
     <div
-      className="c16"
+      className="c17"
     >
       <button
         aria-expanded={false}
-        className="c17"
+        className="c18"
         onClick={[Function]}
       >
         <span
-          className="c18"
+          className="c19"
         >
           Danger zone
         </span>
@@ -2107,12 +2147,6 @@ exports[`components/ProfilePage saving profile 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -2161,12 +2195,12 @@ exports[`components/ProfilePage saving profile 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2189,7 +2223,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: #000;
 }
 
-.c17 svg {
+.c18 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2202,7 +2236,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c18 {
+.c19 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2224,17 +2258,19 @@ exports[`components/ProfilePage saving profile 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c13 {
@@ -2271,6 +2307,10 @@ exports[`components/ProfilePage saving profile 1`] = `
   margin-bottom: 0;
 }
 
+.c16 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -2278,7 +2318,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c15 {
@@ -2297,19 +2337,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 {
+  .c18 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17 {
+  .c18 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 svg {
+  .c18 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2468,6 +2508,14 @@ exports[`components/ProfilePage saving profile 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c16"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -2480,15 +2528,15 @@ exports[`components/ProfilePage saving profile 1`] = `
     className="c0"
   >
     <div
-      className="c16"
+      className="c17"
     >
       <button
         aria-expanded={false}
-        className="c17"
+        className="c18"
         onClick={[Function]}
       >
         <span
-          className="c18"
+          className="c19"
         >
           Danger zone
         </span>
@@ -2519,12 +2567,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -2573,12 +2615,12 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2601,7 +2643,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: #000;
 }
 
-.c17 svg {
+.c18 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2614,7 +2656,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c18 {
+.c19 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2636,17 +2678,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -2677,6 +2721,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
   margin-bottom: 0;
 }
 
+.c16 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -2684,7 +2732,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -2709,19 +2757,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 {
+  .c18 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17 {
+  .c18 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 svg {
+  .c18 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2873,6 +2921,14 @@ exports[`components/ProfilePage sending password reset 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c16"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -2885,15 +2941,15 @@ exports[`components/ProfilePage sending password reset 1`] = `
     className="c0"
   >
     <div
-      className="c16"
+      className="c17"
     >
       <button
         aria-expanded={false}
-        className="c17"
+        className="c18"
         onClick={[Function]}
       >
         <span
-          className="c18"
+          className="c19"
         >
           Danger zone
         </span>
@@ -2924,12 +2980,6 @@ exports[`components/ProfilePage the default case 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -2978,7 +3028,7 @@ exports[`components/ProfilePage the default case 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c15 {
+.c16 {
   -webkit-flex: 0 0 120px;
   -ms-flex: 0 0 120px;
   flex: 0 0 120px;
@@ -2987,12 +3037,12 @@ exports[`components/ProfilePage the default case 1`] = `
   margin-right: 12px;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c17 {
+.c18 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3015,7 +3065,7 @@ exports[`components/ProfilePage the default case 1`] = `
   color: #000;
 }
 
-.c17 svg {
+.c18 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3028,7 +3078,7 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c18 {
+.c19 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3050,17 +3100,19 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -3091,6 +3143,10 @@ exports[`components/ProfilePage the default case 1`] = `
   margin-bottom: 0;
 }
 
+.c15 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -3098,7 +3154,7 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -3117,19 +3173,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 {
+  .c18 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17 {
+  .c18 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 svg {
+  .c18 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3276,13 +3332,21 @@ exports[`components/ProfilePage the default case 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c15"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
         </p>
         <img
           alt=""
-          className="c15"
+          className="c16"
           size="120px"
           src="dummy.png"
         />
@@ -3293,15 +3357,15 @@ exports[`components/ProfilePage the default case 1`] = `
     className="c0"
   >
     <div
-      className="c16"
+      className="c17"
     >
       <button
         aria-expanded={false}
-        className="c17"
+        className="c18"
         onClick={[Function]}
       >
         <span
-          className="c18"
+          className="c19"
         >
           Danger zone
         </span>
@@ -3332,12 +3396,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 .c2 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c2 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c1 {
@@ -3386,12 +3444,12 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c15 {
+.c16 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c16 {
+.c17 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3414,7 +3472,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: #000;
 }
 
-.c16 svg {
+.c17 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3427,7 +3485,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c17 {
+.c18 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3449,17 +3507,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c10 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c7 {
-  margin: 0.5em 0;
-  font-size: 1.1em;
 }
 
 .c4 {
@@ -3490,6 +3550,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   margin-bottom: 0;
 }
 
+.c15 {
+  padding-top: 0.5em;
+}
+
 .c3 {
   -webkit-flex-basis: 48%;
   -ms-flex-preferred-size: 48%;
@@ -3497,7 +3561,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c3 p:first-child {
-  margin-top: 0;
+  margin-top: 16px;
 }
 
 .c14 {
@@ -3516,19 +3580,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 {
+  .c17 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c17 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 svg {
+  .c17 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3675,6 +3739,14 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               target="_blank"
             >
               Gravatar website
+               
+              <span
+                className="screen-reader-text c15"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
             </a>
             . Changes may take up to an hour to become visible here.
           </span>
@@ -3687,15 +3759,15 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     className="c0"
   >
     <div
-      className="c15"
+      className="c16"
     >
       <button
         aria-expanded={false}
-        className="c16"
+        className="c17"
         onClick={[Function]}
       >
         <span
-          className="c17"
+          className="c18"
         >
           Danger zone
         </span>

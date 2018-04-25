@@ -11,6 +11,7 @@ import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
+import { StyledLabel } from "../../Labels";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -59,11 +60,6 @@ const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
-const Label = styled.label`
-	margin: 0.5em 0;
-	font-size: 1.1em;
-`;
-
 const FormMessage = styled.p`
 	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
 	margin: 0;
@@ -88,12 +84,11 @@ const LabelBlock = styled.div`
 
 const NameBlock = styled( LabelBlock )`
 	width: 48%;
-
 	margin-bottom: 8px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
-	} 
+	}
 
 	div:last-of-type{
 		margin-bottom: 0;
@@ -315,7 +310,12 @@ class ProfileForm extends React.Component {
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
 				<NameBlock id="left">
-					<Label htmlFor="first-name"><FormattedMessage id={ messages.labelFirstName.id } defaultMessage={ messages.labelFirstName.defaultMessage }/></Label>
+					<StyledLabel htmlFor="first-name">
+						<FormattedMessage
+							id={ messages.labelFirstName.id }
+							defaultMessage={ messages.labelFirstName.defaultMessage }
+						/>
+					</StyledLabel>
 					<TextInput
 						width="100%"
 						margin-right="5px"
@@ -327,7 +327,12 @@ class ProfileForm extends React.Component {
 					/>
 				</NameBlock>
 				<NameBlock>
-					<Label htmlFor="last-name"><FormattedMessage id={ messages.labelLastName.id } defaultMessage={ messages.labelLastName.defaultMessage }/></Label>
+					<StyledLabel htmlFor="last-name">
+						<FormattedMessage
+							id={ messages.labelLastName.id }
+							defaultMessage={ messages.labelLastName.defaultMessage }
+						/>
+					</StyledLabel>
 					<TextInput
 						width="100%"
 						id="last-name"
@@ -338,7 +343,12 @@ class ProfileForm extends React.Component {
 					/>
 				</NameBlock>
 				<LabelBlock>
-					<Label htmlFor="email-address"><FormattedMessage id={ messages.labelEmail.id } defaultMessage={ messages.labelEmail.defaultMessage }/></Label>
+					<StyledLabel htmlFor="email-address">
+						<FormattedMessage
+							id={ messages.labelEmail.id }
+							defaultMessage={ messages.labelEmail.defaultMessage }
+						/>
+					</StyledLabel>
 					<TextInput
 						id="email-address"
 						autocomplete="on"

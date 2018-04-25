@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
+exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`] = `
 .c0 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
@@ -8,12 +8,6 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
 .c1 {
   background-color: #fff;
   padding: 16px 24px;
-}
-
-.c1 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
 }
 
 .c10 {
@@ -118,13 +112,16 @@ exports[`The ConfigurationRequestBlock component matches the snapshot 1`] = `
   margin: 0;
 }
 
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
 .c6 {
   white-space: nowrap;
   min-width: initial;
-}
-
-.c3 {
-  font-weight: 700;
 }
 
 @media screen and ( max-width:800px ) {

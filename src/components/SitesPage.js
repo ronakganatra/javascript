@@ -15,9 +15,9 @@ import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
 import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
-import ConfigurationRequestForm from "./sites/ConfigurationRequestBlock";
+import ConfigurationServiceRequestBlock from "./sites/ConfigurationServiceRequestBlock";
 import { CONFIGURATION_SERVICE_FEATURE, hasAccessToFeature } from "../functions/features";
-import ConfigurationRequest from "./sites/configuration-request/ConfigurationRequestForm";
+import ConfigurationServiceRequestForm from "./sites/configuration-service-requests/ConfigurationServiceRequestForm";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -86,14 +86,24 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
-	getConfigurationRequest() {
-		if ( hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
-			return <ConfigurationRequestForm
-				sites={ this.props.sites }
-				onConfigurationRequestClick={ this.props.onConfigurationRequestClick }
-			/>;
+	getConfigurationServiceRequest( id, data ) {
+		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
+			return null;
 		}
-		return null;
+
+		if ( ! hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
+			return null;
+		}
+
+		if ( this.props.sites.length === 0 ) {
+			return null;
+		}
+
+		return <ConfigurationServiceRequestBlock
+			amountAvailable={ this.props.availableConfigurationServiceRequests.length }
+			sites={ this.props.availableSites }
+			openConfigurationServiceRequestModal={ this.props.openConfigurationServiceRequestModal }
+		/>;
 	}
 
 	componentDidMount() {
@@ -123,13 +133,13 @@ class SitesPage extends React.Component {
 	 * Gets the related modal (AddSite or Configuration) to open.
 	 *
 	 * @returns {func} The getAddSiteModal() function to open the AddSite modal
-	 * @returns {func} The getConfigurationRequestModal() function to open the ConfigurationRequest modal
+	 * @returns {func} The getConfigurationServiceRequestModal() function to open the ConfigurationServiceRequestForm modal
 	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
 			return this.getAddSiteModal();
-		} else if ( this.props.configRequestModalOpen ) {
-			return this.getConfigRequestModal();
+		} else if ( this.props.configurationServiceRequestModalOpen ) {
+			return this.getConfigurationServiceRequestModal();
 		}
 	}
 
@@ -163,22 +173,27 @@ class SitesPage extends React.Component {
 	}
 
 	/**
-	 * Gets the ConfigurationRequest modal.
+	 * Gets the ConfigurationServiceRequestForm modal.
 	 *
-	 * @returns {object} The ConfigurationRequest modal rendered and opened.
+	 * @returns {object} The ConfigurationServiceRequestForm modal rendered and opened.
 	 */
-	getConfigRequestModal() {
+	getConfigurationServiceRequestModal() {
 		let modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
 		} );
 		return (
 			<MyYoastModal
-				isOpen={ this.props.configRequestModalOpen }
+				isOpen={ this.props.configurationServiceRequestModalOpen }
 				onClose={ this.props.onConfigurationModalClose }
 				modalAriaLabel={ modalAriaLabel }
 			>
-				<ConfigurationRequest onClose={ this.props.onConfigurationModalClose }/>
+				<ConfigurationServiceRequestForm
+					onClose={ this.props.onConfigurationModalClose }
+					configurationServiceRequestModalSiteId={ this.props.configurationServiceRequestModalSiteId }
+					configurationServiceRequest={ this.props.availableConfigurationServiceRequests[ 0 ] }
+					configureConfigurationServiceRequest={ this.props.configureConfigurationServiceRequest }
+				/>
 			</MyYoastModal>
 		);
 	}
@@ -211,7 +226,7 @@ class SitesPage extends React.Component {
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>
-					{ this.getConfigurationRequest() }
+					{ this.getConfigurationServiceRequest() }
 					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
 					{ this.getModal() }
 				</div>
@@ -238,28 +253,40 @@ class SitesPage extends React.Component {
 }
 
 SitesPage.propTypes = {
-	linkingSiteUrl: PropTypes.string.isRequired,
 	addSite: PropTypes.func.isRequired,
 	onSearchChange: PropTypes.func.isRequired,
-	modalOpen: PropTypes.bool,
 	onConnect: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
 	onManage: PropTypes.func.isRequired,
+	configureConfigurationServiceRequest: PropTypes.func.isRequired,
+	onConfigurationModalClose: PropTypes.func.isRequired,
+	openConfigurationServiceRequestModal: PropTypes.func.isRequired,
+
 	errorFound: PropTypes.bool.isRequired,
 	error: PropTypes.object,
+
 	sites: PropTypes.arrayOf( PropTypes.object ),
 	plugins: PropTypes.arrayOf( PropTypes.object ),
-	intl: intlShape.isRequired,
+	configurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
+	availableConfigurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
+	availableSites: PropTypes.arrayOf( PropTypes.object ),
+
+	linkingSiteUrl: PropTypes.string.isRequired,
 	query: PropTypes.string,
 	showLoader: PropTypes.bool,
-	onConfigurationRequestClick: PropTypes.func,
-	configRequestModalOpen: PropTypes.bool,
-	onConfigurationModalClose: PropTypes.func,
+	modalOpen: PropTypes.bool,
+	configurationServiceRequestModalOpen: PropTypes.bool,
+	configurationServiceRequestModalSiteId: PropTypes.string,
+
+	intl: intlShape.isRequired,
 };
 
 SitesPage.defaultProps = {
 	sites: [],
+	availableConfigurationServiceRequests: [],
+	availableSites: [],
+	configurationServiceRequestModalSiteId: "",
 	linkingSiteUrl: "",
 	modalOpen: false,
 	error: null,

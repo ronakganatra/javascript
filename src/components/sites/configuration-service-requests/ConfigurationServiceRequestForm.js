@@ -49,7 +49,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const ConfigurationRequestModal = styled.div`
+const StyledConfigurationServiceRequestForm = styled.div`
 	width: 640px;
 	max-width: 100%;
 	margin: auto;
@@ -70,25 +70,25 @@ const StyledContainer = styled.div`
 	clear: both;
 `;
 
-class ConfigurationRequest extends React.Component {
+class ConfigurationServiceRequestForm extends React.Component {
 	constructor( props ) {
 		super( props );
 
 		this.state = {
 			administratorLoginConfirmed: false,
-			createBackup: null,
-			importData: null,
-			googleSearchConsole: null,
+			backupRequired: null,
+			importFrom: null,
+			searchConsoleRequired: null,
 			activeStep: 0,
 		};
 
 		this.setAdministratorLoginConfirmation = this.setAdministratorLoginConfirmation.bind( this );
 		this.setBackupCreation = this.setBackupCreation.bind( this );
-		this.setImportData = this.setImportData.bind( this );
+		this.setImportFrom = this.setImportFrom.bind( this );
 		this.setGoogleSearchConsole = this.setGoogleSearchConsole.bind( this );
 		this.goStepBack = this.goStepBack.bind( this );
 		this.goToStep = this.goToStep.bind( this );
-		this.createConfigurationRequest = this.createConfigurationRequest.bind( this );
+		this.createConfigurationServiceRequest = this.createConfigurationServiceRequest.bind( this );
 	}
 
 	/**
@@ -115,7 +115,7 @@ class ConfigurationRequest extends React.Component {
 	 */
 	setBackupCreation( data ) {
 		this.setState( {
-			createBackup: data.createBackup,
+			backupRequired: data.backupRequired,
 			activeStep: 2,
 		} );
 	}
@@ -127,9 +127,9 @@ class ConfigurationRequest extends React.Component {
 	 *
 	 * @returns {void}
 	 */
-	setImportData( data ) {
+	setImportFrom( data ) {
 		this.setState( {
-			importData: data.importData,
+			importFrom: data.importFrom,
 			activeStep: 3,
 		} );
 	}
@@ -142,8 +142,8 @@ class ConfigurationRequest extends React.Component {
 	 */
 	setGoogleSearchConsole( data ) {
 		this.setState( {
-			googleSearchConsole: data.googleSearchConsole,
-		} );
+			searchConsoleRequired: data.searchConsoleRequired,
+		}, this.createConfigurationServiceRequest );
 	}
 	/**
 	 * Goes one step back of the stepper using the back button.
@@ -166,8 +166,8 @@ class ConfigurationRequest extends React.Component {
 		let previousStepCompleted = [
 			true,
 			this.state.administratorLoginConfirmed,
-			this.state.createBackup !== null,
-			this.state.importData !== null,
+			this.state.backupRequired !== null,
+			this.state.importFrom !== null,
 		][ num ];
 
 		if ( ! previousStepCompleted ) {
@@ -181,8 +181,17 @@ class ConfigurationRequest extends React.Component {
 		}
 	}
 
-	createConfigurationRequest() {
+	createConfigurationServiceRequest() {
+		let id = this.props.configurationServiceRequest.id;
+		let data = {
+			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
+			backupRequired: this.state.backupRequired,
+			importFrom: this.state.importFrom,
+			searchConsoleRequired: this.state.searchConsoleRequired,
+			siteId: this.props.configurationServiceRequestModalSiteId,
+		};
 
+		this.props.configureConfigurationServiceRequest( id, data );
 	}
 
 	/**
@@ -192,7 +201,7 @@ class ConfigurationRequest extends React.Component {
 	 */
 	render() {
 		return (
-			<ConfigurationRequestModal>
+			<StyledConfigurationServiceRequestForm>
 				<StyledModalHeading>
 					<FormattedMessage
 						id="sites.configurationRequest.header"
@@ -219,36 +228,42 @@ class ConfigurationRequest extends React.Component {
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.backupStepLabel ),
 								label: this.props.intl.formatMessage( messages.backup ),
-								component: <BackupStep createBackup={ this.state.createBackup }
+								component: <BackupStep backupRequired={ this.state.backupRequired }
 												onSubmit={ this.setBackupCreation }
 												onBack={ this.goStepBack }/>,
 							},
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.importDataStepLabel ),
 								label: this.props.intl.formatMessage( messages.importData ),
-								component: <ImportDataStep importData={ this.state.importData }
-													onSubmit={ this.setImportData }
+								component: <ImportDataStep importFrom={ this.state.importFrom }
+													onSubmit={ this.setImportFrom }
 													onBack={ this.goStepBack }/>,
 							},
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.googleSearchConsoleStepLabel ),
 								label: this.props.intl.formatMessage( messages.googleSearchConsole ),
-								component: <GoogleSearchConsoleStep googleSearchConsole={ this.state.googleSearchConsole }
+								component: <GoogleSearchConsoleStep searchConsoleRequired={ this.state.searchConsoleRequired }
 															onSubmit={ this.setGoogleSearchConsole }
 															onBack={ this.goStepBack }/>,
 							},
 						] } />
 				</StyledContainer>
-			</ConfigurationRequestModal>
+			</StyledConfigurationServiceRequestForm>
 		);
 	}
 }
 
-ConfigurationRequest.propTypes = {
+ConfigurationServiceRequestForm.propTypes = {
 	onClose: PropTypes.func,
 	onBack: PropTypes.func,
 	goToStep: PropTypes.func,
 	intl: intlShape.isRequired,
+	configurationServiceRequestModalSiteId: PropTypes.string.isRequired,
+	configurationServiceRequest: PropTypes.object.isRequired,
+	configureConfigurationServiceRequest: PropTypes.func,
 };
 
-export default injectIntl( ConfigurationRequest );
+ConfigurationServiceRequestForm.defaultProps = {
+	configurationServiceRequest: {},
+};
+export default injectIntl( ConfigurationServiceRequestForm );

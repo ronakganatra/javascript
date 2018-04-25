@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The MyYoastModal for the ConfigurationRequestForm component matches the snapshot 1`] = `
+exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matches the snapshot 1`] = `
 .c0.my-yoast-modal__overlay {
   position: fixed;
   top: 0;

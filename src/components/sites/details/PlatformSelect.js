@@ -5,6 +5,7 @@ import YoastSelect, { SelectArea } from "../../general/YoastSelect";
 import CollapsibleHeader from "../../CollapsibleHeader";
 import { Paper, WhitePage } from "../../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../../Button";
+import { SpanStyledAsLabel } from "../../Labels";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -84,12 +85,15 @@ class PlatformSelect extends React.Component {
 				<CollapsibleHeader title={ this.props.title }>
 					<WhitePage>
 						{ this.getInformationParagraph( this.props.disablePlatformSelect ) }
-						<label htmlFor="selectPlatform" onClick={ () => this.selectRef && this.selectRef.focus() }>
+						<SpanStyledAsLabel
+							id="select-platform-label"
+							onClick={ () => this.selectRef && this.selectRef.focus() }
+						>
 							<FormattedMessage
 								id="sites.details.changePlatformType.enabled"
 								defaultMessage="Please select a platform:"
 							/>
-						</label>
+						</SpanStyledAsLabel>
 						<SelectArea>
 							<YoastSelect
 								value={ this.state.selectedOption.value }
@@ -97,14 +101,12 @@ class PlatformSelect extends React.Component {
 								searchable={ false }
 								clearable={ false }
 								tabSelectsValue={ true }
-								inputProps={ {
-									id: "selectPlatform",
-								} }
 								innerRef={ ( ref ) => {
 									this.selectRef = ref;
 								} }
 								disabled={ this.props.disablePlatformSelect }
 								options={ Object.values( SITE_TYPE_OPTIONS ) }
+								aria-labelledby="select-platform-label"
 							/>
 							<WideLargeButton
 								onClick={ this.handleConfirm.bind( this ) }

@@ -37,7 +37,7 @@ class GoogleSearchConsoleStep extends React.Component {
 		super( props );
 
 		this.state = {
-			googleSearchConsole: props.googleSearchConsole,
+			searchConsoleRequired: props.searchConsoleRequired,
 		};
 
 		this.handleInput = this.handleInput.bind( this );
@@ -52,7 +52,7 @@ class GoogleSearchConsoleStep extends React.Component {
 	 */
 	handleInput( event ) {
 		this.setState( {
-			googleSearchConsole: event.target.value === "true",
+			searchConsoleRequired: event.target.value === "true",
 		} );
 	}
 	/**
@@ -62,7 +62,7 @@ class GoogleSearchConsoleStep extends React.Component {
 	 * @returns {void}
 	 */
 	handleContinue() {
-		if ( this.state.googleSearchConsole === null ) {
+		if ( this.state.searchConsoleRequired === null ) {
 			return;
 		}
 
@@ -83,8 +83,8 @@ class GoogleSearchConsoleStep extends React.Component {
 						id="googleSearchConsoleConnected"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.googleSearchConsole === false }
-						value="false"/>
+						checked={ this.state.searchConsoleRequired === true }
+						value="true"/>
 					<StyledLabel htmlFor="googleSearchConsoleConnected">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleConnected.id }
@@ -108,8 +108,8 @@ class GoogleSearchConsoleStep extends React.Component {
 						id="googleSearchConsoleMissing"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.googleSearchConsole === true }
-						value="true"/>
+						checked={ this.state.searchConsoleRequired === false }
+						value="false"/>
 					<StyledLabel htmlFor="googleSearchConsoleMissing">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleMissing.id }
@@ -123,7 +123,7 @@ class GoogleSearchConsoleStep extends React.Component {
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
-						enabledStyle={ this.state.googleSearchConsole !== null }
+						enabledStyle={ this.state.searchConsoleRequired !== null }
 					>
 						<FormattedMessage id="requestConfiguration.submit" defaultMessage="submit"/>
 					</WideLargeButton>
@@ -135,7 +135,7 @@ class GoogleSearchConsoleStep extends React.Component {
 
 GoogleSearchConsoleStep.propTypes = {
 	intl: intlShape,
-	googleSearchConsole: PropTypes.bool,
+	searchConsoleRequired: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
 	onBack: PropTypes.func,
 	completeStep: PropTypes.func,

@@ -6,6 +6,7 @@ import { LargeButton, makeButtonFullWidth } from "../Button";
 import YoastSelect, { SelectArea } from "../general/YoastSelect";
 import { SubHeading } from "../Headings";
 import styled from "styled-components";
+import { StyledLabel } from "../Labels";
 
 let messages = defineMessages( {
 	configurationAvailable: {
@@ -37,20 +38,16 @@ let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	min-width: initial;
 `;
 
-const StyledLabel = styled.label`
-	font-weight: 700;
-`;
-
 /**
- * Returns the rendered ConfigurationRequestBlock component.
+ * Returns the rendered ConfigurationServiceRequestBlock component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered ConfigurationRequestBlock component.
+ * @returns {ReactElement} The rendered ConfigurationServiceRequestBlock component.
  */
-class ConfigurationRequestBlock extends React.Component {
+class ConfigurationServiceRequestBlock extends React.Component {
 	/**
-	 * Sets the ConfigurationRequestBlock component.
+	 * Sets the ConfigurationServiceRequestBlock component.
 	 * @param {Object} props All of the props passed to this component.
 	 * @returns {void}
 	 */
@@ -85,7 +82,7 @@ class ConfigurationRequestBlock extends React.Component {
 	 */
 	handleSubmit() {
 		if ( this.state.selectedOption ) {
-			this.props.onConfigurationRequestClick( this.state.selectedOption.value );
+			this.props.openConfigurationServiceRequestModal( this.state.selectedOption.value );
 		}
 	}
 
@@ -104,7 +101,7 @@ class ConfigurationRequestBlock extends React.Component {
 	}
 
 	render() {
-		let configAvailable = 1;
+		let configAvailable = this.props.amountAvailable;
 		let value = this.state.selectedOption && this.state.selectedOption.value;
 		let siteOptions = this.getOptions();
 		return (
@@ -153,10 +150,11 @@ class ConfigurationRequestBlock extends React.Component {
 	}
 }
 
-export default injectIntl( ConfigurationRequestBlock );
+export default injectIntl( ConfigurationServiceRequestBlock );
 
-ConfigurationRequestBlock.propTypes = {
-	onConfigurationRequestClick: PropTypes.func,
-	sites: PropTypes.array,
+ConfigurationServiceRequestBlock.propTypes = {
+	openConfigurationServiceRequestModal: PropTypes.func,
+	sites: PropTypes.array.isRequired,
+	amountAvailable: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,
 };

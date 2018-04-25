@@ -92,9 +92,11 @@ jest.mock( "../../src/reducers/composerTokens.js", () => {
 	}
 } );
 
-jest.mock( "../../src/reducers/configurationRequest.js", () => {
+jest.mock( "../../src/reducers/configurationServiceRequest.js", () => {
 	return {
-		uiConfigurationRequestReducer: jest.fn( ( state = {} ) => { return { name: "uiConfigurationRequestReducer" }; } ),
+		byIdConfigurationServiceRequestsReducer: jest.fn( ( state = {} ) => { return { name: "byIdConfigurationServiceRequestsReducer" }; } ),
+		allIdsConfigurationServiceRequestsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsConfigurationServiceRequestsReducer" }; } ),
+		uiConfigurationServiceRequestReducer: jest.fn( ( state = {} ) => { return { name: "uiConfigurationServiceRequestReducer" }; } ),
 	}
 } );
 
@@ -105,7 +107,7 @@ test( 'ui reducer', () => {
 	};
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, configurationRequest: { name: "uiConfigurationRequestReducer" } };
+		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" } };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -187,6 +189,7 @@ test( 'entities reducer', () => {
 		orders: { allIds: [], byId: {} },
 		courses: { byId: { name: "byIdCoursesReducer" }, allIds: { name: "allIdsCoursesReducer" } },
 		coursesEnrollments: { byId: { name: "byIdCoursesEnrollmentsReducer" }, allIds: { name: "allIdsCoursesEnrollmentsReducer" } },
+		configurationServiceRequests: { byId: { name: "byIdConfigurationServiceRequestsReducer" }, allIds: { name: "allIdsConfigurationServiceRequestsReducer" } },
 	};
 
 	const actual = entitiesReducer( state, action );
@@ -243,6 +246,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				byId: { name: "byIdProductsReducer" },
 				allIds: { name: "allIdsProductsReducer" },
 			},
+			configurationServiceRequests: {
+				byId: { name: "byIdConfigurationServiceRequestsReducer" },
+				allIds: { name: "allIdsConfigurationServiceRequestsReducer" },
+			},
 		},
 		router: {
 			location: "URL",
@@ -251,7 +258,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			sites: { name: "uiSitesReducer" },
 			refunds: { name: "uiRefundsReducer" },
 			composerTokens: { name: "uiComposerTokensReducer"},
-			configurationRequest: { name: "uiConfigurationRequestReducer" },
+			configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" },
 			search: {
 				query: "",
 			},
