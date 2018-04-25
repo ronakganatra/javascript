@@ -6,21 +6,15 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { addPlaceholderStyles } from "../../../styles/inputs";
 import defaults from "../../../config/defaults.json";
-
 import { ModalHeading } from "../../Headings";
 import { RedButton } from "../../Button";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
+import { StyledLabel } from "../../Labels";
 
 const ManageTokenModal = styled.div`
 	margin: auto;
 	font-weight: 300;
 	font-size: 1em;
-
-	label {
-		display: inline-block;
-		font-size: 1em;
-		margin: 16px 0 8px;
-	}
 `;
 
 const TokenDescription = addPlaceholderStyles( styled.input`
@@ -31,6 +25,7 @@ const TokenDescription = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	margin-bottom: 8px;
 ` );
 
 const Buttons = styled.div`
@@ -127,12 +122,12 @@ class ManageToken extends React.Component {
 					defaultMessage="Here you can edit this token's description, or disable the token."
 				/>
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="change-token-description-input">
+					<StyledLabel htmlFor="change-token-description-input">
 						<FormattedMessage
 							id="profile.manage-token.token-description"
 							defaultMessage="You can type a new description for the token here, in case you want to change it:"
 						/>
-					</label>
+					</StyledLabel>
 
 					<TokenDescription
 						type="text"

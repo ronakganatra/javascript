@@ -10,13 +10,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
   padding: 16px 24px;
 }
 
-.c1 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
-.c9 {
+.c10 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -34,72 +28,73 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
   transition: background-color 150ms ease-out;
 }
 
-.c9:hover,
-.c9:focus {
+.c10:hover,
+.c10:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c9:active {
+.c10:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c9 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c7 {
+.c8 {
   min-width: 152px;
 }
 
-.c4 {
+.c5 {
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c4.is-focused:not(.is-open) > .Select-control {
+.c5.is-focused:not(.is-open) > .Select-control {
   border-color: #64a60a;
   box-shadow: none;
   background: #fff;
 }
 
-.c4 .Select-control {
+.c5 .Select-control {
   height: 48px;
   border-radius: 0;
 }
 
-.c4 .Select-placeholder {
+.c5 .Select-placeholder {
+  line-height: 48px;
+  color: #646464;
+}
+
+.c5.Select--single > .Select-control .Select-value {
   line-height: 48px;
 }
 
-.c4.Select--single > .Select-control .Select-value {
+.c5 .Select-value-label {
   line-height: 48px;
 }
 
-.c4 .Select-value-label {
+.c5 .Select-input {
   line-height: 48px;
 }
 
-.c4 .Select-input {
-  line-height: 48px;
-}
-
-.c4 .Select-option {
+.c5 .Select-option {
   color: #000;
 }
 
-.c4 .Select-option.is-selected {
+.c5 .Select-option.is-selected {
   background-color: #6dff003d;
 }
 
-.c4 .Select-option.is-focused {
+.c5 .Select-option.is-focused {
   background-color: #64a60a;
   color: #fff;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -107,7 +102,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
   width: 100%;
 }
 
-.c3 >:last-child {
+.c4 >:last-child {
   margin-left: 8px;
 }
 
@@ -117,13 +112,20 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
   margin: 0;
 }
 
-.c5 {
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c6 {
   white-space: nowrap;
   min-width: initial;
 }
 
 @media screen and ( max-width:800px ) {
-  .c6 {
+  .c7 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -131,14 +133,14 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
 }
 
 @media screen and ( max-width:800px ) {
-  .c3 {
+  .c4 {
     display: block;
     height: auto;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c3 >:last-child {
+  .c4 >:last-child {
     margin-left: 0;
     margin-top: 8px;
   }
@@ -164,11 +166,19 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
         Select a website in the drop-down list below, and click on "request configuration service" to open the intake form.
       </span>
     </p>
-    <span
+    <label
       className="c3"
+      htmlFor="configuration-service-select-website"
+    >
+      <span>
+        Select a website:
+      </span>
+    </label>
+    <span
+      className="c4"
     >
       <div
-        className="Select c4 is-clearable is-searchable Select--single"
+        className="Select c5 is-clearable is-searchable Select--single"
         style={undefined}
       >
         <div
@@ -187,7 +197,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
             <div
               className="Select-placeholder"
             >
-              Select...
+              Open the list of websites...
             </div>
             <div
               className="Select-input"
@@ -206,7 +216,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
                 aria-labelledby={undefined}
                 aria-owns=""
                 className={undefined}
-                id={undefined}
+                id="configuration-service-select-website"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -250,7 +260,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
         </div>
       </div>
       <button
-        className="c5 c6 c7 Button-kDSBcD c8 c9"
+        className="c6 c7 c8 Button-kDSBcD c9 c10"
         onClick={[Function]}
         type="button"
       >

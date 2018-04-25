@@ -123,7 +123,7 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
       id="googleSearchConsoleConnected"
       onChange={[Function]}
       type="radio"
-      value="false"
+      value="true"
     />
     <label
       className="c0"
@@ -157,7 +157,7 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
       id="googleSearchConsoleMissing"
       onChange={[Function]}
       type="radio"
-      value="true"
+      value="false"
     />
     <label
       className="c0"

@@ -12,6 +12,7 @@ import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 import ButtonsContainer from "./general/ButtonsContainer";
 import YoastSelect from "./general/YoastSelect";
+import { StyledLabel, SpanStyledAsLabel } from "./Labels";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -24,12 +25,6 @@ const AddSiteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-size: 1em;
-
-	label {
-		display: inline-block;
-		font-size: 1em;
-		margin: 16px 0 8px;
-	}
 `;
 
 const WebsiteURL = addPlaceholderStyles( styled.input`
@@ -93,18 +88,24 @@ class AddSite extends React.Component {
 	getPlatformSelect() {
 		return(
 			<div>
-				<label htmlFor="selectPlatform">
+				<SpanStyledAsLabel
+					id="add-site-select-platform-label"
+					onClick={ () => this.selectRef && this.selectRef.focus() }
+				>
 					<FormattedMessage
 						id="sites.addSite.enterUrl"
 						defaultMessage="Please select the platform that your website is running on:"
 					/>
-				</label>
+				</SpanStyledAsLabel>
 				<YoastSelect
 					name="selectPlatform"
 					value={ this.state.selectedOption.value }
 					onChange={ this.handleChange.bind( this ) }
 					searchable={ false }
 					clearable={ false }
+					innerRef={ ( ref ) => {
+						this.selectRef = ref;
+					} }
 					options={ [
 						{
 							value: "wordpress",
@@ -115,6 +116,7 @@ class AddSite extends React.Component {
 							label: "TYPO3",
 						},
 					] }
+					aria-labelledby="add-site-select-platform-label"
 				/>
 			</div>
 		);
@@ -309,12 +311,12 @@ class AddSite extends React.Component {
 				</ModalHeading>
 
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="add-site-input">
+					<StyledLabel htmlFor="add-site-input">
 						<FormattedMessage
 							id="sites.addSite.enterUrl"
 							defaultMessage="Please enter the URL of the site you would like to add to your account:"
 						/>
-					</label>
+					</StyledLabel>
 
 					<WebsiteURL
 						type="url"
