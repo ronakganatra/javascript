@@ -493,7 +493,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             className="c16"
           >
             <span>
-              1/2 remaining
+              1/2 used
             </span>
           </span>
         </span>
@@ -560,7 +560,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             className="c16"
           >
             <span>
-              0/2 remaining
+              2/2 used
             </span>
           </span>
           <a
