@@ -8,6 +8,7 @@ import { addPlaceholderStyles } from "../../../styles/inputs";
 import defaults from "../../../config/defaults.json";
 import { ModalHeading } from "../../Headings";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
+import { StyledLabel } from "../../Labels";
 
 let messages = defineMessages(
 	{
@@ -21,12 +22,6 @@ let messages = defineMessages(
 const CreateTokenModal = styled.div`
 	margin: auto;
 	font-size: 1em;
-
-	label {
-		display: inline-block;
-		font-size: 1em;
-		margin: 16px 0 8px;
-	}
 `;
 
 const TokenDescription = addPlaceholderStyles( styled.input`
@@ -37,6 +32,7 @@ const TokenDescription = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	margin-bottom: 8px;
 ` );
 
 const Buttons = styled.div`
@@ -126,12 +122,12 @@ class CreateToken extends React.Component {
 				</ModalHeading>
 
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="create-token-description-input">
+					<StyledLabel htmlFor="create-token-description-input">
 						<FormattedMessage
 							id="profile.create-token.token-description"
 							defaultMessage="Please enter a description for the token you want to create:"
 						/>
-					</label>
+					</StyledLabel>
 
 					<TokenDescription
 						type="text"

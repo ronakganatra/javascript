@@ -1,5 +1,5 @@
 import React from 'react';
-import AdministratorLoginStep from "../../src/components/sites/configuration-request/AdministratorLoginStep";
+import AdministratorLoginStep from "../../src/components/sites/configuration-service-requests/AdministratorLoginStep";
 import { createComponentWithIntl } from "../../utils";
 
 test('The AdministratorLoginStep component matches the snapshot', () => {

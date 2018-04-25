@@ -10,6 +10,7 @@ import defaults from "../config/defaults.json";
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import ErrorDisplay from "../errors/ErrorDisplay";
+import { StyledLabel } from "./Labels";
 
 const messages = defineMessages( {
 	inviteEmail: {
@@ -34,16 +35,6 @@ const CourseInviteModal = styled.div`
 	max-width: 640px;
 	margin: auto;
 	font-size: 1em;
-
-	label {
-		display: inline-block;
-		font-size: 1em;
-		margin: 16px 0 8px;
-	}
-
-	#confirmation-label {
-		margin-top: 32px;
-	}
 `;
 
 const StudentEmailInput = addPlaceholderStyles( styled.input`
@@ -54,6 +45,7 @@ const StudentEmailInput = addPlaceholderStyles( styled.input`
 	padding: 0 0 0 10px;
 	font-size: 1em;
 	border: 0;
+	margin-bottom: 8px;
 ` );
 
 const Buttons = styled.div`
@@ -231,12 +223,12 @@ class CourseInvite extends React.Component {
 				</ModalHeading>
 
 				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
-					<label htmlFor="course-invite-email-input">
+					<StyledLabel htmlFor="course-invite-email-input">
 						<FormattedMessage
 							id="course.invite.email.input"
 							defaultMessage="Please enter the email address of the student you would like to invite to this course:"
 						/>
-					</label>
+					</StyledLabel>
 					<StudentEmailInput
 						type="email"
 						id="course-invite-email-input"
@@ -245,12 +237,12 @@ class CourseInvite extends React.Component {
 					/>
 					{ this.displayWarnings( this.state.warnings, "email" ) }
 
-					<label htmlFor="course-invite-email-confirmation" id="confirmation-label">
+					<StyledLabel htmlFor="course-invite-email-confirmation" id="confirmation-label">
 						<FormattedMessage
 							id="course.invite.email.confirmation"
 							defaultMessage="Please confirm the email address by typing it again:"
 						/>
-					</label>
+					</StyledLabel>
 
 					<StudentEmailInput
 						type="email"

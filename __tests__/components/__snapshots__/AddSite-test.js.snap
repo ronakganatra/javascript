@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The AddSite component matches the snapshot 1`] = `
-.c9 {
+.c11 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -19,19 +19,19 @@ exports[`The AddSite component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c9:hover,
-.c9:focus {
+.c11:hover,
+.c11:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c9:active {
+.c11:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c12 {
+.c14 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -49,23 +49,23 @@ exports[`The AddSite component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c14:hover,
+.c14:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c14:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c11 {
+.c13 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c8 {
+.c10 {
   color: #000;
   box-shadow: none;
   background-color: #fff;
@@ -73,8 +73,8 @@ exports[`The AddSite component matches the snapshot 1`] = `
   min-width: 152px;
 }
 
-.c8:hover,
-.c8:focus {
+.c10:hover,
+.c10:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -82,7 +82,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c10 {
+.c12 {
   min-width: 152px;
 }
 
@@ -92,7 +92,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   margin: 0;
 }
 
-.c6 {
+.c8 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
@@ -100,55 +100,69 @@ exports[`The AddSite component matches the snapshot 1`] = `
   text-align: right;
 }
 
-.c6 a,
-.c6 button {
+.c8 a,
+.c8 button {
   margin-left: 12px;
 }
 
-.c4 {
+.c6 {
   width: 100%;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c4.is-focused:not(.is-open) > .Select-control {
+.c6.is-focused:not(.is-open) > .Select-control {
   border-color: #64a60a;
   box-shadow: none;
   background: #fff;
 }
 
-.c4 .Select-control {
+.c6 .Select-control {
   height: 48px;
   border-radius: 0;
 }
 
-.c4 .Select-placeholder {
+.c6 .Select-placeholder {
   line-height: 48px;
   color: #646464;
 }
 
-.c4.Select--single > .Select-control .Select-value {
+.c6.Select--single > .Select-control .Select-value {
   line-height: 48px;
 }
 
-.c4 .Select-value-label {
+.c6 .Select-value-label {
   line-height: 48px;
 }
 
-.c4 .Select-input {
+.c6 .Select-input {
   line-height: 48px;
 }
 
-.c4 .Select-option {
+.c6 .Select-option {
   color: #000;
 }
 
-.c4 .Select-option.is-selected {
+.c6 .Select-option.is-selected {
   background-color: #6dff003d;
 }
 
-.c4 .Select-option.is-focused {
+.c6 .Select-option.is-focused {
   background-color: #64a60a;
   color: #fff;
+}
+
+.c2 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c5 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
 }
 
 .c0 {
@@ -157,13 +171,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
   font-size: 1em;
 }
 
-.c0 label {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-}
-
-.c3 {
+.c4 {
   width: 100%;
   height: 48px;
   box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
@@ -174,20 +182,20 @@ exports[`The AddSite component matches the snapshot 1`] = `
   margin-bottom: 8px;
 }
 
-.c2::-webkit-input-placeholder {
+.c3::-webkit-input-placeholder {
   color: #646464;
 }
 
-.c2::-moz-placeholder {
+.c3::-moz-placeholder {
   color: #646464;
   opacity: 1;
 }
 
-.c2:-ms-input-placeholder {
+.c3:-ms-input-placeholder {
   color: #646464;
 }
 
-.c5 {
+.c7 {
   font-size: 1em;
   color: #dc3232;
   margin: 1em 0;
@@ -195,7 +203,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c7 {
+  .c9 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -203,7 +211,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
 }
 
 @media screen and (max-width:800px) {
-  .c6 {
+  .c8 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -221,8 +229,8 @@ exports[`The AddSite component matches the snapshot 1`] = `
     justify-content: center;
   }
 
-  .c6 a,
-  .c6 button {
+  .c8 a,
+  .c8 button {
     margin-left: 0;
     margin-bottom: 8px;
   }
@@ -243,6 +251,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
     onSubmit={[Function]}
   >
     <label
+      className="c2"
       htmlFor="add-site-input"
     >
       <span>
@@ -250,7 +259,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </span>
     </label>
     <input
-      className="c2 c3"
+      className="c3 c4"
       id="add-site-input"
       onChange={[Function]}
       placeholder="https://example-site.com"
@@ -258,15 +267,17 @@ exports[`The AddSite component matches the snapshot 1`] = `
       value=""
     />
     <div>
-      <label
-        htmlFor="selectPlatform"
+      <span
+        className="c5"
+        id="add-site-select-platform-label"
+        onClick={[Function]}
       >
         <span>
           Please select the platform that your website is running on:
         </span>
-      </label>
+      </span>
       <div
-        className="Select c4 has-value Select--single"
+        className="Select c6 has-value Select--single"
         style={undefined}
       >
         <input
@@ -307,7 +318,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
               aria-disabled="false"
               aria-expanded={false}
               aria-label={undefined}
-              aria-labelledby={undefined}
+              aria-labelledby="add-site-select-platform-label"
               aria-owns=""
               className="Select-input"
               onBlur={[Function]}
@@ -336,13 +347,13 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </div>
     </div>
     <div
-      className="c5"
+      className="c7"
     />
     <div
-      className="c6"
+      className="c8"
     >
       <button
-        className="c7 c8 c9"
+        className="c9 c10 c11"
         onClick={[Function]}
         type="button"
       >
@@ -352,7 +363,7 @@ exports[`The AddSite component matches the snapshot 1`] = `
       </button>
       <button
         aria-label="add"
-        className="c7 c10 Button-kDSBcD c11 c12"
+        className="c9 c12 Button-kDSBcD c13 c14"
         type="submit"
       >
         <span>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Stepper from "../../src/components/general/Stepper";
-import BackupStep from "../../src/components/sites/configuration-request/BackupStep";
-import AdminstratorLoginStep from "../../src/components/sites/configuration-request/AdministratorLoginStep";
+import BackupStep from "../../src/components/sites/configuration-service-requests/BackupStep";
+import AdminstratorLoginStep from "../../src/components/sites/configuration-service-requests/AdministratorLoginStep";
 import { createComponentWithIntl } from "../../utils";
 
 
@@ -20,7 +20,7 @@ test('The Stepper component matches the snapshot', () => {
 					stepAriaLabel: "Step 2: Backup",
 					label: "Backup",
 					component: <BackupStep
-						createBackup={ true }
+						backupRequired={ true }
 						onSubmit={ () => { console.log( "clicked on Continue" ) } }
 						onBack={ () => { console.log( "clicked on Back" ); } }
 						completeStep={ () => { console.log( "clicked on Continue" ); } } />

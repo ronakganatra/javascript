@@ -35,7 +35,7 @@ class BackupStep extends React.Component {
 		super( props );
 
 		this.state = {
-			createBackup: props.createBackup,
+			backupRequired: props.backupRequired,
 		};
 
 		this.handleInput = this.handleInput.bind( this );
@@ -50,7 +50,7 @@ class BackupStep extends React.Component {
 	 */
 	handleInput( event ) {
 		this.setState( {
-			createBackup: event.target.value === "true",
+			backupRequired: event.target.value === "true",
 		} );
 	}
 	/**
@@ -60,7 +60,7 @@ class BackupStep extends React.Component {
 	 * @returns {void}
 	 */
 	handleContinue() {
-		if ( this.state.createBackup === null ) {
+		if ( this.state.backupRequired === null ) {
 			return;
 		}
 
@@ -81,7 +81,7 @@ class BackupStep extends React.Component {
 						id="backupExists"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.createBackup === false }
+						checked={ this.state.backupRequired === false }
 						value="false" />
 					<StyledLabel htmlFor="backupExists">
 						<FormattedMessage
@@ -94,7 +94,7 @@ class BackupStep extends React.Component {
 						id="backupMissing"
 						type="radio"
 						onChange={ this.handleInput }
-						checked={ this.state.createBackup === true }
+						checked={ this.state.backupRequired === true }
 						value="true" />
 					<StyledLabel htmlFor="backupMissing">
 						<FormattedMessage
@@ -109,7 +109,7 @@ class BackupStep extends React.Component {
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
-						enabledStyle={ this.state.createBackup !== null }
+						enabledStyle={ this.state.backupRequired !== null }
 					>
 						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
 					</WideLargeButton>
@@ -120,7 +120,7 @@ class BackupStep extends React.Component {
 }
 
 BackupStep.propTypes = {
-	createBackup: PropTypes.bool,
+	backupRequired: PropTypes.bool,
 	onSubmit: PropTypes.func.isRequired,
 	onBack: PropTypes.func,
 	completeStep: PropTypes.func,

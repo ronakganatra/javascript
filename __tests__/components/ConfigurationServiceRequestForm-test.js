@@ -1,7 +1,7 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
 import MyYoastModal from "../../src/components/MyYoastModal";
-import ConfigurationRequestForm from "../../src/components/sites/configuration-request/ConfigurationRequestForm";
+import ConfigurationServiceRequestForm from "../../src/components/sites/configuration-service-requests/ConfigurationServiceRequestForm";
 import { defineMessages } from "react-intl";
 
 jest.mock( "react-modal", () => {
@@ -21,14 +21,14 @@ let messages= defineMessages( {
 	}
 } );
 
-test('The MyYoastModal for the ConfigurationRequestForm component matches the snapshot', () => {
+test('The MyYoastModal for the ConfigurationServiceRequestForm component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MyYoastModal
 			onClose={ () => { console.log( "clicked on close" ); } }
 			isOpen={ true }
 			modalAriaLabel={ messages.modalAriaLabel }
 		>
-			<ConfigurationRequestForm
+			<ConfigurationServiceRequestForm
 				onClose={ () => { console.log( "clicked on Cancel" ); } }
 				onBack={ () => { console.log( "clicked on Back" ); } }
 				goToStep={ () => { console.log( "clicked on a step header" ); } }
