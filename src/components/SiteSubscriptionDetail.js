@@ -133,7 +133,7 @@ function SiteSubscriptionDetail( props ) {
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage hasSubscriptions={ props.hasSubscriptions }>
 					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } used"}
-						values={{ howMany: licensesRemaining + "/" + props.limit }} />
+						values={{ howMany: props.used + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
