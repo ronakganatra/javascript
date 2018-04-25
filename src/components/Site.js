@@ -52,6 +52,7 @@ function Site( props ) {
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
+	console.log( "restt", props.request );
 
 	return (
 		<Row { ...rowProps }>
@@ -81,6 +82,7 @@ Site.propTypes = {
 	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
+	request:PropTypes.object,
 	siteIcon: PropTypes.string,
 	onClickManage: PropTypes.func,
 	intl: intlShape.isRequired,

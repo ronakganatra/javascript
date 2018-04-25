@@ -18,13 +18,15 @@ function Sites( props ) {
 					let onManageHandler = () => {
 						props.onManage( site.id );
 					};
-
+					let activeRequest = props.activeRequests.byId[ site.id ];
+					let request = activeRequest.configurationServiceRequest ? activeRequest.configurationServiceRequest : {};
 					return <Site
 						key={ site.id }
 						siteIcon={ site.siteIcon }
 						siteName={ site.siteName }
 						siteType={ site.siteType }
 						activeSubscriptions={ site.activeSubscriptions }
+						request={ request }
 						plugins={ props.plugins }
 						onClickManage={ onManageHandler }
 					/>;
@@ -38,6 +40,7 @@ export default Sites;
 
 Sites.propTypes = {
 	sites: PropTypes.arrayOf( PropTypes.object ),
+	activeRequests: PropTypes.object,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	onManage: PropTypes.func.isRequired,
 };
