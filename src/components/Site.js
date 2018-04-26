@@ -35,6 +35,8 @@ let ColumnSubscriptions = styled( ColumnFixedWidth )`
 	flex-basis: 340px;
 `;
 
+let StatusConfigurationServiceRequest = styled.div``;
+
 /**
  * Returns the rendered Site component.
  *
@@ -52,13 +54,16 @@ function Site( props ) {
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
-	console.log( "restt", props.request );
+	console.log( "restt", props.siteId );
 
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
+				<StatusConfigurationServiceRequest>{ props.request.status === "submitted"
+					? "Configuration service requested"
+					: "Configured with configuration service" }</StatusConfigurationServiceRequest>
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
@@ -78,6 +83,7 @@ function Site( props ) {
 }
 
 Site.propTypes = {
+	siteId:PropTypes.string.isRequired,
 	siteName: PropTypes.string.isRequired,
 	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
