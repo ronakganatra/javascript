@@ -36,9 +36,6 @@ SearchLabel.defaultProps = {
 	htmlFor: "",
 };
 
-const SearchLabelText = styled.span`
-`;
-
 const SearchField = styled( InputField )`
 	width: calc(100% - 40px);
 `;
@@ -67,20 +64,18 @@ function Search( props ) {
 	};
 
 	return <div>
-		<SearchLabel htmlFor={ props.id }>
-			<SearchLabelText className="screen-reader-text">
-				{ props.searchLabel ? props.searchLabel : props.intl.formatMessage( messages.searchLabel ) }
-			</SearchLabelText>
+		<SearchLabel>
 		</SearchLabel>
 		<SearchField
 			type="text"
 			id={ props.id }
+			placeholder={ "Type here to search..." }
 			value={ props.query }
 			aria-describedby={ props.descriptionId }
 			onChange={ changeSearchQuery }
 			autoComplete="off"
 			autoCorrect="off"
-			autoCapitalize="off"
+            autoCapitalize="off"
 			spellCheck="false"
 		/>
 		<p className="screen-reader-text" id={ props.descriptionId }>
