@@ -86,7 +86,8 @@ class CoursesEnrollments extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.loadData();
+		this.props.loadCourseEnrollments();
+		this.props.loadCourses();
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -214,7 +215,8 @@ CoursesEnrollments.propTypes = {
 	inviteModalOpen: PropTypes.func.isRequired,
 	inviteModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	loadData: PropTypes.func,
+	loadCourseEnrollments: PropTypes.func,
+	loadCourses: PropTypes.func,
 	coursesEnrollments: PropTypes.array,
 	inviteModalIsOpen: PropTypes.bool,
 	onInviteClick: PropTypes.func,

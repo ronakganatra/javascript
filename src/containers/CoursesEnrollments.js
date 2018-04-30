@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
-	retrieveCoursesEnrollments, updateInviteStudentEmailConfirmation, sendCourseInvite,
+	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
 } from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
@@ -26,12 +26,12 @@ export const mapStateToProps = ( state ) => {
 		}
 
 		if ( enrollment.order ) {
-			buyerName = enrollment.buyer.userFirstName  + " " + enrollment.buyer.userLastName;
+			buyerName = enrollment.buyer.userFirstName + " " + enrollment.buyer.userLastName;
 			buyerEmail = enrollment.order.customerEmail;
 		}
 
 		if ( enrollment.student ) {
-			studentName = enrollment.student.userFirstName  + " " + enrollment.student.userLastName;
+			studentName = enrollment.student.userFirstName + " " + enrollment.student.userLastName;
 			studentEmail = enrollment.student.userEmail;
 		}
 
@@ -51,6 +51,42 @@ export const mapStateToProps = ( state ) => {
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
+	let allCourseIds = state.entities.courses.allIds;
+	let freeEnrollments = allCourseIds.map( ( courseId ) => {
+		let course = state.entities.courses.byId[ courseId ];
+		if ( ! course.open ) {
+			return;
+		}
+
+		// Don't show a free enrollment is the user is already enrolled.
+		let enrollmentsForCourse = coursesEnrollments.filter( enrollment => {
+			return enrollment.course_id === courseId;
+		} );
+		if ( enrollmentsForCourse.length > 0 ) {
+			return;
+		}
+
+		return {
+			// EnrollmentId is not unique across users.
+			id: courseId,
+			progress: 0,
+			courseId: courseId,
+			courseName: course.name,
+			icon: course.product ? course.product.icon : "",
+			buyerId: "",
+			buyerEmail: "",
+			buyerName: "",
+			status: "not started",
+			studentEmail: state.user.data.profile.email,
+			studentId: state.user.userId,
+			studentName: state.user.data.profile.userFirstName + " " + state.user.data.profile.userLastName,
+		};
+	} ).filter( ( enrollment ) => !! enrollment );
+
+
+	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
+
+
 	let inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
 	let inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
 	let inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
@@ -69,7 +105,8 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		loadData: () => dispatch( retrieveCoursesEnrollments() ),
+		loadCourseEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
+		loadCourses: () => dispatch( retrieveCourses() ),
 		inviteModalOpen: ( courseEnrollmentId ) => dispatch( courseInviteModalOpen( courseEnrollmentId ) ),
 		inviteModalClose: () => dispatch( courseInviteModalClose() ),
 		onClose: () => dispatch( courseInviteModalClose() ),
