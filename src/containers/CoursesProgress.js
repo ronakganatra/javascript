@@ -8,22 +8,22 @@ export const mapStateToProps = ( state ) => {
 
 	let allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( ( courseId ) => {
-		let course = state.entities.coursesEnrollments.byId[ courseId ];
+		let enrollment = state.entities.coursesEnrollments.byId[ courseId ];
 
 		// We don't want to display refunded course enrollments.
-		if ( course.status === "refunded" ) {
+		if ( enrollment.status === "refunded" ) {
 			return false;
 		}
 
 		return {
-			id: course.id,
-			name: course.course.name,
-			status: course.status,
-			progress: course.progress,
-			courseId: course.courseId,
-			buyerId: course.buyerId,
-			studentId: course.studentId,
-			orderId: course.orderId,
+			id: enrollment.id,
+			name: enrollment.course.name,
+			status: enrollment.status,
+			progress: enrollment.progress,
+			courseId: enrollment.courseId,
+			buyerId: enrollment.buyerId,
+			studentId: enrollment.studentId,
+			orderId: enrollment.orderId,
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
