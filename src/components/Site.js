@@ -34,15 +34,13 @@ SiteIcon.propTypes = {
 };
 
 const CompletedIcon = styled.img`
-	height: 16px;
+	height: 12px;
 	padding-right: 2px;
-	margin-bottom: -1.5px;
 `;
 
 const ClockIcon = styled.img`
-	height: 12px;
+	height: 10px;
 	padding-right: 2px;
-	margin-bottom: -0.5px;
 `;
 
 let ColumnSubscriptions = styled( ColumnFixedWidth )`
