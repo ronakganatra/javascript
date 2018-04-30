@@ -6,6 +6,7 @@ import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
 import SiteIcon from "./SiteIcon";
 import check from "../icons/checkGreen.svg";
+import clock from "../icons/clock.svg";
 import { Row, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
 import { FormattedMessage, intlShape, injectIntl, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
@@ -33,9 +34,15 @@ SiteIcon.propTypes = {
 };
 
 const CompletedIcon = styled.img`
-    height: 26px;
-    padding-right: 4px;
-    padding-top: 12px;
+	height: 16px;
+	padding-right: 2px;
+	margin-bottom: -1.5px;
+`;
+
+const ClockIcon = styled.img`
+	height: 12px;
+	padding-right: 2px;
+	margin-bottom: -0.5px;
 `;
 
 let ColumnSubscriptions = styled( ColumnFixedWidth )`
@@ -66,8 +73,6 @@ function Site( props ) {
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
-	console.log( "restt", props.hasRequest.status );
-
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
@@ -77,7 +82,7 @@ function Site( props ) {
 					? <FormattedMessage id="request.configured" defaultMessage={"{ statusIcon } Configured with configuration service"}
 										values={{ statusIcon: <CompletedIcon src={ check }/> }} />
 					: <FormattedMessage id="request.requested" defaultMessage={"{ statusIcon } Configuration service requested"}
-						values={{ statusIcon: "test" }} /> }
+						values={{ statusIcon: <ClockIcon src={ clock }/> }} /> }
 				</ConfigurationUsage>
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
