@@ -39,7 +39,7 @@ exports[`the sites component matches the snapshot 1`] = `
   margin-top: 64px;
 }
 
-.c14 {
+.c16 {
   background: #f7f7f7;
   min-height: 100px;
   display: -webkit-box;
@@ -57,7 +57,7 @@ exports[`the sites component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c14:first-child {
+.c16:first-child {
   margin-top: 64px;
 }
 
@@ -109,7 +109,7 @@ exports[`the sites component matches the snapshot 1`] = `
   content: "Site name";
 }
 
-.c10 {
+.c12 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -117,11 +117,11 @@ exports[`the sites component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c10:first-child {
+.c12:first-child {
   padding-left: 0;
 }
 
-.c10::before {
+.c12::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -130,16 +130,16 @@ exports[`the sites component matches the snapshot 1`] = `
   content: "Active subscriptions";
 }
 
-.c13 {
+.c15 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c13:first-child {
+.c15:first-child {
   padding-left: 0;
 }
 
-.c13::before {
+.c15::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -164,7 +164,7 @@ exports[`the sites component matches the snapshot 1`] = `
   height: 48px;
 }
 
-.c11 {
+.c13 {
   opacity: 1;
   width: 40px;
   height: 40px;
@@ -172,11 +172,11 @@ exports[`the sites component matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c11:nth-child(n+7) {
+.c13:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c12 {
+.c14 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -184,14 +184,26 @@ exports[`the sites component matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c12:nth-child(n+7) {
+.c14:nth-child(n+7) {
   margin-top: 10px;
 }
 
-.c9 {
+.c10 {
+  height: 10px;
+  padding-right: 2px;
+}
+
+.c11 {
   -webkit-flex-basis: 340px;
   -ms-flex-preferred-size: 340px;
   flex-basis: 340px;
+}
+
+.c9 {
+  display: none;
+  font-weight: 300;
+  margin-right: 8px;
+  margin-top: 4px;
 }
 
 .c0 {
@@ -205,7 +217,7 @@ exports[`the sites component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c14 {
+  .c16 {
     padding: 16px;
   }
 }
@@ -229,20 +241,20 @@ exports[`the sites component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c10 {
+  .c12 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c10 {
+  .c12 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c13 {
+  .c15 {
     padding-left: 20px;
   }
 }
@@ -278,39 +290,50 @@ exports[`the sites component matches the snapshot 1`] = `
         className="c7 c8"
       >
         www.yoast.com
+        <span
+          className="c9"
+        >
+          <span>
+            <img
+              className="c10"
+              src="clock.svg"
+            />
+             Configuration service requested
+          </span>
+        </span>
       </span>
       <span
-        className="c9 c4 c10"
+        className="c11 c4 c12"
       >
         <span>
           <img
             alt="Test is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test2 is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test3 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
           <img
             alt="Test4 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
         </span>
       </span>
       <span
-        className="c4 c13"
+        className="c4 c15"
       />
     </li>
     <li
-      className="c14"
+      className="c16"
     >
       <span
         className="c3 c4 c5"
@@ -325,35 +348,46 @@ exports[`the sites component matches the snapshot 1`] = `
         className="c7 c8"
       >
         www.google.com
+        <span
+          className="c9"
+        >
+          <span>
+            <img
+              className="c10"
+              src="clock.svg"
+            />
+             Configuration service requested
+          </span>
+        </span>
       </span>
       <span
-        className="c9 c4 c10"
+        className="c11 c4 c12"
       >
         <span>
           <img
             alt="Test is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test2 is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test3 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
           <img
             alt="Test4 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
         </span>
       </span>
       <span
-        className="c4 c13"
+        className="c4 c15"
       />
     </li>
     <li
@@ -372,35 +406,46 @@ exports[`the sites component matches the snapshot 1`] = `
         className="c7 c8"
       >
         www.facebook.com
+        <span
+          className="c9"
+        >
+          <span>
+            <img
+              className="c10"
+              src="clock.svg"
+            />
+             Configuration service requested
+          </span>
+        </span>
       </span>
       <span
-        className="c9 c4 c10"
+        className="c11 c4 c12"
       >
         <span>
           <img
             alt="Test is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test2 is active"
-            className="c11"
+            className="c13"
             src="test.jpg"
           />
           <img
             alt="Test3 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
           <img
             alt="Test4 is inactive"
-            className="c12"
+            className="c14"
             src="test.jpg"
           />
         </span>
       </span>
       <span
-        className="c4 c13"
+        className="c4 c15"
       />
     </li>
   </ul>

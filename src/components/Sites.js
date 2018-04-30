@@ -18,7 +18,7 @@ function Sites( props ) {
 					let onManageHandler = () => {
 						props.onManage( site.id );
 					};
-					let activeRequest = props.activeRequests.byId[ site.id ];
+					let activeRequest = props.sitesFromStore.byId ? props.sitesFromStore.byId[ site.id ] : {};
 					let request = activeRequest.configurationServiceRequest ? activeRequest.configurationServiceRequest : {};
 					return <Site
 						key={ site.id }
@@ -40,7 +40,7 @@ export default Sites;
 
 Sites.propTypes = {
 	sites: PropTypes.arrayOf( PropTypes.object ),
-	activeRequests: PropTypes.object,
+	sitesFromStore: PropTypes.object,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	onManage: PropTypes.func.isRequired,
 };
