@@ -14,7 +14,6 @@ import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import LicenseActivationMessage from "./LicenseActivationMessage";
-import IngeBanner from "./general/IngeBanner";
 
 const messages = defineMessages( {
 	beacon: {
@@ -141,7 +140,6 @@ export const inMainLayout = ( WrappedComponent ) => {
 						</BeaconButtonContainer>
 						<Content>
 							<LicenseActivationMessage />
-							<IngeBanner />
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>
