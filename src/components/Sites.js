@@ -15,7 +15,6 @@ function Sites( props ) {
 		<Paper>
 			<ListTable>
 				{ props.sites.map( function( site ) {
-					let siteId = site.id;
 					let onManageHandler = () => {
 						props.onManage( site.id );
 					};
@@ -23,7 +22,6 @@ function Sites( props ) {
 					let request = activeRequest.configurationServiceRequest ? activeRequest.configurationServiceRequest : {};
 					return <Site
 						key={ site.id }
-						siteId={ siteId }
 						siteIcon={ site.siteIcon }
 						siteName={ site.siteName }
 						siteType={ site.siteType }

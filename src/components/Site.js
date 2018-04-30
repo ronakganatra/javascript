@@ -103,7 +103,6 @@ function Site( props ) {
 }
 
 Site.propTypes = {
-	siteId:PropTypes.string.isRequired,
 	siteName: PropTypes.string.isRequired,
 	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
