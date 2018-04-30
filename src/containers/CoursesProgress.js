@@ -27,6 +27,36 @@ export const mapStateToProps = ( state ) => {
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
+	let allCourseIds = state.entities.courses.allIds;
+	let freeEnrollments = allCourseIds.map( ( courseId ) => {
+		let course = state.entities.courses.byId[ courseId ];
+		if ( ! course.open ) {
+			return;
+		}
+
+		// Don't show a free enrollment is the user is already enrolled.
+		let enrollmentsForCourse = coursesEnrollments.filter( enrollment => {
+			return enrollment.course_id === courseId;
+		} );
+		if ( enrollmentsForCourse.length > 0 ) {
+			return;
+		}
+
+		return {
+			// The id is not unique across users.
+			id: courseId,
+			name: course.name,
+			status: "not started",
+			progress: 0,
+			courseId: courseId,
+			buyerId: "",
+			studentId: currentUserId,
+			orderId: "",
+		};
+	} ).filter( ( enrollment ) => !! enrollment );
+
+	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
+
 	// Only show enrollments where you are actually a student:
 	coursesEnrollments = coursesEnrollments.filter( enrollment => {
 		return enrollment.studentId === currentUserId;

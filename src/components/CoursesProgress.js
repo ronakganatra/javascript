@@ -65,7 +65,7 @@ class CoursesProgress extends React.Component {
 		}
 
 		courses = courses.filter( ( course ) => {
-			return ! isEmpty( allEnrollments[ course.id ] ) || course.open === true;
+			return ! isEmpty( allEnrollments[ course.id ] );
 		} );
 
 		return (
