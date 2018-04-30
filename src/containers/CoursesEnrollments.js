@@ -68,7 +68,7 @@ export const mapStateToProps = ( state ) => {
 
 		return {
 			// EnrollmentId is not unique across users.
-			id: courseId,
+			id: "free-course-" + courseId,
 			progress: 0,
 			courseId: courseId,
 			courseName: course.name,
