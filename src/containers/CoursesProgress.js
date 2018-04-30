@@ -7,8 +7,8 @@ export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 
 	let allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( ( courseId ) => {
-		let enrollment = state.entities.coursesEnrollments.byId[ courseId ];
+	let coursesEnrollments = allIds.map( ( enrollmentId ) => {
+		let enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
 
 		// We don't want to display refunded course enrollments.
 		if ( enrollment.status === "refunded" ) {
