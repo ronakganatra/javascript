@@ -189,18 +189,18 @@ class CoursesEnrollments extends React.Component {
 			<div>
 				<Paper>
 					<ListTable>
-						{ coursesEnrollments.map( ( course ) => {
+						{ coursesEnrollments.map( ( enrollment ) => {
 							return (
-								<RowMobileCollapse key={ course.id }>
-									<CourseColumnIcon separator={ true }><CourseIcon src={ course.icon } alt=""/></CourseColumnIcon>
+								<RowMobileCollapse key={ enrollment.id }>
+									<CourseColumnIcon separator={ true }><CourseIcon src={ enrollment.icon } alt=""/></CourseColumnIcon>
 									<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
-										{ course.courseName }
+										{ enrollment.courseName }
 									</ColumnPrimaryResponsive>
 									<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
-										<strong>{ course.studentName }</strong><br />
-										{ course.studentEmail }
+										<strong>{ enrollment.studentName }</strong><br />
+										{ enrollment.studentEmail }
 									</ColumnMinWidthResponsive>
-									{ studentOrBuyer( course ) }
+									{ studentOrBuyer( enrollment ) }
 								</RowMobileCollapse> );
 						} ) }
 					</ListTable>
