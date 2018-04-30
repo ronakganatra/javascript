@@ -26,12 +26,12 @@ export const mapStateToProps = ( state ) => {
 		}
 
 		if ( course.order ) {
-			buyerName = course.buyer.userFirstName  + " " + course.buyer.userLastName;
+			buyerName = [ course.buyer.userFirstName, course.buyer.userLastName ].join( " " );
 			buyerEmail = course.order.customerEmail;
 		}
 
 		if ( course.student ) {
-			studentName = course.student.userFirstName  + " " + course.student.userLastName;
+			studentName = [ course.student.userFirstName, course.student.userLastName ].join( " " );
 			studentEmail = course.student.userEmail;
 		}
 
