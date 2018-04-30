@@ -66,20 +66,25 @@ export const mapStateToProps = ( state ) => {
 			return;
 		}
 
+		let icon = course.iconUrl;
+		if ( ! icon ) {
+			icon = course.product ? course.product.icon : "";
+		}
+
 		return {
 			// EnrollmentId is not unique across users.
 			id: "free-course-" + courseId,
 			progress: 0,
 			courseId: courseId,
 			courseName: course.name,
-			icon: course.product ? course.product.icon : "",
+			icon,
 			buyerId: "",
 			buyerEmail: "",
 			buyerName: "",
 			status: "not started",
 			studentEmail: state.user.data.profile.email,
 			studentId: state.user.userId,
-			studentName: state.user.data.profile.userFirstName + " " + state.user.data.profile.userLastName,
+			studentName: [ state.user.data.profile.userFirstName, state.user.data.profile.userLastName ].join( " " ),
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
