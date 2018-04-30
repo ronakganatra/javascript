@@ -48,6 +48,7 @@ export const mapStateToProps = ( state ) => {
 			courseUrl: course.courseUrl,
 			certificateUrl: course.certificateUrl,
 			icon: icon,
+			open: course.open,
 		};
 	} );
 

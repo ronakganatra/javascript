@@ -73,18 +73,25 @@ class CourseProgress extends React.Component {
 		this.state = { progress: 0, student: false, buyer: false, status: "Locked" };
 		let userId = getUserId();
 
-		for ( let i = 0; i < this.props.courseEnrollments.length; i++ ) {
-			let enrollment = this.props.courseEnrollments[ i ];
+		if ( this.props.courseEnrollments.length > 0 ) {
+			for ( let i = 0; i < this.props.courseEnrollments.length; i++ ) {
+				let enrollment = this.props.courseEnrollments[ i ];
 
-			if ( enrollment.studentId === userId ) {
-				this.state.progress = enrollment.progress;
-				this.state.student  = true;
-				this.state.status   = enrollment.status;
-			}
+				if ( enrollment.studentId === userId ) {
+					this.state.progress = enrollment.progress;
+					this.state.student  = true;
+					this.state.status   = enrollment.status;
+				}
 
-			if ( enrollment.buyerId === userId && enrollment.studentId === null ) {
-				this.state.buyer = true;
+				if ( enrollment.buyerId === userId && enrollment.studentId === null ) {
+					this.state.buyer = true;
+				}
 			}
+		} else {
+			this.state.progress = 0;
+			this.state.student = true;
+			this.state.status = "not started";
+			this.state.buyer = false;
 		}
 	}
 
