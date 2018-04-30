@@ -7,46 +7,46 @@ import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( courseId => {
-		let course = state.entities.coursesEnrollments.byId[ courseId ];
+	let coursesEnrollments = allIds.map( enrollmentId => {
+		let enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
 
 		// We don't want to display refunded course enrollments.
-		if ( course.status === "refunded" ) {
+		if ( enrollment.status === "refunded" ) {
 			return false;
 		}
 
-		let icon = course.course.iconUrl;
+		let icon = enrollment.course.iconUrl;
 		let buyerEmail = "";
 		let buyerName = "";
 		let studentEmail = "";
 		let studentName = "";
 
 		if ( ! icon ) {
-			icon = course.course.product ? course.course.product.icon : "";
+			icon = enrollment.course.product ? enrollment.course.product.icon : "";
 		}
 
-		if ( course.order ) {
-			buyerName = course.buyer.userFirstName  + " " + course.buyer.userLastName;
-			buyerEmail = course.order.customerEmail;
+		if ( enrollment.order ) {
+			buyerName = enrollment.buyer.userFirstName  + " " + enrollment.buyer.userLastName;
+			buyerEmail = enrollment.order.customerEmail;
 		}
 
-		if ( course.student ) {
-			studentName = course.student.userFirstName  + " " + course.student.userLastName;
-			studentEmail = course.student.userEmail;
+		if ( enrollment.student ) {
+			studentName = enrollment.student.userFirstName  + " " + enrollment.student.userLastName;
+			studentEmail = enrollment.student.userEmail;
 		}
 
 		return {
-			id: course.id,
-			progress: course.progress,
-			courseId: course.courseId,
-			courseName: course.course.name,
+			id: enrollment.id,
+			progress: enrollment.progress,
+			courseId: enrollment.courseId,
+			courseName: enrollment.course.name,
 			icon: icon,
-			buyerId: course.buyerId,
+			buyerId: enrollment.buyerId,
 			buyerEmail,
 			buyerName,
-			status: course.status,
+			status: enrollment.status,
 			studentEmail,
-			studentId: course.studentId,
+			studentId: enrollment.studentId,
 			studentName,
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
