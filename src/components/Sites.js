@@ -28,7 +28,7 @@ function Sites( props ) {
 						siteName={ site.siteName }
 						siteType={ site.siteType }
 						activeSubscriptions={ site.activeSubscriptions }
-						request={ request }
+						hasRequest={ request }
 						plugins={ props.plugins }
 						onClickManage={ onManageHandler }
 					/>;

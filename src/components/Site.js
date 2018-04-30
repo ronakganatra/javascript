@@ -5,8 +5,9 @@ import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
 import SiteIcon from "./SiteIcon";
+import check from "../icons/checkGreen.svg";
 import { Row, ColumnPrimary, ColumnFixedWidth, ColumnIcon } from "./Tables";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { FormattedMessage, intlShape, injectIntl, defineMessages } from "react-intl";
 import SiteSubscriptions from "./SiteSubscriptions";
 import defaultSiteIcon from "../icons/sites_black.svg";
 import defaults from "../config/defaults.json";
@@ -31,11 +32,22 @@ SiteIcon.propTypes = {
 	src: PropTypes.string.isRequired,
 };
 
+const CompletedIcon = styled.img`
+    height: 26px;
+    padding-right: 4px;
+    padding-top: 12px;
+`;
+
 let ColumnSubscriptions = styled( ColumnFixedWidth )`
 	flex-basis: 340px;
 `;
 
-let StatusConfigurationServiceRequest = styled.div``;
+let ConfigurationUsage = styled.span`
+	display: ${ props => props.hasRequest.status ? "block" : "none" };
+	font-weight: 300;
+	margin-right: 8px;
+	margin-top: 4px;
+`;
 
 /**
  * Returns the rendered Site component.
@@ -54,16 +66,19 @@ function Site( props ) {
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
-	console.log( "restt", props.siteId );
+	console.log( "restt", props.hasRequest.status );
 
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
-				<StatusConfigurationServiceRequest>{ props.request.status === "submitted"
-					? "Configuration service requested"
-					: "Configured with configuration service" }</StatusConfigurationServiceRequest>
+				<ConfigurationUsage hasRequest={ props.hasRequest }>{ props.hasRequest.status === "completed"
+					? <FormattedMessage id="request.configured" defaultMessage={"{ statusIcon } Configured with configuration service"}
+										values={{ statusIcon: <CompletedIcon src={ check }/> }} />
+					: <FormattedMessage id="request.requested" defaultMessage={"{ statusIcon } Configuration service requested"}
+						values={{ statusIcon: "test" }} /> }
+				</ConfigurationUsage>
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
@@ -88,7 +103,7 @@ Site.propTypes = {
 	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
-	request:PropTypes.object,
+	hasRequest:PropTypes.object,
 	siteIcon: PropTypes.string,
 	onClickManage: PropTypes.func,
 	intl: intlShape.isRequired,
