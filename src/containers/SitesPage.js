@@ -11,6 +11,7 @@ import { configurationServiceRequestModalClose, configurationServiceRequestModal
 
 export const mapStateToProps = ( state ) => {
 	let sitesFromStore = state.entities.sites;
+	console.log( "sites form store:", sitesFromStore );
 	let sites = sitesFromStore.allIds.map( ( siteId ) => {
 		let site = state.entities.sites.byId[ siteId ];
 
