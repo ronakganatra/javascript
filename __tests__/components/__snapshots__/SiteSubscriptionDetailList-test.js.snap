@@ -53,7 +53,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   align-self: center;
 }
 
-.c21 {
+.c19 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -73,28 +73,28 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c19:hover,
+.c19:focus {
   color: #fff;
 }
 
-.c21:hover,
-.c21:focus {
+.c19:hover,
+.c19:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c19:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c24 {
   min-width: 152px;
 }
 
-.c24 {
+.c18 {
   background-repeat: no-repeat;
   background-image: url( blue-plus-circle.svg );
   background-position: 8px 50%;
@@ -102,7 +102,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   padding-left: 36px;
 }
 
-.c23 {
+.c17 {
   border: 0;
   cursor: pointer;
   background-color: transparent;
@@ -119,14 +119,14 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   transition: background-color 150ms ease-out;
 }
 
-.c23:hover,
-.c23:focus {
+.c17:hover,
+.c17:focus {
   box-shadow: none;
   background-color: #f1f1f1;
   color: #0066cd;
 }
 
-.c23:active {
+.c17:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -202,7 +202,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   margin-top: 0;
 }
 
-.c22 {
+.c25 {
   background: #f7f7f7;
   min-height: 100px;
   display: -webkit-box;
@@ -220,7 +220,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   justify-content: space-between;
 }
 
-.c22:first-child {
+.c25:first-child {
   margin-top: 0;
 }
 
@@ -254,7 +254,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   flex: 0 0 auto;
 }
 
-.c25 {
+.c20 {
   padding-top: 0.5em;
 }
 
@@ -288,7 +288,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   margin-top: 4px;
 }
 
-.c17 {
+.c21 {
   display: none;
 }
 
@@ -317,7 +317,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 @media screen and ( max-width:800px ) {
-  .c19 {
+  .c23 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -331,7 +331,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c25 {
     padding: 16px;
   }
 }
@@ -398,14 +398,14 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c22 {
     min-width: 100%;
     margin-top: 1em;
     padding-right: 0;
     padding-left: 0;
   }
 
-  .c18:first-child {
+  .c22:first-child {
     margin-top: 0px;
   }
 }
@@ -496,12 +496,30 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
               1/2 used
             </span>
           </span>
+          <a
+            aria-label={undefined}
+            className="c17 c18 c19"
+            href="http://url1.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>
+              Get a subscription
+            </span>
+            <span
+              className="screen-reader-text c20"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
         </span>
         <span
-          className="c17 c18 c7 c8"
+          className="c21 c22 c7 c8"
         >
           <a
-            className="c19 c20 c21"
+            className="c23 c24 c19"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
@@ -512,7 +530,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         </span>
       </li>
       <li
-        className="c5 c22"
+        className="c5 c25"
       >
         <span
           className="c7 c8"
@@ -565,7 +583,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           </span>
           <a
             aria-label={undefined}
-            className="c23 c24 c21"
+            className="c17 c18 c19"
             href="http://url2.com"
             rel="noopener noreferrer"
             target="_blank"
@@ -574,7 +592,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
               Get another subscription
             </span>
             <span
-              className="screen-reader-text c25"
+              className="screen-reader-text c20"
             >
               <span>
                 (Opens in a new browser tab)
@@ -583,10 +601,10 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           </a>
         </span>
         <span
-          className="c17 c18 c7 c8"
+          className="c21 c22 c7 c8"
         >
           <a
-            className="c19 c20 c21"
+            className="c23 c24 c19"
             href="/account/subscriptions/undefined"
             onClick={[Function]}
           >
