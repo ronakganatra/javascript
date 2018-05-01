@@ -18,15 +18,15 @@ function Sites( props ) {
 					let onManageHandler = () => {
 						props.onManage( site.id );
 					};
-					let activeRequest = props.sitesFromStore.byId ? props.sitesFromStore.byId[ site.id ] : {};
-					let request = activeRequest.configurationServiceRequest ? activeRequest.configurationServiceRequest : {};
+					let activeRequest = props.sitesFromStore.hasOwnProperty( "byId" ) ? props.sitesFromStore.byId[ site.id ] : {};
+					let request = ( activeRequest && activeRequest.configurationServiceRequest ) ? activeRequest.configurationServiceRequest : {};
 					return <Site
 						key={ site.id }
 						siteIcon={ site.siteIcon }
 						siteName={ site.siteName }
 						siteType={ site.siteType }
 						activeSubscriptions={ site.activeSubscriptions }
-						hasRequest={ request }
+						linkedConfigurationServiceRequest={ request }
 						plugins={ props.plugins }
 						onClickManage={ onManageHandler }
 					/>;
