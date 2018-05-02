@@ -504,7 +504,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             target="_blank"
           >
             <span>
-              Get a subscription
+              Get another subscription
             </span>
             <span
               className="screen-reader-text c20"

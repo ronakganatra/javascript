@@ -85,7 +85,7 @@ function SiteSubscriptionDetail( props ) {
 	}
 
 	let anotherLicenseMessage = "Get a subscription";
-	if ( props.used >= props.limit && props.isEnabled === false && props.limit > 0 ) {
+	if ( props.limit > 0 ) {
 		anotherLicenseMessage = "Get another subscription";
 	}
 	let anotherLicense = (

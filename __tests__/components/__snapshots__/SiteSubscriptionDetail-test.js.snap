@@ -354,7 +354,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
       target="_blank"
     >
       <span>
-        Get a subscription
+        Get another subscription
       </span>
       <span
         className="screen-reader-text c15"
@@ -735,7 +735,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       target="_blank"
     >
       <span>
-        Get a subscription
+        Get another subscription
       </span>
       <span
         className="screen-reader-text c15"
