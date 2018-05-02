@@ -70,17 +70,23 @@ function Site( props ) {
 
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
+
+	let configureStatusMessage = "{ statusIcon } Configuration service requested";
+	let iconValues = <ClockIcon src={ clock }/>;
+
+	if( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "completed" ) {
+		configureStatusMessage = "{ statusIcon } Configured with configuration service";
+		iconValues = <CompletedIcon src={ check }/>;
+	}
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
 				{ props.linkedConfigurationServiceRequest &&
-					<ConfigurationUsage linkedConfigurationServiceRequest={ props.linkedConfigurationServiceRequest }>{ props.linkedConfigurationServiceRequest.status === "completed"
-						? <FormattedMessage id="request.configured" defaultMessage={"{ statusIcon } Configured with configuration service"}
-											values={{ statusIcon: <CompletedIcon src={ check }/> }} />
-						: <FormattedMessage id="request.requested" defaultMessage={"{ statusIcon } Configuration service requested"}
-											values={{ statusIcon: <ClockIcon src={ clock }/> }} /> }
+					<ConfigurationUsage linkedConfigurationServiceRequest={ props.linkedConfigurationServiceRequest }>
+						{ <FormattedMessage id="request.configured" defaultMessage={ configureStatusMessage }
+											values={{ statusIcon: iconValues }} /> }
 					</ConfigurationUsage>
 				}
 			</ColumnPrimary>
@@ -106,7 +112,7 @@ Site.propTypes = {
 	siteType: PropTypes.string.isRequired,
 	plugins: PropTypes.arrayOf( PropTypes.object ),
 	activeSubscriptions: PropTypes.arrayOf( PropTypes.object ),
-	linkedConfigurationServiceRequest:PropTypes.object,
+	linkedConfigurationServiceRequest: PropTypes.object,
 	siteIcon: PropTypes.string,
 	onClickManage: PropTypes.func,
 	intl: intlShape.isRequired,
