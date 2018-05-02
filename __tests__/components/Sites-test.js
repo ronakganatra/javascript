@@ -61,19 +61,7 @@ test('the sites component matches the snapshot', () => {
 					siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
 				},
 				] }
-			plugins= { plugins }
-			sitesFromStore={[
-				{ "497490e6-eb8d-4627-be9b-bfd33fc217f1":{
-						"creationDate": "2017-03-21T08:54:09.415Z",
-						"hostname": "yoast.com",
-						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-						"path": "/extrapath",
-						"subscriptions": ["497490e6-eb8d-4627-be9b-bfd33fc217f1"],
-						"url": "https://yoast.com",
-						"userId": 1
-					} },
-				{},
-			]}/>
+			plugins= { plugins } />
 	);
 
 	let tree = component.toJSON();
