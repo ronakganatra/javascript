@@ -10,8 +10,7 @@ import { configurationServiceRequestModalClose, configurationServiceRequestModal
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 
 export const mapStateToProps = ( state ) => {
-	let sitesFromStore = state.entities.sites;
-	let sites = sitesFromStore.allIds.map( ( siteId ) => {
+	let sites = state.entities.sites.allIds.map( ( siteId ) => {
 		let site = state.entities.sites.byId[ siteId ];
 
 		let siteProps = {
@@ -19,6 +18,7 @@ export const mapStateToProps = ( state ) => {
 			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
 			siteType: site.type,
 			url: site.url,
+			configurationServiceRequest: site.configurationServiceRequest,
 		};
 
 		if ( site.icon ) {
@@ -78,7 +78,6 @@ export const mapStateToProps = ( state ) => {
 	let showLoader = ! state.ui.sites.sitesRetrieved;
 
 	return {
-		sitesFromStore,
 		sites,
 		modalOpen,
 		configurationServiceRequestModalOpen,

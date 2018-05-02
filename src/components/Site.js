@@ -48,7 +48,7 @@ let ColumnSubscriptions = styled( ColumnFixedWidth )`
 `;
 
 let ConfigurationUsage = styled.span`
-	display: ${ props => props.hasRequest.status ? "block" : "none" };
+	display: ${ props => props.linkedConfigurationServiceRequest.status ? "block" : "none" };
 	font-weight: 300;
 	margin-right: 8px;
 	margin-top: 4px;
@@ -70,18 +70,19 @@ function Site( props ) {
 
 	let siteIcon = props.siteIcon || defaultSiteIcon;
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
-	console.log( "linkedConfig", props.linkedConfigurationServiceRequest );
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
-				<ConfigurationUsage linkedConfigurationServiceRequest={ props.linkedConfigurationServiceRequest }>{ props.linkedConfigurationServiceRequest.status === "completed"
-					? <FormattedMessage id="request.configured" defaultMessage={"{ statusIcon } Configured with configuration service"}
-										values={{ statusIcon: <CompletedIcon src={ check }/> }} />
-					: <FormattedMessage id="request.requested" defaultMessage={"{ statusIcon } Configuration service requested"}
-						values={{ statusIcon: <ClockIcon src={ clock }/> }} /> }
-				</ConfigurationUsage>
+				{ props.linkedConfigurationServiceRequest &&
+					<ConfigurationUsage linkedConfigurationServiceRequest={ props.linkedConfigurationServiceRequest }>{ props.linkedConfigurationServiceRequest.status === "completed"
+						? <FormattedMessage id="request.configured" defaultMessage={"{ statusIcon } Configured with configuration service"}
+											values={{ statusIcon: <CompletedIcon src={ check }/> }} />
+						: <FormattedMessage id="request.requested" defaultMessage={"{ statusIcon } Configuration service requested"}
+											values={{ statusIcon: <ClockIcon src={ clock }/> }} /> }
+					</ConfigurationUsage>
+				}
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
