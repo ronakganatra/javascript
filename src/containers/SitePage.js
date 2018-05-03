@@ -5,11 +5,22 @@ import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import { getPluginsForSiteType, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
+import {
+	configurationServiceRequestModalClose,
+	configurationServiceRequestModalOpen,
+	configureConfigurationServiceRequest,
+	loadConfigurationServiceRequests,
+} from "../actions/configurationServiceRequest";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let id = ownProps.match.params.id;
 
 	let sites = state.entities.sites;
+
+	let allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
+		return state.entities.configurationServiceRequests.byId[ id ];
+	} );
+	let availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
@@ -94,6 +105,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	let disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
 	return {
+		availableConfigurationServiceRequests,
 		addSubscriptionModal,
 		site,
 		subscriptions,
@@ -106,6 +118,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( loadSites() );
+	dispatch( loadConfigurationServiceRequests() );
 	let siteId = ownProps.match.params.id;
 
 	return {
@@ -134,6 +147,15 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );
+		},
+		openConfigurationServiceRequestModal: ( siteId ) => {
+			dispatch( configurationServiceRequestModalOpen( siteId ) );
+		},
+		configureConfigurationServiceRequest: ( id, data ) => {
+			dispatch( configureConfigurationServiceRequest( id, data ) );
+		},
+		onConfigurationModalClose: () => {
+			dispatch( configurationServiceRequestModalClose() );
 		},
 	};
 };

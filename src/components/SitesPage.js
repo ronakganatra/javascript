@@ -98,7 +98,6 @@ class SitesPage extends React.Component {
 		if ( this.props.sites.length === 0 ) {
 			return null;
 		}
-
 		return <ConfigurationServiceRequestBlock
 			amountAvailable={ this.props.availableConfigurationServiceRequests.length }
 			sites={ this.props.availableSites }
