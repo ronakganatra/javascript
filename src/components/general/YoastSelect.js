@@ -17,9 +17,10 @@ const YoastSelect = styled( Select )`
 		height: 48px;
 		border-radius: 0;
 	}
-	
+
 	.Select-placeholder {
-		line-height: 48px
+		line-height: 48px;
+		color: ${ colors.$color_grey_text };
 	}
 
 	&.Select--single > .Select-control .Select-value {
@@ -60,7 +61,7 @@ export const SelectArea = styled.span`
 
 	>:last-child {
 		margin-left: 8px;
-		
+
 		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 			margin-left: 0;
 			margin-top: 8px;

@@ -5,14 +5,7 @@ import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
-
-const pluginOptions = [
-	{ value: "none", label: "No plugin" },
-	{ value: "headspace2", label: "HeadSpace2" },
-	{ value: "all-in-one_seo", label: "All-in-One SEO" },
-	{ value: "jetpack_seo", label: "JetPack SEO" },
-	{ value: "woothemes_seo_framework", label: "WooThemes SEO framework" },
-];
+import { StyledLabel } from "../../Labels";
 
 let messages = defineMessages( {
 	importDataRequired: {
@@ -25,7 +18,19 @@ let messages = defineMessages( {
 		id: "requestConfiguration.importDataLabel",
 		defaultMessage: "Import from:",
 	},
+	noPluginSelected: {
+		id: "requestConfiguration.noPluginSelected",
+		defaultMessage: "No plugin selected",
+	},
 } );
+
+const pluginOptions = [
+	{ value: "none", label: messages.noPluginSelected.defaultMessage },
+	{ value: "headspace2", label: "HeadSpace2" },
+	{ value: "all-in-one_seo", label: "All-in-One SEO" },
+	{ value: "jetpack_seo", label: "JetPack SEO" },
+	{ value: "woothemes_seo_framework", label: "WooThemes SEO framework" },
+];
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
@@ -82,15 +87,15 @@ class ImportDataStep extends React.Component {
 						defaultMessage={ messages.importDataRequired.defaultMessage } />
 				</p>
 
-				<label htmlFor="importDataExists">
+				<StyledLabel htmlFor="import-data-exists">
 					<FormattedMessage
 						id={ messages.importDataExists.id }
 						defaultMessage={ messages.importDataExists.defaultMessage } />
-				</label>
+				</StyledLabel>
 
 				<YoastSelect
 					name="form-field-name"
-					placeholder="No plugin selected"
+					id="import-data-exists"
 					value={ value }
 					onChange={ this.handleInput }
 					options={ pluginOptions }

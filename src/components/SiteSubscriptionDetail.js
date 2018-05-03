@@ -84,10 +84,8 @@ function SiteSubscriptionDetail( props ) {
 		rowProps.background = props.background;
 	}
 
-	let licensesRemaining = props.limit - props.used;
-
 	let anotherLicense = null;
-	if ( licensesRemaining === 0 && props.isEnabled === false ) {
+	if ( props.used >= props.limit && props.isEnabled === false ) {
 		anotherLicense = (
 			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" }>
 				<FormattedMessage
@@ -132,8 +130,8 @@ function SiteSubscriptionDetail( props ) {
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage hasSubscriptions={ props.hasSubscriptions }>
-					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } remaining"}
-						values={{ howMany: licensesRemaining + "/" + props.limit }} />
+					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } used"}
+						values={{ howMany: props.used + "/" + props.limit }} />
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>

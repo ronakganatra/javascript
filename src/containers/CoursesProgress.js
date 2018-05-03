@@ -7,25 +7,54 @@ export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 
 	let allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( ( courseId ) => {
-		let course = state.entities.coursesEnrollments.byId[ courseId ];
+	let coursesEnrollments = allIds.map( ( enrollmentId ) => {
+		let enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
 
 		// We don't want to display refunded course enrollments.
-		if ( course.status === "refunded" ) {
+		if ( enrollment.status === "refunded" ) {
 			return false;
 		}
 
 		return {
-			id: course.id,
-			name: course.course.name,
-			status: course.status,
-			progress: course.progress,
-			courseId: course.courseId,
-			buyerId: course.buyerId,
-			studentId: course.studentId,
-			orderId: course.orderId,
+			id: enrollment.id,
+			name: enrollment.course.name,
+			status: enrollment.status,
+			progress: enrollment.progress,
+			courseId: enrollment.courseId,
+			buyerId: enrollment.buyerId,
+			studentId: enrollment.studentId,
+			orderId: enrollment.orderId,
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
+
+	let allCourseIds = state.entities.courses.allIds;
+	let freeEnrollments = allCourseIds
+		.filter( ( courseId ) => {
+			let course = state.entities.courses.byId[ courseId ];
+			if ( ! course.open ) {
+				return;
+			}
+
+			// Don't show a free enrollment is the user is already enrolled.
+			return coursesEnrollments.some( enrollment => enrollment.course_id === courseId );
+		} )
+		.map( ( courseId ) => {
+			let course = state.entities.courses.byId[ courseId ];
+
+			return {
+				// The id is not unique across users.
+				id: "free-course-" + courseId,
+				name: course.name,
+				status: "not started",
+				progress: 0,
+				courseId: courseId,
+				buyerId: "",
+				studentId: currentUserId,
+				orderId: "",
+			};
+		} );
+
+	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
 
 	// Only show enrollments where you are actually a student:
 	coursesEnrollments = coursesEnrollments.filter( enrollment => {
@@ -48,6 +77,7 @@ export const mapStateToProps = ( state ) => {
 			courseUrl: course.courseUrl,
 			certificateUrl: course.certificateUrl,
 			icon: icon,
+			open: course.open,
 		};
 	} );
 
