@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
+import { injectIntl, intlShape, FormattedMessage, FormattedHTMLMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
 import _noop from "lodash/noop";
 
 import { Paper, Page } from "../../PaperStyles";
-import { Button } from "../../Button";
+import { Button, LargeSecondaryButton } from "../../Button";
 
 const NewsletterContainer = styled.div`
 	margin-top: 24px;
@@ -20,44 +20,105 @@ const Paragraph = styled.p`
 	font-size: 1.1em;
 `;
 
+const CheckboxList = styled.ul`
+	list-style: square inside;
+	padding-left: 0px; 
+`;
+
 const messages = defineMessages( {
 	title: {
 		id: "newsletter.title",
 		defaultMessage: "Newsletter",
 	},
-	subscribeParagraph: {
-		id: "newsletter.subscribeParagraph",
-		defaultMessage: "Subscribe to the awesome newsletter!!!111!!!",
-	},
+	subscribeReasons: [
+		{
+			id: "newsletter.subscribe.reasons.1",
+			defaultMessage: "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+		},
+		{
+			id: "newsletter.subscribe.reasons.2",
+			defaultMessage: "Be the first to know about new features and other cool plugins.",
+		},
+		{
+			id: "newsletter.subscribe.reasons.3",
+			defaultMessage: "Get our online course <em>SEO For Beginners</em> <b>for free</b>!",
+		},
+	],
 	subscribeButton: {
 		id: "newsletter.subscribeButton",
 		defaultMessage: "Subscribe",
+	},
+	unsubscribeParagraph: {
+		id: "newsletter.unsubscribeParagraph",
+		defaultMessage: "You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.",
+	},
+	unsubscribeButton: {
+		id: "newsletter.unSubscribeButton",
+		defaultMessage: "Unsubscribe",
 	},
 } );
 
 class SubscribeNewsletter extends React.Component {
 
-	getContent( subscriptionStatus ) {
-
-	}
-
-	render() {
-
-		// Toggle content based on whether the customer has subscribed or not.
-		let onClickAction = this.props.onSubscribe;
-		let content = this.getContent( this.props.subscribed )
+    /**
+	 * Generates and returns the (un)subscribe paragraph,
+	 * based on the given current subscription status of the customer.
+	 *
+	 * E.g. invites customer to subscribe when not yet subscribed,
+	 * and explains how to unsubscribe when subscribed.
+	 * @returns {p} an element containing the content
+     */
+	getContent() {
+		let content = <CheckboxList>
+			{ messages.subscribeReasons.map( reason => {
+				return <li key={ reason.id }>
+					<FormattedHTMLMessage
+						id={ reason.id }
+						defaultMessage={ reason.defaultMessage }/>
+				</li>;
+			} ) }
+		</CheckboxList>;
 
 		if ( this.props.subscribed === "subscribed" ) {
-			onClickAction = this.props.onUnsubscribe;
-
+			content = <p>
+				<FormattedMessage
+                id={ messages.unsubscribeParagraph.id }
+                defaultMessage={ messages.unsubscribeParagraph.defaultMessage }/>
+			</p>;
 		}
 
+		return content;
+	}
 
-		// Disable button when subscription is being retrieved.
+    /**
+	 * Generates and returns the (un)subscribe button,
+	 * based on the given current subscription status of the customer.
+	 * @returns {Button} a button to subscribe or unsubscribe
+     */
+	getButton() {
+		let subscribed = this.props.subscribed === "subscribed";
+
+		// Set the function when the button is clicked.
+		let onClickAction = subscribed ? this.props.onUnsubscribe : this.props.onSubscribe;
 		if ( this.props.loading ) {
 			onClickAction = _noop;
 		}
 
+		// Either return a subscribe or return an unsubscribe button.
+		let button = <Button onClick={ onClickAction }>
+			<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
+		</Button>;
+
+		if ( this.props.subscribed === "subscribed" ) {
+			button = <LargeSecondaryButton onClick={ onClickAction }>
+				<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage }/>
+			</LargeSecondaryButton>;
+		}
+
+		return button;
+	}
+
+	render() {
 		return (
 			<NewsletterContainer>
 				<Paper>
@@ -66,12 +127,8 @@ class SubscribeNewsletter extends React.Component {
 							<Paragraph>
 								<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
 							</Paragraph>
-
-							<p><FormattedMessage
-								id={ messages.subscribeParagraph.id }
-								defaultMessage={ messages.subscribeParagraph.defaultMessage }
-							/></p>
-							<Button onClick={ onClickAction }><FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/></Button>
+							{ this.getContent() }
+							{ this.getButton() }
 						</NewsletterSection>
 					</Page>
 				</Paper>
@@ -85,6 +142,7 @@ SubscribeNewsletter.propTypes = {
 	onSubscribe: PropTypes.func.isRequired,
 	onUnsubscribe: PropTypes.func.isRequired,
 	loading: PropTypes.bool,
+	subscribed: PropTypes.string,
 };
 
 
