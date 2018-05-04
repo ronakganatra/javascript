@@ -4,6 +4,7 @@ import { injectIntl, intlShape, FormattedMessage, FormattedHTMLMessage, defineMe
 import styled from "styled-components";
 import _noop from "lodash/noop";
 
+// Custom components
 import { Paper, Page } from "../../PaperStyles";
 import { Button, LargeSecondaryButton } from "../../Button";
 
@@ -19,8 +20,10 @@ const NewsletterSection = styled.section`
 `;
 
 const Paragraph = styled.p`
+	margin-top: 0.0em;
 	margin-bottom: 0.5em;
-	font-size: 1.1em;
+	font-size: 1.5em;
+	font-weight: 300;
 `;
 
 const CheckboxList = styled.ul`
@@ -74,11 +77,11 @@ class SubscribeNewsletter extends React.Component {
 
     /**
 	 * Generates and returns the (un)subscribe paragraph,
-	 * based on the given current subscription status of the customer.
+	 * based on the current subscription status of the customer.
 	 *
 	 * E.g. invites customer to subscribe when not yet subscribed,
 	 * and explains how to unsubscribe when subscribed.
-	 * @returns {p} an element containing the content
+	 * @returns {Element} an element containing the content
      */
 	getContent() {
 		let content = <CheckboxList>
@@ -104,7 +107,7 @@ class SubscribeNewsletter extends React.Component {
 
     /**
 	 * Generates and returns the (un)subscribe button,
-	 * based on the given current subscription status of the customer.
+	 * based on the current subscription status of the customer.
 	 * @returns {Button} a button to subscribe or unsubscribe
      */
 	getButton() {
@@ -116,7 +119,7 @@ class SubscribeNewsletter extends React.Component {
 			onClickAction = _noop;
 		}
 
-		// Either return a subscribe or return an unsubscribe button.
+		// Either return a subscribe or an unsubscribe button.
 		let button = <Button onClick={ onClickAction }>
 			<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
 		</Button>;
