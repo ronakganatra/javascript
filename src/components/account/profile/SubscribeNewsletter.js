@@ -40,25 +40,25 @@ const CheckboxListItem = styled.li`
 	background-repeat: no-repeat;
 `;
 
+const subscribeReasons = [ "subscribeReason1", "subscribeReason2", "subscribeReason3" ];
+
 const messages = defineMessages( {
 	title: {
 		id: "newsletter.title",
 		defaultMessage: "Newsletter",
 	},
-	subscribeReasons: [
-		{
-			id: "newsletter.subscribe.reasons.1",
-			defaultMessage: "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-		},
-		{
-			id: "newsletter.subscribe.reasons.2",
-			defaultMessage: "Be the first to know about new features and other cool plugins.",
-		},
-		{
-			id: "newsletter.subscribe.reasons.3",
-			defaultMessage: "Get our online course <em>SEO For Beginners</em> <b>for free</b>!",
-		},
-	],
+	subscribeReason1: {
+		id: "newsletter.subscribe.reasons.1",
+		defaultMessage: "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+	},
+	subscribeReason2: {
+		id: "newsletter.subscribe.reasons.2",
+		defaultMessage: "Be the first to know about new features and other cool plugins.",
+	},
+	subscribeReason3: {
+		id: "newsletter.subscribe.reasons.3",
+		defaultMessage: "Get our online course <em>SEO For Beginners</em> <b>for free</b>!",
+	},
 	subscribeButton: {
 		id: "newsletter.subscribeButton",
 		defaultMessage: "Subscribe",
@@ -74,6 +74,35 @@ const messages = defineMessages( {
 } );
 
 class SubscribeNewsletter extends React.Component {
+	/**
+	 * Constructor
+	 *
+	 * @param {Object} props The props.
+	 */
+	constructor( props ) {
+		super( props );
+
+		this.onClick = this.onClick.bind( this );
+	}
+
+	/**
+	 * Handles clicks on the button.
+	 * Nothing will happen when loading.
+	 * A user will be unsubscribed when subscribed.
+	 * Otherwise a user will be subscribed.
+	 */
+	onClick() {
+		if ( this.props.loading ) {
+			return;
+		}
+
+		if ( this.props.subscribed === "subscribed" ) {
+			this.props.onUnsubscribe();
+			return;
+		}
+
+		this.props.onSubscribe();
+	}
 
     /**
 	 * Generates and returns the (un)subscribe paragraph,
@@ -84,53 +113,49 @@ class SubscribeNewsletter extends React.Component {
 	 * @returns {Element} an element containing the content
      */
 	getContent() {
-		let content = <CheckboxList>
-			{ messages.subscribeReasons.map( reason => {
-				return <CheckboxListItem key={ reason.id }>
-					<FormattedHTMLMessage
-						id={ reason.id }
-						defaultMessage={ reason.defaultMessage }/>
-				</CheckboxListItem>;
-			} ) }
-		</CheckboxList>;
-
 		if ( this.props.subscribed === "subscribed" ) {
-			content = <p>
-				<FormattedMessage
-                id={ messages.unsubscribeParagraph.id }
-                defaultMessage={ messages.unsubscribeParagraph.defaultMessage }/>
-			</p>;
+			return (
+				<p>
+					<FormattedMessage
+					id={ messages.unsubscribeParagraph.id }
+					defaultMessage={ messages.unsubscribeParagraph.defaultMessage }/>
+				</p>
+			);
 		}
 
-		return content;
+		return <CheckboxList>
+			{ subscribeReasons.map( key => {
+				return (
+					<CheckboxListItem key={ key }>
+						<FormattedHTMLMessage
+							id={ messages[ key ].id }
+							defaultMessage={ messages[ key ].defaultMessage }/>
+					</CheckboxListItem>
+				);
+			} ) }
+		</CheckboxList>;
 	}
 
     /**
 	 * Generates and returns the (un)subscribe button,
 	 * based on the current subscription status of the customer.
+	 *
 	 * @returns {Button} a button to subscribe or unsubscribe
      */
 	getButton() {
-		let subscribed = this.props.subscribed === "subscribed";
-
-		// Set the function when the button is clicked.
-		let onClickAction = subscribed ? this.props.onUnsubscribe : this.props.onSubscribe;
-		if ( this.props.loading ) {
-			onClickAction = _noop;
+		if ( this.props.subscribed === "subscribed" ) {
+			return (
+				<LargeSecondaryButton onClick={ this.onClick }>
+					<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage }/>
+				</LargeSecondaryButton>
+			);
 		}
 
-		// Either return a subscribe or an unsubscribe button.
-		let button = <Button onClick={ onClickAction }>
-			<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
-		</Button>;
-
-		if ( subscribed ) {
-			button = <LargeSecondaryButton onClick={ onClickAction }>
-				<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage }/>
-			</LargeSecondaryButton>;
-		}
-
-		return button;
+		return (
+			<Button onClick={ this.onClick }>
+				<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
+			</Button>
+		);
 	}
 
 	render() {
