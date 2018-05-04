@@ -464,11 +464,14 @@ class ProfilePage extends React.Component {
 }
 
 ProfilePage.propTypes = {
+	// User data
 	intl: intlShape.isRequired,
 	email: PropTypes.string.isRequired,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
 	image: PropTypes.string,
+
+	// Profile actions
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
@@ -480,6 +483,8 @@ ProfilePage.propTypes = {
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
+
+	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,
 	onCreateTokenModalClose: PropTypes.func.isRequired,
 	createTokenModalIsOpen: PropTypes.bool.isRequired,
@@ -493,6 +498,7 @@ ProfilePage.propTypes = {
 	tokenError: PropTypes.object,
 	composerTokens: PropTypes.array,
 
+	// Newsletter
 	onNewsletterSubscribe: PropTypes.func.isRequired,
 	onNewsletterUnsubscribe: PropTypes.func.isRequired,
 	newsletterSubscribed: PropTypes.string,
