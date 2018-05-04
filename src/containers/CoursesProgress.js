@@ -33,7 +33,7 @@ export const mapStateToProps = ( state ) => {
 			let course = state.entities.courses.byId[ courseId ];
 
 			if ( ! course.open ) {
-				return;
+				return false;
 			}
 
 			// Don't show a free enrollment is the user is already enrolled.

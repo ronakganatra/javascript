@@ -60,8 +60,6 @@ class CoursesProgress extends React.Component {
 		let { courses, coursesEnrollments } = this.props;
 		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
 
-		console.log( "ALL:", allEnrollments );
-
 		if ( isEmpty( allEnrollments ) ) {
 			return CoursesProgress.renderNoResults();
 		}
