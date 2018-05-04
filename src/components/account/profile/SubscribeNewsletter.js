@@ -104,14 +104,14 @@ class SubscribeNewsletter extends React.Component {
 		this.props.onSubscribe();
 	}
 
-    /**
+	/**
 	 * Generates and returns the (un)subscribe paragraph,
 	 * based on the current subscription status of the customer.
 	 *
 	 * E.g. invites customer to subscribe when not yet subscribed,
 	 * and explains how to unsubscribe when subscribed.
 	 * @returns {Element} an element containing the content
-     */
+	 */
 	getContent() {
 		if ( this.props.subscribed === "subscribed" ) {
 			return (
@@ -136,12 +136,12 @@ class SubscribeNewsletter extends React.Component {
 		</CheckboxList>;
 	}
 
-    /**
+	/**
 	 * Generates and returns the (un)subscribe button,
 	 * based on the current subscription status of the customer.
 	 *
 	 * @returns {Button} a button to subscribe or unsubscribe
-     */
+	 */
 	getButton() {
 		if ( this.props.subscribed === "subscribed" ) {
 			return (
