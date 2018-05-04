@@ -12,6 +12,9 @@ import {
 	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
 	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
 } from "../actions/composerTokens";
+import {
+	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
+} from "../actions/newsletter";
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
@@ -26,22 +29,31 @@ export const mapStateToProps = ( state ) => {
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
+
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
+
 		saveEmailError: state.user.saveEmailError,
+
 		isSendingPasswordReset: state.user.sendingPasswordReset,
 		hasSendPasswordReset: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,
+
 		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
 		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
 		manageTokenData: state.ui.composerTokens.manageTokenData,
 		tokenError: state.ui.composerTokens.tokenError,
+
+		newsletterSubscribed: state.ui.newsletter.subscribed,
+		newsletterError: state.ui.newsletter.error,
+		newsletterLoading: state.ui.newsletter.loading,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( fetchComposerTokens() );
+	dispatch( getNewsletterStatus() );
 
 	return {
 		onUpdateEmail: ( email ) => {
@@ -84,6 +96,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onDeleteTokenClick: ( data ) => {
 			dispatch( deleteComposerToken( data ) );
+		},
+		onNewsletterSubscribe: () => {
+			dispatch( subscribeNewsletter() );
+		},
+		onNewsletterUnsubscribe: () => {
+			dispatch( unsubscribeNewsletter() );
 		},
 	};
 };

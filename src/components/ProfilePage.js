@@ -14,6 +14,7 @@ import ComposerTokens from "./account/profile/ComposerTokens";
 import MyYoastModal from "./MyYoastModal";
 import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
+import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import NewTabMessage from "./NewTabMessage";
 
@@ -431,6 +432,12 @@ class ProfilePage extends React.Component {
 						</Column>
 					</Page>
 				</Paper>
+				<SubscribeNewsletter
+					onSubscribe={ this.props.onNewsletterSubscribe }
+					onUnsubscribe={ this.props.onNewsletterUnsubscribe }
+					subscribed={ this.props.newsletterSubscribed }
+					loading={ this.props.newsletterLoading }
+				/>
 				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
@@ -485,6 +492,11 @@ ProfilePage.propTypes = {
 	manageTokenData: PropTypes.object,
 	tokenError: PropTypes.object,
 	composerTokens: PropTypes.array,
+
+	onNewsletterSubscribe: PropTypes.func.isRequired,
+	onNewsletterUnsubscribe: PropTypes.func.isRequired,
+	newsletterSubscribed: PropTypes.string,
+	newsletterLoading: PropTypes.bool,
 };
 
 ProfilePage.defaultProps = {
