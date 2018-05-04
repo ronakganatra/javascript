@@ -33,6 +33,11 @@ test('the mapStateToProps function', () => {
 				manageTokenModalIsOpen: false,
 				manageTokenData: null,
 			},
+			newsletter: {
+				subscribed: "subscribed",
+				error: "",
+				loading: false,
+			}
 		},
 	};
 
@@ -57,6 +62,10 @@ test('the mapStateToProps function', () => {
 		manageTokenData: null,
 		createTokenModalIsOpen: false,
 		manageTokenModalIsOpen: false,
+		tokenError: undefined,
+		newsletterError: "",
+		newsletterLoading: false,
+		newsletterSubscribed: "subscribed",
 	};
 
 	expect( mapStateToProps( state ) ).toEqual( expected );

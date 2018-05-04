@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage, FormattedHTMLMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
-import _noop from "lodash/noop";
 
 // Custom components
 import { Paper, Page } from "../../PaperStyles";
@@ -90,6 +89,8 @@ class SubscribeNewsletter extends React.Component {
 	 * Nothing will happen when loading.
 	 * A user will be unsubscribed when subscribed.
 	 * Otherwise a user will be subscribed.
+	 *
+	 * @returns {void}
 	 */
 	onClick() {
 		if ( this.props.loading ) {
@@ -110,6 +111,7 @@ class SubscribeNewsletter extends React.Component {
 	 *
 	 * E.g. invites customer to subscribe when not yet subscribed,
 	 * and explains how to unsubscribe when subscribed.
+	 *
 	 * @returns {Element} an element containing the content
 	 */
 	getContent() {
