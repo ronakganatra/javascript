@@ -124,7 +124,7 @@ class SubscribeNewsletter extends React.Component {
 			<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
 		</Button>;
 
-		if ( this.props.subscribed === "subscribed" ) {
+		if ( subscribed ) {
 			button = <LargeSecondaryButton onClick={ onClickAction }>
 				<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage }/>
 			</LargeSecondaryButton>;
