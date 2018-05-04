@@ -73,7 +73,6 @@ class CoursesProgress extends React.Component {
 				<ListTable>
 					{ courses.map( ( course ) => {
 						let enrollments = allEnrollments[ course.id ] || [];
-						console.log( course.name, enrollments );
 
 						return(
 							<CourseProgress
