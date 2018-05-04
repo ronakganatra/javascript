@@ -60,6 +60,8 @@ class CoursesProgress extends React.Component {
 		let { courses, coursesEnrollments } = this.props;
 		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
 
+		console.log( "ALL:", allEnrollments );
+
 		if ( isEmpty( allEnrollments ) ) {
 			return CoursesProgress.renderNoResults();
 		}
@@ -73,6 +75,7 @@ class CoursesProgress extends React.Component {
 				<ListTable>
 					{ courses.map( ( course ) => {
 						let enrollments = allEnrollments[ course.id ] || [];
+						console.log( course.name, enrollments );
 
 						return(
 							<CourseProgress

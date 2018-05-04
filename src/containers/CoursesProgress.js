@@ -31,12 +31,13 @@ export const mapStateToProps = ( state ) => {
 	let freeEnrollments = allCourseIds
 		.filter( ( courseId ) => {
 			let course = state.entities.courses.byId[ courseId ];
+
 			if ( ! course.open ) {
 				return;
 			}
 
 			// Don't show a free enrollment is the user is already enrolled.
-			return coursesEnrollments.some( enrollment => enrollment.course_id === courseId );
+			return coursesEnrollments.every( enrollment => enrollment.courseId !== courseId );
 		} )
 		.map( ( courseId ) => {
 			let course = state.entities.courses.byId[ courseId ];
