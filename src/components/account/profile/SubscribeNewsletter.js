@@ -7,6 +7,9 @@ import _noop from "lodash/noop";
 import { Paper, Page } from "../../PaperStyles";
 import { Button, LargeSecondaryButton } from "../../Button";
 
+// Icons
+import checkmark from "../../../icons/checkGreen.svg";
+
 const NewsletterContainer = styled.div`
 	margin-top: 24px;
 `;
@@ -21,8 +24,17 @@ const Paragraph = styled.p`
 `;
 
 const CheckboxList = styled.ul`
-	list-style: square inside;
-	padding-left: 0px; 
+	list-style: none;
+	padding-left: 0%;
+`;
+
+const CheckboxListItem = styled.li`
+	padding-left: 2.0rem;
+		
+	background-image: url(${ checkmark });
+	background-position: 0 0.25rem;
+	background-size: 1.0rem 1.0rem;
+	background-repeat: no-repeat;
 `;
 
 const messages = defineMessages( {
@@ -71,11 +83,11 @@ class SubscribeNewsletter extends React.Component {
 	getContent() {
 		let content = <CheckboxList>
 			{ messages.subscribeReasons.map( reason => {
-				return <li key={ reason.id }>
+				return <CheckboxListItem key={ reason.id }>
 					<FormattedHTMLMessage
 						id={ reason.id }
 						defaultMessage={ reason.defaultMessage }/>
-				</li>;
+				</CheckboxListItem>;
 			} ) }
 		</CheckboxList>;
 
