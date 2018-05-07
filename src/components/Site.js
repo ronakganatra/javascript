@@ -48,6 +48,7 @@ let ColumnSubscriptions = styled( ColumnFixedWidth )`
 `;
 
 let ConfigurationServiceRequestUsage = styled.span`
+	display: block;
 	font-weight: 300;
 	margin-right: 8px;
 	margin-top: 4px;
@@ -77,6 +78,7 @@ function Site( props ) {
 		configureStatusMessage = "{ statusIcon } Configured with configuration service";
 		iconValues = <CompletedIcon src={ check }/>;
 	}
+
 	return (
 		<Row { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
