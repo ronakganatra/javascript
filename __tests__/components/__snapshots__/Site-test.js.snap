@@ -166,7 +166,7 @@ exports[`the site component matches the snapshot 1`] = `
 }
 
 .c7 {
-  display: none;
+  display: block;
   font-weight: 300;
   margin-right: 8px;
   margin-top: 4px;
