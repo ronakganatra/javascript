@@ -16,6 +16,7 @@ import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
 import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
+import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import NewTabMessage from "./NewTabMessage";
 
@@ -431,6 +432,7 @@ class ProfilePage extends React.Component {
 							onDeleteProfile={ this.props.onDeleteProfile }
 							isDeleting={ this.props.isDeleting }
 						/>
+						<DownloadAccount/>
 					</CollapsibleHeader>
 				</Paper>
 			</div>
