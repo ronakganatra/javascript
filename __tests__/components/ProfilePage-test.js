@@ -12,6 +12,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				composerTokens={ [] }
 			/>
 		);
@@ -28,6 +30,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				isSaving={true}
 				composerTokens={ [] }
 			/>
@@ -45,6 +49,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				saveEmailError={ {} }
 				composerTokens={ [] }
 			/>
@@ -62,7 +68,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				isSendingPasswordReset={true}
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
+				isSendingPasswordReset={ true }
 				composerTokens={ [] }
 			/>
 		);
@@ -79,7 +87,9 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
-				hasSendPasswordReset={true}
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
+				hasSendPasswordReset={ true }
 				composerTokens={ [] }
 			/>
 		);
@@ -96,6 +106,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
 			/>
@@ -114,6 +126,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [] }
 			/>
@@ -132,6 +146,8 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [ {
 					enabled: true,
@@ -154,12 +170,35 @@ describe( 'components/ProfilePage', () => {
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [ {
 					enabled: false,
 					id: "1",
 					name: "abc",
 				} ] }
+			/>
+		);
+
+		let tree = component.toJSON();
+		expect( tree ).toMatchSnapshot();
+	} );
+
+	test('When subscribed to the newsletter', () => {
+		const component = createComponentWithIntl(
+			<ProfilePage
+				email="email@email.email"
+				isDeleting={ false }
+				onUpdateEmail={ () => {} }
+				onSaveProfile={ () => {} }
+				onDeleteProfile={ () => {} }
+				onPasswordReset={ () => {} }
+				onNewsletterSubscribe={ () => {} }
+				onNewsletterUnsubscribe={ () => {} }
+				passwordResetError={ null }
+				composerTokens={ [] }
+				newsletterSubscribed="subscribed"
 			/>
 		);
 
