@@ -40,7 +40,16 @@ const Section = styled.section`
 	margin-bottom: 1em;
 `;
 
-class BasicComponent extends React.Component {
+class DownloadAccount extends React.Component {
+
+	constructor( props ) {
+		super( props );
+
+		this.onDownloadProfile = this.onDownloadProfile.bind( this );
+	}
+	onDownloadProfile() {
+		this.props.onDownloadProfile();
+	}
 
 	render() {
 		return <Page>
@@ -52,7 +61,7 @@ class BasicComponent extends React.Component {
 					<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage }/>
 				</Description>
 				<p>
-					<Button>
+					<Button onClick={ this.onDownloadProfile }>
 						<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage }/>
 					</Button>
 				</p>
@@ -61,13 +70,14 @@ class BasicComponent extends React.Component {
 	}
 }
 
-BasicComponent.propTypes = {
+DownloadAccount.propTypes = {
 	intl: intlShape.isRequired,
 	someProp: PropTypes.string,
+	onDownloadProfile: PropTypes.func.isRequired,
 };
 
-BasicComponent.defaultProps = {
+DownloadAccount.defaultProps = {
 	someProp: "[Some Text]",
 };
 
-export default injectIntl( BasicComponent );
+export default injectIntl( DownloadAccount );

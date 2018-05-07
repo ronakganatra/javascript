@@ -73,6 +73,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				dispatch( disableUser() );
 			}
 		},
+		onDownloadProfile: () => {
+			console.warn( "Downloading profile!" );
+		},
 		onPasswordReset: ( email ) => {
 			dispatch( passwordResetSend( email ) );
 		},
