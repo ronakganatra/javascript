@@ -56,7 +56,7 @@ const messages = defineMessages( {
 	},
 	subscribeReason3: {
 		id: "newsletter.subscribe.reasons.3",
-		defaultMessage: "Get our online course <em>SEO For Beginners</em> <b>for free</b>!",
+		defaultMessage: "Receive a free eBook!",
 	},
 	subscribeButton: {
 		id: "newsletter.subscribeButton",
