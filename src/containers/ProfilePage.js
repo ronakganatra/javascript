@@ -15,6 +15,10 @@ import {
 import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
+import {
+	downloadProfile,
+} from "../actions/downloadProfile";
+
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
@@ -48,6 +52,8 @@ export const mapStateToProps = ( state ) => {
 		newsletterSubscribed: state.ui.newsletter.subscribed,
 		newsletterError: state.ui.newsletter.error,
 		newsletterLoading: state.ui.newsletter.loading,
+
+		downloadedProfile: state.ui.downloadedProfile.data,
 	};
 };
 
@@ -74,7 +80,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			}
 		},
 		onDownloadProfile: () => {
-			console.warn( "Downloading profile!" );
+			dispatch( downloadProfile() );
 		},
 		onPasswordReset: ( email ) => {
 			dispatch( passwordResetSend( email ) );

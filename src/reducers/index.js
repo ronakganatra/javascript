@@ -16,6 +16,7 @@ import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerToken
 import { uiInvoicesReducer } from "./invoices";
 import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
 import { uiNewsletterReducer } from "./newsletter";
+import { downloadProfileReducer } from "./downloadProfile";
 
 
 export const uiReducer = combineReducers( {
@@ -36,6 +37,7 @@ export const uiReducer = combineReducers( {
 	composerTokens: uiComposerTokensReducer,
 	configurationServiceRequests: uiConfigurationServiceRequestReducer,
 	newsletter: uiNewsletterReducer,
+	downloadedProfile: downloadProfileReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
@@ -93,6 +95,7 @@ export const entitiesReducer = combineReducers( {
 	refunds: entitiesRefundsReducer,
 	composerTokens: entitiesComposerTokensReducer,
 	configurationServiceRequests: entitiesConfigurationServiceRequestsReducer,
+	downloadProfile: downloadProfileReducer,
 } );
 
 export const rootReducer = combineReducers( {
