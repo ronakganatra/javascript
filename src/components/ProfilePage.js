@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
-import { Button, LargeButton, makeButtonFullWidth, RedButton } from "./Button";
+import { Button, LargeButton, makeButtonFullWidth } from "./Button";
 import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -15,6 +15,7 @@ import MyYoastModal from "./MyYoastModal";
 import CreateToken from "./account/profile/CreateToken";
 import ManageToken from "./account/profile/ManageToken";
 import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
+import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import NewTabMessage from "./NewTabMessage";
 
@@ -138,10 +139,6 @@ const PasswordReset = styled.section`
 	margin: 1em 0;
 `;
 
-const DeleteButton = styled( RedButton )`
-	margin: 1em 0;
-`;
-
 const CreateButtonArea = styled.div`
 	padding: 16px 32px;
 `;
@@ -167,17 +164,6 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
-	}
-
-	/**
-	 * Creates the text to be displayed on the save button.
-	 *
-	 * @returns {string} Text to be used on the submit button.
-	 */
-	deleteButtonText() {
-		return this.isDeleting()
-			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage}/>
-			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage }/>;
 	}
 
 	componentDidMount() {
@@ -441,21 +427,10 @@ class ProfilePage extends React.Component {
 				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
-						<Page>
-							<form onSubmit={ this.handleDelete }>
-								<Paragraph>
-									<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
-								</Paragraph>
-								<p>
-									<FormattedMessage
-										id="profile.delete.message"
-										defaultMessage={ "Warning! If you delete your account you lose access to" +
-										" your downloads and you will no longer receive updates for any Premium" +
-										" plugins you've bought from us." } />
-								</p>
-								<DeleteButton type="submit" disabled={ this.isDeleting() }>{ this.deleteButtonText() }</DeleteButton>
-							</form>
-						</Page>
+						<DeleteAccount
+							onDeleteProfile={ this.props.onDeleteProfile }
+							isDeleting={ this.props.isDeleting }
+						/>
 					</CollapsibleHeader>
 				</Paper>
 			</div>
