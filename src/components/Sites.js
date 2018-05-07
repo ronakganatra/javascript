@@ -25,6 +25,7 @@ function Sites( props ) {
 						siteName={ site.siteName }
 						siteType={ site.siteType }
 						activeSubscriptions={ site.activeSubscriptions }
+						linkedConfigurationServiceRequest={ site.configurationServiceRequest }
 						plugins={ props.plugins }
 						onClickManage={ onManageHandler }
 					/>;

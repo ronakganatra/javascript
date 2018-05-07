@@ -84,30 +84,19 @@ function SiteSubscriptionDetail( props ) {
 		rowProps.background = props.background;
 	}
 
-	let anotherLicense = null;
-	if ( props.used >= props.limit && props.isEnabled === false ) {
-		anotherLicense = (
-			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" }>
-				<FormattedMessage
-					id="site.subscriptions.licenses.add"
-					defaultMessage="Get another subscription"
-				/>
-				<NewTabMessage/>
-			</IconButtonTransparentLink>
-		);
+	let anotherLicenseMessage = "Get a subscription";
+	if ( props.limit > 0 ) {
+		anotherLicenseMessage = "Get another subscription";
 	}
-
-	if ( props.hasSubscriptions === false && props.isAvailable === false ) {
-		anotherLicense = (
-			<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" } >
-				<FormattedMessage
-					id="site.subscriptions.licenses.add"
-					defaultMessage="Get a subscription"
-				/>
-				<NewTabMessage/>
-			</IconButtonTransparentLink>
-		);
-	}
+	let anotherLicense = (
+		<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" } >
+			<FormattedMessage
+				id="site.subscriptions.licenses.add"
+				defaultMessage={ anotherLicenseMessage }
+			/>
+			<NewTabMessage/>
+		</IconButtonTransparentLink>
+	);
 
 	let disable = true;
 	if ( props.subscriptionId !== "" ) {

@@ -45,7 +45,11 @@ let activeSubscriptions = [
 
 test('the site component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<Site plugins={ plugins } activeSubscriptions={ activeSubscriptions } siteName="yoast.com" siteIcon="" siteType="wordpress" />
+		<Site plugins={ plugins }
+			activeSubscriptions={ activeSubscriptions }
+			siteName="yoast.com" siteIcon=""
+			siteType="wordpress"
+			linkedConfigurationServiceRequest={"testRequest"}/>
 	);
 
 	let tree = component.toJSON();

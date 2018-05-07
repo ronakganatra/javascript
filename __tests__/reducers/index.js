@@ -100,14 +100,21 @@ jest.mock( "../../src/reducers/configurationServiceRequest.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/newsletter.js", () => {
+	return {
+		uiNewsletterReducer: jest.fn( ( state = {} ) => { return { name: "uiNewsletterReducer" }; } ),
+	}
+} );
+
 test( 'ui reducer', () => {
-	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {} };
+	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {}, newsletter: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
 	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
 		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" }, configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" } };
+		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" },
+		configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" }, newsletter: { name: "uiNewsletterReducer" } };
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -272,6 +279,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" },
 			helpBeaconModal: { name: "uiHelpBeaconModalReducer" },
 			invoiceModal: { name: "uiInvoicesReducer" },
+			newsletter: { name: "uiNewsletterReducer" },
 		},
 		user: { name: "userReducer" },
 	};

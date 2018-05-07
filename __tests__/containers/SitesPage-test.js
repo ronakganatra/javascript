@@ -14,6 +14,7 @@ let state = {
 				"creationDate": "2017-03-21T08:54:09.415Z",
 				"userId": 1,
 				"subscriptions": [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+				"configurationServiceRequest": {},
 			} },
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
@@ -71,12 +72,14 @@ test('the mapStateToProps function', () => {
 		sites: [ {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
+			"siteType": undefined,
 			"url": "https://yoast.com",
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
 			} ],
+			"configurationServiceRequest": {},
 		} ],
 		plugins: [
 			{
@@ -94,6 +97,7 @@ test('the mapStateToProps function', () => {
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active"
 			} ],
+			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
 			"siteType": undefined,
@@ -126,6 +130,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
 			} ],
+			"configurationServiceRequest": {},
 		} ],
 		plugins: [
 			{
@@ -143,6 +148,7 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active"
 			} ],
+			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
 			"siteType": undefined,
@@ -175,6 +181,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
 			} ],
+			"configurationServiceRequest": {},
 		} ],
 		plugins: [
 			{
@@ -192,6 +199,7 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active"
 			} ],
+			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
 			"siteType": undefined,
@@ -232,6 +240,7 @@ test('the mapStateToProps function when query does not match any site.', () => {
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active"
 			} ],
+			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
 			"siteType": undefined,
@@ -262,6 +271,7 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 			"siteName": "yoast.com",
 			"url": "https://yoast.com",
 			"activeSubscriptions": [],
+			"configurationServiceRequest": {},
 		} ],
 		plugins: [
 			{
@@ -275,6 +285,7 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 		availableConfigurationServiceRequests: [],
 		availableSites: [ {
 			"activeSubscriptions": [],
+			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com",
 			"siteType": undefined,
@@ -373,6 +384,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 		sites: [ {
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com/extrapath",
+			"siteType": undefined,
 			"url": "https://yoast.com",
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -398,6 +410,7 @@ test('the mapStateToProps function when there is an additional path in the url',
 			} ],
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com/extrapath",
+			"siteType": undefined,
 			"url":"https://yoast.com",
 		} ],
 		modalOpen: false,

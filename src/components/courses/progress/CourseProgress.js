@@ -67,65 +67,54 @@ const messages = defineMessages( {
 } );
 
 class CourseProgress extends React.Component {
-	constructor( props ) {
-		super( props );
+	getProgressButtonLabel( progress, student, buyer ) {
+		if ( progress === 100 ) {
+			if ( this.props.course.certificateUrl ) {
+				return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
+			}
+			return <FormattedMessage id="button.retake" defaultMessage="Retake Course" />;
+		}
+		if ( progress > 0 ) {
+			return <FormattedMessage id="button.continue" defaultMessage="Continue" />;
+		}
+		if ( student ) {
+			return <FormattedMessage id="button.getstarted" defaultMessage="Get Started" />;
+		}
+		if ( buyer ) {
+			return <FormattedMessage id="button.enroll" defaultMessage="Enroll" />;
+		}
+	}
 
-		this.state = { progress: 0, student: false, buyer: false, status: "Locked" };
-		let userId = getUserId();
+	getProgressButtonUrl( progress, student, buyer ) {
+		if ( progress === 100 && this.props.course.certificateUrl ) {
+			return this.props.course.certificateUrl;
+		}
+		if ( student ) {
+			return this.props.course.courseUrl;
+		}
+		if ( buyer ) {
+			return "/courses/enrollments";
+		}
+	}
+
+	render() {
+		let userId = getUserId(), progress = 0, student = false, buyer = false;
 
 		if ( this.props.courseEnrollments.length > 0 ) {
 			for ( let i = 0; i < this.props.courseEnrollments.length; i++ ) {
 				let enrollment = this.props.courseEnrollments[ i ];
 
 				if ( enrollment.studentId === userId ) {
-					this.state.progress = enrollment.progress;
-					this.state.student  = true;
-					this.state.status   = enrollment.status;
+					progress = enrollment.progress;
+					student  = true;
 				}
 
 				if ( enrollment.buyerId === userId && enrollment.studentId === null ) {
-					this.state.buyer = true;
+					buyer = true;
 				}
 			}
-		} else {
-			this.state.progress = 0;
-			this.state.student = true;
-			this.state.status = "not started";
-			this.state.buyer = false;
 		}
-	}
 
-	getProgressButtonLabel() {
-		if ( this.state.progress === 100 ) {
-			if ( this.props.course.certificateUrl ) {
-				return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
-			}
-			return <FormattedMessage id="button.retake" defaultMessage="Retake Course" />;
-		}
-		if ( this.state.progress > 0 ) {
-			return <FormattedMessage id="button.continue" defaultMessage="Continue" />;
-		}
-		if ( this.state.student ) {
-			return <FormattedMessage id="button.getstarted" defaultMessage="Get Started" />;
-		}
-		if ( this.state.buyer ) {
-			return <FormattedMessage id="button.enroll" defaultMessage="Enroll" />;
-		}
-	}
-
-	getProgressButtonUrl() {
-		if ( this.state.progress === 100 && this.props.course.certificateUrl ) {
-			return this.props.course.certificateUrl;
-		}
-		if ( this.state.student ) {
-			return this.props.course.courseUrl;
-		}
-		if ( this.state.buyer ) {
-			return "/courses/enrollments";
-		}
-	}
-
-	render() {
 		return (
 			<RowMobileCollapse key={ this.props.course.id } background={ this.props.background } >
 				<CourseColumnIcon separator={ true }>
@@ -135,11 +124,11 @@ class CourseProgress extends React.Component {
 					<Link to={ this.props.course.courseUrl } linkTarget="_blank">{ this.props.course.name }</Link>
 				</ColumnPrimaryResponsive>
 				<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.progress ) }>
-					{ this.state.progress }%
+					{ progress }%
 				</ColumnMinWidthResponsive>
 				<ColumnFixedWidthResponsive>
-					<ResponsiveLargeButtonLink to={ this.getProgressButtonUrl() } linkTarget="_blank">
-						{ this.getProgressButtonLabel() }
+					<ResponsiveLargeButtonLink to={ this.getProgressButtonUrl( progress, student, buyer ) } linkTarget="_blank">
+						{ this.getProgressButtonLabel( progress, student, buyer ) }
 					</ResponsiveLargeButtonLink>
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapse>

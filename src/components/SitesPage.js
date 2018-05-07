@@ -226,7 +226,7 @@ class SitesPage extends React.Component {
 						</ResponsiveIconButton>
 					</SiteAddContainer>
 					{ this.getConfigurationServiceRequest() }
-					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage }/>
+					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage } />
 					{ this.getModal() }
 				</div>
 			);

@@ -15,6 +15,7 @@ import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./re
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
 import { uiInvoicesReducer } from "./invoices";
 import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
+import { uiNewsletterReducer } from "./newsletter";
 
 
 export const uiReducer = combineReducers( {
@@ -34,6 +35,7 @@ export const uiReducer = combineReducers( {
 	helpBeaconModal: uiHelpBeaconModalReducer,
 	composerTokens: uiComposerTokensReducer,
 	configurationServiceRequests: uiConfigurationServiceRequestReducer,
+	newsletter: uiNewsletterReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
