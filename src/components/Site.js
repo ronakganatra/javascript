@@ -47,8 +47,7 @@ let ColumnSubscriptions = styled( ColumnFixedWidth )`
 	flex-basis: 340px;
 `;
 
-let ConfigurationUsage = styled.span`
-	display: ${ props => props.linkedConfigurationServiceRequest.status ? "block" : "none" };
+let ConfigurationServiceRequestUsage = styled.span`
 	font-weight: 300;
 	margin-right: 8px;
 	margin-top: 4px;
@@ -84,10 +83,10 @@ function Site( props ) {
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
 				{ props.linkedConfigurationServiceRequest &&
-					<ConfigurationUsage linkedConfigurationServiceRequest={ props.linkedConfigurationServiceRequest }>
-						{ <FormattedMessage id="request.configured" defaultMessage={ configureStatusMessage }
-											values={{ statusIcon: iconValues }} /> }
-					</ConfigurationUsage>
+					<ConfigurationServiceRequestUsage>
+						<FormattedMessage id="request.configured" defaultMessage={ configureStatusMessage }
+											values={{ statusIcon: iconValues }} />
+					</ConfigurationServiceRequestUsage>
 				}
 			</ColumnPrimary>
 			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
