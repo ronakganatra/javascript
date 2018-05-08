@@ -2,6 +2,10 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
+import "whatwg-fetch";
+
+import { prepareInternalRequest } from "../../../../functions/api";
+import { getUserId } from "../../../../functions/auth";
 
 // Custom components.
 import { Page } from "../../../PaperStyles";
@@ -36,7 +40,7 @@ const Description = styled.p`
 	margin-bottom: 10px;
 `;
 
-const Section = styled.section`
+const Form = styled.form`
 	margin-bottom: 1em;
 `;
 
@@ -44,16 +48,19 @@ class DownloadAccount extends React.Component {
 
 	constructor( props ) {
 		super( props );
-
-		this.onDownloadProfile = this.onDownloadProfile.bind( this );
+		this.generateDownloadURL = this.generateDownloadURL.bind( this );
 	}
-	onDownloadProfile() {
-		this.props.onDownloadProfile();
+
+	generateDownloadURL() {
+		let userId = getUserId();
+		let request = prepareInternalRequest( `Customers/${userId}/download/` );
+
+		return request.url;
 	}
 
 	render() {
 		return <Page>
-			<Section>
+			<Form action={ this.generateDownloadURL() }>
 				<Title>
 					<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
 				</Title>
@@ -61,23 +68,18 @@ class DownloadAccount extends React.Component {
 					<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage }/>
 				</Description>
 				<p>
-					<Button onClick={ this.onDownloadProfile }>
+					<Button type="submit">
 						<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage }/>
 					</Button>
 				</p>
-			</Section>
+			</Form>
 		</Page>;
 	}
 }
 
 DownloadAccount.propTypes = {
 	intl: intlShape.isRequired,
-	someProp: PropTypes.string,
-	onDownloadProfile: PropTypes.func.isRequired,
 };
 
-DownloadAccount.defaultProps = {
-	someProp: "[Some Text]",
-};
 
 export default injectIntl( DownloadAccount );

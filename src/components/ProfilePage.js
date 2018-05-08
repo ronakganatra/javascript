@@ -428,12 +428,10 @@ class ProfilePage extends React.Component {
 				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
+						<DownloadAccount/>
 						<DeleteAccount
 							onDeleteProfile={ this.props.onDeleteProfile }
 							isDeleting={ this.props.isDeleting }
-						/>
-						<DownloadAccount
-							onDownloadProfile={ this.props.onDownloadProfile }
 						/>
 					</CollapsibleHeader>
 				</Paper>
@@ -482,9 +480,6 @@ ProfilePage.propTypes = {
 	onNewsletterUnsubscribe: PropTypes.func.isRequired,
 	newsletterSubscribed: PropTypes.string,
 	newsletterLoading: PropTypes.bool,
-
-	// Download profile data
-	onDownloadProfile: PropTypes.func.isRequired,
 };
 
 ProfilePage.defaultProps = {
