@@ -9,6 +9,10 @@ import styled from "styled-components";
 import { StyledLabel } from "../Labels";
 
 let messages = defineMessages( {
+	configurationHeading: {
+		id: "requestConfiguration.configurationHeading",
+		defaultMessage: "Configuration service intake form",
+	},
 	configurationAvailable: {
 		id: "requestConfiguration.configurationAvailable",
 		defaultMessage: "You have {configurationAvailable} available configuration " +
@@ -33,7 +37,7 @@ let messages = defineMessages( {
 	},
 } );
 
-let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
+const ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	white-space: nowrap;
 	min-width: initial;
 `;
@@ -107,7 +111,12 @@ class ConfigurationServiceRequestBlock extends React.Component {
 		return (
 			<Paper>
 				<WhitePage>
-					<SubHeading>Configuration Service</SubHeading>
+					<SubHeading>
+						<FormattedMessage
+							id={ messages.configurationHeading.id }
+							defaultMessage={ messages.configurationHeading.defaultMessage }
+						/>
+					</SubHeading>
 					<p>
 						<FormattedMessage
 							id={ messages.configurationAvailable.id }

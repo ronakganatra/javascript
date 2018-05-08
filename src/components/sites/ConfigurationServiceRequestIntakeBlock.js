@@ -3,27 +3,31 @@ import React from "react";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import { Paper, WhitePage } from "../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../Button";
-import { SubHeading } from "../Headings";
+import CollapsibleHeader from "../CollapsibleHeader";
 import styled from "styled-components";
 
 let messages = defineMessages( {
+	configurationHeading: {
+		id: "requestConfigurationIntake.configurationHeading",
+		defaultMessage: "Configuration service intake form",
+	},
 	configurationAvailable: {
-		id: "requestConfiguration.configurationAvailable",
+		id: "requestConfigurationIntake.configurationAvailable",
 		defaultMessage: "You have purchased {configurationAvailable} available configuration " +
 		"{configurationAvailable, plural, =0 {services. If you are interested in having your plugin configured by our experts, visit our store!}" +
 		" one {service, which you can apply to one of your websites.} other {services, which you can apply to your websites.}}",
 	},
 	configurationHowTo: {
-		id: "requestConfiguration.configurationHowTo",
+		id: "requestConfigurationIntake.configurationHowTo",
 		defaultMessage: "Let us help you to configure the plugins for your website. Click on the button below to open the intake form.",
 	},
 	requestButton: {
-		id: "requestConfiguration.modalButton",
+		id: "requestConfigurationIntake.modalButton",
 		defaultMessage: "Request configuration service for this site",
 	},
 } );
 
-let ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
+const ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 	white-space: nowrap;
 	min-width: initial;
 `;
@@ -58,39 +62,43 @@ class ConfigurationServiceRequestIntakeBlock extends React.Component {
 	}
 
 	render() {
-		console.log( "test props intakeblock:", this.props );
 		let configAvailable = this.props.amountAvailable;
 		return (
 			<Paper>
-				<WhitePage>
-					<SubHeading>Configuration service intake form</SubHeading>
-					<p>
-						<FormattedMessage
-							id={ messages.configurationAvailable.id }
-							defaultMessage={ messages.configurationAvailable.defaultMessage }
-							values={ {
-								configurationAvailable: configAvailable,
-							} }
-						/>
-						<br />
-						<FormattedMessage
-							id={ messages.configurationHowTo.id }
-							defaultMessage={ messages.configurationHowTo.defaultMessage }
-						/>
-					</p>
+				<CollapsibleHeader
+					title={ this.props.intl.formatMessage( messages.configurationHeading ) }
+					isOpen={ true }
+				>
+					<WhitePage>
+						<div>
+							<p>
+								<FormattedMessage
+									id={ messages.configurationAvailable.id }
+									defaultMessage={ messages.configurationAvailable.defaultMessage }
+									values={ {
+										configurationAvailable: configAvailable,
+									} }
+								/>
+							</p>
+							<p>
+								<FormattedMessage
+									id={ messages.configurationHowTo.id }
+									defaultMessage={ messages.configurationHowTo.defaultMessage }
+								/>
+							</p>
+						</div>
 						<ResponsiveButton
 							enabledStyle={ true }
 							onClick={ this.handleSubmit }
 						>
 							{ this.props.intl.formatMessage( messages.requestButton ) }
 						</ResponsiveButton>
-				</WhitePage>
+					</WhitePage>
+				</CollapsibleHeader>
 			</Paper>
 		);
 	}
 }
-
-export default injectIntl( ConfigurationServiceRequestIntakeBlock );
 
 ConfigurationServiceRequestIntakeBlock.propTypes = {
 	openConfigurationServiceRequestModal: PropTypes.func,
@@ -98,3 +106,5 @@ ConfigurationServiceRequestIntakeBlock.propTypes = {
 	intl: intlShape.isRequired,
 	siteId: PropTypes.string.isRequired,
 };
+
+export default injectIntl( ConfigurationServiceRequestIntakeBlock );

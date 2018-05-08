@@ -104,8 +104,14 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
+	let configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+
+	let configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
+
 	return {
 		availableConfigurationServiceRequests,
+		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
 		site,
 		subscriptions,

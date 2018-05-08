@@ -10,7 +10,9 @@ import AddLicenses from "./AddLicenses";
 import MyYoastModal from "./MyYoastModal";
 import PlatformSelect from "./sites/details/PlatformSelect";
 import ConfigurationServiceRequestIntakeBlock from "./sites/ConfigurationServiceRequestIntakeBlock";
+import ConfigurationServiceRequestStatusBlock from "./sites/ConfigurationServiceRequestStatusBlock";
 import ConfigurationServiceRequestForm from "./sites/configuration-service-requests/ConfigurationServiceRequestForm";
+import { hasAccessToFeature, CONFIGURATION_SERVICE_FEATURE } from "../functions/features";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -72,7 +74,6 @@ class SitePage extends React.Component {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
 		} );
-		console.log( "getmodalprops:", this.props );
 		return (
 			<MyYoastModal
 				isOpen={ this.props.configurationServiceRequestModalOpen }
@@ -89,6 +90,26 @@ class SitePage extends React.Component {
 		);
 	}
 
+	getConfigurationServiceRequestBlock() {
+		if ( ! hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
+			return null;
+		}
+
+		if ( this.props.site.configurationServiceRequest ) {
+			return <ConfigurationServiceRequestStatusBlock status={ this.props.site.configurationServiceRequest.status }/>;
+		}
+
+		if(	this.props.availableConfigurationServiceRequests.length > 0 ) {
+			return <ConfigurationServiceRequestIntakeBlock
+				amountAvailable={ this.props.availableConfigurationServiceRequests.length }
+				siteId={ this.props.site.id }
+				openConfigurationServiceRequestModal={ this.props.openConfigurationServiceRequestModal }
+			/>;
+		}
+
+		return null;
+	}
+
 	render() {
 		let props = this.props;
 
@@ -97,18 +118,8 @@ class SitePage extends React.Component {
 		}
 
 		let subscriptionList = <AnimatedLoader />;
-		let configurationServiceRequestIntakeBlock;
-		let hostnameDisplay = props.site.hostname.replace( /^(?:www\.)?/, "" );
-		let siteNameDisplay = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
-
-		console.log( "test sitepage props:", props.availableConfigurationServiceRequests );
-		if( this.props.availableConfigurationServiceRequests.length > 0 ) {
-			configurationServiceRequestIntakeBlock = <ConfigurationServiceRequestIntakeBlock
-					amountAvailable={ props.availableConfigurationServiceRequests.length }
-					siteId={ props.site.id }
-					openConfigurationServiceRequestModal={ props.openConfigurationServiceRequestModal }
-				/>;
-		}
+		let hostnameDisplay  = props.site.hostname.replace( /^(?:www\.)?/, "" );
+		let siteNameDisplay  = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
 		if ( ! props.loadingSubscriptions ) {
 			subscriptionList = <SiteSubscriptionDetailList
@@ -122,7 +133,7 @@ class SitePage extends React.Component {
 		return (
 			<div>
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" }/>
-				{ configurationServiceRequestIntakeBlock }
+				{ this.getConfigurationServiceRequestBlock() }
 				{ subscriptionList }
 				<PlatformSelect
 					title={ props.intl.formatMessage( messages.changeSitePlatform ) }
@@ -161,6 +172,7 @@ SitePage.propTypes = {
 	configurationServiceRequestModalSiteId: PropTypes.string,
 	onConfigurationModalClose: PropTypes.func.isRequired,
 	configureConfigurationServiceRequest: PropTypes.func.isRequired,
+	openConfigurationServiceRequestModal: PropTypes.func.isRequired,
 };
 
 SitePage.defaultProps = {
