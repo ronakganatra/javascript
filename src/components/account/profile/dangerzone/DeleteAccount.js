@@ -29,8 +29,8 @@ const messages = defineMessages( {
 		id: "profile.delete.message",
 		defaultMessage: "Warning! If you delete your account you lose access to" +
 		" your downloads and you will no longer receive updates for any Premium" +
-		" plugins you've bought from us."
-	}
+		" plugins you've bought from us.",
+	},
 } );
 
 
