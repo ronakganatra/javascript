@@ -3,7 +3,7 @@ import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-i
 import styled from "styled-components";
 import "whatwg-fetch";
 
-import { prepareInternalRequest } from "../../../../functions/api";
+import { getDownloadProfileUrl } from "../../../../functions/api";
 import { getUserId } from "../../../../functions/auth";
 
 // Custom components.
@@ -52,9 +52,7 @@ class DownloadAccount extends React.Component {
 
 	generateDownloadURL() {
 		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/download/` );
-
-		return request.url;
+		return getDownloadProfileUrl( userId );
 	}
 
 	render() {
