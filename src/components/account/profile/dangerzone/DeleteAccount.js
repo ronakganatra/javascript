@@ -25,6 +25,12 @@ const messages = defineMessages( {
 		id: "profile.delete",
 		defaultMessage: "Delete your account",
 	},
+	warningMessage: {
+		id: "profile.delete.message",
+		defaultMessage: "Warning! If you delete your account you lose access to" +
+		" your downloads and you will no longer receive updates for any Premium" +
+		" plugins you've bought from us."
+	}
 } );
 
 
@@ -69,11 +75,7 @@ class DeleteAccount extends React.Component {
 							<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
 						</Paragraph>
 						<p>
-							<FormattedMessage
-								id="profile.delete.message"
-								defaultMessage={ "Warning! If you delete your account you lose access to" +
-								" your downloads and you will no longer receive updates for any Premium" +
-								" plugins you've bought from us." } />
+							<FormattedMessage id={ messages.warningMessage.id } defaultMessage={ messages.warningMessage.defaultMessage }/>
 						</p>
 						<DeleteButton type="submit" disabled={ this.isDeleting }>{ this.deleteButtonText() }</DeleteButton>
 					</form>
