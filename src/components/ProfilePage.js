@@ -437,6 +437,7 @@ class ProfilePage extends React.Component {
 					onUnsubscribe={ this.props.onNewsletterUnsubscribe }
 					subscribed={ this.props.newsletterSubscribed }
 					loading={ this.props.newsletterLoading }
+					error={ this.props.newsletterError }
 				/>
 				{ this.getDevTools() }
 				<Paper>
@@ -503,6 +504,7 @@ ProfilePage.propTypes = {
 	onNewsletterUnsubscribe: PropTypes.func.isRequired,
 	newsletterSubscribed: PropTypes.string,
 	newsletterLoading: PropTypes.bool,
+	newsletterError: PropTypes.string,
 };
 
 ProfilePage.defaultProps = {
