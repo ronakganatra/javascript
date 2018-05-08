@@ -18,6 +18,7 @@ export const mapStateToProps = ( state ) => {
 			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
 			siteType: site.type,
 			url: site.url,
+			configurationServiceRequest: site.configurationServiceRequest,
 		};
 
 		if ( site.icon ) {
