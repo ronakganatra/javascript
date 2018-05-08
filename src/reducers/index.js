@@ -93,7 +93,6 @@ export const entitiesReducer = combineReducers( {
 	refunds: entitiesRefundsReducer,
 	composerTokens: entitiesComposerTokensReducer,
 	configurationServiceRequests: entitiesConfigurationServiceRequestsReducer,
-	downloadProfile: downloadProfileReducer,
 } );
 
 export const rootReducer = combineReducers( {

@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
