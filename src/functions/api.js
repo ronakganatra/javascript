@@ -177,3 +177,14 @@ export function getInvoiceUrl( orderId, refundId = null ) {
 	}
 	return getApiUrl() + "/Orders/" + orderId + "/invoice?access_token=" + getAccessToken();
 }
+
+/**
+ * Returns the URL for downloading the profile of the user with the given ID (in CSV format).
+ *
+ * @param {string} userId the ID of the user
+ * @returns {string} the URL to the profile
+ */
+export function getDownloadProfileUrl( userId ) {
+	let path = `Customers/${userId}/download/`;
+	return `${getApiUrl()}/${path}?access_token=${getAccessToken()}`;
+}

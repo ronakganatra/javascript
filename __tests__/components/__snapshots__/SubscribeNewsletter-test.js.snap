@@ -1,0 +1,594 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Subscribe Newsletter component (when pending) matches the snapshot 1`] = `
+.c1 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c2 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0 {
+  margin-top: 24px;
+}
+
+.c4 {
+  margin-bottom: 1em;
+}
+
+.c5 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    display: block;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+    >
+      <section
+        className="c4"
+      >
+        <p
+          className="c5"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <p>
+          <span>
+            Your subscription to the Yoast newsletter is pending. Please check your inbox for a confirmation email.
+          </span>
+        </p>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The Subscribe Newsletter component (when subscribed) matches the snapshot 1`] = `
+.c1 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c2 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c7 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c7:hover,
+.c7:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c7:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c6 {
+  color: #000;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+}
+
+.c6:hover,
+.c6:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin-top: 24px;
+}
+
+.c4 {
+  margin-bottom: 1em;
+}
+
+.c5 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    display: block;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+    >
+      <section
+        className="c4"
+      >
+        <p
+          className="c5"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <p>
+          <span>
+            You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
+          </span>
+        </p>
+        <button
+          className="c6 c7"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Unsubscribe
+          </span>
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The Subscribe Newsletter component (when unknown) matches the snapshot 1`] = `null`;
+
+exports[`The Subscribe Newsletter component (when unsubscribed) matches the snapshot 1`] = `
+.c1 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c2 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c9 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c9:hover,
+.c9:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c9:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c8 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin-top: 24px;
+}
+
+.c4 {
+  margin-bottom: 1em;
+}
+
+.c5 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c6 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c7 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    display: block;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+    >
+      <section
+        className="c4"
+      >
+        <p
+          className="c5"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <ul
+          className="c6"
+        >
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                }
+              }
+            />
+          </li>
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Be the first to know about new features and other cool plugins.",
+                }
+              }
+            />
+          </li>
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Receive a free eBook!",
+                }
+              }
+            />
+          </li>
+        </ul>
+        <button
+          className="c8 c9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Subscribe
+          </span>
+        </button>
+      </section>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The Subscribe Newsletter component shows an error when there is one defined. 1`] = `
+.c1 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c2 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c9 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c9:hover,
+.c9:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c9:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c8 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c11 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c10 {
+  background-color: #f9bdbd;
+}
+
+.c12 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c13 {
+  color: #5d237a;
+}
+
+.c0 {
+  margin-top: 24px;
+}
+
+.c4 {
+  margin-bottom: 1em;
+}
+
+.c5 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c6 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c7 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:800 ) {
+  .c11 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+    >
+      <section
+        className="c4"
+      >
+        <p
+          className="c5"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <ul
+          className="c6"
+        >
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                }
+              }
+            />
+          </li>
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Be the first to know about new features and other cool plugins.",
+                }
+              }
+            />
+          </li>
+          <li
+            className="c7"
+          >
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Receive a free eBook!",
+                }
+              }
+            />
+          </li>
+        </ul>
+        <button
+          className="c8 c9"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Subscribe
+          </span>
+        </button>
+        <div
+          className="c10 c11"
+          role="alert"
+        >
+          <span
+            alt="Error sign"
+            className="c12"
+          />
+          <span>
+            Oops, something went wrong on our end, please try again. If this keeps happening, 
+            <a
+              className="c13"
+              href="mailto:support@yoast.com"
+            >
+              <span>
+                please contact support
+              </span>
+            </a>
+            .
+          </span>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+`;

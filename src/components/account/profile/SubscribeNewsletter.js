@@ -6,6 +6,7 @@ import styled from "styled-components";
 // Custom components
 import { Paper, Page } from "../../PaperStyles";
 import { Button, LargeSecondaryButton } from "../../Button";
+import ErrorDisplay from "../../../errors/ErrorDisplay";
 
 // Icons
 import checkmark from "../../../icons/checkGreen.svg";
@@ -56,7 +57,7 @@ const messages = defineMessages( {
 	},
 	subscribeReason3: {
 		id: "newsletter.subscribe.reasons.3",
-		defaultMessage: "Get our online course <em>SEO For Beginners</em> <b>for free</b>!",
+		defaultMessage: "Receive a free eBook!",
 	},
 	subscribeButton: {
 		id: "newsletter.subscribeButton",
@@ -65,6 +66,10 @@ const messages = defineMessages( {
 	unsubscribeParagraph: {
 		id: "newsletter.unsubscribeParagraph",
 		defaultMessage: "You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.",
+	},
+	pendingParagraph: {
+		id: "newsletter.pendingParagraph",
+		defaultMessage: "Your subscription to the Yoast newsletter is pending. Please check your inbox for a confirmation email.",
 	},
 	unsubscribeButton: {
 		id: "newsletter.unSubscribeButton",
@@ -125,6 +130,16 @@ class SubscribeNewsletter extends React.Component {
 			);
 		}
 
+		if ( this.props.subscribed === "pending" ) {
+			return (
+				<p>
+					<FormattedMessage
+						id={ messages.pendingParagraph.id }
+						defaultMessage={ messages.pendingParagraph.defaultMessage }/>
+				</p>
+			);
+		}
+
 		return <CheckboxList>
 			{ subscribeReasons.map( key => {
 				return (
@@ -153,6 +168,10 @@ class SubscribeNewsletter extends React.Component {
 			);
 		}
 
+		if ( this.props.subscribed === "pending" ) {
+			return null;
+		}
+
 		return (
 			<Button onClick={ this.onClick }>
 				<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
@@ -161,6 +180,10 @@ class SubscribeNewsletter extends React.Component {
 	}
 
 	render() {
+		if ( this.props.subscribed === "unknown" ) {
+			return null;
+		}
+
 		return (
 			<NewsletterContainer>
 				<Paper>
@@ -171,6 +194,9 @@ class SubscribeNewsletter extends React.Component {
 							</Paragraph>
 							{ this.getContent() }
 							{ this.getButton() }
+							{ this.props.error &&
+								<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
+							}
 						</NewsletterSection>
 					</Page>
 				</Paper>
@@ -185,6 +211,7 @@ SubscribeNewsletter.propTypes = {
 	onUnsubscribe: PropTypes.func.isRequired,
 	loading: PropTypes.bool,
 	subscribed: PropTypes.string,
+	error: PropTypes.string,
 };
 
 
