@@ -322,9 +322,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -855,9 +857,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -1358,9 +1362,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -1838,9 +1844,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -2408,9 +2416,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 .
               </span>
             </div>
-            <div>
+            <div
+              className="c14"
+            >
               <button
-                className="c14 c15 c16"
+                className="c15 c16"
                 type="submit"
               >
                 <span>
@@ -2913,9 +2923,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -3230,9 +3242,8 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c13 {
-  padding: 0.5em 0 0 1em;
-  margin: 0;
   display: inline-block;
+  margin: 10px;
 }
 
 .c4 {
@@ -3340,13 +3351,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   }
 }
 
-@media screen and ( max-width:400px ) {
-  .c13 {
-    padding: 0.5em 0 0 0;
-    display: block;
-  }
-}
-
 @media screen and ( max-width:800px ) {
   .c5 {
     width: 100%;
@@ -3430,20 +3434,22 @@ exports[`components/ProfilePage saving profile 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
                   Save profile
                 </span>
               </button>
-              <p
+              <span
                 className="c13"
               >
                 Saving...
-              </p>
+              </span>
             </div>
           </div>
         </form>
@@ -3940,9 +3946,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -4453,9 +4461,11 @@ exports[`components/ProfilePage the default case 1`] = `
               value="test@test.test"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
@@ -4957,9 +4967,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <div>
+            <div
+              className="c10"
+            >
               <button
-                className="c10 c11 c12"
+                className="c11 c12"
                 type="submit"
               >
                 <span>
