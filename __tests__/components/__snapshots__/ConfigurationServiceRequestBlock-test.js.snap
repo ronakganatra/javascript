@@ -155,7 +155,9 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
     <h2
       className="c2"
     >
-      Configuration Service
+      <span>
+        Configuration Service
+      </span>
     </h2>
     <p>
       <span>

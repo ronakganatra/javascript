@@ -11,7 +11,7 @@ import { StyledLabel } from "../Labels";
 let messages = defineMessages( {
 	configurationHeading: {
 		id: "requestConfiguration.configurationHeading",
-		defaultMessage: "Configuration service intake form",
+		defaultMessage: "Configuration Service",
 	},
 	configurationAvailable: {
 		id: "requestConfiguration.configurationAvailable",

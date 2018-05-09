@@ -70,6 +70,10 @@ class SitePage extends React.Component {
 	 * @returns {object} The ConfigurationServiceRequestForm modal rendered and opened.
 	 */
 	getConfigurationServiceRequestModal() {
+		if ( ! hasAccessToFeature( CONFIGURATION_SERVICE_FEATURE ) ) {
+			return null;
+		}
+
 		let modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
@@ -110,6 +114,20 @@ class SitePage extends React.Component {
 		return null;
 	}
 
+	getSubscriptionsList() {
+		if ( this.props.loadingSubscriptions ) {
+			return <AnimatedLoader />;
+		}
+
+		return <SiteSubscriptionDetailList
+			plugins={ this.props.plugins }
+			onMoreInfoClick={ this.props.onMoreInfoClick }
+			onToggleSubscription={ this.props.onToggleSubscription }
+			onClose={ this.props.onClose }
+			onToggleDisabled={ this.props.onToggleDisabled }
+		/>;
+	}
+
 	render() {
 		let props = this.props;
 
@@ -117,24 +135,14 @@ class SitePage extends React.Component {
 			return <AnimatedLoader />;
 		}
 
-		let subscriptionList = <AnimatedLoader />;
 		let hostnameDisplay  = props.site.hostname.replace( /^(?:www\.)?/, "" );
 		let siteNameDisplay  = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
-		if ( ! props.loadingSubscriptions ) {
-			subscriptionList = <SiteSubscriptionDetailList
-			    plugins={ props.plugins }
-				onMoreInfoClick={ props.onMoreInfoClick }
-				onToggleSubscription={ props.onToggleSubscription }
-				onClose={ props.onClose }
-				onToggleDisabled={ props.onToggleDisabled }
-			/>;
-		}
 		return (
 			<div>
 				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" }/>
+				{ this.getSubscriptionsList() }
 				{ this.getConfigurationServiceRequestBlock() }
-				{ subscriptionList }
 				<PlatformSelect
 					title={ props.intl.formatMessage( messages.changeSitePlatform ) }
 					siteId={ props.site.id }
@@ -161,6 +169,7 @@ SitePage.propTypes = {
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onClose: PropTypes.func.isRequired,
 	onToggleSubscription: PropTypes.func.isRequired,
+	onToggleDisabled: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	loadingSite: PropTypes.bool,
 	loadingSubscriptions: PropTypes.bool,

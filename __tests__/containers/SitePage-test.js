@@ -81,6 +81,10 @@ test('the mapStateToProps function', () => {
 						},
 					},
 					allIds: [ "productid1", "productid2" ],
+				},
+				configurationServiceRequests: {
+					byId: {},
+					allIds: [],
 				}
 			},
 			router: {
@@ -97,6 +101,11 @@ test('the mapStateToProps function', () => {
 						toggling: false,
 					},
 				},
+				configurationServiceRequests: {
+					configurationServiceRequestModalOpen: "configurationServiceRequestModalOpen",
+					configurationServiceRequestModalSiteId: "configurationServiceRequestModalSiteId",
+				},
+				addSubscriptionModal: "addSubscriptionModal",
 			},
 	};
 
@@ -191,6 +200,10 @@ test('the mapStateToProps function', () => {
 			},
 		},
 		disablePlatformSelect: false,
+		addSubscriptionModal: "addSubscriptionModal",
+		availableConfigurationServiceRequests: [],
+		configurationServiceRequestModalOpen: "configurationServiceRequestModalOpen",
+		configurationServiceRequestModalSiteId: "configurationServiceRequestModalSiteId",
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );

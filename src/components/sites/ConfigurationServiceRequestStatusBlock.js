@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { defineMessages, FormattedMessage, FormattedHTMLMessage, injectIntl, intlShape } from "react-intl";
 import { Paper, WhitePage } from "../PaperStyles";
 import CollapsibleHeader from "../CollapsibleHeader";
 
@@ -91,12 +91,12 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 			<Paper>
 				<CollapsibleHeader
 					title={ this.props.intl.formatMessage( headerMessage ) }
-					isOpen={ true }
+					isOpen={ this.props.status !== "completed" }
 				>
 					<WhitePage>
 						<div>
 							<p>
-								<FormattedMessage
+								<FormattedHTMLMessage
 									id={ contentMessage.id }
 									defaultMessage={ contentMessage.defaultMessage }
 									values={ {
