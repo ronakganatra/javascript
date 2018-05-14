@@ -53,6 +53,12 @@ const messages = defineMessages( {
 } );
 
 const SaveButtonArea = styled.div`
+	display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+`;
+
+const SaveButton = styled( Button )`
 	margin: 1em 0;
 `;
 
@@ -61,8 +67,7 @@ const TextInput = styled( InputField )`
 `;
 
 const FormMessage = styled.span`
-	display:inline-block;
-	margin:10px;
+	padding: 0 0 0 1em;
 `;
 
 const FormGroup = styled.form`
@@ -230,9 +235,9 @@ class ProfileForm extends React.Component {
 		}
 
 		return <SaveButtonArea>
-			<Button type="submit">
+			<SaveButton type="submit">
 				<FormattedMessage id={ messages.saveProfile.id } defaultMessage={ messages.saveProfile.defaultMessage } />
-			</Button>
+			</SaveButton>
 			{ emailSavingMessage }
 		</SaveButtonArea>;
 	}
