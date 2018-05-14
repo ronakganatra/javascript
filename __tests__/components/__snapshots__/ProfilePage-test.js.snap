@@ -22,7 +22,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c12 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -40,28 +40,28 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c11 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c21 {
+.c22 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c22 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -84,7 +84,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c22 svg {
+.c23 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -97,7 +97,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c23 {
+.c24 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -127,6 +127,20 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
   margin: 1em 0;
 }
 
@@ -162,27 +176,27 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   margin-bottom: 0;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
 }
 
-.c17 {
+.c18 {
   margin-bottom: 1em;
 }
 
-.c18 {
+.c19 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
 }
 
-.c19 {
+.c20 {
   list-style: none;
   padding-left: 0%;
 }
 
-.c20 {
+.c21 {
   padding-left: 2.0rem;
   background-image: url(checkGreen.svg);
   background-position: 0 0.25rem;
@@ -190,7 +204,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   background-repeat: no-repeat;
 }
 
-.c15 {
+.c16 {
   padding-top: 0.5em;
 }
 
@@ -204,12 +218,12 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   margin-top: 16px;
 }
 
-.c14 {
+.c15 {
   margin-bottom: 0.5em;
   font-size: 1.1em;
 }
 
-.c13 {
+.c14 {
   margin: 1em 0;
 }
 
@@ -220,19 +234,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c22 {
+  .c23 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c23 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c22 svg {
+  .c23 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -326,7 +340,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               className="c10"
             >
               <button
-                className="c11 c12"
+                className="c11 c12 c13"
                 type="submit"
               >
                 <span>
@@ -337,10 +351,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           </div>
         </form>
         <section
-          className="c13"
+          className="c14"
         >
           <p
-            className="c14"
+            className="c15"
           >
             <span>
               Change password
@@ -352,7 +366,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -366,7 +380,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
         className="c3"
       >
         <p
-          className="c14"
+          className="c15"
         >
           <span>
             Profile picture
@@ -383,7 +397,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               Gravatar website
                
               <span
-                className="screen-reader-text c15"
+                className="screen-reader-text c16"
               >
                 <span>
                   (Opens in a new browser tab)
@@ -398,7 +412,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
     </div>
   </div>
   <div
-    className="c16"
+    className="c17"
   >
     <div
       className="c0"
@@ -407,20 +421,20 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
         className="c1 c2"
       >
         <section
-          className="c17"
+          className="c18"
         >
           <p
-            className="c18"
+            className="c19"
           >
             <span>
               Newsletter
             </span>
           </p>
           <ul
-            className="c19"
+            className="c20"
           >
             <li
-              className="c20"
+              className="c21"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -431,7 +445,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               />
             </li>
             <li
-              className="c20"
+              className="c21"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -442,7 +456,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               />
             </li>
             <li
-              className="c20"
+              className="c21"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -454,7 +468,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </li>
           </ul>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -471,15 +485,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c0"
     >
       <div
-        className="c21"
+        className="c22"
       >
         <button
           aria-expanded={false}
-          className="c22"
+          className="c23"
           onClick={[Function]}
         >
           <span
-            className="c23"
+            className="c24"
           >
             Developer Tokens
           </span>
@@ -504,15 +518,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
     className="c0"
   >
     <div
-      className="c21"
+      className="c22"
     >
       <button
         aria-expanded={false}
-        className="c22"
+        className="c23"
         onClick={[Function]}
       >
         <span
-          className="c23"
+          className="c24"
         >
           Danger zone
         </span>
@@ -557,7 +571,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c12 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -575,19 +589,551 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.c23 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c23 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c24 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c9 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c11 {
+  margin: 1em 0;
+}
+
+.c8 {
+  background-color: #f7f7f7;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c5 {
+  width: 48%;
+  margin-bottom: 8px;
+}
+
+.c5 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c17 {
+  margin-top: 24px;
+}
+
+.c18 {
+  margin-bottom: 1em;
+}
+
+.c19 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c20 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c21 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+.c16 {
+  padding-top: 0.5em;
+}
+
+.c3 {
+  -webkit-flex-basis: 48%;
+  -ms-flex-preferred-size: 48%;
+  flex-basis: 48%;
+}
+
+.c3 p:first-child {
+  margin-top: 16px;
+}
+
+.c15 {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.c14 {
+  margin: 1em 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c23 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c23 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c23 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    width: 100%;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <form
+          className="c4"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c5 c6"
+            id="left"
+          >
+            <label
+              className="c7"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c5 c6"
+          >
+            <label
+              className="c7"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c6"
+          >
+            <label
+              className="c7"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div
+              className="c10"
+            >
+              <button
+                className="c11 c12 c13"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <section
+          className="c14"
+        >
+          <p
+            className="c15"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+        </section>
+      </div>
+      <div
+        className="c3"
+      >
+        <p
+          className="c15"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+               
+              <span
+                className="screen-reader-text c16"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="c17"
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1 c2"
+      >
+        <section
+          className="c18"
+        >
+          <p
+            className="c19"
+          >
+            <span>
+              Newsletter
+            </span>
+          </p>
+          <ul
+            className="c20"
+          >
+            <li
+              className="c21"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c21"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Be the first to know about new features and other cool plugins.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c21"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Receive a free eBook!",
+                  }
+                }
+              />
+            </li>
+          </ul>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c22"
+    >
+      <button
+        aria-expanded={false}
+        className="c23"
+        onClick={[Function]}
+      >
+        <span
+          className="c24"
+        >
+          Danger zone
+        </span>
+        <svg
+          aria-hidden="true"
+          fill="#555"
+          focusable="false"
+          height={40}
+          role="img"
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c2 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c1 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c13:hover,
+.c13:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c13:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c20 {
+  color: #000;
+  box-shadow: none;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+}
+
+.c20:hover,
+.c20:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -662,6 +1208,20 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
   margin: 1em 0;
 }
 
@@ -697,35 +1257,22 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   margin-bottom: 0;
 }
 
-.c16 {
+.c17 {
   margin-top: 24px;
 }
 
-.c17 {
+.c18 {
   margin-bottom: 1em;
 }
 
-.c18 {
+.c19 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
 }
 
-.c19 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c20 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
-.c15 {
+.c16 {
   padding-top: 0.5em;
 }
 
@@ -739,12 +1286,12 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   margin-top: 16px;
 }
 
-.c14 {
+.c15 {
   margin-bottom: 0.5em;
   font-size: 1.1em;
 }
 
-.c13 {
+.c14 {
   margin: 1em 0;
 }
 
@@ -861,7 +1408,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               className="c10"
             >
               <button
-                className="c11 c12"
+                className="c11 c12 c13"
                 type="submit"
               >
                 <span>
@@ -872,10 +1419,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           </div>
         </form>
         <section
-          className="c13"
+          className="c14"
         >
           <p
-            className="c14"
+            className="c15"
           >
             <span>
               Change password
@@ -887,7 +1434,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -901,7 +1448,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
         className="c3"
       >
         <p
-          className="c14"
+          className="c15"
         >
           <span>
             Profile picture
@@ -918,7 +1465,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               Gravatar website
                
               <span
-                className="screen-reader-text c15"
+                className="screen-reader-text c16"
               >
                 <span>
                   (Opens in a new browser tab)
@@ -933,7 +1480,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
     </div>
   </div>
   <div
-    className="c16"
+    className="c17"
   >
     <div
       className="c0"
@@ -942,59 +1489,27 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
         className="c1 c2"
       >
         <section
-          className="c17"
+          className="c18"
         >
           <p
-            className="c18"
+            className="c19"
           >
             <span>
               Newsletter
             </span>
           </p>
-          <ul
-            className="c19"
-          >
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+          <p>
+            <span>
+              You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
+            </span>
+          </p>
           <button
-            className="c11 c12"
+            className="c20 c13"
             onClick={[Function]}
             type="button"
           >
             <span>
-              Subscribe
+              Unsubscribe
             </span>
           </button>
         </section>
@@ -1014,479 +1529,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       >
         <span
           className="c23"
-        >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c1 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c12 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c12:hover,
-.c12:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c12:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c11 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c19 {
-  color: #000;
-  box-shadow: none;
-  background-color: #fff;
-  border: 1px solid #000;
-  min-width: 152px;
-}
-
-.c19:hover,
-.c19:focus {
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border: 0;
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c20 {
-  margin-top: 24px;
-  background-color: #fff;
-}
-
-.c21 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c21 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
-.c22 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c9 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c7 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c10 {
-  margin: 1em 0;
-}
-
-.c8 {
-  background-color: #f7f7f7;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
-  width: 100%;
-}
-
-.c5 {
-  width: 48%;
-  margin-bottom: 8px;
-}
-
-.c5 div:last-of-type {
-  margin-bottom: 0;
-}
-
-.c16 {
-  margin-top: 24px;
-}
-
-.c17 {
-  margin-bottom: 1em;
-}
-
-.c18 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
-}
-
-.c15 {
-  padding-top: 0.5em;
-}
-
-.c3 {
-  -webkit-flex-basis: 48%;
-  -ms-flex-preferred-size: 48%;
-  flex-basis: 48%;
-}
-
-.c3 p:first-child {
-  margin-top: 16px;
-}
-
-.c14 {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c13 {
-  margin: 1em 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c1 {
-    display: block;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c21 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c21 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c21 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
-    width: 100%;
-  }
-}
-
-<div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c1 c2"
-    >
-      <div
-        className="c3"
-      >
-        <form
-          className="c4"
-          onSubmit={[Function]}
-        >
-          <div
-            className="c5 c6"
-            id="left"
-          >
-            <label
-              className="c7"
-              htmlFor="first-name"
-            >
-              <span>
-                First name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="first-name"
-              name="first name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c5 c6"
-          >
-            <label
-              className="c7"
-              htmlFor="last-name"
-            >
-              <span>
-                Last name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="last-name"
-              name="last name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c6"
-          >
-            <label
-              className="c7"
-              htmlFor="email-address"
-            >
-              <span>
-                Email
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="email-address"
-              name="email"
-              onChange={[Function]}
-              type="text"
-              value="email@email.email"
-              width="100%"
-            />
-            <div
-              className="c10"
-            >
-              <button
-                className="c11 c12"
-                type="submit"
-              >
-                <span>
-                  Save profile
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
-        <section
-          className="c13"
-        >
-          <p
-            className="c14"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
-      </div>
-      <div
-        className="c3"
-      >
-        <p
-          className="c14"
-        >
-          <span>
-            Profile picture
-          </span>
-        </p>
-        <p>
-          <span>
-            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
-            <a
-              href="https://gravatar.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gravatar website
-               
-              <span
-                className="screen-reader-text c15"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </a>
-            . Changes may take up to an hour to become visible here.
-          </span>
-        </p>
-        
-      </div>
-    </div>
-  </div>
-  <div
-    className="c16"
-  >
-    <div
-      className="c0"
-    >
-      <div
-        className="c1 c2"
-      >
-        <section
-          className="c17"
-        >
-          <p
-            className="c18"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
-          <p>
-            <span>
-              You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
-            </span>
-          </p>
-          <button
-            className="c19 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Unsubscribe
-            </span>
-          </button>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c20"
-    >
-      <button
-        aria-expanded={false}
-        className="c21"
-        onClick={[Function]}
-      >
-        <span
-          className="c22"
         >
           Danger zone
         </span>
@@ -1531,7 +1573,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   justify-content: space-between;
 }
 
-.c12 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -1549,28 +1591,28 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c11 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c24 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c24 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1593,7 +1635,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c24 svg {
+.c25 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1606,7 +1648,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c25 {
+.c26 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1636,6 +1678,20 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
   margin: 1em 0;
 }
 
@@ -1671,27 +1727,27 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-bottom: 0;
 }
 
-.c18 {
+.c19 {
   margin-top: 24px;
 }
 
-.c19 {
+.c20 {
   margin-bottom: 1em;
 }
 
-.c20 {
+.c21 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
 }
 
-.c21 {
+.c22 {
   list-style: none;
   padding-left: 0%;
 }
 
-.c22 {
+.c23 {
   padding-left: 2.0rem;
   background-image: url(checkGreen.svg);
   background-position: 0 0.25rem;
@@ -1699,7 +1755,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   background-repeat: no-repeat;
 }
 
-.c17 {
+.c18 {
   padding-top: 0.5em;
 }
 
@@ -1713,25 +1769,25 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-top: 16px;
 }
 
-.c14 {
+.c15 {
   margin-bottom: 0.5em;
   font-size: 1.1em;
 }
 
-.c16 {
+.c17 {
   padding: 0.5em 0 0 0;
   margin: 0;
   display: block;
 }
 
-.c15 {
+.c16 {
   margin-top: 0.5em;
   padding: 0.5em;
   background-color: #ffeb3b;
   color: #000;
 }
 
-.c13 {
+.c14 {
   margin: 1em 0;
 }
 
@@ -1742,19 +1798,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c25 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c24 {
+  .c25 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 svg {
+  .c25 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1848,7 +1904,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               className="c10"
             >
               <button
-                className="c11 c12"
+                className="c11 c12 c13"
                 type="submit"
               >
                 <span>
@@ -1859,10 +1915,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           </div>
         </form>
         <section
-          className="c13"
+          className="c14"
         >
           <p
-            className="c14"
+            className="c15"
           >
             <span>
               Change password
@@ -1874,7 +1930,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -1883,7 +1939,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </button>
           <p
-            className="c15 c16"
+            className="c16 c17"
             role="alert"
           />
         </section>
@@ -1892,7 +1948,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
         className="c3"
       >
         <p
-          className="c14"
+          className="c15"
         >
           <span>
             Profile picture
@@ -1909,7 +1965,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               Gravatar website
                
               <span
-                className="screen-reader-text c17"
+                className="screen-reader-text c18"
               >
                 <span>
                   (Opens in a new browser tab)
@@ -1924,7 +1980,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     </div>
   </div>
   <div
-    className="c18"
+    className="c19"
   >
     <div
       className="c0"
@@ -1933,20 +1989,20 @@ exports[`components/ProfilePage failure during password reset 1`] = `
         className="c1 c2"
       >
         <section
-          className="c19"
+          className="c20"
         >
           <p
-            className="c20"
+            className="c21"
           >
             <span>
               Newsletter
             </span>
           </p>
           <ul
-            className="c21"
+            className="c22"
           >
             <li
-              className="c22"
+              className="c23"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -1957,7 +2013,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               />
             </li>
             <li
-              className="c22"
+              className="c23"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -1968,7 +2024,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               />
             </li>
             <li
-              className="c22"
+              className="c23"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -1980,7 +2036,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </li>
           </ul>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -1996,15 +2052,15 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     className="c0"
   >
     <div
-      className="c23"
+      className="c24"
     >
       <button
         aria-expanded={false}
-        className="c24"
+        className="c25"
         onClick={[Function]}
       >
         <span
-          className="c25"
+          className="c26"
         >
           Danger zone
         </span>
@@ -2049,7 +2105,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   justify-content: space-between;
 }
 
-.c16 {
+.c17 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -2067,28 +2123,28 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c16:hover,
-.c16:focus {
+.c17:hover,
+.c17:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c16:active {
+.c17:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c15 {
+.c16 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c25 {
+.c26 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c26 {
+.c27 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2111,7 +2167,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c26 svg {
+.c27 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2124,7 +2180,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c27 {
+.c28 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2191,6 +2247,20 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c15 {
   margin: 1em 0;
 }
 
@@ -2226,27 +2296,27 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin-bottom: 0;
 }
 
-.c20 {
+.c21 {
   margin-top: 24px;
 }
 
-.c21 {
+.c22 {
   margin-bottom: 1em;
 }
 
-.c22 {
+.c23 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
 }
 
-.c23 {
+.c24 {
   list-style: none;
   padding-left: 0%;
 }
 
-.c24 {
+.c25 {
   padding-left: 2.0rem;
   background-image: url(checkGreen.svg);
   background-position: 0 0.25rem;
@@ -2254,7 +2324,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   background-repeat: no-repeat;
 }
 
-.c19 {
+.c20 {
   padding-top: 0.5em;
 }
 
@@ -2268,12 +2338,12 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin-top: 16px;
 }
 
-.c18 {
+.c19 {
   margin-bottom: 0.5em;
   font-size: 1.1em;
 }
 
-.c17 {
+.c18 {
   margin: 1em 0;
 }
 
@@ -2284,19 +2354,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c26 {
+  .c27 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c26 {
+  .c27 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c26 svg {
+  .c27 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2420,7 +2490,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               className="c14"
             >
               <button
-                className="c15 c16"
+                className="c15 c16 c17"
                 type="submit"
               >
                 <span>
@@ -2431,10 +2501,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </div>
         </form>
         <section
-          className="c17"
+          className="c18"
         >
           <p
-            className="c18"
+            className="c19"
           >
             <span>
               Change password
@@ -2446,7 +2516,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="c15 c16"
+            className="c16 c17"
             onClick={[Function]}
             type="button"
           >
@@ -2460,7 +2530,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
         className="c3"
       >
         <p
-          className="c18"
+          className="c19"
         >
           <span>
             Profile picture
@@ -2477,7 +2547,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               Gravatar website
                
               <span
-                className="screen-reader-text c19"
+                className="screen-reader-text c20"
               >
                 <span>
                   (Opens in a new browser tab)
@@ -2492,7 +2562,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     </div>
   </div>
   <div
-    className="c20"
+    className="c21"
   >
     <div
       className="c0"
@@ -2501,20 +2571,20 @@ exports[`components/ProfilePage failure during profile save 1`] = `
         className="c1 c2"
       >
         <section
-          className="c21"
+          className="c22"
         >
           <p
-            className="c22"
+            className="c23"
           >
             <span>
               Newsletter
             </span>
           </p>
           <ul
-            className="c23"
+            className="c24"
           >
             <li
-              className="c24"
+              className="c25"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -2525,7 +2595,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               />
             </li>
             <li
-              className="c24"
+              className="c25"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -2536,7 +2606,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               />
             </li>
             <li
-              className="c24"
+              className="c25"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -2548,7 +2618,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </li>
           </ul>
           <button
-            className="c15 c16"
+            className="c16 c17"
             onClick={[Function]}
             type="button"
           >
@@ -2564,15 +2634,15 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     className="c0"
   >
     <div
-      className="c25"
+      className="c26"
     >
       <button
         aria-expanded={false}
-        className="c26"
+        className="c27"
         onClick={[Function]}
       >
         <span
-          className="c27"
+          className="c28"
         >
           Danger zone
         </span>
@@ -2617,7 +2687,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   justify-content: space-between;
 }
 
-.c12 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -2635,28 +2705,28 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c11 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c22 {
+.c23 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c23 {
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2679,7 +2749,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c23 svg {
+.c24 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2692,7 +2762,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c24 {
+.c25 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2722,6 +2792,20 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
   margin: 1em 0;
 }
 
@@ -2757,27 +2841,27 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   margin-bottom: 0;
 }
 
-.c17 {
+.c18 {
   margin-top: 24px;
 }
 
-.c18 {
+.c19 {
   margin-bottom: 1em;
 }
 
-.c19 {
+.c20 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
 }
 
-.c20 {
+.c21 {
   list-style: none;
   padding-left: 0%;
 }
 
-.c21 {
+.c22 {
   padding-left: 2.0rem;
   background-image: url(checkGreen.svg);
   background-position: 0 0.25rem;
@@ -2785,7 +2869,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   background-repeat: no-repeat;
 }
 
-.c16 {
+.c17 {
   padding-top: 0.5em;
 }
 
@@ -2799,18 +2883,18 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   margin-top: 16px;
 }
 
-.c14 {
+.c15 {
   margin-bottom: 0.5em;
   font-size: 1.1em;
 }
 
-.c15 {
+.c16 {
   padding: 0.5em 0 0 0;
   margin: 0;
   display: block;
 }
 
-.c13 {
+.c14 {
   margin: 1em 0;
 }
 
@@ -2821,19 +2905,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c24 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23 {
+  .c24 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 svg {
+  .c24 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2927,7 +3011,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               className="c10"
             >
               <button
-                className="c11 c12"
+                className="c11 c12 c13"
                 type="submit"
               >
                 <span>
@@ -2938,10 +3022,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           </div>
         </form>
         <section
-          className="c13"
+          className="c14"
         >
           <p
-            className="c14"
+            className="c15"
           >
             <span>
               Change password
@@ -2953,7 +3037,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -2962,7 +3046,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </button>
           <p
-            className="c15"
+            className="c16"
           >
             An email has been sent, please check your inbox.
           </p>
@@ -2972,7 +3056,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
         className="c3"
       >
         <p
-          className="c14"
+          className="c15"
         >
           <span>
             Profile picture
@@ -2989,7 +3073,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               Gravatar website
                
               <span
-                className="screen-reader-text c16"
+                className="screen-reader-text c17"
               >
                 <span>
                   (Opens in a new browser tab)
@@ -3004,7 +3088,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     </div>
   </div>
   <div
-    className="c17"
+    className="c18"
   >
     <div
       className="c0"
@@ -3013,20 +3097,20 @@ exports[`components/ProfilePage has sent password reset 1`] = `
         className="c1 c2"
       >
         <section
-          className="c18"
+          className="c19"
         >
           <p
-            className="c19"
+            className="c20"
           >
             <span>
               Newsletter
             </span>
           </p>
           <ul
-            className="c20"
+            className="c21"
           >
             <li
-              className="c21"
+              className="c22"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -3037,7 +3121,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               />
             </li>
             <li
-              className="c21"
+              className="c22"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -3048,7 +3132,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               />
             </li>
             <li
-              className="c21"
+              className="c22"
             >
               <span
                 dangerouslySetInnerHTML={
@@ -3060,7 +3144,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </li>
           </ul>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -3076,15 +3160,15 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     className="c0"
   >
     <div
-      className="c22"
+      className="c23"
     >
       <button
         aria-expanded={false}
-        className="c23"
+        className="c24"
         onClick={[Function]}
       >
         <span
-          className="c24"
+          className="c25"
         >
           Danger zone
         </span>
@@ -3129,7 +3213,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   justify-content: space-between;
 }
 
-.c12 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -3147,19 +3231,1598 @@ exports[`components/ProfilePage saving profile 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c23 {
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c24 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c25 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c9 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 .c11 {
+  margin: 1em 0;
+}
+
+.c8 {
+  background-color: #f7f7f7;
+}
+
+.c14 {
+  padding: 0 0 0 1em;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c5 {
+  width: 48%;
+  margin-bottom: 8px;
+}
+
+.c5 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c18 {
+  margin-top: 24px;
+}
+
+.c19 {
+  margin-bottom: 1em;
+}
+
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c21 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c22 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+.c17 {
+  padding-top: 0.5em;
+}
+
+.c3 {
+  -webkit-flex-basis: 48%;
+  -ms-flex-preferred-size: 48%;
+  flex-basis: 48%;
+}
+
+.c3 p:first-child {
+  margin-top: 16px;
+}
+
+.c16 {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.c15 {
+  margin: 1em 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    width: 100%;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <form
+          className="c4"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c5 c6"
+            id="left"
+          >
+            <label
+              className="c7"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c5 c6"
+          >
+            <label
+              className="c7"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c6"
+          >
+            <label
+              className="c7"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div
+              className="c10"
+            >
+              <button
+                className="c11 c12 c13"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+              <span
+                className="c14"
+              >
+                Saving...
+              </span>
+            </div>
+          </div>
+        </form>
+        <section
+          className="c15"
+        >
+          <p
+            className="c16"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+        </section>
+      </div>
+      <div
+        className="c3"
+      >
+        <p
+          className="c16"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+               
+              <span
+                className="screen-reader-text c17"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="c18"
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1 c2"
+      >
+        <section
+          className="c19"
+        >
+          <p
+            className="c20"
+          >
+            <span>
+              Newsletter
+            </span>
+          </p>
+          <ul
+            className="c21"
+          >
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Be the first to know about new features and other cool plugins.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Receive a free eBook!",
+                  }
+                }
+              />
+            </li>
+          </ul>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c23"
+    >
+      <button
+        aria-expanded={false}
+        className="c24"
+        onClick={[Function]}
+      >
+        <span
+          className="c25"
+        >
+          Danger zone
+        </span>
+        <svg
+          aria-hidden="true"
+          fill="#555"
+          focusable="false"
+          height={40}
+          role="img"
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage sending password reset 1`] = `
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c2 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c1 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c13:hover,
+.c13:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c13:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c23 {
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c24 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c25 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c9 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
+  margin: 1em 0;
+}
+
+.c8 {
+  background-color: #f7f7f7;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c5 {
+  width: 48%;
+  margin-bottom: 8px;
+}
+
+.c5 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c18 {
+  margin-top: 24px;
+}
+
+.c19 {
+  margin-bottom: 1em;
+}
+
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c21 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c22 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+.c17 {
+  padding-top: 0.5em;
+}
+
+.c3 {
+  -webkit-flex-basis: 48%;
+  -ms-flex-preferred-size: 48%;
+  flex-basis: 48%;
+}
+
+.c3 p:first-child {
+  margin-top: 16px;
+}
+
+.c15 {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.c16 {
+  padding: 0.5em 0 0 1em;
+  margin: 0;
+  display: inline-block;
+}
+
+.c14 {
+  margin: 1em 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    width: 100%;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <form
+          className="c4"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c5 c6"
+            id="left"
+          >
+            <label
+              className="c7"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c5 c6"
+          >
+            <label
+              className="c7"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c6"
+          >
+            <label
+              className="c7"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+              width="100%"
+            />
+            <div
+              className="c10"
+            >
+              <button
+                className="c11 c12 c13"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <section
+          className="c14"
+        >
+          <p
+            className="c15"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+          <p
+            className="c16"
+          >
+            Sending email...
+          </p>
+        </section>
+      </div>
+      <div
+        className="c3"
+      >
+        <p
+          className="c15"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+               
+              <span
+                className="screen-reader-text c17"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        
+      </div>
+    </div>
+  </div>
+  <div
+    className="c18"
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1 c2"
+      >
+        <section
+          className="c19"
+        >
+          <p
+            className="c20"
+          >
+            <span>
+              Newsletter
+            </span>
+          </p>
+          <ul
+            className="c21"
+          >
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Be the first to know about new features and other cool plugins.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Receive a free eBook!",
+                  }
+                }
+              />
+            </li>
+          </ul>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c23"
+    >
+      <button
+        aria-expanded={false}
+        className="c24"
+        onClick={[Function]}
+      >
+        <span
+          className="c25"
+        >
+          Danger zone
+        </span>
+        <svg
+          aria-hidden="true"
+          fill="#555"
+          focusable="false"
+          height={40}
+          role="img"
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage the default case 1`] = `
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c2 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c1 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c13:hover,
+.c13:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c13:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c12 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c17 {
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+
+.c23 {
+  margin-top: 24px;
+  background-color: #fff;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c24 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c25 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c9 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c7 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
+  margin: 1em 0;
+}
+
+.c8 {
+  background-color: #f7f7f7;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6 {
+  width: 100%;
+}
+
+.c5 {
+  width: 48%;
+  margin-bottom: 8px;
+}
+
+.c5 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c18 {
+  margin-top: 24px;
+}
+
+.c19 {
+  margin-bottom: 1em;
+}
+
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c21 {
+  list-style: none;
+  padding-left: 0%;
+}
+
+.c22 {
+  padding-left: 2.0rem;
+  background-image: url(checkGreen.svg);
+  background-position: 0 0.25rem;
+  background-size: 1.0rem 1.0rem;
+  background-repeat: no-repeat;
+}
+
+.c16 {
+  padding-top: 0.5em;
+}
+
+.c3 {
+  -webkit-flex-basis: 48%;
+  -ms-flex-preferred-size: 48%;
+  flex-basis: 48%;
+}
+
+.c3 p:first-child {
+  margin-top: 16px;
+}
+
+.c15 {
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+}
+
+.c14 {
+  margin: 1em 0;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    width: 100%;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1 c2"
+    >
+      <div
+        className="c3"
+      >
+        <form
+          className="c4"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c5 c6"
+            id="left"
+          >
+            <label
+              className="c7"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c5 c6"
+          >
+            <label
+              className="c7"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+              width="100%"
+            />
+          </div>
+          <div
+            className="c6"
+          >
+            <label
+              className="c7"
+              htmlFor="email-address"
+            >
+              <span>
+                Email
+              </span>
+            </label>
+            <input
+              className="c8 c9"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="test@test.test"
+              width="100%"
+            />
+            <div
+              className="c10"
+            >
+              <button
+                className="c11 c12 c13"
+                type="submit"
+              >
+                <span>
+                  Save profile
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+        <section
+          className="c14"
+        >
+          <p
+            className="c15"
+          >
+            <span>
+              Change password
+            </span>
+          </p>
+          <p>
+            <span>
+              To change your password follow the instructions in the password reset email.
+            </span>
+          </p>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Send password reset email
+            </span>
+          </button>
+        </section>
+      </div>
+      <div
+        className="c3"
+      >
+        <p
+          className="c15"
+        >
+          <span>
+            Profile picture
+          </span>
+        </p>
+        <p>
+          <span>
+            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
+            <a
+              href="https://gravatar.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gravatar website
+               
+              <span
+                className="screen-reader-text c16"
+              >
+                <span>
+                  (Opens in a new browser tab)
+                </span>
+              </span>
+            </a>
+            . Changes may take up to an hour to become visible here.
+          </span>
+        </p>
+        <img
+          alt=""
+          className="c17"
+          size="120px"
+          src="dummy.png"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="c18"
+  >
+    <div
+      className="c0"
+    >
+      <div
+        className="c1 c2"
+      >
+        <section
+          className="c19"
+        >
+          <p
+            className="c20"
+          >
+            <span>
+              Newsletter
+            </span>
+          </p>
+          <ul
+            className="c21"
+          >
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Be the first to know about new features and other cool plugins.",
+                  }
+                }
+              />
+            </li>
+            <li
+              className="c22"
+            >
+              <span
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "Receive a free eBook!",
+                  }
+                }
+              />
+            </li>
+          </ul>
+          <button
+            className="c12 c13"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c0"
+  >
+    <div
+      className="c23"
+    >
+      <button
+        aria-expanded={false}
+        className="c24"
+        onClick={[Function]}
+      >
+        <span
+          className="c25"
+        >
+          Danger zone
+        </span>
+        <svg
+          aria-hidden="true"
+          fill="#555"
+          focusable="false"
+          height={40}
+          role="img"
+          viewBox="0 0 24 24"
+          width={40}
+        >
+          <path
+            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage while deleting the account 1`] = `
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c2 {
+  background-color: #fff;
+  padding: 16px 24px;
+}
+
+.c1 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c13:hover,
+.c13:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c13:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -3234,16 +4897,25 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c11 {
   margin: 1em 0;
 }
 
 .c8 {
   background-color: #f7f7f7;
-}
-
-.c13 {
-  display: inline-block;
-  margin: 10px;
 }
 
 .c4 {
@@ -3438,18 +5110,13 @@ exports[`components/ProfilePage saving profile 1`] = `
               className="c10"
             >
               <button
-                className="c11 c12"
+                className="c11 c12 c13"
                 type="submit"
               >
                 <span>
                   Save profile
                 </span>
               </button>
-              <span
-                className="c13"
-              >
-                Saving...
-              </span>
             </div>
           </div>
         </form>
@@ -3469,7 +5136,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -3571,7 +5238,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </li>
           </ul>
           <button
-            className="c11 c12"
+            className="c12 c13"
             onClick={[Function]}
             type="button"
           >
@@ -3596,1534 +5263,6 @@ exports[`components/ProfilePage saving profile 1`] = `
       >
         <span
           className="c24"
-        >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`components/ProfilePage sending password reset 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c1 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c12 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c12:hover,
-.c12:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c12:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c11 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c22 {
-  margin-top: 24px;
-  background-color: #fff;
-}
-
-.c23 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c23 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
-.c24 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c9 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c7 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c10 {
-  margin: 1em 0;
-}
-
-.c8 {
-  background-color: #f7f7f7;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
-  width: 100%;
-}
-
-.c5 {
-  width: 48%;
-  margin-bottom: 8px;
-}
-
-.c5 div:last-of-type {
-  margin-bottom: 0;
-}
-
-.c17 {
-  margin-top: 24px;
-}
-
-.c18 {
-  margin-bottom: 1em;
-}
-
-.c19 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
-}
-
-.c20 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c21 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
-.c16 {
-  padding-top: 0.5em;
-}
-
-.c3 {
-  -webkit-flex-basis: 48%;
-  -ms-flex-preferred-size: 48%;
-  flex-basis: 48%;
-}
-
-.c3 p:first-child {
-  margin-top: 16px;
-}
-
-.c14 {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c15 {
-  padding: 0.5em 0 0 1em;
-  margin: 0;
-  display: inline-block;
-}
-
-.c13 {
-  margin: 1em 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c1 {
-    display: block;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c23 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c23 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c23 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
-    width: 100%;
-  }
-}
-
-<div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c1 c2"
-    >
-      <div
-        className="c3"
-      >
-        <form
-          className="c4"
-          onSubmit={[Function]}
-        >
-          <div
-            className="c5 c6"
-            id="left"
-          >
-            <label
-              className="c7"
-              htmlFor="first-name"
-            >
-              <span>
-                First name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="first-name"
-              name="first name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c5 c6"
-          >
-            <label
-              className="c7"
-              htmlFor="last-name"
-            >
-              <span>
-                Last name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="last-name"
-              name="last name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c6"
-          >
-            <label
-              className="c7"
-              htmlFor="email-address"
-            >
-              <span>
-                Email
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="email-address"
-              name="email"
-              onChange={[Function]}
-              type="text"
-              value="email@email.email"
-              width="100%"
-            />
-            <div
-              className="c10"
-            >
-              <button
-                className="c11 c12"
-                type="submit"
-              >
-                <span>
-                  Save profile
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
-        <section
-          className="c13"
-        >
-          <p
-            className="c14"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-          <p
-            className="c15"
-          >
-            Sending email...
-          </p>
-        </section>
-      </div>
-      <div
-        className="c3"
-      >
-        <p
-          className="c14"
-        >
-          <span>
-            Profile picture
-          </span>
-        </p>
-        <p>
-          <span>
-            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
-            <a
-              href="https://gravatar.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gravatar website
-               
-              <span
-                className="screen-reader-text c16"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </a>
-            . Changes may take up to an hour to become visible here.
-          </span>
-        </p>
-        
-      </div>
-    </div>
-  </div>
-  <div
-    className="c17"
-  >
-    <div
-      className="c0"
-    >
-      <div
-        className="c1 c2"
-      >
-        <section
-          className="c18"
-        >
-          <p
-            className="c19"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
-          <ul
-            className="c20"
-          >
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Subscribe
-            </span>
-          </button>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c22"
-    >
-      <button
-        aria-expanded={false}
-        className="c23"
-        onClick={[Function]}
-      >
-        <span
-          className="c24"
-        >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`components/ProfilePage the default case 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c1 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c12 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c12:hover,
-.c12:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c12:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c11 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c16 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
-  border-radius: 50%;
-  margin-right: 12px;
-}
-
-.c22 {
-  margin-top: 24px;
-  background-color: #fff;
-}
-
-.c23 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c23 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
-.c24 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c9 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c7 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c10 {
-  margin: 1em 0;
-}
-
-.c8 {
-  background-color: #f7f7f7;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
-  width: 100%;
-}
-
-.c5 {
-  width: 48%;
-  margin-bottom: 8px;
-}
-
-.c5 div:last-of-type {
-  margin-bottom: 0;
-}
-
-.c17 {
-  margin-top: 24px;
-}
-
-.c18 {
-  margin-bottom: 1em;
-}
-
-.c19 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
-}
-
-.c20 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c21 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
-.c15 {
-  padding-top: 0.5em;
-}
-
-.c3 {
-  -webkit-flex-basis: 48%;
-  -ms-flex-preferred-size: 48%;
-  flex-basis: 48%;
-}
-
-.c3 p:first-child {
-  margin-top: 16px;
-}
-
-.c14 {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c13 {
-  margin: 1em 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c1 {
-    display: block;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c23 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c23 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c23 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
-    width: 100%;
-  }
-}
-
-<div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c1 c2"
-    >
-      <div
-        className="c3"
-      >
-        <form
-          className="c4"
-          onSubmit={[Function]}
-        >
-          <div
-            className="c5 c6"
-            id="left"
-          >
-            <label
-              className="c7"
-              htmlFor="first-name"
-            >
-              <span>
-                First name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="first-name"
-              name="first name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c5 c6"
-          >
-            <label
-              className="c7"
-              htmlFor="last-name"
-            >
-              <span>
-                Last name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="last-name"
-              name="last name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c6"
-          >
-            <label
-              className="c7"
-              htmlFor="email-address"
-            >
-              <span>
-                Email
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="email-address"
-              name="email"
-              onChange={[Function]}
-              type="text"
-              value="test@test.test"
-              width="100%"
-            />
-            <div
-              className="c10"
-            >
-              <button
-                className="c11 c12"
-                type="submit"
-              >
-                <span>
-                  Save profile
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
-        <section
-          className="c13"
-        >
-          <p
-            className="c14"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
-      </div>
-      <div
-        className="c3"
-      >
-        <p
-          className="c14"
-        >
-          <span>
-            Profile picture
-          </span>
-        </p>
-        <p>
-          <span>
-            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
-            <a
-              href="https://gravatar.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gravatar website
-               
-              <span
-                className="screen-reader-text c15"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </a>
-            . Changes may take up to an hour to become visible here.
-          </span>
-        </p>
-        <img
-          alt=""
-          className="c16"
-          size="120px"
-          src="dummy.png"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    className="c17"
-  >
-    <div
-      className="c0"
-    >
-      <div
-        className="c1 c2"
-      >
-        <section
-          className="c18"
-        >
-          <p
-            className="c19"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
-          <ul
-            className="c20"
-          >
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Subscribe
-            </span>
-          </button>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c22"
-    >
-      <button
-        aria-expanded={false}
-        className="c23"
-        onClick={[Function]}
-      >
-        <span
-          className="c24"
-        >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`components/ProfilePage while deleting the account 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c1 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c12 {
-  height: 48px;
-  margin: 0;
-  padding: 0 16px;
-  border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c12:hover,
-.c12:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c12:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c11 {
-  text-shadow: 0px 0px 2px #000;
-}
-
-.c21 {
-  margin-top: 24px;
-  background-color: #fff;
-}
-
-.c22 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c22 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
-.c23 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c9 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c7 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c10 {
-  margin: 1em 0;
-}
-
-.c8 {
-  background-color: #f7f7f7;
-}
-
-.c4 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
-  width: 100%;
-}
-
-.c5 {
-  width: 48%;
-  margin-bottom: 8px;
-}
-
-.c5 div:last-of-type {
-  margin-bottom: 0;
-}
-
-.c16 {
-  margin-top: 24px;
-}
-
-.c17 {
-  margin-bottom: 1em;
-}
-
-.c18 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
-}
-
-.c19 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c20 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
-.c15 {
-  padding-top: 0.5em;
-}
-
-.c3 {
-  -webkit-flex-basis: 48%;
-  -ms-flex-preferred-size: 48%;
-  flex-basis: 48%;
-}
-
-.c3 p:first-child {
-  margin-top: 16px;
-}
-
-.c14 {
-  margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c13 {
-  margin: 1em 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c1 {
-    display: block;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c22 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c22 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c22 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
-    width: 100%;
-  }
-}
-
-<div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c1 c2"
-    >
-      <div
-        className="c3"
-      >
-        <form
-          className="c4"
-          onSubmit={[Function]}
-        >
-          <div
-            className="c5 c6"
-            id="left"
-          >
-            <label
-              className="c7"
-              htmlFor="first-name"
-            >
-              <span>
-                First name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="first-name"
-              name="first name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c5 c6"
-          >
-            <label
-              className="c7"
-              htmlFor="last-name"
-            >
-              <span>
-                Last name
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="last-name"
-              name="last name"
-              onChange={[Function]}
-              type="text"
-              value=""
-              width="100%"
-            />
-          </div>
-          <div
-            className="c6"
-          >
-            <label
-              className="c7"
-              htmlFor="email-address"
-            >
-              <span>
-                Email
-              </span>
-            </label>
-            <input
-              className="c8 c9"
-              id="email-address"
-              name="email"
-              onChange={[Function]}
-              type="text"
-              value="email@email.email"
-              width="100%"
-            />
-            <div
-              className="c10"
-            >
-              <button
-                className="c11 c12"
-                type="submit"
-              >
-                <span>
-                  Save profile
-                </span>
-              </button>
-            </div>
-          </div>
-        </form>
-        <section
-          className="c13"
-        >
-          <p
-            className="c14"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
-      </div>
-      <div
-        className="c3"
-      >
-        <p
-          className="c14"
-        >
-          <span>
-            Profile picture
-          </span>
-        </p>
-        <p>
-          <span>
-            Your profile picture is supplied by Gravatar. If you don't have an account with them yet, or want to change your existing picture, please visit the 
-            <a
-              href="https://gravatar.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gravatar website
-               
-              <span
-                className="screen-reader-text c15"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </a>
-            . Changes may take up to an hour to become visible here.
-          </span>
-        </p>
-        
-      </div>
-    </div>
-  </div>
-  <div
-    className="c16"
-  >
-    <div
-      className="c0"
-    >
-      <div
-        className="c1 c2"
-      >
-        <section
-          className="c17"
-        >
-          <p
-            className="c18"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
-          <ul
-            className="c19"
-          >
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
-                }
-              />
-            </li>
-            <li
-              className="c20"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
-          <button
-            className="c11 c12"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Subscribe
-            </span>
-          </button>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c21"
-    >
-      <button
-        aria-expanded={false}
-        className="c22"
-        onClick={[Function]}
-      >
-        <span
-          className="c23"
         >
           Danger zone
         </span>
