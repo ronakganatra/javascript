@@ -54,8 +54,8 @@ const messages = defineMessages( {
 
 const SaveButtonArea = styled.div`
 	display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+	flex-wrap: wrap;
+	align-items: center;
 `;
 
 const SaveButton = styled( Button )`
