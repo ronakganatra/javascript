@@ -30,10 +30,10 @@ class ConfigurationServiceRequests extends React.Component {
 	 *
 	 * @returns {Array} An array of table cells.
 	 */
-	generateCells( attributes ) {
+	generateCells() {
 		return this.state.configurationServiceRequests.map( function ( attribute ) {
 			let key = attribute.id;
-			console.log( "", attribute );
+			console.log( "", attribute.backupRequired );
 			return <tr key={ key }>
 				<td>Url</td>
 				<td>{ attribute.status }</td>
@@ -71,7 +71,7 @@ class ConfigurationServiceRequests extends React.Component {
 				</tr>
 				</thead>
 				<tbody>
-					{ this.generateCells( [ "test1", "2", "3", "4", "5", "6", "7", "8", "button" ] ) }
+					{ this.generateCells() }
 				</tbody>
 			</table>
 		) ;
