@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Navigation from "./menu/Navigation";
 import { path } from "./functions/helpers";
 import Refund from "./refund/Refund";
+import ConfigurationServiceRequests from "./configuration-service-requests/ConfigurationServiceRequests";
 import Finance from "./finance/Finance";
 import Loader from "./shared/Loader";
 import _intersection from "lodash/intersection";
@@ -98,6 +99,7 @@ class App extends React.Component {
 								<Route path={ path( "/search" ) } render={ () => <Search api={ this.api } accessibleByRoles={ this.accessibleByRoles } /> } />
 								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/transfer" ) } render={ () => <Transfer api={ this.api } /> } /> }
 								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/refund" ) } render={ () => <Refund api={ this.api } /> } /> }
+								{ this.accessibleByRoles( [ 'support' ] ) && <Route path={ path( "/configurationServiceRequests" ) } render={ () => <ConfigurationServiceRequests api={ this.api }/> } /> }
 								{ this.accessibleByRoles( [ 'finance' ] ) && <Route path={ path( "/finance" ) } render={ () => <Finance api={ this.api } /> } /> }
 							</div>
 						</div>
