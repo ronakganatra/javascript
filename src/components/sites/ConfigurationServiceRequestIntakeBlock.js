@@ -42,7 +42,9 @@ const ResponsiveButton = styled( makeButtonFullWidth( LargeButton ) )`
 class ConfigurationServiceRequestIntakeBlock extends React.Component {
 	/**
 	 * Sets the ConfigurationServiceRequestBlock component.
+	 *
 	 * @param {Object} props All of the props passed to this component.
+	 *
 	 * @returns {void}
 	 */
 	constructor( props ) {
