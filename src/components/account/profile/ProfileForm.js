@@ -52,6 +52,12 @@ const messages = defineMessages( {
 	},
 } );
 
+const SaveButtonArea = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+`;
+
 const SaveButton = styled( Button )`
 	margin: 1em 0;
 `;
@@ -60,15 +66,8 @@ const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
-const FormMessage = styled.p`
-	padding: 0.5em 0 0 ${ props => props.inline ? "1em" : "0" };
-	margin: 0;
-	${ props => props.inline ? "display: inline-block;" : "display: block;" }
-
-	@media screen and ( max-width: 400px ) {
-		padding: 0.5em 0 0 0;
-		display: block;
-	}
+const FormMessage = styled.span`
+	padding: 0 0 0 1em;
 `;
 
 const FormGroup = styled.form`
@@ -235,12 +234,12 @@ class ProfileForm extends React.Component {
 			speak( message, "assertive" );
 		}
 
-		return <div>
+		return <SaveButtonArea>
 			<SaveButton type="submit">
 				<FormattedMessage id={ messages.saveProfile.id } defaultMessage={ messages.saveProfile.defaultMessage } />
 			</SaveButton>
 			{ emailSavingMessage }
-		</div>;
+		</SaveButtonArea>;
 	}
 
 	/**
