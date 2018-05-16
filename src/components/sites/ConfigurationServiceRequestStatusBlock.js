@@ -43,7 +43,7 @@ let messages = defineMessages( {
 
 const STATUSES = {
 	submitted: "configurationPending",
-	"in-progress": "configurationInProgress",
+	"in progress": "configurationInProgress",
 	completed: "configurationCompleted",
 };
 
@@ -63,17 +63,18 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 					Object.keys( STATUSES ).map( ( status ) => {
 						let formattedMessage = (
 							<FormattedMessage
+								key={ status }
 								id={ messages[ STATUSES[ status ] ].id }
 								defaultMessage={ messages[ STATUSES[ status ] ].defaultMessage }
 							/>
 						);
 
 						if ( status === this.props.status ) {
-							return <strong>{ formattedMessage }</strong>;
+							return <strong key={ status }>{ formattedMessage }</strong>;
 						}
 
 						return formattedMessage;
-					} ).reduce( ( prev, curr ) => [ prev, " / ", curr ] )
+					} ).reduce( ( prev, curr, i ) => [ prev, <span key={ i }> / </span>, curr ] )
 				}
 			</p>
 		);
