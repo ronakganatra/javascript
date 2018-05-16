@@ -366,7 +366,7 @@ exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matc
               <div>
                 <p>
                   <span>
-                    We will, of course, need an administrator login to your site. Please confirm you have delivered this to us.
+                    We will, of course, need an administrator login to your site. Please create a new admin user on your site with the email address install@yoast.com.
                   </span>
                 </p>
                 <p>
@@ -381,7 +381,7 @@ exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matc
                     htmlFor="administratorLoginConfirmation"
                   >
                     <span>
-                      I've created a new admin user with the email address install@yoast.com and send the details to that email address.
+                      I've created a new admin user with the email address install@yoast.com.
                     </span>
                   </label>
                 </p>
