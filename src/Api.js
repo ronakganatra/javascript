@@ -192,6 +192,12 @@ export default class Api {
 		return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
 	}
 
+	assignConfigurationServiceRequest( configurationServiceRequestId ) {
+		let url = this.host + "/api/ConfigurationServiceRequests/" + configurationServiceRequestId + "/assign?access_token=" + this.accessToken;
+
+		return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
+	}
+
 	getCurrentUser() {
 		let url = this.host + `/api/Customers/current?access_token=${ this.accessToken }`;
 
