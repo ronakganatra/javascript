@@ -1,4 +1,4 @@
-import {getLearndashHost, getMyYoastHost, getWooCommerceHost} from "./functions/helpers";
+import { getLearndashHost, getMyYoastHost, getWooCommerceHost } from "./functions/helpers";
 
 export default class Api {
 	/**
@@ -196,6 +196,20 @@ export default class Api {
 		let url = this.host + "/api/ConfigurationServiceRequests/" + configurationServiceRequestId + "/assign?access_token=" + this.accessToken;
 
 		return fetch( url, { method: "POST" } ).then( this.handleJSONReponse );
+	}
+
+	completeConfigurationServiceRequest( configurationServiceRequestId, report, backupCreated, importDone, searchConsoleConnected ) {
+		let url = this.host + "/api/ConfigurationServiceRequests/" + configurationServiceRequestId + "/complete?access_token=" + this.accessToken;
+		return fetch( url,
+			{
+				method: "POST",
+				body: JSON.stringify( { report, backupCreated, importDone, searchConsoleConnected } ),
+				headers: {
+					'Accept': 'application/json',
+					'Content-Type': 'application/json'
+				},
+			} )
+			.then( this.handleJSONReponse );
 	}
 
 	getCurrentUser() {
