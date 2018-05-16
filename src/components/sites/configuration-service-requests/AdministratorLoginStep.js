@@ -8,11 +8,11 @@ import ButtonsContainer from "../../general/ButtonsContainer";
 let messages = defineMessages( {
 	administratorLoginRequired: {
 		id: "requestConfiguration.administratorLoginRequired",
-		defaultMessage: "We will, of course, need an administrator login to your site. Please confirm you have delivered this to us.",
+		defaultMessage: "We will, of course, need an administrator login to your site. Please create a new admin user on your site with the email address install@yoast.com.",
 	},
 	administratorLoginConfirmation: {
 		id: "requestConfiguration.administratorLoginConfirmation",
-		defaultMessage: "I've created a new admin user with the email address install@yoast.com and send the details to that email address.",
+		defaultMessage: "I've created a new admin user with the email address install@yoast.com.",
 	},
 } );
 
