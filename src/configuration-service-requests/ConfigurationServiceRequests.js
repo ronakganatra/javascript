@@ -13,9 +13,10 @@ const ReportInput = styled.textarea`
 	width: 600px;
 `;
 
-const CompleteButton = styled.button`
+const ActionButton = styled.button`
 	height:30px;
 	margin-top:10px;
+	display: inline;
 `;
 
 const RequirementLabel = styled.label`
@@ -52,6 +53,7 @@ class ConfigurationServiceRequests extends React.Component {
 		this.reportChanged = this.reportChanged.bind( this );
 		this.submitReportClicked = this.submitReportClicked.bind( this );
 		this.checkboxChanged = this.checkboxChanged.bind( this );
+		this.cancelReportClicked = this.cancelReportClicked.bind( this );
 		this.loadConfigurationServiceRequests();
 	}
 
@@ -85,6 +87,14 @@ class ConfigurationServiceRequests extends React.Component {
 		this.setState( {
 			writingReport: true,
 			currentConfigurationServiceRequest: configurationServiceRequest
+		} );
+	}
+
+	cancelReportClicked() {
+		this.setState( {
+			error: false,
+			writingReport: false,
+			reportContent: "",
 		} );
 	}
 
@@ -168,10 +178,15 @@ class ConfigurationServiceRequests extends React.Component {
 
 				<h3>Report</h3>
 				<ReportInput onChange={this.reportChanged}></ReportInput>
+				<div>
+					<ActionButton type="submit" onClick={this.submitReportClicked}>
+						Save report and mark as Complete
+					</ActionButton>
+					<ActionButton type="submit" onClick={this.cancelReportClicked}>
+						Cancel
+					</ActionButton>
+				</div>
 
-				<CompleteButton type="submit" onClick={this.submitReportClicked}>
-					Save report and mark as Complete
-				</CompleteButton>
 			</ReportContainer>
 		);
 	}
