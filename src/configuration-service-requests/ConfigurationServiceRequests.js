@@ -73,16 +73,30 @@ class ConfigurationServiceRequests extends React.Component {
 			} )
 			.catch( ( error ) => console.error( error ) );
 	}
-
+	/**
+	 * Saves the value of the content of the report in the state.
+	 *
+	 * @returns {void}
+	 */
 	reportChanged( event ) {
 		this.setState( { reportContent: event.target.value } );
 	}
 
+	/**
+	 * Assigns a configuration service request and reloads all configuration service requests.
+	 *
+	 * @returns {void}
+	 */
 	assignClicked( configurationServiceRequest ) {
 		this.props.api.assignConfigurationServiceRequest( configurationServiceRequest.id )
 			.then( this.loadConfigurationServiceRequests );
 	}
 
+	/**
+	 * Opens the editor to upload (and to write) a report and links this to the corresponding request.
+	 *
+	 * @returns {void}
+	 */
 	uploadReportClicked( configurationServiceRequest ) {
 		this.setState( {
 			writingReport: true,
@@ -90,6 +104,11 @@ class ConfigurationServiceRequests extends React.Component {
 		} );
 	}
 
+	/**
+	 * Cancels uploading the report, closes the writing report field and clears its content.
+	 *
+	 * @returns {void}
+	 */
 	cancelReportClicked() {
 		this.setState( {
 			error: false,
@@ -98,6 +117,11 @@ class ConfigurationServiceRequests extends React.Component {
 		} );
 	}
 
+	/**
+	 * Submits the report, closes the writing report editor and clears its content.
+	 *
+	 * @returns {void}
+	 */
 	submitReportClicked() {
 		this.setState( { error: false } );
 		let ConfigurationServiceRequest = this.state.currentConfigurationServiceRequest;
@@ -120,6 +144,11 @@ class ConfigurationServiceRequests extends React.Component {
 			} );
 	}
 
+	/**
+	 * Handles the checkboxes of the performed optional steps.
+	 *
+	 * @returns {void}
+	 */
 	checkboxChanged( event ) {
 		let name = event.target.name;
 		let currentRequest = this.state.currentConfigurationServiceRequest;
@@ -127,6 +156,11 @@ class ConfigurationServiceRequests extends React.Component {
 		this.setState( { currentConfigurationServiceRequest: currentRequest } );
 	}
 
+	/**
+	 * Generates a the configuration service request overview presented in a table.
+	 *
+	 * @returns {void}
+	 */
 	getTable( content, showManage = true ) {
 		return ( <table>
 			<thead>
@@ -148,6 +182,11 @@ class ConfigurationServiceRequests extends React.Component {
 		</table> );
 	}
 
+	/**
+	 * Gets the report editor.
+	 *
+	 * @returns {void}
+	 */
 	getReportEditor() {
 		if ( ! this.state.writingReport ) {
 			return null;
@@ -213,6 +252,11 @@ class ConfigurationServiceRequests extends React.Component {
 		}, this );
 	}
 
+	/**
+	 * Generates the buttons assign me and upload report.
+	 *
+	 * @returns {void}
+	 */
 	getButtons( configurationServiceRequest ) {
 		if ( ! configurationServiceRequest.assigneeId ) {
 			return (
@@ -232,6 +276,11 @@ class ConfigurationServiceRequests extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Generates error messages on top of the report editor.
+	 *
+	 * @returns {void}
+	 */
 	getErrors() {
 		if ( this.state.error ) {
 			return (
