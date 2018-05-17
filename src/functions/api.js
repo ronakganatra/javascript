@@ -179,6 +179,17 @@ export function getInvoiceUrl( orderId, refundId = null ) {
 }
 
 /**
+ * Returns the configuration service report URL.
+ *
+ * @param {string} configurationServiceRequestId The id of the configuration service request.
+ *
+ * @returns {string} The URL to the configuration service request report.
+ */
+export function getConfigurationServiceReportUrl( configurationServiceRequestId ) {
+	return getApiUrl() + "/ConfigurationServiceRequests/" + configurationServiceRequestId + "/complete?access_token=" + getAccessToken();
+}
+
+/**
  * Returns the URL for downloading the profile of the user with the given ID (in CSV format).
  *
  * @param {string} userId the ID of the user

@@ -3,8 +3,14 @@ import React from "react";
 import { defineMessages, FormattedMessage, FormattedHTMLMessage, injectIntl, intlShape } from "react-intl";
 import { Paper, WhitePage } from "../PaperStyles";
 import CollapsibleHeader from "../CollapsibleHeader";
+import { LargeButtonLink } from "../Button";
+import { getConfigurationServiceReportUrl } from "../../functions/api";
 
 let messages = defineMessages( {
+	downloadReportButton: {
+		id: "report.buttons.download",
+		defaultMessage: "View Report",
+	},
 	configurationPendingHeading: {
 		id: "requestConfigurationStatus.configurationPendingHeading",
 		defaultMessage: "Configuration service successfully requested",
@@ -52,7 +58,6 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 		if ( this.props.status === "completed" ) {
 			return null;
 		}
-
 		return (
 			<p>
 				<FormattedMessage
@@ -104,6 +109,12 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 									} }
 								/>
 							</p>
+							<LargeButtonLink
+								to={ getConfigurationServiceReportUrl( this.props.id ) }
+								linkTarget="_blank"
+							>
+								{ this.props.intl.formatMessage( messages.downloadReportButton ) }
+							</LargeButtonLink>
 							{ this.getCurrentStatus() }
 						</div>
 					</WhitePage>
@@ -114,6 +125,7 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 }
 
 ConfigurationServiceRequestStatusBlock.propTypes = {
+	id: PropTypes.string.isRequired,
 	status: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
 };

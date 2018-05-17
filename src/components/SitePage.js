@@ -100,7 +100,9 @@ class SitePage extends React.Component {
 		}
 
 		if ( this.props.site.configurationServiceRequest ) {
-			return <ConfigurationServiceRequestStatusBlock status={ this.props.site.configurationServiceRequest.status }/>;
+			return <ConfigurationServiceRequestStatusBlock
+				id={ this.props.site.configurationServiceRequest.id }
+				status={ this.props.site.configurationServiceRequest.status }/>;
 		}
 
 		if(	this.props.availableConfigurationServiceRequests.length > 0 ) {
