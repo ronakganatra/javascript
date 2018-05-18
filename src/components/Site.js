@@ -74,6 +74,10 @@ function Site( props ) {
 	let configureStatusMessage = "{ statusIcon } Configuration service requested";
 	let iconValues = <ClockIcon src={ clock }/>;
 
+	if( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "in progress" ) {
+		configureStatusMessage = "{ statusIcon } Configuration service in progress";
+	}
+
 	if( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "completed" ) {
 		configureStatusMessage = "{ statusIcon } Configured with configuration service";
 		iconValues = <CompletedIcon src={ check }/>;
