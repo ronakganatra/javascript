@@ -67,7 +67,7 @@ class ConfigurationServiceRequests extends React.Component {
 	 */
 	loadConfigurationServiceRequests() {
 		this.props.api.search( 'ConfigurationServiceRequests', {
-			where: { status: { inq: [ 'submitted', 'in-progress' ] } },
+			where: { status: { inq: [ 'submitted', 'in progress' ] } },
 			include: [ "site", "customer", "assignee" ],
 			order: "submittedAt ASC",
 		} )
