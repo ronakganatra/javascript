@@ -9,7 +9,7 @@ import styled from "styled-components";
 let messages = defineMessages( {
 	configurationHeading: {
 		id: "requestConfigurationIntake.configurationHeading",
-		defaultMessage: "Configuration service intake form",
+		defaultMessage: "Request configuration service",
 	},
 	configurationAvailable: {
 		id: "requestConfigurationIntake.configurationAvailable",
@@ -19,7 +19,7 @@ let messages = defineMessages( {
 	},
 	configurationHowTo: {
 		id: "requestConfigurationIntake.configurationHowTo",
-		defaultMessage: "Let us help you to configure the plugins for your website. Click on the button below to open the intake form.",
+		defaultMessage: "Let us help you configure the plugins for your website. Click on the button below to open the intake form.",
 	},
 	requestButton: {
 		id: "requestConfigurationIntake.modalButton",
