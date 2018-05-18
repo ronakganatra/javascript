@@ -4,7 +4,7 @@ import { createComponentWithIntl } from "../../../utils";
 
 test('the configuration service request status block component with status submitted matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<ConfigurationServiceRequestStatusBlock status="submitted" />
+		<ConfigurationServiceRequestStatusBlock id="test" status="submitted" />
 	);
 
 	let tree = component.toJSON();
@@ -13,7 +13,7 @@ test('the configuration service request status block component with status submi
 
 test('the configuration service request status block component with status in progress matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<ConfigurationServiceRequestStatusBlock status="in progress" />
+		<ConfigurationServiceRequestStatusBlock id="test" status="in progress" />
 	);
 
 	let tree = component.toJSON();
@@ -22,7 +22,7 @@ test('the configuration service request status block component with status in pr
 
 test('the configuration service request status block component with status completed matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<ConfigurationServiceRequestStatusBlock status="completed" />
+		<ConfigurationServiceRequestStatusBlock id="test" status="completed" />
 	);
 
 	let tree = component.toJSON();
