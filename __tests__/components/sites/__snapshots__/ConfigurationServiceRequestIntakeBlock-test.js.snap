@@ -147,7 +147,7 @@ exports[`the configuration service request intake block component matches the sn
       <span
         className="c3"
       >
-        Configuration service intake form
+        Request configuration service
       </span>
       <svg
         aria-hidden="true"
@@ -174,7 +174,7 @@ exports[`the configuration service request intake block component matches the sn
         </p>
         <p>
           <span>
-            Let us help you to configure the plugins for your website. Click on the button below to open the intake form.
+            Let us help you configure the plugins for your website. Click on the button below to open the intake form.
           </span>
         </p>
       </div>
@@ -337,7 +337,7 @@ exports[`the configuration service request status block with status completed co
       <span
         className="c3"
       >
-        Configuration service intake form
+        Request configuration service
       </span>
       <svg
         aria-hidden="true"
@@ -364,7 +364,7 @@ exports[`the configuration service request status block with status completed co
         </p>
         <p>
           <span>
-            Let us help you to configure the plugins for your website. Click on the button below to open the intake form.
+            Let us help you configure the plugins for your website. Click on the button below to open the intake form.
           </span>
         </p>
       </div>
