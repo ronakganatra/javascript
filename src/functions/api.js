@@ -186,7 +186,7 @@ export function getInvoiceUrl( orderId, refundId = null ) {
  * @returns {string} The URL to the configuration service request report.
  */
 export function getConfigurationServiceReportUrl( configurationServiceRequestId ) {
-	return getApiUrl() + "/ConfigurationServiceRequests/" + configurationServiceRequestId + "/complete?access_token=" + getAccessToken();
+	return getApiUrl() + "/ConfigurationServiceRequests/" + configurationServiceRequestId + "/report?access_token=" + getAccessToken();
 }
 
 /**
