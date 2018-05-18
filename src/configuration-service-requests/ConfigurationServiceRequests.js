@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-
+import moment from "moment-timezone";
 
 const ReportContainer = styled.div`
 	display:flex;
@@ -31,6 +31,8 @@ const ErrorMessage = styled.p`
 const Overview = styled.div`
 	margin-top:50px;
 `;
+
+const CONFIGURATION_TIME_LIMIT_IN_DAYS = 3;
 
 class ConfigurationServiceRequests extends React.Component {
 
@@ -65,8 +67,9 @@ class ConfigurationServiceRequests extends React.Component {
 	 */
 	loadConfigurationServiceRequests() {
 		this.props.api.search( 'ConfigurationServiceRequests', {
-			where: { status: { inq: [ 'submitted', 'in progress' ] } },
-			include: [ "site", "customer", "assignee" ]
+			where: { status: { inq: [ 'submitted', 'in-progress' ] } },
+			include: [ "site", "customer", "assignee" ],
+			order: "submittedAt ASC",
 		} )
 			.then( ( response ) => {
 				this.setState( { configurationServiceRequests: response } );
@@ -231,21 +234,44 @@ class ConfigurationServiceRequests extends React.Component {
 	}
 
 	/**
+	 * Returns a style to add when the date the configuration service request
+	 * is submitted is on or after the day of the deadline.
+	 * @param {Date} submittedAt the date the service request has been submitted.
+	 * @returns {Object} the style to add.
+	 */
+	getTimeLimitWarnStyle( submittedAt ) {
+
+		let dayBeforeDeadline = moment( submittedAt, moment.ISO_8601 );
+		dayBeforeDeadline.add( CONFIGURATION_TIME_LIMIT_IN_DAYS, "days" );
+
+		if ( moment().isSame( dayBeforeDeadline, "day" ) ) {
+			return { "background-color" : "orange" };
+		} else if ( moment().isAfter( dayBeforeDeadline, "day" )) {
+			return { "background-color" : "red" };
+		}
+
+		return { };
+	}
+
+	/**
 	 * Generates table cells of a configuration service request.
 	 *
 	 * @returns {Array} An array of table cells.
 	 */
 	generateCells( configurationServiceRequests, showControls = true ) {
+
 		return configurationServiceRequests.map( function( configurationServiceRequest ) {
 			let assignee = configurationServiceRequest.assignee;
-			return <tr key={configurationServiceRequest.id}>
+			let warnStyle = this.getTimeLimitWarnStyle( configurationServiceRequest.submittedAt );
+			let submittedAt = moment( configurationServiceRequest.submittedAt ).format("YYYY-MM-DD HH:mm");
+			return <tr key={configurationServiceRequest.id} style={ warnStyle }>
 				<td>{configurationServiceRequest.site.url}</td>
 				<td>{configurationServiceRequest.status}</td>
 				<td>{configurationServiceRequest.customer.userEmail}</td>
 				<td>{configurationServiceRequest.backupRequired ? "yes" : "no"}</td>
 				<td>{configurationServiceRequest.importFrom}</td>
 				<td>{configurationServiceRequest.searchConsoleRequired ? "yes" : "no"}</td>
-				<td>{configurationServiceRequest.submittedAt}</td>
+				<td>{submittedAt}</td>
 				<td>{assignee ? assignee.userFirstName + ' ' + assignee.userLastName + ' (' + assignee.userEmail + ')' : "-"}</td>
 				{showControls ? <td>{this.getButtons( configurationServiceRequest )}</td> : null}
 			</tr>;
