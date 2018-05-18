@@ -18,6 +18,9 @@ import {
 	SITE_REMOVE_SUCCESS,
 	SITE_CHANGE_PLATFORM_SUCCESS,
 } from "../actions/site";
+import {
+	UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS,
+} from "../actions/configurationServiceRequest";
 
 import _isUndefined from "lodash/isUndefined";
 import _pull from "lodash/pull";
@@ -227,6 +230,11 @@ export function byIdReducer( state = rootState.entities.sites.byId, action ) {
 		case SITE_REMOVE_SUCCESS:
 			_unset( sites, action.siteId );
 			break;
+
+		case UPDATE_CONFIGURATION_SERVICE_REQUEST_SUCCESS:
+			if ( action.configurationService.siteId && sites[ action.configurationService.siteId ] ) {
+				sites[ action.configurationService.siteId ].configurationServiceRequest = action.configurationService;
+			}
 	}
 
 	return sites;
