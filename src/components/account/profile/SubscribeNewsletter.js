@@ -8,9 +8,6 @@ import { Paper, Page } from "../../PaperStyles";
 import { Button, LargeSecondaryButton } from "../../Button";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 
-// Icons
-import checkmark from "../../../icons/checkGreen.svg";
-
 const NewsletterContainer = styled.div`
 	margin-top: 24px;
 `;
@@ -26,38 +23,15 @@ const Paragraph = styled.p`
 	font-weight: 300;
 `;
 
-const CheckboxList = styled.ul`
-	list-style: none;
-	padding-left: 0%;
-`;
-
-const CheckboxListItem = styled.li`
-	padding-left: 2.0rem;
-		
-	background-image: url(${ checkmark });
-	background-position: 0 0.25rem;
-	background-size: 1.0rem 1.0rem;
-	background-repeat: no-repeat;
-`;
-
-const subscribeReasons = [ "subscribeReason1", "subscribeReason2", "subscribeReason3" ];
-
 const messages = defineMessages( {
 	title: {
 		id: "newsletter.title",
 		defaultMessage: "Newsletter",
 	},
-	subscribeReason1: {
-		id: "newsletter.subscribe.reasons.1",
-		defaultMessage: "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-	},
-	subscribeReason2: {
-		id: "newsletter.subscribe.reasons.2",
-		defaultMessage: "Be the first to know about new features and other cool plugins.",
-	},
-	subscribeReason3: {
-		id: "newsletter.subscribe.reasons.3",
-		defaultMessage: "Receive a free eBook!",
+	subscribeReasons: {
+		id: "newsletter.subscribe.reasons",
+		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>" +
+		"You'll also be the first to know about new features and other cool (free) plugins!",
 	},
 	subscribeButton: {
 		id: "newsletter.subscribeButton",
@@ -74,6 +48,10 @@ const messages = defineMessages( {
 	unsubscribeButton: {
 		id: "newsletter.unSubscribeButton",
 		defaultMessage: "Unsubscribe",
+	},
+	privacyPolicy: {
+		id: "newsletter.privacyPolicy",
+		defaultMessage: "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
 	},
 } );
 
@@ -140,17 +118,13 @@ class SubscribeNewsletter extends React.Component {
 			);
 		}
 
-		return <CheckboxList>
-			{ subscribeReasons.map( key => {
-				return (
-					<CheckboxListItem key={ key }>
-						<FormattedHTMLMessage
-							id={ messages[ key ].id }
-							defaultMessage={ messages[ key ].defaultMessage }/>
-					</CheckboxListItem>
-				);
-			} ) }
-		</CheckboxList>;
+		return (
+			<p>
+				<FormattedHTMLMessage
+					id={ messages.subscribeReasons.id }
+					defaultMessage={ messages.subscribeReasons.defaultMessage }/>
+			</p>
+		);
 	}
 
 	/**
@@ -193,6 +167,9 @@ class SubscribeNewsletter extends React.Component {
 								<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
 							</Paragraph>
 							{ this.getContent() }
+							<p>
+								<FormattedHTMLMessage id={ messages.privacyPolicy.id } defaultMessage={ messages.privacyPolicy.defaultMessage }/>
+							</p>
 							{ this.getButton() }
 							{ this.props.error &&
 								<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
