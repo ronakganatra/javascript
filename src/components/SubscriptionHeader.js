@@ -21,7 +21,7 @@ const messages = defineMessages( {
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
 	min-height: 180px;
-	background-color: ${ colors.$palette_pink_dark }
+	background-color: ${ colors.$palette_pink_dark };
 	display: flex;
 	margin-top: 8px;
 
