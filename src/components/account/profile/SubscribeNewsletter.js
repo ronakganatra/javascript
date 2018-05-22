@@ -30,7 +30,7 @@ const messages = defineMessages( {
 	},
 	subscribeReasons: {
 		id: "newsletter.subscribe.reasons",
-		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion." +
+		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. " +
 		"You'll also be the first to know about new features and other cool (free) plugins!",
 	},
 	subscribeButton: {
