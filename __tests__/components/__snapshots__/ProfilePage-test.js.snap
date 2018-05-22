@@ -56,12 +56,12 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c22 {
+.c20 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c23 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -84,7 +84,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c23 svg {
+.c21 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -97,7 +97,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c24 {
+.c22 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -191,19 +191,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   font-weight: 300;
 }
 
-.c20 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c21 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c16 {
   padding-top: 0.5em;
 }
@@ -234,19 +221,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c21 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23 {
+  .c21 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 svg {
+  .c21 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -430,43 +417,24 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c20"
-          >
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -485,15 +453,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c0"
     >
       <div
-        className="c22"
+        className="c20"
       >
         <button
           aria-expanded={false}
-          className="c23"
+          className="c21"
           onClick={[Function]}
         >
           <span
-            className="c24"
+            className="c22"
           >
             Developer Tokens
           </span>
@@ -518,15 +486,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
     className="c0"
   >
     <div
-      className="c22"
+      className="c20"
     >
       <button
         aria-expanded={false}
-        className="c23"
+        className="c21"
         onClick={[Function]}
       >
         <span
-          className="c24"
+          className="c22"
         >
           Danger zone
         </span>
@@ -605,12 +573,12 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c22 {
+.c20 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c23 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -633,7 +601,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: #000;
 }
 
-.c23 svg {
+.c21 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -646,7 +614,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c24 {
+.c22 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -740,19 +708,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   font-weight: 300;
 }
 
-.c20 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c21 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c16 {
   padding-top: 0.5em;
 }
@@ -783,19 +738,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c21 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23 {
+  .c21 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 svg {
+  .c21 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -979,43 +934,24 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c20"
-          >
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -1033,15 +969,15 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
     className="c0"
   >
     <div
-      className="c22"
+      className="c20"
     >
       <button
         aria-expanded={false}
-        className="c23"
+        className="c21"
         onClick={[Function]}
       >
         <span
-          className="c24"
+          className="c22"
         >
           Danger zone
         </span>
@@ -1503,6 +1439,15 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
             </span>
           </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
+                }
+              }
+            />
+          </p>
           <button
             className="c20 c13"
             onClick={[Function]}
@@ -1607,12 +1552,12 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c24 {
+.c22 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c25 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1635,7 +1580,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c25 svg {
+.c23 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1648,7 +1593,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c26 {
+.c24 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1742,19 +1687,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   font-weight: 300;
 }
 
-.c22 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c23 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c18 {
   padding-top: 0.5em;
 }
@@ -1798,19 +1730,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c25 {
+  .c23 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c23 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c25 svg {
+  .c23 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1998,43 +1930,24 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c22"
-          >
-            <li
-              className="c23"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c23"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c23"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -2052,15 +1965,15 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     className="c0"
   >
     <div
-      className="c24"
+      className="c22"
     >
       <button
         aria-expanded={false}
-        className="c25"
+        className="c23"
         onClick={[Function]}
       >
         <span
-          className="c26"
+          className="c24"
         >
           Danger zone
         </span>
@@ -2139,12 +2052,12 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c24 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c27 {
+.c25 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2167,7 +2080,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c27 svg {
+.c25 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2180,7 +2093,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c28 {
+.c26 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2311,19 +2224,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   font-weight: 300;
 }
 
-.c24 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c25 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c20 {
   padding-top: 0.5em;
 }
@@ -2354,19 +2254,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 {
+  .c25 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c27 {
+  .c25 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 svg {
+  .c25 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2580,43 +2480,24 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c24"
-          >
-            <li
-              className="c25"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c25"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c25"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c16 c17"
             onClick={[Function]}
@@ -2634,15 +2515,15 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     className="c0"
   >
     <div
-      className="c26"
+      className="c24"
     >
       <button
         aria-expanded={false}
-        className="c27"
+        className="c25"
         onClick={[Function]}
       >
         <span
-          className="c28"
+          className="c26"
         >
           Danger zone
         </span>
@@ -2721,12 +2602,12 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c21 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2749,7 +2630,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c24 svg {
+.c22 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2762,7 +2643,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c25 {
+.c23 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2856,19 +2737,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   font-weight: 300;
 }
 
-.c21 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c22 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c17 {
   padding-top: 0.5em;
 }
@@ -2905,19 +2773,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c22 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c24 {
+  .c22 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 svg {
+  .c22 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3106,43 +2974,24 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c21"
-          >
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -3160,15 +3009,15 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     className="c0"
   >
     <div
-      className="c23"
+      className="c21"
     >
       <button
         aria-expanded={false}
-        className="c24"
+        className="c22"
         onClick={[Function]}
       >
         <span
-          className="c25"
+          className="c23"
         >
           Danger zone
         </span>
@@ -3247,12 +3096,12 @@ exports[`components/ProfilePage saving profile 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c21 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3275,7 +3124,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: #000;
 }
 
-.c24 svg {
+.c22 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3288,7 +3137,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c25 {
+.c23 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3386,19 +3235,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   font-weight: 300;
 }
 
-.c21 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c22 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c17 {
   padding-top: 0.5em;
 }
@@ -3429,19 +3265,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c22 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c24 {
+  .c22 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 svg {
+  .c22 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3630,43 +3466,24 @@ exports[`components/ProfilePage saving profile 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c21"
-          >
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -3684,15 +3501,15 @@ exports[`components/ProfilePage saving profile 1`] = `
     className="c0"
   >
     <div
-      className="c23"
+      className="c21"
     >
       <button
         aria-expanded={false}
-        className="c24"
+        className="c22"
         onClick={[Function]}
       >
         <span
-          className="c25"
+          className="c23"
         >
           Danger zone
         </span>
@@ -3771,12 +3588,12 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c21 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3799,7 +3616,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: #000;
 }
 
-.c24 svg {
+.c22 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3812,7 +3629,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c25 {
+.c23 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3906,19 +3723,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   font-weight: 300;
 }
 
-.c21 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c22 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c17 {
   padding-top: 0.5em;
 }
@@ -3955,19 +3759,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c22 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c24 {
+  .c22 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 svg {
+  .c22 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4156,43 +3960,24 @@ exports[`components/ProfilePage sending password reset 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c21"
-          >
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -4210,15 +3995,15 @@ exports[`components/ProfilePage sending password reset 1`] = `
     className="c0"
   >
     <div
-      className="c23"
+      className="c21"
     >
       <button
         aria-expanded={false}
-        className="c24"
+        className="c22"
         onClick={[Function]}
       >
         <span
-          className="c25"
+          className="c23"
         >
           Danger zone
         </span>
@@ -4306,12 +4091,12 @@ exports[`components/ProfilePage the default case 1`] = `
   margin-right: 12px;
 }
 
-.c23 {
+.c21 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c24 {
+.c22 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4334,7 +4119,7 @@ exports[`components/ProfilePage the default case 1`] = `
   color: #000;
 }
 
-.c24 svg {
+.c22 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4347,7 +4132,7 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c25 {
+.c23 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -4441,19 +4226,6 @@ exports[`components/ProfilePage the default case 1`] = `
   font-weight: 300;
 }
 
-.c21 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c22 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c16 {
   padding-top: 0.5em;
 }
@@ -4484,19 +4256,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c22 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c24 {
+  .c22 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 svg {
+  .c22 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4685,43 +4457,24 @@ exports[`components/ProfilePage the default case 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c21"
-          >
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c22"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -4739,15 +4492,15 @@ exports[`components/ProfilePage the default case 1`] = `
     className="c0"
   >
     <div
-      className="c23"
+      className="c21"
     >
       <button
         aria-expanded={false}
-        className="c24"
+        className="c22"
         onClick={[Function]}
       >
         <span
-          className="c25"
+          className="c23"
         >
           Danger zone
         </span>
@@ -4826,12 +4579,12 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c22 {
+.c20 {
   margin-top: 24px;
   background-color: #fff;
 }
 
-.c23 {
+.c21 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4854,7 +4607,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: #000;
 }
 
-.c23 svg {
+.c21 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4867,7 +4620,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c24 {
+.c22 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -4961,19 +4714,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   font-weight: 300;
 }
 
-.c20 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c21 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 .c16 {
   padding-top: 0.5em;
 }
@@ -5004,19 +4744,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 {
+  .c21 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23 {
+  .c21 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c23 svg {
+  .c21 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5200,43 +4940,24 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               Newsletter
             </span>
           </p>
-          <ul
-            className="c20"
-          >
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                  }
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Be the first to know about new features and other cool plugins.",
-                  }
+              }
+            />
+          </p>
+          <p>
+            <span
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
                 }
-              />
-            </li>
-            <li
-              className="c21"
-            >
-              <span
-                dangerouslySetInnerHTML={
-                  Object {
-                    "__html": "Receive a free eBook!",
-                  }
-                }
-              />
-            </li>
-          </ul>
+              }
+            />
+          </p>
           <button
             className="c12 c13"
             onClick={[Function]}
@@ -5254,15 +4975,15 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     className="c0"
   >
     <div
-      className="c22"
+      className="c20"
     >
       <button
         aria-expanded={false}
-        className="c23"
+        className="c21"
         onClick={[Function]}
       >
         <span
-          className="c24"
+          className="c22"
         >
           Danger zone
         </span>

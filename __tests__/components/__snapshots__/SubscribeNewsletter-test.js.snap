@@ -67,6 +67,15 @@ exports[`The Subscribe Newsletter component (when pending) matches the snapshot 
             Your subscription to the Yoast newsletter is pending. Please check your inbox for a confirmation email.
           </span>
         </p>
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
+              }
+            }
+          />
+        </p>
       </section>
     </div>
   </div>
@@ -187,6 +196,15 @@ exports[`The Subscribe Newsletter component (when subscribed) matches the snapsh
             You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
           </span>
         </p>
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
+              }
+            }
+          />
+        </p>
         <button
           className="c6 c7"
           onClick={[Function]}
@@ -226,7 +244,7 @@ exports[`The Subscribe Newsletter component (when unsubscribed) matches the snap
   justify-content: space-between;
 }
 
-.c9 {
+.c7 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -244,19 +262,19 @@ exports[`The Subscribe Newsletter component (when unsubscribed) matches the snap
   transition: background-color 150ms ease-out;
 }
 
-.c9:hover,
-.c9:focus {
+.c7:hover,
+.c7:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c9:active {
+.c7:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c6 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -273,19 +291,6 @@ exports[`The Subscribe Newsletter component (when unsubscribed) matches the snap
   margin-bottom: 0.5em;
   font-size: 1.5em;
   font-weight: 300;
-}
-
-.c6 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c7 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
 }
 
 @media screen and ( max-width:800px ) {
@@ -313,45 +318,26 @@ exports[`The Subscribe Newsletter component (when unsubscribed) matches the snap
             Newsletter
           </span>
         </p>
-        <ul
-          className="c6"
-        >
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                }
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
               }
-            />
-          </li>
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Be the first to know about new features and other cool plugins.",
-                }
+            }
+          />
+        </p>
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
               }
-            />
-          </li>
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Receive a free eBook!",
-                }
-              }
-            />
-          </li>
-        </ul>
+            }
+          />
+        </p>
         <button
-          className="c8 c9"
+          className="c6 c7"
           onClick={[Function]}
           type="button"
         >
@@ -387,7 +373,7 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
   justify-content: space-between;
 }
 
-.c9 {
+.c7 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -405,23 +391,23 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
   transition: background-color 150ms ease-out;
 }
 
-.c9:hover,
-.c9:focus {
+.c7:hover,
+.c7:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c9:active {
+.c7:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c6 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c11 {
+.c9 {
   padding: 1em;
   background-color: #ffeb3b;
   margin: 0.5em 0 0 0;
@@ -440,11 +426,11 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
   justify-content: flex-start;
 }
 
-.c10 {
+.c8 {
   background-color: #f9bdbd;
 }
 
-.c12 {
+.c10 {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 2em;
@@ -454,7 +440,7 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
   margin: 0 1em;
 }
 
-.c13 {
+.c11 {
   color: #5d237a;
 }
 
@@ -473,19 +459,6 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
   font-weight: 300;
 }
 
-.c6 {
-  list-style: none;
-  padding-left: 0%;
-}
-
-.c7 {
-  padding-left: 2.0rem;
-  background-image: url(checkGreen.svg);
-  background-position: 0 0.25rem;
-  background-size: 1.0rem 1.0rem;
-  background-repeat: no-repeat;
-}
-
 @media screen and ( max-width:800px ) {
   .c2 {
     display: block;
@@ -493,7 +466,7 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
 }
 
 @media screen and ( max-width:800 ) {
-  .c11 {
+  .c9 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -520,45 +493,26 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
             Newsletter
           </span>
         </p>
-        <ul
-          className="c6"
-        >
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Get weekly tips on how to optimize your website's SEO, usability and conversion.",
-                }
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
               }
-            />
-          </li>
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Be the first to know about new features and other cool plugins.",
-                }
+            }
+          />
+        </p>
+        <p>
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
               }
-            />
-          </li>
-          <li
-            className="c7"
-          >
-            <span
-              dangerouslySetInnerHTML={
-                Object {
-                  "__html": "Receive a free eBook!",
-                }
-              }
-            />
-          </li>
-        </ul>
+            }
+          />
+        </p>
         <button
-          className="c8 c9"
+          className="c6 c7"
           onClick={[Function]}
           type="button"
         >
@@ -567,17 +521,17 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
           </span>
         </button>
         <div
-          className="c10 c11"
+          className="c8 c9"
           role="alert"
         >
           <span
             alt="Error sign"
-            className="c12"
+            className="c10"
           />
           <span>
             Oops, something went wrong on our end, please try again. If this keeps happening, 
             <a
-              className="c13"
+              className="c11"
               href="mailto:support@yoast.com"
             >
               <span>
