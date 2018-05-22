@@ -35,17 +35,6 @@ const FixedMobileHeader = styled.div`
 	background-color: ${ colors.$color_pink_dark };
 `;
 
-export const BackHeaderButton = styled( MobileHeaderButton )`
-	top: 0;
-	left: 0;
-	margin-left:200px;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		width: 56px;
-		padding-right: 0px;
-	}
-`;
-
 export const LogoutHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
 	left: 0;
@@ -73,7 +62,6 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-
 	let buttonName  = messages.signOut;
 	let onClickLink = props.onLogoutClick;
 	let iconButton = logout;

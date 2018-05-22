@@ -13,7 +13,7 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( logout() );
 		},
 		onBackClick: () => {
-			console.log( "test" );
+			document.location.href = "http://localhost:3001/sites";
 		},
 	};
 };
