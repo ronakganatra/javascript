@@ -32,7 +32,7 @@ const FixedMobileHeader = styled.div`
 
 export const LogoutHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
-	right: 0;
+	left: 0;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 56px;
@@ -42,7 +42,7 @@ export const LogoutHeaderButton = styled( MobileHeaderButton )`
 
 export const BeaconHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
-	left: 0;
+	right: 0;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 36px;
@@ -58,19 +58,19 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
 function MobileHeader( props ) {
 	return (
 		<FixedMobileHeader role="banner">
-			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle } iconSize="24px">
-				<FormattedMessage
-					id={ messages.needHelp.id }
-					defaultMessage={ messages.needHelp.defaultMessage }
-				/>
-			</BeaconHeaderButton>
-			<Logo context="header" size="88px"/>
 			<LogoutHeaderButton type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
 				<FormattedMessage
 					id={ messages.signOut.id }
 					defaultMessage={ messages.signOut.defaultMessage }
 				/>
 			</LogoutHeaderButton>
+			<Logo context="header" size="88px"/>
+			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle } iconSize="24px">
+				<FormattedMessage
+					id={ messages.needHelp.id }
+					defaultMessage={ messages.needHelp.defaultMessage }
+				/>
+			</BeaconHeaderButton>
 		</FixedMobileHeader>
 	);
 }
