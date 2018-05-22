@@ -19,6 +19,10 @@ const messages = defineMessages( {
 		id: "mobileheader.needhelp",
 		defaultMessage: "Need help?",
 	},
+	back: {
+		id: "mobileheader.back",
+		defaultMessage: "Back",
+	},
 } );
 
 const FixedMobileHeader = styled.div`
@@ -63,54 +67,31 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
 `;
 
 /**
- * Gets the actions related to the clicked button
- *
- * @param {Object} props Component props.
- * @returns {func} The function of the action.
- */
-function getAction( props ) {
-	if( props.detailPage ) {
-		return props.onBackClick;
-	}
-	return props.onLogoutClick;
-}
-
-/**
- * Gets the icon.
- *
- * @param {Object} props Its props.
- * @returns {*} The icon to be rendered.
- */
-function getIcon( props ) {
-	if( props.detailPage ) {
-		return angleLeft;
-	}
-	return logout;
-}
-
-/**
  * Renders the FixedMobileHeader component.
  *
  * @param {Object} props Component props.
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-	console.log( "mobileheader:", props );
+
+	let buttonName  = messages.signOut;
+	let onClickLink = props.onLogoutClick;
+	let iconButton = logout;
+
+	if ( props.detailPage ) {
+		buttonName  = messages.back;
+		onClickLink = props.onBackClick;
+		iconButton = angleLeft;
+	}
+
 	return (
 		<FixedMobileHeader role="banner">
-			<MobileHeaderButton type="button" onClick={ getAction( props ) } iconSource={ getIcon( props ) } iconSize="24px">
-				setMessage
-			</MobileHeaderButton>
-
-			<BackHeaderButton type="button" onClick={ props.onBackClick } iconSource={ angleLeft } iconSize="24px">
-				Back
-			</BackHeaderButton>
-			<LogoutHeaderButton type="button" onClick={ props.onLogoutClick } iconSource={ logout } iconSize="24px">
+			<MobileHeaderButton type="button" onClick={ onClickLink } iconSource={ iconButton } iconSize="24px">
 				<FormattedMessage
-					id={ messages.signOut.id }
-					defaultMessage={ messages.signOut.defaultMessage }
+					id={ buttonName.id }
+					defaultMessage={ buttonName.defaultMessage }
 				/>
-			</LogoutHeaderButton>
+			</MobileHeaderButton>
 			<Logo context="header" size="88px"/>
 			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle } iconSize="24px">
 				<FormattedMessage
@@ -128,4 +109,5 @@ MobileHeader.propTypes = {
 	onLogoutClick: PropTypes.func.isRequired,
 	onBeaconClick: PropTypes.func.isRequired,
 	onBackClick: PropTypes.func,
+	detailPage:PropTypes.bool,
 };
