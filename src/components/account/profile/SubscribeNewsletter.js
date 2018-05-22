@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { injectIntl, intlShape, FormattedMessage, FormattedHTMLMessage, defineMessages } from "react-intl";
+import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
 
 // Custom components
@@ -30,7 +30,7 @@ const messages = defineMessages( {
 	},
 	subscribeReasons: {
 		id: "newsletter.subscribe.reasons",
-		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>" +
+		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion." +
 		"You'll also be the first to know about new features and other cool (free) plugins!",
 	},
 	subscribeButton: {
@@ -51,7 +51,7 @@ const messages = defineMessages( {
 	},
 	privacyPolicy: {
 		id: "newsletter.privacyPolicy",
-		defaultMessage: "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
+		defaultMessage: "Yoast respects your privacy. Read our {link} on how we handle your personal information.",
 	},
 } );
 
@@ -120,7 +120,7 @@ class SubscribeNewsletter extends React.Component {
 
 		return (
 			<p>
-				<FormattedHTMLMessage
+				<FormattedMessage
 					id={ messages.subscribeReasons.id }
 					defaultMessage={ messages.subscribeReasons.defaultMessage }/>
 			</p>
@@ -158,6 +158,8 @@ class SubscribeNewsletter extends React.Component {
 			return null;
 		}
 
+		const privacyPolicyLink = <a href='https://yoast.com/privacy-policy/'>privacy policy</a>;
+
 		return (
 			<NewsletterContainer>
 				<Paper>
@@ -168,7 +170,11 @@ class SubscribeNewsletter extends React.Component {
 							</Paragraph>
 							{ this.getContent() }
 							<p>
-								<FormattedHTMLMessage id={ messages.privacyPolicy.id } defaultMessage={ messages.privacyPolicy.defaultMessage }/>
+								<FormattedMessage
+									id={ messages.privacyPolicy.id }
+									defaultMessage={ messages.privacyPolicy.defaultMessage }
+									values={ { link: privacyPolicyLink } }
+								/>
 							</p>
 							{ this.getButton() }
 							{ this.props.error &&

@@ -68,13 +68,15 @@ exports[`The Subscribe Newsletter component (when pending) matches the snapshot 
           </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
-              }
-            }
-          />
+          <span>
+            Yoast respects your privacy. Read our 
+            <a
+              href="https://yoast.com/privacy-policy/"
+            >
+              privacy policy
+            </a>
+             on how we handle your personal information.
+          </span>
         </p>
       </section>
     </div>
@@ -197,13 +199,15 @@ exports[`The Subscribe Newsletter component (when subscribed) matches the snapsh
           </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
-              }
-            }
-          />
+          <span>
+            Yoast respects your privacy. Read our 
+            <a
+              href="https://yoast.com/privacy-policy/"
+            >
+              privacy policy
+            </a>
+             on how we handle your personal information.
+          </span>
         </p>
         <button
           className="c6 c7"
@@ -319,22 +323,20 @@ exports[`The Subscribe Newsletter component (when unsubscribed) matches the snap
           </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
-              }
-            }
-          />
+          <span>
+            Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.You'll also be the first to know about new features and other cool (free) plugins!
+          </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
-              }
-            }
-          />
+          <span>
+            Yoast respects your privacy. Read our 
+            <a
+              href="https://yoast.com/privacy-policy/"
+            >
+              privacy policy
+            </a>
+             on how we handle your personal information.
+          </span>
         </p>
         <button
           className="c6 c7"
@@ -494,22 +496,20 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
           </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.<br>You'll also be the first to know about new features and other cool (free) plugins!",
-              }
-            }
-          />
+          <span>
+            Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion.You'll also be the first to know about new features and other cool (free) plugins!
+          </span>
         </p>
         <p>
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Yoast respects your privacy. Read our <a href='https://yoast.com/privacy-policy/'>privacy policy</a> on how we handle your personal information.",
-              }
-            }
-          />
+          <span>
+            Yoast respects your privacy. Read our 
+            <a
+              href="https://yoast.com/privacy-policy/"
+            >
+              privacy policy
+            </a>
+             on how we handle your personal information.
+          </span>
         </p>
         <button
           className="c6 c7"
