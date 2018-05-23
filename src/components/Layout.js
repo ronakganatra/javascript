@@ -14,6 +14,7 @@ import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import LicenseActivationMessage from "./LicenseActivationMessage";
+import { WhitePage } from "../components/PaperStyles";
 
 const messages = defineMessages( {
 	beacon: {
@@ -23,6 +24,22 @@ const messages = defineMessages( {
 } );
 
 const Layout = styled.div`
+	display: flex;
+	min-height: 100%;
+
+	@media screen and ( max-width: 1024px ) {
+		display: block;
+		min-height: 0;
+	}
+`;
+
+const LayoutLogin = styled.div`
+	background: transparent url( "./../image/login-background.jpg" ) no-repeat 100% 0;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: "Open Sans", sans-serif;
+	color: #000;
+
 	display: flex;
 	min-height: 100%;
 
@@ -91,6 +108,23 @@ Main.propTypes = {
 
 Main.defaultProps = {
 	id: "content",
+};
+
+const WhitePaper = styled( WhitePage )`
+`;
+
+export const inLoginLayout = () => {
+	return class LoginLayout extends Component {
+		render() {
+			return (
+				<LayoutLogin>
+					<WhitePaper>
+
+					</WhitePaper>
+				</LayoutLogin>
+			);
+		}
+	};
 };
 
 export const inSingleLayout = ( WrappedComponent ) => {

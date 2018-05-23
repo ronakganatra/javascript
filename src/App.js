@@ -10,7 +10,7 @@ import { Provider, connect } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
-import { inMainLayout, inSingleLayout } from "./components/Layout";
+import { inMainLayout, inSingleLayout, inLoginLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
 import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
@@ -56,6 +56,7 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
+					<Route exact path="/login" component={ inLoginLayout() } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
