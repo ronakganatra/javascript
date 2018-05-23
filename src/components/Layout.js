@@ -15,6 +15,7 @@ import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import LicenseActivationMessage from "./LicenseActivationMessage";
 import { WhitePage } from "../components/PaperStyles";
+import loginBackground from "../images/login-background.jpg";
 
 const messages = defineMessages( {
 	beacon: {
@@ -34,7 +35,7 @@ const Layout = styled.div`
 `;
 
 const LayoutLogin = styled.div`
-	background: transparent url( "./../image/login-background.jpg" ) no-repeat 100% 0;
+	background: transparent url( ${ loginBackground } ) no-repeat 100% 0;
 	background-size: cover;
 	background-attachment: fixed;
 	font-family: "Open Sans", sans-serif;
@@ -42,11 +43,6 @@ const LayoutLogin = styled.div`
 
 	display: flex;
 	min-height: 100%;
-
-	@media screen and ( max-width: 1024px ) {
-		display: block;
-		min-height: 0;
-	}
 `;
 
 const Sidebar = styled.div`
@@ -111,6 +107,7 @@ Main.defaultProps = {
 };
 
 const WhitePaper = styled( WhitePage )`
+	margin: auto;
 `;
 
 export const inLoginLayout = () => {
