@@ -1,68 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the subscription header matches the snapshot 1`] = `
-.c7 {
+.c5 {
   font-weight: 700;
   font-size: 2em;
-}
-
-.c4 {
-  display: inline-block;
-  height: 48px;
-  padding: 12px 16px;
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border-radius: 4px;
-  vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c4:hover,
-.c4:focus {
-  color: #fff;
-}
-
-.c4:hover,
-.c4:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
-}
-
-.c4:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c3 {
-  background-repeat: no-repeat;
-  background-image: url( angle-left.svg );
-  background-position: 8px 50%;
-  background-size: 24px;
-  padding-left: 36px;
-}
-
-.c2 {
-  min-width: 152px;
 }
 
 .c0 {
   width: 100%;
   min-height: 180px;
-  background-color: #a4286a display:flex;
+  background-color: #a4286a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 8px;
 }
 
-.c5 {
+.c3 {
   padding: 2em 1.5em 2em 0;
   display: -webkit-box;
   display: -webkit-flex;
@@ -77,7 +32,7 @@ exports[`the subscription header matches the snapshot 1`] = `
   flex-direction: column;
 }
 
-.c6 {
+.c4 {
   color: #fff;
   line-height: 1.25;
   font-weight: 400;
@@ -107,7 +62,14 @@ exports[`the subscription header matches the snapshot 1`] = `
   margin-top: 8px;
 }
 
-.c8 {
+.c2 {
+  background: url( ) no-repeat center center;
+  background-size: contain;
+  width: 96px;
+  height: 96px;
+}
+
+.c6 {
   margin-top: 1em;
   margin-bottom: 0;
   font-size: 1em;
@@ -119,18 +81,6 @@ exports[`the subscription header matches the snapshot 1`] = `
   color: #fff;
 }
 
-.c9 {
-  display: none;
-}
-
-@media screen and ( max-width:800px ) {
-  .c10 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
-}
-
 @media screen and ( max-width:800px ) {
   .c0 {
     min-height: 0;
@@ -139,14 +89,14 @@ exports[`the subscription header matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c5 {
+  .c3 {
     display: block;
     padding: 1em;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c6 {
+  .c4 {
     font-size: 1em;
   }
 }
@@ -158,15 +108,8 @@ exports[`the subscription header matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c8 {
+  .c6 {
     display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c9 {
-    display: block;
-    padding: 16px 16px;
   }
 }
 
@@ -176,43 +119,25 @@ exports[`the subscription header matches the snapshot 1`] = `
   <div
     className="c1"
   >
-    <a
-      className="c2 c3 c4"
-      href="/account/subscriptions"
-      onClick={[Function]}
-    >
-      <span>
-        Back
-      </span>
-    </a>
+    <div
+      className="c2"
+      src=""
+    />
   </div>
   <div
-    className="c5"
+    className="c3"
   >
     <h1
-      className="c6 c7"
+      className="c4 c5"
     >
       Subscription
     </h1>
     
     <p
-      className="c8"
+      className="c6"
     >
       
     </p>
-  </div>
-  <div
-    className="c9"
-  >
-    <a
-      className="c10 c2 c3 c4"
-      href="/account/subscriptions"
-      onClick={[Function]}
-    >
-      <span>
-        Back
-      </span>
-    </a>
   </div>
 </div>
 `;
