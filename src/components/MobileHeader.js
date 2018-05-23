@@ -61,22 +61,22 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-	let buttonName  = messages.signOut;
-	let onClickLink = props.onLogoutClick;
-	let iconButton = logout;
+	let buttonMessage  = messages.signOut;
+	let onButtonClick = props.onLogoutClick;
+	let buttonIcon = logout;
 
 	if ( props.detailPage ) {
-		buttonName  = messages.back;
-		onClickLink = props.onBackClick;
-		iconButton = angleLeft;
+		buttonMessage  = messages.back;
+		onButtonClick = props.onBackClick;
+		buttonIcon = angleLeft;
 	}
 
 	return (
 		<FixedMobileHeader role="banner">
-			<MobileHeaderButton type="button" onClick={ onClickLink } iconSource={ iconButton } iconSize="24px">
+			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
 				<FormattedMessage
-					id={ buttonName.id }
-					defaultMessage={ buttonName.defaultMessage }
+					id={ buttonMessage.id }
+					defaultMessage={ buttonMessage.defaultMessage }
 				/>
 			</MobileHeaderButton>
 			<Logo context="header" size="88px"/>
