@@ -97,5 +97,5 @@ MobileHeader.propTypes = {
 	onLogoutClick: PropTypes.func.isRequired,
 	onBeaconClick: PropTypes.func.isRequired,
 	onBackClick: PropTypes.func,
-	detailPage:PropTypes.bool,
+	detailPage: PropTypes.bool,
 };

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import MobileHeader from "../components/MobileHeader";
 
 const mapDispatchToProps = ( dispatch, ownProps ) => {
-	console.log( "container", ownProps );
 	return {
 		onBeaconClick: () => {
 			dispatch( helpBeaconModalOpen() );
@@ -13,7 +12,7 @@ const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( logout() );
 		},
 		onBackClick: () => {
-			document.location.href = "http://localhost:3001/sites";
+			ownProps.history.goBack();
 		},
 	};
 };

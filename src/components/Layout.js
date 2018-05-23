@@ -99,7 +99,7 @@ export const inSingleLayout = ( WrappedComponent ) => {
 			return (
 				<Layout>
 					<header role="banner">
-						<MobileHeaderContainer detailPage={ true }/>
+						<MobileHeaderContainer { ...this.props } detailPage={ true }/>
 					</header>
 					<SingleMain>
 						<Content>
