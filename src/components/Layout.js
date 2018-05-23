@@ -110,13 +110,13 @@ const WhitePaper = styled( WhitePage )`
 	margin: auto;
 `;
 
-export const inLoginLayout = () => {
+export const inLoginLayout = ( WrappedComponent ) => {
 	return class LoginLayout extends Component {
 		render() {
 			return (
 				<LayoutLogin>
 					<WhitePaper>
-
+						<WrappedComponent { ...this.props }/>
 					</WhitePaper>
 				</LayoutLogin>
 			);
