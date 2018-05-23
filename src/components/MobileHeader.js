@@ -38,7 +38,6 @@ const FixedMobileHeader = styled.div`
 export const LogoutHeaderButton = styled( MobileHeaderButton )`
 	top: 0;
 	left: 0;
-	margin-left:400px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 56px;
