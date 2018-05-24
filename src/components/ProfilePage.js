@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
 import { Button, LargeButton, makeButtonFullWidth } from "./Button";
@@ -94,6 +94,12 @@ const messages = defineMessages( {
 	},
 } );
 
+const StyledImageText = styled.a`
+      display: block;
+      position: relative;
+      margin: 20px;
+`;
+
 const Column = styled.div`
 	flex-basis: 48%;
 	p:first-child {
@@ -160,6 +166,7 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
+		this.getImage = this.getImage.bind( this );
 	}
 
 	componentDidMount() {
@@ -379,13 +386,22 @@ class ProfilePage extends React.Component {
 			</div>
 		);
 	}
+	getImage() {
+		let image = this.props.image ? <UserImage src={ this.props.image } size="120px" onClick={  }/> : "";
+		let imageText = "Upload Profile Picture";
+
+		return (
+			<Fragment>
+				{ image }
+				<StyledImageText>{ imageText }</StyledImageText>
+			</Fragment>
+		);
+	}
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
-		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-
 		return (
 			<div>
 				<Paper>
@@ -400,7 +416,7 @@ class ProfilePage extends React.Component {
 							<Paragraph>
 								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
 							</Paragraph>
-							{ image }
+							{ this.getImage() }
 						</Column>
 					</Page>
 				</Paper>
