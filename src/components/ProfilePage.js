@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
 import { Button, LargeButton, makeButtonFullWidth } from "./Button";
-import UserImage from "../components/UserImage";
+import UploadUserImage from "../components/account/profile/UploadUserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
@@ -93,12 +93,6 @@ const messages = defineMessages( {
 		defaultMessage: "Account profile page loaded",
 	},
 } );
-
-const StyledImageText = styled.a`
-      display: block;
-      position: relative;
-      margin: 20px;
-`;
 
 const Column = styled.div`
 	flex-basis: 48%;
@@ -231,33 +225,35 @@ class ProfilePage extends React.Component {
 			 */
 			onClickAction = _noop;
 
-			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+			passwordResetMessage = <FormMessage inline={true}>{message}</FormMessage>;
 			speak( message, "assertive" );
 		}
 
 		if ( this.props.hasSendPasswordReset ) {
 			let message = this.props.intl.formatMessage( messages.passwordResetSent );
 
-			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
+			passwordResetMessage = <FormMessage>{message}</FormMessage>;
 			speak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError.message }</FormError>;
+			passwordResetError = <FormError role="alert">{this.props.passwordResetError.message}</FormError>;
 		}
 
 		return <PasswordReset>
 			<Paragraph>
-				<FormattedMessage id={ messages.passwordChange.id } defaultMessage={ messages.passwordChange.defaultMessage }/>
+				<FormattedMessage id={messages.passwordChange.id}
+								  defaultMessage={messages.passwordChange.defaultMessage}/>
 			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
 				defaultMessage="To change your password follow the instructions in the password reset email."
 			/></p>
-			<Button onClick={ onClickAction }><FormattedMessage id={ messages.passwordResetSend.id } defaultMessage={ messages.passwordResetSend.defaultMessage }/></Button>
-			{ passwordResetError }
-			{ passwordResetMessage }
+			<Button onClick={onClickAction}><FormattedMessage id={messages.passwordResetSend.id}
+															  defaultMessage={messages.passwordResetSend.defaultMessage}/></Button>
+			{passwordResetError}
+			{passwordResetMessage}
 		</PasswordReset>;
 	}
 
@@ -314,11 +310,11 @@ class ProfilePage extends React.Component {
 			}
 			return (
 				<MyYoastModal
-					isOpen={ modalIsOpen }
-					onClose={ onClose }
-					modalAriaLabel={ modalAriaLabel }
+					isOpen={modalIsOpen}
+					onClose={onClose}
+					modalAriaLabel={modalAriaLabel}
 				>
-					{ modalContent }
+					{modalContent}
 				</MyYoastModal>
 			);
 		}
@@ -368,11 +364,11 @@ class ProfilePage extends React.Component {
 			<div>
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
-						{ ComposerIntroduction }
-						<ComposerTokens {...this.props} hasPaper={false} />
+						{ComposerIntroduction}
+						<ComposerTokens {...this.props} hasPaper={false}/>
 						<CreateButtonArea>
 							<WideLargeButton
-								onClick={ this.props.onCreateTokenModalOpen }
+								onClick={this.props.onCreateTokenModalOpen}
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -382,21 +378,21 @@ class ProfilePage extends React.Component {
 						</CreateButtonArea>
 					</CollapsibleHeader>
 				</Paper>
-				{ this.getModal() }
+				{this.getModal()}
 			</div>
 		);
 	}
+
 	getImage() {
-		let image = this.props.image ? <UserImage src={ this.props.image } size="120px" onClick={  }/> : "";
-		let imageText = "Upload Profile Picture";
+		let image = this.props.image ? <UploadUserImage image={this.props.image}/> : "";
 
 		return (
 			<Fragment>
-				{ image }
-				<StyledImageText>{ imageText }</StyledImageText>
+				{image}
 			</Fragment>
 		);
 	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
@@ -408,32 +404,33 @@ class ProfilePage extends React.Component {
 					<Page>
 						<Column>
 							<ProfileForm
-								{ ...this.props }
+								{...this.props}
 							/>
-							{ this.getPasswordReset() }
+							{this.getPasswordReset()}
 						</Column>
 						<Column>
 							<Paragraph>
-								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
+								<FormattedMessage id={messages.profilePicture.id}
+												  defaultMessage={messages.profilePicture.defaultMessage}/>
 							</Paragraph>
-							{ this.getImage() }
+							{this.getImage()}
 						</Column>
 					</Page>
 				</Paper>
 				<SubscribeNewsletter
-					onSubscribe={ this.props.onNewsletterSubscribe }
-					onUnsubscribe={ this.props.onNewsletterUnsubscribe }
-					subscribed={ this.props.newsletterSubscribed }
-					loading={ this.props.newsletterLoading }
-					error={ this.props.newsletterError }
+					onSubscribe={this.props.onNewsletterSubscribe}
+					onUnsubscribe={this.props.onNewsletterUnsubscribe}
+					subscribed={this.props.newsletterSubscribed}
+					loading={this.props.newsletterLoading}
+					error={this.props.newsletterError}
 				/>
-				{ this.getDevTools() }
+				{this.getDevTools()}
 				<Paper>
-					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
+					<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false}>
 						<DownloadAccount/>
 						<DeleteAccount
-							onDeleteProfile={ this.props.onDeleteProfile }
-							isDeleting={ this.props.isDeleting }
+							onDeleteProfile={this.props.onDeleteProfile}
+							isDeleting={this.props.isDeleting}
 						/>
 					</CollapsibleHeader>
 				</Paper>
