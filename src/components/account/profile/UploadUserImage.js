@@ -55,16 +55,41 @@ class UploadUserImage extends React.Component {
 
 	constructor( props ) {
 		super( props );
+
+		this.onClickLink = this.onClickLink.bind( this );
+		this.onFileUpload = this.onFileUpload.bind( this );
+	}
+
+	onClickLink() {
+		// Trigger a file upload.
+		this.fileInput.click();
+	}
+
+	/**
+	 * Gets triggered when an image file has been selected in the
+	 * file upload dialog.
+	 * @param {File} file the file that has been selected
+	 * @returns {Null} nothing
+	 */
+	onFileUpload( file ) {
+		this.props.onFileUpload( file );
 	}
 
 	render() {
 		return <UploadElement>
 			<UserImage src={this.props.image} size="120px"/>
 			<Overlay>
-				<ChangeLink>
+				<ChangeLink onClick={this.onClickLink}>
 					Change
 				</ChangeLink>
 			</Overlay>
+			<input ref={fileInput => {
+				this.fileInput = fileInput;
+			}}
+				   type={"file"}
+				   style={{ opacity: 0 }}
+				   onChange={e => this.onFileUpload( e.target.files[ 0 ] )}
+			/>
 		</UploadElement>;
 	}
 }
@@ -72,6 +97,7 @@ class UploadUserImage extends React.Component {
 UploadUserImage.propTypes = {
 	intl: intlShape.isRequired,
 	image: PropTypes.string.isRequired,
+	onFileUpload: PropTypes.func,
 };
 
 export default injectIntl( UploadUserImage );

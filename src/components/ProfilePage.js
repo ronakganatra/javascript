@@ -384,7 +384,9 @@ class ProfilePage extends React.Component {
 	}
 
 	getImage() {
-		let image = this.props.image ? <UploadUserImage image={this.props.image}/> : "";
+		const onFileUpload = file => console.log( file );
+
+		let image = this.props.image ? <UploadUserImage image={this.props.image} onFileUpload={onFileUpload}/> : "";
 
 		return (
 			<Fragment>
