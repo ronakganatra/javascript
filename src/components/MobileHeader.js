@@ -61,32 +61,30 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-	let buttonMessage  = messages.signOut;
+	let buttonMessage = messages.signOut;
 	let onButtonClick = props.onLogoutClick;
 	let buttonIcon = logout;
 
 	if ( props.detailPage ) {
-		buttonMessage  = messages.back;
+		buttonMessage = messages.back;
 		onButtonClick = props.onBackClick;
 		buttonIcon = angleLeft;
 	}
 
-	// let previousPageTitle = props.match.path.includes( "sites" ) ? "Sites" : "Subscriptions";
-
 	return (
 		<FixedMobileHeader role="banner">
-			{ props.detailPage ? <h1 hidden>{ props.pageTitle }</h1> : null }
-			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
+			{props.detailPage ? <h1 hidden>{props.pageTitle}</h1> : null}
+			<MobileHeaderButton type="button" onClick={onButtonClick} iconSource={buttonIcon} iconSize="24px">
 				<FormattedMessage
-					id={ buttonMessage.id }
-					defaultMessage={ buttonMessage.defaultMessage }
+					id={buttonMessage.id}
+					defaultMessage={buttonMessage.defaultMessage}
 				/>
 			</MobileHeaderButton>
 			<Logo context="header" size="88px"/>
-			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle } iconSize="24px">
+			<BeaconHeaderButton type="button" onClick={props.onBeaconClick} iconSource={questionCircle} iconSize="24px">
 				<FormattedMessage
-					id={ messages.needHelp.id }
-					defaultMessage={ messages.needHelp.defaultMessage }
+					id={messages.needHelp.id}
+					defaultMessage={messages.needHelp.defaultMessage}
 				/>
 			</BeaconHeaderButton>
 		</FixedMobileHeader>
