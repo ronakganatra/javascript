@@ -71,11 +71,11 @@ function MobileHeader( props ) {
 		buttonIcon = angleLeft;
 	}
 
-	let previousPageTitle = props.match.path.includes( "sites" ) ? "Sites" : "Subscriptions";
+	// let previousPageTitle = props.match.path.includes( "sites" ) ? "Sites" : "Subscriptions";
 
 	return (
 		<FixedMobileHeader role="banner">
-			{ props.detailPage ? <h1 hidden>{ previousPageTitle }</h1> : null }
+			{ props.detailPage ? <h1 hidden>{ props.pageTitle }</h1> : null }
 			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
 				<FormattedMessage
 					id={ buttonMessage.id }
@@ -101,4 +101,5 @@ MobileHeader.propTypes = {
 	onBackClick: PropTypes.func,
 	detailPage: PropTypes.bool,
 	match: PropTypes.object,
+	pageTitle: PropTypes.string,
 };
