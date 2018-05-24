@@ -18,7 +18,6 @@ import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
-import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -84,10 +83,6 @@ const messages = defineMessages( {
 	passwordResetSent: {
 		id: "profile.passwordResetSent",
 		defaultMessage: "An email has been sent, please check your inbox.",
-	},
-	gravatarLink: {
-		id: "profile.gravatarLink",
-		defaultMessage: "Gravatar website",
 	},
 	profilePicture: {
 		id: "profile.picture",
@@ -390,7 +385,6 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-		const gravatarLinkContent = <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) } <NewTabMessage /></a>;
 
 		return (
 			<div>
@@ -406,15 +400,6 @@ class ProfilePage extends React.Component {
 							<Paragraph>
 								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
 							</Paragraph>
-							<p>
-								<FormattedMessage
-									id="profile.description.picture"
-									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-									" an account with them yet, or want to change your existing picture, please visit" +
-									" the { link }. Changes may take up to an hour to become visible here." }
-									values={ { link: gravatarLinkContent } }
-								/>
-							</p>
 							{ image }
 						</Column>
 					</Page>
