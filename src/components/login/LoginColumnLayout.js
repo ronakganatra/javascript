@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ColumnLayout = styled.div`
-
+	
 `;
 
 const ColumnLeft = styled.div`

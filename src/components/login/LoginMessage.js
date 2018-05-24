@@ -11,6 +11,7 @@ import icon  from "../../images/greeting.png";
 import logo from "../../images/my-yoast-academy-logo.svg";
 
 const MainPaper = styled.div`
+	padding: 0px;
 	width: 480px;
 	height: 480px;
 	
@@ -39,7 +40,7 @@ const Logos = styled.img`
  *
  * @returns {ReactElement} The component that contains the message
  */
-class LoginMessagePaper extends React.Component {
+class LoginMessage extends React.Component {
 
 	constructor() {
 		super();
@@ -83,15 +84,15 @@ class LoginMessagePaper extends React.Component {
 	}
 }
 
-LoginMessagePaper.propTypes = {
+LoginMessage.propTypes = {
 	image: PropTypes.string,
 	header: PropTypes.object,
 	message: PropTypes.object,
 	onClick: PropTypes.func,
 };
 
-LoginMessagePaper.defaultProps = {
+LoginMessage.defaultProps = {
 	image: icon,
 };
 
-export default injectIntl( LoginMessagePaper );
+export default injectIntl( LoginMessage );

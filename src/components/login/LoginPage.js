@@ -4,7 +4,7 @@ import { defineMessages, injectIntl } from "react-intl";
 
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
-import LoginMessagePaper from "./LoginMessagePaper";
+import LoginMessage from "./LoginMessage";
 
 const messages = defineMessages( {
 	header: {
@@ -37,8 +37,8 @@ class LoginPage extends React.Component {
 	render() {
 		return (
 			<LoginColumnLayout>
-				<LoginMessagePaper header={ messages.header } message={ messages.message }/>
-				<LoginMessagePaper header={ messages.headerReset } message={ messages.button } onClick={ () => console.error( 1 ) }/>
+				<LoginMessage header={ messages.header } message={ messages.message }/>
+				<LoginMessage header={ messages.headerReset } message={ messages.button } onClick={ () => console.error( 1 ) }/>
 			</LoginColumnLayout>
 		);
 	}
