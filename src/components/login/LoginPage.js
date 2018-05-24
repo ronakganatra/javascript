@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { defineMessages, injectIntl } from "react-intl";
-import styled from "styled-components";
 
 // Components.
+import LoginColumnLayout from "./LoginColumnLayout";
 import LoginMessagePaper from "./LoginMessagePaper";
 
 const messages = defineMessages( {
@@ -15,53 +15,31 @@ const messages = defineMessages( {
 		id: "login.message",
 		defaultMessage: "Log in with your email address and password. If you don't remember your password, just reset it!",
 	},
+	headerReset: {
+		id: "login.headerReset",
+		defaultMessage: "Password changed successfully!",
+	},
+	button: {
+		id: "login.button",
+		defaultMessage: "Continue to MyYoast",
+	},
 } );
 
-const ColumnLayout = styled.div`
-
-`;
-
-const ColumnLeft = styled.div`
-	float: left;
-	width: 480px;
-`;
-
-const ColumnRight = styled.div`
-	/* 480 + 48px */
-	margin-left: 528px;
-`;
-
 /**
- * A function that returns the Courses Page component.
- *
- * @returns {ReactElement} The component that contains the courses page.
+ * Test page to test the login layout / styling.
  */
 class LoginPage extends React.Component {
-	/**
-	 * Sets the CoursesPage object.
-	 *
-	 * @returns {void}
-	 */
+
 	constructor() {
 		super();
 	}
 
-	getRightColumn() {
-		return <ColumnRight>
-			<LoginMessagePaper header={ messages.header } message={ messages.message }/>
-		</ColumnRight>;
-	}
-
 	render() {
-		let twoColumns = this.props.children > 1;
-
 		return (
-			<ColumnLayout>
-				<ColumnLeft>
-					<LoginMessagePaper header={ messages.header } message={ messages.message }/>
-				</ColumnLeft>
-				{ twoColumns ? this.getRightColumn() : null }
-			</ColumnLayout>
+			<LoginColumnLayout>
+				<LoginMessagePaper header={ messages.header } message={ messages.message }/>
+				<LoginMessagePaper header={ messages.headerReset } message={ messages.button } onClick={ () => console.error( 1 ) }/>
+			</LoginColumnLayout>
 		);
 	}
 }
@@ -71,4 +49,3 @@ LoginPage.propTypes = {
 };
 
 export default injectIntl( LoginPage );
-

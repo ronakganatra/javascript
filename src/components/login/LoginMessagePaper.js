@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import { injectIntl, FormattedMessage } from "react-intl";
 import styled from "styled-components";
 
+// Components.
+import { Button } from "../Button";
+
 // Images.
 import icon  from "../../images/greeting.png";
 import logo from "../../images/my-yoast-academy-logo.svg";
@@ -26,22 +29,42 @@ const Logos = styled.img`
 
 /**
  * A card representing a message in a login screen,
- * e.g. "Welcome back!", "Almost there!".
+ * e.g. "Welcome back!", "Password changed".
  *
  * Contains the MyYoast and Yoast Academy logos,
- * an image (defaults to a standard 'greeting' image),
- * and a message with a header.
+ * an image (defaults to a standard 'greeting' image) and a header.
  *
- * @returns {ReactElement} The component that contains the courses page.
+ * If an onClick handler is given, a button is rendered with the given message,
+ * if none is given, the message is rendered as a paragraph.
+ *
+ * @returns {ReactElement} The component that contains the message
  */
 class LoginMessagePaper extends React.Component {
-	/**
-	 * Sets the CoursesPage object.
-	 *
-	 * @returns {void}
-	 */
+
 	constructor() {
 		super();
+
+		this.onClick = this.onClick.bind( this );
+	}
+
+	onClick() {
+		this.props.onClick();
+	}
+
+	renderButton() {
+		return(
+			<Button onClick={ this.onClick }>
+				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage }/>
+			</Button>
+		);
+	}
+
+	renderParagraph() {
+		return (
+			<p>
+				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage }/>
+			</p>
+		);
 	}
 
 	render() {
@@ -53,9 +76,7 @@ class LoginMessagePaper extends React.Component {
 					<h2>
 						<FormattedMessage id={ this.props.header.id } defaultMessage={ this.props.header.defaultMessage }/>
 					</h2>
-					<p>
-						<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage }/>
-					</p>
+					{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
 				</div>
 			</MainPaper>
 		);
@@ -66,6 +87,7 @@ LoginMessagePaper.propTypes = {
 	image: PropTypes.string,
 	header: PropTypes.object,
 	message: PropTypes.object,
+	onClick: PropTypes.func,
 };
 
 LoginMessagePaper.defaultProps = {
