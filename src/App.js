@@ -10,7 +10,7 @@ import { Provider, connect } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
-import { inMainLayout, inSingleLayout, inLoginLayout } from "./components/Layout";
+import { inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
 import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
