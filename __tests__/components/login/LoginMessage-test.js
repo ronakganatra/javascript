@@ -40,7 +40,7 @@ test('The LoginMessage component, with a button, matches the snapshot', () => {
 	expect(tree).toMatchSnapshot();
 });
 
-test('The click handler is executed when the button on the LoginMessag component is clicked', () => {
+test('The click handler is executed when the button on the LoginMessage component is clicked', () => {
 
 	const mockupFunction = jest.fn();
 
