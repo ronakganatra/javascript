@@ -1,4 +1,4 @@
-import { injectIntl, intlShape } from "react-intl";
+import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
@@ -53,6 +53,27 @@ const ChangeLink = styled.a`
    	text-align: center;	
 `;
 
+const MaxFileSizeText = styled.p`
+
+	margin: 0;
+	width: 100%;
+
+	text-align: center;
+	font-size: 12px;
+	color: black;
+`;
+
+const messages = defineMessages( {
+	change: {
+		id: "userImageUpload.changeImage",
+		defaultMessage: "Change",
+	},
+	maxFileSize: {
+		id: "userImageUpload.maxFileSize",
+		defaultMessage: "Max. file size {maxSize} mb",
+	},
+} );
+
 class UploadUserImage extends React.Component {
 
 	constructor( props ) {
@@ -84,6 +105,8 @@ class UploadUserImage extends React.Component {
 	}
 
 	render() {
+		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+
 		return <UploadElement>
 			<UserImage src={this.props.image} size="120px"/>
 			<Overlay>
@@ -91,6 +114,12 @@ class UploadUserImage extends React.Component {
 					Change
 				</ChangeLink>
 			</Overlay>
+			<MaxFileSizeText>
+				<FormattedMessage
+					values={{ maxSize: maxFileSizeInMb }}
+					id={messages.maxFileSize.id}
+					defaultMessage={messages.maxFileSize.defaultMessage}/>
+			</MaxFileSizeText>
 			<input ref={fileInput => {
 				this.fileInput = fileInput;
 			}}
