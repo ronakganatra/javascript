@@ -414,7 +414,6 @@ class ProfilePage extends React.Component {
 								<FormattedMessage id={messages.profilePicture.id}
 												  defaultMessage={messages.profilePicture.defaultMessage}/>
 							</Paragraph>
-							{this.getImage()}
 						</Column>
 					</Page>
 				</Paper>
