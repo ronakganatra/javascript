@@ -3,7 +3,7 @@ import { helpBeaconModalOpen } from "../actions/helpBeacon";
 import { connect } from "react-redux";
 import MobileHeader from "../components/MobileHeader";
 
-const mapStateToProps = ( state ) => {
+export const mapStateToProps = ( state ) => {
 	let pageTitle = "";
 
 	let path = state.router.location.pathname.split( "/" );
@@ -25,7 +25,7 @@ const mapStateToProps = ( state ) => {
 	};
 };
 
-const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		onBeaconClick: () => {
 			dispatch( helpBeaconModalOpen() );
