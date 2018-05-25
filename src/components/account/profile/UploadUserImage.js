@@ -65,6 +65,10 @@ class UploadUserImage extends React.Component {
 		this.fileInput.click();
 	}
 
+	validateFile( file ) {
+		return file.size <= this.props.maxFileSize;
+	}
+
 	/**
 	 * Gets triggered when an image file has been selected in the
 	 * file upload dialog.
@@ -72,7 +76,9 @@ class UploadUserImage extends React.Component {
 	 * @returns {Null} nothing
 	 */
 	onFileUpload( file ) {
-		this.props.onFileUpload( file );
+		if ( file && this.validateFile( file ) ) {
+			this.props.onFileUpload( file );
+		}
 	}
 
 	render() {
@@ -87,6 +93,7 @@ class UploadUserImage extends React.Component {
 				this.fileInput = fileInput;
 			}}
 				   type={"file"}
+				   accept={this.props.acceptedMIMETypes.join( ", " )}
 				   style={{ opacity: 0 }}
 				   onChange={e => this.onFileUpload( e.target.files[ 0 ] )}
 			/>
@@ -98,6 +105,13 @@ UploadUserImage.propTypes = {
 	intl: intlShape.isRequired,
 	image: PropTypes.string.isRequired,
 	onFileUpload: PropTypes.func,
+	maxFileSize: PropTypes.number,
+	acceptedMIMETypes: PropTypes.array,
+};
+
+UploadUserImage.defaultProps = {
+	maxFileSize: 5242880,
+	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
 };
 
 export default injectIntl( UploadUserImage );
