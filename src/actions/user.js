@@ -1,6 +1,13 @@
 import "whatwg-fetch";
 import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl, hasCookieParams } from "../functions/auth";
+import {
+	getLogoutUrl,
+	getAuthUrl,
+	removeCookies as removeAuthCookies,
+	getUserId,
+	getPasswordResetUrl,
+	hasCookieParams,
+} from "../functions/auth";
 
 /*
  * Action types
@@ -303,5 +310,33 @@ export function passwordResetSend( email ) {
 		return doRequest( request )
 			.then( () => dispatch( passwordResetSuccess() ) )
 			.catch( error => dispatch( passwordResetFailure( error ) ) );
+	};
+}
+
+/**
+ * Uploads an avatar image for the current user.
+ * @param {File} image the image to upload
+ * @returns {Function} Function to call when this action is dispatched.
+ */
+export function uploadAvatar( image ) {
+	return ( dispatch ) => {
+
+		// Upload to internal REST endpoint here!
+
+		/*
+		const body = new FormData();
+		body.append( "file", image );
+		body.append( "title", `avatar-${userId}` );
+		body.append( "status", "private" );
+
+		const headers = {
+			"Content-Type": image.type,
+		};
+
+		let request = prepareWordpressRequest( "wp/v2/media", "POST", body, { headers: headers, mode: "no-cors" } );
+		return doRequest( request )
+			.then( response => console.log( response ) )
+			.catch( error => console.error( error ) );
+		*/
 	};
 }

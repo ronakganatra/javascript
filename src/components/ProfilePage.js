@@ -384,9 +384,8 @@ class ProfilePage extends React.Component {
 	}
 
 	getImage() {
-		const onFileUpload = file => console.log( file );
-
-		let image = this.props.image ? <UploadUserImage image={this.props.image} onFileUpload={onFileUpload}/> : "";
+		let image = this.props.image
+			? <UploadUserImage image={this.props.image} onFileUpload={this.props.onUploadAvatar}/> : "";
 
 		return (
 			<Fragment>
@@ -461,6 +460,7 @@ ProfilePage.propTypes = {
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
+	onUploadAvatar: PropTypes.func.isRequired,
 
 	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,

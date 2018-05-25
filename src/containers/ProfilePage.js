@@ -6,6 +6,7 @@ import {
 	disableUser,
 	updateProfile,
 	resetSaveMessage,
+	uploadAvatar,
 } from "../actions/user";
 import {
 	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
@@ -96,6 +97,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onNewsletterUnsubscribe: () => {
 			dispatch( unsubscribeNewsletter() );
+		},
+		onUploadAvatar: ( image ) => {
+			dispatch( uploadAvatar( image ) );
 		},
 	};
 };

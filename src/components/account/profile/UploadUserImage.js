@@ -46,6 +46,8 @@ const ChangeLink = styled.a`
    	&:hover,
 	&:focus {
 		color: white;
+		cursor: pointer;
+		text-decoration: none;
 	}
    	
    	text-align: center;	
