@@ -1,9 +1,10 @@
 import React from "react";
 import { mapStateToProps, mapDispatchToProps } from "../../src/containers/ProfilePage"
 import { url } from "gravatar";
+
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
-test('the mapStateToProps function', () => {
+test( 'the mapStateToProps function', () => {
 	let state = {
 		user: {
 			data: {
@@ -44,12 +45,7 @@ test('the mapStateToProps function', () => {
 	let expected = {
 		email: "test@test.test",
 		composerTokens: [],
-		image: url( state.user.data.profile.email, {
-			s: "150",
-			r: "pg",
-			d: avatarPlaceholder,
-			protocol: "https",
-		} ),
+		image: avatarPlaceholder,
 		userFirstName: "firstName",
 		userLastName: "lastName",
 		saveEmailError: "An error",

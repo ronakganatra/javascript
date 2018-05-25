@@ -148,14 +148,6 @@ export function getApiUrl() {
 }
 
 /**
- * Returns the API URL to communicate with the Wordpress API.
- * @returns {string} The URL of the API.
- */
-export function getWordpressApiUrl() {
-	return getEnv( "WP_API_URL", "http://yoast.test/login/wp-json" );
-}
-
-/**
  * Checks a response for a 401 status code and redirects if true.
  *
  * @param {Object} response The response that needs to be checked for a 401.
@@ -206,18 +198,4 @@ export function getConfigurationServiceReportUrl( configurationServiceRequestId 
 export function getDownloadProfileUrl( userId ) {
 	let path = `Customers/${userId}/download/`;
 	return `${getApiUrl()}/${path}?access_token=${getAccessToken()}`;
-}
-
-/**
- * Prepares a request to send to the Wordpress API.
- *
- * @param {string} path The path to send the request to.
- * @param {string} method The HTTP method to use for the request.
- * @param {object} payload The payload of the request.
- * @param {Object} additionalOptions An optional object containing options to be used by the request object.
- *
- * @returns {Request} The Request object.
- */
-export function prepareWordpressRequest( path, method = "GET", payload = {}, additionalOptions = {} ) {
-	return prepareRequest( `${getWordpressApiUrl()}/${path}`, method, payload, additionalOptions );
 }
