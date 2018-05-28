@@ -94,7 +94,7 @@ const messages = defineMessages( {
 } );
 
 const Column = styled.div`
-	flex-basis: 48%;
+	flex-basis: 96%;
 	p:first-child {
 		margin-top: 16px;
 	}
