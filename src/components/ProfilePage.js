@@ -411,6 +411,16 @@ class ProfilePage extends React.Component {
 				/>
 				{this.getDevTools()}
 				<Paper>
+					<Page>
+						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.passwordChange.id}
+								                  defaultMessage={messages.passwordChange.defaultMessage}/>
+							</Paragraph>
+						</Column>
+					</Page>
+				</Paper>
+				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false}>
 						<DownloadAccount/>
 						<DeleteAccount

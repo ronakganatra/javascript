@@ -27,9 +27,13 @@ const messages = defineMessages( {
 		id: "profile.error.duplicateEmail",
 		defaultMessage: "The email address could not be changed, it is probably already in use.",
 	},
-	labelEmail: {
-		id: "profile.label.email",
-		defaultMessage: "Email",
+	labelPrimaryEmail: {
+		id: "profile.label.primary.email",
+		defaultMessage: "Primary email address",
+	},
+	labelAlternativeEmail: {
+		id: "profile.label.alternative.email",
+		defaultMessage: "Alternative email address",
 	},
 	labelFirstName: {
 		id: "profile.label.firstName",
@@ -51,6 +55,10 @@ const messages = defineMessages( {
 		id: "profile.save",
 		defaultMessage: "Save profile",
 	},
+	discardChanges: {
+		id: "discard.changes",
+		defaultMessage: "Discard changes",
+	},
 } );
 
 const SaveButtonArea = styled.div`
@@ -61,6 +69,11 @@ const SaveButtonArea = styled.div`
 
 const SaveButton = styled( Button )`
 	margin: 1em 0;
+`;
+
+const DiscardButton = styled( Button )`
+	margin: 1em 0;
+	margin-right: 1em;
 `;
 
 const TextInput = styled( InputField )`
@@ -123,10 +136,12 @@ class ProfileForm extends React.Component {
 		this.state = {
 			userFirstName: this.props.userFirstName,
 			userLastName: this.props.userLastName,
-			email: this.props.email,
+			primaryEmail: this.props.email,
+			alternativeEmail: this.props.email,
 		};
 
-		this.onUpdateEmail = this.onUpdateEmail.bind( this );
+		this.onUpdatePrimaryEmail = this.onUpdatePrimaryEmail.bind( this );
+		this.onUpdateAlternativeEmail = this.onUpdateAlternativeEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
 		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
@@ -231,7 +246,7 @@ class ProfileForm extends React.Component {
 	 *
 	 * @returns {ReactElement} The elements for the save email.
 	 */
-	getSaveButton() {
+	getChangeButtons() {
 		let emailSavingMessage;
 
 		if ( this.isSaving() || this.isSaved() ) {
@@ -242,6 +257,9 @@ class ProfileForm extends React.Component {
 		}
 
 		return <SaveButtonArea>
+			<DiscardButton type="cancel">
+				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
+			</DiscardButton>
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.saveProfile.id} defaultMessage={messages.saveProfile.defaultMessage}/>
 			</SaveButton>
@@ -267,8 +285,12 @@ class ProfileForm extends React.Component {
 		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
-	onUpdateEmail( event ) {
-		this.setState( { email: event.target.value } );
+	onUpdatePrimaryEmail( event ) {
+		this.setState( { primaryEmail: event.target.value } );
+	}
+
+	onUpdateAlternativeEmail( event ) {
+		this.setState( { alternativeEmail: event.target.value } );
 	}
 
 	onUpdateName( type, event ) {
@@ -352,21 +374,35 @@ class ProfileForm extends React.Component {
 				<LabelBlock>
 					<StyledLabel htmlFor="email-address">
 						<FormattedMessage
-							id={messages.labelEmail.id}
-							defaultMessage={messages.labelEmail.defaultMessage}
+							id={messages.labelPrimaryEmail.id}
+							defaultMessage={messages.labelPrimaryEmail.defaultMessage}
 						/>
 					</StyledLabel>
 					<TextInput
-						id="email-address"
+						id="primary-email-address"
 						autocomplete="on"
 						name="email"
 						type="text"
-						value={this.state.email}
-						onChange={this.onUpdateEmail}
+						value={this.state.primaryEmail}
+						onChange={this.onUpdatePrimaryEmail}
+					/>
+					<StyledLabel htmlFor="email-address">
+						<FormattedMessage
+							id={messages.labelAlternativeEmail.id}
+							defaultMessage={messages.labelAlternativeEmail.defaultMessage}
+						/>
+					</StyledLabel>
+					<TextInput
+						id="alternative-email-address"
+						autocomplete="on"
+						name="email"
+						type="text"
+						value={this.state.alternativeEmail}
+						onChange={this.onUpdateAlternativeEmail}
 					/>
 					{this.displayWarnings( warnings, "email" )}
 					<ErrorDisplay error={this.props.saveEmailError}/>
-					{this.getSaveButton()}
+					{this.getChangeButtons()}
 				</LabelBlock>
 			</FormGroup>
 		);

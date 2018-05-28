@@ -9,6 +9,7 @@ export const Paper = styled.div`
 export const WhitePage = styled.div`
 	background-color: ${ colors.$color_white };
 	padding: 16px 24px;
+	margin-top: 24px;
 `;
 
 export const Page = styled( WhitePage )`
