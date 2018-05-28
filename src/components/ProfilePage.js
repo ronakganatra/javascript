@@ -1,9 +1,8 @@
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
 import { Button, LargeButton, makeButtonFullWidth } from "./Button";
-import UploadUserImage from "../components/account/profile/UploadUserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
@@ -160,7 +159,6 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
-		this.getImage = this.getImage.bind( this );
 	}
 
 	componentDidMount() {
@@ -380,17 +378,6 @@ class ProfilePage extends React.Component {
 				</Paper>
 				{this.getModal()}
 			</div>
-		);
-	}
-
-	getImage() {
-		let image = this.props.image
-			? <UploadUserImage image={this.props.image} onFileUpload={this.props.onUploadAvatar}/> : "";
-
-		return (
-			<Fragment>
-				{image}
-			</Fragment>
 		);
 	}
 
