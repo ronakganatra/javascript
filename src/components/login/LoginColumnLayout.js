@@ -3,17 +3,22 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const ColumnLayout = styled.div`
-	
+	display: flex;
 `;
 
 const ColumnLeft = styled.div`
-	float: left;
 	width: 480px;
+	@media screen and ( max-width: 1024px ) {
+		display: none;
+	}
 `;
 
 const ColumnRight = styled.div`
-	/* 480 + 48px left padding */
-	margin-left: 528px;
+	margin-left: 48px;
+	
+	@media screen and ( max-width: 1024px ) {
+		margin-left: 0;
+	}
 `;
 
 /**
@@ -28,13 +33,9 @@ const ColumnRight = styled.div`
  */
 class LoginColumnLayout extends React.Component {
 
-	constructor() {
-		super();
-	}
-
 	getRightColumn() {
 		return <ColumnRight>
-			{ this.props.children[ 1 ] }
+			{this.props.children[ 1 ]}
 		</ColumnRight>;
 	}
 
@@ -44,9 +45,9 @@ class LoginColumnLayout extends React.Component {
 		return (
 			<ColumnLayout>
 				<ColumnLeft>
-					{ this.props.children[ 0 ] }
+					{this.props.children[ 0 ]}
 				</ColumnLeft>
-				{ twoColumns ? this.getRightColumn() : null }
+				{twoColumns ? this.getRightColumn() : null}
 			</ColumnLayout>
 		);
 	}

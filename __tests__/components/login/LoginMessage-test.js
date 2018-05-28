@@ -22,39 +22,38 @@ const messages = defineMessages( {
 	},
 } );
 
-test('The LoginMessage component, with a paragraph, matches the snapshot', () => {
+test( 'The LoginMessage component, with a paragraph, matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<LoginMessage header={ messages.header } message={ messages.message }/>
+		<LoginMessage header={messages.header} message={messages.message}/>
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
+	expect( tree ).toMatchSnapshot();
+} );
 
-test('The LoginMessage component, with a button, matches the snapshot', () => {
+test( 'The LoginMessage component, with a button, matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<LoginMessage header={ messages.headerReset } message={ messages.button } onClick={ () => console.error( 1 ) }/>
+		<LoginMessage header={messages.headerReset} message={messages.button} onClick={() => console.error( 1 )}/>
 	);
 
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
+	expect( tree ).toMatchSnapshot();
+} );
 
-test('The click handler is executed when the button on the LoginMessage component is clicked', () => {
+test( 'The click handler is executed when the button on the LoginMessage component is clicked', () => {
 
 	const mockupFunction = jest.fn();
 
 	const component = createComponentWithIntl(
-		<LoginMessage header={ messages.headerReset } message={ messages.button } onClick={ mockupFunction }/>
+		<LoginMessage header={messages.headerReset} message={messages.button} onClick={mockupFunction}/>
 	);
 
 	let tree = component.toJSON();
 
 	// call onClick function on the component.
-	console.log(tree);
-	const onClick = tree.children[2].children[1].props.onClick;
+	const onClick = tree.children[ 2 ].children[ 1 ].props.onClick;
 	onClick();
 
-	expect(mockupFunction).toHaveBeenCalled();
-});
+	expect( mockupFunction ).toHaveBeenCalled();
+} );
 

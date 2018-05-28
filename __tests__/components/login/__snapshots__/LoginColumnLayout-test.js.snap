@@ -2,21 +2,33 @@
 
 exports[`The LoginColumnLayout component, with one column, matches the snapshot 1`] = `
 .c0 {
-  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
   width: 480px;
 }
 
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    display: none;
+  }
+}
+
 <div
-  className=""
+  className="c0"
 >
   <div
-    className="c0"
+    className="c1"
   />
 </div>
 `;
 
 exports[`The LoginColumnLayout component, with two columns, matches the snapshot 1`] = `
-.c6 {
+.c7 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -34,63 +46,81 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   transition: background-color 150ms ease-out;
 }
 
-.c6:hover,
-.c6:focus {
+.c7:hover,
+.c7:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c6:active {
+.c7:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c5 {
+.c6 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c1 {
+.c2 {
   padding: 0px;
   width: 480px;
   height: 480px;
   text-align: center;
 }
 
-.c3 {
+.c4 {
   margin-top: 20px;
   width: 200px;
 }
 
-.c2 {
+.c3 {
   margin-top: 40px;
   width: 360px;
 }
 
 .c0 {
-  float: left;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
   width: 480px;
 }
 
-.c4 {
-  margin-left: 528px;
+.c5 {
+  margin-left: 48px;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c5 {
+    margin-left: 0;
+  }
 }
 
 <div
-  className=""
+  className="c0"
 >
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1"
+      className="c2"
     >
       <img
-        className="c2"
+        className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
-        className="c3"
+        className="c4"
         src="greeting.png"
       />
       <div>
@@ -108,17 +138,17 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
     </div>
   </div>
   <div
-    className="c4"
+    className="c5"
   >
     <div
-      className="c1"
+      className="c2"
     >
       <img
-        className="c2"
+        className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
-        className="c3"
+        className="c4"
         src="greeting.png"
       />
       <div>
@@ -128,7 +158,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
           </span>
         </h2>
         <button
-          className="c5 c6"
+          className="c6 c7"
           onClick={[Function]}
           type="button"
         >

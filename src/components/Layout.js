@@ -40,7 +40,7 @@ const LayoutLogin = styled.div`
 	background-attachment: fixed;
 	font-family: "Open Sans", sans-serif;
 	color: #000;
-
+	
 	display: flex;
 	min-height: 100%;
 `;
@@ -67,7 +67,6 @@ const Sidebar = styled.div`
 		}
 	}
 `;
-
 
 const Main = styled.main`
 	flex: 1 1 auto;
@@ -116,7 +115,7 @@ export const inLoginLayout = ( WrappedComponent ) => {
 			return (
 				<LayoutLogin>
 					<WhitePaper>
-						<WrappedComponent { ...this.props }/>
+						<WrappedComponent {...this.props}/>
 					</WhitePaper>
 				</LayoutLogin>
 			);
@@ -134,8 +133,8 @@ export const inSingleLayout = ( WrappedComponent ) => {
 					</header>
 					<SingleMain>
 						<Content>
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
+							<WrappedComponent {...this.props} />
+							<GettingStartedModalContainer/>
 						</Content>
 					</SingleMain>
 				</Layout>
@@ -151,7 +150,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 				<Layout>
 					<header role="banner">
 						<SkipLink>
-							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content"/>
 						</SkipLink>
 						<MediaQuery query="(max-width: 1024px)">
 							<MobileHeaderContainer/>
@@ -162,17 +161,17 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<Logo context="sidebar" size="200px"/>
 						</MediaQuery>
 						<UserStatus/>
-						<MainMenu menuRoutes={ menuItems }  />
-						<DebugInfo />
+						<MainMenu menuRoutes={menuItems}/>
+						<DebugInfo/>
 					</Sidebar>
 					<Main>
 						<BeaconButtonContainer>
-							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
+							<FormattedMessage id="beacon.id" defaultMessage={messages.beacon.defaultMessage}/>
 						</BeaconButtonContainer>
 						<Content>
-							<LicenseActivationMessage />
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
+							<LicenseActivationMessage/>
+							<WrappedComponent {...this.props} />
+							<GettingStartedModalContainer/>
 						</Content>
 					</Main>
 				</Layout>

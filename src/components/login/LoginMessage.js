@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { Button } from "../Button";
 
 // Images.
-import icon  from "../../images/greeting.png";
+import icon from "../../images/greeting.png";
 import logo from "../../images/my-yoast-academy-logo.svg";
 
 const MainPaper = styled.div`
@@ -42,20 +42,10 @@ const Logos = styled.img`
  */
 class LoginMessage extends React.Component {
 
-	constructor() {
-		super();
-
-		this.onClick = this.onClick.bind( this );
-	}
-
-	onClick() {
-		this.props.onClick();
-	}
-
 	renderButton() {
-		return(
-			<Button onClick={ this.onClick }>
-				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage }/>
+		return (
+			<Button onClick={this.props.onClick}>
+				<FormattedMessage id={this.props.message.id} defaultMessage={this.props.message.defaultMessage}/>
 			</Button>
 		);
 	}
@@ -63,7 +53,7 @@ class LoginMessage extends React.Component {
 	renderParagraph() {
 		return (
 			<p>
-				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage }/>
+				<FormattedMessage id={this.props.message.id} defaultMessage={this.props.message.defaultMessage}/>
 			</p>
 		);
 	}
@@ -71,13 +61,13 @@ class LoginMessage extends React.Component {
 	render() {
 		return (
 			<MainPaper>
-				<Logos src={ logo }/>
-				<Icon src={ this.props.image }/>
+				<Logos src={logo}/>
+				<Icon src={this.props.image}/>
 				<div>
 					<h2>
-						<FormattedMessage id={ this.props.header.id } defaultMessage={ this.props.header.defaultMessage }/>
+						<FormattedMessage id={this.props.header.id} defaultMessage={this.props.header.defaultMessage}/>
 					</h2>
-					{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
+					{this.props.onClick ? this.renderButton() : this.renderParagraph()}
 				</div>
 			</MainPaper>
 		);
