@@ -83,9 +83,9 @@ const messages = defineMessages( {
 		id: "profile.passwordResetSent",
 		defaultMessage: "An email has been sent, please check your inbox.",
 	},
-	profilePicture: {
-		id: "profile.picture",
-		defaultMessage: "Profile picture",
+	personalInfo: {
+		id: "personal.info",
+		defaultMessage: "Personal info",
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
@@ -391,16 +391,14 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<Page>
 						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.personalInfo.id}
+										defaultMessage={messages.personalInfo.defaultMessage}/>
+							</Paragraph>
 							<ProfileForm
 								{...this.props}
 							/>
 							{this.getPasswordReset()}
-						</Column>
-						<Column>
-							<Paragraph>
-								<FormattedMessage id={messages.profilePicture.id}
-												  defaultMessage={messages.profilePicture.defaultMessage}/>
-							</Paragraph>
 						</Column>
 					</Page>
 				</Paper>
