@@ -94,7 +94,7 @@ test('The Subscribe Newsletter component subscribes the customer when he/she cli
 	let tree = component.toJSON();
 
 	// call onClick function on the component.
-	const onClick = tree.children[0].children[0].children[0].children[2].props.onClick;
+	const onClick = tree.children[0].children[0].children[0].children[3].props.onClick;
 	onClick();
 
 	expect(mockupFunction).toHaveBeenCalled();
@@ -117,7 +117,7 @@ test('The Subscribe Newsletter component unsubscribes the customer when he/she c
 	let tree = component.toJSON();
 
 	// call onClick function on the component.
-	const onClick = tree.children[0].children[0].children[0].children[2].props.onClick;
+	const onClick = tree.children[0].children[0].children[0].children[3].props.onClick;
 	onClick();
 
 	expect(mockupFunction).toHaveBeenCalled();
@@ -140,7 +140,7 @@ test('The Subscribe Newsletter component button does nothing when the component 
 	let tree = component.toJSON();
 
 	// call onClick function on the component.
-	const onClick = tree.children[0].children[0].children[0].children[2].props.onClick;
+	const onClick = tree.children[0].children[0].children[0].children[3].props.onClick;
 	onClick();
 
 	expect(mockupFunction).not.toHaveBeenCalled();
