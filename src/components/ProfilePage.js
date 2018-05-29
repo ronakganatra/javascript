@@ -93,8 +93,8 @@ const messages = defineMessages( {
 	},
 } );
 
-const Column = styled.div`
-	flex-basis: 96%;
+const PageContent = styled.div`
+	width: 100%;
 	p:first-child {
 		margin-top: 16px;
 	}
@@ -223,35 +223,36 @@ class ProfilePage extends React.Component {
 			 */
 			onClickAction = _noop;
 
-			passwordResetMessage = <FormMessage inline={true}>{message}</FormMessage>;
+			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
 			speak( message, "assertive" );
 		}
 
 		if ( this.props.hasSendPasswordReset ) {
 			let message = this.props.intl.formatMessage( messages.passwordResetSent );
 
-			passwordResetMessage = <FormMessage>{message}</FormMessage>;
+			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
 			speak( message, "assertive" );
 		}
 
 		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{this.props.passwordResetError.message}</FormError>;
+			passwordResetError = <FormError role="alert">{ this.props.passwordResetError.message }</FormError>;
 		}
 
 		return <PasswordReset>
 			<Paragraph>
-				<FormattedMessage id={messages.passwordChange.id}
-								  defaultMessage={messages.passwordChange.defaultMessage}/>
+				<FormattedMessage id={ messages.passwordChange.id }
+								  defaultMessage={ messages.passwordChange.defaultMessage } />
 			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
 				defaultMessage="To change your password follow the instructions in the password reset email."
 			/></p>
-			<Button onClick={onClickAction}><FormattedMessage id={messages.passwordResetSend.id}
-															  defaultMessage={messages.passwordResetSend.defaultMessage}/></Button>
-			{passwordResetError}
-			{passwordResetMessage}
+			<Button onClick={ onClickAction }>
+				<FormattedMessage id={ messages.passwordResetSend.id }
+								  defaultMessage={ messages.passwordResetSend.defaultMessage } /></Button>
+			{ passwordResetError }
+			{ passwordResetMessage }
 		</PasswordReset>;
 	}
 
@@ -285,9 +286,9 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<CreateToken
-						onClose={this.props.onCreateTokenModalClose}
-						onCreateClick={this.props.onCreateTokenClick}
-						error={this.props.tokenError}
+						onClose={ this.props.onCreateTokenModalClose }
+						onCreateClick={ this.props.onCreateTokenClick }
+						error={ this.props.tokenError }
 					/>;
 			} else if ( this.props.manageTokenModalIsOpen ) {
 				modalIsOpen = this.props.manageTokenModalIsOpen;
@@ -299,20 +300,20 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<ManageToken
-						onClose={this.props.onManageTokenModalClose}
-						onSaveTokenClick={this.props.onSaveTokenClick}
-						onDeleteTokenClick={this.props.onDeleteTokenClick}
-						manageTokenData={this.props.manageTokenData}
-						error={this.props.tokenError}
+						onClose={ this.props.onManageTokenModalClose }
+						onSaveTokenClick={ this.props.onSaveTokenClick }
+						onDeleteTokenClick={ this.props.onDeleteTokenClick }
+						manageTokenData={ this.props.manageTokenData }
+						error={ this.props.tokenError }
 					/>;
 			}
 			return (
 				<MyYoastModal
-					isOpen={modalIsOpen}
-					onClose={onClose}
-					modalAriaLabel={modalAriaLabel}
+					isOpen={ modalIsOpen }
+					onClose={ onClose }
+					modalAriaLabel={ modalAriaLabel }
 				>
-					{modalContent}
+					{ modalContent }
 				</MyYoastModal>
 			);
 		}
@@ -361,12 +362,13 @@ class ProfilePage extends React.Component {
 		return (
 			<div>
 				<Paper>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
-						{ComposerIntroduction}
-						<ComposerTokens {...this.props} hasPaper={false}/>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) }
+									   isOpen={ false }>
+						{ ComposerIntroduction }
+						<ComposerTokens { ...this.props } hasPaper={ false } />
 						<CreateButtonArea>
 							<WideLargeButton
-								onClick={this.props.onCreateTokenModalOpen}
+								onClick={ this.props.onCreateTokenModalOpen }
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -376,7 +378,7 @@ class ProfilePage extends React.Component {
 						</CreateButtonArea>
 					</CollapsibleHeader>
 				</Paper>
-				{this.getModal()}
+				{ this.getModal() }
 			</div>
 		);
 	}
@@ -390,32 +392,32 @@ class ProfilePage extends React.Component {
 			<div>
 				<Paper>
 					<Page>
-						<Column>
+						<PageContent>
 							<Paragraph>
-								<FormattedMessage id={messages.personalInfo.id}
-										defaultMessage={messages.personalInfo.defaultMessage}/>
+								<FormattedMessage id={ messages.personalInfo.id }
+												  defaultMessage={ messages.personalInfo.defaultMessage } />
 							</Paragraph>
 							<ProfileForm
-								{...this.props}
+								{ ...this.props }
 							/>
-							{this.getPasswordReset()}
-						</Column>
+							{ this.getPasswordReset() }
+						</PageContent>
 					</Page>
 				</Paper>
 				<SubscribeNewsletter
-					onSubscribe={this.props.onNewsletterSubscribe}
-					onUnsubscribe={this.props.onNewsletterUnsubscribe}
-					subscribed={this.props.newsletterSubscribed}
-					loading={this.props.newsletterLoading}
-					error={this.props.newsletterError}
+					onSubscribe={ this.props.onNewsletterSubscribe }
+					onUnsubscribe={ this.props.onNewsletterUnsubscribe }
+					subscribed={ this.props.newsletterSubscribed }
+					loading={ this.props.newsletterLoading }
+					error={ this.props.newsletterError }
 				/>
-				{this.getDevTools()}
+				{ this.getDevTools() }
 				<Paper>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false}>
-						<DownloadAccount/>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
+						<DownloadAccount />
 						<DeleteAccount
-							onDeleteProfile={this.props.onDeleteProfile}
-							isDeleting={this.props.isDeleting}
+							onDeleteProfile={ this.props.onDeleteProfile }
+							isDeleting={ this.props.isDeleting }
 						/>
 					</CollapsibleHeader>
 				</Paper>

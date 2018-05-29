@@ -7,6 +7,7 @@ import styled from "styled-components";
 import UserImage from "../../UserImage";
 
 const UploadElement = styled.div`
+	display: inline-block;
 	position: relative;
 	width: 120px;
 	height: 120px;
@@ -83,11 +84,23 @@ class UploadUserImage extends React.Component {
 		this.onFileUpload = this.onFileUpload.bind( this );
 	}
 
+	/**
+	 * Triggers a file upload.
+	 * @returns {Null} nothing
+	 */
 	onClickLink() {
-		// Trigger a file upload.
-		this.fileInput.click();
+		// Check whether the file input element has mounted first.
+		if ( this.fileInput ) {
+			this.fileInput.click();
+		}
 	}
 
+	/**
+	 * Validates the file (e.g. if it's below the
+	 * max file size).
+	 * @param {File} file the file that needs to be checked
+	 * @returns {boolean} if the file is valid or not
+	 */
 	validateFile( file ) {
 		return file.size <= this.props.maxFileSize;
 	}
@@ -108,25 +121,25 @@ class UploadUserImage extends React.Component {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
 		return <UploadElement>
-			<UserImage src={this.props.image} size="120px"/>
+			<UserImage src={ this.props.image } size="120px" />
 			<Overlay>
-				<ChangeLink onClick={this.onClickLink}>
+				<ChangeLink onClick={ this.onClickLink }>
 					Change
 				</ChangeLink>
 			</Overlay>
 			<MaxFileSizeText>
 				<FormattedMessage
-					values={{ maxSize: maxFileSizeInMb }}
-					id={messages.maxFileSize.id}
-					defaultMessage={messages.maxFileSize.defaultMessage}/>
+					values={ { maxSize: maxFileSizeInMb } }
+					id={ messages.maxFileSize.id }
+					defaultMessage={ messages.maxFileSize.defaultMessage } />
 			</MaxFileSizeText>
-			<input ref={fileInput => {
+			<input ref={ fileInput => {
 				this.fileInput = fileInput;
-			}}
-				   type={"file"}
-				   accept={this.props.acceptedMIMETypes.join( ", " )}
-				   style={{ opacity: 0 }}
-				   onChange={e => this.onFileUpload( e.target.files[ 0 ] )}
+			} }
+				   type={ "file" }
+				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
+				   style={ { opacity: 0 } }
+				   onChange={ e => this.onFileUpload( e.target.files[ 0 ] ) }
 			/>
 		</UploadElement>;
 	}
@@ -141,6 +154,7 @@ UploadUserImage.propTypes = {
 };
 
 UploadUserImage.defaultProps = {
+	// 5 MB in binary bytes
 	maxFileSize: 5242880,
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
 };
