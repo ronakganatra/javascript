@@ -2,11 +2,10 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
-import { Button, LargeButton, makeButtonFullWidth } from "./Button";
+import { LargeButton, makeButtonFullWidth } from "./Button";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
-import _noop from "lodash/noop";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
@@ -209,7 +208,6 @@ class ProfilePage extends React.Component {
 	 * @returns {ReactElement} The elements for the password reset.
 	 */
 	getPasswordReset() {
-		let onClickAction = this.props.onPasswordReset;
 		let passwordResetError;
 		let passwordResetMessage;
 
@@ -221,7 +219,6 @@ class ProfilePage extends React.Component {
 			 * function multiple times but don't disable the button for better
 			 * accessibility (avoid keyboard focus loss).
 			 */
-			onClickAction = _noop;
 
 			passwordResetMessage = <FormMessage inline={true}>{message}</FormMessage>;
 			speak( message, "assertive" );
@@ -246,10 +243,9 @@ class ProfilePage extends React.Component {
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
-				defaultMessage="To change your password follow the instructions in the password reset email."
+				defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
 			/></p>
-			<Button onClick={onClickAction}><FormattedMessage id={messages.passwordResetSend.id}
-															  defaultMessage={messages.passwordResetSend.defaultMessage}/></Button>
+			<p>{ "inputfields" }</p>
 			{passwordResetError}
 			{passwordResetMessage}
 		</PasswordReset>;
@@ -398,7 +394,6 @@ class ProfilePage extends React.Component {
 							<ProfileForm
 								{...this.props}
 							/>
-							{this.getPasswordReset()}
 						</Column>
 					</Page>
 				</Paper>
@@ -413,10 +408,7 @@ class ProfilePage extends React.Component {
 				<Paper>
 					<Page>
 						<Column>
-							<Paragraph>
-								<FormattedMessage id={messages.passwordChange.id}
-								                  defaultMessage={messages.passwordChange.defaultMessage}/>
-							</Paragraph>
+							{this.getPasswordReset()}
 						</Column>
 					</Page>
 				</Paper>

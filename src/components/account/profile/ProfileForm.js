@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { Button } from "../../Button";
+import { LargeButton, LargeSecondaryButton, IconButtonTransparentLink } from "../../Button";
 import validate from "validate.js";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -13,6 +13,8 @@ import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
+import plusIcon from "../../../icons/blue-plus-circle.svg";
+import NewTabMessage from "./../../NewTabMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -23,12 +25,16 @@ const messages = defineMessages( {
 		id: "validation.required",
 		defaultMessage: "{field} cannot be empty.",
 	},
+	addEmailLink: {
+		id: "add.email.link",
+		defaultMessage: "Add another email",
+	},
 	duplicateEmail: {
 		id: "profile.error.duplicateEmail",
 		defaultMessage: "The email address could not be changed, it is probably already in use.",
 	},
-	labelPrimaryEmail: {
-		id: "profile.label.primary.email",
+	labelEmail: {
+		id: "profile.label.email",
 		defaultMessage: "Primary email address",
 	},
 	labelAlternativeEmail: {
@@ -61,17 +67,21 @@ const messages = defineMessages( {
 	},
 } );
 
-const SaveButtonArea = styled.div`
+const AddEmailLink = styled( IconButtonTransparentLink )`
+	margin-top: 4px;
+`;
+
+const ButtonArea = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 `;
 
-const SaveButton = styled( Button )`
+const SaveButton = styled( LargeButton )`
 	margin: 1em 0;
 `;
 
-const DiscardButton = styled( Button )`
+const DiscardButton = styled( LargeSecondaryButton )`
 	margin: 1em 0;
 	margin-right: 1em;
 `;
@@ -136,11 +146,11 @@ class ProfileForm extends React.Component {
 		this.state = {
 			userFirstName: this.props.userFirstName,
 			userLastName: this.props.userLastName,
-			primaryEmail: this.props.email,
-			alternativeEmail: this.props.email,
+			email: this.props.email,
+			alternativeEmail: this.props.alternativeEmail,
 		};
 
-		this.onUpdatePrimaryEmail = this.onUpdatePrimaryEmail.bind( this );
+		this.onUpdateEmail = this.onUpdateEmail.bind( this );
 		this.onUpdateAlternativeEmail = this.onUpdateAlternativeEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
@@ -256,15 +266,15 @@ class ProfileForm extends React.Component {
 			speak( message, "assertive" );
 		}
 
-		return <SaveButtonArea>
-			<DiscardButton type="cancel">
+		return <ButtonArea>
+			<DiscardButton type="reset">
 				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
 			</DiscardButton>
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.saveProfile.id} defaultMessage={messages.saveProfile.defaultMessage}/>
 			</SaveButton>
 			{emailSavingMessage}
-		</SaveButtonArea>;
+		</ButtonArea>;
 	}
 
 	/**
@@ -282,11 +292,11 @@ class ProfileForm extends React.Component {
 	 * @returns {boolean} Whether we are currently saving.
 	 */
 	isSaved() {
-		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
+		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email", "alternativeEmail" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
-	onUpdatePrimaryEmail( event ) {
-		this.setState( { primaryEmail: event.target.value } );
+	onUpdateEmail( event ) {
+		this.setState( { email: event.target.value } );
 	}
 
 	onUpdateAlternativeEmail( event ) {
@@ -315,6 +325,7 @@ class ProfileForm extends React.Component {
 			last_name: this.state.userLastName,
 			/* eslint-enable camelcase */
 			email: this.state.email,
+			alternativeEmail: this.state.alternativeEmail,
 		};
 
 		this.props.onSaveProfile( profile );
@@ -334,6 +345,7 @@ class ProfileForm extends React.Component {
 	 */
 	render() {
 		let warnings = this.validateFields();
+		console.log( this.props.alternativeEmail );
 
 		return (
 			<FormGroup onSubmit={this.handleSubmit}>
@@ -374,18 +386,19 @@ class ProfileForm extends React.Component {
 				<LabelBlock>
 					<StyledLabel htmlFor="email-address">
 						<FormattedMessage
-							id={messages.labelPrimaryEmail.id}
-							defaultMessage={messages.labelPrimaryEmail.defaultMessage}
+							id={messages.labelEmail.id}
+							defaultMessage={messages.labelEmail.defaultMessage}
 						/>
 					</StyledLabel>
 					<TextInput
-						id="primary-email-address"
+						id="email-address"
 						autocomplete="on"
 						name="email"
 						type="text"
-						value={this.state.primaryEmail}
-						onChange={this.onUpdatePrimaryEmail}
+						value={this.state.email}
+						onChange={this.onUpdateEmail}
 					/>
+					{this.displayWarnings( warnings, "email" )}
 					<StyledLabel htmlFor="email-address">
 						<FormattedMessage
 							id={messages.labelAlternativeEmail.id}
@@ -400,8 +413,14 @@ class ProfileForm extends React.Component {
 						value={this.state.alternativeEmail}
 						onChange={this.onUpdateAlternativeEmail}
 					/>
-					{this.displayWarnings( warnings, "email" )}
 					<ErrorDisplay error={this.props.saveEmailError}/>
+					<AddEmailLink iconSource={ plusIcon } to={ "#" } linkTarget="_blank" iconSize={ "1em" } >
+						<FormattedMessage
+							id={messages.addEmailLink.id}
+							defaultMessage={messages.addEmailLink.defaultMessage}
+						/>
+						<NewTabMessage/>
+					</AddEmailLink>
 					{this.getChangeButtons()}
 				</LabelBlock>
 			</FormGroup>
@@ -415,6 +434,7 @@ ProfileForm.propTypes = {
 	onSaveProfile: PropTypes.func,
 	onUploadAvatar: PropTypes.func.isRequired,
 	email: PropTypes.string,
+	alternativeEmail: PropTypes.string,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
 	image: PropTypes.string,
@@ -427,6 +447,7 @@ ProfileForm.propTypes = {
 
 ProfileForm.defaultProps = {
 	email: "",
+	alternativeEmail: "",
 	userFirstName: "",
 	userLastName: "",
 	isSaving: false,
