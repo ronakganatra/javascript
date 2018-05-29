@@ -70,6 +70,7 @@ const SiteHeaderSitename = styled( Heading )`
 const ButtonSection = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: row-reverse;
 	justify-content: space-between;
 	align-items: flex-end;
 	align-content: flex-end;
