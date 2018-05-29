@@ -10,15 +10,15 @@ const ColumnLayout = styled.div`
 `;
 
 /**
- * Secondary column.
+ * Main column.
  *
  * Either displayed in the middle when only one child
  * has been provided, or displayed on the left when
  * two have been provided.
  *
- * Is hidden when screen is sufficiently small.
+ * Is hidden when screen is sufficiently small and two children are provided.
  */
-const SecondaryColumn = styled.div`
+const MainColumn = styled.div`
 	width: 480px;
 	@media screen and ( max-width: 1024px ) {
 		display: none;
@@ -26,12 +26,12 @@ const SecondaryColumn = styled.div`
 `;
 
 /**
- * Primary column.
+ * Right-side column.
  *
  * Displayed on the right when at least two children
  * have been provided.
  */
-const PrimaryColumn = styled.div`
+const RightColumn = styled.div`
 	margin-left: 48px;
 	
 	@media screen and ( max-width: 1024px ) {
@@ -54,12 +54,13 @@ class LoginColumnLayout extends React.Component {
 	/**
 	 * Returns the column that should be shown on
 	 * the right side of the column layout.
-	 * @returns {PrimaryColumn} the column to display
+	 * @returns {RightColumn
+	 *} the column to display
 	 */
 	getRightColumn() {
-		return <PrimaryColumn>
+		return <RightColumn>
 			{ this.props.children[ 1 ] }
-		</PrimaryColumn>;
+		</RightColumn>;
 	}
 
 	/**
@@ -71,9 +72,9 @@ class LoginColumnLayout extends React.Component {
 
 		return (
 			<ColumnLayout>
-				<SecondaryColumn>
+				<MainColumn>
 					{ this.props.children[ 0 ] }
-				</SecondaryColumn>
+				</MainColumn>
 				{ twoColumns ? this.getRightColumn() : null }
 			</ColumnLayout>
 		);
