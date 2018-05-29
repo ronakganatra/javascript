@@ -4,7 +4,6 @@ import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-i
 import { Paper, Page } from "./PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "./Button";
 import { speak } from "@wordpress/a11y";
-import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
@@ -16,6 +15,7 @@ import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import PasswordResetForm from "./account/profile/PasswordResetForm";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -70,18 +70,6 @@ const messages = defineMessages( {
 		id: "profile.passwordChange",
 		defaultMessage: "Change password",
 	},
-	passwordResetSend: {
-		id: "profile.button.passwordResetSend",
-		defaultMessage: "Send password reset email",
-	},
-	passwordResetSending: {
-		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending email...",
-	},
-	passwordResetSent: {
-		id: "profile.passwordResetSent",
-		defaultMessage: "An email has been sent, please check your inbox.",
-	},
 	personalInfo: {
 		id: "personal.info",
 		defaultMessage: "Personal info",
@@ -91,6 +79,12 @@ const messages = defineMessages( {
 		defaultMessage: "Account profile page loaded",
 	},
 } );
+
+const FlexPaper = styled( Paper )`
+	display: flex;
+	flex-direction:row;
+	background: red;
+`;
 
 const Column = styled.div`
 	flex-basis: 96%;
@@ -121,17 +115,6 @@ FormMessage.propTypes = {
 FormMessage.defaultProps = {
 	inline: false,
 };
-
-const FormError = styled( FormMessage )`
-	margin-top: 0.5em;
-	padding: 0.5em;
-	background-color: ${ colors.$color_yellow };
-	color: ${ colors.$color_black };
-`;
-
-const PasswordReset = styled.section`
-	margin: 1em 0;
-`;
 
 const CreateButtonArea = styled.div`
 	padding: 16px 32px;
@@ -182,14 +165,6 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
 
-		if ( this.props.isSendingPasswordReset ) {
-			message = this.props.intl.formatMessage( messages.passwordResetSending );
-		}
-
-		if ( this.props.hasSendPasswordReset ) {
-			message = this.props.intl.formatMessage( messages.passwordResetSent );
-		}
-
 		speak( message, "assertive" );
 	}
 
@@ -200,55 +175,6 @@ class ProfilePage extends React.Component {
 	 */
 	isDeleting() {
 		return this.props.isDeleting;
-	}
-
-	/**
-	 * Returns the password reset elements for the profile page.
-	 *
-	 * @returns {ReactElement} The elements for the password reset.
-	 */
-	getPasswordReset() {
-		let passwordResetError;
-		let passwordResetMessage;
-
-		if ( this.props.isSendingPasswordReset ) {
-			let message = this.props.intl.formatMessage( messages.passwordResetSending );
-
-			/*
-			 * While sending the email: prevent calling the password reset
-			 * function multiple times but don't disable the button for better
-			 * accessibility (avoid keyboard focus loss).
-			 */
-
-			passwordResetMessage = <FormMessage inline={true}>{message}</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		if ( this.props.hasSendPasswordReset ) {
-			let message = this.props.intl.formatMessage( messages.passwordResetSent );
-
-			passwordResetMessage = <FormMessage>{message}</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{this.props.passwordResetError.message}</FormError>;
-		}
-
-		return <PasswordReset>
-			<Paragraph>
-				<FormattedMessage id={messages.passwordChange.id}
-								  defaultMessage={messages.passwordChange.defaultMessage}/>
-			</Paragraph>
-
-			<p><FormattedMessage
-				id="profile.description.passwordReset"
-				defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
-			/></p>
-			<p>{ "inputfields" }</p>
-			{passwordResetError}
-			{passwordResetMessage}
-		</PasswordReset>;
 	}
 
 	handleDelete( event ) {
@@ -384,7 +310,7 @@ class ProfilePage extends React.Component {
 	render() {
 		return (
 			<div>
-				<Paper>
+				<FlexPaper>
 					<Page>
 						<Column>
 							<Paragraph>
@@ -396,22 +322,40 @@ class ProfilePage extends React.Component {
 							/>
 						</Column>
 					</Page>
-				</Paper>
-				<SubscribeNewsletter
-					onSubscribe={this.props.onNewsletterSubscribe}
-					onUnsubscribe={this.props.onNewsletterUnsubscribe}
-					subscribed={this.props.newsletterSubscribed}
-					loading={this.props.newsletterLoading}
-					error={this.props.newsletterError}
-				/>
-				{this.getDevTools()}
+				</FlexPaper>
+				<FlexPaper>
+					<Page>
+						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.passwordChange.id}
+								                  defaultMessage={messages.passwordChange.defaultMessage}/>
+							</Paragraph>
+							<p>
+								<FormattedMessage
+									id="profile.description.passwordReset"
+									defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
+								/>
+							</p>
+							<PasswordResetForm
+								{...this.props}
+							/>
+						</Column>
+					</Page>
+				</FlexPaper>
 				<Paper>
 					<Page>
 						<Column>
-							{this.getPasswordReset()}
+							<SubscribeNewsletter
+								onSubscribe={this.props.onNewsletterSubscribe}
+								onUnsubscribe={this.props.onNewsletterUnsubscribe}
+								subscribed={this.props.newsletterSubscribed}
+								loading={this.props.newsletterLoading}
+								error={this.props.newsletterError}
+							/>
 						</Column>
 					</Page>
 				</Paper>
+				{this.getDevTools()}
 				<Paper>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false}>
 						<DownloadAccount/>
@@ -438,13 +382,9 @@ ProfilePage.propTypes = {
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
-	isSendingPasswordReset: PropTypes.bool,
-	hasSendPasswordReset: PropTypes.bool,
-	passwordResetError: PropTypes.object,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func.isRequired,
 	onDeleteProfile: PropTypes.func.isRequired,
-	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
 	onUploadAvatar: PropTypes.func.isRequired,
 
@@ -477,9 +417,6 @@ ProfilePage.defaultProps = {
 	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,
-	isSendingPasswordReset: false,
-	hasSendPasswordReset: false,
-	passwordResetError: null,
 	manageTokenData: null,
 	tokenError: null,
 };

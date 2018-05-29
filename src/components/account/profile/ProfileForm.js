@@ -75,6 +75,7 @@ const ButtonArea = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	flex-direction: row-reverse;
 `;
 
 const SaveButton = styled( LargeButton )`
@@ -267,12 +268,12 @@ class ProfileForm extends React.Component {
 		}
 
 		return <ButtonArea>
-			<DiscardButton type="reset">
-				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
-			</DiscardButton>
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.saveProfile.id} defaultMessage={messages.saveProfile.defaultMessage}/>
 			</SaveButton>
+			<DiscardButton type="cancel">
+				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
+			</DiscardButton>
 			{emailSavingMessage}
 		</ButtonArea>;
 	}
@@ -311,7 +312,6 @@ class ProfileForm extends React.Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
-
 		/*
 		 * While saving: prevent multiple submissions but don't disable the
 		 * button for better accessibility (avoid keyboard focus loss).
@@ -345,7 +345,6 @@ class ProfileForm extends React.Component {
 	 */
 	render() {
 		let warnings = this.validateFields();
-		console.log( this.props.alternativeEmail );
 
 		return (
 			<FormGroup onSubmit={this.handleSubmit}>

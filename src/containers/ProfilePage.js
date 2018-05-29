@@ -2,9 +2,9 @@ import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import {
 	profileUpdateEmail,
-	passwordResetSend,
 	disableUser,
 	updateProfile,
+	updatePassword,
 	resetSaveMessage,
 	uploadAvatar,
 } from "../actions/user";
@@ -57,6 +57,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSaveProfile: ( profile ) => {
 			dispatch( updateProfile( profile ) );
 		},
+		onSavePassword: ( password ) => {
+			dispatch( updatePassword( password ) );
+		},
 		resetSaveMessage: () => {
 			dispatch( resetSaveMessage() );
 		},
@@ -67,9 +70,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				" the premium plugins you've bought from Yoast.\n\nAre you sure you want to delete your Yoast account?" ) ) {
 				dispatch( disableUser() );
 			}
-		},
-		onPasswordReset: ( email ) => {
-			dispatch( passwordResetSend( email ) );
 		},
 		onCreateTokenModalOpen: () => {
 			dispatch( createTokenModalOpen() );
@@ -105,14 +105,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let email = stateProps.email;
-
-	const onPasswordReset = () => {
-		dispatchProps.onPasswordReset( email );
-	};
-
 	return Object.assign( {}, ownProps, stateProps, dispatchProps, {
-		onPasswordReset,
 	} );
 };
 
