@@ -2,18 +2,36 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+/**
+ * Basic column layout.
+ */
 const ColumnLayout = styled.div`
 	display: flex;
 `;
 
-const ColumnLeft = styled.div`
+/**
+ * Secondary column.
+ *
+ * Either displayed in the middle when only one child
+ * has been provided, or displayed on the left when
+ * two have been provided.
+ *
+ * Is hidden when screen is sufficiently small.
+ */
+const SecondaryColumn = styled.div`
 	width: 480px;
 	@media screen and ( max-width: 1024px ) {
 		display: none;
 	}
 `;
 
-const ColumnRight = styled.div`
+/**
+ * Primary column.
+ *
+ * Displayed on the right when at least two children
+ * have been provided.
+ */
+const PrimaryColumn = styled.div`
 	margin-left: 48px;
 	
 	@media screen and ( max-width: 1024px ) {
@@ -33,21 +51,30 @@ const ColumnRight = styled.div`
  */
 class LoginColumnLayout extends React.Component {
 
+	/**
+	 * Returns the column that should be shown on
+	 * the right side of the column layout.
+	 * @returns {PrimaryColumn} the column to display
+	 */
 	getRightColumn() {
-		return <ColumnRight>
-			{this.props.children[ 1 ]}
-		</ColumnRight>;
+		return <PrimaryColumn>
+			{ this.props.children[ 1 ] }
+		</PrimaryColumn>;
 	}
 
+	/**
+	 * Renders the component.
+	 * @returns {ColumnLayout} a basic two-column login page layout
+	 */
 	render() {
 		let twoColumns = this.props.children.length > 1;
 
 		return (
 			<ColumnLayout>
-				<ColumnLeft>
-					{this.props.children[ 0 ]}
-				</ColumnLeft>
-				{twoColumns ? this.getRightColumn() : null}
+				<SecondaryColumn>
+					{ this.props.children[ 0 ] }
+				</SecondaryColumn>
+				{ twoColumns ? this.getRightColumn() : null }
 			</ColumnLayout>
 		);
 	}

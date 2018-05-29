@@ -28,7 +28,7 @@ const messages = defineMessages( {
 /**
  * Test page to test the login layout / styling.
  */
-class LoginFlowTestPage extends React.Component {
+class LoginPage extends React.Component {
 
 	constructor() {
 		super();
@@ -37,16 +37,16 @@ class LoginFlowTestPage extends React.Component {
 	render() {
 		return (
 			<LoginColumnLayout>
-				<LoginMessage header={messages.header} message={messages.message}/>
-				<LoginMessage header={messages.headerReset} message={messages.button}
-							  onClick={() => console.error( 1 )}/>
+				<LoginMessage header={ messages.header } message={ messages.message } />
+				<LoginMessage header={ messages.headerReset } message={ messages.button }
+							  onClick={ () => console.error( 1 ) } />
 			</LoginColumnLayout>
 		);
 	}
 }
 
-LoginFlowTestPage.propTypes = {
+LoginPage.propTypes = {
 	children: PropTypes.array,
 };
 
-export default injectIntl( LoginFlowTestPage );
+export default injectIntl( LoginPage );
