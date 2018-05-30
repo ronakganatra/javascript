@@ -42,9 +42,6 @@ const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
-const PasswordResetSection = styled.section`
-	margin: 1em 0;
-`;
 
 /**
  * Returns the rendered PasswordResetForm component.
@@ -112,7 +109,8 @@ class PasswordResetForm extends React.Component {
 		this.setState( { confirmPassword: event.target.value } );
 	}
 
-	handleSubmit( event ) {
+	handleSubmit( event, ownProps ) {
+		console.log( "", ownProps );
 		event.preventDefault();
 		/*
 		 * While saving: prevent multiple submissions but don't disable the
@@ -135,8 +133,13 @@ class PasswordResetForm extends React.Component {
 	render() {
 		let passwordResetError = "";
 		let passwordResetMessage = "";
+
+		let passwordSaveMessage ="";
+		if ( passwordResetError !== "" ) {
+			passwordSaveMessage = passwordResetMessage;
+		}
+
 		return (
-			<PasswordResetSection>
 				<FormGroup onSubmit={ this.handleSubmit }>
 					<StyledLabel htmlFor="current-password">
 						<FormattedMessage
@@ -183,12 +186,8 @@ class PasswordResetForm extends React.Component {
 						value={ this.state.confirmPassword }
 						onChange={ this.onConfirmPassword }
 					/>
-					{ passwordResetError }
-					{ passwordResetMessage }
-					{ getFormButtons() }
+					{ getFormButtons( passwordSaveMessage ) }
 				</FormGroup>
-			</PasswordResetSection>
-
 		);
 	}
 }

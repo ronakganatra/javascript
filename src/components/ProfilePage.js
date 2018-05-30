@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { Paper, Page } from "./PaperStyles";
+import { PageCard } from "./PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "./Button";
 import { speak } from "@wordpress/a11y";
 import styled from "styled-components";
+import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
@@ -68,7 +69,7 @@ const messages = defineMessages( {
 	},
 	passwordChange: {
 		id: "profile.passwordChange",
-		defaultMessage: "Change password",
+		defaultMessage: "Password",
 	},
 	personalInfo: {
 		id: "personal.info",
@@ -80,14 +81,28 @@ const messages = defineMessages( {
 	},
 } );
 
-const FlexPaper = styled( Paper )`
+const OuterContainer = styled.div`
 	display: flex;
-	flex-direction:row;
-	background: red;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		flex-direction: column;
+	}
+`;
+
+const InnerContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 50%;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		width: 100%;
+	}
 `;
 
 const Column = styled.div`
-	flex-basis: 96%;
 	p:first-child {
 		margin-top: 16px;
 	}
@@ -95,7 +110,7 @@ const Column = styled.div`
 
 const Paragraph = styled.p`
 	margin-bottom: 0.5em;
-	font-size: 1.1em;
+	font-size: 1.4em;
 `;
 
 const ComposerIntroductionArea = styled.div`
@@ -282,7 +297,7 @@ class ProfilePage extends React.Component {
 
 		return (
 			<div>
-				<Paper>
+				<PageCard>
 					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
 						{ComposerIntroduction}
 						<ComposerTokens {...this.props} hasPaper={false}/>
@@ -297,7 +312,7 @@ class ProfilePage extends React.Component {
 							</WideLargeButton>
 						</CreateButtonArea>
 					</CollapsibleHeader>
-				</Paper>
+				</PageCard>
 				{this.getModal()}
 			</div>
 		);
@@ -309,22 +324,33 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
-				<FlexPaper>
-					<Page>
+			<OuterContainer>
+				<InnerContainer>
+					<PageCard>
 						<Column>
 							<Paragraph>
 								<FormattedMessage id={messages.personalInfo.id}
-										defaultMessage={messages.personalInfo.defaultMessage}/>
+								                  defaultMessage={messages.personalInfo.defaultMessage}/>
 							</Paragraph>
 							<ProfileForm
 								{...this.props}
 							/>
 						</Column>
-					</Page>
-				</FlexPaper>
-				<FlexPaper>
-					<Page>
+					</PageCard>
+					<PageCard>
+						<Column>
+							<SubscribeNewsletter
+								onSubscribe={this.props.onNewsletterSubscribe}
+								onUnsubscribe={this.props.onNewsletterUnsubscribe}
+								subscribed={this.props.newsletterSubscribed}
+								loading={this.props.newsletterLoading}
+								error={this.props.newsletterError}
+							/>
+						</Column>
+					</PageCard>
+				</InnerContainer>
+				<InnerContainer>
+					<PageCard>
 						<Column>
 							<Paragraph>
 								<FormattedMessage id={messages.passwordChange.id}
@@ -340,32 +366,20 @@ class ProfilePage extends React.Component {
 								{...this.props}
 							/>
 						</Column>
-					</Page>
-				</FlexPaper>
-				<Paper>
-					<Page>
-						<Column>
-							<SubscribeNewsletter
-								onSubscribe={this.props.onNewsletterSubscribe}
-								onUnsubscribe={this.props.onNewsletterUnsubscribe}
-								subscribed={this.props.newsletterSubscribed}
-								loading={this.props.newsletterLoading}
-								error={this.props.newsletterError}
+					</PageCard>
+					<PageCard>
+						<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false} accountPage={ true }>
+							<DownloadAccount/>
+							<DeleteAccount
+								onDeleteProfile={this.props.onDeleteProfile}
+								isDeleting={this.props.isDeleting}
 							/>
-						</Column>
-					</Page>
-				</Paper>
+						</CollapsibleHeader>
+					</PageCard>
+				</InnerContainer>
 				{this.getDevTools()}
-				<Paper>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false}>
-						<DownloadAccount/>
-						<DeleteAccount
-							onDeleteProfile={this.props.onDeleteProfile}
-							isDeleting={this.props.isDeleting}
-						/>
-					</CollapsibleHeader>
-				</Paper>
-			</div>
+			</OuterContainer>
+
 		);
 	}
 }

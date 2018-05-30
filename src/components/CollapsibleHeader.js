@@ -6,12 +6,9 @@ import { SVGIcon } from "./SVGIcon";
 import defaults from "../config/defaults.json";
 
 const CollapsibleHeaderContainer = styled.div`
+	margin-top : ${ props => props.marginTop }px;
 	background-color: ${ colors.$color_white };
-`;
-
-const CollapsibleHeaderContainerMargin = styled.div`
-	margin-top : 24px;
-	background-color: ${ colors.$color_white };
+	width: 100%;
 `;
 
 const CollapsibleHeading = styled.button`
@@ -81,7 +78,6 @@ export default class ListToggle extends React.Component {
 		};
 
 		this.toggleOpen = this.toggleOpen.bind( this );
-		this.getContainer = this.getContainer.bind( this );
 	}
 
 	/**
@@ -115,44 +111,6 @@ export default class ListToggle extends React.Component {
 
 		return this.isOpen() ? upArrow : downArrow;
 	}
-	/**
-	 * Gets the correct container and collapsible header,
-	 * based on whether it will be displayed at the account page or not.
-	 *
-	 * @returns {ReactElement} The upArrow when the header is collapsed, otherwise the downArrow.
-	 */
-	getContainer() {
-		let children = null;
-
-		if ( this.state.isOpen ) {
-			children = this.props.children;
-		}
-
-		if ( this.props.accountPage ) {
-			return (
-				<CollapsibleHeaderContainer>
-					<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-						<CollapsibleTitle>
-							{ this.props.title }
-						</CollapsibleTitle>
-						{ this.getArrow() }
-					</CollapsibleHeading>
-					{ children }
-				</CollapsibleHeaderContainer>
-			);
-		}
-		return (
-			<CollapsibleHeaderContainerMargin>
-				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-					<CollapsibleTitle>
-						{ this.props.title }
-					</CollapsibleTitle>
-					{ this.getArrow() }
-				</CollapsibleHeading>
-				{ children }
-			</CollapsibleHeaderContainerMargin>
-		);
-	}
 
 	/**
 	 * Returns the rendered ListToggle element.
@@ -160,7 +118,25 @@ export default class ListToggle extends React.Component {
 	 * @returns {ReactElement} The rendered ListToggle element.
 	 */
 	render() {
-		return this.getContainer();
+		let children = null;
+
+		if ( this.state.isOpen ) {
+			children = this.props.children;
+		}
+
+		let marginTop = this.props.accountPage ? 0 : 24;
+
+		return (
+			<CollapsibleHeaderContainer marginTop={ marginTop }>
+				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
+					<CollapsibleTitle>
+						{ this.props.title }
+					</CollapsibleTitle>
+					{ this.getArrow() }
+				</CollapsibleHeading>
+				{ children }
+			</CollapsibleHeaderContainer>
+		);
 	}
 }
 

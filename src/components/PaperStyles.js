@@ -22,6 +22,11 @@ export const Page = styled( WhitePage )`
 	}
 `;
 
+export const PageCard = styled( Page )`
+	margin: 0 8px 16px 8px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+`;
+
 export const BottomRightButtons = styled.span`
 	width: 100%;
 	padding-top: 16px;

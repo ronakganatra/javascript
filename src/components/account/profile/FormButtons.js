@@ -19,6 +19,7 @@ const ButtonArea = styled.div`
 	flex-wrap: wrap;
 	align-items: center;
 	flex-direction: row-reverse;
+	width: 100%;
 `;
 
 const SaveButton = styled( LargeButton )`
@@ -37,17 +38,21 @@ const DiscardButton = styled( LargeSecondaryButton )`
  * FormattedMessage placeholder or in any other way that the final result will
  * make this text inline with the text is added to.
  *
+ * @param {ReactElement} savingMessage The feedback after pressed the save button.
+ *
  * @returns {ReactElement} The rendered NewTabMessage component.
  */
-export default function getFormButtons() {
+export default function getFormButtons( savingMessage ) {
+	let message = savingMessage;
 	return (
 		<ButtonArea>
-			<DiscardButton type="cancel">
-				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
-			</DiscardButton>
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.savePassword.id} defaultMessage={messages.savePassword.defaultMessage}/>
 			</SaveButton>
+			<DiscardButton type="cancel">
+				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
+			</DiscardButton>
+			{ message }
 		</ButtonArea>
 	);
 }

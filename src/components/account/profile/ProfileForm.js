@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { LargeButton, LargeSecondaryButton, IconButtonTransparentLink } from "../../Button";
+import { IconButtonTransparentLink } from "../../Button";
 import validate from "validate.js";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -15,6 +15,7 @@ import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import plusIcon from "../../../icons/blue-plus-circle.svg";
 import NewTabMessage from "./../../NewTabMessage";
+import getFormButtons from "./FormButtons";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -71,28 +72,12 @@ const AddEmailLink = styled( IconButtonTransparentLink )`
 	margin-top: 4px;
 `;
 
-const ButtonArea = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	flex-direction: row-reverse;
-`;
-
-const SaveButton = styled( LargeButton )`
-	margin: 1em 0;
-`;
-
-const DiscardButton = styled( LargeSecondaryButton )`
-	margin: 1em 0;
-	margin-right: 1em;
-`;
-
 const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
 const FormMessage = styled.span`
-	padding: 0 0 0 1em;
+	padding: 0 1em 0 1em;
 `;
 
 const FormGroup = styled.form`
@@ -267,15 +252,7 @@ class ProfileForm extends React.Component {
 			speak( message, "assertive" );
 		}
 
-		return <ButtonArea>
-			<SaveButton type="submit">
-				<FormattedMessage id={messages.saveProfile.id} defaultMessage={messages.saveProfile.defaultMessage}/>
-			</SaveButton>
-			<DiscardButton type="cancel">
-				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
-			</DiscardButton>
-			{emailSavingMessage}
-		</ButtonArea>;
+		return getFormButtons( emailSavingMessage );
 	}
 
 	/**
