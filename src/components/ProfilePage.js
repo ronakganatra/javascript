@@ -3,7 +3,6 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { Paper, Page } from "./PaperStyles";
 import { Button, LargeButton, makeButtonFullWidth } from "./Button";
-import UserImage from "../components/UserImage";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
@@ -18,7 +17,6 @@ import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
-import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -85,13 +83,9 @@ const messages = defineMessages( {
 		id: "profile.passwordResetSent",
 		defaultMessage: "An email has been sent, please check your inbox.",
 	},
-	gravatarLink: {
-		id: "profile.gravatarLink",
-		defaultMessage: "Gravatar website",
-	},
-	profilePicture: {
-		id: "profile.picture",
-		defaultMessage: "Profile picture",
+	personalInfo: {
+		id: "personal.info",
+		defaultMessage: "Personal info",
 	},
 	profilePageLoaded: {
 		id: "menu.account.orders.loaded",
@@ -99,8 +93,8 @@ const messages = defineMessages( {
 	},
 } );
 
-const Column = styled.div`
-	flex-basis: 48%;
+const PageContent = styled.div`
+	width: 100%;
 	p:first-child {
 		margin-top: 16px;
 	}
@@ -246,14 +240,17 @@ class ProfilePage extends React.Component {
 
 		return <PasswordReset>
 			<Paragraph>
-				<FormattedMessage id={ messages.passwordChange.id } defaultMessage={ messages.passwordChange.defaultMessage }/>
+				<FormattedMessage id={ messages.passwordChange.id }
+								  defaultMessage={ messages.passwordChange.defaultMessage } />
 			</Paragraph>
 
 			<p><FormattedMessage
 				id="profile.description.passwordReset"
 				defaultMessage="To change your password follow the instructions in the password reset email."
 			/></p>
-			<Button onClick={ onClickAction }><FormattedMessage id={ messages.passwordResetSend.id } defaultMessage={ messages.passwordResetSend.defaultMessage }/></Button>
+			<Button onClick={ onClickAction }>
+				<FormattedMessage id={ messages.passwordResetSend.id }
+								  defaultMessage={ messages.passwordResetSend.defaultMessage } /></Button>
 			{ passwordResetError }
 			{ passwordResetMessage }
 		</PasswordReset>;
@@ -289,9 +286,9 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<CreateToken
-						onClose={this.props.onCreateTokenModalClose}
-						onCreateClick={this.props.onCreateTokenClick}
-						error={this.props.tokenError}
+						onClose={ this.props.onCreateTokenModalClose }
+						onCreateClick={ this.props.onCreateTokenClick }
+						error={ this.props.tokenError }
 					/>;
 			} else if ( this.props.manageTokenModalIsOpen ) {
 				modalIsOpen = this.props.manageTokenModalIsOpen;
@@ -303,11 +300,11 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<ManageToken
-						onClose={this.props.onManageTokenModalClose}
-						onSaveTokenClick={this.props.onSaveTokenClick}
-						onDeleteTokenClick={this.props.onDeleteTokenClick}
-						manageTokenData={this.props.manageTokenData}
-						error={this.props.tokenError}
+						onClose={ this.props.onManageTokenModalClose }
+						onSaveTokenClick={ this.props.onSaveTokenClick }
+						onDeleteTokenClick={ this.props.onDeleteTokenClick }
+						manageTokenData={ this.props.manageTokenData }
+						error={ this.props.tokenError }
 					/>;
 			}
 			return (
@@ -365,9 +362,10 @@ class ProfilePage extends React.Component {
 		return (
 			<div>
 				<Paper>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) }
+									   isOpen={ false }>
 						{ ComposerIntroduction }
-						<ComposerTokens {...this.props} hasPaper={false} />
+						<ComposerTokens { ...this.props } hasPaper={ false } />
 						<CreateButtonArea>
 							<WideLargeButton
 								onClick={ this.props.onCreateTokenModalOpen }
@@ -384,39 +382,26 @@ class ProfilePage extends React.Component {
 			</div>
 		);
 	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
-		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
-		const gravatarLinkContent = <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) } <NewTabMessage /></a>;
-
 		return (
 			<div>
 				<Paper>
 					<Page>
-						<Column>
+						<PageContent>
+							<Paragraph>
+								<FormattedMessage id={ messages.personalInfo.id }
+												  defaultMessage={ messages.personalInfo.defaultMessage } />
+							</Paragraph>
 							<ProfileForm
 								{ ...this.props }
 							/>
 							{ this.getPasswordReset() }
-						</Column>
-						<Column>
-							<Paragraph>
-								<FormattedMessage id={ messages.profilePicture.id } defaultMessage={ messages.profilePicture.defaultMessage }/>
-							</Paragraph>
-							<p>
-								<FormattedMessage
-									id="profile.description.picture"
-									defaultMessage={ "Your profile picture is supplied by Gravatar. If you don't have" +
-									" an account with them yet, or want to change your existing picture, please visit" +
-									" the { link }. Changes may take up to an hour to become visible here." }
-									values={ { link: gravatarLinkContent } }
-								/>
-							</p>
-							{ image }
-						</Column>
+						</PageContent>
 					</Page>
 				</Paper>
 				<SubscribeNewsletter
@@ -429,7 +414,7 @@ class ProfilePage extends React.Component {
 				{ this.getDevTools() }
 				<Paper>
 					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
-						<DownloadAccount/>
+						<DownloadAccount />
 						<DeleteAccount
 							onDeleteProfile={ this.props.onDeleteProfile }
 							isDeleting={ this.props.isDeleting }
@@ -461,6 +446,7 @@ ProfilePage.propTypes = {
 	onDeleteProfile: PropTypes.func.isRequired,
 	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
+	onUploadAvatar: PropTypes.func.isRequired,
 
 	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,
