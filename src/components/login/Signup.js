@@ -58,11 +58,11 @@ const messages = defineMessages( {
 	},
 	validationFormatEmail: {
 		id: "validation.format.email",
-		defaultMessage: "{field} must be a valid e-mail address.",
+		defaultMessage: "^{field} must be a valid e-mail address.",
 	},
 	validationRequired: {
 		id: "validation.required",
-		defaultMessage: "{field} cannot be empty.",
+		defaultMessage: "^{field} cannot be empty.",
 	},
 	duplicateEmail: {
 		id: "signup.error.duplicateEmail",
@@ -90,26 +90,32 @@ class Signup extends React.Component {
 			email: this.props.email,
 			password: "",
 			passwordRepeat: "",
+			errors: {},
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 
 		this.onUpdateEmail = this.onUpdate.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
-		this.onUpdatePasswordRepeat = this.onUpdatePasswordRepeat.bind( this );
+		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 
 		// Validation constraints.
 		this.constraints = {
 			email: this.emailConstraints(),
 			password: this.passwordConstraints(),
-			passwordRepeatErrors: [],
+			passwordRepeat: {
+				equality: "password",
+			},
 		};
+
+		console.log( this.constraints );
 	}
 
 	onUpdate( field, event ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
+		this.validate();
 	}
 
 	/**
@@ -164,32 +170,28 @@ class Signup extends React.Component {
 		</SaveButtonArea>;
 	}
 
-	validatePasswordRepeat() {
-		const constraint = { passwordRepeat: { equality: "password" } };
-
-		let errors = validate( { password: this.state.password, passwordRepeat: this.state.passwordRepeat },
-			constraint );
+	validate() {
+		let errors = validate( {
+			email: this.state.email,
+			password: this.state.password,
+			passwordRepeat: this.state.passwordRepeat,
+		}, this.constraints );
 
 		if ( _isUndefined( errors ) ) {
 			errors = [];
-		} else {
-			errors = errors.passwordRepeat;
 		}
 
-		return errors;
-	}
-
-	onUpdatePasswordRepeat( event ) {
-		this.setState( {
-			passwordRepeat: event.target.value,
-			passwordRepeatErrors: this.validatePasswordRepeat(),
-		} );
+		this.setState( { errors: errors } );
 	}
 
 	handleSubmit() {
 	}
 
 	render() {
+		let errors = this.state.errors;
+
+		console.log( "render: ", errors );
+
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
 				<LabelBlock>
@@ -203,7 +205,7 @@ class Signup extends React.Component {
 						type="text"
 						value={ this.state.email }
 						onChange={ this.onUpdateEmail }
-						constraint={ this.constraints.email }
+						errors={ this.state.errors.email }
 					/>
 				</LabelBlock>
 				<LabelBlock>
@@ -215,7 +217,7 @@ class Signup extends React.Component {
 						name="password"
 						type="password"
 						onChange={ this.onUpdatePassword }
-						constraint={ this.constraints.password }
+						errors={ this.state.errors.password }
 					/>
 				</LabelBlock>
 				<LabelBlock>
@@ -227,7 +229,7 @@ class Signup extends React.Component {
 						name="repeat password"
 						type="password"
 						onChange={ this.onUpdatePasswordRepeat }
-						errors={ this.state.passwordRepeatErrors }
+						errors={ this.state.errors.passwordRepeat }
 					/>
 					{ this.getAccountButton() }
 				</LabelBlock>

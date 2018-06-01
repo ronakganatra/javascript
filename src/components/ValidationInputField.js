@@ -93,7 +93,7 @@ class ValidationInputField extends React.Component {
 		errors = errors.concat( this.props.errors );
 
 		this.setState( {
-			errors,
+			errors: errors,
 		} );
 
 		// Call onChange function given in props.
