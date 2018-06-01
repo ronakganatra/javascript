@@ -9,8 +9,8 @@ import UserImage from "../../UserImage";
 const UploadElement = styled.div`
 	display: inline-block;
 	position: relative;
-	width: 120px;
-	height: 120px;
+	width: 150px;
+	height: 150px;
 `;
 
 const translucentBlack = "rgba(0, 0, 0, 0.5)";
@@ -121,7 +121,7 @@ class UploadUserImage extends React.Component {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
 		return <UploadElement>
-			<UserImage src={ this.props.image } size="120px" />
+			<UserImage src={ this.props.image } size="150px" />
 			<Overlay>
 				<ChangeLink onClick={ this.onClickLink }>
 					Change
