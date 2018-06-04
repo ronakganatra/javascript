@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { IconButtonTransparentLink } from "../../Button";
+import { IconButtonTransparent } from "../../Button";
 import validate from "validate.js";
 import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
@@ -68,8 +68,8 @@ const messages = defineMessages( {
 	},
 } );
 
-const AddEmailLink = styled( IconButtonTransparentLink )`
-	margin-top: 4px;
+const AddEmailButton = styled( IconButtonTransparent )`
+	margin-top: 8px;
 `;
 
 const TextInput = styled( InputField )`
@@ -137,10 +137,13 @@ class ProfileForm extends React.Component {
 		};
 
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
+		this.addAnotherEmail = this.addAnotherEmail.bind( this );
+		this.getAlternativeEmailComponents = this.getAlternativeEmailComponents.bind( this );
 		this.onUpdateAlternativeEmail = this.onUpdateAlternativeEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
 		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
+
 
 		// Validation constraints.
 		this.constraints = {
@@ -277,8 +280,10 @@ class ProfileForm extends React.Component {
 		this.setState( { email: event.target.value } );
 	}
 
-	onUpdateAlternativeEmail( event ) {
-		this.setState( { alternativeEmail: event.target.value } );
+	onUpdateAlternativeEmail( event, index ) {
+		let newArray = this.state.alternativeEmail.slice();
+		newArray[ index ] = event.target.value;
+		this.setState( { alternativeEmail: newArray } );
 	}
 
 	onUpdateName( type, event ) {
@@ -308,6 +313,19 @@ class ProfileForm extends React.Component {
 		this.props.onSaveProfile( profile );
 	}
 
+	/**
+	 * Adds another email address to the alternative email array.
+	 *
+	 * @returns {void}
+	 */
+	addAnotherEmail() {
+		let newMails = this.state.alternativeEmail.slice();
+		newMails.push( "" );
+		this.setState( {
+			alternativeEmail: newMails,
+		} );
+	}
+
 	componentDidUpdate() {
 		this.announceActions();
 	}
@@ -315,6 +333,37 @@ class ProfileForm extends React.Component {
 	componentWillUnmount() {
 		this.props.resetSaveMessage();
 	}
+
+	/**
+	 * Renders alternative email address input fields and label.
+	 *
+	 * @returns {ReactElement} The input fields and label.
+	 */
+	getAlternativeEmailComponents() {
+		return this.state.alternativeEmail.map(
+			( email, index ) => {
+				return (
+				<Fragment>
+					<StyledLabel htmlFor="alternative-email-address">
+						<FormattedMessage
+							id={messages.labelAlternativeEmail.id}
+							defaultMessage={messages.labelAlternativeEmail.defaultMessage}
+						/>
+					</StyledLabel>
+					<TextInput
+						id="alternative-email-address"
+						autocomplete="on"
+						name="email"
+						type="text"
+						placeholder="Enter another email address..."
+						value={this.state.alternativeEmail[ index ]}
+						onChange={ event => this.onUpdateAlternativeEmail( event, index )}
+					/>
+				</Fragment> );
+			}
+		);
+	}
+
 
 	/**
 	 * Renders the element.
@@ -375,28 +424,15 @@ class ProfileForm extends React.Component {
 						onChange={this.onUpdateEmail}
 					/>
 					{this.displayWarnings( warnings, "email" )}
-					<StyledLabel htmlFor="email-address">
-						<FormattedMessage
-							id={messages.labelAlternativeEmail.id}
-							defaultMessage={messages.labelAlternativeEmail.defaultMessage}
-						/>
-					</StyledLabel>
-					<TextInput
-						id="alternative-email-address"
-						autocomplete="on"
-						name="email"
-						type="text"
-						value={this.state.alternativeEmail}
-						onChange={this.onUpdateAlternativeEmail}
-					/>
+					{this.getAlternativeEmailComponents()}
 					<ErrorDisplay error={this.props.saveEmailError}/>
-					<AddEmailLink iconSource={ plusIcon } to={ "#" } linkTarget="_blank" iconSize={ "1em" } >
+					<AddEmailButton iconSource={ plusIcon } onClick={ this.addAnotherEmail } iconSize={ "1em" } >
 						<FormattedMessage
 							id={messages.addEmailLink.id}
 							defaultMessage={messages.addEmailLink.defaultMessage}
 						/>
 						<NewTabMessage/>
-					</AddEmailLink>
+					</AddEmailButton>
 					{this.getChangeButtons()}
 				</LabelBlock>
 			</FormGroup>
@@ -410,7 +446,7 @@ ProfileForm.propTypes = {
 	onSaveProfile: PropTypes.func,
 	onUploadAvatar: PropTypes.func.isRequired,
 	email: PropTypes.string,
-	alternativeEmail: PropTypes.string,
+	alternativeEmail: PropTypes.array,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
 	image: PropTypes.string,
@@ -423,7 +459,7 @@ ProfileForm.propTypes = {
 
 ProfileForm.defaultProps = {
 	email: "",
-	alternativeEmail: "",
+	alternativeEmail: [ "" ],
 	userFirstName: "",
 	userLastName: "",
 	isSaving: false,
