@@ -4,19 +4,11 @@ import { IconRightButtonLink } from "../components/Button";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import angleRight from "../icons/angle-right.svg";
-import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
+import { FormattedMessage, injectIntl } from "react-intl";
 import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
-import { BackButtonLink } from "./Button";
 import { Heading } from "./Headings";
-
-const messages = defineMessages( {
-	backButton: {
-		id: "backButton",
-		defaultMessage: "Back",
-	},
-} );
 
 const SiteHeaderContainer = styled.div`
 	display: flex;
@@ -78,13 +70,13 @@ const SiteHeaderSitename = styled( Heading )`
 const ButtonSection = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: row-reverse;
 	justify-content: space-between;
 	align-items: flex-end;
 	align-content: flex-end;
 	height: 100px;
 `;
 
-let BackButtonResponsive = makeFullWidth( BackButtonLink );
 let WPAdminButton = makeFullWidth( IconRightButtonLink );
 
 /**
@@ -102,7 +94,6 @@ function SiteHeader( props ) {
 				{ props.name }
 			</SiteHeaderSitename>
 			<ButtonSection>
-				<BackButtonResponsive to={ "/sites" } ><FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } /></BackButtonResponsive>
 				{ props.adminButton &&
 					<WPAdminButton iconSource={angleRight} to={ `${ props.url }/wp-admin` } linkTarget="_blank">
 						<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }"
