@@ -14,7 +14,7 @@ import { Button } from "../../../Button";
 const messages = defineMessages( {
 	title: {
 		id: "download-account.title",
-		defaultMessage: "Download account",
+		defaultMessage: "Download personal data",
 	},
 	description: {
 		id: "download-account.description",
@@ -31,8 +31,8 @@ const messages = defineMessages( {
 const Title = styled.p`
 	margin-top: 0.0em;
 	margin-bottom: 0.5em;
-	font-weight: 300;
-	font-size: 1.5em;
+	font-weight: 700;
+	font-size: 1em;
 `;
 
 const Description = styled.p`
