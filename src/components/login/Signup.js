@@ -17,10 +17,10 @@ const TextInput = styled( ValidationInputField )`
 `;
 
 const FormGroup = styled.form`
-	display: flex;
-	flex-wrap: wrap;
-	width: 384px;
-	justify-content: space-between;
+	/* To glue SaveButtonArea to bottom of column. */
+	position: relative;
+	width: 384px;	
+	height: 480px;
 `;
 
 const LabelBlock = styled.div`
@@ -28,9 +28,9 @@ const LabelBlock = styled.div`
 `;
 
 const SaveButtonArea = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 `;
 
 const SaveButton = styled( Button )`
@@ -70,7 +70,7 @@ const messages = defineMessages( {
 	},
 	passwordStrength: {
 		id: "signup.password",
-		defaultMessage: "Your password is not strong enough.",
+		defaultMessage: "^Your password is not strong enough. It should contain...",
 	},
 } );
 
@@ -231,8 +231,8 @@ class Signup extends React.Component {
 						onChange={ this.onUpdatePasswordRepeat }
 						errors={ this.state.errors.passwordRepeat }
 					/>
-					{ this.getAccountButton() }
 				</LabelBlock>
+				{ this.getAccountButton() }
 			</FormGroup>
 		);
 	}

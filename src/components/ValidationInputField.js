@@ -103,7 +103,7 @@ class ValidationInputField extends React.Component {
 	render() {
 		return (
 			<div>
-				<TextInput onChange={ this._onChange } />
+				<TextInput onChange={ this._onChange } type={ this.props.type } />
 				{ this.displayErrors( this.state.errors ) }
 			</div>
 		);
@@ -116,6 +116,7 @@ ValidationInputField.propTypes = {
 	constraint: PropTypes.object,
 	errors: PropTypes.array,
 	id: PropTypes.string,
+	type: PropTypes.string,
 };
 
 ValidationInputField.defaultProps = {
