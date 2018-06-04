@@ -107,8 +107,6 @@ class Signup extends React.Component {
 				equality: "password",
 			},
 		};
-
-		console.log( this.constraints );
 	}
 
 	onUpdate( field, event ) {
@@ -188,10 +186,6 @@ class Signup extends React.Component {
 	}
 
 	render() {
-		let errors = this.state.errors;
-
-		console.log( "render: ", errors );
-
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
 				<LabelBlock>

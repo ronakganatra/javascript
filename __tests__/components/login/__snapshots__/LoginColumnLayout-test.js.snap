@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The LoginColumnLayout component, with one column, matches the snapshot 1`] = `
+.c2 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c4 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -13,7 +30,7 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
 }
 
 @media screen and ( max-width:1024px ) {
-  .c1 {
+  .c1:not(:only-child) {
     display: none;
   }
 }
@@ -23,7 +40,32 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
 >
   <div
     className="c1"
-  />
+  >
+    <div
+      className="c2"
+    >
+      <img
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        className="c4"
+        src="greeting.png"
+      />
+      <div>
+        <h2>
+          <span>
+            Welcome back!
+          </span>
+        </h2>
+        <p>
+          <span>
+            Log in with your email address and password. If you don't remember your password, just reset it!
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
@@ -95,7 +137,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
 }
 
 @media screen and ( max-width:1024px ) {
-  .c1 {
+  .c1:not(:only-child) {
     display: none;
   }
 }
