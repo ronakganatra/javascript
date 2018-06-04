@@ -6,7 +6,7 @@ import { defineMessages, injectIntl } from "react-intl";
 import LoginColumnLayout from "./LoginColumnLayout";
 import LoginMessage from "./LoginMessage";
 
-import Login from "./Login";
+import LoginSignup from "./LoginSignup";
 
 const messages = defineMessages( {
 	header: {
@@ -40,7 +40,7 @@ class LoginPage extends React.Component {
 		return (
 			<LoginColumnLayout>
 				<LoginMessage header={ messages.header } message={ messages.message } />
-				<Login />
+				<LoginSignup />
 			</LoginColumnLayout>
 		);
 	}

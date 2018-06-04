@@ -19,7 +19,7 @@ const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 384px;
-	height: 480px;
+	height: 400px;
 `;
 
 const LabelBlock = styled.div`
