@@ -109,7 +109,6 @@ class Login extends React.Component {
 	}
 
 	handleSubmit() {
-		console.log( this.state );
 	}
 
 	render() {

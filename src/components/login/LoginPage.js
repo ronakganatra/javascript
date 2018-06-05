@@ -37,10 +37,6 @@ const messages = defineMessages( {
  */
 class LoginPage extends React.Component {
 
-	constructor( props ) {
-		super( props );
-	}
-
 	getLoginMessage() {
 		if ( this.props.location.pathname === "/login" ) {
 			return <LoginMessage header={ messages.loginHeader } message={ messages.loginMessage } />;

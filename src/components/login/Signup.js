@@ -120,11 +120,6 @@ class Signup extends React.Component {
 		this.setState( obj );
 	}
 
-	/**
-	 * Creates the email constraints for validation.
-	 *
-	 * @returns {Object} The constraint.
-	 */
 	emailConstraints() {
 		return {
 			email: {

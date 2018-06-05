@@ -8,7 +8,7 @@ import validate from "validate.js";
 import colors from "yoast-components/style-guide/colors.json";
 
 // Icons.
-import exclamationTriangle from "../icons/exclamation-triangle.svg";
+import exclamationTriangle from "../icons/exclamation-circle.svg";
 
 // Components.
 import { InputField } from "./InputField";
@@ -51,8 +51,8 @@ class ValidationInputField extends React.Component {
 		super( props );
 
 		this.state = {
-			value: this.props.value,
-			errors: this.props.errors,
+			errors: [],
+			values: this.props.value,
 		};
 
 		this._onChange = this._onChange.bind( this );
