@@ -79,6 +79,10 @@ const messages = defineMessages( {
 		id: "menu.account.orders.loaded",
 		defaultMessage: "Account profile page loaded",
 	},
+	newsLetter: {
+		id: "newsLetter",
+		defaultMessage: "Newsletter",
+	},
 } );
 
 const OuterContainer = styled.div`
@@ -339,6 +343,10 @@ class ProfilePage extends React.Component {
 					</PageCard>
 					<PageCard>
 						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.newsLetter.id}
+								                  defaultMessage={messages.newsLetter.defaultMessage}/>
+							</Paragraph>
 							<SubscribeNewsletter
 								onSubscribe={this.props.onNewsletterSubscribe}
 								onUnsubscribe={this.props.onNewsletterUnsubscribe}
