@@ -19,12 +19,16 @@ const TextInput = styled( ValidationInputField )`
 const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
-	width: 384px;	
-	height: 480px;
+	width: 400px;	
+	min-height: 400px;	
 `;
 
 const LabelBlock = styled.div`
 	width: 100%;
+`;
+
+const Label = styled( StyledLabel )`
+	margin-top: 5px;
 `;
 
 const SaveButtonArea = styled.div`
@@ -60,13 +64,17 @@ const messages = defineMessages( {
 		id: "validation.format.email",
 		defaultMessage: "^{field} must be a valid e-mail address.",
 	},
-	validationRequired: {
-		id: "validation.required",
-		defaultMessage: "^{field} cannot be empty.",
+	validationMinimumLength: {
+		id: "validation.minimumLength",
+		defaultMessage: "^{field} must have a minimum length of {minLength} characters.",
 	},
 	duplicateEmail: {
 		id: "signup.error.duplicateEmail",
 		defaultMessage: "The email address could not be added, it is probably already in use.",
+	},
+	passwordsDoNotMatch: {
+		id: "signup.error.passwordsDoNotMatch",
+		defaultMessage: "^Passwords do not match.",
 	},
 	passwordStrength: {
 		id: "signup.password",
@@ -75,7 +83,8 @@ const messages = defineMessages( {
 } );
 
 // To check the strength of the password.
-const passwordRegex = new RegExp( "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" );
+// const PASSWORD_STRENGTH_REGEX = new RegExp( "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" );
+const PASSWORD_MINIMUM_LENGTH = 5;
 
 /**
  * Test page to test the login layout / styling.
@@ -101,11 +110,7 @@ class Signup extends React.Component {
 
 		// Validation constraints.
 		this.constraints = {
-			email: this.emailConstraints(),
-			password: this.passwordConstraints(),
-			passwordRepeat: {
-				equality: "password",
-			},
+			passwordRepeat: this.passwordRepeatConstraint(),
 		};
 	}
 
@@ -113,7 +118,6 @@ class Signup extends React.Component {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
-		this.validate();
 	}
 
 	/**
@@ -123,12 +127,6 @@ class Signup extends React.Component {
 	 */
 	emailConstraints() {
 		return {
-			length: {
-				minimum: 1,
-				message: this.props.intl.formatMessage( messages.validationRequired, {
-					field: "Email",
-				} ),
-			},
 			email: {
 				message: this.props.intl.formatMessage( messages.validationFormatEmail, {
 					field: "Email",
@@ -140,16 +138,20 @@ class Signup extends React.Component {
 	passwordConstraints() {
 		return {
 			length: {
-				minimum: 1,
-				message: this.props.intl.formatMessage( messages.validationRequired, {
+				minimum: PASSWORD_MINIMUM_LENGTH,
+				message: this.props.intl.formatMessage( messages.validationMinimumLength, {
 					field: "Password",
+					minLength: PASSWORD_MINIMUM_LENGTH,
 				} ),
 			},
-			format: {
-				pattern: passwordRegex,
-				message: this.props.intl.formatMessage( messages.passwordStrength, {
-					field: "Password",
-				} ),
+		};
+	}
+
+	passwordRepeatConstraint() {
+		return {
+			equality: {
+				attribute: "password",
+				message: this.props.intl.formatMessage( messages.passwordsDoNotMatch ),
 			},
 		};
 	}
@@ -162,13 +164,16 @@ class Signup extends React.Component {
 	getAccountButton() {
 		return <SaveButtonArea>
 			<SaveButton type="submit">
-				<FormattedMessage id={ messages.createAccount.id }
-								  defaultMessage={ messages.createAccount.defaultMessage } />
+				<FormattedMessage { ...messages.createAccount } />
 			</SaveButton>
 		</SaveButtonArea>;
 	}
 
 	validate() {
+		if ( this.state.passwordRepeat.length === 0 ) {
+			return [];
+		}
+
 		let errors = validate( {
 			email: this.state.email,
 			password: this.state.password,
@@ -178,20 +183,20 @@ class Signup extends React.Component {
 		if ( _isUndefined( errors ) ) {
 			errors = [];
 		}
-
-		this.setState( { errors: errors } );
+		return errors;
 	}
 
 	handleSubmit() {
 	}
 
 	render() {
+		let errors = this.validate();
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
 				<LabelBlock>
-					<StyledLabel htmlFor="email-address">
+					<Label htmlFor="email-address">
 						<FormattedMessage { ...messages.labelEmail } />
-					</StyledLabel>
+					</Label>
 					<TextInput
 						id="email-address"
 						autocomplete="on"
@@ -199,31 +204,31 @@ class Signup extends React.Component {
 						type="text"
 						value={ this.state.email }
 						onChange={ this.onUpdateEmail }
-						errors={ this.state.errors.email }
+						constraint={ this.emailConstraints() }
 					/>
 				</LabelBlock>
 				<LabelBlock>
-					<StyledLabel htmlFor="password">
+					<Label htmlFor="password">
 						<FormattedMessage { ...messages.labelPassword } />
-					</StyledLabel>
+					</Label>
 					<TextInput
 						id="password"
 						name="password"
 						type="password"
 						onChange={ this.onUpdatePassword }
-						errors={ this.state.errors.password }
+						constraint={ this.passwordConstraints() }
 					/>
 				</LabelBlock>
 				<LabelBlock>
-					<StyledLabel htmlFor="password-repeat">
+					<Label htmlFor="password-repeat">
 						<FormattedMessage { ...messages.labelPasswordRepeat } />
-					</StyledLabel>
+					</Label>
 					<TextInput
 						id="password-repeat"
 						name="repeat password"
 						type="password"
 						onChange={ this.onUpdatePasswordRepeat }
-						errors={ this.state.errors.passwordRepeat }
+						errors={ errors.passwordRepeat }
 					/>
 				</LabelBlock>
 				{ this.getAccountButton() }

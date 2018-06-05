@@ -58,6 +58,7 @@ const Routes = ( props ) => {
 			<ConnectedRouter history={ props.history }>
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
+					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"

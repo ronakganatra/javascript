@@ -9,17 +9,22 @@ import LoginMessage from "./LoginMessage";
 import LoginSignup from "./LoginSignup";
 
 const messages = defineMessages( {
-	header: {
+	loginHeader: {
 		id: "login.header",
 		defaultMessage: "Welcome back!",
 	},
-	message: {
+	loginMessage: {
 		id: "login.message",
 		defaultMessage: "Log in with your email address and password. If you don't remember your password, just reset it!",
 	},
-	headerReset: {
-		id: "login.headerReset",
-		defaultMessage: "Password changed successfully!",
+	signupHeader: {
+		id: "signup.header",
+		defaultMessage: "Welcome!",
+	},
+	signupMessage: {
+		id: "signup.message",
+		defaultMessage: "MyYoast is the portal to all things Yoast. Whether you want to comment on a post, " +
+		"take our free SEO for beginners training or find a product you have purchased: it's all there!",
 	},
 	button: {
 		id: "login.button",
@@ -32,14 +37,21 @@ const messages = defineMessages( {
  */
 class LoginPage extends React.Component {
 
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
+	}
+
+	getLoginMessage() {
+		if ( this.props.location.pathname === "/login" ) {
+			return <LoginMessage header={ messages.loginHeader } message={ messages.loginMessage } />;
+		}
+		return <LoginMessage header={ messages.signupHeader } message={ messages.signupMessage } />;
 	}
 
 	render() {
 		return (
 			<LoginColumnLayout>
-				<LoginMessage header={ messages.header } message={ messages.message } />
+				{ this.getLoginMessage() }
 				<LoginSignup />
 			</LoginColumnLayout>
 		);
@@ -48,6 +60,7 @@ class LoginPage extends React.Component {
 
 LoginPage.propTypes = {
 	children: PropTypes.array,
+	location: PropTypes.object,
 };
 
 export default injectIntl( LoginPage );

@@ -18,7 +18,7 @@ const TextInput = styled( ValidationInputField )`
 const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
-	width: 384px;
+	width: 400px;
 	height: 400px;
 `;
 
@@ -26,8 +26,12 @@ const LabelBlock = styled.div`
 	width: 100%;
 `;
 
-const ForgotPasswordLink = styled.a`
+const Label = styled( StyledLabel )`
 	margin-top: 5px;
+`;
+
+const ForgotPasswordLink = styled.div`
+	margin-top: 10px;
 `;
 
 const SaveButtonArea = styled.div`
@@ -42,8 +46,9 @@ const SaveButton = styled( Button )`
 `;
 
 const RememberMe = styled.div`
-	margin-top: 10px;
+	margin-top: 20px;
 	width: 100%;
+	font-weight: 700;
 `;
 
 // Messages
@@ -80,13 +85,31 @@ class Login extends React.Component {
 
 		this.state = {
 			email: "",
+			password: "",
 			errors: {},
+			rememberMe: this.props.rememberMe,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
+		this.onRememberCheck = this.onRememberCheck.bind( this );
+		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
+		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
+	}
+
+	onRememberCheck( event ) {
+		this.setState( {
+			rememberMe: event.target.checked,
+		} );
+	}
+
+	onUpdateField( field, event ) {
+		let obj = {};
+		obj[ field ] = event.target.value;
+		this.setState( obj );
 	}
 
 	handleSubmit() {
+		console.log( this.state );
 	}
 
 	render() {
@@ -94,36 +117,42 @@ class Login extends React.Component {
 			<FormGroup onSubmit={ this.handleSubmit }>
 
 				<LabelBlock>
-					<StyledLabel htmlFor="email-address">
+					<Label htmlFor="email-address">
 						<FormattedMessage { ...messages.labelEmail } />
-					</StyledLabel>
+					</Label>
 					<TextInput
 						id="email-address"
 						autocomplete="on"
 						name="email"
 						type="text"
 						value={ this.state.email }
+						onChange={ this.onUpdateEmail }
 					/>
 				</LabelBlock>
 
 				<LabelBlock>
-					<StyledLabel htmlFor="password">
+					<Label htmlFor="password">
 						<FormattedMessage { ...messages.labelPassword } />
-					</StyledLabel>
+					</Label>
 					<TextInput
 						id="password"
 						name="password"
 						type="password"
 						errors={ this.state.errors.password }
+						onChange={ this.onUpdatePassword }
 					/>
 				</LabelBlock>
 
-				<ForgotPasswordLink href={ "" }>
-					<FormattedMessage { ...messages.forgotPassword } />
+				<ForgotPasswordLink>
+					<a href={ "" }>
+						<FormattedMessage { ...messages.forgotPassword } />
+					</a>
 				</ForgotPasswordLink>
 
 				<RememberMe>
-					<Checkbox> <FormattedMessage { ...messages.rememberMe } /> </Checkbox>
+					<Checkbox onCheck={ this.onRememberCheck } checked={ this.state.rememberMe }>
+						<FormattedMessage { ...messages.rememberMe } />
+					</Checkbox>
 				</RememberMe>
 
 				<SaveButtonArea>
@@ -138,11 +167,11 @@ class Login extends React.Component {
 
 Login.propTypes = {
 	intl: intlShape.isRequired,
-	email: PropTypes.string,
+	rememberMe: PropTypes.bool,
 };
 
 Login.defaultProps = {
-	email: "",
+	rememberMe: false,
 };
 
 export default injectIntl( Login );

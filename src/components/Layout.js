@@ -107,6 +107,7 @@ Main.defaultProps = {
 
 const WhitePaper = styled( WhitePage )`
 	margin: auto;
+	padding: 48px;
 `;
 
 export const inLoginLayout = ( WrappedComponent ) => {
@@ -115,7 +116,7 @@ export const inLoginLayout = ( WrappedComponent ) => {
 			return (
 				<LayoutLogin>
 					<WhitePaper>
-						<WrappedComponent {...this.props}/>
+						<WrappedComponent { ...this.props } />
 					</WhitePaper>
 				</LayoutLogin>
 			);
@@ -129,12 +130,12 @@ export const inSingleLayout = ( WrappedComponent ) => {
 			return (
 				<Layout>
 					<header role="banner">
-						<MobileHeaderContainer/>
+						<MobileHeaderContainer />
 					</header>
 					<SingleMain>
 						<Content>
-							<WrappedComponent {...this.props} />
-							<GettingStartedModalContainer/>
+							<WrappedComponent { ...this.props } />
+							<GettingStartedModalContainer />
 						</Content>
 					</SingleMain>
 				</Layout>
@@ -150,28 +151,28 @@ export const inMainLayout = ( WrappedComponent ) => {
 				<Layout>
 					<header role="banner">
 						<SkipLink>
-							<FormattedMessage id="skiplink" defaultMessage="Skip to main content"/>
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 						</SkipLink>
 						<MediaQuery query="(max-width: 1024px)">
-							<MobileHeaderContainer/>
+							<MobileHeaderContainer />
 						</MediaQuery>
 					</header>
 					<Sidebar>
 						<MediaQuery query="(min-width: 1025px)">
-							<Logo context="sidebar" size="200px"/>
+							<Logo context="sidebar" size="200px" />
 						</MediaQuery>
-						<UserStatus/>
-						<MainMenu menuRoutes={menuItems}/>
-						<DebugInfo/>
+						<UserStatus />
+						<MainMenu menuRoutes={ menuItems } />
+						<DebugInfo />
 					</Sidebar>
 					<Main>
 						<BeaconButtonContainer>
-							<FormattedMessage id="beacon.id" defaultMessage={messages.beacon.defaultMessage}/>
+							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
 						</BeaconButtonContainer>
 						<Content>
-							<LicenseActivationMessage/>
-							<WrappedComponent {...this.props} />
-							<GettingStartedModalContainer/>
+							<LicenseActivationMessage />
+							<WrappedComponent { ...this.props } />
+							<GettingStartedModalContainer />
 						</Content>
 					</Main>
 				</Layout>

@@ -55,9 +55,10 @@ const Checkmark = styled.span`
  * (Since default checkbox element cannot be easily styled with CSS).
  */
 class Checkbox extends React.Component {
+
 	render() {
 		return <Container> { this.props.children }
-			<CheckboxInput type={ "checkbox" } />
+			<CheckboxInput onChange={ this.props.onCheck } checked={ this.props.checked } type={ "checkbox" } />
 			<Checkmark className={ "checkmark" } />
 		</Container>;
 	}
@@ -66,10 +67,12 @@ class Checkbox extends React.Component {
 Checkbox.propTypes = {
 	children: PropTypes.any,
 	onCheck: PropTypes.func,
+	checked: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {
 	children: [],
+	checked: false,
 };
 
 export default Checkbox;

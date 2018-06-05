@@ -9,26 +9,19 @@ import Signup from "./Signup";
 
 let itemRoutes = [
 	{
-		component: Login,
-		path: "/login/login",
-		title: "Login",
-		isActive: ( match, location ) => {
-			if ( match ) {
-				return match;
-			}
-
-			return location.pathname === "/login" || location.pathname === "/login/";
-		},
+		component: Signup,
+		path: "/signup",
+		title: "Sign up",
 	},
 	{
-		component: Signup,
-		path: "/login/signup",
-		title: "Sign up",
+		component: Login,
+		path: "/login",
+		title: "Login",
 	},
 ];
 
 /**
- * Test page to test the login layout / styling.
+ * Login / sign up column for on the standard login page.
  */
 class LoginSignup extends React.Component {
 
@@ -41,12 +34,6 @@ class LoginSignup extends React.Component {
 			<div>
 				<SubNavigation itemRoutes={ itemRoutes } />
 				<SubNavigationItem itemRoutes={ itemRoutes } />
-				<SubNavigationItem itemRoutes={ [
-					{
-						path: "/login",
-						component: Login,
-					},
-				] } />
 			</div>
 		);
 	}
