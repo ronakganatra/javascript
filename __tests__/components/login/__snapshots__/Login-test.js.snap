@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Login component matches the snapshot 1`] = `
-.c13 {
+.c14 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -19,23 +19,23 @@ exports[`The Login component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c13:hover,
-.c13:focus {
+.c14:hover,
+.c14:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c13:active {
+.c14:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c12 {
+.c13 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c4 {
+.c5 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -46,11 +46,11 @@ exports[`The Login component matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c3:not(:only-child ) {
+.c4:not(:only-child ) {
   border: 2px solid #dc3232;
 }
 
-.c7 {
+.c8 {
   display: block;
   position: relative;
   cursor: pointer;
@@ -64,7 +64,7 @@ exports[`The Login component matches the snapshot 1`] = `
   user-select: none;
 }
 
-.c7 input:checked ~ .checkmark {
+.c8 input:checked ~ .checkmark {
   background-color: #a4286a;
   background-image: url( check.svg );
   background-repeat: no-repeat;
@@ -72,13 +72,13 @@ exports[`The Login component matches the snapshot 1`] = `
   background-size: 75%;
 }
 
-.c8 {
+.c9 {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-.c9 {
+.c10 {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,11 +88,11 @@ exports[`The Login component matches the snapshot 1`] = `
   background: #fff;
 }
 
-.c9:hover {
+.c10:hover {
   background-color: #ccc;
 }
 
-.c2 {
+.c3 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
@@ -101,7 +101,7 @@ exports[`The Login component matches the snapshot 1`] = `
 
 .c0 {
   position: relative;
-  width: 384px;
+  width: 400px;
   height: 400px;
 }
 
@@ -109,24 +109,29 @@ exports[`The Login component matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c5 {
+.c2 {
   margin-top: 5px;
 }
 
-.c10 {
+.c6 {
+  margin-top: 10px;
+}
+
+.c11 {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-.c11 {
+.c12 {
   margin: 1em 0;
   width: 100%;
 }
 
-.c6 {
-  margin-top: 10px;
+.c7 {
+  margin-top: 20px;
   width: 100%;
+  font-weight: 700;
 }
 
 <form
@@ -137,7 +142,7 @@ exports[`The Login component matches the snapshot 1`] = `
     className="c1"
   >
     <label
-      className="c2"
+      className="c2 c3"
       htmlFor="email-address"
     >
       <span>
@@ -146,7 +151,7 @@ exports[`The Login component matches the snapshot 1`] = `
     </label>
     <div>
       <input
-        className="c3 c4"
+        className="c4 c5"
         onChange={[Function]}
         type="text"
         width="100%"
@@ -157,7 +162,7 @@ exports[`The Login component matches the snapshot 1`] = `
     className="c1"
   >
     <label
-      className="c2"
+      className="c2 c3"
       htmlFor="password"
     >
       <span>
@@ -166,47 +171,50 @@ exports[`The Login component matches the snapshot 1`] = `
     </label>
     <div>
       <input
-        className="c3 c4"
+        className="c4 c5"
         onChange={[Function]}
         type="password"
         width="100%"
       />
     </div>
   </div>
-  <a
-    className="c5"
-    href=""
-  >
-    <span>
-      Forgot your password?
-    </span>
-  </a>
   <div
     className="c6"
   >
-    <label
-      className="c7"
+    <a
+      href=""
     >
-       
+      <span>
+        Forgot your password?
+      </span>
+    </a>
+  </div>
+  <div
+    className="c7"
+  >
+    <label
+      className="c8"
+    >
        
       <span>
         Remember me
       </span>
-       
       <input
-        className="c8"
+        checked={false}
+        className="c9"
+        onChange={[Function]}
         type="checkbox"
       />
       <span
-        className="checkmark c9"
+        className="checkmark c10"
       />
     </label>
   </div>
   <div
-    className="c10"
+    className="c11"
   >
     <button
-      className="c11 c12 c13"
+      className="c12 c13 c14"
       type="submit"
     >
       <span>

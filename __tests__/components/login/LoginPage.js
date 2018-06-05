@@ -4,10 +4,35 @@ import { MemoryRouter as Router } from 'react-router-dom';
 
 import LoginPage from "../../../src/components/login/LoginPage";
 
-test( 'The Signup component matches the snapshot', () => {
+test( 'The login page matches the snapshot', () => {
+
+	let mockedLocation = {
+		location: {
+			pathname: "/login",
+		},
+	};
+
 	const component = createComponentWithIntl(
 		<Router>
-			<LoginPage />
+			<LoginPage location={ mockedLocation } />
+		</Router>,
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
+
+test( 'The sign up page matches the snapshot', () => {
+
+	let mockedLocation = {
+		location: {
+			pathname: "/signup",
+		},
+	};
+
+	const component = createComponentWithIntl(
+		<Router>
+			<LoginPage location={ mockedLocation } />
 		</Router>,
 	);
 

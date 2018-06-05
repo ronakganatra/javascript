@@ -70,11 +70,11 @@ exports[`The LoginSignup component matches the snapshot 1`] = `
       <a
         aria-current={false}
         className="c2"
-        href="/login/login"
+        href="/signup"
         onClick={[Function]}
         style={undefined}
       >
-        Login
+        Sign up
       </a>
     </li>
     <li
@@ -83,15 +83,14 @@ exports[`The LoginSignup component matches the snapshot 1`] = `
       <a
         aria-current={false}
         className="c2"
-        href="/login/signup"
+        href="/login"
         onClick={[Function]}
         style={undefined}
       >
-        Sign up
+        Login
       </a>
     </li>
   </ul>
-  <div />
   <div />
 </div>
 `;

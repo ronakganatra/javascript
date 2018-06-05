@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Signup component matches the snapshot 1`] = `
+exports[`The login page matches the snapshot 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -123,12 +123,12 @@ exports[`The Signup component matches the snapshot 1`] = `
       <div>
         <h2>
           <span>
-            Welcome back!
+            Welcome!
           </span>
         </h2>
         <p>
           <span>
-            Log in with your email address and password. If you don't remember your password, just reset it!
+            MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
           </span>
         </p>
       </div>
@@ -148,11 +148,11 @@ exports[`The Signup component matches the snapshot 1`] = `
           <a
             aria-current={false}
             className="c8"
-            href="/login/login"
+            href="/signup"
             onClick={[Function]}
             style={undefined}
           >
-            Login
+            Sign up
           </a>
         </li>
         <li
@@ -161,15 +161,189 @@ exports[`The Signup component matches the snapshot 1`] = `
           <a
             aria-current={false}
             className="c8"
-            href="/login/signup"
+            href="/login"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+      <div />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The sign up page matches the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+.c5 {
+  margin-left: 48px;
+}
+
+.c2 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c4 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+.c6 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  border-bottom: 4px solid #ccc;
+}
+
+.c7 {
+  min-width: 200px;
+  font-size: 1.2em;
+}
+
+.c8 {
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5em 0;
+  color: #555;
+  margin-bottom: -4px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border 200ms ease-out;
+  transition: border 200ms ease-out;
+}
+
+.c8:hover,
+.c8:focus,
+.c8.activeSubMenu {
+  border-bottom-color: #a4286a;
+  border-bottom-style: double;
+}
+
+.c8.activeSubMenu {
+  color: #a4286a;
+  border-bottom-style: solid;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1:not(:only-child) {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c5 {
+    margin-left: 0;
+  }
+}
+
+@media screen and ( max-width:600px ) {
+  .c7 {
+    width: 150px;
+    min-width: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        className="c4"
+        src="greeting.png"
+      />
+      <div>
+        <h2>
+          <span>
+            Welcome!
+          </span>
+        </h2>
+        <p>
+          <span>
+            MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c5"
+  >
+    <div>
+      <ul
+        className="c6"
+        role="list"
+      >
+        <li
+          className="c7"
+        >
+          <a
+            aria-current={false}
+            className="c8"
+            href="/signup"
             onClick={[Function]}
             style={undefined}
           >
             Sign up
           </a>
         </li>
+        <li
+          className="c7"
+        >
+          <a
+            aria-current={false}
+            className="c8"
+            href="/login"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Login
+          </a>
+        </li>
       </ul>
-      <div />
       <div />
     </div>
   </div>
