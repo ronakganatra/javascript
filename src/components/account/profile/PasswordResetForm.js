@@ -63,7 +63,7 @@ class PasswordResetForm extends React.Component {
 		super( props );
 
 		this.state = {
-			currentPassword: "",
+			currentPassword: this.props.passWord,
 			newPassword: "",
 			confirmPassword: "",
 		};
@@ -73,6 +73,7 @@ class PasswordResetForm extends React.Component {
 		this.onCurrentPassword = this.onCurrentPassword.bind( this );
 		this.onNewPassword = this.onNewPassword.bind( this );
 		this.onConfirmPassword = this.onConfirmPassword.bind( this );
+		this.discardChanges = this.discardChanges.bind( this );
 	}
 
 	/**
@@ -109,8 +110,20 @@ class PasswordResetForm extends React.Component {
 		this.setState( { confirmPassword: event.target.value } );
 	}
 
+	/**
+	 * Discards the changes of personal info and resets it to initial state.
+	 *
+	 * @returns {void}
+	 */
+	discardChanges() {
+		this.setState( {
+			currentPassword: this.props.passWord,
+			newPassword: "",
+			confirmPassword: "",
+		} );
+	}
+
 	handleSubmit( event, ownProps ) {
-		console.log( "", ownProps );
 		event.preventDefault();
 		/*
 		 * While saving: prevent multiple submissions but don't disable the
@@ -134,11 +147,10 @@ class PasswordResetForm extends React.Component {
 		let passwordResetError = "";
 		let passwordResetMessage = "";
 
-		let passwordSaveMessage ="";
+		let passwordSaveMessage = "";
 		if ( passwordResetError !== "" ) {
 			passwordSaveMessage = passwordResetMessage;
 		}
-
 		return (
 				<FormGroup onSubmit={ this.handleSubmit }>
 					<StyledLabel htmlFor="current-password">
@@ -186,7 +198,7 @@ class PasswordResetForm extends React.Component {
 						value={ this.state.confirmPassword }
 						onChange={ this.onConfirmPassword }
 					/>
-					{ getFormButtons( passwordSaveMessage ) }
+					{ getFormButtons( passwordSaveMessage, this.discardChanges ) }
 				</FormGroup>
 		);
 	}
@@ -197,6 +209,7 @@ PasswordResetForm.propTypes = {
 	onSavePassword: PropTypes.func,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
+	passWord:PropTypes.string,
 };
 
 PasswordResetForm.defaultProps = {
