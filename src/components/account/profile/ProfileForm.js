@@ -141,6 +141,7 @@ class ProfileForm extends React.Component {
 		this.getAlternativeEmailComponents = this.getAlternativeEmailComponents.bind( this );
 		this.onUpdateAlternativeEmail = this.onUpdateAlternativeEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
+		this.discardChanges = this.discardChanges.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
 		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
 
@@ -255,9 +256,22 @@ class ProfileForm extends React.Component {
 			speak( message, "assertive" );
 		}
 
-		return getFormButtons( emailSavingMessage );
+		return getFormButtons( emailSavingMessage, this.discardChanges );
 	}
 
+	/**
+	 * Discards the changes of personal info and resets it to initial state.
+	 *
+	 * @returns {void}
+	 */
+	discardChanges() {
+		this.setState( {
+			userFirstName: this.props.userFirstName,
+			userLastName: this.props.userLastName,
+			email: this.props.email,
+			alternativeEmail: this.props.alternativeEmail,
+		} );
+	}
 	/**
 	 * Whether we are currently saving.
 	 *

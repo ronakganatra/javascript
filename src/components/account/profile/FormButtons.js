@@ -39,17 +39,18 @@ const DiscardButton = styled( LargeSecondaryButton )`
  * make this text inline with the text is added to.
  *
  * @param {ReactElement} savingMessage The feedback after pressed the save button.
+ * @param {func} discardChanges The function to discard changes.
  *
  * @returns {ReactElement} The rendered NewTabMessage component.
  */
-export default function getFormButtons( savingMessage ) {
+export default function getFormButtons( savingMessage, discardChanges ) {
 	let message = savingMessage;
 	return (
 		<ButtonArea>
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.savePassword.id} defaultMessage={messages.savePassword.defaultMessage}/>
 			</SaveButton>
-			<DiscardButton type="reset">
+			<DiscardButton type="reset" onClick={ discardChanges }>
 				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
 			</DiscardButton>
 			{ message }
