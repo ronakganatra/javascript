@@ -49,7 +49,7 @@ export default function getFormButtons( savingMessage ) {
 			<SaveButton type="submit">
 				<FormattedMessage id={messages.savePassword.id} defaultMessage={messages.savePassword.defaultMessage}/>
 			</SaveButton>
-			<DiscardButton type="cancel">
+			<DiscardButton type="reset">
 				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
 			</DiscardButton>
 			{ message }

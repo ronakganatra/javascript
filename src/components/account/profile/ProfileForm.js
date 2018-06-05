@@ -343,7 +343,7 @@ class ProfileForm extends React.Component {
 		return this.state.alternativeEmail.map(
 			( email, index ) => {
 				return (
-				<Fragment>
+				<Fragment key={`${email}-${index}`}>
 					<StyledLabel htmlFor="alternative-email-address">
 						<FormattedMessage
 							id={messages.labelAlternativeEmail.id}
