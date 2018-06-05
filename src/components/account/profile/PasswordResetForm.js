@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
 import _every from "lodash/every";
-import getFormButtons from "./FormButtons";
+import getFormButtons, { announceActions } from "./FormButtons";
 
 const messages = defineMessages( {
 	confirmPassword: {
@@ -123,6 +123,14 @@ class PasswordResetForm extends React.Component {
 		} );
 	}
 
+	componentDidUpdate() {
+		announceActions();
+	}
+
+	componentWillUnmount() {
+		this.props.resetSaveMessage();
+	}
+
 	handleSubmit( event, ownProps ) {
 		event.preventDefault();
 		/*
@@ -210,6 +218,7 @@ PasswordResetForm.propTypes = {
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	passWord:PropTypes.string,
+	resetSaveMessage: PropTypes.func,
 };
 
 PasswordResetForm.defaultProps = {

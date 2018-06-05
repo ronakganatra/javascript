@@ -15,7 +15,7 @@ import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import plusIcon from "../../../icons/blue-plus-circle.svg";
 import NewTabMessage from "./../../NewTabMessage";
-import getFormButtons from "./FormButtons";
+import getFormButtons, { announceActions, isSaving, isSaved } from "./FormButtons";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -68,23 +68,23 @@ const messages = defineMessages( {
 	},
 } );
 
-const AddEmailButton = styled( IconButtonTransparent )`
-	margin-top: 8px;
+const FormGroup = styled.form`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-between;
 `;
 
 const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 
-const FormMessage = styled.span`
-	padding: 0 1em 0 1em;
+const AddEmailButton = styled( IconButtonTransparent )`
+	margin-top: 8px;
 `;
 
-const FormGroup = styled.form`
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-between;
+const FormMessage = styled.span`
+	padding: 0 1em 0 1em;
 `;
 
 const LabelBlock = styled.div`
@@ -150,25 +150,6 @@ class ProfileForm extends React.Component {
 		this.constraints = {
 			email: this.emailConstraints.bind( this ),
 		};
-	}
-
-	/**
-	 * Announce actions to assistive technologies.
-	 *
-	 * @returns {void}
-	 */
-	announceActions() {
-		let message = "";
-
-		if ( this.isSaving() ) {
-			message = this.props.intl.formatMessage( messages.saving );
-		}
-
-		if ( this.isSaved() ) {
-			message = this.props.intl.formatMessage( messages.saved );
-		}
-
-		speak( message, "assertive" );
 	}
 
 	/**
@@ -249,7 +230,7 @@ class ProfileForm extends React.Component {
 	getChangeButtons() {
 		let emailSavingMessage;
 
-		if ( this.isSaving() || this.isSaved() ) {
+		if ( isSaving( this.props ) || isSaved( this.props ) ) {
 			let message = this.props.intl.formatMessage( this.isSaving() ? messages.saving : messages.saved );
 
 			emailSavingMessage = <FormMessage inline={true}>{message}</FormMessage>;
@@ -341,7 +322,7 @@ class ProfileForm extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.announceActions();
+		announceActions( this.props );
 	}
 
 	componentWillUnmount() {

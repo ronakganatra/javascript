@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { LargeButton, LargeSecondaryButton } from "../../Button";
 import { FormattedMessage, defineMessages } from "react-intl";
+import { speak } from "@wordpress/a11y/build/index";
+import _every from "lodash/every";
 
 const messages = defineMessages( {
 	discardChanges: {
@@ -56,4 +58,50 @@ export default function getFormButtons( savingMessage, discardChanges ) {
 			{ message }
 		</ButtonArea>
 	);
+}
+
+/**
+ * Whether a form is currently saving.
+ *
+ * @param { object } props The props of the form.
+ *
+ * @returns {boolean} Whether a form is saving.
+ */
+export function isSaving( props ) {
+	console.log( "props of formbuttons", props.isSaving );
+	return props.isSaving;
+}
+
+/**
+ * Whether a form is saved.
+ *
+ * @param { object } props The props of the form.
+ *
+ * @returns {boolean} Whether a form is currently saving.
+ */
+export function isSaved( props ) {
+	return props.isSaved && _every( [ "userFirstName", "userLastName", "email", "alternativeEmail" ], key => props[ key ] === this.state[ key ] );
+}
+
+/**
+ * Announces actions after pressing form buttons
+ *
+ * @param { object } props The props of the form.
+ * @param { func } isSaving The function being saving.
+ * @param { func } isSaved The function being saved.
+ *
+ * @returns {boolean} Whether a form is currently saving.
+ */
+export function announceActions( props ) {
+	let message = "";
+
+	if ( isSaving()  ) {
+		message = props.intl.formatMessage( messages.saving );
+	}
+
+	if ( isSaved( props ) ) {
+		message = props.intl.formatMessage( messages.saved );
+	}
+
+	speak( message, "assertive" );
 }
