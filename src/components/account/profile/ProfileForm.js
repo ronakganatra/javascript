@@ -12,6 +12,7 @@ import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
+import UploadUserImage from "./UploadUserImage";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -82,7 +83,7 @@ const LabelBlock = styled.div`
 `;
 
 const NameBlock = styled( LabelBlock )`
-	width: 48%;
+	width: 70%;
 	margin-bottom: 8px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
@@ -92,6 +93,13 @@ const NameBlock = styled( LabelBlock )`
 	div:last-of-type{
 		margin-bottom: 0;
 	}
+`;
+
+const AvatarBlock = styled.div`
+	width: 30%;
+	margin: auto;
+	padding: 20px;
+	text-align: center;
 `;
 
 /**
@@ -122,7 +130,7 @@ class ProfileForm extends React.Component {
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
-		this.onUpdateLastName  = this.onUpdateName.bind( this, "last" );
+		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
 
 		// Validation constraints.
 		this.constraints = {
@@ -215,7 +223,7 @@ class ProfileForm extends React.Component {
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
 			let warningKey = warning.attribute + index;
-			return <ErrorDisplay key={ warningKey } error={ warning } type="warning"/>;
+			return <ErrorDisplay key={ warningKey } error={ warning } type="warning" />;
 		} );
 	}
 
@@ -236,7 +244,8 @@ class ProfileForm extends React.Component {
 
 		return <SaveButtonArea>
 			<SaveButton type="submit">
-				<FormattedMessage id={ messages.saveProfile.id } defaultMessage={ messages.saveProfile.defaultMessage } />
+				<FormattedMessage id={ messages.saveProfile.id }
+								  defaultMessage={ messages.saveProfile.defaultMessage } />
 			</SaveButton>
 			{ emailSavingMessage }
 		</SaveButtonArea>;
@@ -308,6 +317,9 @@ class ProfileForm extends React.Component {
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
+				<AvatarBlock>
+					<UploadUserImage image={ this.props.image } onFileUpload={ this.props.onUploadAvatar } />
+				</AvatarBlock>
 				<NameBlock id="left">
 					<StyledLabel htmlFor="first-name">
 						<FormattedMessage
@@ -324,8 +336,6 @@ class ProfileForm extends React.Component {
 						value={ this.state.userFirstName }
 						onChange={ this.onUpdateFirstName }
 					/>
-				</NameBlock>
-				<NameBlock>
 					<StyledLabel htmlFor="last-name">
 						<FormattedMessage
 							id={ messages.labelLastName.id }
@@ -369,9 +379,11 @@ ProfileForm.propTypes = {
 	intl: intlShape.isRequired,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func,
+	onUploadAvatar: PropTypes.func.isRequired,
 	email: PropTypes.string,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
+	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,

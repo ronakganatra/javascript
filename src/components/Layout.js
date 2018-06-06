@@ -14,6 +14,8 @@ import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import LicenseActivationMessage from "./LicenseActivationMessage";
+import { WhitePage } from "../components/PaperStyles";
+import loginBackground from "../images/login-background.jpg";
 
 const messages = defineMessages( {
 	beacon: {
@@ -30,6 +32,17 @@ const Layout = styled.div`
 		display: block;
 		min-height: 0;
 	}
+`;
+
+const LayoutLogin = styled.div`
+	background: transparent url( ${ loginBackground } ) no-repeat 100% 0;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: "Open Sans", sans-serif;
+	color: #000;
+	
+	display: flex;
+	min-height: 100%;
 `;
 
 const Sidebar = styled.div`
@@ -54,7 +67,6 @@ const Sidebar = styled.div`
 		}
 	}
 `;
-
 
 const Main = styled.main`
 	flex: 1 1 auto;
@@ -93,6 +105,24 @@ Main.defaultProps = {
 	id: "content",
 };
 
+const WhitePaper = styled( WhitePage )`
+	margin: auto;
+`;
+
+export const inLoginLayout = ( WrappedComponent ) => {
+	return class LoginLayout extends Component {
+		render() {
+			return (
+				<LayoutLogin>
+					<WhitePaper>
+						<WrappedComponent {...this.props}/>
+					</WhitePaper>
+				</LayoutLogin>
+			);
+		}
+	};
+};
+
 export const inSingleLayout = ( WrappedComponent ) => {
 	return class SingleLayout extends Component {
 		render() {
@@ -103,8 +133,8 @@ export const inSingleLayout = ( WrappedComponent ) => {
 					</header>
 					<SingleMain>
 						<Content>
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
+							<WrappedComponent {...this.props} />
+							<GettingStartedModalContainer/>
 						</Content>
 					</SingleMain>
 				</Layout>
@@ -120,7 +150,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 				<Layout>
 					<header role="banner">
 						<SkipLink>
-							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content"/>
 						</SkipLink>
 						<MediaQuery query="(max-width: 1024px)">
 							<MobileHeaderContainer detailPage={ false }/>
@@ -131,17 +161,17 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<Logo context="sidebar" size="200px"/>
 						</MediaQuery>
 						<UserStatus/>
-						<MainMenu menuRoutes={ menuItems }  />
-						<DebugInfo />
+						<MainMenu menuRoutes={menuItems}/>
+						<DebugInfo/>
 					</Sidebar>
 					<Main>
 						<BeaconButtonContainer>
-							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
+							<FormattedMessage id="beacon.id" defaultMessage={messages.beacon.defaultMessage}/>
 						</BeaconButtonContainer>
 						<Content>
-							<LicenseActivationMessage />
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
+							<LicenseActivationMessage/>
+							<WrappedComponent {...this.props} />
+							<GettingStartedModalContainer/>
 						</Content>
 					</Main>
 				</Layout>

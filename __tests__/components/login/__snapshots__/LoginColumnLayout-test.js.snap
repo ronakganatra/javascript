@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The LoginColumnLayout component, with one column, matches the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  />
+</div>
+`;
+
+exports[`The LoginColumnLayout component, with two columns, matches the snapshot 1`] = `
+.c7 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c7:hover,
+.c7:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c7:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c6 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c2 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c4 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+.c5 {
+  margin-left: 48px;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c5 {
+    margin-left: 0;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        className="c4"
+        src="greeting.png"
+      />
+      <div>
+        <h2>
+          <span>
+            Welcome back!
+          </span>
+        </h2>
+        <p>
+          <span>
+            Log in with your email address and password. If you don't remember your password, just reset it!
+          </span>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c5"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        className="c4"
+        src="greeting.png"
+      />
+      <div>
+        <h2>
+          <span>
+            Password changed successfully!
+          </span>
+        </h2>
+        <button
+          className="c6 c7"
+          onClick={[Function]}
+          type="button"
+        >
+          <span>
+            Continue to MyYoast
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

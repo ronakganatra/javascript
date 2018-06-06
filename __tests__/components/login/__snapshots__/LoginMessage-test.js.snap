@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
+.c4 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c4:hover,
+.c4:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c4:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c3 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c2 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c1 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+<div
+  className="c0"
+>
+  <img
+    className="c1"
+    src="my-yoast-academy-logo.svg"
+  />
+  <img
+    className="c2"
+    src="greeting.png"
+  />
+  <div>
+    <h2>
+      <span>
+        Password changed successfully!
+      </span>
+    </h2>
+    <button
+      className="c3 c4"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        Continue to MyYoast
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] = `
+.c0 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c2 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c1 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+<div
+  className="c0"
+>
+  <img
+    className="c1"
+    src="my-yoast-academy-logo.svg"
+  />
+  <img
+    className="c2"
+    src="greeting.png"
+  />
+  <div>
+    <h2>
+      <span>
+        Welcome back!
+      </span>
+    </h2>
+    <p>
+      <span>
+        Log in with your email address and password. If you don't remember your password, just reset it!
+      </span>
+    </p>
+  </div>
+</div>
+`;

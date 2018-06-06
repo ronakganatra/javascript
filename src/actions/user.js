@@ -1,6 +1,13 @@
 import "whatwg-fetch";
 import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl, hasCookieParams } from "../functions/auth";
+import {
+	getLogoutUrl,
+	getAuthUrl,
+	removeCookies as removeAuthCookies,
+	getUserId,
+	getPasswordResetUrl,
+	hasCookieParams,
+} from "../functions/auth";
 
 /*
  * Action types
@@ -303,5 +310,16 @@ export function passwordResetSend( email ) {
 		return doRequest( request )
 			.then( () => dispatch( passwordResetSuccess() ) )
 			.catch( error => dispatch( passwordResetFailure( error ) ) );
+	};
+}
+
+/**
+ * Uploads an avatar image for the current user.
+ * @param {File} image the image to upload
+ * @returns {Function} Function to call when this action is dispatched.
+ */
+export function uploadAvatar( image ) {
+	return ( dispatch ) => {
+		// Upload to internal REST endpoint here!
 	};
 }
