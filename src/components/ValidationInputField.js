@@ -15,6 +15,7 @@ import { InputField } from "./InputField";
 
 // Styled components.
 const TextInput = styled( InputField )`
+	background-color: ${ colors.$color_background_light };
 	:not( :only-child ) {
 		border: 2px solid ${ colors.$color_error };
 	}

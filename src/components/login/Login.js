@@ -6,12 +6,12 @@ import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-i
 
 // Components.
 import { Button } from "../Button";
-import ValidationInputField from "../ValidationInputField";
+import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 
 // Styled components.
-const TextInput = styled( ValidationInputField )`
+const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
 `;
 

@@ -46,6 +46,10 @@ exports[`The Signup component matches the snapshot 1`] = `
   width: 100%;
 }
 
+.c4 {
+  background-color: #f7f7f7;
+}
+
 .c4:not(:only-child ) {
   border: 2px solid #dc3232;
 }

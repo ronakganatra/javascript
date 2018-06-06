@@ -56,8 +56,7 @@ class LoginColumnLayout extends React.Component {
 	/**
 	 * Returns the column that should be shown on
 	 * the right side of the column layout.
-	 * @returns {RightColumn
-	 *} the column to display
+	 * @returns {RightColumn} the column to display
 	 */
 	getRightColumn() {
 		return <RightColumn>

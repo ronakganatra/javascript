@@ -48,11 +48,11 @@ const Checkmark = styled.span`
 	width: 25px;
 	
 	:hover {
-		background-color: #ccc;
+		background-color: ${ colors.$color_grey_hover }
 	};
 		
 	box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-	background: ${ colors.$color_white };
+	background-color: ${ colors.$color_background_light };
 `;
 
 /**
