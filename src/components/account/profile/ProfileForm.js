@@ -6,6 +6,7 @@ import validate from "validate.js";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
@@ -112,8 +113,10 @@ class ProfileForm extends React.Component {
 			userLastName: this.props.userLastName,
 			email: this.props.email,
 			alternativeEmail: this.props.alternativeEmail,
+			onDiscard: false,
 		};
 
+		this.isSaved = this.isSaved.bind( this );
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
 		this.addAnotherEmail = this.addAnotherEmail.bind( this );
 		this.getAlternativeEmailComponents = this.getAlternativeEmailComponents.bind( this );
@@ -211,7 +214,18 @@ class ProfileForm extends React.Component {
 			userLastName: this.props.userLastName,
 			email: this.props.email,
 			alternativeEmail: this.props.alternativeEmail,
+			onDiscard: true,
 		} );
+	}
+
+	/**
+	 * Whether we have saved.
+	 *
+	 * @returns {boolean} Whether we are currently saving.
+	 */
+	isSaved() {
+		return this.props.isSaved && ! this.state.onDiscard &&
+			_every( [ "userFirstName", "userLastName", "email", "alternativeEmail" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
 	onUpdateEmail( event ) {
@@ -248,6 +262,7 @@ class ProfileForm extends React.Component {
 			alternativeEmail: this.state.alternativeEmail,
 		};
 
+		this.setState( { onDiscard: false } );
 		this.props.onSaveProfile( profile );
 	}
 
@@ -265,7 +280,7 @@ class ProfileForm extends React.Component {
 	}
 
 	componentDidUpdate() {
-		announceActions( this.props, this.state, "profile" );
+		announceActions( this.props.isSaving, this.isSaved(), "profile", this.props.intl );
 	}
 
 	componentWillUnmount() {
@@ -371,7 +386,7 @@ class ProfileForm extends React.Component {
 						/>
 						<NewTabMessage/>
 					</AddEmailButton>
-					{ getChangeButtons( this.props, this.state, "profile", this.discardChanges ) }
+					{ getChangeButtons( "profile", this.props.intl, this.props.isSaving, this.isSaved(), this.discardChanges ) }
 				</LabelBlock>
 			</FormGroup>
 		);

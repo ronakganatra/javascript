@@ -3,32 +3,24 @@ import styled from "styled-components";
 import { LargeButton, LargeSecondaryButton } from "../../Button";
 import { FormattedMessage, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y/build/index";
-import _every from "lodash/every";
+import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 
 const messages = defineMessages( {
 	discardChanges: {
 		id: "discard.changes",
 		defaultMessage: "Discard changes",
 	},
-	savePassword: {
-		id: "password.save",
-		defaultMessage: "Save password",
-	},
-	saveProfile: {
-		id: "profile.save",
-		defaultMessage: "Save profile",
-	},
 	saving: {
-		id: "profile.saving",
+		id: "change.saving",
 		defaultMessage: "Saving...",
 	},
-	savedProfile: {
-		id: "profile.saved",
-		defaultMessage: "Profile saved",
+	saved: {
+		id: "change.saved",
+		defaultMessage: "{type} saved",
 	},
-	savedPassword: {
-		id: "profile.saved",
-		defaultMessage: "Password saved",
+	saveButton: {
+		id: "change.save.button",
+		defaultMessage: "Save {type}",
 	},
 } );
 
@@ -54,103 +46,67 @@ const DiscardButton = styled( LargeSecondaryButton )`
 `;
 
 /**
- * Gets the save and discard button of a form, corresponding to its type.
+ * Gets the message related to save actions.
  *
- * @param {ReactElement} savingMessage The feedback after pressed the save button.
+ * @param {bool} isSaving Whether the form is currently in the progress of saving.
+ * @param {bool} isSaved Whether the form has been saved.
  * @param {string} type The type of form.
- * @param {func} discardChanges The function to discard changes.
+ * @param {*} intl To format messages.
  *
- * @returns {ReactElement} The rendered ButtonArea component, including save and discard buttons.
+ * @returns {string} The message to be shown ("Saving.." or "{type} saved.").
  */
-export function getFormButtons( savingMessage, type, discardChanges ) {
-	let saveId = messages.savePassword.id;
-	let saveDefaultMessage = messages.savePassword.defaultMessage;
-	if( type === "profile" ) {
-		saveId = messages.saveProfile.id;
-		saveDefaultMessage = messages.saveProfile.defaultMessage;
+function getMessage( isSaving, isSaved, type, intl ) {
+	let message = "";
+	if ( isSaving ) {
+		message = intl.formatMessage( messages.saving );
+	} else if ( isSaved ) {
+		message = intl.formatMessage( messages.saved, { type: type } );
 	}
+	return capitalizeFirstLetter( message );
+}
 
-	let message = savingMessage;
+/**
+ * Generates a row of buttons to save or discard changes in a form.
+ *
+ * @param {string} type The type of form, e.g. "password" or "profile".
+ * @param {*} intl To format messages.
+ * @param {bool} isSaving Whether the form is currently in the progress of saving.
+ * @param {bool} isSaved Whether the form has been saved.
+ * @param {function} discardChanges Callback function to call when the discard button is pressed.
+ *
+ * @returns {React.Component} The component with the change buttons.
+ */
+export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges ) {
+	let message = getMessage( isSaving, isSaved, type, intl );
+	speak( message, "assertive" );
+
 	return (
 		<ButtonArea>
 			<SaveButton type="submit">
-				<FormattedMessage id={ saveId } defaultMessage={ saveDefaultMessage }/>
+				<FormattedMessage id={ messages.saveButton.id }
+				                  defaultMessage={ messages.saveButton.defaultMessage }
+				                  values={ { type: type } }
+				/>
 			</SaveButton>
 			<DiscardButton type="reset" onClick={ discardChanges }>
 				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
 			</DiscardButton>
-			{ message }
+			<FormMessage inline={ true }>{ message }</FormMessage>
 		</ButtonArea>
 	);
 }
 
 /**
- * Whether a form is currently saving.
- *
- * @param { object } props The props of the form.
- *
- * @returns {boolean} Whether a form is saving.
- */
-export function isSaving( props ) {
-	return props ? props.isSaving : false;
-}
-
-/**
- * Whether a form is saved.
- *
- * @param { object } props The props of the form.
- * @param { object } state The state of the form.
- *
- * @returns {boolean} Whether a form is currently saving.
- */
-export function isSaved( props, state ) {
-	let ItemsInState = state ? Object.keys( state ) : [];
-	return props ? props.isSaved && _every( ItemsInState, key => props[ key ] === state[ key ] ) : null;
-}
-
-/**
- * Adds feedback (savingMessage) to the form buttons.
- *
- * @param { object } props The props of the form.
- * @param { object } state The state of the form.
- * @param {string} type The type of form.
- * @param {func} discardChanges The function to discard changes.
- *
- * @returns {func} The function to get form buttons.
- */
-export function getChangeButtons( props, state, type, discardChanges ) {
-	let savingMessage;
-	if ( isSaving( props ) || isSaved( props, state ) ) {
-		let message = props.intl.formatMessage( isSaving( props ) ? messages.saving : messages.savedProfile );
-		savingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-		speak( message, "assertive" );
-	}
-	return getFormButtons( savingMessage, type, discardChanges );
-}
-
-/**
  * Announces actions after pressing form buttons
  *
- * @param { object } props The props of the form.
- * @param { object } state The state of the form.
+ * @param {bool} isSaving Whether the form is currently in the progress of saving.
+ * @param {bool} isSaved Whether the form has been saved.
  * @param {string} type The type of form.
+ * @param {*} intl To format messages.
  *
  * @returns {void}
  */
-export function announceActions( props, state, type ) {
-	let message = "";
-
-	if ( isSaving( props )  ) {
-		message = props.intl.formatMessage( messages.saving );
-	}
-
-	if ( isSaved( props, state ) ) {
-		let savedFormType = messages.savedPassword;
-		if ( type === "profile" ) {
-			savedFormType = messages.savedProfile;
-		}
-		message = props.intl.formatMessage( savedFormType );
-	}
-
+export function announceActions( isSaving, isSaved, type, intl ) {
+	let message = getMessage( isSaving, isSaved, type, intl );
 	speak( message, "assertive" );
 }

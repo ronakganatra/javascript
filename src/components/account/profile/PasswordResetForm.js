@@ -96,7 +96,7 @@ class PasswordResetForm extends React.Component {
 	}
 
 	componentDidUpdate() {
-		announceActions( this.props, this.state, "password" );
+		announceActions( this.props.isSavingPassword, this.props.passwordIsSaved, "password", this.props.intl );
 	}
 
 	componentWillUnmount() {
@@ -172,7 +172,7 @@ class PasswordResetForm extends React.Component {
 						value={ this.state.confirmPassword }
 						onChange={ this.onConfirmPassword }
 					/>
-					{ getChangeButtons( this.props, this.state, "password", this.discardChanges ) }
+					{ getChangeButtons( "password", this.props.intl, this.props.isSavingPassword, this.props.passwordIsSaved, this.discardChanges ) }
 				</FormGroup>
 		);
 	}
@@ -181,16 +181,16 @@ class PasswordResetForm extends React.Component {
 PasswordResetForm.propTypes = {
 	intl: intlShape.isRequired,
 	onSavePassword: PropTypes.func,
-	isSaving: PropTypes.bool,
-	isSaved: PropTypes.bool,
+	isSavingPassword: PropTypes.bool,
+	passwordIsSaved: PropTypes.bool,
 	passWord: PropTypes.string,
 	resetSaveMessage: PropTypes.func,
 };
 
 PasswordResetForm.defaultProps = {
 	passWord: "",
-	isSaving: false,
-	isSaved: false,
+	isSavingPassword: false,
+	passwordIsSaved: false,
 };
 
 export default injectIntl( PasswordResetForm );

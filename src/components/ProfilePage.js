@@ -410,6 +410,13 @@ ProfilePage.propTypes = {
 	saveEmailError: PropTypes.object,
 	onUploadAvatar: PropTypes.func.isRequired,
 
+	// Password actions
+	onSavePassword: PropTypes.func,
+	isSavingPassword: PropTypes.bool,
+	passwordIsSaved: PropTypes.bool,
+	passWord: PropTypes.string,
+	resetSaveMessage: PropTypes.func,
+
 	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,
 	onCreateTokenModalClose: PropTypes.func.isRequired,
@@ -439,6 +446,8 @@ ProfilePage.defaultProps = {
 	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,
+	isSavingPassword: false,
+	passwordIsSaved: false,
 	manageTokenData: null,
 	tokenError: null,
 };
