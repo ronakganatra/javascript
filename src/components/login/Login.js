@@ -149,8 +149,10 @@ class Login extends React.Component {
 				</ForgotPasswordLink>
 
 				<RememberMe>
-					<Checkbox onCheck={ this.onRememberCheck } checked={ this.state.rememberMe }>
-						<FormattedMessage { ...messages.rememberMe } />
+					<Checkbox id="remember-me" onCheck={ this.onRememberCheck } checked={ this.state.rememberMe }>
+						<Label htmlFor="remember-me">
+							<FormattedMessage { ...messages.rememberMe } />
+						</Label>
 					</Checkbox>
 				</RememberMe>
 

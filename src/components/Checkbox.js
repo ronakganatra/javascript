@@ -18,13 +18,19 @@ const Container = styled.label`
 	-ms-user-select: none;
 	user-select: none;
 	
+	/* Checks our custom check mark. */
 	input:checked ~ .checkmark {
-		/* Blue background and white check mark */ 
+		/* Dark pink background and white check mark */ 
 		background-color: ${ colors.$color_pink_dark };
 		background-image: url( ${ check } );
 		background-repeat: no-repeat;
 		background-position: center;
 		background-size: 75%;
+	}
+	
+	/* Adds an outline to the check mark on focus. */
+	input:focus ~ .checkmark {
+		outline: -webkit-focus-ring-color auto 5px;
 	}
 `;
 
@@ -44,10 +50,9 @@ const Checkmark = styled.span`
 	:hover {
 		background-color: #ccc;
 	};
-	
+		
 	box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
 	background: ${ colors.$color_white };
-	
 `;
 
 /**
@@ -58,13 +63,17 @@ class Checkbox extends React.Component {
 
 	render() {
 		return <Container> { this.props.children }
-			<CheckboxInput onChange={ this.props.onCheck } checked={ this.props.checked } type={ "checkbox" } />
+			<CheckboxInput id={ this.props.id }
+						   onChange={ this.props.onCheck }
+						   checked={ this.props.checked }
+						   type={ "checkbox" } />
 			<Checkmark className={ "checkmark" } />
 		</Container>;
 	}
 }
 
 Checkbox.propTypes = {
+	id: PropTypes.string,
 	children: PropTypes.any,
 	onCheck: PropTypes.func,
 	checked: PropTypes.bool,
