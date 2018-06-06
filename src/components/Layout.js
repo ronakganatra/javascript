@@ -130,7 +130,7 @@ export const inSingleLayout = ( WrappedComponent ) => {
 			return (
 				<Layout>
 					<header role="banner">
-						<MobileHeaderContainer />
+						<MobileHeaderContainer { ...this.props } detailPage={ true } />
 					</header>
 					<SingleMain>
 						<Content>
@@ -154,7 +154,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 						</SkipLink>
 						<MediaQuery query="(max-width: 1024px)">
-							<MobileHeaderContainer />
+							<MobileHeaderContainer detailPage={ false } />
 						</MediaQuery>
 					</header>
 					<Sidebar>

@@ -4,24 +4,12 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 import { Heading } from "./Headings";
-import { BackButtonLink, makeButtonFullWidth } from "./Button";
-import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
-
-const messages = defineMessages( {
-	sitePageLoaded: {
-		id: "menu.site.loaded",
-		defaultMessage: "Manage site page loaded",
-	},
-	backButton: {
-		id: "backButton",
-		defaultMessage: "Back",
-	},
-} );
+import { injectIntl } from "react-intl";
 
 const SubscriptionHeaderContainer = styled.div`
 	width: 100%;
 	min-height: 180px;
-	background-color: ${ colors.$palette_pink_dark }
+	background-color: ${ colors.$palette_pink_dark };
 	display: flex;
 	margin-top: 8px;
 
@@ -104,19 +92,6 @@ const HeaderDescription = styled.p`
 	}
 `;
 
-// This button only appears when the window is smaller than the mobile breakpoint.
-const ResponsiveBackButtonArea = styled.div`
-	display: none;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		display: block;
-		padding: 16px 16px;
-	}
-`;
-
-let ResponsiveBackButtonLink = makeButtonFullWidth( BackButtonLink );
-
-
 /**
  * Creates the Subscription Header component
  *
@@ -128,37 +103,20 @@ function SubscriptionHeader( props ) {
 	let imageContainer = (
 		<HeaderImageContainer>
 			<HeaderImage src={ props.image }/>
-			<BackButtonLink to={ "/account/subscriptions" } >
-				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
-			</BackButtonLink>
-		</HeaderImageContainer>
-	);
-
-	let buttonContainer = (
-		<HeaderImageContainer>
-			<BackButtonLink to={ "/account/subscriptions" } >
-				<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
-			</BackButtonLink>
 		</HeaderImageContainer>
 	);
 
 	// Only add the image and container if provided.
-	let headerLeftContainer = props.image ? imageContainer : buttonContainer;
 	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>
-			{ headerLeftContainer }
+			{ imageContainer }
 			<HeaderContext>
 				<HeaderTitle>{ props.name }</HeaderTitle>
 				{ byline }
 				<HeaderDescription>{ props.description }</HeaderDescription>
 			</HeaderContext>
-			<ResponsiveBackButtonArea>
-				<ResponsiveBackButtonLink to={ "/account/subscriptions" } >
-					<FormattedMessage id={ messages.backButton.id } defaultMessage={ messages.backButton.defaultMessage } />
-				</ResponsiveBackButtonLink>
-			</ResponsiveBackButtonArea>
 		</SubscriptionHeaderContainer>
 	);
 }
