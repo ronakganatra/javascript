@@ -15,6 +15,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -34,6 +35,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				isSaving={true}
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -53,6 +55,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				saveEmailError={ {} }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -72,6 +75,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				isSendingPasswordReset={ true }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -91,6 +95,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				hasSendPasswordReset={ true }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -110,6 +115,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -130,6 +136,7 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -154,6 +161,7 @@ describe( 'components/ProfilePage', () => {
 					id: "1",
 					name: "abc",
 				} ] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -178,6 +186,7 @@ describe( 'components/ProfilePage', () => {
 					id: "1",
 					name: "abc",
 				} ] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -199,6 +208,7 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ null }
 				composerTokens={ [] }
 				newsletterSubscribed="subscribed"
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
