@@ -206,7 +206,7 @@ class PasswordResetForm extends React.Component {
 						value={ this.state.confirmPassword }
 						onChange={ this.onConfirmPassword }
 					/>
-					{ getFormButtons( passwordSaveMessage, this.discardChanges ) }
+					{ getFormButtons( passwordSaveMessage, "password", this.discardChanges ) }
 				</FormGroup>
 		);
 	}

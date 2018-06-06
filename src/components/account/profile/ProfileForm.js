@@ -3,11 +3,9 @@ import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { IconButtonTransparent } from "../../Button";
 import validate from "validate.js";
-import { speak } from "@wordpress/a11y";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
-import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
@@ -15,7 +13,7 @@ import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import plusIcon from "../../../icons/blue-plus-circle.svg";
 import NewTabMessage from "./../../NewTabMessage";
-import getFormButtons, { announceActions, isSaving, isSaved } from "./FormButtons";
+import { announceActions, getChangeButtons } from "./FormButtons";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -50,22 +48,6 @@ const messages = defineMessages( {
 		id: "profile.label.lastName",
 		defaultMessage: "Last name",
 	},
-	saving: {
-		id: "profile.saving",
-		defaultMessage: "Saving...",
-	},
-	saved: {
-		id: "profile.saved",
-		defaultMessage: "Profile saved",
-	},
-	saveProfile: {
-		id: "profile.save",
-		defaultMessage: "Save profile",
-	},
-	discardChanges: {
-		id: "discard.changes",
-		defaultMessage: "Discard changes",
-	},
 } );
 
 const FormGroup = styled.form`
@@ -81,10 +63,6 @@ const TextInput = styled( InputField )`
 
 const AddEmailButton = styled( IconButtonTransparent )`
 	margin-top: 8px;
-`;
-
-const FormMessage = styled.span`
-	padding: 0 1em 0 1em;
 `;
 
 const LabelBlock = styled.div`
@@ -223,24 +201,6 @@ class ProfileForm extends React.Component {
 	}
 
 	/**
-	 * Returns the save email elements for the profile page.
-	 *
-	 * @returns {ReactElement} The elements for the save email.
-	 */
-	getChangeButtons() {
-		let emailSavingMessage;
-
-		if ( isSaving( this.props ) || isSaved( this.props ) ) {
-			let message = this.props.intl.formatMessage( this.isSaving() ? messages.saving : messages.saved );
-
-			emailSavingMessage = <FormMessage inline={true}>{message}</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		return getFormButtons( emailSavingMessage, this.discardChanges );
-	}
-
-	/**
 	 * Discards the changes of personal info and resets it to initial state.
 	 *
 	 * @returns {void}
@@ -252,23 +212,6 @@ class ProfileForm extends React.Component {
 			email: this.props.email,
 			alternativeEmail: this.props.alternativeEmail,
 		} );
-	}
-	/**
-	 * Whether we are currently saving.
-	 *
-	 * @returns {boolean} Whether we are currently saving.
-	 */
-	isSaving() {
-		return this.props.isSaving;
-	}
-
-	/**
-	 * Whether we have saved.
-	 *
-	 * @returns {boolean} Whether we are currently saving.
-	 */
-	isSaved() {
-		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email", "alternativeEmail" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
 	onUpdateEmail( event ) {
@@ -293,7 +236,7 @@ class ProfileForm extends React.Component {
 		 * While saving: prevent multiple submissions but don't disable the
 		 * button for better accessibility (avoid keyboard focus loss).
 		 */
-		if ( this.isSaving() ) {
+		if ( this.props.isSaving ) {
 			return;
 		}
 		let profile = {
@@ -322,7 +265,7 @@ class ProfileForm extends React.Component {
 	}
 
 	componentDidUpdate() {
-		announceActions( this.props );
+		announceActions( this.props, this.state, "profile" );
 	}
 
 	componentWillUnmount() {
@@ -428,7 +371,7 @@ class ProfileForm extends React.Component {
 						/>
 						<NewTabMessage/>
 					</AddEmailButton>
-					{this.getChangeButtons()}
+					{ getChangeButtons( this.props, this.state, "profile", this.discardChanges ) }
 				</LabelBlock>
 			</FormGroup>
 		);
