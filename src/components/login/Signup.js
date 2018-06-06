@@ -82,8 +82,6 @@ const messages = defineMessages( {
 	},
 } );
 
-// To check the strength of the password.
-// const PASSWORD_STRENGTH_REGEX = new RegExp( "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})" );
 const PASSWORD_MINIMUM_LENGTH = 5;
 
 /**
