@@ -72,6 +72,10 @@ exports[`The Login component matches the snapshot 1`] = `
   background-size: 75%;
 }
 
+.c8 input:focus ~ .checkmark {
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
 .c9 {
   position: absolute;
   opacity: 0;
@@ -196,12 +200,18 @@ exports[`The Login component matches the snapshot 1`] = `
       className="c8"
     >
        
-      <span>
-        Remember me
-      </span>
+      <label
+        className="c2 c3"
+        htmlFor="remember-me"
+      >
+        <span>
+          Remember me
+        </span>
+      </label>
       <input
         checked={false}
         className="c9"
+        id="remember-me"
         onChange={[Function]}
         type="checkbox"
       />
