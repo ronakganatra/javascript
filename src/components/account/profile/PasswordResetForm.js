@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
 import { announceActions, getChangeButtons } from "./FormButtons";
+import _every from "lodash/every";
 
 const messages = defineMessages( {
 	confirmPassword: {
@@ -57,8 +58,10 @@ class PasswordResetForm extends React.Component {
 			currentPassword: this.props.passWord,
 			newPassword: "",
 			confirmPassword: "",
+			onDiscard: false,
 		};
 
+		this.isSaved = this.isSaved.bind( this );
 		this.onCurrentPassword = this.onCurrentPassword.bind( this );
 		this.onNewPassword = this.onNewPassword.bind( this );
 		this.onConfirmPassword = this.onConfirmPassword.bind( this );
@@ -92,15 +95,18 @@ class PasswordResetForm extends React.Component {
 			currentPassword: this.props.passWord,
 			newPassword: "",
 			confirmPassword: "",
+			onDiscard: true,
 		} );
 	}
 
-	componentDidUpdate() {
-		announceActions( this.props.isSavingPassword, this.props.passwordIsSaved, "password", this.props.intl );
-	}
-
-	componentWillUnmount() {
-		this.props.resetSaveMessage();
+	/**
+	 * Whether we have saved.
+	 *
+	 * @returns {boolean} Whether we are currently saving.
+	 */
+	isSaved() {
+		return this.props.passwordIsSaved && ! this.state.onDiscard &&
+			_every( [ "newPassword" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
 	handleSubmit( event ) {
@@ -114,12 +120,22 @@ class PasswordResetForm extends React.Component {
 		 return;
 		 }
 		 let password = {
-		password: this.state.password,
-		};
+		 password: this.state.password,
+		 };
 		 */
 		// Should be updated when encryption is developed.
+		this.setState( { onDiscard: false } );
 		console.log( "handle sumbit should be updated" );
 	}
+
+	componentDidUpdate() {
+		announceActions( this.props.isSavingPassword, this.props.passwordIsSaved, "password", this.props.intl );
+	}
+
+	componentWillUnmount() {
+		this.props.resetSaveMessage();
+	}
+
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.

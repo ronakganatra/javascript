@@ -174,7 +174,6 @@ class ProfileForm extends React.Component {
 				},
 			};
 		}
-
 		return output;
 	}
 

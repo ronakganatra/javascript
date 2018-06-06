@@ -48,8 +48,8 @@ const DiscardButton = styled( LargeSecondaryButton )`
 /**
  * Gets the message related to save actions.
  *
- * @param {bool} isSaving Whether the form is currently in the progress of saving.
- * @param {bool} isSaved Whether the form has been saved.
+ * @param {boolean} isSaving Whether the form is currently in the progress of saving.
+ * @param {boolean} isSaved Whether the form has been saved.
  * @param {string} type The type of form.
  * @param {*} intl To format messages.
  *
@@ -70,8 +70,8 @@ function getMessage( isSaving, isSaved, type, intl ) {
  *
  * @param {string} type The type of form, e.g. "password" or "profile".
  * @param {*} intl To format messages.
- * @param {bool} isSaving Whether the form is currently in the progress of saving.
- * @param {bool} isSaved Whether the form has been saved.
+ * @param {boolean} isSaving Whether the form is currently in the progress of saving.
+ * @param {boolean} isSaved Whether the form has been saved.
  * @param {function} discardChanges Callback function to call when the discard button is pressed.
  *
  * @returns {React.Component} The component with the change buttons.
