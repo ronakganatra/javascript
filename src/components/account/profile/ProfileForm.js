@@ -289,9 +289,10 @@ class ProfileForm extends React.Component {
 	/**
 	 * Renders alternative email address input fields and label.
 	 *
+	 * @param {Array} warnings The warnings that could be displayed.
 	 * @returns {ReactElement} The input fields and label.
 	 */
-	getAlternativeEmailComponents() {
+	getAlternativeEmailComponents( warnings ) {
 		return this.state.alternativeEmail.map(
 			( email, index ) => {
 				return (
@@ -311,6 +312,7 @@ class ProfileForm extends React.Component {
 						value={this.state.alternativeEmail[ index ]}
 						onChange={ event => this.onUpdateAlternativeEmail( event, index )}
 					/>
+					{this.displayWarnings( warnings, "email" )}
 				</Fragment> );
 			}
 		);
@@ -376,7 +378,7 @@ class ProfileForm extends React.Component {
 						onChange={this.onUpdateEmail}
 					/>
 					{this.displayWarnings( warnings, "email" )}
-					{this.getAlternativeEmailComponents()}
+					{this.getAlternativeEmailComponents( warnings )}
 					<ErrorDisplay error={this.props.saveEmailError}/>
 					<AddEmailButton iconSource={ plusIcon } onClick={ this.addAnotherEmail } iconSize={ "1em" } >
 						<FormattedMessage
