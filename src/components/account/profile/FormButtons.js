@@ -62,7 +62,7 @@ const DiscardButton = styled( LargeSecondaryButton )`
  *
  * @returns {ReactElement} The rendered ButtonArea component, including save and discard buttons.
  */
-export default function getFormButtons( savingMessage, type, discardChanges ) {
+export function getFormButtons( savingMessage, type, discardChanges ) {
 	let saveId = messages.savePassword.id;
 	let saveDefaultMessage = messages.savePassword.defaultMessage;
 	if( type === "profile" ) {

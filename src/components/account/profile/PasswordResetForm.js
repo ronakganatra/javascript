@@ -5,8 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
-import _every from "lodash/every";
-import getFormButtons, { announceActions } from "./FormButtons";
+import { announceActions, getChangeButtons } from "./FormButtons";
 
 const messages = defineMessages( {
 	confirmPassword: {
@@ -20,14 +19,6 @@ const messages = defineMessages( {
 	newPassword: {
 		id: "new.password",
 		defaultMessage: "New password",
-	},
-	saving: {
-		id: "profile.saving",
-		defaultMessage: "Saving...",
-	},
-	saved: {
-		id: "profile.saved",
-		defaultMessage: "Profile saved",
 	},
 } );
 
@@ -68,8 +59,6 @@ class PasswordResetForm extends React.Component {
 			confirmPassword: "",
 		};
 
-		this.isSaved = this.isSaved.bind( this );
-		this.isSaving = this.isSaving.bind( this );
 		this.onCurrentPassword = this.onCurrentPassword.bind( this );
 		this.onNewPassword = this.onNewPassword.bind( this );
 		this.onConfirmPassword = this.onConfirmPassword.bind( this );
@@ -77,29 +66,12 @@ class PasswordResetForm extends React.Component {
 	}
 
 	/**
-	 * Whether we are currently saving.
+	 * Sets the state according to the form field input.
 	 *
-	 * @returns {boolean} Whether we are currently saving.
-	 */
-	isSaving() {
-		return this.props.isSaving;
-	}
-
-	/**
-	 * Whether we have saved.
+	 * @param {event} event The event of editing a form field.
 	 *
-	 * @returns {boolean} Whether we are currently saving.
+	 * @returns {void}
 	 */
-
-	isSaved() {
-		return this.props.isSaved && _every( [ "current password" ], key => this.props[ key ] === this.state[ key ] );
-	}
-	/**
-	 * Returns the save email elements for the profile page.
-	 *
-	 * @returns {ReactElement} The elements for the save email.
-	 */
-
 	onCurrentPassword( event ) {
 		this.setState( { currentPassword: event.target.value } );
 	}
@@ -124,41 +96,35 @@ class PasswordResetForm extends React.Component {
 	}
 
 	componentDidUpdate() {
-		announceActions();
+		announceActions( this.props, this.state, "password" );
 	}
 
 	componentWillUnmount() {
 		this.props.resetSaveMessage();
 	}
 
-	handleSubmit( event, ownProps ) {
+	handleSubmit( event ) {
 		event.preventDefault();
 		/*
 		 * While saving: prevent multiple submissions but don't disable the
 		 * button for better accessibility (avoid keyboard focus loss).
 		 */
-		if ( this.isSaving() ) {
-			return;
-		}
-		let password = {
-			/* eslint-disable camelcase */
-			password: this.state.password,
+		/*
+		 if ( this.props.isSaving ) {
+		 return;
+		 }
+		 let password = {
+		password: this.state.password,
 		};
-
-		this.props.onSavePassword( password );
+		 */
+		// Should be updated when encryption is developed.
+		console.log( "handle sumbit should be updated" );
 	}
 	/**
 	 * Renders the element.
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
-		let passwordResetError = "";
-		let passwordResetMessage = "";
-
-		let passwordSaveMessage = "";
-		if ( passwordResetError !== "" ) {
-			passwordSaveMessage = passwordResetMessage;
-		}
 		return (
 				<FormGroup onSubmit={ this.handleSubmit }>
 					<StyledLabel htmlFor="current-password">
@@ -206,7 +172,7 @@ class PasswordResetForm extends React.Component {
 						value={ this.state.confirmPassword }
 						onChange={ this.onConfirmPassword }
 					/>
-					{ getFormButtons( passwordSaveMessage, "password", this.discardChanges ) }
+					{ getChangeButtons( this.props, this.state, "password", this.discardChanges ) }
 				</FormGroup>
 		);
 	}
@@ -217,7 +183,7 @@ PasswordResetForm.propTypes = {
 	onSavePassword: PropTypes.func,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
-	passWord:PropTypes.string,
+	passWord: PropTypes.string,
 	resetSaveMessage: PropTypes.func,
 };
 
