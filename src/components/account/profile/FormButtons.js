@@ -54,17 +54,13 @@ const DiscardButton = styled( LargeSecondaryButton )`
 `;
 
 /**
- * Returns the rendered Opens in a New Tab Message component.
- *
- * Note about recommended usage: use it as a value to pass to a react-intl
- * FormattedMessage placeholder or in any other way that the final result will
- * make this text inline with the text is added to.
+ * Gets the save and discard button of a form, corresponding to its type.
  *
  * @param {ReactElement} savingMessage The feedback after pressed the save button.
  * @param {string} type The type of form.
  * @param {func} discardChanges The function to discard changes.
  *
- * @returns {ReactElement} The rendered NewTabMessage component.
+ * @returns {ReactElement} The rendered ButtonArea component, including save and discard buttons.
  */
 export default function getFormButtons( savingMessage, type, discardChanges ) {
 	let saveId = messages.savePassword.id;
@@ -113,23 +109,23 @@ export function isSaved( props, state ) {
 }
 
 /**
- * Returns the save email elements for the profile page.
+ * Adds feedback (savingMessage) to the form buttons.
  *
  * @param { object } props The props of the form.
  * @param { object } state The state of the form.
  * @param {string} type The type of form.
  * @param {func} discardChanges The function to discard changes.
  *
- * @returns {ReactElement} The elements for the save email.
+ * @returns {func} The function to get form buttons.
  */
 export function getChangeButtons( props, state, type, discardChanges ) {
-	let emailSavingMessage;
+	let savingMessage;
 	if ( isSaving( props ) || isSaved( props, state ) ) {
 		let message = props.intl.formatMessage( isSaving( props ) ? messages.saving : messages.savedProfile );
-		emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
+		savingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
 		speak( message, "assertive" );
 	}
-	return getFormButtons( emailSavingMessage, type, discardChanges );
+	return getFormButtons( savingMessage, type, discardChanges );
 }
 
 /**
@@ -139,7 +135,7 @@ export function getChangeButtons( props, state, type, discardChanges ) {
  * @param { object } state The state of the form.
  * @param {string} type The type of form.
  *
- * @returns {boolean} Whether a form is currently saving.
+ * @returns {void}
  */
 export function announceActions( props, state, type ) {
 	let message = "";
