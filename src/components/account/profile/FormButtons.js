@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { LargeButton, LargeSecondaryButton } from "../../Button";
 import { FormattedMessage, defineMessages } from "react-intl";
-import { speak } from "@wordpress/a11y/build/index";
+import { speak } from "@wordpress/a11y";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 
 const messages = defineMessages( {
@@ -84,11 +84,12 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
 		<ButtonArea>
 			<SaveButton type="submit">
 				<FormattedMessage id={ messages.saveButton.id }
-				                  defaultMessage={ messages.saveButton.defaultMessage }
+								  defaultMessage={ messages.saveButton.defaultMessage }
 				/>
 			</SaveButton>
 			<DiscardButton type="reset" onClick={ discardChanges }>
-				<FormattedMessage id={messages.discardChanges.id} defaultMessage={messages.discardChanges.defaultMessage}/>
+				<FormattedMessage id={ messages.discardChanges.id }
+								  defaultMessage={ messages.discardChanges.defaultMessage } />
 			</DiscardButton>
 			<FormMessage inline={ true }>{ message }</FormMessage>
 		</ButtonArea>
