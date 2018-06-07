@@ -1,7 +1,10 @@
 import React from "react";
 import { mapStateToProps, mapDispatchToProps } from "../../src/containers/ProfilePage"
+<<<<<<< HEAD
 import { url } from "gravatar";
 
+=======
+>>>>>>> Optionally get user avatars from provided URL.
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 test( 'the mapStateToProps function', () => {
@@ -12,6 +15,7 @@ test( 'the mapStateToProps function', () => {
 					email: "test@test.test",
 					userFirstName: "firstName",
 					userLastName: "lastName",
+					userAvatarUrl: "https://example.com/test.png",
 				},
 			},
 			saveEmailError: "An error",
@@ -45,7 +49,11 @@ test( 'the mapStateToProps function', () => {
 	let expected = {
 		email: "test@test.test",
 		composerTokens: [],
+<<<<<<< HEAD
 		image: avatarPlaceholder,
+=======
+		image: "https://example.com/test.png",
+>>>>>>> Optionally get user avatars from provided URL.
 		userFirstName: "firstName",
 		userLastName: "lastName",
 		saveEmailError: "An error",

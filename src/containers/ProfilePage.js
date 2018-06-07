@@ -24,7 +24,12 @@ export const mapStateToProps = ( state ) => {
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
 		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: avatarPlaceholder,
+		image: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
+			s: "150",
+			r: "pg",
+			d: avatarPlaceholder,
+			protocol: "https",
+		} ),
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
