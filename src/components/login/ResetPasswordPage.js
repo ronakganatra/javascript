@@ -37,6 +37,10 @@ const messages = defineMessages( {
 		id: "reset.error.passwordsDoNotMatch",
 		defaultMessage: "^Passwords do not match.",
 	},
+	validationMinimumLength: {
+		id: "validation.minimumLength",
+		defaultMessage: "^{field} must have a minimum length of {minLength} characters.",
+	},
 } );
 
 // Styled components.
@@ -84,6 +88,8 @@ const SaveButton = styled( Button )`
 	width: 100%;
 `;
 
+const PASSWORD_MINIMUM_LENGTH = 5;
+
 /**
  * Page to change the password of an account.
  */
@@ -116,6 +122,18 @@ class ResetPasswordPage extends React.Component {
 		this.setState( obj );
 	}
 
+	passwordConstraints() {
+		return {
+			length: {
+				minimum: PASSWORD_MINIMUM_LENGTH,
+				message: this.props.intl.formatMessage( messages.validationMinimumLength, {
+					field: "Password",
+					minLength: PASSWORD_MINIMUM_LENGTH,
+				} ),
+			},
+		};
+	}
+
 	passwordRepeatConstraint() {
 		return {
 			equality: {
@@ -125,14 +143,14 @@ class ResetPasswordPage extends React.Component {
 		};
 	}
 
-	validate() {
+	validate( password, passwordRepeat ) {
 		if ( this.state.passwordRepeat.length === 0 ) {
 			return [];
 		}
 
 		let errors = validate( {
-			password: this.state.password,
-			passwordRepeat: this.state.passwordRepeat,
+			password: password,
+			passwordRepeat: passwordRepeat,
 		}, this.constraints );
 
 		if ( _isUndefined( errors ) ) {
@@ -145,7 +163,7 @@ class ResetPasswordPage extends React.Component {
 	}
 
 	render() {
-		let errors = this.validate();
+		let errors = this.validate( this.state.password, this.state.passwordRepeat );
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -169,6 +187,7 @@ class ResetPasswordPage extends React.Component {
 								type="password"
 								errors={ this.state.errors.password }
 								onChange={ this.onUpdatePassword }
+								constraint={ this.passwordConstraints() }
 							/>
 						</LabelBlock>
 

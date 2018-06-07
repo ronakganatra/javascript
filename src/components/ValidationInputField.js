@@ -106,7 +106,7 @@ class ValidationInputField extends React.Component {
 	/**
 	 * Fired whenever the onChange event of the input is fired.
 	 * @param {*} event the event
-	 * @returns {null} null
+	 * @returns {*} null
 	 */
 	_onChange( event ) {
 		let errors = [];
@@ -139,11 +139,13 @@ class ValidationInputField extends React.Component {
 ValidationInputField.propTypes = {
 	onChange: PropTypes.func,
 	children: PropTypes.array,
-	constraint: PropTypes.object,
-	errors: PropTypes.array,
 	id: PropTypes.string,
 	type: PropTypes.string,
 	value: PropTypes.string,
+
+	constraint: PropTypes.object,
+	errors: PropTypes.array,
+	regex: PropTypes.string,
 };
 
 ValidationInputField.defaultProps = {
