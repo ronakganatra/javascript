@@ -8,6 +8,7 @@ exports[`the configuration service request status block component with status co
 .c1 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c2 {
@@ -119,11 +120,13 @@ exports[`the configuration service request status block component with status in
 .c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
 .c1 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c2 {
@@ -182,13 +185,12 @@ exports[`the configuration service request status block component with status in
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -322,11 +324,13 @@ exports[`the configuration service request status block component with status su
 .c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
 .c1 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c2 {
@@ -385,13 +389,12 @@ exports[`the configuration service request status block component with status su
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
