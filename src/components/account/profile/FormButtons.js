@@ -20,7 +20,7 @@ const messages = defineMessages( {
 	},
 	saveButton: {
 		id: "change.save.button",
-		defaultMessage: "Save {type}",
+		defaultMessage: "Save changes",
 	},
 } );
 
@@ -85,7 +85,6 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
 			<SaveButton type="submit">
 				<FormattedMessage id={ messages.saveButton.id }
 				                  defaultMessage={ messages.saveButton.defaultMessage }
-				                  values={ { type: type } }
 				/>
 			</SaveButton>
 			<DiscardButton type="reset" onClick={ discardChanges }>
