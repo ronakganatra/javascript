@@ -154,39 +154,6 @@ test( 'disable user action creator', () => {
 	} );
 } );
 
-describe( 'Password reset', () => {
-	test( 'request action', () => {
-		const expected = {
-			type: actions.RESET_PASSWORD_REQUEST,
-		};
-
-		const actual = actions.passwordResetRequest();
-
-		expect( actual ).toEqual( expected );
-	} );
-
-	test( 'failure action', () => {
-		const expected = {
-			type: actions.RESET_PASSWORD_FAILURE,
-			error: { error: "A reset password failure error" },
-		};
-
-		const actual = actions.passwordResetFailure( { error: "A reset password failure error" } );
-
-		expect( actual ).toEqual( expected );
-	} );
-
-	test( 'success action', () => {
-		const expected = {
-			type: actions.RESET_PASSWORD_SUCCESS,
-		};
-
-		const actual = actions.passwordResetSuccess();
-
-		expect( actual ).toEqual( expected );
-	} );
-} );
-
 describe( 'Profile saving', () => {
 	test( 'request action', () => {
 		const expected = {
