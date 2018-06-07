@@ -6,7 +6,7 @@ import colors from "yoast-components/style-guide/colors";
 
 import check from "../icons/check.svg";
 
-const Container = styled.label`
+const Label = styled.label`
 	display: block;
 	position: relative;
 	cursor: pointer;
@@ -62,13 +62,13 @@ const Checkmark = styled.span`
 class Checkbox extends React.Component {
 
 	render() {
-		return <Container> { this.props.children }
+		return <Label> { this.props.children }
 			<CheckboxInput id={ this.props.id }
 						   onChange={ this.props.onCheck }
 						   checked={ this.props.checked }
 						   type={ "checkbox" } />
 			<Checkmark className={ "checkmark" } />
-		</Container>;
+		</Label>;
 	}
 }
 
