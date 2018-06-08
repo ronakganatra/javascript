@@ -73,6 +73,10 @@ const messages = defineMessages( {
 		id: "userImageUpload.maxFileSize",
 		defaultMessage: "Max. file size {maxSize} mb",
 	},
+	defaultImage: {
+		id: "userImageUpload.defaultImageDescription",
+		defaultMessage: "default user image",
+	},
 } );
 
 class UploadUserImage extends React.Component {
@@ -120,8 +124,10 @@ class UploadUserImage extends React.Component {
 	render() {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
+		let defaultImageDescription = this.props.intl.formatMessage( messages.defaultImage );
+
 		return <UploadElement>
-			<UserImage src={ this.props.image } size="150px" />
+			<UserImage alt={ defaultImageDescription } src={ this.props.image } size="150px" />
 			<Overlay>
 				<ChangeLink onClick={ this.onClickLink }>
 					Change
