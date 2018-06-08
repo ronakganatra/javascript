@@ -31,7 +31,7 @@ const Overlay = styled.span`
 	background: linear-gradient(${transparent} 75%, ${translucentBlack} 75%);
 `;
 
-const ChangeLink = styled.a`
+const ChangeButton = styled.button`
 	position: absolute;
 	
 	bottom: 0;
@@ -40,6 +40,9 @@ const ChangeLink = styled.a`
 	width: 100%;
 	padding: 8px;
 	
+	/* Style as a link */
+	background: none;
+	border: none;
    	color: white;
    	font-size: 12px;
    	text-decoration: underline;
@@ -69,9 +72,13 @@ const messages = defineMessages( {
 		id: "userImageUpload.changeImage",
 		defaultMessage: "Change",
 	},
+	changeAriaLabel: {
+		id: "userImageUpload.changeAriaDescription",
+		defaultMessage: "Change profile image",
+	},
 	maxFileSize: {
 		id: "userImageUpload.maxFileSize",
-		defaultMessage: "Max. file size {maxSize} mb",
+		defaultMessage: "Maximum file size {maxSize} Megabytes",
 	},
 } );
 
@@ -119,13 +126,14 @@ class UploadUserImage extends React.Component {
 
 	render() {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+		let changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 
 		return <UploadElement>
 			<UserImage src={ this.props.image } size="150px" />
 			<Overlay>
-				<ChangeLink onClick={ this.onClickLink }>
-					Change
-				</ChangeLink>
+				<ChangeButton aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
+					<FormattedMessage { ...messages.change } />
+				</ChangeButton>
 			</Overlay>
 			<MaxFileSizeText>
 				<FormattedMessage
@@ -138,7 +146,8 @@ class UploadUserImage extends React.Component {
 			} }
 				   type={ "file" }
 				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
-				   style={ { opacity: 0 } }
+				   style={ { display: "none" } }
+				   aria-hidden={ true }
 				   onChange={ e => this.onFileUpload( e.target.files[ 0 ] ) }
 			/>
 		</UploadElement>;
