@@ -193,18 +193,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -320,7 +321,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -456,11 +457,12 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -485,7 +487,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -1022,18 +1024,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -1149,7 +1152,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -1285,11 +1288,12 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -1314,7 +1318,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -1817,18 +1821,19 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -1944,7 +1949,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -2080,11 +2085,12 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -2109,7 +2115,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -2612,18 +2618,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -2739,7 +2746,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -2875,11 +2882,12 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -2904,7 +2912,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -3444,18 +3452,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -3571,7 +3580,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c35 {
@@ -3716,11 +3725,12 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -3745,7 +3755,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -4269,18 +4279,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -4396,7 +4407,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -4532,11 +4543,12 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -4561,7 +4573,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -5064,18 +5076,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -5191,7 +5204,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -5327,11 +5340,12 @@ exports[`components/ProfilePage saving profile 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -5356,7 +5370,7 @@ exports[`components/ProfilePage saving profile 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -5859,18 +5873,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -5986,7 +6001,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -6122,11 +6137,12 @@ exports[`components/ProfilePage sending password reset 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -6151,7 +6167,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -6654,18 +6670,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -6781,7 +6798,7 @@ exports[`components/ProfilePage the default case 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -6917,11 +6934,12 @@ exports[`components/ProfilePage the default case 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src="dummy.png"
               />
               <span
@@ -6946,7 +6964,7 @@ exports[`components/ProfilePage the default case 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -7449,18 +7467,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 120px;
-  -ms-flex: 0 0 120px;
-  flex: 0 0 120px;
-  height: 120px;
+  -webkit-flex: 0 0 130px;
+  -ms-flex: 0 0 130px;
+  flex: 0 0 130px;
+  height: 130px;
   border-radius: 50%;
   margin-right: 12px;
 }
 
 .c9 {
+  display: inline-block;
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 130px;
+  height: 130px;
 }
 
 .c11 {
@@ -7576,7 +7595,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 .c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  text-align: center;
 }
 
 .c31 {
@@ -7712,11 +7731,12 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           >
             <div
               className="c9"
+              size="130px"
             >
               <img
                 alt=""
                 className="c10"
-                size="120px"
+                size="130px"
                 src={undefined}
               />
               <span
@@ -7741,7 +7761,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
