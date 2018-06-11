@@ -86,7 +86,7 @@ const NameBlock = styled( LabelBlock )`
 const AvatarBlock = styled.div`
 	width: 30%;
 	margin: auto;
-	padding: 20px;
+	text-align: center;
 `;
 
 /**
@@ -125,7 +125,6 @@ class ProfileForm extends React.Component {
 		this.discardChanges = this.discardChanges.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
 		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
-
 
 		// Validation constraints.
 		this.constraints = {
@@ -198,7 +197,7 @@ class ProfileForm extends React.Component {
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
 			let warningKey = warning.attribute + index;
-			return <ErrorDisplay key={warningKey} error={warning} type="warning"/>;
+			return <ErrorDisplay key={ warningKey } error={ warning } type="warning" />;
 		} );
 	}
 
@@ -296,28 +295,27 @@ class ProfileForm extends React.Component {
 		return this.state.alternativeEmail.map(
 			( email, index ) => {
 				return (
-				<Fragment key={`${email}-${index}`}>
-					<StyledLabel htmlFor="alternative-email-address">
-						<FormattedMessage
-							id={messages.labelAlternativeEmail.id}
-							defaultMessage={messages.labelAlternativeEmail.defaultMessage}
+					<Fragment key={ `${email}-${index}` }>
+						<StyledLabel htmlFor="alternative-email-address">
+							<FormattedMessage
+								id={ messages.labelAlternativeEmail.id }
+								defaultMessage={ messages.labelAlternativeEmail.defaultMessage }
+							/>
+						</StyledLabel>
+						<TextInput
+							id="alternative-email-address"
+							autocomplete="on"
+							name="email"
+							type="text"
+							placeholder="Enter another email address..."
+							value={ this.state.alternativeEmail[ index ] }
+							onChange={ event => this.onUpdateAlternativeEmail( event, index ) }
 						/>
-					</StyledLabel>
-					<TextInput
-						id="alternative-email-address"
-						autocomplete="on"
-						name="email"
-						type="text"
-						placeholder="Enter another email address..."
-						value={this.state.alternativeEmail[ index ]}
-						onChange={ event => this.onUpdateAlternativeEmail( event, index )}
-					/>
-					{this.displayWarnings( warnings, "email" )}
-				</Fragment> );
+						{ this.displayWarnings( warnings, "email" ) }
+					</Fragment> );
 			}
 		);
 	}
-
 
 	/**
 	 * Renders the element.
@@ -327,15 +325,15 @@ class ProfileForm extends React.Component {
 		let warnings = this.validateFields();
 
 		return (
-			<FormGroup onSubmit={this.handleSubmit}>
+			<FormGroup onSubmit={ this.handleSubmit }>
 				<AvatarBlock>
-					<UploadUserImage image={this.props.image} onFileUpload={this.props.onUploadAvatar}/>
+					<UploadUserImage image={ this.props.image } onFileUpload={ this.props.onUploadAvatar } />
 				</AvatarBlock>
 				<NameBlock id="left">
 					<StyledLabel htmlFor="first-name">
 						<FormattedMessage
-							id={messages.labelFirstName.id}
-							defaultMessage={messages.labelFirstName.defaultMessage}
+							id={ messages.labelFirstName.id }
+							defaultMessage={ messages.labelFirstName.defaultMessage }
 						/>
 					</StyledLabel>
 					<TextInput
@@ -344,13 +342,13 @@ class ProfileForm extends React.Component {
 						id="first-name"
 						name="first name"
 						type="text"
-						value={this.state.userFirstName}
-						onChange={this.onUpdateFirstName}
+						value={ this.state.userFirstName }
+						onChange={ this.onUpdateFirstName }
 					/>
 					<StyledLabel htmlFor="last-name">
 						<FormattedMessage
-							id={messages.labelLastName.id}
-							defaultMessage={messages.labelLastName.defaultMessage}
+							id={ messages.labelLastName.id }
+							defaultMessage={ messages.labelLastName.defaultMessage }
 						/>
 					</StyledLabel>
 					<TextInput
@@ -358,15 +356,15 @@ class ProfileForm extends React.Component {
 						id="last-name"
 						name="last name"
 						type="text"
-						value={this.state.userLastName}
-						onChange={this.onUpdateLastName}
+						value={ this.state.userLastName }
+						onChange={ this.onUpdateLastName }
 					/>
 				</NameBlock>
 				<LabelBlock>
 					<StyledLabel htmlFor="email-address">
 						<FormattedMessage
-							id={messages.labelEmail.id}
-							defaultMessage={messages.labelEmail.defaultMessage}
+							id={ messages.labelEmail.id }
+							defaultMessage={ messages.labelEmail.defaultMessage }
 						/>
 					</StyledLabel>
 					<TextInput
@@ -374,18 +372,18 @@ class ProfileForm extends React.Component {
 						autocomplete="on"
 						name="email"
 						type="text"
-						value={this.state.email}
-						onChange={this.onUpdateEmail}
+						value={ this.state.email }
+						onChange={ this.onUpdateEmail }
 					/>
-					{this.displayWarnings( warnings, "email" )}
-					{this.getAlternativeEmailComponents( warnings )}
-					<ErrorDisplay error={this.props.saveEmailError}/>
-					<AddEmailButton iconSource={ plusIcon } onClick={ this.addAnotherEmail } iconSize={ "1em" } >
+					{ this.displayWarnings( warnings, "email" ) }
+					{ this.getAlternativeEmailComponents( warnings ) }
+					<ErrorDisplay error={ this.props.saveEmailError } />
+					<AddEmailButton iconSource={ plusIcon } onClick={ this.addAnotherEmail } iconSize={ "1em" }>
 						<FormattedMessage
-							id={messages.addEmailLink.id}
-							defaultMessage={messages.addEmailLink.defaultMessage}
+							id={ messages.addEmailLink.id }
+							defaultMessage={ messages.addEmailLink.defaultMessage }
 						/>
-						<NewTabMessage/>
+						<NewTabMessage />
 					</AddEmailButton>
 					{ getChangeButtons( "profile", this.props.intl, this.props.isSaving, this.isSaved(), this.discardChanges ) }
 				</LabelBlock>
