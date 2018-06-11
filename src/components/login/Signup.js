@@ -110,6 +110,8 @@ class Signup extends React.Component {
 		this.constraints = {
 			passwordRepeat: this.passwordRepeatConstraint(),
 		};
+
+		this.ec = this.emailConstraints();
 	}
 
 	onUpdate( field, event ) {

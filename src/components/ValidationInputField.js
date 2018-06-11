@@ -3,6 +3,7 @@ import React from "react";
 import { injectIntl } from "react-intl";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
+import _debounce from "lodash/debounce";
 import validate from "validate.js";
 
 import colors from "yoast-components/style-guide/colors.json";
@@ -44,7 +45,8 @@ const Error = styled.li`
 `;
 
 /**
- * Test page to test the login layout / styling.
+ * Text input field with functionality to validate on input
+ * and show errors if validation fails.
  */
 class ValidationInputField extends React.Component {
 
@@ -57,6 +59,7 @@ class ValidationInputField extends React.Component {
 		};
 
 		this._onChange = this._onChange.bind( this );
+		this.showErrorsDebounced = _debounce( this.showValidationError, this.props.delay );
 	}
 
 	/**
@@ -89,7 +92,7 @@ class ValidationInputField extends React.Component {
 	}
 
 	/**
-	 * Returns an component that displays the given list of errors,
+	 * Returns a component that displays the given list of errors,
 	 * if there are any. Returns null if there are not errors to be displayed.
 	 * @param {string[]} errors the error messages to be displayed.
 	 * @returns {React.Component|null} the error display component, or null.
@@ -122,15 +125,49 @@ class ValidationInputField extends React.Component {
 		this.setState( {
 			value: event.target.value,
 			errors: errors,
+		}, this.toggleErrorDisplay );
+	}
+
+	toggleErrorDisplay() {
+		if ( this.state.errors.length > 0 ) {
+			this.showErrorsDebounced();
+		} else {
+			this.hideValidationError();
+		}
+	}
+
+	/**
+	 * Sets a flag to show the validation error or not.
+	 *
+	 * @returns {void}
+	 */
+	showValidationError() {
+		this.setState( { showValidationError: true } );
+	}
+
+	/**
+	 * Sets a flag to hide the validation error and cancels a potential debounced error.
+	 *
+	 * @returns {void}
+	 */
+	hideValidationError() {
+		this.setState( { showValidationError: false }, () => {
+			this.showErrorsDebounced.cancel();
 		} );
+	}
+
+	componentWillUnmount() {
+		this.showErrorsDebounced.cancel();
 	}
 
 	render() {
 		let errors = this.props.errors.concat( this.state.errors );
+		let hasErrors = this.props.errors.length > 0;
+
 		return (
 			<div>
 				<TextInput onChange={ this._onChange } type={ this.props.type } />
-				{ this.displayErrors( errors ) }
+				{ this.state.showValidationError || hasErrors ? this.displayErrors( errors ) : null }
 			</div>
 		);
 	}
@@ -144,11 +181,13 @@ ValidationInputField.propTypes = {
 	id: PropTypes.string,
 	type: PropTypes.string,
 	value: PropTypes.string,
+	delay: PropTypes.number,
 };
 
 ValidationInputField.defaultProps = {
 	errors: [],
 	value: "",
+	delay: 1000,
 };
 
 export default injectIntl( ValidationInputField );
