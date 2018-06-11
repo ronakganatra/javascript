@@ -17,7 +17,7 @@ const CollapsibleHeading = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	background-color: ${ colors.$color_white };
-	padding: 24px 32px;
+	padding: ${ props => props.padding }px; 
 	border: none;
 	text-align: left;
 	font-weight: 300;
@@ -125,10 +125,11 @@ export default class ListToggle extends React.Component {
 		}
 
 		let marginTop = this.props.accountPage ? 0 : 24;
+		let padding = this.props.accountPage ? 0 : "24px 32";
 
 		return (
 			<CollapsibleHeaderContainer marginTop={ marginTop }>
-				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
+				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() } padding={ padding }>
 					<CollapsibleTitle>
 						{ this.props.title }
 					</CollapsibleTitle>
