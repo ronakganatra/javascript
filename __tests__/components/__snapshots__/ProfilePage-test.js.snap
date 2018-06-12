@@ -330,10 +330,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -912,10 +912,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -1477,10 +1477,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -2038,10 +2038,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -2636,10 +2636,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -3211,10 +3211,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -3768,10 +3768,10 @@ exports[`components/ProfilePage saving profile 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -4327,10 +4327,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
@@ -4880,7 +4880,7 @@ exports[`components/ProfilePage the default case 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Your current profile image"
                 className="c8"
                 size="150px"
                 src="dummy.png"
@@ -5428,10 +5428,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"

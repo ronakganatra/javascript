@@ -45,7 +45,7 @@ class LoginMessage extends React.Component {
 	renderButton() {
 		return (
 			<Button onClick={ this.props.onClick }>
-				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage } />
+				<FormattedMessage { ...this.props.message } />
 			</Button>
 		);
 	}
@@ -53,7 +53,7 @@ class LoginMessage extends React.Component {
 	renderParagraph() {
 		return (
 			<p>
-				<FormattedMessage id={ this.props.message.id } defaultMessage={ this.props.message.defaultMessage } />
+				<FormattedMessage { ...this.props.message } />
 			</p>
 		);
 	}

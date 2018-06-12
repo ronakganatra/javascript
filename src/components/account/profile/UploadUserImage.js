@@ -75,9 +75,15 @@ const messages = defineMessages( {
 	},
 	defaultImage: {
 		id: "userImageUpload.defaultImageDescription",
-		defaultMessage: "default user image",
+		defaultMessage: "Default profile image",
+	},
+	image: {
+		id: "userImageUpload.imageDescription",
+		defaultMessage: "Your current profile image",
 	},
 } );
+
+const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 class UploadUserImage extends React.Component {
 
@@ -124,10 +130,15 @@ class UploadUserImage extends React.Component {
 	render() {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
-		let defaultImageDescription = this.props.intl.formatMessage( messages.defaultImage );
+		// Change alternative text of user avatar, depending on whether an image has been provided.
+		// E.g. "default profile image" vs. "your current profile image."
+		let imageDescriptionMessage = this.props.image ? messages.image : messages.defaultImage;
+		let imageDescription = this.props.intl.formatMessage( imageDescriptionMessage );
+
+		let imageSrc = this.props.image || avatarPlaceholder;
 
 		return <UploadElement>
-			<UserImage alt={ defaultImageDescription } src={ this.props.image } size="150px" />
+			<UserImage alt={ imageDescription } src={ imageSrc } size="150px" />
 			<Overlay>
 				<ChangeLink onClick={ this.onClickLink }>
 					Change
@@ -153,7 +164,7 @@ class UploadUserImage extends React.Component {
 
 UploadUserImage.propTypes = {
 	intl: intlShape.isRequired,
-	image: PropTypes.string.isRequired,
+	image: PropTypes.string,
 	onFileUpload: PropTypes.func,
 	maxFileSize: PropTypes.number,
 	acceptedMIMETypes: PropTypes.array,
