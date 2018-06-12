@@ -2,6 +2,9 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
+import { speak } from "@wordpress/a11y";
+
+import colors from "yoast-components/style-guide/colors.json";
 
 // Components.
 import UserImage from "../../UserImage";
@@ -80,12 +83,20 @@ const messages = defineMessages( {
 		id: "userImageUpload.maxFileSize",
 		defaultMessage: "Maximum file size {maxSize} Megabytes",
 	},
+	maxFileSizeExceeded: {
+		id: "userImageUpload.maxFileSizeExceeded",
+		defaultMessage: "The selected file is bigger than the maximum file size of {maxSize}, please select a smaller file.",
+	},
 } );
 
 class UploadUserImage extends React.Component {
 
 	constructor( props ) {
 		super( props );
+
+		this.state = {
+			error: null,
+		};
 
 		this.onClickLink = this.onClickLink.bind( this );
 		this.onFileUpload = this.onFileUpload.bind( this );
@@ -121,26 +132,60 @@ class UploadUserImage extends React.Component {
 	onFileUpload( file ) {
 		if ( file && this.validateFile( file ) ) {
 			this.props.onFileUpload( file );
+		} else {
+			// Show and speak an error message.
+			let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+
+			let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
+				{ maxSize: maxFileSizeInMb } );
+
+			speak( maxSizeExceeded, "assertive" );
+
+			this.setState( {
+				error: maxSizeExceeded,
+			} );
 		}
 	}
 
-	render() {
+	/**
+	 * Returns an error message component with the given error message.
+	 * @param {string | Null} message the error message to be shown on screen.
+	 * @returns {React.Component} the message component.
+	 */
+	getErrorMessage( message ) {
+		return <MaxFileSizeText aria-hidden={ true } style={ { color: colors.$color_red } }>
+			{ message }
+		</MaxFileSizeText>;
+	}
+
+	/**
+	 * Returns a component indicating the maximum file size that can be uploaded.
+	 * @returns {React.component} the component with the message.
+	 */
+	getMaxFileSizeMessage() {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+		return <MaxFileSizeText>
+			<FormattedMessage
+				values={ { maxSize: maxFileSizeInMb } }
+				id={ messages.maxFileSize.id }
+				defaultMessage={ messages.maxFileSize.defaultMessage } />
+		</MaxFileSizeText>;
+	}
+
+	render() {
 		let changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 
 		return <UploadElement>
 			<UserImage src={ this.props.image } size="150px" />
+
 			<Overlay>
-				<ChangeButton aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
+				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />
 				</ChangeButton>
 			</Overlay>
-			<MaxFileSizeText>
-				<FormattedMessage
-					values={ { maxSize: maxFileSizeInMb } }
-					id={ messages.maxFileSize.id }
-					defaultMessage={ messages.maxFileSize.defaultMessage } />
-			</MaxFileSizeText>
+
+			{ this.state.error ? this.getErrorMessage( this.state.error ) : this.getMaxFileSizeMessage() }
+
 			<input ref={ fileInput => {
 				this.fileInput = fileInput;
 			} }
