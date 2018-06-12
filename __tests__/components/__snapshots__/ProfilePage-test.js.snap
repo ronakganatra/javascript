@@ -131,8 +131,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -713,8 +715,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -1278,8 +1282,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -1826,8 +1832,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -2428,8 +2436,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -3006,8 +3016,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -3565,8 +3577,10 @@ exports[`components/ProfilePage saving profile 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -4122,8 +4136,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -4681,8 +4697,10 @@ exports[`components/ProfilePage the default case 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -5229,8 +5247,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
