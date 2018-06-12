@@ -87,10 +87,12 @@ exports[`the configuration service request status block component with status co
     <button
       aria-expanded={false}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Configuration service completed
       </span>
@@ -245,10 +247,12 @@ exports[`the configuration service request status block component with status in
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Configuration service successfully requested
       </span>
@@ -449,10 +453,12 @@ exports[`the configuration service request status block component with status su
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Configuration service successfully requested
       </span>

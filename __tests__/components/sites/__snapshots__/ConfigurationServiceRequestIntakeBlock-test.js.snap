@@ -144,10 +144,12 @@ exports[`the configuration service request intake block component matches the sn
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Request configuration service
       </span>
@@ -336,10 +338,12 @@ exports[`the configuration service request status block with status completed co
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Request configuration service
       </span>

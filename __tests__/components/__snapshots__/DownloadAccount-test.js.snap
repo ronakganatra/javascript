@@ -1,25 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The download account component matches the snapshot 1`] = `
-.c1 {
-  background-color: #fff;
-  padding: 16px 24px;
-  margin-top: 24px;
-}
-
-.c0 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
+.c4 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -37,74 +19,65 @@ exports[`The download account component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c6:hover,
-.c6:focus {
+.c4:hover,
+.c4:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c6:active {
+.c4:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c5 {
+.c3 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c3 {
+.c0 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+
+.c1 {
   margin-top: 0.0em;
   margin-bottom: 0.5em;
   font-weight: 700;
   font-size: 1em;
 }
 
-.c4 {
+.c2 {
   margin-bottom: 10px;
 }
 
-.c2 {
-  margin-bottom: 1em;
-}
-
-@media screen and ( max-width:800px ) {
-  .c0 {
-    display: block;
-  }
-}
-
-<div
-  className="c0 c1"
+<form
+  action="https://my.yoast.com/api/Customers//download/?access_token="
+  className="c0"
 >
-  <form
-    action="https://my.yoast.com/api/Customers//download/?access_token="
+  <p
+    className="c1"
+  >
+    <span>
+      Download personal data
+    </span>
+  </p>
+  <p
     className="c2"
   >
-    <p
-      className="c3"
+    <span>
+      If you want to retrieve a copy of all the personal data stored in your account, you can do so here.
+    </span>
+  </p>
+  <p>
+    <button
+      className="c3 c4"
+      type="submit"
     >
       <span>
-        Download personal data
+        Download my data
       </span>
-    </p>
-    <p
-      className="c4"
-    >
-      <span>
-        If you want to retrieve a copy of all the personal data stored in your account, you can do so here.
-      </span>
-    </p>
-    <p>
-      <button
-        className="c5 c6"
-        type="submit"
-      >
-        <span>
-          Download my data
-        </span>
-      </button>
-    </p>
-  </form>
-</div>
+    </button>
+  </p>
+</form>
 `;

@@ -419,10 +419,12 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Subscriptions
       </span>
