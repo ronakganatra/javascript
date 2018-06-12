@@ -166,7 +166,7 @@ class ValidationInputField extends React.Component {
 
 		return (
 			<div>
-				<TextInput onChange={ this._onChange } type={ this.props.type } />
+				<TextInput id={ this.props.id } onChange={ this._onChange } type={ this.props.type } />
 				{ this.state.showValidationError || hasErrors ? this.displayErrors( errors ) : null }
 			</div>
 		);

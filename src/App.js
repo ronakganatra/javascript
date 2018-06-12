@@ -16,7 +16,7 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
-import LoginPage from "./components/login/LoginPage";
+import LoginPage from "./components/login/LoginSignupPage";
 
 /*
  * Helper method to write global CSS.

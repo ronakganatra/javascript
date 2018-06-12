@@ -5,8 +5,22 @@ import { defineMessages, injectIntl } from "react-intl";
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
 import LoginMessage from "./LoginMessage";
+import Login from "./Login";
+import Signup from "./Signup";
+import SubNavigation, { SubNavigationItem } from "../SubNavigation";
 
-import LoginSignup from "./LoginSignup";
+let itemRoutes = [
+	{
+		component: Signup,
+		path: "/signup",
+		title: "Sign up",
+	},
+	{
+		component: Login,
+		path: "/login",
+		title: "Login",
+	},
+];
 
 const messages = defineMessages( {
 	loginHeader: {
@@ -35,7 +49,7 @@ const messages = defineMessages( {
 /**
  * Test page to test the login layout / styling.
  */
-class LoginPage extends React.Component {
+class LoginSignupPage extends React.Component {
 
 	getLoginMessage() {
 		if ( this.props.location.pathname === "/login" || this.props.location.pathname === "/login/" ) {
@@ -48,15 +62,18 @@ class LoginPage extends React.Component {
 		return (
 			<LoginColumnLayout>
 				{ this.getLoginMessage() }
-				<LoginSignup />
+				<div>
+					<SubNavigation itemRoutes={ itemRoutes } />
+					<SubNavigationItem itemRoutes={ itemRoutes } />
+				</div>
 			</LoginColumnLayout>
 		);
 	}
 }
 
-LoginPage.propTypes = {
+LoginSignupPage.propTypes = {
 	children: PropTypes.array,
 	location: PropTypes.object,
 };
 
-export default injectIntl( LoginPage );
+export default injectIntl( LoginSignupPage );

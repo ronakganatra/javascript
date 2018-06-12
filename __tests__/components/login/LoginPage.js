@@ -2,7 +2,7 @@ import React from 'react';
 import { createComponentWithIntl } from "../../../utils";
 import { MemoryRouter as Router } from 'react-router-dom';
 
-import LoginPage from "../../../src/components/login/LoginPage";
+import LoginPage from "../../../src/components/login/LoginSignupPage";
 
 test( 'The login page matches the snapshot', () => {
 

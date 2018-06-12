@@ -104,6 +104,7 @@ exports[`The Signup component matches the snapshot 1`] = `
     <div>
       <input
         className="c4 c5"
+        id="email-address"
         onChange={[Function]}
         type="text"
         width="100%"
@@ -124,6 +125,7 @@ exports[`The Signup component matches the snapshot 1`] = `
     <div>
       <input
         className="c4 c5"
+        id="password"
         onChange={[Function]}
         type="password"
         width="100%"
@@ -144,6 +146,7 @@ exports[`The Signup component matches the snapshot 1`] = `
     <div>
       <input
         className="c4 c5"
+        id="password-repeat"
         onChange={[Function]}
         type="password"
         width="100%"
