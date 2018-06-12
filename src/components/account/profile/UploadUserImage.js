@@ -61,6 +61,7 @@ const MaxFileSizeText = styled.p`
 
 	text-align: center;
 	font-size: 12px;
+	line-height: 55px;
 	color: black;
 `;
 

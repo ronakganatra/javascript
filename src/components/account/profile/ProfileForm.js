@@ -86,6 +86,7 @@ const NameBlock = styled( LabelBlock )`
 const AvatarBlock = styled.div`
 	width: 30%;
 	margin: auto;
+	padding-top:20px;
 	text-align: center;
 `;
 
