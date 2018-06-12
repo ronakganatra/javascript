@@ -4,9 +4,8 @@ import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-i
 import styled from "styled-components";
 
 // Custom components.
-import { Page } from "../../../PaperStyles";
 import { RedButton } from "../../../Button";
-
+import { Form } from "../FormElements";
 
 const messages = defineMessages( {
 	dangerZone: {
@@ -69,8 +68,7 @@ class DeleteAccount extends React.Component {
 	}
 
 	render() {
-		return <Page>
-					<form onSubmit={ this.handleDelete }>
+		return <Form onSubmit={ this.handleDelete }>
 						<Paragraph>
 							<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
 						</Paragraph>
@@ -78,8 +76,8 @@ class DeleteAccount extends React.Component {
 							<FormattedMessage id={ messages.warningMessage.id } defaultMessage={ messages.warningMessage.defaultMessage }/>
 						</p>
 						<DeleteButton type="submit" disabled={ this.isDeleting }>{ this.deleteButtonText() }</DeleteButton>
-					</form>
-				</Page>;
+					</Form>
+				;
 	}
 }
 

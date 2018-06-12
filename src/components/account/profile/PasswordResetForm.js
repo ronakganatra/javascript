@@ -5,7 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
-import { announceActions, getChangeButtons } from "./FormButtons";
+import { announceActions, getChangeButtons } from "./FormElements";
 import _every from "lodash/every";
 
 const messages = defineMessages( {

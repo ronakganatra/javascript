@@ -45,6 +45,11 @@ const DiscardButton = styled( LargeSecondaryButton )`
 	margin-right: 1em;
 `;
 
+export const Form = styled.form`
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+`;
+
 /**
  * Gets the message related to save actions.
  *

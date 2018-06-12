@@ -20,7 +20,7 @@ const CollapsibleHeading = styled.button`
 	padding: ${ props => props.padding }px; 
 	border: none;
 	text-align: left;
-	font-weight: 300;
+	font-weight: ${ props => props.fontWeight };
 	cursor: pointer;
 	// When clicking, the button text disappears in Safari 10 because of color: activebuttontext.
 	color: ${ colors.$color_black };
@@ -55,7 +55,7 @@ const CollapsibleHeading = styled.button`
 
 const CollapsibleTitle = styled.span`
 	flex: 1 1 auto;
-	font-size: 1.5em;
+	font-size: ${ props => props.fontSize }em;
 	// Chrome needs 8 decimals to make this 32px without roundings.
 	line-height: 1.33333333;
 	// Looks like Safari 10 doesn't like align-items: center for SVGs and needs some help.
@@ -124,13 +124,16 @@ export default class ListToggle extends React.Component {
 			children = this.props.children;
 		}
 
+		// styles for accountPage
 		let marginTop = this.props.accountPage ? 0 : 24;
 		let padding = this.props.accountPage ? 0 : "24px 32";
+		let fontWeight = this.props.accountPage ? 400 : 300;
+		let fontSize = this.props.accountPage ? 1.4 : 1.5;
 
 		return (
 			<CollapsibleHeaderContainer marginTop={ marginTop }>
-				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() } padding={ padding }>
-					<CollapsibleTitle>
+				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() } padding={ padding } fontWeight={ fontWeight }>
+					<CollapsibleTitle fontSize={ fontSize }>
 						{ this.props.title }
 					</CollapsibleTitle>
 					{ this.getArrow() }

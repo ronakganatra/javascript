@@ -7,8 +7,8 @@ import { getDownloadProfileUrl } from "../../../../functions/api";
 import { getUserId } from "../../../../functions/auth";
 
 // Custom components.
-import { Page } from "../../../PaperStyles";
 import { Button } from "../../../Button";
+import { Form } from "../FormElements";
 
 
 const messages = defineMessages( {
@@ -39,10 +39,6 @@ const Description = styled.p`
 	margin-bottom: 10px;
 `;
 
-const Form = styled.form`
-	margin-bottom: 1em;
-`;
-
 class DownloadAccount extends React.Component {
 
 	constructor( props ) {
@@ -56,8 +52,7 @@ class DownloadAccount extends React.Component {
 	}
 
 	render() {
-		return <Page>
-			<Form action={ this.generateDownloadURL() }>
+		return <Form action={ this.generateDownloadURL() }>
 				<Title>
 					<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
 				</Title>
@@ -70,7 +65,7 @@ class DownloadAccount extends React.Component {
 					</Button>
 				</p>
 			</Form>
-		</Page>;
+			;
 	}
 }
 

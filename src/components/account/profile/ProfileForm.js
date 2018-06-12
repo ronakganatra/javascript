@@ -14,7 +14,7 @@ import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import plusIcon from "../../../icons/blue-plus-circle.svg";
 import NewTabMessage from "./../../NewTabMessage";
-import { announceActions, getChangeButtons } from "./FormButtons";
+import { announceActions, getChangeButtons } from "./FormElements";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
