@@ -124,7 +124,7 @@ export default class ListToggle extends React.Component {
 			children = this.props.children;
 		}
 
-		// styles for accountPage
+		// Styles for accountPage
 		let marginTop = this.props.accountPage ? 0 : 24;
 		let padding = this.props.accountPage ? 0 : "24px 32";
 		let fontWeight = this.props.accountPage ? 400 : 300;
