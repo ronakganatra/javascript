@@ -6,8 +6,8 @@ import {
 	disableUser,
 	updateProfile,
 	resetSaveMessage,
+	uploadAvatar,
 } from "../actions/user";
-import { url } from "gravatar";
 import {
 	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
 	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
@@ -16,21 +16,13 @@ import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
 
-let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
-
 export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.data.profile.email,
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
 		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: url( state.user.data.profile.email, {
-			s: "150",
-			r: "pg",
-			d: avatarPlaceholder,
-			protocol: "https",
-		} ),
-
+		image: null,
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
@@ -103,6 +95,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		},
 		onNewsletterUnsubscribe: () => {
 			dispatch( unsubscribeNewsletter() );
+		},
+		onUploadAvatar: ( image ) => {
+			dispatch( uploadAvatar( image ) );
 		},
 	};
 };
