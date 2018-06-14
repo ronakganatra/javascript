@@ -5,7 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
-import { announceActions, getChangeButtons } from "./FormElements";
+import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
 import _every from "lodash/every";
 
 const messages = defineMessages( {
@@ -22,17 +22,6 @@ const messages = defineMessages( {
 		defaultMessage: "New password",
 	},
 } );
-
-const FormGroup = styled.form`
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-between;
-`;
-
-const TextInput = styled( InputField )`
-	background-color: ${ colors.$color_background_light };
-`;
 
 /**
  * Returns the rendered PasswordResetForm component.

@@ -50,6 +50,17 @@ export const Form = styled.form`
 	margin-bottom: 1em;
 `;
 
+export const FormGroup = styled.form`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: space-between;
+`;
+
+export const TextInput = styled( InputField )`
+	background-color: ${ colors.$color_background_light };
+`;
+
 /**
  * Gets the message related to save actions.
  *

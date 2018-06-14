@@ -14,7 +14,7 @@ import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import plusIcon from "../../../icons/blue-plus-circle.svg";
 import NewTabMessage from "./../../NewTabMessage";
-import { announceActions, getChangeButtons } from "./FormElements";
+import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -50,17 +50,6 @@ const messages = defineMessages( {
 		defaultMessage: "Last name",
 	},
 } );
-
-const FormGroup = styled.form`
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-between;
-`;
-
-const TextInput = styled( InputField )`
-	background-color: ${ colors.$color_background_light };
-`;
 
 const AddEmailButton = styled( IconButtonTransparent )`
 	margin-top: 8px;
