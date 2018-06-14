@@ -4,6 +4,8 @@ import { LargeButton, LargeSecondaryButton } from "../../Button";
 import { FormattedMessage, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
+import { InputField } from "../../InputField";
+import colors from "yoast-components/style-guide/colors.json";
 
 const messages = defineMessages( {
 	discardChanges: {

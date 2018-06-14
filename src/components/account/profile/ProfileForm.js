@@ -8,7 +8,6 @@ import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
-import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";

@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
-import colors from "yoast-components/style-guide/colors.json";
-import styled from "styled-components";
-import { InputField } from "../../InputField";
 import { StyledLabel } from "../../Labels";
 import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
 import _every from "lodash/every";

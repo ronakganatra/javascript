@@ -115,19 +115,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c37 {
+.c35 {
   margin-top: 24px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -150,7 +150,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -163,7 +163,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c38 {
+.c36 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -186,7 +186,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c38 svg {
+.c36 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -199,7 +199,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -210,7 +210,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: center;
 }
 
-.c39 {
+.c37 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -219,17 +219,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -297,6 +286,17 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -377,25 +377,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -439,19 +420,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -459,19 +440,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c38 {
+  .c36 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c38 {
+  .c36 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c38 svg {
+  .c36 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -753,7 +734,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -765,7 +746,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -782,7 +763,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -799,7 +780,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -840,16 +821,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -876,16 +857,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c37"
+        className="c35"
       >
         <button
           aria-expanded={false}
-          className="c38"
+          className="c36"
           fontWeight={300}
           onClick={[Function]}
         >
           <span
-            className="c39"
+            className="c37"
             fontSize={1.5}
           >
             Developer Tokens
@@ -1025,13 +1006,13 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1054,7 +1035,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1067,7 +1048,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1076,17 +1057,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -1154,6 +1124,17 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -1234,25 +1215,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1296,19 +1258,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1590,7 +1552,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -1602,7 +1564,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -1619,7 +1581,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -1636,7 +1598,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -1677,16 +1639,16 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -1826,13 +1788,13 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1855,7 +1817,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1868,7 +1830,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1877,17 +1839,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -1955,6 +1906,17 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -2035,25 +1997,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2097,19 +2040,19 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2391,7 +2334,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -2403,7 +2346,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -2420,7 +2363,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -2437,7 +2380,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -2478,16 +2421,16 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -2627,13 +2570,13 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2656,7 +2599,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2669,7 +2612,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2678,17 +2621,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -2756,6 +2688,17 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -2836,25 +2779,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2898,19 +2822,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3192,7 +3116,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -3204,7 +3128,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -3221,7 +3145,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -3238,7 +3162,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -3279,16 +3203,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -3428,13 +3352,13 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   box-shadow: none;
 }
 
-.c38 {
+.c36 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c39 {
+.c37 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3457,7 +3381,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c39 svg {
+.c37 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3470,7 +3394,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c40 {
+.c38 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3516,17 +3440,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 
 .c22 {
   color: #5d237a;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -3594,6 +3507,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 
 .c27 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c34 {
@@ -3674,25 +3598,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin-bottom: 1em;
 }
 
-.c36 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c37 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3736,19 +3641,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c39 {
+  .c37 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c39 {
+  .c37 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c39 svg {
+  .c37 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4060,7 +3965,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </span>
         </p>
         <form
-          className="c36"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -4072,7 +3977,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="c37 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -4089,7 +3994,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="c37 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -4106,7 +4011,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </label>
           <input
-            className="c37 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -4147,16 +4052,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c38"
+        className="c36"
       >
         <button
           aria-expanded={false}
-          className="c39"
+          className="c37"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c40"
+            className="c38"
             fontSize={1.4}
           >
             Danger zone
@@ -4296,13 +4201,13 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4325,7 +4230,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4338,7 +4243,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -4347,17 +4252,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -4425,6 +4319,17 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -4505,25 +4410,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4567,19 +4453,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4861,7 +4747,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -4873,7 +4759,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -4890,7 +4776,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -4907,7 +4793,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -4948,16 +4834,16 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -5097,13 +4983,13 @@ exports[`components/ProfilePage saving profile 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5126,7 +5012,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5139,7 +5025,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -5148,17 +5034,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -5226,6 +5101,17 @@ exports[`components/ProfilePage saving profile 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -5306,25 +5192,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5368,19 +5235,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5662,7 +5529,7 @@ exports[`components/ProfilePage saving profile 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -5674,7 +5541,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -5691,7 +5558,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -5708,7 +5575,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -5749,16 +5616,16 @@ exports[`components/ProfilePage saving profile 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -5898,13 +5765,13 @@ exports[`components/ProfilePage sending password reset 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5927,7 +5794,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5940,7 +5807,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -5949,17 +5816,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -6027,6 +5883,17 @@ exports[`components/ProfilePage sending password reset 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -6107,25 +5974,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6169,19 +6017,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6463,7 +6311,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -6475,7 +6323,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -6492,7 +6340,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -6509,7 +6357,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -6550,16 +6398,16 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -6699,13 +6547,13 @@ exports[`components/ProfilePage the default case 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6728,7 +6576,7 @@ exports[`components/ProfilePage the default case 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -6741,7 +6589,7 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -6750,17 +6598,6 @@ exports[`components/ProfilePage the default case 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -6828,6 +6665,17 @@ exports[`components/ProfilePage the default case 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -6908,25 +6756,6 @@ exports[`components/ProfilePage the default case 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6970,19 +6799,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -7264,7 +7093,7 @@ exports[`components/ProfilePage the default case 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -7276,7 +7105,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -7293,7 +7122,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -7310,7 +7139,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -7351,16 +7180,16 @@ exports[`components/ProfilePage the default case 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -7500,13 +7329,13 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   box-shadow: none;
 }
 
-.c34 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7529,7 +7358,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -7542,7 +7371,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -7551,17 +7380,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
-}
-
-.c18 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
 }
 
 .c16 {
@@ -7629,6 +7447,17 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 
 .c23 {
   padding-top: 0.5em;
+}
+
+.c18 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
 }
 
 .c30 {
@@ -7709,25 +7538,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   margin-bottom: 1em;
 }
 
-.c32 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c33 {
-  background-color: #f7f7f7;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7771,19 +7581,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -8065,7 +7875,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           </span>
         </p>
         <form
-          className="c32"
+          className="c7"
           onSubmit={[Function]}
         >
           <label
@@ -8077,7 +7887,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="current-password"
             name="current password"
             onChange={[Function]}
@@ -8094,7 +7904,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="new-password"
             name="new password"
             onChange={[Function]}
@@ -8111,7 +7921,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </label>
           <input
-            className="c33 c18"
+            className="c17 c18"
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
@@ -8152,16 +7962,16 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
