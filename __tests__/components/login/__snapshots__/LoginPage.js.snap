@@ -120,18 +120,16 @@ exports[`The login page matches the snapshot 1`] = `
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome!
-          </span>
-        </h2>
-        <p>
-          <span>
-            MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome!
+        </span>
+      </h2>
+      <p>
+        <span>
+          MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
+        </span>
+      </p>
     </div>
   </div>
   <div
@@ -295,18 +293,16 @@ exports[`The sign up page matches the snapshot 1`] = `
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome!
-          </span>
-        </h2>
-        <p>
-          <span>
-            MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome!
+        </span>
+      </h2>
+      <p>
+        <span>
+          MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
+        </span>
+      </p>
     </div>
   </div>
   <div

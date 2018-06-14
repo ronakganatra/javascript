@@ -42,10 +42,16 @@ const Logos = styled.img`
  */
 class LoginMessage extends React.Component {
 
+	constructor( props ) {
+		super( props );
+		this.renderButton = this.renderButton.bind( this );
+		this.renderParagraph = this.renderParagraph.bind( this );
+	}
+
 	renderButton() {
 		return (
-			<Button onClick={this.props.onClick}>
-				<FormattedMessage id={this.props.message.id} defaultMessage={this.props.message.defaultMessage}/>
+			<Button onClick={ this.props.onClick }>
+				<FormattedMessage { ...this.props.message } />
 			</Button>
 		);
 	}
@@ -53,7 +59,7 @@ class LoginMessage extends React.Component {
 	renderParagraph() {
 		return (
 			<p>
-				<FormattedMessage id={this.props.message.id} defaultMessage={this.props.message.defaultMessage}/>
+				<FormattedMessage { ...this.props.message } />
 			</p>
 		);
 	}
@@ -61,14 +67,13 @@ class LoginMessage extends React.Component {
 	render() {
 		return (
 			<MainPaper>
-				<Logos src={logo}/>
-				<Icon src={this.props.image}/>
-				<div>
-					<h2>
-						<FormattedMessage id={this.props.header.id} defaultMessage={this.props.header.defaultMessage}/>
-					</h2>
-					{this.props.onClick ? this.renderButton() : this.renderParagraph()}
-				</div>
+				<Logos src={ logo } />
+				<Icon src={ this.props.image } />
+				<h2>
+					<FormattedMessage id={ this.props.header.id }
+									  defaultMessage={ this.props.header.defaultMessage } />
+				</h2>
+				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
 			</MainPaper>
 		);
 	}

@@ -96,19 +96,39 @@ class Login extends React.Component {
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
 	}
 
+	/**
+	 * Event listener, listening to changes of the
+	 * 'remember me' checkbox (e.g. whether it is checked or not).
+	 * @param {Object} event the input change event.
+	 * @returns {void}
+	 */
 	onRememberCheck( event ) {
 		this.setState( {
 			rememberMe: event.target.checked,
 		} );
 	}
 
+	/**
+	 * Updates the specified field in the state,
+	 * to be used as callback functions in text input fields.
+	 *
+	 * @param {string} field the field in the state that should be updated.
+	 * @param {Object} event the input field change event.
+	 * @returns {void}
+	 */
 	onUpdateField( field, event ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
 	}
 
+	/**
+	 * Opens the door to the treasures of MyYoast,
+	 * if their credentials are correctly filled in.
+	 * @returns {void}
+	 */
 	handleSubmit() {
+		// Code to connect the UI with the login route goes here.
 	}
 
 	render() {
@@ -143,7 +163,7 @@ class Login extends React.Component {
 				</LabelBlock>
 
 				<ForgotPasswordLink>
-					<a href={ "" }>
+					<a href="">
 						<FormattedMessage { ...messages.forgotPassword } />
 					</a>
 				</ForgotPasswordLink>

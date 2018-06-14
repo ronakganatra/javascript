@@ -30,7 +30,6 @@ const ErrorDisplay = styled.ul`
 	padding: 0;
 	
 	list-style-type: none;
-
 `;
 
 const Error = styled.li`
@@ -56,12 +55,15 @@ class ValidationInputField extends React.Component {
 			values: this.props.value,
 		};
 
-		this._onChange = this._onChange.bind( this );
+		this.onInputChange = this.onInputChange.bind( this );
+		this.validate = this.validate.bind( this );
+		this.getErrors = this.getErrors.bind( this );
 	}
 
 	/**
 	 * Validates the given value according to
 	 * the constraints as set in the properties.
+	 *
 	 * @param {any} value the value to check
 	 * @returns {string[]} an array of error messages, will be empty if there are none
 	 */
@@ -78,6 +80,7 @@ class ValidationInputField extends React.Component {
 	/**
 	 * Returns an array of Error components to be displayed
 	 * below the input field.
+	 *
 	 * @param {string[]} errors the error messages to be displayed
 	 * @returns {React.Component[]} an array of Error components
 	 */
@@ -89,8 +92,9 @@ class ValidationInputField extends React.Component {
 	}
 
 	/**
-	 * Returns an component that displays the given list of errors,
-	 * if there are any. Returns null if there are not errors to be displayed.
+	 * Returns a component that displays the given list of errors,
+	 * if there are any. Returns null if there are no errors to be displayed.
+	 *
 	 * @param {string[]} errors the error messages to be displayed.
 	 * @returns {React.Component|null} the error display component, or null.
 	 */
@@ -104,11 +108,12 @@ class ValidationInputField extends React.Component {
 	}
 
 	/**
-	 * Fired whenever the onChange event of the input is fired.
+	 * Called whenever the text in the input field changes.
+	 *
 	 * @param {*} event the event
-	 * @returns {*} null
+	 * @returns {void}
 	 */
-	_onChange( event ) {
+	onInputChange( event ) {
 		let errors = [];
 
 		if ( this.props.constraint ) {
@@ -129,7 +134,7 @@ class ValidationInputField extends React.Component {
 		let errors = this.props.errors.concat( this.state.errors );
 		return (
 			<div>
-				<TextInput id={ this.props.id } onChange={ this._onChange } type={ this.props.type } />
+				<TextInput id={ this.props.id } onChange={ this.onInputChange } type={ this.props.type } />
 				{ this.displayErrors( errors ) }
 			</div>
 		);
@@ -137,20 +142,19 @@ class ValidationInputField extends React.Component {
 }
 
 ValidationInputField.propTypes = {
+	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
-	children: PropTypes.array,
-	id: PropTypes.string,
 	type: PropTypes.string,
 	value: PropTypes.string,
 
 	constraint: PropTypes.object,
 	errors: PropTypes.array,
-	regex: PropTypes.string,
 };
 
 ValidationInputField.defaultProps = {
 	errors: [],
 	value: "",
+	type: "text",
 };
 
 export default injectIntl( ValidationInputField );

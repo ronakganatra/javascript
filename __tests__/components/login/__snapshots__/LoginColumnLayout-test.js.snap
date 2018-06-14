@@ -52,18 +52,16 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome back!
-          </span>
-        </h2>
-        <p>
-          <span>
-            Log in with your email address and password. If you don't remember your password, just reset it!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome back!
+        </span>
+      </h2>
+      <p>
+        <span>
+          Log in with your email address and password. If you don't remember your password, just reset it!
+        </span>
+      </p>
     </div>
   </div>
 </div>
@@ -165,18 +163,16 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome back!
-          </span>
-        </h2>
-        <p>
-          <span>
-            Log in with your email address and password. If you don't remember your password, just reset it!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome back!
+        </span>
+      </h2>
+      <p>
+        <span>
+          Log in with your email address and password. If you don't remember your password, just reset it!
+        </span>
+      </p>
     </div>
   </div>
   <div
@@ -193,22 +189,20 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Password changed successfully!
-          </span>
-        </h2>
-        <button
-          className="c6 c7"
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            Continue to MyYoast
-          </span>
-        </button>
-      </div>
+      <h2>
+        <span>
+          Password changed successfully!
+        </span>
+      </h2>
+      <button
+        className="c6 c7"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          Continue to MyYoast
+        </span>
+      </button>
     </div>
   </div>
 </div>

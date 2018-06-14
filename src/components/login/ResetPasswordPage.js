@@ -5,6 +5,7 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-i
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 
+import { passwordConstraints, passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
 
 // Images
@@ -32,14 +33,6 @@ const messages = defineMessages( {
 	resetButton: {
 		id: "reset.button",
 		defaultMessage: "Confirm password change.",
-	},
-	passwordsDoNotMatch: {
-		id: "reset.error.passwordsDoNotMatch",
-		defaultMessage: "^Passwords do not match.",
-	},
-	validationMinimumLength: {
-		id: "validation.minimumLength",
-		defaultMessage: "^{field} must have a minimum length of {minLength} characters.",
 	},
 } );
 
@@ -88,8 +81,6 @@ const SaveButton = styled( Button )`
 	width: 100%;
 `;
 
-const PASSWORD_MINIMUM_LENGTH = 5;
-
 /**
  * Page to change the password of an account.
  */
@@ -109,48 +100,43 @@ class ResetPasswordPage extends React.Component {
 
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
+		this.validate = this.validate.bind( this );
 
 		// Validation constraints.
 		this.constraints = {
-			passwordRepeat: this.passwordRepeatConstraint(),
+			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
 	}
 
+	/**
+	 * Updates the specified field in the state,
+	 * to be used as callback functions in text input fields.
+	 *
+	 * @param {string} field the field in the state that should be updated.
+	 * @param {Object} event the input field change event.
+	 * @returns {void}
+	 */
 	onUpdate( field, event ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
 	}
 
-	passwordConstraints() {
-		return {
-			length: {
-				minimum: PASSWORD_MINIMUM_LENGTH,
-				message: this.props.intl.formatMessage( messages.validationMinimumLength, {
-					field: "Password",
-					minLength: PASSWORD_MINIMUM_LENGTH,
-				} ),
-			},
-		};
-	}
-
-	passwordRepeatConstraint() {
-		return {
-			equality: {
-				attribute: "password",
-				message: this.props.intl.formatMessage( messages.passwordsDoNotMatch ),
-			},
-		};
-	}
-
-	validate( password, passwordRepeat ) {
+	/**
+	 * Validates the password and password repeat fields
+	 * and returns an array of errors if there are any errors,
+	 * and an empty array if none are present.
+	 *
+	 * @returns {string[]} the array of error messages.
+	 */
+	validate() {
 		if ( this.state.passwordRepeat.length === 0 ) {
 			return [];
 		}
 
 		let errors = validate( {
-			password: password,
-			passwordRepeat: passwordRepeat,
+			password: this.state.password,
+			passwordRepeat: this.state.passwordRepeat,
 		}, this.constraints );
 
 		if ( _isUndefined( errors ) ) {
@@ -159,7 +145,12 @@ class ResetPasswordPage extends React.Component {
 		return errors;
 	}
 
+	/**
+	 * Resets the user's password.
+	 * @returns {void}
+	 */
 	handleSubmit() {
+		// Code to connect the UI with the reset password backend should go here.
 	}
 
 	render() {
@@ -187,7 +178,7 @@ class ResetPasswordPage extends React.Component {
 								type="password"
 								errors={ this.state.errors.password }
 								onChange={ this.onUpdatePassword }
-								constraint={ this.passwordConstraints() }
+								constraint={ passwordConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
 
@@ -219,7 +210,6 @@ class ResetPasswordPage extends React.Component {
 ResetPasswordPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
-	location: PropTypes.object,
 	email: PropTypes.string,
 };
 

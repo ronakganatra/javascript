@@ -6,6 +6,8 @@ import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
 
+import { passwordRepeatConstraint, passwordConstraints, emailConstraints } from "./CommonConstraints";
+
 // Components.
 import { Button } from "../Button";
 import ValidationInputField from "../ValidationInputField";
@@ -60,29 +62,11 @@ const messages = defineMessages( {
 		id: "signup.create",
 		defaultMessage: "Create account",
 	},
-	validationFormatEmail: {
-		id: "validation.format.email",
-		defaultMessage: "^{field} must be a valid e-mail address.",
-	},
-	validationMinimumLength: {
-		id: "validation.minimumLength",
-		defaultMessage: "^{field} must have a minimum length of {minLength} characters.",
-	},
 	duplicateEmail: {
 		id: "signup.error.duplicateEmail",
 		defaultMessage: "The email address could not be added, it is probably already in use.",
 	},
-	passwordsDoNotMatch: {
-		id: "signup.error.passwordsDoNotMatch",
-		defaultMessage: "^Passwords do not match.",
-	},
-	passwordStrength: {
-		id: "signup.password",
-		defaultMessage: "^Your password is not strong enough. It should contain...",
-	},
 } );
-
-const PASSWORD_MINIMUM_LENGTH = 5;
 
 /**
  * Test page to test the login layout / styling.
@@ -108,45 +92,22 @@ class Signup extends React.Component {
 
 		// Validation constraints.
 		this.constraints = {
-			passwordRepeat: this.passwordRepeatConstraint(),
+			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
 	}
 
+	/**
+	 * Updates the specified field in the state,
+	 * to be used as callback functions in text input fields.
+	 *
+	 * @param {string} field the field in the state that should be updated.
+	 * @param {Object} event the input field change event.
+	 * @returns {void}
+	 */
 	onUpdate( field, event ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
-	}
-
-	emailConstraints() {
-		return {
-			email: {
-				message: this.props.intl.formatMessage( messages.validationFormatEmail, {
-					field: "Email",
-				} ),
-			},
-		};
-	}
-
-	passwordConstraints() {
-		return {
-			length: {
-				minimum: PASSWORD_MINIMUM_LENGTH,
-				message: this.props.intl.formatMessage( messages.validationMinimumLength, {
-					field: "Password",
-					minLength: PASSWORD_MINIMUM_LENGTH,
-				} ),
-			},
-		};
-	}
-
-	passwordRepeatConstraint() {
-		return {
-			equality: {
-				attribute: "password",
-				message: this.props.intl.formatMessage( messages.passwordsDoNotMatch ),
-			},
-		};
 	}
 
 	/**
@@ -162,6 +123,13 @@ class Signup extends React.Component {
 		</SaveButtonArea>;
 	}
 
+	/**
+	 * Validates the email, password and password repeat fields
+	 * and returns an array of errors if there are any,
+	 * and an empty array if none are present.
+	 *
+	 * @returns {string[]} the array of error messages.
+	 */
 	validate() {
 		if ( this.state.passwordRepeat.length === 0 ) {
 			return [];
@@ -179,7 +147,14 @@ class Signup extends React.Component {
 		return errors;
 	}
 
+	/**
+	 * Creates a new MyYoast account using the
+	 * email address and password as entered in this component.
+	 *
+	 * @returns {void}
+	 */
 	handleSubmit() {
+		// Code to connect UI with sign up back end code should go here.
 	}
 
 	render() {
@@ -197,7 +172,7 @@ class Signup extends React.Component {
 						type="text"
 						value={ this.state.email }
 						onChange={ this.onUpdateEmail }
-						constraint={ this.emailConstraints() }
+						constraint={ emailConstraints( this.props.intl ) }
 					/>
 				</LabelBlock>
 				<LabelBlock>
@@ -209,7 +184,7 @@ class Signup extends React.Component {
 						name="password"
 						type="password"
 						onChange={ this.onUpdatePassword }
-						constraint={ this.passwordConstraints() }
+						constraint={ passwordConstraints( this.props.intl ) }
 					/>
 				</LabelBlock>
 				<LabelBlock>
