@@ -117,8 +117,8 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
 /**
  * Announces actions after pressing form buttons
  *
- * @param {bool} isSaving Whether the form is currently in the progress of saving.
- * @param {bool} isSaved Whether the form has been saved.
+ * @param {boolean} isSaving Whether the form is currently in the progress of saving.
+ * @param {boolean} isSaved Whether the form has been saved.
  * @param {string} type The type of form.
  * @param {*} intl To format messages.
  *

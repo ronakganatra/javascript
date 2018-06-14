@@ -24,7 +24,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -42,39 +42,31 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -82,52 +74,23 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c31 {
   margin-top: 24px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -150,7 +113,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -163,7 +126,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c32 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -186,7 +149,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c36 svg {
+.c32 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -199,7 +162,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -210,7 +173,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: center;
 }
 
-.c37 {
+.c33 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -284,10 +247,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -299,11 +258,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -321,11 +280,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -349,10 +308,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -373,7 +328,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -420,19 +375,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -440,19 +395,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c36 {
+  .c32 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c36 {
+  .c32 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c36 svg {
+  .c32 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -603,45 +558,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -649,7 +570,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -658,7 +579,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -681,7 +602,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -700,7 +621,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -789,10 +710,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -800,7 +721,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -809,7 +730,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -821,16 +742,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -857,16 +778,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c35"
+        className="c31"
       >
         <button
           aria-expanded={false}
-          className="c36"
+          className="c32"
           fontWeight={300}
           onClick={[Function]}
         >
           <span
-            className="c37"
+            className="c33"
             fontSize={1.5}
           >
             Developer Tokens
@@ -915,7 +836,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -933,39 +854,31 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -973,46 +886,17 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1035,7 +919,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1048,7 +932,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1122,10 +1006,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -1137,11 +1017,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1159,11 +1039,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -1187,10 +1067,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -1211,7 +1087,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -1258,19 +1134,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1421,45 +1297,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -1467,7 +1309,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -1476,7 +1318,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -1499,7 +1341,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -1518,7 +1360,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -1607,10 +1449,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -1618,7 +1460,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -1627,7 +1469,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -1639,16 +1481,16 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -1697,7 +1539,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -1715,39 +1557,31 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -1755,46 +1589,17 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1817,7 +1622,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1830,7 +1635,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1904,10 +1709,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -1919,11 +1720,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1941,11 +1742,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -1969,10 +1770,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -1993,7 +1790,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -2040,19 +1837,19 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2203,45 +2000,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -2249,7 +2012,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -2258,7 +2021,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -2281,7 +2044,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -2300,7 +2063,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </p>
           <button
-            className="c29 c22"
+            className="c25 c23"
             onClick={[Function]}
             type="button"
           >
@@ -2389,10 +2152,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -2400,7 +2163,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -2409,7 +2172,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -2421,16 +2184,16 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -2479,7 +2242,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -2497,39 +2260,31 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -2537,46 +2292,17 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2599,7 +2325,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2612,7 +2338,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2686,10 +2412,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -2701,11 +2423,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2723,11 +2445,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -2751,10 +2473,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -2775,7 +2493,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -2822,19 +2540,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2985,45 +2703,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -3031,7 +2715,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -3040,7 +2724,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -3063,7 +2747,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -3082,7 +2766,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -3171,10 +2855,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -3182,7 +2866,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -3191,7 +2875,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -3203,16 +2887,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -3261,7 +2945,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c26 {
+.c27 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -3279,39 +2963,31 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c26:hover,
-.c26:focus {
+.c27:hover,
+.c27:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c26:active {
+.c27:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c25 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c31 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c33 {
+.c29 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c33:hover,
-.c33:focus {
+.c29:hover,
+.c29:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -3319,46 +2995,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c30 {
+.c25 {
   min-width: 152px;
 }
 
-.c24 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c24:hover,
-.c24:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c24:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c36 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c37 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3381,7 +3028,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c37 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3394,7 +3041,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c38 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3505,10 +3152,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: black;
 }
 
-.c27 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -3520,11 +3163,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
-.c34 {
+.c30 {
   padding: 0 1em 0 1em;
 }
 
-.c28 {
+.c23 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3542,11 +3185,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
-.c29 {
+.c24 {
   margin: 1em 0;
 }
 
-.c32 {
+.c28 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -3570,10 +3213,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   background-color: #f7f7f7;
 }
 
-.c23 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -3594,7 +3233,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-align: center;
 }
 
-.c35 {
+.c31 {
   margin-bottom: 1em;
 }
 
@@ -3641,19 +3280,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c37 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c37 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c37 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3813,24 +3452,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
             <div
               className="c19 c20"
               role="alert"
@@ -3852,27 +3473,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 .
               </span>
             </div>
-            <button
-              className="c23 c24 c25 c26"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c27"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c28"
+              className="c23"
             >
               <button
-                className="c29 c30 c31 c26"
+                className="c24 c25 c26 c27"
                 type="submit"
               >
                 <span>
@@ -3880,7 +3485,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 </span>
               </button>
               <button
-                className="c32 c33 c26"
+                className="c28 c29 c27"
                 onClick={[Function]}
                 type="reset"
               >
@@ -3889,7 +3494,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 </span>
               </button>
               <span
-                className="c34"
+                className="c30"
               >
                 
               </span>
@@ -3912,7 +3517,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </span>
         </p>
         <section
-          className="c35"
+          className="c31"
         >
           <p>
             <span>
@@ -3931,7 +3536,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="c31 c26"
+            className="c26 c27"
             onClick={[Function]}
             type="button"
           >
@@ -4020,10 +3625,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             width="100%"
           />
           <div
-            className="c28"
+            className="c23"
           >
             <button
-              className="c29 c30 c31 c26"
+              className="c24 c25 c26 c27"
               type="submit"
             >
               <span>
@@ -4031,7 +3636,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </button>
             <button
-              className="c32 c33 c26"
+              className="c28 c29 c27"
               onClick={[Function]}
               type="reset"
             >
@@ -4040,7 +3645,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </button>
             <span
-              className="c34"
+              className="c30"
             >
               
             </span>
@@ -4052,16 +3657,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c36"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c37"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c38"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -4110,7 +3715,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -4128,39 +3733,31 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -4168,46 +3765,17 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4230,7 +3798,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4243,7 +3811,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -4317,10 +3885,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -4332,11 +3896,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4354,11 +3918,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -4382,10 +3946,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -4406,7 +3966,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -4453,19 +4013,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4616,45 +4176,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -4662,7 +4188,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -4671,7 +4197,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -4694,7 +4220,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -4713,7 +4239,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -4802,10 +4328,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -4813,7 +4339,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -4822,7 +4348,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -4834,16 +4360,16 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -4892,7 +4418,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -4910,39 +4436,31 @@ exports[`components/ProfilePage saving profile 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -4950,46 +4468,17 @@ exports[`components/ProfilePage saving profile 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5012,7 +4501,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5025,7 +4514,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -5099,10 +4588,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -5114,11 +4599,11 @@ exports[`components/ProfilePage saving profile 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5136,11 +4621,11 @@ exports[`components/ProfilePage saving profile 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -5164,10 +4649,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -5188,7 +4669,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -5235,19 +4716,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5398,45 +4879,11 @@ exports[`components/ProfilePage saving profile 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -5444,7 +4891,7 @@ exports[`components/ProfilePage saving profile 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -5453,7 +4900,7 @@ exports[`components/ProfilePage saving profile 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 Saving...
               </span>
@@ -5476,7 +4923,7 @@ exports[`components/ProfilePage saving profile 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -5495,7 +4942,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -5584,10 +5031,10 @@ exports[`components/ProfilePage saving profile 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -5595,7 +5042,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -5604,7 +5051,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -5616,16 +5063,16 @@ exports[`components/ProfilePage saving profile 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -5674,7 +5121,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -5692,39 +5139,31 @@ exports[`components/ProfilePage sending password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -5732,46 +5171,17 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5794,7 +5204,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5807,7 +5217,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -5881,10 +5291,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -5896,11 +5302,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5918,11 +5324,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -5946,10 +5352,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -5970,7 +5372,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -6017,19 +5419,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6180,45 +5582,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -6226,7 +5594,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -6235,7 +5603,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -6258,7 +5626,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -6277,7 +5645,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -6366,10 +5734,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -6377,7 +5745,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -6386,7 +5754,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -6398,16 +5766,16 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -6456,7 +5824,7 @@ exports[`components/ProfilePage the default case 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -6474,39 +5842,31 @@ exports[`components/ProfilePage the default case 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -6514,46 +5874,17 @@ exports[`components/ProfilePage the default case 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6576,7 +5907,7 @@ exports[`components/ProfilePage the default case 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -6589,7 +5920,7 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -6663,10 +5994,6 @@ exports[`components/ProfilePage the default case 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -6678,11 +6005,11 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6700,11 +6027,11 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -6728,10 +6055,6 @@ exports[`components/ProfilePage the default case 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -6752,7 +6075,7 @@ exports[`components/ProfilePage the default case 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -6799,19 +6122,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6962,45 +6285,11 @@ exports[`components/ProfilePage the default case 1`] = `
               value="test@test.test"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -7008,7 +6297,7 @@ exports[`components/ProfilePage the default case 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -7017,7 +6306,7 @@ exports[`components/ProfilePage the default case 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -7040,7 +6329,7 @@ exports[`components/ProfilePage the default case 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -7059,7 +6348,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -7148,10 +6437,10 @@ exports[`components/ProfilePage the default case 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -7159,7 +6448,7 @@ exports[`components/ProfilePage the default case 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -7168,7 +6457,7 @@ exports[`components/ProfilePage the default case 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -7180,16 +6469,16 @@ exports[`components/ProfilePage the default case 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -7238,7 +6527,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c22 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -7256,39 +6545,31 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c22:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c21 {
-  background-repeat: no-repeat;
-  background-image: url( blue-plus-circle.svg );
-  background-position: 8px 50%;
-  background-size: 1em;
-  padding-left: 36px;
-}
-
-.c27 {
+.c22 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c29 {
+.c25 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
 }
 
-.c29:hover,
-.c29:focus {
+.c25:hover,
+.c25:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -7296,46 +6577,17 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c21 {
   min-width: 152px;
 }
 
-.c20 {
-  background-color: transparent;
-  background-position: 0.5em 50%;
-  color: #0066cd;
-  box-shadow: none;
-  text-transform: none;
-  height: 32px;
-  padding-left: 2em;
-  border: 0;
-  font-weight: 400;
-  -webkit-filter: none;
-  filter: none;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
-}
-
-.c20:hover,
-.c20:focus {
-  box-shadow: none;
-  background-color: #f1f1f1;
-}
-
-.c20:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
-}
-
-.c32 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c33 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7358,7 +6610,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: #000;
 }
 
-.c33 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -7371,7 +6623,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c34 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -7445,10 +6697,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: black;
 }
 
-.c23 {
-  padding-top: 0.5em;
-}
-
 .c18 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
@@ -7460,11 +6708,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
-.c30 {
+.c26 {
   padding: 0 1em 0 1em;
 }
 
-.c24 {
+.c19 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7482,11 +6730,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c20 {
   margin: 1em 0;
 }
 
-.c28 {
+.c24 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -7510,10 +6758,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   background-color: #f7f7f7;
 }
 
-.c19 {
-  margin-top: 8px;
-}
-
 .c15 {
   width: 100%;
 }
@@ -7534,7 +6778,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-align: center;
 }
 
-.c31 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -7581,19 +6825,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c33 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c33 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -7744,45 +6988,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               value="email@email.email"
               width="100%"
             />
-            <label
-              className="c16"
-              htmlFor="alternative-email-address"
-            >
-              <span>
-                Alternative email address
-              </span>
-            </label>
-            <input
-              className="c17 c18"
-              id="alternative-email-address"
-              name="email"
-              onChange={[Function]}
-              placeholder="Enter another email address..."
-              type="text"
-              value=""
-              width="100%"
-            />
-            <button
-              className="c19 c20 c21 c22"
-              onClick={[Function]}
-              type="button"
-            >
-              <span>
-                Add another email
-              </span>
-              <span
-                className="screen-reader-text c23"
-              >
-                <span>
-                  (Opens in a new browser tab)
-                </span>
-              </span>
-            </button>
             <div
-              className="c24"
+              className="c19"
             >
               <button
-                className="c25 c26 c27 c22"
+                className="c20 c21 c22 c23"
                 type="submit"
               >
                 <span>
@@ -7790,7 +7000,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 </span>
               </button>
               <button
-                className="c28 c29 c22"
+                className="c24 c25 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -7799,7 +7009,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 </span>
               </button>
               <span
-                className="c30"
+                className="c26"
               >
                 
               </span>
@@ -7822,7 +7032,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           </span>
         </p>
         <section
-          className="c31"
+          className="c27"
         >
           <p>
             <span>
@@ -7841,7 +7051,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="c27 c22"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -7930,10 +7140,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             width="100%"
           />
           <div
-            className="c24"
+            className="c19"
           >
             <button
-              className="c25 c26 c27 c22"
+              className="c20 c21 c22 c23"
               type="submit"
             >
               <span>
@@ -7941,7 +7151,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </span>
             </button>
             <button
-              className="c28 c29 c22"
+              className="c24 c25 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -7950,7 +7160,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </span>
             </button>
             <span
-              className="c30"
+              className="c26"
             >
               
             </span>
@@ -7962,16 +7172,16 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c33"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
