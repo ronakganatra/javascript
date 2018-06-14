@@ -3,7 +3,6 @@ import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { IconButtonTransparent } from "../../Button";
 import validate from "validate.js";
-import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import _every from "lodash/every";
