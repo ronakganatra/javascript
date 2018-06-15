@@ -14,7 +14,7 @@ import logo from "../../images/my-yoast-academy-logo.svg";
 const MainPaper = styled.div`
 	padding: 0 20px;
 	width: 480px;
-	height: 480px;
+	min-height: 480px;
 	
 	position: relative;
 		
@@ -33,10 +33,7 @@ const Description = styled.p`
 `;
 
 const SaveButtonArea = styled.div`
-	text-align: center;
-	position: absolute;
-	bottom: 0;
-	
+	text-align: center;	
 	width: 100%;
 `;
 

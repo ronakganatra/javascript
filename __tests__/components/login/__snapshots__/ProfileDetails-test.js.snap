@@ -161,7 +161,7 @@ exports[`The ProfileDetails component matches the snapshot 1`] = `
 .c2 {
   padding: 0 20px;
   width: 480px;
-  height: 480px;
+  min-height: 480px;
   position: relative;
   text-align: center;
 }
@@ -178,8 +178,6 @@ exports[`The ProfileDetails component matches the snapshot 1`] = `
 
 .c16 {
   text-align: center;
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
