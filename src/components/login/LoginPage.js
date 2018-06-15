@@ -37,7 +37,6 @@ class LoginPage extends React.Component {
 	render() {
 		return (
 			<LoginColumnLayout>
-				<LoginMessage header={ messages.header } message={ messages.message } />
 				<LoginMessage header={ messages.headerReset } message={ messages.button }
 							  onClick={ () => console.error( 1 ) } />
 			</LoginColumnLayout>

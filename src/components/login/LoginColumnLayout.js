@@ -20,8 +20,10 @@ const ColumnLayout = styled.div`
  */
 const MainColumn = styled.div`
 	width: 480px;
-	@media screen and ( max-width: 1024px ) {
-		display: none;
+	:not(:only-child) {
+		@media screen and ( max-width: 1024px ) {
+			display: none;
+		}
 	}
 `;
 
@@ -73,7 +75,7 @@ class LoginColumnLayout extends React.Component {
 		return (
 			<ColumnLayout>
 				<MainColumn>
-					{ this.props.children[ 0 ] }
+					{ twoColumns ? this.props.children[ 0 ] : this.props.children }
 				</MainColumn>
 				{ twoColumns ? this.getRightColumn() : null }
 			</ColumnLayout>

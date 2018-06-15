@@ -12,8 +12,8 @@ import UserImage from "../../UserImage";
 const UploadElement = styled.div`
 	display: inline-block;
 	position: relative;
-	width: 150px;
-	height: 150px;
+	width: 120px;
+	height: 120px;
 `;
 
 const translucentBlack = "rgba(0, 0, 0, 0.5)";
@@ -105,6 +105,7 @@ class UploadUserImage extends React.Component {
 		super( props );
 
 		this.state = {
+			image: this.props.image,
 			error: null,
 		};
 
@@ -137,10 +138,20 @@ class UploadUserImage extends React.Component {
 	 * Gets triggered when an image file has been selected in the
 	 * file upload dialog.
 	 * @param {File} file the file that has been selected
-	 * @returns {Null} nothing
+	 * @returns {void}
 	 */
 	onFileUpload( file ) {
+		// No file selected.
+		if ( ! file ) {
+			return;
+		}
+
 		if ( file && this.validateFile( file ) ) {
+			// Set file preview.
+			this.setState( {
+				image: URL.createObjectURL( file ),
+			} );
+
 			this.props.onFileUpload( file );
 		} else {
 			// Show and speak an error message.
@@ -190,10 +201,10 @@ class UploadUserImage extends React.Component {
 		let imageDescriptionMessage = this.props.image ? messages.image : messages.defaultImage;
 		let imageDescription = this.props.intl.formatMessage( imageDescriptionMessage );
 
-		let imageSrc = this.props.image || avatarPlaceholder;
+		let imageSrc = this.state.image || avatarPlaceholder;
 
 		return <UploadElement>
-			<UserImage alt={ imageDescription } src={ imageSrc } size="150px" />
+			<UserImage alt={ imageDescription } src={ imageSrc } size="120px" />
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />
