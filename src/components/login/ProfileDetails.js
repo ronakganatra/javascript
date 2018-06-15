@@ -57,8 +57,8 @@ const messages = defineMessages( {
 } );
 
 class ProfileDetails extends React.Component {
+
 	handleSubmit( firstName, lastName, imageFile ) {
-		console.log( firstName, lastName, imageFile );
 	}
 
 	render() {

@@ -127,11 +127,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -140,8 +140,8 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -336,7 +336,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -718,11 +718,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -731,8 +731,8 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -927,7 +927,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -1292,11 +1292,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -1305,8 +1305,8 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -1501,7 +1501,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -1849,11 +1849,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -1862,8 +1862,8 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -2071,7 +2071,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -2460,11 +2460,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -2473,8 +2473,8 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -2678,7 +2678,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -3047,11 +3047,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -3060,8 +3060,8 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -3262,7 +3262,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -3615,11 +3615,11 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -3628,8 +3628,8 @@ exports[`components/ProfilePage saving profile 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -3828,7 +3828,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -4181,11 +4181,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -4194,8 +4194,8 @@ exports[`components/ProfilePage sending password reset 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -4396,7 +4396,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
@@ -4749,11 +4749,11 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -4762,8 +4762,8 @@ exports[`components/ProfilePage the default case 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -4958,7 +4958,7 @@ exports[`components/ProfilePage the default case 1`] = `
               <img
                 alt="Your current profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="dummy.png"
               />
               <span
@@ -5306,11 +5306,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c8 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+  -webkit-flex: 0 0 120px;
+  -ms-flex: 0 0 120px;
+  flex: 0 0 120px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
@@ -5319,8 +5319,8 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 .c7 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
 }
 
 .c9 {
@@ -5515,7 +5515,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               <img
                 alt="Default profile image"
                 className="c8"
-                size="150px"
+                size="120px"
                 src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
