@@ -53,8 +53,21 @@ const messages = defineMessages( {
 	},
 } );
 
+/**
+ * Component in first login flow, where the user is asked to
+ * enter some personal details: first name, last name and profile image.
+ */
 class ProfileDetails extends React.Component {
 
+	/**
+	 * Submits the entered first name, last name and profile image
+	 * to the server,
+	 *
+	 * @param {string} firstName the entered first name
+	 * @param {string} lastName the entered last name
+	 * @param {File} imageFile the uploaded image
+	 * @returns {void}
+	 */
 	handleSubmit( firstName, lastName, imageFile ) {
 	}
 

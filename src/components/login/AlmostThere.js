@@ -16,6 +16,9 @@ const messages = defineMessages( {
 	},
 } );
 
+/**
+ * Shows an "Almost there" login message.
+ */
 class AlmostThere extends React.Component {
 
 	render() {

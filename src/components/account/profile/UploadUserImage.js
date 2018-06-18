@@ -99,6 +99,9 @@ const messages = defineMessages( {
 
 const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
+/**
+ * Component for uploading a profile image.
+ */
 class UploadUserImage extends React.Component {
 
 	constructor( props ) {

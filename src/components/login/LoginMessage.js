@@ -42,6 +42,11 @@ const Logos = styled.img`
  */
 class LoginMessage extends React.Component {
 
+	/**
+	 * Creates a button with the message as given in the props.
+	 * Adds the onClick callback (also given in the props).
+	 * @returns {React.Component} the button, with the onClick callback added.
+	 */
 	renderButton() {
 		return (
 			<Button onClick={ this.props.onClick }>
@@ -50,6 +55,10 @@ class LoginMessage extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders a paragraph with the message given in the props.
+	 * @returns {React.Component} the paragraph, with the message as its contents.
+	 */
 	renderParagraph() {
 		return (
 			<p>
