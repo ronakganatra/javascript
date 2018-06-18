@@ -320,6 +320,8 @@ export function passwordResetSend( email ) {
  */
 export function uploadAvatar( image ) {
 	return ( dispatch ) => {
+		dispatch( profileUpdateRequest() );
+
 		let userId = getUserId();
 		let uploadData = new FormData();
 

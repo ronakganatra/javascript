@@ -13,6 +13,10 @@ const UploadElement = styled.div`
 	height: 150px;
 `;
 
+const UserImageContainer = styled.div`
+	display: flex;
+`;
+
 const translucentBlack = "rgba(0, 0, 0, 0.5)";
 const transparent = "rgba(0, 0, 0, 0)";
 
@@ -121,7 +125,9 @@ class UploadUserImage extends React.Component {
 		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
 		return <UploadElement>
-			<UserImage src={ this.props.image } size="150px" />
+			<UserImageContainer>
+				<UserImage src={ this.props.image } size="150px" />
+			</UserImageContainer>
 			<Overlay>
 				<ChangeLink onClick={ this.onClickLink }>
 					Change
