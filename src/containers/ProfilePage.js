@@ -16,6 +16,8 @@ import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
 
+import { url } from "gravatar";
+
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {

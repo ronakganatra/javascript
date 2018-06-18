@@ -320,6 +320,19 @@ export function passwordResetSend( email ) {
  */
 export function uploadAvatar( image ) {
 	return ( dispatch ) => {
-		// Upload to internal REST endpoint here!
+		let userId = getUserId();
+		let uploadData = new FormData();
+
+		// PrepareRequest set's this to JSON if not set. We want the browser to set it to correctly set the boundary.
+		let uploadOptions = { headers: {} };
+		uploadData.append( "wp-user-avatars", image );
+
+		let uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions	);
+
+		return doRequest( uploadRequest )
+			.then( ( response ) => {
+				dispatch( profileUpdateSuccess( response ) );
+			} )
+			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
 	};
 }
