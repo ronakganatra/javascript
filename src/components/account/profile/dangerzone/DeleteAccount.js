@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
+import defaults from "../../../../config/defaults.json";
 
 // Custom components.
 import { RedButton } from "../../../Button";
@@ -40,8 +41,10 @@ const Paragraph = styled.p`
 	font-weight: 700;
 `;
 
-const DeleteButton = styled( RedButton )`
-	margin: 1em 0;
+const DeleteButton = styled( RedButton )`	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
 `;
 
 class DeleteAccount extends React.Component {

@@ -1,6 +1,7 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
+import defaults from "../../../../config/defaults.json";
 import "whatwg-fetch";
 
 import { getDownloadProfileUrl } from "../../../../functions/api";
@@ -39,6 +40,12 @@ const Description = styled.p`
 	margin-bottom: 10px;
 `;
 
+const DownloadButton = styled( Button )`
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
+`;
+
 class DownloadAccount extends React.Component {
 
 	constructor( props ) {
@@ -60,9 +67,9 @@ class DownloadAccount extends React.Component {
 					<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage }/>
 				</Description>
 				<p>
-					<Button type="submit">
+					<DownloadButton type="submit">
 						<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage }/>
-					</Button>
+					</DownloadButton>
 				</p>
 			</Form>
 			;

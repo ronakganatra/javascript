@@ -60,6 +60,10 @@ const AvatarBlock = styled.div`
 	margin: auto;
 	padding-top:20px;
 	text-align: center;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
 `;
 
 /**

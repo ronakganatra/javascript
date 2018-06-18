@@ -6,6 +6,7 @@ import { speak } from "@wordpress/a11y";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 import { InputField } from "../../InputField";
 import colors from "yoast-components/style-guide/colors.json";
+import defaults from "../../../config/defaults.json";
 
 const messages = defineMessages( {
 	discardChanges: {
@@ -40,11 +41,20 @@ const ButtonArea = styled.div`
 
 const SaveButton = styled( LargeButton )`
 	margin: 1em 0;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
 `;
 
 const DiscardButton = styled( LargeSecondaryButton )`
 	margin: 1em 0;
 	margin-right: 1em;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+		margin: 0;
+	}
 `;
 
 export const Form = styled.form`
