@@ -1,5 +1,5 @@
 import React from "react";
-import { mapStateToProps } from "../../src/containers/ProfilePage"
+import { mapStateToProps } from "../../src/containers/ProfilePage";
 
 test( 'the mapStateToProps function', () => {
 	let state = {

@@ -116,10 +116,12 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
       className="c2"
     >
       <img
+        alt="My Yoast, Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
@@ -144,10 +146,12 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
       className="c2"
     >
       <img
+        alt="My Yoast, Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
