@@ -32,7 +32,7 @@ const messages = defineMessages( {
 	},
 	resetButton: {
 		id: "reset.button",
-		defaultMessage: "Confirm password change.",
+		defaultMessage: "Confirm password change",
 	},
 } );
 
@@ -155,6 +155,7 @@ class ResetPasswordPage extends React.Component {
 
 	render() {
 		let errors = this.validate( this.state.password, this.state.passwordRepeat );
+		console.log( this.props );
 		return (
 			<LoginColumnLayout>
 				<Column>
