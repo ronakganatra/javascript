@@ -66,22 +66,21 @@ class Checkbox extends React.Component {
 			<CheckboxInput id={ this.props.id }
 						   onChange={ this.props.onCheck }
 						   checked={ this.props.checked }
-						   type={ "checkbox" } />
-			<Checkmark className={ "checkmark" } />
+						   type="checkbox" />
+			<Checkmark className="checkmark" />
 		</Label>;
 	}
 }
 
 Checkbox.propTypes = {
-	id: PropTypes.string,
+	id: PropTypes.string.isRequired,
 	children: PropTypes.any,
-	onCheck: PropTypes.func,
-	checked: PropTypes.bool,
+	onCheck: PropTypes.func.isRequired,
+	checked: PropTypes.bool.isRequired,
 };
 
 Checkbox.defaultProps = {
 	children: [],
-	checked: false,
 };
 
 export default Checkbox;

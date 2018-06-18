@@ -63,22 +63,20 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
     className="c2"
     src="greeting.png"
   />
-  <div>
-    <h2>
-      <span>
-        Password changed successfully!
-      </span>
-    </h2>
-    <button
-      className="c3 c4"
-      onClick={[Function]}
-      type="button"
-    >
-      <span>
-        Continue to MyYoast
-      </span>
-    </button>
-  </div>
+  <h2>
+    <span>
+      Password changed successfully!
+    </span>
+  </h2>
+  <button
+    className="c3 c4"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Continue to MyYoast
+    </span>
+  </button>
 </div>
 `;
 
@@ -111,17 +109,15 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
     className="c2"
     src="greeting.png"
   />
-  <div>
-    <h2>
-      <span>
-        Welcome back!
-      </span>
-    </h2>
-    <p>
-      <span>
-        Log in with your email address and password. If you don't remember your password, just reset it!
-      </span>
-    </p>
-  </div>
+  <h2>
+    <span>
+      Welcome back!
+    </span>
+  </h2>
+  <p>
+    <span>
+      Log in with your email address and password. If you don't remember your password, just reset it!
+    </span>
+  </p>
 </div>
 `;

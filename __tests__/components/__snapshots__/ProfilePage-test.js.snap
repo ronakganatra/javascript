@@ -131,8 +131,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -158,6 +160,8 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -330,34 +334,39 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -713,8 +722,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -740,6 +751,8 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -912,34 +925,39 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -1278,8 +1296,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -1305,6 +1325,8 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -1477,34 +1499,39 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -1826,8 +1853,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -1853,6 +1882,8 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -2038,34 +2069,39 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -2428,8 +2464,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -2455,6 +2493,8 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -2636,34 +2676,39 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -3006,8 +3051,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -3033,6 +3080,8 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -3211,34 +3260,39 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -3565,8 +3619,10 @@ exports[`components/ProfilePage saving profile 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -3592,6 +3648,8 @@ exports[`components/ProfilePage saving profile 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -3768,34 +3826,39 @@ exports[`components/ProfilePage saving profile 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -4122,8 +4185,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -4149,6 +4214,8 @@ exports[`components/ProfilePage sending password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -4327,34 +4394,39 @@ exports[`components/ProfilePage sending password reset 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -4681,8 +4753,10 @@ exports[`components/ProfilePage the default case 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -4708,6 +4782,8 @@ exports[`components/ProfilePage the default case 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -4880,7 +4956,7 @@ exports[`components/ProfilePage the default case 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Your current profile image"
                 className="c8"
                 size="150px"
                 src="dummy.png"
@@ -4888,26 +4964,31 @@ exports[`components/ProfilePage the default case 1`] = `
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
@@ -5229,8 +5310,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   -ms-flex: 0 0 150px;
   flex: 0 0 150px;
   height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c7 {
@@ -5256,6 +5339,8 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -5428,34 +5513,39 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               className="c7"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c8"
                 size="150px"
-                src={undefined}
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c9"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c10"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c11"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
-                    "opacity": 0,
+                    "display": "none",
                   }
                 }
                 type="file"
