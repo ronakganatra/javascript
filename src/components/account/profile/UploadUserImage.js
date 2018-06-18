@@ -67,7 +67,6 @@ const MaxFileSizeText = styled.p`
 
 	text-align: center;
 	font-size: 12px;
-	line-height: 55px;
 	color: black;
 `;
 
@@ -82,7 +81,7 @@ const messages = defineMessages( {
 	},
 	maxFileSize: {
 		id: "userImageUpload.maxFileSize",
-		defaultMessage: "Maximum file size {maxSize} Megabytes",
+		defaultMessage: "Maximum file size is {maxSize} megabytes",
 	},
 	maxFileSizeExceeded: {
 		id: "userImageUpload.maxFileSizeExceeded",
@@ -193,8 +192,8 @@ class UploadUserImage extends React.Component {
 
 		let imageSrc = this.props.image || avatarPlaceholder;
 
-		return <UploadElement>
-			<UserImage alt={ imageDescription } src={ imageSrc } size="150px" />
+		return <UploadElement size="125px">
+			<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />
