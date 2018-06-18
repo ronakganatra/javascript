@@ -155,7 +155,6 @@ class ResetPasswordPage extends React.Component {
 
 	render() {
 		let errors = this.validate( this.state.password, this.state.passwordRepeat );
-		console.log( this.props );
 		return (
 			<LoginColumnLayout>
 				<Column>
