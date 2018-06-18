@@ -65,10 +65,14 @@ class ProfileDetails extends React.Component {
 	 *
 	 * @param {string} firstName the entered first name
 	 * @param {string} lastName the entered last name
-	 * @param {File} imageFile the uploaded image
+	 * @param {File} imageFile the uploaded image (see
 	 * @returns {void}
 	 */
 	handleSubmit( firstName, lastName, imageFile ) {
+		/*
+			Code to submit the entered first name, last name and profile
+		   	image to the server should be written here!
+		*/
 	}
 
 	render() {

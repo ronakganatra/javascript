@@ -82,6 +82,7 @@ class ProfileDetailsBlock extends React.Component {
 	/**
 	 * Updates the given field in the state with the target value in the
 	 * given event.
+	 *
 	 * @param {string} field the field that needs to be updated.
 	 * @param {object} event the event from which to get the new value.
 	 * @returns {void}
@@ -95,6 +96,7 @@ class ProfileDetailsBlock extends React.Component {
 	/**
 	 * Calls the onSubmit function given in the props
 	 * with the entered first name, last name and image file.
+	 *
 	 * @returns {void}
 	 */
 	handleSubmit() {
@@ -103,7 +105,8 @@ class ProfileDetailsBlock extends React.Component {
 
 	/**
 	 * Updates the state with the uploaded image file.
-	 * @param {File} file the uploaded file.
+	 *
+	 * @param {File} file the uploaded file (see https://developer.mozilla.org/en-US/docs/Web/API/File).
 	 * @returns {void}
 	 */
 	onFileUpload( file ) {
@@ -120,10 +123,7 @@ class ProfileDetailsBlock extends React.Component {
 
 			<NameBlock id="left">
 				<StyledLabel htmlFor="first-name">
-					<FormattedMessage
-						id={ messages.labelFirstName.id }
-						defaultMessage={ messages.labelFirstName.defaultMessage }
-					/>
+					<FormattedMessage { ...messages.labelFirstName } />
 				</StyledLabel>
 				<TextInput
 					width="100%"
@@ -135,10 +135,7 @@ class ProfileDetailsBlock extends React.Component {
 					onChange={ this.onUpdateFirstName }
 				/>
 				<StyledLabel htmlFor="last-name">
-					<FormattedMessage
-						id={ messages.labelLastName.id }
-						defaultMessage={ messages.labelLastName.defaultMessage }
-					/>
+					<FormattedMessage { ...messages.labelLastName } />
 				</StyledLabel>
 				<TextInput
 					width="100%"

@@ -130,7 +130,7 @@ class UploadUserImage extends React.Component {
 	/**
 	 * Validates the file (e.g. if it's below the
 	 * max file size).
-	 * @param {File} file the file that needs to be checked
+	 * @param {File} file the file that needs to be checked (see https://developer.mozilla.org/en-US/docs/Web/API/File).
 	 * @returns {boolean} if the file is valid or not
 	 */
 	validateFile( file ) {
@@ -140,7 +140,7 @@ class UploadUserImage extends React.Component {
 	/**
 	 * Gets triggered when an image file has been selected in the
 	 * file upload dialog.
-	 * @param {File} file the file that has been selected
+	 * @param {File} file the file that has been selected (see https://developer.mozilla.org/en-US/docs/Web/API/File).
 	 * @returns {void}
 	 */
 	onFileUpload( file ) {
