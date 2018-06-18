@@ -192,19 +192,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -223,6 +223,8 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -462,33 +464,37 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -951,19 +957,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -982,6 +988,8 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -1201,33 +1209,37 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -1654,19 +1666,19 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -1685,6 +1697,8 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -1904,33 +1918,37 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -2357,19 +2375,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -2388,6 +2406,8 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -2607,33 +2627,37 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -3097,19 +3121,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -3128,6 +3152,8 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -3356,33 +3382,37 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -3830,19 +3860,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -3861,6 +3891,8 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -4080,33 +4112,37 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -4533,19 +4569,19 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -4564,6 +4600,8 @@ exports[`components/ProfilePage saving profile 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -4783,33 +4821,37 @@ exports[`components/ProfilePage saving profile 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -5236,19 +5278,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -5267,6 +5309,8 @@ exports[`components/ProfilePage sending password reset 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -5486,33 +5530,37 @@ exports[`components/ProfilePage sending password reset 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -5939,19 +5987,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -5970,6 +6018,8 @@ exports[`components/ProfilePage the default case 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -6189,33 +6239,37 @@ exports[`components/ProfilePage the default case 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Your current profile image"
                 className="c10"
-                size="130px"
+                size="150px"
                 src="dummy.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {
@@ -6642,19 +6696,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c10 {
-  -webkit-flex: 0 0 130px;
-  -ms-flex: 0 0 130px;
-  flex: 0 0 130px;
-  height: 130px;
+  -webkit-flex: 0 0 150px;
+  -ms-flex: 0 0 150px;
+  flex: 0 0 150px;
+  height: 150px;
+  width: 150px;
   border-radius: 50%;
   margin-right: 12px;
+  object-fit: cover;
 }
 
 .c9 {
   display: inline-block;
   position: relative;
-  width: 130px;
-  height: 130px;
 }
 
 .c11 {
@@ -6673,6 +6727,8 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   left: 0;
   width: 100%;
   padding: 8px;
+  background: none;
+  border: none;
   color: white;
   font-size: 12px;
   -webkit-text-decoration: underline;
@@ -6892,33 +6948,37 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           >
             <div
               className="c9"
-              size="130px"
             >
               <img
-                alt=""
+                alt="Default profile image"
                 className="c10"
-                size="130px"
-                src={undefined}
+                size="150px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
               />
               <span
                 className="c11"
               >
-                <a
+                <button
+                  aria-label="Change profile image"
                   className="c12"
                   onClick={[Function]}
+                  type="button"
                 >
-                  Change
-                </a>
+                  <span>
+                    Change
+                  </span>
+                </button>
               </span>
               <p
                 className="c13"
               >
                 <span>
-                  Max. file size 5 mb
+                  Maximum file size 5 Megabytes
                 </span>
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
+                aria-hidden={true}
                 onChange={[Function]}
                 style={
                   Object {

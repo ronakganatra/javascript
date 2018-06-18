@@ -16,15 +16,13 @@ import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
 
-let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
-
 export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.data.profile.email,
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
 		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: avatarPlaceholder,
+		image: null,
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
