@@ -48,8 +48,10 @@ exports[`The delete account component matches the snapshot 1`] = `
   font-weight: 700;
 }
 
-.c2 {
-  margin: 1em 0;
+@media screen and ( max-width:800px ) {
+  .c2 {
+    width: 100%;
+  }
 }
 
 <form
@@ -128,8 +130,10 @@ exports[`The delete profile button is labeled "Deleting your account" when delet
   font-weight: 700;
 }
 
-.c2 {
-  margin: 1em 0;
+@media screen and ( max-width:800px ) {
+  .c2 {
+    width: 100%;
+  }
 }
 
 <form
