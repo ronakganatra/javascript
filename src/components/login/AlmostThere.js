@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 
 // Components.
@@ -28,9 +27,6 @@ export default injectIntl( AlmostThere );
 
 AlmostThere.propTypes = {
 	intl: intlShape.isRequired,
-	name: PropTypes.string,
 };
 
-AlmostThere.defaultProps = {
-	name: "World",
-};
+AlmostThere.defaultProps = {};

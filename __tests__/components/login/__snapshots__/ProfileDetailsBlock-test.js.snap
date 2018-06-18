@@ -60,7 +60,7 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
   color: black;
 }
 
-.c10 {
+.c11 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -110,7 +110,12 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
 .c1 {
   width: 30%;
   margin: auto;
+  margin-top: 25px;
   text-align: center;
+}
+
+.c10 {
+  background-color: #f1f1f1;
 }
 
 @media screen and ( max-width:800px ) {
@@ -182,7 +187,7 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
       </span>
     </label>
     <input
-      className="c10"
+      className="c10 c11"
       id="first-name"
       name="first name"
       onChange={[Function]}
@@ -199,7 +204,7 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
       </span>
     </label>
     <input
-      className="c10"
+      className="c10 c11"
       id="last-name"
       name="last name"
       onChange={[Function]}

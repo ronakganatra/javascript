@@ -4,6 +4,7 @@ import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-i
 import styled from "styled-components";
 
 import defaults from "../../../config/defaults.json";
+import colors from "yoast-components/style-guide/colors.json";
 
 // Components.
 import UploadUserImage from "./UploadUserImage";
@@ -38,7 +39,12 @@ const NameBlock = styled( LabelBlock )`
 const AvatarBlock = styled.div`
 	width: 30%;
 	margin: auto;
+	margin-top: 25px;
 	text-align: center;
+`;
+
+const TextInput = styled( InputField )`
+	background-color: ${ colors.$color_grey_light };
 `;
 
 const messages = defineMessages( {
@@ -52,6 +58,10 @@ const messages = defineMessages( {
 	},
 } );
 
+/**
+ * A component for entering the first- and last name and
+ * uploading a profile image.
+ */
 class ProfileDetailsBlock extends React.Component {
 
 	constructor( props ) {
@@ -69,16 +79,33 @@ class ProfileDetailsBlock extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind( this );
 	}
 
-	onUpdateField( type, event ) {
+	/**
+	 * Updates the given field in the state with the target value in the
+	 * given event.
+	 * @param {string} field the field that needs to be updated.
+	 * @param {object} event the event from which to get the new value.
+	 * @returns {void}
+	 */
+	onUpdateField( field, event ) {
 		this.setState( {
-			[ type ]: event.target.value,
+			[ field ]: event.target.value,
 		} );
 	}
 
+	/**
+	 * Calls the onSubmit function given in the props
+	 * with the entered first name, last name and image file.
+	 * @returns {void}
+	 */
 	handleSubmit() {
 		this.props.onSubmit( this.state.userFirstName, this.state.userLastName, this.state.imageFile );
 	}
 
+	/**
+	 * Updates the state with the uploaded image file.
+	 * @param {File} file the uploaded file.
+	 * @returns {void}
+	 */
 	onFileUpload( file ) {
 		this.setState( {
 			imageFile: file,
@@ -98,7 +125,7 @@ class ProfileDetailsBlock extends React.Component {
 						defaultMessage={ messages.labelFirstName.defaultMessage }
 					/>
 				</StyledLabel>
-				<InputField
+				<TextInput
 					width="100%"
 					margin-right="5px"
 					id="first-name"
@@ -113,7 +140,7 @@ class ProfileDetailsBlock extends React.Component {
 						defaultMessage={ messages.labelLastName.defaultMessage }
 					/>
 				</StyledLabel>
-				<InputField
+				<TextInput
 					width="100%"
 					id="last-name"
 					name="last name"
