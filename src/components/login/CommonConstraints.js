@@ -13,7 +13,7 @@ const messages = defineMessages( {
 	},
 	validationFormatEmail: {
 		id: "validation.format.email",
-		defaultMessage: "^{field} must be a valid e-mail address.",
+		defaultMessage: "^{field} must be a valid email address.",
 	},
 } );
 
