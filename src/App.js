@@ -18,6 +18,7 @@ import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginPage";
 import ProfileDetails from "./components/login/ProfileDetails";
+import AlmostThere from "./components/login/AlmostThere";
 
 /*
  * Helper method to write global CSS.
@@ -60,6 +61,7 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"
