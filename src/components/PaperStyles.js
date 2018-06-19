@@ -21,6 +21,13 @@ export const Page = styled( WhitePage )`
 	}
 `;
 
+export const CourseCard = styled( Page )`
+	width: 320px;
+	padding: 24px;
+	font-size: 1em;
+	margin-bottom: 16px;
+`;
+
 export const BottomRightButtons = styled.span`
 	width: 100%;
 	padding-top: 16px;

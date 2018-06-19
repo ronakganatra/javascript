@@ -1,13 +1,11 @@
-import React from "react";
-import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
-import LandingPage from "./LandingPage";
+import React, { Fragment } from "react";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
-import constructionImage from "../images/construction.svg";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 import CoursesEnrollments from "../containers/CoursesEnrollments";
 import CoursesProgress from "../containers/CoursesProgress";
 import PropTypes from "prop-types";
-import { hasAccessToFeature } from "../functions/features";
+
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -24,7 +22,7 @@ let itemRoutes = [
 	{
 		component: CoursesProgress,
 		path: "/courses/progress",
-		title: "Progress",
+		title: "Courses",
 		isActive: ( match, location ) => {
 			if ( match ) {
 				return match;
@@ -63,28 +61,17 @@ class CoursesPage extends React.Component {
 	}
 
 	render() {
-		let paragraphs = [ <FormattedMessage id={ messages.underConstruction.id }
-			defaultMessage={ messages.underConstruction.defaultMessage }/> ];
-		if ( hasAccessToFeature( "COURSES" ) ) {
-			return (
-				<div>
-					<SubNavigation itemRoutes={ itemRoutes } />
-					<SubNavigationItem itemRoutes={ itemRoutes } />
-					<SubNavigationItem itemRoutes={ [
-						{
-							path: "/courses",
-							component: CoursesProgress,
-						},
-					] } />
-				</div>
-			);
-		}
 		return (
-			<LandingPage url="https://yoa.st/myyoast-academy"
-						 urlText="Yoast Academy"
-						 imageSource={ constructionImage }
-						 paragraphs={ paragraphs }
-			/>
+			<Fragment>
+				<SubNavigation itemRoutes={ itemRoutes } />
+				<SubNavigationItem itemRoutes={ itemRoutes } />
+				<SubNavigationItem itemRoutes={ [
+					{
+						path: "/courses",
+						component: CoursesProgress,
+					},
+				] } />
+			</Fragment>
 		);
 	}
 }
