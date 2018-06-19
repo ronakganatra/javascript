@@ -157,31 +157,31 @@ test( 'disable user action creator', () => {
 describe( 'Password reset', () => {
 	test( 'request action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_REQUEST,
+			type: actions.PASSWORD_UPDATE_REQUEST,
 		};
 
-		const actual = actions.passwordResetRequest();
+		const actual = actions.passwordUpdateRequest();
 
 		expect( actual ).toEqual( expected );
 	} );
 
 	test( 'failure action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_FAILURE,
+			type: actions.PASSWORD_UPDATE_FAILURE,
 			error: { error: "A reset password failure error" },
 		};
 
-		const actual = actions.passwordResetFailure( { error: "A reset password failure error" } );
+		const actual = actions.passwordUpdateFailure( { error: "A reset password failure error" } );
 
 		expect( actual ).toEqual( expected );
 	} );
 
 	test( 'success action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_SUCCESS,
+			type: actions.PASSWORD_UPDATE_SUCCESS,
 		};
 
-		const actual = actions.passwordResetSuccess();
+		const actual = actions.passwordUpdateSuccess();
 
 		expect( actual ).toEqual( expected );
 	} );

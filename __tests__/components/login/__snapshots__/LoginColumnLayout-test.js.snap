@@ -45,27 +45,23 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
       className="c2"
     >
       <img
-        alt="My Yoast, Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
-        alt=""
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome back!
-          </span>
-        </h2>
-        <p>
-          <span>
-            Log in with your email address and password. If you don't remember your password, just reset it!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome back!
+        </span>
+      </h2>
+      <p>
+        <span>
+          Log in with your email address and password. If you don't remember your password, just reset it!
+        </span>
+      </p>
     </div>
   </div>
 </div>
@@ -77,13 +73,13 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
@@ -160,27 +156,23 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
       className="c2"
     >
       <img
-        alt="My Yoast, Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
-        alt=""
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Welcome back!
-          </span>
-        </h2>
-        <p>
-          <span>
-            Log in with your email address and password. If you don't remember your password, just reset it!
-          </span>
-        </p>
-      </div>
+      <h2>
+        <span>
+          Welcome back!
+        </span>
+      </h2>
+      <p>
+        <span>
+          Log in with your email address and password. If you don't remember your password, just reset it!
+        </span>
+      </p>
     </div>
   </div>
   <div
@@ -190,31 +182,27 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
       className="c2"
     >
       <img
-        alt="My Yoast, Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
-        alt=""
         className="c4"
         src="greeting.png"
       />
-      <div>
-        <h2>
-          <span>
-            Password changed successfully!
-          </span>
-        </h2>
-        <button
-          className="c6 c7"
-          onClick={[Function]}
-          type="button"
-        >
-          <span>
-            Continue to MyYoast
-          </span>
-        </button>
-      </div>
+      <h2>
+        <span>
+          Password changed successfully!
+        </span>
+      </h2>
+      <button
+        className="c6 c7"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          Continue to MyYoast
+        </span>
+      </button>
     </div>
   </div>
 </div>

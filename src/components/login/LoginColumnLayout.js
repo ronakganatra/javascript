@@ -28,12 +28,12 @@ const MainColumn = styled.div`
 `;
 
 /**
- * Right-side column.
+ * Additional column.
  *
- * Displayed on the right when at least two children
+ * Displayed on the right when at least two child elements
  * have been provided.
  */
-const RightColumn = styled.div`
+const AdditionalColumn = styled.div`
 	margin-left: 48px;
 	
 	@media screen and ( max-width: 1024px ) {
@@ -56,13 +56,12 @@ class LoginColumnLayout extends React.Component {
 	/**
 	 * Returns the column that should be shown on
 	 * the right side of the column layout.
-	 * @returns {RightColumn
-	 *} the column to display
+	 * @returns {AdditionalColumn} the column to display
 	 */
-	getRightColumn() {
-		return <RightColumn>
+	getAdditionalColumn() {
+		return <AdditionalColumn>
 			{ this.props.children[ 1 ] }
-		</RightColumn>;
+		</AdditionalColumn>;
 	}
 
 	/**
@@ -77,7 +76,7 @@ class LoginColumnLayout extends React.Component {
 				<MainColumn>
 					{ twoColumns ? this.props.children[ 0 ] : this.props.children }
 				</MainColumn>
-				{ twoColumns ? this.getRightColumn() : null }
+				{ twoColumns ? this.getAdditionalColumn() : null }
 			</ColumnLayout>
 		);
 	}

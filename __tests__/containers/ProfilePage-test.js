@@ -51,6 +51,8 @@ test( 'the mapStateToProps function', () => {
 		isDeleting: false,
 		isSendingPasswordReset: false,
 		hasSendPasswordReset: false,
+		isSavingPassword: false,
+		passwordIsSaved: false,
 		passwordResetError: "Password reset error",
 		manageTokenData: null,
 		createTokenModalIsOpen: false,

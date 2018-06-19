@@ -9,13 +9,20 @@ import thunkMiddleware from "redux-thunk";
 import MainMenu, { MainMenuRoutes } from "../../src/components/Menu";
 import menuItems from "../../src/config/Menu";
 
-test('the menu matches the snapshot', () => {
+test( 'the menu matches the snapshot', () => {
+
+	global.document = {
+		readyState: true,
+	};
+
 	const component = createComponentWithIntl(
 		<Router>
-				<MainMenu menuRoutes={ menuItems }/>
+			<MainMenu menuRoutes={ menuItems } />
 		</Router>
 	);
 
+	console.log( document );
+
 	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
+	expect( tree ).toMatchSnapshot();
+} );

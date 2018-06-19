@@ -42,6 +42,12 @@ const Logos = styled.img`
  */
 class LoginMessage extends React.Component {
 
+	constructor( props ) {
+		super( props );
+		this.renderButton = this.renderButton.bind( this );
+		this.renderParagraph = this.renderParagraph.bind( this );
+	}
+
 	/**
 	 * Creates a button with the message as given in the props.
 	 * Adds the onClick callback (also given in the props).
@@ -72,15 +78,13 @@ class LoginMessage extends React.Component {
 	render() {
 		return (
 			<MainPaper>
-				<Logos alt="My Yoast, Yoast Academy" src={ logo } />
-				<Icon alt="" src={ this.props.image } />
-				<div>
-					<h2>
-						<FormattedMessage id={ this.props.header.id }
-										  defaultMessage={ this.props.header.defaultMessage } />
-					</h2>
-					{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
-				</div>
+				<Logos src={ logo } />
+				<Icon src={ this.props.image } />
+				<h2>
+					<FormattedMessage id={ this.props.header.id }
+									  defaultMessage={ this.props.header.defaultMessage } />
+				</h2>
+				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
 			</MainPaper>
 		);
 	}

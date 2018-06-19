@@ -1,20 +1,21 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
+import defaults from "../../../../config/defaults.json";
 import "whatwg-fetch";
 
 import { getDownloadProfileUrl } from "../../../../functions/api";
 import { getUserId } from "../../../../functions/auth";
 
 // Custom components.
-import { Page } from "../../../PaperStyles";
 import { Button } from "../../../Button";
+import { Form } from "../FormElements";
 
 
 const messages = defineMessages( {
 	title: {
 		id: "download-account.title",
-		defaultMessage: "Download account",
+		defaultMessage: "Download personal data",
 	},
 	description: {
 		id: "download-account.description",
@@ -31,16 +32,18 @@ const messages = defineMessages( {
 const Title = styled.p`
 	margin-top: 0.0em;
 	margin-bottom: 0.5em;
-	font-weight: 300;
-	font-size: 1.5em;
+	font-weight: 700;
+	font-size: 1em;
 `;
 
 const Description = styled.p`
 	margin-bottom: 10px;
 `;
 
-const Form = styled.form`
-	margin-bottom: 1em;
+const DownloadButton = styled( Button )`
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
 `;
 
 class DownloadAccount extends React.Component {
@@ -56,8 +59,7 @@ class DownloadAccount extends React.Component {
 	}
 
 	render() {
-		return <Page>
-			<Form action={ this.generateDownloadURL() }>
+		return <Form action={ this.generateDownloadURL() }>
 				<Title>
 					<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
 				</Title>
@@ -65,12 +67,12 @@ class DownloadAccount extends React.Component {
 					<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage }/>
 				</Description>
 				<p>
-					<Button type="submit">
+					<DownloadButton type="submit">
 						<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage }/>
-					</Button>
+					</DownloadButton>
 				</p>
 			</Form>
-		</Page>;
+			;
 	}
 }
 

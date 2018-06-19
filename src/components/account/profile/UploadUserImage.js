@@ -12,8 +12,8 @@ import UserImage from "../../UserImage";
 const UploadElement = styled.div`
 	display: inline-block;
 	position: relative;
-	width: 120px;
-	height: 120px;
+	width: ${ props => props.size };
+	height: ${ props => props.size };
 `;
 
 const translucentBlack = "rgba(0, 0, 0, 0.5)";
@@ -81,7 +81,7 @@ const messages = defineMessages( {
 	},
 	maxFileSize: {
 		id: "userImageUpload.maxFileSize",
-		defaultMessage: "Maximum file size {maxSize} Megabytes",
+		defaultMessage: "Maximum file size is {maxSize} megabytes",
 	},
 	maxFileSizeExceeded: {
 		id: "userImageUpload.maxFileSizeExceeded",
@@ -207,8 +207,8 @@ class UploadUserImage extends React.Component {
 
 		let imageSrc = this.state.image || avatarPlaceholder;
 
-		return <UploadElement>
-			<UserImage alt={ imageDescription } src={ imageSrc } size="120px" />
+		return <UploadElement size="125px">
+			<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />
@@ -220,7 +220,7 @@ class UploadUserImage extends React.Component {
 			<input ref={ fileInput => {
 				this.fileInput = fileInput;
 			} }
-				   type={ "file" }
+				   type="file"
 				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
 				   style={ { display: "none" } }
 				   aria-hidden={ true }
@@ -236,12 +236,14 @@ UploadUserImage.propTypes = {
 	onFileUpload: PropTypes.func,
 	maxFileSize: PropTypes.number,
 	acceptedMIMETypes: PropTypes.array,
+	size: PropTypes.string,
 };
 
 UploadUserImage.defaultProps = {
 	// 5 MB in binary bytes
 	maxFileSize: 5242880,
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
+	size: "130px",
 };
 
 export default injectIntl( UploadUserImage );

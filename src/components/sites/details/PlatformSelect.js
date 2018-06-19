@@ -114,7 +114,7 @@ class PlatformSelect extends React.Component {
 							>
 								<FormattedMessage
 									id="sites.details.platformConfirm"
-									defaultMessage="confirm"
+									defaultMessage="Confirm"
 								/>
 							</WideLargeButton>
 						</SelectArea>

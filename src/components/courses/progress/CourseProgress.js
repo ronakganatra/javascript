@@ -72,13 +72,13 @@ class CourseProgress extends React.Component {
 			if ( this.props.course.certificateUrl ) {
 				return <FormattedMessage id="button.certificate" defaultMessage="Certificate" />;
 			}
-			return <FormattedMessage id="button.retake" defaultMessage="Retake Course" />;
+			return <FormattedMessage id="button.retake" defaultMessage="Retake course" />;
 		}
 		if ( progress > 0 ) {
 			return <FormattedMessage id="button.continue" defaultMessage="Continue" />;
 		}
 		if ( student ) {
-			return <FormattedMessage id="button.getstarted" defaultMessage="Get Started" />;
+			return <FormattedMessage id="button.getstarted" defaultMessage="Get started" />;
 		}
 		if ( buyer ) {
 			return <FormattedMessage id="button.enroll" defaultMessage="Enroll" />;
