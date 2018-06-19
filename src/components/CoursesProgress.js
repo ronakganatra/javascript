@@ -2,13 +2,9 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import { ListTable } from "./Tables";
-import { Paper } from "./PaperStyles";
-import _groupBy from "lodash/groupBy";
-import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";
 import noSitesImage from "./../images/noSites.svg";
-import CourseProgress from "./courses/progress/CourseProgress";
+import CourseCard from "./courses/CourseCard";
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -48,44 +44,21 @@ class CoursesProgress extends React.Component {
 	 */
 	static renderNoResults() {
 		let paragraphs = [
-			<FormattedMessage id="courses.noCourseProgress.welcome" defaultMessage="Welcome to the Course Progress overview." />,
-			<FormattedMessage id="courses.noCourseProgress.start" defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
-			<FormattedMessage id="courses.noCourseProgress.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+			<FormattedMessage id="courses.noCourseProgress.welcome"
+							  defaultMessage="Welcome to the Course Progress overview." />,
+			<FormattedMessage id="courses.noCourseProgress.start"
+							  defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
+			<FormattedMessage id="courses.noCourseProgress.visitShop"
+							  defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
 		];
 
-		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
+		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
+						  imageSource={ noSitesImage } />;
 	}
 
 	render() {
-		let { courses, coursesEnrollments } = this.props;
-		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
-
-		if ( isEmpty( allEnrollments ) ) {
-			return CoursesProgress.renderNoResults();
-		}
-
-		courses = courses.filter( ( course ) => {
-			return ! isEmpty( allEnrollments[ course.id ] );
-		} );
-
 		return (
-			<Paper>
-				<ListTable>
-					{ courses.map( ( course ) => {
-						let enrollments = allEnrollments[ course.id ] || [];
-
-						return(
-							<CourseProgress
-								key={ course.id }
-								course={ course }
-								courseEnrollments={ enrollments }
-								intl={ this.props.intl }
-								background={ this.props.background }
-							/>
-						);
-					} ) }
-				</ListTable>
-			</Paper>
+			<CourseCard />
 		);
 	}
 }

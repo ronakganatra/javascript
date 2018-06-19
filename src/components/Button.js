@@ -265,6 +265,25 @@ export const LargeIconButton = styled( IconButton )`
 	min-width: 152px;
 `;
 
+// Button styled as a link.
+export const LinkButton = styled.button`
+	margin-bottom: 20px;
+	background: none;
+	border: 0px;
+	
+	color: ${ colors.$color_blue };
+	text-decoration: underline;
+	cursor: pointer;
+	
+	:hover {
+		color: ${ colors.$color_pink_hover };
+	}
+	
+	:focus {
+		outline: none;
+	}
+`;
+
 // Styled ButtonLinks.
 export const ButtonLink = styled( Link )`
 	display: inline-block;
