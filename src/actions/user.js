@@ -297,15 +297,15 @@ export function updateProfile( profile ) {
 /**
  * An action creator to update the profile of the user.
  *
- * @param {Object} password The password object.
+ * @param {Object} passwords Object containing your old password, new password and password confirmation.
  * @returns {Function} A function that
  */
-export function updatePassword( password ) {
+export function updatePassword( passwords ) {
 	return ( dispatch ) => {
 		dispatch( passwordUpdateRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/password/`, "PATCH", password );
+		let userId  = getUserId();
+		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", passwords );
 
 		return doRequest( request )
 			.then( ( response ) => {
