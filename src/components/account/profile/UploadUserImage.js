@@ -148,7 +148,7 @@ class UploadUserImage extends React.Component {
 		if ( ! file ) {
 			return;
 		}
-
+		// File has been selected, and is valid.
 		if ( file && this.validateFile( file ) ) {
 			// Set file preview.
 			this.setState( {
@@ -156,19 +156,20 @@ class UploadUserImage extends React.Component {
 			} );
 
 			this.props.onFileUpload( file );
-		} else {
-			// Show and speak an error message.
-			let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
-
-			let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
-				{ maxSize: maxFileSizeInMb } );
-
-			speak( maxSizeExceeded, "assertive" );
-
-			this.setState( {
-				error: maxSizeExceeded,
-			} );
+			return;
 		}
+		// Selected file is not valid.
+		// Show and speak an error message.
+		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+
+		let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
+			{ maxSize: maxFileSizeInMb } );
+
+		speak( maxSizeExceeded, "assertive" );
+
+		this.setState( {
+			error: maxSizeExceeded,
+		} );
 	}
 
 	/**
