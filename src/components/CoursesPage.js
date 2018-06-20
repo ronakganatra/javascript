@@ -12,10 +12,6 @@ const messages = defineMessages( {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
 	},
-	underConstruction: {
-		id: "courses.underConstruction",
-		defaultMessage: "This section is still under construction. To access your courses, please visit:",
-	},
 } );
 
 let itemRoutes = [

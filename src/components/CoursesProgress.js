@@ -4,7 +4,6 @@ import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { CourseCard } from "./PaperStyles";
 import styled from "styled-components";
-import defaults from "../config/defaults.json";
 
 const OuterContainer = styled.div`
 	display: flex;
@@ -12,10 +11,6 @@ const OuterContainer = styled.div`
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: flex-start;
-	
-	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
-		flex-direction: column;
-	}
 `;
 
 const messages = defineMessages( {
