@@ -267,7 +267,6 @@ export const LargeIconButton = styled( IconButton )`
 
 // Button styled as a link.
 export const LinkButton = styled.button`
-	margin-bottom: 20px;
 	background: none;
 	border: 0px;
 	
