@@ -45,7 +45,7 @@ class CourseCardContainer extends React.Component {
 	render() {
 		return <Card>
 			<Page>
-				<Image src={ this.props.image } />
+				<Image src={ this.props.image } alt="" />
 				<Details>
 					<Header>{ this.props.title }</Header>
 					<Description>

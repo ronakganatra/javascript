@@ -23,22 +23,23 @@ const ActionBlock = styled.div`
 const AvailableEnrollment = styled.p`
 	font-weight: bold;
 	margin: 0;
+	margin-top: 20px;
 `;
 
 const Button = styled( ButtonLink )`
-	margin: 20px 0;
+	margin-top: 20px;
 	background-color: ${ props => props.color };
 	width: 100%;
 `;
 
 const SecondaryButton = styled( LargeSecondaryButtonLink )`
-	margin: 20px 0;
+	margin-top: 20px;
 	width: 100%;
 `;
 
 const messages = defineMessages( {
 	buyButton: {
-		id: "coursecard.buybutton",
+		id: "coursecard.buyButton",
 		defaultMessage: "Get the full course",
 	},
 	startButton: {
@@ -141,7 +142,7 @@ class CourseCard extends React.Component {
 	 * Sets the given field in the state to the given value.
 	 *
 	 * @param {string} field the field to overwrite
-	 * @param {string} value the value to store
+	 * @param {*} value the value to store
 	 * @returns {void}
 	 */
 	setField( field, value ) {
@@ -163,10 +164,8 @@ class CourseCard extends React.Component {
 			{ email: this.state.email } );
 
 		return doRequest( request )
-			.then( ( json ) => {
-				// Reload courses.
+			.then( () => {
 				this.props.loadCourses();
-				// Close modal.
 				this.closeModal();
 			} )
 			.catch( error => {
@@ -237,8 +236,9 @@ class CourseCard extends React.Component {
 	}
 
 	/**
-	 * Returns a component displaying the number of courses assigned and a link
-	 * opening the modal to assign the course to new users.
+	 * Returns a component displaying the number of courses assigned
+	 * and a link for opening the modal to assign the course to new users.
+	 *
 	 * @returns {React.Component} The component.
 	 */
 	getAssignCoursesRow() {
@@ -255,15 +255,14 @@ class CourseCard extends React.Component {
 	}
 
 	render() {
-		let buyButton = this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton );
-
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
 		>
 			<ActionBlock>
-				{ this.props.isEnrolled ? this.getProgressBlock() : buyButton }
+				{ this.props.isEnrolled ? this.getProgressBlock()
+					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton ) }
 				{ this.props.availableEnrollment ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 			{ this.getInviteModal( this.state.modalOpen ) }
@@ -301,13 +300,13 @@ CourseCard.defaultProps = {
 
 	image: sampleHeader,
 	isEnrolled: true,
-	progress: 100,
+	progress: 50,
 
 	courseUrl: "",
 	certificateUrl: "",
 	shopUrl: "",
 
-	availableEnrollment: "something",
+	availableEnrollment: "a",
 	totalEnrollments: 4,
 	enrollments: 2,
 };
