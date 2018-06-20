@@ -1,7 +1,6 @@
-/* eslint-disable */
 import React from "react";
 import PropTypes from "prop-types";
-import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
+import { injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 
@@ -70,4 +69,3 @@ CourseCardContainer.propTypes = {
 };
 
 CourseCardContainer.defaultProps = {};
-/* eslint-enable */

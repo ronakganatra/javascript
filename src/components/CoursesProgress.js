@@ -58,7 +58,7 @@ class CoursesProgress extends React.Component {
 
 	render() {
 		return (
-			<CourseCard />
+			<CourseCard loadCourses={ this.props.loadCourses } />
 		);
 	}
 }
