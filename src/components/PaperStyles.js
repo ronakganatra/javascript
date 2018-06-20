@@ -26,6 +26,7 @@ export const CourseCard = styled( Page )`
 	padding: 24px;
 	font-size: 1em;
 	margin-bottom: 16px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 `;
 
 export const BottomRightButtons = styled.span`
