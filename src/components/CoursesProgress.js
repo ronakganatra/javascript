@@ -1,22 +1,17 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
 import { CourseCard } from "./PaperStyles";
-import _groupBy from "lodash/groupBy";
-import isEmpty from "lodash/isEmpty";
-import NoResults from "./NoResults";
-import noSitesImage from "./../images/noSites.svg";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
-// I import CourseProgress from "./courses/progress/CourseProgress";
 
 const OuterContainer = styled.div`
 	display: flex;
 	flex-direction:row;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	align-content: stretch;
+	align-items: flex-start;
 	
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		flex-direction: column;
@@ -46,74 +41,17 @@ class CoursesProgress extends React.Component {
 	}
 
 	componentDidMount() {
-		this.props.loadCourses();
-		this.props.loadCoursesEnrollments();
+		this.props.loadData();
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
 	}
 
-	/**
-	 * Returns a view to show when there are no courses to show.
-	 *
-	 * @returns {Object} The element to render.
-	 */
-	static renderNoResults() {
-		let paragraphs = [
-			<FormattedMessage id="courses.noCourseProgress.welcome" defaultMessage="Welcome to the Course Progress overview." />,
-			<FormattedMessage id="courses.noCourseProgress.start" defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
-			<FormattedMessage id="courses.noCourseProgress.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
-		];
-
-		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
-	}
-
 	render() {
-		let { coursesEnrollments } = this.props;
-		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
-
-		if ( isEmpty( allEnrollments ) ) {
-			return CoursesProgress.renderNoResults();
-		}
-/*
-	C	courses = courses.filter( ( course ) => {
-			return ! isEmpty( allEnrollments[ course.id ] );
-		} );
-*/
 		return (
 			<OuterContainer>
-
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-				<CourseCard />
-
-				{
-					/*
-					 { courses.map( ( course ) => {
-					 let enrollments = allEnrollments[ course.id ] || [];
-
-					 return(
-					 <CourseProgress
-					 key={ course.id }
-					 course={ course }
-					 courseEnrollments={ enrollments }
-					 intl={ this.props.intl }
-					 background={ this.props.background }
-					 />
-					 );
-					 } ) }
-					 */
-				}
+				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course } /> ) }
 			</OuterContainer>
 		);
 	}
@@ -122,9 +60,7 @@ class CoursesProgress extends React.Component {
 CoursesProgress.propTypes = {
 	intl: intlShape.isRequired,
 	courses: PropTypes.array,
-	loadCourses: PropTypes.func,
-	loadCoursesEnrollments: PropTypes.func,
-	background: PropTypes.string,
+	loadData: PropTypes.func,
 };
 
 export default injectIntl( CoursesProgress );

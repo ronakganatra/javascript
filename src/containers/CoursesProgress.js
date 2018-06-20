@@ -14,12 +14,12 @@ export const mapStateToProps = ( state ) => {
 		} )
 		.filter( ( enrollment ) => enrollment.status !== "refunded" );
 
-	coursesEnrollments =_groupBy( coursesEnrollments, "courseId" );
+	coursesEnrollments = _groupBy( coursesEnrollments, "courseId" );
 
 	let courses = state.entities.courses.allIds
 		.map( ( courseId ) => {
 			let course = state.entities.courses.byId[ courseId ];
-			let enrollments = coursesEnrollments[ courseId ];
+			let enrollments = coursesEnrollments[ courseId ] || [];
 			let studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
 			let usedEnrollments = enrollments
@@ -38,17 +38,19 @@ export const mapStateToProps = ( state ) => {
 				usedEnrollments: usedEnrollments.length,
 				availableEnrollment,
 				shopUrl: course.product ? course.product.storeUrl : "",
-				isEnrolled: studentEnrollment !== undefined,
-			}
+				isEnrolled: !! studentEnrollment,
+			};
 		} );
 
 	return { courses };
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		loadCourses: () => dispatch( retrieveCourses() ),
-		loadCoursesEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
+		loadData: () => {
+			dispatch( retrieveCourses() );
+			dispatch( retrieveCoursesEnrollments() );
+		},
 	};
 };
 

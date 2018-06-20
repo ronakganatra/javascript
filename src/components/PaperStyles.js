@@ -22,7 +22,7 @@ export const Page = styled( WhitePage )`
 `;
 
 export const CourseCard = styled( Page )`
-	width: 320px;
+	width: 288px;
 	padding: 24px;
 	font-size: 1em;
 	margin-bottom: 16px;
