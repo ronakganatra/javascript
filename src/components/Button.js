@@ -318,6 +318,24 @@ ButtonLink.defaultProps = {
 	enabledStyle: true,
 };
 
+export const LargeSecondaryButtonLink = styled( ButtonLink )`
+	color: ${ colors.$color_black };
+	background-color: ${ colors.$color_white };
+	border: 1px solid ${ colors.$color_black };
+	min-width: 152px;
+	
+	text-shadow: none;
+
+	&:hover,
+	&:focus {
+		background-color: ${ colors.$color_green_medium_light };
+		color: ${ colors.$color_white };
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+		border: 0;
+		text-shadow: 0px 0px 2px #000;
+	}
+`;
+
 export const ChevronButtonLink = styled( ButtonLink )`
 	background-color: transparent;
 	background-repeat: no-repeat;

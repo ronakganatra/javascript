@@ -8,18 +8,13 @@ import sampleHeader from "../../images/sample_course_card_header.png";
 
 // Custom components
 import CourseCardHeader from "./CourseCardContainer";
-import { Button, LinkButton } from "../Button";
+import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
 import MyYoastModal from "../MyYoastModal";
 import CourseInvite from "../CourseInvite";
 
 const ActionBlock = styled.div`
 	padding: 20px;
 	text-align: center;
-`;
-
-const ActionButton = styled( Button )`
-	background-color: ${ props => props.color };
-	width: 100%;
 `;
 
 // Button styled as a link.
@@ -31,6 +26,15 @@ const AvailableEnrollment = styled.p`
 	font-weight: bold;
 	margin: 0;
 	margin-top: 20px;
+`;
+
+const Button = styled( ButtonLink )`
+	background-color: ${ props => props.color };
+	width: 100%;
+`;
+
+const SecondaryButton = styled( LargeSecondaryButtonLink )`
+	width: 100%;
 `;
 
 const messages = defineMessages( {
@@ -116,10 +120,19 @@ class CourseCard extends React.Component {
 		this.setField( "modalOpen", false );
 	}
 
-	getBuyBlock() {
-		return <ActionButton color={ colors.$color_pink_dark }>
-			<FormattedMessage { ...messages.coursesPageLoaded } />
-		</ActionButton>;
+	getButton( url, color, message ) {
+		return <Button to={ url }
+					   linkTarget="_blank"
+					   color={ color }>
+			<FormattedMessage { ...message } />
+		</Button>;
+	}
+
+	getCertificateButton() {
+		return <SecondaryButton to={ this.props.certificateUrl }
+								linkTarget="_blank">
+			<FormattedMessage { ...messages.viewCertificateButton } />
+		</SecondaryButton>;
 	}
 
 	getProgressBlock() {
@@ -131,19 +144,13 @@ class CourseCard extends React.Component {
 				<ActionLink onClick={ () => this.setField( "modalOpen", true ) }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</ActionLink>;
-			button = <ActionButton color={ colors.$color_green }>
-				<FormattedMessage { ...messages.startButton } />
-			</ActionButton>;
+			button = this.getButton( this.props.courseUrl, colors.$color_green, messages.startButton );
 		} else if ( this.props.progress < 100 ) {
 			progressBar = <p> { this.props.progress }% </p>;
-			button = <ActionButton color={ colors.$color_green }>
-				<FormattedMessage { ...messages.continueButton } />
-			</ActionButton>;
+			button = this.getButton( this.props.courseUrl, colors.$color_green, messages.continueButton );
 		} else {
 			progressBar = <p> { this.props.progress }% </p>;
-			button = <ActionButton color={ colors.$color_white }>
-				<FormattedMessage { ...messages.viewCertificateButton } />
-			</ActionButton>;
+			button = this.getCertificateButton();
 		}
 
 		return <Fragment>
@@ -166,13 +173,15 @@ class CourseCard extends React.Component {
 	}
 
 	render() {
+		let buyButton = this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton );
+
 		return <CourseCardHeader
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
 		>
 			<ActionBlock>
-				{ this.props.isEnrolled ? this.getProgressBlock() : this.getBuyBlock() }
+				{ this.props.isEnrolled ? this.getProgressBlock() : buyButton }
 				{ this.props.availableEnrollment ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 			{ this.getModal() }
@@ -196,6 +205,9 @@ CourseCard.propTypes = {
 	availableEnrollment: PropTypes.any,
 	isEnrolled: PropTypes.bool,
 
+	courseUrl: PropTypes.string,
+	certificateUrl: PropTypes.string,
+
 	shopUrl: PropTypes.string,
 };
 
@@ -206,6 +218,10 @@ CourseCard.defaultProps = {
 	image: sampleHeader,
 	isEnrolled: true,
 	progress: 0,
+
+	courseUrl: "",
+	certificateUrl: "",
+	shopUrl: "",
 
 	availableEnrollment: "something",
 	totalEnrollments: 4,
