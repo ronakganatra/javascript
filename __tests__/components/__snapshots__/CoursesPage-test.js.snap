@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The courses page component matches the snapshot 1`] = `
-Array [
-  .c0 {
+.c0 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -61,44 +60,40 @@ Array [
 }
 
 <ul
-    className="c0"
-    role="list"
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1"
   >
-    <li
-      className="c1"
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/progress"
+      onClick={[Function]}
+      style={undefined}
     >
-      <a
-        aria-current={false}
-        className="c2"
-        href="/courses/progress"
-        onClick={[Function]}
-        style={undefined}
-      >
-        Courses
-      </a>
-    </li>
-    <li
-      className="c1"
+      Courses
+    </a>
+  </li>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/enrollments"
+      onClick={[Function]}
+      style={undefined}
     >
-      <a
-        aria-current={false}
-        className="c2"
-        href="/courses/enrollments"
-        onClick={[Function]}
-        style={undefined}
-      >
-        Enrollments
-      </a>
-    </li>
-  </ul>,
-  <div />,
-  <div />,
-]
+      Enrollments
+    </a>
+  </li>
+</ul>
 `;
 
 exports[`the courses page component matches the snapshot 1`] = `
-Array [
-  .c0 {
+.c0 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -157,37 +152,34 @@ Array [
 }
 
 <ul
-    className="c0"
-    role="list"
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1"
   >
-    <li
-      className="c1"
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/progress"
+      onClick={[Function]}
+      style={undefined}
     >
-      <a
-        aria-current={false}
-        className="c2"
-        href="/courses/progress"
-        onClick={[Function]}
-        style={undefined}
-      >
-        Courses
-      </a>
-    </li>
-    <li
-      className="c1"
+      Courses
+    </a>
+  </li>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/enrollments"
+      onClick={[Function]}
+      style={undefined}
     >
-      <a
-        aria-current={false}
-        className="c2"
-        href="/courses/enrollments"
-        onClick={[Function]}
-        style={undefined}
-      >
-        Enrollments
-      </a>
-    </li>
-  </ul>,
-  <div />,
-  <div />,
-]
+      Enrollments
+    </a>
+  </li>
+</ul>
 `;

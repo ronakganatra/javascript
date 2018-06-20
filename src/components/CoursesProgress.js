@@ -5,12 +5,14 @@ import PropTypes from "prop-types";
 import { CourseCard } from "./PaperStyles";
 import styled from "styled-components";
 
-const OuterContainer = styled.div`
-	display: flex;
-	flex-direction:row;
-	flex-wrap: wrap;
-	justify-content: space-between;
+const OuterContainer = styled.ul`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 288px);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+	justify-content: center;
 	align-items: flex-start;
+	padding: 0;
 `;
 
 const messages = defineMessages( {
