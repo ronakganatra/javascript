@@ -39,6 +39,7 @@ export const mapStateToProps = ( state ) => {
 				availableEnrollment,
 				shopUrl: course.product ? course.product.storeUrl : "",
 				certificateUrl: course.certificateUrl,
+				courseUrl: course.courseUrl,
 				isEnrolled: !! studentEnrollment,
 			};
 		} );

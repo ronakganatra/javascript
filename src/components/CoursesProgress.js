@@ -2,7 +2,8 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import { CourseCard } from "./PaperStyles";
+// A import { CourseCard } from "./PaperStyles";
+import CourseCard from "./courses/CourseCard";
 import styled from "styled-components";
 
 const OuterContainer = styled.ul`
@@ -45,10 +46,11 @@ class CoursesProgress extends React.Component {
 		speak( message );
 	}
 
+
 	render() {
 		return (
 			<OuterContainer>
-				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course } /> ) }
+				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course } loadData={ this.props.loadData } /> ) }
 			</OuterContainer>
 		);
 	}

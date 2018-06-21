@@ -265,6 +265,24 @@ export const LargeIconButton = styled( IconButton )`
 	min-width: 152px;
 `;
 
+// Button styled as a link.
+export const LinkButton = styled.button`
+	background: none;
+	border: 0px;
+	
+	color: ${ colors.$color_blue };
+	text-decoration: underline;
+	cursor: pointer;
+	
+	:hover {
+		color: ${ colors.$color_pink_hover };
+	}
+	
+	:focus {
+		outline: none;
+	}
+`;
+
 // Styled ButtonLinks.
 export const ButtonLink = styled( Link )`
 	display: inline-block;
@@ -299,6 +317,24 @@ ButtonLink.propTypes = {
 ButtonLink.defaultProps = {
 	enabledStyle: true,
 };
+
+export const LargeSecondaryButtonLink = styled( ButtonLink )`
+	color: ${ colors.$color_black };
+	background-color: ${ colors.$color_white };
+	border: 1px solid ${ colors.$color_black };
+	min-width: 152px;
+	
+	text-shadow: none;
+
+	&:hover,
+	&:focus {
+		background-color: ${ colors.$color_green_medium_light };
+		color: ${ colors.$color_white };
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+		border: 0;
+		text-shadow: 0px 0px 2px #000;
+	}
+`;
 
 export const ChevronButtonLink = styled( ButtonLink )`
 	background-color: transparent;
