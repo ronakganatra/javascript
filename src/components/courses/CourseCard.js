@@ -227,7 +227,7 @@ class CourseCard extends React.Component {
 		if ( this.props.progress === 0 ) {
 			// 0 progress, show a link to assign another user and a button to start the course.
 			progressBar =
-				<LinkButton onClick={ this.openModal }>
+				<LinkButton testId="assign-to-someone-else" onClick={ this.openModal }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</LinkButton>;
 			button = this.getButton( this.props.courseUrl, colors.$color_green, messages.startButton, marginTop );
@@ -260,17 +260,17 @@ class CourseCard extends React.Component {
 		if ( noAvailableEnrollments ) {
 			// "View | Get more"
 			linkButton = <Fragment>
-					<Link to="/courses/enrollments">
-						<FormattedMessage { ...messages.viewCourse } />
-					</Link>
-					{ " | " }
-					<Link to={ this.props.shopUrl }>
-						<FormattedMessage { ...messages.getMore } />
-					</Link>
-				</Fragment>;
+				<Link to="/courses/enrollments">
+					<FormattedMessage { ...messages.viewCourse } />
+				</Link>
+				{ " | " }
+				<Link to={ this.props.shopUrl }>
+					<FormattedMessage { ...messages.getMore } />
+				</Link>
+			</Fragment>;
 		} else {
 			// "Assign courses"
-			linkButton = <LinkButton onClick={ this.openModal }>
+			linkButton = <LinkButton testId="assign-courses" onClick={ this.openModal }>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;
 		}
