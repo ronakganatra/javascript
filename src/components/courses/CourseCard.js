@@ -11,6 +11,7 @@ import sampleHeader from "../../images/sample_course_card_header.png";
 // Custom components
 import CourseCardContainer from "./CourseCardContainer";
 import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
+import Link from "../Link";
 import MyYoastModal from "../MyYoastModal";
 import CourseInvite from "../CourseInvite";
 import ProgressBar from "../ProgressBar";
@@ -65,6 +66,14 @@ const messages = defineMessages( {
 	amountAssigned: {
 		id: "coursecard.amountAssigned",
 		defaultMessage: "{assigned} / {total} assigned.",
+	},
+	viewCourse: {
+		id: "coursecard.viewCourse",
+		defaultMessage: "View",
+	},
+	getMore: {
+		id: "courseCard.getMore",
+		defaultMessage: "Get more",
 	},
 } );
 
@@ -245,20 +254,39 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} The component.
 	 */
 	getAssignCoursesRow() {
+		let noAvailableEnrollments = this.props.totalEnrollments === this.props.usedEnrollments;
+		let linkButton;
+
+		if ( noAvailableEnrollments ) {
+			// "View | Get more"
+			linkButton = <Fragment>
+					<Link to="/courses/enrollments">
+						<FormattedMessage { ...messages.viewCourse } />
+					</Link>
+					{ " | " }
+					<Link to={ this.props.shopUrl }>
+						<FormattedMessage { ...messages.getMore } />
+					</Link>
+				</Fragment>;
+		} else {
+			// "Assign courses"
+			linkButton = <LinkButton onClick={ this.openModal }>
+				<FormattedMessage { ...messages.assignCourses } />
+			</LinkButton>;
+		}
+
 		return <AvailableEnrollment>
 			<FormattedMessage
 				id={ messages.amountAssigned.id }
 				defaultMessage={ messages.amountAssigned.defaultMessage }
 				values={ { assigned: this.props.usedEnrollments, total: this.props.totalEnrollments } }
 			/>
-			<LinkButton onClick={ this.openModal }>
-				<FormattedMessage { ...messages.assignCourses } />
-			</LinkButton>
+			{ " " }
+			{ linkButton }
 		</AvailableEnrollment>;
 	}
 
 	render() {
-		let noAvailableEnrollments = this.props.totalEnrollments === this.props.usedEnrollments;
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
@@ -267,7 +295,7 @@ class CourseCard extends React.Component {
 			<ActionBlock>
 				{ this.props.isEnrolled ? this.getProgressBlock()
 					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton ) }
-				{ noAvailableEnrollments ? null : this.getAssignCoursesRow() }
+				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 			{ this.getInviteModal( this.state.modalOpen ) }
 		</CourseCardContainer>;

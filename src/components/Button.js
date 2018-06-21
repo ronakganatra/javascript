@@ -269,9 +269,11 @@ export const LargeIconButton = styled( IconButton )`
 export const LinkButton = styled.button`
 	background: none;
 	border: 0px;
-	
+	padding: 0;
+		
 	color: ${ colors.$color_blue };
 	text-decoration: underline;
+	font-weight: bold;
 	cursor: pointer;
 	
 	:hover {
