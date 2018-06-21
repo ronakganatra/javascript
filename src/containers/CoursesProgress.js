@@ -38,6 +38,7 @@ export const mapStateToProps = ( state ) => {
 				usedEnrollments: usedEnrollments.length,
 				availableEnrollment,
 				shopUrl: course.product ? course.product.storeUrl : "",
+				certificateUrl: course.certificateUrl,
 				isEnrolled: !! studentEnrollment,
 			};
 		} );
