@@ -47,12 +47,13 @@ export const mapStateToProps = ( state ) => {
 				isEnrolled: ! ! studentEnrollment,
 				deprecated: course.deprecated,
 
+				isFree: course.isFree,
 				isOnSale: course.sale,
 				saleLabel: course.saleLabel,
 
 				hasTrial: course.hasTrial,
 			};
-		} ).filter( course => ( ! course.deprecated || course.isEnrolled ) && course.shopUrl );
+		} ).filter( course => ( ! course.deprecated || course.isEnrolled ) );
 
 	return { courses };
 };
