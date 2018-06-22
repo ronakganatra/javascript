@@ -52,7 +52,8 @@ class CoursesProgress extends React.Component {
 				{
 					this.props.courses.map( ( course, i ) => {
 						// Only show deprecated courses if the student is enrolled in the course.
-						if ( ! course.deprecated || course.isEnrolled ) {
+						// Hide all courses with no shop URL.
+						if ( ( ! course.deprecated || course.isEnrolled ) && course.shopUrl ) {
 							return <CourseCard key={ i } { ...course } loadData={ this.props.loadData } />;
 						}
 						return null;
