@@ -156,16 +156,8 @@ class CoursesProgress extends React.Component {
 	render() {
 		return (
 			<OuterContainer>
-				{
-					this.props.courses.map( ( course, i ) => {
-						// Only show deprecated courses if the student is enrolled in the course.
-						// Hide all courses with no shop URL.
-						if ( ( ! course.deprecated || course.isEnrolled ) && course.shopUrl ) {
-							return <CourseCard key={ i } { ...course } onAssignModalOpen={ this.openModal } />;
-						}
-						return null;
-					} )
-				}
+				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course }
+																	   onAssignModalOpen={ this.openModal } /> ) }
 				{ this.getInviteModal( this.state.modalOpen ) }
 			</OuterContainer>
 		);
