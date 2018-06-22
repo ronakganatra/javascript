@@ -39,8 +39,8 @@ const messages = defineMessages( {
 const CourseColumnIcon = styled( ColumnIcon )`
 	display: inline-block;
 	position: relative;
-	width: 100px;
-	padding-right: 40px;
+	width: 124px;
+	padding-right: 24px;
 	text-align: center;
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		display: none;
@@ -70,6 +70,7 @@ let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 const CourseIcon = styled.img`
 	height: inherit;
 `;
+
 /**
  * A function that returns the Courses Page component.
  *
@@ -101,12 +102,16 @@ class CoursesEnrollments extends React.Component {
 	 */
 	renderNoResults() {
 		let paragraphs = [
-			<FormattedMessage id="courses.noEnrollments.welcome" defaultMessage="Welcome to the Course Enrollments overview." />,
-			<FormattedMessage id="courses.noEnrollments.find" defaultMessage="Here you can find all the Yoast Academy courses you own." />,
-			<FormattedMessage id="courses.noEnrollments.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+			<FormattedMessage id="courses.noEnrollments.welcome"
+							  defaultMessage="Welcome to the Course Enrollments overview." />,
+			<FormattedMessage id="courses.noEnrollments.find"
+							  defaultMessage="Here you can find all the Yoast Academy courses you own." />,
+			<FormattedMessage id="courses.noEnrollments.visitShop"
+							  defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
 		];
 
-		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
+		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
+						  imageSource={ noSitesImage } />;
 	}
 
 	getModal() {
@@ -123,15 +128,15 @@ class CoursesEnrollments extends React.Component {
 				onClose={ this.props.inviteModalClose }
 				modalAriaLabel={ modalAriaLabel }
 			>
-					<CourseInvite
-						inviteStudentEmail={ this.props.inviteStudentEmail }
-						inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
-						onStudentEmailChange={ this.props.onStudentEmailChange }
-						onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
-						courseInviteError={ this.props.courseInviteError }
-						onCancelClick={ this.props.inviteModalClose }
-						onInviteClick={ this.props.onInviteClick }
-					/>
+				<CourseInvite
+					inviteStudentEmail={ this.props.inviteStudentEmail }
+					inviteStudentEmailConfirmation={ this.props.inviteStudentEmailConfirmation }
+					onStudentEmailChange={ this.props.onStudentEmailChange }
+					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
+					courseInviteError={ this.props.courseInviteError }
+					onCancelClick={ this.props.inviteModalClose }
+					onInviteClick={ this.props.onInviteClick }
+				/>
 			</MyYoastModal>
 		);
 	}
@@ -154,17 +159,18 @@ class CoursesEnrollments extends React.Component {
 			if ( currentUser === course.buyerId && course.status === "not started" ) {
 				return (
 					<ColumnFixedWidthResponsive>
-						<ResponsiveLargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
+						<ResponsiveLargeButton
+							onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
 					</ColumnFixedWidthResponsive>
 				);
 			}
 			if ( currentUser === course.buyerId && course.status !== "not started" ) {
 				return (
 					<ColumnFixedWidthResponsive>
-							<FormattedMessage
-								id="courses.enrollments.progress"
-								defaultMessage="Course in progress"
-							/>
+						<FormattedMessage
+							id="courses.enrollments.progress"
+							defaultMessage="Course in progress"
+						/>
 					</ColumnFixedWidthResponsive>
 				);
 			}
@@ -192,11 +198,14 @@ class CoursesEnrollments extends React.Component {
 						{ coursesEnrollments.map( ( enrollment ) => {
 							return (
 								<RowMobileCollapse key={ enrollment.id }>
-									<CourseColumnIcon separator={ true }><CourseIcon src={ enrollment.icon } alt=""/></CourseColumnIcon>
-									<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.course ) }>
+									<CourseColumnIcon separator={ true }><CourseIcon src={ enrollment.icon }
+																					 alt="" /></CourseColumnIcon>
+									<ColumnPrimaryResponsive ellipsis={ true }
+															 headerLabel={ this.props.intl.formatMessage( messages.course ) }>
 										{ enrollment.courseName }
 									</ColumnPrimaryResponsive>
-									<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
+									<ColumnMinWidthResponsive ellipsis={ true }
+															  headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
 										<strong>{ enrollment.studentName }</strong><br />
 										{ enrollment.studentEmail }
 									</ColumnMinWidthResponsive>
