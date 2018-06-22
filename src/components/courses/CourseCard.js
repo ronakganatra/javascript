@@ -119,11 +119,17 @@ class CourseCard extends React.Component {
 
 		if ( this.props.progress === 0 ) {
 			// 0 progress, show a link to assign another user and a button to start the course.
-			progressBar =
-				<LinkButton testId="assign-to-someone-else" onClick={ this.props.onAssignModalOpen }>
+			// But only if the course is not free.
+			progressBar = this.props.isFree ? null
+				: <LinkButton testId="assign-to-someone-else" onClick={ this.props.onAssignModalOpen }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</LinkButton>;
-			button = this.getButton( this.props.courseUrl, colors.$color_green, messages.startButton, marginTop );
+			button = this.getButton(
+				this.props.courseUrl,
+				colors.$color_green,
+				messages.startButton,
+				this.props.isFree ? "" : marginTop
+			);
 		} else if ( this.props.progress < 100 ) {
 			// Some progress, show a progress bar and a button to continue the course.
 			progressBar = <ProgressBar progress={ this.props.progress } />;
@@ -163,7 +169,8 @@ class CourseCard extends React.Component {
 			</Fragment>;
 		} else {
 			// "Assign courses"
-			linkButton = <LinkButton testId="assign-courses" onClick={ this.props.onAssignModalOpen }>
+			linkButton = <LinkButton testId="assign-courses"
+									 onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;
 		}
@@ -222,7 +229,8 @@ class CourseCard extends React.Component {
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>
-				{ this.props.isEnrolled ? this.getProgressBlock() : this.getBuyButton() }
+				{ ( this.props.isEnrolled || this.props.isFree ) ? this.getProgressBlock()
+					: this.getBuyButton() }
 				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 		</CourseCardContainer>;
@@ -242,7 +250,8 @@ CourseCard.propTypes = {
 
 	totalEnrollments: PropTypes.number,
 	usedEnrollments: PropTypes.number,
-	availableEnrollment: PropTypes.any,
+	availableEnrollment: PropTypes.object,
+	isFree: PropTypes.bool,
 	isEnrolled: PropTypes.bool,
 
 	courseUrl: PropTypes.string,
@@ -254,8 +263,6 @@ CourseCard.propTypes = {
 
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
-
-	isFree: PropTypes.bool,
 
 	hasTrial: PropTypes.bool,
 };
