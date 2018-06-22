@@ -32,8 +32,8 @@ export const mapStateToProps = ( state ) => {
 				.find( ( enrollment ) => {
 					return enrollment.buyerId && ( ! enrollment.studentId || enrollment.progress === 0 );
 				} );
-			let usProduct = course.products.find( ( product ) => product.sourceShopId === 1 );
-			let shopUrl   = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
+			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
+			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
 			return {
 				image: course.iconUrl,

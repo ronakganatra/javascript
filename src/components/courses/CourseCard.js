@@ -172,7 +172,8 @@ class CourseCard extends React.Component {
 			</Fragment>;
 		} else {
 			// "Assign courses"
-			linkButton = <LinkButton testId="assign-courses" onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			linkButton = <LinkButton testId="assign-courses"
+									 onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;
 		}
