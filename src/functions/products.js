@@ -6,6 +6,8 @@ import _map from "lodash/map";
 import _forEach from "lodash/forEach";
 import _includes from "lodash/includes";
 
+import getEnv from "./getEnv";
+
 /** Product helpers */
 
 export const PLUGIN_MAPPING = {
@@ -124,6 +126,15 @@ export function getPluginsForSiteType( siteType, products ) {
 		return filterProductsByType( PLUGIN_MAPPING[ siteType ], products );
 	}
 	return [];
+}
+
+/**
+ * Returns the URL of the shop.
+ *
+ * @returns {string} The URL of the shop.
+ */
+export function getShopUrl() {
+	return getEnv( "SHOP_URL", "http://yoast.test" );
 }
 
 export const getEbooks = _partial( filterProductsByType, "ebook" );

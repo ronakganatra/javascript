@@ -4,6 +4,7 @@ import _groupBy from "lodash/groupBy";
 import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
 import { getUserId } from "../functions/auth";
+import { getShopUrl } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
@@ -28,6 +29,8 @@ export const mapStateToProps = ( state ) => {
 				.find( ( enrollment ) => {
 					return enrollment.buyerId && ( ! enrollment.studentId || enrollment.progress === 0 );
 				} );
+			let usProduct = course.products.find( ( product ) => product.sourceShopId === 1 );
+			let shopUrl   = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
 			return {
 				imageUrl: course.iconUrl,
@@ -40,7 +43,7 @@ export const mapStateToProps = ( state ) => {
 				usedEnrollments: usedEnrollments.length,
 				availableEnrollment,
 
-				shopUrl: course.product ? course.product.storeUrl : "",
+				shopUrl,
 				certificateUrl: course.certificateUrl,
 				courseUrl: course.courseUrl,
 
