@@ -57,7 +57,7 @@ export const mapStateToProps = ( state ) => {
 
 				hasTrial: course.hasTrial,
 			};
-		} );
+		} ).filter( course => ( ! course.deprecated || course.isEnrolled ) && course.shopUrl );
 
 	courses = _sortBy( courses, [ "progress", "isEnrolled", "isFree", "hasTrial" ] ).reverse();
 

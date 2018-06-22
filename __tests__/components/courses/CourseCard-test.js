@@ -33,11 +33,11 @@ let courseNotStarted = Object.assign( {}, course );
 courseNotStarted.progress = 0;
 
 test( 'The CourseCard component matches the snapshot', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...course } loadData={ loadData } />
+			<CourseCard { ...course } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -46,11 +46,11 @@ test( 'The CourseCard component matches the snapshot', () => {
 } );
 
 test( 'The CourseCard component, for a course that has not been bought, matches the snapshot', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotBought } loadData={ loadData } />
+			<CourseCard { ...courseNotBought } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -59,11 +59,11 @@ test( 'The CourseCard component, for a course that has not been bought, matches 
 } );
 
 test( 'The CourseCard component, for a course that is completed, matches the snapshot', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseCompleted } loadData={ loadData } />
+			<CourseCard { ...courseCompleted } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -72,11 +72,11 @@ test( 'The CourseCard component, for a course that is completed, matches the sna
 } );
 
 test( 'The CourseCard component, for a course that has no unassigned enrollments left, matches the snapshot', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNoEnrollmentsLeft } loadData={ loadData } />
+			<CourseCard { ...courseNoEnrollmentsLeft } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -85,11 +85,11 @@ test( 'The CourseCard component, for a course that has no unassigned enrollments
 } );
 
 test( 'The CourseCard component, for a course that has not been started yet, matches the snapshot', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStarted } loadData={ loadData } />
+			<CourseCard { ...courseNotStarted } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -98,11 +98,11 @@ test( 'The CourseCard component, for a course that has not been started yet, mat
 } );
 
 test( 'Assigning a course to someone else through a CourseCard works, when the course has not been started yet.', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStarted } loadData={ loadData } />
+			<CourseCard { ...courseNotStarted } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -117,11 +117,11 @@ test( 'Assigning a course to someone else through a CourseCard works, when the c
 } );
 
 test( 'Assigning a course to someone else through a CourseCard works, when there are enrollments left.', () => {
-	let loadData = jest.fn();
+	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...course } loadData={ loadData } />
+			<CourseCard { ...course } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
