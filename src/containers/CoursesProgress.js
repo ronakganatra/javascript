@@ -52,6 +52,7 @@ export const mapStateToProps = ( state ) => {
 				isEnrolled: ! ! studentEnrollment,
 				deprecated: course.deprecated,
 
+				isFree: course.isFree,
 				isOnSale: course.sale,
 				saleLabel: course.saleLabel,
 

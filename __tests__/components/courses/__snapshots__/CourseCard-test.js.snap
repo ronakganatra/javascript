@@ -2,6 +2,7 @@
 
 exports[`Assigning a course to someone else through a CourseCard works, when the course has not been started yet. 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -183,6 +184,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 
 exports[`Assigning a course to someone else through a CourseCard works, when there are enrollments left. 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -387,6 +389,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 
 exports[`The CourseCard component matches the snapshot 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -585,6 +588,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 
 exports[`The CourseCard component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -776,6 +780,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
 
 exports[`The CourseCard component, for a course that has not been bought, matches the snapshot 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -936,6 +941,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 
 exports[`The CourseCard component, for a course that has not been started yet, matches the snapshot 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;
@@ -1105,6 +1111,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
 
 exports[`The CourseCard component, for a course that is completed, matches the snapshot 1`] = `
 .c0 {
+  position: relative;
   background-color: #fff;
   width: 288px;
   font-size: 1em;

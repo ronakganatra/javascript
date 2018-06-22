@@ -81,7 +81,7 @@ class CourseCard extends React.Component {
 	 * @param {string} url the url to which to link
 	 * @param {string} color the color of the button
 	 * @param {object} message the message to display on the button
-	 * @param {string} marginTop the top margin to add
+	 * @param {string?} marginTop the top margin to add
 	 * @returns {React.Component} the button
 	 */
 	getButton( url, color, message, marginTop ) {
@@ -185,15 +185,50 @@ class CourseCard extends React.Component {
 		</AvailableEnrollment>;
 	}
 
+	/**
+	 * Returns an appropriately coloured buy button
+	 *
+	 * @returns {React.Component} the buy button
+	 */
+	getBuyButton() {
+		if ( this.props.isOnSale ) {
+			// On sale, so yellow button.
+			return this.getButton( this.props.shopUrl, colors.$color_yellow, messages.buyButton );
+		}
+		return this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton );
+	}
+
+	/**
+	 * Returns the text and colors of a banner, if applicable.
+	 * E.g. for a sale or when the course is free.
+	 * @returns {object} an object containing the banner properties.
+	 */
+	getBanner() {
+		if ( this.props.isOnSale ) {
+			return {
+				bannerText: this.props.saleLabel,
+				bannerBackgroundColor: colors.$color_yellow,
+				bannerTextColor: colors.$color_black,
+			};
+		} else if ( this.props.isFree ) {
+			return {
+				bannerText: "Free",
+				bannerBackgroundColor: colors.$color_pink_dark,
+				bannerTextColor: colors.$color_white,
+			};
+		}
+		return {};
+	}
+
 	render() {
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
+			{ ...this.getBanner() }
 		>
 			<ActionBlock>
-				{ ( this.props.isEnrolled || this.props.isFree ) ? this.getProgressBlock()
-					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, "" ) }
+				{ ( this.props.isEnrolled || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton() }
 				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 		</CourseCardContainer>;
@@ -226,6 +261,8 @@ CourseCard.propTypes = {
 
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
+
+	isFree: PropTypes.bool,
 
 	hasTrial: PropTypes.bool,
 };
