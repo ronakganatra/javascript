@@ -105,7 +105,7 @@ class CoursesProgress extends React.Component {
 	 */
 	sendInvite() {
 		let request = prepareInternalRequest(
-			`CourseEnrollments/${this.state.availableEnrollment}/invite/`,
+			`CourseEnrollments/${this.state.availableEnrollment.id}/invite/`,
 			"POST",
 			{ email: this.state.email } );
 
