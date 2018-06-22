@@ -30,17 +30,27 @@ export const mapStateToProps = ( state ) => {
 				} );
 
 			return {
-				imageUrl: course.imageUrl,
+				imageUrl: course.iconUrl,
 				title: course.name,
 				description: course.description,
+
 				progress: studentEnrollment ? studentEnrollment.progress : 0,
+
 				totalEnrollments: enrollments.length,
 				usedEnrollments: usedEnrollments.length,
 				availableEnrollment,
+
 				shopUrl: course.product ? course.product.storeUrl : "",
 				certificateUrl: course.certificateUrl,
 				courseUrl: course.courseUrl,
-				isEnrolled: !! studentEnrollment,
+
+				isEnrolled: ! ! studentEnrollment,
+				deprecated: course.deprecated,
+
+				isOnSale: course.sale,
+				saleLabel: course.saleLabel,
+
+				hasTrial: course.hasTrial,
 			};
 		} );
 

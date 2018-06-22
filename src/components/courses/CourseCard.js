@@ -294,7 +294,7 @@ class CourseCard extends React.Component {
 		>
 			<ActionBlock>
 				{ this.props.isEnrolled ? this.getProgressBlock()
-					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton ) }
+					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, "" ) }
 				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 			{ this.getInviteModal( this.state.modalOpen ) }
@@ -324,6 +324,11 @@ CourseCard.propTypes = {
 	shopUrl: PropTypes.string,
 
 	loadData: PropTypes.func.isRequired,
+
+	isOnSale: PropTypes.bool,
+	saleLabel: PropTypes.string,
+
+	hasTrial: PropTypes.bool,
 };
 
 CourseCard.defaultProps = {

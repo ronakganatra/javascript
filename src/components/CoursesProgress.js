@@ -46,11 +46,18 @@ class CoursesProgress extends React.Component {
 		speak( message );
 	}
 
-
 	render() {
 		return (
 			<OuterContainer>
-				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course } loadData={ this.props.loadData } /> ) }
+				{
+					this.props.courses.map( ( course, i ) => {
+						// Only show deprecated courses if the student is enrolled in the course.
+						if ( ! course.deprecated || course.isEnrolled ) {
+							return <CourseCard key={ i } { ...course } loadData={ this.props.loadData } />;
+						}
+						return null;
+					} )
+				}
 			</OuterContainer>
 		);
 	}
