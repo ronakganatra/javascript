@@ -219,7 +219,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         </button>
       </p>
     </div>
-    <div />
   </li>
   <li
     className="c1"
@@ -274,7 +273,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         </button>
       </p>
     </div>
-    <div />
   </li>
+  <div />
 </ul>
 `;

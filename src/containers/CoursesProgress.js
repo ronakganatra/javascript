@@ -29,6 +29,8 @@ export const mapStateToProps = ( state ) => {
 					return enrollment.buyerId && ( ! enrollment.studentId || enrollment.progress === 0 );
 				} );
 
+			console.log( course.product );
+
 			return {
 				imageUrl: course.iconUrl,
 				title: course.name,

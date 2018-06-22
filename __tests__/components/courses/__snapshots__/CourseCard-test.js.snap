@@ -132,7 +132,13 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   >
     <button
       className="c6"
-      onClick={[Function]}
+      onClick={
+        [MockFunction] {
+          "calls": Array [
+            Array [],
+          ],
+        }
+      }
     >
       <span>
         Assign to someone else
@@ -158,7 +164,13 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
        
       <button
         className="c6"
-        onClick={[Function]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         <span>
           Assign courses
@@ -166,7 +178,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -357,7 +368,13 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
        
       <button
         className="c12"
-        onClick={[Function]}
+        onClick={
+          [MockFunction] {
+            "calls": Array [
+              Array [],
+            ],
+          }
+        }
       >
         <span>
           Assign courses
@@ -365,7 +382,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -556,7 +572,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
        
       <button
         className="c12"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <span>
           Assign courses
@@ -564,7 +580,6 @@ exports[`The CourseCard component matches the snapshot 1`] = `
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -756,7 +771,6 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
       </a>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -909,7 +923,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
        
       <button
         className="c9"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <span>
           Assign courses
@@ -917,7 +931,6 @@ exports[`The CourseCard component, for a course that has not been bought, matche
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -1053,7 +1066,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   >
     <button
       className="c6"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     >
       <span>
         Assign to someone else
@@ -1079,7 +1092,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
        
       <button
         className="c6"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <span>
           Assign courses
@@ -1087,7 +1100,6 @@ exports[`The CourseCard component, for a course that has not been started yet, m
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
 
@@ -1294,7 +1306,7 @@ exports[`The CourseCard component, for a course that is completed, matches the s
        
       <button
         className="c13"
-        onClick={[Function]}
+        onClick={[MockFunction]}
       >
         <span>
           Assign courses
@@ -1302,6 +1314,5 @@ exports[`The CourseCard component, for a course that is completed, matches the s
       </button>
     </p>
   </div>
-  <div />
 </li>
 `;
