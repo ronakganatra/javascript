@@ -57,7 +57,9 @@ export const mapStateToProps = ( state ) => {
 
 				hasTrial: course.hasTrial,
 			};
-		} ).filter( course => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
+		} )
+		// Only show courses in which you are enrolled, are free or have a shop url and aren't deprecated.
+		.filter( ( course ) => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
 
 	// Sort to show sales first, then enrolled courses, then free courses and then the rest. Within groups sort on progress.
 	// Reverses are needed because boolean sort weird.
