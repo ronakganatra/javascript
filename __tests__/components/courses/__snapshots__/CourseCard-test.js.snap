@@ -103,6 +103,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 .c7 {
   margin-top: 24px;
   background-color: #77b227;
+  color: #fff;
   width: 100%;
 }
 
@@ -165,13 +166,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
        
       <button
         className="c6"
-        onClick={
-          [MockFunction] {
-            "calls": Array [
-              Array [],
-            ],
-          }
-        }
+        onClick={[Function]}
       >
         <span>
           Assign courses
@@ -308,6 +303,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 .c9 {
   margin-top: 24px;
   background-color: #77b227;
+  color: #fff;
   width: 100%;
 }
 
@@ -370,13 +366,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
        
       <button
         className="c12"
-        onClick={
-          [MockFunction] {
-            "calls": Array [
-              Array [],
-            ],
-          }
-        }
+        onClick={[Function]}
       >
         <span>
           Assign courses
@@ -513,6 +503,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 .c9 {
   margin-top: 24px;
   background-color: #77b227;
+  color: #fff;
   width: 100%;
 }
 
@@ -575,7 +566,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
        
       <button
         className="c12"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         <span>
           Assign courses
@@ -693,6 +684,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
 .c9 {
   margin-top: 24px;
   background-color: #77b227;
+  color: #fff;
   width: 100%;
 }
 
@@ -880,6 +872,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 
 .c6 {
   background-color: #a4286a;
+  color: #fff;
   width: 100%;
 }
 
@@ -928,7 +921,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
        
       <button
         className="c9"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         <span>
           Assign courses
@@ -1042,6 +1035,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
 .c7 {
   margin-top: 24px;
   background-color: #77b227;
+  color: #fff;
   width: 100%;
 }
 
@@ -1098,7 +1092,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
        
       <button
         className="c6"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         <span>
           Assign courses
@@ -1313,7 +1307,7 @@ exports[`The CourseCard component, for a course that is completed, matches the s
        
       <button
         className="c13"
-        onClick={[MockFunction]}
+        onClick={[Function]}
       >
         <span>
           Assign courses
