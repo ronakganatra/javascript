@@ -57,9 +57,11 @@ export const mapStateToProps = ( state ) => {
 
 				hasTrial: course.hasTrial,
 			};
-		} ).filter( course => ( ! course.deprecated || course.isEnrolled ) && course.shopUrl );
+		} ).filter( course => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
 
-	courses = _sortBy( courses, [ "progress", "isEnrolled", "isFree", "hasTrial" ] ).reverse();
+	// Sort to show sales first, then enrolled courses, then free courses and then the rest. Within groups sort on progress.
+	// Reverses are needed because boolean sort weird.
+	courses = _sortBy( _sortBy( courses, "progress" ).reverse(), [ "isOnSale", "isEnrolled", "isFree", "hasTrial" ] ).reverse();
 
 	return { courses };
 };
