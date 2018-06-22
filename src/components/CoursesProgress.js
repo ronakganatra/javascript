@@ -12,8 +12,8 @@ import CourseInvite from "./CourseInvite";
 const OuterContainer = styled.ul`
 	display: grid;
 	grid-template-columns: repeat(auto-fill, 288px);
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
 	justify-content: center;
 	align-items: flex-start;
 	padding: 0;
