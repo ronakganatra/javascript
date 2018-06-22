@@ -34,7 +34,7 @@ export const mapStateToProps = ( state ) => {
 			let shopUrl   = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
 			return {
-				imageUrl: course.iconUrl,
+				image: course.iconUrl,
 				title: course.name,
 				description: course.description,
 
