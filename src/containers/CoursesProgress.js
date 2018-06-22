@@ -73,7 +73,8 @@ export const mapStateToProps = ( state ) => {
 		_sortBy( "isCompleted" ),
 		_reverse,
 		_sortBy( "isOnSale" ),
-		_reverse
+		_reverse,
+		_sortBy( "deprecated" )
 	)( courses );
 
 	return { courses };
