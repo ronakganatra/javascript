@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import _groupBy from "lodash/groupBy";
+import _sortBy from "lodash/sortBy";
 
 import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
@@ -47,6 +48,7 @@ export const mapStateToProps = ( state ) => {
 				certificateUrl: course.certificateUrl,
 				courseUrl: course.courseUrl,
 
+				isFree: course.open,
 				isEnrolled: ! ! studentEnrollment,
 				deprecated: course.deprecated,
 
@@ -56,6 +58,8 @@ export const mapStateToProps = ( state ) => {
 				hasTrial: course.hasTrial,
 			};
 		} );
+
+	courses = _sortBy( courses, [ "progress", "isEnrolled", "isFree", "hasTrial" ] ).reverse();
 
 	return { courses };
 };

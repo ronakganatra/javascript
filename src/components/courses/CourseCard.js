@@ -226,11 +226,17 @@ class CourseCard extends React.Component {
 
 		if ( this.props.progress === 0 ) {
 			// 0 progress, show a link to assign another user and a button to start the course.
-			progressBar =
-				<LinkButton testId="assign-to-someone-else" onClick={ this.openModal }>
+			// But only if the course is not free.
+			progressBar = this.props.isFree ? null
+				: <LinkButton testId="assign-to-someone-else" onClick={ this.openModal }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</LinkButton>;
-			button = this.getButton( this.props.courseUrl, colors.$color_green, messages.startButton, marginTop );
+			button = this.getButton(
+				this.props.courseUrl,
+				colors.$color_green,
+				messages.startButton,
+				this.props.isFree ? "" : marginTop
+			);
 		} else if ( this.props.progress < 100 ) {
 			// Some progress, show a progress bar and a button to continue the course.
 			progressBar = <ProgressBar progress={ this.props.progress } />;
@@ -293,7 +299,7 @@ class CourseCard extends React.Component {
 			description={ this.props.description }
 		>
 			<ActionBlock>
-				{ this.props.isEnrolled ? this.getProgressBlock()
+				{ ( this.props.isEnrolled || this.props.isFree ) ? this.getProgressBlock()
 					: this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, "" ) }
 				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
@@ -316,6 +322,7 @@ CourseCard.propTypes = {
 	totalEnrollments: PropTypes.number,
 	usedEnrollments: PropTypes.number,
 	availableEnrollment: PropTypes.any,
+	isFree: PropTypes.bool,
 	isEnrolled: PropTypes.bool,
 
 	courseUrl: PropTypes.string,
