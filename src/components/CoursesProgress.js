@@ -61,6 +61,19 @@ class CoursesProgress extends React.Component {
 	}
 
 	/**
+	 * Sets the given field in the state to the given value.
+	 *
+	 * @param {string} field the field to overwrite
+	 * @param {*} value the value to store
+	 * @returns {void}
+	 */
+	setField( field, value ) {
+		this.setState( {
+			[ field ]: value,
+		} );
+	}
+
+	/**
 	 * Opens the invite student modal.
 	 * @param {string} availableEnrollment the available enrollment to use.
 	 * @returns {void}

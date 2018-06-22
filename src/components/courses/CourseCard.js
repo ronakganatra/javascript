@@ -76,19 +76,6 @@ const messages = defineMessages( {
 class CourseCard extends React.Component {
 
 	/**
-	 * Sets the given field in the state to the given value.
-	 *
-	 * @param {string} field the field to overwrite
-	 * @param {*} value the value to store
-	 * @returns {void}
-	 */
-	setField( field, value ) {
-		this.setState( {
-			[ field ]: value,
-		} );
-	}
-
-	/**
 	 * Returns a link, disguised as a colored button.
 	 *
 	 * @param {string} url the url to which to link
