@@ -229,6 +229,7 @@ class CourseCard extends React.Component {
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
+			courseUrl={ this.props.courseUrl }
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>

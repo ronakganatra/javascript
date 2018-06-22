@@ -25,13 +25,19 @@ const Details = styled.div`
 	border-bottom: 1px ${ colors.$color_grey } solid;
 `;
 
-const Header = styled.h2`
+const Header = styled.a`
 	padding: 0;
 	margin: 0;
 	margin-bottom: 15px;
 	
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
+	font-size: 1.5em;
+	text-decoration: none;
+	
+	:hover {
+		text-decoration: underline;
+	}
 `;
 
 const Description = styled.p`
@@ -87,7 +93,7 @@ class CourseCardContainer extends React.Component {
 			<Image src={ this.props.image } alt="" />
 			{ this.getBanner() }
 			<Details>
-				<Header>{ this.props.title }</Header>
+				<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
 				<Description>
 					{ this.props.description }
 				</Description>
@@ -109,6 +115,8 @@ CourseCardContainer.propTypes = {
 	bannerText: PropTypes.string,
 	bannerBackgroundColor: PropTypes.string,
 	bannerTextColor: PropTypes.string,
+
+	courseUrl: PropTypes.string,
 };
 
 CourseCardContainer.defaultProps = {};

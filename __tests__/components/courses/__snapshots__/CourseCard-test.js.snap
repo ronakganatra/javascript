@@ -27,6 +27,14 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -118,11 +126,12 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -204,6 +213,14 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -318,11 +335,12 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -404,6 +422,14 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -518,11 +544,12 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -604,6 +631,14 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -699,11 +734,12 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -797,6 +833,14 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -887,11 +931,12 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -959,6 +1004,14 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -1050,11 +1103,12 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -1130,6 +1184,14 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .c4 {
@@ -1259,11 +1321,12 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
