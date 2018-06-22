@@ -26,6 +26,7 @@ const AvailableEnrollment = styled.p`
 const Button = styled( ButtonLink )`
 	margin-top: ${ props => props.margin };
 	background-color: ${ props => props.color };
+	color: ${ props => props.textColor || colors.$color_white };
 	width: 100%;
 `;
 
@@ -82,12 +83,14 @@ class CourseCard extends React.Component {
 	 * @param {string} color the color of the button
 	 * @param {object} message the message to display on the button
 	 * @param {string?} marginTop the top margin to add
+	 * @param {string?} textColor the color of the text
 	 * @returns {React.Component} the button
 	 */
-	getButton( url, color, message, marginTop ) {
+	getButton( url, color, message, marginTop, textColor ) {
 		return <Button to={ url }
 					   linkTarget="_blank"
 					   color={ color }
+					   textColor={ textColor }
 					   margin={ marginTop }>
 			<FormattedMessage { ...message } />
 		</Button>;
@@ -193,7 +196,7 @@ class CourseCard extends React.Component {
 	getBuyButton() {
 		if ( this.props.isOnSale ) {
 			// On sale, so yellow button.
-			return this.getButton( this.props.shopUrl, colors.$color_yellow, messages.buyButton );
+			return this.getButton( this.props.shopUrl, colors.$color_yellow, messages.buyButton, "", colors.$color_black );
 		}
 		return this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton );
 	}
@@ -261,8 +264,6 @@ CourseCard.propTypes = {
 
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
-
-	isFree: PropTypes.bool,
 
 	hasTrial: PropTypes.bool,
 };

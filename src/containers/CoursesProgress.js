@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import _groupBy from "lodash/groupBy";
-import _sortBy from "lodash/sortBy";
+import _sortBy from "lodash/fp/sortBy";
+import _reverse from "lodash/reverse";
+import _flow from "lodash/flow";
 
 import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
@@ -50,9 +52,9 @@ export const mapStateToProps = ( state ) => {
 
 				isFree: course.open,
 				isEnrolled: ! ! studentEnrollment,
+				isCompleted: studentEnrollment ? studentEnrollment.progress === 100 : false,
 				deprecated: course.deprecated,
 
-				isFree: course.isFree,
 				isOnSale: course.sale,
 				saleLabel: course.saleLabel,
 
@@ -63,8 +65,16 @@ export const mapStateToProps = ( state ) => {
 		.filter( ( course ) => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
 
 	// Sort to show sales first, then enrolled courses, then free courses and then the rest. Within groups sort on progress.
-	// Reverses are needed because boolean sort weird.
-	courses = _sortBy( _sortBy( courses, "progress" ).reverse(), [ "isOnSale", "isEnrolled", "isFree", "hasTrial" ] ).reverse();
+	// Reverse is needed because boolean sort weird.
+	courses = _flow(
+		_sortBy( [ "progress", "totalEnrollments" ] ),
+		_sortBy( [ "isEnrolled", "isFree", "hasTrial" ] ),
+		_reverse,
+		_sortBy( "isCompleted" ),
+		_reverse,
+		_sortBy( "isOnSale" ),
+		_reverse
+	)( courses );
 
 	return { courses };
 };
