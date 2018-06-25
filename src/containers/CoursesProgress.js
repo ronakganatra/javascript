@@ -1,97 +1,91 @@
 import { connect } from "react-redux";
+import _groupBy from "lodash/groupBy";
+import _sortBy from "lodash/fp/sortBy";
+import _reverse from "lodash/reverse";
+import _flow from "lodash/flow";
+
 import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
 import { getUserId } from "../functions/auth";
+import { getShopUrl } from "../functions/products";
 
 export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 
-	let allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( ( enrollmentId ) => {
-		let enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
-
-		// We don't want to display refunded course enrollments.
-		if ( enrollment.status === "refunded" ) {
-			return false;
-		}
-
-		return {
-			id: enrollment.id,
-			name: enrollment.course.name,
-			status: enrollment.status,
-			progress: enrollment.progress,
-			courseId: enrollment.courseId,
-			buyerId: enrollment.buyerId,
-			studentId: enrollment.studentId,
-			orderId: enrollment.orderId,
-		};
-	} ).filter( ( enrollment ) => !! enrollment );
-
-	let allCourseIds = state.entities.courses.allIds;
-	let freeEnrollments = allCourseIds
-		.filter( ( courseId ) => {
-			let course = state.entities.courses.byId[ courseId ];
-
-			if ( ! course.open ) {
-				return false;
-			}
-
-			// Don't show a free enrollment is the user is already enrolled.
-			return coursesEnrollments.every( enrollment => enrollment.courseId !== courseId );
+	let coursesEnrollments = state.entities.coursesEnrollments.allIds
+		.map( ( enrollmentId ) => {
+			return state.entities.coursesEnrollments.byId[ enrollmentId ];
 		} )
+		.filter( ( enrollment ) => enrollment.status !== "refunded" );
+
+	coursesEnrollments = _groupBy( coursesEnrollments, "courseId" );
+
+	let courses = state.entities.courses.allIds
 		.map( ( courseId ) => {
 			let course = state.entities.courses.byId[ courseId ];
+			let enrollments = coursesEnrollments[ courseId ] || [];
+			let studentEnrollment = enrollments
+				.find( ( enrollment ) => enrollment.studentId === currentUserId );
+			let usedEnrollments = enrollments
+				.filter( ( enrollment ) => enrollment.studentId );
+			let availableEnrollment = enrollments
+				.find( ( enrollment ) => {
+					return enrollment.buyerId && ( ! enrollment.studentId || enrollment.progress === 0 );
+				} );
+			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
+			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
 			return {
-				// The id is not unique across users.
-				id: "free-course-" + courseId,
-				name: course.name,
-				status: "not started",
-				progress: 0,
-				courseId: courseId,
-				buyerId: "",
-				studentId: currentUserId,
-				orderId: "",
+				image: course.iconUrl,
+				title: course.name,
+				description: course.description,
+
+				progress: studentEnrollment ? studentEnrollment.progress : 0,
+
+				totalEnrollments: enrollments.length,
+				usedEnrollments: usedEnrollments.length,
+				availableEnrollment,
+
+				shopUrl,
+				certificateUrl: course.certificateUrl,
+				courseUrl: course.courseUrl,
+
+				isFree: course.open,
+				isEnrolled: ! ! studentEnrollment,
+				isCompleted: studentEnrollment ? studentEnrollment.progress === 100 : false,
+				deprecated: course.deprecated,
+
+				isOnSale: course.sale,
+				saleLabel: course.saleLabel,
+
+				hasTrial: course.hasTrial,
 			};
-		} );
+		} )
+		// Only show courses in which you are enrolled, are free or have a shop url and aren't deprecated.
+		.filter( ( course ) => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
 
-	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
+	// Sort to show sales first, then enrolled courses, then free courses and then the rest. Within groups sort on progress.
+	// Reverse is needed because boolean sort weird.
+	courses = _flow(
+		_sortBy( [ "progress", "totalEnrollments" ] ),
+		_sortBy( [ "isEnrolled", "isFree", "hasTrial" ] ),
+		_reverse,
+		_sortBy( "isCompleted" ),
+		_reverse,
+		_sortBy( "isOnSale" ),
+		_reverse,
+		_sortBy( "deprecated" )
+	)( courses );
 
-	// Only show enrollments where you are actually a student:
-	coursesEnrollments = coursesEnrollments.filter( enrollment => {
-		return enrollment.studentId === currentUserId;
-	} );
-
-	allIds = state.entities.courses.allIds;
-	let courses = allIds.map( ( courseId ) => {
-		let course = state.entities.courses.byId[ courseId ];
-		let icon = course.iconUrl;
-
-		if ( ! icon ) {
-			icon = course.product ? course.product.icon : "";
-		}
-
-		return {
-			id: course.id,
-			name: course.name,
-			description: course.description,
-			courseUrl: course.courseUrl,
-			certificateUrl: course.certificateUrl,
-			icon: icon,
-			open: course.open,
-		};
-	} );
-
-	return {
-		courses,
-		coursesEnrollments,
-	};
+	return { courses };
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		loadCourses: () => dispatch( retrieveCourses() ),
-		loadCoursesEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
+		loadData: () => {
+			dispatch( retrieveCourses() );
+			dispatch( retrieveCoursesEnrollments() );
+		},
 	};
 };
 
