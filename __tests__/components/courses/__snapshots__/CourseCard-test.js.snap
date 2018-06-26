@@ -914,21 +914,16 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 <li
   className="c0"
 >
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
+  <img
+    className="c1"
+    src="sample_course_card_header.png"
+  />
   <div
     className="c2"
   >
     <a
       className="c3"
-      href="http://yoast.academy.test/awesome_seo"
+      href={null}
     >
       Awesome SEO Course
     </a>
