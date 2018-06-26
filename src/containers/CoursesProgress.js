@@ -26,6 +26,7 @@ export const mapStateToProps = ( state ) => {
 			let enrollments = coursesEnrollments[ courseId ] || [];
 			let studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
+			let studentEnrollmentExists = studentEnrollment ? studentEnrollment : 0;
 			let usedEnrollments = enrollments
 				.filter( ( enrollment ) => enrollment.studentId );
 			let availableEnrollment = enrollments
@@ -40,7 +41,8 @@ export const mapStateToProps = ( state ) => {
 				title: course.name,
 				description: course.description,
 
-				progress: studentEnrollment ? studentEnrollment.progress : 0,
+				progress: studentEnrollmentExists.progress,
+				isTrial: studentEnrollmentExists.isTrial,
 
 				totalEnrollments: enrollments.length,
 				usedEnrollments: usedEnrollments.length,
