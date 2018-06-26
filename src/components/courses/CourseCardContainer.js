@@ -93,7 +93,7 @@ class CourseCardContainer extends React.Component {
 		if ( this.props.courseUrl ) {
 			return <a href={ this.props.courseUrl }><Image src={ this.props.image } alt={ this.props.title } /></a>;
 		}
-		return <Image src={ this.props.image } />;
+		return <Image src={ this.props.image } alt="" />;
 	}
 
 	render() {

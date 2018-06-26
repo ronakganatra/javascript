@@ -915,6 +915,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   className="c0"
 >
   <img
+    alt=""
     className="c1"
     src="sample_course_card_header.png"
   />

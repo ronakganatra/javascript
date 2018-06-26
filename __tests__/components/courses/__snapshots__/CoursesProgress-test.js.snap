@@ -235,6 +235,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
     className="c1"
   >
     <img
+      alt=""
       className="c2"
       src="sample_course_card_header.png"
     />
