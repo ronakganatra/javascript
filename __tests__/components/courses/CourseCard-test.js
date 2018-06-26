@@ -17,6 +17,9 @@ let course = {
 	certificateUrl: "http://yoast.academy.test/certificate",
 	courseUrl: "http://yoast.academy.test/awesome_seo",
 	isEnrolled: true,
+	isOnSale: false,
+	isFree: false,
+	saleLabel: "",
 };
 
 let courseNotBought = Object.assign( {}, course );
@@ -29,8 +32,21 @@ let courseNoEnrollmentsLeft = Object.assign( {}, course );
 courseNoEnrollmentsLeft.usedEnrollments = 5;
 courseNoEnrollmentsLeft.totalEnrollments = 5;
 
-let courseNotStarted = Object.assign( {}, course );
-courseNotStarted.progress = 0;
+let courseNotStartedSingleEnrollment = Object.assign( {}, course );
+courseNotStartedSingleEnrollment.progress = 0;
+courseNotStartedSingleEnrollment.totalEnrollments = 1;
+courseNotStartedSingleEnrollment.usedEnrollments = 1;
+
+let courseNotStartedMultipleEnrollments = Object.assign( {}, course );
+courseNotStartedMultipleEnrollments.progress = 0;
+
+let courseOnSale = Object.assign( {}, course );
+courseOnSale.isEnrolled = false;
+courseOnSale.isOnSale = true;
+courseOnSale.saleLabel = "Now 101% of!";
+
+let courseFree = Object.assign( {}, course );
+courseFree.isFree = true;
 
 test( 'The CourseCard component matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
@@ -84,12 +100,51 @@ test( 'The CourseCard component, for a course that has no unassigned enrollments
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that has not been started yet, matches the snapshot', () => {
+test( 'The CourseCard component, for a course that has not been started yet with a single enrollment, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStarted } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseCard { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
+		</Router>
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
+
+test( 'The CourseCard component, for a course that has not been started yet with multiple other enrollment, matches the snapshot', () => {
+	let onAssignModalOpen = jest.fn();
+
+	const component = createComponentWithIntl(
+		<Router>
+			<CourseCard { ...courseNotStartedMultipleEnrollments } onAssignModalOpen={ onAssignModalOpen } />
+		</Router>
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
+
+test( 'The CourseCard component, for a course that is on sale, matches the snapshot', () => {
+	let onAssignModalOpen = jest.fn();
+
+	const component = createComponentWithIntl(
+		<Router>
+			<CourseCard { ...courseOnSale } onAssignModalOpen={ onAssignModalOpen } />
+		</Router>
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
+
+test( 'The CourseCard component, for a course that is free, matches the snapshot', () => {
+	let onAssignModalOpen = jest.fn();
+
+	const component = createComponentWithIntl(
+		<Router>
+			<CourseCard { ...courseFree } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -102,7 +157,7 @@ test( 'Assigning a course to someone else through a CourseCard works, when the c
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStarted } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseCard { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 

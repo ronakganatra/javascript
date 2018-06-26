@@ -109,6 +109,14 @@ class CourseCard extends React.Component {
 	}
 
 	/**
+	 * If the link "assign someone else" should be displayed on the card.
+	 * @returns {boolean} if the link should be shown
+	 */
+	shouldDisplayAssignSomeoneElseLink() {
+		return ! this.props.isFree && this.props.totalEnrollments === 1;
+	}
+
+	/**
 	 * Returns a component displaying the current progress
 	 * (or a link to assign someone else to the course if the course hasn't been started yet)
 	 * and a button to either go to the course in academy or view the certificate.
@@ -116,22 +124,25 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the component
 	 */
 	getProgressBlock() {
-		let progressBar;
+		let progressBar = null;
 		let button;
-		let marginTop = "24px";
+		const marginTop = "24px";
 
 		if ( this.props.progress === 0 ) {
 			// 0 progress, show a link to assign another user and a button to start the course.
-			// But only if the course is not free.
-			progressBar = this.props.isFree ? null
-				: <LinkButton testId="assign-to-someone-else" onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			// But only if the course is not free and this the only enrollment.
+			if ( this.shouldDisplayAssignSomeoneElseLink() ) {
+				progressBar = <LinkButton testId="assign-to-someone-else"
+										  onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</LinkButton>;
+			}
+
 			button = this.getButton(
 				this.props.courseUrl,
 				colors.$color_green,
 				messages.startButton,
-				this.props.isFree ? "" : marginTop
+				this.shouldDisplayAssignSomeoneElseLink() ? marginTop : ""
 			);
 		} else if ( this.props.progress < 100 ) {
 			// Some progress, show a progress bar and a button to continue the course.
@@ -232,6 +243,10 @@ class CourseCard extends React.Component {
 		return this.props.hasTrial || this.props.isFree || this.props.isEnrolled;
 	}
 
+	shouldDisplayProgressBlock() {
+		return this.props.isEnrolled || this.props.isFree;
+	}
+
 	render() {
 		return <CourseCardContainer
 			image={ this.props.image }
@@ -241,7 +256,7 @@ class CourseCard extends React.Component {
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>
-				{ ( this.props.isEnrolled || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton() }
+				{ this.shouldDisplayProgressBlock() ? this.getProgressBlock() : this.getBuyButton() }
 				{ this.props.totalEnrollments > 1 ? this.getAssignCoursesRow() : null }
 			</ActionBlock>
 		</CourseCardContainer>;
