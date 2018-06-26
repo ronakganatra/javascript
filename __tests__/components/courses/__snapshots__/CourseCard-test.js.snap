@@ -142,13 +142,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   >
     <button
       className="c6"
-      onClick={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-        }
-      }
+      onClick={[Function]}
     >
       <span>
         Assign to someone else
@@ -1110,7 +1104,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   >
     <button
       className="c6"
-      onClick={[MockFunction]}
+      onClick={[Function]}
     >
       <span>
         Assign to someone else
