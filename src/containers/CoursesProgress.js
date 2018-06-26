@@ -28,10 +28,9 @@ export const mapStateToProps = ( state ) => {
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
 			let usedEnrollments = enrollments
 				.filter( ( enrollment ) => enrollment.studentId );
-			let availableEnrollment = enrollments
-				.find( ( enrollment ) => {
-					return enrollment.buyerId && ( ! enrollment.studentId || enrollment.progress === 0 );
-				} );
+			let availableEnrollment =
+				enrollments.find( ( enrollment ) => enrollment.buyerId && ! enrollment.studentId ) ||
+				enrollments.find( ( enrollment ) => enrollment.buyerId && enrollment.progress === 0 );
 			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
 			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
