@@ -32,11 +32,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-decoration: none;
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c4 {
   margin: 0;
 }
@@ -118,11 +113,15 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -218,11 +217,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-decoration: none;
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c4 {
   margin: 0;
 }
@@ -327,11 +321,15 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -427,11 +425,6 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   text-decoration: none;
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c4 {
   margin: 0;
 }
@@ -536,11 +529,15 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -636,11 +633,6 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   text-decoration: none;
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c4 {
   margin: 0;
 }
@@ -726,11 +718,15 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -838,11 +834,6 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   text-decoration: none;
 }
 
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c4 {
   margin: 0;
 }
@@ -923,11 +914,15 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -1007,11 +1002,6 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   font-size: 1.5em;
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 .c4 {
@@ -1095,11 +1085,15 @@ exports[`The CourseCard component, for a course that has not been started yet, m
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
@@ -1187,11 +1181,6 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   font-size: 1.5em;
   -webkit-text-decoration: none;
   text-decoration: none;
-}
-
-.c3:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
 }
 
 .c4 {
@@ -1313,11 +1302,15 @@ exports[`The CourseCard component, for a course that is completed, matches the s
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >

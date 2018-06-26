@@ -224,12 +224,20 @@ class CourseCard extends React.Component {
 		return {};
 	}
 
+	/**
+	 * If the header image and title should link to the course.
+	 * @returns {Boolean} if the header image and title should link to the course.
+	 */
+	enableHeaderUrl() {
+		return this.props.hasTrial || this.props.isFree || this.props.isEnrolled;
+	}
+
 	render() {
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
-			courseUrl={ this.props.courseUrl }
+			courseUrl={ this.enableHeaderUrl() ? this.props.courseUrl : null }
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>

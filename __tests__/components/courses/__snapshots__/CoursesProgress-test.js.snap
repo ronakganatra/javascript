@@ -32,11 +32,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   text-decoration: none;
 }
 
-.c4:hover {
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
 .c5 {
   margin: 0;
 }
@@ -166,11 +161,15 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   <li
     className="c1"
   >
-    <img
-      alt=""
-      className="c2"
-      src="sample_course_card_header.png"
-    />
+    <a
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      <img
+        alt="Awesome SEO Course"
+        className="c2"
+        src="sample_course_card_header.png"
+      />
+    </a>
     <div
       className="c3"
     >
@@ -235,11 +234,15 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   <li
     className="c1"
   >
-    <img
-      alt=""
-      className="c2"
-      src="sample_course_card_header.png"
-    />
+    <a
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      <img
+        alt="Awesome SEO Course"
+        className="c2"
+        src="sample_course_card_header.png"
+      />
+    </a>
     <div
       className="c3"
     >

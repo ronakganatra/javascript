@@ -4,8 +4,6 @@ import { injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 
-import defimg from "../../images/sample_course_card_header.png";
-
 const Card = styled.li`
 	position: relative;
 	background-color: ${ colors.$color_white };
@@ -86,9 +84,21 @@ class CourseCardContainer extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Returns the header image, either with a link to the course if it is present,
+	 * or not if it is not.
+	 * @returns {React.Component} the header image
+	 */
+	getHeaderImage() {
+		if ( this.props.courseUrl ) {
+			return <a href={ this.props.courseUrl }><Image src={ this.props.image } alt={ this.props.title } /></a>;
+		}
+		return <Image src={ this.props.image } />;
+	}
+
 	render() {
 		return <Card>
-			<a href={ this.props.courseUrl }><Image src={ defimg } alt={ this.props.title } /></a>
+			{ this.getHeaderImage() }
 			{ this.getBanner() }
 			<Details>
 				<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
@@ -115,6 +125,7 @@ CourseCardContainer.propTypes = {
 	bannerTextColor: PropTypes.string,
 
 	courseUrl: PropTypes.string,
+	enableUrl: PropTypes.bool,
 };
 
 CourseCardContainer.defaultProps = {};
