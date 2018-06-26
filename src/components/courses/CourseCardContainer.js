@@ -4,6 +4,8 @@ import { injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 
+import defimg from "../../images/sample_course_card_header.png";
+
 const Card = styled.li`
 	position: relative;
 	background-color: ${ colors.$color_white };
@@ -34,10 +36,6 @@ const Header = styled.a`
 	font-weight: 50;
 	font-size: 1.5em;
 	text-decoration: none;
-	
-	:hover {
-		text-decoration: underline;
-	}
 `;
 
 const Description = styled.p`
@@ -90,7 +88,7 @@ class CourseCardContainer extends React.Component {
 
 	render() {
 		return <Card>
-			<Image src={ this.props.image } alt="" />
+			<a href={ this.props.courseUrl }><Image src={ defimg } alt={ this.props.title } /></a>
 			{ this.getBanner() }
 			<Details>
 				<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
