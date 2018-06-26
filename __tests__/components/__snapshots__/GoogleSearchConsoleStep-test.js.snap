@@ -70,7 +70,9 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
 }
 
 .c1 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c0 {

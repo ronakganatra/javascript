@@ -92,12 +92,18 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   box-shadow: none;
 }
 
+.c9 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c9 {
+.c10 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -158,9 +164,16 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       <span>
         Start this course
       </span>
+      <span
+        className="screen-reader-text c9"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c9"
+      className="c10"
     >
       <span>
         4 / 5 assigned.
@@ -215,7 +228,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   margin: 0;
 }
 
-.c12 {
+.c13 {
   background: none;
   border: 0px;
   padding: 0;
@@ -226,11 +239,11 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   cursor: pointer;
 }
 
-.c12:hover {
+.c13:hover {
   color: #cc2956;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
 }
 
@@ -294,12 +307,18 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   color: #000;
 }
 
+.c11 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c11 {
+.c12 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -366,16 +385,23 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       <span>
         Continue this course
       </span>
+      <span
+        className="screen-reader-text c11"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c11"
+      className="c12"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c12"
+        className="c13"
         onClick={[Function]}
       >
         <span>
@@ -423,7 +449,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   margin: 0;
 }
 
-.c12 {
+.c13 {
   background: none;
   border: 0px;
   padding: 0;
@@ -434,11 +460,11 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   cursor: pointer;
 }
 
-.c12:hover {
+.c13:hover {
   color: #cc2956;
 }
 
-.c12:focus {
+.c13:focus {
   outline: none;
 }
 
@@ -502,12 +528,18 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   color: #000;
 }
 
+.c11 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c11 {
+.c12 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -574,16 +606,23 @@ exports[`The CourseCard component matches the snapshot 1`] = `
       <span>
         Continue this course
       </span>
+      <span
+        className="screen-reader-text c11"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c11"
+      className="c12"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c12"
+        className="c13"
         onClick={[Function]}
       >
         <span>
@@ -691,12 +730,18 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   color: #000;
 }
 
+.c11 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c11 {
+.c12 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -763,9 +808,16 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
       <span>
         Continue this course
       </span>
+      <span
+        className="screen-reader-text c11"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c11"
+      className="c12"
     >
       <span>
         5 / 5 assigned.
@@ -832,7 +884,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   margin: 0;
 }
 
-.c9 {
+.c10 {
   background: none;
   border: 0px;
   padding: 0;
@@ -843,11 +895,11 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   cursor: pointer;
 }
 
-.c9:hover {
+.c10:hover {
   color: #cc2956;
 }
 
-.c9:focus {
+.c10:focus {
   outline: none;
 }
 
@@ -888,12 +940,18 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   box-shadow: none;
 }
 
+.c8 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c8 {
+.c9 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -941,16 +999,23 @@ exports[`The CourseCard component, for a course that has not been bought, matche
       <span>
         Get the full course
       </span>
+      <span
+        className="screen-reader-text c8"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c8"
+      className="c9"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c9"
+        className="c10"
         onClick={[Function]}
       >
         <span>
@@ -1054,12 +1119,18 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   box-shadow: none;
 }
 
+.c9 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c9 {
+.c10 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -1120,9 +1191,16 @@ exports[`The CourseCard component, for a course that has not been started yet, m
       <span>
         Start this course
       </span>
+      <span
+        className="screen-reader-text c9"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c9"
+      className="c10"
     >
       <span>
         4 / 5 assigned.
@@ -1177,7 +1255,7 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   margin: 0;
 }
 
-.c13 {
+.c14 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1188,11 +1266,11 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   cursor: pointer;
 }
 
-.c13:hover {
+.c14:hover {
   color: #cc2956;
 }
 
-.c13:focus {
+.c14:focus {
   outline: none;
 }
 
@@ -1273,12 +1351,18 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   color: #fff;
 }
 
+.c12 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   padding: 24px;
   text-align: center;
 }
 
-.c12 {
+.c13 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -1343,16 +1427,23 @@ exports[`The CourseCard component, for a course that is completed, matches the s
       <span>
         View your certificate
       </span>
+      <span
+        className="screen-reader-text c12"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
     </a>
     <p
-      className="c12"
+      className="c13"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c13"
+        className="c14"
         onClick={[Function]}
       >
         <span>

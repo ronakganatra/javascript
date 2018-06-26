@@ -11,6 +11,7 @@ import CourseCardContainer from "./CourseCardContainer";
 import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
 import Link from "../Link";
 import ProgressBar from "../ProgressBar";
+import NewTabMessage from "../../components/NewTabMessage";
 
 const ActionBlock = styled.div`
 	padding: 24px;
@@ -87,12 +88,15 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the button
 	 */
 	getButton( url, color, message, marginTop, textColor ) {
-		return <Button to={ url }
-					   linkTarget="_blank"
-					   color={ color }
-					   textColor={ textColor }
-					   margin={ marginTop }>
+		return <Button
+			to={ url }
+			linkTarget="_blank"
+			color={ color }
+			textColor={ textColor }
+			margin={ marginTop }
+		>
 			<FormattedMessage { ...message } />
+			<NewTabMessage />
 		</Button>;
 	}
 
@@ -102,9 +106,12 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the button
 	 */
 	getCertificateButton() {
-		return <SecondaryButton to={ this.props.certificateUrl }
-								linkTarget="_blank">
+		return <SecondaryButton
+			to={ this.props.certificateUrl }
+			linkTarget="_blank"
+		>
 			<FormattedMessage { ...messages.viewCertificateButton } />
+			<NewTabMessage />
 		</SecondaryButton>;
 	}
 

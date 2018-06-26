@@ -48,7 +48,9 @@ exports[`the site header matches the snapshot 1`] = `
 }
 
 .c7 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c2 {

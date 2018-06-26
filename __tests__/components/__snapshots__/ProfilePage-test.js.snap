@@ -192,7 +192,9 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c16 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -707,7 +709,9 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c16 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -1205,7 +1209,9 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c16 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -1686,7 +1692,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c18 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -2221,7 +2229,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c20 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -2732,7 +2742,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c17 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -3228,7 +3240,9 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c17 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -3714,7 +3728,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c17 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -4215,7 +4231,9 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c16 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {
@@ -4701,7 +4719,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c16 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c3 {

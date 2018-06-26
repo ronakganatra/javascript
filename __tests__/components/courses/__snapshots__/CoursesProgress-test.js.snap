@@ -36,7 +36,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   margin: 0;
 }
 
-.c13 {
+.c14 {
   background: none;
   border: 0px;
   padding: 0;
@@ -47,11 +47,11 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   cursor: pointer;
 }
 
-.c13:hover {
+.c14:hover {
   color: #cc2956;
 }
 
-.c13:focus {
+.c14:focus {
   outline: none;
 }
 
@@ -115,12 +115,18 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   color: #000;
 }
 
+.c12 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c6 {
   padding: 24px;
   text-align: center;
 }
 
-.c12 {
+.c13 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
@@ -133,7 +139,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c14 {
+.c15 {
   background-color: #a4286a;
   color: #fff;
   width: 100%;
@@ -212,16 +218,23 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         <span>
           Continue this course
         </span>
+        <span
+          className="screen-reader-text c12"
+        >
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
       </a>
       <p
-        className="c12"
+        className="c13"
       >
         <span>
           4 / 5 assigned.
         </span>
          
         <button
-          className="c13"
+          className="c14"
           onClick={[Function]}
         >
           <span>
@@ -259,7 +272,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
     >
       <a
         aria-label={undefined}
-        className="c14 c11"
+        className="c15 c11"
         href="http://yoast.test/shop"
         rel="noopener noreferrer"
         target="_blank"
@@ -267,16 +280,23 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         <span>
           Get the full course
         </span>
+        <span
+          className="screen-reader-text c12"
+        >
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
       </a>
       <p
-        className="c12"
+        className="c13"
       >
         <span>
           4 / 5 assigned.
         </span>
          
         <button
-          className="c13"
+          className="c14"
           onClick={[Function]}
         >
           <span>
