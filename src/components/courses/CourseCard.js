@@ -13,6 +13,14 @@ import Link from "../Link";
 import ProgressBar from "../ProgressBar";
 import check from "../../icons/checkGreen.svg";
 
+const StyledLabel = styled.label`
+	font-weight: bold;
+`;
+
+const StyledLink = styled( Link )`
+	font-weight: bold;
+`;
+
 const CompletedIcon = styled.img`
 	height: 12px;
 	padding-right: 2px;
@@ -99,6 +107,7 @@ class CourseCard extends React.Component {
 
 		this.getButtonAndProgressBar = this.getButtonAndProgressBar.bind( this );
 		this.getProgressBlock = this.getProgressBlock.bind( this );
+		this.getProgressLink = this.getProgressLink.bind( this );
 	}
 	/**
 	 * Returns a link, disguised as a colored button.
@@ -167,33 +176,34 @@ class CourseCard extends React.Component {
 			{ button }
 		</Fragment>;
 	}
+	/**
+	 * Gets the progress link or message or assign to someone else options.
+	 *
+	 * @returns {React.Component} the component The component related to (the instance of) trials.
+	 */
 	getProgressLink() {
-		let messageType = "assignToSomeOneElse";
-		let path = this.props.hasTrial ? this.props.courseUrl : "/courses/enrollments";
-		let progressLink;
-
-		// Sets the message or link when a trial is available
+		// Returns the trial line (completed or start)
 		if ( this.props.hasTrial  ) {
-			messageType = "startFreeTrial";
-			if ( this.props.trialCompleted ) {
-				return <FormattedMessage
-					id={ messages.freeTrialCompleted.id }
-					defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-					values={ { icon: <CompletedIcon src= { check }/> } }
-				/>;
-			}
+			return this.props.trialCompleted
+				? <StyledLabel>
+					<FormattedMessage
+						id={messages.freeTrialCompleted.id}
+						defaultMessage={messages.freeTrialCompleted.defaultMessage}
+						values={{ icon: <CompletedIcon src={check}/> }}
+					/>
+				</StyledLabel>
+				: <StyledLink to={this.props.courseUrl}>
+					<FormattedMessage {...messages.startFreeTrial } />
+				</StyledLink>;
 		}
-		// Fills in the correct progressLink or LinkButton to open the assign modal
-		progressLink = messageType === "assignToSomeOneElse"
-			? <LinkButton testId="assign-to-someone-else"
-			                         onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
-				<FormattedMessage { ...messages.assignToSomeOneElse } />
-			</LinkButton>
-			: <Link to={ path }>
-					<FormattedMessage { ...messages[ messageType ] } />
-			</Link>;
 
-		return progressLink;
+		// Returns a LinkButton which can be used to assign someone else
+		if ( ! this.props.hasTrial ) {
+			return <LinkButton testId="assign-to-someone-else"
+			                   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+				<FormattedMessage { ...messages.assignToSomeOneElse } />
+			</LinkButton>;
+		}
 	}
 	/**
 	 * Returns a component displaying the current progress
