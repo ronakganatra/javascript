@@ -89,7 +89,17 @@ const messages = defineMessages( {
 } );
 
 class CourseCard extends React.Component {
+	/**
+	 * Sets the CourseCard object.
+	 *
+	 * @returns {void}
+	 */
+	constructor() {
+		super();
 
+		this.getButtonAndStatus = this.getButtonAndStatus.bind( this );
+		this.getProgressBlock = this.getProgressBlock.bind( this );
+	}
 	/**
 	 * Returns a link, disguised as a colored button.
 	 *
@@ -160,15 +170,14 @@ class CourseCard extends React.Component {
 		}
 		// Return should be updated to trialCompleted
 		return <Fragment>
-			{ this.props.isTrial && type === "trial"
-				? <FormattedMessage
-					id={ messages.freeTrialCompleted.id }
-					defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-					values={ { icon: <CompletedIcon src= { check }/> } }
-				/>
-				: progressLink }
+			{ progressLink }
 			{ progressBar }
 			{ button }
+			<FormattedMessage
+				id={ messages.freeTrialCompleted.id }
+				defaultMessage={ messages.freeTrialCompleted.defaultMessage }
+				values={ { icon: <CompletedIcon src= { check }/> } }
+			/>
 		</Fragment>;
 	}
 
@@ -271,6 +280,7 @@ class CourseCard extends React.Component {
 	}
 
 	render() {
+		console.log( "coursecard", this.props.title, this.props.progress );
 		let marginTop;
 		return <CourseCardContainer
 			image={ this.props.image }
