@@ -124,7 +124,7 @@ class CourseCard extends React.Component {
 			// 0 progress, show a link to assign another user and a button to start the course.
 			// But only if the course is not free.
 			progressBar = this.props.isFree ? null
-				: <LinkButton testId="assign-to-someone-else" onClick={ this.props.onAssignModalOpen }>
+				: <LinkButton testId="assign-to-someone-else" onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 					<FormattedMessage { ...messages.assignToSomeoneElse } />
 				</LinkButton>;
 			button = this.getButton(
@@ -224,11 +224,20 @@ class CourseCard extends React.Component {
 		return {};
 	}
 
+	/**
+	 * If the header image and title should link to the course.
+	 * @returns {Boolean} if the header image and title should link to the course.
+	 */
+	enableHeaderUrl() {
+		return this.props.hasTrial || this.props.isFree || this.props.isEnrolled;
+	}
+
 	render() {
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
+			courseUrl={ this.enableHeaderUrl() ? this.props.courseUrl : null }
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>
