@@ -183,10 +183,15 @@ class CourseCard extends React.Component {
 				/>;
 			}
 		}
-		// Fills in the correct progressLink
-		progressLink = <Link to={ path }>
-			<FormattedMessage { ...messages[ messageType ] } />
-		</Link>;
+		// Fills in the correct progressLink or LinkButton to open the assign modal
+		progressLink = messageType === "assignToSomeOneElse"
+			? <LinkButton testId="assign-to-someone-else"
+			                         onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+				<FormattedMessage { ...messages.assignToSomeOneElse } />
+			</LinkButton>
+			: <Link to={ path }>
+					<FormattedMessage { ...messages[ messageType ] } />
+			</Link>;
 
 		return progressLink;
 	}

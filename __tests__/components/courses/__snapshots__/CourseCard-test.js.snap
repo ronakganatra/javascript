@@ -134,13 +134,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   >
     <button
       className="c6"
-      onClick={
-        [MockFunction] {
-          "calls": Array [
-            Array [],
-          ],
-        }
-      }
+      onClick={[Function]}
     >
       <span>
         Assign to someone else
@@ -965,7 +959,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   margin: 0;
 }
 
-.c9 {
+.c6 {
   background: none;
   border: 0px;
   padding: 0;
@@ -976,15 +970,15 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   cursor: pointer;
 }
 
-.c9:hover {
+.c6:hover {
   color: #cc2956;
 }
 
-.c9:focus {
+.c6:focus {
   outline: none;
 }
 
-.c7 {
+.c8 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1004,17 +998,17 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   transition: background-color 150ms ease-out;
 }
 
-.c7:hover,
-.c7:focus {
+.c8:hover,
+.c8:focus {
   color: #fff;
 }
 
-.c7:hover,
-.c7:focus {
+.c8:hover,
+.c8:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c7:active {
+.c8:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -1026,13 +1020,13 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   text-align: center;
 }
 
-.c8 {
+.c9 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c6 {
+.c7 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -1064,17 +1058,17 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   <div
     className="c5"
   >
-    <a
-      href="/courses/enrollments"
+    <button
+      className="c6"
       onClick={[Function]}
     >
       <span>
         Assign to someone else
       </span>
-    </a>
+    </button>
     <a
       aria-label={undefined}
-      className="c6 c7"
+      className="c7 c8"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -1084,14 +1078,14 @@ exports[`The CourseCard component, for a course that has not been started yet, m
       </span>
     </a>
     <p
-      className="c8"
+      className="c9"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c9"
+        className="c6"
         onClick={[Function]}
       >
         <span>
