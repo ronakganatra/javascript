@@ -965,7 +965,7 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   margin: 0;
 }
 
-.c6 {
+.c9 {
   background: none;
   border: 0px;
   padding: 0;
@@ -976,15 +976,15 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   cursor: pointer;
 }
 
-.c6:hover {
+.c9:hover {
   color: #cc2956;
 }
 
-.c6:focus {
+.c9:focus {
   outline: none;
 }
 
-.c8 {
+.c7 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1004,17 +1004,17 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   transition: background-color 150ms ease-out;
 }
 
-.c8:hover,
-.c8:focus {
+.c7:hover,
+.c7:focus {
   color: #fff;
 }
 
-.c8:hover,
-.c8:focus {
+.c7:hover,
+.c7:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c8:active {
+.c7:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -1026,13 +1026,13 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   text-align: center;
 }
 
-.c9 {
+.c8 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c7 {
+.c6 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -1064,17 +1064,17 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   <div
     className="c5"
   >
-    <button
-      className="c6"
-      onClick={[MockFunction]}
+    <a
+      href="/courses/enrollments"
+      onClick={[Function]}
     >
       <span>
         Assign to someone else
       </span>
-    </button>
+    </a>
     <a
       aria-label={undefined}
-      className="c7 c8"
+      className="c6 c7"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -1084,14 +1084,14 @@ exports[`The CourseCard component, for a course that has not been started yet, m
       </span>
     </a>
     <p
-      className="c9"
+      className="c8"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c6"
+        className="c9"
         onClick={[Function]}
       >
         <span>
