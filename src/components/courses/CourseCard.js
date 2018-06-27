@@ -170,14 +170,16 @@ class CourseCard extends React.Component {
 		}
 		// Return should be updated to trialCompleted
 		return <Fragment>
-			{ progressLink }
+			{ this.props.trialCompleted
+				? <FormattedMessage
+					id={ messages.freeTrialCompleted.id }
+					defaultMessage={ messages.freeTrialCompleted.defaultMessage }
+					values={ { icon: <CompletedIcon src= { check }/> } }
+				/>
+				: progressLink }
 			{ progressBar }
 			{ button }
-			<FormattedMessage
-				id={ messages.freeTrialCompleted.id }
-				defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-				values={ { icon: <CompletedIcon src= { check }/> } }
-			/>
+
 		</Fragment>;
 	}
 
@@ -280,7 +282,7 @@ class CourseCard extends React.Component {
 	}
 
 	render() {
-		console.log( "coursecard", this.props.title, this.props.progress );
+		console.log( "coursecard", this.props.title, this.props.isTrial );
 		let marginTop;
 		return <CourseCardContainer
 			image={ this.props.image }
@@ -313,6 +315,7 @@ CourseCard.propTypes = {
 	isFree: PropTypes.bool,
 	isEnrolled: PropTypes.bool,
 	isTrial: PropTypes.bool,
+	trialCompleted: PropTypes.bool,
 
 	courseUrl: PropTypes.string,
 	certificateUrl: PropTypes.string,

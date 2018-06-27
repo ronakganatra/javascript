@@ -42,6 +42,7 @@ export const mapStateToProps = ( state ) => {
 
 				progress: studentEnrollment.progress,
 				isTrial: studentEnrollment.isTrial,
+				trialCompleted: studentEnrollment.trialCompleted,
 
 				totalEnrollments: enrollments.length,
 				usedEnrollments: usedEnrollments.length,
