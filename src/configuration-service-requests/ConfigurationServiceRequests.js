@@ -47,7 +47,8 @@ class ConfigurationServiceRequests extends React.Component {
 			writingReport: false,
 			currentConfigurationServiceRequest: null,
 			reportContent: '',
-			error: false
+			error: false,
+			completed: false,
 		};
 
 		this.generateCells = this.generateCells.bind( this );
@@ -91,6 +92,8 @@ class ConfigurationServiceRequests extends React.Component {
 	 * @returns {void}
 	 */
 	assignClicked( configurationServiceRequest ) {
+		this.setState( { completed: false } );
+
 		this.props.api.assignConfigurationServiceRequest( configurationServiceRequest.id )
 			.then( this.loadConfigurationServiceRequests );
 	}
@@ -102,6 +105,7 @@ class ConfigurationServiceRequests extends React.Component {
 	 */
 	uploadReportClicked( configurationServiceRequest ) {
 		this.setState( {
+			completed: false,
 			writingReport: true,
 			currentConfigurationServiceRequest: configurationServiceRequest
 		} );
@@ -117,6 +121,7 @@ class ConfigurationServiceRequests extends React.Component {
 			error: false,
 			writingReport: false,
 			reportContent: "",
+			completed: false,
 		} );
 	}
 
@@ -138,6 +143,7 @@ class ConfigurationServiceRequests extends React.Component {
 			.then( () => {
 				this.loadConfigurationServiceRequests();
 				this.setState( {
+					completed: true,
 					writingReport: false,
 					reportContent: "",
 				} );
@@ -228,6 +234,7 @@ class ConfigurationServiceRequests extends React.Component {
 						Cancel
 					</ActionButton>
 				</div>
+				{this.getErrors()}
 
 			</ReportContainer>
 		);
@@ -326,7 +333,9 @@ class ConfigurationServiceRequests extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				{this.getErrors()}
+				{ this.state.completed &&
+					<h2>The configuration service request has been successfully completed.</h2>
+				}
 				{this.getReportEditor()}
 				<Overview>
 					{this.getTable( this.generateCells( this.state.configurationServiceRequests ) )}
