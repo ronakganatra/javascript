@@ -34,7 +34,7 @@ export const mapStateToProps = ( state ) => {
 				} );
 			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
 			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
-
+			console.log( "container:", course.name, course );
 			return {
 				image: course.iconUrl,
 				title: course.name,
