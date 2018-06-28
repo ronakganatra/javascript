@@ -134,7 +134,7 @@ class CoursesProgress extends React.Component {
 		return (
 			<MyYoastModal
 				isOpen={ open }
-				onClose={ () => "" }
+				onClose={ this.closeModal }
 				modalAriaLabel={ modalAriaLabel }
 			>
 				<CourseInvite
