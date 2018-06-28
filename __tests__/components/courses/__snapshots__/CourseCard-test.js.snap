@@ -27,6 +27,9 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -110,19 +113,24 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -198,6 +206,9 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -304,19 +315,24 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -398,6 +414,9 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -504,19 +523,24 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -598,6 +622,9 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -685,19 +712,24 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -791,6 +823,9 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -881,11 +916,12 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href={null}
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -953,6 +989,9 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -1036,19 +1075,24 @@ exports[`The CourseCard component, for a course that has not been started yet, m
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >
@@ -1124,6 +1168,9 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   margin-bottom: 15px;
   color: #a4286a;
   font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
 
 .c4 {
@@ -1245,19 +1292,24 @@ exports[`The CourseCard component, for a course that is completed, matches the s
 <li
   className="c0"
 >
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
   <div
     className="c2"
   >
-    <h2
+    <a
       className="c3"
+      href="http://yoast.academy.test/awesome_seo"
     >
       Awesome SEO Course
-    </h2>
+    </a>
     <p
       className="c4"
     >

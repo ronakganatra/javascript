@@ -109,6 +109,7 @@ class CourseCard extends React.Component {
 		this.getProgressBlock = this.getProgressBlock.bind( this );
 		this.getProgressLink = this.getProgressLink.bind( this );
 	}
+
 	/**
 	 * Returns a link, disguised as a colored button.
 	 *
@@ -181,6 +182,7 @@ class CourseCard extends React.Component {
 			{ button }
 		</Fragment>;
 	}
+
 	/**
 	 * Gets the progress link or message or assign to someone else options.
 	 *
@@ -192,25 +194,26 @@ class CourseCard extends React.Component {
 			if ( this.props.trialCompleted ) {
 				return <StyledLabel>
 					<FormattedMessage
-						id={messages.freeTrialCompleted.id}
-						defaultMessage={messages.freeTrialCompleted.defaultMessage}
-						values={{ icon: <CompletedIcon src={check}/> }}
+						id={ messages.freeTrialCompleted.id }
+						defaultMessage={ messages.freeTrialCompleted.defaultMessage }
+						values={ { icon: <CompletedIcon src={ check } /> } }
 					/>
 				</StyledLabel>;
 			}
-			return <StyledLink to={this.props.courseUrl}>
-					<FormattedMessage {...messages.startFreeTrial } />
-				</StyledLink>;
+			return <StyledLink to={ this.props.courseUrl }>
+				<FormattedMessage { ...messages.startFreeTrial } />
+			</StyledLink>;
 		}
 
 		// Returns a LinkButton which can be used to assign someone else
 		if ( ! this.props.hasTrial ) {
 			return <LinkButton testId="assign-to-someone-else"
-			                   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
 		}
 	}
+
 	/**
 	 * Returns a component displaying the current progress
 	 * (or a link to assign someone else to the course if the course hasn't been started yet)
@@ -310,13 +313,22 @@ class CourseCard extends React.Component {
 		return {};
 	}
 
+	/**
+	 * If the header image and title should link to the course.
+	 * @returns {Boolean} if the header image and title should link to the course.
+	 */
+	enableHeaderUrl() {
+		return this.props.hasTrial || this.props.isFree || this.props.isEnrolled;
+	}
+
 	render() {
 		let marginTop;
-		let hasAccess = this.props.isEnrolled  || this.props.hasTrial;
+		let hasAccess = this.props.isEnrolled || this.props.hasTrial;
 		return <CourseCardContainer
 			image={ this.props.image }
 			title={ this.props.title }
 			description={ this.props.description }
+			courseUrl={ this.enableHeaderUrl() ? this.props.courseUrl : null }
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>
