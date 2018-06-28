@@ -109,11 +109,14 @@ class CourseCard extends React.Component {
 	}
 
 	/**
-	 * If the link "assign someone else" should be displayed on the card.
-	 * @returns {boolean} if the link should be shown
+	 * Returns a button to assign a course to someone else.
+	 * @returns {React.Component} the button
 	 */
-	shouldDisplayAssignSomeoneElseLink() {
-		return ! this.props.isFree && this.props.totalEnrollments === 1;
+	getAssignToSomeoneElseButton() {
+		return <LinkButton testId="assign-to-someone-else"
+						   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			<FormattedMessage { ...messages.assignToSomeoneElse } />
+		</LinkButton>;
 	}
 
 	/**
@@ -125,24 +128,22 @@ class CourseCard extends React.Component {
 	 */
 	getProgressBlock() {
 		let progressBar = null;
-		let button;
+		let assignToSomeoneElseButton = null;
+		let button = null;
 		const marginTop = "24px";
 
 		if ( this.props.progress === 0 ) {
 			// 0 progress, show a link to assign another user and a button to start the course.
 			// But only if the course is not free and this the only enrollment.
-			if ( this.shouldDisplayAssignSomeoneElseLink() ) {
-				progressBar = <LinkButton testId="assign-to-someone-else"
-										  onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
-					<FormattedMessage { ...messages.assignToSomeoneElse } />
-				</LinkButton>;
+			const showAssignButton = ! this.props.isFree && this.props.totalEnrollments === 1;
+			if ( showAssignButton ) {
+				assignToSomeoneElseButton = this.getAssignToSomeoneElseButton();
 			}
-
 			button = this.getButton(
 				this.props.courseUrl,
 				colors.$color_green,
 				messages.startButton,
-				this.shouldDisplayAssignSomeoneElseLink() ? marginTop : ""
+				showAssignButton ? marginTop : ""
 			);
 		} else if ( this.props.progress < 100 ) {
 			// Some progress, show a progress bar and a button to continue the course.
@@ -155,7 +156,7 @@ class CourseCard extends React.Component {
 		}
 
 		return <Fragment>
-			{ progressBar }
+			{ progressBar || assignToSomeoneElseButton }
 			{ button }
 		</Fragment>;
 	}
