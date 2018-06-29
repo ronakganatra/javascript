@@ -40,7 +40,7 @@ const AvailableEnrollment = styled.p`
 const Button = styled( ButtonLink )`
 	margin-top: ${ props => props.margin };
 	background-color: ${ props => props.color };
-	color: ${ props => props.textColor || colors.$color_white };
+	color: ${ props => props.textcolor || colors.$color_white };
 	width: 100%;
 `;
 
@@ -96,7 +96,10 @@ const messages = defineMessages( {
 	},
 } );
 
+const BUTTON_MARGIN_TOP = "24px";
+
 class CourseCard extends React.Component {
+
 	/**
 	 * Sets the CourseCard object.
 	 *
@@ -117,14 +120,14 @@ class CourseCard extends React.Component {
 	 * @param {string} color the color of the button
 	 * @param {object} message the message to display on the button
 	 * @param {string?} marginTop the top margin to add
-	 * @param {string?} textColor the color of the text
+	 * @param {string?} textcolor the color of the text
 	 * @returns {React.Component} the button
 	 */
-	getButton( url, color, message, marginTop, textColor ) {
+	getButton( url, color, message, marginTop, textcolor ) {
 		return <Button to={ url }
 					   linkTarget="_blank"
 					   color={ color }
-					   textColor={ textColor }
+					   textcolor={ textcolor }
 					   margin={ marginTop }>
 			<FormattedMessage { ...message } />
 		</Button>;
@@ -150,14 +153,10 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the component
 	 */
 	getButtonAndProgressBar( type ) {
-		let marginTop = "24px";
 		let button;
 		switch ( type ) {
-			case "trial":
-				button = this.getBuyButton( marginTop );
-				break;
 			case "continue":
-				button = this.getButton( this.props.courseUrl, colors.$color_green, messages.continueButton, marginTop );
+				button = this.getButton( this.props.courseUrl, colors.$color_green, messages.continueButton, BUTTON_MARGIN_TOP );
 				break;
 			case "completed":
 				button = this.getCertificateButton();
@@ -167,7 +166,7 @@ class CourseCard extends React.Component {
 					this.props.courseUrl,
 					colors.$color_green,
 					messages.startButton,
-					marginTop );
+					BUTTON_MARGIN_TOP );
 				break;
 		}
 
@@ -189,8 +188,15 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the component The component related to (the instance of) trials.
 	 */
 	getProgressLink() {
-		// Returns the trial line (completed or start)
-		if ( this.props.hasTrial ) {
+		if ( this.props.isEnrolled && ! this.props.isTrial && this.props.progress === 0 ) {
+			// Returns a LinkButton which can be used to assign someone else
+			// (but only when the user is enrolled, has not started the course yet and is not trialling out the course)
+			return <LinkButton testId="assign-to-someone-else"
+							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+				<FormattedMessage { ...messages.assignToSomeoneElse } />
+			</LinkButton>;
+		} else if ( this.props.hasTrial || this.props.isTrial ) {
+			// Returns the trial line (completed or start)
 			if ( this.props.trialCompleted ) {
 				return <StyledLabel>
 					<FormattedMessage
@@ -204,14 +210,8 @@ class CourseCard extends React.Component {
 				<FormattedMessage { ...messages.startFreeTrial } />
 			</StyledLink>;
 		}
-
-		// Returns a LinkButton which can be used to assign someone else
-		if ( ! this.props.hasTrial ) {
-			return <LinkButton testId="assign-to-someone-else"
-							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
-				<FormattedMessage { ...messages.assignToSomeoneElse } />
-			</LinkButton>;
-		}
+		// No trial, no enrollment -> show nothing.
+		return null;
 	}
 
 	/**
@@ -222,18 +222,22 @@ class CourseCard extends React.Component {
 	 * @returns {React.Component} the component
 	 */
 	getProgressBlock() {
-		if ( this.props.hasTrial ) {
-			return this.getButtonAndProgressBar( "trial" );
+		if ( ( ! this.props.isTrial && this.props.isEnrolled ) || this.props.isFree ) {
+			// Only show a progress bar when the course is free,
+			// Or the user in enrolled in the course and is not trialling it out.
+			if ( this.props.progress === 0 ) {
+				// 0 progress, show a link to assign another user and a button to start the course.
+				// But only if the course is not free.
+				return this.getButtonAndProgressBar( "paidZeroProgress" );
+			}
+			if ( this.props.progress < 100 ) {
+				return this.getButtonAndProgressBar( "continue" );
+			}
+			return this.getButtonAndProgressBar( "completed" );
+		} else if ( this.props.hasTrial || this.props.isTrial ) {
+			// If the user is busy with the trial, or the course has a trial, show a buy button.
+			return this.getBuyButton( BUTTON_MARGIN_TOP );
 		}
-		if ( this.props.progress === 0 ) {
-			// 0 progress, show a link to assign another user and a button to start the course.
-			// But only if the course is not free.
-			return this.getButtonAndProgressBar( "paidZeroProgress" );
-		}
-		if ( this.props.progress < 100 ) {
-			return this.getButtonAndProgressBar( "continue" );
-		}
-		return this.getButtonAndProgressBar( "completed" );
 	}
 
 	/**
@@ -322,7 +326,6 @@ class CourseCard extends React.Component {
 	}
 
 	render() {
-		let marginTop;
 		let hasAccess = this.props.isEnrolled || this.props.hasTrial;
 		return <CourseCardContainer
 			image={ this.props.image }
@@ -332,8 +335,8 @@ class CourseCard extends React.Component {
 			{ ...this.getBanner() }
 		>
 			<ActionBlock>
-				{ hasAccess && this.props.progress === 0 && this.getProgressLink() }
-				{ ( hasAccess || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton( marginTop ) }
+				{ hasAccess && this.getProgressLink() }
+				{ ( hasAccess || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton( "" ) }
 				{ this.props.totalEnrollments > 1 && this.getAssignCoursesRow() }
 			</ActionBlock>
 		</CourseCardContainer>;
