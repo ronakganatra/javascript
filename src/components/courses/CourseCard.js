@@ -195,7 +195,10 @@ class CourseCard extends React.Component {
 							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
-		} else if ( this.props.hasTrial && this.props.isTrial ) {
+		}
+
+		// If the course has a trial and we're not enrolled or we're on a trial.
+		if ( ( this.props.hasTrial && ! this.props.isEnrolled ) || this.props.isTrial ) {
 			// Returns the trial line (completed or start)
 			if ( this.props.trialCompleted ) {
 				return <StyledLabel>
@@ -210,6 +213,7 @@ class CourseCard extends React.Component {
 				<FormattedMessage { ...messages.startFreeTrial } />
 			</StyledLink>;
 		}
+
 		// No trial, no enrollment -> show nothing.
 		return null;
 	}
