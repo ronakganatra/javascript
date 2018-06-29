@@ -136,41 +136,35 @@ class CoursesEnrollments extends React.Component {
 		);
 	}
 
-	render() {
-		const { coursesEnrollments } = this.props;
+	/**
+	 * Returns a course actions column.
+	 * @param {Object} course the course object.
+	 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
+	 */
+	getCourseActions( course ) {
+		let currentUser  = getUserId();
+		let isSwitchable = course.status === "not started"	|| ! course.outsideTrialProgress;
 
-		if ( isEmpty( coursesEnrollments ) ) {
-			return this.renderNoResults();
+		if ( currentUser === course.buyerId && isSwitchable ) {
+			return (
+				<ColumnFixedWidthResponsive>
+					<ResponsiveLargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
+				</ColumnFixedWidthResponsive>
+			);
 		}
-
-		let currentUser = getUserId();
-
-		/**
-		 * Sets the Course status column.
-		 * @param {Object} course the course object.
-		 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
-		 */
-		let studentOrBuyer = ( course ) => {
-			if ( currentUser === course.buyerId && course.status === "not started" ) {
-				return (
-					<ColumnFixedWidthResponsive>
-						<ResponsiveLargeButton onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
-					</ColumnFixedWidthResponsive>
-				);
-			}
-			if ( currentUser === course.buyerId && course.status !== "not started" ) {
-				return (
-					<ColumnFixedWidthResponsive>
-							<FormattedMessage
-								id="courses.enrollments.progress"
-								defaultMessage="Course in progress"
-							/>
-					</ColumnFixedWidthResponsive>
-				);
-			}
-			if ( currentUser === course.studentId && course.studentId !== course.buyerId && course.buyerId ) {
-				return (
-					<ColumnFixedWidthResponsive>
+		if ( currentUser === course.buyerId && ! isSwitchable ) {
+			return (
+				<ColumnFixedWidthResponsive>
+					<FormattedMessage
+						id="courses.enrollments.progress"
+						defaultMessage="Course in progress"
+					/>
+				</ColumnFixedWidthResponsive>
+			);
+		}
+		if ( currentUser === course.studentId && course.studentId !== course.buyerId && course.buyerId ) {
+			return (
+				<ColumnFixedWidthResponsive>
 						<span key={ course.id }>
 							<strong><FormattedMessage id="owner.name" defaultMessage="Owner: " /></strong>
 							{ course.buyerName }
@@ -178,12 +172,19 @@ class CoursesEnrollments extends React.Component {
 							<strong><FormattedMessage id="owner.email" defaultMessage="Email: " /></strong>
 							{ course.buyerEmail }
 						</span>
-					</ColumnFixedWidthResponsive>
-				);
-			}
+				</ColumnFixedWidthResponsive>
+			);
+		}
 
-			return <ColumnFixedWidthResponsive />;
-		};
+		return <ColumnFixedWidthResponsive />;
+	}
+
+	render() {
+		const { coursesEnrollments } = this.props;
+
+		if ( isEmpty( coursesEnrollments ) ) {
+			return this.renderNoResults();
+		}
 
 		return (
 			<div>
@@ -200,7 +201,7 @@ class CoursesEnrollments extends React.Component {
 										<strong>{ enrollment.studentName }</strong><br />
 										{ enrollment.studentEmail }
 									</ColumnMinWidthResponsive>
-									{ studentOrBuyer( enrollment ) }
+									{ this.getCourseActions( enrollment ) }
 								</RowMobileCollapse> );
 						} ) }
 					</ListTable>
