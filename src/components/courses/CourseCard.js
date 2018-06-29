@@ -195,7 +195,7 @@ class CourseCard extends React.Component {
 							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
-		} else if ( this.props.hasTrial || this.props.isTrial ) {
+		} else if ( this.props.hasTrial && this.props.isTrial ) {
 			// Returns the trial line (completed or start)
 			if ( this.props.trialCompleted ) {
 				return <StyledLabel>
