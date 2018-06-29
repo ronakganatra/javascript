@@ -317,6 +317,12 @@ class CourseCard extends React.Component {
 				bannerBackgroundColor: colors.$color_pink_dark,
 				bannerTextColor: colors.$color_white,
 			};
+		} else if ( ( this.props.hasTrial && ! this.props.isEnrolled ) || this.props.isTrial ) {
+			return {
+				bannerText: "Free trial available",
+				bannerBackgroundColor: colors.$color_pink_dark,
+				bannerTextColor: colors.$color_white,
+			};
 		}
 		return {};
 	}
