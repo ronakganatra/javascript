@@ -220,7 +220,7 @@ exports[`The ProfileDetails component matches the snapshot 1`] = `
         className="c4"
       >
         <span>
-          Your MyYoast account has been activated! Fill out this last bit of information and you can get started! (Don't worry, you can always change these later!)
+          Your MyYoast account has been activated! Fill out this last bit of information and you can get started. Don't worry, you can always change these later!
         </span>
       </p>
       <form
