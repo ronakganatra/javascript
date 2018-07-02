@@ -24,13 +24,13 @@ export const mapStateToProps = ( state ) => {
 		.map( ( courseId ) => {
 			let course = state.entities.courses.byId[ courseId ];
 			let enrollments = coursesEnrollments[ courseId ] || [];
+			let ownedEnrollments = enrollments.filter( ( enrollment ) => enrollment.buyerId === currentUserId );
 			let studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
-			let usedEnrollments = enrollments
-				.filter( ( enrollment ) => enrollment.studentId );
+			let usedEnrollments = ownedEnrollments.filter( ( enrollment ) => enrollment.studentId );
 			let availableEnrollment =
-				enrollments.find( ( enrollment ) => enrollment.buyerId && ! enrollment.studentId ) ||
-				enrollments.find( ( enrollment ) => enrollment.buyerId && enrollment.progress === 0 );
+				ownedEnrollments.find( ( enrollment ) => ! enrollment.studentId ) ||
+				ownedEnrollments.find( ( enrollment ) => ! enrollment.outsideTrialProgress );
 			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
 			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
@@ -40,8 +40,10 @@ export const mapStateToProps = ( state ) => {
 				description: course.description,
 
 				progress: studentEnrollment ? studentEnrollment.progress : 0,
+				isTrial: studentEnrollment ? studentEnrollment.isTrial : false,
+				trialCompleted: studentEnrollment ? studentEnrollment.trialCompleted : false,
 
-				totalEnrollments: enrollments.length,
+				totalEnrollments: ownedEnrollments.length,
 				usedEnrollments: usedEnrollments.length,
 				availableEnrollment,
 
