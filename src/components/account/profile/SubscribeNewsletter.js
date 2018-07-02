@@ -4,30 +4,15 @@ import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-i
 import styled from "styled-components";
 
 // Custom components
-import { Paper, Page } from "../../PaperStyles";
 import { Button, LargeSecondaryButton } from "../../Button";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 
-const NewsletterContainer = styled.div`
-	margin-top: 24px;
-`;
 
 const NewsletterSection = styled.section`
 	margin-bottom: 1em;
 `;
 
-const Paragraph = styled.p`
-	margin-top: 0.0em;
-	margin-bottom: 0.5em;
-	font-size: 1.5em;
-	font-weight: 300;
-`;
-
 const messages = defineMessages( {
-	title: {
-		id: "newsletter.title",
-		defaultMessage: "Newsletter",
-	},
 	subscribeReasons: {
 		id: "newsletter.subscribe.reasons",
 		defaultMessage: "Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. " +
@@ -161,13 +146,7 @@ class SubscribeNewsletter extends React.Component {
 		const privacyPolicyLink = <a href='https://yoast.com/privacy-policy/'>privacy policy</a>;
 
 		return (
-			<NewsletterContainer>
-				<Paper>
-					<Page>
 						<NewsletterSection>
-							<Paragraph>
-								<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
-							</Paragraph>
 							{ this.getContent() }
 							<p>
 								<FormattedMessage
@@ -181,9 +160,6 @@ class SubscribeNewsletter extends React.Component {
 								<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
 							}
 						</NewsletterSection>
-					</Page>
-				</Paper>
-			</NewsletterContainer>
 		);
 	}
 }

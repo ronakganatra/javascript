@@ -1,16 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`components/ProfilePage If there are active composer tokens 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -22,46 +19,114 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c26 {
-  margin-top: 24px;
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c27 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c32 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c30 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -84,7 +149,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c27 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -97,7 +162,18 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c28 {
+.c31 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -109,49 +185,38 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -161,7 +226,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -176,15 +241,15 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -192,7 +257,22 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -204,17 +284,22 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -229,78 +314,110 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c23 {
-  margin-top: 24px;
-}
-
-.c24 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c25 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c27 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 svg {
+  .c30 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c33 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c33 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -308,54 +425,90 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -365,10 +518,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -385,11 +538,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -397,7 +550,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -406,7 +559,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -414,7 +567,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -424,18 +577,18 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -444,66 +597,51 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c23"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c24"
+        <p
+          className="c6"
         >
-          <p
-            className="c25"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -521,7 +659,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -533,20 +671,162 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <div
+    className="c1"
+  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c26"
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c27"
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c28"
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c32"
+      >
+        <button
+          aria-expanded={false}
+          className="c33"
+          fontWeight={300}
+          onClick={[Function]}
+        >
+          <span
+            className="c34"
+            fontSize={1.5}
           >
             Developer Tokens
           </span>
@@ -567,52 +847,17 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       </div>
     </div>
   </div>
-  <div
-    className="c0"
-  >
-    <div
-      className="c26"
-    >
-      <button
-        aria-expanded={false}
-        className="c27"
-        onClick={[Function]}
-      >
-        <span
-          className="c28"
-        >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
-        >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
-          />
-        </svg>
-      </button>
-    </div>
-  </div>
 </div>
 `;
 
 exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -624,46 +869,72 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c26 {
-  margin-top: 24px;
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c27 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -678,15 +949,15 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c27 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -699,11 +970,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c28 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -711,49 +982,38 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -763,7 +1023,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -778,15 +1038,15 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -794,7 +1054,22 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -806,17 +1081,22 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -831,78 +1111,90 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c23 {
-  margin-top: 24px;
-}
-
-.c24 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c25 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c27 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -910,54 +1202,90 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -967,10 +1295,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -987,11 +1315,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -999,7 +1327,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -1008,7 +1336,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -1016,7 +1344,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -1026,18 +1354,18 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -1046,66 +1374,51 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c23"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c24"
+        <p
+          className="c6"
         >
-          <p
-            className="c25"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -1123,7 +1436,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -1136,51 +1449,156 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c26"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c27"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c28"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1192,43 +1610,47 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c26 {
   color: #000;
-  box-shadow: none;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
@@ -1243,12 +1665,17 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c27 {
-  margin-top: 24px;
-  background-color: #fff;
+.c22 {
+  min-width: 152px;
 }
 
-.c28 {
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1263,15 +1690,15 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c28 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1284,11 +1711,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   align-self: flex-start;
 }
 
-.c29 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -1296,49 +1723,38 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1348,7 +1764,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1363,15 +1779,15 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -1379,7 +1795,22 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1391,17 +1822,22 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1416,78 +1852,90 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c23 {
-  margin-top: 24px;
-}
-
-.c24 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c25 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1495,54 +1943,90 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -1552,10 +2036,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -1572,11 +2056,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -1584,7 +2068,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -1593,7 +2077,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -1601,7 +2085,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -1611,18 +2095,18 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -1631,66 +2115,51 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c23"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c24"
+        <p
+          className="c6"
         >
-          <p
-            className="c25"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
@@ -1708,7 +2177,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </p>
           <button
-            className="c26 c21"
+            className="c26 c24"
             onClick={[Function]}
             type="button"
           >
@@ -1721,51 +2190,156 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c27"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c28"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c29"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage failure during password reset 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -1777,46 +2351,72 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c28 {
-  margin-top: 24px;
+.c26 {
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+}
+
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
 }
 
 .c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1831,15 +2431,15 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c29 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1852,11 +2452,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c30 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -1864,49 +2464,38 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1916,7 +2505,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1931,15 +2520,15 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -1947,7 +2536,22 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1959,17 +2563,22 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1984,91 +2593,90 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c25 {
-  margin-top: 24px;
-}
-
-.c26 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c27 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c24 {
-  padding: 0.5em 0 0 0;
-  margin: 0;
-  display: block;
-}
-
-.c23 {
-  margin-top: 0.5em;
-  padding: 0.5em;
-  background-color: #ffeb3b;
-  color: #000;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c29 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c29 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c29 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2076,54 +2684,90 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -2133,10 +2777,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -2153,11 +2797,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -2165,7 +2809,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -2174,7 +2818,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -2182,7 +2826,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -2192,18 +2836,18 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -2212,70 +2856,51 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-          <p
-            className="c23 c24"
-            role="alert"
-          />
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c25"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c26"
+        <p
+          className="c6"
         >
-          <p
-            className="c27"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -2293,7 +2918,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -2306,51 +2931,156 @@ exports[`components/ProfilePage failure during password reset 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c28"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c29"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c30"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage failure during profile save 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2362,46 +3092,72 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   justify-content: space-between;
 }
 
-.c25 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c28 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c25:hover,
-.c25:focus {
+.c28:hover,
+.c28:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c25:active {
+.c28:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c24 {
+.c27 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c30 {
-  margin-top: 24px;
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c31 {
+.c30:hover,
+.c30:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c26 {
+  min-width: 152px;
+}
+
+.c33 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c34 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2416,15 +3172,15 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c31 svg {
+.c34 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2437,18 +3193,18 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c32 {
+.c35 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
 }
 
-.c19 {
+.c21 {
   padding: 1em;
   background-color: #ffeb3b;
   margin: 0.5em 0 0 0;
@@ -2467,11 +3223,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   justify-content: flex-start;
 }
 
-.c18 {
+.c20 {
   background-color: #f9bdbd;
 }
 
-.c20 {
+.c22 {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 2em;
@@ -2481,54 +3237,43 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin: 0 1em;
 }
 
-.c21 {
+.c23 {
   color: #5d237a;
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2538,7 +3283,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2553,15 +3298,15 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -2569,7 +3314,22 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: black;
 }
 
-.c22 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c31 {
+  padding: 0 1em 0 1em;
+}
+
+.c24 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2581,17 +3341,22 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c23 {
+.c25 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c29 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2606,78 +3371,90 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c27 {
-  margin-top: 24px;
-}
-
-.c28 {
+.c32 {
   margin-bottom: 1em;
 }
 
-.c29 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c26 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c31 {
+  .c34 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c31 {
+  .c34 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c31 svg {
+  .c34 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2685,7 +3462,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:800 ) {
-  .c19 {
+  .c21 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -2694,54 +3471,90 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c25 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c29 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -2751,10 +3564,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -2771,11 +3584,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -2783,7 +3596,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -2792,7 +3605,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -2800,7 +3613,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -2810,18 +3623,18 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -2830,17 +3643,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               width="100%"
             />
             <div
-              className="c18 c19"
+              className="c20 c21"
               role="alert"
             >
               <span
                 alt="Error sign"
-                className="c20"
+                className="c22"
               />
               <span>
                 Oops, something went wrong on our end, please try again. If this keeps happening, 
                 <a
-                  className="c21"
+                  className="c23"
                   href="mailto:support@yoast.com"
                 >
                   <span>
@@ -2851,66 +3664,51 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </div>
             <div
-              className="c22"
+              className="c24"
             >
               <button
-                className="c23 c24 c25"
+                className="c25 c26 c27 c28"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c29 c30 c28"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c31"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c26"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c24 c25"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c27"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c28"
+        <p
+          className="c6"
         >
-          <p
-            className="c29"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c32"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -2928,7 +3726,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="c24 c25"
+            className="c27 c28"
             onClick={[Function]}
             type="button"
           >
@@ -2941,51 +3739,156 @@ exports[`components/ProfilePage failure during profile save 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c30"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c31"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c32"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c24"
+          >
+            <button
+              className="c25 c26 c27 c28"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c29 c30 c28"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c31"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c33"
+      >
+        <button
+          aria-expanded={false}
+          className="c34"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c35"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage has sent password reset 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -2997,46 +3900,72 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c27 {
-  margin-top: 24px;
+.c26 {
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c28 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3051,15 +3980,15 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c28 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3072,11 +4001,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c29 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -3084,49 +4013,38 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3136,7 +4054,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3151,15 +4069,15 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -3167,7 +4085,22 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3179,17 +4112,22 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3204,84 +4142,90 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c24 {
-  margin-top: 24px;
-}
-
-.c25 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c26 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c23 {
-  padding: 0.5em 0 0 0;
-  margin: 0;
-  display: block;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3289,54 +4233,90 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3346,10 +4326,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -3366,11 +4346,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -3378,7 +4358,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -3387,7 +4367,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -3395,7 +4375,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -3405,18 +4385,18 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -3425,71 +4405,51 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-          <p
-            className="c23"
-          >
-            An email has been sent, please check your inbox.
-          </p>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c24"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c25"
+        <p
+          className="c6"
         >
-          <p
-            className="c26"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -3507,7 +4467,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -3520,51 +4480,156 @@ exports[`components/ProfilePage has sent password reset 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c27"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c28"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c29"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage saving profile 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -3576,46 +4641,72 @@ exports[`components/ProfilePage saving profile 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c27 {
-  margin-top: 24px;
+.c26 {
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c28 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3630,15 +4721,15 @@ exports[`components/ProfilePage saving profile 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c28 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3651,11 +4742,11 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c29 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -3663,49 +4754,38 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3715,7 +4795,7 @@ exports[`components/ProfilePage saving profile 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3730,15 +4810,15 @@ exports[`components/ProfilePage saving profile 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -3746,7 +4826,22 @@ exports[`components/ProfilePage saving profile 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3758,21 +4853,22 @@ exports[`components/ProfilePage saving profile 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c22 {
-  padding: 0 0 0 1em;
-}
-
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3787,78 +4883,90 @@ exports[`components/ProfilePage saving profile 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c24 {
-  margin-top: 24px;
-}
-
-.c25 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c26 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c23 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3866,54 +4974,90 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -3923,10 +5067,10 @@ exports[`components/ProfilePage saving profile 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -3943,11 +5087,11 @@ exports[`components/ProfilePage saving profile 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -3955,7 +5099,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -3964,7 +5108,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -3972,7 +5116,7 @@ exports[`components/ProfilePage saving profile 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -3982,18 +5126,18 @@ exports[`components/ProfilePage saving profile 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -4002,71 +5146,51 @@ exports[`components/ProfilePage saving profile 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
+                </span>
+              </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
                 </span>
               </button>
               <span
-                className="c22"
+                className="c27"
               >
                 Saving...
               </span>
             </div>
           </div>
         </form>
-        <section
-          className="c23"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c24"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c25"
+        <p
+          className="c6"
         >
-          <p
-            className="c26"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -4084,7 +5208,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -4097,51 +5221,156 @@ exports[`components/ProfilePage saving profile 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c27"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c28"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c29"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage sending password reset 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4153,46 +5382,72 @@ exports[`components/ProfilePage sending password reset 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c27 {
-  margin-top: 24px;
+.c26 {
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c28 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4207,15 +5462,15 @@ exports[`components/ProfilePage sending password reset 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c28 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4228,11 +5483,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c29 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -4240,49 +5495,38 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4292,7 +5536,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4307,15 +5551,15 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -4323,7 +5567,22 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4335,17 +5594,22 @@ exports[`components/ProfilePage sending password reset 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4360,84 +5624,90 @@ exports[`components/ProfilePage sending password reset 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c24 {
-  margin-top: 24px;
-}
-
-.c25 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c26 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c23 {
-  padding: 0.5em 0 0 1em;
-  margin: 0;
-  display: inline-block;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c28 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c28 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4445,54 +5715,90 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -4502,10 +5808,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -4522,11 +5828,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -4534,7 +5840,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -4543,7 +5849,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -4551,7 +5857,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -4561,18 +5867,18 @@ exports[`components/ProfilePage sending password reset 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -4581,71 +5887,51 @@ exports[`components/ProfilePage sending password reset 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-          <p
-            className="c23"
-          >
-            Sending email...
-          </p>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c24"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c25"
+        <p
+          className="c6"
         >
-          <p
-            className="c26"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -4663,7 +5949,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -4676,51 +5962,156 @@ exports[`components/ProfilePage sending password reset 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c27"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c28"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c29"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage the default case 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -4732,46 +6123,72 @@ exports[`components/ProfilePage the default case 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c26 {
-  margin-top: 24px;
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c27 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4786,15 +6203,15 @@ exports[`components/ProfilePage the default case 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c27 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4807,11 +6224,11 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c28 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -4819,49 +6236,38 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4871,7 +6277,7 @@ exports[`components/ProfilePage the default case 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4886,15 +6292,15 @@ exports[`components/ProfilePage the default case 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -4902,7 +6308,22 @@ exports[`components/ProfilePage the default case 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4914,17 +6335,22 @@ exports[`components/ProfilePage the default case 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4939,78 +6365,90 @@ exports[`components/ProfilePage the default case 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c23 {
-  margin-top: 24px;
-}
-
-.c24 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c25 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c27 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5018,54 +6456,90 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Your current profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="dummy.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -5075,10 +6549,10 @@ exports[`components/ProfilePage the default case 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -5095,11 +6569,11 @@ exports[`components/ProfilePage the default case 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -5107,7 +6581,7 @@ exports[`components/ProfilePage the default case 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -5116,7 +6590,7 @@ exports[`components/ProfilePage the default case 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -5124,7 +6598,7 @@ exports[`components/ProfilePage the default case 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -5134,18 +6608,18 @@ exports[`components/ProfilePage the default case 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -5154,66 +6628,51 @@ exports[`components/ProfilePage the default case 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c23"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c24"
+        <p
+          className="c6"
         >
-          <p
-            className="c25"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -5231,7 +6690,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -5244,51 +6703,156 @@ exports[`components/ProfilePage the default case 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c26"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c27"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c28"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`components/ProfilePage while deleting the account 1`] = `
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c2 {
+.c4 {
   background-color: #fff;
   padding: 16px 24px;
+  margin-top: 24px;
 }
 
-.c1 {
+.c3 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -5300,46 +6864,72 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   justify-content: space-between;
 }
 
-.c21 {
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c21:hover,
-.c21:focus {
+.c24:hover,
+.c24:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c21:active {
+.c24:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c20 {
+.c23 {
   text-shadow: 0px 0px 2px #000;
 }
 
 .c26 {
-  margin-top: 24px;
+  color: #000;
   background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
 }
 
-.c27 {
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5354,15 +6944,15 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   -ms-flex-align: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px 32px;
+  padding: 0px;
   border: none;
   text-align: left;
-  font-weight: 300;
+  font-weight: 400;
   cursor: pointer;
   color: #000;
 }
 
-.c27 svg {
+.c30 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5375,11 +6965,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c28 {
+.c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
-  font-size: 1.5em;
+  font-size: 1.4em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -5387,49 +6977,38 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c17 {
-  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
-  background: #fff;
-  border: 0;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  font-family: "Open Sans",sans-serif;
-  height: 3em;
-  width: 100%;
-}
-
-.c15 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
   font-weight: 700;
 }
 
-.c9 {
-  -webkit-flex: 0 0 150px;
-  -ms-flex: 0 0 150px;
-  flex: 0 0 150px;
-  height: 150px;
-  width: 150px;
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
   border-radius: 50%;
   margin-right: 12px;
   object-fit: cover;
 }
 
-.c7 {
+.c9 {
   display: inline-block;
   position: relative;
-  width: 150px;
-  height: 150px;
+  width: 125px;
+  height: 125px;
 }
 
-.c8 {
+.c10 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
 }
 
-.c10 {
+.c12 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -5439,7 +7018,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c11 {
+.c13 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -5454,15 +7033,15 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-align: center;
 }
 
-.c11:hover,
-.c11:focus {
+.c13:hover,
+.c13:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c12 {
+.c14 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -5470,7 +7049,22 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: black;
 }
 
-.c18 {
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c27 {
+  padding: 0 1em 0 1em;
+}
+
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5482,17 +7076,22 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  width: 100%;
 }
 
-.c19 {
+.c21 {
   margin: 1em 0;
 }
 
-.c16 {
-  background-color: #f7f7f7;
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
 }
 
-.c5 {
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5507,78 +7106,90 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   justify-content: space-between;
 }
 
-.c14 {
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
   width: 100%;
 }
 
-.c13 {
+.c15 {
   width: 70%;
   margin-bottom: 8px;
 }
 
-.c13 div:last-of-type {
+.c15 div:last-of-type {
   margin-bottom: 0;
 }
 
-.c6 {
+.c8 {
   width: 30%;
   margin: auto;
-  padding: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 
-.c23 {
-  margin-top: 24px;
-}
-
-.c24 {
+.c28 {
   margin-bottom: 1em;
 }
 
-.c25 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-.c3 {
-  width: 100%;
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
 }
 
-.c3 p:first-child {
+.c5 p:first-child {
   margin-top: 16px;
 }
 
-.c4 {
+.c6 {
   margin-bottom: 0.5em;
-  font-size: 1.1em;
-}
-
-.c22 {
-  margin: 1em 0;
+  font-size: 1.4em;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c3 {
     display: block;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 {
+  .c30 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c27 {
+  .c30 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c27 svg {
+  .c30 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5586,54 +7197,90 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c21 {
     width: 100%;
   }
 }
 
-<div>
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c1 c2"
+      className="c2 c3 c4"
     >
       <div
-        className="c3"
+        className="c5"
       >
         <p
-          className="c4"
+          className="c6"
         >
           <span>
             Personal info
           </span>
         </p>
         <form
-          className="c5"
+          className="c7"
           onSubmit={[Function]}
         >
           <div
-            className="c6"
+            className="c8"
           >
             <div
-              className="c7"
+              className="c9"
+              size="125px"
             >
               <div
-                className="c8"
+                className="c10"
               >
                 <img
                   alt="Default profile image"
-                  className="c9"
-                  size="150px"
+                  className="c11"
+                  size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
               </div>
               <span
-                className="c10"
+                className="c12"
               >
                 <button
                   aria-label="Change profile image"
-                  className="c11"
+                  className="c13"
                   onClick={[Function]}
                   type="button"
                 >
@@ -5643,10 +7290,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 </button>
               </span>
               <p
-                className="c12"
+                className="c14"
               >
                 <span>
-                  Maximum file size 5 Megabytes
+                  Maximum file size is 5 megabytes
                 </span>
               </p>
               <input
@@ -5663,11 +7310,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </div>
           </div>
           <div
-            className="c13 c14"
+            className="c15 c16"
             id="left"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="first-name"
             >
               <span>
@@ -5675,7 +7322,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="first-name"
               name="first name"
               onChange={[Function]}
@@ -5684,7 +7331,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               width="100%"
             />
             <label
-              className="c15"
+              className="c17"
               htmlFor="last-name"
             >
               <span>
@@ -5692,7 +7339,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="last-name"
               name="last name"
               onChange={[Function]}
@@ -5702,18 +7349,18 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             />
           </div>
           <div
-            className="c14"
+            className="c16"
           >
             <label
-              className="c15"
+              className="c17"
               htmlFor="email-address"
             >
               <span>
-                Email
+                Primary email address
               </span>
             </label>
             <input
-              className="c16 c17"
+              className="c18 c19"
               id="email-address"
               name="email"
               onChange={[Function]}
@@ -5722,66 +7369,51 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               width="100%"
             />
             <div
-              className="c18"
+              className="c20"
             >
               <button
-                className="c19 c20 c21"
+                className="c21 c22 c23 c24"
                 type="submit"
               >
                 <span>
-                  Save profile
+                  Save changes
                 </span>
               </button>
+              <button
+                className="c25 c26 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <span
+                className="c27"
+              >
+                
+              </span>
             </div>
           </div>
         </form>
-        <section
-          className="c22"
-        >
-          <p
-            className="c4"
-          >
-            <span>
-              Change password
-            </span>
-          </p>
-          <p>
-            <span>
-              To change your password follow the instructions in the password reset email.
-            </span>
-          </p>
-          <button
-            className="c20 c21"
-            onClick={[Function]}
-            type="button"
-          >
-            <span>
-              Send password reset email
-            </span>
-          </button>
-        </section>
       </div>
     </div>
-  </div>
-  <div
-    className="c23"
-  >
     <div
-      className="c0"
+      className="c2 c3 c4"
     >
       <div
-        className="c1 c2"
+        className="c5"
       >
-        <section
-          className="c24"
+        <p
+          className="c6"
         >
-          <p
-            className="c25"
-          >
-            <span>
-              Newsletter
-            </span>
-          </p>
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
           <p>
             <span>
               Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
@@ -5799,7 +7431,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="c20 c21"
+            className="c23 c24"
             onClick={[Function]}
             type="button"
           >
@@ -5812,35 +7444,143 @@ exports[`components/ProfilePage while deleting the account 1`] = `
     </div>
   </div>
   <div
-    className="c0"
+    className="c1"
   >
     <div
-      className="c26"
+      className="c2 c3 c4"
     >
-      <button
-        aria-expanded={false}
-        className="c27"
-        onClick={[Function]}
+      <div
+        className="c5"
       >
-        <span
-          className="c28"
+        <p
+          className="c6"
         >
-          Danger zone
-        </span>
-        <svg
-          aria-hidden="true"
-          fill="#555"
-          focusable="false"
-          height={40}
-          role="img"
-          viewBox="0 0 24 24"
-          width={40}
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
         >
-          <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
           />
-        </svg>
-      </button>
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            <button
+              className="c21 c22 c23 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <span
+              className="c27"
+            >
+              
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </div>

@@ -1,12 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { Paper, Page } from "./PaperStyles";
-import { Button, LargeButton, makeButtonFullWidth } from "./Button";
+import { PageCard } from "./PaperStyles";
+import { LargeButton, makeButtonFullWidth } from "./Button";
 import { speak } from "@wordpress/a11y";
-import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
-import _noop from "lodash/noop";
+import defaults from "../config/defaults.json";
 import CollapsibleHeader from "./CollapsibleHeader";
 import ProfileForm from "./account/profile/ProfileForm.js";
 import ComposerTokens from "./account/profile/ComposerTokens";
@@ -17,6 +16,7 @@ import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import PasswordResetForm from "./account/profile/PasswordResetForm";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -69,19 +69,7 @@ const messages = defineMessages( {
 	},
 	passwordChange: {
 		id: "profile.passwordChange",
-		defaultMessage: "Change password",
-	},
-	passwordResetSend: {
-		id: "profile.button.passwordResetSend",
-		defaultMessage: "Send password reset email",
-	},
-	passwordResetSending: {
-		id: "profile.button.passwordResetSending",
-		defaultMessage: "Sending email...",
-	},
-	passwordResetSent: {
-		id: "profile.passwordResetSent",
-		defaultMessage: "An email has been sent, please check your inbox.",
+		defaultMessage: "Password",
 	},
 	personalInfo: {
 		id: "personal.info",
@@ -91,10 +79,34 @@ const messages = defineMessages( {
 		id: "menu.account.orders.loaded",
 		defaultMessage: "Account profile page loaded",
 	},
+	newsLetter: {
+		id: "newsLetter",
+		defaultMessage: "Newsletter",
+	},
 } );
 
-const PageContent = styled.div`
-	width: 100%;
+const OuterContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		flex-direction: column;
+	}
+`;
+
+const InnerContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 50%;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		width: 100%;
+	}
+`;
+
+const Column = styled.div`
 	p:first-child {
 		margin-top: 16px;
 	}
@@ -102,7 +114,7 @@ const PageContent = styled.div`
 
 const Paragraph = styled.p`
 	margin-bottom: 0.5em;
-	font-size: 1.1em;
+	font-size: 1.4em;
 `;
 
 const ComposerIntroductionArea = styled.div`
@@ -122,17 +134,6 @@ FormMessage.propTypes = {
 FormMessage.defaultProps = {
 	inline: false,
 };
-
-const FormError = styled( FormMessage )`
-	margin-top: 0.5em;
-	padding: 0.5em;
-	background-color: ${ colors.$color_yellow };
-	color: ${ colors.$color_black };
-`;
-
-const PasswordReset = styled.section`
-	margin: 1em 0;
-`;
 
 const CreateButtonArea = styled.div`
 	padding: 16px 32px;
@@ -183,14 +184,6 @@ class ProfilePage extends React.Component {
 			message = this.props.intl.formatMessage( messages.deletingAccount );
 		}
 
-		if ( this.props.isSendingPasswordReset ) {
-			message = this.props.intl.formatMessage( messages.passwordResetSending );
-		}
-
-		if ( this.props.hasSendPasswordReset ) {
-			message = this.props.intl.formatMessage( messages.passwordResetSent );
-		}
-
 		speak( message, "assertive" );
 	}
 
@@ -201,59 +194,6 @@ class ProfilePage extends React.Component {
 	 */
 	isDeleting() {
 		return this.props.isDeleting;
-	}
-
-	/**
-	 * Returns the password reset elements for the profile page.
-	 *
-	 * @returns {ReactElement} The elements for the password reset.
-	 */
-	getPasswordReset() {
-		let onClickAction = this.props.onPasswordReset;
-		let passwordResetError;
-		let passwordResetMessage;
-
-		if ( this.props.isSendingPasswordReset ) {
-			let message = this.props.intl.formatMessage( messages.passwordResetSending );
-
-			/*
-			 * While sending the email: prevent calling the password reset
-			 * function multiple times but don't disable the button for better
-			 * accessibility (avoid keyboard focus loss).
-			 */
-			onClickAction = _noop;
-
-			passwordResetMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		if ( this.props.hasSendPasswordReset ) {
-			let message = this.props.intl.formatMessage( messages.passwordResetSent );
-
-			passwordResetMessage = <FormMessage>{ message }</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		if ( this.props.passwordResetError ) {
-			passwordResetError = <FormError role="alert">{ this.props.passwordResetError.message }</FormError>;
-		}
-
-		return <PasswordReset>
-			<Paragraph>
-				<FormattedMessage id={ messages.passwordChange.id }
-								  defaultMessage={ messages.passwordChange.defaultMessage } />
-			</Paragraph>
-
-			<p><FormattedMessage
-				id="profile.description.passwordReset"
-				defaultMessage="To change your password follow the instructions in the password reset email."
-			/></p>
-			<Button onClick={ onClickAction }>
-				<FormattedMessage id={ messages.passwordResetSend.id }
-								  defaultMessage={ messages.passwordResetSend.defaultMessage } /></Button>
-			{ passwordResetError }
-			{ passwordResetMessage }
-		</PasswordReset>;
 	}
 
 	handleDelete( event ) {
@@ -286,9 +226,9 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<CreateToken
-						onClose={ this.props.onCreateTokenModalClose }
-						onCreateClick={ this.props.onCreateTokenClick }
-						error={ this.props.tokenError }
+						onClose={this.props.onCreateTokenModalClose}
+						onCreateClick={this.props.onCreateTokenClick}
+						error={this.props.tokenError}
 					/>;
 			} else if ( this.props.manageTokenModalIsOpen ) {
 				modalIsOpen = this.props.manageTokenModalIsOpen;
@@ -300,20 +240,20 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<ManageToken
-						onClose={ this.props.onManageTokenModalClose }
-						onSaveTokenClick={ this.props.onSaveTokenClick }
-						onDeleteTokenClick={ this.props.onDeleteTokenClick }
-						manageTokenData={ this.props.manageTokenData }
-						error={ this.props.tokenError }
+						onClose={this.props.onManageTokenModalClose}
+						onSaveTokenClick={this.props.onSaveTokenClick}
+						onDeleteTokenClick={this.props.onDeleteTokenClick}
+						manageTokenData={this.props.manageTokenData}
+						error={this.props.tokenError}
 					/>;
 			}
 			return (
 				<MyYoastModal
-					isOpen={ modalIsOpen }
-					onClose={ onClose }
-					modalAriaLabel={ modalAriaLabel }
+					isOpen={modalIsOpen}
+					onClose={onClose}
+					modalAriaLabel={modalAriaLabel}
 				>
-					{ modalContent }
+					{modalContent}
 				</MyYoastModal>
 			);
 		}
@@ -361,14 +301,13 @@ class ProfilePage extends React.Component {
 
 		return (
 			<div>
-				<Paper>
-					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) }
-									   isOpen={ false }>
-						{ ComposerIntroduction }
-						<ComposerTokens { ...this.props } hasPaper={ false } />
+				<PageCard>
+					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+						{ComposerIntroduction}
+						<ComposerTokens {...this.props} hasPaper={false}/>
 						<CreateButtonArea>
 							<WideLargeButton
-								onClick={ this.props.onCreateTokenModalOpen }
+								onClick={this.props.onCreateTokenModalOpen}
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -377,8 +316,8 @@ class ProfilePage extends React.Component {
 							</WideLargeButton>
 						</CreateButtonArea>
 					</CollapsibleHeader>
-				</Paper>
-				{ this.getModal() }
+				</PageCard>
+				{this.getModal()}
 			</div>
 		);
 	}
@@ -389,39 +328,66 @@ class ProfilePage extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
-				<Paper>
-					<Page>
-						<PageContent>
+			<OuterContainer>
+				<InnerContainer>
+					<PageCard>
+						<Column>
 							<Paragraph>
-								<FormattedMessage id={ messages.personalInfo.id }
-												  defaultMessage={ messages.personalInfo.defaultMessage } />
+								<FormattedMessage id={messages.personalInfo.id}
+								                  defaultMessage={messages.personalInfo.defaultMessage}/>
 							</Paragraph>
 							<ProfileForm
-								{ ...this.props }
+								{...this.props}
 							/>
-							{ this.getPasswordReset() }
-						</PageContent>
-					</Page>
-				</Paper>
-				<SubscribeNewsletter
-					onSubscribe={ this.props.onNewsletterSubscribe }
-					onUnsubscribe={ this.props.onNewsletterUnsubscribe }
-					subscribed={ this.props.newsletterSubscribed }
-					loading={ this.props.newsletterLoading }
-					error={ this.props.newsletterError }
-				/>
-				{ this.getDevTools() }
-				<Paper>
-					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false }>
-						<DownloadAccount />
-						<DeleteAccount
-							onDeleteProfile={ this.props.onDeleteProfile }
-							isDeleting={ this.props.isDeleting }
-						/>
-					</CollapsibleHeader>
-				</Paper>
-			</div>
+						</Column>
+					</PageCard>
+					<PageCard>
+						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.newsLetter.id}
+								                  defaultMessage={messages.newsLetter.defaultMessage}/>
+							</Paragraph>
+							<SubscribeNewsletter
+								onSubscribe={this.props.onNewsletterSubscribe}
+								onUnsubscribe={this.props.onNewsletterUnsubscribe}
+								subscribed={this.props.newsletterSubscribed}
+								loading={this.props.newsletterLoading}
+								error={this.props.newsletterError}
+							/>
+						</Column>
+					</PageCard>
+				</InnerContainer>
+				<InnerContainer>
+					<PageCard>
+						<Column>
+							<Paragraph>
+								<FormattedMessage id={messages.passwordChange.id}
+								                  defaultMessage={messages.passwordChange.defaultMessage}/>
+							</Paragraph>
+							<p>
+								<FormattedMessage
+									id="profile.description.passwordReset"
+									defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
+								/>
+							</p>
+							<PasswordResetForm
+								{...this.props}
+							/>
+						</Column>
+					</PageCard>
+					<PageCard>
+						<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false} accountPage={ true }>
+							<DownloadAccount/>
+							<DeleteAccount
+								onDeleteProfile={this.props.onDeleteProfile}
+								isDeleting={this.props.isDeleting}
+							/>
+						</CollapsibleHeader>
+					</PageCard>
+				</InnerContainer>
+				{this.getDevTools()}
+			</OuterContainer>
+
 		);
 	}
 }
@@ -438,15 +404,18 @@ ProfilePage.propTypes = {
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,
-	isSendingPasswordReset: PropTypes.bool,
-	hasSendPasswordReset: PropTypes.bool,
-	passwordResetError: PropTypes.object,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func.isRequired,
 	onDeleteProfile: PropTypes.func.isRequired,
-	onPasswordReset: PropTypes.func.isRequired,
 	saveEmailError: PropTypes.object,
 	onUploadAvatar: PropTypes.func.isRequired,
+
+	// Password actions
+	onSavePassword: PropTypes.func,
+	isSavingPassword: PropTypes.bool,
+	passwordIsSaved: PropTypes.bool,
+	passWord: PropTypes.string,
+	resetSaveMessage: PropTypes.func,
 
 	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,
@@ -477,9 +446,8 @@ ProfilePage.defaultProps = {
 	saveEmailError: null,
 	isSaving: false,
 	isSaved: false,
-	isSendingPasswordReset: false,
-	hasSendPasswordReset: false,
-	passwordResetError: null,
+	isSavingPassword: false,
+	passwordIsSaved: false,
 	manageTokenData: null,
 	tokenError: null,
 };

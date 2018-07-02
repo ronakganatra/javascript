@@ -1,203 +1,165 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The delete account component matches the snapshot 1`] = `
-.c1 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c0 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c5 {
+.c4 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c5:hover,
-.c5:focus {
+.c4:hover,
+.c4:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c5:active {
+.c4:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c4 {
+.c3 {
   background-color: #dc3232;
   min-width: 152px;
 }
 
-.c2 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
-.c3 {
-  margin: 1em 0;
+.c1 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-weight: 700;
 }
 
 @media screen and ( max-width:800px ) {
-  .c0 {
-    display: block;
+  .c2 {
+    width: 100%;
   }
 }
 
-<div
-  className="c0 c1"
+<form
+  className="c0"
+  onSubmit={[Function]}
 >
-  <form
-    onSubmit={[Function]}
+  <p
+    className="c1"
   >
-    <p
-      className="c2"
-    >
-      <span>
-        Delete account
-      </span>
-    </p>
-    <p>
-      <span>
-        Warning! If you delete your account you lose access to your downloads and you will no longer receive updates for any Premium plugins you've bought from us.
-      </span>
-    </p>
-    <button
-      className="c3 c4 c5"
-      disabled={undefined}
-      type="submit"
-    >
-      <span>
-        Delete your account
-      </span>
-    </button>
-  </form>
-</div>
+    <span>
+      Delete account
+    </span>
+  </p>
+  <p>
+    <span>
+      Warning! If you delete your account you lose access to your downloads and you will no longer receive updates for any Premium plugins you've bought from us.
+    </span>
+  </p>
+  <button
+    className="c2 c3 c4"
+    disabled={undefined}
+    type="submit"
+  >
+    <span>
+      Delete your account
+    </span>
+  </button>
+</form>
 `;
 
 exports[`The delete profile button is labeled "Deleting your account" when deleting is in process 1`] = `
-.c1 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c0 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c5 {
+.c4 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c5:hover,
-.c5:focus {
+.c4:hover,
+.c4:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c5:active {
+.c4:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c4 {
+.c3 {
   background-color: #dc3232;
   min-width: 152px;
 }
 
-.c2 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-size: 1.5em;
-  font-weight: 300;
+.c0 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
 }
 
-.c3 {
-  margin: 1em 0;
+.c1 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1em;
+  font-weight: 700;
 }
 
 @media screen and ( max-width:800px ) {
-  .c0 {
-    display: block;
+  .c2 {
+    width: 100%;
   }
 }
 
-<div
-  className="c0 c1"
+<form
+  className="c0"
+  onSubmit={[Function]}
 >
-  <form
-    onSubmit={[Function]}
+  <p
+    className="c1"
   >
-    <p
-      className="c2"
-    >
-      <span>
-        Delete account
-      </span>
-    </p>
-    <p>
-      <span>
-        Warning! If you delete your account you lose access to your downloads and you will no longer receive updates for any Premium plugins you've bought from us.
-      </span>
-    </p>
-    <button
-      className="c3 c4 c5"
-      disabled={undefined}
-      type="submit"
-    >
-      <span>
-        Deleting your account...
-      </span>
-    </button>
-  </form>
-</div>
+    <span>
+      Delete account
+    </span>
+  </p>
+  <p>
+    <span>
+      Warning! If you delete your account you lose access to your downloads and you will no longer receive updates for any Premium plugins you've bought from us.
+    </span>
+  </p>
+  <button
+    className="c2 c3 c4"
+    disabled={undefined}
+    type="submit"
+  >
+    <span>
+      Deleting your account...
+    </span>
+  </button>
+</form>
 `;

@@ -6,8 +6,9 @@ import { SVGIcon } from "./SVGIcon";
 import defaults from "../config/defaults.json";
 
 const CollapsibleHeaderContainer = styled.div`
-	margin-top: 24px;
+	margin-top : ${ props => props.marginTop }px;
 	background-color: ${ colors.$color_white };
+	width: 100%;
 `;
 
 const CollapsibleHeading = styled.button`
@@ -16,10 +17,10 @@ const CollapsibleHeading = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	background-color: ${ colors.$color_white };
-	padding: 24px 32px;
+	padding: ${ props => props.padding }px; 
 	border: none;
 	text-align: left;
-	font-weight: 300;
+	font-weight: ${ props => props.fontWeight };
 	cursor: pointer;
 	// When clicking, the button text disappears in Safari 10 because of color: activebuttontext.
 	color: ${ colors.$color_black };
@@ -54,7 +55,7 @@ const CollapsibleHeading = styled.button`
 
 const CollapsibleTitle = styled.span`
 	flex: 1 1 auto;
-	font-size: 1.5em;
+	font-size: ${ props => props.fontSize }em;
 	// Chrome needs 8 decimals to make this 32px without roundings.
 	line-height: 1.33333333;
 	// Looks like Safari 10 doesn't like align-items: center for SVGs and needs some help.
@@ -123,10 +124,16 @@ export default class ListToggle extends React.Component {
 			children = this.props.children;
 		}
 
+		// Styles for accountPage
+		let marginTop = this.props.accountPage ? 0 : 24;
+		let padding = this.props.accountPage ? 0 : "24px 32";
+		let fontWeight = this.props.accountPage ? 400 : 300;
+		let fontSize = this.props.accountPage ? 1.4 : 1.5;
+
 		return (
-			<CollapsibleHeaderContainer>
-				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() }>
-					<CollapsibleTitle>
+			<CollapsibleHeaderContainer marginTop={ marginTop }>
+				<CollapsibleHeading onClick={ this.toggleOpen } aria-expanded={ this.isOpen() } padding={ padding } fontWeight={ fontWeight }>
+					<CollapsibleTitle fontSize={ fontSize }>
 						{ this.props.title }
 					</CollapsibleTitle>
 					{ this.getArrow() }
@@ -138,6 +145,7 @@ export default class ListToggle extends React.Component {
 }
 
 ListToggle.propTypes = {
+	accountPage: PropTypes.bool,
 	title: PropTypes.string.isRequired,
 	isOpen: PropTypes.bool,
 	children: PropTypes.oneOfType( [

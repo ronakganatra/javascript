@@ -256,15 +256,17 @@ describe( 'passwordResetReducer', () => {
 
 	test( 'reset success', () => {
 		const input = {
-			sendingPasswordReset: true,
+			passwordResetError: null,
 			sendPasswordReset: false,
+			sendingPasswordReset: true,
 		};
 		const action = {
 			type: RESET_PASSWORD_SUCCESS,
 		};
 		const expected = {
-			sendingPasswordReset: false,
-			sendPasswordReset: true,
+			passwordResetError: null,
+			sendPasswordReset: false,
+			sendingPasswordReset: true,
 		};
 
 		const actual = passwordResetReducer( input, action );
@@ -274,18 +276,18 @@ describe( 'passwordResetReducer', () => {
 
 	test( 'reset failure', () => {
 		const input = {
-			sendingPasswordReset: true,
-			sendPasswordReset: false,
 			passwordResetError: null,
+			sendPasswordReset: false,
+			sendingPasswordReset: true,
 		};
 		const action = {
 			type: RESET_PASSWORD_FAILURE,
 			error: { error: "A password reset failure error." },
 		};
 		const expected = {
-			sendingPasswordReset: false,
+			passwordResetError: null,
 			sendPasswordReset: false,
-			passwordResetError: { error: "A password reset failure error." },
+			sendingPasswordReset: true,
 		};
 
 		const actual = passwordResetReducer( input, action );
