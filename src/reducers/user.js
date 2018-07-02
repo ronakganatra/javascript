@@ -121,6 +121,7 @@ export function userEmailReducer( state = initialState, action ) {
 						email: action.profile.userEmail,
 						userFirstName: action.profile.userFirstName,
 						userLastName: action.profile.userLastName,
+						userAvatarUrl: action.profile.userAvatarUrl,
 					} ),
 				} ),
 			} );

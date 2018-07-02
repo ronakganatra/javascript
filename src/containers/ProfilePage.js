@@ -16,13 +16,22 @@ import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
 
+import { url } from "gravatar";
+
+let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
+
 export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.data.profile.email,
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
 		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: null,
+		image: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
+			s: "150",
+			r: "pg",
+			d: avatarPlaceholder,
+			protocol: "https",
+		} ),
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,

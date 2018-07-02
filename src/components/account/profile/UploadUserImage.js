@@ -16,6 +16,10 @@ const UploadElement = styled.div`
 	height: ${ props => props.size };
 `;
 
+const UserImageContainer = styled.div`
+	display: flex;
+`;
+
 const translucentBlack = "rgba(0, 0, 0, 0.5)";
 const transparent = "rgba(0, 0, 0, 0)";
 
@@ -193,7 +197,9 @@ class UploadUserImage extends React.Component {
 		let imageSrc = this.props.image || avatarPlaceholder;
 
 		return <UploadElement size="125px">
-			<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
+			<UserImageContainer>
+				<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
+			</UserImageContainer>
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />

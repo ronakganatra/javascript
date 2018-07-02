@@ -9,6 +9,7 @@ test( 'the mapStateToProps function', () => {
 					email: "test@test.test",
 					userFirstName: "firstName",
 					userLastName: "lastName",
+					userAvatarUrl: "https://example.com/test.png",
 				},
 			},
 			saveEmailError: "An error",
@@ -42,7 +43,7 @@ test( 'the mapStateToProps function', () => {
 	let expected = {
 		email: "test@test.test",
 		composerTokens: [],
-		image: null,
+		image: "https://example.com/test.png",
 		userFirstName: "firstName",
 		userLastName: "lastName",
 		saveEmailError: "An error",
