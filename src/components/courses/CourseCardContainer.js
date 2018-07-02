@@ -25,13 +25,15 @@ const Details = styled.div`
 	border-bottom: 1px ${ colors.$color_grey } solid;
 `;
 
-const Header = styled.h2`
+const Header = styled.a`
 	padding: 0;
 	margin: 0;
 	margin-bottom: 15px;
 	
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
+	font-size: 1.5em;
+	text-decoration: none;
 `;
 
 const Description = styled.p`
@@ -44,19 +46,19 @@ const Banner = styled.span`
 	top: 8px;
 	left: -8px;
 	
-	font-weight: bold;
+	font-weight: 500;
 	color: ${ props => props.textColor };
 	line-height: 16px;
 	
 	background-color: ${ props => props.backgroundColor };
-	padding: 4px 16px;
+	padding: 8px 16px;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const BannerTriangle = styled.span`
 	position: absolute;
 	
-	top: 32px;
+	top: 40px;
 	left: -8px;
 	
 	/* This code makes the triangle. */
@@ -82,12 +84,24 @@ class CourseCardContainer extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Returns the header image, either with a link to the course if it is present,
+	 * or not if it is not.
+	 * @returns {React.Component} the header image
+	 */
+	getHeaderImage() {
+		if ( this.props.courseUrl ) {
+			return <a href={ this.props.courseUrl }><Image src={ this.props.image } alt={ this.props.title } /></a>;
+		}
+		return <Image src={ this.props.image } alt="" />;
+	}
+
 	render() {
 		return <Card>
-			<Image src={ this.props.image } alt="" />
+			{ this.getHeaderImage() }
 			{ this.getBanner() }
 			<Details>
-				<Header>{ this.props.title }</Header>
+				<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
 				<Description>
 					{ this.props.description }
 				</Description>
@@ -109,6 +123,9 @@ CourseCardContainer.propTypes = {
 	bannerText: PropTypes.string,
 	bannerBackgroundColor: PropTypes.string,
 	bannerTextColor: PropTypes.string,
+
+	courseUrl: PropTypes.string,
+	enableUrl: PropTypes.bool,
 };
 
 CourseCardContainer.defaultProps = {};

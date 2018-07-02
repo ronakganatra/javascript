@@ -48,6 +48,8 @@ export const mapStateToProps = ( state ) => {
 			studentEmail,
 			studentId: enrollment.studentId,
 			studentName,
+			isTrial: enrollment.isTrial,
+			outsideTrialProgress: enrollment.outsideTrialProgress,
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
