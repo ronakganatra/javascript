@@ -7,7 +7,7 @@ import LoginMessage from "./LoginMessage";
 const messages = defineMessages( {
 	message: {
 		id: "AlmostThere.message",
-		defaultMessage: "We just send you an email, so check your inbox! " +
+		defaultMessage: "We just sent you an email, so check your inbox! " +
 		"Click the link inside the email to activate your account. After that you can access MyYoast.",
 	},
 	header: {

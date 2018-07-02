@@ -45,7 +45,7 @@ const messages = defineMessages( {
 	message: {
 		id: "profileDetails.message",
 		defaultMessage: "Your MyYoast account has been activated! Fill out this last bit " +
-		"of information and you can get started! (Don't worry, you can always change these later!)",
+		"of information and you can get started. Don't worry, you can always change these later!",
 	},
 	goToMyYoast: {
 		id: "profileDetails.goToMyYoast",
