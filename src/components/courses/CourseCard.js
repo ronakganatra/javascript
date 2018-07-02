@@ -189,9 +189,11 @@ class CourseCard extends React.Component {
 	 */
 	getProgressLink() {
 		if ( this.props.isEnrolled && ! this.props.isTrial && this.props.progress === 0 && this.props.totalEnrollments === 1 ) {
-			// Returns a LinkButton which can be used to assign someone else
-			// (but only when the user is enrolled, has not started the course yet,
-			// is not trialling out the course and it is the only enrollment)
+			/*
+				Returns a LinkButton which can be used to assign someone else
+			 	(but only when the user is enrolled, has not started the course yet,
+				is not trialling out the course and it is the only enrollment)
+			*/
 			return <LinkButton testId="assign-to-someone-else"
 							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
