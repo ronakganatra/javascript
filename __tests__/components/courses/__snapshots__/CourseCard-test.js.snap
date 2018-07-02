@@ -1531,17 +1531,17 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   position: absolute;
   top: 8px;
   left: -8px;
-  font-weight: bold;
+  font-weight: 500;
   color: #fff;
   line-height: 16px;
   background-color: #a4286a;
-  padding: 4px 16px;
+  padding: 8px 16px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .c3 {
   position: absolute;
-  top: 32px;
+  top: 40px;
   left: -8px;
   border-top: 8px solid #6c2548;
   border-left: 8px solid transparent;
@@ -1767,17 +1767,17 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   position: absolute;
   top: 8px;
   left: -8px;
-  font-weight: bold;
+  font-weight: 500;
   color: #000;
   line-height: 16px;
   background-color: #ffeb3b;
-  padding: 4px 16px;
+  padding: 8px 16px;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 .c3 {
   position: absolute;
-  top: 32px;
+  top: 40px;
   left: -8px;
   border-top: 8px solid #6c2548;
   border-left: 8px solid transparent;
