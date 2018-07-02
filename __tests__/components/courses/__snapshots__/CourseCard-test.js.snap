@@ -1201,6 +1201,7 @@ exports[`The CourseCard component, for a course that has not been started yet wi
 }
 
 .c6 {
+  margin-top: 24px;
   background-color: #77b227;
   color: #fff;
   width: 100%;
