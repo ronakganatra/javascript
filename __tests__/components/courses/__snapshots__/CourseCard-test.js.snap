@@ -102,6 +102,8 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -288,6 +290,8 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -496,6 +500,8 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -685,6 +691,8 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -881,6 +889,8 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   background-color: #a4286a;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -1042,6 +1052,8 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -1205,6 +1217,8 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -1642,6 +1656,8 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
@@ -1854,6 +1870,8 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   background-color: #ffeb3b;
   color: #000;
   width: 100%;
+  text-shadow: none;
+  font-weight: 700;
 }
 
 <li
