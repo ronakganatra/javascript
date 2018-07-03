@@ -31,7 +31,7 @@ const FormMessage = styled.span`
 	padding: 0 1em 0 1em;
 `;
 
-const ButtonArea = styled.div`
+export const ButtonArea = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
