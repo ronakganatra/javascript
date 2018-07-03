@@ -43,7 +43,6 @@ const Button = styled( ButtonLink )`
 	color: ${ props => props.textcolor || colors.$color_white };
 	width: 100%;
 	text-shadow: none;
-	font-weight: 700;
 `;
 
 const SecondaryButton = styled( LargeSecondaryButtonLink )`
