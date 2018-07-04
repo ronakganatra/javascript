@@ -138,6 +138,7 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
       <img
         alt="Default profile image"
         className="c3"
+        onError={[Function]}
         size="125px"
         src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
       />

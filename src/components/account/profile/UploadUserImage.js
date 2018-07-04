@@ -85,7 +85,11 @@ const messages = defineMessages( {
 	},
 	maxFileSizeExceeded: {
 		id: "userImageUpload.maxFileSizeExceeded",
-		defaultMessage: "The selected file is bigger than the maximum file size of {maxSize}, please select a smaller file.",
+		defaultMessage: "The selected file exceeds the maximum size of {maxSize} megabytes, please select a smaller file.",
+	},
+	invalidFile: {
+		id: "userImageUpload.invalidFile",
+		defaultMessage: "The chosen image appears to be broken, please select another one.",
 	},
 	defaultImage: {
 		id: "userImageUpload.defaultImageDescription",
@@ -114,6 +118,7 @@ class UploadUserImage extends React.Component {
 
 		this.onClickLink = this.onClickLink.bind( this );
 		this.onFileUpload = this.onFileUpload.bind( this );
+		this.onImageLoadError = this.onImageLoadError.bind( this );
 	}
 
 	/**
@@ -150,11 +155,11 @@ class UploadUserImage extends React.Component {
 		}
 		// File has been selected, and is valid.
 		if ( file && this.validateFile( file ) ) {
-			// Set file preview.
+			// Set file preview and remove error.
 			this.setState( {
 				image: URL.createObjectURL( file ),
+				error: null,
 			} );
-
 			this.props.onFileUpload( file );
 			return;
 		}
@@ -197,6 +202,21 @@ class UploadUserImage extends React.Component {
 		</MaxFileSizeText>;
 	}
 
+	/**
+	 * Callback function, called whenever the profile image could not
+	 * be loaded.
+	 * @returns {void}
+	 */
+	onImageLoadError() {
+		// Image could not load, set image back to default profile image and show + speak error.
+		let invalidFileError = this.props.intl.formatMessage( messages.invalidFile );
+		this.setState( {
+			image: avatarPlaceholder,
+			error: invalidFileError,
+		} );
+		speak( invalidFileError, "assertive" );
+	}
+
 	render() {
 		let changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 
@@ -208,7 +228,7 @@ class UploadUserImage extends React.Component {
 		let imageSrc = this.state.image || avatarPlaceholder;
 
 		return <UploadElement size="125px">
-			<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
+			<UserImage alt={ imageDescription } src={ imageSrc } onError={ this.onImageLoadError } size="125px" />
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
 					<FormattedMessage { ...messages.change } />
@@ -245,5 +265,7 @@ UploadUserImage.defaultProps = {
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
 	size: "130px",
 };
+
+// A
 
 export default injectIntl( UploadUserImage );
