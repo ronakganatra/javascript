@@ -2,8 +2,6 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
-import validate from "validate.js";
-import _isUndefined from "lodash/isUndefined";
 
 import { emailConstraints } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
@@ -122,9 +120,7 @@ class ResetPasswordEmailPage extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 
-		this.onUpdate = this.onUpdate.bind( this, "email" );
-
-		this.validate = this.validate.bind( this );
+		this.onUpdateEmail = this.onUpdateEmail.bind( this, "email" );
 
 		// Validation constraints.
 		this.constraints = {
@@ -141,33 +137,11 @@ class ResetPasswordEmailPage extends React.Component {
 	 * @param {array} errors The email related errors.
 	 * @returns {void}
 	 */
-	onUpdate( field, event, errors = [] ) {
+	onUpdateEmail( field, event, errors = [] ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
 		obj.errors = errors;
 		this.setState( obj );
-	}
-
-	/**
-	 * Validates the email fields
-	 * and returns an array of errors if there are any errors,
-	 * and an empty array if none are present.
-	 *
-	 * @returns {string[]} the array of error messages.
-	 */
-	validate() {
-		if ( this.state.email.length === 0 ) {
-			return [];
-		}
-
-		let errors = validate( {
-			email: this.state.email,
-		}, this.constraints );
-
-		if ( _isUndefined( errors ) ) {
-			errors = [];
-		}
-		return errors;
 	}
 
 	/**
@@ -200,7 +174,7 @@ class ResetPasswordEmailPage extends React.Component {
 								name="email"
 								type="email"
 								errors={ [] }
-								onChange={ this.onUpdate }
+								onChange={ this.onUpdateEmail }
 								constraint={ emailConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
