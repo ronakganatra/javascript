@@ -10,6 +10,7 @@ import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
+import ErrorDisplay from "../../../src/errors/ErrorDisplay";
 
 // Styled components.
 const TextInput = styled( InputField )`
@@ -91,6 +92,8 @@ class Login extends React.Component {
 			rememberMe: this.props.rememberMe,
 		};
 
+		this.props.errors = {};
+
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
@@ -136,12 +139,22 @@ class Login extends React.Component {
 		console.log( "params: ", params );
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
 		console.log( "request: ", request );
-		doRequest( request ).then( response => console.log( "response: ", response ) );
+		doRequest( request ).then( response => {
+			console.log( "response: ", response );
+		} )
+		.catch( ( error ) => {
+			console.log( "error: ", error );
+			this.setState( {
+				errors: error,
+			} );
+			console.log( "this.state: ", this.state );
+		} );
 	}
 
 	render() {
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
+				<ErrorDisplay error={ this.props.errors } />
 
 				<LabelBlock>
 					<Label htmlFor="email-address">
@@ -197,10 +210,12 @@ class Login extends React.Component {
 Login.propTypes = {
 	intl: intlShape.isRequired,
 	rememberMe: PropTypes.bool,
+	errors: PropTypes.object,
 };
 
 Login.defaultProps = {
 	rememberMe: false,
+	errors: null,
 };
 
 export default injectIntl( Login );
