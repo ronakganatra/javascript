@@ -92,8 +92,6 @@ class Login extends React.Component {
 			rememberMe: this.props.rememberMe,
 		};
 
-		this.props.errors = {};
-
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
@@ -134,20 +132,14 @@ class Login extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		console.log( "this.state: ", this.state );
 		let params = { customerEmail: this.state.email, customerPassword: this.state.password, rememberMe: this.state.rememberMe };
-		console.log( "params: ", params );
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
-		console.log( "request: ", request );
 		doRequest( request ).then( response => {
-			console.log( "response: ", response );
 		} )
 		.catch( ( error ) => {
-			console.log( "error: ", error );
 			this.setState( {
 				errors: error,
 			} );
-			console.log( "this.state: ", this.state );
 		} );
 	}
 
