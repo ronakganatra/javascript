@@ -10,14 +10,15 @@ const Label = styled.label`
 	display: block;
 	position: relative;
 	cursor: pointer;
-		
-	padding-left: 35px;	
-	
+
+	padding-left: 35px;
+	line-height: initial;
+
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	
+
 	/* Checks our custom check mark. */
 	input:checked ~ .checkmark {
 		/* Dark pink background and white check mark */ 
@@ -27,7 +28,7 @@ const Label = styled.label`
 		background-position: center;
 		background-size: 75%;
 	}
-	
+
 	/* Adds an outline to the check mark on focus. */
 	input:focus ~ .checkmark {
 		outline: -webkit-focus-ring-color auto 5px;
