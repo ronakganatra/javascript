@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The UploadUserImage component matches the snapshot 1`] = `
-.c1 {
+.c2 {
   -webkit-flex: 0 0 125px;
   -ms-flex: 0 0 125px;
   flex: 0 0 125px;
@@ -19,7 +19,14 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
   height: 125px;
 }
 
-.c2 {
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -29,7 +36,7 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
   background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
 }
 
-.c3 {
+.c4 {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -44,15 +51,15 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
   text-align: center;
 }
 
-.c3:hover,
-.c3:focus {
+.c4:hover,
+.c4:focus {
   color: white;
   cursor: pointer;
   -webkit-text-decoration: none;
   text-decoration: none;
 }
 
-.c4 {
+.c5 {
   margin: 0;
   width: 100%;
   text-align: center;
@@ -64,19 +71,23 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
   className="c0"
   size="125px"
 >
-  <img
-    alt="Default profile image"
+  <div
     className="c1"
-    onError={[Function]}
-    size="125px"
-    src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
-  />
+  >
+    <img
+      alt="Default profile image"
+      className="c2"
+      onError={[Function]}
+      size="125px"
+      src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+    />
+  </div>
   <span
-    className="c2"
+    className="c3"
   >
     <button
       aria-label="Change profile image"
-      className="c3"
+      className="c4"
       onClick={[Function]}
       type="button"
     >
@@ -86,7 +97,7 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
     </button>
   </span>
   <p
-    className="c4"
+    className="c5"
   >
     <span>
       Maximum file size is 5 megabytes

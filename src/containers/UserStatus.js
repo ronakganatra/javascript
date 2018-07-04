@@ -9,7 +9,7 @@ const mapStateToProps = ( state ) => {
 		displayName: state.user.data.profile.email,
 		loggedIn: state.user.loggedIn,
 		displayImage: {
-			src: url( state.user.data.profile.email, {
+			src: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
 				// Gravatar rating
 				rating: "pg",
 				// Default image
