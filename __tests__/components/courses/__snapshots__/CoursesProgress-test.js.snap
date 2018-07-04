@@ -137,12 +137,14 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 .c15 {
   background-color: #a4286a;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 .c0 {

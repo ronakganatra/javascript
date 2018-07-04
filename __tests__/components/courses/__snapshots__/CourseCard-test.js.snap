@@ -103,17 +103,12 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-align: center;
 }
 
-.c10 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c7 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -172,22 +167,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
         </span>
       </span>
     </a>
-    <p
-      className="c10"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c6"
-        onClick={[Function]}
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>
 </li>
 `;
@@ -329,6 +308,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -550,6 +530,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -752,6 +733,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -961,6 +943,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   background-color: #a4286a;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -1027,7 +1010,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 </li>
 `;
 
-exports[`The CourseCard component, for a course that has not been started yet, matches the snapshot 1`] = `
+exports[`The CourseCard component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -1130,17 +1113,12 @@ exports[`The CourseCard component, for a course that has not been started yet, m
   text-align: center;
 }
 
-.c10 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c7 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
   width: 100%;
+  text-shadow: none;
 }
 
 <li
@@ -1199,15 +1177,184 @@ exports[`The CourseCard component, for a course that has not been started yet, m
         </span>
       </span>
     </a>
+  </div>
+</li>
+`;
+
+exports[`The CourseCard component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
+.c0 {
+  position: relative;
+  background-color: #fff;
+  width: 288px;
+  font-size: 1em;
+  list-style-type: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  margin: 0px;
+  padding: 20px;
+  padding-top: 10px;
+  border-bottom: 1px #ddd solid;
+}
+
+.c3 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  color: #a4286a;
+  font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c4 {
+  margin: 0;
+}
+
+.c10 {
+  background: none;
+  border: 0px;
+  padding: 0;
+  color: #0066cd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.c10:hover {
+  color: #cc2956;
+}
+
+.c10:focus {
+  outline: none;
+}
+
+.c7 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c7:hover,
+.c7:focus {
+  color: #fff;
+}
+
+.c7:hover,
+.c7:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c7:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c8 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c5 {
+  padding: 24px;
+  text-align: center;
+}
+
+.c9 {
+  font-weight: bold;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.c6 {
+  margin-top: 24px;
+  background-color: #77b227;
+  color: #fff;
+  width: 100%;
+  text-shadow: none;
+}
+
+<li
+  className="c0"
+>
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
+  <div
+    className="c2"
+  >
+    <a
+      className="c3"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
     <p
-      className="c10"
+      className="c4"
+    >
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>
+  <div
+    className="c5"
+  >
+    <a
+      aria-label={undefined}
+      className="c6 c7"
+      href="http://yoast.academy.test/awesome_seo"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        Start this course
+      </span>
+      <span
+        className="screen-reader-text c8"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+    <p
+      className="c9"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c6"
+        className="c10"
         onClick={[Function]}
       >
         <span>
@@ -1444,6 +1591,464 @@ exports[`The CourseCard component, for a course that is completed, matches the s
        
       <button
         className="c14"
+        onClick={[Function]}
+      >
+        <span>
+          Assign courses
+        </span>
+      </button>
+    </p>
+  </div>
+</li>
+`;
+
+exports[`The CourseCard component, for a course that is free, matches the snapshot 1`] = `
+.c0 {
+  position: relative;
+  background-color: #fff;
+  width: 288px;
+  font-size: 1em;
+  list-style-type: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c4 {
+  margin: 0px;
+  padding: 20px;
+  padding-top: 10px;
+  border-bottom: 1px #ddd solid;
+}
+
+.c5 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  color: #a4286a;
+  font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c6 {
+  margin: 0;
+}
+
+.c2 {
+  position: absolute;
+  top: 8px;
+  left: -8px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 16px;
+  background-color: #a4286a;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  position: absolute;
+  top: 40px;
+  left: -8px;
+  border-top: 8px solid #6c2548;
+  border-left: 8px solid transparent;
+}
+
+.c15 {
+  background: none;
+  border: 0px;
+  padding: 0;
+  color: #0066cd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.c15:hover {
+  color: #cc2956;
+}
+
+.c15:focus {
+  outline: none;
+}
+
+.c12 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c12:hover,
+.c12:focus {
+  color: #fff;
+}
+
+.c12:hover,
+.c12:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c12:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c8 {
+  position: relative;
+  background-color: #ddd;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.c10 {
+  width: 50%;
+  height: 25px;
+  background-color: #77b227;
+  border-radius: 5px;
+}
+
+.c9 {
+  position: absolute;
+  right: 10px;
+  line-height: 25px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #000;
+}
+
+.c13 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c7 {
+  padding: 24px;
+  text-align: center;
+}
+
+.c14 {
+  font-weight: bold;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.c11 {
+  margin-top: 24px;
+  background-color: #77b227;
+  color: #fff;
+  width: 100%;
+  text-shadow: none;
+}
+
+<li
+  className="c0"
+>
+  <a
+    href="http://yoast.academy.test/awesome_seo"
+  >
+    <img
+      alt="Awesome SEO Course"
+      className="c1"
+      src="sample_course_card_header.png"
+    />
+  </a>
+  <span
+    className="c2"
+  >
+    Free
+  </span>
+  <span
+    className="c3"
+  />
+  <div
+    className="c4"
+  >
+    <a
+      className="c5"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p
+      className="c6"
+    >
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c8"
+    >
+      <span
+        aria-label="current progress"
+        className="c9"
+      >
+        50
+        %
+      </span>
+      <div
+        className="c10"
+      />
+    </div>
+    <a
+      aria-label={undefined}
+      className="c11 c12"
+      href="http://yoast.academy.test/awesome_seo"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        Continue this course
+      </span>
+      <span
+        className="screen-reader-text c13"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+    <p
+      className="c14"
+    >
+      <span>
+        4 / 5 assigned.
+      </span>
+       
+      <button
+        className="c15"
+        onClick={[Function]}
+      >
+        <span>
+          Assign courses
+        </span>
+      </button>
+    </p>
+  </div>
+</li>
+`;
+
+exports[`The CourseCard component, for a course that is on sale, matches the snapshot 1`] = `
+.c0 {
+  position: relative;
+  background-color: #fff;
+  width: 288px;
+  font-size: 1em;
+  list-style-type: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c4 {
+  margin: 0px;
+  padding: 20px;
+  padding-top: 10px;
+  border-bottom: 1px #ddd solid;
+}
+
+.c5 {
+  padding: 0;
+  margin: 0;
+  margin-bottom: 15px;
+  color: #a4286a;
+  font-weight: 50;
+  font-size: 1.5em;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c6 {
+  margin: 0;
+}
+
+.c2 {
+  position: absolute;
+  top: 8px;
+  left: -8px;
+  font-weight: 500;
+  color: #000;
+  line-height: 16px;
+  background-color: #ffeb3b;
+  padding: 8px 16px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  position: absolute;
+  top: 40px;
+  left: -8px;
+  border-top: 8px solid #6c2548;
+  border-left: 8px solid transparent;
+}
+
+.c12 {
+  background: none;
+  border: 0px;
+  padding: 0;
+  color: #0066cd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.c12:hover {
+  color: #cc2956;
+}
+
+.c12:focus {
+  outline: none;
+}
+
+.c9 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-transform: uppercase;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c9:hover,
+.c9:focus {
+  color: #fff;
+}
+
+.c9:hover,
+.c9:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c9:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c10 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c7 {
+  padding: 24px;
+  text-align: center;
+}
+
+.c11 {
+  font-weight: bold;
+  margin: 0;
+  margin-top: 24px;
+}
+
+.c8 {
+  background-color: #ffeb3b;
+  color: #000;
+  width: 100%;
+  text-shadow: none;
+}
+
+<li
+  className="c0"
+>
+  <img
+    alt=""
+    className="c1"
+    src="sample_course_card_header.png"
+  />
+  <span
+    className="c2"
+  >
+    Now 101% of!
+  </span>
+  <span
+    className="c3"
+  />
+  <div
+    className="c4"
+  >
+    <a
+      className="c5"
+      href={null}
+    >
+      Awesome SEO Course
+    </a>
+    <p
+      className="c6"
+    >
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>
+  <div
+    className="c7"
+  >
+    <a
+      aria-label={undefined}
+      className="c8 c9"
+      href="http://yoast.test/shop"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>
+        Get the full course
+      </span>
+      <span
+        className="screen-reader-text c10"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+    <p
+      className="c11"
+    >
+      <span>
+        4 / 5 assigned.
+      </span>
+       
+      <button
+        className="c12"
         onClick={[Function]}
       >
         <span>

@@ -46,19 +46,19 @@ const Banner = styled.span`
 	top: 8px;
 	left: -8px;
 	
-	font-weight: bold;
+	font-weight: 500;
 	color: ${ props => props.textColor };
 	line-height: 16px;
 	
 	background-color: ${ props => props.backgroundColor };
-	padding: 4px 16px;
+	padding: 8px 16px;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 `;
 
 const BannerTriangle = styled.span`
 	position: absolute;
 	
-	top: 32px;
+	top: 40px;
 	left: -8px;
 	
 	/* This code makes the triangle. */
