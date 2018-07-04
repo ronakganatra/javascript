@@ -138,7 +138,7 @@ class ErrorDisplay extends React.Component {
 			error.code = error.name;
 			return error;
 		}
-		error.code = "GENERAL_SUPPORT_ERROR";
+		// error.code = "GENERAL_SUPPORT_ERROR";
 		return error;
 	}
 

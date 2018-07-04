@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { injectIntl, intlShape } from "react-intl";
+import { intlShape } from "react-intl";
 
 // Components.
 import LoginForm from "./LoginForm";
@@ -18,9 +18,10 @@ class Login extends React.Component {
 		this.state = {
 			email: "",
 			password: "",
-			errors: {},
+			errors: null,
 			rememberMe: this.props.rememberMe,
 		};
+		console.log( "STATE: ", this.state );
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
@@ -99,4 +100,4 @@ Login.defaultProps = {
 	errors: null,
 };
 
-export default injectIntl( Login );
+export default Login;

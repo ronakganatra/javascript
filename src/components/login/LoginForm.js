@@ -20,7 +20,8 @@ const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 400px;
-	height: 400px;
+	min-height: 400px;
+	padding-bottom: 5em;
 `;
 
 const LabelBlock = styled.div`
@@ -84,6 +85,7 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
+	console.log( "PROPS: ", props );
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
 			<ErrorDisplay error={ props.errors } />
@@ -110,7 +112,6 @@ const LoginForm = ( props ) => {
 					id="password"
 					name="password"
 					type="password"
-					errors={ props.errors.password }
 					onChange={ props.onUpdatePassword }
 				/>
 			</LabelBlock>
