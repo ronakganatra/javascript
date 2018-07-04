@@ -132,7 +132,7 @@ class Login extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		let params = { customerEmail: this.state.email, customerPassword: this.state.password, rememberMe: this.state.rememberMe };
+		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
 		doRequest( request ).then( response => {
 		} )
