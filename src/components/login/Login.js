@@ -9,8 +9,7 @@ import { Button } from "../Button";
 import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
-
-const request = require( "request-promise-native" );
+import { prepareInternalRequest, doRequest } from "../../functions/api";
 
 // Styled components.
 const TextInput = styled( InputField )`
@@ -127,23 +126,17 @@ class Login extends React.Component {
 	/**
 	 * Opens the door to the treasures of MyYoast,
 	 * if their credentials are correctly filled in.
+	 * @param {Object} event The event
 	 * @returns {Object} request The Request
 	 */
-	handleSubmit() {
+	handleSubmit( event ) {
+		event.preventDefault();
 		console.log( "this.state: ", this.state );
-		return request( {
-			method: "POST",
-			uri: process.env.WP_API_URL + "/yoast/v1",
-			json: {
-				/* eslint-disable camelcase */
-				user_login: this.state.email,
-				password: this.state.password,
-				errors: this.state.errors,
-				remember: this.state.rememberMe,
-				/* eslint-enable camelcase */
-			},
-			headers: { "Yoast-Token": process.env.YOAST_SECRET_SERVER_TOKEN	},
-		} );
+		let params = { customerEmail: this.state.email, customerPassword: this.state.password, rememberMe: this.state.rememberMe };
+		console.log( "params: ", params );
+		let request = prepareInternalRequest( "Customers/login/", "POST", params );
+		console.log( "request: ", request );
+		doRequest( request ).then( response => console.log( "response: ", response ) );
 	}
 
 	render() {
