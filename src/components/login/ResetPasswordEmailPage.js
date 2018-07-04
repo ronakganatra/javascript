@@ -86,6 +86,7 @@ const EmailButtonArea = styled( ButtonArea )`
 const SaveButton = styled( Button )`
 	margin: 1em 0;
 	width: 100%;
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 `;
 
 const BackButton = styled( ButtonLink )`
@@ -116,7 +117,7 @@ class ResetPasswordEmailPage extends React.Component {
 		// Default state.
 		this.state = {
 			email: "",
-			errors: {},
+			errors: [],
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -137,11 +138,13 @@ class ResetPasswordEmailPage extends React.Component {
 	 *
 	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
+	 * @param {array} errors The email related errors.
 	 * @returns {void}
 	 */
-	onUpdate( field, event ) {
+	onUpdate( field, event, errors = [] ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
+		obj.errors = errors;
 		this.setState( obj );
 	}
 
@@ -196,14 +199,14 @@ class ResetPasswordEmailPage extends React.Component {
 								id="email"
 								name="email"
 								type="email"
-								errors={ this.state.errors.email }
+								errors={ [] }
 								onChange={ this.onUpdate }
 								constraint={ emailConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
 
 						<EmailButtonArea>
-							<SaveButton type="submit">
+							<SaveButton type="submit" enabledStyle={ this.state.email.length > 0 && this.state.errors.length === 0 }>
 								<FormattedMessage { ...messages.sendButton } />
 							</SaveButton>
 							<BackButton enabledStyle={ true } to="../login">
