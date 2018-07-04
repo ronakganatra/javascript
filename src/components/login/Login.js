@@ -18,8 +18,8 @@ class Login extends React.Component {
 		this.state = {
 			email: "",
 			password: "",
-			errors: null,
-			rememberMe: this.props.rememberMe,
+			errors: this.props.errors,
+			rememberMe: false,
 		};
 		console.log( "STATE: ", this.state );
 
@@ -65,8 +65,9 @@ class Login extends React.Component {
 		event.preventDefault();
 		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
-		doRequest( request ).then( response => {
-		} )
+		doRequest( request )
+			.then( response => {
+			} )
 			.catch( ( error ) => {
 				this.setState( {
 					errors: error,
@@ -91,12 +92,10 @@ class Login extends React.Component {
 
 Login.propTypes = {
 	intl: intlShape.isRequired,
-	rememberMe: PropTypes.bool,
 	errors: PropTypes.object,
 };
 
 Login.defaultProps = {
-	rememberMe: false,
 	errors: null,
 };
 
