@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { intlShape } from "react-intl";
+import { intlShape, injectIntl } from "react-intl";
 
 // Components.
 import LoginForm from "./LoginForm";
@@ -99,4 +99,4 @@ Login.defaultProps = {
 	errors: null,
 };
 
-export default Login;
+export default injectIntl( Login );
