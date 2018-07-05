@@ -5,6 +5,13 @@ import { intlShape, injectIntl } from "react-intl";
 // Components.
 import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
+import {
+	getAccessToken,
+	getAuthUrl, getUserId, hasAccessToken, hasCookieParams, setCookieFromParams,
+	setPeriLoginCookie,
+} from "../../functions/auth";
+import { store } from "../../index";
+import { fetchUser, login } from "../../actions/user";
 
 
 /**
@@ -67,12 +74,37 @@ class Login extends React.Component {
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
 		doRequest( request )
 			.then( response => {
+				console.log( "response: ", response );
+				this.handleRedirect( response );
 			} )
 			.catch( ( error ) => {
 				this.setState( {
 					errors: error,
 				} );
 			} );
+	}
+
+	handleRedirect( serverResponse ) {
+		if ( hasCookieParams() ) {
+			setCookieFromParams();
+		}
+		if ( hasAccessToken() ) {
+			console.log( "has access token" );
+			store.dispatch( login( getAccessToken(), getUserId() ) );
+			store.dispatch( fetchUser( getUserId() ) );
+
+			document.location.href = getAuthUrl();
+			/*
+			ReactDOM.render(
+				<App store={ store } history={ history }/>,
+				document.getElementById( "root" )
+			);
+			 */
+		} else {
+			console.log( "does not have an access token" );
+			setPeriLoginCookie();
+			document.location.href = getAuthUrl();
+		}
 	}
 
 	render() {
