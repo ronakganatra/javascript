@@ -277,7 +277,7 @@ export function resetSaveMessage() {
  *
  * @param {Object} profile The profile object.
  * @param {string} profile.email The email to set on the profile.
- * @returns {Function} A function that
+ * @returns {Function} A function that can be dispatched to update a user's profile.
  */
 export function updateProfile( profile ) {
 	return ( dispatch ) => {
@@ -298,7 +298,7 @@ export function updateProfile( profile ) {
  * An action creator to update the profile of the user.
  *
  * @param {Object} passwords Object containing your old password, new password and password confirmation.
- * @returns {Function} A function that
+ * @returns {Function} A function that can be dispatched to update a user's password.
  */
 export function updatePassword( passwords ) {
 	return ( dispatch ) => {
