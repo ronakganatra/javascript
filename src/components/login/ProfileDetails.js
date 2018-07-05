@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
 
@@ -98,9 +97,6 @@ export default injectIntl( ProfileDetails );
 
 ProfileDetails.propTypes = {
 	intl: intlShape.isRequired,
-	name: PropTypes.string,
 };
 
-ProfileDetails.defaultProps = {
-	name: "World",
-};
+ProfileDetails.defaultProps = {};

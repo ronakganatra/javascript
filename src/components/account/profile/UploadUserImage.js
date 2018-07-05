@@ -269,9 +269,6 @@ UploadUserImage.defaultProps = {
 	// 5 MB in binary bytes
 	maxFileSize: 5242880,
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
-	size: "130px",
 };
-
-// A
 
 export default injectIntl( UploadUserImage );
