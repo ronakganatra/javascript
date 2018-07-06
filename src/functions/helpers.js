@@ -22,12 +22,12 @@ export function capitalize (string) {
 }
 
 let isLocalEnv = function () {
-	return window.location.host.indexOf( "localhost" ) !== -1;
+	return window.location.host.indexOf( "my.yoast.test" ) !== -1;
 };
 
 export function getMyYoastHost() {
 	if ( isLocalEnv() ) {
-		return "http://localhost:3000";
+		return "http://my.yoast.test:3000";
 	} else {
 		return "https://my.yoast.com";
 	}
