@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { intlShape, injectIntl } from "react-intl";
+import Cookies from "js-cookie";
 
 // Components.
 import LoginForm from "./LoginForm";
@@ -85,9 +86,11 @@ class Login extends React.Component {
 	}
 
 	handleRedirect( serverResponse ) {
+		console.log( "Cookie WP: ", Cookies.get( "wordpress_logged_in_.*" ) );
 		if ( hasCookieParams() ) {
 			setCookieFromParams();
 		}
+		this.findWPCookie();
 		if ( hasAccessToken() ) {
 			console.log( "has access token" );
 			store.dispatch( login( getAccessToken(), getUserId() ) );
@@ -105,6 +108,16 @@ class Login extends React.Component {
 			setPeriLoginCookie();
 			document.location.href = getAuthUrl();
 		}
+	}
+
+	findWPCookie() {
+		let searchString = new RegExp( "wordpress_logeed_in_.*" );
+		let allCookies = Cookies.get();
+		console.log( "All cookies: ", allCookies );
+		// allCookies.filter( ( ))
+		return (
+			Cookies.get( searchString )
+		);
 	}
 
 	render() {
