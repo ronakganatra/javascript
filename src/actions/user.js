@@ -122,7 +122,7 @@ export function fetchUser( userId ) {
 							email: `Impersonating: ${json.email}`,
 							enabled: true,
 						},
-					} ) ) ).catch( redirectToLogin );
+					} ) ) );
 		}
 
 		let request = prepareInternalRequest( `Customers/${userId}/profile/` );

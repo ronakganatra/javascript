@@ -18,6 +18,7 @@ import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordPage from "./components/login/ResetPasswordPage";
+import { hasAccessToken } from "./functions/auth";
 
 /*
  * Helper method to write global CSS.
@@ -45,7 +46,16 @@ injectGlobal`
 `;
 /* eslint-enable no-unused-expressions */
 
+
 const Routes = ( props ) => {
+	if ( hasAccessToken() === false ) {
+		return (
+			<ConnectedRouter history={ props.history }>
+				<Route path="*" component={ inLoginLayout( LoginPage )  } />
+			</ConnectedRouter>
+		);
+	}
+
 	if ( props.userEnabled === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
@@ -58,8 +68,6 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
-					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />

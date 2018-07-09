@@ -4,10 +4,8 @@ import App from "./App";
 import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import { login, fetchUser } from "./actions/user";
-import { hasAccessToken, getAccessToken, getUserId, setPeriLoginCookie, directToIntendedDestination,
+import { directToIntendedDestination,
 	shouldBeRedirected, hasCookieParams, setCookieFromParams } from "./functions/auth";
-import { getAuthUrl } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
 import { addLocaleData } from "react-intl";
@@ -47,18 +45,10 @@ function app() {
 		setCookieFromParams();
 	}
 
-	if ( hasAccessToken() ) {
-		store.dispatch( login( getAccessToken(), getUserId() ) );
-		store.dispatch( fetchUser( getUserId() ) );
-
-		ReactDOM.render(
-			<App store={ store } history={ history }/>,
-			document.getElementById( "root" )
-		);
-	} else {
-		setPeriLoginCookie();
-		document.location.href = getAuthUrl();
-	}
+	ReactDOM.render(
+		<App store={ store } history={ history }/>,
+		document.getElementById( "root" )
+	);
 }
 
 if ( shouldBeRedirected() ) {
