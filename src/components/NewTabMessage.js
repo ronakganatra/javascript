@@ -3,8 +3,8 @@ import { FormattedMessage } from "react-intl";
 import styled from "styled-components";
 
 const NewTabMessageContainer = styled.span`
-	// Safari+VoiceOver bug see issue 445 and 712.
-	padding-top: 0.5em;
+	// Safari+VoiceOver bug see issue 445, 712, and yoast-components PR 308.
+	transform: translateY(1em);
 `;
 
 /**

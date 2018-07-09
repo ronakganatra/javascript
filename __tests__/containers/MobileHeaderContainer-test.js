@@ -51,7 +51,7 @@ let defaultState = {
 	},
 	router: {
 		location: {
-			pathname: "http://localhost:3001/sites"
+			pathname: "http://my.yoast.test:3001/sites"
 		}
 	}
 };
@@ -60,7 +60,7 @@ let defaultState = {
 let stateSiteDetail = Object.assign( {}, defaultState );
 stateSiteDetail.router = {
 	location: {
-		pathname: "http://localhost:3001/sites/497490e6-eb8d-4627-be9b-bfd33fc217f1"
+		pathname: "http://my.yoast.test:3001/sites/497490e6-eb8d-4627-be9b-bfd33fc217f1"
 	}
 };
 
@@ -68,7 +68,7 @@ stateSiteDetail.router = {
 let stateSubscriptionDetail = Object.assign( {}, defaultState );
 stateSubscriptionDetail.router = {
 	location: {
-		pathname: "http://localhost:3001/subscriptions/497490e6-eb8d-4627-be9b-bfd33fc217f1"
+		pathname: "http://my.yoast.test:3001/subscriptions/497490e6-eb8d-4627-be9b-bfd33fc217f1"
 	}
 };
 

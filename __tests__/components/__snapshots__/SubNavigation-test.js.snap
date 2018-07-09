@@ -104,6 +104,5 @@ exports[`the subnavigation component matches the snapshot 1`] = `
       </a>
     </li>
   </ul>
-  <div />
 </div>
 `;

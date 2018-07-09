@@ -3,6 +3,7 @@
   "rules": {
     "__comment": [ 0, "Max length put on 200 because it is hard to stay under 150 with text strings." ],
     "max-len": [ 2, 200 ],
+    "complexity": [ "error", 10 ],
     "react/jsx-key": [ 0 ],
     "react/no-unescaped-entities": [ 0 ],
     "jsx-a11y/no-redundant-roles": [ 0 ],

@@ -22,7 +22,7 @@ export const mapStateToProps = ( state ) => {
 		let studentName = "";
 
 		if ( ! icon ) {
-			icon = enrollment.course.product ? enrollment.course.product.icon : "";
+			icon = enrollment.course.products[ 0 ] ? enrollment.course.products[ 0 ].icon : "";
 		}
 
 		if ( enrollment.order ) {
@@ -48,6 +48,8 @@ export const mapStateToProps = ( state ) => {
 			studentEmail,
 			studentId: enrollment.studentId,
 			studentName,
+			isTrial: enrollment.isTrial,
+			outsideTrialProgress: enrollment.outsideTrialProgress,
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
@@ -66,7 +68,7 @@ export const mapStateToProps = ( state ) => {
 			let course = state.entities.courses.byId[ courseId ];
 			let icon = course.iconUrl;
 			if ( ! icon ) {
-				icon = course.product ? course.product.icon : "";
+				icon = course.products[ 0 ] ? course.products[ 0 ].icon : "";
 			}
 
 			return {

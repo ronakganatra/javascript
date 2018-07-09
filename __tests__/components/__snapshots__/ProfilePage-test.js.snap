@@ -342,17 +342,17 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c19 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -1139,17 +1139,17 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c19 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -1880,17 +1880,17 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c19 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -2621,17 +2621,17 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c21 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c18 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -3399,17 +3399,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c23 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c20 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -4170,17 +4170,17 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c17 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -4911,17 +4911,17 @@ exports[`components/ProfilePage saving profile 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c17 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -5652,17 +5652,17 @@ exports[`components/ProfilePage sending password reset 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c20 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c17 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {
@@ -6429,10 +6429,10 @@ exports[`components/ProfilePage the default case 1`] = `
   font-size: 1.4em;
 }
 
-@media screen and ( max-width:800px ) {
-  .c3 {
-    display: block;
-  }
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 @media screen and ( max-width:1355px ) {
@@ -7134,17 +7134,17 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   margin-bottom: 1em;
 }
 
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+.c19 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c1 {

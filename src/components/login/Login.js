@@ -32,6 +32,7 @@ class Login extends React.Component {
 		console.log( "STATE: ", this.state );
 
 		this.handleSubmit = this.handleSubmit.bind( this );
+		this.handleRedirect = this.handleRedirect.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
@@ -70,13 +71,19 @@ class Login extends React.Component {
 	 * @returns {Object} request The Request
 	 */
 	handleSubmit( event ) {
+		console.log( "EVENT " );
 		event.preventDefault();
 		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
 		doRequest( request )
 			.then( response => {
 				console.log( "response: ", response );
-				this.handleRedirect( response );
+				console.log( "JOIN: ", response.cookies.join( " " ) );
+				response.cookies.forEach( ( cookie ) => {
+					document.cookie = cookie;
+				} );
+				// document.cookie = response.cookies.join( " " );
+				// this.handleRedirect( response );
 			} )
 			.catch( ( error ) => {
 				this.setState( {

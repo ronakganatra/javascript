@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { retrieveCoursesEnrollments } from "../actions/courses";
 import CoursesPage from "../components/CoursesPage";
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		loadData: () => dispatch( retrieveCoursesEnrollments() ),
 	};

@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink, Route } from "react-router-dom";
@@ -93,12 +93,12 @@ SubNavigation.propTypes = {
  */
 export function SubNavigationItem( props ) {
 	return (
-		<div>
+		<Fragment>
 			{ props.itemRoutes.map( function( route, routeKey ) {
 				return <Route exact={true} key={ routeKey } path={ route.path } component={ route.component }/>;
 			}
 			) }
-		</div>
+		</Fragment>
 	);
 }
 

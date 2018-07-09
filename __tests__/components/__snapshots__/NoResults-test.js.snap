@@ -42,7 +42,9 @@ exports[`the NoResults component matches the snapshot in the case of no orders 1
 }
 
 .c4 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c0 {
@@ -269,7 +271,9 @@ exports[`the NoResults component matches the snapshot in the case of no subscrip
 }
 
 .c4 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c0 {

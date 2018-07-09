@@ -10,7 +10,7 @@ import { MemoryRouter } from "react-router-dom";
 test('the responsive site header matches the snapshot', () => {
 
 	let match = {
-		path: "http://localhost:3001/sites/136c7b9a-4c96-4598-8c10-345944c2f8a7",
+		path: "http://my.yoast.test:3001/sites/136c7b9a-4c96-4598-8c10-345944c2f8a7",
 	};
 
 	const component = createComponentWithIntl(
