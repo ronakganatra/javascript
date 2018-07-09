@@ -72,8 +72,8 @@ class Login extends React.Component {
 	handleSubmit( event ) {
 		console.log( "EVENT " );
 		event.preventDefault();
-		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe,  credentials: "same-origin" };
-		let request = prepareInternalRequest( "Customers/login/", "POST", params );
+		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
+		let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
 		doRequest( request )
 			.catch( ( error ) => {
 				this.setState( {
