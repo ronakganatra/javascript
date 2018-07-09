@@ -2,7 +2,9 @@
 
 exports[`the new tab message component matches the snapshot 1`] = `
 .c0 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 <span

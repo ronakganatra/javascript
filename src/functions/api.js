@@ -144,7 +144,7 @@ function handleErrorResponse( response ) {
  * @returns {string} The URL of the API.
  */
 export function getApiUrl() {
-	return getEnv( "API_URL", "http://localhost:3000/api" );
+	return getEnv( "API_URL", "http://my.yoast.test:3000/api" );
 }
 
 /**

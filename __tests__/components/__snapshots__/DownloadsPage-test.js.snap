@@ -757,7 +757,9 @@ exports[`the downloads page component matches the snapshot when there are no dow
 }
 
 .c4 {
-  padding-top: 0.5em;
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c0 {

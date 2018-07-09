@@ -167,7 +167,6 @@ exports[`The login page matches the snapshot 1`] = `
           </a>
         </li>
       </ul>
-      <div />
     </div>
   </div>
 </div>
@@ -340,7 +339,6 @@ exports[`The sign up page matches the snapshot 1`] = `
           </a>
         </li>
       </ul>
-      <div />
     </div>
   </div>
 </div>
