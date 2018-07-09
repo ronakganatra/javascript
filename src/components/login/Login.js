@@ -72,18 +72,9 @@ class Login extends React.Component {
 	handleSubmit( event ) {
 		console.log( "EVENT " );
 		event.preventDefault();
-		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
+		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe,  credentials: "same-origin" };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params );
 		doRequest( request )
-			.then( response => {
-				console.log( "response: ", response );
-				console.log( "JOIN: ", response.cookies.join( " " ) );
-				response.cookies.forEach( ( cookie ) => {
-					document.cookie = cookie;
-				} );
-				// document.cookie = response.cookies.join( " " );
-				// this.handleRedirect( response );
-			} )
 			.catch( ( error ) => {
 				this.setState( {
 					errors: error,
