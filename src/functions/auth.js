@@ -18,10 +18,10 @@ export function fetchAccessToken() {
 		let frame = document.createElement( "iFrame" );
 		frame.onload = () => {
 			if ( frame.contentDocument === null ) {
-				reject();
+				return reject();
 			}
 
-			resolve( getAccessToken() );
+			return resolve( getAccessToken() );
 		};
 		frame.src = getAuthUrl();
 		document.body.appendChild( frame );

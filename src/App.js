@@ -55,7 +55,6 @@ const Routes = ( props ) => {
 			</ConnectedRouter>
 		);
 	}
-
 	if ( props.userEnabled === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
