@@ -193,7 +193,7 @@ class ErrorDisplay extends React.Component {
 
 		let MessageBox = ( this.messageType === "warning" ) ? WarningMessage : ErrorMessage;
 		return(
-			<MessageBox role="alert" iconPadding={ this.iconPadding }>
+			<MessageBox role="alert" iconPadding={ this.iconPadding } className={ this.props.className }>
 				{ errorIcon }
 				{ finalMessage }
 			</MessageBox>
@@ -216,6 +216,7 @@ ErrorDisplay.propTypes = {
 	error: PropTypes.object,
 	type: PropTypes.string,
 	showIcon: PropTypes.bool,
+	className: PropTypes.string,
 };
 
 ErrorDisplay.defaultProps = {

@@ -4,19 +4,17 @@ import userReducer, {
 	userDisableReducer,
 } from "../../src/reducers/user";
 import {
-	login,
 	LOGIN,
 	LOGOUT,
 	FETCH_USER_FAILURE,
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
-	PROFILE_UPDATE_EMAIL,
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_SUCCESS,
 	PROFILE_UPDATE_FAILURE,
-	RESET_PASSWORD_REQUEST,
-	RESET_PASSWORD_SUCCESS,
-	RESET_PASSWORD_FAILURE,
+	PASSWORD_UPDATE_REQUEST,
+	PASSWORD_UPDATE_SUCCESS,
+	PASSWORD_UPDATE_FAILURE,
 	DISABLE_USER_START,
 	DISABLE_USER_SUCCESS,
 	DISABLE_USER_FAILURE,
@@ -241,7 +239,7 @@ describe( 'passwordResetReducer', () => {
 			passwordResetError: { error: "Some other error." },
 		};
 		const action = {
-			type: RESET_PASSWORD_REQUEST,
+			type: PASSWORD_UPDATE_REQUEST,
 		};
 		const expected = {
 			sendingPasswordReset: true,
@@ -261,12 +259,12 @@ describe( 'passwordResetReducer', () => {
 			sendingPasswordReset: true,
 		};
 		const action = {
-			type: RESET_PASSWORD_SUCCESS,
+			type: PASSWORD_UPDATE_SUCCESS,
 		};
 		const expected = {
 			passwordResetError: null,
-			sendPasswordReset: false,
-			sendingPasswordReset: true,
+			sendPasswordReset: true,
+			sendingPasswordReset: false,
 		};
 
 		const actual = passwordResetReducer( input, action );
@@ -281,13 +279,13 @@ describe( 'passwordResetReducer', () => {
 			sendingPasswordReset: true,
 		};
 		const action = {
-			type: RESET_PASSWORD_FAILURE,
+			type: PASSWORD_UPDATE_FAILURE,
 			error: { error: "A password reset failure error." },
 		};
 		const expected = {
-			passwordResetError: null,
+			passwordResetError: { error: "A password reset failure error." },
 			sendPasswordReset: false,
-			sendingPasswordReset: true,
+			sendingPasswordReset: false,
 		};
 
 		const actual = passwordResetReducer( input, action );
