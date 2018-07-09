@@ -24,6 +24,7 @@ export function fetchAccessToken() {
 			return resolve( getAccessToken() );
 		};
 		frame.src = getAuthUrl();
+		frame.style = "display:none; height:1px; width:1px;";
 		document.body.appendChild( frame );
 	} );
 }
