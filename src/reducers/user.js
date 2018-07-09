@@ -7,9 +7,9 @@ import {
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
 	PROFILE_UPDATE_SUCCESS,
-	RESET_PASSWORD_REQUEST,
-	RESET_PASSWORD_FAILURE,
-	RESET_PASSWORD_SUCCESS,
+	PASSWORD_UPDATE_REQUEST,
+	PASSWORD_UPDATE_FAILURE,
+	PASSWORD_UPDATE_SUCCESS,
 	DISABLE_USER_START,
 	DISABLE_USER_FAILURE,
 	DISABLE_USER_SUCCESS,
@@ -148,20 +148,20 @@ export function userEmailReducer( state = initialState, action ) {
  */
 export function passwordResetReducer( state, action ) {
 	switch ( action.type ) {
-		case RESET_PASSWORD_REQUEST:
+		case PASSWORD_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: true,
 				passwordResetError: null,
 				sendPasswordReset: false,
 			} );
 
-		case RESET_PASSWORD_SUCCESS:
+		case PASSWORD_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
 				sendPasswordReset: true,
 			} );
 
-		case RESET_PASSWORD_FAILURE:
+		case PASSWORD_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
 				passwordResetError: action.error,

@@ -64,13 +64,12 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -235,13 +234,12 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -457,13 +455,12 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -660,13 +657,12 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -894,13 +890,12 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -1074,13 +1069,12 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -1245,13 +1239,12 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -1430,13 +1423,12 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -1686,13 +1678,12 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -1936,13 +1927,12 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }

@@ -18,6 +18,7 @@ import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordPage from "./components/login/ResetPasswordPage";
+import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
 import { hasAccessToken } from "./functions/auth";
 
 /*
@@ -68,6 +69,7 @@ const Routes = ( props ) => {
 			<ConnectedRouter history={ props.history }>
 				<Switch>
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) } />
+					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"

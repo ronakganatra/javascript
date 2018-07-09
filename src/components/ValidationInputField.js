@@ -124,7 +124,7 @@ class ValidationInputField extends React.Component {
 		}
 
 		if ( this.props.onChange ) {
-			this.props.onChange( event );
+			this.props.onChange( event, errors );
 		}
 
 		this.setState( {

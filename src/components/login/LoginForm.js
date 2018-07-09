@@ -117,7 +117,7 @@ const LoginForm = ( props ) => {
 			</LabelBlock>
 
 			<ForgotPasswordLink>
-				<a href="">
+				<a href="/resetEmail">
 					<FormattedMessage { ...messages.forgotPassword } />
 				</a>
 			</ForgotPasswordLink>

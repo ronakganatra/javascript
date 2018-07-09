@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import { StyledLabel } from "../../Labels";
 import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
 import _every from "lodash/every";
+import ErrorDisplay from "../../../errors/ErrorDisplay";
 
 const messages = defineMessages( {
 	confirmPassword: {
@@ -19,6 +21,11 @@ const messages = defineMessages( {
 		defaultMessage: "New password",
 	},
 } );
+
+const FullWidthErrorDisplay = styled( ErrorDisplay )`
+	width: 100%;
+	margin-top: 1em;
+`;
 
 /**
  * Returns the rendered PasswordResetForm component.
@@ -40,7 +47,7 @@ class PasswordResetForm extends React.Component {
 		super( props );
 
 		this.state = {
-			currentPassword: this.props.passWord,
+			currentPassword: "",
 			newPassword: "",
 			confirmPassword: "",
 			onDiscard: false,
@@ -51,6 +58,7 @@ class PasswordResetForm extends React.Component {
 		this.onNewPassword = this.onNewPassword.bind( this );
 		this.onConfirmPassword = this.onConfirmPassword.bind( this );
 		this.discardChanges = this.discardChanges.bind( this );
+		this.handleSubmit = this.handleSubmit.bind( this );
 	}
 
 	/**
@@ -79,7 +87,7 @@ class PasswordResetForm extends React.Component {
 	 */
 	discardChanges() {
 		this.setState( {
-			currentPassword: this.props.passWord,
+			currentPassword: "",
 			newPassword: "",
 			confirmPassword: "",
 			onDiscard: true,
@@ -111,7 +119,20 @@ class PasswordResetForm extends React.Component {
 		 };
 		 */
 		// Should be updated when encryption is developed.
-		this.setState( { onDiscard: false } );
+
+		if ( this.props.isSavingPassword ) {
+			return;
+		}
+
+		this.setState( { onDiscard: false }, () => {
+			this.props.onSavePassword( {
+				/* eslint-disable camelcase */
+				password: this.state.newPassword,
+				password_confirmation: this.state.confirmPassword,
+				old_password: this.state.currentPassword,
+				/* eslint-enable camelcase */
+			} );
+		} );
 	}
 
 	componentDidUpdate() {
@@ -140,7 +161,7 @@ class PasswordResetForm extends React.Component {
 					margin-right="5px"
 					id="current-password"
 					name="current password"
-					type="text"
+					type="password"
 					value={ this.state.currentPassword }
 					onChange={ this.onCurrentPassword }
 				/>
@@ -155,7 +176,7 @@ class PasswordResetForm extends React.Component {
 					margin-right="5px"
 					id="new-password"
 					name="new password"
-					type="text"
+					type="password"
 					value={ this.state.newPassword }
 					onChange={ this.onNewPassword }
 				/>
@@ -170,10 +191,11 @@ class PasswordResetForm extends React.Component {
 					margin-right="5px"
 					id="confirm-password"
 					name="confirm password"
-					type="text"
+					type="password"
 					value={ this.state.confirmPassword }
 					onChange={ this.onConfirmPassword }
 				/>
+				<FullWidthErrorDisplay error={ this.props.passwordResetError } />
 				{ getChangeButtons( "password", this.props.intl, this.props.isSavingPassword, this.props.passwordIsSaved, this.discardChanges ) }
 			</FormGroup>
 		);
@@ -185,12 +207,11 @@ PasswordResetForm.propTypes = {
 	onSavePassword: PropTypes.func,
 	isSavingPassword: PropTypes.bool,
 	passwordIsSaved: PropTypes.bool,
-	passWord: PropTypes.string,
+	passwordResetError: PropTypes.object,
 	resetSaveMessage: PropTypes.func,
 };
 
 PasswordResetForm.defaultProps = {
-	passWord: "",
 	isSavingPassword: false,
 	passwordIsSaved: false,
 };

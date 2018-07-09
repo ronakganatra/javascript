@@ -290,7 +290,7 @@ export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
 	padding: 12px 16px;
-	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };;
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
