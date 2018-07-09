@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	directToIntendedDestination, fetchAccessToken,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, getUserId,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -14,6 +14,7 @@ import { addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
+import { fetchUser, login } from "./actions/user";
 
 let history = createHistory();
 
@@ -51,6 +52,12 @@ function app() {
 	let myYoastLoggedIn = false;
 
 	fetchAccessToken()
+		.then( token => {
+			if ( token !== "" ) {
+				store.dispatch( login( token, getUserId() ) );
+				store.dispatch( fetchUser( getUserId() ) );
+			}
+		} )
 		.catch( function() {
 			if ( myYoastLoggedIn ) {
 				document.location.href = getAuthUrl();
