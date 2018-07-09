@@ -59,6 +59,10 @@ export function getAuthUrl() {
 	return getEnv( "AUTH_URL", "http://my.yoast.test:3000/auth/yoast" );
 }
 
+export function redirectToAuthUrl(){
+	document.location.href = getAuthUrl();
+}
+
 /**
  * Sets the intendedDestination in the site-wide cookie containing the URL where the user intended to go.
  *

@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	directToIntendedDestination,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, authenticate,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, authenticate, redirectToAuthUrl,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -53,7 +53,7 @@ function app() {
 	authenticate()
 		.catch( function() {
 			if ( myYoastLoggedIn ) {
-				document.location.href = getAuthUrl();
+				redirectToAuthUrl();
 			}
 		} )
 		.finally( function() {

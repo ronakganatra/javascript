@@ -7,8 +7,9 @@ import Cookies from "js-cookie";
 import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
 import {
+	authenticate,
 	getAccessToken,
-	getAuthUrl, getUserId, hasCookieParams, setCookieFromParams,
+	getAuthUrl, getUserId, hasCookieParams, redirectToAuthUrl, setCookieFromParams,
 } from "../../functions/auth";
 import { store } from "../../index";
 import { fetchUser, login } from "../../actions/user";
@@ -75,6 +76,16 @@ class Login extends React.Component {
 		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
 		doRequest( request )
+			.then( () => {
+					authenticate()
+						.then( () => {
+							// redirect to home.
+						} )
+						.catch( () => {
+							redirectToAuthUrl();
+						} )
+				}
+			)
 			.catch( ( error ) => {
 				this.setState( {
 					errors: error,
