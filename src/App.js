@@ -8,7 +8,7 @@ import { injectGlobal } from "styled-components";
 import { IntlProvider } from "react-intl";
 import { Provider, connect } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
 import { inMainLayout, inSingleLayout, inLoginLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
@@ -68,6 +68,8 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
+					<Route exact path="/login" render={ () => <Redirect to={ "/" } /> } />
+					<Route exact path="/signup" render={ () => <Redirect to={ "/" } /> } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) } />
 					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
