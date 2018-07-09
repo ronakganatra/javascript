@@ -68,8 +68,8 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/login" render={ () => <Redirect to={ "/" } /> } />
-					<Route exact path="/signup" render={ () => <Redirect to={ "/" } /> } />
+					<Route exact path="/login" component={ <Redirect to={ "/" } /> } />
+					<Route exact path="/signup" component={ <Redirect to={ "/" } /> } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) } />
 					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
