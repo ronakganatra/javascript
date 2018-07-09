@@ -2,7 +2,28 @@ import Cookies from "js-cookie";
 import getEnv from "./getEnv";
 import _defaultTo from "lodash/defaultTo";
 import url from "url";
+import { fetchUser, login } from "../actions/user";
+import { store } from "../index";
 
+
+/**
+ * @returns {Object} A promise the user id.
+ */
+export function authenticate() {
+	return new Promise( ( resolve, reject ) => {
+		fetchAccessToken()
+			.then( token => {
+				if ( token !== "" ) {
+					store.dispatch( login( token, getUserId() ) );
+					store.dispatch( fetchUser( getUserId() ) );
+					resolve( getUserId() );
+				}
+			} )
+			.catch( error => {
+				reject( error );
+			} );
+	} );
+}
 
 /**
  *

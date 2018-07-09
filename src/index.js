@@ -5,8 +5,8 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
-	directToIntendedDestination, fetchAccessToken,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, getUserId,
+	directToIntendedDestination,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, authenticate,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -14,7 +14,6 @@ import { addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
-import { fetchUser, login } from "./actions/user";
 
 let history = createHistory();
 
@@ -51,13 +50,7 @@ function app() {
 	// todo Fix this.
 	let myYoastLoggedIn = false;
 
-	fetchAccessToken()
-		.then( token => {
-			if ( token !== "" ) {
-				store.dispatch( login( token, getUserId() ) );
-				store.dispatch( fetchUser( getUserId() ) );
-			}
-		} )
+	authenticate()
 		.catch( function() {
 			if ( myYoastLoggedIn ) {
 				document.location.href = getAuthUrl();
