@@ -3,6 +3,31 @@ import getEnv from "./getEnv";
 import _defaultTo from "lodash/defaultTo";
 import url from "url";
 
+
+/**
+ *
+ *
+ * @returns {Object} A promise containing the access token.
+ */
+export function fetchAccessToken() {
+	return new Promise( ( resolve, reject ) => {
+		if ( hasAccessToken() ) {
+			return resolve( getAccessToken() );
+		}
+
+		let frame = document.createElement( "iFrame" );
+		frame.onload = () => {
+			if ( frame.contentDocument === null ) {
+				reject();
+			}
+
+			resolve( getAccessToken() );
+		};
+		frame.src = getAuthUrl();
+		document.body.appendChild( frame );
+	} );
+}
+
 /**
  * Returns the auth URL where the user can authenticate themselves.
  *
@@ -36,7 +61,7 @@ export function removePeriLoginCookie() {
  * @returns {boolean} Whether or not a user should be redirected.
  */
 export function shouldBeRedirected() {
-	return !! Cookies.get( "intendedDestination" );
+	return ! ! Cookies.get( "intendedDestination" );
 }
 
 /**
@@ -83,7 +108,7 @@ export function removeCookieSignage( cookie ) {
  * @returns {boolean} Whether or not an access token is available.
  */
 export function hasAccessToken() {
-	return !! Cookies.get( "access_token" );
+	return ! ! Cookies.get( "access_token" );
 }
 
 /**

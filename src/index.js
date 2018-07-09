@@ -4,8 +4,10 @@ import App from "./App";
 import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
-import { directToIntendedDestination,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams } from "./functions/auth";
+import {
+	directToIntendedDestination, fetchAccessToken,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl,
+} from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
 import { addLocaleData } from "react-intl";
@@ -24,7 +26,7 @@ let middleware = [
 	routerMiddleware( history ),
 ];
 
-if( process.env.NODE_ENV === "development" ) {
+if ( process.env.NODE_ENV === "development" ) {
 	middleware.push( createLogger() );
 }
 
@@ -45,10 +47,21 @@ function app() {
 		setCookieFromParams();
 	}
 
-	ReactDOM.render(
-		<App store={ store } history={ history }/>,
-		document.getElementById( "root" )
-	);
+	// todo Fix this.
+	let myYoastLoggedIn = false;
+
+	fetchAccessToken()
+		.catch( function() {
+			if ( myYoastLoggedIn ) {
+				document.location.href = getAuthUrl();
+			}
+		} )
+		.finally( function() {
+			ReactDOM.render(
+				<App store={store} history={history}/>,
+				document.getElementById( "root" )
+			);
+		} );
 }
 
 if ( shouldBeRedirected() ) {
