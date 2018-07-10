@@ -50,7 +50,7 @@ function app() {
 		setCookieFromParams();
 	}
 
-	authenticate()
+	authenticate( store.dispatch )
 		.catch( function() {
 			if ( hasWPCookie() ) {
 				redirectToOAuthUrl();

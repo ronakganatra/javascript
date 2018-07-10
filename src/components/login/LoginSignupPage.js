@@ -5,7 +5,7 @@ import { defineMessages, injectIntl } from "react-intl";
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
 import LoginMessage from "./LoginMessage";
-import Login from "./Login";
+import Login from "../../containers/Login";
 import Signup from "./Signup";
 import SubNavigation, { SubNavigationItem } from "../SubNavigation";
 

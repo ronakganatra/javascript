@@ -1,15 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { intlShape, injectIntl } from "react-intl";
-import { prepareInternalRequest, doRequest } from "../../functions/api";
-import {
-	authenticate,
-	directToIntendedDestination,
-	hasWPCookie,
-	redirectToOAuthUrl,
-	shouldBeRedirected,
-} from "../../functions/auth";
-import getEnv from "../../functions/getEnv";
 
 // Components.
 import LoginForm from "./LoginForm";
@@ -30,8 +21,8 @@ class Login extends React.Component {
 			rememberMe: false,
 		};
 
-		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
+		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
 	}
@@ -63,39 +54,16 @@ class Login extends React.Component {
 	}
 
 	/**
-	 * Opens the door to the treasures of MyYoast,
-	 * if their credentials are correctly filled in.
-	 * @param {Object} event The event
-	 * @returns {Object} request The Request
+	 * Handles the login submit by attempting a login.
+	 *
+	 * @param {Object} event The event.
+	 *
+	 * @returns {void}
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
-		let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
-		doRequest( request )
-			.then( () => {
-				authenticate()
-					.then( () => {
-						// Redirect to the homepage or where the user intended to go.
-						if ( shouldBeRedirected() ) {
-							directToIntendedDestination();
-						} else {
-							document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
-						}
-					} )
-					.catch( () => {
-						// If the user has already logged in on WordPress, but the OAuth authentication fails, redirect to OAuth manually.
-						if ( hasWPCookie() ) {
-							redirectToOAuthUrl();
-						}
-						// Else, don't do anything while the user fills out the login/signup forms.
-					} );
-			} )
-			.catch( ( error ) => {
-				this.setState( {
-					errors: error,
-				} );
-			} );
+		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
+		this.props.attemptLogin( data );
 	}
 
 	render() {
@@ -116,6 +84,7 @@ class Login extends React.Component {
 Login.propTypes = {
 	intl: intlShape.isRequired,
 	errors: PropTypes.object,
+	attemptLogin: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {
