@@ -4,9 +4,14 @@ import { intlShape, injectIntl } from "react-intl";
 
 // Components.
 import LoginForm from "./LoginForm";
-import { directToIntendedDestination, hasWPCookie, redirectToOAuthUrl, shouldBeRedirected } from "../../functions/auth";
+import {
+	directToIntendedDestination,
+	hasAccessToken,
+	hasWPCookie,
+	redirectToOAuthUrl,
+	shouldBeRedirected
+} from "../../functions/auth";
 import getEnv from "../../functions/getEnv";
-import { hasAccessToken } from "../../../../manage/src/functions/auth";
 
 
 /**

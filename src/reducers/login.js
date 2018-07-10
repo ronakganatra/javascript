@@ -26,7 +26,7 @@ const rootState = {
  * @param {Object} action The current action received.
  * @returns {Object} The updated Orders object.
  */
-export function uiLoginReducer( state = rootState.ui.newsletter, action ) {
+export function uiLoginReducer( state = rootState.ui.login, action ) {
 	switch ( action.type ) {
 		case LOGIN_SUCCESS:
 			return Object.assign( {}, state, {
