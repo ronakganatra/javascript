@@ -5,8 +5,6 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
-	directToIntendedDestination,
-	shouldBeRedirected,
 	hasCookieParams,
 	setCookieFromParams,
 	authenticate,
@@ -70,19 +68,15 @@ function app() {
 		} );
 }
 
-if ( shouldBeRedirected() ) {
-	directToIntendedDestination();
+if ( global.Intl ) {
+	app();
 } else {
-	if ( global.Intl ) {
-		app();
-	} else {
-		require.ensure(
-			[ "intl", "intl/locale-data/jsonp/en.js" ],
-			require => {
-				require( "intl" );
-				require( "intl/locale-data/jsonp/en.js" );
-				app();
-			}
-		);
-	}
+	require.ensure(
+		[ "intl", "intl/locale-data/jsonp/en.js" ],
+		require => {
+			require( "intl" );
+			require( "intl/locale-data/jsonp/en.js" );
+			app();
+		}
+	);
 }

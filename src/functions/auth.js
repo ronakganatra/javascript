@@ -92,7 +92,6 @@ export function redirectToOAuthUrl() {
  * @returns {void}
  */
 export function setPeriLoginCookie() {
-	console.log( "cookie should be set!", window.location.href  );
 	if ( shouldBeRedirected() === false ) {
 		Cookies.set( "intendedDestination", window.location.href );
 	}
