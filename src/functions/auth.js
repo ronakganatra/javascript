@@ -87,22 +87,13 @@ export function redirectToOAuthUrl() {
 }
 
 /**
- * Redirects to the MyYoast login URL.
- *
- * @returns {void}
- */
-export function redirectToLoginUrl() {
-	setPeriLoginCookie();
-	document.location.href = getLoginUrl();
-}
-
-/**
  * Sets the intendedDestination in the site-wide cookie containing the URL where the user intended to go.
  *
  * @returns {void}
  */
 export function setPeriLoginCookie() {
-	if ( shouldBeRedirected === false ) {
+	console.log( "cookie should be set!", window.location.href  );
+	if ( shouldBeRedirected() === false ) {
 		Cookies.set( "intendedDestination", window.location.href );
 	}
 }
@@ -122,7 +113,7 @@ export function removePeriLoginCookie() {
  * @returns {boolean} Whether or not a user should be redirected.
  */
 export function shouldBeRedirected() {
-	return ! ! Cookies.get( "intendedDestination" );
+	return !! Cookies.get( "intendedDestination" );
 }
 
 /**
@@ -133,15 +124,6 @@ export function shouldBeRedirected() {
 export function directToIntendedDestination() {
 	window.location.href = Cookies.get( "intendedDestination" );
 	removePeriLoginCookie();
-}
-
-/**
- * Returns the url of the MyYoast login page.
- *
- * @returns {string} The URL of the MyYoast login page.
- */
-export function getLoginUrl() {
-	return getEnv( "LOGIN_URL", "http://my.yoast.test:3001/login" );
 }
 
 /**

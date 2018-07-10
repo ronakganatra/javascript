@@ -19,7 +19,7 @@ import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordPage from "./components/login/ResetPasswordPage";
 import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
-import { hasAccessToken } from "./functions/auth";
+import { hasAccessToken, removePeriLoginCookie, setPeriLoginCookie } from "./functions/auth";
 
 /*
  * Helper method to write global CSS.
@@ -55,7 +55,11 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
-					<Route path="*" render={ () => <Redirect to={ "/login" } /> } />
+					<Route path="*" render={ () => {
+						removePeriLoginCookie();
+						setPeriLoginCookie();
+						return ( <Redirect to={"/login"}/> );
+					} }/>
 				</Switch>
 			</ConnectedRouter>
 		);
