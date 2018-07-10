@@ -163,7 +163,7 @@ class Login extends React.Component {
 				</LabelBlock>
 
 				<ForgotPasswordLink>
-					<a href="">
+					<a href="/resetEmail">
 						<FormattedMessage { ...messages.forgotPassword } />
 					</a>
 				</ForgotPasswordLink>

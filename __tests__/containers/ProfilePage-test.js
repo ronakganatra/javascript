@@ -50,8 +50,6 @@ test( 'the mapStateToProps function', () => {
 		isSaved: false,
 		isSaving: false,
 		isDeleting: false,
-		isSendingPasswordReset: false,
-		hasSendPasswordReset: false,
 		isSavingPassword: false,
 		passwordIsSaved: false,
 		passwordResetError: "Password reset error",

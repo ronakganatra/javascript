@@ -416,6 +416,7 @@ ProfilePage.propTypes = {
 	passwordIsSaved: PropTypes.bool,
 	passWord: PropTypes.string,
 	resetSaveMessage: PropTypes.func,
+	passwordResetError: PropTypes.object,
 
 	// Composer tokens
 	onCreateTokenModalOpen: PropTypes.func.isRequired,

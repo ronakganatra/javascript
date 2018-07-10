@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import Link from "./Link";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
-import { CloseButtonTopRight } from "./Button";
 import Cookies from "js-cookie";
+import Link from "./Link";
+import { CloseButtonTopRight } from "./Button";
+import NewTabMessage from "../components/NewTabMessage";
 
 const messages = defineMessages( {
 	description: {
@@ -14,6 +15,10 @@ const messages = defineMessages( {
 	cta: {
 		id: "licenseactivation.CTA",
 		defaultMessage: "Learn how to activate a plugin on your website »",
+	},
+	dismiss: {
+		id: "licenseactivation.close",
+		defaultMessage: "Dismiss message",
 	},
 } );
 
@@ -79,13 +84,21 @@ class LicenseActivationMessage extends React.Component {
 		return (
 			<MessageContainer>
 				<div>
-					<CloseButtonTopRight onClick={ this.onCrossClick }/>
+					<CloseButtonTopRight
+						onClick={ this.onCrossClick }
+						aria-label={ this.props.intl.formatMessage( messages.dismiss ) }
+					/>
 				</div>
 				<p>
 					{ this.props.intl.formatMessage( messages.description ) }
 					<br/>
-					<MessageLink to="https://yoa.st/kb-activate-plugin"
-					             linkTarget="_blank">{ this.props.intl.formatMessage( messages.cta ) }</MessageLink>
+					<MessageLink
+						to="https://yoa.st/kb-activate-plugin"
+						linkTarget="_blank"
+					>
+						{ this.props.intl.formatMessage( messages.cta ) }
+						<NewTabMessage />
+					</MessageLink>
 				</p>
 			</MessageContainer>
 		);

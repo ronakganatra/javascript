@@ -710,7 +710,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -727,7 +727,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -744,7 +744,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -1488,7 +1488,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -1505,7 +1505,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -1522,7 +1522,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -2230,7 +2230,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -2247,7 +2247,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -2264,7 +2264,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -2413,13 +2413,13 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   min-width: 152px;
 }
 
-.c29 {
+.c34 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c35 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2442,7 +2442,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c35 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2455,7 +2455,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c36 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2464,6 +2464,43 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
+}
+
+.c31 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c30 {
+  background-color: #f9bdbd;
+}
+
+.c32 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c33 {
+  color: #5d237a;
 }
 
 .c17 {
@@ -2624,6 +2661,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin-bottom: 1em;
 }
 
+.c29 {
+  width: 100%;
+  margin-top: 1em;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2667,22 +2709,31 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c35 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c35 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c35 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800 ) {
+  .c31 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
   }
 }
 
@@ -2972,7 +3023,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -2989,7 +3040,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -3006,10 +3057,31 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
+          <div
+            className="c29 c30 c31"
+            role="alert"
+          >
+            <span
+              alt="Error sign"
+              className="c32"
+            />
+            <span>
+              Oops, something went wrong on our end, please try again. If this keeps happening, 
+              <a
+                className="c33"
+                href="mailto:support@yoast.com"
+              >
+                <span>
+                  please contact support
+                </span>
+              </a>
+              .
+            </span>
+          </div>
           <div
             className="c20"
           >
@@ -3043,16 +3115,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c34"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c35"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c36"
             fontSize={1.4}
           >
             Danger zone
@@ -3781,7 +3853,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -3798,7 +3870,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -3815,7 +3887,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -4523,7 +4595,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -4540,7 +4612,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -4557,7 +4629,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -5265,7 +5337,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -5282,7 +5354,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -5299,7 +5371,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6007,7 +6079,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6024,7 +6096,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6041,7 +6113,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6749,7 +6821,7 @@ exports[`components/ProfilePage the default case 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6766,7 +6838,7 @@ exports[`components/ProfilePage the default case 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -6783,7 +6855,7 @@ exports[`components/ProfilePage the default case 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -7491,7 +7563,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             id="current-password"
             name="current password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -7508,7 +7580,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             id="new-password"
             name="new password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />
@@ -7525,7 +7597,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             id="confirm-password"
             name="confirm password"
             onChange={[Function]}
-            type="text"
+            type="password"
             value=""
             width="100%"
           />

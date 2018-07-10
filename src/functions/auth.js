@@ -9,7 +9,7 @@ import url from "url";
  * @returns {string} The URL where the user can authenticate.
  */
 export function getAuthUrl() {
-	return getEnv( "AUTH_URL", "http://localhost:3000/auth/yoast" );
+	return getEnv( "AUTH_URL", "http://my.yoast.test:3000/auth/yoast" );
 }
 
 /**

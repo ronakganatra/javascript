@@ -1,14 +1,23 @@
 import React from "react";
-import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
+import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import { ListTable } from "./Tables";
-import { Paper } from "./PaperStyles";
-import _groupBy from "lodash/groupBy";
-import isEmpty from "lodash/isEmpty";
-import NoResults from "./NoResults";
-import noSitesImage from "./../images/noSites.svg";
-import CourseProgress from "./courses/progress/CourseProgress";
+import { doRequest, prepareInternalRequest } from "../functions/api";
+import styled from "styled-components";
+
+import CourseCard from "./courses/CourseCard";
+import MyYoastModal from "./MyYoastModal";
+import CourseInvite from "./CourseInvite";
+
+const OuterContainer = styled.ul`
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 288px);
+	grid-column-gap: 16px;
+	grid-row-gap: 16px;
+	justify-content: center;
+	align-items: flex-start;
+	padding: 0;
+`;
 
 const messages = defineMessages( {
 	coursesPageLoaded: {
@@ -26,15 +35,25 @@ class CoursesProgress extends React.Component {
 	/**
 	 * Sets the CoursesProgress object.
 	 *
+	 * @param {object} props the properties of the component
 	 * @returns {void}
 	 */
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
+
+		this.state = {
+			modalOpen: false,
+			email: "",
+			confirmationEmail: "",
+		};
+
+		this.sendInvite = this.sendInvite.bind( this );
+		this.closeModal = this.closeModal.bind( this );
+		this.openModal = this.openModal.bind( this );
 	}
 
 	componentDidMount() {
-		this.props.loadCourses();
-		this.props.loadCoursesEnrollments();
+		this.props.loadData();
 
 		// Announce navigation to assistive technologies.
 		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -42,61 +61,113 @@ class CoursesProgress extends React.Component {
 	}
 
 	/**
-	 * Returns a view to show when there are no courses to show.
+	 * Sets the given field in the state to the given value.
 	 *
-	 * @returns {Object} The element to render.
+	 * @param {string} field the field to overwrite
+	 * @param {*} value the value to store
+	 * @returns {void}
 	 */
-	static renderNoResults() {
-		let paragraphs = [
-			<FormattedMessage id="courses.noCourseProgress.welcome" defaultMessage="Welcome to the Course Progress overview." />,
-			<FormattedMessage id="courses.noCourseProgress.start" defaultMessage="Here you can quickly start or continue any Yoast Academy courses you are enrolled in." />,
-			<FormattedMessage id="courses.noCourseProgress.visitShop" defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
-		];
-
-		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url" imageSource={ noSitesImage } />;
+	setField( field, value ) {
+		this.setState( {
+			[ field ]: value,
+		} );
 	}
 
-	render() {
-		let { courses, coursesEnrollments } = this.props;
-		let allEnrollments = _groupBy( coursesEnrollments, "courseId" );
+	/**
+	 * Opens the invite student modal.
+	 * @param {string} availableEnrollment the available enrollment to use.
+	 * @returns {void}
+	 */
+	openModal( availableEnrollment ) {
+		this.setState( {
+			modalOpen: true,
+			availableEnrollment,
+		} );
+	}
 
-		if ( isEmpty( allEnrollments ) ) {
-			return CoursesProgress.renderNoResults();
-		}
+	/**
+	 * Closes the invite student modal.
+	 *
+	 * @returns {void}
+	 */
+	closeModal() {
+		this.setState( {
+			modalOpen: false,
+			courseInviteError: null,
+		} );
+	}
 
-		courses = courses.filter( ( course ) => {
-			return ! isEmpty( allEnrollments[ course.id ] );
+	/**
+	 * Sends an invite to join the course to the email address as
+	 * written in the state.
+	 *
+	 * @returns {Promise} the promise made after sending the invite through the server
+	 */
+	sendInvite() {
+		let request = prepareInternalRequest(
+			`CourseEnrollments/${this.state.availableEnrollment.id}/invite/`,
+			"POST",
+			{ email: this.state.email } );
+
+		return doRequest( request )
+			.then( () => {
+				this.props.loadData();
+				this.closeModal();
+			} )
+			.catch( error => {
+				this.setField( "courseInviteError", error );
+			} );
+	}
+
+	/**
+	 * Returns the invite student modal component.
+	 *
+	 * @param {boolean} open if the modal should be open or not.
+	 * @returns {React.Component} the modal
+	 */
+	getInviteModal( open ) {
+		const modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.invite",
+			defaultMessage: "Send course invite",
 		} );
 
 		return (
-			<Paper>
-				<ListTable>
-					{ courses.map( ( course ) => {
-						let enrollments = allEnrollments[ course.id ] || [];
+			<MyYoastModal
+				isOpen={ open }
+				onClose={ this.closeModal }
+				modalAriaLabel={ modalAriaLabel }
+			>
+				<CourseInvite
+					inviteStudentEmail={ this.state.email }
+					inviteStudentEmailConfirmation={ this.state.confirmationEmail }
 
-						return(
-							<CourseProgress
-								key={ course.id }
-								course={ course }
-								courseEnrollments={ enrollments }
-								intl={ this.props.intl }
-								background={ this.props.background }
-							/>
-						);
-					} ) }
-				</ListTable>
-			</Paper>
+					onStudentEmailChange={ value => this.setField( "email", value ) }
+					onStudentEmailConfirmationChange={ value => this.setField( "confirmationEmail", value ) }
+
+					onCancelClick={ this.closeModal }
+					onInviteClick={ this.sendInvite }
+
+					courseInviteError={ this.state.courseInviteError }
+				/>
+			</MyYoastModal>
+		);
+	}
+
+	render() {
+		return (
+			<OuterContainer>
+				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course }
+																	   onAssignModalOpen={ this.openModal } /> ) }
+				{ this.getInviteModal( this.state.modalOpen ) }
+			</OuterContainer>
 		);
 	}
 }
 
 CoursesProgress.propTypes = {
 	intl: intlShape.isRequired,
-	coursesEnrollments: PropTypes.array,
 	courses: PropTypes.array,
-	loadCourses: PropTypes.func,
-	loadCoursesEnrollments: PropTypes.func,
-	background: PropTypes.string,
+	loadData: PropTypes.func,
 };
 
 export default injectIntl( CoursesProgress );
