@@ -10,7 +10,7 @@ const rootState = {
 	ui: {
 		login: {
 			loading: false,
-			error: "",
+			error: null,
 		},
 	},
 };
@@ -31,7 +31,7 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 		case LOGIN_SUCCESS:
 			return Object.assign( {}, state, {
 				loading: false,
-				error: "",
+				error: null,
 			} );
 		case LOGIN_FAILURE:
 			return Object.assign( {}, state, {

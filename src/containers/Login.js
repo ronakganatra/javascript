@@ -3,7 +3,9 @@ import Login from "../components/login/Login";
 import { loginRequest } from "../actions/login";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	return state.login;
+	console.log( state.ui.login );
+	console.log( Object.assign( {}, state.ui.login ) );
+	return Object.assign( {}, state.ui.login );
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {

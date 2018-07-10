@@ -7,9 +7,6 @@ import rootReducer from "./reducers";
 import {
 	hasCookieParams,
 	setCookieFromParams,
-	authenticate,
-	redirectToOAuthUrl,
-	hasWPCookie,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -50,22 +47,10 @@ function app() {
 		setCookieFromParams();
 	}
 
-	authenticate( store.dispatch )
-		.catch( function() {
-			if ( hasWPCookie() ) {
-				redirectToOAuthUrl();
-			}
-		} )
-		.finally( function() {
-			/*
-			 * Always render the App, regardless of the user being logged in. When the use is not logged in,
-			 * the App will only register the login and signup routes.
-			 */
-			ReactDOM.render(
-				<App store={store} history={history}/>,
-				document.getElementById( "root" )
-			);
-		} );
+	ReactDOM.render(
+		<App store={store} history={history}/>,
+		document.getElementById( "root" )
+	);
 }
 
 if ( global.Intl ) {

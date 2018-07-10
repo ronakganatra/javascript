@@ -9,7 +9,7 @@ import {
 	hasAccessToken,
 	hasWPCookie,
 	redirectToOAuthUrl,
-	shouldBeRedirected
+	shouldBeRedirected,
 } from "../../functions/auth";
 import getEnv from "../../functions/getEnv";
 
@@ -75,15 +75,19 @@ class Login extends React.Component {
 
 	shouldComponentUpdate() {
 		if ( this.props.oauthError && hasWPCookie() ) {
-			 return redirectToOAuthUrl();
+			redirectToOAuthUrl();
+			return false;
 		}
 		if ( hasWPCookie() && hasAccessToken() ) {
 			if ( shouldBeRedirected() ) {
 				directToIntendedDestination();
-			} else {
-				document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
+				return false;
 			}
+			document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
+			return false;
 		}
+
+		return true;
 	}
 
 	render() {
@@ -92,7 +96,7 @@ class Login extends React.Component {
 			           email={this.state.email}
 			           password={this.state.password}
 			           errors={this.props.error}
-					   loading={this.props.loading}
+			           loading={this.props.loading}
 			           onUpdateEmail={this.onUpdateEmail}
 			           onUpdatePassword={this.onUpdatePassword}
 			           onRememberCheck={this.onRememberCheck}

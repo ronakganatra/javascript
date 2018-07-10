@@ -85,10 +85,12 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
+	console.log( props );
+	let loader = props.loading ? <h1>I AM A HAPPY LOADING FORM</h1> : null;
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
 			<ErrorDisplay error={ props.errors } />
-
+			{loader}
 			<LabelBlock>
 				<Label htmlFor="email-address">
 					<FormattedMessage { ...messages.labelEmail } />
@@ -148,6 +150,7 @@ LoginForm.propTypes = {
 	onUpdatePassword: PropTypes.func,
 	onRememberCheck: PropTypes.func,
 	handleSubmit: PropTypes.func,
+	loading: PropTypes.bool,
 };
 
 LoginForm.defaultProps = {
@@ -155,6 +158,7 @@ LoginForm.defaultProps = {
 	email: "",
 	password: "",
 	errors: null,
+	loading: false,
 };
 
 export default injectIntl( LoginForm );
