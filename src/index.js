@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	directToIntendedDestination,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, getAuthUrl, authenticate, redirectToAuthUrl,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, authenticate, redirectToAuthUrl, findWPCookie,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -47,12 +47,11 @@ function app() {
 		setCookieFromParams();
 	}
 
-	// todo Fix this.
-	let myYoastLoggedIn = false;
+	let wpLoggedIn = findWPCookie();
 
 	authenticate()
 		.catch( function() {
-			if ( myYoastLoggedIn ) {
+			if ( wpLoggedIn ) {
 				redirectToAuthUrl();
 			}
 		} )

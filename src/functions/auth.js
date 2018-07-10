@@ -51,6 +51,19 @@ export function fetchAccessToken() {
 }
 
 /**
+ *
+ * @returns {boolean} If the wordpress_logged_in cookie was found or not.
+ */
+export function findWPCookie() {
+	let searchString = new RegExp( "wordpress_logged_in_.*" );
+	let foundCookie = false;
+	if ( Cookies.get( searchString ) ) {
+		foundCookie = true;
+	}
+	return foundCookie;
+}
+
+/**
  * Returns the auth URL where the user can authenticate themselves.
  *
  * @returns {string} The URL where the user can authenticate.
@@ -59,7 +72,12 @@ export function getAuthUrl() {
 	return getEnv( "AUTH_URL", "http://my.yoast.test:3000/auth/yoast" );
 }
 
-export function redirectToAuthUrl(){
+/**
+ * Redirects to the authentication URL.
+ *
+ * @returns {void}
+ */
+export function redirectToAuthUrl() {
 	document.location.href = getAuthUrl();
 }
 

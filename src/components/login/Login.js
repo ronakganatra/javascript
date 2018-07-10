@@ -77,15 +77,14 @@ class Login extends React.Component {
 		let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
 		doRequest( request )
 			.then( () => {
-					authenticate()
-						.then( () => {
-							// redirect to home.
-						} )
-						.catch( () => {
-							redirectToAuthUrl();
-						} )
-				}
-			)
+				authenticate()
+					.then( () => {
+						// redirect to home.
+					} )
+					.catch( () => {
+						redirectToAuthUrl();
+					} );
+			} )
 			.catch( ( error ) => {
 				this.setState( {
 					errors: error,
@@ -107,7 +106,7 @@ class Login extends React.Component {
 	}
 
 	findWPCookie() {
-		let searchString = new RegExp( "wordpress_logeed_in_.*" );
+		let searchString = new RegExp( "wordpress_logged_in_.*" );
 		let allCookies = Cookies.get();
 		console.log( "All cookies: ", allCookies );
 		// allCookies.filter( ( ))
