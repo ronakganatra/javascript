@@ -28,6 +28,10 @@ const Logos = styled.img`
 	width: 360px;
 `;
 
+const Message = styled.p`
+	padding: 0 2em;
+`;
+
 /**
  * A card representing a message in a login screen,
  * e.g. "Welcome back!", "Password changed".
@@ -69,9 +73,9 @@ class LoginMessage extends React.Component {
 	 */
 	renderParagraph() {
 		return (
-			<p>
+			<Message>
 				<FormattedMessage { ...this.props.message } />
-			</p>
+			</Message>
 		);
 	}
 
