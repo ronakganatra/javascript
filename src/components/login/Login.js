@@ -1,9 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { intlShape, injectIntl } from "react-intl";
-
-// Components.
-import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
 import {
 	authenticate,
@@ -13,6 +10,9 @@ import {
 	shouldBeRedirected,
 } from "../../functions/auth";
 import getEnv from "../../functions/getEnv";
+
+// Components.
+import LoginForm from "./LoginForm";
 
 
 /**
