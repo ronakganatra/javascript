@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "../src/reducers";
 import renderer from 'react-test-renderer';
 import thunkMiddleware from "redux-thunk";
+import createHistory from "history/createMemoryHistory";
 
 jest.mock( "whatwg-fetch" );
 
@@ -12,10 +13,10 @@ it( "renders without crashing", () => {
 		rootReducer,
 		applyMiddleware( thunkMiddleware )
 	);
-	const history = {};
+	const history = createHistory();
 
 	const component = renderer.create(
-		<App store={store} />
+		<App store={store} history={history} />
 	);
 
 	let tree = component.toJSON();
