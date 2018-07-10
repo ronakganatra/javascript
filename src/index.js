@@ -54,6 +54,10 @@ function app() {
 			}
 		} )
 		.finally( function() {
+			/*
+			 * Always render the App, regardless of the user being logged in. When the use is not logged in,
+			 * the App will only register the login and signup routes.
+			 */
 			ReactDOM.render(
 				<App store={store} history={history}/>,
 				document.getElementById( "root" )
