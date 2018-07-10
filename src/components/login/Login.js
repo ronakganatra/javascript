@@ -1,18 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { intlShape, injectIntl } from "react-intl";
-import Cookies from "js-cookie";
 
 // Components.
 import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
-import {
-	authenticate,
-	getAccessToken,
-	getAuthUrl, getUserId, hasCookieParams, redirectToAuthUrl, setCookieFromParams,
-} from "../../functions/auth";
-import { store } from "../../index";
-import { fetchUser, login } from "../../actions/user";
+import { authenticate, redirectToAuthUrl } from "../../functions/auth";
 
 
 /**
@@ -29,10 +22,8 @@ class Login extends React.Component {
 			errors: this.props.errors,
 			rememberMe: false,
 		};
-		console.log( "STATE: ", this.state );
 
 		this.handleSubmit = this.handleSubmit.bind( this );
-		this.handleRedirect = this.handleRedirect.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
@@ -71,7 +62,6 @@ class Login extends React.Component {
 	 * @returns {Object} request The Request
 	 */
 	handleSubmit( event ) {
-		console.log( "EVENT " );
 		event.preventDefault();
 		let params = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
@@ -79,7 +69,7 @@ class Login extends React.Component {
 			.then( () => {
 				authenticate()
 					.then( () => {
-						// redirect to home.
+						// Redirect to home.
 					} )
 					.catch( () => {
 						redirectToAuthUrl();
@@ -90,29 +80,6 @@ class Login extends React.Component {
 					errors: error,
 				} );
 			} );
-	}
-
-	handleRedirect( serverResponse ) {
-		console.log( "Cookie WP: ", Cookies.get( "wordpress_logged_in_.*" ) );
-		if ( hasCookieParams() ) {
-			setCookieFromParams();
-		}
-		this.findWPCookie();
-		console.log( "has access token" );
-		store.dispatch( login( getAccessToken(), getUserId() ) );
-		store.dispatch( fetchUser( getUserId() ) );
-
-		document.location.href = getAuthUrl();
-	}
-
-	findWPCookie() {
-		let searchString = new RegExp( "wordpress_logged_in_.*" );
-		let allCookies = Cookies.get();
-		console.log( "All cookies: ", allCookies );
-		// allCookies.filter( ( ))
-		return (
-			Cookies.get( searchString )
-		);
 	}
 
 	render() {

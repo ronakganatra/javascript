@@ -85,7 +85,6 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
-	console.log( "PROPS: ", props );
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
 			<ErrorDisplay error={ props.errors } />
