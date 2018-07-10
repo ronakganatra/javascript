@@ -18,6 +18,10 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
   width: 360px;
 }
 
+.c5 {
+  padding: 0 2em;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -57,7 +61,9 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
           Welcome back!
         </span>
       </h2>
-      <p>
+      <p
+        className="c5"
+      >
         <span>
           Log in with your email address and password. If you don't remember your password, just reset it!
         </span>
@@ -68,7 +74,7 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
 `;
 
 exports[`The LoginColumnLayout component, with two columns, matches the snapshot 1`] = `
-.c7 {
+.c8 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -86,19 +92,19 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   transition: background-color 150ms ease-out;
 }
 
-.c7:hover,
-.c7:focus {
+.c8:hover,
+.c8:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c7:active {
+.c8:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c6 {
+.c7 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -119,6 +125,10 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   width: 360px;
 }
 
+.c5 {
+  padding: 0 2em;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -130,7 +140,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   width: 480px;
 }
 
-.c5 {
+.c6 {
   margin-left: 48px;
 }
 
@@ -141,7 +151,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
 }
 
 @media screen and ( max-width:1024px ) {
-  .c5 {
+  .c6 {
     margin-left: 0;
   }
 }
@@ -168,7 +178,9 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
           Welcome back!
         </span>
       </h2>
-      <p>
+      <p
+        className="c5"
+      >
         <span>
           Log in with your email address and password. If you don't remember your password, just reset it!
         </span>
@@ -176,7 +188,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
     </div>
   </div>
   <div
-    className="c5"
+    className="c6"
   >
     <div
       className="c2"
@@ -195,7 +207,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
         </span>
       </h2>
       <button
-        className="c6 c7"
+        className="c7 c8"
         onClick={[Function]}
         type="button"
       >
