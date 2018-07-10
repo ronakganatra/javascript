@@ -1,32 +1,33 @@
 import Cookies from "js-cookie";
 import getEnv from "./getEnv";
 import _defaultTo from "lodash/defaultTo";
+import _isEmpty from "lodash/isEmpty";
 import url from "url";
 import { fetchUser, login } from "../actions/user";
 import { store } from "../index";
 
 
 /**
- * @returns {Object} A promise the user id.
+ * Authenticate a user who is already logged in on yoast.com via OAuth in an frame and log them in on MyYoast.
+ *
+ * @returns {Object} A promise containing the user id.
  */
 export function authenticate() {
 	return new Promise( ( resolve, reject ) => {
-		fetchAccessToken()
+		return fetchAccessToken()
 			.then( token => {
-				if ( token !== "" ) {
-					store.dispatch( login( token, getUserId() ) );
-					store.dispatch( fetchUser( getUserId() ) );
-					resolve( getUserId() );
-				}
+				store.dispatch( login( token, getUserId() ) );
+				store.dispatch( fetchUser( getUserId() ) );
+				return resolve( getUserId() );
 			} )
 			.catch( error => {
-				reject( error );
+				return reject( error );
 			} );
 	} );
 }
 
 /**
- *
+ * Get the yoast.com access OAuth token of a user who is already logged in on yoast.com
  *
  * @returns {Object} A promise containing the access token.
  */
@@ -36,13 +37,19 @@ export function fetchAccessToken() {
 			return resolve( getAccessToken() );
 		}
 
-		let frame = document.createElement( "iFrame" );
+		let frame = document.createElement( "IFrame" );
 		frame.onload = () => {
-			if ( frame.contentDocument === null ) {
-				return reject();
+			if ( _isEmpty( frame.contentDocument ) ) {
+				return reject( new Error( "IFrame could not be loaded" ) );
 			}
 
-			return resolve( getAccessToken() );
+			let accessToken = getAccessToken();
+
+			if ( _isEmpty( accessToken ) ) {
+				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
+			}
+
+			return resolve( accessToken );
 		};
 		frame.src = getAuthUrl();
 		frame.style = "display:none; height:1px; width:1px;";
@@ -51,16 +58,13 @@ export function fetchAccessToken() {
 }
 
 /**
+ * Checks for a wordpress_logged_in cookie to check if the user is logged in.
  *
  * @returns {boolean} If the wordpress_logged_in cookie was found or not.
  */
-export function findWPCookie() {
+export function hasWPCookie() {
 	let searchString = new RegExp( "wordpress_logged_in_.*" );
-	let foundCookie = false;
-	if ( Cookies.get( searchString ) ) {
-		foundCookie = true;
-	}
-	return foundCookie;
+	return !! Cookies.get( searchString );
 }
 
 /**
@@ -77,7 +81,7 @@ export function getAuthUrl() {
  *
  * @returns {void}
  */
-export function redirectToAuthUrl() {
+export function redirectToOAuthUrl() {
 	document.location.href = getAuthUrl();
 }
 

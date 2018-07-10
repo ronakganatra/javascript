@@ -5,7 +5,7 @@ import { intlShape, injectIntl } from "react-intl";
 // Components.
 import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
-import { authenticate, redirectToAuthUrl } from "../../functions/auth";
+import { authenticate, hasWPCookie, redirectToOAuthUrl } from "../../functions/auth";
 
 
 /**
@@ -68,11 +68,15 @@ class Login extends React.Component {
 		doRequest( request )
 			.then( () => {
 				authenticate()
-					.then( () => {
+					.then( ( userId ) => {
 						// Redirect to home.
 					} )
 					.catch( () => {
-						redirectToAuthUrl();
+						// If the user has already logged in on WordPress, but the OAuth authentication fails, redirect to OAuth manually.
+						if ( hasWPCookie() ) {
+							redirectToOAuthUrl();
+						}
+						// Else, don't do anything while the user fills out the login/signup forms.
 					} );
 			} )
 			.catch( ( error ) => {

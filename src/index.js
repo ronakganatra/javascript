@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	directToIntendedDestination,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, authenticate, redirectToAuthUrl, findWPCookie,
+	shouldBeRedirected, hasCookieParams, setCookieFromParams, authenticate, redirectToOAuthUrl, hasWPCookie,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";
@@ -47,12 +47,10 @@ function app() {
 		setCookieFromParams();
 	}
 
-	let wpLoggedIn = findWPCookie();
-
 	authenticate()
 		.catch( function() {
-			if ( wpLoggedIn ) {
-				redirectToAuthUrl();
+			if ( hasWPCookie() ) {
+				redirectToOAuthUrl();
 			}
 		} )
 		.finally( function() {
