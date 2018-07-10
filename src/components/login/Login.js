@@ -5,7 +5,14 @@ import { intlShape, injectIntl } from "react-intl";
 // Components.
 import LoginForm from "./LoginForm";
 import { prepareInternalRequest, doRequest } from "../../functions/api";
-import { authenticate, hasWPCookie, redirectToOAuthUrl } from "../../functions/auth";
+import {
+	authenticate,
+	directToIntendedDestination,
+	hasWPCookie,
+	redirectToOAuthUrl,
+	shouldBeRedirected,
+} from "../../functions/auth";
+import getEnv from "../../functions/getEnv";
 
 
 /**
@@ -68,8 +75,13 @@ class Login extends React.Component {
 		doRequest( request )
 			.then( () => {
 				authenticate()
-					.then( ( userId ) => {
-						// Redirect to home.
+					.then( () => {
+						// Redirect to the homepage or where the user intended to go.
+						if ( shouldBeRedirected() ) {
+							directToIntendedDestination();
+						} else {
+							document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
+						}
 					} )
 					.catch( () => {
 						// If the user has already logged in on WordPress, but the OAuth authentication fails, redirect to OAuth manually.

@@ -6,7 +6,12 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	directToIntendedDestination,
-	shouldBeRedirected, hasCookieParams, setCookieFromParams, authenticate, redirectToOAuthUrl, hasWPCookie,
+	shouldBeRedirected,
+	hasCookieParams,
+	setCookieFromParams,
+	authenticate,
+	redirectToOAuthUrl,
+	hasWPCookie,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
 import { createLogger } from "redux-logger";

@@ -64,7 +64,7 @@ export function fetchAccessToken() {
  */
 export function hasWPCookie() {
 	let searchString = new RegExp( "wordpress_logged_in_.*" );
-	return !! Cookies.get( searchString );
+	return ! ! Cookies.get( searchString );
 }
 
 /**
@@ -82,7 +82,18 @@ export function getAuthUrl() {
  * @returns {void}
  */
 export function redirectToOAuthUrl() {
+	setPeriLoginCookie();
 	document.location.href = getAuthUrl();
+}
+
+/**
+ * Redirects to the MyYoast login URL.
+ *
+ * @returns {void}
+ */
+export function redirectToLoginUrl() {
+	setPeriLoginCookie();
+	document.location.href = getLoginUrl();
 }
 
 /**
@@ -91,7 +102,9 @@ export function redirectToOAuthUrl() {
  * @returns {void}
  */
 export function setPeriLoginCookie() {
-	Cookies.set( "intendedDestination", window.location.href );
+	if ( shouldBeRedirected === false ) {
+		Cookies.set( "intendedDestination", window.location.href );
+	}
 }
 
 /**
@@ -115,11 +128,20 @@ export function shouldBeRedirected() {
 /**
  * Directs the user to the my.yoast.com url they wanted to visit before logging in.
  *
- * @returns {bool} Whether or not we have been redirected.
+ * @returns {void}
  */
 export function directToIntendedDestination() {
 	window.location.href = Cookies.get( "intendedDestination" );
 	removePeriLoginCookie();
+}
+
+/**
+ * Returns the url of the MyYoast login page.
+ *
+ * @returns {string} The URL of the MyYoast login page.
+ */
+export function getLoginUrl() {
+	return getEnv( "LOGIN_URL", "http://my.yoast.test:3001/login" );
 }
 
 /**
