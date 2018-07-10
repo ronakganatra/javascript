@@ -4,6 +4,9 @@ import { intlShape, injectIntl } from "react-intl";
 
 // Components.
 import LoginForm from "./LoginForm";
+import { directToIntendedDestination, hasWPCookie, redirectToOAuthUrl, shouldBeRedirected } from "../../functions/auth";
+import getEnv from "../../functions/getEnv";
+import { hasAccessToken } from "../../../../manage/src/functions/auth";
 
 
 /**
@@ -17,7 +20,6 @@ class Login extends React.Component {
 		this.state = {
 			email: "",
 			password: "",
-			errors: this.props.errors,
 			rememberMe: false,
 		};
 
@@ -66,12 +68,26 @@ class Login extends React.Component {
 		this.props.attemptLogin( data );
 	}
 
+	shouldComponentUpdate() {
+		if ( this.props.oauthError && hasWPCookie() ) {
+			 return redirectToOAuthUrl();
+		}
+		if ( hasWPCookie() && hasAccessToken() ) {
+			if ( shouldBeRedirected() ) {
+				directToIntendedDestination();
+			} else {
+				document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
+			}
+		}
+	}
+
 	render() {
 		return (
 			<LoginForm rememberMe={this.state.rememberMe}
 			           email={this.state.email}
 			           password={this.state.password}
-			           errors={this.state.errors}
+			           errors={this.props.error}
+					   loading={this.props.loading}
 			           onUpdateEmail={this.onUpdateEmail}
 			           onUpdatePassword={this.onUpdatePassword}
 			           onRememberCheck={this.onRememberCheck}
@@ -83,12 +99,15 @@ class Login extends React.Component {
 
 Login.propTypes = {
 	intl: intlShape.isRequired,
-	errors: PropTypes.object,
+	error: PropTypes.object,
 	attemptLogin: PropTypes.func.isRequired,
+	loading: PropTypes.bool,
+	oauthError: PropTypes.bool,
 };
 
 Login.defaultProps = {
-	errors: null,
+	error: null,
+	loading: false,
 };
 
 export default injectIntl( Login );

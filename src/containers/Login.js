@@ -1,17 +1,9 @@
 import { connect } from "react-redux";
 import Login from "../components/login/Login";
-import {
-	authenticate,
-	directToIntendedDestination,
-	hasWPCookie,
-	redirectToOAuthUrl,
-	shouldBeRedirected,
-} from "../functions/auth";
-import getEnv from "../functions/getEnv";
-import { doRequest, prepareInternalRequest } from "../functions/api";
+import { loginRequest } from "../actions/login";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	return {};
+	return state.login;
 };
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
@@ -26,31 +18,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		 */
 		attemptLogin: ( data ) => {
 			let params = { email: data.email, password: data.password, rememberMe: data.rememberMe };
-			let request = prepareInternalRequest( "Customers/login/", "POST", params, { credentials: "include" } );
-			doRequest( request )
-				.then( () => {
-					authenticate( dispatch )
-						.then( () => {
-							// Redirect to the homepage or where the user intended to go.
-							if ( shouldBeRedirected() ) {
-								directToIntendedDestination();
-							} else {
-								document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
-							}
-						} )
-						.catch( () => {
-							// If the user has already logged in on WordPress, but the OAuth authentication fails, redirect to OAuth manually.
-							if ( hasWPCookie() ) {
-								redirectToOAuthUrl();
-							}
-							// Else, don't do anything while the user fills out the login/signup forms.
-						} );
-				} )
-				.catch( ( error ) => {
-					this.setState( {
-						errors: error,
-					} );
-				} );
+			dispatch( loginRequest( params ) );
 		},
 	};
 };

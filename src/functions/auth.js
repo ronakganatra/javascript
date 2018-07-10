@@ -3,29 +3,6 @@ import getEnv from "./getEnv";
 import _defaultTo from "lodash/defaultTo";
 import _isEmpty from "lodash/isEmpty";
 import url from "url";
-import { fetchUser, login } from "../actions/user";
-
-
-/**
- * Authenticate a user who is already logged in on yoast.com via OAuth in an frame and log them in on MyYoast.
- *
- * @param {function} dispatch The Redux dispatch function.
- *
- * @returns {Object} A promise containing the user id.
- */
-export function authenticate( dispatch ) {
-	return new Promise( ( resolve, reject ) => {
-		return fetchAccessToken()
-			.then( token => {
-				dispatch( login( token, getUserId() ) );
-				dispatch( fetchUser( getUserId() ) );
-				return resolve( getUserId() );
-			} )
-			.catch( error => {
-				return reject( error );
-			} );
-	} );
-}
 
 /**
  * Get the yoast.com access OAuth token of a user who is already logged in on yoast.com

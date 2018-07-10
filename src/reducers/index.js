@@ -16,6 +16,7 @@ import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerToken
 import { uiInvoicesReducer } from "./invoices";
 import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
 import { uiNewsletterReducer } from "./newsletter";
+import { uiLoginReducer } from "./login";
 
 
 export const uiReducer = combineReducers( {
@@ -36,6 +37,7 @@ export const uiReducer = combineReducers( {
 	composerTokens: uiComposerTokensReducer,
 	configurationServiceRequests: uiConfigurationServiceRequestReducer,
 	newsletter: uiNewsletterReducer,
+	login: uiLoginReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
