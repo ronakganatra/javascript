@@ -19,6 +19,8 @@ import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordContainer from "./containers/ResetPassword";
 import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
+import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
+
 
 /*
  * Helper method to write global CSS.
@@ -62,6 +64,7 @@ const Routes = ( props ) => {
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordContainer ) } />
+					<Route exact path="/resetSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
 					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
