@@ -10,7 +10,6 @@ import { fetchUser, login } from "./user";
  */
 
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_OAUTH_FAILURE = "LOGIN_OAUTH_FAILURE";
 
@@ -22,6 +21,7 @@ export const LOGIN_OAUTH_FAILURE = "LOGIN_OAUTH_FAILURE";
  * An action creator for the login failure action.
  *
  * @param {Object} error The login error.
+ *
  * @returns {Object} An login failure action.
  */
 export function loginFailure( error ) {
@@ -35,6 +35,7 @@ export function loginFailure( error ) {
  * An action creator for the oauth failure action.
  *
  * @param {Object} error The oauth error.
+ *
  * @returns {Object} An oauth failure action.
  */
 export function oathFailure( error ) {
@@ -44,16 +45,6 @@ export function oathFailure( error ) {
 	};
 }
 
-/**
- * An action creator for the login success action.
- *
- * @returns {Object} A login success action.
- */
-export function loginSuccess() {
-	return {
-		type: LOGIN_SUCCESS,
-	};
-}
 
 /**
  * An action creator for the doing login action.
@@ -65,6 +56,7 @@ export function doingLoginRequest() {
 		type: LOGIN_REQUEST,
 	};
 }
+
 /**
  * An action creator for the login request action.
  *
@@ -81,7 +73,6 @@ export function loginRequest( params ) {
 					.then( ( token ) => {
 						dispatch( login( token, getUserId() ) );
 						dispatch( fetchUser( getUserId() ) );
-						dispatch( loginSuccess() );
 					} )
 					.catch( ( error ) => {
 						dispatch( oathFailure( error ) );

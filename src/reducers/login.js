@@ -1,6 +1,7 @@
 import {
-	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS,
+	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST,
 } from "../actions/login";
+import { LOGIN } from "../actions/user";
 
 
 /**
@@ -11,6 +12,8 @@ const rootState = {
 		login: {
 			loading: false,
 			error: null,
+			oauthError: false,
+			completedLogin: false,
 		},
 	},
 };
@@ -24,11 +27,11 @@ const rootState = {
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated Orders object.
+ * @returns {Object} The updated ui object.
  */
 export function uiLoginReducer( state = rootState.ui.login, action ) {
 	switch ( action.type ) {
-		case LOGIN_SUCCESS:
+		case LOGIN:
 			return Object.assign( {}, state, {
 				loading: false,
 				error: null,
@@ -37,7 +40,6 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 			return Object.assign( {}, state, {
 				loading: false,
 				error: action.error,
-				oauthError: false,
 			} );
 		case LOGIN_OAUTH_FAILURE:
 			return Object.assign( {}, state, {
@@ -48,6 +50,7 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 		case LOGIN_REQUEST:
 			return Object.assign( {}, state, {
 				loading: true,
+				error: null,
 			} );
 		default:
 			return state;

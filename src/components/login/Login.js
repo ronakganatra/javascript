@@ -1,17 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { intlShape, injectIntl } from "react-intl";
+import { redirectToOAuthUrl } from "../../functions/auth";
 
 // Components.
 import LoginForm from "./LoginForm";
-import {
-	directToIntendedDestination,
-	hasAccessToken,
-	hasWPCookie,
-	redirectToOAuthUrl,
-	shouldBeRedirected,
-} from "../../functions/auth";
-import getEnv from "../../functions/getEnv";
 
 
 /**
@@ -69,38 +62,32 @@ class Login extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
+		if ( this.props.loading ) {
+			return;
+		}
 		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
 		this.props.attemptLogin( data );
 	}
 
 	shouldComponentUpdate() {
-		if ( this.props.oauthError && hasWPCookie() ) {
+		if ( this.props.oauthError && this.props.loggedIn ) {
 			redirectToOAuthUrl();
 			return false;
 		}
-		if ( hasWPCookie() && hasAccessToken() ) {
-			if ( shouldBeRedirected() ) {
-				directToIntendedDestination();
-				return false;
-			}
-			document.location.href = getEnv( "HOME_URL", "http://my.yoast.test:3001" );
-			return false;
-		}
-
 		return true;
 	}
 
 	render() {
 		return (
-			<LoginForm rememberMe={this.state.rememberMe}
-			           email={this.state.email}
-			           password={this.state.password}
-			           errors={this.props.error}
-			           loading={this.props.loading}
-			           onUpdateEmail={this.onUpdateEmail}
-			           onUpdatePassword={this.onUpdatePassword}
-			           onRememberCheck={this.onRememberCheck}
-			           handleSubmit={this.handleSubmit}
+			<LoginForm rememberMe={ this.state.rememberMe }
+			           email={ this.state.email }
+			           password={ this.state.password }
+			           errors={ this.props.error }
+			           loading={ this.props.loading }
+			           onUpdateEmail={ this.onUpdateEmail }
+			           onUpdatePassword={ this.onUpdatePassword }
+			           onRememberCheck={ this.onRememberCheck }
+			           handleSubmit={ this.handleSubmit }
 			/>
 		);
 	}
@@ -109,9 +96,10 @@ class Login extends React.Component {
 Login.propTypes = {
 	intl: intlShape.isRequired,
 	error: PropTypes.object,
-	attemptLogin: PropTypes.func.isRequired,
 	loading: PropTypes.bool,
+	loggedIn: PropTypes.bool,
 	oauthError: PropTypes.bool,
+	attemptLogin: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {

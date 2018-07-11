@@ -29,28 +29,18 @@ export function fetchAccessToken() {
 
 			return resolve( accessToken );
 		};
-		frame.src = getAuthUrl();
+		frame.src = getOAuthUrl();
 		frame.style = "display:none; height:1px; width:1px;";
 		document.body.appendChild( frame );
 	} );
 }
 
 /**
- * Checks for a wordpress_logged_in cookie to check if the user is logged in.
- *
- * @returns {boolean} If the wordpress_logged_in cookie was found or not.
- */
-export function hasWPCookie() {
-	let searchString = new RegExp( "wordpress_logged_in_.*" );
-	return ! ! Cookies.get( searchString );
-}
-
-/**
- * Returns the auth URL where the user can authenticate themselves.
+ * Returns the auth URL where the user can authenticate themselves via OAuth.
  *
  * @returns {string} The URL where the user can authenticate.
  */
-export function getAuthUrl() {
+export function getOAuthUrl() {
 	return getEnv( "AUTH_URL", "http://my.yoast.test:3000/auth/yoast" );
 }
 
@@ -61,7 +51,7 @@ export function getAuthUrl() {
  */
 export function redirectToOAuthUrl() {
 	setPeriLoginCookie();
-	document.location.href = getAuthUrl();
+	document.location.href = getOAuthUrl();
 }
 
 /**
@@ -70,7 +60,7 @@ export function redirectToOAuthUrl() {
  * @returns {void}
  */
 export function setPeriLoginCookie() {
-	if ( shouldBeRedirected() === false ) {
+	if ( hasPeriLoginCookie() === false ) {
 		Cookies.set( "intendedDestination", window.location.href );
 	}
 }
@@ -85,22 +75,35 @@ export function removePeriLoginCookie() {
 }
 
 /**
- * Checks whether the user should be redirected to the page he/she was before logging in.
+ * Checks whether the indentedDestination cookie is set.
  *
- * @returns {boolean} Whether or not a user should be redirected.
+ * @returns {boolean} Whether or not the cookie was set.
  */
-export function shouldBeRedirected() {
+export function hasPeriLoginCookie() {
 	return !! Cookies.get( "intendedDestination" );
 }
 
 /**
  * Directs the user to the my.yoast.com url they wanted to visit before logging in.
  *
- * @returns {void}
+ * @returns {bool} Whether or not we have been redirected.
  */
 export function directToIntendedDestination() {
-	window.location.href = Cookies.get( "intendedDestination" );
+	let redirectUrl = getRedirectUrl();
 	removePeriLoginCookie();
+	window.location.href = redirectUrl;
+}
+
+/**
+ * Gets the url the user should be redirect to after the login.
+ *
+ * @returns {string} The url the user should be redirected to.
+ */
+export function getRedirectUrl() {
+	if ( hasPeriLoginCookie() ) {
+		return Cookies.get( "intendedDestination" );
+	}
+	return getEnv( "HOME_URL", "http://my.yoast.test:3001" );
 }
 
 /**
@@ -137,7 +140,7 @@ export function removeCookieSignage( cookie ) {
  * @returns {boolean} Whether or not an access token is available.
  */
 export function hasAccessToken() {
-	return ! ! Cookies.get( "access_token" );
+	return !! Cookies.get( "access_token" );
 }
 
 /**

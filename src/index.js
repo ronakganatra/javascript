@@ -5,6 +5,8 @@ import "./index.css";
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
+	getAccessToken,
+	getUserId, hasAccessToken,
 	hasCookieParams,
 	setCookieFromParams,
 } from "./functions/auth";
@@ -14,6 +16,7 @@ import { addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
+import { fetchUser, login } from "./actions/user";
 
 let history = createHistory();
 
@@ -47,8 +50,13 @@ function app() {
 		setCookieFromParams();
 	}
 
+	if ( hasAccessToken() ) {
+		store.dispatch( login( getAccessToken(), getUserId() ) );
+		store.dispatch( fetchUser( getUserId() ) );
+	}
+
 	ReactDOM.render(
-		<App store={store} history={history}/>,
+		<App store={ store } history={ history }/>,
 		document.getElementById( "root" )
 	);
 }

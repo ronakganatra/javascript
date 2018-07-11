@@ -10,10 +10,17 @@ import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 import ErrorDisplay from "../../../src/errors/ErrorDisplay";
+import AnimatedLoader from "../Loader";
 
 // Styled components.
 const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
+`;
+
+const Loader = styled( AnimatedLoader )`
+	margin: 0 auto;
+	width:100%;
+	height:100px;
 `;
 
 const FormGroup = styled.form`
@@ -21,7 +28,6 @@ const FormGroup = styled.form`
 	position: relative;
 	width: 400px;
 	min-height: 400px;
-	padding-bottom: 5em;
 `;
 
 const LabelBlock = styled.div`
@@ -37,14 +43,16 @@ const ForgotPasswordLink = styled.div`
 `;
 
 const SaveButtonArea = styled.div`
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+	
 `;
 
 const SaveButton = styled( Button )`
 	margin: 1em 0;
 	width: 100%;
+
+	 ${( { disableds } ) => disableds && `
+	    background: ${colors.$color_grey_disabled };
+	  `}
 `;
 
 const RememberMe = styled.div`
@@ -75,6 +83,10 @@ const messages = defineMessages( {
 		id: "login.forgotPassword",
 		defaultMessage: "Forgot your password?",
 	},
+	loading: {
+		id: "login.loading",
+		defaultMessage: "Logging in...",
+	},
 } );
 
 /**
@@ -85,12 +97,12 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
-	console.log( props );
-	let loader = props.loading ? <h1>I AM A HAPPY LOADING FORM</h1> : null;
+	let disabled = props.loading;
+	let loader = props.loading ? <Loader/> : null;
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
-			<ErrorDisplay error={ props.errors } />
-			{loader}
+			<ErrorDisplay error={ props.errors }/>
+			{ loader }
 			<LabelBlock>
 				<Label htmlFor="email-address">
 					<FormattedMessage { ...messages.labelEmail } />
@@ -132,7 +144,7 @@ const LoginForm = ( props ) => {
 			</RememberMe>
 
 			<SaveButtonArea>
-				<SaveButton type="submit">
+				<SaveButton type="submit" enabledStyle={ ! disabled }>
 					<FormattedMessage { ...messages.loginButton } />
 				</SaveButton>
 			</SaveButtonArea>
