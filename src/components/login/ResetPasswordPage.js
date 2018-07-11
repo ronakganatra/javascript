@@ -98,8 +98,8 @@ class ResetPasswordPage extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 
-		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
-		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
+		this.onUpdatePassword = this.onUpdatePassword.bind( this );
+		this.onUpdatePasswordRepeat = this.onUpdatePasswordRepeat.bind( this );
 		this.validate = this.validate.bind( this );
 
 		// Validation constraints.
@@ -109,17 +109,31 @@ class ResetPasswordPage extends React.Component {
 	}
 
 	/**
-	 * Updates the specified field in the state,
+	 * Updates the new password field in the state,
 	 * to be used as callback functions in text input fields.
 	 *
-	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
 	 * @returns {void}
 	 */
-	onUpdate( field, event ) {
-		let obj = {};
-		obj[ field ] = event.target.value;
-		this.setState( obj );
+	onUpdatePassword( event ) {
+		console.log( "onUpdate_first:", event.target.value );
+		this.setState( {
+			password: event.target.value,
+		} );
+	}
+
+	/**
+	 * Updates the repeat new password field in the state,
+	 * to be used as callback functions in text input fields.
+	 *
+	 * @param {Object} event the input field change event.
+	 * @returns {void}
+	 */
+	onUpdatePasswordRepeat( event ) {
+		console.log( "onUpdate_repeat:", event.target.value );
+		this.setState( {
+			passwordRepeat: event.target.value,
+		} );
 	}
 
 	/**
@@ -150,6 +164,11 @@ class ResetPasswordPage extends React.Component {
 	 * @returns {void}
 	 */
 	handleSubmit() {
+		event.preventDefault();
+		let newPassword = this.state.password;
+		this.props.attemptResetPassword( newPassword );
+		console.log( "data:", newPassword );
+
 		// Code to connect the UI with the reset password backend should go here.
 	}
 
@@ -196,7 +215,7 @@ class ResetPasswordPage extends React.Component {
 						</LabelBlock>
 
 						<SaveButtonArea>
-							<SaveButton type="submit">
+							<SaveButton type="submit" onClick={ this.handleSubmit() }>
 								<FormattedMessage { ...messages.resetButton } />
 							</SaveButton>
 						</SaveButtonArea>
@@ -211,6 +230,7 @@ ResetPasswordPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
 	email: PropTypes.string,
+	attemptResetPassword: PropTypes.func.isRequired,
 };
 
 ResetPasswordPage.defaultProps = {
