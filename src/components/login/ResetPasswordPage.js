@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
+import queryString from "query-string";
 
 import { passwordConstraints, passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
@@ -98,8 +99,8 @@ class ResetPasswordPage extends React.Component {
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 
-		this.onUpdatePassword = this.onUpdatePassword.bind( this );
-		this.onUpdatePasswordRepeat = this.onUpdatePasswordRepeat.bind( this );
+		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
+		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.validate = this.validate.bind( this );
 
 		// Validation constraints.
@@ -109,31 +110,17 @@ class ResetPasswordPage extends React.Component {
 	}
 
 	/**
-	 * Updates the new password field in the state,
+	 * Updates the specified field in the state,
 	 * to be used as callback functions in text input fields.
 	 *
+	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
 	 * @returns {void}
 	 */
-	onUpdatePassword( event ) {
-		console.log( "onUpdate_first:", event.target.value );
-		this.setState( {
-			password: event.target.value,
-		} );
-	}
-
-	/**
-	 * Updates the repeat new password field in the state,
-	 * to be used as callback functions in text input fields.
-	 *
-	 * @param {Object} event the input field change event.
-	 * @returns {void}
-	 */
-	onUpdatePasswordRepeat( event ) {
-		console.log( "onUpdate_repeat:", event.target.value );
-		this.setState( {
-			passwordRepeat: event.target.value,
-		} );
+	onUpdate( field, event ) {
+		let obj = {};
+		obj[ field ] = event.target.value;
+		this.setState( obj );
 	}
 
 	/**
@@ -161,15 +148,20 @@ class ResetPasswordPage extends React.Component {
 
 	/**
 	 * Resets the user's password.
+	 *
+	 * @param { object } event The button click event.
 	 * @returns {void}
 	 */
-	handleSubmit() {
+	handleSubmit( event ) {
 		event.preventDefault();
+		// Reset password query to get the key and user_login which are needed for the API.
+		let queryReset = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
+		let key = queryReset.key;
+		let userLogin = queryReset.user_login;
 		let newPassword = this.state.password;
-		this.props.attemptResetPassword( newPassword );
-		console.log( "data:", newPassword );
-
-		// Code to connect the UI with the reset password backend should go here.
+		let repeatPassword = this.state.passwordRepeat;
+		let data = { newPassword, repeatPassword, userLogin, key };
+		this.props.attemptResetPassword( data );
 	}
 
 	render() {
@@ -215,7 +207,7 @@ class ResetPasswordPage extends React.Component {
 						</LabelBlock>
 
 						<SaveButtonArea>
-							<SaveButton type="submit" onClick={ this.handleSubmit() }>
+							<SaveButton type="submit" >
 								<FormattedMessage { ...messages.resetButton } />
 							</SaveButton>
 						</SaveButtonArea>
@@ -231,6 +223,7 @@ ResetPasswordPage.propTypes = {
 	children: PropTypes.array,
 	email: PropTypes.string,
 	attemptResetPassword: PropTypes.func.isRequired,
+	location: PropTypes.object,
 };
 
 ResetPasswordPage.defaultProps = {
