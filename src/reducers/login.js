@@ -13,7 +13,6 @@ const rootState = {
 			loading: false,
 			error: null,
 			oauthError: false,
-			completedLogin: false,
 		},
 	},
 };

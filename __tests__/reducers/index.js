@@ -248,7 +248,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				"byId": { "name": "byIdCoursesEnrollmentsReducer" }
 			},
 			"orders": { "allIds": [], "byId": {} },
-			"products": { "allIds": { "name": "allIdsProductsReducer" }, "byId": { "name": "byIdProductsReducer" } },
+			"products": {
+				"allIds": { "name": "allIdsProductsReducer" },
+				"byId": { "name": "byIdProductsReducer" }
+			},
 			"refunds": { "allIds": { "name": "allIdsRefundsReducer" }, "byId": { "name": "byIdRefundsReducer" } },
 			"sites": { "allIds": { "name": "allIdsReducer" }, "byId": { "name": "byIdReducer" } },
 			"subscriptions": {
@@ -263,7 +266,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
 			"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
 			"invoiceModal": { "name": "uiInvoicesReducer" },
-			"login": { "error": "", "loading": false },
+			"login": { "error": null, "loading": false, "oauthError": false },
 			"newsletter": { "name": "uiNewsletterReducer" },
 			"orders": { "error": "", "retrievingOrders": false },
 			"products": { "name": "uiAllProductsReducer" },

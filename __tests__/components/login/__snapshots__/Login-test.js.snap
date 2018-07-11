@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Login component matches the snapshot 1`] = `
-.c14 {
+.c13 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -19,19 +19,19 @@ exports[`The Login component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c14:hover,
-.c14:focus {
+.c13:hover,
+.c13:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c14:active {
+.c13:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c13 {
+.c12 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -108,7 +108,6 @@ exports[`The Login component matches the snapshot 1`] = `
   position: relative;
   width: 400px;
   min-height: 400px;
-  padding-bottom: 5em;
 }
 
 .c1 {
@@ -124,12 +123,6 @@ exports[`The Login component matches the snapshot 1`] = `
 }
 
 .c11 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-.c12 {
   margin: 1em 0;
   width: 100%;
 }
@@ -224,10 +217,10 @@ exports[`The Login component matches the snapshot 1`] = `
     </label>
   </div>
   <div
-    className="c11"
+    className=""
   >
     <button
-      className="c12 c13 c14"
+      className="c11 c12 c13"
       type="submit"
     >
       <span>
