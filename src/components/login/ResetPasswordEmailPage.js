@@ -146,9 +146,15 @@ class ResetPasswordEmailPage extends React.Component {
 
 	/**
 	 * Provides the email address to send a pass word reset link to.
+	 *
+	 * @param { object } event The button click event.
 	 * @returns {void}
 	 */
-	handleSubmit() {
+	handleSubmit( event ) {
+		event.preventDefault();
+		let email = this.state.email;
+		let data = { email };
+		this.props.attemptResetPasswordEmail( data );
 		// Code to connect the UI with the send reset password email backend should go here.
 	}
 
@@ -198,6 +204,7 @@ ResetPasswordEmailPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
 	email: PropTypes.string,
+	attemptResetPasswordEmail: PropTypes.func,
 };
 
 ResetPasswordEmailPage.defaultProps = {

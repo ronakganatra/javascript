@@ -161,11 +161,13 @@ class ResetPasswordPage extends React.Component {
 		let newPassword = this.state.password;
 		let repeatPassword = this.state.passwordRepeat;
 		let data = { newPassword, repeatPassword, userLogin, key };
+
 		this.props.attemptResetPassword( data );
 	}
 
 	render() {
 		let errors = this.validate( this.state.password, this.state.passwordRepeat );
+		let userEmail = this.props.email;
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -175,7 +177,8 @@ class ResetPasswordPage extends React.Component {
 					<FormattedMessage
 						id={ messages.resetMessage.id }
 						defaultMessage={ messages.resetMessage.defaultMessage }
-						values={ { email: this.props.email } }
+						// Email should be updated to email address
+						values={ { email: userEmail } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
 

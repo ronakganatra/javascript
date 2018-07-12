@@ -18,7 +18,7 @@ import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordContainer from "./containers/ResetPassword";
-import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
+import ResetPasswordEmailContainer from "./containers/ResetPasswordEmail";
 import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 
 
@@ -65,7 +65,7 @@ const Routes = ( props ) => {
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordContainer ) } />
 					<Route exact path="/resetSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
-					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) } />
+					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"
