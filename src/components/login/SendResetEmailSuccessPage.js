@@ -9,16 +9,15 @@ import icon from "../../images/greeting.png";
 
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
-import { ButtonLink } from "../Button";
 
 const messages = defineMessages( {
+	successMessageTitle: {
+		id: "reset.message.title",
+		defaultMessage: "Check your email!",
+	},
 	successMessage: {
 		id: "reset.message",
-		defaultMessage: "Password changed successfully!",
-	},
-	continueButton: {
-		id: "continue.button",
-		defaultMessage: "Continue to MyYoast",
+		defaultMessage: "We've sent you an email with a link to reset your password, so check your inbox to continue.",
 	},
 } );
 
@@ -29,6 +28,10 @@ const Header = styled.div`
 `;
 
 const StyledHeader = styled.h2`
+	text-align: center;
+`;
+
+const StyledParagraph = styled.p`
 	text-align: center;
 `;
 
@@ -43,18 +46,6 @@ const Column = styled.div`
 
 const Logos = styled.img`
 	width: 360px;
-`;
-
-const SaveButtonArea = styled.div`
-	position: relative;
-	bottom: 0;
-	margin-top: 40px;
-	width: 100%;
-`;
-
-const SaveButton = styled( ButtonLink )`
-	margin: 1em 0;
-	width: 100%;
 `;
 
 /**
@@ -75,13 +66,11 @@ class ResetPasswordSuccessPage extends React.Component {
 						<Icon src={ this.props.image } />
 					</Header>
 					<StyledHeader>
-						<FormattedMessage { ...messages.successMessage } />
+						<FormattedMessage { ...messages.successMessageTitle } />
 					</StyledHeader>
-					<SaveButtonArea>
-							<SaveButton to={ "/login" } >
-								<FormattedMessage { ...messages.continueButton } />
-							</SaveButton>
-						</SaveButtonArea>
+					<StyledParagraph>
+						<FormattedMessage { ...messages.successMessage } />
+					</StyledParagraph>
 				</Column>
 			</LoginColumnLayout>
 		);
