@@ -35,7 +35,6 @@ const initialState = {
 	// The userdata as retrieved from the server.
 	data: {
 		profile: {
-			username: "",
 			email: "",
 			userFirstName: "",
 			userLastName: "",
