@@ -68,10 +68,12 @@ const Routes = ( props ) => {
 					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
 					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
-					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
-					<Route exact path="/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
-					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordContainer ) } />
-					<Route exact path="/resetSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
+
+					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
+					<Route exact path="/reset/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
+					<Route exact path="/reset/resetPassword" component={ inLoginLayout( ResetPasswordContainer ) } />
+					<Route exact path="/reset/passwordSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
+
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"

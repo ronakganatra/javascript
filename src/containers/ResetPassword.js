@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import ResetPasswordPage from "../components/login/ResetPasswordPage";
 import { doRequest, prepareInternalRequest } from "../functions/api";
-import getEnv from "../functions/getEnv";
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
@@ -10,7 +9,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			let request = prepareInternalRequest( "Customers/resetPassword/", "PATCH", params );
 			doRequest( request )
 			.then( () => {
-				document.location.href = getEnv( "LOGIN_URL", "http://my.yoast.test:3001/resetSuccess" );
+				ownProps.history.push( "/reset/passwordSuccess" );
 			}
 			)
 			.catch( ( error ) => {
