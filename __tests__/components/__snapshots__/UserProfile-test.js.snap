@@ -92,7 +92,7 @@ exports[`the user profile logout button handling an onclick event 1`] = `
     <p
       className="c3"
     >
-      This is a name
+      
     </p>
     <button
       className="c4 c5 c6"
@@ -197,7 +197,7 @@ exports[`the user profile logout button handling an onclick event 2`] = `
     <p
       className="c3"
     >
-      This is a name
+      
     </p>
     <button
       className="c4 c5 c6"
@@ -302,7 +302,7 @@ exports[`the user profile matches the snapshot 1`] = `
     <p
       className="c3"
     >
-      This is a name
+      
     </p>
     <button
       className="c4 c5 c6"
@@ -407,7 +407,7 @@ exports[`the user profile matches the snapshot 2`] = `
     <p
       className="c3"
     >
-      This is a name
+      
     </p>
     <button
       className="c4 c5 c6"
