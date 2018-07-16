@@ -64,10 +64,10 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
+					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
+					<Route exact path="/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordContainer ) } />
 					<Route exact path="/resetSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
-					<Route exact path="/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
-					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 					<Route path="/account/subscriptions/:id"

@@ -8,8 +8,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		attemptResetPassword: ( data ) => {
 			let params = data;
-			let userId = getUserId();
-			let request = prepareInternalRequest( `Customers/${userId}/resetPassword/`, "PATCH", params );
+			let request = prepareInternalRequest( `Customers/resetPassword/`, "PATCH", params );
 			doRequest( request )
 			.then( () => {
 				document.location.href = getEnv( "LOGIN_URL", "http://my.yoast.test:3001/resetSuccess" );

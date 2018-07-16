@@ -156,11 +156,12 @@ class ResetPasswordPage extends React.Component {
 		event.preventDefault();
 		// Reset password query to get the key and user_login which are needed for the API.
 		let queryReset = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
-		let key = queryReset.key;
-		let userLogin = queryReset.user_login;
-		let newPassword = this.state.password;
-		let repeatPassword = this.state.passwordRepeat;
-		let data = { newPassword, repeatPassword, userLogin, key };
+		let data = {
+			newPassword: this.state.password,
+			repeatPassword: this.state.passwordRepeat,
+			userLogin: queryReset.user_login,
+			key: queryReset.key,
+		};
 
 		this.props.attemptResetPassword( data );
 	}
