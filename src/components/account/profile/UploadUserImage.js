@@ -89,7 +89,11 @@ const messages = defineMessages( {
 	},
 	maxFileSizeExceeded: {
 		id: "userImageUpload.maxFileSizeExceeded",
-		defaultMessage: "The selected file is bigger than the maximum file size of {maxSize}, please select a smaller file.",
+		defaultMessage: "The selected file exceeds the maximum size of {maxSize} megabytes, please select a smaller file.",
+	},
+	invalidFile: {
+		id: "userImageUpload.invalidFile",
+		defaultMessage: "The chosen image appears to be broken, please select another one.",
 	},
 	defaultImage: {
 		id: "userImageUpload.defaultImageDescription",
@@ -103,17 +107,22 @@ const messages = defineMessages( {
 
 const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
+/**
+ * Component for uploading a profile image.
+ */
 class UploadUserImage extends React.Component {
 
 	constructor( props ) {
 		super( props );
 
 		this.state = {
+			image: this.props.image,
 			error: null,
 		};
 
 		this.onClickLink = this.onClickLink.bind( this );
 		this.onFileUpload = this.onFileUpload.bind( this );
+		this.onImageLoadError = this.onImageLoadError.bind( this );
 	}
 
 	/**
@@ -130,7 +139,7 @@ class UploadUserImage extends React.Component {
 	/**
 	 * Validates the file (e.g. if it's below the
 	 * max file size).
-	 * @param {File} file the file that needs to be checked
+	 * @param {File} file the file that needs to be checked (see https://developer.mozilla.org/en-US/docs/Web/API/File).
 	 * @returns {boolean} if the file is valid or not
 	 */
 	validateFile( file ) {
@@ -140,25 +149,36 @@ class UploadUserImage extends React.Component {
 	/**
 	 * Gets triggered when an image file has been selected in the
 	 * file upload dialog.
-	 * @param {File} file the file that has been selected
-	 * @returns {Null} nothing
+	 * @param {File} file the file that has been selected (see https://developer.mozilla.org/en-US/docs/Web/API/File).
+	 * @returns {void}
 	 */
 	onFileUpload( file ) {
-		if ( file && this.validateFile( file ) ) {
-			this.props.onFileUpload( file );
-		} else {
-			// Show and speak an error message.
-			let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
-
-			let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
-				{ maxSize: maxFileSizeInMb } );
-
-			speak( maxSizeExceeded, "assertive" );
-
-			this.setState( {
-				error: maxSizeExceeded,
-			} );
+		// No file selected.
+		if ( ! file ) {
+			return;
 		}
+		// File has been selected, and is valid.
+		if ( file && this.validateFile( file ) ) {
+			// Set file preview and remove error.
+			this.setState( {
+				image: URL.createObjectURL( file ),
+				error: null,
+			} );
+			this.props.onFileUpload( file );
+			return;
+		}
+		// Selected file is not valid.
+		// Show and speak an error message.
+		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+
+		let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
+			{ maxSize: maxFileSizeInMb } );
+
+		speak( maxSizeExceeded, "assertive" );
+
+		this.setState( {
+			error: maxSizeExceeded,
+		} );
 	}
 
 	/**
@@ -186,6 +206,21 @@ class UploadUserImage extends React.Component {
 		</MaxFileSizeText>;
 	}
 
+	/**
+	 * Callback function, called whenever the profile image could not
+	 * be loaded.
+	 * @returns {void}
+	 */
+	onImageLoadError() {
+		// Image could not load, set image back to default profile image and show + speak error.
+		let invalidFileError = this.props.intl.formatMessage( messages.invalidFile );
+		this.setState( {
+			image: avatarPlaceholder,
+			error: invalidFileError,
+		} );
+		speak( invalidFileError, "assertive" );
+	}
+
 	render() {
 		let changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 
@@ -194,11 +229,11 @@ class UploadUserImage extends React.Component {
 		let imageDescriptionMessage = this.props.image ? messages.image : messages.defaultImage;
 		let imageDescription = this.props.intl.formatMessage( imageDescriptionMessage );
 
-		let imageSrc = this.props.image || avatarPlaceholder;
+		let imageSrc = this.state.image || avatarPlaceholder;
 
 		return <UploadElement size="125px">
 			<UserImageContainer>
-				<UserImage alt={ imageDescription } src={ imageSrc } size="125px" />
+				<UserImage alt={ imageDescription } src={ imageSrc } onError={ this.onImageLoadError } size="125px" />
 			</UserImageContainer>
 			<Overlay>
 				<ChangeButton type="button" aria-label={ changeAriaLabel } onClick={ this.onClickLink }>
@@ -211,7 +246,7 @@ class UploadUserImage extends React.Component {
 			<input ref={ fileInput => {
 				this.fileInput = fileInput;
 			} }
-				   type={ "file" }
+				   type="file"
 				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
 				   style={ { display: "none" } }
 				   aria-hidden={ true }
@@ -234,7 +269,6 @@ UploadUserImage.defaultProps = {
 	// 5 MB in binary bytes
 	maxFileSize: 5242880,
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
-	size: "130px",
 };
 
 export default injectIntl( UploadUserImage );

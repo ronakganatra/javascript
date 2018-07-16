@@ -21,7 +21,7 @@ const ColumnLayout = styled.div`
 const MainColumn = styled.div`
 	width: 480px;
 	:not(:only-child) {
-	 	@media screen and ( max-width: 1024px ) {
+		@media screen and ( max-width: 1024px ) {
 			display: none;
 		}
 	}

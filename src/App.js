@@ -16,6 +16,8 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
+import ProfileDetails from "./components/login/ProfileDetails";
+import AlmostThere from "./components/login/AlmostThere";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordContainer from "./containers/ResetPassword";
 import ResetPasswordEmailContainer from "./containers/ResetPasswordEmail";
@@ -63,6 +65,8 @@ const Routes = ( props ) => {
 			<ConnectedRouter history={ props.history }>
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) } />
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
 					<Route exact path="/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
