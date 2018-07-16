@@ -75,7 +75,7 @@ export function removePeriLoginCookie() {
 }
 
 /**
- * Checks whether the indentedDestination cookie is set.
+ * Checks whether the intendedDestination cookie is set.
  *
  * @returns {boolean} Whether or not the cookie was set.
  */

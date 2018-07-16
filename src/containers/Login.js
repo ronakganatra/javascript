@@ -12,12 +12,14 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		 * Opens the door to the treasures of MyYoast,
 		 * if their credentials are correctly filled in.
 		 *
-		 * @param {Object} data An object containing an email address, password and a "remember me" value.
+		 * @param {Object} params The request parameters.
+		 * @param {string} params.email The email address of the user who is trying to log in.
+		 * @param {string} params.password The password of the user who is trying to log in.
+		 * @param {boolean} params.rememberMe Whether or not the user wants to be reminded, and have their login session extended.
 		 *
 		 * @returns {void}
 		 */
-		attemptLogin: ( data ) => {
-			let params = { email: data.email, password: data.password, rememberMe: data.rememberMe };
+		attemptLogin: ( params ) => {
 			dispatch( loginRequest( params ) );
 		},
 	};

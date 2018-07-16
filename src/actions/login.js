@@ -60,8 +60,16 @@ export function doingLoginRequest() {
 /**
  * An action creator for the login request action.
  *
- * @param {Object} params The request parameters
- * @returns {Function} A dispatch function.
+ * Attempts to log in a user by doing an API call to the MyYoast server, which forwards it to yoast.com's APIs.
+ * When this succeeds, we attempt to fetch the OAuth access token from yoast.com (the OAuth server).
+ *
+ *
+ * @param {Object} params The request parameters.
+ * @param {string} params.email The email address of the user who is trying to log in.
+ * @param {string} params.password The password of the user who is trying to log in.
+ * @param {boolean} params.rememberMe Whether or not the user wants to be reminded, and have their login session extended.
+ *
+ * @returns {Function} A function which enables us to expose the dispatch function.
  */
 export function loginRequest( params ) {
 	return ( dispatch ) => {
