@@ -499,6 +499,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -1276,6 +1277,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -2017,6 +2019,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -2809,6 +2812,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -3617,6 +3621,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -4379,6 +4384,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -5120,6 +5126,7 @@ exports[`components/ProfilePage saving profile 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -5861,6 +5868,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />
@@ -6602,6 +6610,7 @@ exports[`components/ProfilePage the default case 1`] = `
                 <img
                   alt="Your current profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="dummy.png"
                 />
@@ -7343,6 +7352,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 <img
                   alt="Default profile image"
                   className="c11"
+                  onError={[Function]}
                   size="125px"
                   src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
                 />

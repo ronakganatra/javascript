@@ -16,6 +16,8 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
+import ProfileDetails from "./components/login/ProfileDetails";
+import AlmostThere from "./components/login/AlmostThere";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordPage from "./components/login/ResetPasswordPage";
 import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
@@ -60,6 +62,8 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) }/>
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) }/>
+					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) }/>
+					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) }/>
 					<Route path="*" render={ () => {
 						removePeriLoginCookie();
 						setPeriLoginCookie();
@@ -93,8 +97,8 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) }/>
-					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) }/>
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>

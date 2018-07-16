@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The UploadUserImage component matches the snapshot 1`] = `
+.c2 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c0 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c4 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c4:hover,
+.c4:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c5 {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: black;
+}
+
+<div
+  className="c0"
+  size="125px"
+>
+  <div
+    className="c1"
+  >
+    <img
+      alt="Default profile image"
+      className="c2"
+      onError={[Function]}
+      size="125px"
+      src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+    />
+  </div>
+  <span
+    className="c3"
+  >
+    <button
+      aria-label="Change profile image"
+      className="c4"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        Change
+      </span>
+    </button>
+  </span>
+  <p
+    className="c5"
+  >
+    <span>
+      Maximum file size is 5 megabytes
+    </span>
+  </p>
+  <input
+    accept="image/png, image/jpeg, image/gif"
+    aria-hidden={true}
+    onChange={[Function]}
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+    type="file"
+  />
+</div>
+`;

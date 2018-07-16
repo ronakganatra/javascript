@@ -98,6 +98,10 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
   width: 360px;
 }
 
+.c3 {
+  padding: 0 2em;
+}
+
 <div
   className="c0"
 >
@@ -114,7 +118,9 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
       Welcome back!
     </span>
   </h2>
-  <p>
+  <p
+    className="c3"
+  >
     <span>
       Log in with your email address and password. If you don't remember your password, just reset it!
     </span>
