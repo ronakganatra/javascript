@@ -340,7 +340,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         spellCheck="false"
         type="text"
         value=""
-        width="100%"
       />
       <p
         className="screen-reader-text"
@@ -759,7 +758,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
         spellCheck="false"
         type="text"
         value=""
-        width="100%"
       />
       <p
         className="screen-reader-text"
@@ -1178,7 +1176,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
         spellCheck="false"
         type="text"
         value=""
-        width="100%"
       />
       <p
         className="screen-reader-text"
