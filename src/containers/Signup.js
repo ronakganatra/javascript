@@ -9,7 +9,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			let request = prepareInternalRequest( "Customers/signup/", "POST", params );
 			doRequest( request )
 				.then( () => {
-					console.log( "signup succeeded!" );
+					ownProps.history.push( "/almost-there" );
 				}
 				)
 				.catch( ( error ) => {
