@@ -14,8 +14,8 @@ const MainPaper = styled.div`
 	padding: 0px;
 	width: 480px;
 	height: 480px;
-	
-    text-align: center;
+
+	text-align: center;
 `;
 
 const Icon = styled.img`
@@ -26,6 +26,11 @@ const Icon = styled.img`
 const Logos = styled.img`
 	margin-top: 40px;
 	width: 360px;
+`;
+
+const StyledHeading = styled.h1`
+	font-size: 1.5em; // 24 pixels
+	margin: 0.8333em; // 24 x 0.8333 = ~20 pixels
 `;
 
 const Message = styled.p`
@@ -84,10 +89,12 @@ class LoginMessage extends React.Component {
 			<MainPaper>
 				<Logos src={ logo } />
 				<Icon src={ this.props.image } />
-				<h2>
-					<FormattedMessage id={ this.props.header.id }
-									  defaultMessage={ this.props.header.defaultMessage } />
-				</h2>
+				<StyledHeading>
+					<FormattedMessage
+						id={ this.props.header.id }
+						defaultMessage={ this.props.header.defaultMessage }
+					/>
+				</StyledHeading>
 				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
 			</MainPaper>
 		);
