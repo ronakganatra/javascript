@@ -61,10 +61,12 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
   className="c0"
 >
   <img
+    alt="MyYoast - Yoast Academy"
     className="c1"
     src="my-yoast-academy-logo.svg"
   />
   <img
+    alt=""
     className="c2"
     src="greeting.png"
   />
@@ -118,10 +120,12 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
   className="c0"
 >
   <img
+    alt="MyYoast - Yoast Academy"
     className="c1"
     src="my-yoast-academy-logo.svg"
   />
   <img
+    alt=""
     className="c2"
     src="greeting.png"
   />

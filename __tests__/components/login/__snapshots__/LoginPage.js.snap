@@ -122,10 +122,12 @@ exports[`The login page matches the snapshot 1`] = `
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
@@ -307,10 +309,12 @@ exports[`The sign up page matches the snapshot 1`] = `
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />

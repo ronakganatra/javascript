@@ -87,8 +87,8 @@ class LoginMessage extends React.Component {
 	render() {
 		return (
 			<MainPaper>
-				<Logos src={ logo } />
-				<Icon src={ this.props.image } />
+				<Logos src={ logo } alt="MyYoast - Yoast Academy" />
+				<Icon src={ this.props.image } alt="" />
 				<StyledHeading>
 					<FormattedMessage
 						id={ this.props.header.id }
