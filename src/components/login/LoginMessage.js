@@ -14,7 +14,7 @@ const MainPaper = styled.div`
 	padding: 0px;
 	width: 480px;
 	height: 480px;
-	
+
     text-align: center;
 `;
 
@@ -82,8 +82,8 @@ class LoginMessage extends React.Component {
 	render() {
 		return (
 			<MainPaper>
-				<Logos src={ logo } />
-				<Icon src={ this.props.image } />
+				<Logos src={ logo } alt="MyYoast - Yoast Academy" />
+				<Icon src={ this.props.image } alt="" />
 				<h2>
 					<FormattedMessage id={ this.props.header.id }
 									  defaultMessage={ this.props.header.defaultMessage } />
