@@ -5,7 +5,6 @@ import { doRequest, prepareInternalRequest } from "../functions/api";
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		attemptSignup: ( data ) => {
-			console.log( "data in container:", data );
 			let params = data;
 			let request = prepareInternalRequest( "Customers/signup/", "POST", params );
 			doRequest( request )
