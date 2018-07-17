@@ -159,7 +159,7 @@ class ResetPasswordPage extends React.Component {
 			<LoginColumnLayout>
 				<Column>
 					<Header>
-						<Logos src={ logo } />
+						<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 					</Header>
 					<FormattedMessage
 						id={ messages.resetMessage.id }
