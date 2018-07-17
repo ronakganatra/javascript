@@ -102,22 +102,29 @@ class Signup extends React.Component {
 	 *
 	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
+	 * @param {array} errors The input field related errors.
 	 * @returns {void}
 	 */
-	onUpdate( field, event ) {
+	onUpdate( field, event, errors = [] ) {
+		let hasFieldErrors = errors.length > 0;
 		let obj = {};
 		obj[ field ] = event.target.value;
+		obj.errorsInputFields = hasFieldErrors;
 		this.setState( obj );
 	}
 
 	/**
 	 * Returns the 'Create account' button.
-	 *
+	 * @param {object} errors the errors from the repeat password input field.
 	 * @returns {ReactElement} The 'Create account' button.
 	 */
-	getAccountButton() {
+	getAccountButton( errors ) {
+		let noInputFieldErrors = ! errors && ! this.state.errorsInputFields;
 		return <SaveButtonArea>
-			<SaveButton type="submit">
+			<SaveButton type="submit" enabledStyle = {
+				( this.state.email.length && this.state.password.length && this.state.passwordRepeat.length ) > 0 &&
+					noInputFieldErrors
+			}>
 				<FormattedMessage { ...messages.createAccount } />
 			</SaveButton>
 		</SaveButtonArea>;
@@ -132,7 +139,7 @@ class Signup extends React.Component {
 	 */
 	validate() {
 		if ( this.state.passwordRepeat.length === 0 ) {
-			return [];
+			return null;
 		}
 
 		let errors = validate( {
@@ -142,7 +149,7 @@ class Signup extends React.Component {
 		}, this.constraints );
 
 		if ( _isUndefined( errors ) ) {
-			errors = [];
+			errors = null;
 		}
 		return errors;
 	}
@@ -162,7 +169,6 @@ class Signup extends React.Component {
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
-		console.log( "data in compoennt:", data );
 		this.props.attemptSignup( data );
 		// Code to connect UI with sign up back end code should go here.
 	}
@@ -206,10 +212,10 @@ class Signup extends React.Component {
 						name="repeat password"
 						type="password"
 						onChange={ this.onUpdatePasswordRepeat }
-						errors={ errors.passwordRepeat }
+						errors={ errors ? errors.passwordRepeat : [] }
 					/>
 				</LabelBlock>
-				{ this.getAccountButton() }
+				{ this.getAccountButton( errors ) }
 			</FormGroup>
 		);
 	}
