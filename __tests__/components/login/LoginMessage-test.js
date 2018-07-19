@@ -40,21 +40,3 @@ test( 'The LoginMessage component, with a button, matches the snapshot', () => {
 	let tree = component.toJSON();
 	expect( tree ).toMatchSnapshot();
 } );
-
-test( 'The click handler is executed when the button on the LoginMessage component is clicked', () => {
-
-	const mockupFunction = jest.fn();
-
-	const component = createComponentWithIntl(
-		<LoginMessage header={ messages.headerReset } message={ messages.button } onClick={ mockupFunction } />
-	);
-
-	let tree = component.toJSON();
-
-	// call onClick function on the component.
-	const onClick = tree.children[ 3 ].props.onClick;
-	onClick();
-
-	expect( mockupFunction ).toHaveBeenCalled();
-} );
-
