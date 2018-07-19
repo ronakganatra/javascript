@@ -105,9 +105,8 @@ class ErrorDisplay extends React.Component {
 		}
 
 		let icon = this.messageType === "warning" ? exclamationTriangle : exclamationCircle;
-		let altText = this.messageType === "warning" ? "Warning sign" : "Error sign";
 		return(
-			<MessageIcon iconSource={ icon } alt={ altText }/>
+			<MessageIcon iconSource={ icon }/>
 		);
 	}
 
