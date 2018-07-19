@@ -257,8 +257,6 @@ class ProfileForm extends React.Component {
 						/>
 					</StyledLabel>
 					<TextInput
-						width="100%"
-						margin-right="5px"
 						id="first-name"
 						name="first name"
 						type="text"
@@ -272,7 +270,6 @@ class ProfileForm extends React.Component {
 						/>
 					</StyledLabel>
 					<TextInput
-						width="100%"
 						id="last-name"
 						name="last name"
 						type="text"

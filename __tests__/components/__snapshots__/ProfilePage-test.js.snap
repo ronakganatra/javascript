@@ -557,7 +557,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -574,7 +573,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -595,7 +593,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -1335,7 +1332,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -1352,7 +1348,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -1373,7 +1368,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -2077,7 +2071,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -2094,7 +2087,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -2115,7 +2107,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -2870,7 +2861,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -2887,7 +2877,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -2908,7 +2897,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -3066,7 +3054,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             role="alert"
           >
             <span
-              alt="Error sign"
               className="c32"
             />
             <span>
@@ -3679,7 +3666,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -3696,7 +3682,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -3717,14 +3702,12 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20 c21"
               role="alert"
             >
               <span
-                alt="Error sign"
                 className="c22"
               />
               <span>
@@ -4442,7 +4425,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -4459,7 +4441,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -4480,7 +4461,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -5184,7 +5164,6 @@ exports[`components/ProfilePage saving profile 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -5201,7 +5180,6 @@ exports[`components/ProfilePage saving profile 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -5222,7 +5200,6 @@ exports[`components/ProfilePage saving profile 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -5926,7 +5903,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -5943,7 +5919,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -5964,7 +5939,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"
@@ -6668,7 +6642,6 @@ exports[`components/ProfilePage the default case 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -6685,7 +6658,6 @@ exports[`components/ProfilePage the default case 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -6706,7 +6678,6 @@ exports[`components/ProfilePage the default case 1`] = `
               onChange={[Function]}
               type="text"
               value="test@test.test"
-              width="100%"
             />
             <div
               className="c20"
@@ -7410,7 +7381,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
             <label
               className="c17"
@@ -7427,7 +7397,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               onChange={[Function]}
               type="text"
               value=""
-              width="100%"
             />
           </div>
           <div
@@ -7448,7 +7417,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               onChange={[Function]}
               type="text"
               value="email@email.email"
-              width="100%"
             />
             <div
               className="c20"

@@ -11,13 +11,13 @@ export const InputField = styled.input`
 	font-size: 1em;
 	font-family: "Open Sans", sans-serif;
 	height: ${ defaults.css.inputField.height };
-	width: ${ props => props.width };
+	width: ${ props => props.inputWidth };
 `;
 
 InputField.propTypes = {
-	width: PropTypes.string,
+	inputWidth: PropTypes.string,
 };
 
 InputField.defaultProps = {
-	width: "100%",
+	inputWidth: "100%",
 };

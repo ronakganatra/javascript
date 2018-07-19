@@ -485,7 +485,6 @@ exports[`The Orders component matches the snapshot 1`] = `
       spellCheck="false"
       type="text"
       value={undefined}
-      width="100%"
     />
     <p
       className="screen-reader-text"

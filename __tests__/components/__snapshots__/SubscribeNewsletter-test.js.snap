@@ -299,7 +299,6 @@ exports[`The Subscribe Newsletter component shows an error when there is one def
     role="alert"
   >
     <span
-      alt="Error sign"
       className="c5"
     />
     <span>
