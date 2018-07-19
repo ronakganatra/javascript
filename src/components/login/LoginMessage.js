@@ -32,14 +32,8 @@ const Message = styled.p`
 	padding: 0 2em;
 `;
 
-const ButtonArea = styled.div`
-	position: relative;
-	bottom: 0;
-	margin-top: 40px;
-	width: 100%;
-`;
-
 const StyledButtonLink = styled( ButtonLink )`
+	position: relative;
 	margin: 1em 0;
 	width: 100%;
 `;
@@ -72,11 +66,10 @@ class LoginMessage extends React.Component {
 	 */
 	renderButton() {
 		return (
-			<ButtonArea>
 				<StyledButtonLink to={ this.props.buttonLinkTo }>
 					<FormattedMessage { ...this.props.message } />
 				</StyledButtonLink>
-			</ButtonArea>
+
 		);
 	}
 
@@ -86,13 +79,11 @@ class LoginMessage extends React.Component {
 	 * @returns {React.Component} the paragraph, with the message as its contents.
 	 */
 	renderParagraph() {
-		if ( this.props.message ) {
-			return (
-				<Message>
-					<FormattedMessage { ...this.props.message } />
-				</Message>
-			);
-		}
+		return (
+			<Message>
+				<FormattedMessage { ...this.props.message } />
+			</Message>
+		);
 	}
 
 	render() {
