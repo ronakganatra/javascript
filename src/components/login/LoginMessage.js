@@ -4,7 +4,7 @@ import { injectIntl, FormattedMessage } from "react-intl";
 import styled from "styled-components";
 
 // Components.
-import { Button } from "../Button";
+import { ButtonLink } from "../Button";
 
 // Images.
 import icon from "../../images/greeting.png";
@@ -30,6 +30,18 @@ const Logos = styled.img`
 
 const Message = styled.p`
 	padding: 0 2em;
+`;
+
+const ButtonArea = styled.div`
+	position: relative;
+	bottom: 0;
+	margin-top: 40px;
+	width: 100%;
+`;
+
+const StyledButtonLink = styled( ButtonLink )`
+	margin: 1em 0;
+	width: 100%;
 `;
 
 /**
@@ -60,9 +72,11 @@ class LoginMessage extends React.Component {
 	 */
 	renderButton() {
 		return (
-			<Button onClick={ this.props.onClick }>
-				<FormattedMessage { ...this.props.message } />
-			</Button>
+			<ButtonArea>
+				<StyledButtonLink to={ this.props.buttonLinkTo }>
+					<FormattedMessage { ...this.props.message } />
+				</StyledButtonLink>
+			</ButtonArea>
 		);
 	}
 
@@ -72,11 +86,13 @@ class LoginMessage extends React.Component {
 	 * @returns {React.Component} the paragraph, with the message as its contents.
 	 */
 	renderParagraph() {
-		return (
-			<Message>
-				<FormattedMessage { ...this.props.message } />
-			</Message>
-		);
+		if ( this.props.message ) {
+			return (
+				<Message>
+					<FormattedMessage { ...this.props.message } />
+				</Message>
+			);
+		}
 	}
 
 	render() {
@@ -88,7 +104,7 @@ class LoginMessage extends React.Component {
 					<FormattedMessage id={ this.props.header.id }
 									  defaultMessage={ this.props.header.defaultMessage } />
 				</h2>
-				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
+				{ this.props.buttonLinkTo ? this.renderButton() : this.renderParagraph() }
 			</MainPaper>
 		);
 	}
@@ -96,9 +112,9 @@ class LoginMessage extends React.Component {
 
 LoginMessage.propTypes = {
 	image: PropTypes.string,
-	header: PropTypes.object,
-	message: PropTypes.object,
-	onClick: PropTypes.func,
+	header: PropTypes.object.isRequired,
+	message: PropTypes.object.isRequired,
+	buttonLinkTo: PropTypes.string,
 };
 
 LoginMessage.defaultProps = {
