@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Login component matches the snapshot 1`] = `
-.c13 {
+.c14 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -19,19 +19,19 @@ exports[`The Login component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c13:hover,
-.c13:focus {
+.c14:hover,
+.c14:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c13:active {
+.c14:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c12 {
+.c13 {
   text-shadow: 0px 0px 2px #000;
 }
 
@@ -47,18 +47,7 @@ exports[`The Login component matches the snapshot 1`] = `
 }
 
 .c8 {
-  display: block;
   position: relative;
-  cursor: pointer;
-  padding-left: 35px;
-  line-height: initial;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .c8 input:checked ~ .checkmark {
@@ -74,12 +63,26 @@ exports[`The Login component matches the snapshot 1`] = `
 }
 
 .c9 {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c10 {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-.c10 {
+.c11 {
   position: absolute;
   top: 0;
   left: 0;
@@ -89,7 +92,7 @@ exports[`The Login component matches the snapshot 1`] = `
   background-color: #f7f7f7;
 }
 
-.c10:hover {
+.c11:hover {
   background-color: #cecece;
 }
 
@@ -122,7 +125,7 @@ exports[`The Login component matches the snapshot 1`] = `
   margin-top: 10px;
 }
 
-.c11 {
+.c12 {
   margin: 1em 0;
   width: 100%;
 }
@@ -190,12 +193,11 @@ exports[`The Login component matches the snapshot 1`] = `
   <div
     className="c7"
   >
-    <label
+    <div
       className="c8"
     >
-       
       <label
-        className="c2 c3"
+        className="c9"
         htmlFor="remember-me"
       >
         <span>
@@ -204,21 +206,21 @@ exports[`The Login component matches the snapshot 1`] = `
       </label>
       <input
         checked={false}
-        className="c9"
+        className="c10"
         id="remember-me"
         onChange={[Function]}
         type="checkbox"
       />
       <span
-        className="checkmark c10"
+        className="checkmark c11"
       />
-    </label>
+    </div>
   </div>
   <div
     className=""
   >
     <button
-      className="c11 c12 c13"
+      className="c12 c13 c14"
       type="submit"
     >
       <span>

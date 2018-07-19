@@ -76,7 +76,7 @@ const messages = defineMessages( {
 		defaultMessage: "Log in",
 	},
 	rememberMe: {
-		id: "login,rememberMe",
+		id: "login.rememberMe",
 		defaultMessage: "Remember me",
 	},
 	forgotPassword: {
@@ -136,10 +136,8 @@ const LoginForm = ( props ) => {
 			</ForgotPasswordLink>
 
 			<RememberMe>
-				<Checkbox id="remember-me" onCheck={ props.onRememberCheck } checked={ props.rememberMe }>
-					<Label htmlFor="remember-me">
-						<FormattedMessage { ...messages.rememberMe } />
-					</Label>
+				<Checkbox id="remember-me" onCheck={ props.onRememberCheck } checked={ props.rememberMe } >
+					<FormattedMessage { ...messages.rememberMe } />
 				</Checkbox>
 			</RememberMe>
 
