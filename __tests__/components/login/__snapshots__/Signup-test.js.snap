@@ -107,7 +107,6 @@ exports[`The Signup component matches the snapshot 1`] = `
         id="email-address"
         onChange={[Function]}
         type="text"
-        width="100%"
       />
     </div>
   </div>
@@ -128,7 +127,6 @@ exports[`The Signup component matches the snapshot 1`] = `
         id="password"
         onChange={[Function]}
         type="password"
-        width="100%"
       />
     </div>
   </div>
@@ -149,7 +147,6 @@ exports[`The Signup component matches the snapshot 1`] = `
         id="password-repeat"
         onChange={[Function]}
         type="password"
-        width="100%"
       />
     </div>
   </div>
