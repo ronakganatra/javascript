@@ -19,6 +19,11 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
 }
 
 .c3 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c4 {
   padding: 0 2em;
 }
 
@@ -26,20 +31,24 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
   className="c0"
 >
   <img
+    alt="MyYoast - Yoast Academy"
     className="c1"
     src="my-yoast-academy-logo.svg"
   />
   <img
+    alt=""
     className="c2"
     src="greeting.png"
   />
-  <h2>
+  <h1
+    className="c3"
+  >
     <span>
       Password changed successfully!
     </span>
-  </h2>
+  </h1>
   <p
-    className="c3"
+    className="c4"
   >
     <span>
       Continue to MyYoast
@@ -67,6 +76,11 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
 }
 
 .c3 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c4 {
   padding: 0 2em;
 }
 
@@ -74,20 +88,24 @@ exports[`The LoginMessage component, with a paragraph, matches the snapshot 1`] 
   className="c0"
 >
   <img
+    alt="MyYoast - Yoast Academy"
     className="c1"
     src="my-yoast-academy-logo.svg"
   />
   <img
+    alt=""
     className="c2"
     src="greeting.png"
   />
-  <h2>
+  <h1
+    className="c3"
+  >
     <span>
       Welcome back!
     </span>
-  </h2>
+  </h1>
   <p
-    className="c3"
+    className="c4"
   >
     <span>
       Log in with your email address and password. If you don't remember your password, just reset it!

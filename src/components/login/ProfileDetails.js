@@ -14,9 +14,9 @@ const MainPaper = styled.div`
 	padding: 0 20px;
 	width: 480px;
 	min-height: 480px;
-	
+
 	position: relative;
-		
+
     text-align: center;
 `;
 
@@ -27,12 +27,12 @@ const Logos = styled.img`
 
 const Description = styled.p`
 	margin-top: 20px;
-	
+
 	text-align: left;
 `;
 
 const SaveButtonArea = styled.div`
-	text-align: center;	
+	text-align: center;
 	width: 100%;
 `;
 
@@ -77,7 +77,7 @@ class ProfileDetails extends React.Component {
 	render() {
 		return <LoginColumnLayout>
 			<MainPaper>
-				<Logos alt="My Yoast, Yoast Academy" src={ logo } />
+				<Logos alt="MyYoast - Yoast Academy" src={ logo } />
 				<Description>
 					<FormattedMessage { ...messages.message } />
 				</Description>

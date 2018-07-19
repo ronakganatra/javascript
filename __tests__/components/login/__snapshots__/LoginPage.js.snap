@@ -12,7 +12,7 @@ exports[`The login page matches the snapshot 1`] = `
   width: 480px;
 }
 
-.c6 {
+.c7 {
   margin-left: 48px;
 }
 
@@ -34,10 +34,15 @@ exports[`The login page matches the snapshot 1`] = `
 }
 
 .c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
   padding: 0 2em;
 }
 
-.c7 {
+.c8 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -59,12 +64,12 @@ exports[`The login page matches the snapshot 1`] = `
   border-bottom: 4px solid #ccc;
 }
 
-.c8 {
+.c9 {
   min-width: 200px;
   font-size: 1.2em;
 }
 
-.c9 {
+.c10 {
   display: block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -76,14 +81,14 @@ exports[`The login page matches the snapshot 1`] = `
   transition: border 200ms ease-out;
 }
 
-.c9:hover,
-.c9:focus,
-.c9.activeSubMenu {
+.c10:hover,
+.c10:focus,
+.c10.activeSubMenu {
   border-bottom-color: #a4286a;
   border-bottom-style: double;
 }
 
-.c9.activeSubMenu {
+.c10.activeSubMenu {
   color: #a4286a;
   border-bottom-style: solid;
 }
@@ -95,13 +100,13 @@ exports[`The login page matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1024px ) {
-  .c6 {
+  .c7 {
     margin-left: 0;
   }
 }
 
 @media screen and ( max-width:600px ) {
-  .c8 {
+  .c9 {
     width: 150px;
     min-width: 0px;
   }
@@ -117,20 +122,24 @@ exports[`The login page matches the snapshot 1`] = `
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
-      <h2>
+      <h1
+        className="c5"
+      >
         <span>
           Welcome!
         </span>
-      </h2>
+      </h1>
       <p
-        className="c5"
+        className="c6"
       >
         <span>
           MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
@@ -139,19 +148,19 @@ exports[`The login page matches the snapshot 1`] = `
     </div>
   </div>
   <div
-    className="c6"
+    className="c7"
   >
     <div>
       <ul
-        className="c7"
+        className="c8"
         role="list"
       >
         <li
-          className="c8"
+          className="c9"
         >
           <a
             aria-current={false}
-            className="c9"
+            className="c10"
             href="/signup"
             onClick={[Function]}
             style={undefined}
@@ -160,11 +169,11 @@ exports[`The login page matches the snapshot 1`] = `
           </a>
         </li>
         <li
-          className="c8"
+          className="c9"
         >
           <a
             aria-current={false}
-            className="c9"
+            className="c10"
             href="/login"
             onClick={[Function]}
             style={undefined}
@@ -190,7 +199,7 @@ exports[`The sign up page matches the snapshot 1`] = `
   width: 480px;
 }
 
-.c6 {
+.c7 {
   margin-left: 48px;
 }
 
@@ -212,10 +221,15 @@ exports[`The sign up page matches the snapshot 1`] = `
 }
 
 .c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
   padding: 0 2em;
 }
 
-.c7 {
+.c8 {
   width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -237,12 +251,12 @@ exports[`The sign up page matches the snapshot 1`] = `
   border-bottom: 4px solid #ccc;
 }
 
-.c8 {
+.c9 {
   min-width: 200px;
   font-size: 1.2em;
 }
 
-.c9 {
+.c10 {
   display: block;
   -webkit-text-decoration: none;
   text-decoration: none;
@@ -254,14 +268,14 @@ exports[`The sign up page matches the snapshot 1`] = `
   transition: border 200ms ease-out;
 }
 
-.c9:hover,
-.c9:focus,
-.c9.activeSubMenu {
+.c10:hover,
+.c10:focus,
+.c10.activeSubMenu {
   border-bottom-color: #a4286a;
   border-bottom-style: double;
 }
 
-.c9.activeSubMenu {
+.c10.activeSubMenu {
   color: #a4286a;
   border-bottom-style: solid;
 }
@@ -273,13 +287,13 @@ exports[`The sign up page matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1024px ) {
-  .c6 {
+  .c7 {
     margin-left: 0;
   }
 }
 
 @media screen and ( max-width:600px ) {
-  .c8 {
+  .c9 {
     width: 150px;
     min-width: 0px;
   }
@@ -295,20 +309,24 @@ exports[`The sign up page matches the snapshot 1`] = `
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
-      <h2>
+      <h1
+        className="c5"
+      >
         <span>
           Welcome!
         </span>
-      </h2>
+      </h1>
       <p
-        className="c5"
+        className="c6"
       >
         <span>
           MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
@@ -317,19 +335,19 @@ exports[`The sign up page matches the snapshot 1`] = `
     </div>
   </div>
   <div
-    className="c6"
+    className="c7"
   >
     <div>
       <ul
-        className="c7"
+        className="c8"
         role="list"
       >
         <li
-          className="c8"
+          className="c9"
         >
           <a
             aria-current={false}
-            className="c9"
+            className="c10"
             href="/signup"
             onClick={[Function]}
             style={undefined}
@@ -338,11 +356,11 @@ exports[`The sign up page matches the snapshot 1`] = `
           </a>
         </li>
         <li
-          className="c8"
+          className="c9"
         >
           <a
             aria-current={false}
-            className="c9"
+            className="c10"
             href="/login"
             onClick={[Function]}
             style={undefined}

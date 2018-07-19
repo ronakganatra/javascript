@@ -19,6 +19,11 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
 }
 
 .c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
   padding: 0 2em;
 }
 
@@ -49,20 +54,24 @@ exports[`The LoginColumnLayout component, with one column, matches the snapshot 
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
-      <h2>
+      <h1
+        className="c5"
+      >
         <span>
           Welcome back!
         </span>
-      </h2>
+      </h1>
       <p
-        className="c5"
+        className="c6"
       >
         <span>
           Log in with your email address and password. If you don't remember your password, just reset it!
@@ -92,6 +101,11 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
 }
 
 .c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
   padding: 0 2em;
 }
 
@@ -106,7 +120,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
   width: 480px;
 }
 
-.c6 {
+.c7 {
   margin-left: 48px;
 }
 
@@ -117,7 +131,7 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
 }
 
 @media screen and ( max-width:1024px ) {
-  .c6 {
+  .c7 {
     margin-left: 0;
   }
 }
@@ -132,20 +146,24 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
-      <h2>
+      <h1
+        className="c5"
+      >
         <span>
           Welcome back!
         </span>
-      </h2>
+      </h1>
       <p
-        className="c5"
+        className="c6"
       >
         <span>
           Log in with your email address and password. If you don't remember your password, just reset it!
@@ -154,26 +172,30 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
     </div>
   </div>
   <div
-    className="c6"
+    className="c7"
   >
     <div
       className="c2"
     >
       <img
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />
       <img
+        alt=""
         className="c4"
         src="greeting.png"
       />
-      <h2>
+      <h1
+        className="c5"
+      >
         <span>
           Password changed successfully!
         </span>
-      </h2>
+      </h1>
       <p
-        className="c5"
+        className="c6"
       >
         <span>
           Continue to MyYoast
