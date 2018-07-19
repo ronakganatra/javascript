@@ -10,8 +10,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			doRequest( request )
 			.then( () => {
 				ownProps.history.push( "/reset/passwordSuccess" );
-			}
-			)
+			} )
 			.catch( ( error ) => {
 				return error;
 			} );
