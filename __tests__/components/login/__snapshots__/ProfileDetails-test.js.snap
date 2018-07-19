@@ -219,7 +219,7 @@ exports[`The ProfileDetails component matches the snapshot 1`] = `
       className="c2"
     >
       <img
-        alt="My Yoast, Yoast Academy"
+        alt="MyYoast - Yoast Academy"
         className="c3"
         src="my-yoast-academy-logo.svg"
       />

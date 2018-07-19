@@ -155,7 +155,6 @@ exports[`The Login component matches the snapshot 1`] = `
       onChange={[Function]}
       type="text"
       value=""
-      width="100%"
     />
   </div>
   <div
@@ -175,7 +174,6 @@ exports[`The Login component matches the snapshot 1`] = `
       name="password"
       onChange={[Function]}
       type="password"
-      width="100%"
     />
   </div>
   <div
