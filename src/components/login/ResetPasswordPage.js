@@ -155,12 +155,12 @@ class ResetPasswordPage extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		// Reset password query to get the key and user_login which are needed for the API.
-		let queryReset = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
+		let queryReset = queryString.parse( this.props.location.Search, { arrayFormat: "bracket" } );
 		let data = {
 			newPassword: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 			userLogin: queryReset.user_login,
-			key: queryReset.key,
+			key: queryReset.key || "",
 		};
 
 		this.props.attemptResetPassword( data );
@@ -168,7 +168,6 @@ class ResetPasswordPage extends React.Component {
 
 	render() {
 		let errors = this.validate( this.state.password, this.state.passwordRepeat );
-		let userEmail = this.props.email;
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -178,8 +177,7 @@ class ResetPasswordPage extends React.Component {
 					<FormattedMessage
 						id={ messages.resetMessage.id }
 						defaultMessage={ messages.resetMessage.defaultMessage }
-						// Email should be updated to email address
-						values={ { email: userEmail } }
+						values={ { email: this.props.email } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
 
