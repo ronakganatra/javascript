@@ -177,7 +177,6 @@ class ResetPasswordEmailPage extends React.Component {
 		if( this.props.loading ) {
 			buttonText = messages.loadingButton;
 		}
-		console.log( this.state.email.length > 0, this.state.errors.length === 0, this.props.loading === false );
 		return (
 			<LoginColumnLayout>
 				<Column>
