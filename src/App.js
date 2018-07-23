@@ -27,6 +27,7 @@ import {
 	removePeriLoginCookie,
 	setPeriLoginCookie,
 } from "./functions/auth";
+import ActivateContainer from "./containers/ActivateContainer";
 
 /*
  * Helper method to write global CSS.
@@ -62,6 +63,8 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) }/>
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) }/>
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
+					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) }/>
 					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) }/>
 					<Route path="*" render={ () => {
@@ -98,7 +101,6 @@ const Routes = ( props ) => {
 			<ConnectedRouter history={ props.history }>
 				<Switch>
 					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>

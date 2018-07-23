@@ -1,14 +1,14 @@
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
-import ProfileDetailsBlock from "../account/profile/ProfileDetailsBlock";
-import { Button } from "../Button";
 
 // Images;
 import logo from "../../images/my-yoast-academy-logo.svg";
+import { Redirect } from "react-router";
 
 const MainPaper = styled.div`
 	padding: 0 20px;
@@ -31,24 +31,14 @@ const Description = styled.p`
 	text-align: left;
 `;
 
-const SaveButtonArea = styled.div`
-	text-align: center;
-	width: 100%;
-`;
-
-const SaveButton = styled( Button )`
-	margin: 40px 0;
-`;
-
 const messages = defineMessages( {
-	message: {
-		id: "profileDetails.message",
-		defaultMessage: "Your MyYoast account has been activated! Fill out this last bit " +
-		"of information and you can get started. Don't worry, you can always change these later!",
+	activating: {
+		id: "profileDetails.activating",
+		defaultMessage: "Activating your MyYoast account. Please stay with us for a little while longer...",
 	},
-	goToMyYoast: {
-		id: "profileDetails.goToMyYoast",
-		defaultMessage: "Continue to MyYoast",
+	loggingIn: {
+		id: "profileDetails.loggingIn",
+		defaultMessage: "Logging in...",
 	},
 } );
 
@@ -56,7 +46,12 @@ const messages = defineMessages( {
  * Component in first login flow, where the user is asked to
  * enter some personal details: first name, last name and profile image.
  */
-class ProfileDetails extends React.Component {
+class Activate extends React.Component {
+
+	constructor( props ) {
+		super( props );
+		this.activateUser();
+	}
 
 	/**
 	 * Submits the entered first name, last name and profile image
@@ -74,30 +69,31 @@ class ProfileDetails extends React.Component {
 		 */
 	}
 
-
 	render() {
-		return <LoginColumnLayout>
-			<MainPaper>
-				<Logos alt="MyYoast - Yoast Academy" src={logo}/>
-				<Description>
-					<FormattedMessage {...messages.message} />
-				</Description>
-				<ProfileDetailsBlock onSubmit={this.handleSubmit}>
-					<SaveButtonArea>
-						<SaveButton type="submit">
-							<FormattedMessage {...messages.goToMyYoast} />
-						</SaveButton>
-					</SaveButtonArea>
-				</ProfileDetailsBlock>
-			</MainPaper>
-		</LoginColumnLayout>;
+		if ( this.props.isLoggedIn ) {
+			return ( <Redirect to={"/enter-details"}/> );
+		}
+		return (
+			<LoginColumnLayout>
+				<MainPaper>
+					<Logos alt="MyYoast - Yoast Academy" src={logo}/>
+					<Description>
+						<FormattedMessage {...messages.activating} />
+					</Description>
+				</MainPaper>
+			</LoginColumnLayout>
+		);
 	}
 }
 
-export default injectIntl( ProfileDetails );
+export default injectIntl( Activate );
 
-ProfileDetails.propTypes = {
+Activate.propTypes = {
 	intl: intlShape.isRequired,
+	isLoggedIn: PropTypes.bool.isRequired,
+	activateUser: PropTypes.func.isRequired,
 };
 
-ProfileDetails.defaultProps = {};
+Activate.defaultProps = {
+	isLoggedIn: false,
+};

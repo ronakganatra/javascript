@@ -163,14 +163,12 @@ class Signup extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		// Reset password query to get the key and user_login which are needed for the API.
 		let data = {
 			userEmail: this.state.email,
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
 		this.props.attemptSignup( data );
-		// Code to connect UI with sign up back end code should go here.
 	}
 
 	render() {
