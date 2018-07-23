@@ -8,15 +8,19 @@ export const SEND_RESET_PASSWORD_EMAIL_REQUEST = "SEND_RESET_PASSWORD_EMAIL_REQU
 export const SEND_RESET_PASSWORD_EMAIL_SUCCESS = "SEND_RESET_PASSWORD_EMAIL_SUCCESS";
 export const SEND_RESET_PASSWORD_EMAIL_FAILURE = "SEND_RESET_PASSWORD_EMAIL_FAILURE";
 
+export const RESET_PASSWORD_REQUEST = "RESET_PASSWORD_REQUEST";
+export const RESET_PASSWORD_SUCCESS = "RESET_PASSWORD_SUCCESS";
+export const RESET_PASSWORD_FAILURE = "RESET_PASSWORD_FAILURE";
+
 
 /**
  * Action creators
  */
 
 /**
- * An action creator for the doing reset password action.
+ * An action creator for the doing reset password email action.
  *
- * @returns {Object} A doing reset password action.
+ * @returns {Object} A doing reset password email action.
  */
 export function sendingResetPasswordEmailRequest() {
 	return {
@@ -25,13 +29,50 @@ export function sendingResetPasswordEmailRequest() {
 }
 
 /**
- * An action creator for the doing reset password action.
+ * An action creator for the doing reset password email  action.
  *
- * @returns {Object} A doing reset password action.
+ * @returns {Object} A doing reset password email action.
  */
 export function sendResetPasswordEmailSuccess() {
 	return {
 		type: SEND_RESET_PASSWORD_EMAIL_SUCCESS,
+	};
+}
+
+/**
+ * An action creator for the reset password failure email action.
+ *
+ * @param {Object} error The reset password email error.
+ *
+ * @returns {Object} An reset password failure email action.
+ */
+export function sendResetPasswordEmailFailure( error ) {
+	return {
+		type: SEND_RESET_PASSWORD_EMAIL_FAILURE,
+		error: error,
+	};
+}
+
+
+/**
+ * An action creator for the doing reset password action.
+ *
+ * @returns {Object} A doing reset password action.
+ */
+export function resetPasswordRequest() {
+	return {
+		type: RESET_PASSWORD_REQUEST,
+	};
+}
+
+/**
+ * An action creator for the doing reset password action.
+ *
+ * @returns {Object} A doing reset password action.
+ */
+export function resetPasswordSuccess() {
+	return {
+		type: RESET_PASSWORD_SUCCESS,
 	};
 }
 
@@ -42,12 +83,13 @@ export function sendResetPasswordEmailSuccess() {
  *
  * @returns {Object} An reset password failure action.
  */
-export function sendResetPasswordEmailFailure( error ) {
+export function resetPasswordFailure( error ) {
 	return {
-		type: SEND_RESET_PASSWORD_EMAIL_FAILURE,
+		type: RESET_PASSWORD_FAILURE,
 		error: error,
 	};
 }
+
 
 /**
  * An action creator for the reset password request action.

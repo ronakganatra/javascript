@@ -1,4 +1,7 @@
 import {
+	RESET_PASSWORD_FAILURE,
+	RESET_PASSWORD_REQUEST,
+	RESET_PASSWORD_SUCCESS,
 	SEND_RESET_PASSWORD_EMAIL_FAILURE,
 	SEND_RESET_PASSWORD_EMAIL_REQUEST,
 	SEND_RESET_PASSWORD_EMAIL_SUCCESS,
@@ -13,6 +16,8 @@ const rootState = {
 			loading: false,
 			error: null,
 			passwordRequestSent: false,
+			submitErrors: null,
+			passwordResetSuccess: false,
 		},
 	},
 };
@@ -47,6 +52,24 @@ export function uiResetPasswordReducer( state = rootState.ui.resetPassword, acti
 				loading: true,
 				error: null,
 				passwordRequestSent: false,
+			} );
+		case RESET_PASSWORD_REQUEST:
+			return Object.assign( {}, state, {
+				submitErrors: null,
+				loading: true,
+				passwordResetSuccess: false,
+			} );
+		case RESET_PASSWORD_SUCCESS:
+			return Object.assign( {}, state, {
+				submitErrors: null,
+				loading: false,
+				passwordResetSuccess: true,
+			} );
+		case RESET_PASSWORD_FAILURE:
+			return Object.assign( {}, state, {
+				submitErrors: action.error,
+				loading: false,
+				passwordResetSuccess: false,
 			} );
 		default:
 			return state;

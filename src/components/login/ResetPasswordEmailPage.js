@@ -36,6 +36,10 @@ const messages = defineMessages( {
 		id: "reset.button",
 		defaultMessage: "Send password reset email",
 	},
+	loadingButton: {
+		id: "reset.button.loading",
+		defaultMessage: "...sending password reset email",
+	},
 	backButton: {
 		id: "back.button",
 		defaultMessage: "Back to login form",
@@ -165,16 +169,15 @@ class ResetPasswordEmailPage extends React.Component {
 
 	render() {
 		if( this.props.passwordRequestSent ) {
-			return ( <Redirect to={ "reset/emailSuccess" } /> );
+			return ( <Redirect to={ "/forgot-password/check-your-email" } /> );
 		}
 
-		let loader = null;
+		let buttonText = messages.sendButton;
 
 		if( this.props.loading ) {
-			loader = "Processing request";
+			buttonText = messages.loadingButton;
 		}
-
-		console.log( this.props.error );
+		console.log( this.state.email.length > 0, this.state.errors.length === 0, this.props.loading === false );
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -185,7 +188,6 @@ class ResetPasswordEmailPage extends React.Component {
 						<FormattedMessage { ...messages.passwordResetTitle }/>
 					</Title>
 					<FormattedMessage { ...messages.emailAddressMessage } />
-					{loader}
 					<FormGroup onSubmit={ this.handleSubmit }>
 						<ErrorDisplay error={ this.props.error } />
 						<LabelBlock>
@@ -203,8 +205,8 @@ class ResetPasswordEmailPage extends React.Component {
 						</LabelBlock>
 
 						<EmailButtonArea>
-							<SaveButton type="submit" enabledStyle={ this.state.email.length > 0 && this.state.errors.length === 0 }>
-								<FormattedMessage { ...messages.sendButton } />
+							<SaveButton type="submit" enabledStyle={ this.state.email.length > 0 && this.state.errors.length === 0 && this.props.loading === false }>
+								<FormattedMessage { ...buttonText } />
 							</SaveButton>
 							<BackButton enabledStyle={ true } to="../login">
 								<FormattedMessage { ...messages.backButton } />

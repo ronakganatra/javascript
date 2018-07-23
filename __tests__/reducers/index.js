@@ -122,6 +122,13 @@ test( 'ui reducer', () => {
 		"orders": {},
 		"products": { "name": "uiAllProductsReducer" },
 		"refunds": { "name": "uiRefundsReducer" },
+		"resetPassword": {
+			"error": null,
+			"loading": false,
+			"passwordRequestSent": false,
+			"passwordResetSuccess": false,
+			"submitErrors": null
+		},
 		"search": { "query": "" },
 		"site": { "name": "uiSiteReducer" },
 		"sites": { "name": "uiSitesReducer" },
@@ -248,10 +255,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				"byId": { "name": "byIdCoursesEnrollmentsReducer" }
 			},
 			"orders": { "allIds": [], "byId": {} },
-			"products": {
-				"allIds": { "name": "allIdsProductsReducer" },
-				"byId": { "name": "byIdProductsReducer" }
-			},
+			"products": { "allIds": { "name": "allIdsProductsReducer" }, "byId": { "name": "byIdProductsReducer" } },
 			"refunds": { "allIds": { "name": "allIdsRefundsReducer" }, "byId": { "name": "byIdRefundsReducer" } },
 			"sites": { "allIds": { "name": "allIdsReducer" }, "byId": { "name": "byIdReducer" } },
 			"subscriptions": {
@@ -271,6 +275,13 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			"orders": { "error": "", "retrievingOrders": false },
 			"products": { "name": "uiAllProductsReducer" },
 			"refunds": { "name": "uiRefundsReducer" },
+			"resetPassword": {
+				"error": null,
+				"loading": false,
+				"passwordRequestSent": false,
+				"passwordResetSuccess": false,
+				"submitErrors": null
+			},
 			"search": { "query": "" },
 			"site": { "name": "uiSiteReducer" },
 			"sites": { "name": "uiSitesReducer" },

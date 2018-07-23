@@ -17,6 +17,9 @@ import LoginColumnLayout from "./LoginColumnLayout";
 import { Button } from "../Button";
 import ValidationInputField from "../ValidationInputField";
 import { StyledLabel } from "../Labels";
+import isEmpty from "lodash/isEmpty";
+import { Redirect } from "react-router";
+import ErrorDisplay from "../../errors/ErrorDisplay";
 
 const messages = defineMessages( {
 	labelPassword: {
@@ -34,6 +37,10 @@ const messages = defineMessages( {
 	resetButton: {
 		id: "reset.button",
 		defaultMessage: "Confirm password change",
+	},
+	loadingButton: {
+		id: "reset.button.loading",
+		defaultMessage: "...saving password",
 	},
 } );
 
@@ -59,7 +66,7 @@ const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 100%;
-	height: 300px;
+	min-height: 300px;
 	margin-top: 40px;
 `;
 
@@ -72,7 +79,6 @@ const Label = styled( StyledLabel )`
 `;
 
 const SaveButtonArea = styled.div`
-	position: absolute;
 	bottom: 0;
 	width: 100%;
 `;
@@ -90,15 +96,18 @@ class ResetPasswordPage extends React.Component {
 	constructor( props ) {
 		super( props );
 
+		let parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
 		// Default state.
 		this.state = {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
+			userLogin: parsedQuery.login || "",
+			key: parsedQuery.key || "",
+			email: parsedQuery.email || this.props.email,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
-
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.validate = this.validate.bind( this );
@@ -115,12 +124,18 @@ class ResetPasswordPage extends React.Component {
 	 *
 	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
+	 * @param {Object} errors the input field change event.
 	 * @returns {void}
 	 */
-	onUpdate( field, event ) {
+	onUpdate( field, event, errors ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
-		this.setState( obj );
+		obj.errors = Object.assign( {}, errors );
+
+		this.setState( obj, () => {
+			let newErrors = this.validate();
+			this.setState( Object.assign( {}, this.state, { errors: newErrors } ) );
+		} );
 	}
 
 	/**
@@ -146,6 +161,13 @@ class ResetPasswordPage extends React.Component {
 		return errors;
 	}
 
+	canSubmit() {
+		return isEmpty( this.state.password ) === false &&
+			isEmpty( this.state.passwordRepeat ) === false &&
+			this.state.password === this.state.passwordRepeat &&
+			isEmpty( this.state.errors ) && isEmpty( this.props.submitErrors );
+	}
+
 	/**
 	 * Resets the user's password.
 	 *
@@ -154,66 +176,73 @@ class ResetPasswordPage extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		// Reset password query to get the key and user_login which are needed for the API.
-		let queryReset = queryString.parse( this.props.location.Search, { arrayFormat: "bracket" } );
+		if ( this.canSubmit() === false ) {
+			return;
+		}
 		let data = {
-			newPassword: this.state.password,
-			repeatPassword: this.state.passwordRepeat,
-			userLogin: queryReset.user_login,
-			key: queryReset.key || "",
+			/* eslint-disable camelcase */
+			user_login: this.state.userLogin || "",
+			password1: this.state.password,
+			password2: this.state.passwordRepeat,
+			key: this.state.key || "",
+			/* eslint-enable camelcase */
 		};
-
 		this.props.attemptResetPassword( data );
 	}
 
 	render() {
-		let errors = this.validate( this.state.password, this.state.passwordRepeat );
-		// I if(this.state.donenoemditalsjeblieftbeter){
-		// I	return <Redirect to={"/success"}>;
-		// I }
+		if ( this.props.passwordResetSuccess ) {
+			return <Redirect to={"/forgot-password/success"}/>;
+		}
+
+		let buttonText = messages.resetButton;
+		if( this.props.loading ) {
+			buttonText = messages.loadingButton;
+		}
 		return (
 			<LoginColumnLayout>
 				<Column>
 					<Header>
-						<Logos src={ logo } alt="MyYoast - Yoast Academy" />
+						<Logos src={logo} alt="MyYoast - Yoast Academy"/>
 					</Header>
 					<FormattedMessage
-						id={ messages.resetMessage.id }
-						defaultMessage={ messages.resetMessage.defaultMessage }
-						values={ { email: this.props.email } }
+						id={messages.resetMessage.id}
+						defaultMessage={messages.resetMessage.defaultMessage}
+						values={{ email: this.state.email }}
 					/>
-					<FormGroup onSubmit={ this.handleSubmit }>
-
+					<FormGroup onSubmit={this.handleSubmit}>
+						<ErrorDisplay error={this.props.submitErrors}/>
 						<LabelBlock>
 							<Label htmlFor="password">
-								<FormattedMessage { ...messages.labelPassword } />
+								<FormattedMessage {...messages.labelPassword} />
 							</Label>
 							<TextInput
 								id="password"
 								name="password"
 								type="password"
-								errors={ this.state.errors.password }
-								onChange={ this.onUpdatePassword }
-								constraint={ passwordConstraints( this.props.intl ) }
+								errors={this.state.errors.password}
+								onChange={this.onUpdatePassword}
+								delay={0}
+								constraint={passwordConstraints( this.props.intl )}
 							/>
 						</LabelBlock>
 
 						<LabelBlock>
 							<Label htmlFor="password-repeat">
-								<FormattedMessage { ...messages.labelPasswordRepeat } />
+								<FormattedMessage {...messages.labelPasswordRepeat} />
 							</Label>
 							<TextInput
 								id="password-repeat"
 								name="repeat password"
 								type="password"
-								onChange={ this.onUpdatePasswordRepeat }
-								errors={ errors.passwordRepeat }
+								onChange={this.onUpdatePasswordRepeat}
+								errors={this.state.errors.passwordRepeat}
 							/>
 						</LabelBlock>
 
 						<SaveButtonArea>
-							<SaveButton type="submit" >
-								<FormattedMessage { ...messages.resetButton } />
+							<SaveButton type="submit" enabledStyle={ this.canSubmit() && this.props.loading === false }>
+								<FormattedMessage { ...buttonText } />
 							</SaveButton>
 						</SaveButtonArea>
 					</FormGroup>
@@ -228,11 +257,16 @@ ResetPasswordPage.propTypes = {
 	children: PropTypes.array,
 	email: PropTypes.string,
 	attemptResetPassword: PropTypes.func.isRequired,
+	submitErrors: PropTypes.object,
 	location: PropTypes.object,
+	passwordResetSuccess: PropTypes.bool.isRequired,
+	loading: PropTypes.bool.isRequired,
 };
 
 ResetPasswordPage.defaultProps = {
-	email: "[undefined]",
+	email: "your email address",
+	loading: false,
+	passwordResetSuccess: false,
 };
 
 export default injectIntl( ResetPasswordPage );
