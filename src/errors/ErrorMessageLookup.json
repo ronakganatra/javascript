@@ -40,7 +40,7 @@
     "type": "error"
   },
   "invalid_key": {
-    "message": "This link no longer valid. Please try resetting your password again.",
+    "message": "This link no longer valid. Please try to request another password reset email.",
     "type": "error"
   },
   "GENERAL_SUPPORT_ERROR": {
