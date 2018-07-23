@@ -35,6 +35,10 @@
     "message": "The new password is not strong enough, please make sure it contains a variety of numbers, letters and does not match your email or name.",
     "type": "error"
   },
+  "invalid_user_login": {
+    "message": "The email address you provided is not known to us. Please try again with a different email address.",
+    "type": "error"
+  },
   "GENERAL_SUPPORT_ERROR": {
     "message": "Oops, something went wrong on our end, please try again. If this keeps happening, [customer_support_link]",
     "type": "error"

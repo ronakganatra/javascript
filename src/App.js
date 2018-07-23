@@ -69,10 +69,10 @@ const Routes = ( props ) => {
 					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) } />
 
-					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
-					<Route exact path="/reset/emailSuccess" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
-					<Route exact path="/reset/resetPassword" component={ inLoginLayout( ResetPasswordContainer ) } />
-					<Route exact path="/reset/passwordSuccess" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
+					<Route exact path="/forgot-password" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
+					<Route exact path="/forgot-password/check-your-mail" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
+					<Route exact path="/forgot-password/reset-password" component={ inLoginLayout( ResetPasswordContainer ) } />
+					<Route exact path="/forgot-password/success" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
 
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) } />
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />

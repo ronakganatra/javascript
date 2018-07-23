@@ -15,6 +15,9 @@ import { Button, ButtonLink } from "../Button";
 import ValidationInputField from "../ValidationInputField";
 import { StyledLabel } from "../Labels";
 import { ButtonArea } from "../account/profile/FormElements";
+import isEmpty from "lodash/isEmpty";
+import { Redirect } from "react-router";
+import ErrorDisplay from "../../errors/ErrorDisplay";
 
 const messages = defineMessages( {
 	passwordResetTitle: {
@@ -65,7 +68,7 @@ const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 100%;
-	height: 300px;
+	min-height: 300px;
 	margin-top: 40px;
 `;
 
@@ -114,7 +117,7 @@ class ResetPasswordEmailPage extends React.Component {
 
 		// Default state.
 		this.state = {
-			email: "",
+			email: this.props.email,
 			errors: [],
 		};
 
@@ -152,13 +155,26 @@ class ResetPasswordEmailPage extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
+		if( isEmpty( this.state.email ) ) {
+			return;
+		}
 		let email = this.state.email;
 		let data = { email };
 		this.props.attemptResetPasswordEmail( data );
-		// Code to connect the UI with the send reset password email backend should go here.
 	}
 
 	render() {
+		if( this.props.passwordRequestSent ) {
+			return ( <Redirect to={ "reset/emailSuccess" } /> );
+		}
+
+		let loader = null;
+
+		if( this.props.loading ) {
+			loader = "Processing request";
+		}
+
+		console.log( this.props.error );
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -166,11 +182,12 @@ class ResetPasswordEmailPage extends React.Component {
 						<Logos src={ logo } />
 					</Header>
 					<Title>
-						<FormattedMessage {...messages.passwordResetTitle }/>
+						<FormattedMessage { ...messages.passwordResetTitle }/>
 					</Title>
 					<FormattedMessage { ...messages.emailAddressMessage } />
+					{loader}
 					<FormGroup onSubmit={ this.handleSubmit }>
-
+						<ErrorDisplay error={ this.props.error } />
 						<LabelBlock>
 							<Label htmlFor="email">
 								<FormattedMessage { ...messages.labelEmail } />
@@ -204,11 +221,17 @@ ResetPasswordEmailPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
 	email: PropTypes.string,
+	passwordRequestSent: PropTypes.bool.isRequired,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.object,
 	attemptResetPasswordEmail: PropTypes.func,
 };
 
 ResetPasswordEmailPage.defaultProps = {
-	email: "[undefined]",
+	email: "",
+	passwordRequestSent: false,
+	loading: false,
+	error: null,
 };
 
 export default injectIntl( ResetPasswordEmailPage );

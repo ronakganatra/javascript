@@ -168,6 +168,9 @@ class ResetPasswordPage extends React.Component {
 
 	render() {
 		let errors = this.validate( this.state.password, this.state.passwordRepeat );
+		// I if(this.state.donenoemditalsjeblieftbeter){
+		// I	return <Redirect to={"/success"}>;
+		// I }
 		return (
 			<LoginColumnLayout>
 				<Column>
