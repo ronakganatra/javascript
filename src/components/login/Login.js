@@ -1,79 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
-import colors from "yoast-components/style-guide/colors.json";
-import styled from "styled-components";
-import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
+import { intlShape, injectIntl } from "react-intl";
+import { redirectToOAuthUrl } from "../../functions/auth";
 
 // Components.
-import { Button } from "../Button";
-import { InputField } from "../InputField";
-import Checkbox from "../Checkbox";
-import { StyledLabel } from "../Labels";
+import LoginForm from "./LoginForm";
 
-// Styled components.
-const TextInput = styled( InputField )`
-	background-color: ${ colors.$color_background_light };
-`;
-
-const FormGroup = styled.form`
-	/* To glue SaveButtonArea to bottom of column. */
-	position: relative;
-	width: 400px;
-	height: 400px;
-`;
-
-const LabelBlock = styled.div`
-	width: 100%;
-`;
-
-const Label = styled( StyledLabel )`
-	margin-top: 5px;
-`;
-
-const ForgotPasswordLink = styled.div`
-	margin-top: 10px;
-`;
-
-const SaveButtonArea = styled.div`
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-`;
-
-const SaveButton = styled( Button )`
-	margin: 1em 0;
-	width: 100%;
-`;
-
-const RememberMe = styled.div`
-	margin-top: 20px;
-	width: 100%;
-	font-weight: 700;
-`;
-
-// Messages
-const messages = defineMessages( {
-	labelEmail: {
-		id: "signup.email",
-		defaultMessage: "Email address",
-	},
-	labelPassword: {
-		id: "signup.password",
-		defaultMessage: "Password",
-	},
-	loginButton: {
-		id: "login.login",
-		defaultMessage: "Log in",
-	},
-	rememberMe: {
-		id: "login,rememberMe",
-		defaultMessage: "Remember me",
-	},
-	forgotPassword: {
-		id: "login.forgotPassword",
-		defaultMessage: "Forgot your password?",
-	},
-} );
 
 /**
  * Login component for logging in to MyYoast.
@@ -86,12 +18,11 @@ class Login extends React.Component {
 		this.state = {
 			email: "",
 			password: "",
-			errors: {},
-			rememberMe: this.props.rememberMe,
+			rememberMe: false,
 		};
 
-		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onRememberCheck = this.onRememberCheck.bind( this );
+		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
 	}
@@ -123,76 +54,57 @@ class Login extends React.Component {
 	}
 
 	/**
-	 * Opens the door to the treasures of MyYoast,
-	 * if their credentials are correctly filled in.
+	 * Handles the login submit by attempting a login.
+	 *
+	 * @param {Object} event The event.
+	 *
 	 * @returns {void}
 	 */
-	handleSubmit() {
-		// Code to connect the UI with the login route goes here.
+	handleSubmit( event ) {
+		event.preventDefault();
+		if ( this.props.loading ) {
+			return;
+		}
+		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
+		this.props.attemptLogin( data );
+	}
+
+	shouldComponentUpdate() {
+		if ( this.props.oauthError && this.props.loggedIn ) {
+			redirectToOAuthUrl();
+			return false;
+		}
+		return true;
 	}
 
 	render() {
 		return (
-			<FormGroup onSubmit={ this.handleSubmit }>
-
-				<LabelBlock>
-					<Label htmlFor="email-address">
-						<FormattedMessage { ...messages.labelEmail } />
-					</Label>
-					<TextInput
-						id="email-address"
-						autocomplete="on"
-						name="email"
-						type="text"
-						value={ this.state.email }
-						onChange={ this.onUpdateEmail }
-					/>
-				</LabelBlock>
-
-				<LabelBlock>
-					<Label htmlFor="password">
-						<FormattedMessage { ...messages.labelPassword } />
-					</Label>
-					<TextInput
-						id="password"
-						name="password"
-						type="password"
-						errors={ this.state.errors.password }
-						onChange={ this.onUpdatePassword }
-					/>
-				</LabelBlock>
-
-				<ForgotPasswordLink>
-					<a href="/reset">
-						<FormattedMessage { ...messages.forgotPassword } />
-					</a>
-				</ForgotPasswordLink>
-
-				<RememberMe>
-					<Checkbox id="remember-me" onCheck={ this.onRememberCheck } checked={ this.state.rememberMe }>
-						<Label htmlFor="remember-me">
-							<FormattedMessage { ...messages.rememberMe } />
-						</Label>
-					</Checkbox>
-				</RememberMe>
-
-				<SaveButtonArea>
-					<SaveButton type="submit">
-						<FormattedMessage { ...messages.loginButton } />
-					</SaveButton>
-				</SaveButtonArea>
-			</FormGroup>
+			<LoginForm rememberMe={ this.state.rememberMe }
+			           email={ this.state.email }
+			           password={ this.state.password }
+			           errors={ this.props.error }
+			           loading={ this.props.loading }
+			           onUpdateEmail={ this.onUpdateEmail }
+			           onUpdatePassword={ this.onUpdatePassword }
+			           onRememberCheck={ this.onRememberCheck }
+			           handleSubmit={ this.handleSubmit }
+			/>
 		);
 	}
 }
 
 Login.propTypes = {
 	intl: intlShape.isRequired,
-	rememberMe: PropTypes.bool,
+	error: PropTypes.object,
+	loading: PropTypes.bool,
+	loggedIn: PropTypes.bool,
+	oauthError: PropTypes.bool,
+	attemptLogin: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {
-	rememberMe: false,
+	error: null,
+	loading: false,
 };
 
 export default injectIntl( Login );

@@ -5,7 +5,7 @@ import { defineMessages, injectIntl } from "react-intl";
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
 import LoginMessage from "./LoginMessage";
-import Login from "./Login";
+import LoginContainer from "../../containers/Login";
 import Signup from "./Signup";
 import SubNavigation, { SubNavigationItem } from "../SubNavigation";
 
@@ -16,7 +16,7 @@ let itemRoutes = [
 		title: "Sign up",
 	},
 	{
-		component: Login,
+		component: LoginContainer,
 		path: "/login",
 		title: "Login",
 	},

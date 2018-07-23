@@ -42,5 +42,21 @@
   "GENERAL_SUPPORT_ERROR": {
     "message": "Oops, something went wrong on our end, please try again. If this keeps happening, [customer_support_link]",
     "type": "error"
+  },
+  "invalid_user_login": {
+    "message": "Incorrect credentials provided. Please check that your email and password are entered correctly.",
+    "type": "error"
+  },
+  "incorrect_password": {
+    "message": "Incorrect credentials provided. Please check that your email and password are entered correctly.",
+    "type": "error"
+  },
+  "empty_password": {
+    "message": "Please enter your password.",
+    "type": "error"
+  },
+  "expired_session": {
+    "message": "Please log in again.",
+    "type": "error"
   }
 }

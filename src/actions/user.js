@@ -2,7 +2,6 @@ import "whatwg-fetch";
 import { prepareInternalRequest, doRequest } from "../functions/api";
 import {
 	getLogoutUrl,
-	getAuthUrl,
 	removeCookies as removeAuthCookies,
 	getUserId,
 	hasCookieParams,
@@ -92,15 +91,6 @@ export function receiveUser( user ) {
 }
 
 /**
- * Forces a redirect to the login page.
- *
- * @returns {void}
- */
-export function redirectToLogin() {
-	document.location.href = getAuthUrl();
-}
-
-/**
  * An action creator for the fetch user action.
  *
  * @param {string} userId The user ID for the user that we want to fetch.
@@ -122,14 +112,16 @@ export function fetchUser( userId ) {
 							email: `Impersonating: ${json.email}`,
 							enabled: true,
 						},
-					} ) ) ).catch( redirectToLogin );
+					} ) ) );
 		}
 
 		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
 		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
-			.catch( redirectToLogin );
+			.catch( () => {
+				// Do nothing.
+			} );
 	};
 }
 
@@ -304,7 +296,7 @@ export function updatePassword( passwords ) {
 	return ( dispatch ) => {
 		dispatch( passwordUpdateRequest() );
 
-		let userId  = getUserId();
+		let userId = getUserId();
 		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", passwords );
 
 		return doRequest( request )
@@ -332,7 +324,7 @@ export function uploadAvatar( image ) {
 		let uploadOptions = { headers: {} };
 		uploadData.append( "wp-user-avatars", image );
 
-		let uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions	);
+		let uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions );
 
 		return doRequest( uploadRequest )
 			.then( ( response ) => {

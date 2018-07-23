@@ -47,17 +47,7 @@ exports[`The Login component matches the snapshot 1`] = `
 }
 
 .c8 {
-  display: block;
   position: relative;
-  cursor: pointer;
-  padding-left: 35px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .c8 input:checked ~ .checkmark {
@@ -73,12 +63,26 @@ exports[`The Login component matches the snapshot 1`] = `
 }
 
 .c9 {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.c10 {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
 
-.c10 {
+.c11 {
   position: absolute;
   top: 0;
   left: 0;
@@ -88,7 +92,7 @@ exports[`The Login component matches the snapshot 1`] = `
   background-color: #f7f7f7;
 }
 
-.c10:hover {
+.c11:hover {
   background-color: #cecece;
 }
 
@@ -106,7 +110,7 @@ exports[`The Login component matches the snapshot 1`] = `
 .c0 {
   position: relative;
   width: 400px;
-  height: 400px;
+  min-height: 400px;
 }
 
 .c1 {
@@ -119,12 +123,6 @@ exports[`The Login component matches the snapshot 1`] = `
 
 .c6 {
   margin-top: 10px;
-}
-
-.c11 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
 }
 
 .c12 {
@@ -195,12 +193,11 @@ exports[`The Login component matches the snapshot 1`] = `
   <div
     className="c7"
   >
-    <label
+    <div
       className="c8"
     >
-       
       <label
-        className="c2 c3"
+        className="c9"
         htmlFor="remember-me"
       >
         <span>
@@ -209,18 +206,18 @@ exports[`The Login component matches the snapshot 1`] = `
       </label>
       <input
         checked={false}
-        className="c9"
+        className="c10"
         id="remember-me"
         onChange={[Function]}
         type="checkbox"
       />
       <span
-        className="checkmark c10"
+        className="checkmark c11"
       />
-    </label>
+    </div>
   </div>
   <div
-    className="c11"
+    className=""
   >
     <button
       className="c12 c13 c14"
