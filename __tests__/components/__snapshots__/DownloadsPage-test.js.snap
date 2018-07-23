@@ -221,7 +221,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
       spellCheck="false"
       type="text"
       value=""
-      width="100%"
     />
     <p
       className="screen-reader-text"

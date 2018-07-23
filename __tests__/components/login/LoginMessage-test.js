@@ -34,7 +34,7 @@ test( 'The LoginMessage component, with a paragraph, matches the snapshot', () =
 test( 'The LoginMessage component, with a button, matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<LoginMessage header={ messages.headerReset } message={ messages.button }
-					  onClick={ () => console.error( 1 ) } />
+		              buttonLinkTo="https://example.com" />
 	);
 
 	let tree = component.toJSON();
