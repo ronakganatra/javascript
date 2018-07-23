@@ -107,14 +107,27 @@ jest.mock( "../../src/reducers/newsletter.js", () => {
 } );
 
 test( 'ui reducer', () => {
-	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {}, newsletter: {} };
+	const state = { addSubscriptionModal: {}, sites: {}, site: { name: "uiSiteReducer", }, search: {}, orders: {}, subscriptions: {}, products: {}, newsletter: {}, login: {} };
 	const action = {
 		type: LINK_SITE_FAILURE,
 	};
-	const expected = { addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" }, composerTokens: { name: "uiComposerTokensReducer"}, sites: { name: "uiSitesReducer" },
-		site: { name: "uiSiteReducer", }, subscriptions: { name: "uiAllSubscriptionsReducer" }, products: { name: "uiAllProductsReducer" }, refunds: { name: "uiRefundsReducer" },
-		search: { query: "" }, orders: {}, helpBeaconModal: { name: "uiHelpBeaconModalReducer" }, invoiceModal: { name: "uiInvoicesReducer" },
-		configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" }, newsletter: { name: "uiNewsletterReducer" } };
+	const expected = {
+		"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
+		"composerTokens": { "name": "uiComposerTokensReducer" },
+		"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
+		"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
+		"invoiceModal": { "name": "uiInvoicesReducer" },
+		"login": {},
+		"newsletter": { "name": "uiNewsletterReducer" },
+		"orders": {},
+		"products": { "name": "uiAllProductsReducer" },
+		"refunds": { "name": "uiRefundsReducer" },
+		"search": { "query": "" },
+		"site": { "name": "uiSiteReducer" },
+		"sites": { "name": "uiSitesReducer" },
+		"subscriptions": { "name": "uiAllSubscriptionsReducer" }
+	};
+
 
 	const actual = uiReducer( state, action );
 	expect( actual ).toEqual( expected );
@@ -220,68 +233,50 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 		type: LINK_SITE_FAILURE,
 	};
 	const expected = {
-		entities: {
-			orders: {
-				byId: {},
-				allIds:[],
+		"entities": {
+			"composerTokens": {
+				"allIds": { "name": "allIdsComposerTokensReducer" },
+				"byId": { "name": "byIdComposerTokensReducer" }
 			},
-			courses: {
-				byId: { name: "byIdCoursesReducer" },
-				allIds: { name: "allIdsCoursesReducer" },
+			"configurationServiceRequests": {
+				"allIds": { "name": "allIdsConfigurationServiceRequestsReducer" },
+				"byId": { "name": "byIdConfigurationServiceRequestsReducer" }
 			},
-			composerTokens: {
-				byId: { name: "byIdComposerTokensReducer" },
-				allIds: { name: "allIdsComposerTokensReducer" },
+			"courses": { "allIds": { "name": "allIdsCoursesReducer" }, "byId": { "name": "byIdCoursesReducer" } },
+			"coursesEnrollments": {
+				"allIds": { "name": "allIdsCoursesEnrollmentsReducer" },
+				"byId": { "name": "byIdCoursesEnrollmentsReducer" }
 			},
-			coursesEnrollments: {
-				byId: { name: "byIdCoursesEnrollmentsReducer" },
-				allIds: { name: "allIdsCoursesEnrollmentsReducer" },
+			"orders": { "allIds": [], "byId": {} },
+			"products": {
+				"allIds": { "name": "allIdsProductsReducer" },
+				"byId": { "name": "byIdProductsReducer" }
 			},
-			refunds: {
-				byId: { name: "byIdRefundsReducer" },
-				allIds: { name: "allIdsRefundsReducer" },
-			},
-			sites: {
-				byId: { name: "byIdReducer" },
-				allIds: { name: "allIdsReducer" },
-			},
-			subscriptions: {
-				byId: { name: "byIdSubscriptionsReducer" },
-				allIds: { name: "allIdsSubscriptionsReducer" },
-			},
-			products: {
-				byId: { name: "byIdProductsReducer" },
-				allIds: { name: "allIdsProductsReducer" },
-			},
-			configurationServiceRequests: {
-				byId: { name: "byIdConfigurationServiceRequestsReducer" },
-				allIds: { name: "allIdsConfigurationServiceRequestsReducer" },
-			},
+			"refunds": { "allIds": { "name": "allIdsRefundsReducer" }, "byId": { "name": "byIdRefundsReducer" } },
+			"sites": { "allIds": { "name": "allIdsReducer" }, "byId": { "name": "byIdReducer" } },
+			"subscriptions": {
+				"allIds": { "name": "allIdsSubscriptionsReducer" },
+				"byId": { "name": "byIdSubscriptionsReducer" }
+			}
 		},
-		router: {
-			location: "URL",
+		"router": { "location": "URL" },
+		"ui": {
+			"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
+			"composerTokens": { "name": "uiComposerTokensReducer" },
+			"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
+			"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
+			"invoiceModal": { "name": "uiInvoicesReducer" },
+			"login": { "error": null, "loading": false, "oauthError": false },
+			"newsletter": { "name": "uiNewsletterReducer" },
+			"orders": { "error": "", "retrievingOrders": false },
+			"products": { "name": "uiAllProductsReducer" },
+			"refunds": { "name": "uiRefundsReducer" },
+			"search": { "query": "" },
+			"site": { "name": "uiSiteReducer" },
+			"sites": { "name": "uiSitesReducer" },
+			"subscriptions": { "name": "uiAllSubscriptionsReducer" }
 		},
-		ui: {
-			sites: { name: "uiSitesReducer" },
-			refunds: { name: "uiRefundsReducer" },
-			composerTokens: { name: "uiComposerTokensReducer"},
-			configurationServiceRequests: { name: "uiConfigurationServiceRequestReducer" },
-			search: {
-				query: "",
-			},
-			site: { name: "uiSiteReducer" },
-			subscriptions: { name: "uiAllSubscriptionsReducer" },
-			products: { name: "uiAllProductsReducer" },
-			orders: {
-				"error": "",
-				"retrievingOrders": false,
-			},
-			addSubscriptionModal: { name: "uiAddSubscriptionModalReducer" },
-			helpBeaconModal: { name: "uiHelpBeaconModalReducer" },
-			invoiceModal: { name: "uiInvoicesReducer" },
-			newsletter: { name: "uiNewsletterReducer" },
-		},
-		user: { name: "userReducer" },
+		"user": { "name": "userReducer" }
 	};
 	const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );

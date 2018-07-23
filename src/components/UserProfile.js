@@ -17,7 +17,7 @@ const UserInfo = styled.div`
 	min-width: 0;
 `;
 
-const UserName = styled.p`
+const UserEmail = styled.p`
 	color: ${colors.$color_white};
 	margin: 0 12px 10px 0;
 	font-size: 14px;
@@ -38,7 +38,7 @@ export default function UserProfile( props ) {
 	return <UserInfoContainer className="user-info">
 		<UserImage {...props.displayImage} />
 		<UserInfo>
-			<UserName>{ props.displayName }</UserName>
+			<UserEmail>{ props.displayEmail }</UserEmail>
 
 			<LogoutButton type="button" onClick={props.onLogoutClick}>Sign out</LogoutButton>
 		</UserInfo>
@@ -46,7 +46,7 @@ export default function UserProfile( props ) {
 }
 
 UserProfile.propTypes = {
-	displayName: PropTypes.string.isRequired,
+	displayEmail: PropTypes.string.isRequired,
 	displayImage: PropTypes.shape( {
 		src: PropTypes.string,
 		alt: PropTypes.string,
@@ -63,7 +63,7 @@ UserProfile.defaultProps = {
 		alt: "",
 		size: "64px",
 	},
-	displayName: "",
+	displayEmail: "",
 	loggedIn: false,
 	className: "",
 };

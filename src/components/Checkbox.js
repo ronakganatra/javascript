@@ -1,4 +1,4 @@
-import React from "react";
+import React  from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -6,17 +6,8 @@ import colors from "yoast-components/style-guide/colors";
 
 import check from "../icons/check.svg";
 
-const Label = styled.label`
-	display: block;
+const CheckboxWrapper = styled.div`
 	position: relative;
-	cursor: pointer;
-		
-	padding-left: 35px;	
-	
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
 	
 	/* Checks our custom check mark. */
 	input:checked ~ .checkmark {
@@ -27,11 +18,25 @@ const Label = styled.label`
 		background-position: center;
 		background-size: 75%;
 	}
-	
+
 	/* Adds an outline to the check mark on focus. */
 	input:focus ~ .checkmark {
 		outline: -webkit-focus-ring-color auto 5px;
 	}
+`;
+
+const Label = styled.label`
+	display: block;
+	position: relative;
+	cursor: pointer;
+
+	padding-left: 35px;
+	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
 `;
 
 const CheckboxInput = styled.input`
@@ -60,15 +65,19 @@ const Checkmark = styled.span`
  * (Since default checkbox element cannot be easily styled with CSS).
  */
 class Checkbox extends React.Component {
-
 	render() {
-		return <Label> { this.props.children }
-			<CheckboxInput id={ this.props.id }
-						   onChange={ this.props.onCheck }
-						   checked={ this.props.checked }
-						   type="checkbox" />
-			<Checkmark className="checkmark" />
-		</Label>;
+		return (
+			<CheckboxWrapper>
+				<Label htmlFor={ this.props.id }>
+					{ this.props.children }
+				</Label>
+				<CheckboxInput id={ this.props.id }
+				               onChange={ this.props.onCheck }
+				               checked={ this.props.checked }
+				               type="checkbox"/>
+				<Checkmark className="checkmark"/>
+			</CheckboxWrapper>
+		);
 	}
 }
 
@@ -77,6 +86,7 @@ Checkbox.propTypes = {
 	children: PropTypes.any,
 	onCheck: PropTypes.func.isRequired,
 	checked: PropTypes.bool.isRequired,
+	labelMessage: PropTypes.object,
 };
 
 Checkbox.defaultProps = {
