@@ -97,9 +97,10 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) }/>
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) }/>
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
+					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
 					{ menuItems.map(
