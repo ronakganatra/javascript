@@ -5,6 +5,7 @@ import { LogoutButton } from "../components/Button";
 import UserImage from "../components/UserImage";
 import colors from "yoast-components/style-guide/colors.json";
 import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
+import ErrorDisplay from "../errors/ErrorDisplay";
 
 const UserInfoContainer = styled.aside`
 	display: flex;
@@ -65,6 +66,7 @@ class UserProfile extends React.Component {
 				              enabledStyle={ this.props.loggingOut === false }>
 					<FormattedMessage { ...message } />
 				</LogoutButton>
+				<ErrorDisplay error={ this.props.logoutError } showIcon={ false }/>
 			</UserInfo>
 		</UserInfoContainer>;
 	}
@@ -93,6 +95,7 @@ UserProfile.propTypes = {
 	loggedIn: PropTypes.bool,
 	className: PropTypes.string,
 	loggingOut: PropTypes.bool.isRequired,
+	logoutError: PropTypes.object,
 };
 
 UserProfile.defaultProps = {
