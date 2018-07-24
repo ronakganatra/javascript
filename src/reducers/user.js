@@ -1,6 +1,5 @@
 import {
 	LOGIN,
-	LOGOUT,
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
 	RESET_SAVE_MESSAGE,
@@ -13,6 +12,7 @@ import {
 	DISABLE_USER_START,
 	DISABLE_USER_FAILURE,
 	DISABLE_USER_SUCCESS,
+	LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
@@ -22,6 +22,9 @@ const initialState = {
 
 	// Whether or not the user is currently logged in.
 	loggedIn: false,
+
+	// Whether or not the user is currently trying to logout.
+	loggingOut: false,
 
 	// Whether or not we are fetching the logged in user data.
 	isFetching: false,
@@ -42,6 +45,7 @@ const initialState = {
 	},
 	savingProfile: false,
 	saveEmailError: null,
+	logOutError: null,
 	profileSaved: false,
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
@@ -64,7 +68,17 @@ export function userDataReducer( state = initialState, action ) {
 				accessToken: action.data.accessToken,
 				userId: action.data.userId,
 			} );
-		case LOGOUT:
+
+		case LOGOUT_REQUEST:
+			return Object.assign( {}, state, {
+				loggingOut: true,
+			} );
+		case LOGOUT_FAILURE:
+			return Object.assign( {}, state, {
+				loggingOut: false,
+				logOutError: action.error,
+			} );
+		case LOGOUT_SUCCESS:
 			return Object.assign( {}, state, {
 				loggedIn: false,
 				accessToken: "",
@@ -135,6 +149,7 @@ export function userEmailReducer( state = initialState, action ) {
 			return state;
 	}
 }
+
 /* eslint-enable complexity */
 
 

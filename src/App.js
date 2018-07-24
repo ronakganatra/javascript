@@ -56,7 +56,7 @@ injectGlobal`
 
 
 const Routes = ( props ) => {
-	if ( hasAccessToken() === false ) {
+	if ( hasAccessToken() === false || props.loggedIn === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
@@ -123,6 +123,7 @@ const Routes = ( props ) => {
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
+	loggedIn: PropTypes.bool,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
 	router: PropTypes.object,
@@ -132,6 +133,7 @@ const RoutesContainer = connect(
 	( state ) => {
 		return {
 			userEnabled: state.user.enabled,
+			loggedIn: state.user.loggedIn,
 			completedLogin: state.ui.login.completedLogin,
 			router: state.router,
 		};
