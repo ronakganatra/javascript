@@ -23,7 +23,7 @@ import ResetPasswordPage from "./components/login/ResetPasswordPage";
 import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
 import {
 	directToIntendedDestination,
-	hasAccessToken, hasPeriLoginCookie,
+	hasPeriLoginCookie,
 	removePeriLoginCookie,
 	setPeriLoginCookie,
 } from "./functions/auth";
@@ -56,7 +56,7 @@ injectGlobal`
 
 
 const Routes = ( props ) => {
-	if ( hasAccessToken() === false || props.loggedIn === false ) {
+	if ( props.loggedIn === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
@@ -123,7 +123,7 @@ const Routes = ( props ) => {
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
-	loggedIn: PropTypes.bool,
+	loggedIn: PropTypes.bool.isRequired,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
 	router: PropTypes.object,
