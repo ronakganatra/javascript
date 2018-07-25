@@ -1,5 +1,7 @@
 import { connect } from "react-redux";
 import Activate from "../components/login/Activate";
+import { doRequest, prepareInternalRequest } from "../functions/api";
+import { activateRequest, activateFailure, activateSuccess } from "../actions/signup";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	return Object.assign( {}, state.ui.login );
@@ -7,8 +9,18 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		activateUser: ( params ) => {
-			dispatch( activateRequest( params ) );
+		activateUser: ( data ) => {
+			dispatch( activateRequest( data ) );
+			let request = prepareInternalRequest( "Customers/activate/", "POST", data );
+			doRequest( request )
+				.then( ( response ) => {
+					console.log( "signup succeeded!", response );
+					dispatch( activateSuccess() );
+				} )
+				.catch( ( error ) => {
+					dispatch( activateFailure( error ) );
+					return error;
+				} );
 		},
 	};
 };

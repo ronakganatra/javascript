@@ -11,7 +11,7 @@ const messages = defineMessages( {
 		"Click the link inside the email to activate your account. After that you can access MyYoast.",
 	},
 	header: {
-		id: "AlmosThere.header",
+		id: "AlmostThere.header",
 		defaultMessage: "Almost there!",
 	},
 } );
