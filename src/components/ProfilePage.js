@@ -17,7 +17,6 @@ import ManageToken from "./account/profile/ManageToken";
 import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
-import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
 import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
@@ -342,7 +341,7 @@ class ProfilePage extends React.Component {
 	 * depending on whether the user has access to this feature via the feature toggle.
 	 */
 	getDevTools() {
-		if ( ! this.hasActiveComposerTokens() && ! hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
+		if ( ! this.hasActiveComposerTokens() ) {
 			return null;
 		}
 
