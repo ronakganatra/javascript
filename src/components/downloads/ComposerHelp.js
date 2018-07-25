@@ -95,9 +95,9 @@ function ComposerHelp( props ) {
 					<ShellCodeBlock>composer config -g http-basic.my.yoast.com token { props.composerToken.id }</ShellCodeBlock>
 					<FormattedMessage
 						id="composer-help.register-token"
-						defaultMessage="You can then add our secure repository by adding the following line to your composer.json:"
+						defaultMessage="You can then add our secure repository by running the following command:"
 					/>
-					<CodeBlock>"repositories": [ { "{" } "type": "composer", "url": "https://my.yoast.com/packages/" } ]</CodeBlock>
+					<ShellCodeBlock>composer config repositories.my-yoast composer https://my.yoast.com/packages/</ShellCodeBlock>
 					<FormattedMessage
 						id="composer-help.register-token"
 						defaultMessage="Now you can install the {product} by running:"
