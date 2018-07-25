@@ -1,43 +1,21 @@
 import React from "react";
-import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
-import styled from "styled-components";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
 import PropTypes from "prop-types";
-
-// Components.
-import LoginColumnLayout from "./LoginColumnLayout";
+import queryString from "query-string";
 
 // Images;
-import logo from "../../images/my-yoast-academy-logo.svg";
 import { Redirect } from "react-router";
 
-const MainPaper = styled.div`
-	padding: 0 20px;
-	width: 480px;
-	min-height: 480px;
-
-	position: relative;
-
-    text-align: center;
-`;
-
-const Logos = styled.img`
-	margin-top: 40px;
-	width: 360px;
-`;
-
-const Description = styled.p`
-	margin-top: 20px;
-
-	text-align: left;
-`;
+// Components;
+import LoginMessage from "./LoginMessage";
 
 const messages = defineMessages( {
-	activating: {
+	message: {
 		id: "profileDetails.activating",
-		defaultMessage: "Activating your MyYoast account. Please stay with us for a little while longer...",
+		defaultMessage: "We are activating your MyYoast account. Please stay with us for a little while longer.",
 	},
-	loggingIn: {
-		id: "profileDetails.loggingIn",
+	header: {
+		id: "profileDetails.loggingIn.header",
 		defaultMessage: "Logging in...",
 	},
 } );
@@ -50,23 +28,14 @@ class Activate extends React.Component {
 
 	constructor( props ) {
 		super( props );
-		this.activateUser();
-	}
+		let parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
 
-	/**
-	 * Submits the entered first name, last name and profile image
-	 * to the server,
-	 *
-	 * @param {string} firstName the entered first name
-	 * @param {string} lastName the entered last name
-	 * @param {File} imageFile the uploaded image (see
-	 * @returns {void}
-	 */
-	handleSubmit( firstName, lastName, imageFile ) {
-		/*
-		 Code to submit the entered first name, last name and profile
-		 image to the server should be written here!
-		 */
+		// Default state.
+		this.state = {
+			key: parsedQuery.key || "",
+		};
+
+		this.props.activateUser( this.state.key );
 	}
 
 	render() {
@@ -74,14 +43,7 @@ class Activate extends React.Component {
 			return ( <Redirect to={"/enter-details"}/> );
 		}
 		return (
-			<LoginColumnLayout>
-				<MainPaper>
-					<Logos alt="MyYoast - Yoast Academy" src={logo}/>
-					<Description>
-						<FormattedMessage {...messages.activating} />
-					</Description>
-				</MainPaper>
-			</LoginColumnLayout>
+			<LoginMessage { ...messages } />
 		);
 	}
 }
@@ -92,6 +54,7 @@ Activate.propTypes = {
 	intl: intlShape.isRequired,
 	isLoggedIn: PropTypes.bool.isRequired,
 	activateUser: PropTypes.func.isRequired,
+	location: PropTypes.object,
 };
 
 Activate.defaultProps = {
