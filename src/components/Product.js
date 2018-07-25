@@ -111,7 +111,8 @@ function Product( props ) {
 						</Download> );
 				} )	}
 				<Download>
-					<Link to="#" onClick={ () => {
+					<Link to="#" onClick={ ( event ) => {
+						event.preventDefault();
 						props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
 					} } >
 						<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="or install with Composer" />

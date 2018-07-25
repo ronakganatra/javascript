@@ -9,7 +9,7 @@ import { Link as RouterLink } from "react-router-dom";
  * @returns {boolean} Whether or not the URL is an external URL.
  */
 function isExternal( url ) {
-	return url.startsWith( "http" );
+	return url.startsWith( "http" ) || url === "#";
 }
 
 /**
@@ -23,14 +23,21 @@ export default class Link extends Component {
 		delete internalProps.iconSource;
 		delete internalProps.iconSize;
 
+		const externalProps = {
+			href: this.props.to,
+			className: this.props.className,
+			"aria-label": this.props.ariaLabel,
+			target: this.props.linkTarget,
+			rel: this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel,
+			onClick: this.props.onClick,
+		};
+
+		// Remove undefined values from externalProps.
+		Object.keys( externalProps ).forEach( key => typeof externalProps[ key ] === "undefined" && delete externalProps[ key ] );
+
+		console.log( ...externalProps  );
 		return isExternal( this.props.to )
-			? <a
-				href={ this.props.to }
-				className={ this.props.className }
-				aria-label={ this.props.ariaLabel }
-				target={ this.props.linkTarget }
-				rel={ this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel }
-				>
+			? <a { ...externalProps }>
 				{ this.props.children }
 			</a>
 			: <RouterLink { ...internalProps } />;
@@ -44,4 +51,5 @@ Link.propTypes = {
 	ariaLabel: PropTypes.string,
 	linkTarget: PropTypes.string,
 	linkRel: PropTypes.string,
+	onClick: PropTypes.func,
 };
