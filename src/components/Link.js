@@ -35,7 +35,6 @@ export default class Link extends Component {
 		// Remove undefined values from externalProps.
 		Object.keys( externalProps ).forEach( key => typeof externalProps[ key ] === "undefined" && delete externalProps[ key ] );
 
-		console.log( ...externalProps  );
 		return isExternal( this.props.to )
 			? <a { ...externalProps }>
 				{ this.props.children }
