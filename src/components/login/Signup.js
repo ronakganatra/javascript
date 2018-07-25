@@ -5,13 +5,15 @@ import styled from "styled-components";
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
-
+import { Redirect } from "react-router";
 import { passwordRepeatConstraint, passwordConstraints, emailConstraints } from "./CommonConstraints";
 
 // Components.
 import { Button } from "../Button";
 import ValidationInputField from "../ValidationInputField";
 import { StyledLabel } from "../Labels";
+import ErrorDisplay from "../../errors/ErrorDisplay";
+
 
 // Styled components.
 const TextInput = styled( ValidationInputField )`
@@ -172,9 +174,14 @@ class Signup extends React.Component {
 	}
 
 	render() {
+		if( this.props.signupRequestSent ) {
+			return ( <Redirect to={ "/almost-there" } /> );
+		}
+
 		let errors = this.validate();
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
+				<ErrorDisplay error={ this.props.signupError } />
 				<LabelBlock>
 					<Label htmlFor="email-address">
 						<FormattedMessage { ...messages.labelEmail } />
@@ -225,11 +232,13 @@ Signup.propTypes = {
 	email: PropTypes.string,
 	location: PropTypes.object,
 	attemptSignup: PropTypes.func.isRequired,
+	signupRequestSent: PropTypes.bool.isRequired,
 };
 
 Signup.defaultProps = {
 	signupError: null,
 	email: "",
+	signupRequestSent: false,
 };
 
 export default injectIntl( Signup );

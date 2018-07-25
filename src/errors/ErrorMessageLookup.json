@@ -54,5 +54,10 @@
   "expired_session": {
     "message": "Please log in again.",
     "type": "error"
+  },
+  "user_email": {
+    "message": "The email address you provided has already been used. Please try another email address.",
+
+    "type": "error"
   }
 }

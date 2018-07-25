@@ -14,7 +14,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			let request = prepareInternalRequest( "Customers/activate/", "POST", data );
 			doRequest( request )
 				.then( ( response ) => {
-					console.log( "signup succeeded!", response );
 					dispatch( activateSuccess() );
 				} )
 				.catch( ( error ) => {

@@ -17,6 +17,7 @@ import { uiInvoicesReducer } from "./invoices";
 import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
 import { uiNewsletterReducer } from "./newsletter";
 import { uiLoginReducer } from "./login";
+import { uiSignupReducer } from "./signup";
 
 
 export const uiReducer = combineReducers( {
@@ -38,6 +39,7 @@ export const uiReducer = combineReducers( {
 	configurationServiceRequests: uiConfigurationServiceRequestReducer,
 	newsletter: uiNewsletterReducer,
 	login: uiLoginReducer,
+	signup: uiSignupReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {
