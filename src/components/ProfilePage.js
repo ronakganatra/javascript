@@ -111,7 +111,7 @@ const Paragraph = styled.p`
 `;
 
 const ComposerIntroductionArea = styled.div`
-	padding: 0 32px 24px 32px;
+	padding: 16px 32px 24px 32px;
 `;
 
 const FormMessage = styled.p`
@@ -341,10 +341,6 @@ class ProfilePage extends React.Component {
 	 * depending on whether the user has access to this feature via the feature toggle.
 	 */
 	getDevTools() {
-		if ( ! this.hasActiveComposerTokens() ) {
-			return null;
-		}
-
 		let ComposerIntroduction =
 			<ComposerIntroductionArea>
 				{
