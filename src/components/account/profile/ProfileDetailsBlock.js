@@ -97,9 +97,11 @@ class ProfileDetailsBlock extends React.Component {
 	 * Calls the onSubmit function given in the props
 	 * with the entered first name, last name and image file.
 	 *
+	 * @param {event} event The submit event.
 	 * @returns {void}
 	 */
-	handleSubmit() {
+	handleSubmit( event ) {
+		event.preventDefault();
 		this.props.onSubmit( this.state.userFirstName, this.state.userLastName, this.state.imageFile );
 	}
 
@@ -116,9 +118,9 @@ class ProfileDetailsBlock extends React.Component {
 	}
 
 	render() {
-		return <FormGroup onSubmit={ this.props.onSubmit }>
+		return <FormGroup onSubmit={ this.handleSubmit }>
 			<AvatarBlock>
-				<UploadUserImage onFileUpload={ this.onFileUpload } />
+				<UploadUserImage image={this.props.userAvatarUrl} onFileUpload={ this.onFileUpload } />
 			</AvatarBlock>
 
 			<NameBlock id="left">
@@ -160,9 +162,12 @@ ProfileDetailsBlock.propTypes = {
 	onUploadAvatar: PropTypes.func,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
+	userAvatarUrl: PropTypes.string,
+	profileSaving: PropTypes.bool,
 };
 
 ProfileDetailsBlock.defaultProps = {
 	userFirstName: "",
 	userLastName: "",
+	userAvatarUrl: "",
 };

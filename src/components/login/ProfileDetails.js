@@ -1,6 +1,7 @@
 import React from "react";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 // Components.
 import LoginColumnLayout from "./LoginColumnLayout";
@@ -9,6 +10,9 @@ import { Button } from "../Button";
 
 // Images;
 import logo from "../../images/my-yoast-academy-logo.svg";
+import isEmpty from "lodash/isEmpty";
+import { Redirect } from "react-router";
+import ErrorDisplay from "../../errors/ErrorDisplay";
 
 const MainPaper = styled.div`
 	padding: 0 20px;
@@ -41,7 +45,7 @@ const SaveButton = styled( Button )`
 `;
 
 const messages = defineMessages( {
-	message: {
+	description: {
 		id: "profileDetails.message",
 		defaultMessage: "Your MyYoast account has been activated! Fill out this last bit " +
 		"of information and you can get started. Don't worry, you can always change these later!",
@@ -50,6 +54,10 @@ const messages = defineMessages( {
 		id: "profileDetails.goToMyYoast",
 		defaultMessage: "Continue to MyYoast",
 	},
+	savingProfile: {
+		id: "profileDetails.savingProfile",
+		defaultMessage: "saving your profile...",
+	},
 } );
 
 /**
@@ -57,35 +65,60 @@ const messages = defineMessages( {
  * enter some personal details: first name, last name and profile image.
  */
 class ProfileDetails extends React.Component {
+	constructor( props ) {
+		super( props );
+
+		this.handleSubmit = this.handleSubmit.bind( this );
+	}
 
 	/**
-	 * Submits the entered first name, last name and profile image
-	 * to the server,
+	 * Submits the entered first name, last name and profile image to the server.
 	 *
-	 * @param {string} firstName the entered first name
-	 * @param {string} lastName the entered last name
-	 * @param {File} imageFile the uploaded image (see
+	 * @param {string} first_name The entered first name.
+	 * @param {string} last_name The entered last name.
+	 * @param {File} userAvatarUrl The uploaded image.
 	 * @returns {void}
 	 */
-	handleSubmit( firstName, lastName, imageFile ) {
-		/*
-		 Code to submit the entered first name, last name and profile
-		 image to the server should be written here!
-		 */
+
+	/* eslint-disable camelcase */
+	handleSubmit( first_name, last_name, userAvatarUrl ) {
+		this.props.attemptSubmitProfile( { first_name, last_name }, userAvatarUrl );
 	}
+
+	/* eslint-enable camelcase */
 
 
 	render() {
+		let saveMessage = messages.goToMyYoast;
+		if ( this.props.savingProfile ) {
+			saveMessage = messages.savingProfile;
+		}
+
+		if ( this.props.profileSaved && isEmpty( this.props.pendingRequests ) && isEmpty( this.props.profileSaveError ) ) {
+			/*
+			 * Because there are two asynchronous request modifying the user, we can't trust the resulting user state.
+			 * Because of this, we have to fetch the user's Profile again and store it in the Redux state.
+			 * We don't have to wait for this, so we redirect instantly.
+			 */
+			if ( this.props.fetchProfile ) {
+				this.props.fetchProfile();
+			}
+			return <Redirect to={"/"}/>;
+		}
+
 		return <LoginColumnLayout>
 			<MainPaper>
 				<Logos alt="MyYoast - Yoast Academy" src={logo}/>
 				<Description>
-					<FormattedMessage {...messages.message} />
+					<FormattedMessage {...messages.description} />
 				</Description>
-				<ProfileDetailsBlock onSubmit={this.handleSubmit}>
+				<ErrorDisplay error={this.props.profileSaveError}/>
+				<ProfileDetailsBlock onSubmit={this.handleSubmit} userFirstName={this.props.profile.userFirstName}
+				                     userLastName={this.props.profile.userLastName}
+				                     userAvatarUrl={this.props.profile.userAvatarUrl}>
 					<SaveButtonArea>
 						<SaveButton type="submit">
-							<FormattedMessage {...messages.goToMyYoast} />
+							<FormattedMessage {...saveMessage} />
 						</SaveButton>
 					</SaveButtonArea>
 				</ProfileDetailsBlock>
@@ -98,6 +131,24 @@ export default injectIntl( ProfileDetails );
 
 ProfileDetails.propTypes = {
 	intl: intlShape.isRequired,
+	attemptSubmitProfile: PropTypes.func,
+	fetchProfile: PropTypes.func,
+	savingProfile: PropTypes.bool,
+	profileSaved: PropTypes.bool,
+	profile: PropTypes.object,
+	pendingRequests: PropTypes.array,
+	profileSaveError: PropTypes.object,
 };
 
-ProfileDetails.defaultProps = {};
+ProfileDetails.defaultProps = {
+	savingProfile: false,
+	profileSaved: false,
+	profile: {
+		email: "",
+		userFirstName: "",
+		userLastName: "",
+		userAvatarUrl: "",
+	},
+	pendingRequests: [],
+	profileSaveError: null,
+};

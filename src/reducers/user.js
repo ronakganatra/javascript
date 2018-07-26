@@ -38,8 +38,10 @@ const initialState = {
 			email: "",
 			userFirstName: "",
 			userLastName: "",
+			userAvatarUrl: "",
 		},
 	},
+	pendingRequests: [],
 	savingProfile: false,
 	saveEmailError: null,
 	profileSaved: false,
@@ -94,9 +96,11 @@ export function userDataReducer( state = initialState, action ) {
  * @returns {Object} The new state for the store.
  */
 export function userEmailReducer( state = initialState, action ) {
+	let subtype = action.subtype || "default";
 	switch ( action.type ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.concat( subtype ),
 				sendPasswordReset: false,
 				savingProfile: true,
 				saveEmailError: null,
@@ -105,6 +109,7 @@ export function userEmailReducer( state = initialState, action ) {
 
 		case PROFILE_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.filter( ( pendingRequest ) => pendingRequest !== subtype ),
 				savingProfile: false,
 				saveEmailError: action.error,
 				profileSaved: false,
@@ -112,6 +117,7 @@ export function userEmailReducer( state = initialState, action ) {
 
 		case PROFILE_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.filter( ( pendingRequest ) => pendingRequest !== subtype ),
 				savingProfile: false,
 				sendPasswordReset: false,
 				profileSaved: true,
@@ -135,6 +141,7 @@ export function userEmailReducer( state = initialState, action ) {
 			return state;
 	}
 }
+
 /* eslint-enable complexity */
 
 

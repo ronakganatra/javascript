@@ -16,7 +16,7 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
-import ProfileDetails from "./components/login/ProfileDetails";
+import ProfileDetailsContainer from "./containers/ProfileDetails";
 import AlmostThere from "./components/login/AlmostThere";
 import LoginPage from "./components/login/LoginSignupPage";
 import ResetPasswordPage from "./components/login/ResetPasswordPage";
@@ -100,7 +100,7 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetailsContainer ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>

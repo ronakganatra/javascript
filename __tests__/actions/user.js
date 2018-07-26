@@ -189,9 +189,7 @@ describe( 'Password reset', () => {
 
 describe( 'Profile saving', () => {
 	test( 'request action', () => {
-		const expected = {
-			type: actions.PROFILE_UPDATE_REQUEST,
-		};
+		const expected = { "subtype": "", "type": "PROFILE_UPDATE_REQUEST" };
 
 		const actual = actions.profileUpdateRequest();
 
@@ -202,6 +200,7 @@ describe( 'Profile saving', () => {
 		const expected = {
 			type: actions.PROFILE_UPDATE_FAILURE,
 			error: { error: "A profile update failure error" },
+			subtype: "",
 		};
 
 		const actual = actions.profileUpdateFailure( { error: "A profile update failure error" } );
@@ -212,6 +211,7 @@ describe( 'Profile saving', () => {
 	test( 'success action', () => {
 		const expected = {
 			type: actions.PROFILE_UPDATE_SUCCESS,
+			subtype: "",
 		};
 
 		const actual = actions.profileUpdateSuccess();

@@ -133,7 +133,7 @@ exports[`The ProfileDetailsBlock component matches the snapshot 1`] = `
 
 <form
   className="c0"
-  onSubmit={undefined}
+  onSubmit={[Function]}
 >
   <div
     className="c1"

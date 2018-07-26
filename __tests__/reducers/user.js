@@ -154,6 +154,7 @@ describe( 'userEmailReducer', () => {
 			savingProfile: false,
 			saveEmailError: null,
 			profileSaved: false,
+			pendingRequests: [],
 		};
 		const action = {
 			type: PROFILE_UPDATE_REQUEST,
@@ -163,6 +164,7 @@ describe( 'userEmailReducer', () => {
 			savingProfile: true,
 			profileSaved: false,
 			saveEmailError: null,
+			pendingRequests: [ "default" ],
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -182,6 +184,7 @@ describe( 'userEmailReducer', () => {
 					userLastName: "testLast",
 				}
 			},
+			pendingRequests: [ "default" ],
 		};
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
@@ -203,6 +206,7 @@ describe( 'userEmailReducer', () => {
 					userLastName: "newLast",
 				}
 			},
+			pendingRequests: [],
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -214,15 +218,18 @@ describe( 'userEmailReducer', () => {
 		const input = {
 			savingProfile: true,
 			saveEmailError: null,
+			pendingRequests: [ "testRequest" ]
 		};
 		const action = {
 			type: PROFILE_UPDATE_FAILURE,
 			error: { error: "A profile update failure error." },
+			subtype: "testRequest",
 		};
 		const expected = {
 			savingProfile: false,
 			profileSaved: false,
 			saveEmailError: { error: "A profile update failure error." },
+			pendingRequests: [],
 		};
 
 		const actual = userEmailReducer( input, action );

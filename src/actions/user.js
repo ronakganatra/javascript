@@ -219,11 +219,14 @@ export function passwordUpdateSuccess( newPassword ) {
 /**
  * An action creator for the profile update request action.
  *
+ * @param {string} subtype The kind of profileUpdate request.
+ *
  * @returns {Object} The profile update request action.
  */
-export function profileUpdateRequest() {
+export function profileUpdateRequest( subtype = "" ) {
 	return {
 		type: PROFILE_UPDATE_REQUEST,
+		subtype: subtype,
 	};
 }
 
@@ -231,12 +234,14 @@ export function profileUpdateRequest() {
  * An action creator for the profile update failure action.
  *
  * @param {Object} error The error that occurred.
+ * @param {string} subtype The kind of profileUpdate failure.
  * @returns {Object} The profile update failure action.
  */
-export function profileUpdateFailure( error ) {
+export function profileUpdateFailure( error, subtype = "" ) {
 	return {
 		type: PROFILE_UPDATE_FAILURE,
 		error: error,
+		subtype: subtype,
 	};
 }
 
@@ -244,12 +249,15 @@ export function profileUpdateFailure( error ) {
  * An action creator for the profile update success action.
  *
  * @param {Object} newProfile The profile after a successful profile update.
+ * @param {string} subtype The kind of profileUpdate success.
+ *
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess( newProfile ) {
+export function profileUpdateSuccess( newProfile, subtype = "" ) {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
 		profile: newProfile,
+		subtype: subtype,
 	};
 }
 
@@ -314,8 +322,9 @@ export function updatePassword( passwords ) {
  * @returns {Function} Function to call when this action is dispatched.
  */
 export function uploadAvatar( image ) {
+	const actionSubtype = "imageUpload";
 	return ( dispatch ) => {
-		dispatch( profileUpdateRequest() );
+		dispatch( profileUpdateRequest( actionSubtype ) );
 
 		let userId = getUserId();
 		let uploadData = new FormData();
@@ -328,8 +337,8 @@ export function uploadAvatar( image ) {
 
 		return doRequest( uploadRequest )
 			.then( ( response ) => {
-				dispatch( profileUpdateSuccess( response ) );
+				dispatch( profileUpdateSuccess( response, actionSubtype ) );
 			} )
-			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
+			.catch( ( error ) => dispatch( profileUpdateFailure( error, actionSubtype ) ) );
 	};
 }

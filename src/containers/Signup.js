@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Signup from "../components/login/Signup";
 import { signupRequest } from "../actions/signup";
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptSignup: ( data ) => {
 			dispatch( signupRequest( data ) );
