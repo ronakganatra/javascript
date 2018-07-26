@@ -58,16 +58,6 @@ test( 'login action creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'logout action creator', () => {
-	const expected = {
-		type: actions.LOGOUT,
-	};
-
-	const actual = actions.logout();
-
-	expect( actual ).toEqual( expected );
-} );
-
 test( 'request user action creator', () => {
 	const expected = {
 		type: actions.FETCH_USER_REQUEST,

@@ -1,9 +1,10 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import UserProfile from '../../src/components/UserProfile';
+import { createComponentWithIntl } from "../../utils";
 
 test('the user profile matches the snapshot', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<UserProfile onLogoutClick={() => {}} displayEmail="This is an email" displayImage={ { src: "Image", size: "60px" } } />
 	);
 
@@ -12,7 +13,7 @@ test('the user profile matches the snapshot', () => {
 });
 
 test('the user profile logout button handling an onclick event', () => {
-	const component = renderer.create(
+	const component = createComponentWithIntl(
 		<UserProfile onLogoutClick={(  ) => {}} displayEmail="This is an email" displayImage={ { src: "Image", size: "60px" } } />
 	);
 

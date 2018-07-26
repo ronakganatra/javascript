@@ -35,8 +35,7 @@ const Layout = styled.div`
 `;
 
 const LayoutLogin = styled.div`
-	background: transparent url( ${ loginBackground } ) no-repeat 100% 0;
-	background-attachment: fixed;
+	background: ${colors.$color_pink_dark} url( ${ loginBackground } ) no-repeat 100% 0;
 	background-size: cover;
 	
 	font-family: "Open Sans", sans-serif;

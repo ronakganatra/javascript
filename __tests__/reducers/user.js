@@ -5,7 +5,6 @@ import userReducer, {
 } from "../../src/reducers/user";
 import {
 	LOGIN,
-	LOGOUT,
 	FETCH_USER_FAILURE,
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
@@ -18,6 +17,7 @@ import {
 	DISABLE_USER_START,
 	DISABLE_USER_SUCCESS,
 	DISABLE_USER_FAILURE,
+	LOGOUT_SUCCESS,
 } from "../../src/actions/user";
 
 test( 'the login action', () => {
@@ -40,14 +40,14 @@ test( 'the login action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the logout action', () => {
+test( 'the logoutSuccess action', () => {
 	const input = {
 		loggedIn: true,
 		userId: 5,
 		accessToken: "A token",
 	};
 	const action = {
-		type: LOGOUT,
+		type: LOGOUT_SUCCESS,
 	};
 	const expected = {
 		loggedIn: false,

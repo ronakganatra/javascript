@@ -1,7 +1,6 @@
 import "whatwg-fetch";
 import { prepareInternalRequest, doRequest } from "../functions/api";
 import {
-	getLogoutUrl,
 	removeCookies as removeAuthCookies,
 	getUserId,
 	hasCookieParams,
@@ -11,7 +10,6 @@ import {
  * Action types
  */
 export const LOGIN = "LOGIN";
-export const LOGOUT = "LOGOUT";
 
 export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
@@ -30,6 +28,11 @@ export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 export const DISABLE_USER_START = "DISABLE_USER_START";
 export const DISABLE_USER_FAILURE = "DISABLE_USER_FAILURE";
 export const DISABLE_USER_SUCCESS = "DISABLE_USER_SUCCESS";
+
+export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
+export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+
 
 /**
  * Action creators
@@ -58,11 +61,61 @@ export function login( accessToken, userId ) {
  * @returns {Object} A logout action.
  */
 export function logout() {
-	removeAuthCookies();
-	document.location.href = getLogoutUrl();
+	return ( dispatch ) => {
+		dispatch( doingLogoutRequest() );
+		let nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
 
+		doRequest( nonceRequest )
+			.then( ( reponse ) => {
+				let logoutRequest = prepareInternalRequest( "Customers/logout/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
+				doRequest( logoutRequest )
+					.then( () => {
+						removeAuthCookies();
+						dispatch( logoutSuccess() );
+					} )
+					.catch( ( error ) => {
+						dispatch( logoutFailure( error ) );
+					} );
+			} )
+			.catch( ( error ) => {
+				dispatch( logoutFailure( error ) );
+			} );
+	};
+}
+
+/**
+ * An action creator for the logout start action.
+ *
+ * @returns {Object} A logout start action.
+ */
+export function doingLogoutRequest() {
 	return {
-		type: LOGOUT,
+		type: LOGOUT_REQUEST,
+	};
+}
+
+/**
+ * An action creator for the logout success action.
+ *
+ * @returns {Object} A logout start action.
+ */
+export function logoutSuccess() {
+	return {
+		type: LOGOUT_SUCCESS,
+	};
+}
+
+/**
+ * An action creator for the logout failed action.
+ *
+ * @param {Object} error The error that occurred.
+ *
+ * @returns {Object} A logout failure action.
+ */
+export function logoutFailure( error ) {
+	return {
+		type: LOGOUT_FAILURE,
+		error: error,
 	};
 }
 

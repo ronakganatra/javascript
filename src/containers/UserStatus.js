@@ -8,6 +8,8 @@ const mapStateToProps = ( state ) => {
 	return {
 		displayEmail: state.user.data.profile.email,
 		loggedIn: state.user.loggedIn,
+		loggingOut: state.user.loggingOut,
+		logoutError: state.user.logoutError,
 		displayImage: {
 			src: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
 				// Gravatar rating
