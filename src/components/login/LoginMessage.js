@@ -71,10 +71,9 @@ class LoginMessage extends React.Component {
 	 */
 	renderButton() {
 		return (
-				<StyledButtonLink to={ this.props.buttonLinkTo }>
-					<FormattedMessage { ...this.props.message } />
-				</StyledButtonLink>
-
+			<StyledButtonLink to={ this.props.buttonLinkTo }>
+				<FormattedMessage { ...this.props.message } />
+			</StyledButtonLink>
 		);
 	}
 

@@ -98,8 +98,8 @@ export function resetPasswordFailure( error ) {
  * When this succeeds, we attempt to redirect the user to the send reset password email success page.
  *
  * @param {Object} params The request parameters.
- * @param {Object} ownProps The ownProps of resetPasswordEmail container.
  * @param {string} params.email The email address of the user who is trying to log in.
+ * @param {Object} ownProps The ownProps of resetPasswordEmail container.
  *
  * @returns {Function} A function which enables us to expose the dispatch function.
  */

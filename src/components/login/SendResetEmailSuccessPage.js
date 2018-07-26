@@ -58,7 +58,7 @@ class ResetPasswordSuccessPage extends React.Component {
 				<Column>
 					<Header>
 						<Logos src={ logo } />
-						<Icon src={ this.props.image } />
+						<Icon src={ this.props.image } alt={ "MyYoast" } />
 					</Header>
 					<StyledHeader>
 						<FormattedMessage { ...messages.successMessageTitle } />

@@ -40,7 +40,7 @@ const messages = defineMessages( {
 	},
 	loadingButton: {
 		id: "reset.button.loading",
-		defaultMessage: "...saving password",
+		defaultMessage: "Saving password...",
 	},
 } );
 

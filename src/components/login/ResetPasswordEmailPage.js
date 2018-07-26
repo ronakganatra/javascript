@@ -38,7 +38,7 @@ const messages = defineMessages( {
 	},
 	loadingButton: {
 		id: "reset.button.loading",
-		defaultMessage: "...sending password reset email",
+		defaultMessage: "Sending password reset email...",
 	},
 	backButton: {
 		id: "back.button",
@@ -142,6 +142,7 @@ class ResetPasswordEmailPage extends React.Component {
 	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
 	 * @param {array} errors The email related errors.
+	 *
 	 * @returns {void}
 	 */
 	onUpdateEmail( field, event, errors = [] ) {
@@ -155,6 +156,7 @@ class ResetPasswordEmailPage extends React.Component {
 	 * Provides the email address to send a pass word reset link to.
 	 *
 	 * @param { object } event The button click event.
+	 *
 	 * @returns {void}
 	 */
 	handleSubmit( event ) {
@@ -162,9 +164,7 @@ class ResetPasswordEmailPage extends React.Component {
 		if( isEmpty( this.state.email ) ) {
 			return;
 		}
-		let email = this.state.email;
-		let data = { email };
-		this.props.attemptResetPasswordEmail( data );
+		this.props.attemptResetPasswordEmail( { email: this.state.email } );
 	}
 
 	render() {
