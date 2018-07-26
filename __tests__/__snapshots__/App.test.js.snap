@@ -111,8 +111,7 @@ exports[`renders without crashing 1`] = `
 }
 
 .c0 {
-  background: transparent url( login-background.jpg ) no-repeat 100% 0;
-  background-attachment: fixed;
+  background: #a4286a url( login-background.jpg ) no-repeat 100% 0;
   background-size: cover;
   font-family: "Open Sans",sans-serif;
   color: #000;
