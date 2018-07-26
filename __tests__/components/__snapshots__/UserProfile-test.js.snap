@@ -99,7 +99,9 @@ exports[`the user profile logout button handling an onclick event 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Sign out
+      <span>
+        Sign out
+      </span>
     </button>
   </div>
 </aside>
@@ -204,7 +206,9 @@ exports[`the user profile logout button handling an onclick event 2`] = `
       onClick={[Function]}
       type="button"
     >
-      Sign out
+      <span>
+        Sign out
+      </span>
     </button>
   </div>
 </aside>
@@ -309,7 +313,9 @@ exports[`the user profile matches the snapshot 1`] = `
       onClick={[Function]}
       type="button"
     >
-      Sign out
+      <span>
+        Sign out
+      </span>
     </button>
   </div>
 </aside>
