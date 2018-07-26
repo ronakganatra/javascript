@@ -90,12 +90,10 @@ class LoginMessage extends React.Component {
 				<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 				<Icon src={ this.props.image } alt="" />
 				<StyledHeading>
-					<FormattedMessage
-						id={ this.props.header.id }
-						defaultMessage={ this.props.header.defaultMessage }
-					/>
+					<FormattedMessage {...this.props.header} />
 				</StyledHeading>
 				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
+				{this.props.children}
 			</MainPaper>
 		);
 	}
@@ -106,6 +104,7 @@ LoginMessage.propTypes = {
 	header: PropTypes.object,
 	message: PropTypes.object,
 	onClick: PropTypes.func,
+	children: PropTypes.any,
 };
 
 LoginMessage.defaultProps = {

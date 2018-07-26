@@ -9,7 +9,7 @@ const rootState = {
 	ui: {
 		activate: {
 			loading: false,
-			error: null,
+			activationError: null,
 		},
 	},
 };
@@ -30,17 +30,17 @@ export function uiActivateReducer( state = rootState.ui.activate, action ) {
 		case ACTIVATE_SUCCESS:
 			return Object.assign( {}, state, {
 				loading: false,
-				error: null,
+				activationError: null,
 			} );
 		case ACTIVATE_FAILURE:
 			return Object.assign( {}, state, {
 				loading: false,
-				error: action.error,
+				activationError: action.error,
 			} );
 		case ACTIVATE_REQUEST:
 			return Object.assign( {}, state, {
 				loading: true,
-				error: null,
+				activationError: null,
 			} );
 		default:
 			return state;

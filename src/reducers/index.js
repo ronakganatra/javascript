@@ -18,6 +18,7 @@ import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequest
 import { uiNewsletterReducer } from "./newsletter";
 import { uiLoginReducer } from "./login";
 import { uiSignupReducer } from "./signup";
+import { uiActivateReducer } from "./activate";
 
 
 export const uiReducer = combineReducers( {
@@ -40,6 +41,7 @@ export const uiReducer = combineReducers( {
 	newsletter: uiNewsletterReducer,
 	login: uiLoginReducer,
 	signup: uiSignupReducer,
+	activate: uiActivateReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {

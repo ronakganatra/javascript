@@ -126,14 +126,14 @@ export function doingActivateRequest() {
  * When this succeeds, we attempt to login the user and redirect the user to the enter-details page.
  *
  *
- * @param {Object} params The request parameters.
+ * @param {string} key The request parameters.
  *
  * @returns {Function} A function which enables us to expose the dispatch function.
  */
-export function activateRequest( params ) {
+export function activateRequest( key ) {
 	return ( dispatch ) => {
 		dispatch( doingActivateRequest() );
-		let request = prepareInternalRequest( "Customers/activate/", "POST", params, { credentials: "include" } );
+		let request = prepareInternalRequest( "Customers/activate/", "POST", { key }, { credentials: "include" } );
 		doRequest( request )
 			.then( () => {
 				fetchAccessToken()

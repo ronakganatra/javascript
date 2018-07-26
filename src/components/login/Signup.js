@@ -36,13 +36,11 @@ const Label = styled( StyledLabel )`
 `;
 
 const SaveButtonArea = styled.div`
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 `;
 
 const SaveButton = styled( Button )`
-	margin: 1em 0;
+	margin: 2em 0;
 	width: 100%;
 `;
 
@@ -91,6 +89,7 @@ class Signup extends React.Component {
 		this.onUpdateEmail = this.onUpdate.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
+		this.getAccountButton = this.getAccountButton.bind( this );
 
 		// Validation constraints.
 		this.constraints = {
