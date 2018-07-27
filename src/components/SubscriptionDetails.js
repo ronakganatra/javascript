@@ -30,7 +30,7 @@ const messages = defineMessages( {
 	},
 	cancelLink: {
 		id: "subscriptionDetails.buttons.invoice",
-		defaultMessage: "Cancel subscription. ALLEEN VOOR AUTO RECURRING",
+		defaultMessage: "Cancel subscription",
 	},
 } );
 
@@ -71,36 +71,49 @@ function SubscriptionDetails( props ) {
 		/>;
 	}
 
+	let startingDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.startDate ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				<FormattedDate
+					value={ props.startDate }
+					year='numeric'
+					month='long'
+					day='2-digit'
+				/>
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight> );
+
+	let nextBillingDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.nextBilling ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ nextBilling }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	let cancelSubscriptionRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				<Link to={ "#" } onClick={ props.onCancelClick }>
+					<FormattedMessage { ...messages.cancelLink }/>
+				</Link>
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight> );
+
+	let rows = [ startingDateRow, nextBillingDateRow ];
+	if ( props.canCancel ) {
+		rows.push( cancelSubscriptionRow );
+	}
+
 	return (
 		<ListTable>
-			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
-				<ColumnMinWidth ellipsis={ true }>
-					{ props.intl.formatMessage( messages.startDate ) }
-				</ColumnMinWidth>
-				<ColumnFixedWidthResponsive ellipsis={ true }>
-					<FormattedDate
-						value={ props.startDate }
-						year='numeric'
-						month='long'
-						day='2-digit'
-					/>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapseNoMinHeight>
-			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
-				<ColumnMinWidth ellipsis={ true }>
-					{ props.intl.formatMessage( messages.nextBilling ) }
-				</ColumnMinWidth>
-				<ColumnFixedWidthResponsive ellipsis={ true }>
-					{ nextBilling }
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapseNoMinHeight>
-			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
-				<ColumnFixedWidthResponsive ellipsis={ true }>
-					<Link to={ "#" } onClick={ props.onCancelClick }>
-						<FormattedMessage { ...messages.cancelLink }/>
-					</Link>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapseNoMinHeight>
+			{ rows }
 		</ListTable>
 	);
 }
@@ -115,8 +128,8 @@ SubscriptionDetails.propTypes = {
 	max: PropTypes.number.isRequired,
 	current: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,
-	subscription: PropTypes.string,
 	onCancelClick: PropTypes.func.isRequired,
+	canCancel: PropTypes.bool.isRequired,
 };
 
 export default injectIntl( SubscriptionDetails );

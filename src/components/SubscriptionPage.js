@@ -59,21 +59,15 @@ let SubscriptionOrders = styledOrders( Orders );
 class SubscriptionPage extends React.Component {
 
 	getModal() {
-		const modalAriaLabel = defineMessages( {
-			id: "modal.arialabel.invite",
-			defaultMessage: "Send course invite",
-		} );
 		let subscription = this.props.subscription;
-		console.log( this.props );
 		return (
 			<SubscriptionCancelModal
 				isOpen={ this.props.cancelModalOpen }
 				onClose={ this.props.closeCancelModal }
-				modalAriaLabel={ modalAriaLabel }
 				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
-				amountOfActiveSites={this.props.sites.length}
+				amountOfActiveSites={ this.props.sites.length }
 			/>
 		);
 	}
@@ -84,7 +78,6 @@ class SubscriptionPage extends React.Component {
 			return <AnimatedLoader/>;
 		}
 		let subscription = this.props.subscription;
-
 		return <section>
 			<Header
 				name={ subscription.name }
@@ -105,6 +98,7 @@ class SubscriptionPage extends React.Component {
 					current={ 1 }
 					orders={ this.props.orders }
 					onCancelClick={ this.props.openCancelModal }
+					canCancel={ subscription.requiresManualRenewal === false }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
