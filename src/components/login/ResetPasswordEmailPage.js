@@ -161,10 +161,19 @@ class ResetPasswordEmailPage extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		if( isEmpty( this.state.email ) ) {
+		if( this.canSubmit() === false ) {
 			return;
 		}
 		this.props.attemptResetPasswordEmail( { email: this.state.email } );
+	}
+
+	/**
+	 * Checks whether or not the form may be submitted.
+	 *
+	 * @returns {boolean} Whether or not the form may be submitted
+	 */
+	canSubmit() {
+		return ! isEmpty( this.state.email ) && this.state.errors.length === 0 && this.props.loading === false;
 	}
 
 	render() {
@@ -204,7 +213,7 @@ class ResetPasswordEmailPage extends React.Component {
 						</LabelBlock>
 
 						<EmailButtonArea>
-							<SaveButton type="submit" enabledStyle={ this.state.email.length > 0 && this.state.errors.length === 0 && this.props.loading === false }>
+							<SaveButton type="submit" enabledStyle={ this.canSubmit() }>
 								<FormattedMessage { ...buttonText } />
 							</SaveButton>
 							<BackButton enabledStyle={ true } to="../login">
