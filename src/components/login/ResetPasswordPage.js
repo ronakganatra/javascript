@@ -130,11 +130,12 @@ class ResetPasswordPage extends React.Component {
 	onUpdate( field, event, errors ) {
 		let obj = {};
 		obj[ field ] = event.target.value;
-		obj.errors = Object.assign( {}, errors );
-
+		obj.errors = Object.assign( {}, this.state.errors );
+		obj.errors[ field ] = errors;
 		this.setState( obj, () => {
 			let newErrors = this.validate();
-			this.setState( Object.assign( {}, this.state, { errors: newErrors } ) );
+			errors = Object.assign( {}, this.state.errors, newErrors );
+			this.setState( { errors } );
 		} );
 	}
 
@@ -161,11 +162,19 @@ class ResetPasswordPage extends React.Component {
 		return errors;
 	}
 
+	/**
+	 * Checks whether or not the form may be submitted.
+	 *
+	 * @returns {boolean} Whether or not the form may be submitted.
+	 */
 	canSubmit() {
 		return isEmpty( this.state.password ) === false &&
 			isEmpty( this.state.passwordRepeat ) === false &&
 			this.state.password === this.state.passwordRepeat &&
-			isEmpty( this.state.errors ) && isEmpty( this.props.submitErrors );
+			isEmpty( this.state.errors.password ) &&
+			isEmpty( this.state.errors.passwordRepeat ) &&
+			isEmpty( this.props.submitErrors ) &&
+			this.props.loading === false;
 	}
 
 	/**
@@ -192,44 +201,43 @@ class ResetPasswordPage extends React.Component {
 
 	render() {
 		if ( this.props.passwordResetSuccess ) {
-			return <Redirect to={"/forgot-password/success"}/>;
+			return <Redirect to={ "/forgot-password/success" }/>;
 		}
 
 		let buttonText = messages.resetButton;
-		if( this.props.loading ) {
+		if ( this.props.loading ) {
 			buttonText = messages.loadingButton;
 		}
 		return (
 			<LoginColumnLayout>
 				<Column>
 					<Header>
-						<Logos src={logo} alt="MyYoast - Yoast Academy"/>
+						<Logos src={ logo } alt="MyYoast - Yoast Academy"/>
 					</Header>
 					<FormattedMessage
-						id={messages.resetMessage.id}
-						defaultMessage={messages.resetMessage.defaultMessage}
-						values={{ email: this.state.email }}
+						id={ messages.resetMessage.id }
+						defaultMessage={ messages.resetMessage.defaultMessage }
+						values={ { email: this.state.email } }
 					/>
-					<FormGroup onSubmit={this.handleSubmit}>
-						<ErrorDisplay error={this.props.submitErrors}/>
+					<FormGroup onSubmit={ this.handleSubmit }>
+						<ErrorDisplay error={ this.props.submitErrors }/>
 						<LabelBlock>
 							<Label htmlFor="password">
-								<FormattedMessage {...messages.labelPassword} />
+								<FormattedMessage { ...messages.labelPassword } />
 							</Label>
 							<TextInput
 								id="password"
 								name="password"
 								type="password"
-								errors={this.state.errors.password}
-								onChange={this.onUpdatePassword}
-								delay={0}
-								constraint={passwordConstraints( this.props.intl )}
+								onChange={ this.onUpdatePassword }
+								delay={ 0 }
+								constraint={ passwordConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
 
 						<LabelBlock>
 							<Label htmlFor="password-repeat">
-								<FormattedMessage {...messages.labelPasswordRepeat} />
+								<FormattedMessage { ...messages.labelPasswordRepeat } />
 							</Label>
 							<TextInput
 								id="password-repeat"
@@ -241,7 +249,7 @@ class ResetPasswordPage extends React.Component {
 						</LabelBlock>
 
 						<SaveButtonArea>
-							<SaveButton type="submit" enabledStyle={ this.canSubmit() && this.props.loading === false }>
+							<SaveButton type="submit" enabledStyle={ this.canSubmit() }>
 								<FormattedMessage { ...buttonText } />
 							</SaveButton>
 						</SaveButtonArea>
