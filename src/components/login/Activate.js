@@ -34,7 +34,7 @@ const userAlreadyActiveMessages = defineMessages( {
 	message: {
 		id: "profileDetails.alreadyactive",
 		defaultMessage: "Your account has already been activated. {login}",
-		values: { login: <LoginButton to={"/login"}>Login now</LoginButton> },
+		values: { login: <LoginButton to={ "/login" }>Login now</LoginButton> },
 	},
 	header: {
 		id: "profileDetails.alreadyactive.header",
@@ -58,12 +58,14 @@ class Activate extends React.Component {
 			key: parsedQuery.key || "",
 		};
 
-		this.props.activateUser( this.state.key );
+		if ( ! this.props.loading ) {
+			this.props.activateUser( this.state.key );
+		}
 	}
 
 	render() {
 		if ( this.props.isLoggedIn ) {
-			return ( <Redirect to={"/enter-details"}/> );
+			return ( <Redirect to={ "/enter-details" }/> );
 		}
 
 		let errorDisplay = null;
@@ -77,12 +79,12 @@ class Activate extends React.Component {
 			console.log( this.props.activationError );
 			console.log( this.props.activationError );
 			console.log( this.props.activationError );
-			errorDisplay = <ErrorDisplay error={this.props.activationError}/>;
+			errorDisplay = <ErrorDisplay error={ this.props.activationError }/>;
 		}
 
 		return (
-			<LoginMessage {...messages} >
-				{errorDisplay}
+			<LoginMessage { ...messages } >
+				{ errorDisplay }
 			</LoginMessage>
 		);
 	}
@@ -100,6 +102,7 @@ Activate.propTypes = {
 	activateUser: PropTypes.func.isRequired,
 	location: PropTypes.object,
 	activationError: PropTypes.object,
+	loading: PropTypes.bool,
 };
 
 Activate.defaultProps = {

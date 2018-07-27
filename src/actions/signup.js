@@ -136,6 +136,12 @@ export function activateRequest( key ) {
 		let request = prepareInternalRequest( "Customers/activate/", "POST", { key }, { credentials: "include" } );
 		doRequest( request )
 			.then( () => {
+				dispatch( activateSuccess() );
+			} )
+			.catch( ( error ) => {
+				dispatch( activateFailure( error ) );
+			} )
+			.finally( () => {
 				fetchAccessToken()
 					.then( ( token ) => {
 						dispatch( login( token, getUserId() ) );
@@ -144,9 +150,6 @@ export function activateRequest( key ) {
 					.catch( ( error ) => {
 						dispatch( oathFailure( error ) );
 					} );
-			} )
-			.catch( ( error ) => {
-				dispatch( activateFailure( error ) );
 			} );
 
 		return {

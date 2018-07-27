@@ -102,6 +102,7 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetailsContainer ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
+					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
