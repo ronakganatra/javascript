@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { LogoutButton } from "../components/Button";
 import UserImage from "../components/UserImage";
 import colors from "yoast-components/style-guide/colors.json";
+import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
+import ErrorDisplay from "../errors/ErrorDisplay";
 
 const UserInfoContainer = styled.aside`
 	display: flex;
@@ -27,6 +29,18 @@ const UserEmail = styled.p`
 	word-break: break-word;
 `;
 
+const messages = defineMessages( {
+	signout: {
+		id: "signout",
+		defaultMessage: "Sign out",
+	},
+	signingout: {
+		id: "signout.pending",
+		defaultMessage: "Signing out...",
+	},
+} );
+
+
 /**
  * Renders the user profile component.
  *
@@ -34,16 +48,41 @@ const UserEmail = styled.p`
  * @param {boolean} props.loggedIn Whether or not we are currently logged in.
  * @returns {ReactElement} A react component.
  */
-export default function UserProfile( props ) {
-	return <UserInfoContainer className="user-info">
-		<UserImage {...props.displayImage} />
-		<UserInfo>
-			<UserEmail>{ props.displayEmail }</UserEmail>
+class UserProfile extends React.Component {
+	constructor( props ) {
+		super( props );
+		this.onLogoutClick = this.onLogoutClick.bind( this );
+	}
 
-			<LogoutButton type="button" onClick={props.onLogoutClick}>Sign out</LogoutButton>
-		</UserInfo>
-	</UserInfoContainer>;
+	render() {
+		let message = this.props.loggingOut ? messages.signingout : messages.signout;
+
+		return <UserInfoContainer className="user-info">
+			<UserImage { ...this.props.displayImage } />
+			<UserInfo>
+				<UserEmail>{ this.props.displayEmail }</UserEmail>
+
+				<LogoutButton type="button" onClick={ this.onLogoutClick }
+				              enabledStyle={ this.props.loggingOut === false }>
+					<FormattedMessage { ...message } />
+				</LogoutButton>
+				<ErrorDisplay error={ this.props.logoutError } showIcon={ false }/>
+			</UserInfo>
+		</UserInfoContainer>;
+	}
+
+
+	onLogoutClick() {
+		if ( this.props.loggingOut ) {
+			return;
+		}
+
+		this.props.onLogoutClick();
+	}
+
 }
+
+export default injectIntl( UserProfile );
 
 UserProfile.propTypes = {
 	displayEmail: PropTypes.string.isRequired,
@@ -55,6 +94,8 @@ UserProfile.propTypes = {
 	onLogoutClick: PropTypes.func.isRequired,
 	loggedIn: PropTypes.bool,
 	className: PropTypes.string,
+	loggingOut: PropTypes.bool.isRequired,
+	logoutError: PropTypes.object,
 };
 
 UserProfile.defaultProps = {
@@ -66,4 +107,6 @@ UserProfile.defaultProps = {
 	displayEmail: "",
 	loggedIn: false,
 	className: "",
+	loggingOut: false,
+	logoutError: null,
 };

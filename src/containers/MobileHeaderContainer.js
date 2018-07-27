@@ -22,6 +22,8 @@ export const mapStateToProps = ( state ) => {
 
 	return {
 		pageTitle,
+		loggingOut: state.user.loggingOut,
+		logoutError: state.user.logoutError,
 	};
 };
 

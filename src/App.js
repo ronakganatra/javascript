@@ -25,7 +25,7 @@ import SendResetEmailSuccessPage from "./components/login/SendResetEmailSuccessP
 import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 import {
 	directToIntendedDestination,
-	hasAccessToken, hasPeriLoginCookie,
+	hasPeriLoginCookie,
 	removePeriLoginCookie,
 	setPeriLoginCookie,
 } from "./functions/auth";
@@ -58,7 +58,7 @@ injectGlobal`
 
 
 const Routes = ( props ) => {
-	if ( hasAccessToken() === false ) {
+	if ( props.loggedIn === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
@@ -104,7 +104,9 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) }/>
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
+					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
 					{ menuItems.map(
@@ -127,6 +129,7 @@ const Routes = ( props ) => {
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
+	loggedIn: PropTypes.bool.isRequired,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
 	router: PropTypes.object,
@@ -136,6 +139,7 @@ const RoutesContainer = connect(
 	( state ) => {
 		return {
 			userEnabled: state.user.enabled,
+			loggedIn: state.user.loggedIn,
 			completedLogin: state.ui.login.completedLogin,
 			router: state.router,
 		};
