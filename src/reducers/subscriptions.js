@@ -178,6 +178,7 @@ export function uiCancelSubscriptionsReducer( state = rootState.ui.subscriptions
 				loading: false,
 				error: null,
 				success: true,
+				modalOpen: false,
 			} );
 		case CANCEL_SUBSCRIPTION_FAILURE:
 			return Object.assign( {}, state, {
