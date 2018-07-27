@@ -9,6 +9,7 @@ import Orders from "./Orders";
 import { Paper } from "./PaperStyles";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
+import SubscriptionCancelModal from "./SubscriptionCancelModal";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -56,9 +57,31 @@ let SubscriptionOrders = styledOrders( Orders );
  * @returns {ReactElement} The rendered SubscriptionPage component.
  */
 class SubscriptionPage extends React.Component {
+
+	getModal() {
+		const modalAriaLabel = defineMessages( {
+			id: "modal.arialabel.invite",
+			defaultMessage: "Send course invite",
+		} );
+		let subscription = this.props.subscription;
+		console.log( this.props );
+		return (
+			<SubscriptionCancelModal
+				isOpen={ this.props.cancelModalOpen }
+				onClose={ this.props.closeCancelModal }
+				modalAriaLabel={ modalAriaLabel }
+				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id ) }
+				loading={ this.props.cancelLoading }
+				error={ this.props.cancelError }
+				amountOfActiveSites={this.props.sites.length}
+			/>
+		);
+	}
+
+
 	render() {
 		if ( this.props.isLoading ) {
-			return <AnimatedLoader />;
+			return <AnimatedLoader/>;
 		}
 		let subscription = this.props.subscription;
 
@@ -81,12 +104,14 @@ class SubscriptionPage extends React.Component {
 					max={ subscription.limit }
 					current={ 1 }
 					orders={ this.props.orders }
+					onCancelClick={ this.props.openCancelModal }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
 			</Paper>
+			{ this.getModal() }
 		</section>;
 	}
 }
@@ -104,12 +129,25 @@ SubscriptionPage.propTypes = {
 		} ),
 	} ),
 	orders: PropTypes.array,
+	sites: PropTypes.array,
 	intl: intlShape.isRequired,
+	cancelSubscription: PropTypes.func.isRequired,
+	openCancelModal: PropTypes.func.isRequired,
+	closeCancelModal: PropTypes.func.isRequired,
+	cancelModalOpen: PropTypes.bool.isRequired,
+	cancelLoading: PropTypes.bool.isRequired,
+	cancelSuccess: PropTypes.bool.isRequired,
+	cancelError: PropTypes.object,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
+	sites: [],
+	cancelModalOpen: false,
+	cancelLoading: false,
+	cancelSuccess: false,
+	cancelError: null,
 };
 
 export default injectIntl( SubscriptionPage );

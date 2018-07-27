@@ -3,8 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
-import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
+import { injectIntl, intlShape, FormattedDate, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -26,6 +27,10 @@ const messages = defineMessages( {
 	invoiceButton: {
 		id: "subscriptionDetails.buttons.invoice",
 		defaultMessage: "Invoice",
+	},
+	cancelLink: {
+		id: "subscriptionDetails.buttons.invoice",
+		defaultMessage: "Cancel subscription. ALLEEN VOOR AUTO RECURRING",
 	},
 } );
 
@@ -89,6 +94,13 @@ function SubscriptionDetails( props ) {
 					{ nextBilling }
 				</ColumnFixedWidthResponsive>
 			</RowMobileCollapseNoMinHeight>
+			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
+				<ColumnFixedWidthResponsive ellipsis={ true }>
+					<Link to={ "#" } onClick={ props.onCancelClick }>
+						<FormattedMessage { ...messages.cancelLink }/>
+					</Link>
+				</ColumnFixedWidthResponsive>
+			</RowMobileCollapseNoMinHeight>
 		</ListTable>
 	);
 }
@@ -104,6 +116,7 @@ SubscriptionDetails.propTypes = {
 	current: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,
 	subscription: PropTypes.string,
+	onCancelClick: PropTypes.func.isRequired,
 };
 
 export default injectIntl( SubscriptionDetails );
