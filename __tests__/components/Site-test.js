@@ -49,7 +49,7 @@ test('the site component matches the snapshot', () => {
 			activeSubscriptions={ activeSubscriptions }
 			siteName="yoast.com" siteIcon=""
 			siteType="wordpress"
-			linkedConfigurationServiceRequest={"testRequest"}/>
+			linkedConfigurationServiceRequest={{}}/>
 	);
 
 	let tree = component.toJSON();
