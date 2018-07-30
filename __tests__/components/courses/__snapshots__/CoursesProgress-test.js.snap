@@ -211,7 +211,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         />
       </div>
       <a
-        aria-label={undefined}
         className="c10 c11"
         href="http://yoast.academy.test/awesome_seo"
         rel="noopener noreferrer"
@@ -273,7 +272,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
       className="c6"
     >
       <a
-        aria-label={undefined}
         className="c15 c11"
         href="http://yoast.test/shop"
         rel="noopener noreferrer"

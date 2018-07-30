@@ -959,6 +959,40 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c20"
+      >
+        <button
+          aria-expanded={false}
+          className="c21"
+          onClick={[Function]}
+        >
+          <span
+            className="c22"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="c0"
   >
@@ -1456,6 +1490,40 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c21"
+      >
+        <button
+          aria-expanded={false}
+          className="c22"
+          onClick={[Function]}
+        >
+          <span
+            className="c23"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="c0"
   >
@@ -1950,6 +2018,40 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </button>
         </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c22"
+      >
+        <button
+          aria-expanded={false}
+          className="c23"
+          onClick={[Function]}
+        >
+          <span
+            className="c24"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -2499,6 +2601,40 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c24"
+      >
+        <button
+          aria-expanded={false}
+          className="c25"
+          onClick={[Function]}
+        >
+          <span
+            className="c26"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="c0"
   >
@@ -2987,6 +3123,40 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </button>
         </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c21"
+      >
+        <button
+          aria-expanded={false}
+          className="c22"
+          onClick={[Function]}
+        >
+          <span
+            className="c23"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -3479,6 +3649,40 @@ exports[`components/ProfilePage saving profile 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c21"
+      >
+        <button
+          aria-expanded={false}
+          className="c22"
+          onClick={[Function]}
+        >
+          <span
+            className="c23"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="c0"
   >
@@ -3967,6 +4171,40 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </button>
         </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c21"
+      >
+        <button
+          aria-expanded={false}
+          className="c22"
+          onClick={[Function]}
+        >
+          <span
+            className="c23"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
@@ -4464,6 +4702,40 @@ exports[`components/ProfilePage the default case 1`] = `
       </div>
     </div>
   </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c21"
+      >
+        <button
+          aria-expanded={false}
+          className="c22"
+          onClick={[Function]}
+        >
+          <span
+            className="c23"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
   <div
     className="c0"
   >
@@ -4941,6 +5213,40 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </button>
         </section>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      className="c0"
+    >
+      <div
+        className="c20"
+      >
+        <button
+          aria-expanded={false}
+          className="c21"
+          onClick={[Function]}
+        >
+          <span
+            className="c22"
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
       </div>
     </div>
   </div>
