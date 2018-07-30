@@ -67,16 +67,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 	return Object.assign( {}, { subscription, orders, sites }, cancelSubscriptionState );
 };
 
-const getData = () => {
-	return ( dispatch ) => {
-		dispatch( getOrders() );
-		dispatch( getAllSubscriptions() );
-		dispatch( retrieveSites() );
-	};
-};
-
 export const mapDispatchToProps = ( dispatch ) => {
-	dispatch( getData() );
+	// Fetch required model data.
+	dispatch( getOrders() );
+	dispatch( getAllSubscriptions() );
+	dispatch( retrieveSites() );
 
 	return {
 		cancelSubscription: ( subscriptionId ) => {
