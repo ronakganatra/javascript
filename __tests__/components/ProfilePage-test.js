@@ -14,6 +14,8 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
 				composerTokens={ [] }
 			/>
 		);

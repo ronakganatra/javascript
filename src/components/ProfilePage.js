@@ -488,6 +488,7 @@ ProfilePage.defaultProps = {
 	isSaved: false,
 	isSendingPasswordReset: false,
 	hasSendPasswordReset: false,
+	createTokenModalIsOpen: false,
 	passwordResetError: null,
 	manageTokenData: null,
 	tokenError: null,
