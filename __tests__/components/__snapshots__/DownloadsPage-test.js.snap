@@ -335,18 +335,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
                 for Typo3
               </p>
             </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
-            </li>
           </ul>
         </div>
         <div
@@ -388,18 +376,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
               >
                 for Wordpress
               </p>
-            </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
             </li>
           </ul>
         </div>
@@ -479,18 +455,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
                 for Typo3
               </p>
             </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
-            </li>
           </ul>
         </div>
         <div
@@ -569,18 +533,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
                 for Typo3
               </p>
             </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
-            </li>
           </ul>
         </div>
       </div>
@@ -643,17 +595,42 @@ exports[`the downloads page component matches the snapshot 1`] = `
                 for Wordpress
               </p>
             </li>
+          </ul>
+        </div>
+        <div
+          className="c9"
+        >
+          <span
+            className="c10"
+          >
+            Yoast SEO for WooCommerce
+          </span>
+          
+          <img
+            alt=""
+            className="c12"
+            src="Yoast_SEO_Icon_Small.svg"
+          />
+          <ul
+            className="c13"
+          >
             <li
               className="c14"
             >
-              <a
-                href="#"
+              <button
+                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
+                className="c15 c16 c17"
                 onClick={[Function]}
+                type="button"
               >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
+                Download
+              </button>
+              <p
+                aria-hidden="true"
+                className="c18"
+              >
+                for Wordpress
+              </p>
             </li>
           </ul>
         </div>
@@ -692,18 +669,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
                 for Wordpress
               </p>
             </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
-            </li>
           </ul>
         </div>
         <div
@@ -740,67 +705,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
               >
                 for Wordpress
               </p>
-            </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="c10"
-          >
-            Yoast SEO for WooCommerce
-          </span>
-          
-          <img
-            alt=""
-            className="c12"
-            src="Yoast_SEO_Icon_Small.svg"
-          />
-          <ul
-            className="c13"
-          >
-            <li
-              className="c14"
-            >
-              <button
-                aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="c15 c16 c17"
-                onClick={[Function]}
-                type="button"
-              >
-                Download
-              </button>
-              <p
-                aria-hidden="true"
-                className="c18"
-              >
-                for Wordpress
-              </p>
-            </li>
-            <li
-              className="c14"
-            >
-              <a
-                href="#"
-                onClick={[Function]}
-              >
-                <span>
-                  or install with Composer
-                </span>
-              </a>
             </li>
           </ul>
         </div>

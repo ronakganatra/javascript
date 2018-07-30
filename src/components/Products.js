@@ -50,6 +50,7 @@ export default class Products extends React.Component {
 							composerToken={ props.composerToken }
 							onComposerHelpModalOpen={ props.onComposerHelpModalOpen }
 							onComposerHelpModalClose={ props.onComposerHelpModalClose }
+							type={ product.category }
 						/>;
 					} ) }
 			</ProductsContainer>

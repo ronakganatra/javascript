@@ -163,18 +163,6 @@ exports[`The Download component matches the snapshot 1`] = `
         for Drupal
       </p>
     </li>
-    <li
-      className="c5"
-    >
-      <a
-        href="#"
-        onClick={[Function]}
-      >
-        <span>
-          or install with Composer
-        </span>
-      </a>
-    </li>
   </ul>
 </div>
 `;
@@ -332,18 +320,6 @@ exports[`The Download component without a currentVersion matches the snapshot 1`
       >
         for Drupal
       </p>
-    </li>
-    <li
-      className="c4"
-    >
-      <a
-        href="#"
-        onClick={[Function]}
-      >
-        <span>
-          or install with Composer
-        </span>
-      </a>
     </li>
   </ul>
 </div>
