@@ -16,6 +16,11 @@ describe( 'components/ProfilePage', () => {
 				onNewsletterUnsubscribe={ () => {} }
 				onCreateTokenModalOpen={ () => {} }
 				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				composerTokens={ [] }
 			/>
 		);
@@ -34,6 +39,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				isSaving={true}
 				composerTokens={ [] }
 			/>
@@ -53,6 +65,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				saveEmailError={ {} }
 				composerTokens={ [] }
 			/>
@@ -72,6 +91,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				isSendingPasswordReset={ true }
 				composerTokens={ [] }
 			/>
@@ -91,6 +117,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				hasSendPasswordReset={ true }
 				composerTokens={ [] }
 			/>
@@ -110,6 +143,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
 			/>
@@ -130,6 +170,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [] }
 			/>
@@ -150,6 +197,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [ {
 					enabled: true,
@@ -174,6 +228,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [ {
 					enabled: false,
@@ -198,6 +259,13 @@ describe( 'components/ProfilePage', () => {
 				onPasswordReset={ () => {} }
 				onNewsletterSubscribe={ () => {} }
 				onNewsletterUnsubscribe={ () => {} }
+				onCreateTokenModalOpen={ () => {} }
+				onCreateTokenModalClose={ () => {} }
+				onCreateTokenClick={ () => {} }
+				onManageTokenClick={ () => {} }
+				onManageTokenModalClose={ () => {} }
+				onSaveTokenClick={ () => {} }
+				onDeleteTokenClick={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [] }
 				newsletterSubscribed="subscribed"
