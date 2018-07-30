@@ -32,6 +32,7 @@ test('The MyYoastModal for the ConfigurationServiceRequestForm component matches
 				onClose={ () => { console.log( "clicked on Cancel" ); } }
 				onBack={ () => { console.log( "clicked on Back" ); } }
 				goToStep={ () => { console.log( "clicked on a step header" ); } }
+				configurationServiceRequestModalSiteId={"SomeId"}
 			/>
 		</MyYoastModal>
 	);
