@@ -6,7 +6,7 @@ import SeoIcon from "../../src/icons/Yoast/Yoast_SEO_Icon_Small.svg";
 test( 'the downloads page component matches the snapshot', () => {
 	let plugins = [
 		{
-			glNumber: 111,
+			glNumber: "111",
 			ids: [ "1" ],
 			category: "plugins",
 			name: "Yoast SEO",
@@ -21,7 +21,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 222,
+			glNumber: "222",
 			ids: [ "2" ],
 			category: "plugins",
 			name: "Local SEO",
@@ -32,7 +32,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 333,
+			glNumber: "333",
 			ids: [ "3" ],
 			category: "plugins",
 			name: "Video SEO",
@@ -47,7 +47,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 444,
+			glNumber: "444",
 			ids: [ "4" ],
 			category: "plugins",
 			name: "News SEO",
@@ -66,7 +66,7 @@ test( 'the downloads page component matches the snapshot', () => {
 
 	let eBooks = [
 		{
-			glNumber: 555,
+			glNumber: "555",
 			ids: [ "5" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
@@ -77,7 +77,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 666,
+			glNumber: "666",
 			ids: [ "6" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
@@ -88,7 +88,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 777,
+			glNumber: "777",
 			ids: [ "7" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
@@ -99,7 +99,7 @@ test( 'the downloads page component matches the snapshot', () => {
 					onButtonClick: () => {} },
 			],
 		}, {
-			glNumber: 888,
+			glNumber: "888",
 			ids: [ "8" ],
 			category: "eBooks",
 			name: "Yoast SEO for WooCommerce",
@@ -113,7 +113,14 @@ test( 'the downloads page component matches the snapshot', () => {
 	];
 
 	const component = createComponentWithIntl(
-		<DownloadsPage onSearchChange={ () => {} } eBooks={ eBooks } plugins={ plugins }/>
+		<DownloadsPage
+			eBooks={ eBooks }
+			plugins={ plugins }
+			onSearchChange={ () => {} }
+			onComposerHelpModalOpen={ () => {} }
+			onComposerHelpModalClose={ () => {} }
+			composerHelpCreateComposerToken={ () => {} }
+		/>
 	);
 
 	let tree = component.toJSON();
@@ -126,7 +133,14 @@ test( 'the downloads page component matches the snapshot when there are no downl
 	let eBooks = [];
 
 	const component = createComponentWithIntl(
-		<DownloadsPage onSearchChange={ () => {} } eBooks={ eBooks } plugins={ plugins }/>
+		<DownloadsPage
+			eBooks={ eBooks }
+			plugins={ plugins }
+			onSearchChange={ () => {} }
+			onComposerHelpModalOpen={ () => {} }
+			onComposerHelpModalClose={ () => {} }
+			composerHelpCreateComposerToken={ () => {} }
+		/>
 	);
 
 	let tree = component.toJSON();
