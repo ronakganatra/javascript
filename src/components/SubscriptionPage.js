@@ -97,7 +97,10 @@ class SubscriptionPage extends React.Component {
 					max={ subscription.limit }
 					current={ 1 }
 					orders={ this.props.orders }
-					onCancelClick={ this.props.openCancelModal }
+					onCancelClick={ ( e ) => {
+						e.preventDefault();
+						this.props.openCancelModal();
+					} }
 					canCancel={ subscription.requiresManualRenewal === false }
 				/>
 				<ListHeading>
