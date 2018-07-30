@@ -30,7 +30,7 @@ let plugins = [
 		ids: [ "4" ],
 		icon: "test.jpg",
 		name: "Test4",
-		type: "plugin",
+		type: "typo3-extension",
 	}
 ];
 
@@ -65,7 +65,7 @@ test('the sites component matches the snapshot', () => {
 					siteName: "www.facebook.com",
 					activeSubscriptions: activeSubscriptions,
 					siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-					siteType: "wordpress",
+					siteType: "typo3",
 				},
 				] }
 			plugins= { plugins } />
