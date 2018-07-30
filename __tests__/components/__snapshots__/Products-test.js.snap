@@ -221,18 +221,6 @@ exports[`The Products component matches the snapshot 1`] = `
           for Drupal
         </p>
       </li>
-      <li
-        className="c8"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            or install with Composer
-          </span>
-        </a>
-      </li>
     </ul>
   </div>
   <div
@@ -274,18 +262,6 @@ exports[`The Products component matches the snapshot 1`] = `
         >
           for Wordpress
         </p>
-      </li>
-      <li
-        className="c8"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            or install with Composer
-          </span>
-        </a>
       </li>
     </ul>
   </div>
@@ -365,18 +341,6 @@ exports[`The Products component matches the snapshot 1`] = `
           for Typo3
         </p>
       </li>
-      <li
-        className="c8"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            or install with Composer
-          </span>
-        </a>
-      </li>
     </ul>
   </div>
   <div
@@ -455,18 +419,6 @@ exports[`The Products component matches the snapshot 1`] = `
           for Typo3
         </p>
       </li>
-      <li
-        className="c8"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            or install with Composer
-          </span>
-        </a>
-      </li>
     </ul>
   </div>
   <div
@@ -508,18 +460,6 @@ exports[`The Products component matches the snapshot 1`] = `
         >
           for Wordpress
         </p>
-      </li>
-      <li
-        className="c8"
-      >
-        <a
-          href="#"
-          onClick={[Function]}
-        >
-          <span>
-            or install with Composer
-          </span>
-        </a>
       </li>
     </ul>
   </div>
