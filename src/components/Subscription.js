@@ -111,4 +111,8 @@ Subscription.propTypes = {
 	product: PropTypes.string,
 };
 
+Subscription.defaultProps = {
+	hasEndDate: false,
+};
+
 export default injectIntl( Subscription );

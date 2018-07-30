@@ -12,6 +12,7 @@ test('The Subscription component matches the snapshot', () => {
 		              used={ 14 } limit={ 20 }
 			          hasNextPayment={ true }
 		              nextPayment={ new Date( "April 4, 2017" ) }
+	                  endDate={ new Date() }
 		              billingAmount={ 12512 }
 		              billingCurrency="USD"
 		              onManage={ () => {
