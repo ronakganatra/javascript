@@ -12,6 +12,7 @@ import {
 } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import _union from "lodash/union";
+import { LOCATION_CHANGE } from "react-router-redux";
 
 /*
  * Initial state
@@ -164,6 +165,10 @@ export function uiCancelSubscriptionsReducer( state = rootState.ui.subscriptions
 				modalOpen: true,
 			} );
 		case CANCEL_SUBSCRIPTION_MODAL_CLOSE:
+			return Object.assign( {}, state, {
+				modalOpen: false,
+			} );
+		case LOCATION_CHANGE:
 			return Object.assign( {}, state, {
 				modalOpen: false,
 			} );
