@@ -94,7 +94,6 @@ function Product( props ) {
 
 	let composerDownload = null;
 
-	console.log( props.type );
 	if ( includes( [ "plugin", "typo3-extension" ], props.type ) ) {
 		composerDownload =
 			<Download>
