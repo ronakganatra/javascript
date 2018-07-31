@@ -64,7 +64,7 @@ class SubscriptionPage extends React.Component {
 			<SubscriptionCancelModal
 				isOpen={ this.props.cancelModalOpen }
 				onClose={ this.props.closeCancelModal }
-				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id ) }
+				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.sourceId, subscription.sourceShopId ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
 				amountOfActiveSites={ this.props.sites.length }
@@ -72,10 +72,9 @@ class SubscriptionPage extends React.Component {
 		);
 	}
 
-
 	render() {
 		if ( this.props.isLoading ) {
-			return <AnimatedLoader/>;
+			return <AnimatedLoader />;
 		}
 		let subscription = this.props.subscription;
 		return <section>

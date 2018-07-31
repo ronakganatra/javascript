@@ -74,8 +74,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( retrieveSites() );
 
 	return {
-		cancelSubscription: ( subscriptionId ) => {
-			dispatch( cancelSubscription( subscriptionId ) );
+		cancelSubscription: ( subscriptionId, shopId ) => {
+			dispatch( cancelSubscription( subscriptionId, shopId ) );
 		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );
