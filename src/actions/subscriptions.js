@@ -100,7 +100,6 @@ export function addLicensesModalClose() {
 	};
 }
 
-
 /**
  * An action creator for the cancel subscription request action.
  *
@@ -138,11 +137,11 @@ export function cancelSubscriptionFailure( error ) {
 }
 
 /**
- * An action creator for the get all subscriptions action.
+ * An action creator for the cancel subscription action.
  *
  * @param {string} subscriptionId The id of the subscription to cancel.
  *
- * @returns {Object} A get all subscriptions action.
+ * @returns {Object} A get all subscription action.
  */
 export function cancelSubscription( subscriptionId ) {
 	return ( dispatch ) => {
