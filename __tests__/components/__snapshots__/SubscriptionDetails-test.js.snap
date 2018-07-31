@@ -391,21 +391,5 @@ exports[`the subscription detail component matches the snapshot 1`] = `
       </span>
     </span>
   </li>
-  <li
-    className="c1 c2 c3"
-  >
-    <span
-      className="c6 c7 c5"
-    >
-      <a
-        href="#"
-        onClick={[Function]}
-      >
-        <span>
-          Cancel subscription
-        </span>
-      </a>
-    </span>
-  </li>
 </ul>
 `;
