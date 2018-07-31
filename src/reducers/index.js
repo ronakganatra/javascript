@@ -5,7 +5,7 @@ import { byIdCoursesReducer, allIdsCoursesReducer, uiCoursesReducer, uiCoursesEn
 	byIdCoursesEnrollmentsReducer, allIdsCoursesEnrollmentsReducer, uiCourseInviteModalReducer } from "./courses.js";
 import { uiSiteReducer } from "./site.js";
 import { routerReducer } from "react-router-redux";
-import { uiCancelSubscriptionsReducer, allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
+import { allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
 import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
 import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
 import { uiHelpBeaconModalReducer } from "./helpBeacon";
@@ -23,7 +23,6 @@ export const uiReducer = combineReducers( {
 	site: uiSiteReducer,
 	search: uiSearch,
 	subscriptions: uiAllSubscriptionsReducer,
-	subscriptionsCancel: uiCancelSubscriptionsReducer,
 	courses: uiCoursesReducer,
 	coursesEnrollments: uiCoursesEnrollmentsReducer,
 	courseInviteModal: uiCourseInviteModalReducer,

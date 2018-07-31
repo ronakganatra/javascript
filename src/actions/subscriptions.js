@@ -11,11 +11,6 @@ export const GET_ALL_SUBSCRIPTIONS_SUCCESS = "GET_ALL_SUBSCRIPTIONS_SUCCESS";
 export const GET_ALL_SUBSCRIPTIONS_FAILURE = "GET_ALL_SUBSCRIPTIONS_FAILURE";
 export const ADD_LICENCES_MODAL_OPEN = "ADD_LICENCES_MODAL_OPEN";
 export const ADD_LICENCES_MODAL_CLOSE = "ADD_LICENCES_MODAL_CLOSE";
-export const CANCEL_SUBSCRIPTION_REQUEST = "CANCEL_SUBSCRIPTION_REQUEST";
-export const CANCEL_SUBSCRIPTION_SUCCESS = "CANCEL_SUBSCRIPTION_SUCCESS";
-export const CANCEL_SUBSCRIPTION_FAILURE = "CANCEL_SUBSCRIPTION_FAILURE";
-export const CANCEL_SUBSCRIPTION_MODAL_OPEN = "CANCEL_SUBSCRIPTION_MODAL_OPEN";
-export const CANCEL_SUBSCRIPTION_MODAL_CLOSE = "CANCEL_SUBSCRIPTION_MODAL_CLOSE";
 
 /*
  * Action creators
@@ -97,84 +92,5 @@ export function addLicensesModalOpen( storeUrl ) {
 export function addLicensesModalClose() {
 	return {
 		type: ADD_LICENCES_MODAL_CLOSE,
-	};
-}
-
-
-/**
- * An action creator for the cancel subscription request action.
- *
- * @returns {Object} A cancel subscription action.
- */
-export function cancelSubscriptionRequest() {
-	return {
-		type: CANCEL_SUBSCRIPTION_REQUEST,
-	};
-}
-
-/**
- * An action creator for the cancel subscription success action.
- *
- * @returns {Object} A cancel subscription success action.
- */
-export function cancelSubscriptionSuccess() {
-	return {
-		type: CANCEL_SUBSCRIPTION_SUCCESS,
-	};
-}
-
-/**
- * An action creator for the cancel subscription failure action.
- *
- * @param {Object} error The error object that was returned.
- *
- * @returns {Object} A cancel subscription failure action.
- */
-export function cancelSubscriptionFailure( error ) {
-	return {
-		type: CANCEL_SUBSCRIPTION_FAILURE,
-		error: error,
-	};
-}
-
-/**
- * An action creator for the get all subscriptions action.
- *
- * @param {string} subscriptionId The id of the subscription to cancel.
- *
- * @returns {Object} A get all subscriptions action.
- */
-export function cancelSubscription( subscriptionId ) {
-	return ( dispatch ) => {
-		dispatch( cancelSubscriptionRequest() );
-
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/subscriptions/${subscriptionId}/cancel` );
-
-		return doRequest( request )
-			.then( () => dispatch( cancelSubscriptionSuccess() ) )
-			.catch( error => dispatch( cancelSubscriptionFailure( error ) ) );
-	};
-}
-
-/**
- * An action creator for the cancel subscription modal open action.
- *
- * @returns {Object} A cancel subscription modal open action.
- */
-export function openCancelSubscriptionModal() {
-	return {
-		type: CANCEL_SUBSCRIPTION_MODAL_OPEN,
-	};
-}
-
-/**
- * An action creator for the cancel subscription modal close action.
- *
- * @returns {Object} A cancel subscription modal close action.
- */
-export function closeCancelSubscriptionModal() {
-	return {
-		type: CANCEL_SUBSCRIPTION_MODAL_CLOSE,
 	};
 }

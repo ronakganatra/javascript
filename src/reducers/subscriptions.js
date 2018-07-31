@@ -1,18 +1,7 @@
-import {
-	GET_ALL_SUBSCRIPTIONS_FAILURE,
-	GET_ALL_SUBSCRIPTIONS_REQUEST,
-	GET_ALL_SUBSCRIPTIONS_SUCCESS,
-	ADD_LICENCES_MODAL_CLOSE,
-	ADD_LICENCES_MODAL_OPEN,
-	CANCEL_SUBSCRIPTION_FAILURE,
-	CANCEL_SUBSCRIPTION_SUCCESS,
-	CANCEL_SUBSCRIPTION_REQUEST,
-	CANCEL_SUBSCRIPTION_MODAL_OPEN,
-	CANCEL_SUBSCRIPTION_MODAL_CLOSE,
-} from "../actions/subscriptions";
+import { GET_ALL_SUBSCRIPTIONS_FAILURE, GET_ALL_SUBSCRIPTIONS_REQUEST, GET_ALL_SUBSCRIPTIONS_SUCCESS,
+	ADD_LICENCES_MODAL_CLOSE, ADD_LICENCES_MODAL_OPEN } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS, SITE_REMOVE_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import _union from "lodash/union";
-import { LOCATION_CHANGE } from "react-router-redux";
 
 /*
  * Initial state
@@ -33,12 +22,6 @@ const rootState = {
 		addSubscriptionModal: {
 			storeUrl: null,
 			modalOpen: false,
-		},
-		subscriptionsCancel: {
-			modalOpen: false,
-			error: null,
-			loading: false,
-			success: false,
 		},
 	},
 };
@@ -145,52 +128,6 @@ export function allIdsSubscriptionsReducer( state = rootState.entities.subscript
 	switch ( action.type ) {
 		case GET_ALL_SUBSCRIPTIONS_SUCCESS:
 			return _union( state, action.subscriptions.map( subscription => subscription.id ) );
-		default:
-			return state;
-	}
-}
-
-/**
- * A reducer for the ui cancelSubscription object.
- *
- * @param {Object} state The current state of the cancelSubscription object.
- * @param {Object} action The current action received.
- *
- * @returns {Object} The updated cancelSubscription object.
- */
-export function uiCancelSubscriptionsReducer( state = rootState.ui.subscriptionsCancel, action ) {
-	switch ( action.type ) {
-		case CANCEL_SUBSCRIPTION_MODAL_OPEN:
-			return Object.assign( {}, state, {
-				modalOpen: true,
-			} );
-		case CANCEL_SUBSCRIPTION_MODAL_CLOSE:
-			return Object.assign( {}, state, {
-				modalOpen: false,
-			} );
-		case LOCATION_CHANGE:
-			return Object.assign( {}, state, {
-				modalOpen: false,
-			} );
-		case CANCEL_SUBSCRIPTION_REQUEST:
-			return Object.assign( {}, state, {
-				loading: true,
-				error: null,
-				success: false,
-			} );
-		case CANCEL_SUBSCRIPTION_SUCCESS:
-			return Object.assign( {}, state, {
-				loading: false,
-				error: null,
-				success: true,
-				modalOpen: false,
-			} );
-		case CANCEL_SUBSCRIPTION_FAILURE:
-			return Object.assign( {}, state, {
-				loading: false,
-				error: action.error,
-				success: false,
-			} );
 		default:
 			return state;
 	}
