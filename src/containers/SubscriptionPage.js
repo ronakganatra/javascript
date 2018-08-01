@@ -1,8 +1,15 @@
 import { connect } from "react-redux";
 import SubscriptionPage from "../components/SubscriptionPage";
-import { getAllSubscriptions } from "../actions/subscriptions";
+import {
+	cancelSubscription,
+	closeCancelSubscriptionModal,
+	getAllSubscriptions,
+	openCancelSubscriptionModal,
+} from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
+import { retrieveSites } from "../actions/sites";
+import isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let subscriptionId = ownProps.match.params.id;
@@ -18,7 +25,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	let orders = subscription.orders.map( order => state.entities.orders.byId[ order ] );
 
 	// If some orders are undefined we are still waiting for some data.
-	if ( orders.filter( order => !! order ).length !== orders.length ) {
+	if ( orders.filter( order => ! ! order ).length !== orders.length ) {
 		return {
 			isLoading: true,
 		};
@@ -36,23 +43,47 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	} );
 
+	if ( state.ui.sites.retrievingSites ) {
+		return {
+			isLoading: true,
+		};
+	}
+
+	let sites = [];
+	let siteIds = state.entities.sites.allIds;
+	if ( isEmpty( siteIds ) === false ) {
+		sites = siteIds
+			.map( siteId => state.entities.sites.byId[ siteId ] )
+			.filter( site => site.subscriptions.includes( subscription.id ) );
+	}
+
+	let cancelSubscriptionState = {
+		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
+		cancelLoading: state.ui.subscriptionsCancel.loading,
+		cancelSuccess: state.ui.subscriptionsCancel.success,
+		cancelError: state.ui.subscriptionsCancel.error,
+	};
+
+	return Object.assign( {}, { subscription, orders, sites }, cancelSubscriptionState );
+};
+
+export const mapDispatchToProps = ( dispatch ) => {
+	// Fetch required model data.
+	dispatch( getOrders() );
+	dispatch( getAllSubscriptions() );
+	dispatch( retrieveSites() );
+
 	return {
-		subscription,
-		orders,
+		cancelSubscription: ( subscriptionId ) => {
+			dispatch( cancelSubscription( subscriptionId ) );
+		},
+		openCancelModal: () => {
+			dispatch( openCancelSubscriptionModal() );
+		},
+		closeCancelModal: () => {
+			dispatch( closeCancelSubscriptionModal() );
+		},
 	};
-};
-
-const getOrdersAndSubscriptions = ( dispatch ) => {
-	return ( dispatch ) => {
-		dispatch( getOrders() );
-		dispatch( getAllSubscriptions() );
-	};
-};
-
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
-	dispatch( getOrdersAndSubscriptions( dispatch ) );
-
-	return {};
 };
 
 const SubscriptionsPageContainer = connect(
