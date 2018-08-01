@@ -62,6 +62,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		cancelLoading: state.ui.subscriptionsCancel.loading,
 		cancelSuccess: state.ui.subscriptionsCancel.success,
 		cancelError: state.ui.subscriptionsCancel.error,
+		subscriptionCanceled: state.ui.subscriptionsCancel.subscriptionId,
 	};
 
 	return Object.assign( {}, { subscription, orders, sites }, cancelSubscriptionState );
