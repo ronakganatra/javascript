@@ -1,7 +1,6 @@
 import "whatwg-fetch";
 import { doRequest, prepareInternalRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
-import { push } from "react-router-redux";
 
 /*
  * Action types
@@ -156,7 +155,6 @@ export function cancelSubscription( subscriptionId, shopId ) {
 
 		return doRequest( request )
 			.then( () => dispatch( cancelSubscriptionSuccess() ) )
-			.then( () => dispatch( push( "/account/" ) ) )
 			.catch( error => dispatch( cancelSubscriptionFailure( error ) ) );
 	};
 }

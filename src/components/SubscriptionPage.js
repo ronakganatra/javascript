@@ -101,6 +101,7 @@ class SubscriptionPage extends React.Component {
 						this.props.openCancelModal();
 					} }
 					canCancel={ subscription.requiresManualRenewal === false }
+					status={ subscription.status }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }

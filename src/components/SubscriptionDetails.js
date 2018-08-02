@@ -29,8 +29,12 @@ const messages = defineMessages( {
 		defaultMessage: "Invoice",
 	},
 	cancelLink: {
-		id: "subscriptionDetails.buttons.invoice",
+		id: "subscriptionDetails.buttons.cancel",
 		defaultMessage: "Cancel subscription",
+	},
+	cancelPending: {
+		id: "subscriptionDetails.cancelPending",
+		defaultMessage: "Your subscription has been cancelled.",
 	},
 } );
 
@@ -97,16 +101,27 @@ function SubscriptionDetails( props ) {
 		</RowMobileCollapseNoMinHeight>
 	);
 
+	// Shown when the cancellation of the subscription is pending.
+	let pendingCancelMessage = <FormattedMessage { ...messages.cancelPending } />;
+
+	// Shown when the subscription can be cancelled, but has not been cancelled yet.
+	let cancelLink = (
+		<Link to={ "#" } onClick={ props.onCancelClick }>
+			<FormattedMessage { ...messages.cancelLink } />
+		</Link>
+	);
+
 	let cancelSubscriptionRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
 			<ColumnFixedWidthResponsive ellipsis={ true }>
-				<Link to={ "#" } onClick={ props.onCancelClick }>
-					<FormattedMessage { ...messages.cancelLink }/>
-				</Link>
+				{ props.status === "pending-cancel" ? pendingCancelMessage : cancelLink }
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapseNoMinHeight> );
 
-	let rows = [ startingDateRow, nextBillingDateRow ];
+	let rows = [ startingDateRow ];
+	if ( props.status !== "pending-cancel" ) {
+		rows.push( nextBillingDateRow );
+	}
 	if ( props.canCancel ) {
 		rows.push( cancelSubscriptionRow );
 	}
@@ -130,6 +145,7 @@ SubscriptionDetails.propTypes = {
 	intl: intlShape.isRequired,
 	onCancelClick: PropTypes.func.isRequired,
 	canCancel: PropTypes.bool.isRequired,
+	status: PropTypes.string.isRequired,
 };
 
 export default injectIntl( SubscriptionDetails );
