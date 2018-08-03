@@ -58,6 +58,12 @@ let SubscriptionOrders = styledOrders( Orders );
  */
 class SubscriptionPage extends React.Component {
 
+	constructor( props ) {
+		super( props );
+		// Fetch subscriptions, orders and sites.
+		this.props.loadData();
+	}
+
 	getModal() {
 		let subscription = this.props.subscription;
 		return (
@@ -135,6 +141,7 @@ SubscriptionPage.propTypes = {
 	cancelLoading: PropTypes.bool.isRequired,
 	cancelSuccess: PropTypes.bool.isRequired,
 	cancelError: PropTypes.object,
+	loadData: PropTypes.func.isRequired,
 };
 
 SubscriptionPage.defaultProps = {

@@ -151,11 +151,15 @@ export function cancelSubscription( subscriptionId, shopId ) {
 		dispatch( cancelSubscriptionRequest() );
 
 		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel` );
+		let request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel`, "POST" );
 
 		return doRequest( request )
 			.then( () => dispatch( cancelSubscriptionSuccess() ) )
-			.catch( error => dispatch( cancelSubscriptionFailure( error ) ) );
+			.then( () => dispatch( getAllSubscriptions() ) )
+			.catch( error => {
+				console.error( error );
+				dispatch( cancelSubscriptionFailure( error ) );
+			} );
 	};
 }
 

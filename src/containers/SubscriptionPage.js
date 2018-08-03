@@ -68,12 +68,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
-	// Fetch required model data.
-	dispatch( getOrders() );
-	dispatch( getAllSubscriptions() );
-	dispatch( retrieveSites() );
-
 	return {
+		loadData: () => {
+			// Fetch required model data.
+			dispatch( getOrders() );
+			dispatch( getAllSubscriptions() );
+			dispatch( retrieveSites() );
+		},
 		cancelSubscription: ( subscriptionId, shopId ) => {
 			dispatch( cancelSubscription( subscriptionId, shopId ) );
 		},
