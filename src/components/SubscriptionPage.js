@@ -70,7 +70,7 @@ class SubscriptionPage extends React.Component {
 			<SubscriptionCancelModal
 				isOpen={ this.props.cancelModalOpen }
 				onClose={ this.props.closeCancelModal }
-				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.sourceId, subscription.sourceShopId ) }
+				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
 				amountOfActiveSites={ this.props.sites.length }
