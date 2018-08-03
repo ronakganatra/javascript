@@ -36,6 +36,7 @@ test('the subscription detail component matches the snapshot', () => {
 				] }
 				current={ 6 }
 				max={ 10 }
+				status={ "active" }
 			/>
 		</MemoryRouter>
 	);
@@ -72,6 +73,7 @@ test('the subscription detail component has no next billing', () => {
 				] }
 				current={ 6 }
 				max={ 10 }
+				status={"active"}
 			/>
 		</MemoryRouter>
 	);
