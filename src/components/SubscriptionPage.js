@@ -83,7 +83,7 @@ class SubscriptionPage extends React.Component {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader/>;
 		}
-		console.log( this.props );
+
 		let subscription = this.props.subscription;
 		return <section>
 			<Header
