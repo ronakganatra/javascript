@@ -63,14 +63,29 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
+	// Get subscriptions that are connected to the same order in WooCommerce.
 	let connectedSubscriptions = [];
 	let subscriptionIds = state.entities.subscriptions.allIds;
 	if ( isEmpty( subscriptionIds ) === false ) {
 		connectedSubscriptions = subscriptionIds
 			.map( subscriptionId => state.entities.subscriptions.byId[ subscriptionId ] )
-			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId );
+			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
+			.filter( subscription => subscription.id !== selectedSubscription.id );
 	}
-	console.log( connectedSubscriptions );
+
+	// Gather sites that use one or more of the connected subscriptions.
+	let connectedSubscriptionsSites = [];
+	if ( isEmpty( siteIds ) === false ) {
+		connectedSubscriptionsSites = siteIds
+			.map( siteId => state.entities.sites.byId[ siteId ] )
+			.filter( site =>
+				! isEmpty( site.subscriptions.filter( subId =>
+					! isEmpty( connectedSubscriptions.filter( connectedSub =>
+						connectedSub.id === subId
+					) )
+				) )
+			);
+	}
 
 	let cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
@@ -79,7 +94,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 		cancelError: state.ui.subscriptionsCancel.error,
 	};
 
-	return Object.assign( {}, { subscription: selectedSubscription, orders, sites, connectedSubscriptions }, cancelSubscriptionState );
+	return Object.assign( {}, {
+		subscription: selectedSubscription,
+		orders,
+		sites,
+		connectedSubscriptions,
+		connectedSubscriptionsSites,
+	}, cancelSubscriptionState );
 };
 
 export const mapDispatchToProps = ( dispatch ) => {

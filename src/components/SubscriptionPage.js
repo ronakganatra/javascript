@@ -73,7 +73,7 @@ class SubscriptionPage extends React.Component {
 				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
-				amountOfActiveSites={ this.props.sites.length }
+				amountOfActiveSites={ this.props.sites.length + this.props.connectedSubscriptionsSites.length }
 				connectedSubscriptions={ this.props.connectedSubscriptions }
 			/>
 		);
@@ -83,6 +83,7 @@ class SubscriptionPage extends React.Component {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader/>;
 		}
+		console.log( this.props );
 		let subscription = this.props.subscription;
 		return <section>
 			<Header
@@ -136,6 +137,7 @@ SubscriptionPage.propTypes = {
 	orders: PropTypes.array,
 	sites: PropTypes.array,
 	connectedSubscriptions: PropTypes.array,
+	connectedSubscriptionsSites: PropTypes.array,
 	intl: intlShape.isRequired,
 	cancelSubscription: PropTypes.func.isRequired,
 	openCancelModal: PropTypes.func.isRequired,
@@ -152,6 +154,7 @@ SubscriptionPage.defaultProps = {
 	orders: [],
 	sites: [],
 	connectedSubscriptions: [],
+	connectedSubscriptionsSites: [],
 	cancelModalOpen: false,
 	cancelLoading: false,
 	cancelSuccess: false,
