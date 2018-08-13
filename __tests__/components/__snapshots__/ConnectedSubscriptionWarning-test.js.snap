@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the sites component matches the snapshot 1`] = `
+.c1 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c0 {
+  background-color: #ffeb3b;
+}
+
+.c2 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-triangle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c3 {
+  display: block;
+}
+
+@media screen and ( max-width:800 ) {
+  .c1 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+<div
+  className="c0 c1"
+>
+  <span
+    className="c2"
+  />
+  <div
+    className="c3"
+  >
+    <span>
+      This product is part of a subscription bundle. Cancelling this product will also cancel:
+    </span>
+    <ul>
+      <li>
+        1
+         × 
+        some test product 1
+      </li>
+      <li>
+        1
+         × 
+        some test product 2
+      </li>
+      <li>
+        2
+         × 
+        some test product 3
+      </li>
+      <li>
+        5
+         × 
+        some test product 4
+      </li>
+    </ul>
+    <span>
+      If you want to cancel just this product, 
+      <a
+        href="mailto:support@yoast.com"
+      >
+        <span>
+          please contact support
+        </span>
+      </a>
+      .
+    </span>
+  </div>
+</div>
+`;
