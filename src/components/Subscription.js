@@ -8,6 +8,7 @@ import { ChevronButton } from "../components/Button.js";
 import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
 import formatAmount from "../../../shared/currency";
 import defaults from "../config/defaults.json";
+import styled from "styled-components";
 
 const messages = defineMessages( {
 	product: {
@@ -44,6 +45,23 @@ const messages = defineMessages( {
 	},
 } );
 
+const StyledRow = styled( Row )`
+	color: ${ props => props.status === "cancelled" ? " #646464" : "inherit" };
+`;
+
+StyledRow.propTypes = {
+	status: PropTypes.string.isRequired,
+};
+
+const StyledStatus = styled.span`
+	color: ${ props => props.status === "suspended" ? "red" : "inherit" };
+	font-weight: ${ props => props.status === "suspended" ? 900 : "inherit" };
+`;
+
+StyledStatus.propTypes = {
+	status: PropTypes.string.isRequired,
+};
+
 /**
  * Creates a subscription component
  *
@@ -67,13 +85,15 @@ function Subscription( props ) {
 		/>;
 	}
 	return (
-		<Row key={ props.id } { ...rowProps }>
+		<StyledRow key={ props.id } { ...rowProps } status={ props.status }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
 			</ColumnPrimary>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ false } headerLabel={ props.intl.formatMessage( messages.status ) }>
-				{ props.status }
+				<StyledStatus status={ props.status }>
+					{ props.status }
+				</StyledStatus>
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
@@ -88,14 +108,18 @@ function Subscription( props ) {
 				{ props.status === "active" && <FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /> }
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
-				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-					<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
-				</MediaQuery>
-				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-					<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
-				</MediaQuery>
+				{ props.status !== "cancelled" &&
+					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+						<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+					</MediaQuery>
+				}
+				{ props.status !== "cancelled" &&
+					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+						<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
+					</MediaQuery>
+				}
 			</ColumnFixedWidth>
-		</Row>
+		</StyledRow>
 	);
 }
 
