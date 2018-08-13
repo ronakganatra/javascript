@@ -82,10 +82,10 @@ function Subscription( props ) {
 				{ props.used }/{ props.limit }
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
-				{nextPayment}
+				{ props.status === "active" && nextPayment }
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
-				<FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" />
+				{ props.status === "active" && <FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /> }
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
 				<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
