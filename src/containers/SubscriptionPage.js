@@ -12,17 +12,17 @@ import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	let subscriptionId = ownProps.match.params.id;
+	let selectedSubscriptionId = ownProps.match.params.id;
 
-	let subscription = state.entities.subscriptions.byId[ subscriptionId ];
+	let selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
 
-	if ( _isUndefined( subscription ) ) {
+	if ( _isUndefined( selectedSubscription ) ) {
 		return {
 			isLoading: true,
 		};
 	}
 
-	let orders = subscription.orders.map( order => state.entities.orders.byId[ order ] );
+	let orders = selectedSubscription.orders.map( order => state.entities.orders.byId[ order ] );
 
 	// If some orders are undefined we are still waiting for some data.
 	if ( orders.filter( order => ! ! order ).length !== orders.length ) {
@@ -54,8 +54,23 @@ export const mapStateToProps = ( state, ownProps ) => {
 	if ( isEmpty( siteIds ) === false ) {
 		sites = siteIds
 			.map( siteId => state.entities.sites.byId[ siteId ] )
-			.filter( site => site.subscriptions.includes( subscription.id ) );
+			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
 	}
+
+	if ( state.ui.subscriptions.requesting ) {
+		return {
+			isLoading: true,
+		};
+	}
+
+	let connectedSubscriptions = [];
+	let subscriptionIds = state.entities.subscriptions.allIds;
+	if ( isEmpty( subscriptionIds ) === false ) {
+		connectedSubscriptions = subscriptionIds
+			.map( subscriptionId => state.entities.subscriptions.byId[ subscriptionId ] )
+			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId );
+	}
+	console.log( connectedSubscriptions );
 
 	let cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
@@ -64,7 +79,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		cancelError: state.ui.subscriptionsCancel.error,
 	};
 
-	return Object.assign( {}, { subscription, orders, sites }, cancelSubscriptionState );
+	return Object.assign( {}, { subscription: selectedSubscription, orders, sites, connectedSubscriptions }, cancelSubscriptionState );
 };
 
 export const mapDispatchToProps = ( dispatch ) => {

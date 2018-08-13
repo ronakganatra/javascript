@@ -94,12 +94,14 @@ SubscriptionCancelModal.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.object,
 	amountOfActiveSites: PropTypes.number.isRequired,
+	connectedSubscriptions: PropTypes.array,
 };
 
 SubscriptionCancelModal.defaultProps = {
 	isOpen: false,
 	loading: false,
 	error: null,
+	connectedSubscriptions: [],
 };
 
 export default injectIntl( SubscriptionCancelModal );

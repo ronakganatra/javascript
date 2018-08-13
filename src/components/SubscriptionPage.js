@@ -74,13 +74,14 @@ class SubscriptionPage extends React.Component {
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
 				amountOfActiveSites={ this.props.sites.length }
+				connectedSubscriptions={ this.props.connectedSubscriptions }
 			/>
 		);
 	}
 
 	render() {
 		if ( this.props.isLoading ) {
-			return <AnimatedLoader />;
+			return <AnimatedLoader/>;
 		}
 		let subscription = this.props.subscription;
 		return <section>
@@ -108,6 +109,7 @@ class SubscriptionPage extends React.Component {
 					} }
 					canCancel={ subscription.requiresManualRenewal === false }
 					status={ subscription.status }
+					connectedSubscriptions={ this.props.connectedSubscriptions }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
@@ -133,6 +135,7 @@ SubscriptionPage.propTypes = {
 	} ),
 	orders: PropTypes.array,
 	sites: PropTypes.array,
+	connectedSubscriptions: PropTypes.array,
 	intl: intlShape.isRequired,
 	cancelSubscription: PropTypes.func.isRequired,
 	openCancelModal: PropTypes.func.isRequired,
@@ -148,6 +151,7 @@ SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
 	sites: [],
+	connectedSubscriptions: [],
 	cancelModalOpen: false,
 	cancelLoading: false,
 	cancelSuccess: false,
