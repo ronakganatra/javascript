@@ -14,6 +14,10 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.product",
 		defaultMessage: "Product",
 	},
+	status: {
+		id: "subscriptions.overview.status",
+		defaultMessage: "Status",
+	},
 	level: {
 		id: "subscriptions.overview.level",
 		defaultMessage: "Level",
@@ -62,13 +66,15 @@ function Subscription( props ) {
 			day="numeric"
 		/>;
 	}
-
 	return (
 		<Row key={ props.id } { ...rowProps }>
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
 			</ColumnPrimary>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ false } headerLabel={ props.intl.formatMessage( messages.status ) }>
+				{ props.status }
+			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
 			</ColumnMinWidth>
@@ -98,6 +104,7 @@ Subscription.propTypes = {
 	iconSource: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	used: PropTypes.number.isRequired,
+	status: PropTypes.string.isRequired,
 	limit: PropTypes.number.isRequired,
 	hasNextPayment: PropTypes.bool.isRequired,
 	nextPayment: PropTypes.instanceOf( Date ).isRequired,
