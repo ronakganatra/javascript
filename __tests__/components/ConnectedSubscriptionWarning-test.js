@@ -5,22 +5,22 @@ import ConnectedSubscriptionWarning from "../../src/components/ConnectedSubscrip
 
 let subscriptions = [
 	{
-		id: "some-id",
+		id: "product 1",
 		limit: 1,
 		name:"some test product 1"
 	},
 	{
-		id: "some-id",
+		id: "product 2",
 		limit: 1,
 		name:"some test product 2"
 	},
 	{
-		id: "some-id",
+		id: "product 3",
 		limit: 2,
 		name:"some test product 3"
 	},
 	{
-		id: "some-id",
+		id: "product 4",
 		limit: 5,
 		name:"some test product 4"
 	}
