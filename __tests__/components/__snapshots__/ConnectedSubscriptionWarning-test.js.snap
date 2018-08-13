@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`the sites component matches the snapshot 1`] = `
+exports[`the ConnectedSubscriptionWarning component matches the snapshot 1`] = `
 .c1 {
   padding: 1em;
   background-color: #ffeb3b;

@@ -133,6 +133,7 @@ SubscriptionPage.propTypes = {
 		product: PropTypes.shape( {
 			icon: PropTypes.string.isRequired,
 		} ),
+		status: PropTypes.string.isRequired,
 	} ),
 	orders: PropTypes.array,
 	sites: PropTypes.array,

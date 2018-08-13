@@ -27,7 +27,7 @@ let subscriptions = [
 ];
 
 
-test( 'the sites component matches the snapshot', () => {
+test( 'the ConnectedSubscriptionWarning component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<ConnectedSubscriptionWarning subscriptions={ subscriptions }/>
 	);
