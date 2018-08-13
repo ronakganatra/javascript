@@ -69,7 +69,8 @@ class SubscriptionCancelModal extends React.Component {
 							                  values={ { amount: this.props.amountOfActiveSites } }/>
 						</strong>
 					</p>
-					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions }/>
+					{ this.props.connectedSubscriptions.length > 0 &&
+					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions }/> }
 					<ErrorDisplay error={ this.props.error }/>
 					<ActionButtonsContainer>
 						<LargeSecondaryButton onClick={ this.props.onClose }>
