@@ -16,7 +16,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
 
-	if ( _isUndefined( selectedSubscription ) ) {
+
+	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
 			isLoading: true,
 		};
@@ -43,24 +44,12 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	} );
 
-	if ( state.ui.sites.retrievingSites ) {
-		return {
-			isLoading: true,
-		};
-	}
-
 	let sites = [];
 	let siteIds = state.entities.sites.allIds;
 	if ( isEmpty( siteIds ) === false ) {
 		sites = siteIds
 			.map( siteId => state.entities.sites.byId[ siteId ] )
 			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
-	}
-
-	if ( state.ui.subscriptions.requesting ) {
-		return {
-			isLoading: true,
-		};
 	}
 
 	// Get subscriptions that are connected to the same order in WooCommerce.
