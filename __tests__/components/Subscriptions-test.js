@@ -6,7 +6,7 @@ import { MemoryRouter } from "react-router-dom";
 test('The Subscriptions component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<Subscriptions activeSubscriptions={ [
+			<Subscriptions subscriptions={ [
 				{
 					id: "3",
 					icon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",

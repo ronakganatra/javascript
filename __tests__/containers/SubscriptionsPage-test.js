@@ -36,11 +36,12 @@ let state = {
 };
 
 let defaultExpected = {
-	activeSubscriptions: [
+	subscriptions: [
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"name": "Yoast SEO",
 			"used": 1,
+			"status": "active",
 			"limit": 2,
 			"hasNextPayment": true,
 			"nextPayment": new Date( "2017-05-01 21:04:28" ),
@@ -97,7 +98,7 @@ test('the mapStateToProps function when query contains part of formatted price',
 test('the mapStateToProps function when query contains nonsense', () => {
 	state.ui.search.query = "afhsdkgfj"
 	let expected = Object.assign( {}, defaultExpected, {
-		activeSubscriptions: [],
+		subscriptions: [],
 		query: "afhsdkgfj"
 	} )
 
