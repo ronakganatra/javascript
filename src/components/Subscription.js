@@ -45,6 +45,14 @@ const messages = defineMessages( {
 	},
 } );
 
+const StyledSpace = styled.div`
+	min-width: ${ props => props.tablet ? 48 : 150 }px;
+`;
+
+StyledSpace.propTypes = {
+	tablet: PropTypes.bool,
+};
+
 const StyledRow = styled( Row )`
 	color: ${ props => props.status === "cancelled" ? " #646464" : "inherit" };
 `;
@@ -85,7 +93,7 @@ function Subscription( props ) {
 		/>;
 	}
 	return (
-		<StyledRow key={ props.id } { ...rowProps } status={ props.status }>
+		<StyledRow key={ props.id } status={ props.status } { ...rowProps } >
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
@@ -108,14 +116,20 @@ function Subscription( props ) {
 				{ props.status === "active" && <FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /> }
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
-				{ props.status !== "cancelled" &&
-					<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+				{ props.status === "active" || props.status === "suspended"
+					? <MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 						<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 					</MediaQuery>
+					: <MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+						<StyledSpace tablet={ false } />
+					</MediaQuery>
 				}
-				{ props.status !== "cancelled" &&
-					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+				{ props.status === "active" || props.status === "suspended"
+					? <MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 						<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
+					</MediaQuery>
+					: <MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+						<StyledSpace tablet={ true }/>
 					</MediaQuery>
 				}
 			</ColumnFixedWidth>
