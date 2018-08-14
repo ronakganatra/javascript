@@ -9,6 +9,7 @@ import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber }
 import formatAmount from "../../../shared/currency";
 import defaults from "../config/defaults.json";
 import styled from "styled-components";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 const messages = defineMessages( {
 	product: {
@@ -63,7 +64,7 @@ StyledRow.propTypes = {
 
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? "red" : "inherit" };
-	font-weight: ${ props => props.status === "suspended" ? 900 : "inherit" };
+	font-weight: ${ props => props.status === "suspended" ? "bold" : "inherit" };
 `;
 
 StyledStatus.propTypes = {
@@ -98,9 +99,9 @@ function Subscription( props ) {
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
 			</ColumnPrimary>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ false } headerLabel={ props.intl.formatMessage( messages.status ) }>
+			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ false } minWidth={ "116px" } headerLabel={ props.intl.formatMessage( messages.status ) }>
 				<StyledStatus status={ props.status }>
-					{ props.status }
+					{ capitalizeFirstLetter( props.status ) }
 				</StyledStatus>
 			</ColumnMinWidth>
 			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
