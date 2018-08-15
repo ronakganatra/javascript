@@ -68,11 +68,9 @@ export const mapStateToProps = ( state, ownProps ) => {
 		connectedSubscriptionsSites = siteIds
 			.map( siteId => state.entities.sites.byId[ siteId ] )
 			.filter( site =>
-				! isEmpty( site.subscriptions.filter( subId =>
-					! isEmpty( connectedSubscriptions.filter( connectedSub =>
-						connectedSub.id === subId
-					) )
-				) )
+				site.subscriptions.some( subId =>
+					connectedSubscriptions.some( connectedSubscriptionId => connectedSubscriptionId === subId )
+				)
 			);
 	}
 
