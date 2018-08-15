@@ -32,7 +32,7 @@ class ConnectedSubscriptionWarning extends React.Component {
 		let subscriptionProductsListItems = this.props.subscriptions.map( subscription =>
 			<li key={ subscription.id }>{ subscription.limit } &times; { subscription.name }</li>
 		);
-		let supprtLink = <Link to={ "mailto:support@yoast.com" }>
+		let supportLink = <Link to={ "mailto:support@yoast.com" }>
 			<FormattedMessage { ...messages.contactSupportLink }/>
 		</Link>;
 
@@ -44,7 +44,7 @@ class ConnectedSubscriptionWarning extends React.Component {
 					<ul>
 						{ subscriptionProductsListItems }
 					</ul>
-					<FormattedMessage { ...messages.contactSupport } values={ { link: supprtLink } }/>
+					<FormattedMessage { ...messages.contactSupport } values={ { link: supportLink } }/>
 				</MessageContainer>
 			</WarningMessage>
 		);
