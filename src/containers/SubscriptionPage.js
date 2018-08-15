@@ -69,7 +69,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			.map( siteId => state.entities.sites.byId[ siteId ] )
 			.filter( site =>
 				site.subscriptions.some( subId =>
-					connectedSubscriptions.some( connectedSubscriptionId => connectedSubscriptionId === subId )
+					connectedSubscriptions.some( connectedSubscription => connectedSubscription.id === subId )
 				)
 			);
 	}

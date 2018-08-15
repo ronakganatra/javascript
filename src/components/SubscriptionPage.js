@@ -66,6 +66,11 @@ class SubscriptionPage extends React.Component {
 
 	getModal() {
 		let subscription = this.props.subscription;
+		let otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
+			this.props.sites.every( site =>
+				site.id !== connectedSubscriptionsSite.id
+			)
+		);
 		return (
 			<SubscriptionCancelModal
 				isOpen={ this.props.cancelModalOpen }
@@ -73,7 +78,7 @@ class SubscriptionPage extends React.Component {
 				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
-				amountOfActiveSites={ this.props.sites.length + this.props.connectedSubscriptionsSites.length }
+				amountOfActiveSites={ this.props.sites.length + otherSites.length }
 				connectedSubscriptions={ this.props.connectedSubscriptions }
 			/>
 		);
