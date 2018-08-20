@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from "./Tables";
 import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
@@ -72,6 +72,42 @@ StyledStatus.propTypes = {
 };
 
 /**
+ * Creates the manage buttons.
+ *
+ * @param {object} props Properties of the subscription component.
+ *
+ * @returns {ReactElement} the media query with the manage button.
+ */
+function getManageButtons( props ) {
+	let cancelled = props.status === "cancelled" && true;
+	let tabletView = defaults.css.breakpoint.tablet;
+	if ( cancelled ) {
+		return <Fragment>
+			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+				<StyledSpace tablet={ false } />
+			</MediaQuery>
+			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+				<StyledSpace tablet={ true }/>
+			</MediaQuery>
+		</Fragment>;
+	}
+	return <Fragment>
+		<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+			<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
+		</MediaQuery>
+		<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+			<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
+		</MediaQuery>
+	</Fragment>;
+}
+
+getManageButtons.propTypes = {
+	status: PropTypes.string.isRequired,
+	intl: intlShape.isRequired,
+	onManage: PropTypes.func.isRequired,
+};
+
+/**
  * Creates a subscription component
  *
  * @param {object} props Properties of the component.
@@ -117,22 +153,7 @@ function Subscription( props ) {
 				{ props.status === "active" && <FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /> }
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
-				{ props.status === "active" || props.status === "suspended"
-					? <MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-						<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
-					</MediaQuery>
-					: <MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
-						<StyledSpace tablet={ false } />
-					</MediaQuery>
-				}
-				{ props.status === "active" || props.status === "suspended"
-					? <MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-						<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
-					</MediaQuery>
-					: <MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-						<StyledSpace tablet={ true }/>
-					</MediaQuery>
-				}
+				{ getManageButtons( props ) }
 			</ColumnFixedWidth>
 		</StyledRow>
 	);
