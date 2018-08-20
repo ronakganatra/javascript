@@ -120,13 +120,19 @@ function Subscription( props ) {
 		rowProps.background = props.background;
 	}
 
-	let nextPayment = "-";
-	if ( props.hasNextPayment || props.hasEndDate ) {
+	let nextPayment = "";
+	let amount = "";
+	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
 		nextPayment = <FormattedDate
 			value={ props.hasNextPayment ? props.nextPayment : props.endDate }
 			year="numeric"
 			month="long"
 			day="numeric"
+		/>;
+		amount = <FormattedNumber
+			value={ formatAmount( props.billingAmount ) }
+			currency={ props.billingCurrency }
+			style="currency"
 		/>;
 	}
 	return (
@@ -135,22 +141,41 @@ function Subscription( props ) {
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
 			</ColumnPrimary>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ false } minWidth={ "116px" } headerLabel={ props.intl.formatMessage( messages.status ) }>
+			<ColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				hideOnTablet={ false }
+				minWidth={ "116px" }
+				headerLabel={ props.intl.formatMessage( messages.status ) }>
 				<StyledStatus status={ props.status }>
 					{ capitalizeFirstLetter( props.status ) }
 				</StyledStatus>
 			</ColumnMinWidth>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.level ) }>
+			<ColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.level ) }>
 				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
 			</ColumnMinWidth>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.used ) }>
+			<ColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				headerLabel={ props.intl.formatMessage( messages.used ) }>
 				{ props.used }/{ props.limit }
 			</ColumnMinWidth>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
-				{ props.status === "active" && nextPayment }
+			<ColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
+				{ nextPayment }
 			</ColumnMinWidth>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true } headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
-				{ props.status === "active" && <FormattedNumber value={ formatAmount( props.billingAmount ) } currency={ props.billingCurrency } style="currency" /> }
+			<ColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
+				{ amount }
 			</ColumnMinWidth>
 			<ColumnFixedWidth>
 				{ getManageButtons( props ) }

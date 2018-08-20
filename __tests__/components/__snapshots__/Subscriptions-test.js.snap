@@ -478,14 +478,12 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="c10 c15"
       >
-        -
+        
       </span>
       <span
         className="c10 c16"
       >
-        <span>
-          $125.12
-        </span>
+        
       </span>
       <span
         className="c5 c17"
