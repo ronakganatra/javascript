@@ -79,7 +79,7 @@ StyledStatus.propTypes = {
  * @returns {ReactElement} the media query with the manage button.
  */
 function getManageButtons( props ) {
-	let cancelled = props.status === "cancelled" && true;
+	let cancelled = props.status === "cancelled";
 	let tabletView = defaults.css.breakpoint.tablet;
 	if ( cancelled ) {
 		return <Fragment>
