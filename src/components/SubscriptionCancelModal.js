@@ -6,6 +6,7 @@ import MyYoastModal from "./MyYoastModal";
 import ButtonsContainer from "./general/ButtonsContainer";
 import { LargeButton, LargeSecondaryButton } from "./Button";
 import ErrorDisplay from "../errors/ErrorDisplay";
+import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
 
 const messages = defineMessages( {
 	ariaLabel: {
@@ -68,6 +69,8 @@ class SubscriptionCancelModal extends React.Component {
 							                  values={ { amount: this.props.amountOfActiveSites } }/>
 						</strong>
 					</p>
+					{ this.props.connectedSubscriptions.length > 0 &&
+					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions }/> }
 					<ErrorDisplay error={ this.props.error }/>
 					<ActionButtonsContainer>
 						<LargeSecondaryButton onClick={ this.props.onClose }>
@@ -94,12 +97,14 @@ SubscriptionCancelModal.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.object,
 	amountOfActiveSites: PropTypes.number.isRequired,
+	connectedSubscriptions: PropTypes.array,
 };
 
 SubscriptionCancelModal.defaultProps = {
 	isOpen: false,
 	loading: false,
 	error: null,
+	connectedSubscriptions: [],
 };
 
 export default injectIntl( SubscriptionCancelModal );

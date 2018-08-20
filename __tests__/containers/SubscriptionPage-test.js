@@ -62,7 +62,9 @@ let state = {
 			loading: true,
 			success: false,
 			error: false,
-
+		},
+		subscriptions: {
+			requesting: false,
 		}
 	},
 };
@@ -80,6 +82,8 @@ let defaultExpected = {
 	cancelLoading: true,
 	cancelModalOpen: false,
 	cancelSuccess: false,
+	connectedSubscriptions: [],
+	connectedSubscriptionsSites: [],
 	orders: [ {
 		currency: "USD",
 		date: new Date( "2017-05-01 21:04:28" ),

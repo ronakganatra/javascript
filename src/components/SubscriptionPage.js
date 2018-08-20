@@ -66,6 +66,11 @@ class SubscriptionPage extends React.Component {
 
 	getModal() {
 		let subscription = this.props.subscription;
+		let otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
+			this.props.sites.every( site =>
+				site.id !== connectedSubscriptionsSite.id
+			)
+		);
 		return (
 			<SubscriptionCancelModal
 				isOpen={ this.props.cancelModalOpen }
@@ -73,15 +78,17 @@ class SubscriptionPage extends React.Component {
 				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
 				loading={ this.props.cancelLoading }
 				error={ this.props.cancelError }
-				amountOfActiveSites={ this.props.sites.length }
+				amountOfActiveSites={ this.props.sites.length + otherSites.length }
+				connectedSubscriptions={ this.props.connectedSubscriptions }
 			/>
 		);
 	}
 
 	render() {
 		if ( this.props.isLoading ) {
-			return <AnimatedLoader />;
+			return <AnimatedLoader/>;
 		}
+
 		let subscription = this.props.subscription;
 		return <section>
 			<Header
@@ -108,6 +115,7 @@ class SubscriptionPage extends React.Component {
 					} }
 					canCancel={ subscription.requiresManualRenewal === false }
 					status={ subscription.status }
+					connectedSubscriptions={ this.props.connectedSubscriptions }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
@@ -130,9 +138,12 @@ SubscriptionPage.propTypes = {
 		product: PropTypes.shape( {
 			icon: PropTypes.string.isRequired,
 		} ),
+		status: PropTypes.string.isRequired,
 	} ),
 	orders: PropTypes.array,
 	sites: PropTypes.array,
+	connectedSubscriptions: PropTypes.array,
+	connectedSubscriptionsSites: PropTypes.array,
 	intl: intlShape.isRequired,
 	cancelSubscription: PropTypes.func.isRequired,
 	openCancelModal: PropTypes.func.isRequired,
@@ -148,6 +159,8 @@ SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
 	sites: [],
+	connectedSubscriptions: [],
+	connectedSubscriptionsSites: [],
 	cancelModalOpen: false,
 	cancelLoading: false,
 	cancelSuccess: false,

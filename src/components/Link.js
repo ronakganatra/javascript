@@ -9,7 +9,7 @@ import { Link as RouterLink } from "react-router-dom";
  * @returns {boolean} Whether or not the URL is an external URL.
  */
 function isExternal( url ) {
-	return url.startsWith( "http" ) || url === "#";
+	return url.startsWith( "http" ) || url === "#" || url.startsWith( "mailto:" );
 }
 
 /**

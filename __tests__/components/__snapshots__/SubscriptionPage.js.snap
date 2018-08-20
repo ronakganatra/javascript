@@ -1,0 +1,813 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the SubscriptionPage component matches the snapshot 1`] = `
+.c9 {
+  display: block;
+  font-size: 1em;
+  padding: 24px 40px;
+  font-weight: 400;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.c5 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c0 {
+  width: 100%;
+  min-height: 180px;
+  background-color: #a4286a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8px;
+}
+
+.c3 {
+  padding: 2em 1.5em 2em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 {
+  color: #fff;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0;
+}
+
+.c6 {
+  margin: 0;
+  color: #fff;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.c1 {
+  padding: 24px 24px 16px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 a {
+  margin-top: 8px;
+}
+
+.c2 {
+  background: url( test.jpg ) no-repeat center center;
+  background-size: contain;
+  width: 96px;
+  height: 96px;
+}
+
+.c7 {
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 200;
+  -webkit-letter-spacing: 0.05em;
+  -moz-letter-spacing: 0.05em;
+  -ms-letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.c10 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c10 li:first-child > span::before {
+  left: auto;
+}
+
+.c13 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13:first-child {
+  margin-top: 0;
+}
+
+.c18 {
+  background: #f7f7f7;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18:first-child {
+  margin-top: 0;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c15:first-child {
+  padding-left: 0;
+}
+
+.c15::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c17 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c14 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c8 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    padding: 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    min-height: 0;
+    display: block;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+    padding: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    font-size: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    margin-top: 0.5em;
+    font-size: 0.875em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c12:first-child {
+    margin-top: 0;
+  }
+
+  .c12 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    min-height: 0;
+  }
+
+  .c11 > span:nth-child(2) {
+    margin-top: 0;
+    color: #000;
+  }
+
+  .c11 > span:first-child {
+    color: #646464;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c16 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c16:first-child {
+    margin-top: 0px;
+  }
+}
+
+<section>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <div
+        className="c2"
+        src="test.jpg"
+      />
+    </div>
+    <div
+      className="c3"
+    >
+      <h1
+        className="c4 c5"
+      >
+        test subcription
+      </h1>
+      <p
+        className="c6"
+      >
+        2 site subscription
+      </p>
+      <p
+        className="c7"
+      >
+        
+      </p>
+    </div>
+  </div>
+  <div
+    className="c8"
+  >
+    <span
+      className="c9"
+    >
+      Payment details
+    </span>
+    <ul
+      className="c10"
+      role="list"
+    >
+      <li
+        className="c11 c12 c13"
+      >
+        <span
+          className="c14 c15"
+        >
+          Start date
+        </span>
+        <span
+          className="c16 c17 c15"
+        >
+          <span>
+            August 02, 2018
+          </span>
+        </span>
+      </li>
+      <li
+        className="c11 c12 c18"
+      >
+        <span
+          className="c14 c15"
+        >
+          Next billing
+        </span>
+        <span
+          className="c16 c17 c15"
+        >
+          <span>
+            August 02, 2019
+          </span>
+        </span>
+      </li>
+    </ul>
+    <span
+      className="c9"
+    >
+      Invoices
+    </span>
+  </div>
+  <div />
+</section>
+`;
+
+exports[`the SubscriptionPage component matches the snapshot with a subscription that can be cancelled 1`] = `
+.c9 {
+  display: block;
+  font-size: 1em;
+  padding: 24px 40px;
+  font-weight: 400;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.c5 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c0 {
+  width: 100%;
+  min-height: 180px;
+  background-color: #a4286a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8px;
+}
+
+.c3 {
+  padding: 2em 1.5em 2em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 {
+  color: #fff;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0;
+}
+
+.c6 {
+  margin: 0;
+  color: #fff;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.1em;
+}
+
+.c1 {
+  padding: 24px 24px 16px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 a {
+  margin-top: 8px;
+}
+
+.c2 {
+  background: url( test.jpg ) no-repeat center center;
+  background-size: contain;
+  width: 96px;
+  height: 96px;
+}
+
+.c7 {
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 200;
+  -webkit-letter-spacing: 0.05em;
+  -moz-letter-spacing: 0.05em;
+  -ms-letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.c10 {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c10 li:first-child > span::before {
+  left: auto;
+}
+
+.c13 {
+  background: #fff;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13:first-child {
+  margin-top: 0;
+}
+
+.c18 {
+  background: #f7f7f7;
+  min-height: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18:first-child {
+  margin-top: 0;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c15:first-child {
+  padding-left: 0;
+}
+
+.c15::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c17 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c14 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c8 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    padding: 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    min-height: 0;
+    display: block;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+    padding: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    font-size: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    margin-top: 0.5em;
+    font-size: 0.875em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c12:first-child {
+    margin-top: 0;
+  }
+
+  .c12 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    min-height: 0;
+  }
+
+  .c11 > span:nth-child(2) {
+    margin-top: 0;
+    color: #000;
+  }
+
+  .c11 > span:first-child {
+    color: #646464;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c16 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c16:first-child {
+    margin-top: 0px;
+  }
+}
+
+<section>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <div
+        className="c2"
+        src="test.jpg"
+      />
+    </div>
+    <div
+      className="c3"
+    >
+      <h1
+        className="c4 c5"
+      >
+        test subcription
+      </h1>
+      <p
+        className="c6"
+      >
+        2 site subscription
+      </p>
+      <p
+        className="c7"
+      >
+        
+      </p>
+    </div>
+  </div>
+  <div
+    className="c8"
+  >
+    <span
+      className="c9"
+    >
+      Payment details
+    </span>
+    <ul
+      className="c10"
+      role="list"
+    >
+      <li
+        className="c11 c12 c13"
+      >
+        <span
+          className="c14 c15"
+        >
+          Start date
+        </span>
+        <span
+          className="c16 c17 c15"
+        >
+          <span>
+            August 02, 2018
+          </span>
+        </span>
+      </li>
+      <li
+        className="c11 c12 c18"
+      >
+        <span
+          className="c14 c15"
+        >
+          Next billing
+        </span>
+        <span
+          className="c16 c17 c15"
+        >
+          <span>
+            August 02, 2019
+          </span>
+        </span>
+      </li>
+      <li
+        className="c11 c12 c13"
+      >
+        <span
+          className="c16 c17 c15"
+        >
+          <a
+            href="#"
+            onClick={[Function]}
+          >
+            <span>
+              Cancel subscription
+            </span>
+          </a>
+        </span>
+      </li>
+    </ul>
+    <span
+      className="c9"
+    >
+      Invoices
+    </span>
+  </div>
+  <div />
+</section>
+`;
