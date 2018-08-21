@@ -111,27 +111,6 @@ exports[`The Subscription component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Level";
-}
-
-.c12 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c12:first-child {
-  padding-left: 0;
-}
-
-.c12::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
   content: "Used";
 }
 
@@ -225,6 +204,11 @@ exports[`The Subscription component matches the snapshot 1`] = `
   color: inherit;
 }
 
+.c12 {
+  padding-left: 0px;
+  min-width: 102px;
+}
+
 .c10 {
   color: inherit;
   font-weight: inherit;
@@ -269,24 +253,11 @@ exports[`The Subscription component matches the snapshot 1`] = `
 @media screen and ( max-width:1355px ) {
   .c11 {
     padding-left: 20px;
-    display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
   .c11 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c12 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c12 {
     display: none;
   }
 }
@@ -359,17 +330,12 @@ exports[`The Subscription component matches the snapshot 1`] = `
   <span
     className="c8 c11"
   >
-    20 sites
-  </span>
-  <span
-    className="c8 c12"
-  >
     14
     /
     20
   </span>
   <span
-    className="c8 c13"
+    className="c12 c8 c13"
   >
     <span>
       April 4, 2017

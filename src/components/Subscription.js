@@ -63,6 +63,11 @@ StyledRow.propTypes = {
 	status: PropTypes.string.isRequired,
 };
 
+const StyledColumnMinWidth = styled( ColumnMinWidth )`
+	padding-left: 0px;
+	min-width: 102px;
+`;
+
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
 	font-weight: ${ props => props.status === "suspended" ? "bold" : "inherit" };
@@ -154,22 +159,15 @@ function Subscription( props ) {
 			<ColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				hideOnTablet={ true }
-				headerLabel={ props.intl.formatMessage( messages.level ) }>
-				{ props.intl.formatMessage( messages.sites, { limit: props.limit } ) }
-			</ColumnMinWidth>
-			<ColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
 				headerLabel={ props.intl.formatMessage( messages.used ) }>
 				{ props.used }/{ props.limit }
 			</ColumnMinWidth>
-			<ColumnMinWidth
+			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
 				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
 				{ nextPayment }
-			</ColumnMinWidth>
+			</StyledColumnMinWidth>
 			<ColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }

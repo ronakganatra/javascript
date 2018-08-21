@@ -145,27 +145,6 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Level";
-}
-
-.c14 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c14:first-child {
-  padding-left: 0;
-}
-
-.c14::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
   content: "Used";
 }
 
@@ -259,6 +238,11 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   color: inherit;
 }
 
+.c14 {
+  padding-left: 0px;
+  min-width: 102px;
+}
+
 .c12 {
   color: inherit;
   font-weight: inherit;
@@ -313,24 +297,11 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 @media screen and ( max-width:1355px ) {
   .c13 {
     padding-left: 20px;
-    display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
   .c13 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c14 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c14 {
     display: none;
   }
 }
@@ -410,17 +381,12 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="c10 c13"
       >
-        20 sites
-      </span>
-      <span
-        className="c10 c14"
-      >
         4
         /
         20
       </span>
       <span
-        className="c10 c15"
+        className="c14 c10 c15"
       >
         <span>
           October 13, 2014
@@ -466,17 +432,12 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="c10 c13"
       >
-        20 sites
-      </span>
-      <span
-        className="c10 c14"
-      >
         3
         /
         20
       </span>
       <span
-        className="c10 c15"
+        className="c14 c10 c15"
       />
       <span
         className="c10 c16"
