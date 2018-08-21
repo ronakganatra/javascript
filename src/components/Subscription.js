@@ -10,6 +10,7 @@ import formatAmount from "../../../shared/currency";
 import defaults from "../config/defaults.json";
 import styled from "styled-components";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import colors from "yoast-components/style-guide/colors.json";
 
 const messages = defineMessages( {
 	product: {
@@ -55,7 +56,7 @@ StyledSpace.propTypes = {
 };
 
 const StyledRow = styled( Row )`
-	color: ${ props => props.status === "cancelled" ? " #646464" : "inherit" };
+	color: ${ props => props.status === "cancelled" ? colors.$color_grey_text : "inherit" };
 `;
 
 StyledRow.propTypes = {
@@ -63,7 +64,7 @@ StyledRow.propTypes = {
 };
 
 const StyledStatus = styled.span`
-	color: ${ props => props.status === "suspended" ? "red" : "inherit" };
+	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
 	font-weight: ${ props => props.status === "suspended" ? "bold" : "inherit" };
 `;
 
@@ -79,9 +80,8 @@ StyledStatus.propTypes = {
  * @returns {ReactElement} the media query with the manage button.
  */
 function getManageButtons( props ) {
-	let cancelled = props.status === "cancelled";
 	let tabletView = defaults.css.breakpoint.tablet;
-	if ( cancelled ) {
+	if ( props.status === "cancelled" ) {
 		return <Fragment>
 			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
 				<StyledSpace tablet={ false } />
@@ -120,8 +120,8 @@ function Subscription( props ) {
 		rowProps.background = props.background;
 	}
 
-	let nextPayment = "";
-	let amount = "";
+	let nextPayment = null;
+	let amount = null;
 	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
 		nextPayment = <FormattedDate
 			value={ props.hasNextPayment ? props.nextPayment : props.endDate }

@@ -83,7 +83,7 @@ export const RowMobileCollapse = styled( Row )`
  * styled component.
  */
 const ColumnBase = styled.span`
-	min-width: ${ props => props.minWidth && props.minWidth };
+	${ props => props.minWidth && "min-width: " + props.minWidth };
 	font-size: 14px;
 	padding-left: 40px;
 
