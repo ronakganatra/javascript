@@ -76,13 +76,11 @@ exports[`The Signup component matches the snapshot 1`] = `
 }
 
 .c6 {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
 .c7 {
-  margin: 1em 0;
+  margin: 2em 0;
   width: 100%;
 }
 
