@@ -110,6 +110,7 @@ LoginMessage.propTypes = {
 	header: PropTypes.object,
 	message: PropTypes.object,
 	onClick: PropTypes.func,
+	buttonLinkTo: PropTypes.string,
 	children: PropTypes.any,
 };
 
