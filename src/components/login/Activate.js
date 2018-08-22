@@ -49,7 +49,6 @@ const userAlreadyActiveMessages = defineMessages( {
 class Activate extends React.Component {
 
 	constructor( props ) {
-		console.log( props );
 		super( props );
 		let parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
 
@@ -64,7 +63,7 @@ class Activate extends React.Component {
 	}
 
 	render() {
-		if ( this.props.isLoggedIn ) {
+		if ( this.props.loggedIn ) {
 			return ( <Redirect to={ "/enter-details" }/> );
 		}
 
@@ -74,11 +73,6 @@ class Activate extends React.Component {
 		if ( this.alreadyActiveError() ) {
 			messages = userAlreadyActiveMessages;
 		} else {
-			console.log( this.props.activationError );
-			console.log( this.props.activationError );
-			console.log( this.props.activationError );
-			console.log( this.props.activationError );
-			console.log( this.props.activationError );
 			errorDisplay = <ErrorDisplay error={ this.props.activationError }/>;
 		}
 
@@ -98,7 +92,7 @@ export default injectIntl( Activate );
 
 Activate.propTypes = {
 	intl: intlShape.isRequired,
-	isLoggedIn: PropTypes.bool.isRequired,
+	loggedIn: PropTypes.bool.isRequired,
 	activateUser: PropTypes.func.isRequired,
 	location: PropTypes.object,
 	activationError: PropTypes.object,
@@ -106,6 +100,6 @@ Activate.propTypes = {
 };
 
 Activate.defaultProps = {
-	isLoggedIn: false,
+	loggedIn: false,
 	activationError: null,
 };
