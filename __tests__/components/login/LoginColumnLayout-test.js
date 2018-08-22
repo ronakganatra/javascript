@@ -27,7 +27,7 @@ test('The LoginColumnLayout component, with two columns, matches the snapshot', 
 	const component = createComponentWithIntl(
 		<LoginColumnLayout>
 			<LoginMessage header={ messages.header } message={ messages.message }/>
-			<LoginMessage header={ messages.headerReset } message={ messages.button } onClick={ () => console.error( 1 ) }/>
+			<LoginMessage header={ messages.headerReset } message={ messages.button } buttonLinkTo="https://example.com"/>
 		</LoginColumnLayout>
 	);
 

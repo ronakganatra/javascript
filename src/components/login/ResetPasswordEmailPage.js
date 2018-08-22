@@ -15,6 +15,9 @@ import { Button, ButtonLink } from "../Button";
 import ValidationInputField from "../ValidationInputField";
 import { StyledLabel } from "../Labels";
 import { ButtonArea } from "../account/profile/FormElements";
+import isEmpty from "lodash/isEmpty";
+import { Redirect } from "react-router";
+import ErrorDisplay from "../../errors/ErrorDisplay";
 
 const messages = defineMessages( {
 	passwordResetTitle: {
@@ -32,6 +35,10 @@ const messages = defineMessages( {
 	sendButton: {
 		id: "reset.button",
 		defaultMessage: "Send password reset email",
+	},
+	loadingButton: {
+		id: "reset.button.loading",
+		defaultMessage: "Sending password reset email...",
 	},
 	backButton: {
 		id: "back.button",
@@ -65,7 +72,7 @@ const FormGroup = styled.form`
 	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 100%;
-	height: 300px;
+	min-height: 300px;
 	margin-top: 40px;
 `;
 
@@ -114,7 +121,7 @@ class ResetPasswordEmailPage extends React.Component {
 
 		// Default state.
 		this.state = {
-			email: "",
+			email: this.props.email,
 			errors: [],
 		};
 
@@ -135,6 +142,7 @@ class ResetPasswordEmailPage extends React.Component {
 	 * @param {string} field the field in the state that should be updated.
 	 * @param {Object} event the input field change event.
 	 * @param {array} errors The email related errors.
+	 *
 	 * @returns {void}
 	 */
 	onUpdateEmail( field, event, errors = [] ) {
@@ -146,13 +154,38 @@ class ResetPasswordEmailPage extends React.Component {
 
 	/**
 	 * Provides the email address to send a pass word reset link to.
+	 *
+	 * @param { object } event The button click event.
+	 *
 	 * @returns {void}
 	 */
-	handleSubmit() {
-		// Code to connect the UI with the send reset password email backend should go here.
+	handleSubmit( event ) {
+		event.preventDefault();
+		if( this.canSubmit() === false ) {
+			return;
+		}
+		this.props.attemptResetPasswordEmail( { email: this.state.email } );
+	}
+
+	/**
+	 * Checks whether or not the form may be submitted.
+	 *
+	 * @returns {boolean} Whether or not the form may be submitted
+	 */
+	canSubmit() {
+		return ! isEmpty( this.state.email ) && this.state.errors.length === 0 && this.props.loading === false;
 	}
 
 	render() {
+		if( this.props.passwordRequestSent ) {
+			return ( <Redirect to={ "/forgot-password/check-your-email" } /> );
+		}
+
+		let buttonText = messages.sendButton;
+
+		if( this.props.loading ) {
+			buttonText = messages.loadingButton;
+		}
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -160,11 +193,11 @@ class ResetPasswordEmailPage extends React.Component {
 						<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 					</Header>
 					<Title>
-						<FormattedMessage {...messages.passwordResetTitle }/>
+						<FormattedMessage { ...messages.passwordResetTitle }/>
 					</Title>
 					<FormattedMessage { ...messages.emailAddressMessage } />
 					<FormGroup onSubmit={ this.handleSubmit }>
-
+						<ErrorDisplay error={ this.props.error } />
 						<LabelBlock>
 							<Label htmlFor="email">
 								<FormattedMessage { ...messages.labelEmail } />
@@ -180,8 +213,8 @@ class ResetPasswordEmailPage extends React.Component {
 						</LabelBlock>
 
 						<EmailButtonArea>
-							<SaveButton type="submit" enabledStyle={ this.state.email.length > 0 && this.state.errors.length === 0 }>
-								<FormattedMessage { ...messages.sendButton } />
+							<SaveButton type="submit" enabledStyle={ this.canSubmit() }>
+								<FormattedMessage { ...buttonText } />
 							</SaveButton>
 							<BackButton enabledStyle={ true } to="../login">
 								<FormattedMessage { ...messages.backButton } />
@@ -198,10 +231,17 @@ ResetPasswordEmailPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
 	email: PropTypes.string,
+	passwordRequestSent: PropTypes.bool.isRequired,
+	loading: PropTypes.bool.isRequired,
+	error: PropTypes.object,
+	attemptResetPasswordEmail: PropTypes.func,
 };
 
 ResetPasswordEmailPage.defaultProps = {
-	email: "[undefined]",
+	email: "",
+	passwordRequestSent: false,
+	loading: false,
+	error: null,
 };
 
 export default injectIntl( ResetPasswordEmailPage );

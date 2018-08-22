@@ -19,8 +19,10 @@ import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import ProfileDetailsContainer from "./containers/ProfileDetails";
 import AlmostThere from "./components/login/AlmostThere";
 import LoginPage from "./components/login/LoginSignupPage";
-import ResetPasswordPage from "./components/login/ResetPasswordPage";
-import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
+import ResetPasswordContainer from "./containers/ResetPassword";
+import ResetPasswordEmailContainer from "./containers/ResetPasswordEmail";
+import SendResetEmailSuccessPage from "./components/login/SendResetEmailSuccessPage";
+import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 import {
 	directToIntendedDestination,
 	hasPeriLoginCookie,

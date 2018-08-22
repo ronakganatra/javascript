@@ -393,7 +393,7 @@ exports[`renders without crashing 1`] = `
               className="c20"
             >
               <a
-                href="/resetEmail"
+                href="/forgot-password"
               >
                 <span>
                   Forgot your password?

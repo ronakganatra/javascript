@@ -4,7 +4,7 @@ import { injectIntl, FormattedMessage } from "react-intl";
 import styled from "styled-components";
 
 // Components.
-import { Button } from "../Button";
+import { ButtonLink } from "../Button";
 
 // Images.
 import icon from "../../images/greeting.png";
@@ -37,6 +37,12 @@ const Message = styled.p`
 	padding: 0 2em;
 `;
 
+const StyledButtonLink = styled( ButtonLink )`
+	position: relative;
+	margin: 1em 0;
+	width: 100%;
+`;
+
 /**
  * A card representing a message in a login screen,
  * e.g. "Welcome back!", "Password changed".
@@ -65,9 +71,9 @@ class LoginMessage extends React.Component {
 	 */
 	renderButton() {
 		return (
-			<Button onClick={ this.props.onClick }>
+			<StyledButtonLink to={ this.props.buttonLinkTo }>
 				<FormattedMessage { ...this.props.message } />
-			</Button>
+			</StyledButtonLink>
 		);
 	}
 

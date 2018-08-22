@@ -123,6 +123,13 @@ test( 'ui reducer', () => {
 		"orders": {},
 		"products": { "name": "uiAllProductsReducer" },
 		"refunds": { "name": "uiRefundsReducer" },
+		"resetPassword": {
+			"error": null,
+			"loading": false,
+			"passwordRequestSent": false,
+			"passwordResetSuccess": false,
+			"submitErrors": null
+		},
 		"search": { "query": "" },
 		"signup": { "error": null, "loading": false, "signupRequestSent": false },
 		"site": { "name": "uiSiteReducer" },
@@ -285,6 +292,6 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 						"user": { "name": "userReducer" }
 				};
 
-	const actual = rootReducer( state, action );
+const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );
 } );

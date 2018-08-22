@@ -183,7 +183,7 @@ exports[`The Login component matches the snapshot 1`] = `
     className="c6"
   >
     <a
-      href="/resetEmail"
+      href="/forgot-password"
     >
       <span>
         Forgot your password?
