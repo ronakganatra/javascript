@@ -16,11 +16,13 @@ import AccountDisabled from "./components/AccountDisabled";
 import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
-import ProfileDetailsContainer from "./containers/ProfileDetails";
+import ProfileDetails from "./containers/ProfileDetails";
 import AlmostThere from "./components/login/AlmostThere";
 import LoginPage from "./components/login/LoginSignupPage";
-import ResetPasswordEmailPage from "./components/login/ResetPasswordEmailPage";
-import ResetPasswordPage from "./components/login/ResetPasswordPage";
+import ResetPasswordEmailContainer from "./containers/ResetPasswordEmail";
+import ResetPasswordContainer from "./containers/ResetPassword";
+import SendResetEmailSuccessPage from "./components/login/SendResetEmailSuccessPage";
+import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 import {
 	directToIntendedDestination,
 	hasPeriLoginCookie,
@@ -63,10 +65,12 @@ const Routes = ( props ) => {
 				<Switch>
 					<Route exact path="/login" component={ inLoginLayout( LoginPage ) }/>
 					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) }/>
-					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
-					<Route exact path="/reset" component={ inLoginLayout( ResetPasswordPage ) }/>
-					<Route exact path="/resetEmail" component={ inLoginLayout( ResetPasswordEmailPage ) }/>
+					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
+					<Route exact path="/forgot-password" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
+					<Route exact path="/forgot-password/check-your-email" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
+					<Route exact path="/forgot-password/reset-password" component={ inLoginLayout( ResetPasswordContainer ) } />
+					<Route exact path="/forgot-password/success" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
 					<Route path="*" render={ () => {
 						removePeriLoginCookie();
 						setPeriLoginCookie();
@@ -100,9 +104,8 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetailsContainer ) } />
+					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
-					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
 					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
 					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
