@@ -47,16 +47,8 @@ const messages = defineMessages( {
 	},
 } );
 
-const StyledSpace = styled.div`
-	min-width: ${ props => props.tablet ? 48 : 150 }px;
-`;
-
-StyledSpace.propTypes = {
-	tablet: PropTypes.bool,
-};
-
 const StyledRow = styled( Row )`
-	color: ${ props => props.status === "cancelled" ? colors.$color_grey_text : "inherit" };
+	color: ${ props => props.status ? colors.$color_grey_text : "inherit" };
 `;
 
 StyledRow.propTypes = {
@@ -85,22 +77,11 @@ StyledStatus.propTypes = {
  * @returns {ReactElement} the media query with the manage button.
  */
 function getManageButtons( props ) {
-	let tabletView = defaults.css.breakpoint.tablet;
-	if ( props.status === "cancelled" ) {
-		return <Fragment>
-			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
-				<StyledSpace tablet={ false } />
-			</MediaQuery>
-			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
-				<StyledSpace tablet={ true }/>
-			</MediaQuery>
-		</Fragment>;
-	}
 	return <Fragment>
-		<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+		<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
 			<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 		</MediaQuery>
-		<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+		<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
 			<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 		</MediaQuery>
 	</Fragment>;
@@ -125,6 +106,7 @@ function Subscription( props ) {
 		rowProps.background = props.background;
 	}
 
+	let statusClosed = props.status === "cancelled" || props.status === "expired";
 	let nextPayment = null;
 	let amount = null;
 	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
@@ -141,7 +123,7 @@ function Subscription( props ) {
 		/>;
 	}
 	return (
-		<StyledRow key={ props.id } status={ props.status } { ...rowProps } >
+		<StyledRow key={ props.id } status={ statusClosed } { ...rowProps } >
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
