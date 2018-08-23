@@ -169,6 +169,20 @@ exports[`the subscription detail component has no next billing 1`] = `
     <span
       className="c4 c5"
     >
+      Subscription status
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      Active
+    </span>
+  </li>
+  <li
+    className="c1 c2 c8"
+  >
+    <span
+      className="c4 c5"
+    >
       Start date
     </span>
     <span
@@ -180,7 +194,7 @@ exports[`the subscription detail component has no next billing 1`] = `
     </span>
   </li>
   <li
-    className="c1 c2 c8"
+    className="c1 c2 c3"
   >
     <span
       className="c4 c5"
@@ -365,6 +379,20 @@ exports[`the subscription detail component matches the snapshot 1`] = `
     <span
       className="c4 c5"
     >
+      Subscription status
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      Active
+    </span>
+  </li>
+  <li
+    className="c1 c2 c8"
+  >
+    <span
+      className="c4 c5"
+    >
       Start date
     </span>
     <span
@@ -376,7 +404,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
     </span>
   </li>
   <li
-    className="c1 c2 c8"
+    className="c1 c2 c3"
   >
     <span
       className="c4 c5"
@@ -392,7 +420,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
     </span>
   </li>
   <li
-    className="c1 c2 c3"
+    className="c1 c2 c8"
   >
     <span
       className="c6 c7 c5"
