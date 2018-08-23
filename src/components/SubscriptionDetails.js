@@ -6,6 +6,7 @@ import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFul
 import { injectIntl, intlShape, FormattedDate, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
 import Link from "./Link";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -16,9 +17,17 @@ const messages = defineMessages( {
 		id: "subscriptionDetails.invoices.title",
 		defaultMessage: "Invoices",
 	},
+	status: {
+		id: "subscriptionDetails.paymentDetails.status",
+		defaultMessage: "Subscription status",
+	},
 	startDate: {
 		id: "subscriptionDetails.paymentDetails.start-date",
 		defaultMessage: "Start date",
+	},
+	endDate: {
+		id: "subscriptionDetails.paymentDetails.end-date",
+		defaultMessage: "End date",
 	},
 	nextBilling: {
 		id: "subscriptionDetails.paymentDetails.nextBilling",
@@ -66,7 +75,9 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
  */
 function SubscriptionDetails( props ) {
 	let nextBilling = "-";
+	let endDate = "-";
 	if ( props.hasNextBilling || props.hasEndDate ) {
+		// Use end date for EDD subscriptions which will be renewed in a new WooCommerce Subscription.
 		nextBilling = <FormattedDate
 			value={ props.hasNextBilling ? props.nextBilling : props.endDate }
 			year="numeric"
@@ -74,6 +85,26 @@ function SubscriptionDetails( props ) {
 			day="2-digit"
 		/>;
 	}
+
+	if ( props.hasEndDate ) {
+		endDate = <FormattedDate
+			value={ props.endDate }
+			year="numeric"
+			month="long"
+			day="2-digit"
+		/>;
+	}
+
+	let statusRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="status">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.status ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ capitalizeFirstLetter( props.status ) }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
 
 	let startingDateRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
@@ -88,7 +119,8 @@ function SubscriptionDetails( props ) {
 					day='2-digit'
 				/>
 			</ColumnFixedWidthResponsive>
-		</RowMobileCollapseNoMinHeight> );
+		</RowMobileCollapseNoMinHeight>
+	);
 
 	let nextBillingDateRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
@@ -97,6 +129,17 @@ function SubscriptionDetails( props ) {
 			</ColumnMinWidth>
 			<ColumnFixedWidthResponsive ellipsis={ true }>
 				{ nextBilling }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	let endDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="end-date">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.endDate ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ endDate }
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapseNoMinHeight>
 	);
@@ -118,9 +161,11 @@ function SubscriptionDetails( props ) {
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapseNoMinHeight> );
 
-	let rows = [ startingDateRow ];
-	if ( props.status !== "pending-cancel" ) {
+	let rows = [ statusRow, startingDateRow ];
+	if ( props.status === "active" || props.status === "on-hold" ) {
 		rows.push( nextBillingDateRow );
+	} else {
+		rows.push( endDateRow );
 	}
 	if ( props.canCancel ) {
 		rows.push( cancelSubscriptionRow );
