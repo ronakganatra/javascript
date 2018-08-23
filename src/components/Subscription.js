@@ -48,11 +48,15 @@ const messages = defineMessages( {
 } );
 
 const StyledRow = styled( Row )`
-	color: ${ props => props.status ? colors.$color_grey_text : "inherit" };
+	color: ${ props => props.dimmed ? colors.$color_grey_text : "inherit" };
 `;
 
 StyledRow.propTypes = {
-	status: PropTypes.string.isRequired,
+	dimmed: PropTypes.bool,
+};
+
+StyledRow.defaultProps = {
+	dimmed: false,
 };
 
 const StyledColumnMinWidth = styled( ColumnMinWidth )`
@@ -106,7 +110,7 @@ function Subscription( props ) {
 		rowProps.background = props.background;
 	}
 
-	let statusClosed = props.status === "cancelled" || props.status === "expired";
+	let cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
 	let nextPayment = null;
 	let amount = null;
 	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
@@ -123,7 +127,7 @@ function Subscription( props ) {
 		/>;
 	}
 	return (
-		<StyledRow key={ props.id } status={ statusClosed } { ...rowProps } >
+		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps } >
 			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
