@@ -284,6 +284,12 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 						"orders": { "error": "", "retrievingOrders": false },
 						"products": { "name": "uiAllProductsReducer" },
 						"refunds": { "name": "uiRefundsReducer" },
+						"resetPassword": {
+							"error": null,
+							"loading": false,
+							"passwordRequestSent": false,
+							"passwordResetSuccess": false,
+							"submitErrors": null},
 						"search": { "query": "" },
 						"signup": { "error": null, "loading": false, "signupRequestSent": false },
 						"site": { "name": "uiSiteReducer" },
