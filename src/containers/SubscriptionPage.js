@@ -10,6 +10,7 @@ import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
+import {capitalizeFirstLetter} from "../functions/stringHelpers";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let selectedSubscriptionId = ownProps.match.params.id;
@@ -33,19 +34,19 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 
 	orders = orders
-		.filter( ( order ) => {
-			return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
-		} )
 		.map( order => {
 			return {
 				id: order.id,
 				orderNumber: order.invoiceNumber,
 				date: new Date( order.date ),
 				total: order.totalAmount,
-				status: order.status,
+				status: capitalizeFirstLetter( order.status ),
 				items: order.items,
 				currency: order.currency,
 			};
+		} )
+		.filter( ( order ) => {
+			return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
 		} );
 
 	let sites = [];
