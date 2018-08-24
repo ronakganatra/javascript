@@ -32,17 +32,19 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	orders = orders.map( order => {
-		return {
-			id: order.id,
-			orderNumber: order.invoiceNumber,
-			date: new Date( order.date ),
-			total: order.totalAmount,
-			status: order.status,
-			items: order.items,
-			currency: order.currency,
-		};
-	} );
+	orders = order
+		.filter( order => order.status !== "pending" )
+		.map( order => {
+			return {
+				id: order.id,
+				orderNumber: order.invoiceNumber,
+				date: new Date( order.date ),
+				total: order.totalAmount,
+				status: order.status,
+				items: order.items,
+				currency: order.currency,
+			};
+		} );
 
 	let sites = [];
 	let siteIds = state.entities.sites.allIds;
