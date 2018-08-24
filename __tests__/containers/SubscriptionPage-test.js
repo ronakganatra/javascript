@@ -90,7 +90,7 @@ let defaultExpected = {
 		id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 		items: [ { productName: "Yoast SEO" } ],
 		orderNumber: "YST201701",
-		status: "completed",
+		status: "Completed",
 		total: "6900"
 	} ],
 	sites: [ {
