@@ -10,7 +10,7 @@ import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
-import {capitalizeFirstLetter} from "../functions/stringHelpers";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	let selectedSubscriptionId = ownProps.match.params.id;
