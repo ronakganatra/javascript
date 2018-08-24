@@ -32,14 +32,9 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	let pendingCount = 0;
-
 	orders = orders
-		.filter( order => {
-			if ( order.status !== "pending" ) {
-				pendingCount++;
-			}
-			return order.status !== "pending" || pendingCount <= 1;
+		.filter( ( order ) => {
+			return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
 		} )
 		.map( order => {
 			return {
