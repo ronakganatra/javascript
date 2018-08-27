@@ -104,6 +104,7 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
+					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
 					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
 					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>

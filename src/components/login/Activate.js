@@ -9,10 +9,10 @@ import { Redirect } from "react-router";
 
 // Components;
 import LoginMessage from "./LoginMessage";
-import { Button } from "../Button";
+import { ButtonLink } from "../Button";
 import ErrorDisplay from "../../errors/ErrorDisplay";
 
-const LoginButton = styled( Button )`
+const LoginButton = styled( ButtonLink )`
 	display: block;
 	margin: 1em auto;
 	width:100%;
