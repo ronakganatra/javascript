@@ -27,7 +27,11 @@ const messages = defineMessages( {
 	},
 	used: {
 		id: "subscriptions.overview.used",
-		defaultMessage: "Used",
+		defaultMessage: "Used on",
+	},
+	billingType: {
+		id: "subscriptions.overview.billingType",
+		defaultMessage: "Billing type",
 	},
 	nextPaymentOn: {
 		id: "subscriptions.overview.nextPaymentOn",
@@ -59,6 +63,14 @@ StyledRow.defaultProps = {
 	dimmed: false,
 };
 
+const StyledSpace = styled.div`
+	min-width: ${ props => props.tablet ? 48 : 150 }px;
+`;
+
+StyledSpace.propTypes = {
+	tablet: PropTypes.bool,
+};
+
 const StyledColumnMinWidth = styled( ColumnMinWidth )`
 	padding-left: 0px;
 	min-width: 102px;
@@ -66,12 +78,22 @@ const StyledColumnMinWidth = styled( ColumnMinWidth )`
 
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
-	font-weight: ${ props => props.status === "suspended" ? "bold" : "inherit" };
+	font-weight: ${ props => props.status === "cancelled" ? "inherit" : "bold" };
 `;
 
 StyledStatus.propTypes = {
 	status: PropTypes.string.isRequired,
 };
+
+const Detail = styled.span`
+	display: block;
+	font-size: 14px;
+`;
+
+const Icon = styled( ColumnIcon )`
+	height: 32px;
+`;
+
 
 /**
  * Creates the manage buttons.
@@ -81,11 +103,22 @@ StyledStatus.propTypes = {
  * @returns {ReactElement} the media query with the manage button.
  */
 function getManageButtons( props ) {
+	let tabletView = defaults.css.breakpoint.tablet;
+	if ( props.status === "cancelled" ) {
+		return <Fragment>
+			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+				<StyledSpace tablet={ false } />
+			</MediaQuery>
+			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+				<StyledSpace tablet={ true }/>
+			</MediaQuery>
+		</Fragment>;
+	}
 	return <Fragment>
-		<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+		<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
 			<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 		</MediaQuery>
-		<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+		<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
 			<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
 		</MediaQuery>
 	</Fragment>;
@@ -97,6 +130,29 @@ getManageButtons.propTypes = {
 	onManage: PropTypes.func.isRequired,
 };
 
+/**
+ * Creates the manage buttons.
+ *
+ * @param {object} props The props of subscriptions.
+ * @param {string} nextPayment The next billing.
+ * @param {string} amount The amount of the next billing.
+ *
+ * @returns {ReactElement} the media query with the next billing information.
+ */
+function getNextBilling( props, nextPayment, amount ) {
+	if ( props.status === "pending-cancel" ) {
+		return "Ends on " + props.endDate;
+	}
+	return <Fragment>
+		{ nextPayment }
+		<Detail>{ amount }</Detail>
+	</Fragment>;
+}
+
+getNextBilling.propTypes = {
+	status: PropTypes.string.isRequired,
+	endDate: PropTypes.string,
+};
 /**
  * Creates a subscription component
  *
@@ -111,6 +167,7 @@ function Subscription( props ) {
 	}
 
 	let cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
+	let billingType = null;
 	let nextPayment = null;
 	let amount = null;
 	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
@@ -125,42 +182,39 @@ function Subscription( props ) {
 			currency={ props.billingCurrency }
 			style="currency"
 		/>;
+		billingType = props.billingType ? "Manual renewal" : "Automatic renewal";
 	}
 	return (
 		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps } >
-			<ColumnIcon separator={ true }><SiteIcon src={ props.iconSource } alt=""/></ColumnIcon>
+			<Icon><SiteIcon src={ props.iconSource } alt=""/></Icon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
+				<Detail>
+					<StyledStatus status={ props.status }>
+						{ capitalizeFirstLetter( props.status ) }
+					</StyledStatus>
+					{ " - " }
+					{ "Subscription number" }
+				</Detail>
 			</ColumnPrimary>
 			<ColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				hideOnTablet={ false }
-				minWidth={ "116px" }
-				headerLabel={ props.intl.formatMessage( messages.status ) }>
-				<StyledStatus status={ props.status }>
-					{ capitalizeFirstLetter( props.status ) }
-				</StyledStatus>
-			</ColumnMinWidth>
-			<ColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
 				headerLabel={ props.intl.formatMessage( messages.used ) }>
-				{ props.used }/{ props.limit }
+				{ props.used }/{ props.limit + " sites" }
 			</ColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
-				{ nextPayment }
+				headerLabel={ props.intl.formatMessage( messages.billingType ) }>
+				{ billingType }
 			</StyledColumnMinWidth>
-			<ColumnMinWidth
+			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				hideOnTablet={ true }
-				headerLabel={ props.intl.formatMessage( messages.billingAmount ) }>
-				{ amount }
-			</ColumnMinWidth>
+				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
+				{ getNextBilling( props, nextPayment, amount ) }
+			</StyledColumnMinWidth>
 			<ColumnFixedWidth>
 				{ getManageButtons( props ) }
 			</ColumnFixedWidth>
@@ -176,6 +230,7 @@ Subscription.propTypes = {
 	status: PropTypes.string.isRequired,
 	limit: PropTypes.number.isRequired,
 	hasNextPayment: PropTypes.bool.isRequired,
+	billingType: PropTypes.bool,
 	nextPayment: PropTypes.instanceOf( Date ).isRequired,
 	hasEndDate: PropTypes.bool.isRequired,
 	endDate: PropTypes.instanceOf( Date ).isRequired,
