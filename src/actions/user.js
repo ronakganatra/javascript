@@ -74,6 +74,9 @@ export function logout() {
 						dispatch( logoutSuccess() );
 					} )
 					.catch( ( error ) => {
+						// A failed logout may indicate that there's something wrong with the user on the yoast.com side. They might have logged out on yoast.com since.
+						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
+						removeAuthCookies();
 						dispatch( logoutFailure( error ) );
 					} );
 			} )
