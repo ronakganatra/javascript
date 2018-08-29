@@ -9,7 +9,7 @@ const rootState = {
 	ui: {
 		signup: {
 			loading: false,
-			signupRequestSent: false,
+			signupRequestSuccess: false,
 			error: null,
 		},
 	},
@@ -32,19 +32,19 @@ export function uiSignupReducer( state = rootState.ui.signup, action ) {
 			return Object.assign( {}, state, {
 				loading: false,
 				error: null,
-				signupRequestSent: true,
+				signupRequestSuccess: true,
 			} );
 		case SIGNUP_FAILURE:
 			return Object.assign( {}, state, {
 				loading: false,
 				error: action.error,
-				signupRequestSent: false,
+				signupRequestSuccess: false,
 			} );
 		case SIGNUP_REQUEST:
 			return Object.assign( {}, state, {
 				loading: true,
 				error: null,
-				signupRequestSent: false,
+				signupRequestSuccess: false,
 			} );
 		default:
 			return state;

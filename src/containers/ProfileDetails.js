@@ -5,8 +5,8 @@ import { getUserId } from "../functions/auth";
 
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
-		attemptSubmitProfile: ( profileDetails, avatarUrl ) => {
-			dispatch( updateProfile( profileDetails ) );
+		attemptSubmitProfile: ( nameDetails, avatarUrl ) => {
+			dispatch( updateProfile( nameDetails ) );
 			if ( avatarUrl ) {
 				dispatch( uploadAvatar( avatarUrl ) );
 			}

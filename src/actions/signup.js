@@ -32,9 +32,9 @@ export function doingSignupRequest() {
 }
 
 /**
- * An action creator for the doing signup action.
+ * An action creator for the signup success action.
  *
- * @returns {Object} A doing signup action.
+ * @returns {Object} A signup success action.
  */
 export function signupSuccess() {
 	return {
@@ -47,7 +47,7 @@ export function signupSuccess() {
  *
  * @param {Object} error The signup error.
  *
- * @returns {Object} An reset password failure action.
+ * @returns {Object} An sign up failure action.
  */
 export function signupFailure( error ) {
 	return {
@@ -61,7 +61,6 @@ export function signupFailure( error ) {
  *
  * Attempts to singup a user by doing an API call to the MyYoast server, which forwards it to yoast.com's APIs.
  * When this succeeds, we attempt to sent an email with an activation link to the user and redirect the user to the almost there page.
- *
  *
  * @param {Object} params The request parameters.
  *
@@ -124,7 +123,6 @@ export function doingActivateRequest() {
  *
  * Attempts to activate a user by doing an API call to the MyYoast server, which forwards it to yoast.com's APIs.
  * When this succeeds, we attempt to login the user and redirect the user to the enter-details page.
- *
  *
  * @param {string} key The request parameters.
  *

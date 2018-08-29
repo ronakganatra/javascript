@@ -11,11 +11,11 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mapStateToProps = ( state ) => {
-	return {
+	return Object.assign( {}, {
 		stateRouter: state.router,
 		signupError: state.ui.signup.error,
-		signupRequestSent: state.ui.signup.signupRequestSent,
-	};
+		signupRequestSuccess: state.ui.signup.signupRequestSuccess,
+	} );
 };
 
 const SignupContainer = connect(

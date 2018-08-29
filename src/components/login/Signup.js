@@ -123,7 +123,9 @@ class Signup extends React.Component {
 		let noInputFieldErrors = ! errors && ! this.state.errorsInputFields;
 		return <SaveButtonArea>
 			<SaveButton type="submit" enabledStyle = {
-				( this.state.email.length && this.state.password.length && this.state.passwordRepeat.length ) > 0 &&
+				( this.state.email.length &&
+					this.state.password.length &&
+					this.state.passwordRepeat.length ) > 0 &&
 					noInputFieldErrors
 			}>
 				<FormattedMessage { ...messages.createAccount } />
@@ -173,7 +175,7 @@ class Signup extends React.Component {
 	}
 
 	render() {
-		if( this.props.signupRequestSent ) {
+		if( this.props.signupRequestSuccess ) {
 			return ( <Redirect to={ "/almost-there" } /> );
 		}
 
@@ -231,13 +233,13 @@ Signup.propTypes = {
 	email: PropTypes.string,
 	location: PropTypes.object,
 	attemptSignup: PropTypes.func.isRequired,
-	signupRequestSent: PropTypes.bool.isRequired,
+	signupRequestSuccess: PropTypes.bool.isRequired,
 };
 
 Signup.defaultProps = {
 	signupError: null,
 	email: "",
-	signupRequestSent: false,
+	signupRequestSuccess: false,
 };
 
 export default injectIntl( Signup );

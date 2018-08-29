@@ -98,7 +98,7 @@ class LoginMessage extends React.Component {
 				<StyledHeading>
 					<FormattedMessage {...this.props.header} />
 				</StyledHeading>
-				{ this.props.onClick ? this.renderButton() : this.renderParagraph() }
+				{ this.props.buttonLinkTo ? this.renderButton() : this.renderParagraph() }
 				{this.props.children}
 			</MainPaper>
 		);

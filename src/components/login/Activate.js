@@ -1,5 +1,5 @@
-import React from "react";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import React, { Fragment } from "react";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import PropTypes from "prop-types";
 import queryString from "query-string";
 import styled from "styled-components";
@@ -18,6 +18,17 @@ const LoginButton = styled( ButtonLink )`
 	width:100%;
 `;
 
+const StyledErrorDisplay = styled( ErrorDisplay )`
+	max-width: 480px;
+	align-content: center;
+`;
+
+const messages = defineMessages( {
+	loginNow: {
+		id: "profileDetails.login.now",
+		defaultMessage: "Login now",
+	},
+} );
 
 const activatingMessages = defineMessages( {
 	message: {
@@ -34,7 +45,9 @@ const userAlreadyActiveMessages = defineMessages( {
 	message: {
 		id: "profileDetails.alreadyactive",
 		defaultMessage: "Your account has already been activated. {login}",
-		values: { login: <LoginButton to={ "/login" }>Login now</LoginButton> },
+		values: { login: <LoginButton to={ "/login" }>
+				<FormattedMessage { ...messages.loginNow }/>
+			</LoginButton> },
 	},
 	header: {
 		id: "profileDetails.alreadyactive.header",
@@ -43,8 +56,8 @@ const userAlreadyActiveMessages = defineMessages( {
 } );
 
 /**
- * Component in first login flow, where the user is asked to
- * enter some personal details: first name, last name and profile image.
+ * The activate component to activate the user. Activation and logging in happens automatically.
+ * A link to the login window will be displayed when a user was already activated.
  */
 class Activate extends React.Component {
 
@@ -67,19 +80,20 @@ class Activate extends React.Component {
 			return ( <Redirect to={ "/enter-details" }/> );
 		}
 
-		let errorDisplay = null;
+		let errorDisplayContainer = null;
 
 		let messages = activatingMessages;
 		if ( this.alreadyActiveError() ) {
 			messages = userAlreadyActiveMessages;
 		} else {
-			errorDisplay = <ErrorDisplay error={ this.props.activationError }/>;
+			errorDisplayContainer = <StyledErrorDisplay error={ this.props.activationError }/>;
 		}
 
-		return (
-			<LoginMessage { ...messages } >
-				{ errorDisplay }
-			</LoginMessage>
+		return ( <Fragment>
+				<LoginMessage { ...messages } />
+				{ errorDisplayContainer }
+			</Fragment>
+
 		);
 	}
 
