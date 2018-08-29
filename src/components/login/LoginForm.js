@@ -10,17 +10,10 @@ import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 import ErrorDisplay from "../../../src/errors/ErrorDisplay";
-import AnimatedLoader from "../Loader";
 
 // Styled components.
 const TextInput = styled( InputField )`
 	background-color: ${ colors.$color_background_light };
-`;
-
-const Loader = styled( AnimatedLoader )`
-	margin: 0 auto;
-	width:100%;
-	height:100px;
 `;
 
 const FormGroup = styled.form`
@@ -98,11 +91,10 @@ const messages = defineMessages( {
  */
 const LoginForm = ( props ) => {
 	let disabled = props.loading;
-	let loader = props.loading ? <Loader/> : null;
+	let buttonText = props.loading ? messages.loading : messages.loginButton;
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
 			<ErrorDisplay error={ props.errors }/>
-			{ loader }
 			<LabelBlock>
 				<Label htmlFor="email-address">
 					<FormattedMessage { ...messages.labelEmail } />
@@ -136,14 +128,14 @@ const LoginForm = ( props ) => {
 			</ForgotPasswordLink>
 
 			<RememberMe>
-				<Checkbox id="remember-me" onCheck={ props.onRememberCheck } checked={ props.rememberMe } >
+				<Checkbox id="remember-me" onCheck={ props.onRememberCheck } checked={ props.rememberMe }>
 					<FormattedMessage { ...messages.rememberMe } />
 				</Checkbox>
 			</RememberMe>
 
 			<SaveButtonArea>
 				<SaveButton type="submit" enabledStyle={ ! disabled }>
-					<FormattedMessage { ...messages.loginButton } />
+					<FormattedMessage { ...buttonText } />
 				</SaveButton>
 			</SaveButtonArea>
 		</FormGroup>
