@@ -131,7 +131,7 @@ test( 'ui reducer', () => {
 			"submitErrors": null
 		},
 		"search": { "query": "" },
-		"signup": { "error": null, "loading": false, "signupRequestSent": false },
+		"signup": { "error": null, "loading": false, "signupRequestSuccess": false },
 		"site": { "name": "uiSiteReducer" },
 		"sites": { "name": "uiSitesReducer" },
 		"subscriptions": { "name": "uiAllSubscriptionsReducer" }
@@ -291,7 +291,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 							"passwordResetSuccess": false,
 							"submitErrors": null},
 						"search": { "query": "" },
-						"signup": { "error": null, "loading": false, "signupRequestSent": false },
+						"signup": { "error": null, "loading": false, "signupRequestSuccess": false },
 						"site": { "name": "uiSiteReducer" },
 						"sites": { "name": "uiSitesReducer" },
 						"subscriptions": { "name": "uiAllSubscriptionsReducer" } },

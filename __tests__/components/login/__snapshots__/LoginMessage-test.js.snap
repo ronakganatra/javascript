@@ -1,6 +1,42 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
+.c5 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c5:hover,
+.c5:focus {
+  color: #fff;
+}
+
+.c5:hover,
+.c5:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c5:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
 .c0 {
   padding: 0px;
   width: 480px;
@@ -24,7 +60,9 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
 }
 
 .c4 {
-  padding: 0 2em;
+  position: relative;
+  margin: 1em 0;
+  width: 100%;
 }
 
 <div
@@ -47,13 +85,17 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
       Password changed successfully!
     </span>
   </h1>
-  <p
-    className="c4"
+  <a
+    aria-label={undefined}
+    className="c4 c5"
+    href="https://example.com"
+    rel={undefined}
+    target={undefined}
   >
     <span>
       Continue to MyYoast
     </span>
-  </p>
+  </a>
 </div>
 `;
 
