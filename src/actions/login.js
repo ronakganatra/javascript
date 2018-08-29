@@ -12,6 +12,7 @@ import { fetchUser, login } from "./user";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_OAUTH_FAILURE = "LOGIN_OAUTH_FAILURE";
+export const LOGIN_OAUTH_RESET = "LOGIN_OAUTH_RESET";
 
 /**
  * Action creators
@@ -54,6 +55,18 @@ export function oathFailure( error ) {
 export function doingLoginRequest() {
 	return {
 		type: LOGIN_REQUEST,
+	};
+}
+
+/**
+ * An action creator to reset the OAuth error.
+ * (called in the activate container)
+ *
+ * @returns {{type: string}} An OAuth reset action.
+ */
+export function resetOauthError() {
+	return {
+		type: LOGIN_OAUTH_RESET,
 	};
 }
 

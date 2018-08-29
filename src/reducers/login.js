@@ -1,5 +1,5 @@
 import {
-	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST,
+	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST, LOGIN_OAUTH_RESET,
 } from "../actions/login";
 import { LOGIN } from "../actions/user";
 
@@ -50,6 +50,12 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 			return Object.assign( {}, state, {
 				loading: true,
 				error: null,
+			} );
+		case LOGIN_OAUTH_RESET:
+			console.log( "OAuth reset." );
+			return Object.assign( {}, state, {
+				error: null,
+				oauthError: false,
 			} );
 		default:
 			return state;

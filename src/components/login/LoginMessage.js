@@ -71,7 +71,7 @@ class LoginMessage extends React.Component {
 	 */
 	renderButton() {
 		return (
-			<StyledButtonLink to={ this.props.buttonLinkTo }>
+			<StyledButtonLink to={ this.props.buttonLinkTo } onClick={ this.props.onClick }>
 				<FormattedMessage { ...this.props.message } />
 			</StyledButtonLink>
 		);
@@ -83,11 +83,14 @@ class LoginMessage extends React.Component {
 	 * @returns {React.Component} the paragraph, with the message as its contents.
 	 */
 	renderParagraph() {
-		return (
-			<Message>
-				<FormattedMessage { ...this.props.message } />
-			</Message>
-		);
+		if ( this.props.message ) {
+			return (
+				<Message>
+					<FormattedMessage {...this.props.message} />
+				</Message>
+			);
+		}
+		return null;
 	}
 
 	render() {

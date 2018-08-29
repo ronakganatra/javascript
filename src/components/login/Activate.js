@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
+import { injectIntl, intlShape, defineMessages } from "react-intl";
 import PropTypes from "prop-types";
 import queryString from "query-string";
 import styled from "styled-components";
@@ -9,26 +9,12 @@ import { Redirect } from "react-router";
 
 // Components;
 import LoginMessage from "./LoginMessage";
-import { ButtonLink } from "../Button";
 import ErrorDisplay from "../../errors/ErrorDisplay";
-
-const LoginButton = styled( ButtonLink )`
-	display: block;
-	margin: 1em auto;
-	width:100%;
-`;
 
 const StyledErrorDisplay = styled( ErrorDisplay )`
 	max-width: 480px;
 	align-content: center;
 `;
-
-const messages = defineMessages( {
-	loginNow: {
-		id: "profileDetails.login.now",
-		defaultMessage: "Login now",
-	},
-} );
 
 const activatingMessages = defineMessages( {
 	message: {
@@ -42,16 +28,20 @@ const activatingMessages = defineMessages( {
 } );
 
 const userAlreadyActiveMessages = defineMessages( {
-	message: {
-		id: "profileDetails.alreadyactive",
-		defaultMessage: "Your account has already been activated. {login}",
-		values: { login: <LoginButton to={ "/login" }>
-				<FormattedMessage { ...messages.loginNow }/>
-			</LoginButton> },
-	},
 	header: {
 		id: "profileDetails.alreadyactive.header",
 		defaultMessage: "Your account was already activated",
+	},
+	message: {
+		id: "profileDetails.login.now",
+		defaultMessage: "Login now",
+	},
+} );
+
+const generalActivationFailureMessages = defineMessages( {
+	header: {
+		id: "profileDetails.generalActivationFailure.header",
+		defaultMessage: "Activating your account failed",
 	},
 } );
 
@@ -73,6 +63,20 @@ class Activate extends React.Component {
 		if ( ! this.props.loading ) {
 			this.props.activateUser( this.state.key );
 		}
+
+		this.resetOauthError = this.resetOauthError.bind( this );
+	}
+
+	resetOauthError() {
+		this.props.resetOauthError();
+	}
+
+	hasError() {
+		return this.props.activationError && this.props.activationError.error;
+	}
+
+	alreadyActiveError() {
+		return this.props.activationError.error.code === "already_active";
 	}
 
 	render() {
@@ -80,25 +84,21 @@ class Activate extends React.Component {
 			return ( <Redirect to={ "/enter-details" }/> );
 		}
 
-		let errorDisplayContainer = null;
-
-		let messages = activatingMessages;
-		if ( this.alreadyActiveError() ) {
-			messages = userAlreadyActiveMessages;
-		} else {
-			errorDisplayContainer = <StyledErrorDisplay error={ this.props.activationError }/>;
+		if ( this.hasError() ) {
+			if ( this.alreadyActiveError() ) {
+				return <LoginMessage { ...userAlreadyActiveMessages }
+				                     buttonLinkTo="/login"
+				                     onClick={ this.props.resetOauthError }
+				/>;
+			}
+			return ( <Fragment>
+					<LoginMessage { ...generalActivationFailureMessages } />
+					<StyledErrorDisplay error={ this.props.activationError }/>
+				</Fragment>
+			);
 		}
 
-		return ( <Fragment>
-				<LoginMessage { ...messages } />
-				{ errorDisplayContainer }
-			</Fragment>
-
-		);
-	}
-
-	alreadyActiveError() {
-		return this.props.activationError && this.props.activationError.error && this.props.activationError.error.code === "already_active";
+		return <LoginMessage { ...activatingMessages } />;
 	}
 }
 
@@ -111,6 +111,7 @@ Activate.propTypes = {
 	location: PropTypes.object,
 	activationError: PropTypes.object,
 	loading: PropTypes.bool,
+	resetOauthError: PropTypes.func.isRequired,
 };
 
 Activate.defaultProps = {
