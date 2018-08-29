@@ -149,7 +149,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       </span>
     </button>
     <a
-      aria-label={undefined}
       className="c7 c8"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -354,7 +353,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       />
     </div>
     <a
-      aria-label={undefined}
       className="c9 c10"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -575,7 +573,6 @@ exports[`The CourseCard component matches the snapshot 1`] = `
       />
     </div>
     <a
-      aria-label={undefined}
       className="c9 c10"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -777,7 +774,6 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
       />
     </div>
     <a
-      aria-label={undefined}
       className="c9 c10"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -811,11 +807,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
       </a>
        | 
       <a
-        aria-label={undefined}
-        className={undefined}
         href="http://yoast.test/shop"
-        rel={undefined}
-        target={undefined}
       >
         <span>
           Get more
@@ -968,7 +960,6 @@ exports[`The CourseCard component, for a course that has not been bought, matche
     className="c5"
   >
     <a
-      aria-label={undefined}
       className="c6 c7"
       href="http://yoast.test/shop"
       rel="noopener noreferrer"
@@ -1154,7 +1145,6 @@ exports[`The CourseCard component, for a course that has not been started yet wi
       </span>
     </button>
     <a
-      aria-label={undefined}
       className="c7 c8"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -1322,7 +1312,6 @@ exports[`The CourseCard component, for a course that has not been started yet wi
     className="c5"
   >
     <a
-      aria-label={undefined}
       className="c6 c7"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -1557,7 +1546,6 @@ exports[`The CourseCard component, for a course that is completed, matches the s
       />
     </div>
     <a
-      aria-label={undefined}
       className="c9 c10 c11"
       href="http://yoast.academy.test/certificate"
       rel="noopener noreferrer"
@@ -1806,7 +1794,6 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
       />
     </div>
     <a
-      aria-label={undefined}
       className="c11 c12"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
@@ -2013,7 +2000,6 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
     className="c7"
   >
     <a
-      aria-label={undefined}
       className="c8 c9"
       href="http://yoast.test/shop"
       rel="noopener noreferrer"

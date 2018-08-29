@@ -12,7 +12,7 @@ let course = {
 	progress: 50,
 	totalEnrollments: 5,
 	usedEnrollments: 4,
-	availableEnrollment: "",
+	availableEnrollment: {},
 	shopUrl: "http://yoast.test/shop",
 	certificateUrl: "http://yoast.academy.test/certificate",
 	courseUrl: "http://yoast.academy.test/awesome_seo",

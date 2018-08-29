@@ -298,11 +298,6 @@ exports[`the sites component matches the snapshot 1`] = `
             className="c12"
             src="test.jpg"
           />
-          <img
-            alt="Test4 is inactive"
-            className="c12"
-            src="test.jpg"
-          />
         </span>
       </span>
       <span
@@ -345,11 +340,6 @@ exports[`the sites component matches the snapshot 1`] = `
             className="c12"
             src="test.jpg"
           />
-          <img
-            alt="Test4 is inactive"
-            className="c12"
-            src="test.jpg"
-          />
         </span>
       </span>
       <span
@@ -377,21 +367,6 @@ exports[`the sites component matches the snapshot 1`] = `
         className="c9 c4 c10"
       >
         <span>
-          <img
-            alt="Test is active"
-            className="c11"
-            src="test.jpg"
-          />
-          <img
-            alt="Test2 is active"
-            className="c11"
-            src="test.jpg"
-          />
-          <img
-            alt="Test3 is inactive"
-            className="c12"
-            src="test.jpg"
-          />
           <img
             alt="Test4 is inactive"
             className="c12"

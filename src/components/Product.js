@@ -8,7 +8,7 @@ import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
 import _isEmpty from "lodash/isEmpty";
-import { COMPOSER_TOKEN_FEATURE, hasAccessToFeature } from "../functions/features";
+import includes from "lodash/includes";
 
 const messages = defineMessages( {
 	downloadButton: {
@@ -92,17 +92,19 @@ function Product( props ) {
 		productVersion = <ProductVersion> { props.intl.formatMessage( messages.version ) + " " + props.currentVersion }</ProductVersion>;
 	}
 
-	let ComposerLink = null;
+	let composerDownload = null;
 
-	if ( props.glNumber === "82108" || hasAccessToFeature( COMPOSER_TOKEN_FEATURE ) ) {
-		ComposerLink = <Download>
-			<Link to="#" onClick={ () => {
-				props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
-			} }
-			>
-				<FormattedMessage id="downloadsPage.product.install-with-composer" defaultMessage="or install with Composer" />
-			</Link>
-		</Download>;
+	if ( includes( [ "plugin", "typo3-extension" ], props.type ) ) {
+		composerDownload =
+			<Download>
+				<Link to="#" onClick={ ( event ) => {
+					event.preventDefault();
+					props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
+				} }>
+					<FormattedMessage id="downloadsPage.product.install-with-composer"
+					                  defaultMessage="or install with Composer"/>
+				</Link>
+			</Download>;
 	}
 
 	return (
@@ -124,7 +126,7 @@ function Product( props ) {
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
-				{ ComposerLink }
+				{composerDownload}
 			</Downloads>
 		</ProductContainer>
 	);
@@ -139,6 +141,7 @@ Product.propTypes = {
 	intl: intlShape.isRequired,
 	composerToken: PropTypes.object,
 	onComposerHelpModalOpen: PropTypes.func,
+	type: PropTypes.string,
 };
 
 export default injectIntl( Product );

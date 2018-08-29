@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Subscription component matches the snapshot 1`] = `
-.c0 {
+.c1 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -19,20 +19,20 @@ exports[`The Subscription component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c0:first-child {
+.c1:first-child {
   margin-top: 64px;
 }
 
-.c3 {
+.c4 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c3:first-child {
+.c4:first-child {
   padding-left: 0;
 }
 
-.c3::before {
+.c4::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -41,7 +41,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
   content: none;
 }
 
-.c3::after {
+.c4::after {
   position: relative;
   display: inline-block;
   border-right: 2px solid #ddd;
@@ -50,7 +50,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
   content: "";
 }
 
-.c6 {
+.c7 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -58,11 +58,11 @@ exports[`The Subscription component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c6:first-child {
+.c7:first-child {
   padding-left: 0;
 }
 
-.c6::before {
+.c7::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -71,28 +71,8 @@ exports[`The Subscription component matches the snapshot 1`] = `
   content: "Product";
 }
 
-.c8 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c8:first-child {
-  padding-left: 0;
-}
-
-.c8::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Level";
-}
-
 .c9 {
+  min-width: 116px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -110,28 +90,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Used";
-}
-
-.c10 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c10:first-child {
-  padding-left: 0;
-}
-
-.c10::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Next billing";
+  content: "Status";
 }
 
 .c11 {
@@ -152,19 +111,61 @@ exports[`The Subscription component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
+  content: "Used";
+}
+
+.c13 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c13:first-child {
+  padding-left: 0;
+}
+
+.c13::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Next billing";
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
   content: "Amount";
 }
 
-.c12 {
+.c15 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c12:first-child {
+.c15:first-child {
   padding-left: 0;
 }
 
-.c12::before {
+.c15::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -173,114 +174,127 @@ exports[`The Subscription component matches the snapshot 1`] = `
   content: none;
 }
 
-.c5 {
+.c6 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c2 {
+.c3 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c7 {
+.c8 {
   -webkit-flex: 1 0 100px;
   -ms-flex: 1 0 100px;
   flex: 1 0 100px;
 }
 
-.c1 {
+.c2 {
   height: 48px;
 }
 
-.c4 {
+.c5 {
   height: inherit;
 }
 
+.c0 {
+  color: inherit;
+}
+
+.c12 {
+  padding-left: 0px;
+  min-width: 102px;
+}
+
+.c10 {
+  color: inherit;
+  font-weight: inherit;
+}
+
 @media screen and ( max-width:800px ) {
-  .c0 {
+  .c1 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c3::after {
+  .c4::after {
     padding-right: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c3 {
+  .c4 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c7 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c13 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c6 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c8 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c8 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c9 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c9 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c10 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c10 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c11 {
-    padding-left: 20px;
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c11 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c12 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c5 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -288,50 +302,54 @@ exports[`The Subscription component matches the snapshot 1`] = `
 }
 
 <li
-  className="c0"
+  className="c0 c1"
 >
   <span
-    className="c1 c2 c3"
+    className="c2 c3 c4"
   >
     <img
       alt=""
-      className="c4"
+      className="c5"
       src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
     />
   </span>
   <span
-    className="c5 c6"
+    className="c6 c7"
   >
     SEO Premium for WordPress
   </span>
   <span
-    className="c7 c8"
+    className="c8 c9"
   >
-    20 sites
+    <span
+      className="c10"
+    >
+      Active
+    </span>
   </span>
   <span
-    className="c7 c9"
+    className="c8 c11"
   >
     14
     /
     20
   </span>
   <span
-    className="c7 c10"
+    className="c12 c8 c13"
   >
     <span>
       April 4, 2017
     </span>
   </span>
   <span
-    className="c7 c11"
+    className="c8 c14"
   >
     <span>
       $125.12
     </span>
   </span>
   <span
-    className="c2 c12"
+    className="c3 c15"
   />
 </li>
 `;

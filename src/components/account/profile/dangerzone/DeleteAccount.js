@@ -92,6 +92,7 @@ DeleteAccount.propTypes = {
 
 DeleteAccount.defaultProps = {
 	someProp: "[Some Text]",
+	isDeleting: false,
 };
 
 export default injectIntl( DeleteAccount );

@@ -14,7 +14,7 @@ export default function Subscriptions( props ) {
 	return (
 	<Paper>
 		<ListTable>
-			{ props.activeSubscriptions.map( function( subscription ) {
+			{ props.subscriptions.map( function( subscription ) {
 				let onManageHandler = () => {
 					props.onManage( subscription.id );
 				};
@@ -23,6 +23,7 @@ export default function Subscriptions( props ) {
 					id={ subscription.id }
 					iconSource={ subscription.icon }
 					name={ subscription.name }
+					status={subscription.status}
 					used={ subscription.used }
 					limit={ subscription.limit }
 					hasNextPayment={ subscription.hasNextPayment }
@@ -40,7 +41,7 @@ export default function Subscriptions( props ) {
 }
 
 Subscriptions.propTypes = {
-	activeSubscriptions: PropTypes.arrayOf(
+	subscriptions: PropTypes.arrayOf(
 		PropTypes.shape(
 			{
 				id: PropTypes.string.isRequired,

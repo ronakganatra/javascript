@@ -15,7 +15,11 @@ test('the subscription detail component matches the snapshot', () => {
 			<SubscriptionDetails
 				startDate={ new Date( "June 1, 2017" ) }
 				hasNextBilling={ true }
+				hasEndDate={ false }
+				endDate={ new Date() }
 				nextBilling={ new Date( "June 1, 2018" ) }
+				onCancelClick={ () => {} }
+				canCancel={ true }
 				orders={ [
 					{
 						id: "1",
@@ -32,12 +36,14 @@ test('the subscription detail component matches the snapshot', () => {
 				] }
 				current={ 6 }
 				max={ 10 }
+				status={ "active" }
 			/>
 		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
+
 });
 
 test('the subscription detail component has no next billing', () => {
@@ -47,6 +53,10 @@ test('the subscription detail component has no next billing', () => {
 				startDate={ new Date( "June 1, 2017" ) }
 				hasNextBilling={ false }
 				nextBilling={ new Date() }
+				hasEndDate={ false }
+				endDate={ new Date() }
+				onCancelClick={ () => {} }
+				canCancel={ false }
 				orders={ [
 					{
 						id: "1",
@@ -63,6 +73,7 @@ test('the subscription detail component has no next billing', () => {
 				] }
 				current={ 6 }
 				max={ 10 }
+				status={"active"}
 			/>
 		</MemoryRouter>
 	);

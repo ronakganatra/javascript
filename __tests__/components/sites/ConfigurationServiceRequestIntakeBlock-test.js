@@ -27,11 +27,3 @@ test('the configuration service request intake block component calls the supplie
 	expect(mockupFunction).toHaveBeenCalled();
 });
 
-test('the configuration service request status block with status completed component matches the snapshot', () => {
-	const component = createComponentWithIntl(
-		<ConfigurationServiceRequestIntakeBlock status="completed" />
-	);
-
-	let tree = component.toJSON();
-	expect(tree).toMatchSnapshot();
-});
