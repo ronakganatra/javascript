@@ -1,4 +1,4 @@
-import { LINK_SITE_SUCCESS, LINK_SITE_FAILURE } from "../../src/actions/sites";
+import { LINK_SITE_FAILURE } from "../../src/actions/sites";
 import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entitiesSubscriptionsReducer, entitiesProductsReducer, uiSiteReducer, entitiesCoursesReducer} from "../../src/reducers/index"
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";

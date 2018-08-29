@@ -42,6 +42,13 @@ let plugins = [
 		icon: "test.jpg",
 		name: "Test4",
 		type: "plugin",
+	},
+	{
+		glNumber: 555,
+		ids: [ "5" ],
+		icon: "test.jpg",
+		name: "Test5",
+		type: "typo3",
 	}
 ];
 
@@ -75,8 +82,20 @@ test('the sites page component with a site matches the snapshot', () => {
 	};
 
 	const component = createComponentWithIntl(
-		<SitesPage sites={ [ site ] } addSite={ () => {} } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } plugins={ plugins } />
+		<SitesPage
+			sites={ [ site ] }
+			addSite={ () => {} }
+			onSearchChange={ () => {} }
+			onConnect={ () => {} }
+			onClose={ () => {} }
+			onManage={ () => {} }
+			onChange={ () => {} }
+			configureConfigurationServiceRequest={ () => {} }
+			onConfigurationModalClose={ () => {} }
+			openConfigurationServiceRequestModal={ () => {} }
+			errorFound={ false }
+			query=""
+			plugins={ plugins } />
 
 	);
 
@@ -86,8 +105,19 @@ test('the sites page component with a site matches the snapshot', () => {
 
 test('the sites page component without sites handling an onclick event on the add site button', () => {
 	const component = createComponentWithIntl(
-		<SitesPage sites={ [] } addSite={ () => { return 'Add site'; } } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } plugins={ [] } />
+		<SitesPage sites={ [] }
+		           addSite={ () => { return 'Add site'; } }
+		           onSearchChange={ () => {} }
+		           onConnect={ () => {} }
+		           onClose={ () => {} }
+		           onChange={ () => {} }
+		           errorFound={ false }
+		           onManage={ () => {} }
+		           configureConfigurationServiceRequest={ () => {} }
+		           onConfigurationModalClose={ () => {} }
+		           openConfigurationServiceRequestModal={ () => {} }
+		           query=""
+		           plugins={ [] } />
 	);
 
 	let tree = component.toJSON();
@@ -109,8 +139,19 @@ test('the sites page component with sites handling an onclick event on the add s
 				siteType: "wordpress",
 				activeSubscriptions: activeSubscriptions,
 				siteIcon: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
-			},] } addSite={ () => { return 'Add site'; } } onSearchChange={ () => {} } onConnect={ () => {} } onClose={ () => {} }
-				   onChange={ () => {} } errorFound={ false } query="" onManage={ () => {} } plugins={ plugins } />
+			},] }
+		           addSite={ () => { return 'Add site'; } }
+		           onSearchChange={ () => {} }
+		           onConnect={ () => {} }
+		           onClose={ () => {} }
+				   onChange={ () => {} }
+				   errorFound={ false }
+				   onManage={ () => {} }
+				   configureConfigurationServiceRequest={ () => {} }
+				   onConfigurationModalClose={ () => {} }
+				   openConfigurationServiceRequestModal={ () => {} }
+				   query=""
+				   plugins={ plugins } />
 	);
 
 	let tree = component.toJSON();

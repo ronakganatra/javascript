@@ -28,14 +28,10 @@ export const mapStateToProps = ( state ) => {
 		return subscriptionProps;
 	} );
 
-	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active" || subscription.status === "pending-cancel";
-	} );
-
 	let query = state.ui.search.query;
 
 	if ( query.length > 0 ) {
-		activeSubscriptions = activeSubscriptions.filter( ( subscription ) => {
+		subscriptions = subscriptions.filter( ( subscription ) => {
 			let formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
 				month: "long",
@@ -51,7 +47,7 @@ export const mapStateToProps = ( state ) => {
 	}
 
 	return {
-		activeSubscriptions,
+		subscriptions,
 		query,
 	};
 };

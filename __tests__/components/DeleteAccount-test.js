@@ -5,7 +5,9 @@ import DeleteAccount from "../../src/components/account/profile/dangerzone/Delet
 
 test('The delete account component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<DeleteAccount/>
+		<DeleteAccount
+			onDeleteProfile={ () => {} }
+		/>
 	);
 
 	let tree = component.toJSON();
@@ -14,7 +16,10 @@ test('The delete account component matches the snapshot', () => {
 
 test('The delete profile button is labeled "Deleting your account" when deleting is in process', () => {
 	const component = createComponentWithIntl(
-		<DeleteAccount isDeleting={ true }/>
+		<DeleteAccount
+			isDeleting={ true }
+			onDeleteProfile={ () => {} }
+		/>
 	);
 
 	let tree = component.toJSON();
@@ -31,7 +36,9 @@ test('Clicking on the "Delete profile" button calls the onDeleteProfile callback
 	};
 
 	const component = createComponentWithIntl(
-		<DeleteAccount onDeleteProfile={ mockedDeleteCallback }/>
+		<DeleteAccount
+			onDeleteProfile={ mockedDeleteCallback }
+		/>
 	);
 
 	let tree = component.toJSON();

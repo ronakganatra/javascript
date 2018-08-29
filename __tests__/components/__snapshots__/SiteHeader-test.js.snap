@@ -175,7 +175,6 @@ exports[`the site header matches the snapshot 1`] = `
     className="c3"
   >
     <a
-      aria-label={undefined}
       className="c4 c5 c6"
       href="http://placehold.it//wp-admin"
       rel="noopener noreferrer"

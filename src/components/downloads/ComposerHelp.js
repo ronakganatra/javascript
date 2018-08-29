@@ -15,6 +15,7 @@ const GlNumberMapping = {
 	82104: "yoast/yoast-news-seo",
 	82108: "yoast-seo-for-typo3/yoast_seo_premium",
 };
+const WordPressGlNumbers = [ "82103", "82106", "82101", "82102", "82105", "82104" ];
 
 const ComposerHelpModal = styled.div`
 	max-width: 640px;
@@ -46,13 +47,19 @@ const CodeBlock = styled.pre`
 	background-color: #efefef;
 	padding: 4px 8px;
 	max-width: 100%;
-	overflow-x: scroll;
+	overflow-x: auto;
 `;
 
 const ShellCodeBlock = styled( CodeBlock )`
 	&:before {
 		content: "$ "
 	}
+`;
+
+const InlineCodeBlock = styled( CodeBlock )`
+	display: inline;
+	margin: 0 2px;
+	padding: 2px 4px;
 `;
 
 const CreateButton = makeButtonFullWidth( LargeButton );
@@ -95,9 +102,9 @@ function ComposerHelp( props ) {
 					<ShellCodeBlock>composer config -g http-basic.my.yoast.com token { props.composerToken.id }</ShellCodeBlock>
 					<FormattedMessage
 						id="composer-help.register-token"
-						defaultMessage="You can then add our secure repository by adding the following line to your composer.json:"
+						defaultMessage="You can then add our secure repository by running the following command:"
 					/>
-					<CodeBlock>"repositories": [ { "{" } "type": "composer", "url": "https://my.yoast.com/packages/" } ]</CodeBlock>
+					<ShellCodeBlock>composer config repositories.my-yoast composer https://my.yoast.com/packages/</ShellCodeBlock>
 					<FormattedMessage
 						id="composer-help.register-token"
 						defaultMessage="Now you can install the {product} by running:"
@@ -106,6 +113,18 @@ function ComposerHelp( props ) {
 						} }
 					/>
 					<ShellCodeBlock>composer require { GlNumberMapping[ props.productGlNumber ] }</ShellCodeBlock>
+					{ WordPressGlNumbers.includes( props.productGlNumber ) &&
+						<FormattedMessage
+							id="composer-help.require-autoload"
+							defaultMessage="In order to use the {product} with Composer you will have to require Composer's {autoload} file.
+							We recommend adding this to your {wpConfig} file."
+							values={ {
+								product: props.productName,
+								autoload: <InlineCodeBlock>vendor/autoload.php</InlineCodeBlock>,
+								wpConfig: <InlineCodeBlock>wp-config.php</InlineCodeBlock>,
+							} }
+						/>
+					}
 				</HelpText>
 				: <HelpText>
 					<FormattedMessage

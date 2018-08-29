@@ -284,7 +284,6 @@ exports[`the configuration service request status block component with status in
           />
         </p>
         <a
-          aria-label={undefined}
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           rel="noopener noreferrer"
@@ -490,7 +489,6 @@ exports[`the configuration service request status block component with status su
           />
         </p>
         <a
-          aria-label={undefined}
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           rel="noopener noreferrer"

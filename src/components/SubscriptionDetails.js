@@ -3,8 +3,10 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
-import { injectIntl, intlShape, FormattedDate, defineMessages } from "react-intl";
+import { injectIntl, intlShape, FormattedDate, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
+import Link from "./Link";
+import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -15,9 +17,17 @@ const messages = defineMessages( {
 		id: "subscriptionDetails.invoices.title",
 		defaultMessage: "Invoices",
 	},
+	status: {
+		id: "subscriptionDetails.paymentDetails.status",
+		defaultMessage: "Subscription status",
+	},
 	startDate: {
 		id: "subscriptionDetails.paymentDetails.start-date",
 		defaultMessage: "Start date",
+	},
+	endDate: {
+		id: "subscriptionDetails.paymentDetails.end-date",
+		defaultMessage: "End date",
 	},
 	nextBilling: {
 		id: "subscriptionDetails.paymentDetails.nextBilling",
@@ -26,6 +36,14 @@ const messages = defineMessages( {
 	invoiceButton: {
 		id: "subscriptionDetails.buttons.invoice",
 		defaultMessage: "Invoice",
+	},
+	cancelLink: {
+		id: "subscriptionDetails.buttons.cancel",
+		defaultMessage: "Cancel subscription",
+	},
+	cancelPending: {
+		id: "subscriptionDetails.cancelPending",
+		defaultMessage: "Your subscription has been cancelled.",
 	},
 } );
 
@@ -57,7 +75,9 @@ let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
  */
 function SubscriptionDetails( props ) {
 	let nextBilling = "-";
+	let endDate = "-";
 	if ( props.hasNextBilling || props.hasEndDate ) {
+		// Use end date for EDD subscriptions which will be renewed in a new WooCommerce Subscription.
 		nextBilling = <FormattedDate
 			value={ props.hasNextBilling ? props.nextBilling : props.endDate }
 			year="numeric"
@@ -66,29 +86,94 @@ function SubscriptionDetails( props ) {
 		/>;
 	}
 
+	if ( props.hasEndDate ) {
+		endDate = <FormattedDate
+			value={ props.endDate }
+			year="numeric"
+			month="long"
+			day="2-digit"
+		/>;
+	}
+
+	let statusRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="status">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.status ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ capitalizeFirstLetter( props.status ) }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	let startingDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.startDate ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				<FormattedDate
+					value={ props.startDate }
+					year='numeric'
+					month='long'
+					day='2-digit'
+				/>
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	let nextBillingDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.nextBilling ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ nextBilling }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	let endDateRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="end-date">
+			<ColumnMinWidth ellipsis={ true }>
+				{ props.intl.formatMessage( messages.endDate ) }
+			</ColumnMinWidth>
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ endDate }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight>
+	);
+
+	// Shown when the cancellation of the subscription is pending.
+	let pendingCancelMessage = <FormattedMessage { ...messages.cancelPending } />;
+
+	// Shown when the subscription can be cancelled, but has not been cancelled yet.
+	let cancelLink = (
+		<Link to={ "#" } onClick={ props.onCancelClick }>
+			<FormattedMessage { ...messages.cancelLink } />
+		</Link>
+	);
+
+	let cancelSubscriptionRow = (
+		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
+			<ColumnFixedWidthResponsive ellipsis={ true }>
+				{ props.status === "pending-cancel" ? pendingCancelMessage : cancelLink }
+			</ColumnFixedWidthResponsive>
+		</RowMobileCollapseNoMinHeight> );
+
+	let rows = [ statusRow, startingDateRow ];
+	if ( props.status === "active" || props.status === "on-hold" ) {
+		rows.push( nextBillingDateRow );
+	} else {
+		rows.push( endDateRow );
+	}
+	if ( props.canCancel ) {
+		rows.push( cancelSubscriptionRow );
+	}
+
 	return (
 		<ListTable>
-			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
-				<ColumnMinWidth ellipsis={ true }>
-					{ props.intl.formatMessage( messages.startDate ) }
-				</ColumnMinWidth>
-				<ColumnFixedWidthResponsive ellipsis={ true }>
-					<FormattedDate
-						value={ props.startDate }
-						year='numeric'
-						month='long'
-						day='2-digit'
-					/>
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapseNoMinHeight>
-			<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
-				<ColumnMinWidth ellipsis={ true }>
-					{ props.intl.formatMessage( messages.nextBilling ) }
-				</ColumnMinWidth>
-				<ColumnFixedWidthResponsive ellipsis={ true }>
-					{ nextBilling }
-				</ColumnFixedWidthResponsive>
-			</RowMobileCollapseNoMinHeight>
+			{ rows }
 		</ListTable>
 	);
 }
@@ -103,7 +188,9 @@ SubscriptionDetails.propTypes = {
 	max: PropTypes.number.isRequired,
 	current: PropTypes.number.isRequired,
 	intl: intlShape.isRequired,
-	subscription: PropTypes.string,
+	onCancelClick: PropTypes.func.isRequired,
+	canCancel: PropTypes.bool.isRequired,
+	status: PropTypes.string.isRequired,
 };
 
 export default injectIntl( SubscriptionDetails );

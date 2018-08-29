@@ -60,6 +60,10 @@ test('the site page component matches the snapshot', () => {
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }
 				onClose={ () => {} }
+				onToggleDisabled={ () => {} }
+				onConfigurationModalClose={ () => {} }
+				configureConfigurationServiceRequest={ () => {} }
+				openConfigurationServiceRequestModal={ () => {} }
 				addSubscriptionModal= { { id: "bla" } } />
 		</MemoryRouter>
 	);
@@ -123,6 +127,10 @@ test('the site page component matches the snapshot for a site in a directory', (
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }
 				onClose={ () => {} }
+				onToggleDisabled={ () => {} }
+				onConfigurationModalClose={ () => {} }
+				configureConfigurationServiceRequest={ () => {} }
+				openConfigurationServiceRequestModal={ () => {} }
 				addSubscriptionModal= { { id: "bla" } } />
 		</MemoryRouter>
 	);
@@ -186,6 +194,10 @@ test('the site page component matches the snapshot for a site on the TYPO3 platf
 				onToggleSubscription={ () => {} }
 				onRemove={ () => {} }
 				onClose={ () => {} }
+				onToggleDisabled={ () => {} }
+				onConfigurationModalClose={ () => {} }
+				configureConfigurationServiceRequest={ () => {} }
+				openConfigurationServiceRequestModal={ () => {} }
 				addSubscriptionModal= { { id: "bla" } } />
 		</MemoryRouter>
 	);
