@@ -60,7 +60,7 @@ class Activate extends React.Component {
 			key: parsedQuery.key || "",
 		};
 
-		if ( ! this.props.loading ) {
+		if ( ! this.props.loading && ! this.props.loggedIn ) {
 			this.props.activateUser( this.state.key );
 		}
 
