@@ -74,19 +74,18 @@ class ProfileDetails extends React.Component {
 	/**
 	 * Submits the entered first name, last name and profile image to the server.
 	 *
-	 * @param {string} first_name The entered first name.
-	 * @param {string} last_name The entered last name.
+	 * @param {string} firstName The entered first name.
+	 * @param {string} lastName The entered last name.
 	 * @param {File} userAvatarUrl The uploaded image.
 	 * @returns {void}
 	 */
 
-	/* eslint-disable camelcase */
-	handleSubmit( first_name, last_name, userAvatarUrl ) {
-		this.props.attemptSubmitProfile( { first_name, last_name }, userAvatarUrl );
+
+	handleSubmit( firstName, lastName, userAvatarUrl ) {
+		/* eslint-disable camelcase */
+		this.props.attemptSubmitProfile( { first_name: firstName, last_name: lastName }, userAvatarUrl );
+		/* eslint-enable camelcase */
 	}
-
-	/* eslint-enable camelcase */
-
 
 	render() {
 		let saveMessage = messages.goToMyYoast;
