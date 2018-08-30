@@ -19,7 +19,7 @@ const rootState = {
  */
 
 /**
- * A reducer for the orders object within the ui object.
+ * A reducer for the activate object within the ui object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
