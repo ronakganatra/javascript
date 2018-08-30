@@ -52,7 +52,6 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 				error: null,
 			} );
 		case LOGIN_OAUTH_RESET:
-			console.log( "OAuth reset." );
 			return Object.assign( {}, state, {
 				error: null,
 				oauthError: false,
