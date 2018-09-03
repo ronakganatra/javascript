@@ -36,7 +36,8 @@ const Label = styled.label`
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-
+	
+	z-index: 1;
 `;
 
 const CheckboxInput = styled.input`

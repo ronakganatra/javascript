@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React  from "react";
 import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
@@ -64,6 +64,10 @@ const messages = defineMessages( {
 		id: "signup.password",
 		defaultMessage: "Password",
 	},
+	labelOTP: {
+		id: "signup.otp",
+		defaultMessage: "Verification code",
+	},
 	loginButton: {
 		id: "login.login",
 		defaultMessage: "Log in",
@@ -121,6 +125,21 @@ const LoginForm = ( props ) => {
 				/>
 			</LabelBlock>
 
+			{
+				props.requireOTP &&
+				<LabelBlock>
+					<Label htmlFor="otp">
+						<FormattedMessage { ...messages.labelOTP } />
+					</Label>
+					<TextInput
+						id="otp"
+						name="otp"
+						type="text"
+						onChange={ props.onUpdateOTP }
+					/>
+				</LabelBlock>
+			}
+
 			<ForgotPasswordLink>
 				<a href="/forgot-password">
 					<FormattedMessage { ...messages.forgotPassword } />
@@ -148,11 +167,13 @@ LoginForm.propTypes = {
 	email: PropTypes.string,
 	password: PropTypes.string,
 	errors: PropTypes.object,
-	onUpdateEmail: PropTypes.func,
-	onUpdatePassword: PropTypes.func,
+	onUpdateEmail: PropTypes.func.isRequired,
+	onUpdatePassword: PropTypes.func.isRequired,
+	onUpdateOTP: PropTypes.func.isRequired,
 	onRememberCheck: PropTypes.func,
 	handleSubmit: PropTypes.func,
 	loading: PropTypes.bool,
+	requireOTP: PropTypes.bool.isRequired,
 };
 
 LoginForm.defaultProps = {
@@ -161,6 +182,7 @@ LoginForm.defaultProps = {
 	password: "",
 	errors: null,
 	loading: false,
+	requireOTP: false,
 };
 
 export default injectIntl( LoginForm );

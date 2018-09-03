@@ -12,7 +12,7 @@
     "type": "error"
   },
   "learndash_course_not_enrolled": {
-   "message": "The user is not enrolled in this course.",
+    "message": "The user is not enrolled in this course.",
     "type": "error"
   },
   "learndash_course_already_started": {
@@ -65,7 +65,14 @@
   },
   "user_email": {
     "message": "The email address you provided has already been used. Please try another email address.",
-
     "type": "error"
+  },
+  "invalid_google_authenticator_token": {
+    "message": "Your verification code is incorrect or has expired.",
+    "type": "error"
+  },
+  "otp_required": {
+    "message": "Please enter your verification code.",
+    "type": "warning"
   }
 }
