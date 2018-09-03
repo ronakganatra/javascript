@@ -77,6 +77,11 @@ export function logout() {
 						// A failed logout may indicate that there's something wrong with the user on the yoast.com side. They might have logged out on yoast.com since.
 						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
 						removeAuthCookies();
+						// When the user was not logged in in the first place, we consider the logout a success after removing the MyYoast Auth cookies.
+						if ( error.error.code === "user_not_logged_in" ) {
+							dispatch( logoutSuccess() );
+							return;
+						}
 						dispatch( logoutFailure( error ) );
 					} );
 			} )
