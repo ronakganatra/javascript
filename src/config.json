@@ -44,6 +44,6 @@
     }
   },
   "order": {
-    "Orders": "invoiceNumber DESC"
+    "Orders": "date DESC"
   }
 }

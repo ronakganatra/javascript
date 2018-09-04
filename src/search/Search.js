@@ -80,7 +80,7 @@ class Search extends React.Component {
 		} );
 
 		if ( config.order[ query.resource ] ) {
-			order.push( `${ config.order[ query.resource ] }` );
+			order.unshift( `${ config.order[ query.resource ] }` );
 		}
 
 		// Make order unique.
