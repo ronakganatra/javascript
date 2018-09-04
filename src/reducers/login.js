@@ -1,5 +1,5 @@
 import {
-	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST, LOGIN_OAUTH_RESET,
+	LOGIN_FAILURE, LOGIN_OAUTH_FAILURE, LOGIN_REQUEST, LOGIN_OAUTH_RESET, REQUIRE_OTP,
 } from "../actions/login";
 import { LOGIN } from "../actions/user";
 
@@ -13,6 +13,8 @@ const rootState = {
 			loading: false,
 			error: null,
 			oauthError: false,
+			requireOTP: false,
+			amountOfOTPWarnings: 0,
 		},
 	},
 };
@@ -34,6 +36,8 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 			return Object.assign( {}, state, {
 				loading: false,
 				error: null,
+				requireOTP: false,
+				amountOfOTPWarnings: 0,
 			} );
 		case LOGIN_FAILURE:
 			return Object.assign( {}, state, {
@@ -55,6 +59,11 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 			return Object.assign( {}, state, {
 				error: null,
 				oauthError: false,
+			} );
+		case REQUIRE_OTP:
+			return Object.assign( {}, state, {
+				requireOTP: true,
+				amountOfOTPWarnings: state.amountOfOTPWarnings + 1,
 			} );
 		default:
 			return state;

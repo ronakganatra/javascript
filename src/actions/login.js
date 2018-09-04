@@ -13,6 +13,7 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE";
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_OAUTH_FAILURE = "LOGIN_OAUTH_FAILURE";
 export const LOGIN_OAUTH_RESET = "LOGIN_OAUTH_RESET";
+export const REQUIRE_OTP = "REQUIRE_OTP";
 
 /**
  * Action creators
@@ -71,6 +72,17 @@ export function resetOauthError() {
 }
 
 /**
+ * An action creator to the requireOTP action.
+ *
+ * @returns {Object} A requireOTP action.
+ */
+export function requireOTP() {
+	return {
+		type: REQUIRE_OTP,
+	};
+}
+
+/**
  * An action creator for the login request action.
  *
  * Attempts to log in a user by doing an API call to the MyYoast server, which forwards it to yoast.com's APIs.
@@ -100,6 +112,9 @@ export function loginRequest( params ) {
 					} );
 			} )
 			.catch( ( error ) => {
+				if ( error.error && error.error.code === "invalid_google_authenticator_token" ) {
+					dispatch( requireOTP() );
+				}
 				dispatch( loginFailure( error ) );
 			} );
 

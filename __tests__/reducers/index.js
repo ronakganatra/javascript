@@ -242,61 +242,63 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 		type: LINK_SITE_FAILURE,
 	};
 	const expected = {
-		"entities":
-			{ "composerTokens": {
+		"entities": {
+			"composerTokens": {
 				"allIds": { "name": "allIdsComposerTokensReducer" },
-				"byId": { "name": "byIdComposerTokensReducer" } },
-				"configurationServiceRequests": {
-					"allIds": { "name": "allIdsConfigurationServiceRequestsReducer" },
-					"byId": {"name": "byIdConfigurationServiceRequestsReducer" } },
-				"courses": {
-					"allIds": { "name": "allIdsCoursesReducer" },
-					"byId": { "name": "byIdCoursesReducer" } },
-				"coursesEnrollments": {
-					"allIds": {"name": "allIdsCoursesEnrollmentsReducer" },
-					"byId": { "name": "byIdCoursesEnrollmentsReducer" } },
-				"orders": {
-					"allIds": [],
-					"byId": {}},
-				"products": {
-					"allIds": { "name": "allIdsProductsReducer" },
-					"byId": { "name": "byIdProductsReducer" } },
-				"refunds": {
-					"allIds": { "name": "allIdsRefundsReducer" },
-					"byId": { "name": "byIdRefundsReducer" } },
-				"sites": {
-					"allIds": { "name": "allIdsReducer" },
-					"byId": { "name": "byIdReducer" } },
-				"subscriptions": {
-					"allIds": { "name": "allIdsSubscriptionsReducer" },
-					"byId": { "name": "byIdSubscriptionsReducer" } } },
-				"router": { "location": "URL" },
-				"ui": {
-					"activate": {
-						"activationError": null,
-						"loading": false },
-						"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
-						"composerTokens": { "name": "uiComposerTokensReducer"},
-						"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
-						"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" }, "invoiceModal": { "name": "uiInvoicesReducer" },
-						"login": { "error": null, "loading": false, "oauthError": false },
-						"newsletter": { "name": "uiNewsletterReducer" },
-						"orders": { "error": "", "retrievingOrders": false },
-						"products": { "name": "uiAllProductsReducer" },
-						"refunds": { "name": "uiRefundsReducer" },
-						"resetPassword": {
-							"error": null,
-							"loading": false,
-							"passwordRequestSent": false,
-							"passwordResetSuccess": false,
-							"submitErrors": null},
-						"search": { "query": "" },
-						"signup": { "error": null, "loading": false, "signupRequestSuccess": false },
-						"site": { "name": "uiSiteReducer" },
-						"sites": { "name": "uiSitesReducer" },
-						"subscriptions": { "name": "uiAllSubscriptionsReducer" } },
-						"user": { "name": "userReducer" }
-				};
+				"byId": { "name": "byIdComposerTokensReducer" }
+			},
+			"configurationServiceRequests": {
+				"allIds": { "name": "allIdsConfigurationServiceRequestsReducer" },
+				"byId": { "name": "byIdConfigurationServiceRequestsReducer" }
+			},
+			"courses": { "allIds": { "name": "allIdsCoursesReducer" }, "byId": { "name": "byIdCoursesReducer" } },
+			"coursesEnrollments": {
+				"allIds": { "name": "allIdsCoursesEnrollmentsReducer" },
+				"byId": { "name": "byIdCoursesEnrollmentsReducer" }
+			},
+			"orders": { "allIds": [], "byId": {} },
+			"products": { "allIds": { "name": "allIdsProductsReducer" }, "byId": { "name": "byIdProductsReducer" } },
+			"refunds": { "allIds": { "name": "allIdsRefundsReducer" }, "byId": { "name": "byIdRefundsReducer" } },
+			"sites": { "allIds": { "name": "allIdsReducer" }, "byId": { "name": "byIdReducer" } },
+			"subscriptions": {
+				"allIds": { "name": "allIdsSubscriptionsReducer" },
+				"byId": { "name": "byIdSubscriptionsReducer" }
+			}
+		},
+		"router": { "location": "URL" },
+		"ui": {
+			"activate": { "activationError": null, "loading": false },
+			"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
+			"composerTokens": { "name": "uiComposerTokensReducer" },
+			"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
+			"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
+			"invoiceModal": { "name": "uiInvoicesReducer" },
+			"login": {
+				"amountOfOTPWarnings": 0,
+				"error": null,
+				"loading": false,
+				"oauthError": false,
+				"requireOTP": false
+			},
+			"newsletter": { "name": "uiNewsletterReducer" },
+			"orders": { "error": "", "retrievingOrders": false },
+			"products": { "name": "uiAllProductsReducer" },
+			"refunds": { "name": "uiRefundsReducer" },
+			"resetPassword": {
+				"error": null,
+				"loading": false,
+				"passwordRequestSent": false,
+				"passwordResetSuccess": false,
+				"submitErrors": null
+			},
+			"search": { "query": "" },
+			"signup": { "error": null, "loading": false, "signupRequestSuccess": false },
+			"site": { "name": "uiSiteReducer" },
+			"sites": { "name": "uiSitesReducer" },
+			"subscriptions": { "name": "uiAllSubscriptionsReducer" }
+		},
+		"user": { "name": "userReducer" }
+	};
 
 const actual = rootReducer( state, action );
 	expect( actual ).toEqual( expected );

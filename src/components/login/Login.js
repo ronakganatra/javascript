@@ -19,12 +19,14 @@ class Login extends React.Component {
 			email: "",
 			password: "",
 			rememberMe: false,
+			otp: "",
 		};
 
 		this.onRememberCheck = this.onRememberCheck.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdateEmail = this.onUpdateField.bind( this, "email" );
 		this.onUpdatePassword = this.onUpdateField.bind( this, "password" );
+		this.onUpdateOTP = this.onUpdateField.bind( this, "otp" );
 	}
 
 	/**
@@ -65,7 +67,7 @@ class Login extends React.Component {
 		if ( this.props.loading ) {
 			return;
 		}
-		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe };
+		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe, otp: this.state.otp };
 		this.props.attemptLogin( data );
 	}
 
@@ -86,8 +88,10 @@ class Login extends React.Component {
 			           loading={ this.props.loading }
 			           onUpdateEmail={ this.onUpdateEmail }
 			           onUpdatePassword={ this.onUpdatePassword }
+			           onUpdateOTP={ this.onUpdateOTP }
 			           onRememberCheck={ this.onRememberCheck }
 			           handleSubmit={ this.handleSubmit }
+			           requireOTP={ this.props.requireOTP }
 			/>
 		);
 	}
@@ -99,12 +103,14 @@ Login.propTypes = {
 	loading: PropTypes.bool,
 	loggedIn: PropTypes.bool,
 	oauthError: PropTypes.bool,
+	requireOTP: PropTypes.bool.isRequired,
 	attemptLogin: PropTypes.func.isRequired,
 };
 
 Login.defaultProps = {
 	error: null,
 	loading: false,
+	requireOTP: false,
 };
 
 export default injectIntl( Login );

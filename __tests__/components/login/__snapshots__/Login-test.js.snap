@@ -74,6 +74,7 @@ exports[`The Login component matches the snapshot 1`] = `
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  z-index: 1;
 }
 
 .c10 {
