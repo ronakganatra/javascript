@@ -51,6 +51,13 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
+	subscriptions = subscriptions.filter( ( subscription ) => {
+		let currentDate = new Date();
+		let endDate = new Date( subscription.endDate );
+		endDate.setMonth( endDate.getMonth() + 1 );
+		return subscription.hasEndDate && currentDate.getTime() > endDate ? null : subscription;
+	} );
+
 	return {
 		subscriptions,
 		query,

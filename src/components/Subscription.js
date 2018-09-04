@@ -190,14 +190,6 @@ function Subscription( props ) {
 	let amount = null;
 	let billingType = null;
 
-	if ( props.status === "cancelled" ) {
-		let currentDate = new Date();
-		let endDate = props.endDate;
-		if ( currentDate.getTime() > endDate.setMonth( endDate.getMonth() + 1 ) ) {
-			return null;
-		}
-	}
-
 	if ( props.status === "pending-cancel" ) {
 		endDate = <FormattedDate
 			value={ props.hasEndDate && props.endDate }
