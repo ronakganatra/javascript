@@ -145,14 +145,14 @@ getManageButtons.propTypes = {
 };
 
 /**
- * Creates the manage buttons.
+ * Organizes the billing and endDate information under Next Payment.
  *
- * @param {object} status The status of the subscription.
+ * @param {string} status The status of the subscription.
  * @param {ReactElement} endDate The end date of the subscription.
  * @param {string} nextPayment The next billing.
  * @param {string} amount The amount of the next billing.
  *
- * @returns {ReactElement} A Fragment including the next billing information or the endDate of the subscription.
+ * @returns {ReactElement} A Fragment with the next billing information or the endDate of the subscription.
  */
 function getNextBilling( status, endDate, nextPayment, amount ) {
 	if ( status === "pending-cancel" ) {
@@ -170,6 +170,7 @@ getNextBilling.propTypes = {
 	status: PropTypes.string.isRequired,
 	endDate: PropTypes.string,
 };
+
 /**
  * Creates a subscription component
  *
