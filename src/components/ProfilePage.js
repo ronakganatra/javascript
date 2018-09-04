@@ -384,6 +384,7 @@ class ProfilePage extends React.Component {
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
+		// Reminder: the UserImage component has a default prop `alt: ""`.
 		let image = this.props.image ? <UserImage src={ this.props.image } size="120px"/> : "";
 		const gravatarLinkContent = <a target="_blank" rel="noopener noreferrer" href="https://gravatar.com">{ this.props.intl.formatMessage( messages.gravatarLink ) } <NewTabMessage /></a>;
 

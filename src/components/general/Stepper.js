@@ -44,7 +44,7 @@ const StepperButton = styled.button`
 	cursor: pointer;
 	margin: 5px 0;
 	text-align: left;
-	
+
 	&:focus {
 		outline: 0;
 	}
@@ -65,12 +65,12 @@ const StepperContent = styled.div`
 	padding: 0 0 10px 25px;
 	margin-left: 15px;
 	border-left: 1px solid ${ colors.$color_grey_disabled };
-	
+
 	${StepperContainer}:last-child & {
 		margin: 0 0 10px 15px;
 		padding: 0 0 0 25px;
 	}
-	
+
 	> div > p:first-child {
 		margin-top: 0;
 	}
@@ -108,7 +108,7 @@ class Step extends React.Component {
 
 	getIcon() {
 		if ( this.state.completed ) {
-			return <ActiveStepperIcon><IconCompleted src={ check }/></ActiveStepperIcon>;
+			return <ActiveStepperIcon><IconCompleted src={ check } alt="" /></ActiveStepperIcon>;
 		}
 
 		if ( this.props.active ) {
