@@ -17,7 +17,6 @@ const TextInput = styled( InputField )`
 `;
 
 const FormGroup = styled.form`
-	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 400px;
 	min-height: 400px;
@@ -35,17 +34,13 @@ const ForgotPasswordLink = styled.div`
 	margin-top: 10px;
 `;
 
-const SaveButtonArea = styled.div`
-	
-`;
-
 const SaveButton = styled( Button )`
 	margin: 1em 0;
 	width: 100%;
 
-	 ${( { disableds } ) => disableds && `
-	    background: ${colors.$color_grey_disabled };
-	  `}
+	${( { disableds } ) => disableds && `
+		background: ${colors.$color_grey_disabled };
+	`}
 `;
 
 const RememberMe = styled.div`
@@ -128,16 +123,19 @@ const LoginForm = ( props ) => {
 			</ForgotPasswordLink>
 
 			<RememberMe>
-				<Checkbox id="remember-me" onCheck={ props.onRememberCheck } checked={ props.rememberMe }>
-					<FormattedMessage { ...messages.rememberMe } />
-				</Checkbox>
+				<Checkbox
+					id="remember-me"
+					labelText={ props.intl.formatMessage( messages.rememberMe ) }
+					onCheck={ props.onRememberCheck }
+					checked={ props.rememberMe }
+				/>
 			</RememberMe>
 
-			<SaveButtonArea>
+			<div>
 				<SaveButton type="submit" enabledStyle={ ! disabled }>
 					<FormattedMessage { ...buttonText } />
 				</SaveButton>
-			</SaveButtonArea>
+			</div>
 		</FormGroup>
 	);
 };
