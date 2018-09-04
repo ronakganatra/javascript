@@ -23,6 +23,7 @@ export default function Subscriptions( props ) {
 					id={ subscription.id }
 					iconSource={ subscription.icon }
 					name={ subscription.name }
+					subscriptionNumber={ subscription.subscriptionNumber }
 					status={subscription.status}
 					used={ subscription.used }
 					limit={ subscription.limit }

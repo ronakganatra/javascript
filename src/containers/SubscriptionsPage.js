@@ -3,17 +3,22 @@ import { onSearchQueryChange } from "../actions/search";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/SubscriptionsPage";
 import { push } from "react-router-redux";
+import { getOrders } from "../actions/orders";
 
 export const mapStateToProps = ( state ) => {
 	let allIds = state.entities.subscriptions.allIds;
 
 	let subscriptions = allIds.map( ( subscriptionId ) => {
 		let subscription = state.entities.subscriptions.byId[ subscriptionId ];
+		// Selects the latest order to get the latest subscription number.
+		let orderId = subscription.orders.slice( -1 )[ 0 ];
+		let order = state.entities.orders.byId[ orderId ];
 
 		let subscriptionProps = {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
+			subscriptionNumber: order.invoiceNumber,
 			used: subscription.used,
 			limit: subscription.limit,
 			billingType: subscription.requiresManualRenewal,
@@ -25,7 +30,6 @@ export const mapStateToProps = ( state ) => {
 			billingCurrency: subscription.currency,
 			status: subscription.status,
 		};
-
 		return subscriptionProps;
 	} );
 
@@ -61,7 +65,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onManage: ( subscriptionId ) => {
 			dispatch( push( "/account/subscriptions/" + subscriptionId ) );
 		},
-		loadData: () => dispatch( getAllSubscriptions() ),
+		loadData: () => {
+			dispatch( getOrders() );
+			dispatch( getAllSubscriptions() );
+		},
 	};
 };
 

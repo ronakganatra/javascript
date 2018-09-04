@@ -72,9 +72,23 @@ StyledSpace.propTypes = {
 };
 
 const StyledColumnMinWidth = styled( ColumnMinWidth )`
-	padding-left: 0px;
-	min-width: 102px;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		max-width: ${ props => props.maxWidth && props.maxWidth };
+		min-width: ${ props => props.minWidth === "198px" && "158px" };
+		padding-left: ${ props => props.paddingLeft ? props.paddingLeft : "0px" };
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		max-width: none;
+	}	
 `;
+
+StyledColumnMinWidth.propTypes = {
+	maxWidth: PropTypes.string,
+	minWidth: PropTypes.string,
+	paddingLeft: PropTypes.string,
+};
 
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
@@ -133,15 +147,18 @@ getManageButtons.propTypes = {
 /**
  * Creates the manage buttons.
  *
- * @param {object} props The props of subscriptions.
+ * @param {object} status The status of the subscription.
+ * @param {ReactElement} endDate The end date of the subscription.
  * @param {string} nextPayment The next billing.
  * @param {string} amount The amount of the next billing.
  *
- * @returns {ReactElement} the media query with the next billing information.
+ * @returns {ReactElement} A Fragment including the next billing information or the endDate of the subscription.
  */
-function getNextBilling( props, nextPayment, amount ) {
-	if ( props.status === "pending-cancel" ) {
-		return "Ends on " + props.endDate;
+function getNextBilling( status, endDate, nextPayment, amount ) {
+	if ( status === "pending-cancel" ) {
+		return <Fragment>
+			{ "Ends on " }{ endDate }
+		</Fragment>;
 	}
 	return <Fragment>
 		{ nextPayment }
@@ -162,14 +179,34 @@ getNextBilling.propTypes = {
  */
 function Subscription( props ) {
 	let rowProps = [];
+
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
 
 	let cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
-	let billingType = null;
 	let nextPayment = null;
+	let endDate = null;
 	let amount = null;
+	let billingType = null;
+
+	if ( props.status === "cancelled" ) {
+		let currentDate = new Date();
+		let endDate = props.endDate;
+		if ( currentDate.getTime() > endDate.setMonth( endDate.getMonth() + 1 ) ) {
+			return null;
+		}
+	}
+
+	if ( props.status === "pending-cancel" ) {
+		endDate = <FormattedDate
+			value={ props.hasEndDate && props.endDate }
+			year="numeric"
+			month="long"
+			day="numeric"
+		/>;
+	}
+
 	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
 		nextPayment = <FormattedDate
 			value={ props.hasNextPayment ? props.nextPayment : props.endDate }
@@ -184,6 +221,7 @@ function Subscription( props ) {
 		/>;
 		billingType = props.billingType ? "Manual renewal" : "Automatic renewal";
 	}
+
 	return (
 		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps } >
 			<Icon><SiteIcon src={ props.iconSource } alt=""/></Icon>
@@ -193,29 +231,35 @@ function Subscription( props ) {
 					<StyledStatus status={ props.status }>
 						{ capitalizeFirstLetter( props.status ) }
 					</StyledStatus>
-					{ " - " }
-					{ "Subscription number" }
+					{ " - " }{ props.subscriptionNumber }
 				</Detail>
 			</ColumnPrimary>
-			<ColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.used ) }>
-				{ props.used }/{ props.limit + " sites" }
-			</ColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.billingType ) }>
+				headerLabel={ props.intl.formatMessage( messages.used ) }
+				maxWidth="120px"
+				minWidth="102px"
+				paddingLeft="inherit">
+				{ props.used }/{ props.limit + " sites" }
+			</StyledColumnMinWidth>
+			<StyledColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				headerLabel={ props.intl.formatMessage( messages.billingType ) }
+				maxWidth="140px"
+				minWidth="120px">
 				{ billingType }
 			</StyledColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }>
-				{ getNextBilling( props, nextPayment, amount ) }
+				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }
+				minWidth="198px">
+				{ getNextBilling( props.status, endDate, nextPayment, amount ) }
 			</StyledColumnMinWidth>
-			<ColumnFixedWidth>
+			<ColumnFixedWidth
+				paddingLeft="0px">
 				{ getManageButtons( props ) }
 			</ColumnFixedWidth>
 		</StyledRow>
@@ -226,6 +270,7 @@ Subscription.propTypes = {
 	id: PropTypes.string.isRequired,
 	iconSource: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	subscriptionNumber: PropTypes.string,
 	used: PropTypes.number.isRequired,
 	status: PropTypes.string.isRequired,
 	limit: PropTypes.number.isRequired,
