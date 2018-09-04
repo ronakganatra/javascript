@@ -157,7 +157,7 @@ getManageButtons.propTypes = {
 function getNextBilling( status, endDate, nextPayment, amount ) {
 	if ( status === "pending-cancel" ) {
 		return <Fragment>
-			{ "Ends on " }{ endDate }
+			{ "Ends " }{ endDate }
 		</Fragment>;
 	}
 	return <Fragment>
