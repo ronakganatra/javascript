@@ -5,7 +5,7 @@ import SiteIcon from "./SiteIcon";
 import MediaQuery from "react-responsive";
 import { LargeButton } from "../components/Button.js";
 import { ChevronButton } from "../components/Button.js";
-import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber, FormattedMessage } from "react-intl";
 import formatAmount from "../../../shared/currency";
 import defaults from "../config/defaults.json";
 import styled from "styled-components";
@@ -36,6 +36,10 @@ const messages = defineMessages( {
 	nextPaymentOn: {
 		id: "subscriptions.overview.nextPaymentOn",
 		defaultMessage: "Next billing",
+	},
+	endsDate: {
+		id: "ends.date",
+		defaultMessage: "Ends { endDate }",
 	},
 	billingAmount: {
 		id: "subscriptions.overview.billingAmount",
@@ -99,13 +103,13 @@ StyledStatus.propTypes = {
 	status: PropTypes.string.isRequired,
 };
 
-const Detail = styled.span`
-	display: block;
+const Detail = styled.div`
 	font-size: 14px;
 `;
 
 const Icon = styled( ColumnIcon )`
 	height: 32px;
+	weight: 32px;
 `;
 
 
@@ -157,7 +161,7 @@ getManageButtons.propTypes = {
 function getNextBilling( status, endDate, nextPayment, amount ) {
 	if ( status === "pending-cancel" ) {
 		return <Fragment>
-			{ "Ends " }{ endDate }
+			<FormattedMessage { ...messages.endsDate } values={ { endDate: endDate } }/>
 		</Fragment>;
 	}
 	return <Fragment>
