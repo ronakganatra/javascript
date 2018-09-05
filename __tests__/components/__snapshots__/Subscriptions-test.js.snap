@@ -204,12 +204,12 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 }
 
 .c11 {
-  display: block;
   font-size: 14px;
 }
 
 .c4 {
   height: 32px;
+  weight: 32px;
 }
 
 .c0 {
@@ -352,7 +352,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
         className="c9 c10"
       >
         SEO Premium for WordPress
-        <span
+        <div
           className="c11"
         >
           <span
@@ -361,7 +361,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
             Active
           </span>
            - 
-        </span>
+        </div>
       </span>
       <span
         className="c13 c14 c15"
@@ -381,13 +381,13 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
         <span>
           October 13, 2014
         </span>
-        <span
+        <div
           className="c11"
         >
           <span>
             $122.00
           </span>
-        </span>
+        </div>
       </span>
       <span
         className="c20 c7"
@@ -409,7 +409,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
         className="c9 c10"
       >
         SEO Premium for WordPress
-        <span
+        <div
           className="c11"
         >
           <span
@@ -418,7 +418,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
             Active
           </span>
            - 
-        </span>
+        </div>
       </span>
       <span
         className="c13 c14 c15"
@@ -433,7 +433,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="c18 c14 c19"
       >
-        <span
+        <div
           className="c11"
         />
       </span>

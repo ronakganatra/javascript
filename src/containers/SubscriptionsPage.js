@@ -21,7 +21,7 @@ export const mapStateToProps = ( state ) => {
 			subscriptionNumber: order.invoiceNumber,
 			used: subscription.used,
 			limit: subscription.limit,
-			billingType: subscription.requiresManualRenewal,
+			requiresManualRenewal: subscription.requiresManualRenewal,
 			hasNextPayment: subscription.nextPayment !== null,
 			nextPayment: new Date( subscription.nextPayment ),
 			hasEndDate: subscription.endDate !== null,
@@ -52,10 +52,15 @@ export const mapStateToProps = ( state ) => {
 	}
 
 	subscriptions = subscriptions.filter( ( subscription ) => {
+		if ( ! subscription.hasEndDate ) {
+			return true;
+		}
+
 		let currentDate = new Date();
 		let endDate = new Date( subscription.endDate );
 		endDate.setMonth( endDate.getMonth() + 1 );
-		return subscription.hasEndDate && currentDate.getTime() > endDate ? null : subscription;
+
+		return subscription.hasEndDate && currentDate.getTime() <= endDate.getTime();
 	} );
 
 	return {

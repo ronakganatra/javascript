@@ -62,7 +62,7 @@ let defaultExpected = {
 			"endDate": new Date( null ),
 			"billingAmount": "6900",
 			"billingCurrency": "USD",
-			"billingType": true,
+			"requiresManualRenewal": true,
 			"icon": "icon.jpg",
 			"status": "active",
 		},

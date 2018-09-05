@@ -216,7 +216,7 @@ function Subscription( props ) {
 			currency={ props.billingCurrency }
 			style="currency"
 		/>;
-		billingType = props.billingType ? "Manual renewal" : "Automatic renewal";
+		billingType = props.requiresManualRenewal ? "Manual renewal" : "Automatic renewal";
 	}
 
 	return (
@@ -272,7 +272,7 @@ Subscription.propTypes = {
 	status: PropTypes.string.isRequired,
 	limit: PropTypes.number.isRequired,
 	hasNextPayment: PropTypes.bool.isRequired,
-	billingType: PropTypes.bool,
+	requiresManualRenewal: PropTypes.bool,
 	nextPayment: PropTypes.instanceOf( Date ).isRequired,
 	hasEndDate: PropTypes.bool.isRequired,
 	endDate: PropTypes.instanceOf( Date ).isRequired,

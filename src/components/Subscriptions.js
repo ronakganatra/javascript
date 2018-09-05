@@ -27,7 +27,7 @@ export default function Subscriptions( props ) {
 					status={subscription.status}
 					used={ subscription.used }
 					limit={ subscription.limit }
-					billingType={ subscription.billingType }
+					requiresManualRenewal={ subscription.requiresManualRenewal }
 					hasNextPayment={ subscription.hasNextPayment }
 					nextPayment={ subscription.nextPayment }
 					hasEndDate={ subscription.hasEndDate }
