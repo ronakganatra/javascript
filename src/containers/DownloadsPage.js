@@ -9,6 +9,7 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
+import _unescape from "lodash/unescape";
 import {
 	composerHelpModalClosed, composerHelpModalOpen,
 	createComposerToken, fetchComposerTokens,
@@ -81,6 +82,12 @@ const setDownloadProps = ( products, state ) => {
 
 export const mapStateToProps = ( state ) => {
 	let eBooks = setDownloadProps( getEbookProducts( state ), state );
+	// eBooks have escaped/encoded html entities. Need to decode back to human readable string.
+	eBooks = eBooks.map( ( eBook ) => {
+		eBook.name = _unescape( eBook.name );
+		return eBook;
+	} );
+
 	let plugins = setDownloadProps( getPluginProducts( state ), state );
 
 	let query = state.ui.search.query;
