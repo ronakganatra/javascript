@@ -5,6 +5,8 @@ import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-i
 import Link from "./Link";
 import { CloseButtonTopRight } from "./Button";
 import NewTabMessage from "../components/NewTabMessage";
+import UserImage from "../components/UserImage";
+import notificationAvatar from "../images/notificationAvatar.svg";
 
 const messages = defineMessages( {
 	header: {
@@ -51,6 +53,11 @@ const MessageLink = styled( Link )`
 	}
 `;
 
+const AvatarBlock = styled.div`
+	display: inline-block;
+	width: 50px;
+`;
+
 /**
  * Renewal notification message
  *
@@ -93,9 +100,9 @@ class RenewalNotification extends React.Component {
 
 		return (
 			<MessageContainer>
-				<column>
-				<column>
-
+				<AvatarBlock>
+					<UserImage src={ notificationAvatar } />
+				</AvatarBlock>
 					<CloseButtonTopRight
 						onClick={ this.onCrossClick }
 						aria-label={ this.props.intl.formatMessage( messages.close ) }
