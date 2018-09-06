@@ -244,6 +244,7 @@ exports[`the site component matches the snapshot 1`] = `
     >
       <span>
         <img
+          alt=""
           className="c8"
           src="clock.svg"
         />

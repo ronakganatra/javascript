@@ -58,7 +58,7 @@ class AccountDisabled extends React.Component {
 
 
 		<PageContainer>
-			<LogoImage src={ logo } size="200px" />
+			<LogoImage src={ logo } size="200px" alt="MyYoast" />
 			<Heading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></Heading>
 			{ paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
