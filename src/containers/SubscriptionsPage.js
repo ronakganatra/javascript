@@ -60,7 +60,7 @@ export const mapStateToProps = ( state ) => {
 		let endDate = new Date( subscription.endDate );
 		endDate.setMonth( endDate.getMonth() + 1 );
 
-		return subscription.hasEndDate && currentDate.getTime() <= endDate.getTime();
+		return currentDate.getTime() <= endDate.getTime();
 	} );
 
 	return {
