@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/SubscriptionsPage";
+import RenewalNotification from "../components/RenewalNotification";
 import { push } from "react-router-redux";
 
 export const mapStateToProps = ( state ) => {
@@ -69,4 +70,11 @@ const SubscriptionsPageContainer = connect(
 	mapDispatchToProps
 )( SubscriptionsPage );
 
+export const RenewalNotificationContainer = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)( RenewalNotification );
+
 export default SubscriptionsPageContainer;
+
+
