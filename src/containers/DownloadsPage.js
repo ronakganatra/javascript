@@ -82,7 +82,7 @@ const setDownloadProps = ( products, state ) => {
 
 export const mapStateToProps = ( state ) => {
 	let eBooks = setDownloadProps( getEbookProducts( state ), state );
-	// eBooks have escaped/encoded html entities. Need to decode back to human readable string.
+	// Ebooks have escaped/encoded html entities. Need to decode back to human readable string.
 	eBooks = eBooks.map( ( eBook ) => {
 		eBook.name = _unescape( eBook.name );
 		return eBook;
