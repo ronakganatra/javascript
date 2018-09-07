@@ -72,15 +72,15 @@ function Site( props ) {
 	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
 	let configureStatusMessage = "{ statusIcon } Configuration service requested";
-	let iconValues = <ClockIcon src={ clock }/>;
+	let iconValues = <ClockIcon src={ clock } alt="" />;
 
-	if( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "in progress" ) {
+	if ( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "in progress" ) {
 		configureStatusMessage = "{ statusIcon } Configuration service in progress";
 	}
 
-	if( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "completed" ) {
+	if ( props.linkedConfigurationServiceRequest && props.linkedConfigurationServiceRequest.status === "completed" ) {
 		configureStatusMessage = "{ statusIcon } Configured with configuration service";
-		iconValues = <CompletedIcon src={ check }/>;
+		iconValues = <CompletedIcon src={ check } alt="" />;
 	}
 
 	return (

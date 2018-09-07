@@ -215,7 +215,7 @@ class CourseCard extends React.Component {
 					<FormattedMessage
 						id={ messages.freeTrialCompleted.id }
 						defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-						values={ { icon: <CompletedIcon src={ check } /> } }
+						values={ { icon: <CompletedIcon src={ check } alt="" /> } }
 					/>
 				</StyledLabel>;
 			}
