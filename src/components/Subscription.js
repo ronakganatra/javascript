@@ -109,7 +109,7 @@ const Detail = styled.div`
 
 const Icon = styled( ColumnIcon )`
 	height: 32px;
-	weight: 32px;
+	width: 32px;
 `;
 
 
