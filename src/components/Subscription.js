@@ -39,7 +39,7 @@ const messages = defineMessages( {
 	},
 	endsDate: {
 		id: "ends.date",
-		defaultMessage: "Ends { endDate }",
+		defaultMessage: "Ends on { endDate }",
 	},
 	billingAmount: {
 		id: "subscriptions.overview.billingAmount",
