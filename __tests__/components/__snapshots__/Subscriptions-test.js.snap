@@ -209,7 +209,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 
 .c4 {
   height: 32px;
-  weight: 32px;
+  width: 32px;
 }
 
 .c0 {

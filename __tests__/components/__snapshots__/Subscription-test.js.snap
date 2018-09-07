@@ -175,7 +175,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
 
 .c2 {
   height: 32px;
-  weight: 32px;
+  width: 32px;
 }
 
 @media screen and ( max-width:800px ) {
