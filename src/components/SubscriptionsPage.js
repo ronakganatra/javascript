@@ -142,8 +142,7 @@ SubscriptionsPage.propTypes = {
 };
 
 SubscriptionsPage.defaultProps = {
-	loadData: () => {
-	},
+	loadData: () => {},
 };
 
 export default injectIntl( SubscriptionsPage );

@@ -18,7 +18,7 @@ export const mapStateToProps = ( state ) => {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
-			subscriptionNumber: order.invoiceNumber,
+			subscriptionNumber: order ? order.invoiceNumber : "",
 			used: subscription.used,
 			limit: subscription.limit,
 			requiresManualRenewal: subscription.requiresManualRenewal,
@@ -44,10 +44,10 @@ export const mapStateToProps = ( state ) => {
 			} ).format( subscription.nextPayment );
 
 			return subscription.name.toUpperCase().includes( query.toUpperCase() ) ||
-							subscription.limit.toString() === query ||
-							subscription.used.toString() === query ||
-							formattedDate.toUpperCase().includes( query.toUpperCase() ) ||
-							( subscription.billingAmount / 100 ).toString().includes( query.toUpperCase() );
+				subscription.limit.toString() === query ||
+				subscription.used.toString() === query ||
+				formattedDate.toUpperCase().includes( query.toUpperCase() ) ||
+				( subscription.billingAmount / 100 ).toString().includes( query.toUpperCase() );
 		} );
 	}
 
