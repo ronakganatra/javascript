@@ -51,10 +51,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   color: #cc2956;
 }
 
-.c14:focus {
-  outline: none;
-}
-
 .c11 {
   display: inline-block;
   height: 48px;

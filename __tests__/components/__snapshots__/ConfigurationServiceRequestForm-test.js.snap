@@ -77,10 +77,6 @@ exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matc
   text-align: left;
 }
 
-.c10:focus {
-  outline: 0;
-}
-
 .c13 {
   display: inline-block;
 }

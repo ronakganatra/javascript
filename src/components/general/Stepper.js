@@ -44,10 +44,6 @@ const StepperButton = styled.button`
 	cursor: pointer;
 	margin: 5px 0;
 	text-align: left;
-
-	&:focus {
-		outline: 0;
-	}
 `;
 
 const StepperLabel = styled.span`

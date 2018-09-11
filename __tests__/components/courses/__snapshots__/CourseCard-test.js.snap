@@ -51,10 +51,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   color: #cc2956;
 }
 
-.c6:focus {
-  outline: none;
-}
-
 .c8 {
   display: inline-block;
   height: 48px;
@@ -219,10 +215,6 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 
 .c13:hover {
   color: #cc2956;
-}
-
-.c13:focus {
-  outline: none;
 }
 
 .c10 {
@@ -440,10 +432,6 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 
 .c13:hover {
   color: #cc2956;
-}
-
-.c13:focus {
-  outline: none;
 }
 
 .c10 {
@@ -873,10 +861,6 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   color: #cc2956;
 }
 
-.c10:focus {
-  outline: none;
-}
-
 .c7 {
   display: inline-block;
   height: 48px;
@@ -1052,10 +1036,6 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   color: #cc2956;
 }
 
-.c6:focus {
-  outline: none;
-}
-
 .c8 {
   display: inline-block;
   height: 48px;
@@ -1220,10 +1200,6 @@ exports[`The CourseCard component, for a course that has not been started yet wi
 
 .c10:hover {
   color: #cc2956;
-}
-
-.c10:focus {
-  outline: none;
 }
 
 .c7 {
@@ -1404,10 +1380,6 @@ exports[`The CourseCard component, for a course that is completed, matches the s
 
 .c14:hover {
   color: #cc2956;
-}
-
-.c14:focus {
-  outline: none;
 }
 
 .c11 {
@@ -1661,10 +1633,6 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   color: #cc2956;
 }
 
-.c15:focus {
-  outline: none;
-}
-
 .c12 {
   display: inline-block;
   height: 48px;
@@ -1908,10 +1876,6 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
 
 .c12:hover {
   color: #cc2956;
-}
-
-.c12:focus {
-  outline: none;
 }
 
 .c9 {

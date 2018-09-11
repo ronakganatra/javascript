@@ -36,10 +36,6 @@ exports[`The Stepper component matches the snapshot 1`] = `
   text-align: left;
 }
 
-.c1:focus {
-  outline: 0;
-}
-
 .c4 {
   display: inline-block;
 }
