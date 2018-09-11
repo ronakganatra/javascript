@@ -272,7 +272,7 @@ ResetPasswordPage.propTypes = {
 };
 
 ResetPasswordPage.defaultProps = {
-	username: "your email address",
+	username: "your username",
 	loading: false,
 	passwordResetSuccess: false,
 };
