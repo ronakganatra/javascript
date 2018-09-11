@@ -150,11 +150,9 @@ const LoginForm = ( props ) => {
 				/>
 			</RememberMe>
 
-			<div>
-				<SaveButton type="submit" enabledStyle={ ! disabled }>
-					<FormattedMessage { ...buttonText } />
-				</SaveButton>
-			</div>
+			<SaveButton type="submit" enabledStyle={ ! disabled }>
+				<FormattedMessage { ...buttonText } />
+			</SaveButton>
 		</FormGroup>
 	);
 };

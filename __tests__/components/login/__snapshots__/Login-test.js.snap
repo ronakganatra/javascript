@@ -211,15 +211,13 @@ exports[`The Login component matches the snapshot 1`] = `
       </label>
     </div>
   </div>
-  <div>
-    <button
-      className="c12 c13 c14"
-      type="submit"
-    >
-      <span>
-        Log in
-      </span>
-    </button>
-  </div>
+  <button
+    className="c12 c13 c14"
+    type="submit"
+  >
+    <span>
+      Log in
+    </span>
+  </button>
 </form>
 `;
