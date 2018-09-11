@@ -40,7 +40,7 @@ const messages = defineMessages( {
 		defaultMessage: "Read our installation guides",
 	},
 	eBooksLearnMore: {
-		id: "downloadsPage.byLines.learnMode",
+		id: "downloadsPage.byLines.learnMore",
 		defaultMessage: " - Want to read more about SEO? { link }.",
 	},
 	coursesUpsell: {
