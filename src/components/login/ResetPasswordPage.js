@@ -32,7 +32,7 @@ const messages = defineMessages( {
 	},
 	resetMessage: {
 		id: "reset.message",
-		defaultMessage: "Please enter a new password for the MyYoast account linked to {email}.",
+		defaultMessage: "Please enter a new password for the MyYoast account linked to {username}.",
 	},
 	resetButton: {
 		id: "reset.button",
@@ -104,7 +104,7 @@ class ResetPasswordPage extends React.Component {
 			errors: {},
 			userLogin: parsedQuery.login || "",
 			key: parsedQuery.key || "",
-			email: parsedQuery.email || this.props.email,
+			username: parsedQuery.login || this.props.username,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -217,7 +217,7 @@ class ResetPasswordPage extends React.Component {
 					<FormattedMessage
 						id={ messages.resetMessage.id }
 						defaultMessage={ messages.resetMessage.defaultMessage }
-						values={ { email: this.state.email } }
+						values={ { username: this.state.username } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
 						<ErrorDisplay error={ this.props.submitErrors }/>
@@ -263,7 +263,7 @@ class ResetPasswordPage extends React.Component {
 ResetPasswordPage.propTypes = {
 	intl: intlShape.isRequired,
 	children: PropTypes.array,
-	email: PropTypes.string,
+	username: PropTypes.string,
 	attemptResetPassword: PropTypes.func.isRequired,
 	submitErrors: PropTypes.object,
 	location: PropTypes.object,
@@ -272,7 +272,7 @@ ResetPasswordPage.propTypes = {
 };
 
 ResetPasswordPage.defaultProps = {
-	email: "your email address",
+	username: "your email address",
 	loading: false,
 	passwordResetSuccess: false,
 };
