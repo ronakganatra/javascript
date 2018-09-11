@@ -547,7 +547,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
             className="c8"
           >
             <span>
-               - Want to read more about SEO? 
+               - Want to learn more about SEO? 
               <a
                 href="https://yoa.st/academy"
                 rel="noopener noreferrer"

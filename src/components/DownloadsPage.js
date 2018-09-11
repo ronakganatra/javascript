@@ -41,7 +41,7 @@ const messages = defineMessages( {
 	},
 	eBooksLearnMore: {
 		id: "downloadsPage.byLines.learnMore",
-		defaultMessage: " - Want to read more about SEO? { link }.",
+		defaultMessage: " - Want to learn more about SEO? { link }.",
 	},
 	coursesUpsell: {
 		id: "downloadsPage.byLines.coursesUpsell",
