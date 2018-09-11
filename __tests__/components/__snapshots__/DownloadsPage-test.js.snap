@@ -549,11 +549,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
             <span>
                - Want to read more about SEO? 
               <a
-                href="https://yoa.st/ebooks"
+                href="https://yoa.st/academy"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Check out our other eBooks
+                Check out our SEO training courses
               </a>
               .
             </span>
