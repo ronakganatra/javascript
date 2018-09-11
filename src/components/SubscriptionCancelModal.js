@@ -76,9 +76,11 @@ class SubscriptionCancelModal extends React.Component {
 						<LargeSecondaryButton onClick={ this.props.onClose }>
 							<FormattedMessage { ...messages.cancel }/>
 						</LargeSecondaryButton>
-						<LargeButton type="submit" aria-label="Cancel subscription"
-						             onClick={ this.props.cancelSubscription }
-						             enabledStyle={ this.props.loading === false }>
+						<LargeButton
+							type="submit"
+							onClick={ this.props.cancelSubscription }
+							enabledStyle={ this.props.loading === false }
+						>
 							<FormattedMessage { ...confirmButtonText }/>
 						</LargeButton>
 					</ActionButtonsContainer>

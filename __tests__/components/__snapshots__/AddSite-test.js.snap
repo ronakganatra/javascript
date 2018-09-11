@@ -361,7 +361,6 @@ exports[`The AddSite component matches the snapshot 1`] = `
         </span>
       </button>
       <button
-        aria-label="add"
         className="c9 c12 Button-kDSBcD c13 c14"
         type="submit"
       >

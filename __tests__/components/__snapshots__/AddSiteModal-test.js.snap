@@ -426,7 +426,6 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
             </span>
           </button>
           <button
-            aria-label="add"
             className="c10 c13 Button-kDSBcD c14 c15"
             type="submit"
           >
