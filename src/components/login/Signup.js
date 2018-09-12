@@ -21,10 +21,9 @@ const TextInput = styled( ValidationInputField )`
 `;
 
 const FormGroup = styled.form`
-	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
-	width: 400px;	
-	min-height: 400px;	
+	width: 400px;
+	min-height: 400px;
 `;
 
 const LabelBlock = styled.div`

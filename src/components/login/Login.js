@@ -81,17 +81,18 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<LoginForm rememberMe={ this.state.rememberMe }
-			           email={ this.state.email }
-			           password={ this.state.password }
-			           errors={ this.props.error }
-			           loading={ this.props.loading }
-			           onUpdateEmail={ this.onUpdateEmail }
-			           onUpdatePassword={ this.onUpdatePassword }
-			           onUpdateOTP={ this.onUpdateOTP }
-			           onRememberCheck={ this.onRememberCheck }
-			           handleSubmit={ this.handleSubmit }
-			           requireOTP={ this.props.requireOTP }
+			<LoginForm
+				rememberMe={ this.state.rememberMe }
+				email={ this.state.email }
+				password={ this.state.password }
+				errors={ this.props.error }
+				loading={ this.props.loading }
+				onUpdateEmail={ this.onUpdateEmail }
+				onUpdatePassword={ this.onUpdatePassword }
+				onUpdateOTP={ this.onUpdateOTP }
+				onRememberCheck={ this.onRememberCheck }
+				handleSubmit={ this.handleSubmit }
+				requireOTP={ this.props.requireOTP }
 			/>
 		);
 	}

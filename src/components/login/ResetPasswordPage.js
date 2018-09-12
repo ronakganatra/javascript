@@ -63,7 +63,6 @@ const Logos = styled.img`
 `;
 
 const FormGroup = styled.form`
-	/* To glue SaveButtonArea to bottom of column. */
 	position: relative;
 	width: 100%;
 	min-height: 300px;

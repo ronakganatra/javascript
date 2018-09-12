@@ -169,10 +169,23 @@ exports[`renders without crashing 1`] = `
 }
 
 .c22 {
-  position: relative;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: top;
 }
 
-.c22 input:checked ~ .checkmark {
+.c23 {
+  position: absolute;
+  opacity: 0;
+}
+
+.c23:checked + .checkmark {
   background-color: #a4286a;
   background-image: url( check.svg );
   background-repeat: no-repeat;
@@ -180,43 +193,26 @@ exports[`renders without crashing 1`] = `
   background-size: 75%;
 }
 
-.c22 input:focus ~ .checkmark {
-  outline: -webkit-focus-ring-color auto 5px;
-}
-
-.c23 {
-  display: block;
-  position: relative;
-  cursor: pointer;
-  padding-left: 35px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  z-index: 1;
+.c23:focus + .checkmark {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),0 0 2px 2px #1e8cbe;
+  outline: 2px solid transparent;
 }
 
 .c24 {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.c25 {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: 25px;
   width: 25px;
+  cursor: pointer;
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background-color: #f7f7f7;
 }
 
-.c25:hover {
+.c24:hover {
   background-color: #cecece;
+}
+
+.c25 {
+  cursor: pointer;
+  margin-left: 8px;
 }
 
 .c18 {
@@ -407,38 +403,32 @@ exports[`renders without crashing 1`] = `
               <div
                 className="c22"
               >
-                <label
-                  className="c23"
-                  htmlFor="remember-me"
-                >
-                  <span>
-                    Remember me
-                  </span>
-                </label>
                 <input
                   checked={false}
-                  className="c24"
+                  className="c23"
                   id="remember-me"
                   onChange={[Function]}
                   type="checkbox"
                 />
                 <span
-                  className="checkmark c25"
+                  className="checkmark c24"
                 />
+                <label
+                  className="c25"
+                  htmlFor="remember-me"
+                >
+                  Remember me
+                </label>
               </div>
             </div>
-            <div
-              className=""
+            <button
+              className="c26 c27 c28"
+              type="submit"
             >
-              <button
-                className="c26 c27 c28"
-                type="submit"
-              >
-                <span>
-                  Log in
-                </span>
-              </button>
-            </div>
+              <span>
+                Log in
+              </span>
+            </button>
           </form>
         </div>
       </div>
