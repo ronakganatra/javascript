@@ -337,7 +337,6 @@ class AddSite extends React.Component {
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ ! this.state.validationError && !! this.props.linkingSiteUrl }
-							aria-label="add"
 						>
 							<FormattedMessage id="sites.addSite.connect" defaultMessage="Add"/>
 						</WideLargeButton>

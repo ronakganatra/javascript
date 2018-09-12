@@ -349,7 +349,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
       </p>
     </div>
     <button
-      aria-label="Add site"
       className="c4 c5 c6 c7 c8"
       onClick={[Function]}
       type="button"
@@ -767,7 +766,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
       </p>
     </div>
     <button
-      aria-label="Add site"
       className="c4 c5 c6 c7 c8"
       onClick={[Function]}
       type="button"
@@ -1185,7 +1183,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
       </p>
     </div>
     <button
-      aria-label="Add site"
       className="c4 c5 c6 c7 c8"
       onClick={[Function]}
       type="button"
