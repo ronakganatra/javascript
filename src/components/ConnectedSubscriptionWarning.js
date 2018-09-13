@@ -41,7 +41,8 @@ class ConnectedSubscriptionWarning extends React.Component {
 				<MessageIcon iconSource={ exclamationTriangle }/>
 				<MessageContainer>
 					<FormattedMessage { ...messages.explanation }/>
-					<ul>
+					{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+					<ul role="list">
 						{ subscriptionProductsListItems }
 					</ul>
 					<FormattedMessage { ...messages.contactSupport } values={ { link: supportLink } }/>

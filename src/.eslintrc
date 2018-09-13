@@ -6,8 +6,23 @@
     "complexity": [ "error", 10 ],
     "react/jsx-key": [ 0 ],
     "react/no-unescaped-entities": [ 0 ],
-    "jsx-a11y/no-redundant-roles": [ 0 ],
     "__comment2": [ 0, "Style-prop-object results in problems with the internationalization components, see https://github.com/yahoo/react-intl/issues/833 and https://github.com/yannickcr/eslint-plugin-react/issues/849" ],
-    "react/style-prop-object": 0
+    "react/style-prop-object": 0,
+    "no-shadow": 1,
+    "require-jsdoc": 1,
+    "react/button-has-type": 1,
+    "react/default-props-match-prop-types": 1,
+    "react/no-unused-prop-types": 1,
+    "react/no-access-state-in-setstate": 1,
+    "react/no-unused-state": 1,
+    "react/jsx-no-bind": 1,
+    "react/jsx-no-target-blank": 1,
+    "react/require-default-props": 1,
+    "react/forbid-foreign-prop-types": 1
+  },
+  "settings": {
+    "react": {
+      "version": "16.0", // React version, default to the latest React stable release
+    },
   }
 }

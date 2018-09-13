@@ -178,6 +178,7 @@ const MenuIcon = styled.img`
 function MainMenu( props ) {
 	return (
 		<Menu>
+			{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 			<ul role="list">
 				{ props.menuRoutes.filter( ( menuItem ) => {
 					// Don't show items that are only defined as route.

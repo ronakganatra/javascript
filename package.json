@@ -21,14 +21,13 @@
     "detect-port": "1.0.1",
     "dotenv": "6.0.0",
     "enzyme": "^2.7.1",
-    "eslint": "^3.19.0",
-    "eslint-config-react-app": "^1.0.5",
-    "eslint-config-yoast": "^2.0.2",
+    "eslint": "^4.16.0",
+    "eslint-config-yoast": "^4.0.0",
     "eslint-loader": "2.0.0",
     "eslint-plugin-flowtype": "^2.33.0",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "^7.0.1",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.10.0",
     "filesize": "3.3.0",
@@ -121,8 +120,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   }
 }
