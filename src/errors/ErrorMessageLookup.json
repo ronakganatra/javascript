@@ -36,7 +36,7 @@
     "type": "error"
   },
   "password_too_long": {
-    "message": "Your password is too long. Your password can only use up to 128 characters.",
+    "message": "Your password is too long. You may use up to 128 characters for your password.",
     "type": "error"
   },
   "invalid_user_login_for_password_reset_request": {
