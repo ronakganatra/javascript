@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Assigning a course to someone else through a CourseCard works, when the course has not been started yet. 1`] = `
+exports[`Assigning a course to someone else through a CourseDetails works, when the course has not been started yet. 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -166,7 +166,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 </li>
 `;
 
-exports[`Assigning a course to someone else through a CourseCard works, when there are enrollments left. 1`] = `
+exports[`Assigning a course to someone else through a CourseDetails works, when there are enrollments left. 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -383,7 +383,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
 </li>
 `;
 
-exports[`The CourseCard component matches the snapshot 1`] = `
+exports[`The CourseDetails component matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -600,7 +600,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
 </li>
 `;
 
-exports[`The CourseCard component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -810,7 +810,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
 </li>
 `;
 
-exports[`The CourseCard component, for a course that has not been bought, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that has not been bought, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -985,7 +985,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
 </li>
 `;
 
-exports[`The CourseCard component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -1151,7 +1151,7 @@ exports[`The CourseCard component, for a course that has not been started yet wi
 </li>
 `;
 
-exports[`The CourseCard component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -1331,7 +1331,7 @@ exports[`The CourseCard component, for a course that has not been started yet wi
 </li>
 `;
 
-exports[`The CourseCard component, for a course that is completed, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that is completed, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -1562,7 +1562,7 @@ exports[`The CourseCard component, for a course that is completed, matches the s
 </li>
 `;
 
-exports[`The CourseCard component, for a course that is free, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that is free, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
@@ -1807,7 +1807,7 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
 </li>
 `;
 
-exports[`The CourseCard component, for a course that is on sale, matches the snapshot 1`] = `
+exports[`The CourseDetails component, for a course that is on sale, matches the snapshot 1`] = `
 .c0 {
   position: relative;
   background-color: #fff;
