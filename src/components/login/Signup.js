@@ -7,6 +7,7 @@ import _isUndefined from "lodash/isUndefined";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
 import { Redirect } from "react-router";
 import { passwordRepeatConstraint, passwordConstraints, emailConstraints } from "./CommonConstraints";
+import zxcvbn from "zxcvbn";
 
 // Components.
 import { Button } from "../Button";
@@ -81,6 +82,8 @@ class Signup extends React.Component {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
+			attemptSubmit: false,
+			weakError: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -108,8 +111,15 @@ class Signup extends React.Component {
 	onUpdate( field, event, errors = [] ) {
 		let hasFieldErrors = errors.length > 0;
 		let obj = {};
+		let weakError = null;
+		// Scores the weakness of the password input using the zxcvbn module.
+		if ( field === "password" ) {
+			let validatePassword = zxcvbn( event.target.value );
+			weakError = validatePassword.score;
+		}
 		obj[ field ] = event.target.value;
 		obj.errorsInputFields = hasFieldErrors;
+		obj.weakError = weakError;
 		this.setState( obj );
 	}
 
@@ -165,23 +175,37 @@ class Signup extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
+		// Sets the attemptSubmit prop of the state to true, to show the errorDisplay when password is weak.
+		this.setState( { attemptSubmit: true } );
 		let data = {
 			userEmail: this.state.email,
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
-		this.props.attemptSignup( data );
+		// Only submits the data when the password is strong enough.
+		if ( this.state.weakError > 3 ) {
+			this.setState( { attemptSubmit: false } );
+			this.props.attemptSignup( data );
+		}
 	}
 
 	render() {
+		let signupError = this.props.signupError;
+
+		if ( this.state.password.length > 7 && this.state.weakError < 3 && this.state.attemptSubmit ) {
+			// Error object for weak password input, corresponding to the unifyErrorStructure function.
+			signupError = { code: "rest_user_weak_password", field: "validator", message: "WeakPassword!" };
+		}
+
 		if( this.props.signupRequestSuccess ) {
 			return ( <Redirect to={ "/almost-there" } /> );
 		}
 
 		let errors = this.validate();
+
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
-				<ErrorDisplay error={ this.props.signupError } />
+				<ErrorDisplay error={ signupError } />
 				<LabelBlock>
 					<Label htmlFor="email-address">
 						<FormattedMessage { ...messages.labelEmail } />

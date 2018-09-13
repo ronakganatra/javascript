@@ -5,6 +5,7 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-i
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import queryString from "query-string";
+import zxcvbn from "zxcvbn";
 
 import { passwordConstraints, passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
@@ -104,6 +105,8 @@ class ResetPasswordPage extends React.Component {
 			userLogin: parsedQuery.login || "",
 			key: parsedQuery.key || "",
 			username: parsedQuery.login || this.props.username,
+			attemptSubmit: false,
+			weakError: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -128,9 +131,18 @@ class ResetPasswordPage extends React.Component {
 	 */
 	onUpdate( field, event, errors ) {
 		let obj = {};
+
+		let weakError = null;
+		// Scores the weakness of the password input using the zxcvbn module.
+		if ( field === "password" ) {
+			let validatePassword = zxcvbn( event.target.value );
+			weakError = validatePassword.score;
+		}
+
 		obj[ field ] = event.target.value;
 		obj.errors = Object.assign( {}, this.state.errors );
 		obj.errors[ field ] = errors;
+		obj.weakError = weakError;
 		this.setState( obj, () => {
 			let newErrors = this.validate();
 			errors = Object.assign( {}, this.state.errors, newErrors );
@@ -185,6 +197,8 @@ class ResetPasswordPage extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( this.canSubmit() === false ) {
+			// Sets the attemptSubmit prop of the state to true, to show the errorDisplay when password is weak.
+			this.setState( { attemptSubmit: true } );
 			return;
 		}
 		let data = {
@@ -195,10 +209,21 @@ class ResetPasswordPage extends React.Component {
 			key: this.state.key || "",
 			/* eslint-enable camelcase */
 		};
-		this.props.attemptResetPassword( data );
+		// Only submits the data when the password is strong enough.
+		if ( this.state.weakError > 3 ) {
+			this.setState( { attemptSubmit: false } );
+			this.props.attemptResetPassword( data );
+		}
 	}
 
 	render() {
+		let resetPasswordError = this.props.submitErrors;
+
+		if ( this.state.password.length > 7 && this.state.weakError < 3 && this.state.attemptSubmit ) {
+			// Error object for weak password input, corresponding to the unifyErrorStructure function.
+			resetPasswordError = { code: "rest_user_weak_password", field: "validator", message: "WeakPassword!" };
+		}
+
 		if ( this.props.passwordResetSuccess ) {
 			return <Redirect to={ "/forgot-password/success" }/>;
 		}
@@ -219,7 +244,7 @@ class ResetPasswordPage extends React.Component {
 						values={ { username: this.state.username } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
-						<ErrorDisplay error={ this.props.submitErrors }/>
+						<ErrorDisplay error={ resetPasswordError }/>
 						<LabelBlock>
 							<Label htmlFor="password">
 								<FormattedMessage { ...messages.labelPassword } />

@@ -1,6 +1,6 @@
 import { defineMessages } from "react-intl";
 
-const PASSWORD_MINIMUM_LENGTH = 5;
+const PASSWORD_MINIMUM_LENGTH = 8;
 
 const messages = defineMessages( {
 	passwordsDoNotMatch: {
