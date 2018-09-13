@@ -106,7 +106,7 @@ class ResetPasswordPage extends React.Component {
 			key: parsedQuery.key || "",
 			username: parsedQuery.login || this.props.username,
 			attemptSubmit: false,
-			weakError: 3,
+			weaknessScore: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -131,18 +131,19 @@ class ResetPasswordPage extends React.Component {
 	 */
 	onUpdate( field, event, errors ) {
 		let obj = {};
-
-		let weakError = null;
+		let weaknessScore = this.state.weaknessScore;
 		// Scores the weakness of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			let validatePassword = zxcvbn( event.target.value );
-			weakError = validatePassword.score;
+			weaknessScore = validatePassword.score;
 		}
 
 		obj[ field ] = event.target.value;
 		obj.errors = Object.assign( {}, this.state.errors );
 		obj.errors[ field ] = errors;
-		obj.weakError = weakError;
+		obj.weaknessScore = weaknessScore;
+		obj.attemptSubmit = false;
+
 		this.setState( obj, () => {
 			let newErrors = this.validate();
 			errors = Object.assign( {}, this.state.errors, newErrors );
@@ -201,6 +202,7 @@ class ResetPasswordPage extends React.Component {
 			this.setState( { attemptSubmit: true } );
 			return;
 		}
+		this.setState( { attemptSubmit: true } );
 		let data = {
 			/* eslint-disable camelcase */
 			user_login: this.state.userLogin || "",
@@ -210,7 +212,7 @@ class ResetPasswordPage extends React.Component {
 			/* eslint-enable camelcase */
 		};
 		// Only submits the data when the password is strong enough.
-		if ( this.state.weakError > 3 ) {
+		if ( this.state.weaknessScore > 2 ) {
 			this.setState( { attemptSubmit: false } );
 			this.props.attemptResetPassword( data );
 		}
@@ -219,7 +221,7 @@ class ResetPasswordPage extends React.Component {
 	render() {
 		let resetPasswordError = this.props.submitErrors;
 
-		if ( this.state.password.length > 7 && this.state.weakError < 3 && this.state.attemptSubmit ) {
+		if ( this.state.password.length > 7 && this.state.weaknessScore < 3 && this.state.attemptSubmit ) {
 			// Error object for weak password input, corresponding to the unifyErrorStructure function.
 			resetPasswordError = { code: "rest_user_weak_password", field: "validator", message: "WeakPassword!" };
 		}
@@ -232,6 +234,7 @@ class ResetPasswordPage extends React.Component {
 		if ( this.props.loading ) {
 			buttonText = messages.loadingButton;
 		}
+
 		return (
 			<LoginColumnLayout>
 				<Column>
