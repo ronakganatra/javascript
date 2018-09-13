@@ -37,7 +37,10 @@ export default class OrdersResult extends React.Component {
 	 * @returns {ReactElement} the ProductsResult component.
 	 */
 	static itemsPresenter( items ) {
-		return <ul>{ items && items.map( item => <li key={ item.id }>{ item.productName }</li>)}</ul>;
+		/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
+		return <ul role="list">
+			{ items && items.map( item => <li key={ item.id }>{ item.productName }</li> ) }
+		</ul>;
 	}
 
 	/**

@@ -41,7 +41,8 @@ export default class SubscriptionsResult extends React.Component {
 			return <li key={ order.id }><button onClick={ orderFinder.bind( this ) }>Find Order: #{ order.invoiceNumber }</button></li>;
 		}, this );
 
-		return <ul>{ items }</ul>;
+		/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
+		return <ul role="list">{ items }</ul>;
 	}
 
 	/**

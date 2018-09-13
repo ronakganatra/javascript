@@ -42,7 +42,8 @@ export default class TransferPreview extends React.Component {
 
 	getWooObjectList(list, displayKey ) {
 		return (
-			<ul>
+			{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+			<ul role="list">
 				{ Object.keys( list ).map( sourceId => {
 					let obj = list[ sourceId ];
 					return (
@@ -58,7 +59,8 @@ export default class TransferPreview extends React.Component {
 
 	getCourseEnrollmentsList() {
 		return (
-			<ul>
+			{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+			<ul role="list">
 				{ this.props.courseEnrollments.map( courseEnrollment => {
 					let isStudent = courseEnrollment.studentId === this.props.fromCustomer.id;
 					let inAcademy = this.props.academyData.course_ids.indexOf( courseEnrollment.course.sourceId.toString() ) !== -1;
@@ -103,7 +105,10 @@ export default class TransferPreview extends React.Component {
 					<div><strong>UK Subscriptions:</strong>{ this.getWooObjectList( this.state.subscriptions[7], "name" ) }</div>
 				}
 				{ ( ! _isEmpty( this.props.sites ) ) &&
-					<div><strong>Sites:</strong><ul>{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul></div>
+					<div><strong>Sites:</strong>
+						{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
+						<ul role="list">{ this.props.sites.map( site => <li key={ site.id }>{ site.url }</li> ) }</ul>
+					</div>
 				}
 				{ ( ! _isEmpty( this.state.others[1] ) ) &&
 					<div><strong>US Other:</strong>{ this.getWooObjectList( this.state.other[1], "sourceId" ) }</div>
