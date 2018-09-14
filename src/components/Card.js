@@ -20,7 +20,7 @@ const HeaderImage = styled.img`
 `;
 
 const Content = styled.div`
-	margin: 0px;
+	margin: 0;
 	padding: 20px;
 	padding-top: 10px;
 	display: flex;

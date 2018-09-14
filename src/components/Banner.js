@@ -26,7 +26,7 @@ const BannerTriangle = styled.span`
 	
 	/* This code makes the triangle. */
 	border-top: 8px solid ${ colors.$color_purple_dark };
-    border-left: 8px solid transparent;
+	border-left: 8px solid transparent;
 `;
 
 /**
@@ -39,7 +39,7 @@ export default function Banner( props ) {
 	return <Fragment>
 		<BannerContents backgroundColor={ props.backgroundColor } textColor={ props.textColor }>
 			{ props.children }
-		</BannerContents >
+		</BannerContents>
 		<BannerTriangle/>
 	</Fragment>;
 }
