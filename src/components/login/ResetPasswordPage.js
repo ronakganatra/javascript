@@ -7,7 +7,7 @@ import _isUndefined from "lodash/isUndefined";
 import queryString from "query-string";
 import zxcvbn from "zxcvbn";
 
-import { passwordConstraints, passwordRepeatConstraint } from "./CommonConstraints";
+import { passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
 
 // Images
@@ -105,7 +105,6 @@ class ResetPasswordPage extends React.Component {
 			userLogin: parsedQuery.login || "",
 			key: parsedQuery.key || "",
 			username: parsedQuery.login || this.props.username,
-			attemptSubmit: false,
 			weaknessScore: 3,
 		};
 
@@ -142,7 +141,6 @@ class ResetPasswordPage extends React.Component {
 		obj.errors = Object.assign( {}, this.state.errors );
 		obj.errors[ field ] = errors;
 		obj.weaknessScore = weaknessScore;
-		obj.attemptSubmit = false;
 
 		this.setState( obj, () => {
 			let newErrors = this.validate();
@@ -198,11 +196,9 @@ class ResetPasswordPage extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( this.canSubmit() === false ) {
-			// Sets the attemptSubmit prop of the state to true, to show the errorDisplay when password is weak.
-			this.setState( { attemptSubmit: true } );
 			return;
 		}
-		this.setState( { attemptSubmit: true } );
+
 		let data = {
 			/* eslint-disable camelcase */
 			user_login: this.state.userLogin || "",
@@ -211,9 +207,9 @@ class ResetPasswordPage extends React.Component {
 			key: this.state.key || "",
 			/* eslint-enable camelcase */
 		};
-		// Only submits the data when the password is strong enough.
+
+		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
 		if ( this.state.weaknessScore > 2 ) {
-			this.setState( { attemptSubmit: false } );
 			this.props.attemptResetPassword( data );
 		}
 	}
@@ -221,9 +217,9 @@ class ResetPasswordPage extends React.Component {
 	render() {
 		let resetPasswordError = this.props.submitErrors;
 
-		if ( this.state.password.length > 7 && this.state.weaknessScore < 3 && this.state.attemptSubmit ) {
+		if ( this.state.weaknessScore < 3 ) {
 			// Error object for weak password input, corresponding to the unifyErrorStructure function.
-			resetPasswordError = { code: "rest_user_weak_password", field: "validator", message: "WeakPassword!" };
+			resetPasswordError = { code: "rest_user_weak_password", field: "validator" };
 		}
 
 		if ( this.props.passwordResetSuccess ) {
@@ -258,7 +254,6 @@ class ResetPasswordPage extends React.Component {
 								type="password"
 								onChange={ this.onUpdatePassword }
 								delay={ 0 }
-								constraint={ passwordConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
 

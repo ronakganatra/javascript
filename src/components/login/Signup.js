@@ -6,7 +6,7 @@ import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
 import { Redirect } from "react-router";
-import { passwordRepeatConstraint, passwordConstraints, emailConstraints } from "./CommonConstraints";
+import { passwordRepeatConstraint, emailConstraints } from "./CommonConstraints";
 import zxcvbn from "zxcvbn";
 
 // Components.
@@ -82,7 +82,6 @@ class Signup extends React.Component {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
-			attemptSubmit: false,
 			weakEnessScore: 3,
 		};
 
@@ -120,7 +119,6 @@ class Signup extends React.Component {
 		obj[ field ] = event.target.value;
 		obj.errorsInputFields = hasFieldErrors;
 		obj.weaknessScore = weakError;
-		obj.attemptSubmit = false;
 		this.setState( obj );
 	}
 
@@ -176,26 +174,24 @@ class Signup extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		// Sets the attemptSubmit prop of the state to true, to show the errorDisplay when password is weak.
-		this.setState( { attemptSubmit: true } );
 		let data = {
 			userEmail: this.state.email,
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
-		// Only submits the data when the password is strong enough.
+		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
 		if ( this.state.weaknessScore > 2 ) {
-			this.setState( { attemptSubmit: false } );
 			this.props.attemptSignup( data );
 		}
 	}
 
+
 	render() {
 		let signupError = this.props.signupError;
 
-		if ( this.state.password.length > 7 && this.state.weaknessScore < 3 && this.state.attemptSubmit ) {
+		if ( this.state.weaknessScore < 3 ) {
 			// Error object for weak password input, corresponding to the unifyErrorStructure function.
-			signupError = { code: "rest_user_weak_password", field: "validator", message: "WeakPassword!" };
+			signupError = { code: "rest_user_weak_password", field: "validator"  };
 		}
 
 		if( this.props.signupRequestSuccess ) {
@@ -230,7 +226,6 @@ class Signup extends React.Component {
 						name="password"
 						type="password"
 						onChange={ this.onUpdatePassword }
-						constraint={ passwordConstraints( this.props.intl ) }
 					/>
 				</LabelBlock>
 				<LabelBlock>
