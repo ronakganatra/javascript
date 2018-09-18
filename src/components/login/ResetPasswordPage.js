@@ -145,7 +145,6 @@ class ResetPasswordPage extends React.Component {
 	 */
 	onUpdate( field, event, errors ) {
 		let obj = {};
-		let weaknessScore = this.state.weaknessScore;
 		// Scores the weakness of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			this.validatePassword( event.target.value );
