@@ -6,6 +6,7 @@ import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import queryString from "query-string";
 import zxcvbn from "zxcvbn";
+import _debounce from "lodash/debounce";
 
 import { passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
@@ -112,11 +113,25 @@ class ResetPasswordPage extends React.Component {
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.validate = this.validate.bind( this );
+		this.validatePassword = _debounce( this.validatePassword.bind( this ), 1000 );
 
 		// Validation constraints.
 		this.constraints = {
 			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
+	}
+
+	/**
+	 * Validates the password field using the zxcvbn module.
+	 *
+	 * @param {value} value The value of the password field.
+	 * @returns {void}
+	 */
+	validatePassword( value ) {
+		if( value.length > 0 ) {
+			let passwordValidation = zxcvbn( value );
+			this.setState( { weaknessScore: passwordValidation.score } );
+		}
 	}
 
 	/**
@@ -133,14 +148,12 @@ class ResetPasswordPage extends React.Component {
 		let weaknessScore = this.state.weaknessScore;
 		// Scores the weakness of the password input using the zxcvbn module.
 		if ( field === "password" ) {
-			let validatePassword = zxcvbn( event.target.value );
-			weaknessScore = validatePassword.score;
+			this.validatePassword( event.target.value );
 		}
 
 		obj[ field ] = event.target.value;
 		obj.errors = Object.assign( {}, this.state.errors );
 		obj.errors[ field ] = errors;
-		obj.weaknessScore = weaknessScore;
 
 		this.setState( obj, () => {
 			let newErrors = this.validate();

@@ -8,6 +8,7 @@ import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-i
 import { Redirect } from "react-router";
 import { passwordRepeatConstraint, emailConstraints } from "./CommonConstraints";
 import zxcvbn from "zxcvbn";
+import _debounce from "lodash/debounce";
 
 // Components.
 import { Button } from "../Button";
@@ -82,7 +83,7 @@ class Signup extends React.Component {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
-			weakEnessScore: 3,
+			weaknessScore: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -91,11 +92,25 @@ class Signup extends React.Component {
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.getAccountButton = this.getAccountButton.bind( this );
+		this.validatePassword = _debounce( this.validatePassword.bind( this ), 1000 );
 
 		// Validation constraints.
 		this.constraints = {
 			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
+	}
+
+	/**
+	 * Validates the password field using the zxcvbn module.
+	 *
+	 * @param {value} value The value of the password field.
+	 * @returns {void}
+	 */
+	validatePassword( value ) {
+		if( value.length > 0 ) {
+			let passwordValidation = zxcvbn( value );
+			this.setState( { weaknessScore: passwordValidation.score } );
+		}
 	}
 
 	/**
@@ -110,15 +125,12 @@ class Signup extends React.Component {
 	onUpdate( field, event, errors = [] ) {
 		let hasFieldErrors = errors.length > 0;
 		let obj = {};
-		let weakError = this.state.weaknessScore;
 		// Scores the weakness of the password input using the zxcvbn module.
 		if ( field === "password" ) {
-			let validatePassword = zxcvbn( event.target.value );
-			weakError = validatePassword.score;
+			this.validatePassword( event.target.value );
 		}
 		obj[ field ] = event.target.value;
 		obj.errorsInputFields = hasFieldErrors;
-		obj.weaknessScore = weakError;
 		this.setState( obj );
 	}
 
