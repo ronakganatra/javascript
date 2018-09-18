@@ -128,7 +128,7 @@ class ResetPasswordPage extends React.Component {
 	 * @returns {void}
 	 */
 	validatePassword( value ) {
-		if( value.length > 0 ) {
+		if ( value.length > 0 ) {
 			let passwordValidation = zxcvbn( value );
 			this.setState( { weaknessScore: passwordValidation.score } );
 		}
