@@ -15,7 +15,7 @@ const messages = defineMessages( {
 	},
 	description: {
 		id: "renewal.notification.description",
-		defaultMessage: "When they do, you will no longer receive (security) updates or support! The first one expires on {expireDate}",
+		defaultMessage: "When they do, you will no longer receive (security) updates or support! The first one expires on {expireDate}.",
 	},
 	close: {
 		id: "renewal.notification.close",
