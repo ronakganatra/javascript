@@ -32,7 +32,7 @@
     "type": "error"
   },
   "rest_user_weak_password": {
-    "message": "The password is not strong enough. Please try more numbers, letters and it should not match your email or name.",
+    "message": "Please try to include more numbers and letters, and make sure it does not contain your email or name.",
     "type": "error"
   },
   "invalid_user_login_for_password_reset_request": {

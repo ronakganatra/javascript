@@ -83,7 +83,7 @@ class Signup extends React.Component {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
-			weaknessScore: 3,
+			passwordScore: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -109,7 +109,7 @@ class Signup extends React.Component {
 	validatePassword( value ) {
 		if( value.length > 0 ) {
 			let passwordValidation = zxcvbn( value );
-			this.setState( { weaknessScore: passwordValidation.score } );
+			this.setState( { passwordScore: passwordValidation.score } );
 		}
 	}
 
@@ -125,7 +125,7 @@ class Signup extends React.Component {
 	onUpdate( field, event, errors = [] ) {
 		let hasFieldErrors = errors.length > 0;
 		let obj = {};
-		// Scores the weakness of the password input using the zxcvbn module.
+		// Scores the strength of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			this.validatePassword( event.target.value );
 		}
@@ -192,7 +192,7 @@ class Signup extends React.Component {
 			repeatPassword: this.state.passwordRepeat,
 		};
 		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
-		if ( this.state.weaknessScore > 2 ) {
+		if ( this.state.passwordScore > 2 ) {
 			this.props.attemptSignup( data );
 		}
 	}
@@ -201,7 +201,7 @@ class Signup extends React.Component {
 	render() {
 		let signupError = this.props.signupError;
 
-		if ( this.state.weaknessScore < 3 ) {
+		if ( this.state.passwordScore < 3 ) {
 			// Error object for weak password input, corresponding to the unifyErrorStructure function.
 			signupError = { code: "rest_user_weak_password", field: "validator"  };
 		}
