@@ -1,11 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
 import Link from "./Link";
 import { CloseButtonTopRight } from "./Button";
 import NewTabMessage from "../components/NewTabMessage";
-import UserImage from "../components/UserImage";
 import notificationAvatar from "../images/notificationAvatar.svg";
 
 const messages = defineMessages( {
@@ -53,9 +53,13 @@ const MessageLink = styled( Link )`
 	}
 `;
 
-const AvatarBlock = styled.div`
+const Block = styled.div`
 	display: inline-block;
-	width: 50px;
+	margin-right: 8px;
+`;
+
+const RenewalImage = styled.img`
+	width: 150px;
 `;
 
 /**
@@ -89,6 +93,18 @@ class RenewalNotification extends React.Component {
 	}
 
 	/**
+	 * Sorting by date
+	 *
+	 * @param {a} a The date.
+	 * @param {b} b The other date.
+	 *
+	 * @returns {array} The sorted dates array.
+	 */
+	sortDate( a, b ) {
+		return b - a;
+	}
+
+	/**
 	 * Renders the message.
 	 *
 	 * @returns {*} Returns an empty div if the cookie is set or returns the message.
@@ -97,28 +113,47 @@ class RenewalNotification extends React.Component {
 		if ( this.state.hide ) {
 			return null;
 		}
+		let currentDate = new Date();
+		console.log( "currentDate: ", currentDate );
+		let subscriptionsNew = null;
+		let subscriptions = this.props.subscriptions.filter(
+			( subscription ) => {
+				subscriptionsNew = subscription.endDate > currentDate && subscription.endDate;
+				console.log( subscriptionsNew );
+			}
+		);
+
+		console.log( "subscriptions: ", subscriptions );
+		/*
+		 * 		subscriptions.endDate.sort( ( a, b ) => {
+		 return b - a;
+		 } );
+		 console.log( "after:", subscriptions.reverse() );
+		  * */
 
 		return (
 			<MessageContainer>
-				<AvatarBlock>
-					<UserImage src={ notificationAvatar } />
-				</AvatarBlock>
 					<CloseButtonTopRight
 						onClick={ this.onCrossClick }
 						aria-label={ this.props.intl.formatMessage( messages.close ) }
 					/>
-				<h2><FormattedMessage { ...messages.header }/></h2>
-				<p>
-					<FormattedMessage { ...messages.description }/>
-					<br/>
-					<MessageLink
-						to="/account/subscriptions"
-						linkTarget="_blank"
-					>
-					<FormattedMessage { ...messages.linkMessage } />
-						<NewTabMessage />
-					</MessageLink>
-				</p>
+				<Block>
+					<RenewalImage src={ notificationAvatar }/>
+				</Block>
+				<Block>
+					<h2><FormattedMessage { ...messages.header }/></h2>
+					<p>
+						<FormattedMessage { ...messages.description } values={ { expireDate: "endDate" } }/>
+						<br/>
+						<MessageLink
+							to="/account/subscriptions"
+							linkTarget="_blank"
+						>
+							<FormattedMessage { ...messages.linkMessage } />
+							<NewTabMessage />
+						</MessageLink>
+					</p>
+				</Block>
 			</MessageContainer>
 		);
 	}
@@ -126,6 +161,7 @@ class RenewalNotification extends React.Component {
 
 RenewalNotification.propTypes = {
 	intl: intlShape.isRequired,
+	subscriptions: PropTypes.array,
 };
 
 export default injectIntl( RenewalNotification );
