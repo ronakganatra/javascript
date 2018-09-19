@@ -10,9 +10,11 @@ let state = {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"name": "Yoast SEO",
+					"subscriptionNumber": "Y12345",
 					"used": 1,
 					"limit": 2,
 					"nextPayment": "2017-05-01 21:04:28",
+					"orders": [ "12345" ],
 					"endDate": null,
 					"price": "6900",
 					"currency": "USD",
@@ -20,9 +22,19 @@ let state = {
 						"icon": "icon.jpg",
 					},
 					"status": "active",
+					"requiresManualRenewal": true,
 				},
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		},
+		orders: {
+			"byId": {
+				"12345": {
+					"id": "12345",
+					"invoiceNumber": "Y12345",
+				},
+			},
+			allIds: [ "12345" ],
 		},
 	},
 	router: {
@@ -40,6 +52,7 @@ let defaultExpected = {
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"name": "Yoast SEO",
+			"subscriptionNumber": "Y12345",
 			"used": 1,
 			"status": "active",
 			"limit": 2,
@@ -49,6 +62,7 @@ let defaultExpected = {
 			"endDate": new Date( null ),
 			"billingAmount": "6900",
 			"billingCurrency": "USD",
+			"requiresManualRenewal": true,
 			"icon": "icon.jpg",
 			"status": "active",
 		},

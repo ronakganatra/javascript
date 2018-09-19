@@ -5,9 +5,11 @@ import PropTypes from "prop-types";
 import { doRequest, prepareInternalRequest } from "../functions/api";
 import styled from "styled-components";
 
-import CourseCard from "./courses/CourseCard";
 import MyYoastModal from "./MyYoastModal";
 import CourseInvite from "./CourseInvite";
+import CourseDetails from "./courses/CourseDetails";
+import colors from "yoast-components/style-guide/colors";
+import { FullHeightCard } from "./Card";
 
 const OuterContainer = styled.ul`
 	display: grid;
@@ -17,6 +19,12 @@ const OuterContainer = styled.ul`
 	justify-content: center;
 	align-items: flex-start;
 	padding: 0;
+`;
+
+const CourseListItem = styled.li`
+	list-style-type: none;
+	height:100%;
+	width:100%;
 `;
 
 const messages = defineMessages( {
@@ -120,6 +128,74 @@ class CoursesProgress extends React.Component {
 	}
 
 	/**
+	 * Returns the text and colors of a banner, if applicable.
+	 * E.g. for a sale or when the course is free.
+	 *
+	 * @param {Object} course The course to get a banner for.
+	 *
+	 * @returns {object} an object containing the banner properties.
+	 */
+	getBanner( course ) {
+		if ( course.isOnSale ) {
+			return {
+				banner: {
+					text: course.saleLabel,
+					backgroundColor: colors.$color_yellow,
+					textColor: colors.$color_black,
+				},
+			};
+		} else if ( course.isFree ) {
+			return {
+				banner: {
+					text: "Free",
+					backgroundColor: colors.$color_pink_dark,
+					textColor: colors.$color_white,
+				},
+			};
+		} else if ( ( course.hasTrial && ! course.isEnrolled ) || course.isTrial ) {
+			return {
+				banner: {
+					text: "Free trial available",
+					backgroundColor: colors.$color_pink_dark,
+					textColor: colors.$color_white,
+				},
+			};
+		}
+		return null;
+	}
+
+	/**
+	 * Returns the header information for a course card.
+	 *
+	 * @param {Object} course The course to get header information for.
+	 *
+	 * @returns {{header: {image: *, link: *, title: *}}} The header information.
+	 */
+	getHeader( course ) {
+		if ( ! course.image ) {
+			return null;
+		}
+		return {
+			header: {
+				image: course.image,
+				link: this.enableHeaderUrl( course ) ? course.courseUrl : null,
+				title: course.title,
+			},
+		};
+	}
+
+	/**
+	 * If the header image and title should link to the course.
+	 *
+	 * @param {Object} course The course to check if the header url is enabled for.
+	 *
+	 * @returns {Boolean} if the header image and title should link to the course.
+	 */
+	enableHeaderUrl( course ) {
+		return course.hasTrial || course.isFree || course.isEnrolled;
+	}
+
+	/**
 	 * Returns the invite student modal component.
 	 *
 	 * @param {boolean} open if the modal should be open or not.
@@ -156,8 +232,13 @@ class CoursesProgress extends React.Component {
 	render() {
 		return (
 			<OuterContainer>
-				{ this.props.courses.map( ( course, i ) => <CourseCard key={ i } { ...course }
-																	   onAssignModalOpen={ this.openModal } /> ) }
+				{ this.props.courses.map( ( course, i ) =>
+					<CourseListItem key={ i }>
+						<FullHeightCard{ ...this.getBanner( course ) } { ...this.getHeader( course ) }>
+							<CourseDetails { ...course } onAssignModalOpen={ this.openModal }/>
+						</FullHeightCard>
+					</CourseListItem> )
+				}
 				{ this.getInviteModal( this.state.modalOpen ) }
 			</OuterContainer>
 		);

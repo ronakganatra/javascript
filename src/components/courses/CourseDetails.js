@@ -7,7 +7,6 @@ import colors from "yoast-components/style-guide/colors";
 import sampleHeader from "../../images/sample_course_card_header.png";
 
 // Custom components
-import CourseCardContainer from "./CourseCardContainer";
 import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
 import Link from "../Link";
 import ProgressBar from "../ProgressBar";
@@ -29,7 +28,6 @@ const CompletedIcon = styled.img`
 `;
 
 const ActionBlock = styled.div`
-	padding: 24px;
 	text-align: center;
 `;
 
@@ -51,6 +49,24 @@ const SecondaryButton = styled( LargeSecondaryButtonLink )`
 	margin-top: 24px;
 	width: 100%;
 `;
+
+const Header = styled.a`
+	padding: 0;
+	margin: 0;
+	margin-bottom: 15px;
+	
+	color: ${ colors.$color_pink_dark };
+	font-weight: 50;
+	font-size: 1.5em;
+	text-decoration: none;
+`;
+
+const Details = styled.div`
+	margin-bottom:24px;
+	border-bottom: 1px ${ colors.$color_grey } solid;
+	flex-grow: 1;
+`;
+
 
 const messages = defineMessages( {
 	startFreeTrial: {
@@ -101,7 +117,7 @@ const messages = defineMessages( {
 
 const BUTTON_MARGIN_TOP = "24px";
 
-class CourseCard extends React.Component {
+class CourseDetails extends React.Component {
 
 	/**
 	 * Sets the CourseCard object.
@@ -128,12 +144,12 @@ class CourseCard extends React.Component {
 	 */
 	getButton( url, color, message, marginTop, textcolor ) {
 		return <Button to={ url }
-					   linkTarget="_blank"
-					   color={ color }
-					   textcolor={ textcolor }
-					   margin={ marginTop }>
+		               linkTarget="_blank"
+		               color={ color }
+		               textcolor={ textcolor }
+		               margin={ marginTop }>
 			<FormattedMessage { ...message } />
-			<NewTabMessage />
+			<NewTabMessage/>
 		</Button>;
 	}
 
@@ -148,7 +164,7 @@ class CourseCard extends React.Component {
 			linkTarget="_blank"
 		>
 			<FormattedMessage { ...messages.viewCertificateButton } />
-			<NewTabMessage />
+			<NewTabMessage/>
 		</SecondaryButton>;
 	}
 
@@ -180,7 +196,7 @@ class CourseCard extends React.Component {
 		let progressBar;
 		// Only when a course is started the progress bar is shown.
 		if ( type === "continue" || type === "completed" ) {
-			progressBar = <ProgressBar progress={ this.props.progress } />;
+			progressBar = <ProgressBar progress={ this.props.progress }/>;
 		}
 		// Return should be updated to trialCompleted
 		return <Fragment>
@@ -197,12 +213,12 @@ class CourseCard extends React.Component {
 	getProgressLink() {
 		if ( this.props.isEnrolled && ! this.props.isTrial && this.props.progress === 0 && this.props.totalEnrollments === 1 ) {
 			/*
-				Returns a LinkButton which can be used to assign someone else
-			 	(but only when the user is enrolled, has not started the course yet,
-				is not trialling out the course and it is the only enrollment)
-			*/
+			 Returns a LinkButton which can be used to assign someone else
+			 (but only when the user is enrolled, has not started the course yet,
+			 is not trialling out the course and it is the only enrollment)
+			 */
 			return <LinkButton testId="assign-to-someone-else"
-							   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			                   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
 		}
@@ -215,7 +231,7 @@ class CourseCard extends React.Component {
 					<FormattedMessage
 						id={ messages.freeTrialCompleted.id }
 						defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-						values={ { icon: <CompletedIcon src={ check } /> } }
+						values={ { icon: <CompletedIcon src={ check } alt=""/> } }
 					/>
 				</StyledLabel>;
 			}
@@ -278,7 +294,7 @@ class CourseCard extends React.Component {
 		} else {
 			// "Assign courses"
 			linkButton = <LinkButton testId="assign-courses"
-									 onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			                         onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;
 		}
@@ -309,63 +325,27 @@ class CourseCard extends React.Component {
 		return this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, marginTop );
 	}
 
-	/**
-	 * Returns the text and colors of a banner, if applicable.
-	 * E.g. for a sale or when the course is free.
-	 * @returns {object} an object containing the banner properties.
-	 */
-	getBanner() {
-		if ( this.props.isOnSale ) {
-			return {
-				bannerText: this.props.saleLabel,
-				bannerBackgroundColor: colors.$color_yellow,
-				bannerTextColor: colors.$color_black,
-			};
-		} else if ( this.props.isFree ) {
-			return {
-				bannerText: "Free",
-				bannerBackgroundColor: colors.$color_pink_dark,
-				bannerTextColor: colors.$color_white,
-			};
-		} else if ( ( this.props.hasTrial && ! this.props.isEnrolled ) || this.props.isTrial ) {
-			return {
-				bannerText: "Free trial available",
-				bannerBackgroundColor: colors.$color_pink_dark,
-				bannerTextColor: colors.$color_white,
-			};
-		}
-		return {};
-	}
-
-	/**
-	 * If the header image and title should link to the course.
-	 * @returns {Boolean} if the header image and title should link to the course.
-	 */
-	enableHeaderUrl() {
-		return this.props.hasTrial || this.props.isFree || this.props.isEnrolled;
-	}
-
 	render() {
 		let hasAccess = this.props.isEnrolled || this.props.hasTrial;
-		return <CourseCardContainer
-			image={ this.props.image }
-			title={ this.props.title }
-			description={ this.props.description }
-			courseUrl={ this.enableHeaderUrl() ? this.props.courseUrl : null }
-			{ ...this.getBanner() }
-		>
-			<ActionBlock>
-				{ hasAccess && this.getProgressLink() }
-				{ ( hasAccess || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton( "" ) }
-				{ this.props.totalEnrollments > 1 && this.getAssignCoursesRow() }
-			</ActionBlock>
-		</CourseCardContainer>;
+		return (
+			<Fragment>
+				<Details>
+					<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
+					<p>{ this.props.description }</p>
+				</Details>
+				<ActionBlock>
+					{ hasAccess && this.getProgressLink() }
+					{ ( hasAccess || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton( "" ) }
+					{ this.props.totalEnrollments > 1 && this.getAssignCoursesRow() }
+				</ActionBlock>
+			</Fragment>
+		);
 	}
 }
 
-export default injectIntl( CourseCard );
+export default injectIntl( CourseDetails );
 
-CourseCard.propTypes = {
+CourseDetails.propTypes = {
 	intl: intlShape.isRequired,
 
 	title: PropTypes.string,
@@ -395,6 +375,6 @@ CourseCard.propTypes = {
 	hasTrial: PropTypes.bool,
 };
 
-CourseCard.defaultProps = {
+CourseDetails.defaultProps = {
 	image: sampleHeader,
 };

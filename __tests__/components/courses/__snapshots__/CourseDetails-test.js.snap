@@ -1,27 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Assigning a course to someone else through a CourseCard works, when the course has not been started yet. 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`Assigning a course to someone else through a CourseDetails works, when the course has not been started yet. 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -32,11 +13,29 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c6 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c1 {
   background: none;
   border: 0px;
   padding: 0;
@@ -47,15 +46,11 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   cursor: pointer;
 }
 
-.c6:hover {
+.c1:hover {
   color: #cc2956;
 }
 
-.c6:focus {
-  outline: none;
-}
-
-.c8 {
+.c3 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -74,35 +69,34 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   transition: background-color 150ms ease-out;
 }
 
-.c8:hover,
-.c8:focus {
+.c3:hover,
+.c3:focus {
   color: #fff;
 }
 
-.c8:hover,
-.c8:focus {
+.c3:hover,
+.c3:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c8:active {
+.c3:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c9 {
+.c4 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c7 {
+.c2 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -110,38 +104,11 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <button
-      className="c6"
+      className="c1"
       onClick={[Function]}
     >
       <span>
@@ -149,7 +116,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       </span>
     </button>
     <a
-      className="c7 c8"
+      className="c2 c3"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -158,39 +125,20 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
         Start this course
       </span>
       <span
-        className="screen-reader-text c9"
+        className="screen-reader-text c4"
       >
         <span>
           (Opens in a new browser tab)
         </span>
       </span>
     </a>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`Assigning a course to someone else through a CourseCard works, when there are enrollments left. 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`Assigning a course to someone else through a CourseDetails works, when there are enrollments left. 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -201,11 +149,29 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c13 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -216,15 +182,11 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   cursor: pointer;
 }
 
-.c13:hover {
+.c8:hover {
   color: #cc2956;
 }
 
-.c13:focus {
-  outline: none;
-}
-
-.c10 {
+.c5 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -243,38 +205,38 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   transition: background-color 150ms ease-out;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   color: #fff;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c10:active {
+.c5:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c6 {
+.c1 {
   position: relative;
   background-color: #ddd;
   border-radius: 5px;
   text-align: right;
 }
 
-.c8 {
+.c3 {
   width: 50%;
   height: 25px;
   background-color: #77b227;
   border-radius: 5px;
 }
 
-.c7 {
+.c2 {
   position: absolute;
   right: 10px;
   line-height: 25px;
@@ -283,24 +245,23 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   color: #000;
 }
 
-.c11 {
+.c6 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c12 {
+.c7 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c9 {
+.c4 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -308,52 +269,25 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <div
-      className="c6"
+      className="c1"
     >
       <span
         aria-label="current progress"
-        className="c7"
+        className="c2"
       >
         50
         %
       </span>
       <div
-        className="c8"
+        className="c3"
       />
     </div>
     <a
-      className="c9 c10"
+      className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -362,7 +296,7 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
         Continue this course
       </span>
       <span
-        className="screen-reader-text c11"
+        className="screen-reader-text c6"
       >
         <span>
           (Opens in a new browser tab)
@@ -370,14 +304,14 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
       </span>
     </a>
     <p
-      className="c12"
+      className="c7"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c13"
+        className="c8"
         onClick={[Function]}
       >
         <span>
@@ -385,32 +319,13 @@ exports[`Assigning a course to someone else through a CourseCard works, when the
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -421,11 +336,29 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c13 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -436,15 +369,11 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   cursor: pointer;
 }
 
-.c13:hover {
+.c8:hover {
   color: #cc2956;
 }
 
-.c13:focus {
-  outline: none;
-}
-
-.c10 {
+.c5 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -463,38 +392,38 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   color: #fff;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c10:active {
+.c5:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c6 {
+.c1 {
   position: relative;
   background-color: #ddd;
   border-radius: 5px;
   text-align: right;
 }
 
-.c8 {
+.c3 {
   width: 50%;
   height: 25px;
   background-color: #77b227;
   border-radius: 5px;
 }
 
-.c7 {
+.c2 {
   position: absolute;
   right: 10px;
   line-height: 25px;
@@ -503,24 +432,23 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   color: #000;
 }
 
-.c11 {
+.c6 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c12 {
+.c7 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c9 {
+.c4 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -528,52 +456,25 @@ exports[`The CourseCard component matches the snapshot 1`] = `
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <div
-      className="c6"
+      className="c1"
     >
       <span
         aria-label="current progress"
-        className="c7"
+        className="c2"
       >
         50
         %
       </span>
       <div
-        className="c8"
+        className="c3"
       />
     </div>
     <a
-      className="c9 c10"
+      className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -582,7 +483,7 @@ exports[`The CourseCard component matches the snapshot 1`] = `
         Continue this course
       </span>
       <span
-        className="screen-reader-text c11"
+        className="screen-reader-text c6"
       >
         <span>
           (Opens in a new browser tab)
@@ -590,14 +491,14 @@ exports[`The CourseCard component matches the snapshot 1`] = `
       </span>
     </a>
     <p
-      className="c12"
+      className="c7"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c13"
+        className="c8"
         onClick={[Function]}
       >
         <span>
@@ -605,32 +506,13 @@ exports[`The CourseCard component matches the snapshot 1`] = `
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -641,11 +523,29 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c10 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c5 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -664,38 +564,38 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   transition: background-color 150ms ease-out;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   color: #fff;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c10:active {
+.c5:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c6 {
+.c1 {
   position: relative;
   background-color: #ddd;
   border-radius: 5px;
   text-align: right;
 }
 
-.c8 {
+.c3 {
   width: 50%;
   height: 25px;
   background-color: #77b227;
   border-radius: 5px;
 }
 
-.c7 {
+.c2 {
   position: absolute;
   right: 10px;
   line-height: 25px;
@@ -704,24 +604,23 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   color: #000;
 }
 
-.c11 {
+.c6 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c12 {
+.c7 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c9 {
+.c4 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -729,52 +628,25 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <div
-      className="c6"
+      className="c1"
     >
       <span
         aria-label="current progress"
-        className="c7"
+        className="c2"
       >
         50
         %
       </span>
       <div
-        className="c8"
+        className="c3"
       />
     </div>
     <a
-      className="c9 c10"
+      className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -783,7 +655,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
         Continue this course
       </span>
       <span
-        className="screen-reader-text c11"
+        className="screen-reader-text c6"
       >
         <span>
           (Opens in a new browser tab)
@@ -791,7 +663,7 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
       </span>
     </a>
     <p
-      className="c12"
+      className="c7"
     >
       <span>
         5 / 5 assigned.
@@ -814,32 +686,13 @@ exports[`The CourseCard component, for a course that has no unassigned enrollmen
         </span>
       </a>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that has not been bought, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component, for a course that has not been bought, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -850,11 +703,29 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c10 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -865,15 +736,11 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   cursor: pointer;
 }
 
-.c10:hover {
+.c5:hover {
   color: #cc2956;
 }
 
-.c10:focus {
-  outline: none;
-}
-
-.c7 {
+.c2 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -892,75 +759,51 @@ exports[`The CourseCard component, for a course that has not been bought, matche
   transition: background-color 150ms ease-out;
 }
 
-.c7:hover,
-.c7:focus {
+.c2:hover,
+.c2:focus {
   color: #fff;
 }
 
-.c7:hover,
-.c7:focus {
+.c2:hover,
+.c2:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c7:active {
+.c2:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c3 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c9 {
+.c4 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c6 {
+.c1 {
   background-color: #a4286a;
   color: #fff;
   width: 100%;
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
-  <div
-    className="c2"
+<div
+    className="c0"
   >
     <a
-      className="c3"
-      href={null}
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
-  >
-    <a
-      className="c6 c7"
+      className="c1 c2"
       href="http://yoast.test/shop"
       rel="noopener noreferrer"
       target="_blank"
@@ -969,7 +812,7 @@ exports[`The CourseCard component, for a course that has not been bought, matche
         Get the full course
       </span>
       <span
-        className="screen-reader-text c8"
+        className="screen-reader-text c3"
       >
         <span>
           (Opens in a new browser tab)
@@ -977,14 +820,14 @@ exports[`The CourseCard component, for a course that has not been bought, matche
       </span>
     </a>
     <p
-      className="c9"
+      className="c4"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c10"
+        className="c5"
         onClick={[Function]}
       >
         <span>
@@ -992,32 +835,13 @@ exports[`The CourseCard component, for a course that has not been bought, matche
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -1028,11 +852,29 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c6 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c1 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1043,15 +885,11 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   cursor: pointer;
 }
 
-.c6:hover {
+.c1:hover {
   color: #cc2956;
 }
 
-.c6:focus {
-  outline: none;
-}
-
-.c8 {
+.c3 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1070,35 +908,34 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   transition: background-color 150ms ease-out;
 }
 
-.c8:hover,
-.c8:focus {
+.c3:hover,
+.c3:focus {
   color: #fff;
 }
 
-.c8:hover,
-.c8:focus {
+.c3:hover,
+.c3:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c8:active {
+.c3:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c9 {
+.c4 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c7 {
+.c2 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -1106,38 +943,11 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <button
-      className="c6"
+      className="c1"
       onClick={[Function]}
     >
       <span>
@@ -1145,7 +955,7 @@ exports[`The CourseCard component, for a course that has not been started yet wi
       </span>
     </button>
     <a
-      className="c7 c8"
+      className="c2 c3"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -1154,39 +964,20 @@ exports[`The CourseCard component, for a course that has not been started yet wi
         Start this course
       </span>
       <span
-        className="screen-reader-text c9"
+        className="screen-reader-text c4"
       >
         <span>
           (Opens in a new browser tab)
         </span>
       </span>
     </a>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -1197,11 +988,29 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c10 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1212,15 +1021,11 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   cursor: pointer;
 }
 
-.c10:hover {
+.c5:hover {
   color: #cc2956;
 }
 
-.c10:focus {
-  outline: none;
-}
-
-.c7 {
+.c2 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1239,41 +1044,40 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   transition: background-color 150ms ease-out;
 }
 
-.c7:hover,
-.c7:focus {
+.c2:hover,
+.c2:focus {
   color: #fff;
 }
 
-.c7:hover,
-.c7:focus {
+.c2:hover,
+.c2:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c7:active {
+.c2:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c3 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c9 {
+.c4 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c6 {
+.c1 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -1281,38 +1085,11 @@ exports[`The CourseCard component, for a course that has not been started yet wi
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
+<div
+    className="c0"
   >
     <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
-  >
-    <a
-      className="c6 c7"
+      className="c1 c2"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -1321,7 +1098,7 @@ exports[`The CourseCard component, for a course that has not been started yet wi
         Start this course
       </span>
       <span
-        className="screen-reader-text c8"
+        className="screen-reader-text c3"
       >
         <span>
           (Opens in a new browser tab)
@@ -1329,14 +1106,14 @@ exports[`The CourseCard component, for a course that has not been started yet wi
       </span>
     </a>
     <p
-      className="c9"
+      className="c4"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c10"
+        className="c5"
         onClick={[Function]}
       >
         <span>
@@ -1344,32 +1121,13 @@ exports[`The CourseCard component, for a course that has not been started yet wi
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that is completed, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c2 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c3 {
+exports[`The CourseDetails component, for a course that is completed, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -1380,11 +1138,29 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   text-decoration: none;
 }
 
-.c4 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c14 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c9 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1395,15 +1171,11 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   cursor: pointer;
 }
 
-.c14:hover {
+.c9:hover {
   color: #cc2956;
 }
 
-.c14:focus {
-  outline: none;
-}
-
-.c11 {
+.c6 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1422,24 +1194,24 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   transition: background-color 150ms ease-out;
 }
 
-.c11:hover,
-.c11:focus {
+.c6:hover,
+.c6:focus {
   color: #fff;
 }
 
-.c11:hover,
-.c11:focus {
+.c6:hover,
+.c6:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c11:active {
+.c6:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c10 {
+.c5 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -1447,8 +1219,8 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   text-shadow: none;
 }
 
-.c10:hover,
-.c10:focus {
+.c5:hover,
+.c5:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -1456,21 +1228,21 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   text-shadow: 0px 0px 2px #000;
 }
 
-.c6 {
+.c1 {
   position: relative;
   background-color: #ddd;
   border-radius: 5px;
   text-align: right;
 }
 
-.c8 {
+.c3 {
   width: 100%;
   height: 25px;
   background-color: #77b227;
   border-radius: 5px;
 }
 
-.c7 {
+.c2 {
   position: absolute;
   right: 10px;
   line-height: 25px;
@@ -1479,74 +1251,46 @@ exports[`The CourseCard component, for a course that is completed, matches the s
   color: #fff;
 }
 
-.c12 {
+.c7 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c5 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c13 {
+.c8 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c9 {
+.c4 {
   margin-top: 24px;
   width: 100%;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <div
-    className="c2"
-  >
-    <a
-      className="c3"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c4"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c5"
+<div
+    className="c0"
   >
     <div
-      className="c6"
+      className="c1"
     >
       <span
         aria-label="current progress"
-        className="c7"
+        className="c2"
       >
         100
         %
       </span>
       <div
-        className="c8"
+        className="c3"
       />
     </div>
     <a
-      className="c9 c10 c11"
+      className="c4 c5 c6"
       href="http://yoast.academy.test/certificate"
       rel="noopener noreferrer"
       target="_blank"
@@ -1555,7 +1299,7 @@ exports[`The CourseCard component, for a course that is completed, matches the s
         View your certificate
       </span>
       <span
-        className="screen-reader-text c12"
+        className="screen-reader-text c7"
       >
         <span>
           (Opens in a new browser tab)
@@ -1563,14 +1307,14 @@ exports[`The CourseCard component, for a course that is completed, matches the s
       </span>
     </a>
     <p
-      className="c13"
+      className="c8"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c14"
+        className="c9"
         onClick={[Function]}
       >
         <span>
@@ -1578,32 +1322,13 @@ exports[`The CourseCard component, for a course that is completed, matches the s
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that is free, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c4 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c5 {
+exports[`The CourseDetails component, for a course that is free, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -1614,31 +1339,29 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   text-decoration: none;
 }
 
-.c6 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c2 {
-  position: absolute;
-  top: 8px;
-  left: -8px;
-  font-weight: 500;
-  color: #fff;
-  line-height: 16px;
-  background-color: #a4286a;
-  padding: 8px 16px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c3 {
-  position: absolute;
-  top: 40px;
-  left: -8px;
-  border-top: 8px solid #6c2548;
-  border-left: 8px solid transparent;
-}
-
-.c15 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1649,15 +1372,11 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   cursor: pointer;
 }
 
-.c15:hover {
+.c8:hover {
   color: #cc2956;
 }
 
-.c15:focus {
-  outline: none;
-}
-
-.c12 {
+.c5 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1676,38 +1395,38 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   transition: background-color 150ms ease-out;
 }
 
-.c12:hover,
-.c12:focus {
+.c5:hover,
+.c5:focus {
   color: #fff;
 }
 
-.c12:hover,
-.c12:focus {
+.c5:hover,
+.c5:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c12:active {
+.c5:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c8 {
+.c1 {
   position: relative;
   background-color: #ddd;
   border-radius: 5px;
   text-align: right;
 }
 
-.c10 {
+.c3 {
   width: 50%;
   height: 25px;
   background-color: #77b227;
   border-radius: 5px;
 }
 
-.c9 {
+.c2 {
   position: absolute;
   right: 10px;
   line-height: 25px;
@@ -1716,24 +1435,23 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   color: #000;
 }
 
-.c13 {
+.c6 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c7 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c14 {
+.c7 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c11 {
+.c4 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -1741,60 +1459,25 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <a
-    href="http://yoast.academy.test/awesome_seo"
-  >
-    <img
-      alt="Awesome SEO Course"
-      className="c1"
-      src="sample_course_card_header.png"
-    />
-  </a>
-  <span
-    className="c2"
-  >
-    Free
-  </span>
-  <span
-    className="c3"
-  />
-  <div
-    className="c4"
-  >
-    <a
-      className="c5"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c6"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c7"
+<div
+    className="c0"
   >
     <div
-      className="c8"
+      className="c1"
     >
       <span
         aria-label="current progress"
-        className="c9"
+        className="c2"
       >
         50
         %
       </span>
       <div
-        className="c10"
+        className="c3"
       />
     </div>
     <a
-      className="c11 c12"
+      className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       rel="noopener noreferrer"
       target="_blank"
@@ -1803,7 +1486,7 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
         Continue this course
       </span>
       <span
-        className="screen-reader-text c13"
+        className="screen-reader-text c6"
       >
         <span>
           (Opens in a new browser tab)
@@ -1811,14 +1494,14 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
       </span>
     </a>
     <p
-      className="c14"
+      className="c7"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c15"
+        className="c8"
         onClick={[Function]}
       >
         <span>
@@ -1826,32 +1509,13 @@ exports[`The CourseCard component, for a course that is free, matches the snapsh
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;
 
-exports[`The CourseCard component, for a course that is on sale, matches the snapshot 1`] = `
-.c0 {
-  position: relative;
-  background-color: #fff;
-  width: 288px;
-  font-size: 1em;
-  list-style-type: none;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c1 {
-  width: 100%;
-}
-
-.c4 {
-  margin: 0px;
-  padding: 20px;
-  padding-top: 10px;
-  border-bottom: 1px #ddd solid;
-}
-
-.c5 {
+exports[`The CourseDetails component, for a course that is on sale, matches the snapshot 1`] = `
+Array [
+  .c1 {
   padding: 0;
   margin: 0;
   margin-bottom: 15px;
@@ -1862,31 +1526,29 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   text-decoration: none;
 }
 
-.c6 {
-  margin: 0;
+.c0 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 
-.c2 {
-  position: absolute;
-  top: 8px;
-  left: -8px;
-  font-weight: 500;
-  color: #000;
-  line-height: 16px;
-  background-color: #ffeb3b;
-  padding: 8px 16px;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c3 {
-  position: absolute;
-  top: 40px;
-  left: -8px;
-  border-top: 8px solid #6c2548;
-  border-left: 8px solid transparent;
-}
-
-.c12 {
+<div
+    className="c0"
+  >
+    <a
+      className="c1"
+      href="http://yoast.academy.test/awesome_seo"
+    >
+      Awesome SEO Course
+    </a>
+    <p>
+      This is an awesome, sexy SEO course.
+    </p>
+  </div>,
+  .c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1897,15 +1559,11 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   cursor: pointer;
 }
 
-.c12:hover {
+.c5:hover {
   color: #cc2956;
 }
 
-.c12:focus {
-  outline: none;
-}
-
-.c9 {
+.c2 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -1924,83 +1582,51 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
   transition: background-color 150ms ease-out;
 }
 
-.c9:hover,
-.c9:focus {
+.c2:hover,
+.c2:focus {
   color: #fff;
 }
 
-.c9:hover,
-.c9:focus {
+.c2:hover,
+.c2:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c9:active {
+.c2:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c10 {
+.c3 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c7 {
-  padding: 24px;
+.c0 {
   text-align: center;
 }
 
-.c11 {
+.c4 {
   font-weight: bold;
   margin: 0;
   margin-top: 24px;
 }
 
-.c8 {
+.c1 {
   background-color: #ffeb3b;
   color: #000;
   width: 100%;
   text-shadow: none;
 }
 
-<li
-  className="c0"
->
-  <img
-    alt=""
-    className="c1"
-    src="sample_course_card_header.png"
-  />
-  <span
-    className="c2"
-  >
-    Now 101% of!
-  </span>
-  <span
-    className="c3"
-  />
-  <div
-    className="c4"
+<div
+    className="c0"
   >
     <a
-      className="c5"
-      href={null}
-    >
-      Awesome SEO Course
-    </a>
-    <p
-      className="c6"
-    >
-      This is an awesome, sexy SEO course.
-    </p>
-  </div>
-  <div
-    className="c7"
-  >
-    <a
-      className="c8 c9"
+      className="c1 c2"
       href="http://yoast.test/shop"
       rel="noopener noreferrer"
       target="_blank"
@@ -2009,7 +1635,7 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
         Get the full course
       </span>
       <span
-        className="screen-reader-text c10"
+        className="screen-reader-text c3"
       >
         <span>
           (Opens in a new browser tab)
@@ -2017,14 +1643,14 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
       </span>
     </a>
     <p
-      className="c11"
+      className="c4"
     >
       <span>
         4 / 5 assigned.
       </span>
        
       <button
-        className="c12"
+        className="c5"
         onClick={[Function]}
       >
         <span>
@@ -2032,6 +1658,6 @@ exports[`The CourseCard component, for a course that is on sale, matches the sna
         </span>
       </button>
     </p>
-  </div>
-</li>
+  </div>,
+]
 `;

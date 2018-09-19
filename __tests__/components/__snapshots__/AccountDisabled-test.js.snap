@@ -28,6 +28,7 @@ exports[`the account disabled component matches the snapshot 1`] = `
   className="c0"
 >
   <img
+    alt="MyYoast"
     className="c1"
     size="200px"
     src="logoColor.svg"

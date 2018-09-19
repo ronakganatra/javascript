@@ -270,18 +270,14 @@ export const LinkButton = styled.button`
 	background: none;
 	border: 0px;
 	padding: 0;
-		
+
 	color: ${ colors.$color_blue };
 	text-decoration: underline;
 	font-weight: bold;
 	cursor: pointer;
-	
+
 	:hover {
 		color: ${ colors.$color_pink_hover };
-	}
-	
-	:focus {
-		outline: none;
 	}
 `;
 
@@ -324,7 +320,7 @@ export const LargeSecondaryButtonLink = styled( ButtonLink )`
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
 	min-width: 152px;
-	
+
 	text-shadow: none;
 
 	&:hover,
