@@ -105,7 +105,7 @@ exports[`the menu matches the snapshot 1`] = `
   .c1 {
     display: inline-block;
     width: 100%;
-    height: 4.5rem;
+    height: 71px;
     margin: 0;
     padding: 0.5rem 0 0;
     border-bottom: 0.25rem solid transparent;
@@ -128,7 +128,7 @@ exports[`the menu matches the snapshot 1`] = `
   }
 
   .c1.active-class-name {
-    border-bottom: 0.25rem solid #fff;
+    border-bottom: 3px solid #fff;
     color: #fff;
     background-color: transparent;
     -webkit-transform: scale( 1.08 );
@@ -154,6 +154,7 @@ exports[`the menu matches the snapshot 1`] = `
 @media screen and ( max-width:1024px ) {
   .c2 {
     display: block;
+    padding: 8px;
     height: 40px;
     width: 40px;
     margin: 0 auto -3px;
@@ -177,7 +178,7 @@ exports[`the menu matches the snapshot 1`] = `
         <img
           alt=""
           className="c2"
-          src="sites.svg"
+          src="home.svg"
         />
         Home
       </a>
