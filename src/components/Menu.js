@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 const titles = defineMessages( {
+	home: {
+		id: "menu.title.home",
+		defaultMessage: "Home",
+	},
 	sites: {
 		id: "menu.title.sites",
 		defaultMessage: "Sites",
@@ -183,28 +187,28 @@ function MainMenu( props ) {
 					// Don't show items that are only defined as route.
 					return menuItem.showInMenu;
 				} )
-							 .map( function( page ) {
-									 let isActive = page.isActive || (
-											 ( match ) => {
-												 return match;
-											 }
-										 );
+					.map( ( page ) => {
+						let isActive = page.isActive || (
+								( match ) => {
+									return match;
+								}
+							);
 
-									 let title = props.intl.formatMessage( titles[ page.titleKey ] );
+						 let title = props.intl.formatMessage( titles[ page.titleKey ] );
 
-									 return <li key={ page.titleKey }>
-										 <MenuItem
-											activeClassName={ activeStyle }
-											to={ page.path }
-											isActive={ isActive }
-											ariaCurrent="page"
-										>
-											 <MenuIcon src={ page.iconSource } alt=""/>
-											 { title }
-										 </MenuItem>
-									 </li>;
-								 }
-							 )
+						 return( <li key={ page.titleKey }>
+								<MenuItem
+									activeClassName={ activeStyle }
+									to={ page.path }
+									isActive={ isActive }
+									ariaCurrent="page"
+								>
+									<MenuIcon src={ page.iconSource } alt=""/>
+									{ title }
+								</MenuItem>
+							</li>
+						 );
+					 } )
 				}
 			</ul>
 		</Menu>

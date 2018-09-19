@@ -6,21 +6,27 @@ import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
 import CoursesPage from "../containers/CoursesPage";
+import HomePage from "../containers/HomePage";
 
 let menuItems = [
+	{
+		showInMenu: true,
+		path: "/",
+		titleKey: "home",
+		iconSource: sitesIcon,
+		component: HomePage,
+		exact: true,
+		isActive: ( match, location ) => {
+			return location.pathname === "/";
+		},
+	},
 	{
 		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
 		iconSource: sitesIcon,
 		component: SitesPageContainer,
-		isActive: ( match, location ) => {
-			if ( match ) {
-				return true;
-			}
-
-			return location.pathname === "/";
-		},
+		exact: true,
 	},
 	{
 		showInMenu: true,
@@ -36,7 +42,7 @@ let menuItems = [
 		titleKey: "downloads",
 		iconSource: downloadsIcon,
 		component: DownloadsPage,
-		exact: false,
+		exact: true,
 	},
 	{
 		showInMenu: true,
