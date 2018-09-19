@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
+import { FormattedMessage, FormattedDate, defineMessages, injectIntl, intlShape } from "react-intl";
 import Link from "./Link";
 import { CloseButtonTopRight } from "./Button";
 import NewTabMessage from "../components/NewTabMessage";
@@ -78,6 +78,7 @@ class RenewalNotification extends React.Component {
 			hide: false,
 		};
 		this.onCrossClick = this.onCrossClick.bind( this );
+		this.earliestEndDate = this.earliestEndDate.bind( this );
 	}
 
 	/**
@@ -93,17 +94,27 @@ class RenewalNotification extends React.Component {
 	}
 
 	/**
-	 * Sorting by date
+	 * Called on cross click and sets a cookie.
 	 *
-	 * @param {a} a The date.
-	 * @param {b} b The other date.
-	 *
-	 * @returns {array} The sorted dates array.
+	 * @returns {object} The nearestEndDate.
 	 */
-	sortDate( a, b ) {
-		return b - a;
+	earliestEndDate() {
+		let currentDate = new Date();
+		// Filters the subscriptions with a endDate in the future.
+		let subscriptions = this.props.subscriptions.filter(
+			( subscription ) => subscription.endDate > currentDate );
+		// Maps the subscriptions to get its endDates.
+		let endDates = subscriptions.map( ( subscription ) => subscription.endDate );
+		// Assigns the first date of the array of endDates as a start.
+		let earliestEndDate = endDates.length > 0 && endDates[ 0 ];
+		// Loops through the array to assign the earliest endDate within the array of endDates.
+		for ( let i = 0; i < endDates.length; i++ ) {
+			if ( endDates[ i ] < earliestEndDate ) {
+				earliestEndDate = endDates[ i ];
+			}
+		}
+		return earliestEndDate;
 	}
-
 	/**
 	 * Renders the message.
 	 *
@@ -113,23 +124,13 @@ class RenewalNotification extends React.Component {
 		if ( this.state.hide ) {
 			return null;
 		}
-		let currentDate = new Date();
-		console.log( "currentDate: ", currentDate );
-		let subscriptionsNew = null;
-		let subscriptions = this.props.subscriptions.filter(
-			( subscription ) => {
-				subscriptionsNew = subscription.endDate > currentDate && subscription.endDate;
-				console.log( subscriptionsNew );
-			}
-		);
 
-		console.log( "subscriptions: ", subscriptions );
-		/*
-		 * 		subscriptions.endDate.sort( ( a, b ) => {
-		 return b - a;
-		 } );
-		 console.log( "after:", subscriptions.reverse() );
-		  * */
+		let endDate = <FormattedDate
+			value={ this.earliestEndDate() }
+			year="numeric"
+			month="long"
+			day="2-digit"
+		/>;
 
 		return (
 			<MessageContainer>
@@ -143,7 +144,7 @@ class RenewalNotification extends React.Component {
 				<Block>
 					<h2><FormattedMessage { ...messages.header }/></h2>
 					<p>
-						<FormattedMessage { ...messages.description } values={ { expireDate: "endDate" } }/>
+						<FormattedMessage { ...messages.description } values={ { expireDate: endDate } }/>
 						<br/>
 						<MessageLink
 							to="/account/subscriptions"
