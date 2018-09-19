@@ -5,8 +5,10 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-i
 import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import queryString from "query-string";
+import zxcvbn from "zxcvbn";
+import _debounce from "lodash/debounce";
 
-import { passwordConstraints, passwordRepeatConstraint } from "./CommonConstraints";
+import { passwordRepeatConstraint } from "./CommonConstraints";
 import colors from "yoast-components/style-guide/colors.json";
 
 // Images
@@ -104,17 +106,32 @@ class ResetPasswordPage extends React.Component {
 			userLogin: parsedQuery.login || "",
 			key: parsedQuery.key || "",
 			username: parsedQuery.login || this.props.username,
+			passwordScore: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.validate = this.validate.bind( this );
+		this.validatePassword = _debounce( this.validatePassword.bind( this ), 1000 );
 
 		// Validation constraints.
 		this.constraints = {
 			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
+	}
+
+	/**
+	 * Validates the password field using the zxcvbn module.
+	 *
+	 * @param {value} value The value of the password field.
+	 * @returns {void}
+	 */
+	validatePassword( value ) {
+		if ( value.length > 0 ) {
+			let passwordValidation = zxcvbn( value );
+			this.setState( { passwordScore: passwordValidation.score } );
+		}
 	}
 
 	/**
@@ -128,9 +145,15 @@ class ResetPasswordPage extends React.Component {
 	 */
 	onUpdate( field, event, errors ) {
 		let obj = {};
+		// Scores the strength of the password input using the zxcvbn module.
+		if ( field === "password" ) {
+			this.validatePassword( event.target.value );
+		}
+
 		obj[ field ] = event.target.value;
 		obj.errors = Object.assign( {}, this.state.errors );
 		obj.errors[ field ] = errors;
+
 		this.setState( obj, () => {
 			let newErrors = this.validate();
 			errors = Object.assign( {}, this.state.errors, newErrors );
@@ -187,6 +210,7 @@ class ResetPasswordPage extends React.Component {
 		if ( this.canSubmit() === false ) {
 			return;
 		}
+
 		let data = {
 			/* eslint-disable camelcase */
 			user_login: this.state.userLogin || "",
@@ -195,10 +219,21 @@ class ResetPasswordPage extends React.Component {
 			key: this.state.key || "",
 			/* eslint-enable camelcase */
 		};
-		this.props.attemptResetPassword( data );
+
+		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
+		if ( this.state.passwordScore > 2 ) {
+			this.props.attemptResetPassword( data );
+		}
 	}
 
 	render() {
+		let resetPasswordError = this.props.submitErrors;
+
+		if ( this.state.passwordScore < 3 ) {
+			// Error object for weak password input, corresponding to the unifyErrorStructure function.
+			resetPasswordError = { code: "rest_user_weak_password", field: "validator" };
+		}
+
 		if ( this.props.passwordResetSuccess ) {
 			return <Redirect to={ "/forgot-password/success" }/>;
 		}
@@ -207,6 +242,7 @@ class ResetPasswordPage extends React.Component {
 		if ( this.props.loading ) {
 			buttonText = messages.loadingButton;
 		}
+
 		return (
 			<LoginColumnLayout>
 				<Column>
@@ -219,7 +255,7 @@ class ResetPasswordPage extends React.Component {
 						values={ { username: this.state.username } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
-						<ErrorDisplay error={ this.props.submitErrors }/>
+						<ErrorDisplay error={ resetPasswordError }/>
 						<LabelBlock>
 							<Label htmlFor="password">
 								<FormattedMessage { ...messages.labelPassword } />
@@ -230,7 +266,6 @@ class ResetPasswordPage extends React.Component {
 								type="password"
 								onChange={ this.onUpdatePassword }
 								delay={ 0 }
-								constraint={ passwordConstraints( this.props.intl ) }
 							/>
 						</LabelBlock>
 

@@ -32,7 +32,7 @@
     "type": "error"
   },
   "rest_user_weak_password": {
-    "message": "The new password is not strong enough, please make sure it contains a variety of numbers, letters and does not match your email or name.",
+    "message": "Please try to include more numbers and letters, and make sure it does not contain your email or name.",
     "type": "error"
   },
   "password_too_long": {
@@ -69,6 +69,10 @@
   },
   "user_email": {
     "message": "The email address you provided has already been used. Please try another email address.",
+    "type": "error"
+  },
+  "user_name": {
+    "message": "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.",
     "type": "error"
   },
   "invalid_google_authenticator_token": {

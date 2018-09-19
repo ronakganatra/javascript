@@ -110,28 +110,24 @@ class PasswordResetForm extends React.Component {
 		 * While saving: prevent multiple submissions but don't disable the
 		 * button for better accessibility (avoid keyboard focus loss).
 		 */
-		/* Should be enabled later:
-		 if ( this.props.isSaving ) {
-		 return;
-		 }
-		 let password = {
-		 password: this.state.password,
-		 };
-		 */
-		// Should be updated when encryption is developed.
 
 		if ( this.props.isSavingPassword ) {
 			return;
 		}
 
-		this.setState( { onDiscard: false }, () => {
-			this.props.onSavePassword( {
-				/* eslint-disable camelcase */
-				password: this.state.newPassword,
-				password_confirmation: this.state.confirmPassword,
-				old_password: this.state.currentPassword,
-				/* eslint-enable camelcase */
-			} );
+		this.props.onSavePassword( {
+			/* eslint-disable camelcase */
+			password: this.state.newPassword,
+			password_confirmation: this.state.confirmPassword,
+			old_password: this.state.currentPassword,
+			/* eslint-enable camelcase */
+		} );
+
+		this.setState( {
+			onDiscard: false,
+			currentPassword: "",
+			newPassword: "",
+			confirmPassword: "",
 		} );
 	}
 

@@ -6,7 +6,9 @@ import validate from "validate.js";
 import _isUndefined from "lodash/isUndefined";
 import { injectIntl, defineMessages, FormattedMessage, intlShape } from "react-intl";
 import { Redirect } from "react-router";
-import { passwordRepeatConstraint, passwordConstraints, emailConstraints } from "./CommonConstraints";
+import { passwordRepeatConstraint, emailConstraints } from "./CommonConstraints";
+import zxcvbn from "zxcvbn";
+import _debounce from "lodash/debounce";
 
 // Components.
 import { Button } from "../Button";
@@ -81,6 +83,7 @@ class Signup extends React.Component {
 			password: "",
 			passwordRepeat: "",
 			errors: {},
+			passwordScore: 3,
 		};
 
 		this.handleSubmit = this.handleSubmit.bind( this );
@@ -89,11 +92,25 @@ class Signup extends React.Component {
 		this.onUpdatePassword = this.onUpdate.bind( this, "password" );
 		this.onUpdatePasswordRepeat = this.onUpdate.bind( this, "passwordRepeat" );
 		this.getAccountButton = this.getAccountButton.bind( this );
+		this.validatePassword = _debounce( this.validatePassword.bind( this ), 1000 );
 
 		// Validation constraints.
 		this.constraints = {
 			passwordRepeat: passwordRepeatConstraint( this.props.intl ),
 		};
+	}
+
+	/**
+	 * Validates the password field using the zxcvbn module.
+	 *
+	 * @param {value} value The value of the password field.
+	 * @returns {void}
+	 */
+	validatePassword( value ) {
+		if( value.length > 0 ) {
+			let passwordValidation = zxcvbn( value );
+			this.setState( { passwordScore: passwordValidation.score } );
+		}
 	}
 
 	/**
@@ -108,6 +125,10 @@ class Signup extends React.Component {
 	onUpdate( field, event, errors = [] ) {
 		let hasFieldErrors = errors.length > 0;
 		let obj = {};
+		// Scores the strength of the password input using the zxcvbn module.
+		if ( field === "password" ) {
+			this.validatePassword( event.target.value );
+		}
 		obj[ field ] = event.target.value;
 		obj.errorsInputFields = hasFieldErrors;
 		this.setState( obj );
@@ -170,18 +191,30 @@ class Signup extends React.Component {
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
-		this.props.attemptSignup( data );
+		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
+		if ( this.state.passwordScore > 2 ) {
+			this.props.attemptSignup( data );
+		}
 	}
 
+
 	render() {
+		let signupError = this.props.signupError;
+
+		if ( this.state.passwordScore < 3 ) {
+			// Error object for weak password input, corresponding to the unifyErrorStructure function.
+			signupError = { code: "rest_user_weak_password", field: "validator"  };
+		}
+
 		if( this.props.signupRequestSuccess ) {
 			return ( <Redirect to={ "/almost-there" } /> );
 		}
 
 		let errors = this.validate();
+
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
-				<ErrorDisplay error={ this.props.signupError } />
+				<ErrorDisplay error={ signupError } />
 				<LabelBlock>
 					<Label htmlFor="email-address">
 						<FormattedMessage { ...messages.labelEmail } />
@@ -205,7 +238,6 @@ class Signup extends React.Component {
 						name="password"
 						type="password"
 						onChange={ this.onUpdatePassword }
-						constraint={ passwordConstraints( this.props.intl ) }
 					/>
 				</LabelBlock>
 				<LabelBlock>
