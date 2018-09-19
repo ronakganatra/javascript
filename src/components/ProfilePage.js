@@ -322,7 +322,6 @@ class ProfilePage extends React.Component {
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
-
 		return (
 			<OuterContainer>
 				<InnerContainer>
