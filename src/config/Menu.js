@@ -1,3 +1,4 @@
+import homeIcon from "../icons/home.svg";
 import sitesIcon from "../icons/sites.svg";
 import coursesIcon from "../icons/courses.svg";
 import userIcon from "../icons/user.svg";
@@ -13,7 +14,7 @@ let menuItems = [
 		showInMenu: true,
 		path: "/",
 		titleKey: "home",
-		iconSource: sitesIcon,
+		iconSource: homeIcon,
 		component: HomePage,
 		exact: true,
 		isActive: ( match, location ) => {
