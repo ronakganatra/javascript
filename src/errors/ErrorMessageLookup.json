@@ -67,6 +67,10 @@
     "message": "The email address you provided has already been used. Please try another email address.",
     "type": "error"
   },
+  "user_name": {
+    "message": "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.",
+    "type": "error"
+  },
   "invalid_google_authenticator_token": {
     "message": "Your verification code is incorrect or has expired.",
     "type": "error"
