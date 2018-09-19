@@ -170,9 +170,25 @@ exports[`the menu matches the snapshot 1`] = `
       <a
         aria-current="page"
         className="c1 active-class-name"
-        href="/sites"
+        href="/"
         onClick={[Function]}
         style={Object {}}
+      >
+        <img
+          alt=""
+          className="c2"
+          src="sites.svg"
+        />
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        aria-current={false}
+        className="c1"
+        href="/sites"
+        onClick={[Function]}
+        style={undefined}
       >
         <img
           alt=""
