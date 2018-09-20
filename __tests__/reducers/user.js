@@ -43,6 +43,7 @@ test( 'the login action', () => {
 test( 'the logoutSuccess action', () => {
 	const input = {
 		loggedIn: true,
+		loggingOut: false,
 		userId: 5,
 		accessToken: "A token",
 	};
@@ -51,6 +52,7 @@ test( 'the logoutSuccess action', () => {
 	};
 	const expected = {
 		loggedIn: false,
+		loggingOut: false,
 		accessToken: "",
 		userId: null,
 	};

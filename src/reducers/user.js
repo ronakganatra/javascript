@@ -82,6 +82,7 @@ export function userDataReducer( state = initialState, action ) {
 			} );
 		case LOGOUT_SUCCESS:
 			return Object.assign( {}, state, {
+				loggingOut: false,
 				loggedIn: false,
 				accessToken: "",
 				userId: null,
