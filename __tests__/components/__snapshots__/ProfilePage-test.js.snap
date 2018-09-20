@@ -84,12 +84,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -126,58 +120,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -398,26 +345,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -790,7 +717,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -808,25 +735,23 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -932,12 +857,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -974,58 +893,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -1246,26 +1118,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1638,7 +1490,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -1656,25 +1508,23 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -1780,12 +1630,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1822,58 +1666,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -2094,26 +1891,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2486,7 +2263,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -2504,25 +2281,23 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -2628,12 +2403,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
-.c37 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c35 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2670,58 +2439,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c38 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c38 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c36 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c39 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -2984,26 +2706,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c35 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c38 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c38 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c38 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3405,7 +3107,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             className="c36"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -3423,25 +3125,23 @@ exports[`components/ProfilePage failure during password reset 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c37"
+        className="c34"
       >
         <button
           aria-expanded={false}
-          className="c38"
-          fontWeight={300}
+          className="c35"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c39"
-            fontSize={1.5}
+            className="c36"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -3547,12 +3247,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
-.c36 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c34 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3589,58 +3283,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c37 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c37 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c35 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c38 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -3898,26 +3545,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c34 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c37 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c37 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c37 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4319,7 +3946,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             className="c35"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -4337,25 +3964,23 @@ exports[`components/ProfilePage failure during profile save 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c36"
+        className="c33"
       >
         <button
           aria-expanded={false}
-          className="c37"
-          fontWeight={300}
+          className="c34"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c38"
-            fontSize={1.5}
+            className="c35"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -4461,12 +4086,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4503,58 +4122,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -4775,26 +4347,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5167,7 +4719,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -5185,25 +4737,23 @@ exports[`components/ProfilePage has sent password reset 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -5309,12 +4859,6 @@ exports[`components/ProfilePage saving profile 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5351,58 +4895,11 @@ exports[`components/ProfilePage saving profile 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -5623,26 +5120,6 @@ exports[`components/ProfilePage saving profile 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6015,7 +5492,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -6033,25 +5510,23 @@ exports[`components/ProfilePage saving profile 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -6157,12 +5632,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6199,58 +5668,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -6471,26 +5893,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6863,7 +6265,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -6881,25 +6283,23 @@ exports[`components/ProfilePage sending password reset 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -7005,12 +6405,6 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7047,58 +6441,11 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -7319,26 +6666,6 @@ exports[`components/ProfilePage the default case 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -7711,7 +7038,7 @@ exports[`components/ProfilePage the default case 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -7729,25 +7056,23 @@ exports[`components/ProfilePage the default case 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"
@@ -7853,12 +7178,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
-.c32 {
-  margin-top: 24px;
-  background-color: #fff;
-  width: 100%;
-}
-
 .c30 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7895,58 +7214,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c33 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  background-color: #fff;
-  padding: 24px 32px;
-  border: none;
-  text-align: left;
-  font-weight: 300;
-  cursor: pointer;
-  color: #000;
-}
-
-.c33 svg {
-  -webkit-flex: 0 0 40px;
-  -ms-flex: 0 0 40px;
-  flex: 0 0 40px;
-  margin-right: -10px;
-  margin-left: 10px;
-  margin-top: -4px;
-  margin-bottom: -4px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-}
-
 .c31 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
   font-size: 1.4em;
-  line-height: 1.33333333;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.c34 {
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  font-size: 1.5em;
   line-height: 1.33333333;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
@@ -8167,26 +7439,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c30 svg {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    margin-right: -2px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 {
-    padding: 16px 24px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c33 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -8559,7 +7811,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             className="c31"
             fontSize={1.4}
           >
-            Danger zone
+            Developer Tokens
           </span>
           <svg
             aria-hidden="true"
@@ -8577,25 +7829,23 @@ exports[`components/ProfilePage while deleting the account 1`] = `
         </button>
       </div>
     </div>
-  </div>
-  <div>
     <div
       className="c2 c3 c4"
     >
       <div
-        className="c32"
+        className="c29"
       >
         <button
           aria-expanded={false}
-          className="c33"
-          fontWeight={300}
+          className="c30"
+          fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c34"
-            fontSize={1.5}
+            className="c31"
+            fontSize={1.4}
           >
-            Developer Tokens
+            Danger zone
           </span>
           <svg
             aria-hidden="true"

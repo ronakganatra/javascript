@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import React from "react";
+import React, { Fragment } from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { PageCard } from "./PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "./Button";
@@ -277,7 +277,7 @@ class ProfilePage extends React.Component {
 	 * @returns {(JSXElement|null)} Either a JSX element containing the DevTools section of the profile page, or null,
 	 * depending on whether the user has access to this feature via the feature toggle.
 	 */
-	getDevTools() {
+	getComposerTools() {
 		let ComposerIntroduction =
 			<ComposerIntroductionArea>
 				{
@@ -295,9 +295,9 @@ class ProfilePage extends React.Component {
 			</ComposerIntroductionArea>;
 
 		return (
-			<div>
+			<Fragment>
 				<PageCard>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false}>
+					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false} accountPage={ true }>
 						{ComposerIntroduction}
 						<ComposerTokens {...this.props} hasPaper={false}/>
 						<CreateButtonArea>
@@ -313,7 +313,7 @@ class ProfilePage extends React.Component {
 					</CollapsibleHeader>
 				</PageCard>
 				{this.getModal()}
-			</div>
+			</Fragment>
 		);
 	}
 
@@ -370,6 +370,7 @@ class ProfilePage extends React.Component {
 							/>
 						</Column>
 					</PageCard>
+					{ this.getComposerTools() }
 					<PageCard>
 						<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false} accountPage={ true }>
 							<DownloadAccount/>
@@ -380,7 +381,6 @@ class ProfilePage extends React.Component {
 						</CollapsibleHeader>
 					</PageCard>
 				</InnerContainer>
-				{this.getDevTools()}
 			</OuterContainer>
 
 		);
