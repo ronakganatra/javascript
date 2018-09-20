@@ -55,7 +55,8 @@ const MessageLink = styled( Link )`
 
 const Block = styled.div`
 	display: inline-block;
-	margin-right: 8px;
+	margin-right: 32px;
+	vertical-align: middle;
 `;
 
 const RenewalImage = styled.img`
@@ -100,37 +101,55 @@ class RenewalNotification extends React.Component {
 	 */
 	earliestEndDate() {
 		let currentDate = new Date();
-		// Filters the subscriptions with a endDate in the future.
+
+		// Filters subscriptions with an endDate in the future.
 		let subscriptions = this.props.subscriptions.filter(
 			( subscription ) => subscription.endDate > currentDate );
-		// Maps the subscriptions to get its endDates.
-		let endDates = subscriptions.map( ( subscription ) => subscription.endDate );
-		// Assigns the first date of the array of endDates as a start.
-		let earliestEndDate = endDates.length > 0 && endDates[ 0 ];
+
+		// Makes sure subscriptions are not empty.
+		subscriptions = subscriptions.length > 0 && subscriptions;
+
+		// Sets the earliest subscription to the first subscription of the array
+		let earliestSubscription = subscriptions[ 0 ];
+
 		// Loops through the array to assign the earliest endDate within the array of endDates.
-		for ( let i = 0; i < endDates.length; i++ ) {
-			if ( endDates[ i ] < earliestEndDate ) {
-				earliestEndDate = endDates[ i ];
+		for ( let i = 0; i < subscriptions.length; i++ ) {
+			// Defines the first endDate.
+			let endDateStart = subscriptions[ 0 ];
+			endDateStart = endDateStart.endDate;
+			// Defines the endDate of subscription i.
+			let endDateNew = subscriptions[ i ];
+			endDateNew = endDateNew.endDate;
+
+			// Updates earliestSubscription and endDateStart if another subscription of the array has an earlier endDate.
+			if ( endDateNew < endDateStart ) {
+				earliestSubscription = subscriptions[ i ];
+				endDateStart = endDateNew;
 			}
 		}
-		return earliestEndDate;
+		return earliestSubscription;
 	}
+
 	/**
 	 * Renders the message.
 	 *
 	 * @returns {*} Returns an empty div if the cookie is set or returns the message.
 	 */
 	render() {
-		if ( this.state.hide ) {
+		let earliestSubscription = this.earliestEndDate();
+
+		if ( this.state.hide || ! earliestSubscription ) {
 			return null;
 		}
 
 		let endDate = <FormattedDate
-			value={ this.earliestEndDate() }
-			year="numeric"
-			month="long"
-			day="2-digit"
-		/>;
+				value={ earliestSubscription.endDate }
+				year="numeric"
+				month="long"
+				day="2-digit"
+			/>;
+		let subscriptionId = earliestSubscription.id;
+
 
 		return (
 			<MessageContainer>
@@ -147,7 +166,7 @@ class RenewalNotification extends React.Component {
 						<FormattedMessage { ...messages.description } values={ { expireDate: endDate } }/>
 						<br/>
 						<MessageLink
-							to="/account/subscriptions"
+							to={ "/account/subscriptions/" + subscriptionId }
 							linkTarget="_blank"
 						>
 							<FormattedMessage { ...messages.linkMessage } />
@@ -163,6 +182,7 @@ class RenewalNotification extends React.Component {
 RenewalNotification.propTypes = {
 	intl: intlShape.isRequired,
 	subscriptions: PropTypes.array,
+	onManage: PropTypes.func,
 };
 
 export default injectIntl( RenewalNotification );
