@@ -32,7 +32,7 @@
     "type": "error"
   },
   "rest_user_weak_password": {
-    "message": "Please try to include more numbers and letters, and make sure it does not contain your email or name.",
+    "message": "Your password is not secure enough. Please try to include more numbers and letters, and make sure it does not contain your email or name.",
     "type": "error"
   },
   "password_too_long": {
