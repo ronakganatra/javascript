@@ -67,7 +67,7 @@ export function logout() {
 
 		doRequest( nonceRequest )
 			.then( ( reponse ) => {
-				let logoutRequest = prepareInternalRequest( "Customers/logout/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
+				let logoutRequest = prepareInternalRequest( "Customers/logout-user/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
 				doRequest( logoutRequest )
 					.then( () => {
 						removeAuthCookies();
