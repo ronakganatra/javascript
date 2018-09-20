@@ -146,7 +146,8 @@ class Signup extends React.Component {
 				( this.state.email.length &&
 					this.state.password.length &&
 					this.state.passwordRepeat.length ) > 0 &&
-					noInputFieldErrors
+					noInputFieldErrors &&
+					this.state.passwordScore > 2
 			}>
 				<FormattedMessage { ...messages.createAccount } />
 			</SaveButton>
