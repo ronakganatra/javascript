@@ -112,7 +112,7 @@ export function loginRequest( params ) {
 					} );
 			} )
 			.catch( ( error ) => {
-				if ( error.error && error.error.code === "invalid_google_authenticator_token" ) {
+				if ( error && error.code === "invalid_google_authenticator_token" ) {
 					dispatch( requireOTP() );
 				}
 				dispatch( loginFailure( error ) );
