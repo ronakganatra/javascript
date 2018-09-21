@@ -66,6 +66,17 @@ export function setPeriLoginCookie() {
 }
 
 /**
+ * Saves the redirect_to query parameter in the target destination cookie.
+ *
+ * @param {String} intendedDestination The intended destination.
+ *
+ * @returns {void}
+ */
+export function saveIntendedDestination( intendedDestination ) {
+	Cookies.set( "intendedDestination", intendedDestination );
+}
+
+/**
  * Removes the intendedDestination from the site-wide cookie.
  *
  * @returns {void}
@@ -81,17 +92,6 @@ export function removePeriLoginCookie() {
  */
 export function hasPeriLoginCookie() {
 	return !! Cookies.get( "intendedDestination" );
-}
-
-/**
- * Directs the user to the my.yoast.com url they wanted to visit before logging in.
- *
- * @returns {bool} Whether or not we have been redirected.
- */
-export function directToIntendedDestination() {
-	let redirectUrl = getRedirectUrl();
-	removePeriLoginCookie();
-	window.location.href = redirectUrl;
 }
 
 /**

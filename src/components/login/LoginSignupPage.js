@@ -8,6 +8,8 @@ import LoginMessage from "./LoginMessage";
 import SignupContainer from "../../containers/Signup";
 import LoginContainer from "../../containers/Login";
 import SubNavigation, { SubNavigationItem } from "../SubNavigation";
+import { saveIntendedDestination } from "../../functions/auth";
+import * as queryString from "query-string";
 
 let itemRoutes = [
 	{
@@ -38,7 +40,7 @@ const messages = defineMessages( {
 	signupMessage: {
 		id: "signup.message",
 		defaultMessage: "MyYoast is the portal to all things Yoast. Whether you want to comment on a post, " +
-		"take our free SEO for beginners training or find a product you have purchased: it's all there!",
+			"take our free SEO for beginners training or find a product you have purchased: it's all there!",
 	},
 	button: {
 		id: "login.button",
@@ -51,11 +53,18 @@ const messages = defineMessages( {
  */
 class LoginSignupPage extends React.Component {
 
+	componentDidMount() {
+		const queryParams = queryString.parse( this.props.location.search );
+		if ( queryParams.redirect_to ) {
+			saveIntendedDestination( queryParams.redirect_to );
+		}
+	}
+
 	getLoginMessage() {
 		if ( this.props.location.pathname === "/login" || this.props.location.pathname === "/login/" ) {
-			return <LoginMessage header={ messages.loginHeader } message={ messages.loginMessage } />;
+			return <LoginMessage header={ messages.loginHeader } message={ messages.loginMessage }/>;
 		}
-		return <LoginMessage header={ messages.signupHeader } message={ messages.signupMessage } />;
+		return <LoginMessage header={ messages.signupHeader } message={ messages.signupMessage }/>;
 	}
 
 	render() {
@@ -63,8 +72,8 @@ class LoginSignupPage extends React.Component {
 			<LoginColumnLayout>
 				{ this.getLoginMessage() }
 				<div>
-					<SubNavigation itemRoutes={ itemRoutes } />
-					<SubNavigationItem itemRoutes={ itemRoutes } />
+					<SubNavigation itemRoutes={ itemRoutes }/>
+					<SubNavigationItem itemRoutes={ itemRoutes }/>
 				</div>
 			</LoginColumnLayout>
 		);
