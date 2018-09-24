@@ -9,11 +9,16 @@ import colors from "yoast-components/style-guide/colors.json";
 import { Logo } from "../components/Logo";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
+import ErrorDisplay from "../errors/ErrorDisplay";
 
 const messages = defineMessages( {
 	signOut: {
 		id: "mobileheader.signout",
 		defaultMessage: "Sign out",
+	},
+	signingOut: {
+		id: "mobileheader.signout.pending",
+		defaultMessage: "Signing out...",
 	},
 	needHelp: {
 		id: "mobileheader.needhelp",
@@ -61,7 +66,7 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  * @returns {ReactElement} A react component.
  */
 function MobileHeader( props ) {
-	let buttonMessage = messages.signOut;
+	let buttonMessage = props.loggingOut ? messages.signingOut : messages.signOut;
 	let onButtonClick = props.onLogoutClick;
 	let buttonIcon = logout;
 
@@ -73,19 +78,15 @@ function MobileHeader( props ) {
 
 	return (
 		<FixedMobileHeader role="banner">
-			{props.detailPage ? <h1 hidden>{props.pageTitle}</h1> : null}
-			<MobileHeaderButton type="button" onClick={onButtonClick} iconSource={buttonIcon} iconSize="24px">
-				<FormattedMessage
-					id={buttonMessage.id}
-					defaultMessage={buttonMessage.defaultMessage}
-				/>
+			{ props.detailPage ? <h1 hidden>{ props.pageTitle }</h1> : null }
+			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
+				<FormattedMessage { ...buttonMessage } />
 			</MobileHeaderButton>
+			<ErrorDisplay error={ props.logoutError } showIcon={ false }/>
 			<Logo context="header" size="88px"/>
-			<BeaconHeaderButton type="button" onClick={props.onBeaconClick} iconSource={questionCircle} iconSize="24px">
-				<FormattedMessage
-					id={messages.needHelp.id}
-					defaultMessage={messages.needHelp.defaultMessage}
-				/>
+			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle }
+			                    iconSize="24px">
+				<FormattedMessage { ...messages.needHelp } />
 			</BeaconHeaderButton>
 		</FixedMobileHeader>
 	);
@@ -100,4 +101,11 @@ MobileHeader.propTypes = {
 	detailPage: PropTypes.bool,
 	match: PropTypes.object,
 	pageTitle: PropTypes.string,
+	loggingOut: PropTypes.bool.isRequired,
+	logoutError: PropTypes.object,
+};
+
+MobileHeader.defaultProps = {
+	loggingOut: false,
+	logoutError: null,
 };

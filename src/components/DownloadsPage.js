@@ -138,6 +138,7 @@ class DownloadsPage extends React.Component {
 															   defaultMessage={ "We could not find any downloads matching { query }." }
 															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
+		let buttonText = <FormattedMessage id="downloads.search.buttonShop" defaultMessage={ "Get products" } />;
 		let pluginDownloads = <Products
 									products={ this.props.plugins }
 									byLine={ pluginsByLine }
@@ -159,7 +160,9 @@ class DownloadsPage extends React.Component {
 				<div>
 					{ this.getSearch() }
 					<LandingPage imageSource={ noResultsImage }
+								 urlText={ buttonText }
 								 paragraphs={ noResultsParagraphs }
+								 url="https://yoast.com/shop/"
 					/>
 				</div>
 			);

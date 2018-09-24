@@ -49,6 +49,10 @@ let defaultState = {
 			byId: {},
 		}
 	},
+	user: {
+		loggingOut: false,
+		logoutError: null,
+	},
 	router: {
 		location: {
 			pathname: "http://my.yoast.test:3001/sites"
@@ -73,15 +77,21 @@ stateSubscriptionDetail.router = {
 };
 
 let expectedSite = {
-	pageTitle: "yoast.com"
+	loggingOut: false,
+	logoutError: null,
+	pageTitle: "yoast.com",
 };
 
 let expectedSubscription = {
-	pageTitle: "Yoast SEO for WordPress Premium plugin"
+	loggingOut: false,
+	logoutError: null,
+	pageTitle: "Yoast SEO for WordPress Premium plugin",
 };
 
 let expectedNoDetailPage = {
-	pageTitle: "Yoast SEO for WordPress Premium plugin"
+	loggingOut: false,
+	logoutError: null,
+	pageTitle: "",
 };
 
 test( "the mapStateToProps function, for when on a site detail page.", () => {
@@ -93,7 +103,7 @@ test( "the mapStateToProps function, for when on a subscription detail page.", (
 } );
 
 test( "the mapStateToProps function, for when not on a detail page.", () => {
-	expect( mapStateToProps( defaultState ) ).toEqual( { pageTitle: "" } );
+	expect( mapStateToProps( defaultState ) ).toEqual( expectedNoDetailPage );
 } );
 
 // Mock actions.

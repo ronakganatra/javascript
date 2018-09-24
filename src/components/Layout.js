@@ -14,6 +14,8 @@ import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import LicenseActivationMessage from "./LicenseActivationMessage";
+import { WhitePage } from "../components/PaperStyles";
+import loginBackground from "../images/login-background.jpg";
 
 const messages = defineMessages( {
 	beacon: {
@@ -30,6 +32,17 @@ const Layout = styled.div`
 		display: block;
 		min-height: 0;
 	}
+`;
+
+const LayoutLogin = styled.div`
+	background: ${colors.$color_pink_dark} url( ${ loginBackground } ) no-repeat 100% 0;
+	background-size: cover;
+	
+	font-family: "Open Sans", sans-serif;
+	color: #000;
+		
+	display: flex;
+	min-height: 100%;
 `;
 
 const Sidebar = styled.div`
@@ -54,7 +67,6 @@ const Sidebar = styled.div`
 		}
 	}
 `;
-
 
 const Main = styled.main`
 	flex: 1 1 auto;
@@ -93,13 +105,32 @@ Main.defaultProps = {
 	id: "content",
 };
 
+const WhitePaper = styled( WhitePage )`
+	margin: auto;
+	padding: 48px;
+`;
+
+export const inLoginLayout = ( WrappedComponent ) => {
+	return class LoginLayout extends Component {
+		render() {
+			return (
+				<LayoutLogin>
+					<WhitePaper>
+						<WrappedComponent { ...this.props } />
+					</WhitePaper>
+				</LayoutLogin>
+			);
+		}
+	};
+};
+
 export const inSingleLayout = ( WrappedComponent ) => {
 	return class SingleLayout extends Component {
 		render() {
 			return (
 				<Layout>
 					<header role="banner">
-						<MobileHeaderContainer { ...this.props } detailPage={ true }/>
+						<MobileHeaderContainer { ...this.props } detailPage={ true } />
 					</header>
 					<SingleMain>
 						<Content>
@@ -123,15 +154,15 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
 						</SkipLink>
 						<MediaQuery query="(max-width: 1024px)">
-							<MobileHeaderContainer detailPage={ false }/>
+							<MobileHeaderContainer detailPage={ false } />
 						</MediaQuery>
 					</header>
 					<Sidebar>
 						<MediaQuery query="(min-width: 1025px)">
-							<Logo context="sidebar" size="200px"/>
+							<Logo context="sidebar" size="200px" />
 						</MediaQuery>
-						<UserStatus/>
-						<MainMenu menuRoutes={ menuItems }  />
+						<UserStatus />
+						<MainMenu menuRoutes={ menuItems } />
 						<DebugInfo />
 					</Sidebar>
 					<Main>

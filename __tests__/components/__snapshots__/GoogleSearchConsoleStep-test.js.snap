@@ -6,13 +6,13 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
@@ -37,7 +37,6 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
 
 .c4 {
   color: #000;
-  box-shadow: none;
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;

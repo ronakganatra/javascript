@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import styled from "styled-components";
+import defaults from "../../../../config/defaults.json";
 
 // Custom components.
-import { Page } from "../../../PaperStyles";
 import { RedButton } from "../../../Button";
-
+import { Form } from "../FormElements";
 
 const messages = defineMessages( {
 	dangerZone: {
@@ -37,12 +37,14 @@ const messages = defineMessages( {
 const Paragraph = styled.p`
 	margin-top: 0.0em;
 	margin-bottom: 0.5em;
-	font-size: 1.5em;
-	font-weight: 300;
+	font-size: 1em;
+	font-weight: 700;
 `;
 
-const DeleteButton = styled( RedButton )`
-	margin: 1em 0;
+const DeleteButton = styled( RedButton )`	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
+	}
 `;
 
 class DeleteAccount extends React.Component {
@@ -69,8 +71,7 @@ class DeleteAccount extends React.Component {
 	}
 
 	render() {
-		return <Page>
-					<form onSubmit={ this.handleDelete }>
+		return <Form onSubmit={ this.handleDelete }>
 						<Paragraph>
 							<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
 						</Paragraph>
@@ -78,8 +79,8 @@ class DeleteAccount extends React.Component {
 							<FormattedMessage id={ messages.warningMessage.id } defaultMessage={ messages.warningMessage.defaultMessage }/>
 						</p>
 						<DeleteButton type="submit" disabled={ this.isDeleting }>{ this.deleteButtonText() }</DeleteButton>
-					</form>
-				</Page>;
+					</Form>
+				;
 	}
 }
 

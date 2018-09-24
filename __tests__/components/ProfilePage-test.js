@@ -22,6 +22,7 @@ describe( 'components/ProfilePage', () => {
 				onSaveTokenClick={ () => {} }
 				onDeleteTokenClick={ () => {} }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -48,6 +49,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				isSaving={true}
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -74,6 +76,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				saveEmailError={ {} }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -100,6 +103,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				isSendingPasswordReset={ true }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -126,6 +130,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				hasSendPasswordReset={ true }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -152,6 +157,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -179,6 +185,7 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				passwordResetError={ null }
 				composerTokens={ [] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -210,6 +217,7 @@ describe( 'components/ProfilePage', () => {
 					id: "1",
 					name: "abc",
 				} ] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -241,6 +249,7 @@ describe( 'components/ProfilePage', () => {
 					id: "1",
 					name: "abc",
 				} ] }
+				onUploadAvatar={ () => {} }
 			/>
 		);
 
@@ -269,6 +278,7 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ null }
 				composerTokens={ [] }
 				newsletterSubscribed="subscribed"
+				onUploadAvatar={ () => {} }
 			/>
 		);
 

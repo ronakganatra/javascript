@@ -32,7 +32,7 @@ const messages = defineMessages( {
 	},
 	editStudent: {
 		id: "enrollments.overview.editStudent",
-		defaultMessage: "Edit student",
+		defaultMessage: "Change student",
 	},
 } );
 
@@ -51,7 +51,7 @@ const CourseColumnIcon = styled( ColumnIcon )`
 		padding: 0;
 		right: 0;
 	}
-	
+
 	img {
 		margin: auto;
 		height: 100%;

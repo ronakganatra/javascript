@@ -141,14 +141,13 @@ class CreateToken extends React.Component {
 
 					<Buttons>
 							<WideSecondaryButton onClick={ this.props.onClose } >
-								<FormattedMessage id="profile.createToken.cancel" defaultMessage="cancel"/>
+								<FormattedMessage id="profile.createToken.cancel" defaultMessage="Cancel"/>
 							</WideSecondaryButton>
 							<WideLargeButton
 								type="submit"
-								aria-label="create token"
 								enabledStyle={ enabledStyle }
 							>
-								<FormattedMessage id="profile.create-sites.create" defaultMessage="create token" />
+								<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token" />
 							</WideLargeButton>
 					</Buttons>
 				</form>
