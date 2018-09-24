@@ -11,10 +11,11 @@ import { LargeIconButton, makeButtonFullWidth } from "../Button";
 import plus from "../../icons/plus.svg";
 import addSiteImage from "../../images/addsite.svg";
 import AddSiteModal from "../modal/AddSiteModal";
+import { push } from "react-router-redux";
 
 const messages = defineMessages( {
 	addSite: {
-		id: "home.addSiteButton",
+		id: "home.sitecard.addsitebutton",
 		defaultMessage: "Add site",
 	},
 } );
@@ -23,7 +24,7 @@ const ActionBlock = styled.div`
 	text-align: center;
 `;
 
-const Header = styled.a`
+const Header = styled.h2`
 	padding: 0;
 	margin: 0;
 	margin-bottom: 15px;
@@ -34,7 +35,7 @@ const Header = styled.a`
 `;
 
 const Details = styled.div`
-	margin-bottom:24px;
+	margin: 24px 0;
 	border-bottom: 1px ${ colors.$color_grey } solid;
 	flex-grow: 1;
 `;
@@ -62,7 +63,9 @@ const SitesCard = ( props ) => {
 			className={ "SitesCard" }
 		>
 			<Details>
-				<Header href={ "sites" }>{ "Add site" }</Header>
+				<Header>
+					<FormattedMessage id={ "home.sitecard.header" } defaultMessage={ "Add site" } />
+				</Header>
 				<p>
 					<FormattedMessage
 						id={ "home.addSiteInfo" }
@@ -92,6 +95,7 @@ const SitesCard = ( props ) => {
 SitesCard.propTypes = {
 	intl: intlShape.isRequired,
 	onClick: PropTypes.func.isRequired,
+	navigateToSites: PropTypes.func,
 };
 
 export const mapStateToProps = ( state ) => {
@@ -128,6 +132,9 @@ export const mapDispatchToProps = ( dispatch ) => {
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
+		},
+		navigateToSites: () => {
+			dispatch( push( "/sites" ) );
 		},
 	};
 };
