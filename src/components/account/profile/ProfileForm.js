@@ -1,17 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { Button } from "../../Button";
 import validate from "validate.js";
-import { speak } from "@wordpress/a11y";
-import colors from "yoast-components/style-guide/colors.json";
 import styled from "styled-components";
 import _isUndefined from "lodash/isUndefined";
 import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
-import { InputField } from "../../InputField";
 import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
+import UploadUserImage from "./UploadUserImage";
+import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -28,7 +26,7 @@ const messages = defineMessages( {
 	},
 	labelEmail: {
 		id: "profile.label.email",
-		defaultMessage: "Email",
+		defaultMessage: "Primary email address",
 	},
 	labelFirstName: {
 		id: "profile.label.firstName",
@@ -38,51 +36,14 @@ const messages = defineMessages( {
 		id: "profile.label.lastName",
 		defaultMessage: "Last name",
 	},
-	saving: {
-		id: "profile.saving",
-		defaultMessage: "Saving...",
-	},
-	saved: {
-		id: "profile.saved",
-		defaultMessage: "Profile saved",
-	},
-	saveProfile: {
-		id: "profile.save",
-		defaultMessage: "Save profile",
-	},
 } );
-
-const SaveButtonArea = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-`;
-
-const SaveButton = styled( Button )`
-	margin: 1em 0;
-`;
-
-const TextInput = styled( InputField )`
-	background-color: ${ colors.$color_background_light };
-`;
-
-const FormMessage = styled.span`
-	padding: 0 0 0 1em;
-`;
-
-const FormGroup = styled.form`
-	display: flex;
-	flex-wrap: wrap;
-	width: 100%;
-	justify-content: space-between;
-`;
 
 const LabelBlock = styled.div`
 	width: 100%;
 `;
 
 const NameBlock = styled( LabelBlock )`
-	width: 48%;
+	width: 70%;
 	margin-bottom: 8px;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
@@ -91,6 +52,17 @@ const NameBlock = styled( LabelBlock )`
 
 	div:last-of-type{
 		margin-bottom: 0;
+	}
+`;
+
+const AvatarBlock = styled.div`
+	width: 30%;
+	margin: auto;
+	padding-top:20px;
+	text-align: center;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		width: 100%;
 	}
 `;
 
@@ -117,36 +89,20 @@ class ProfileForm extends React.Component {
 			userFirstName: this.props.userFirstName,
 			userLastName: this.props.userLastName,
 			email: this.props.email,
+			onDiscard: false,
 		};
 
+		this.isSaved = this.isSaved.bind( this );
 		this.onUpdateEmail = this.onUpdateEmail.bind( this );
 		this.handleSubmit = this.handleSubmit.bind( this );
+		this.discardChanges = this.discardChanges.bind( this );
 		this.onUpdateFirstName = this.onUpdateName.bind( this, "first" );
-		this.onUpdateLastName  = this.onUpdateName.bind( this, "last" );
+		this.onUpdateLastName = this.onUpdateName.bind( this, "last" );
 
 		// Validation constraints.
 		this.constraints = {
 			email: this.emailConstraints.bind( this ),
 		};
-	}
-
-	/**
-	 * Announce actions to assistive technologies.
-	 *
-	 * @returns {void}
-	 */
-	announceActions() {
-		let message = "";
-
-		if ( this.isSaving() ) {
-			message = this.props.intl.formatMessage( messages.saving );
-		}
-
-		if ( this.isSaved() ) {
-			message = this.props.intl.formatMessage( messages.saved );
-		}
-
-		speak( message, "assertive" );
 	}
 
 	/**
@@ -190,7 +146,6 @@ class ProfileForm extends React.Component {
 				},
 			};
 		}
-
 		return output;
 	}
 
@@ -215,40 +170,22 @@ class ProfileForm extends React.Component {
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
 			let warningKey = warning.attribute + index;
-			return <ErrorDisplay key={ warningKey } error={ warning } type="warning"/>;
+			return <ErrorDisplay key={ warningKey } error={ warning } type="warning" />;
 		} );
 	}
 
 	/**
-	 * Returns the save email elements for the profile page.
+	 * Discards the changes of personal info and resets it to initial state.
 	 *
-	 * @returns {ReactElement} The elements for the save email.
+	 * @returns {void}
 	 */
-	getSaveButton() {
-		let emailSavingMessage;
-
-		if ( this.isSaving() || this.isSaved() ) {
-			let message = this.props.intl.formatMessage( this.isSaving() ? messages.saving : messages.saved );
-
-			emailSavingMessage = <FormMessage inline={ true }>{ message }</FormMessage>;
-			speak( message, "assertive" );
-		}
-
-		return <SaveButtonArea>
-			<SaveButton type="submit">
-				<FormattedMessage id={ messages.saveProfile.id } defaultMessage={ messages.saveProfile.defaultMessage } />
-			</SaveButton>
-			{ emailSavingMessage }
-		</SaveButtonArea>;
-	}
-
-	/**
-	 * Whether we are currently saving.
-	 *
-	 * @returns {boolean} Whether we are currently saving.
-	 */
-	isSaving() {
-		return this.props.isSaving;
+	discardChanges() {
+		this.setState( {
+			userFirstName: this.props.userFirstName,
+			userLastName: this.props.userLastName,
+			email: this.props.email,
+			onDiscard: true,
+		} );
 	}
 
 	/**
@@ -257,7 +194,8 @@ class ProfileForm extends React.Component {
 	 * @returns {boolean} Whether we are currently saving.
 	 */
 	isSaved() {
-		return this.props.isSaved && _every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
+		return this.props.isSaved && ! this.state.onDiscard &&
+			_every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
 	onUpdateEmail( event ) {
@@ -272,12 +210,11 @@ class ProfileForm extends React.Component {
 
 	handleSubmit( event ) {
 		event.preventDefault();
-
 		/*
 		 * While saving: prevent multiple submissions but don't disable the
 		 * button for better accessibility (avoid keyboard focus loss).
 		 */
-		if ( this.isSaving() ) {
+		if ( this.props.isSaving ) {
 			return;
 		}
 		let profile = {
@@ -288,11 +225,12 @@ class ProfileForm extends React.Component {
 			email: this.state.email,
 		};
 
+		this.setState( { onDiscard: false } );
 		this.props.onSaveProfile( profile );
 	}
 
 	componentDidUpdate() {
-		this.announceActions();
+		announceActions( this.props.isSaving, this.isSaved(), "profile", this.props.intl );
 	}
 
 	componentWillUnmount() {
@@ -308,6 +246,9 @@ class ProfileForm extends React.Component {
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>
+				<AvatarBlock>
+					<UploadUserImage image={ this.props.image } onFileUpload={ this.props.onUploadAvatar } />
+				</AvatarBlock>
 				<NameBlock id="left">
 					<StyledLabel htmlFor="first-name">
 						<FormattedMessage
@@ -322,8 +263,6 @@ class ProfileForm extends React.Component {
 						value={ this.state.userFirstName }
 						onChange={ this.onUpdateFirstName }
 					/>
-				</NameBlock>
-				<NameBlock>
 					<StyledLabel htmlFor="last-name">
 						<FormattedMessage
 							id={ messages.labelLastName.id }
@@ -355,7 +294,7 @@ class ProfileForm extends React.Component {
 					/>
 					{ this.displayWarnings( warnings, "email" ) }
 					<ErrorDisplay error={ this.props.saveEmailError } />
-					{ this.getSaveButton() }
+					{ getChangeButtons( "profile", this.props.intl, this.props.isSaving, this.isSaved(), this.discardChanges ) }
 				</LabelBlock>
 			</FormGroup>
 		);
@@ -366,9 +305,11 @@ ProfileForm.propTypes = {
 	intl: intlShape.isRequired,
 	onUpdateEmail: PropTypes.func.isRequired,
 	onSaveProfile: PropTypes.func,
+	onUploadAvatar: PropTypes.func.isRequired,
 	email: PropTypes.string,
 	userFirstName: PropTypes.string,
 	userLastName: PropTypes.string,
+	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
 	isDeleting: PropTypes.bool,

@@ -30,13 +30,12 @@ const ButtonArchetype = styled.button`
 	// Buttons don't need vertical padding.
 	padding: 0 16px;
 	border: 0;
-	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+	filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
 	border-radius: 4px;
-	font: 400 14px/24px "Open Sans", sans-serif;
-	text-transform: uppercase;
+	font: 700 14px/24px "Open Sans", sans-serif;
 	cursor: pointer;
 	vertical-align: top;
 
@@ -85,7 +84,6 @@ export const RedButton = styled( ButtonArchetype )`
 
 export const LargeSecondaryButton = styled( ButtonArchetype )`
 	color: ${ colors.$color_black };
-	box-shadow: none;
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
 	min-width: 152px;
@@ -200,6 +198,8 @@ export const IconButtonTransparent = styled( IconButtonArchetype )`
 	height: 32px;
 	padding-left: 2em;
 	border: 0;
+	font-weight: 400;
+	filter:none;
 
 	transition: background-color 150ms ease-out;
 
@@ -286,18 +286,17 @@ export const ButtonLink = styled( Link )`
 	display: inline-block;
 	height: 48px;
 	padding: 12px 16px;
-	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };;
+	background-color: ${ props => props.enabledStyle ? colors.$color_green_medium_light : colors.$color_grey_disabled };
 	color: ${ colors.$color_white };
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 	border-radius: 4px;
 	vertical-align: top;
 	// line height 24 + padding 12 + 12 = 48
-	font: 400 14px/24px "Open Sans", sans-serif;
-	text-transform: uppercase;
+	font: 700 14px/24px "Open Sans", sans-serif;
 	text-decoration: none;
 	text-align: center;
 	text-shadow: 0px 0px 2px #000;
-	border-bottom: 2px solid rgba(0,0,0,0.2);
+	border-bottom: 4px solid rgba(0,0,0,0.2);
 
 	&:hover,
 	&:focus {

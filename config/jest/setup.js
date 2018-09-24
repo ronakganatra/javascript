@@ -1,2 +1,2 @@
 import "jest-styled-components";
-global.window = {};
+global.window = { location : {} };

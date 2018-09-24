@@ -193,7 +193,7 @@ class SitesPage extends React.Component {
 				<div>
 					<SiteAddContainer>
 						{ this.getSearch() }
-						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus } aria-label={ messages.addSite.defaultMessage }>
+						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }>
 							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
 						</ResponsiveIconButton>
 					</SiteAddContainer>

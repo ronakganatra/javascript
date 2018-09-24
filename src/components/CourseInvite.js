@@ -254,14 +254,13 @@ class CourseInvite extends React.Component {
 					<ErrorDisplay error={ this.props.courseInviteError } />
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="academy.invite.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="academy.invite.cancel" defaultMessage="Cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ true }
-							aria-label="invite student"
 						>
-							<FormattedMessage id="academy.invite.invite" defaultMessage="invite student"/>
+							<FormattedMessage id="academy.invite.invite" defaultMessage="Invite student"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>

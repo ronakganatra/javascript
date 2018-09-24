@@ -142,10 +142,9 @@ function ComposerHelp( props ) {
 				{ ! props.composerToken &&
 				<CreateButton
 					type="submit"
-					aria-label="create token"
 					onClick={ props.createComposerToken }
 				>
-					<FormattedMessage id="profile.create-sites.create" defaultMessage="create token"/>
+					<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token"/>
 				</CreateButton>
 				}
 				<ResponsiveLargeButton onClick={ props.onClose } >

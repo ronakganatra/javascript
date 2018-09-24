@@ -6,10 +6,12 @@ let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.
 
 const mapStateToProps = ( state ) => {
 	return {
-		displayName: state.user.data.profile.email,
+		displayEmail: state.user.data.profile.email,
 		loggedIn: state.user.loggedIn,
+		loggingOut: state.user.loggingOut,
+		logoutError: state.user.logoutError,
 		displayImage: {
-			src: url( state.user.data.profile.email, {
+			src: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
 				// Gravatar rating
 				rating: "pg",
 				// Default image

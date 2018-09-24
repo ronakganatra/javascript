@@ -10,13 +10,12 @@ exports[`the site page component matches the snapshot 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -134,6 +133,7 @@ exports[`the site page component matches the snapshot 1`] = `
 .c10 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c11 {
@@ -462,10 +462,12 @@ exports[`the site page component matches the snapshot 1`] = `
       <button
         aria-expanded={false}
         className="c11"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c12"
+          fontSize={1.5}
         >
           Select the platform your site is running on
         </span>
@@ -494,10 +496,12 @@ exports[`the site page component matches the snapshot 1`] = `
       <button
         aria-expanded={false}
         className="c11"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c12"
+          fontSize={1.5}
         >
           Disconnect this site
         </span>
@@ -531,13 +535,12 @@ exports[`the site page component matches the snapshot for a site in a directory 
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -655,6 +658,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
 .c10 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c11 {
@@ -983,10 +987,12 @@ exports[`the site page component matches the snapshot for a site in a directory 
       <button
         aria-expanded={false}
         className="c11"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c12"
+          fontSize={1.5}
         >
           Select the platform your site is running on
         </span>
@@ -1015,10 +1021,12 @@ exports[`the site page component matches the snapshot for a site in a directory 
       <button
         aria-expanded={false}
         className="c11"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c12"
+          fontSize={1.5}
         >
           Disconnect this site
         </span>
@@ -1124,6 +1132,7 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
 .c6 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c7 {
@@ -1421,10 +1430,12 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
       <button
         aria-expanded={false}
         className="c7"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c8"
+          fontSize={1.5}
         >
           Select the platform your site is running on
         </span>
@@ -1453,10 +1464,12 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
       <button
         aria-expanded={false}
         className="c7"
+        fontWeight={300}
         onClick={[Function]}
       >
         <span
           className="c8"
+          fontSize={1.5}
         >
           Disconnect this site
         </span>

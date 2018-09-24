@@ -44,7 +44,7 @@ test('Clicking on the "Delete profile" button calls the onDeleteProfile callback
 	let tree = component.toJSON();
 
 	// Trigger the callback.
-	let onSubmit = tree.children[0].props.onSubmit;
+	let onSubmit = tree.props.onSubmit;
 	onSubmit(mockEvent);
 
 	expect(mockedDeleteCallback).toHaveBeenCalled();

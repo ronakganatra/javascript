@@ -58,16 +58,6 @@ test( 'login action creator', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'logout action creator', () => {
-	const expected = {
-		type: actions.LOGOUT,
-	};
-
-	const actual = actions.logout();
-
-	expect( actual ).toEqual( expected );
-} );
-
 test( 'request user action creator', () => {
 	const expected = {
 		type: actions.FETCH_USER_REQUEST,
@@ -157,31 +147,31 @@ test( 'disable user action creator', () => {
 describe( 'Password reset', () => {
 	test( 'request action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_REQUEST,
+			type: actions.PASSWORD_UPDATE_REQUEST,
 		};
 
-		const actual = actions.passwordResetRequest();
+		const actual = actions.passwordUpdateRequest();
 
 		expect( actual ).toEqual( expected );
 	} );
 
 	test( 'failure action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_FAILURE,
+			type: actions.PASSWORD_UPDATE_FAILURE,
 			error: { error: "A reset password failure error" },
 		};
 
-		const actual = actions.passwordResetFailure( { error: "A reset password failure error" } );
+		const actual = actions.passwordUpdateFailure( { error: "A reset password failure error" } );
 
 		expect( actual ).toEqual( expected );
 	} );
 
 	test( 'success action', () => {
 		const expected = {
-			type: actions.RESET_PASSWORD_SUCCESS,
+			type: actions.PASSWORD_UPDATE_SUCCESS,
 		};
 
-		const actual = actions.passwordResetSuccess();
+		const actual = actions.passwordUpdateSuccess();
 
 		expect( actual ).toEqual( expected );
 	} );
@@ -189,9 +179,7 @@ describe( 'Password reset', () => {
 
 describe( 'Profile saving', () => {
 	test( 'request action', () => {
-		const expected = {
-			type: actions.PROFILE_UPDATE_REQUEST,
-		};
+		const expected = { "subtype": "", "type": "PROFILE_UPDATE_REQUEST" };
 
 		const actual = actions.profileUpdateRequest();
 
@@ -202,6 +190,7 @@ describe( 'Profile saving', () => {
 		const expected = {
 			type: actions.PROFILE_UPDATE_FAILURE,
 			error: { error: "A profile update failure error" },
+			subtype: "",
 		};
 
 		const actual = actions.profileUpdateFailure( { error: "A profile update failure error" } );
@@ -212,6 +201,7 @@ describe( 'Profile saving', () => {
 	test( 'success action', () => {
 		const expected = {
 			type: actions.PROFILE_UPDATE_SUCCESS,
+			subtype: "",
 		};
 
 		const actual = actions.profileUpdateSuccess();

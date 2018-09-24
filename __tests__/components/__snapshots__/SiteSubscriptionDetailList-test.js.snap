@@ -4,6 +4,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 .c1 {
   margin-top: 24px;
   background-color: #fff;
+  width: 100%;
 }
 
 .c2 {
@@ -62,13 +63,12 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
   border-radius: 4px;
   vertical-align: top;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   -webkit-text-decoration: none;
   text-decoration: none;
   text-align: center;
   text-shadow: 0px 0px 2px #000;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
+  border-bottom: 4px solid rgba(0,0,0,0.2);
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
@@ -421,10 +421,12 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
     <button
       aria-expanded={true}
       className="c2"
+      fontWeight={300}
       onClick={[Function]}
     >
       <span
         className="c3"
+        fontSize={1.5}
       >
         Subscriptions
       </span>

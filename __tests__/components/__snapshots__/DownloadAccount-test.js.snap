@@ -1,109 +1,89 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The download account component matches the snapshot 1`] = `
-.c1 {
-  background-color: #fff;
-  padding: 16px 24px;
-}
-
-.c0 {
-  background-color: #fff;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c6 {
+.c5 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
   border: 0;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
   background-color: #64a60a;
   color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
   border-radius: 4px;
-  font: 400 14px/24px "Open Sans",sans-serif;
-  text-transform: uppercase;
+  font: 700 14px/24px "Open Sans",sans-serif;
   cursor: pointer;
   vertical-align: top;
   -webkit-transition: background-color 150ms ease-out;
   transition: background-color 150ms ease-out;
 }
 
-.c6:hover,
-.c6:focus {
+.c5:hover,
+.c5:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c6:active {
+.c5:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c5 {
+.c4 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c3 {
-  margin-top: 0.0em;
-  margin-bottom: 0.5em;
-  font-weight: 300;
-  font-size: 1.5em;
-}
-
-.c4 {
-  margin-bottom: 10px;
-}
-
-.c2 {
+.c0 {
+  margin-top: 1.5em;
   margin-bottom: 1em;
 }
 
+.c1 {
+  margin-top: 0.0em;
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.c2 {
+  margin-bottom: 10px;
+}
+
 @media screen and ( max-width:800px ) {
-  .c0 {
-    display: block;
+  .c3 {
+    width: 100%;
   }
 }
 
-<div
-  className="c0 c1"
+<form
+  action="https://my.yoast.com/api/Customers//download/?access_token="
+  className="c0"
 >
-  <form
-    action="https://my.yoast.com/api/Customers//download/?access_token="
+  <p
+    className="c1"
+  >
+    <span>
+      Download personal data
+    </span>
+  </p>
+  <p
     className="c2"
   >
-    <p
-      className="c3"
+    <span>
+      If you want to retrieve a copy of all the personal data stored in your account, you can do so here.
+    </span>
+  </p>
+  <p>
+    <button
+      className="c3 c4 c5"
+      type="submit"
     >
       <span>
-        Download account
+        Download my data
       </span>
-    </p>
-    <p
-      className="c4"
-    >
-      <span>
-        If you want to retrieve a copy of all the personal data stored in your account, you can do so here.
-      </span>
-    </p>
-    <p>
-      <button
-        className="c5 c6"
-        type="submit"
-      >
-        <span>
-          Download my data
-        </span>
-      </button>
-    </p>
-  </form>
-</div>
+    </button>
+  </p>
+</form>
 `;
