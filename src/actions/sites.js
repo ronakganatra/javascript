@@ -3,6 +3,7 @@ import { prepareInternalRequest, doRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
 import { getAllProducts } from "./products";
+import { push } from "react-router-redux";
 
 /**
  * Action types
@@ -100,12 +101,13 @@ export function linkSiteFailure( error ) {
 /**
  * An action creator for the link site action.
  *
- * @param {string} url The site url trying to be linked.
- * @param {string} type The CMS the to be linked site is running on.
+ * @param {string}  url      The site url trying to be linked.
+ * @param {string}  type     The CMS the to be linked site is running on.
+ * @param {boolean} fromHome Whether the site was linked from the homepage or not.
  *
  * @returns {Object} A link site request action.
  */
-export function linkSite( url, type ) {
+export function linkSite( url, type, fromHome = false ) {
 	return ( dispatch ) => {
 		dispatch( updateSiteUrl( url ) );
 		dispatch( linkSiteRequest() );
@@ -115,6 +117,9 @@ export function linkSite( url, type ) {
 
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
+			.then( () => {
+				fromHome && dispatch( push( "/sites" ) );
+			} )
 			.catch( error => dispatch( linkSiteFailure( error ) ) );
 	};
 }

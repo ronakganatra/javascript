@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import { FullHeightCard } from "../Card";
@@ -6,13 +7,10 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import { linkSiteModalClose, linkSiteModalOpen,
 	linkSite, updateSiteUrl } from "../../actions/sites";
-import MyYoastModal from "../MyYoastModal";
-import AddSite from "../AddSite";
 import { LargeIconButton, makeButtonFullWidth } from "../Button";
 import plus from "../../icons/plus.svg";
 import addSiteImage from "../../images/addsite.svg";
-
-/* eslint-disable react/prop-types */
+import AddSiteModal from "../modal/AddSiteModal";
 
 const messages = defineMessages( {
 	addSite: {
@@ -49,99 +47,51 @@ const AddSiteImage = styled.img`
 	padding: 0 40px; 
 `;
 
-const Modal = ( props ) => {
-	let modalAriaLabel = defineMessages( {
-		id: "modal.arialabel.add",
-		defaultMessage: "Add a new site",
-	} );
-	if( ! props.modalOpen ) {
-		return null;
-	}
-	return (
-		<MyYoastModal
-			isOpen={ props.modalOpen }
-			onClose={ props.onClose }
-			modalAriaLabel={ modalAriaLabel }
-		>
-			<AddSite
-				onConnectClick={ props.onConnect }
-				onCancelClick={ props.onClose }
-				onChange={ props.onChange }
-				errorFound={ props.errorFound }
-				error={ props.error }
-				query={ "" }
-				linkingSiteUrl={ props.linkingSiteUrl }
-			/>
-		</MyYoastModal>
-	);
-};
-
 let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
-
-// todo: Make modal redirect to /sites on connect?
-
-const SitesCardContent = ( props ) => {
-	return (
-		<Fragment>
-			<p>
-				<FormattedMessage
-					id={ "home.addSiteInfo" }
-					defaultMessage={ "Add a website to your account to manage your " +
-						"subscriptions and get insights about your website!" }
-				/>
-			</p>
-			<AddSiteImage src={ addSiteImage } alt="" />
-			<Modal { ...props } />
-		</Fragment>
-	);
-};
 
 /**
  * A function that returns the Courses Progress Tab component.
  *
+ * @param {Object} props The props required for the SitesCard.
+ *
  * @returns {ReactElement} The component that contains the progress tab of the course page.
  */
-class SitesCard extends React.Component {
-	/**
-	 * Sets the CoursesProgress object.
-	 *
-	 * @param {object} props the properties of the component
-	 * @returns {void}
-	 */
-	constructor( props ) {
-		super( props );
-
-		this.state = {};
-	}
-
-	render() {
-		return (
-			<FullHeightCard
-				className={ "SitesCard" }
-			>
-				<Details>
-					<Header href={ "sites" }>{ "Add site" }</Header>
-					<SitesCardContent { ...this.props } />
-				</Details>
-				<ActionBlock>
-					<ResponsiveIconButton
-						onClick={ this.props.onClick }
-						iconSource={ plus }
-						aria-label={ this.props.intl.formatMessage( messages.addSite ) }
-					>
-						<FormattedMessage
-							id={ messages.addSite.id }
-							defaultMessage={ messages.addSite.defaultMessage }
-						/>
-					</ResponsiveIconButton>
-				</ActionBlock>
-			</FullHeightCard>
-		);
-	}
-}
+const SitesCard = ( props ) => {
+	return (
+		<FullHeightCard
+			className={ "SitesCard" }
+		>
+			<Details>
+				<Header href={ "sites" }>{ "Add site" }</Header>
+				<p>
+					<FormattedMessage
+						id={ "home.addSiteInfo" }
+						defaultMessage={ "Add a website to your account to manage your " +
+						"subscriptions and get insights about your website!" }
+					/>
+				</p>
+				<AddSiteImage src={ addSiteImage } alt="" />
+				<AddSiteModal { ...props } />
+			</Details>
+			<ActionBlock>
+				<ResponsiveIconButton
+					onClick={ props.onClick }
+					iconSource={ plus }
+					aria-label={ props.intl.formatMessage( messages.addSite ) }
+				>
+					<FormattedMessage
+						id={ messages.addSite.id }
+						defaultMessage={ messages.addSite.defaultMessage }
+					/>
+				</ResponsiveIconButton>
+			</ActionBlock>
+		</FullHeightCard>
+	);
+};
 
 SitesCard.propTypes = {
 	intl: intlShape.isRequired,
+	onClick: PropTypes.func.isRequired,
 };
 
 export const mapStateToProps = ( state ) => {
@@ -174,7 +124,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( linkSiteModalClose() );
 		},
 		onConnect: ( url, type ) => {
-			dispatch( linkSite( url, type ) );
+			dispatch( linkSite( url, type, true ) );
 		},
 		onChange: ( url ) => {
 			dispatch( updateSiteUrl( url ) );
@@ -189,8 +139,8 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onConnect = ( type ) => {
-		dispatchProps.onConnect( url, type );
+	let onConnect = ( type, fromHome ) => {
+		dispatchProps.onConnect( url, type, fromHome );
 	};
 
 	let addSite = () => {
