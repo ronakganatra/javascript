@@ -332,14 +332,13 @@ class AddSite extends React.Component {
 					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<ButtonsContainer>
 						<WideSecondaryButton onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.addSite.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="Cancel"/>
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ ! this.state.validationError && !! this.props.linkingSiteUrl }
-							aria-label="add"
 						>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="add"/>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="Add"/>
 						</WideLargeButton>
 					</ButtonsContainer>
 				</form>

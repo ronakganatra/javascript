@@ -39,9 +39,13 @@ const messages = defineMessages( {
 		id: "downloadsPage.byLines.installationGuides",
 		defaultMessage: "Read our installation guides",
 	},
-	otherBooks: {
-		id: "downloadsPage.byLines.booksUpsell",
-		defaultMessage: "Check out our other eBooks",
+	eBooksLearnMore: {
+		id: "downloadsPage.byLines.learnMore",
+		defaultMessage: " - Want to learn more about SEO? { link }.",
+	},
+	coursesUpsell: {
+		id: "downloadsPage.byLines.coursesUpsell",
+		defaultMessage: "Check out our SEO training courses",
 	},
 } );
 
@@ -120,9 +124,8 @@ class DownloadsPage extends React.Component {
 
 		let eBooksByLine = <ByLine>
 			<FormattedMessage
-				id="downloadsPage.byLine.ebooks"
-				defaultMessage=" - Want to read more about SEO? { link }."
-				values={ { link: <a target="_blank" href="https://yoa.st/ebooks" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.otherBooks ) }</a> } }
+				{...messages.eBooksLearnMore}
+				values={ { link: <a target="_blank" href="https://yoa.st/academy" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.coursesUpsell ) }</a> } }
 			/>
 		</ByLine>;
 
@@ -135,6 +138,7 @@ class DownloadsPage extends React.Component {
 															   defaultMessage={ "We could not find any downloads matching { query }." }
 															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
 
+		let buttonText = <FormattedMessage id="downloads.search.buttonShop" defaultMessage={ "Get products" } />;
 		let pluginDownloads = <Products
 									products={ this.props.plugins }
 									byLine={ pluginsByLine }
@@ -156,7 +160,9 @@ class DownloadsPage extends React.Component {
 				<div>
 					{ this.getSearch() }
 					<LandingPage imageSource={ noResultsImage }
+								 urlText={ buttonText }
 								 paragraphs={ noResultsParagraphs }
+								 url="https://yoast.com/shop/"
 					/>
 				</div>
 			);

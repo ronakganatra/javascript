@@ -1,0 +1,375 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The login page matches the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+.c7 {
+  margin-left: 48px;
+}
+
+.c2 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c4 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+.c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
+  padding: 0 2em;
+}
+
+.c8 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  border-bottom: 4px solid #ccc;
+}
+
+.c9 {
+  min-width: 200px;
+  font-size: 1.2em;
+}
+
+.c10 {
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5em 0;
+  color: #555;
+  margin-bottom: -4px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border 200ms ease-out;
+  transition: border 200ms ease-out;
+}
+
+.c10:hover,
+.c10:focus,
+.c10.activeSubMenu {
+  border-bottom-color: #a4286a;
+  border-bottom-style: double;
+}
+
+.c10.activeSubMenu {
+  color: #a4286a;
+  border-bottom-style: solid;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1:not(:only-child) {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c7 {
+    margin-left: 0;
+  }
+}
+
+@media screen and ( max-width:600px ) {
+  .c9 {
+    width: 150px;
+    min-width: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        alt="MyYoast - Yoast Academy"
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        alt=""
+        className="c4"
+        src="greeting.png"
+      />
+      <h1
+        className="c5"
+      >
+        <span>
+          Welcome!
+        </span>
+      </h1>
+      <p
+        className="c6"
+      >
+        <span>
+          MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
+        </span>
+      </p>
+    </div>
+  </div>
+  <div
+    className="c7"
+  >
+    <div>
+      <ul
+        className="c8"
+        role="list"
+      >
+        <li
+          className="c9"
+        >
+          <a
+            aria-current={false}
+            className="c10"
+            href="/signup"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Sign up
+          </a>
+        </li>
+        <li
+          className="c9"
+        >
+          <a
+            aria-current={false}
+            className="c10"
+            href="/login"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`The sign up page matches the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+.c7 {
+  margin-left: 48px;
+}
+
+.c2 {
+  padding: 0px;
+  width: 480px;
+  height: 480px;
+  text-align: center;
+}
+
+.c4 {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+.c5 {
+  font-size: 1.5em;
+  margin: 0.8333em;
+}
+
+.c6 {
+  padding: 0 2em;
+}
+
+.c8 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  border-bottom: 4px solid #ccc;
+}
+
+.c9 {
+  min-width: 200px;
+  font-size: 1.2em;
+}
+
+.c10 {
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5em 0;
+  color: #555;
+  margin-bottom: -4px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border 200ms ease-out;
+  transition: border 200ms ease-out;
+}
+
+.c10:hover,
+.c10:focus,
+.c10.activeSubMenu {
+  border-bottom-color: #a4286a;
+  border-bottom-style: double;
+}
+
+.c10.activeSubMenu {
+  color: #a4286a;
+  border-bottom-style: solid;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1:not(:only-child) {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1024px ) {
+  .c7 {
+    margin-left: 0;
+  }
+}
+
+@media screen and ( max-width:600px ) {
+  .c9 {
+    width: 150px;
+    min-width: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        alt="MyYoast - Yoast Academy"
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <img
+        alt=""
+        className="c4"
+        src="greeting.png"
+      />
+      <h1
+        className="c5"
+      >
+        <span>
+          Welcome!
+        </span>
+      </h1>
+      <p
+        className="c6"
+      >
+        <span>
+          MyYoast is the portal to all things Yoast. Whether you want to comment on a post, take our free SEO for beginners training or find a product you have purchased: it's all there!
+        </span>
+      </p>
+    </div>
+  </div>
+  <div
+    className="c7"
+  >
+    <div>
+      <ul
+        className="c8"
+        role="list"
+      >
+        <li
+          className="c9"
+        >
+          <a
+            aria-current={false}
+            className="c10"
+            href="/signup"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Sign up
+          </a>
+        </li>
+        <li
+          className="c9"
+        >
+          <a
+            aria-current={false}
+            className="c10"
+            href="/login"
+            onClick={[Function]}
+            style={undefined}
+          >
+            Login
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

@@ -9,6 +9,7 @@ export const Paper = styled.div`
 export const WhitePage = styled.div`
 	background-color: ${ colors.$color_white };
 	padding: 16px 24px;
+	margin-top: 24px;
 `;
 
 export const Page = styled( WhitePage )`
@@ -21,21 +22,8 @@ export const Page = styled( WhitePage )`
 	}
 `;
 
-export const BottomRightButtons = styled.span`
-	width: 100%;
-	padding-top: 16px;
-	display: flex;
-	justify-content: flex-end;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		display: block;
-	}
-
-	button {
-		margin-left: 8px;
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			margin-left: 0;
-			margin-top: 8px;
-	}
+export const PageCard = styled( Page )`
+	margin: 0 8px 16px 8px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 `;
+

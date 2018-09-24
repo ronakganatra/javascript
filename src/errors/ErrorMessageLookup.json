@@ -12,7 +12,7 @@
     "type": "error"
   },
   "learndash_course_not_enrolled": {
-   "message": "The user is not enrolled in this course.",
+    "message": "The user is not enrolled in this course.",
     "type": "error"
   },
   "learndash_course_already_started": {
@@ -23,8 +23,64 @@
     "message": "That student is already enrolled in this course.",
     "type": "error"
   },
+  "rest_user_invalid_password_confirmation": {
+    "message": "Password confirmation does not match the new password",
+    "type": "error"
+  },
+  "rest_user_invalid_old_password": {
+    "message": "The old password is incorrect",
+    "type": "error"
+  },
+  "rest_user_weak_password": {
+    "message": "Your password is not secure enough. Please try to include more numbers and letters, and make sure it does not contain your email or name.",
+    "type": "error"
+  },
+  "password_too_long": {
+    "message": "Your password is too long. You may use up to 128 characters for your password.",
+    "type": "error"
+  },
+  "invalid_user_login_for_password_reset_request": {
+    "message": "The email address you provided is not known to us. Please try again with a different email address.",
+    "type": "error"
+  },
+  "invalid_key": {
+    "message": "This link no longer valid. Please try to request another password reset email.",
+    "type": "error"
+  },
   "GENERAL_SUPPORT_ERROR": {
     "message": "Oops, something went wrong on our end, please try again. If this keeps happening, [customer_support_link]",
     "type": "error"
+  },
+  "invalid_user_login_for_login": {
+    "message": "Incorrect credentials provided. Please check that your email and password are entered correctly.",
+    "type": "error"
+  },
+  "incorrect_password": {
+    "message": "Incorrect credentials provided. Please check that your email and password are entered correctly.",
+    "type": "error"
+  },
+  "empty_password": {
+    "message": "Please enter your password.",
+    "type": "error"
+  },
+  "expired_session": {
+    "message": "Please log in again.",
+    "type": "error"
+  },
+  "user_email": {
+    "message": "The email address you provided has already been used. Please try another email address.",
+    "type": "error"
+  },
+  "user_name": {
+    "message": "That email address has already been used. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.",
+    "type": "error"
+  },
+  "invalid_google_authenticator_token": {
+    "message": "Your verification code is incorrect or has expired.",
+    "type": "error"
+  },
+  "otp_required": {
+    "message": "Please enter your verification code.",
+    "type": "warning"
   }
 }

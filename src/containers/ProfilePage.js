@@ -2,12 +2,12 @@ import { connect } from "react-redux";
 import ProfilePage from "../components/ProfilePage";
 import {
 	profileUpdateEmail,
-	passwordResetSend,
 	disableUser,
 	updateProfile,
+	updatePassword,
 	resetSaveMessage,
+	uploadAvatar,
 } from "../actions/user";
-import { url } from "gravatar";
 import {
 	createComposerToken, createTokenModalClosed, createTokenModalOpen, deleteComposerToken,
 	fetchComposerTokens, manageTokenModalClosed, manageTokenModalOpen, renameComposerToken,
@@ -15,6 +15,8 @@ import {
 import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
+
+import { url } from "gravatar";
 
 let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
@@ -24,21 +26,20 @@ export const mapStateToProps = ( state ) => {
 		userFirstName: state.user.data.profile.userFirstName,
 		userLastName: state.user.data.profile.userLastName,
 		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: url( state.user.data.profile.email, {
+		image: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
 			s: "150",
 			r: "pg",
 			d: avatarPlaceholder,
 			protocol: "https",
 		} ),
-
 		isSaving: state.user.savingProfile,
 		isSaved: state.user.profileSaved,
 		isDeleting: state.user.deletingProfile,
 
 		saveEmailError: state.user.saveEmailError,
 
-		isSendingPasswordReset: state.user.sendingPasswordReset,
-		hasSendPasswordReset: state.user.sendPasswordReset,
+		isSavingPassword: state.user.sendingPasswordReset,
+		passwordIsSaved: state.user.sendPasswordReset,
 		passwordResetError: state.user.passwordResetError,
 
 		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
@@ -63,6 +64,9 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onSaveProfile: ( profile ) => {
 			dispatch( updateProfile( profile ) );
 		},
+		onSavePassword: ( password ) => {
+			dispatch( updatePassword( password ) );
+		},
 		resetSaveMessage: () => {
 			dispatch( resetSaveMessage() );
 		},
@@ -73,9 +77,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				" the premium plugins you've bought from Yoast.\n\nAre you sure you want to delete your Yoast account?" ) ) {
 				dispatch( disableUser() );
 			}
-		},
-		onPasswordReset: ( email ) => {
-			dispatch( passwordResetSend( email ) );
 		},
 		onCreateTokenModalOpen: () => {
 			dispatch( createTokenModalOpen() );
@@ -104,18 +105,14 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onNewsletterUnsubscribe: () => {
 			dispatch( unsubscribeNewsletter() );
 		},
+		onUploadAvatar: ( image ) => {
+			dispatch( uploadAvatar( image ) );
+		},
 	};
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let email = stateProps.email;
-
-	const onPasswordReset = () => {
-		dispatchProps.onPasswordReset( email );
-	};
-
 	return Object.assign( {}, ownProps, stateProps, dispatchProps, {
-		onPasswordReset,
 	} );
 };
 

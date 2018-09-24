@@ -4,22 +4,20 @@ import userReducer, {
 	userDisableReducer,
 } from "../../src/reducers/user";
 import {
-	login,
 	LOGIN,
-	LOGOUT,
 	FETCH_USER_FAILURE,
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
-	PROFILE_UPDATE_EMAIL,
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_SUCCESS,
 	PROFILE_UPDATE_FAILURE,
-	RESET_PASSWORD_REQUEST,
-	RESET_PASSWORD_SUCCESS,
-	RESET_PASSWORD_FAILURE,
+	PASSWORD_UPDATE_REQUEST,
+	PASSWORD_UPDATE_SUCCESS,
+	PASSWORD_UPDATE_FAILURE,
 	DISABLE_USER_START,
 	DISABLE_USER_SUCCESS,
 	DISABLE_USER_FAILURE,
+	LOGOUT_SUCCESS,
 } from "../../src/actions/user";
 
 test( 'the login action', () => {
@@ -42,17 +40,19 @@ test( 'the login action', () => {
 	expect( actual ).toEqual( expected );
 } );
 
-test( 'the logout action', () => {
+test( 'the logoutSuccess action', () => {
 	const input = {
 		loggedIn: true,
+		loggingOut: false,
 		userId: 5,
 		accessToken: "A token",
 	};
 	const action = {
-		type: LOGOUT,
+		type: LOGOUT_SUCCESS,
 	};
 	const expected = {
 		loggedIn: false,
+		loggingOut: false,
 		accessToken: "",
 		userId: null,
 	};
@@ -156,6 +156,7 @@ describe( 'userEmailReducer', () => {
 			savingProfile: false,
 			saveEmailError: null,
 			profileSaved: false,
+			pendingRequests: [],
 		};
 		const action = {
 			type: PROFILE_UPDATE_REQUEST,
@@ -165,6 +166,7 @@ describe( 'userEmailReducer', () => {
 			savingProfile: true,
 			profileSaved: false,
 			saveEmailError: null,
+			pendingRequests: [ "default" ],
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -184,6 +186,7 @@ describe( 'userEmailReducer', () => {
 					userLastName: "testLast",
 				}
 			},
+			pendingRequests: [ "default" ],
 		};
 		const action = {
 			type: PROFILE_UPDATE_SUCCESS,
@@ -205,6 +208,7 @@ describe( 'userEmailReducer', () => {
 					userLastName: "newLast",
 				}
 			},
+			pendingRequests: [],
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -216,15 +220,18 @@ describe( 'userEmailReducer', () => {
 		const input = {
 			savingProfile: true,
 			saveEmailError: null,
+			pendingRequests: [ "testRequest" ]
 		};
 		const action = {
 			type: PROFILE_UPDATE_FAILURE,
 			error: { error: "A profile update failure error." },
+			subtype: "testRequest",
 		};
 		const expected = {
 			savingProfile: false,
 			profileSaved: false,
 			saveEmailError: { error: "A profile update failure error." },
+			pendingRequests: [],
 		};
 
 		const actual = userEmailReducer( input, action );
@@ -241,7 +248,7 @@ describe( 'passwordResetReducer', () => {
 			passwordResetError: { error: "Some other error." },
 		};
 		const action = {
-			type: RESET_PASSWORD_REQUEST,
+			type: PASSWORD_UPDATE_REQUEST,
 		};
 		const expected = {
 			sendingPasswordReset: true,
@@ -256,15 +263,17 @@ describe( 'passwordResetReducer', () => {
 
 	test( 'reset success', () => {
 		const input = {
-			sendingPasswordReset: true,
+			passwordResetError: null,
 			sendPasswordReset: false,
+			sendingPasswordReset: true,
 		};
 		const action = {
-			type: RESET_PASSWORD_SUCCESS,
+			type: PASSWORD_UPDATE_SUCCESS,
 		};
 		const expected = {
-			sendingPasswordReset: false,
+			passwordResetError: null,
 			sendPasswordReset: true,
+			sendingPasswordReset: false,
 		};
 
 		const actual = passwordResetReducer( input, action );
@@ -274,18 +283,18 @@ describe( 'passwordResetReducer', () => {
 
 	test( 'reset failure', () => {
 		const input = {
-			sendingPasswordReset: true,
-			sendPasswordReset: false,
 			passwordResetError: null,
+			sendPasswordReset: false,
+			sendingPasswordReset: true,
 		};
 		const action = {
-			type: RESET_PASSWORD_FAILURE,
+			type: PASSWORD_UPDATE_FAILURE,
 			error: { error: "A password reset failure error." },
 		};
 		const expected = {
-			sendingPasswordReset: false,
-			sendPasswordReset: false,
 			passwordResetError: { error: "A password reset failure error." },
+			sendPasswordReset: false,
+			sendingPasswordReset: false,
 		};
 
 		const actual = passwordResetReducer( input, action );

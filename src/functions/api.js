@@ -1,5 +1,5 @@
 import "whatwg-fetch";
-import { getAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
+import { getOAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from "./auth";
 import getEnv from "./getEnv";
 
 /**
@@ -156,7 +156,7 @@ export function getApiUrl() {
 export function handle401( response ) {
 	if ( response.status === 401 ) {
 		removeAuthCookies();
-		document.location.href = getAuthUrl();
+		document.location.href = getOAuthUrl();
 		throw new Error( "Authentication required" );
 	}
 

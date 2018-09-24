@@ -1,5 +1,5 @@
 import React from 'react';
-import CourseCard from "../../../src/components/courses/CourseCard";
+import CourseDetails from "../../../src/components/courses/CourseDetails";
 import { createComponentWithIntl } from "../../../utils";
 import { MemoryRouter as Router } from "react-router-dom";
 
@@ -48,12 +48,12 @@ courseOnSale.saleLabel = "Now 101% of!";
 let courseFree = Object.assign( {}, course );
 courseFree.isFree = true;
 
-test( 'The CourseCard component matches the snapshot', () => {
+test( 'The CourseDetails component matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...course } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...course } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -61,12 +61,12 @@ test( 'The CourseCard component matches the snapshot', () => {
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that has not been bought, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that has not been bought, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotBought } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseNotBought } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -74,12 +74,12 @@ test( 'The CourseCard component, for a course that has not been bought, matches 
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that is completed, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that is completed, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseCompleted } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseCompleted } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -87,12 +87,12 @@ test( 'The CourseCard component, for a course that is completed, matches the sna
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that has no unassigned enrollments left, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that has no unassigned enrollments left, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNoEnrollmentsLeft } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseNoEnrollmentsLeft } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -100,12 +100,12 @@ test( 'The CourseCard component, for a course that has no unassigned enrollments
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that has not been started yet with a single enrollment, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that has not been started yet with a single enrollment, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -113,12 +113,12 @@ test( 'The CourseCard component, for a course that has not been started yet with
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that has not been started yet with multiple other enrollment, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that has not been started yet with multiple other enrollment, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStartedMultipleEnrollments } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseNotStartedMultipleEnrollments } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -126,12 +126,12 @@ test( 'The CourseCard component, for a course that has not been started yet with
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that is on sale, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that is on sale, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseOnSale } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseOnSale } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -139,12 +139,12 @@ test( 'The CourseCard component, for a course that is on sale, matches the snaps
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'The CourseCard component, for a course that is free, matches the snapshot', () => {
+test( 'The CourseDetails component, for a course that is free, matches the snapshot', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseFree } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseFree } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -152,12 +152,12 @@ test( 'The CourseCard component, for a course that is free, matches the snapshot
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'Assigning a course to someone else through a CourseCard works, when the course has not been started yet.', () => {
+test( 'Assigning a course to someone else through a CourseDetails works, when the course has not been started yet.', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...courseNotStartedSingleEnrollment } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 
@@ -171,12 +171,12 @@ test( 'Assigning a course to someone else through a CourseCard works, when the c
 	expect( tree ).toMatchSnapshot();
 } );
 
-test( 'Assigning a course to someone else through a CourseCard works, when there are enrollments left.', () => {
+test( 'Assigning a course to someone else through a CourseDetails works, when there are enrollments left.', () => {
 	let onAssignModalOpen = jest.fn();
 
 	const component = createComponentWithIntl(
 		<Router>
-			<CourseCard { ...course } onAssignModalOpen={ onAssignModalOpen } />
+			<CourseDetails { ...course } onAssignModalOpen={ onAssignModalOpen } />
 		</Router>
 	);
 

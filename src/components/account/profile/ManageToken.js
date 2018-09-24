@@ -141,21 +141,20 @@ class ManageToken extends React.Component {
 
 					<Buttons>
 						<WideSecondaryButton onClick={ this.props.onClose } >
-							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="cancel"/>
+							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="Cancel"/>
 						</WideSecondaryButton>
 						<WideRedButton
 							onClick={ () => {
 								this.props.onDeleteTokenClick( this.state.tokenId );
 							} }
 						>
-							<FormattedMessage id="profile.manage-token.delete" defaultMessage="delete"/>
+							<FormattedMessage id="profile.manage-token.delete" defaultMessage="Delete"/>
 						</WideRedButton>
 						<WideLargeButton
 							type="submit"
-							aria-label="save token"
 							enabledStyle={ enabledStyle }
 						>
-							<FormattedMessage id="profile.manage-token.save" defaultMessage="save"/>
+							<FormattedMessage id="profile.manage-token.save" defaultMessage="Save"/>
 						</WideLargeButton>
 					</Buttons>
 				</form>

@@ -1,18 +1,18 @@
 import {
 	LOGIN,
-	LOGOUT,
 	FETCH_USER_REQUEST,
 	FETCH_USER_SUCCESS,
 	RESET_SAVE_MESSAGE,
 	PROFILE_UPDATE_REQUEST,
 	PROFILE_UPDATE_FAILURE,
 	PROFILE_UPDATE_SUCCESS,
-	RESET_PASSWORD_REQUEST,
-	RESET_PASSWORD_FAILURE,
-	RESET_PASSWORD_SUCCESS,
+	PASSWORD_UPDATE_REQUEST,
+	PASSWORD_UPDATE_FAILURE,
+	PASSWORD_UPDATE_SUCCESS,
 	DISABLE_USER_START,
 	DISABLE_USER_FAILURE,
 	DISABLE_USER_SUCCESS,
+	LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
@@ -22,6 +22,9 @@ const initialState = {
 
 	// Whether or not the user is currently logged in.
 	loggedIn: false,
+
+	// Whether or not the user is currently trying to logout.
+	loggingOut: false,
 
 	// Whether or not we are fetching the logged in user data.
 	isFetching: false,
@@ -35,14 +38,16 @@ const initialState = {
 	// The userdata as retrieved from the server.
 	data: {
 		profile: {
-			username: "",
 			email: "",
 			userFirstName: "",
 			userLastName: "",
+			userAvatarUrl: "",
 		},
 	},
+	pendingRequests: [],
 	savingProfile: false,
 	saveEmailError: null,
+	logOutError: null,
 	profileSaved: false,
 	sendingPasswordReset: false,
 	sendPasswordReset: false,
@@ -65,8 +70,19 @@ export function userDataReducer( state = initialState, action ) {
 				accessToken: action.data.accessToken,
 				userId: action.data.userId,
 			} );
-		case LOGOUT:
+
+		case LOGOUT_REQUEST:
 			return Object.assign( {}, state, {
+				loggingOut: true,
+			} );
+		case LOGOUT_FAILURE:
+			return Object.assign( {}, state, {
+				loggingOut: false,
+				logOutError: action.error,
+			} );
+		case LOGOUT_SUCCESS:
+			return Object.assign( {}, state, {
+				loggingOut: false,
 				loggedIn: false,
 				accessToken: "",
 				userId: null,
@@ -95,9 +111,11 @@ export function userDataReducer( state = initialState, action ) {
  * @returns {Object} The new state for the store.
  */
 export function userEmailReducer( state = initialState, action ) {
+	let subtype = action.subtype || "default";
 	switch ( action.type ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.concat( subtype ),
 				sendPasswordReset: false,
 				savingProfile: true,
 				saveEmailError: null,
@@ -106,6 +124,7 @@ export function userEmailReducer( state = initialState, action ) {
 
 		case PROFILE_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.filter( ( pendingRequest ) => pendingRequest !== subtype ),
 				savingProfile: false,
 				saveEmailError: action.error,
 				profileSaved: false,
@@ -113,6 +132,7 @@ export function userEmailReducer( state = initialState, action ) {
 
 		case PROFILE_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
+				pendingRequests: state.pendingRequests.filter( ( pendingRequest ) => pendingRequest !== subtype ),
 				savingProfile: false,
 				sendPasswordReset: false,
 				profileSaved: true,
@@ -121,6 +141,7 @@ export function userEmailReducer( state = initialState, action ) {
 						email: action.profile.userEmail,
 						userFirstName: action.profile.userFirstName,
 						userLastName: action.profile.userLastName,
+						userAvatarUrl: action.profile.userAvatarUrl,
 					} ),
 				} ),
 			} );
@@ -135,6 +156,7 @@ export function userEmailReducer( state = initialState, action ) {
 			return state;
 	}
 }
+
 /* eslint-enable complexity */
 
 
@@ -147,20 +169,20 @@ export function userEmailReducer( state = initialState, action ) {
  */
 export function passwordResetReducer( state, action ) {
 	switch ( action.type ) {
-		case RESET_PASSWORD_REQUEST:
+		case PASSWORD_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: true,
 				passwordResetError: null,
 				sendPasswordReset: false,
 			} );
 
-		case RESET_PASSWORD_SUCCESS:
+		case PASSWORD_UPDATE_SUCCESS:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
 				sendPasswordReset: true,
 			} );
 
-		case RESET_PASSWORD_FAILURE:
+		case PASSWORD_UPDATE_FAILURE:
 			return Object.assign( {}, state, {
 				sendingPasswordReset: false,
 				passwordResetError: action.error,

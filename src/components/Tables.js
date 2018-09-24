@@ -149,7 +149,15 @@ export const ColumnPrimary = styled( ColumnBase )`
  */
 export const ColumnFixedWidth = styled( ColumnBase )`
 	flex: 0 0 auto;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+		${ props => props.paddingLeft && "padding-left: 0px;" }
+	}
 `;
+
+ColumnFixedWidth.propTypes = {
+	paddingLeft: PropTypes.string,
+};
 
 /*
  * Column with a minimum width: can grow, cannot shrink, and the initial width

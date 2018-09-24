@@ -1,12 +1,15 @@
 import "whatwg-fetch";
-import { prepareInternalRequest, doRequest, prepareRequest } from "../functions/api";
-import { getLogoutUrl, getAuthUrl, removeCookies as removeAuthCookies, getUserId, getPasswordResetUrl, hasCookieParams } from "../functions/auth";
+import { prepareInternalRequest, doRequest } from "../functions/api";
+import {
+	removeCookies as removeAuthCookies,
+	getUserId,
+	hasCookieParams,
+} from "../functions/auth";
 
 /*
  * Action types
  */
 export const LOGIN = "LOGIN";
-export const LOGOUT = "LOGOUT";
 
 export const FETCH_USER_REQUEST = "FETCH_USER_REQUEST";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
@@ -14,17 +17,22 @@ export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
 export const RESET_SAVE_MESSAGE = "RESET_SAVE_MESSAGE";
 
+export const PASSWORD_UPDATE_REQUEST = "PASSWORD_UPDATE_REQUEST";
+export const PASSWORD_UPDATE_FAILURE = "PASSWORD_UPDATE_FAILURE";
+export const PASSWORD_UPDATE_SUCCESS = "PASSWORD_UPDATE_SUCCESS";
+
 export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
 export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 
-export const RESET_PASSWORD_REQUEST = "RESET_PASSWORD_REQUEST";
-export const RESET_PASSWORD_FAILURE = "RESET_PASSWORD_FAILURE";
-export const RESET_PASSWORD_SUCCESS = "RESET_PASSWORD_SUCCESS";
-
 export const DISABLE_USER_START = "DISABLE_USER_START";
 export const DISABLE_USER_FAILURE = "DISABLE_USER_FAILURE";
 export const DISABLE_USER_SUCCESS = "DISABLE_USER_SUCCESS";
+
+export const LOGOUT_REQUEST = "LOGOUT_REQUEST";
+export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+
 
 /**
  * Action creators
@@ -53,11 +61,69 @@ export function login( accessToken, userId ) {
  * @returns {Object} A logout action.
  */
 export function logout() {
-	removeAuthCookies();
-	document.location.href = getLogoutUrl();
+	return ( dispatch ) => {
+		dispatch( doingLogoutRequest() );
+		let nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
 
+		doRequest( nonceRequest )
+			.then( ( reponse ) => {
+				let logoutRequest = prepareInternalRequest( "Customers/logout-user/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
+				doRequest( logoutRequest )
+					.then( () => {
+						removeAuthCookies();
+						dispatch( logoutSuccess() );
+					} )
+					.catch( ( error ) => {
+						// A failed logout may indicate that there's something wrong with the user on the yoast.com side. They might have logged out on yoast.com since.
+						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
+						removeAuthCookies();
+						// When the user was not logged in in the first place, we consider the logout a success after removing the MyYoast Auth cookies.
+						if ( error.error.code === "user_not_logged_in" ) {
+							dispatch( logoutSuccess() );
+							return;
+						}
+						dispatch( logoutFailure( error ) );
+					} );
+			} )
+			.catch( ( error ) => {
+				dispatch( logoutFailure( error ) );
+			} );
+	};
+}
+
+/**
+ * An action creator for the logout start action.
+ *
+ * @returns {Object} A logout start action.
+ */
+export function doingLogoutRequest() {
 	return {
-		type: LOGOUT,
+		type: LOGOUT_REQUEST,
+	};
+}
+
+/**
+ * An action creator for the logout success action.
+ *
+ * @returns {Object} A logout start action.
+ */
+export function logoutSuccess() {
+	return {
+		type: LOGOUT_SUCCESS,
+	};
+}
+
+/**
+ * An action creator for the logout failed action.
+ *
+ * @param {Object} error The error that occurred.
+ *
+ * @returns {Object} A logout failure action.
+ */
+export function logoutFailure( error ) {
+	return {
+		type: LOGOUT_FAILURE,
+		error: error,
 	};
 }
 
@@ -86,15 +152,6 @@ export function receiveUser( user ) {
 }
 
 /**
- * Forces a redirect to the login page.
- *
- * @returns {void}
- */
-export function redirectToLogin() {
-	document.location.href = getAuthUrl();
-}
-
-/**
  * An action creator for the fetch user action.
  *
  * @param {string} userId The user ID for the user that we want to fetch.
@@ -116,14 +173,16 @@ export function fetchUser( userId ) {
 							email: `Impersonating: ${json.email}`,
 							enabled: true,
 						},
-					} ) ) ).catch( redirectToLogin );
+					} ) ) );
 		}
 
 		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
 		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
-			.catch( redirectToLogin );
+			.catch( () => {
+				// Do nothing.
+			} );
 	};
 }
 
@@ -182,25 +241,25 @@ export function disableUser() {
 }
 
 /**
- * An action creator for the profile update request action.
+ * An action creator for the password update request action.
  *
- * @returns {Object} The profile update request action.
+ * @returns {Object} The password update request action.
  */
-export function profileUpdateRequest() {
+export function passwordUpdateRequest() {
 	return {
-		type: PROFILE_UPDATE_REQUEST,
+		type: PASSWORD_UPDATE_REQUEST,
 	};
 }
 
 /**
- * An action creator for the profile update failure action.
+ * An action creator for the password update failure action.
  *
  * @param {Object} error The error that occurred.
- * @returns {Object} The profile update failure action.
+ * @returns {Object} The password update failure action.
  */
-export function profileUpdateFailure( error ) {
+export function passwordUpdateFailure( error ) {
 	return {
-		type: PROFILE_UPDATE_FAILURE,
+		type: PASSWORD_UPDATE_FAILURE,
 		error: error,
 	};
 }
@@ -208,13 +267,58 @@ export function profileUpdateFailure( error ) {
 /**
  * An action creator for the profile update success action.
  *
+ * @param {Object} newPassword The password after a successful password update.
+ * @returns {Object} The password update success action.
+ */
+export function passwordUpdateSuccess( newPassword ) {
+	return {
+		type: PASSWORD_UPDATE_SUCCESS,
+		password: newPassword,
+	};
+}
+
+/**
+ * An action creator for the profile update request action.
+ *
+ * @param {string} subtype The kind of profileUpdate request.
+ *
+ * @returns {Object} The profile update request action.
+ */
+export function profileUpdateRequest( subtype = "" ) {
+	return {
+		type: PROFILE_UPDATE_REQUEST,
+		subtype: subtype,
+	};
+}
+
+/**
+ * An action creator for the profile update failure action.
+ *
+ * @param {Object} error The error that occurred.
+ * @param {string} subtype The kind of profileUpdate failure.
+ * @returns {Object} The profile update failure action.
+ */
+export function profileUpdateFailure( error, subtype = "" ) {
+	return {
+		type: PROFILE_UPDATE_FAILURE,
+		error: error,
+		subtype: subtype,
+	};
+}
+
+/**
+ * An action creator for the profile update success action.
+ *
  * @param {Object} newProfile The profile after a successful profile update.
+ * @param {string} subtype The kind of profileUpdate success.
+ *
  * @returns {Object} The profile update success action.
  */
-export function profileUpdateSuccess( newProfile ) {
+export function profileUpdateSuccess( newProfile, subtype = "" ) {
 	return {
 		type: PROFILE_UPDATE_SUCCESS,
 		profile: newProfile,
+		subtype: subtype,
 	};
 }
 
@@ -234,7 +338,7 @@ export function resetSaveMessage() {
  *
  * @param {Object} profile The profile object.
  * @param {string} profile.email The email to set on the profile.
- * @returns {Function} A function that
+ * @returns {Function} A function that can be dispatched to update a user's profile.
  */
 export function updateProfile( profile ) {
 	return ( dispatch ) => {
@@ -252,56 +356,50 @@ export function updateProfile( profile ) {
 }
 
 /**
- * An action creator for the password reset request.
+ * An action creator to update the profile of the user.
  *
- * @returns {Object} The action.
+ * @param {Object} passwords Object containing your old password, new password and password confirmation.
+ * @returns {Function} A function that can be dispatched to update a user's password.
  */
-export function passwordResetRequest() {
-	return {
-		type: RESET_PASSWORD_REQUEST,
+export function updatePassword( passwords ) {
+	return ( dispatch ) => {
+		dispatch( passwordUpdateRequest() );
+
+		let userId = getUserId();
+		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", passwords );
+
+		return doRequest( request )
+			.then( ( response ) => {
+				dispatch( passwordUpdateSuccess( response ) );
+			} )
+			.catch( ( error ) => dispatch( passwordUpdateFailure( error ) ) );
 	};
 }
 
-/**
- * An action creator for the password reset failure action.
- *
- * @param {Object} error The error that occurred.
- * @returns {Object} The action.
- */
-export function passwordResetFailure( error ) {
-	return {
-		type: RESET_PASSWORD_FAILURE,
-		error: error,
-	};
-}
 
 /**
- * An action creator for the password reset success action.
- *
- * @returns {Object} The action.
- */
-export function passwordResetSuccess() {
-	return {
-		type: RESET_PASSWORD_SUCCESS,
-	};
-}
-
-/**
- * An action creator that sends a password reset email.
- *
- * @param {string} email The email to send a password reset mail.
+ * Uploads an avatar image for the current user.
+ * @param {File} image the image to upload
  * @returns {Function} Function to call when this action is dispatched.
  */
-export function passwordResetSend( email ) {
+export function uploadAvatar( image ) {
+	const actionSubtype = "imageUpload";
 	return ( dispatch ) => {
-		dispatch( passwordResetRequest() );
+		dispatch( profileUpdateRequest( actionSubtype ) );
 
-		const body = new FormData();
-		body.append( "user_login", email );
+		let userId = getUserId();
+		let uploadData = new FormData();
 
-		let request = prepareRequest( getPasswordResetUrl(), "POST", body, { mode: "no-cors" } );
-		return doRequest( request )
-			.then( () => dispatch( passwordResetSuccess() ) )
-			.catch( error => dispatch( passwordResetFailure( error ) ) );
+		// PrepareRequest set's this to JSON if not set. We want the browser to set it to correctly set the boundary.
+		let uploadOptions = { headers: {} };
+		uploadData.append( "wp-user-avatars", image );
+
+		let uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions );
+
+		return doRequest( uploadRequest )
+			.then( ( response ) => {
+				dispatch( profileUpdateSuccess( response, actionSubtype ) );
+			} )
+			.catch( ( error ) => dispatch( profileUpdateFailure( error, actionSubtype ) ) );
 	};
 }
