@@ -5,7 +5,11 @@ import ResetPasswordPage from "../../../src/components/login/ResetPasswordPage";
 
 test( 'The ResetPasswordPage component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<ResetPasswordPage location={{ search: "" }}/>
+		<ResetPasswordPage
+			location={ { search: "" } }
+			attemptResetPassword={ () => {} }
+			passwordResetSuccess={ false }
+		/>
 	);
 
 	let tree = component.toJSON();

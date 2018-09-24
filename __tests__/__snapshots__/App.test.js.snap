@@ -391,6 +391,7 @@ exports[`renders without crashing 1`] = `
             >
               <a
                 href="/forgot-password"
+                onClick={[Function]}
               >
                 <span>
                   Forgot your password?
