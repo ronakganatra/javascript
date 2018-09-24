@@ -89,7 +89,6 @@ class Routes extends React.Component {
 	}
 
 	render() {
-		console.log( "STATE", this.state );
 		if ( this.props.loggedIn === false ) {
 			return (
 				<ConnectedRouter history={ this.props.history }>
