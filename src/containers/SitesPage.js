@@ -93,7 +93,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( loadSites() );
 	dispatch( loadConfigurationServiceRequests() );
 

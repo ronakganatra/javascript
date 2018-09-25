@@ -34,7 +34,7 @@ function filterOutDuplicates( products ) {
 	} );
 
 	// Loop through the filtered products and merge duplicate products.
-	_forEach( filtered, ( product, key ) => {
+	_forEach( filtered, ( product ) => {
 		// Determine whether the product is already present
 		if ( filteredProducts.hasOwnProperty( product.glNumber ) ) {
 			filteredProducts[ product.glNumber ].ids.push( product.id );
@@ -62,7 +62,7 @@ function filterProductsByType( type, products ) {
 	products = _pickBy( products, product => product.type === type );
 	const filteredProducts = filterOutDuplicates( products );
 
-	return Object.keys( filteredProducts ).map( ( key, index ) => {
+	return Object.keys( filteredProducts ).map( ( key ) => {
 		return filteredProducts[ key ];
 	} );
 }
@@ -109,7 +109,7 @@ export function getPlugins( products ) {
 	products = _pickBy( products, product => Object.values( PLUGIN_MAPPING ).indexOf( product.type ) !== -1 );
 	const filteredProducts = filterOutDuplicates( products );
 
-	return Object.keys( filteredProducts ).map( ( key, index ) => {
+	return Object.keys( filteredProducts ).map( ( key ) => {
 		return filteredProducts[ key ];
 	} );
 }

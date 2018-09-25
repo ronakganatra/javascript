@@ -235,7 +235,7 @@ export function disableUser() {
 		const request = prepareInternalRequest( `Customers/${userId}/`, "PATCH", { enabled: false } );
 
 		return doRequest( request )
-			.then( json => dispatch( disableUserSuccess() ) )
+			.then( () => dispatch( disableUserSuccess() ) )
 			.catch( error => dispatch( disableUserFailure( error ) ) );
 	};
 }

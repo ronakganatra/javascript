@@ -108,7 +108,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		loadCourseEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
 		loadCourses: () => dispatch( retrieveCourses() ),

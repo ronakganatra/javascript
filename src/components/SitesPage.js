@@ -86,7 +86,7 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
-	getConfigurationServiceRequest( id, data ) {
+	getConfigurationServiceRequest() {
 		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
 			return null;
 		}
@@ -208,11 +208,12 @@ class SitesPage extends React.Component {
 			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site." />,
 		];
 
-		const sitesNoResultsParagraphs = [ <FormattedMessage
-			id="sites.sitesNoResult.notfound"
-			defaultMessage={ "We could not find { site } in your account." }
-			values={ { site: <strong>{ props.query }</strong> } }
-		/>,
+		const sitesNoResultsParagraphs = [
+			<FormattedMessage
+				id="sites.sitesNoResult.notfound"
+				defaultMessage={ "We could not find { site } in your account." }
+				values={ { site: <strong>{ props.query }</strong> } }
+			/>,
 			<FormattedMessage id="sites.sitesNoResult.add" defaultMessage="Do you want to add it?" />,
 		];
 

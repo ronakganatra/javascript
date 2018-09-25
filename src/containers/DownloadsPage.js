@@ -55,7 +55,7 @@ const getPluginProducts = ( state ) => {
 	} );
 };
 
-const setDownloadProps = ( products, state ) => {
+const setDownloadProps = ( products ) => {
 	return products.map( ( product ) => {
 		let downloadButtons = [];
 
@@ -122,7 +122,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( getAllProducts() );
 	dispatch( getAllSubscriptions() );
 	dispatch( getOrders() );

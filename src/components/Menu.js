@@ -184,28 +184,27 @@ function MainMenu( props ) {
 					// Don't show items that are only defined as route.
 					return menuItem.showInMenu;
 				} )
-							 .map( function( page ) {
-									 const isActive = page.isActive || (
-											 ( match ) => {
-												 return match;
-											 }
-										 );
+					.map( function( page ) {
+						const isActive = page.isActive || (
+							( match ) => {
+								return match;
+							}
+						);
 
-									 const title = props.intl.formatMessage( titles[ page.titleKey ] );
+						const title = props.intl.formatMessage( titles[ page.titleKey ] );
 
-									 return <li key={ page.titleKey }>
-										 <MenuItem
-											activeClassName={ activeStyle }
-											to={ page.path }
-											isActive={ isActive }
-											ariaCurrent="page"
-										 >
-											 <MenuIcon src={ page.iconSource } alt="" />
-											 { title }
-										 </MenuItem>
-									 </li>;
-								 }
-							 )
+						return <li key={ page.titleKey }>
+							<MenuItem
+								activeClassName={ activeStyle }
+								to={ page.path }
+								isActive={ isActive }
+								ariaCurrent="page"
+							>
+								<MenuIcon src={ page.iconSource } alt="" />
+								{ title }
+							</MenuItem>
+						</li>;
+					} )
 				}
 			</ul>
 		</Menu>

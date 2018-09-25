@@ -60,7 +60,7 @@ const AvatarBlock = styled.div`
 	margin: auto;
 	padding-top:20px;
 	text-align: center;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
@@ -203,9 +203,12 @@ class ProfileForm extends React.Component {
 	}
 
 	onUpdateName( type, event ) {
-		type === "first"
-			? this.setState( { userFirstName: event.target.value } )
-			: this.setState( { userLastName: event.target.value } );
+		if ( type === "first" ) {
+			this.setState( { userFirstName: event.target.value } );
+			return;
+		}
+
+		this.setState( { userLastName: event.target.value } );
 	}
 
 	handleSubmit( event ) {

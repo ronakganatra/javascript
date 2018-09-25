@@ -53,7 +53,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( fetchComposerTokens() );
 	dispatch( getNewsletterStatus() );
 
@@ -70,7 +70,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		resetSaveMessage: () => {
 			dispatch( resetSaveMessage() );
 		},
-		onDeleteProfile: ( profile ) => {
+		onDeleteProfile: () => {
 			// eslint-disable-next-line
 			if ( window.confirm( "WARNING! This action CANNOT be undone.\n\n" +
 				"If you continue, you will lose access to your downloads and will no longer receive updates to" +

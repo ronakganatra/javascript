@@ -130,8 +130,8 @@ export function siteRemove( siteId ) {
 		const request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
 
 		return doRequest( request )
-			.then( json => dispatch( siteRemoveSuccess( siteId ) ) )
-			.then( json => dispatch( push( "/sites/" ) ) )
+			.then( () => dispatch( siteRemoveSuccess( siteId ) ) )
+			.then( () => dispatch( push( "/sites/" ) ) )
 			.catch( error => dispatch( siteRemoveFailure( siteId, error.message ) ) );
 	};
 }

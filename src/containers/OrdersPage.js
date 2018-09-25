@@ -56,7 +56,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );

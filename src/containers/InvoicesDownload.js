@@ -52,7 +52,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onInvoicesClick: ( orderId ) => {
 			dispatch( openInvoicesModal( orderId ) );
