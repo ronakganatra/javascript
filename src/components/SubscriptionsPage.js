@@ -89,6 +89,11 @@ class SubscriptionsPage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const noSubscriptionsParagraphs = [
 			<FormattedMessage

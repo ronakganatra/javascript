@@ -174,6 +174,11 @@ class ResetPasswordEmailPage extends React.Component {
 		return ! isEmpty( this.state.email ) && this.state.errors.length === 0 && this.props.loading === false;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		if ( this.props.passwordRequestSent ) {
 			return ( <Redirect to={ "/forgot-password/check-your-email" } /> );

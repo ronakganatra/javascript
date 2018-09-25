@@ -199,7 +199,11 @@ class Signup extends React.Component {
 		}
 	}
 
-
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let signupError = this.props.signupError;
 

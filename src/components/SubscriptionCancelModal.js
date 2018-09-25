@@ -49,6 +49,11 @@ const CancelSubscriptionContainer = styled.div`
 `;
 
 class SubscriptionCancelModal extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const confirmButtonText = this.props.loading ? messages.loading : messages.confirm;
 

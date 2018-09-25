@@ -30,6 +30,11 @@ const ProductsListHeading = styled( ListHeading )`
  * @returns {ReactElement} The rendered products page.
  */
 export default class Products extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const props = this.props;
 		return (

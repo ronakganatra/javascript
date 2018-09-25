@@ -92,6 +92,11 @@ class InvoiceButtonArea extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>

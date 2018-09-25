@@ -56,6 +56,11 @@ const Label = styled.label`
  * (Since default checkbox element cannot be easily styled with CSS).
  */
 class Checkbox extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<CheckboxWrapper>

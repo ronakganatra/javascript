@@ -63,6 +63,11 @@ class ConfigurationServiceRequestIntakeBlock extends React.Component {
 		this.props.openConfigurationServiceRequestModal( siteId );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const configAvailable = this.props.amountAvailable;
 		return (

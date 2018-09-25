@@ -471,6 +471,11 @@ export function disable( Button ) {
 	`;
 
 	return class DisabledButton extends Component {
+		/**
+		 * Renders the component.
+		 *
+		 * @returns {ReactElement} The rendered component.
+		 */
 		render() {
 			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
 		}

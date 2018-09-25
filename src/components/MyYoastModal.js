@@ -16,9 +16,9 @@ class BaseMyYoastModal extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (
@@ -79,12 +79,12 @@ const MyYoastModal = styled( BaseMyYoastModal )`
 		transform: translate(-50%, -50%);
 		background-color: #fff;
 		outline: none;
-		
+
 		@media screen and ( max-width: 500px ) {
 			overflow-y: auto;
 			overflow-x: hidden;
 		}
-		
+
 		@media screen and ( max-height: 640px ) {
 			overflow-y: auto;
 			overflow-x: hidden;

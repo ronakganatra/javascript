@@ -131,6 +131,11 @@ class SitePage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const props = this.props;
 

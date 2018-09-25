@@ -195,6 +195,11 @@ class CoursesEnrollments extends React.Component {
 		return <ColumnFixedWidthResponsive />;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const { coursesEnrollments } = this.props;
 

@@ -88,7 +88,7 @@ const OuterContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		flex-direction: column;
 	}
@@ -99,7 +99,7 @@ const InnerContainer = styled.div`
 	flex-direction: column;
 	flex-wrap: wrap;
 	width: 50%;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: 100%;
 	}
@@ -318,8 +318,9 @@ class ProfilePage extends React.Component {
 	}
 
 	/**
-	 * Renders the element.
-	 * @returns {JSXElement} The rendered JSX Element.
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (

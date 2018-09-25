@@ -25,43 +25,43 @@ const transparent = "rgba(0, 0, 0, 0)";
 
 const Overlay = styled.span`
 	position: absolute;
-	
+
 	bottom: 0;
 	left: 0;
-	
+
 	width: 100%;
 	height: 100%;
-	
+
 	border-radius: 50%;
-	
+
 	/* Paint the bottom 25% translucent black. */
 	background: linear-gradient(${transparent} 75%, ${translucentBlack} 75%);
 `;
 
 const ChangeButton = styled.button`
 	position: absolute;
-	
+
 	bottom: 0;
 	left: 0;
-	
+
 	width: 100%;
 	padding: 8px;
-	
+
 	/* Style as a link */
 	background: none;
 	border: none;
    	color: white;
    	font-size: 12px;
    	text-decoration: underline;
-   	
+
    	&:hover,
 	&:focus {
 		color: white;
 		cursor: pointer;
 		text-decoration: none;
 	}
-   	
-   	text-align: center;	
+
+   	text-align: center;
 `;
 
 const MaxFileSizeText = styled.p`
@@ -221,6 +221,11 @@ class UploadUserImage extends React.Component {
 		speak( invalidFileError, "assertive" );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 

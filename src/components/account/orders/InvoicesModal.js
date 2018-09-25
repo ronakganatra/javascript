@@ -103,6 +103,11 @@ export class InvoicesModal extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const invoicesTable = <ListTable { ...this.props }>
 			{ this.props.invoices.map( ( invoice ) => {

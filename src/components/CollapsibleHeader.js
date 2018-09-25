@@ -17,7 +17,7 @@ const CollapsibleHeading = styled.button`
 	justify-content: space-between;
 	align-items: center;
 	background-color: ${ colors.$color_white };
-	padding: ${ props => props.padding }px; 
+	padding: ${ props => props.padding }px;
 	border: none;
 	text-align: left;
 	font-weight: ${ props => props.fontWeight };
@@ -113,9 +113,9 @@ export default class ListToggle extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered ListToggle element.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered ListToggle element.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		let children = null;

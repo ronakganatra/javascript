@@ -76,6 +76,11 @@ class ImportDataStep extends React.Component {
 		this.props.completeStep();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const value = this.state.importFrom;
 		return (

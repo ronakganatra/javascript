@@ -41,7 +41,7 @@ const Paragraph = styled.p`
 	font-weight: 700;
 `;
 
-const DeleteButton = styled( RedButton )`	
+const DeleteButton = styled( RedButton )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
@@ -69,6 +69,11 @@ class DeleteAccount extends React.Component {
 			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage } />;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return <Form onSubmit={ this.handleDelete }>
 			<Paragraph>

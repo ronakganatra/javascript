@@ -87,6 +87,11 @@ class ProfileDetails extends React.Component {
 		/* eslint-enable camelcase */
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let saveMessage = messages.goToMyYoast;
 		if ( this.props.savingProfile ) {

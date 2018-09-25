@@ -54,7 +54,7 @@ const Header = styled.a`
 	padding: 0;
 	margin: 0;
 	margin-bottom: 15px;
-	
+
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
 	font-size: 1.5em;
@@ -330,6 +330,11 @@ class CourseDetails extends React.Component {
 		return this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, marginTop );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const hasAccess = this.props.isEnrolled || this.props.hasTrial;
 		return (

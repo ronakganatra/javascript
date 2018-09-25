@@ -78,6 +78,11 @@ class Login extends React.Component {
 		return true;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<LoginForm

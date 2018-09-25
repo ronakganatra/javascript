@@ -57,6 +57,11 @@ class DownloadAccount extends React.Component {
 		return getDownloadProfileUrl( userId );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return <Form action={ this.generateDownloadURL() }>
 			<Title>

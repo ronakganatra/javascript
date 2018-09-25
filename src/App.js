@@ -154,6 +154,11 @@ const RoutesContainer = connect(
 )( Routes );
 
 class App extends Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<IntlProvider locale="en">

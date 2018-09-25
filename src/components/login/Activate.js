@@ -78,6 +78,11 @@ class Activate extends React.Component {
 		return this.props.activationError.error.code === "already_active";
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		if ( this.props.loggedIn ) {
 			return ( <Redirect to={ "/enter-details" } /> );

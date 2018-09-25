@@ -141,6 +141,11 @@ class SubscribeNewsletter extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		if ( this.props.subscribed === "unknown" ) {
 			return null;

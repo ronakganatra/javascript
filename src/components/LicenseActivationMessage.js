@@ -73,7 +73,7 @@ class LicenseActivationMessage extends React.Component {
 	}
 
 	/**
-	 * Renders the message.
+	 * Renders the component.
 	 *
 	 * @returns {*} Returns an empty div if the cookie is set or returns the message.
 	 */

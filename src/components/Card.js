@@ -65,6 +65,11 @@ class Card extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<Container className={ this.props.className }>
@@ -98,4 +103,3 @@ Card.propTypes = {
 	} ),
 	children: PropTypes.any,
 };
-

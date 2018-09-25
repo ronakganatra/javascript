@@ -26,20 +26,20 @@ const ErrorDisplay = styled.ul`
 	color: ${ colors.$color_error };
 	font-size: 12px;
 	font-weight: 700;
-	
+
 	margin: 0;
 	padding: 0;
-	
+
 	list-style-type: none;
 `;
 
 const Error = styled.li`
 	background: url(${ exclamationTriangle }) no-repeat left center;
 	background-size: 12px;
-		
+
 	height: 20px;
-	
-	margin-top: 4px;	
+
+	margin-top: 4px;
 	padding-left: 24px;
 `;
 
@@ -164,6 +164,11 @@ class ValidationInputField extends React.Component {
 		this.showErrorsDebounced.cancel();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const errors = this.props.errors.concat( this.state.errors );
 		const hasErrors = this.props.errors.length > 0;

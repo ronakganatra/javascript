@@ -83,6 +83,11 @@ class SubscriptionPage extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader />;

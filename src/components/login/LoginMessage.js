@@ -92,6 +92,11 @@ class LoginMessage extends React.Component {
 		return null;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<MainPaper>

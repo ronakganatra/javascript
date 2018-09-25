@@ -85,6 +85,11 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let headerMessage  = messages.configurationPendingHeading;
 		let contentMessage = messages.configurationPendingMessage;

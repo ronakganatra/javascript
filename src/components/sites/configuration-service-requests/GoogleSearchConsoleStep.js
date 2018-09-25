@@ -70,6 +70,11 @@ class GoogleSearchConsoleStep extends React.Component {
 		this.props.completeStep();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>

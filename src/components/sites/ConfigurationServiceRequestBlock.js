@@ -104,6 +104,11 @@ class ConfigurationServiceRequestBlock extends React.Component {
 		} );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const configAvailable = this.props.amountAvailable;
 		const value = this.state.selectedOption && this.state.selectedOption.value;

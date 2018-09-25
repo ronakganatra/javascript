@@ -241,8 +241,9 @@ class ProfileForm extends React.Component {
 	}
 
 	/**
-	 * Renders the element.
-	 * @returns {JSXElement} The rendered JSX Element.
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		const warnings = this.validateFields();

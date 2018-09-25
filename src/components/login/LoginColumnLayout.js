@@ -35,7 +35,7 @@ const MainColumn = styled.div`
  */
 const AdditionalColumn = styled.div`
 	margin-left: 48px;
-	
+
 	@media screen and ( max-width: 1024px ) {
 		margin-left: 0;
 	}
@@ -65,7 +65,8 @@ class LoginColumnLayout extends React.Component {
 
 	/**
 	 * Renders the component.
-	 * @returns {ColumnLayout} a basic two-column login page layout
+	 *
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		const twoColumns = this.props.children.length > 1;
@@ -86,4 +87,3 @@ LoginColumnLayout.propTypes = {
 };
 
 export default LoginColumnLayout;
-

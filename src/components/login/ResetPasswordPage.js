@@ -225,6 +225,11 @@ class ResetPasswordPage extends React.Component {
 		}
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let resetPasswordError = this.props.submitErrors;
 

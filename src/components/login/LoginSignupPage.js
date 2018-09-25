@@ -57,6 +57,11 @@ class LoginSignupPage extends React.Component {
 		return <LoginMessage header={ messages.signupHeader } message={ messages.signupMessage } />;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<LoginColumnLayout>

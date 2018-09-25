@@ -27,6 +27,11 @@ const MessageContainer = styled.div`
 
 
 class ConnectedSubscriptionWarning extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const subscriptionProductsListItems = this.props.subscriptions.map( subscription =>
 			<li key={ subscription.id }>{ subscription.limit } &times; { subscription.name }</li>

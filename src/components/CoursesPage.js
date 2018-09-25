@@ -56,6 +56,11 @@ class CoursesPage extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<Fragment>

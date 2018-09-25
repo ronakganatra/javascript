@@ -7,8 +7,8 @@ import colors from "yoast-components/style-guide/colors";
 
 const Bar = styled.div`
 	position: relative;
-		
-	background-color: ${ colors.$color_grey };	
+
+	background-color: ${ colors.$color_grey };
 	border-radius: 5px;
 	text-align: right;
 `;
@@ -16,17 +16,17 @@ const Bar = styled.div`
 const Progress = styled.div`
 	width: ${ props => props.progress }%;
 	height: 25px;
-	
+
 	background-color: ${ colors.$color_green };
 	border-radius: 5px;
 `;
 
-const ProgressText = styled.span`	
+const ProgressText = styled.span`
 	position: absolute;
 	right: 10px;
-	
+
 	line-height: 25px;
-		
+
 	font-size: 0.75em;
 	font-weight: bold;
 	color: ${ props => props.textColor };
@@ -40,6 +40,11 @@ const messages = defineMessages( {
 } );
 
 class ProgressBar extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const progress = Math.min( this.props.progress, 100 );
 		const textColor = progress < 100 ? colors.$color_black : colors.$color_white;

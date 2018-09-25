@@ -54,6 +54,11 @@ class UserProfile extends React.Component {
 		this.onLogoutClick = this.onLogoutClick.bind( this );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const message = this.props.loggingOut ? messages.signingout : messages.signout;
 

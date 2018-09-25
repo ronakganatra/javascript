@@ -113,6 +113,11 @@ class DownloadsPage extends React.Component {
 			: null;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const pluginsByLine = <ByLine>
 			<FormattedMessage
