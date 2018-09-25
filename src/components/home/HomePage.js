@@ -1,7 +1,8 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
-import UpsellCard from "./UpsellCard";
+import PluginUpsellCard from "./PluginUpsellCard";
+import AcademyUpsellCard from "./AcademyUpsellCard";
 
 
 const messages = defineMessages( {
@@ -29,7 +30,8 @@ class HomePage extends React.Component {
 		return (
 			<div>
 				<h1>WORK IN PROGRESS</h1>
-				<UpsellCard header={ "Extend Yoast SEO" } />
+				<PluginUpsellCard />
+				<AcademyUpsellCard />
 			</div>
 		);
 	}
