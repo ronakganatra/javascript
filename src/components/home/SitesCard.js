@@ -142,10 +142,6 @@ export const mapDispatchToProps = ( dispatch ) => {
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	let url = stateProps.linkingSiteUrl;
 
-	if ( stateProps.linkingSiteUrl.length === 0 ) {
-		url = stateProps.query;
-	}
-
 	let onConnect = ( type, fromHome ) => {
 		dispatchProps.onConnect( url, type, fromHome );
 	};
