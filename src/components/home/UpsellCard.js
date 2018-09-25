@@ -93,13 +93,13 @@ UpsellListItem.propTypes = {
 };
 
 /**
- * A function that returns the UpsellCardContent component.
+ * A function that returns the UpsellCard component.
  *
- * @param {Object} props The props required for the UpsellCardContent component.
+ * @param {Object} props The props required for the UpsellCard component.
  *
- * @returns {ReactElement} The UpsellCardContent component.
+ * @returns {ReactElement} The UpsellCard component.
  */
-const UpsellCardContent = ( props ) => {
+const UpsellCard = ( props ) => {
 	return (
 		<Fragment>
 			<Header>
@@ -118,14 +118,14 @@ const UpsellCardContent = ( props ) => {
 	);
 };
 
-UpsellCardContent.propTypes = {
+UpsellCard.propTypes = {
 	id: PropTypes.string,
 	header: PropTypes.object.isRequired,
 	listPropsArray: PropTypes.array.isRequired,
 };
 
-UpsellCardContent.defaultProps = {
+UpsellCard.defaultProps = {
 	id: null,
 };
 
-export default injectIntl( UpsellCardContent );
+export default injectIntl( UpsellCard );

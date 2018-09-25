@@ -2,7 +2,7 @@ import LocalIcon from "../../icons/Yoast/Local_SEO_Icon_Small.svg";
 import VideoIcon from "../../icons/Yoast/Video_SEO_Icon_Small.svg";
 import WooIcon from "../../icons/Yoast/Woo_Icon_Small.svg";
 import NewsIcon from "../../icons/Yoast/News_Icon_Small.svg";
-import UpsellCardContent from "./UpsellCardContent";
+import UpsellCard from "./UpsellCard";
 import React from "react";
 
 const pluginUpsellId = "plugin.upsell";
@@ -55,7 +55,7 @@ const pluginUpsellProps = [
 
 const PluginUpsell = () => {
 	return(
-		<UpsellCardContent
+		<UpsellCard
 			id={ pluginUpsellId }
 			header={ {
 				id: "header",

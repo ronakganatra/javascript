@@ -1,5 +1,5 @@
 import LocalIcon from "../../icons/Yoast/Local_SEO_Icon_Small.svg";
-import UpsellCardContent from "./UpsellCardContent";
+import UpsellCard from "./UpsellCard";
 import React from "react";
 
 const academyUpsellId = "academy.upsell";
@@ -52,7 +52,7 @@ const academyUpsellProps = [
 
 const AcademyUpsell = () => {
 	return(
-		<UpsellCardContent
+		<UpsellCard
 			id={ academyUpsellId }
 			header={ {
 				id: "header",
