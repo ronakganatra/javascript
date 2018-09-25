@@ -53,4 +53,3 @@ export default injectIntl( HomePage );
 HomePage.propTypes = {
 	intl: intlShape.isRequired,
 };
-
