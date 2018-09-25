@@ -76,7 +76,7 @@ export function signupRequest( params ) {
 				return response;
 			} )
 			.catch( ( error ) => {
-				dispatch( signupFailure( error.error ) );
+				dispatch( signupFailure( error ) );
 				return error;
 			} );
 	};
