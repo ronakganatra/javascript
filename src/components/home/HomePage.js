@@ -14,11 +14,11 @@ const messages = defineMessages( {
 } );
 
 /**
- * Returns the rendered Downloads Page component.
+ * Returns the rendered HomePage component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered downloads page.
+ * @returns {ReactElement} The rendered home page.
  */
 class HomePage extends React.Component {
 	componentDidMount() {
