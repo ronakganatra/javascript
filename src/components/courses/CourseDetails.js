@@ -118,7 +118,6 @@ const messages = defineMessages( {
 const BUTTON_MARGIN_TOP = "24px";
 
 class CourseDetails extends React.Component {
-
 	/**
 	 * Sets the CourseCard object.
 	 *
@@ -143,13 +142,15 @@ class CourseDetails extends React.Component {
 	 * @returns {React.Component} the button
 	 */
 	getButton( url, color, message, marginTop, textcolor ) {
-		return <Button to={ url }
-		               linkTarget="_blank"
-		               color={ color }
-		               textcolor={ textcolor }
-		               margin={ marginTop }>
+		return <Button
+			to={ url }
+			linkTarget="_blank"
+			color={ color }
+			textcolor={ textcolor }
+			margin={ marginTop }
+		>
 			<FormattedMessage { ...message } />
-			<NewTabMessage/>
+			<NewTabMessage />
 		</Button>;
 	}
 
@@ -164,7 +165,7 @@ class CourseDetails extends React.Component {
 			linkTarget="_blank"
 		>
 			<FormattedMessage { ...messages.viewCertificateButton } />
-			<NewTabMessage/>
+			<NewTabMessage />
 		</SecondaryButton>;
 	}
 
@@ -196,7 +197,7 @@ class CourseDetails extends React.Component {
 		let progressBar;
 		// Only when a course is started the progress bar is shown.
 		if ( type === "continue" || type === "completed" ) {
-			progressBar = <ProgressBar progress={ this.props.progress }/>;
+			progressBar = <ProgressBar progress={ this.props.progress } />;
 		}
 		// Return should be updated to trialCompleted
 		return <Fragment>
@@ -217,8 +218,10 @@ class CourseDetails extends React.Component {
 			 (but only when the user is enrolled, has not started the course yet,
 			 is not trialling out the course and it is the only enrollment)
 			 */
-			return <LinkButton testId="assign-to-someone-else"
-			                   onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			return <LinkButton
+				testId="assign-to-someone-else"
+				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
+			>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
 		}
@@ -231,7 +234,7 @@ class CourseDetails extends React.Component {
 					<FormattedMessage
 						id={ messages.freeTrialCompleted.id }
 						defaultMessage={ messages.freeTrialCompleted.defaultMessage }
-						values={ { icon: <CompletedIcon src={ check } alt=""/> } }
+						values={ { icon: <CompletedIcon src={ check } alt="" /> } }
 					/>
 				</StyledLabel>;
 			}
@@ -277,7 +280,7 @@ class CourseDetails extends React.Component {
 	 * @returns {React.Component} The component.
 	 */
 	getAssignCoursesRow() {
-		let noAvailableEnrollments = this.props.totalEnrollments === this.props.usedEnrollments;
+		const noAvailableEnrollments = this.props.totalEnrollments === this.props.usedEnrollments;
 		let linkButton;
 
 		if ( noAvailableEnrollments ) {
@@ -293,8 +296,10 @@ class CourseDetails extends React.Component {
 			</Fragment>;
 		} else {
 			// "Assign courses"
-			linkButton = <LinkButton testId="assign-courses"
-			                         onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }>
+			linkButton = <LinkButton
+				testId="assign-courses"
+				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
+			>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;
 		}
@@ -326,7 +331,7 @@ class CourseDetails extends React.Component {
 	}
 
 	render() {
-		let hasAccess = this.props.isEnrolled || this.props.hasTrial;
+		const hasAccess = this.props.isEnrolled || this.props.hasTrial;
 		return (
 			<Fragment>
 				<Details>

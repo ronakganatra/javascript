@@ -44,7 +44,7 @@ function SiteSubscriptions( props ) {
 				props.plugins.map( function( plugin ) {
 					let isActive = false;
 					props.activeSubscriptions.forEach( ( subscription ) => {
-						if( plugin.ids.includes( subscription.productId ) ) {
+						if ( plugin.ids.includes( subscription.productId ) ) {
 							isActive = true;
 						}
 					} );

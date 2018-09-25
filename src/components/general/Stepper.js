@@ -125,7 +125,7 @@ class Step extends React.Component {
 			component,
 		} = this.props;
 
-		let child = React.cloneElement( component, {
+		const child = React.cloneElement( component, {
 			completeStep: this.completeStep,
 			resetStep: this.resetStep,
 			stepIndex: index,

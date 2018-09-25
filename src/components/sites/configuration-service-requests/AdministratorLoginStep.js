@@ -5,7 +5,7 @@ import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import ButtonsContainer from "../../general/ButtonsContainer";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	administratorLoginRequired: {
 		id: "requestConfiguration.administratorLoginRequired",
 		defaultMessage: "We will, of course, need an administrator login to your site. Please create a new admin user on your site with the email address install@yoast.com.",
@@ -71,30 +71,33 @@ class AdministratorLoginStep extends React.Component {
 				<p>
 					<FormattedMessage
 						id={ messages.administratorLoginRequired.id }
-						defaultMessage={ messages.administratorLoginRequired.defaultMessage } />
+						defaultMessage={ messages.administratorLoginRequired.defaultMessage }
+					/>
 				</p>
 				<p>
 					<input
 						id="administratorLoginConfirmation"
 						type="checkbox"
 						onChange={ this.toggleConfirmed }
-						checked={ this.state.confirmed } />
+						checked={ this.state.confirmed }
+					/>
 					<StyledLabel htmlFor="administratorLoginConfirmation">
 						<FormattedMessage
 							id={ messages.administratorLoginConfirmation.id }
-							defaultMessage={ messages.administratorLoginConfirmation.defaultMessage } />
+							defaultMessage={ messages.administratorLoginConfirmation.defaultMessage }
+						/>
 					</StyledLabel>
 				</p>
 				<ButtonsContainer>
-					<WideSecondaryButton onClick={ this.props.onClose } >
-						<FormattedMessage id="requestConfiguration.close" defaultMessage="close"/>
+					<WideSecondaryButton onClick={ this.props.onClose }>
+						<FormattedMessage id="requestConfiguration.close" defaultMessage="close" />
 					</WideSecondaryButton>
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.confirmed }
 					>
-						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
+						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue" />
 					</WideLargeButton>
 				</ButtonsContainer>
 			</div>

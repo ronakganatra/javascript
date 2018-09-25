@@ -6,15 +6,15 @@ import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
 
 export const mapStateToProps = ( state ) => {
-	let allIds = state.entities.subscriptions.allIds;
+	const allIds = state.entities.subscriptions.allIds;
 
 	let subscriptions = allIds.map( ( subscriptionId ) => {
-		let subscription = state.entities.subscriptions.byId[ subscriptionId ];
+		const subscription = state.entities.subscriptions.byId[ subscriptionId ];
 		// Selects the latest order to get the latest subscription number.
-		let orderId = subscription.orders.slice( -1 )[ 0 ];
-		let order = state.entities.orders.byId[ orderId ];
+		const orderId = subscription.orders.slice( -1 )[ 0 ];
+		const order = state.entities.orders.byId[ orderId ];
 
-		let subscriptionProps = {
+		const subscriptionProps = {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
@@ -33,11 +33,11 @@ export const mapStateToProps = ( state ) => {
 		return subscriptionProps;
 	} );
 
-	let query = state.ui.search.query;
+	const query = state.ui.search.query;
 
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
-			let formattedDate = new Intl.DateTimeFormat( "en-US", {
+			const formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
 				month: "long",
 				day: "numeric",
@@ -56,8 +56,8 @@ export const mapStateToProps = ( state ) => {
 			return true;
 		}
 
-		let currentDate = new Date();
-		let endDate = new Date( subscription.endDate );
+		const currentDate = new Date();
+		const endDate = new Date( subscription.endDate );
 		endDate.setMonth( endDate.getMonth() + 1 );
 
 		return currentDate.getTime() <= endDate.getTime();

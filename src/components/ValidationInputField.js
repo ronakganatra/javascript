@@ -48,7 +48,6 @@ const Error = styled.li`
  * and show errors if validation fails.
  */
 class ValidationInputField extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -89,7 +88,7 @@ class ValidationInputField extends React.Component {
 	 */
 	getErrors( errors ) {
 		return errors.map( ( error, index ) => {
-			let key = `${ this.props.id }-${ index }`;
+			const key = `${ this.props.id }-${ index }`;
 			return <Error key={ key }>{ error }</Error>;
 		} );
 	}
@@ -166,8 +165,8 @@ class ValidationInputField extends React.Component {
 	}
 
 	render() {
-		let errors = this.props.errors.concat( this.state.errors );
-		let hasErrors = this.props.errors.length > 0;
+		const errors = this.props.errors.concat( this.state.errors );
+		const hasErrors = this.props.errors.length > 0;
 
 		return (
 			<div>

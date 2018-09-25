@@ -60,8 +60,8 @@ export function getNewsletterStatus() {
 	return ( dispatch ) => {
 		dispatch( getNewsletterStatusRequest() );
 
-		let userId  = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/newsletter` );
+		const userId  = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/newsletter` );
 
 		return doRequest( request )
 			.then( json => dispatch( getNewsletterStatusSuccess( json ) ) )
@@ -116,8 +116,8 @@ export function subscribeNewsletter() {
 	return ( dispatch ) => {
 		dispatch( subscribeNewsletterRequest() );
 
-		let userId  = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/newsletter`, "POST" );
+		const userId  = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/newsletter`, "POST" );
 
 		return doRequest( request )
 			.then( json => dispatch( subscribeNewsletterSuccess( json ) ) )
@@ -172,8 +172,8 @@ export function unsubscribeNewsletter() {
 	return ( dispatch ) => {
 		dispatch( subscribeNewsletterRequest() );
 
-		let userId  = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/newsletter`, "DELETE" );
+		const userId  = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/newsletter`, "DELETE" );
 
 		return doRequest( request )
 			.then( json => dispatch( subscribeNewsletterSuccess( json ) ) )

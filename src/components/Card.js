@@ -42,11 +42,11 @@ class Card extends React.Component {
 		if ( this.props.header.link ) {
 			return (
 				<a href={ this.props.header.link }>
-					<HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" }/>
+					<HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" } />
 				</a>
 			);
 		}
-		return <HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" }/>;
+		return <HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" } />;
 	}
 
 	/**

@@ -43,28 +43,32 @@ const messages = defineMessages( {
 class AccountDisabled extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.accountDisabled );
+		const message = this.props.intl.formatMessage( messages.accountDisabled );
 		speak( message );
 	}
 
 	render() {
-		let paragraphs = [
-			<FormattedMessage id="account.disabled.possibleAction" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
-							  values={ { support: <a href="mailto:support@yoast.com">support team</a> } } />,
-			<FormattedMessage id="account.disabled.visitYoast" defaultMessage={ "Visit { yoast }." }
-							  values={ { yoast: <a href="https://yoast.com">Yoast.com</a> } } />,
+		const paragraphs = [
+			<FormattedMessage
+				id="account.disabled.possibleAction" defaultMessage={ "If you would like to re-enable your account, please contact our { support }." }
+				values={ { support: <a href="mailto:support@yoast.com">support team</a> } }
+			/>,
+			<FormattedMessage
+				id="account.disabled.visitYoast" defaultMessage={ "Visit { yoast }." }
+				values={ { yoast: <a href="https://yoast.com">Yoast.com</a> } }
+			/>,
 		];
 		return (
 
 
-		<PageContainer>
-			<LogoImage src={ logo } size="200px" alt="MyYoast" />
-			<Heading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></Heading>
-			{ paragraphs.map( function( paragraph ) {
-				return <p key={ paragraph.props.id }>{ paragraph }</p>;
-			} ) }
-			<AccountDisabledImage src={ pageNotFoundImage } alt="" />
-		</PageContainer>
+			<PageContainer>
+				<LogoImage src={ logo } size="200px" alt="MyYoast" />
+				<Heading><FormattedMessage id="account.disabled.header" defaultMessage={ "Account disabled" } /></Heading>
+				{ paragraphs.map( function( paragraph ) {
+					return <p key={ paragraph.props.id }>{ paragraph }</p>;
+				} ) }
+				<AccountDisabledImage src={ pageNotFoundImage } alt="" />
+			</PageContainer>
 		);
 	}
 }

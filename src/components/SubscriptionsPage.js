@@ -25,7 +25,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( speak, 1000 );
+const debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * Returns the rendered SubscriptionsPage component.
@@ -52,7 +52,7 @@ class SubscriptionsPage extends React.Component {
 		this.props.loadData();
 
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
+		const message = this.props.intl.formatMessage( messages.pageSubscriptionsLoaded );
 		speak( message );
 	}
 
@@ -69,7 +69,7 @@ class SubscriptionsPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && this.props.query !== nextProps.query ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
+			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}
@@ -90,21 +90,29 @@ class SubscriptionsPage extends React.Component {
 	}
 
 	render() {
-		let noSubscriptionsParagraphs = [
-			<FormattedMessage id="subscriptions.noSubscriptions.welcome"
-			                  defaultMessage="Welcome to the subscriptions overview."/>,
-			<FormattedMessage id="subscriptions.noSubscriptions.manage"
-			                  defaultMessage="When you buy one of our plugins or services, you start a new subscription which will be billed
-							  annually. At the end of each billing cycle you can choose to renew your subscription or let it expire."/>,
-			<FormattedMessage id="subscriptions.noSubscriptions.pressButton"
-			                  defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."/>,
+		const noSubscriptionsParagraphs = [
+			<FormattedMessage
+				id="subscriptions.noSubscriptions.welcome"
+				defaultMessage="Welcome to the subscriptions overview."
+			/>,
+			<FormattedMessage
+				id="subscriptions.noSubscriptions.manage"
+				defaultMessage="When you buy one of our plugins or services, you start a new subscription which will be billed
+							  annually. At the end of each billing cycle you can choose to renew your subscription or let it expire."
+			/>,
+			<FormattedMessage
+				id="subscriptions.noSubscriptions.pressButton"
+				defaultMessage="You don’t seem to have any subscriptions yet, so press the button below to visit our shop."
+			/>,
 		];
-		let noSearchResultsParagraphs = [
-			<FormattedMessage id="subscriptions.search.noResults"
-			                  defaultMessage={ "We could not find any subscriptions matching { query }." }
-			                  values={ { query: <strong>{ this.props.query }</strong> } }/> ];
+		const noSearchResultsParagraphs = [
+			<FormattedMessage
+				id="subscriptions.search.noResults"
+				defaultMessage={ "We could not find any subscriptions matching { query }." }
+				values={ { query: <strong>{ this.props.query }</strong> } }
+			/> ];
 
-		let props = this.props;
+		const props = this.props;
 
 		if ( props.subscriptions.length > 0 ) {
 			return (
@@ -117,8 +125,10 @@ class SubscriptionsPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<NoResults paragraphs={ noSearchResultsParagraphs }
-					           imageSource={ noResultsImage }/>
+					<NoResults
+						paragraphs={ noSearchResultsParagraphs }
+						imageSource={ noResultsImage }
+					/>
 				</div>
 			);
 		}
@@ -131,7 +141,6 @@ class SubscriptionsPage extends React.Component {
 			/>
 		);
 	}
-
 }
 
 SubscriptionsPage.propTypes = {

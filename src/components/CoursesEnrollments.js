@@ -58,14 +58,14 @@ const CourseColumnIcon = styled( ColumnIcon )`
 	}
 `;
 
-let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
-let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-let ColumnFixedWidthResponsive = styled( makeFullWidth( responsiveHeaders( ColumnFixedWidth ) ) )`
+const ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+const ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+const ColumnFixedWidthResponsive = styled( makeFullWidth( responsiveHeaders( ColumnFixedWidth ) ) )`
 	flex: 0 0 192px;
 	text-align: center;
 `;
 
-let ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
+const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 const CourseIcon = styled.img`
 	height: inherit;
@@ -91,7 +91,7 @@ class CoursesEnrollments extends React.Component {
 		this.props.loadCourses();
 
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
+		const message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
 	}
 
@@ -101,21 +101,29 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {Object} The element to render.
 	 */
 	renderNoResults() {
-		let paragraphs = [
-			<FormattedMessage id="courses.noEnrollments.welcome"
-							  defaultMessage="Welcome to the Course Enrollments overview." />,
-			<FormattedMessage id="courses.noEnrollments.find"
-							  defaultMessage="Here you can find all the Yoast Academy courses you own." />,
-			<FormattedMessage id="courses.noEnrollments.visitShop"
-							  defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop." />,
+		const paragraphs = [
+			<FormattedMessage
+				id="courses.noEnrollments.welcome"
+				defaultMessage="Welcome to the Course Enrollments overview."
+			/>,
+			<FormattedMessage
+				id="courses.noEnrollments.find"
+				defaultMessage="Here you can find all the Yoast Academy courses you own."
+			/>,
+			<FormattedMessage
+				id="courses.noEnrollments.visitShop"
+				defaultMessage="However, it looks like you don't have any courses yet! Press the button below to visit our shop."
+			/>,
 		];
 
-		return <NoResults url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
-						  imageSource={ noSitesImage } />;
+		return <NoResults
+			url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
+			imageSource={ noSitesImage }
+		/>;
 	}
 
 	getModal() {
-		let open = this.props.inviteModalIsOpen;
+		const open = this.props.inviteModalIsOpen;
 
 		const modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.invite",
@@ -147,14 +155,15 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
 	 */
 	getCourseActions( course ) {
-		let currentUser = getUserId();
-		let isSwitchable = course.status === "not started" || ! course.outsideTrialProgress;
+		const currentUser = getUserId();
+		const isSwitchable = course.status === "not started" || ! course.outsideTrialProgress;
 
 		if ( currentUser === course.buyerId && isSwitchable ) {
 			return (
 				<ColumnFixedWidthResponsive>
 					<ResponsiveLargeButton
-						onClick={ () => this.props.inviteModalOpen( course.id ) }>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
+						onClick={ () => this.props.inviteModalOpen( course.id ) }
+					>{ this.props.intl.formatMessage( messages.editStudent ) }</ResponsiveLargeButton>
 				</ColumnFixedWidthResponsive>
 			);
 		}
@@ -200,14 +209,20 @@ class CoursesEnrollments extends React.Component {
 						{ coursesEnrollments.map( ( enrollment ) => {
 							return (
 								<RowMobileCollapse key={ enrollment.id }>
-									<CourseColumnIcon separator={ true }><CourseIcon src={ enrollment.icon }
-																					 alt="" /></CourseColumnIcon>
-									<ColumnPrimaryResponsive ellipsis={ true }
-															 headerLabel={ this.props.intl.formatMessage( messages.course ) }>
+									<CourseColumnIcon separator={ true }><CourseIcon
+										src={ enrollment.icon }
+										alt=""
+									/></CourseColumnIcon>
+									<ColumnPrimaryResponsive
+										ellipsis={ true }
+										headerLabel={ this.props.intl.formatMessage( messages.course ) }
+									>
 										{ enrollment.courseName }
 									</ColumnPrimaryResponsive>
-									<ColumnMinWidthResponsive ellipsis={ true }
-															  headerLabel={ this.props.intl.formatMessage( messages.studentName ) }>
+									<ColumnMinWidthResponsive
+										ellipsis={ true }
+										headerLabel={ this.props.intl.formatMessage( messages.studentName ) }
+									>
 										<strong>{ enrollment.studentName }</strong><br />
 										{ enrollment.studentEmail }
 									</ColumnMinWidthResponsive>

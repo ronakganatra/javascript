@@ -47,32 +47,31 @@ const DownloadButton = styled( Button )`
 `;
 
 class DownloadAccount extends React.Component {
-
 	constructor( props ) {
 		super( props );
 		this.generateDownloadURL = this.generateDownloadURL.bind( this );
 	}
 
 	generateDownloadURL() {
-		let userId = getUserId();
+		const userId = getUserId();
 		return getDownloadProfileUrl( userId );
 	}
 
 	render() {
 		return <Form action={ this.generateDownloadURL() }>
-				<Title>
-					<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage }/>
-				</Title>
-				<Description>
-					<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage }/>
-				</Description>
-				<p>
-					<DownloadButton type="submit">
-						<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage }/>
-					</DownloadButton>
-				</p>
-			</Form>
-			;
+			<Title>
+				<FormattedMessage id={ messages.title.id } defaultMessage={ messages.title.defaultMessage } />
+			</Title>
+			<Description>
+				<FormattedMessage id={ messages.description.id } defaultMessage={ messages.description.defaultMessage } />
+			</Description>
+			<p>
+				<DownloadButton type="submit">
+					<FormattedMessage id={ messages.button.id } defaultMessage={ messages.button.defaultMessage } />
+				</DownloadButton>
+			</p>
+		</Form>
+		;
 	}
 }
 

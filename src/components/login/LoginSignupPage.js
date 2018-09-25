@@ -9,7 +9,7 @@ import SignupContainer from "../../containers/Signup";
 import LoginContainer from "../../containers/Login";
 import SubNavigation, { SubNavigationItem } from "../SubNavigation";
 
-let itemRoutes = [
+const itemRoutes = [
 	{
 		component: SignupContainer,
 		path: "/signup",
@@ -50,7 +50,6 @@ const messages = defineMessages( {
  * Test page to test the login layout / styling.
  */
 class LoginSignupPage extends React.Component {
-
 	getLoginMessage() {
 		if ( this.props.location.pathname === "/login" || this.props.location.pathname === "/login/" ) {
 			return <LoginMessage header={ messages.loginHeader } message={ messages.loginMessage } />;

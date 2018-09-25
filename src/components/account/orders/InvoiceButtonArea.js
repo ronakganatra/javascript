@@ -42,7 +42,7 @@ class InvoiceButtonArea extends React.Component {
 	}
 
 	getModal() {
-		let theModal = (
+		const theModal = (
 			<MyYoastModal
 				onClose={ this.props.onInvoicesClose }
 				isOpen={ this.props.invoiceModalProps.invoicesModalOrderId === this.props.orderId }
@@ -58,14 +58,14 @@ class InvoiceButtonArea extends React.Component {
 	}
 
 	getButton() {
-		let invoiceURI = getInvoiceUrl( this.props.orderId );
+		const invoiceURI = getInvoiceUrl( this.props.orderId );
 
-		let ResponsiveInvoiceLink = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
-		let ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
+		const ResponsiveInvoiceLink = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButtonLink ) );
+		const ResponsiveInvoiceButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
 
-		let invoiceMessage = this.props.intl.formatMessage( messages.invoice );
-		let invoiceModalMessage = this.props.intl.formatMessage( messages.invoiceModal );
-		let invoiceLabel = this.props.intl.formatMessage( messages.invoiceLabel );
+		const invoiceMessage = this.props.intl.formatMessage( messages.invoice );
+		const invoiceModalMessage = this.props.intl.formatMessage( messages.invoiceModal );
+		const invoiceLabel = this.props.intl.formatMessage( messages.invoiceLabel );
 
 		if ( this.props.hasMultipleInvoices ) {
 			return (
@@ -76,11 +76,11 @@ class InvoiceButtonArea extends React.Component {
 						return this.props.onInvoicesClick( this.props.orderId );
 					} }
 				>
-					<span className="screen-reader-text" >{ invoiceModalMessage }</span>
+					<span className="screen-reader-text">{ invoiceModalMessage }</span>
 				</ResponsiveInvoiceButton>
 			);
 		}
-		return(
+		return (
 			<ResponsiveInvoiceLink
 				ariaLabel={ invoiceLabel }
 				iconSource={ downloadIcon }
@@ -93,7 +93,7 @@ class InvoiceButtonArea extends React.Component {
 	}
 
 	render() {
-		return(
+		return (
 			<div>
 				{ this.getButton() }
 				{ this.getModal() }

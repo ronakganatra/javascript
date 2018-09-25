@@ -17,7 +17,6 @@ const modalAriaLabel = defineMessages( {
 Modal.setAppElement( "#root" );
 
 class GettingStartedModal extends React.Component {
-
 	constructor( props ) {
 		super( props );
 	}

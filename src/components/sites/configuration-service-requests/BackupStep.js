@@ -5,7 +5,7 @@ import { defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import ButtonsContainer from "../../general/ButtonsContainer";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	backupRequired: {
 		id: "requestConfiguration.backupRequired",
 		defaultMessage: "Do you have a recent backup? We'll make changes to your site. Normally," +
@@ -74,7 +74,8 @@ class BackupStep extends React.Component {
 				<p>
 					<FormattedMessage
 						id={ messages.backupRequired.id }
-						defaultMessage={ messages.backupRequired.defaultMessage } />
+						defaultMessage={ messages.backupRequired.defaultMessage }
+					/>
 				</p>
 				<p>
 					<input
@@ -82,11 +83,13 @@ class BackupStep extends React.Component {
 						type="radio"
 						onChange={ this.handleInput }
 						checked={ this.state.backupRequired === false }
-						value="false" />
+						value="false"
+					/>
 					<StyledLabel htmlFor="backupExists">
 						<FormattedMessage
 							id={ messages.backupExists.id }
-							defaultMessage={ messages.backupExists.defaultMessage } />
+							defaultMessage={ messages.backupExists.defaultMessage }
+						/>
 					</StyledLabel>
 				</p>
 				<p>
@@ -95,23 +98,25 @@ class BackupStep extends React.Component {
 						type="radio"
 						onChange={ this.handleInput }
 						checked={ this.state.backupRequired === true }
-						value="true" />
+						value="true"
+					/>
 					<StyledLabel htmlFor="backupMissing">
 						<FormattedMessage
 							id={ messages.backupMissing.id }
-							defaultMessage={ messages.backupMissing.defaultMessage } />
+							defaultMessage={ messages.backupMissing.defaultMessage }
+						/>
 					</StyledLabel>
 				</p>
 				<ButtonsContainer>
-					<WideSecondaryButton onClick={ this.props.onBack } >
-						<FormattedMessage id="requestConfiguration.close" defaultMessage="back"/>
+					<WideSecondaryButton onClick={ this.props.onBack }>
+						<FormattedMessage id="requestConfiguration.close" defaultMessage="back" />
 					</WideSecondaryButton>
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.backupRequired !== null }
 					>
-						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
+						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue" />
 					</WideLargeButton>
 				</ButtonsContainer>
 			</div>

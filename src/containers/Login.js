@@ -4,7 +4,7 @@ import { loginRequest } from "../actions/login";
 import get from "lodash/get";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	let newprops = Object.assign( {}, state.ui.login );
+	const newprops = Object.assign( {}, state.ui.login );
 	if ( newprops.amountOfOTPWarnings === 1 && get( newprops, "error.code" ) === "invalid_google_authenticator_token" ) {
 		newprops.error = { error: { code: "otp_required" } };
 	}

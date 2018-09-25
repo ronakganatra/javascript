@@ -89,11 +89,11 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
-	let disabled = props.loading;
-	let buttonText = props.loading ? messages.loading : messages.loginButton;
+	const disabled = props.loading;
+	const buttonText = props.loading ? messages.loading : messages.loginButton;
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
-			<ErrorDisplay error={ props.errors }/>
+			<ErrorDisplay error={ props.errors } />
 			<LabelBlock>
 				<Label htmlFor="email-address">
 					<FormattedMessage { ...messages.labelEmail } />

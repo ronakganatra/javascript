@@ -106,8 +106,8 @@ export default class ListToggle extends React.Component {
 	 * @returns {ReactElement} The upArrow when the header is collapsed, otherwise the downArrow.
 	 */
 	getArrow() {
-		let upArrow = <SVGIcon><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></SVGIcon>;
-		let downArrow = <SVGIcon><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></SVGIcon>;
+		const upArrow = <SVGIcon><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></SVGIcon>;
+		const downArrow = <SVGIcon><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" /></SVGIcon>;
 
 		return this.isOpen() ? upArrow : downArrow;
 	}
@@ -125,10 +125,10 @@ export default class ListToggle extends React.Component {
 		}
 
 		// Styles for accountPage
-		let marginTop = this.props.accountPage ? 0 : 24;
-		let padding = this.props.accountPage ? 0 : "24px 32";
-		let fontWeight = this.props.accountPage ? 400 : 300;
-		let fontSize = this.props.accountPage ? 1.4 : 1.5;
+		const marginTop = this.props.accountPage ? 0 : 24;
+		const padding = this.props.accountPage ? 0 : "24px 32";
+		const fontWeight = this.props.accountPage ? 400 : 300;
+		const fontSize = this.props.accountPage ? 1.4 : 1.5;
 
 		return (
 			<CollapsibleHeaderContainer marginTop={ marginTop }>

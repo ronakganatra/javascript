@@ -102,22 +102,24 @@ class ProfileDetails extends React.Component {
 			if ( this.props.fetchProfile ) {
 				this.props.fetchProfile();
 			}
-			return <Redirect to={"/"}/>;
+			return <Redirect to={ "/" } />;
 		}
 
 		return <LoginColumnLayout>
 			<MainPaper>
-				<Logos alt="MyYoast - Yoast Academy" src={logo}/>
+				<Logos alt="MyYoast - Yoast Academy" src={ logo } />
 				<Description>
-					<FormattedMessage {...messages.description} />
+					<FormattedMessage { ...messages.description } />
 				</Description>
-				<ErrorDisplay error={this.props.profileSaveError}/>
-				<ProfileDetailsBlock onSubmit={this.handleSubmit} userFirstName={this.props.profile.userFirstName}
-				                     userLastName={this.props.profile.userLastName}
-				                     userAvatarUrl={this.props.profile.userAvatarUrl}>
+				<ErrorDisplay error={ this.props.profileSaveError } />
+				<ProfileDetailsBlock
+					onSubmit={ this.handleSubmit } userFirstName={ this.props.profile.userFirstName }
+					userLastName={ this.props.profile.userLastName }
+					userAvatarUrl={ this.props.profile.userAvatarUrl }
+				>
 					<SaveButtonArea>
 						<SaveButton type="submit">
-							<FormattedMessage {...saveMessage} />
+							<FormattedMessage { ...saveMessage } />
 						</SaveButton>
 					</SaveButtonArea>
 				</ProfileDetailsBlock>

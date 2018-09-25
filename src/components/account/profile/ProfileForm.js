@@ -158,7 +158,7 @@ class ProfileForm extends React.Component {
 	 */
 	displayWarnings( warnings, field ) {
 		// Find warnings for the specified field.
-		let fieldWarnings = warnings.filter( warning => {
+		const fieldWarnings = warnings.filter( warning => {
 			return warning.attribute === field;
 		} );
 
@@ -169,7 +169,7 @@ class ProfileForm extends React.Component {
 
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
-			let warningKey = warning.attribute + index;
+			const warningKey = warning.attribute + index;
 			return <ErrorDisplay key={ warningKey } error={ warning } type="warning" />;
 		} );
 	}
@@ -217,7 +217,7 @@ class ProfileForm extends React.Component {
 		if ( this.props.isSaving ) {
 			return;
 		}
-		let profile = {
+		const profile = {
 			/* eslint-disable camelcase */
 			first_name: this.state.userFirstName,
 			last_name: this.state.userLastName,
@@ -242,7 +242,7 @@ class ProfileForm extends React.Component {
 	 * @returns {JSXElement} The rendered JSX Element.
 	 */
 	render() {
-		let warnings = this.validateFields();
+		const warnings = this.validateFields();
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>

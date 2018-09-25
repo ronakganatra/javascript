@@ -56,7 +56,6 @@ const StyledButtonLink = styled( ButtonLink )`
  * @returns {ReactElement} The component that contains the message
  */
 class LoginMessage extends React.Component {
-
 	constructor( props ) {
 		super( props );
 		this.renderButton = this.renderButton.bind( this );
@@ -86,7 +85,7 @@ class LoginMessage extends React.Component {
 		if ( this.props.message ) {
 			return (
 				<Message>
-					<FormattedMessage {...this.props.message} />
+					<FormattedMessage { ...this.props.message } />
 				</Message>
 			);
 		}
@@ -99,10 +98,10 @@ class LoginMessage extends React.Component {
 				<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 				<Icon src={ this.props.image } alt="" />
 				<StyledHeading>
-					<FormattedMessage {...this.props.header} />
+					<FormattedMessage { ...this.props.header } />
 				</StyledHeading>
 				{ this.props.buttonLinkTo ? this.renderButton() : this.renderParagraph() }
-				{this.props.children}
+				{ this.props.children }
 			</MainPaper>
 		);
 	}

@@ -25,7 +25,7 @@ function SiteSubscriptionDetailList( props ) {
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } isOpen={ true }>
 				<ListTable>
 					{ props.plugins.map( ( plugin ) => {
-						let onToggleDisabled = () => {
+						const onToggleDisabled = () => {
 							return props.onToggleDisabled( plugin.storeUrl );
 						};
 

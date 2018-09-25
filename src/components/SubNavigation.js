@@ -64,18 +64,18 @@ export default function SubNavigation( props ) {
 	return (
 		<SubNavigationContainer role="list">
 			{ props.itemRoutes.map( function( item ) {
-				let isActive = item.isActive || ( match => match );
+				const isActive = item.isActive || ( match => match );
 
 				return <SubNavigationEntry key={ item.title }>
-						<LinkItem
-							activeClassName={ activeStyle }
-							to={ item.path }
-							isActive={ isActive }
-							ariaCurrent="page"
-						>
-							{ item.title }
-						</LinkItem>
-					</SubNavigationEntry>;
+					<LinkItem
+						activeClassName={ activeStyle }
+						to={ item.path }
+						isActive={ isActive }
+						ariaCurrent="page"
+					>
+						{ item.title }
+					</LinkItem>
+				</SubNavigationEntry>;
 			} ) }
 		</SubNavigationContainer>
 	);
@@ -95,7 +95,7 @@ export function SubNavigationItem( props ) {
 	return (
 		<Fragment>
 			{ props.itemRoutes.map( function( route, routeKey ) {
-				return <Route exact={true} key={ routeKey } path={ route.path } component={ route.component }/>;
+				return <Route exact={ true } key={ routeKey } path={ route.path } component={ route.component } />;
 			}
 			) }
 		</Fragment>

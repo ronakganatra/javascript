@@ -27,9 +27,9 @@ const Column = styled.div`
 class ResetPasswordSuccessPage extends React.Component {
 	render() {
 		return (
-				<Column>
-					<LoginMessage  header={ messages.successMessage } message={ messages.continueButton } buttonLinkTo={ "/login" } />
-				</Column>
+			<Column>
+				<LoginMessage  header={ messages.successMessage } message={ messages.continueButton } buttonLinkTo={ "/login" } />
+			</Column>
 		);
 	}
 }

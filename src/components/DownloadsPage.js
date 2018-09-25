@@ -72,7 +72,7 @@ const ByLine = styled.span`
 class DownloadsPage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.downloadsPageLoaded );
+		const message = this.props.intl.formatMessage( messages.downloadsPageLoaded );
 		speak( message );
 	}
 
@@ -92,7 +92,7 @@ class DownloadsPage extends React.Component {
 	}
 
 	getModal() {
-		let modalAriaLabel = {
+		const modalAriaLabel = {
 			id: "modal.arialabel.create",
 			defaultMessage: "Create a new token",
 		};
@@ -114,7 +114,7 @@ class DownloadsPage extends React.Component {
 	}
 
 	render() {
-		let pluginsByLine = <ByLine>
+		const pluginsByLine = <ByLine>
 			<FormattedMessage
 				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
@@ -122,53 +122,57 @@ class DownloadsPage extends React.Component {
 			/>
 		</ByLine>;
 
-		let eBooksByLine = <ByLine>
+		const eBooksByLine = <ByLine>
 			<FormattedMessage
-				{...messages.eBooksLearnMore}
+				{ ...messages.eBooksLearnMore }
 				values={ { link: <a target="_blank" href="https://yoa.st/academy" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.coursesUpsell ) }</a> } }
 			/>
 		</ByLine>;
 
-		let noDownloadsParagraphs = [
+		const noDownloadsParagraphs = [
 			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads overview." />,
 			<FormattedMessage id="downloadsPage.noDownloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:"/> ];
+			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:" /> ];
 
-		let noResultsParagraphs = [ <FormattedMessage id="downloads.search.noResults"
-															   defaultMessage={ "We could not find any downloads matching { query }." }
-															   values={ { query: <strong>{ this.props.query }</strong> } } /> ];
+		const noResultsParagraphs = [ <FormattedMessage
+			id="downloads.search.noResults"
+			defaultMessage={ "We could not find any downloads matching { query }." }
+			values={ { query: <strong>{ this.props.query }</strong> } }
+		/> ];
 
-		let buttonText = <FormattedMessage id="downloads.search.buttonShop" defaultMessage={ "Get products" } />;
-		let pluginDownloads = <Products
-									products={ this.props.plugins }
-									byLine={ pluginsByLine }
-									heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
-									noResults={ this.props.plugins.length > 0 ? "" : "No results" }
-									composerToken={ this.props.composerToken }
-									onComposerHelpModalOpen={ this.props.onComposerHelpModalOpen }
-									onComposerHelpModalClose={ this.props.onComposerHelpModalClose }
+		const buttonText = <FormattedMessage id="downloads.search.buttonShop" defaultMessage={ "Get products" } />;
+		const pluginDownloads = <Products
+			products={ this.props.plugins }
+			byLine={ pluginsByLine }
+			heading={ this.props.intl.formatMessage( messages.pluginsDownloads ) }
+			noResults={ this.props.plugins.length > 0 ? "" : "No results" }
+			composerToken={ this.props.composerToken }
+			onComposerHelpModalOpen={ this.props.onComposerHelpModalOpen }
+			onComposerHelpModalClose={ this.props.onComposerHelpModalClose }
 		/>;
 
-		let eBookDownloads = <Products
-									products={ this.props.eBooks }
-									byLine={ eBooksByLine }
-									heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
+		const eBookDownloads = <Products
+			products={ this.props.eBooks }
+			byLine={ eBooksByLine }
+			heading={ this.props.intl.formatMessage( messages.eBooksDownloads ) }
 		/>;
 
 		if ( this.props.query.length > 0 && ( this.props.plugins.length === 0 && this.props.eBooks.length === 0 ) ) {
 			return (
 				<div>
 					{ this.getSearch() }
-					<LandingPage imageSource={ noResultsImage }
-								 urlText={ buttonText }
-								 paragraphs={ noResultsParagraphs }
-								 url="https://yoast.com/shop/"
+					<LandingPage
+						imageSource={ noResultsImage }
+						urlText={ buttonText }
+						paragraphs={ noResultsParagraphs }
+						url="https://yoast.com/shop/"
 					/>
 				</div>
 			);
 		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
 			return (
-				<NoResults paragraphs={ noDownloadsParagraphs }
+				<NoResults
+					paragraphs={ noDownloadsParagraphs }
 					url="https://yoast.com/shop/"
 					imageSource={ noDownloadsImage }
 					pageContext="noDownloads"

@@ -52,7 +52,6 @@ const AdditionalColumn = styled.div`
  * @returns {ReactElement} A two column layout containing the two children as columns.
  */
 class LoginColumnLayout extends React.Component {
-
 	/**
 	 * Returns the column that should be shown on
 	 * the right side of the column layout.
@@ -69,7 +68,7 @@ class LoginColumnLayout extends React.Component {
 	 * @returns {ColumnLayout} a basic two-column login page layout
 	 */
 	render() {
-		let twoColumns = this.props.children.length > 1;
+		const twoColumns = this.props.children.length > 1;
 
 		return (
 			<ColumnLayout>

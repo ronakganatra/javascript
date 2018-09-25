@@ -31,8 +31,8 @@ class PlatformSelect extends React.Component {
 	constructor( props ) {
 		super( props );
 
-		let value = props.siteType;
-		let label = SITE_TYPE_OPTIONS[ value ].label;
+		const value = props.siteType;
+		const label = SITE_TYPE_OPTIONS[ value ].label;
 
 		this.state = {
 			selectedOption: {
@@ -63,7 +63,7 @@ class PlatformSelect extends React.Component {
 	}
 
 	getInformationParagraph( disabled ) {
-		return(
+		return (
 			<div>
 				<p><FormattedMessage
 					id="sites.details.changePlatformType.label"
@@ -80,7 +80,7 @@ class PlatformSelect extends React.Component {
 	}
 
 	render() {
-		return(
+		return (
 			<Paper>
 				<CollapsibleHeader title={ this.props.title }>
 					<WhitePage>

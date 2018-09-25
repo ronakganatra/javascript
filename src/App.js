@@ -63,19 +63,21 @@ const Routes = ( props ) => {
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/login" component={ inLoginLayout( LoginPage ) }/>
-					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) }/>
-					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
-					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
-					<Route exact path="/forgot-password" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
-					<Route exact path="/forgot-password/check-your-email" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
-					<Route exact path="/forgot-password/reset-password" component={ inLoginLayout( ResetPasswordContainer ) } />
-					<Route exact path="/forgot-password/success" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
-					<Route path="*" render={ () => {
-						removePeriLoginCookie();
-						setPeriLoginCookie();
-						return ( <Redirect to={ "/login" }/> );
-					} }/>
+					<Route exact={ true } path="/login" component={ inLoginLayout( LoginPage ) } />
+					<Route exact={ true } path="/signup" component={ inLoginLayout( LoginPage ) } />
+					<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
+					<Route exact={ true } path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
+					<Route exact={ true } path="/forgot-password" component={ inLoginLayout( ResetPasswordEmailContainer ) } />
+					<Route exact={ true } path="/forgot-password/check-your-email" component={ inLoginLayout( SendResetEmailSuccessPage ) } />
+					<Route exact={ true } path="/forgot-password/reset-password" component={ inLoginLayout( ResetPasswordContainer ) } />
+					<Route exact={ true } path="/forgot-password/success" component={ inLoginLayout( ResetPasswordSuccessPage ) } />
+					<Route
+						path="*" render={ () => {
+							removePeriLoginCookie();
+							setPeriLoginCookie();
+							return ( <Redirect to={ "/login" } /> );
+						} }
+					/>
 				</Switch>
 			</ConnectedRouter>
 		);
@@ -84,7 +86,7 @@ const Routes = ( props ) => {
 	if ( props.userEnabled === false ) {
 		return (
 			<ConnectedRouter history={ props.history }>
-				<Route path="*" component={ inSingleLayout( AccountDisabled ) }/>
+				<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
 			</ConnectedRouter>
 		);
 	}
@@ -93,29 +95,33 @@ const Routes = ( props ) => {
 		let fallbackRoute = null;
 
 		if ( hasPeriLoginCookie() ) {
-			fallbackRoute = <Route path="*" render={ () => {
-				directToIntendedDestination();
-				return null;
-			} }/>;
+			fallbackRoute = <Route
+				path="*" render={ () => {
+					directToIntendedDestination();
+					return null;
+				} }
+			/>;
 		} else {
-			fallbackRoute = <Route path="*" component={ inMainLayout( PageNotFound ) }/>;
+			fallbackRoute = <Route path="*" component={ inMainLayout( PageNotFound ) } />;
 		}
 
 		return (
 			<ConnectedRouter history={ props.history }>
 				<Switch>
-					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) } />
-					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-					<Route exact path="/" component={ inMainLayout( SitesPageContainer ) }/>
-					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
-					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
-					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
+					<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
+					<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+					<Route exact={ true } path="/" component={ inMainLayout( SitesPageContainer ) } />
+					<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
+					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) } />
 					{ menuItems.map(
 						function( route, routeKey ) {
-							let config = Object.assign( { exact: true }, route );
+							const config = Object.assign( { exact: true }, route );
 
-							return <Route { ...config } key={ routeKey } path={ route.path }
-							              component={ inMainLayout( route.component ) }/>;
+							return <Route
+								{ ...config } key={ routeKey } path={ route.path }
+								component={ inMainLayout( route.component ) }
+							/>;
 						}
 					) }
 					{ fallbackRoute }
@@ -125,7 +131,7 @@ const Routes = ( props ) => {
 	}
 
 	// We don't want to render anything until user is fetched, user.enabled is null by default.
-	return <span/>;
+	return <span />;
 };
 
 Routes.propTypes = {
@@ -152,7 +158,7 @@ class App extends Component {
 		return (
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
-					<RoutesContainer history={ this.props.history }/>
+					<RoutesContainer history={ this.props.history } />
 				</Provider>
 			</IntlProvider>
 		);

@@ -47,7 +47,7 @@ export function styledOrders( orders ) {
 	`;
 }
 
-let SubscriptionOrders = styledOrders( Orders );
+const SubscriptionOrders = styledOrders( Orders );
 
 /**
  * Returns the rendered SubscriptionPage component.
@@ -57,7 +57,6 @@ let SubscriptionOrders = styledOrders( Orders );
  * @returns {ReactElement} The rendered SubscriptionPage component.
  */
 class SubscriptionPage extends React.Component {
-
 	constructor( props ) {
 		super( props );
 		// Fetch subscriptions, orders and sites.
@@ -65,8 +64,8 @@ class SubscriptionPage extends React.Component {
 	}
 
 	getModal() {
-		let subscription = this.props.subscription;
-		let otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
+		const subscription = this.props.subscription;
+		const otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
 			this.props.sites.every( site =>
 				site.id !== connectedSubscriptionsSite.id
 			)
@@ -86,10 +85,10 @@ class SubscriptionPage extends React.Component {
 
 	render() {
 		if ( this.props.isLoading ) {
-			return <AnimatedLoader/>;
+			return <AnimatedLoader />;
 		}
 
-		let subscription = this.props.subscription;
+		const subscription = this.props.subscription;
 		return <section>
 			<Header
 				name={ subscription.name }

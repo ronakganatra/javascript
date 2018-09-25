@@ -6,7 +6,7 @@ import CollapsibleHeader from "../CollapsibleHeader";
 import { LargeButtonLink } from "../Button";
 import { getConfigurationServiceReportUrl } from "../../functions/api";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	downloadReportButton: {
 		id: "report.buttons.download",
 		defaultMessage: "View Report",
@@ -66,7 +66,7 @@ class ConfigurationServiceRequestStatusBlock extends React.Component {
 				/>
 				{
 					Object.keys( STATUSES ).map( ( status ) => {
-						let formattedMessage = (
+						const formattedMessage = (
 							<FormattedMessage
 								key={ status }
 								id={ messages[ STATUSES[ status ] ].id }

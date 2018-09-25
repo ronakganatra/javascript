@@ -9,7 +9,7 @@ import questionCircle from "../icons/question-circle.svg";
 import closeCross from "../icons/times.svg";
 import defaults from "../config/defaults.json";
 
-let buttonAnimations = `
+const buttonAnimations = `
 	transition: background-color 150ms ease-out;
 
 	&:hover,
@@ -456,7 +456,7 @@ export const IconButtonTransparentLink = styled( IconButtonLink )`
  * @returns {React.Component} The disabled button.
  */
 export function disable( Button ) {
-	let StyledDisabledButton = styled( Button )`
+	const StyledDisabledButton = styled( Button )`
 		background-color: ${ colors.$color_grey_disabled };
 		cursor: default;
 

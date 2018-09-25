@@ -21,7 +21,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let outerMargin = 32;
+const outerMargin = 32;
 
 const ProductContainer = styled.div`
 	margin: 8px;
@@ -97,12 +97,16 @@ function Product( props ) {
 	if ( includes( [ "plugin", "typo3-extension" ], props.type ) ) {
 		composerDownload =
 			<Download>
-				<Link to="#" onClick={ ( event ) => {
-					event.preventDefault();
-					props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
-				} }>
-					<FormattedMessage id="downloadsPage.product.install-with-composer"
-					                  defaultMessage="or install with Composer"/>
+				<Link
+					to="#" onClick={ ( event ) => {
+						event.preventDefault();
+						props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
+					} }
+				>
+					<FormattedMessage
+						id="downloadsPage.product.install-with-composer"
+						defaultMessage="or install with Composer"
+					/>
 				</Link>
 			</Download>;
 	}
@@ -111,7 +115,7 @@ function Product( props ) {
 		<ProductContainer>
 			<ProductName>{ props.name }</ProductName>
 			{ productVersion }
-			<ProductIcon src={ props.icon } alt=""/>
+			<ProductIcon src={ props.icon } alt="" />
 			<Downloads>
 				{ props.buttons.map( button => {
 					return (
@@ -120,13 +124,14 @@ function Product( props ) {
 								iconSource={ downloadIcon }
 								onClick={ button.onButtonClick }
 								enabledStyle={ true }
-								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }>
+								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }
+							>
 								{ props.intl.formatMessage( messages.downloadButton ) }
 							</IconButton>
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}
-				{composerDownload}
+				{ composerDownload }
 			</Downloads>
 		</ProductContainer>
 	);

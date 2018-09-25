@@ -11,7 +11,6 @@ import { injectIntl, intlShape } from "react-intl";
 Modal.setAppElement( "#root" );
 
 class BaseMyYoastModal extends React.Component {
-
 	constructor( props ) {
 		super( props );
 	}

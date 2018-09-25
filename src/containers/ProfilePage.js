@@ -18,7 +18,7 @@ import {
 
 import { url } from "gravatar";
 
-let avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
+const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
 export const mapStateToProps = ( state ) => {
 	return {

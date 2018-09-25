@@ -6,9 +6,9 @@ import {
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
 export const mapStateToProps = ( state ) => {
-	let allIds = state.entities.coursesEnrollments.allIds;
+	const allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( enrollmentId => {
-		let enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
+		const enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
 
 		// We don't want to display refunded course enrollments.
 		if ( enrollment.status === "refunded" ) {
@@ -53,10 +53,10 @@ export const mapStateToProps = ( state ) => {
 		};
 	} ).filter( ( enrollment ) => !! enrollment );
 
-	let allCourseIds = state.entities.courses.allIds;
-	let freeEnrollments = allCourseIds
+	const allCourseIds = state.entities.courses.allIds;
+	const freeEnrollments = allCourseIds
 		.filter( ( courseId ) => {
-			let course = state.entities.courses.byId[ courseId ];
+			const course = state.entities.courses.byId[ courseId ];
 			if ( ! course.open ) {
 				return false;
 			}
@@ -65,7 +65,7 @@ export const mapStateToProps = ( state ) => {
 			return coursesEnrollments.every( enrollment => enrollment.courseId !== courseId );
 		} )
 		.map( ( courseId ) => {
-			let course = state.entities.courses.byId[ courseId ];
+			const course = state.entities.courses.byId[ courseId ];
 			let icon = course.iconUrl;
 			if ( ! icon ) {
 				icon = course.products[ 0 ] ? course.products[ 0 ].icon : "";
@@ -92,11 +92,11 @@ export const mapStateToProps = ( state ) => {
 	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
 
 
-	let inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
-	let inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
-	let inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
-	let openedCourseEnrollmentId = state.ui.courseInviteModal.openedCourseEnrollmentId;
-	let courseInviteError = state.ui.courseInviteModal.courseInviteError;
+	const inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
+	const inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
+	const inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
+	const openedCourseEnrollmentId = state.ui.courseInviteModal.openedCourseEnrollmentId;
+	const courseInviteError = state.ui.courseInviteModal.courseInviteError;
 
 	return {
 		openedCourseEnrollmentId,
@@ -122,10 +122,10 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let courseEnrollmentId = stateProps.openedCourseEnrollmentId;
-	let emailInvitee = stateProps.inviteStudentEmail;
+	const courseEnrollmentId = stateProps.openedCourseEnrollmentId;
+	const emailInvitee = stateProps.inviteStudentEmail;
 
-	let onInviteClick = () => {
+	const onInviteClick = () => {
 		dispatchProps.onInviteClick( courseEnrollmentId, emailInvitee );
 	};
 

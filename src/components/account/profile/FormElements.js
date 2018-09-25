@@ -105,19 +105,22 @@ function getMessage( isSaving, isSaved, type, intl ) {
  * @returns {React.Component} The component with the change buttons.
  */
 export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges ) {
-	let message = getMessage( isSaving, isSaved, type, intl );
+	const message = getMessage( isSaving, isSaved, type, intl );
 	speak( message, "assertive" );
 
 	return (
 		<ButtonArea>
 			<SaveButton type="submit">
-				<FormattedMessage id={ messages.saveButton.id }
-								  defaultMessage={ messages.saveButton.defaultMessage }
+				<FormattedMessage
+					id={ messages.saveButton.id }
+					defaultMessage={ messages.saveButton.defaultMessage }
 				/>
 			</SaveButton>
 			<DiscardButton type="reset" onClick={ discardChanges }>
-				<FormattedMessage id={ messages.discardChanges.id }
-								  defaultMessage={ messages.discardChanges.defaultMessage } />
+				<FormattedMessage
+					id={ messages.discardChanges.id }
+					defaultMessage={ messages.discardChanges.defaultMessage }
+				/>
 			</DiscardButton>
 			<FormMessage inline={ true }>{ message }</FormMessage>
 		</ButtonArea>
@@ -135,6 +138,6 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
  * @returns {void}
  */
 export function announceActions( isSaving, isSaved, type, intl ) {
-	let message = getMessage( isSaving, isSaved, type, intl );
+	const message = getMessage( isSaving, isSaved, type, intl );
 	speak( message, "assertive" );
 }

@@ -121,14 +121,14 @@ const Icon = styled( ColumnIcon )`
  * @returns {ReactElement} the media query with the manage button.
  */
 function getManageButtons( props ) {
-	let tabletView = defaults.css.breakpoint.tablet;
+	const tabletView = defaults.css.breakpoint.tablet;
 	if ( props.status === "cancelled" ) {
 		return <Fragment>
 			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
 				<StyledSpace tablet={ false } />
 			</MediaQuery>
 			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
-				<StyledSpace tablet={ true }/>
+				<StyledSpace tablet={ true } />
 			</MediaQuery>
 		</Fragment>;
 	}
@@ -161,7 +161,7 @@ getManageButtons.propTypes = {
 function getNextBilling( status, endDate, nextPayment, amount ) {
 	if ( status === "pending-cancel" ) {
 		return <Fragment>
-			<FormattedMessage { ...messages.endsDate } values={ { endDate: endDate } }/>
+			<FormattedMessage { ...messages.endsDate } values={ { endDate: endDate } } />
 		</Fragment>;
 	}
 	return <Fragment>
@@ -183,13 +183,13 @@ getNextBilling.propTypes = {
  * @constructor
  */
 function Subscription( props ) {
-	let rowProps = [];
+	const rowProps = [];
 
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
 
-	let cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
+	const cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
 	let nextPayment = null;
 	let endDate = null;
 	let amount = null;
@@ -220,8 +220,8 @@ function Subscription( props ) {
 	}
 
 	return (
-		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps } >
-			<Icon><SiteIcon src={ props.iconSource } alt=""/></Icon>
+		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps }>
+			<Icon><SiteIcon src={ props.iconSource } alt="" /></Icon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
 				{ props.name }
 				<Detail>
@@ -237,7 +237,8 @@ function Subscription( props ) {
 				headerLabel={ props.intl.formatMessage( messages.used ) }
 				maxWidth="120px"
 				minWidth="102px"
-				paddingLeft="inherit">
+				paddingLeft="inherit"
+			>
 				{ props.used }/{ props.limit + " sites" }
 			</StyledColumnMinWidth>
 			<StyledColumnMinWidth
@@ -245,18 +246,21 @@ function Subscription( props ) {
 				hideOnMobile={ true }
 				headerLabel={ props.intl.formatMessage( messages.billingType ) }
 				maxWidth="140px"
-				minWidth="120px">
+				minWidth="120px"
+			>
 				{ billingType }
 			</StyledColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
 				hideOnMobile={ true }
 				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }
-				minWidth="198px">
+				minWidth="198px"
+			>
 				{ getNextBilling( props.status, endDate, nextPayment, amount ) }
 			</StyledColumnMinWidth>
 			<ColumnFixedWidth
-				paddingLeft="0px">
+				paddingLeft="0px"
+			>
 				{ getManageButtons( props ) }
 			</ColumnFixedWidth>
 		</StyledRow>

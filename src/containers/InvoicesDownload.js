@@ -6,9 +6,9 @@ import InvoiceButtonArea from "../components/account/orders/InvoiceButtonArea";
 
 export const mapStateToProps = ( state, ownProps ) => {
 	// Filter orders for the orderId passed to the container.
-	let order = state.entities.orders.byId[ ownProps.orderId ];
+	const order = state.entities.orders.byId[ ownProps.orderId ];
 
-	let refundsForThisOrder = _filter( state.entities.refunds.byId, ( refund ) => {
+	const refundsForThisOrder = _filter( state.entities.refunds.byId, ( refund ) => {
 		return refund.orderId === ownProps.orderId;
 	} );
 
@@ -34,11 +34,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	invoices = _sortBy( invoices, "date" );
 
-	let hasMultipleInvoices = invoices.length > 1;
+	const hasMultipleInvoices = invoices.length > 1;
 
 	// Only show invoices for completed orders and refunds??? May not be needed depending on final data structure.
 
-	let invoiceModalProps = {
+	const invoiceModalProps = {
 		invoicesModalIsOpen: state.ui.invoiceModal.invoicesModalIsOpen,
 		invoicesModalOrderId: state.ui.invoiceModal.invoicesModalOrderId,
 		error: state.ui.invoiceModal.error,

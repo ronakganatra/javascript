@@ -65,7 +65,7 @@ class Checkbox extends React.Component {
 					checked={ this.props.checked }
 					type="checkbox"
 				/>
-				<Checkmark className="checkmark"/>
+				<Checkmark className="checkmark" />
 				<Label htmlFor={ this.props.id }>{ this.props.labelText }</Label>
 			</CheckboxWrapper>
 		);

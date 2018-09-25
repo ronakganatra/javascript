@@ -69,7 +69,7 @@ export function signupFailure( error ) {
 export function signupRequest( params ) {
 	return ( dispatch ) => {
 		dispatch( doingSignupRequest() );
-		let request = prepareInternalRequest( "Customers/signup/", "POST", params, { credentials: "include" } );
+		const request = prepareInternalRequest( "Customers/signup/", "POST", params, { credentials: "include" } );
 		doRequest( request )
 			.then( ( response ) => {
 				dispatch( signupSuccess() );
@@ -131,7 +131,7 @@ export function doingActivateRequest() {
 export function activateRequest( key ) {
 	return ( dispatch ) => {
 		dispatch( doingActivateRequest() );
-		let request = prepareInternalRequest( "Customers/activate/", "POST", { key }, { credentials: "include" } );
+		const request = prepareInternalRequest( "Customers/activate/", "POST", { key }, { credentials: "include" } );
 		doRequest( request )
 			.then( () => {
 				dispatch( activateSuccess() );

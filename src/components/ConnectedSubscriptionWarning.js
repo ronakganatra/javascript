@@ -27,25 +27,24 @@ const MessageContainer = styled.div`
 
 
 class ConnectedSubscriptionWarning extends React.Component {
-
 	render() {
-		let subscriptionProductsListItems = this.props.subscriptions.map( subscription =>
+		const subscriptionProductsListItems = this.props.subscriptions.map( subscription =>
 			<li key={ subscription.id }>{ subscription.limit } &times; { subscription.name }</li>
 		);
-		let supportLink = <Link to={ "mailto:support@yoast.com" }>
-			<FormattedMessage { ...messages.contactSupportLink }/>
+		const supportLink = <Link to={ "mailto:support@yoast.com" }>
+			<FormattedMessage { ...messages.contactSupportLink } />
 		</Link>;
 
 		return (
 			<WarningMessage>
-				<MessageIcon iconSource={ exclamationTriangle }/>
+				<MessageIcon iconSource={ exclamationTriangle } />
 				<MessageContainer>
-					<FormattedMessage { ...messages.explanation }/>
+					<FormattedMessage { ...messages.explanation } />
 					{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 					<ul role="list">
 						{ subscriptionProductsListItems }
 					</ul>
-					<FormattedMessage { ...messages.contactSupport } values={ { link: supportLink } }/>
+					<FormattedMessage { ...messages.contactSupport } values={ { link: supportLink } } />
 				</MessageContainer>
 			</WarningMessage>
 		);

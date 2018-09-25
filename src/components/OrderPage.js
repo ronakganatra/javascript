@@ -25,7 +25,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let debouncedSpeak = _debounce( speak, 1000 );
+const debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * A function that returns the Order Page component, containing a search bar and the orders table.
@@ -65,43 +65,49 @@ class OrderPage extends React.Component {
 		this.props.loadData();
 
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.ordersPageLoaded );
+		const message = this.props.intl.formatMessage( messages.ordersPageLoaded );
 		speak( message );
 	}
 
 	render() {
-		let props = this.props;
+		const props = this.props;
 
-		let noOrdersParagraphs = [
+		const noOrdersParagraphs = [
 
 			<FormattedMessage id="orders.noOrders.welcome" defaultMessage="Welcome to the orders overview." />,
-			<FormattedMessage id="orders.noOrders.manage"
-							  defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!" />,
-			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product."/>,
+			<FormattedMessage
+				id="orders.noOrders.manage"
+				defaultMessage="Here you can find a list of your orders - but it looks like you didn't order anything yet!"
+			/>,
+			<FormattedMessage id="orders.noOrders.pressButton" defaultMessage="Press the button below to visit our shop and get your first product." />,
 		];
-		let noSearchResultsParagraphs = [
-			<FormattedMessage id="orders.search.noResults"
-							  defaultMessage={ "We could not find any orders matching { query }." }
-							  values={ { query: <strong>{ this.props.query }</strong> } } /> ];
+		const noSearchResultsParagraphs = [
+			<FormattedMessage
+				id="orders.search.noResults"
+				defaultMessage={ "We could not find any orders matching { query }." }
+				values={ { query: <strong>{ this.props.query }</strong> } }
+			/> ];
 
 		if ( props.orders.length > 0 ) {
 			return (
 				<div>
 					{ this.getSearch() }
-					<Orders { ...this.props } onChange={ props.onSearchChange } query={ props.query }/>
+					<Orders { ...this.props } onChange={ props.onSearchChange } query={ props.query } />
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {
 			return (
 				<div>
 					{ this.getSearch() }
-					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage }/>
+					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage } />
 				</div>
 			);
 		}
 		return (
-			<NoResults paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
-					   imageSource={ noOrdersImage } pageContext="noOrders"/>
+			<NoResults
+				paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
+				imageSource={ noOrdersImage } pageContext="noOrders"
+			/>
 		);
 	}
 
@@ -118,7 +124,7 @@ class OrderPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.orders.length );
+			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.orders.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}

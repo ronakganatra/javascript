@@ -4,7 +4,7 @@ import SubscriptionsPage from "../containers/SubscriptionsPage";
 import ProfilePageContainer from "../containers/ProfilePage";
 import OrderPage from "../containers/OrdersPage";
 
-let itemRoutes = [
+const itemRoutes = [
 	{
 		component: SubscriptionsPage,
 		path: "/account/subscriptions",
@@ -37,14 +37,16 @@ let itemRoutes = [
 export default function AccountPage() {
 	return (
 		<div>
-			<SubNavigation itemRoutes={itemRoutes} />
-			<SubNavigationItem itemRoutes={itemRoutes} />
-			<SubNavigationItem itemRoutes={ [
-				{
-					path: "/account",
-					component: SubscriptionsPage,
-				},
-			] } />
+			<SubNavigation itemRoutes={ itemRoutes } />
+			<SubNavigationItem itemRoutes={ itemRoutes } />
+			<SubNavigationItem
+				itemRoutes={ [
+					{
+						path: "/account",
+						component: SubscriptionsPage,
+					},
+				] }
+			/>
 		</div>
 	);
 }

@@ -4,7 +4,7 @@ import GettingStartedModal from "../components/GettingStartedModal";
 import { helpBeaconModalClose } from "../actions/helpBeacon";
 
 export const mapStateToProps = ( state ) => {
-	let isOpen = state.ui.helpBeaconModal.modalOpen;
+	const isOpen = state.ui.helpBeaconModal.modalOpen;
 
 	return {
 		isOpen,

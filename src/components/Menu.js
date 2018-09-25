@@ -185,13 +185,13 @@ function MainMenu( props ) {
 					return menuItem.showInMenu;
 				} )
 							 .map( function( page ) {
-									 let isActive = page.isActive || (
+									 const isActive = page.isActive || (
 											 ( match ) => {
 												 return match;
 											 }
 										 );
 
-									 let title = props.intl.formatMessage( titles[ page.titleKey ] );
+									 const title = props.intl.formatMessage( titles[ page.titleKey ] );
 
 									 return <li key={ page.titleKey }>
 										 <MenuItem
@@ -199,8 +199,8 @@ function MainMenu( props ) {
 											to={ page.path }
 											isActive={ isActive }
 											ariaCurrent="page"
-										>
-											 <MenuIcon src={ page.iconSource } alt=""/>
+										 >
+											 <MenuIcon src={ page.iconSource } alt="" />
 											 { title }
 										 </MenuItem>
 									 </li>;

@@ -87,8 +87,9 @@ class SubscribeNewsletter extends React.Component {
 			return (
 				<p>
 					<FormattedMessage
-					id={ messages.unsubscribeParagraph.id }
-					defaultMessage={ messages.unsubscribeParagraph.defaultMessage }/>
+						id={ messages.unsubscribeParagraph.id }
+						defaultMessage={ messages.unsubscribeParagraph.defaultMessage }
+					/>
 				</p>
 			);
 		}
@@ -98,7 +99,8 @@ class SubscribeNewsletter extends React.Component {
 				<p>
 					<FormattedMessage
 						id={ messages.pendingParagraph.id }
-						defaultMessage={ messages.pendingParagraph.defaultMessage }/>
+						defaultMessage={ messages.pendingParagraph.defaultMessage }
+					/>
 				</p>
 			);
 		}
@@ -107,7 +109,8 @@ class SubscribeNewsletter extends React.Component {
 			<p>
 				<FormattedMessage
 					id={ messages.subscribeReasons.id }
-					defaultMessage={ messages.subscribeReasons.defaultMessage }/>
+					defaultMessage={ messages.subscribeReasons.defaultMessage }
+				/>
 			</p>
 		);
 	}
@@ -122,7 +125,7 @@ class SubscribeNewsletter extends React.Component {
 		if ( this.props.subscribed === "subscribed" ) {
 			return (
 				<LargeSecondaryButton onClick={ this.onClick }>
-					<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage }/>
+					<FormattedMessage id={ messages.unsubscribeButton.id } defaultMessage={ messages.unsubscribeButton.defaultMessage } />
 				</LargeSecondaryButton>
 			);
 		}
@@ -133,7 +136,7 @@ class SubscribeNewsletter extends React.Component {
 
 		return (
 			<Button onClick={ this.onClick }>
-				<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage }/>
+				<FormattedMessage id={ messages.subscribeButton.id } defaultMessage={ messages.subscribeButton.defaultMessage } />
 			</Button>
 		);
 	}
@@ -143,23 +146,23 @@ class SubscribeNewsletter extends React.Component {
 			return null;
 		}
 
-		const privacyPolicyLink = <a href='https://yoast.com/privacy-policy/'>privacy policy</a>;
+		const privacyPolicyLink = <a href="https://yoast.com/privacy-policy/">privacy policy</a>;
 
 		return (
-						<NewsletterSection>
-							{ this.getContent() }
-							<p>
-								<FormattedMessage
-									id={ messages.privacyPolicy.id }
-									defaultMessage={ messages.privacyPolicy.defaultMessage }
-									values={ { link: privacyPolicyLink } }
-								/>
-							</p>
-							{ this.getButton() }
-							{ this.props.error &&
-								<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
-							}
-						</NewsletterSection>
+			<NewsletterSection>
+				{ this.getContent() }
+				<p>
+					<FormattedMessage
+						id={ messages.privacyPolicy.id }
+						defaultMessage={ messages.privacyPolicy.defaultMessage }
+						values={ { link: privacyPolicyLink } }
+					/>
+				</p>
+				{ this.getButton() }
+				{ this.props.error &&
+				<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
+				}
+			</NewsletterSection>
 		);
 	}
 }

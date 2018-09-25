@@ -41,24 +41,24 @@ class PageNotFound extends React.Component {
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.pageNotFound );
+		const message = this.props.intl.formatMessage( messages.pageNotFound );
 		speak( message );
 	}
 
 	render() {
-		let paragraphs = [
+		const paragraphs = [
 			<FormattedMessage id="page.notfound" defaultMessage="I'm afraid the page you are looking for does not exist..." />,
 		];
 		return (
 
 
-		<PageContainer>
-			<Heading><FormattedMessage id="page.notfound.header" defaultMessage={ "Oops" } /></Heading>
-			{ paragraphs.map( function( paragraph ) {
-				return <p key={ paragraph.props.id }>{ paragraph }</p>;
-			} ) }
-			<img src={ pageNotFoundImage } alt="" />
-		</PageContainer>
+			<PageContainer>
+				<Heading><FormattedMessage id="page.notfound.header" defaultMessage={ "Oops" } /></Heading>
+				{ paragraphs.map( function( paragraph ) {
+					return <p key={ paragraph.props.id }>{ paragraph }</p>;
+				} ) }
+				<img src={ pageNotFoundImage } alt="" />
+			</PageContainer>
 		);
 	}
 }

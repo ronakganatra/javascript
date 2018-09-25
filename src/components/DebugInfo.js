@@ -3,7 +3,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import React from "react";
 import { getUserId, getAccessToken } from "../functions/auth";
 
-let Info = styled.div`
+const Info = styled.div`
 	margin: 4em 1em 1em 1.5em;
 	background: white;
 	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -12,12 +12,12 @@ let Info = styled.div`
 	position: relative;
 `;
 
-let InfoContent = styled.div`
+const InfoContent = styled.div`
 	overflow: auto;
 	padding: 1em;
 `;
 
-let InfoTitle = styled.div`
+const InfoTitle = styled.div`
 	padding: 0.5em 1em;
 	position: absolute;
 	left: 0;
@@ -41,9 +41,9 @@ export default function DebugInfo() {
 	return <Info>
 		<InfoTitle>DEBUG</InfoTitle>
 		<InfoContent>
-		User ID: {getUserId()}
-		<br />
-		Access Token: {getAccessToken()}
+		User ID: { getUserId() }
+			<br />
+		Access Token: { getAccessToken() }
 		</InfoContent>
 	</Info>;
 }

@@ -60,8 +60,8 @@ export function getOrders() {
 	return ( dispatch ) => {
 		dispatch( getOrdersRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/orders/` );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/orders/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getOrdersSuccess( json ) ) )

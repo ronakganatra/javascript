@@ -15,13 +15,13 @@ export function fetchAccessToken() {
 			return resolve( getAccessToken() );
 		}
 
-		let frame = document.createElement( "IFrame" );
+		const frame = document.createElement( "IFrame" );
 		frame.onload = () => {
 			if ( _isEmpty( frame.contentDocument ) ) {
 				return reject( new Error( "IFrame could not be loaded" ) );
 			}
 
-			let accessToken = getAccessToken();
+			const accessToken = getAccessToken();
 
 			if ( _isEmpty( accessToken ) ) {
 				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
@@ -89,7 +89,7 @@ export function hasPeriLoginCookie() {
  * @returns {bool} Whether or not we have been redirected.
  */
 export function directToIntendedDestination() {
-	let redirectUrl = getRedirectUrl();
+	const redirectUrl = getRedirectUrl();
 	removePeriLoginCookie();
 	window.location.href = redirectUrl;
 }
@@ -177,7 +177,7 @@ export function removeCookies() {
  * @returns {{accessToken, userId}} The Cookie credentials.
  */
 export function getCookieParams() {
-	let parsedUrl = url.parse( document.location.href, true );
+	const parsedUrl = url.parse( document.location.href, true );
 
 	return {
 		accessToken: parsedUrl.query.access_token,
@@ -191,7 +191,7 @@ export function getCookieParams() {
  * @returns {boolean} Whether the url params contain Cookie credentials.
  */
 export function hasCookieParams() {
-	let cookieParams = getCookieParams();
+	const cookieParams = getCookieParams();
 
 	return ( cookieParams.accessToken && cookieParams.userId );
 }
@@ -202,7 +202,7 @@ export function hasCookieParams() {
  * @returns {void}
  */
 export function setCookieFromParams() {
-	let cookieParams = getCookieParams();
+	const cookieParams = getCookieParams();
 
 	if ( cookieParams.accessToken && cookieParams.userId ) {
 		Cookies.set( "access_token", cookieParams.accessToken );

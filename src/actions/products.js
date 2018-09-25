@@ -59,7 +59,7 @@ export function getAllProducts() {
 	return ( dispatch ) => {
 		dispatch( getAllProductsRequest() );
 
-		let request = prepareInternalRequest( "products/" );
+		const request = prepareInternalRequest( "products/" );
 
 		return doRequest( request )
 			.then( json => dispatch( getAllProductsSuccess( json ) ) )

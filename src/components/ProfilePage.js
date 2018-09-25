@@ -163,7 +163,7 @@ class ProfilePage extends React.Component {
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.profilePageLoaded );
+		const message = this.props.intl.formatMessage( messages.profilePageLoaded );
 		speak( message );
 	}
 
@@ -225,9 +225,9 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<CreateToken
-						onClose={this.props.onCreateTokenModalClose}
-						onCreateClick={this.props.onCreateTokenClick}
-						error={this.props.tokenError}
+						onClose={ this.props.onCreateTokenModalClose }
+						onCreateClick={ this.props.onCreateTokenClick }
+						error={ this.props.tokenError }
 					/>;
 			} else if ( this.props.manageTokenModalIsOpen ) {
 				modalIsOpen = this.props.manageTokenModalIsOpen;
@@ -239,20 +239,20 @@ class ProfilePage extends React.Component {
 
 				modalContent =
 					<ManageToken
-						onClose={this.props.onManageTokenModalClose}
-						onSaveTokenClick={this.props.onSaveTokenClick}
-						onDeleteTokenClick={this.props.onDeleteTokenClick}
-						manageTokenData={this.props.manageTokenData}
-						error={this.props.tokenError}
+						onClose={ this.props.onManageTokenModalClose }
+						onSaveTokenClick={ this.props.onSaveTokenClick }
+						onDeleteTokenClick={ this.props.onDeleteTokenClick }
+						manageTokenData={ this.props.manageTokenData }
+						error={ this.props.tokenError }
 					/>;
 			}
 			return (
 				<MyYoastModal
-					isOpen={modalIsOpen}
-					onClose={onClose}
-					modalAriaLabel={modalAriaLabel}
+					isOpen={ modalIsOpen }
+					onClose={ onClose }
+					modalAriaLabel={ modalAriaLabel }
 				>
-					{modalContent}
+					{ modalContent }
 				</MyYoastModal>
 			);
 		}
@@ -264,7 +264,7 @@ class ProfilePage extends React.Component {
 	 * @returns {boolean} True when there are active composer tokens among the composertokens for this user. False otherwise.
 	 */
 	hasActiveComposerTokens() {
-		let tokens = this.props.composerTokens && this.props.composerTokens.filter( ( composerToken ) => {
+		const tokens = this.props.composerTokens && this.props.composerTokens.filter( ( composerToken ) => {
 			return composerToken.enabled === true;
 		} );
 
@@ -278,7 +278,7 @@ class ProfilePage extends React.Component {
 	 * depending on whether the user has access to this feature via the feature toggle.
 	 */
 	getComposerTools() {
-		let ComposerIntroduction =
+		const ComposerIntroduction =
 			<ComposerIntroductionArea>
 				{
 					this.hasActiveComposerTokens()
@@ -297,12 +297,12 @@ class ProfilePage extends React.Component {
 		return (
 			<Fragment>
 				<PageCard>
-					<CollapsibleHeader title={this.props.intl.formatMessage( messages.developerTokens )} isOpen={false} accountPage={ true }>
-						{ComposerIntroduction}
-						<ComposerTokens {...this.props} hasPaper={false}/>
+					<CollapsibleHeader title={ this.props.intl.formatMessage( messages.developerTokens ) } isOpen={ false } accountPage={ true }>
+						{ ComposerIntroduction }
+						<ComposerTokens { ...this.props } hasPaper={ false } />
 						<CreateButtonArea>
 							<WideLargeButton
-								onClick={this.props.onCreateTokenModalOpen}
+								onClick={ this.props.onCreateTokenModalOpen }
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -312,7 +312,7 @@ class ProfilePage extends React.Component {
 						</CreateButtonArea>
 					</CollapsibleHeader>
 				</PageCard>
-				{this.getModal()}
+				{ this.getModal() }
 			</Fragment>
 		);
 	}
@@ -328,26 +328,30 @@ class ProfilePage extends React.Component {
 					<PageCard>
 						<Column>
 							<Paragraph>
-								<FormattedMessage id={messages.personalInfo.id}
-								                  defaultMessage={messages.personalInfo.defaultMessage}/>
+								<FormattedMessage
+									id={ messages.personalInfo.id }
+									defaultMessage={ messages.personalInfo.defaultMessage }
+								/>
 							</Paragraph>
 							<ProfileForm
-								{...this.props}
+								{ ...this.props }
 							/>
 						</Column>
 					</PageCard>
 					<PageCard>
 						<Column>
 							<Paragraph>
-								<FormattedMessage id={messages.newsLetter.id}
-								                  defaultMessage={messages.newsLetter.defaultMessage}/>
+								<FormattedMessage
+									id={ messages.newsLetter.id }
+									defaultMessage={ messages.newsLetter.defaultMessage }
+								/>
 							</Paragraph>
 							<SubscribeNewsletter
-								onSubscribe={this.props.onNewsletterSubscribe}
-								onUnsubscribe={this.props.onNewsletterUnsubscribe}
-								subscribed={this.props.newsletterSubscribed}
-								loading={this.props.newsletterLoading}
-								error={this.props.newsletterError}
+								onSubscribe={ this.props.onNewsletterSubscribe }
+								onUnsubscribe={ this.props.onNewsletterUnsubscribe }
+								subscribed={ this.props.newsletterSubscribed }
+								loading={ this.props.newsletterLoading }
+								error={ this.props.newsletterError }
 							/>
 						</Column>
 					</PageCard>
@@ -356,8 +360,10 @@ class ProfilePage extends React.Component {
 					<PageCard>
 						<Column>
 							<Paragraph>
-								<FormattedMessage id={messages.passwordChange.id}
-								                  defaultMessage={messages.passwordChange.defaultMessage}/>
+								<FormattedMessage
+									id={ messages.passwordChange.id }
+									defaultMessage={ messages.passwordChange.defaultMessage }
+								/>
 							</Paragraph>
 							<p>
 								<FormattedMessage
@@ -366,17 +372,17 @@ class ProfilePage extends React.Component {
 								/>
 							</p>
 							<PasswordResetForm
-								{...this.props}
+								{ ...this.props }
 							/>
 						</Column>
 					</PageCard>
 					{ this.getComposerTools() }
 					<PageCard>
-						<CollapsibleHeader title={this.props.intl.formatMessage( messages.dangerZone )} isOpen={false} accountPage={ true }>
-							<DownloadAccount/>
+						<CollapsibleHeader title={ this.props.intl.formatMessage( messages.dangerZone ) } isOpen={ false } accountPage={ true }>
+							<DownloadAccount />
 							<DeleteAccount
-								onDeleteProfile={this.props.onDeleteProfile}
-								isDeleting={this.props.isDeleting}
+								onDeleteProfile={ this.props.onDeleteProfile }
+								isDeleting={ this.props.isDeleting }
 							/>
 						</CollapsibleHeader>
 					</PageCard>

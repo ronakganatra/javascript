@@ -40,11 +40,10 @@ const messages = defineMessages( {
 } );
 
 class ProgressBar extends React.Component {
-
 	render() {
-		let progress = Math.min( this.props.progress, 100 );
-		let textColor = progress < 100 ? colors.$color_black : colors.$color_white;
-		let ariaLabel = this.props.intl.formatMessage( messages.currentProgress );
+		const progress = Math.min( this.props.progress, 100 );
+		const textColor = progress < 100 ? colors.$color_black : colors.$color_white;
+		const ariaLabel = this.props.intl.formatMessage( messages.currentProgress );
 
 		return <Bar>
 			<ProgressText textColor={ textColor } aria-label={ ariaLabel }>{ progress }%</ProgressText>

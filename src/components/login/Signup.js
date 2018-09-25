@@ -73,7 +73,6 @@ const messages = defineMessages( {
  * Sign up page where the user can sign up to MyYoast.
  */
 class Signup extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -107,8 +106,8 @@ class Signup extends React.Component {
 	 * @returns {void}
 	 */
 	validatePassword( value ) {
-		if( value.length > 0 ) {
-			let passwordValidation = zxcvbn( value );
+		if ( value.length > 0 ) {
+			const passwordValidation = zxcvbn( value );
 			this.setState( { passwordScore: passwordValidation.score } );
 		}
 	}
@@ -123,8 +122,8 @@ class Signup extends React.Component {
 	 * @returns {void}
 	 */
 	onUpdate( field, event, errors = [] ) {
-		let hasFieldErrors = errors.length > 0;
-		let obj = {};
+		const hasFieldErrors = errors.length > 0;
+		const obj = {};
 		// Scores the strength of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			this.validatePassword( event.target.value );
@@ -140,15 +139,17 @@ class Signup extends React.Component {
 	 * @returns {ReactElement} The 'Create account' button.
 	 */
 	getAccountButton( errors ) {
-		let noInputFieldErrors = ! errors && ! this.state.errorsInputFields;
+		const noInputFieldErrors = ! errors && ! this.state.errorsInputFields;
 		return <SaveButtonArea>
-			<SaveButton type="submit" enabledStyle = {
-				( this.state.email.length &&
+			<SaveButton
+				type="submit" enabledStyle={
+					( this.state.email.length &&
 					this.state.password.length &&
 					this.state.passwordRepeat.length ) > 0 &&
 					noInputFieldErrors &&
 					this.state.passwordScore > 2
-			}>
+				}
+			>
 				<FormattedMessage { ...messages.createAccount } />
 			</SaveButton>
 		</SaveButtonArea>;
@@ -187,7 +188,7 @@ class Signup extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		let data = {
+		const data = {
 			userEmail: this.state.email,
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
@@ -207,11 +208,11 @@ class Signup extends React.Component {
 			signupError = { code: "rest_user_weak_password", field: "validator"  };
 		}
 
-		if( this.props.signupRequestSuccess ) {
+		if ( this.props.signupRequestSuccess ) {
 			return ( <Redirect to={ "/almost-there" } /> );
 		}
 
-		let errors = this.validate();
+		const errors = this.validate();
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>

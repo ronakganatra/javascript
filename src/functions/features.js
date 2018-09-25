@@ -22,9 +22,9 @@ export function hasAccessToFeature( feature ) {
 		return true;
 	}
 
-	let userId = getUserId();
+	const userId = getUserId();
 
-	let environmentVariable = "FEATURE_"  + feature;
+	const environmentVariable = "FEATURE_"  + feature;
 
 	let usersWithAccess = getEnv( environmentVariable, "" ).split( "," );
 	usersWithAccess = usersWithAccess.map( userId => userId.trim() );

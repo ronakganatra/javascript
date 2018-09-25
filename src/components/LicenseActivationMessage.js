@@ -79,7 +79,7 @@ class LicenseActivationMessage extends React.Component {
 	 */
 	render() {
 		if ( this.state.hideMessage ) {
-			return <div></div>;
+			return <div />;
 		}
 		return (
 			<MessageContainer>
@@ -91,7 +91,7 @@ class LicenseActivationMessage extends React.Component {
 				</div>
 				<p>
 					{ this.props.intl.formatMessage( messages.description ) }
-					<br/>
+					<br />
 					<MessageLink
 						to="https://yoa.st/kb-activate-plugin"
 						linkTarget="_blank"

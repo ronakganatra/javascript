@@ -106,7 +106,7 @@ export function resetPasswordFailure( error ) {
 export function sendResetPasswordEmailRequest( params, ownProps ) {
 	return ( dispatch ) => {
 		dispatch( sendingResetPasswordEmailRequest() );
-		let request = prepareInternalRequest( "Customers/sendResetPasswordEmail/", "POST", params );
+		const request = prepareInternalRequest( "Customers/sendResetPasswordEmail/", "POST", params );
 		doRequest( request )
 			.then( () => {
 				dispatch( sendResetPasswordEmailSuccess() );

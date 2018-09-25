@@ -18,13 +18,13 @@ import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
 import { fetchUser, login } from "./actions/user";
 
-let history = createHistory();
+const history = createHistory();
 
 /**
  * If we are in a development environment, we want the store to include the redux-logger.
  * On a production build we want the logger to be omitted.
  */
-let middleware = [
+const middleware = [
 	thunkMiddleware,
 	routerMiddleware( history ),
 ];
@@ -56,7 +56,7 @@ function app() {
 	}
 
 	ReactDOM.render(
-		<App store={ store } history={ history }/>,
+		<App store={ store } history={ history } />,
 		document.getElementById( "root" )
 	);
 }

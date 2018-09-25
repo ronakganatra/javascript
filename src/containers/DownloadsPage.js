@@ -16,12 +16,12 @@ import {
 } from "../actions/composerTokens";
 
 const getEbookProducts = ( state ) => {
-	let eBooks = getEbooks( state.entities.products.byId );
-	let completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
-	let lineItems = _flatMap( completedOrders, ( order ) => {
+	const eBooks = getEbooks( state.entities.products.byId );
+	const completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
+	const lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
 	} );
-	let boughtProductIds = lineItems.map( ( lineItem ) => {
+	const boughtProductIds = lineItems.map( ( lineItem ) => {
 		return lineItem.productId;
 	} );
 	return _filter( eBooks, ( eBook ) => {
@@ -36,11 +36,11 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
-	let plugins = getPlugins( state.entities.products.byId );
+	const plugins = getPlugins( state.entities.products.byId );
 
-	let activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
 
-	let activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
+	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
 	} );
 
@@ -90,7 +90,7 @@ export const mapStateToProps = ( state ) => {
 
 	let plugins = setDownloadProps( getPluginProducts( state ), state );
 
-	let query = state.ui.search.query;
+	const query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		eBooks = eBooks.filter( ( eBook ) => {
 			return eBook.name.toUpperCase().includes( query.toUpperCase() );
@@ -102,8 +102,8 @@ export const mapStateToProps = ( state ) => {
 
 	let composerToken = null;
 	for ( let i = 0; i < state.entities.composerTokens.allIds.length; i++ ) {
-		let id = state.entities.composerTokens.allIds[ i ];
-		let token = state.entities.composerTokens.byId[ id ];
+		const id = state.entities.composerTokens.allIds[ i ];
+		const token = state.entities.composerTokens.byId[ id ];
 
 		if ( token.enabled ) {
 			composerToken = token;

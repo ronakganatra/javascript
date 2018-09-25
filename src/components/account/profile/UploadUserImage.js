@@ -111,7 +111,6 @@ const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avata
  * Component for uploading a profile image.
  */
 class UploadUserImage extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -169,9 +168,9 @@ class UploadUserImage extends React.Component {
 		}
 		// Selected file is not valid.
 		// Show and speak an error message.
-		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+		const maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
-		let maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
+		const maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
 			{ maxSize: maxFileSizeInMb } );
 
 		speak( maxSizeExceeded, "assertive" );
@@ -197,12 +196,13 @@ class UploadUserImage extends React.Component {
 	 * @returns {React.component} the component with the message.
 	 */
 	getMaxFileSizeMessage() {
-		let maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
+		const maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 		return <MaxFileSizeText>
 			<FormattedMessage
 				values={ { maxSize: maxFileSizeInMb } }
 				id={ messages.maxFileSize.id }
-				defaultMessage={ messages.maxFileSize.defaultMessage } />
+				defaultMessage={ messages.maxFileSize.defaultMessage }
+			/>
 		</MaxFileSizeText>;
 	}
 
@@ -213,7 +213,7 @@ class UploadUserImage extends React.Component {
 	 */
 	onImageLoadError() {
 		// Image could not load, set image back to default profile image and show + speak error.
-		let invalidFileError = this.props.intl.formatMessage( messages.invalidFile );
+		const invalidFileError = this.props.intl.formatMessage( messages.invalidFile );
 		this.setState( {
 			image: avatarPlaceholder,
 			error: invalidFileError,
@@ -222,14 +222,14 @@ class UploadUserImage extends React.Component {
 	}
 
 	render() {
-		let changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
+		const changeAriaLabel = this.props.intl.formatMessage( messages.changeAriaLabel );
 
 		// Change alternative text of user avatar, depending on whether an image has been provided.
 		// E.g. "default profile image" vs. "your current profile image."
-		let imageDescriptionMessage = this.props.image ? messages.image : messages.defaultImage;
-		let imageDescription = this.props.intl.formatMessage( imageDescriptionMessage );
+		const imageDescriptionMessage = this.props.image ? messages.image : messages.defaultImage;
+		const imageDescription = this.props.intl.formatMessage( imageDescriptionMessage );
 
-		let imageSrc = this.state.image || avatarPlaceholder;
+		const imageSrc = this.state.image || avatarPlaceholder;
 
 		return <UploadElement size="125px">
 			<UserImageContainer>
@@ -243,9 +243,10 @@ class UploadUserImage extends React.Component {
 
 			{ this.state.error ? this.getErrorMessage( this.state.error ) : this.getMaxFileSizeMessage() }
 
-			<input ref={ fileInput => {
-				this.fileInput = fileInput;
-			} }
+			<input
+				ref={ fileInput => {
+					this.fileInput = fileInput;
+				} }
 				   type="file"
 				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
 				   style={ { display: "none" } }

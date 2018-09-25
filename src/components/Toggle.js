@@ -50,7 +50,6 @@ const ToggleVisualLabel = styled.span`
 `;
 
 class Toggle extends React.Component {
-
 	/**
 	 * Sets the toggle object.
 	 *
@@ -79,9 +78,11 @@ class Toggle extends React.Component {
 	 */
 	render() {
 		return <div>
-			<ToggleBar isEnabled={this.isEnabled()} onClick={this.onClick} onKeyDown={this.setEnablement} tabIndex="0"
-				role="checkbox" aria-label={this.props.ariaLabel} aria-checked={this.isEnabled()} >
-				<ToggleBullet isEnabled={this.isEnabled()} />
+			<ToggleBar
+				isEnabled={ this.isEnabled() } onClick={ this.onClick } onKeyDown={ this.setEnablement } tabIndex="0"
+				role="checkbox" aria-label={ this.props.ariaLabel } aria-checked={ this.isEnabled() }
+			>
+				<ToggleBullet isEnabled={ this.isEnabled() } />
 			</ToggleBar>
 			<ToggleVisualLabel aria-hidden="true">
 				{ this.isEnabled() ? this.props.intl.formatMessage( messages.toggleLabelOn ) : this.props.intl.formatMessage( messages.toggleLabelOff ) }
@@ -110,7 +111,7 @@ class Toggle extends React.Component {
 			return;
 		}
 
-		let newState = ! this.isEnabled();
+		const newState = ! this.isEnabled();
 
 		this.setState( {
 			isEnabled: newState,

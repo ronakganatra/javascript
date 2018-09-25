@@ -7,7 +7,7 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	return {
 		attemptResetPassword: ( data ) => {
 			dispatch( resetPasswordRequest() );
-			let request = prepareInternalRequest( "Customers/resetPassword/", "PATCH", data );
+			const request = prepareInternalRequest( "Customers/resetPassword/", "PATCH", data );
 			doRequest( request )
 				.then( ( response ) => {
 					dispatch( resetPasswordSuccess() );
