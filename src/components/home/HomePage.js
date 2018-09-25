@@ -4,6 +4,7 @@ import { speak } from "@wordpress/a11y";
 import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
 import { FullHeightCard } from "../Card";
+import SitesCard from "./SitesCard";
 
 
 const messages = defineMessages( {
@@ -31,6 +32,12 @@ class HomePage extends React.Component {
 		return (
 			<div>
 				<h1>WORK IN PROGRESS</h1>
+				<FullHeightCard
+					className={ "SitesCard" }
+					id={ "sites-card" }
+				>
+					<SitesCard />
+				</FullHeightCard>
 				<FullHeightCard
 					className={ "UpsellCard" }
 					id={ "plugin-upsell-card" }

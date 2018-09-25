@@ -13,11 +13,11 @@ import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
 import sitesNoResultsImage from "./../images/SitesNoResults.svg";
-import AddSite from "./AddSite";
 import MyYoastModal from "./MyYoastModal";
 import ConfigurationServiceRequestBlock from "./sites/ConfigurationServiceRequestBlock";
 import { CONFIGURATION_SERVICE_FEATURE, hasAccessToFeature } from "../functions/features";
 import ConfigurationServiceRequestForm from "./sites/configuration-service-requests/ConfigurationServiceRequestForm";
+import AddSiteModal from "./modal/AddSiteModal";
 
 const messages = defineMessages( {
 	sitesPageLoaded: {
@@ -136,39 +136,10 @@ class SitesPage extends React.Component {
 	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
-			return this.getAddSiteModal();
+			return <AddSiteModal { ...this.props }/>;
 		} else if ( this.props.configurationServiceRequestModalOpen ) {
 			return this.getConfigurationServiceRequestModal();
 		}
-	}
-
-	/**
-	 * Gets the AddSite modal.
-	 *
-	 * @returns {object} The AddSite modal rendered and opened.
-	 */
-	getAddSiteModal() {
-		let modalAriaLabel = defineMessages( {
-			id: "modal.arialabel.add",
-			defaultMessage: "Add a new site",
-		} );
-		return (
-			<MyYoastModal
-				isOpen={ this.props.modalOpen }
-				onClose={ this.props.onClose }
-				modalAriaLabel={ modalAriaLabel }
-			>
-				<AddSite
-					onConnectClick={ this.props.onConnect }
-					onCancelClick={ this.props.onClose }
-					onChange={ this.props.onChange }
-					errorFound={ this.props.errorFound }
-					error={ this.props.error }
-					query={ this.props.query }
-					linkingSiteUrl={ this.props.linkingSiteUrl }
-				/>
-			</MyYoastModal>
-		);
 	}
 
 	/**
@@ -181,6 +152,7 @@ class SitesPage extends React.Component {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
 		} );
+
 		return (
 			<MyYoastModal
 				isOpen={ this.props.configurationServiceRequestModalOpen }
