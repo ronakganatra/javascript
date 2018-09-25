@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
-import { FullHeightCard } from "../Card";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 
@@ -51,6 +50,13 @@ const Description = styled.p`
 	line-height: 0.9;
 `;
 
+/**
+ * A function that returns the UpsellListItem, which is a collection of icon, link, and description.
+ *
+ * @param {Object} props The props for the UpsellListItem component.
+ *
+ * @returns {ReactElement} The UpsellListItem.
+ */
 const UpsellListItem = ( props ) => {
 	return(
 		<ListItem>
@@ -87,18 +93,15 @@ UpsellListItem.propTypes = {
 };
 
 /**
- * A function that returns the Courses Progress Tab component.
+ * A function that returns the UpsellCardContent component.
  *
- * @param {Object} props The props required for the SitesCard.
+ * @param {Object} props The props required for the UpsellCardContent component.
  *
- * @returns {ReactElement} The component that contains the progress tab of the course page.
+ * @returns {ReactElement} The UpsellCardContent component.
  */
-const UpsellCard = ( props ) => {
+const UpsellCardContent = ( props ) => {
 	return (
-		<FullHeightCard
-			className={ "UpsellCard" }
-			id={ props.id }
-		>
+		<Fragment>
 			<Header>
 				<FormattedMessage id={ `${ props.id }.${ props.header.id }` } defaultMessage={ props.header.defaultMessage } />
 			</Header>
@@ -111,18 +114,18 @@ const UpsellCard = ( props ) => {
 					} )
 				}
 			</ListContainer>
-		</FullHeightCard>
+		</Fragment>
 	);
 };
 
-UpsellCard.propTypes = {
+UpsellCardContent.propTypes = {
 	id: PropTypes.string,
 	header: PropTypes.object.isRequired,
 	listPropsArray: PropTypes.array.isRequired,
 };
 
-UpsellCard.defaultProps = {
+UpsellCardContent.defaultProps = {
 	id: null,
 };
 
-export default injectIntl( UpsellCard );
+export default injectIntl( UpsellCardContent );

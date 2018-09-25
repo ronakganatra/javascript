@@ -1,8 +1,9 @@
 import React from "react";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
-import PluginUpsellCard from "./PluginUpsellCard";
-import AcademyUpsellCard from "./AcademyUpsellCard";
+import PluginUpsell from "./PluginUpsell";
+import AcademyUpsell from "./AcademyUpsell";
+import { FullHeightCard } from "../Card";
 
 
 const messages = defineMessages( {
@@ -30,8 +31,18 @@ class HomePage extends React.Component {
 		return (
 			<div>
 				<h1>WORK IN PROGRESS</h1>
-				<PluginUpsellCard />
-				<AcademyUpsellCard />
+				<FullHeightCard
+					className={ "UpsellCard" }
+					id={ "plugin-upsell-card" }
+				>
+					<PluginUpsell />
+				</FullHeightCard>
+				<FullHeightCard
+					className={ "UpsellCard" }
+					id={ "academy-upsell-card" }
+				>
+					<AcademyUpsell />
+				</FullHeightCard>
 			</div>
 		);
 	}
