@@ -51,7 +51,7 @@ const AddSiteImage = styled.img`
 let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
 
 /**
- * A function that returns the Courses Progress Tab component.
+ * A function that returns the SitesCard component.
  *
  * @param {Object} props The props required for the SitesCard.
  *
