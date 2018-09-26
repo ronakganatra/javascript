@@ -252,11 +252,11 @@ class UploadUserImage extends React.Component {
 				ref={ fileInput => {
 					this.fileInput = fileInput;
 				} }
-				   type="file"
-				   accept={ this.props.acceptedMIMETypes.join( ", " ) }
-				   style={ { display: "none" } }
-				   aria-hidden={ true }
-				   onChange={ e => this.onFileUpload( e.target.files[ 0 ] ) }
+				type="file"
+				accept={ this.props.acceptedMIMETypes.join( ", " ) }
+				style={ { display: "none" } }
+				aria-hidden={ true }
+				onChange={ e => this.onFileUpload( e.target.files[ 0 ] ) }
 			/>
 		</UploadElement>;
 	}

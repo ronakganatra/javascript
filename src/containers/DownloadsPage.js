@@ -81,14 +81,14 @@ const setDownloadProps = ( products ) => {
 };
 
 export const mapStateToProps = ( state ) => {
-	let eBooks = setDownloadProps( getEbookProducts( state ), state );
+	let eBooks = setDownloadProps( getEbookProducts( state ) );
 	// Ebooks have escaped/encoded html entities. Need to decode back to human readable string.
 	eBooks = eBooks.map( ( eBook ) => {
 		eBook.name = _unescape( eBook.name );
 		return eBook;
 	} );
 
-	let plugins = setDownloadProps( getPluginProducts( state ), state );
+	let plugins = setDownloadProps( getPluginProducts( state ) );
 
 	const query = state.ui.search.query;
 	if ( query.length > 0 ) {

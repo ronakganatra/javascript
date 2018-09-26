@@ -71,7 +71,7 @@ export const mapStateToProps = ( state ) => {
 
 	const error = state.ui.sites.linkSiteError;
 
-	const	plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
+	const plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
 
 	const linkingSiteUrl = state.ui.sites.linkingSiteUrl;
 
