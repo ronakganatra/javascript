@@ -10,6 +10,7 @@ import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 import ErrorDisplay from "../../../src/errors/ErrorDisplay";
+import Link from "../Link";
 
 // Styled components.
 const TextInput = styled( InputField )`
@@ -136,9 +137,9 @@ const LoginForm = ( props ) => {
 			}
 
 			<ForgotPasswordLink>
-				<a href="/forgot-password">
+				<Link to="/forgot-password">
 					<FormattedMessage { ...messages.forgotPassword } />
-				</a>
+				</Link>
 			</ForgotPasswordLink>
 
 			<RememberMe>
