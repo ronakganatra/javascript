@@ -34,7 +34,6 @@ const Block = styled.div`
 const TextBlock = styled( Block )`
 	margin-left: 8px;
 	vertical-align: top;
-	white-space: normal;
 `;
 
 const Icon = styled.img`

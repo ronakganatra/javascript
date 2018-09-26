@@ -1,11 +1,14 @@
-import LocalIcon from "../../icons/Yoast/Local_SEO_Icon_Small.svg";
+import SeoForWpIcon from "../../icons/Academy/Yoast_SEO_for_WP_2.svg";
+import CopywritingIcon from "../../icons/Academy/SEO_copywriting.svg";
+import SiteStructureIcon from "../../icons/Academy/Site_structure.svg";
+import StructuredDataIcon from "../../icons/Academy/Structured_data.svg";
 import UpsellCard from "./UpsellCard";
 import React from "react";
 
 const academyUpsellId = "academy.upsell";
 const academyUpsellProps = [
 	{
-		icon: LocalIcon,
+		icon: SeoForWpIcon,
 		description: {
 			id: "seoforwordpress.description",
 			defaultMessage: "Don't waste time figuring out the best settings yourself.",
@@ -16,7 +19,7 @@ const academyUpsellProps = [
 		},
 	},
 	{
-		icon: LocalIcon,
+		icon: CopywritingIcon,
 		description: {
 			id: "copywriting.description",
 			defaultMessage: "Write awesome copy that ranks.",
@@ -27,7 +30,7 @@ const academyUpsellProps = [
 		},
 	},
 	{
-		icon: LocalIcon,
+		icon: SiteStructureIcon,
 		description: {
 			id: "sitestructure.description",
 			defaultMessage: "Learn how to improve your site structure to rank higher in Google.",
@@ -38,7 +41,7 @@ const academyUpsellProps = [
 		},
 	},
 	{
-		icon: LocalIcon,
+		icon: StructuredDataIcon,
 		description: {
 			id: "structureddata.description",
 			defaultMessage: "Get your site ready for rich search results that bring in loads of customers.",
