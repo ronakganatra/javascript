@@ -2,6 +2,8 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import SitesCard from "./SitesCard";
+import { FullHeightCard } from "../Card";
+import BlogFeed from "./BlogCard";
 
 
 const messages = defineMessages( {
@@ -30,6 +32,12 @@ class HomePage extends React.Component {
 			<div>
 				<h1>WORK IN PROGRESS</h1>
 				<SitesCard />
+				<FullHeightCard
+					className={ "BlogCard" }
+					id={ "blog-card" }
+				>
+					<BlogFeed />
+				</FullHeightCard>
 			</div>
 		);
 	}
