@@ -5,7 +5,6 @@ import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
 import { FullHeightCard } from "../Card";
 import SitesCard from "./SitesCard";
-import { FullHeightCard } from "../Card";
 import BlogFeed from "./BlogCard";
 
 
@@ -30,6 +29,11 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Renders the component
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>
