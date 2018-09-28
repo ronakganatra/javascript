@@ -22,7 +22,7 @@
     "dotenv": "6.0.0",
     "enzyme": "^2.7.1",
     "eslint": "^4.16.0",
-    "eslint-config-yoast": "^5.0.0",
+    "eslint-config-yoast": "^5.0.1",
     "eslint-loader": "2.0.0",
     "eslint-plugin-flowtype": "^2.33.0",
     "eslint-plugin-import": "^2.2.0",
@@ -89,7 +89,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src",
-    "lint-strict": "eslint src --max-warnings=559"
+    "lint-strict": "eslint src --max-warnings=560"
   },
   "jest": {
     "collectCoverageFrom": [
