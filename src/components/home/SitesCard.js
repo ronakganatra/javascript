@@ -1,8 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
-import { FullHeightCard } from "../Card";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import { linkSiteModalClose, linkSiteModalOpen,
@@ -59,9 +58,7 @@ let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
  */
 const SitesCard = ( props ) => {
 	return (
-		<FullHeightCard
-			className={ "SitesCard" }
-		>
+		<Fragment>
 			<Details>
 				<Header>
 					<FormattedMessage id={ "home.sitecard.header" } defaultMessage={ "Add site" } />
@@ -88,7 +85,7 @@ const SitesCard = ( props ) => {
 					/>
 				</ResponsiveIconButton>
 			</ActionBlock>
-		</FullHeightCard>
+		</Fragment>
 	);
 };
 

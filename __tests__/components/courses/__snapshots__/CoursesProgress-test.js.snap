@@ -192,6 +192,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   >
     <div
       className="c2 c3"
+      id={null}
     >
       <div
         className="c4"
@@ -268,6 +269,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   >
     <div
       className="c2 c3"
+      id={null}
     >
       <div
         className="c4"
