@@ -66,6 +66,17 @@ export function setPeriLoginCookie() {
 }
 
 /**
+ * Saves the redirect_to query parameter in the target destination cookie.
+ *
+ * @param {String} intendedDestination The intended destination.
+ *
+ * @returns {void}
+ */
+export function saveIntendedDestination( intendedDestination ) {
+	Cookies.set( "intendedDestination", intendedDestination );
+}
+
+/**
  * Removes the intendedDestination from the site-wide cookie.
  *
  * @returns {void}
