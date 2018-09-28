@@ -159,12 +159,13 @@ const MenuItem = styled( NavLink )`
 `;
 
 const MenuIcon = styled.img`
-	display: none;
+		height: 40px;
+		width: 40px;
+		margin: 0 10px -12px;
 
 	@media screen and ( max-width: 1024px ) {
 		display: block;
-		height: 40px;
-		width: 40px;
+
 		margin: 0 auto -3px;
 	}
 `;
