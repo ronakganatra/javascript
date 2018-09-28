@@ -37,7 +37,7 @@ export default class OrdersResult extends React.Component {
 	 * @returns {ReactElement} the ProductsResult component.
 	 */
 	static itemsPresenter( items ) {
-		/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
+		// eslint-disable-next-line jsx-a11y/no-redundant-roles
 		return <ul role="list">
 			{ items && items.map( item => <li key={ item.id }>{ item.productName }</li> ) }
 		</ul>;

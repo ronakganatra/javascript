@@ -41,7 +41,7 @@ export default class SitesResult extends React.Component {
 			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: { subscription.name }</button></li>;
 		}, this );
 
-		/* eslint-disable-next-line jsx-a11y/no-redundant-roles */
+		// eslint-disable-next-line jsx-a11y/no-redundant-roles
 		return <ul role="list">{ items }</ul>;
 	}
 
