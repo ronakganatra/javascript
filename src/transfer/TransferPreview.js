@@ -42,7 +42,6 @@ export default class TransferPreview extends React.Component {
 
 	getWooObjectList(list, displayKey ) {
 		return (
-			{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 			<ul role="list">
 				{ Object.keys( list ).map( sourceId => {
 					let obj = list[ sourceId ];
@@ -59,7 +58,6 @@ export default class TransferPreview extends React.Component {
 
 	getCourseEnrollmentsList() {
 		return (
-			{ /* eslint-disable-next-line jsx-a11y/no-redundant-roles */ }
 			<ul role="list">
 				{ this.props.courseEnrollments.map( courseEnrollment => {
 					let isStudent = courseEnrollment.studentId === this.props.fromCustomer.id;
