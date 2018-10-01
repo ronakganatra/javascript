@@ -6,17 +6,17 @@ import MobileHeader from "../components/MobileHeader";
 export const mapStateToProps = ( state ) => {
 	let pageTitle = "";
 
-	let path = state.router.location.pathname.split( "/" );
+	const path = state.router.location.pathname.split( "/" );
 
-	let id = path.pop();
-	let type = path.pop();
+	const id = path.pop();
+	const type = path.pop();
 
 	// Set page title for sites and subscriptions detail pages.
 	if ( type === "sites" && id ) {
-		let site = state.entities.sites.byId[ id ];
+		const site = state.entities.sites.byId[ id ];
 		pageTitle = site ? site.hostname : "";
 	} else if ( type === "subscriptions" && id ) {
-		let subscription = state.entities.subscriptions.byId[ id ];
+		const subscription = state.entities.subscriptions.byId[ id ];
 		pageTitle = subscription ? subscription.name : "";
 	}
 

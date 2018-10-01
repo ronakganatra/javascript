@@ -50,10 +50,9 @@ const generalActivationFailureMessages = defineMessages( {
  * A link to the login window will be displayed when a user was already activated.
  */
 class Activate extends React.Component {
-
 	constructor( props ) {
 		super( props );
-		let parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
+		const parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
 
 		// Default state.
 		this.state = {
@@ -79,22 +78,28 @@ class Activate extends React.Component {
 		return this.props.activationError.error.code === "already_active";
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		if ( this.props.loggedIn ) {
-			return ( <Redirect to={ "/enter-details" }/> );
+			return ( <Redirect to={ "/enter-details" } /> );
 		}
 
 		if ( this.hasError() ) {
 			if ( this.alreadyActiveError() ) {
-				return <LoginMessage { ...userAlreadyActiveMessages }
-				                     buttonLinkTo="/login"
-				                     onClick={ this.props.resetOauthError }
+				return <LoginMessage
+					{ ...userAlreadyActiveMessages }
+					buttonLinkTo="/login"
+					onClick={ this.props.resetOauthError }
 				/>;
 			}
 			return ( <Fragment>
-					<LoginMessage { ...generalActivationFailureMessages } />
-					<StyledErrorDisplay error={ this.props.activationError }/>
-				</Fragment>
+				<LoginMessage { ...generalActivationFailureMessages } />
+				<StyledErrorDisplay error={ this.props.activationError } />
+			</Fragment>
 			);
 		}
 

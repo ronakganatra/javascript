@@ -6,7 +6,7 @@ import { LargeButton, makeButtonFullWidth } from "../Button";
 import CollapsibleHeader from "../CollapsibleHeader";
 import styled from "styled-components";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	configurationHeading: {
 		id: "requestConfigurationIntake.configurationHeading",
 		defaultMessage: "Request configuration service",
@@ -59,12 +59,17 @@ class ConfigurationServiceRequestIntakeBlock extends React.Component {
 	 * @returns {void}
 	 */
 	handleSubmit() {
-		let siteId = this.props.siteId;
+		const siteId = this.props.siteId;
 		this.props.openConfigurationServiceRequestModal( siteId );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let configAvailable = this.props.amountAvailable;
+		const configAvailable = this.props.amountAvailable;
 		return (
 			<Paper>
 				<CollapsibleHeader

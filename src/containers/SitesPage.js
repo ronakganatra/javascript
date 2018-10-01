@@ -11,9 +11,9 @@ import { configurationServiceRequestModalClose, configurationServiceRequestModal
 
 export const mapStateToProps = ( state ) => {
 	let sites = state.entities.sites.allIds.map( ( siteId ) => {
-		let site = state.entities.sites.byId[ siteId ];
+		const site = state.entities.sites.byId[ siteId ];
 
-		let siteProps = {
+		const siteProps = {
 			id: site.id,
 			siteName: ( site.path === "/" ) ? site.hostname : ( site.hostname + site.path ),
 			siteType: site.type,
@@ -30,7 +30,7 @@ export const mapStateToProps = ( state ) => {
 			return siteProps;
 		}
 
-		let activeSubscriptions = site.subscriptions
+		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
 				return state.entities.subscriptions.byId[ subscriptionId ];
 			} )
@@ -42,40 +42,40 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
-	let allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
+	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
 	} );
 
-	let siteIdsWithConfigurationServiceRequest = allConfigurationServices.map( ( RequestedSite ) => {
+	const siteIdsWithConfigurationServiceRequest = allConfigurationServices.map( ( RequestedSite ) => {
 		return RequestedSite.siteId;
 	} );
 
-	let availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
+	const availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
 
-	let availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
-	let query = state.ui.search.query;
+	const query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		sites = sites.filter( ( site ) => {
 			return site.siteName.includes( query ) || site.url.includes( query );
 		} );
 	}
 
-	let configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
-	let configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
+	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
-	let modalOpen = state.ui.sites.addSiteModalOpen;
+	const modalOpen = state.ui.sites.addSiteModalOpen;
 
-	let errorFound = state.ui.sites.linkSiteFailed;
+	const errorFound = state.ui.sites.linkSiteFailed;
 
-	let error = state.ui.sites.linkSiteError;
+	const error = state.ui.sites.linkSiteError;
 
-	let	plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
+	const plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
 
-	let linkingSiteUrl = state.ui.sites.linkingSiteUrl;
+	const linkingSiteUrl = state.ui.sites.linkingSiteUrl;
 
-	let showLoader = ! state.ui.sites.sitesRetrieved;
+	const showLoader = ! state.ui.sites.sitesRetrieved;
 
 	return {
 		sites,
@@ -93,7 +93,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( loadSites() );
 	dispatch( loadConfigurationServiceRequests() );
 
@@ -139,11 +139,11 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 		url = stateProps.query;
 	}
 
-	let onConnect = ( type ) => {
+	const onConnect = ( type ) => {
 		dispatchProps.onConnect( url, type );
 	};
 
-	let addSite = () => {
+	const addSite = () => {
 		dispatchProps.addSite( url );
 	};
 

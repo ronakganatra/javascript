@@ -230,7 +230,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 	}
 }
 
-let uiComposerTokensState = reduceReducers(
+const uiComposerTokensState = reduceReducers(
 	uiFetchComposerTokensReducer,
 	uiCreateComposerTokensReducer,
 	uiRenameComposerTokensReducer,

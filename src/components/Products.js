@@ -30,29 +30,34 @@ const ProductsListHeading = styled( ListHeading )`
  * @returns {ReactElement} The rendered products page.
  */
 export default class Products extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let props = this.props;
+		const props = this.props;
 		return (
 			<ProductsContainer>
 				<ProductsListHeading>
 					{ props.heading }
 					{ props.byLine }
 				</ProductsListHeading>
-					{ props.noResults }
-					{ props.products.map( function( product ) {
-						return <Product
-							key={ product.glNumber }
-							name={ product.name }
-							glNumber={ product.glNumber }
-							currentVersion={ product.currentVersion }
-							icon={ product.icon }
-							buttons={ product.buttons }
-							composerToken={ props.composerToken }
-							onComposerHelpModalOpen={ props.onComposerHelpModalOpen }
-							onComposerHelpModalClose={ props.onComposerHelpModalClose }
-							type={ product.category }
-						/>;
-					} ) }
+				{ props.noResults }
+				{ props.products.map( function( product ) {
+					return <Product
+						key={ product.glNumber }
+						name={ product.name }
+						glNumber={ product.glNumber }
+						currentVersion={ product.currentVersion }
+						icon={ product.icon }
+						buttons={ product.buttons }
+						composerToken={ props.composerToken }
+						onComposerHelpModalOpen={ props.onComposerHelpModalOpen }
+						onComposerHelpModalClose={ props.onComposerHelpModalClose }
+						type={ product.category }
+					/>;
+				} ) }
 			</ProductsContainer>
 		);
 	}

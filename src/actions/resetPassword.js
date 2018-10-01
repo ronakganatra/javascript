@@ -99,14 +99,13 @@ export function resetPasswordFailure( error ) {
  *
  * @param {Object} params The request parameters.
  * @param {string} params.email The email address of the user who is trying to log in.
- * @param {Object} ownProps The ownProps of resetPasswordEmail container.
  *
  * @returns {Function} A function which enables us to expose the dispatch function.
  */
-export function sendResetPasswordEmailRequest( params, ownProps ) {
+export function sendResetPasswordEmailRequest( params ) {
 	return ( dispatch ) => {
 		dispatch( sendingResetPasswordEmailRequest() );
-		let request = prepareInternalRequest( "Customers/sendResetPasswordEmail/", "POST", params );
+		const request = prepareInternalRequest( "Customers/sendResetPasswordEmail/", "POST", params );
 		doRequest( request )
 			.then( () => {
 				dispatch( sendResetPasswordEmailSuccess() );

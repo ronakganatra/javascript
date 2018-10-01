@@ -15,13 +15,13 @@ export function fetchAccessToken() {
 			return resolve( getAccessToken() );
 		}
 
-		let frame = document.createElement( "IFrame" );
+		const frame = document.createElement( "IFrame" );
 		frame.onload = () => {
 			if ( _isEmpty( frame.contentDocument ) ) {
 				return reject( new Error( "IFrame could not be loaded" ) );
 			}
 
-			let accessToken = getAccessToken();
+			const accessToken = getAccessToken();
 
 			if ( _isEmpty( accessToken ) ) {
 				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
@@ -66,6 +66,17 @@ export function setPeriLoginCookie() {
 }
 
 /**
+ * Saves the redirect_to query parameter in the target destination cookie.
+ *
+ * @param {String} intendedDestination The intended destination.
+ *
+ * @returns {void}
+ */
+export function saveIntendedDestination( intendedDestination ) {
+	Cookies.set( "intendedDestination", intendedDestination );
+}
+
+/**
  * Removes the intendedDestination from the site-wide cookie.
  *
  * @returns {void}
@@ -89,7 +100,7 @@ export function hasPeriLoginCookie() {
  * @returns {bool} Whether or not we have been redirected.
  */
 export function directToIntendedDestination() {
-	let redirectUrl = getRedirectUrl();
+	const redirectUrl = getRedirectUrl();
 	removePeriLoginCookie();
 	window.location.href = redirectUrl;
 }
@@ -144,6 +155,15 @@ export function hasAccessToken() {
 }
 
 /**
+ * Checks whether a user has logged out on Yoast.com and not on MyYoast.
+ *
+ * @returns {boolean} Whether or not the user is logged out on Yoast.com.
+ */
+export function hasLoggedOut() {
+	return !! Cookies.get( "logged_out" );
+}
+
+/**
  * Returns the access token known from the cookies.
  *
  * @returns {string} The available access token.
@@ -177,7 +197,7 @@ export function removeCookies() {
  * @returns {{accessToken, userId}} The Cookie credentials.
  */
 export function getCookieParams() {
-	let parsedUrl = url.parse( document.location.href, true );
+	const parsedUrl = url.parse( document.location.href, true );
 
 	return {
 		accessToken: parsedUrl.query.access_token,
@@ -191,7 +211,7 @@ export function getCookieParams() {
  * @returns {boolean} Whether the url params contain Cookie credentials.
  */
 export function hasCookieParams() {
-	let cookieParams = getCookieParams();
+	const cookieParams = getCookieParams();
 
 	return ( cookieParams.accessToken && cookieParams.userId );
 }
@@ -202,7 +222,7 @@ export function hasCookieParams() {
  * @returns {void}
  */
 export function setCookieFromParams() {
-	let cookieParams = getCookieParams();
+	const cookieParams = getCookieParams();
 
 	if ( cookieParams.accessToken && cookieParams.userId ) {
 		Cookies.set( "access_token", cookieParams.accessToken );

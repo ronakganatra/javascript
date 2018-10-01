@@ -15,11 +15,11 @@ export function Logo( props ) {
 	switch ( props.context ) {
 		case "header":
 			return (
-				<Link to="/"><HeaderLogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+				<Link to="/"><HeaderLogoImage src={ logo } size={ props.size } alt={ props.alt } /></Link>
 			);
 		case "sidebar":
 			return (
-				<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt }/></Link>
+				<Link to="/"><LogoImage src={ logo } size={ props.size } alt={ props.alt } /></Link>
 			);
 	}
 }

@@ -6,7 +6,7 @@ import exclamationTriangle from "../icons/exclamation-triangle.svg";
 import exclamationCircle from "../icons/exclamation-circle.svg";
 import errorMessageLookUp from "../errors/ErrorMessageLookup.json";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	contactSupportLink: {
 		id: "contact.support.link",
 		defaultMessage: "please contact support",
@@ -51,7 +51,7 @@ class ErrorDisplay extends React.Component {
 		// In the case of a [customer_support_link] placeholder, replace with an e-mail link to support. Will eventually link to Knowledge base.
 		if ( errorMessage.indexOf( "[customer_support_link]" ) > -1 ) {
 			errorMessage = errorMessage.replace( "[customer_support_link]", "" );
-			let contactLink = (
+			const contactLink = (
 				<PurpleLink href="mailto:support@yoast.com">
 					<FormattedMessage id={ messages.contactSupportLink.id } defaultMessage={ messages.contactSupportLink.defaultMessage } />
 				</PurpleLink> );
@@ -70,7 +70,7 @@ class ErrorDisplay extends React.Component {
 			values = { errorMessage };
 		}
 
-		return( { defaultMessage, values } );
+		return ( { defaultMessage, values } );
 	}
 
 	/**
@@ -81,7 +81,7 @@ class ErrorDisplay extends React.Component {
 	 * @returns {ReactElement} A FormattedMessage component that contains the formatted error message.
 	 */
 	toFormattedMessage( messageFormatObject ) {
-		return(
+		return (
 			<FormattedMessage
 				id="sites.addSite.error"
 				defaultMessage={ messageFormatObject.defaultMessage }
@@ -104,9 +104,9 @@ class ErrorDisplay extends React.Component {
 			return null;
 		}
 
-		let icon = this.messageType === "warning" ? exclamationTriangle : exclamationCircle;
-		return(
-			<MessageIcon iconSource={ icon }/>
+		const icon = this.messageType === "warning" ? exclamationTriangle : exclamationCircle;
+		return (
+			<MessageIcon iconSource={ icon } />
 		);
 	}
 
@@ -186,12 +186,12 @@ class ErrorDisplay extends React.Component {
 		this.recodeMessage( error );
 		this.setMessageType( error );
 
-		let messageFormatObject = this.handlePlaceholders( this.recodedMessage, error );
-		let finalMessage = this.toFormattedMessage( messageFormatObject );
-		let errorIcon = this.renderIcon( this.props.showIcon );
+		const messageFormatObject = this.handlePlaceholders( this.recodedMessage, error );
+		const finalMessage = this.toFormattedMessage( messageFormatObject );
+		const errorIcon = this.renderIcon( this.props.showIcon );
 
-		let MessageBox = ( this.messageType === "warning" ) ? WarningMessage : ErrorMessage;
-		return(
+		const MessageBox = ( this.messageType === "warning" ) ? WarningMessage : ErrorMessage;
+		return (
 			<MessageBox role="alert" iconPadding={ this.iconPadding } className={ this.props.className }>
 				{ errorIcon }
 				{ finalMessage }
@@ -200,9 +200,9 @@ class ErrorDisplay extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (

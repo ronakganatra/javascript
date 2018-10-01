@@ -7,7 +7,7 @@ import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
 import CoursesPage from "../containers/CoursesPage";
 
-let menuItems = [
+const menuItems = [
 	{
 		showInMenu: true,
 		path: "/sites",

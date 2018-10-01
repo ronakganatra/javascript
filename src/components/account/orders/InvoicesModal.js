@@ -45,15 +45,15 @@ const ModalDiv = styled.div`
 	}
 `;
 
-let FullWidthRow = styled( RowMobileCollapse )`
+const FullWidthRow = styled( RowMobileCollapse )`
 	margin: 0 -16px;
 `;
 
-let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
-let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+const ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+const ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
-let CloseButton = makeButtonFullWidth( LargeSecondaryButton );
+const CloseButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
  * Returns the rendered InvoicesModal component.
@@ -72,22 +72,22 @@ export class InvoicesModal extends React.Component {
 	}
 
 	makeInvoiceRow( invoice ) {
-		let id = invoice.refundId ? invoice.refundId : invoice.orderId;
+		const id = invoice.refundId ? invoice.refundId : invoice.orderId;
 
-		let invoiceURI = getInvoiceUrl( invoice.orderId, invoice.refundId );
+		const invoiceURI = getInvoiceUrl( invoice.orderId, invoice.refundId );
 
-		let ResponsiveInvoiceLink = makeButtonFullWidth( LargeIconButtonLink );
+		const ResponsiveInvoiceLink = makeButtonFullWidth( LargeIconButtonLink );
 
 		return (
 			<FullWidthRow verticalAlign={ "center" } background={ this.props.background } key={ id }>
 				<ColumnPrimaryResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.date ) }>
-					<FormattedDate value={ invoice.date } day="numeric" month="long" year="numeric"/>
+					<FormattedDate value={ invoice.date } day="numeric" month="long" year="numeric" />
 				</ColumnPrimaryResponsive>
 				<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.type ) }>
 					<span>{ invoice.type }</span>
 				</ColumnMinWidthResponsive>
 				<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ this.props.intl.formatMessage( messages.amount ) }>
-					<FormattedNumber value={ formatAmount( invoice.totalAmount ) } style="currency" currency={ invoice.currency }/>
+					<FormattedNumber value={ formatAmount( invoice.totalAmount ) } style="currency" currency={ invoice.currency } />
 				</ColumnMinWidthResponsive>
 				<ColumnFixedWidthResponsive>
 					<ResponsiveInvoiceLink
@@ -103,14 +103,19 @@ export class InvoicesModal extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let invoicesTable = <ListTable { ...this.props }>
+		const invoicesTable = <ListTable { ...this.props }>
 			{ this.props.invoices.map( ( invoice ) => {
 				return this.makeInvoiceRow( invoice );
 			} ) }
 		</ListTable>;
 
-		return(
+		return (
 			<ModalDiv>
 				<ModalHeading>
 					<FormattedMessage

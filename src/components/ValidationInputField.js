@@ -26,20 +26,20 @@ const ErrorDisplay = styled.ul`
 	color: ${ colors.$color_error };
 	font-size: 12px;
 	font-weight: 700;
-	
+
 	margin: 0;
 	padding: 0;
-	
+
 	list-style-type: none;
 `;
 
 const Error = styled.li`
 	background: url(${ exclamationTriangle }) no-repeat left center;
 	background-size: 12px;
-		
+
 	height: 20px;
-	
-	margin-top: 4px;	
+
+	margin-top: 4px;
 	padding-left: 24px;
 `;
 
@@ -48,7 +48,6 @@ const Error = styled.li`
  * and show errors if validation fails.
  */
 class ValidationInputField extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -89,7 +88,7 @@ class ValidationInputField extends React.Component {
 	 */
 	getErrors( errors ) {
 		return errors.map( ( error, index ) => {
-			let key = `${ this.props.id }-${ index }`;
+			const key = `${ this.props.id }-${ index }`;
 			return <Error key={ key }>{ error }</Error>;
 		} );
 	}
@@ -165,9 +164,14 @@ class ValidationInputField extends React.Component {
 		this.showErrorsDebounced.cancel();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let errors = this.props.errors.concat( this.state.errors );
-		let hasErrors = this.props.errors.length > 0;
+		const errors = this.props.errors.concat( this.state.errors );
+		const hasErrors = this.props.errors.length > 0;
 
 		return (
 			<div>

@@ -267,7 +267,7 @@ export function responsiveHeaders( column ) {
  * @constructor
  */
 export function ListTable( props ) {
-	let zebraProps = Object.assign( {}, props );
+	const zebraProps = Object.assign( {}, props );
 	let children = props.children;
 
 	// Children could be one object or a list of objects.
@@ -290,7 +290,7 @@ export function ListTable( props ) {
 	}
 
 	return (
-		<Zebra role="list" { ...zebraProps }/>
+		<Zebra role="list" { ...zebraProps } />
 	);
 }
 

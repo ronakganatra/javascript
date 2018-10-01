@@ -73,13 +73,13 @@ class LicenseActivationMessage extends React.Component {
 	}
 
 	/**
-	 * Renders the message.
+	 * Renders the component.
 	 *
 	 * @returns {*} Returns an empty div if the cookie is set or returns the message.
 	 */
 	render() {
 		if ( this.state.hideMessage ) {
-			return <div></div>;
+			return <div />;
 		}
 		return (
 			<MessageContainer>
@@ -91,7 +91,7 @@ class LicenseActivationMessage extends React.Component {
 				</div>
 				<p>
 					{ this.props.intl.formatMessage( messages.description ) }
-					<br/>
+					<br />
 					<MessageLink
 						to="https://yoa.st/kb-activate-plugin"
 						linkTarget="_blank"

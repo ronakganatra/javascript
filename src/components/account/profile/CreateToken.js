@@ -10,7 +10,7 @@ import { ModalHeading } from "../../Headings";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 import { StyledLabel } from "../../Labels";
 
-let messages = defineMessages(
+const messages = defineMessages(
 	{
 		placeholderMessage: {
 			id: "token-description.placeholder",
@@ -109,19 +109,19 @@ class CreateToken extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		let enabledStyle = this.state.tokenDescriptionInput !== "";
+		const enabledStyle = this.state.tokenDescriptionInput !== "";
 		return (
 			<CreateTokenModal>
 				<ModalHeading>
-					<FormattedMessage id="profile.createToken.header" defaultMessage="Create token"/>
+					<FormattedMessage id="profile.createToken.header" defaultMessage="Create token" />
 				</ModalHeading>
 
-				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate={ true }>
 					<StyledLabel htmlFor="create-token-description-input">
 						<FormattedMessage
 							id="profile.create-token.token-description"
@@ -140,15 +140,15 @@ class CreateToken extends React.Component {
 					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
-							<WideSecondaryButton onClick={ this.props.onClose } >
-								<FormattedMessage id="profile.createToken.cancel" defaultMessage="Cancel"/>
-							</WideSecondaryButton>
-							<WideLargeButton
-								type="submit"
-								enabledStyle={ enabledStyle }
-							>
-								<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token" />
-							</WideLargeButton>
+						<WideSecondaryButton onClick={ this.props.onClose }>
+							<FormattedMessage id="profile.createToken.cancel" defaultMessage="Cancel" />
+						</WideSecondaryButton>
+						<WideLargeButton
+							type="submit"
+							enabledStyle={ enabledStyle }
+						>
+							<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token" />
+						</WideLargeButton>
 					</Buttons>
 				</form>
 			</CreateTokenModal>

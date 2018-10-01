@@ -8,8 +8,10 @@ import LoginMessage from "./LoginMessage";
 import SignupContainer from "../../containers/Signup";
 import LoginContainer from "../../containers/Login";
 import SubNavigation, { SubNavigationItem } from "../SubNavigation";
+import { saveIntendedDestination } from "../../functions/auth";
+import * as queryString from "query-string";
 
-let itemRoutes = [
+const itemRoutes = [
 	{
 		component: SignupContainer,
 		path: "/signup",
@@ -38,7 +40,7 @@ const messages = defineMessages( {
 	signupMessage: {
 		id: "signup.message",
 		defaultMessage: "MyYoast is the portal to all things Yoast. Whether you want to comment on a post, " +
-		"take our free SEO for beginners training or find a product you have purchased: it's all there!",
+			"take our free SEO for beginners training or find a product you have purchased: it's all there!",
 	},
 	button: {
 		id: "login.button",
@@ -50,6 +52,12 @@ const messages = defineMessages( {
  * Test page to test the login layout / styling.
  */
 class LoginSignupPage extends React.Component {
+	componentDidMount() {
+		const queryParams = queryString.parse( this.props.location.search );
+		if ( queryParams.redirect_to ) {
+			saveIntendedDestination( queryParams.redirect_to );
+		}
+	}
 
 	getLoginMessage() {
 		if ( this.props.location.pathname === "/login" || this.props.location.pathname === "/login/" ) {
@@ -58,6 +66,11 @@ class LoginSignupPage extends React.Component {
 		return <LoginMessage header={ messages.signupHeader } message={ messages.signupMessage } />;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<LoginColumnLayout>

@@ -73,7 +73,6 @@ const messages = defineMessages( {
  * Sign up page where the user can sign up to MyYoast.
  */
 class Signup extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -107,8 +106,8 @@ class Signup extends React.Component {
 	 * @returns {void}
 	 */
 	validatePassword( value ) {
-		if( value.length > 0 ) {
-			let passwordValidation = zxcvbn( value );
+		if ( value.length > 0 ) {
+			const passwordValidation = zxcvbn( value );
 			this.setState( { passwordScore: passwordValidation.score } );
 		}
 	}
@@ -123,8 +122,8 @@ class Signup extends React.Component {
 	 * @returns {void}
 	 */
 	onUpdate( field, event, errors = [] ) {
-		let hasFieldErrors = errors.length > 0;
-		let obj = {};
+		const hasFieldErrors = errors.length > 0;
+		const obj = {};
 		// Scores the strength of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			this.validatePassword( event.target.value );
@@ -140,18 +139,20 @@ class Signup extends React.Component {
 	 * @returns {ReactElement} The 'Create account' button.
 	 */
 	getAccountButton( errors ) {
-		let noInputFieldErrors = ! errors && ! this.state.errorsInputFields;
 		return <SaveButtonArea>
-			<SaveButton type="submit" enabledStyle = {
-				( this.state.email.length &&
-					this.state.password.length &&
-					this.state.passwordRepeat.length ) > 0 &&
-					noInputFieldErrors &&
-					this.state.passwordScore > 2
-			}>
+			<SaveButton type="submit" enabledStyle={ this.canSubmit( errors ) }>
 				<FormattedMessage { ...messages.createAccount } />
 			</SaveButton>
 		</SaveButtonArea>;
+	}
+
+	canSubmit( errors ) {
+		return this.state.email.length > 0 &&
+			this.state.password.length > 0 &&
+			this.state.passwordRepeat.length > 0 &&
+			! errors &&
+			! this.state.errorsInputFields &&
+			this.state.passwordScore > 2;
 	}
 
 	/**
@@ -187,31 +188,35 @@ class Signup extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		let data = {
+		const data = {
 			userEmail: this.state.email,
 			password: this.state.password,
 			repeatPassword: this.state.passwordRepeat,
 		};
-		// Only submits data when the password is strong enough. Same as yoast.com, where a score < 3 returns an error.
-		if ( this.state.passwordScore > 2 ) {
+
+		if ( this.canSubmit( this.validate() ) ) {
 			this.props.attemptSignup( data );
 		}
 	}
 
-
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let signupError = this.props.signupError;
 
 		if ( this.state.passwordScore < 3 ) {
 			// Error object for weak password input, corresponding to the unifyErrorStructure function.
-			signupError = { code: "rest_user_weak_password", field: "validator"  };
+			signupError = { code: "rest_user_weak_password", field: "validator" };
 		}
 
-		if( this.props.signupRequestSuccess ) {
+		if ( this.props.signupRequestSuccess ) {
 			return ( <Redirect to={ "/almost-there" } /> );
 		}
 
-		let errors = this.validate();
+		const errors = this.validate();
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>

@@ -22,17 +22,17 @@ export const mapStateToProps = ( state ) => {
 
 	let courses = state.entities.courses.allIds
 		.map( ( courseId ) => {
-			let course = state.entities.courses.byId[ courseId ];
-			let enrollments = coursesEnrollments[ courseId ] || [];
-			let ownedEnrollments = enrollments.filter( ( enrollment ) => enrollment.buyerId === currentUserId );
-			let studentEnrollment = enrollments
+			const course = state.entities.courses.byId[ courseId ];
+			const enrollments = coursesEnrollments[ courseId ] || [];
+			const ownedEnrollments = enrollments.filter( ( enrollment ) => enrollment.buyerId === currentUserId );
+			const studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
-			let usedEnrollments = ownedEnrollments.filter( ( enrollment ) => enrollment.studentId );
-			let availableEnrollment =
+			const usedEnrollments = ownedEnrollments.filter( ( enrollment ) => enrollment.studentId );
+			const availableEnrollment =
 				ownedEnrollments.find( ( enrollment ) => ! enrollment.studentId ) ||
 				ownedEnrollments.find( ( enrollment ) => ! enrollment.outsideTrialProgress );
-			let usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
-			let shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
+			const usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
+			const shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
 
 			return {
 				image: course.iconUrl,

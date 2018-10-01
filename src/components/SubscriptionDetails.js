@@ -62,7 +62,7 @@ const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 	}
 `;
 
-let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 
 /**
  * The SubscriptionDetails component.
@@ -95,7 +95,7 @@ function SubscriptionDetails( props ) {
 		/>;
 	}
 
-	let statusRow = (
+	const statusRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="status">
 			<ColumnMinWidth ellipsis={ true }>
 				{ props.intl.formatMessage( messages.status ) }
@@ -106,7 +106,7 @@ function SubscriptionDetails( props ) {
 		</RowMobileCollapseNoMinHeight>
 	);
 
-	let startingDateRow = (
+	const startingDateRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="start-date">
 			<ColumnMinWidth ellipsis={ true }>
 				{ props.intl.formatMessage( messages.startDate ) }
@@ -114,15 +114,15 @@ function SubscriptionDetails( props ) {
 			<ColumnFixedWidthResponsive ellipsis={ true }>
 				<FormattedDate
 					value={ props.startDate }
-					year='numeric'
-					month='long'
-					day='2-digit'
+					year="numeric"
+					month="long"
+					day="2-digit"
 				/>
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapseNoMinHeight>
 	);
 
-	let nextBillingDateRow = (
+	const nextBillingDateRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="next-billing">
 			<ColumnMinWidth ellipsis={ true }>
 				{ props.intl.formatMessage( messages.nextBilling ) }
@@ -133,7 +133,7 @@ function SubscriptionDetails( props ) {
 		</RowMobileCollapseNoMinHeight>
 	);
 
-	let endDateRow = (
+	const endDateRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="end-date">
 			<ColumnMinWidth ellipsis={ true }>
 				{ props.intl.formatMessage( messages.endDate ) }
@@ -145,23 +145,23 @@ function SubscriptionDetails( props ) {
 	);
 
 	// Shown when the cancellation of the subscription is pending.
-	let pendingCancelMessage = <FormattedMessage { ...messages.cancelPending } />;
+	const pendingCancelMessage = <FormattedMessage { ...messages.cancelPending } />;
 
 	// Shown when the subscription can be cancelled, but has not been cancelled yet.
-	let cancelLink = (
+	const cancelLink = (
 		<Link to={ "#" } onClick={ props.onCancelClick }>
 			<FormattedMessage { ...messages.cancelLink } />
 		</Link>
 	);
 
-	let cancelSubscriptionRow = (
+	const cancelSubscriptionRow = (
 		<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="cancel">
 			<ColumnFixedWidthResponsive ellipsis={ true }>
 				{ props.status === "pending-cancel" ? pendingCancelMessage : cancelLink }
 			</ColumnFixedWidthResponsive>
 		</RowMobileCollapseNoMinHeight> );
 
-	let rows = [ statusRow, startingDateRow ];
+	const rows = [ statusRow, startingDateRow ];
 	if ( props.status === "active" || props.status === "on-hold" ) {
 		rows.push( nextBillingDateRow );
 	} else {

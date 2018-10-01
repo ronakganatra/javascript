@@ -7,7 +7,7 @@ import YoastSelect from "../../general/YoastSelect";
 import ButtonsContainer from "../../general/ButtonsContainer";
 import { StyledLabel } from "../../Labels";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	importDataRequired: {
 		id: "requestConfiguration.importDataCheck",
 		defaultMessage: "Should we import data from another SEO plugin? We'll do this at no extra cost!" +
@@ -40,7 +40,6 @@ const TopSpaceButtonContainer = styled( ButtonsContainer )`
 `;
 
 class ImportDataStep extends React.Component {
-
 	constructor( props ) {
 		super( props );
 		this.state = {
@@ -77,20 +76,27 @@ class ImportDataStep extends React.Component {
 		this.props.completeStep();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let value = this.state.importFrom;
+		const value = this.state.importFrom;
 		return (
 			<div>
 				<p>
 					<FormattedMessage
 						id={ messages.importDataRequired.id }
-						defaultMessage={ messages.importDataRequired.defaultMessage } />
+						defaultMessage={ messages.importDataRequired.defaultMessage }
+					/>
 				</p>
 
 				<StyledLabel htmlFor="import-data-exists">
 					<FormattedMessage
 						id={ messages.importDataExists.id }
-						defaultMessage={ messages.importDataExists.defaultMessage } />
+						defaultMessage={ messages.importDataExists.defaultMessage }
+					/>
 				</StyledLabel>
 
 				<YoastSelect
@@ -102,15 +108,15 @@ class ImportDataStep extends React.Component {
 					clearable={ false }
 				/>
 				<TopSpaceButtonContainer>
-					<WideSecondaryButton onClick={ this.props.onBack } >
-						<FormattedMessage id="requestConfiguration.close" defaultMessage="back"/>
+					<WideSecondaryButton onClick={ this.props.onBack }>
+						<FormattedMessage id="requestConfiguration.close" defaultMessage="back" />
 					</WideSecondaryButton>
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.importFrom !== null }
 					>
-						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue"/>
+						<FormattedMessage id="requestConfiguration.continue" defaultMessage="continue" />
 					</WideLargeButton>
 				</TopSpaceButtonContainer>
 			</div>

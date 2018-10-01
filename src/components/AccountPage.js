@@ -5,7 +5,7 @@ import ProfilePageContainer from "../containers/ProfilePage";
 import OrderPage from "../containers/OrdersPage";
 import { RenewalNotificationContainer } from "../containers/SubscriptionsPage";
 
-let itemRoutes = [
+const itemRoutes = [
 	{
 		component: SubscriptionsPageContainer,
 		path: "/account/subscriptions",

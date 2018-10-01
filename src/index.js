@@ -6,8 +6,11 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	getAccessToken,
-	getUserId, hasAccessToken,
+	getUserId,
+	hasAccessToken,
 	hasCookieParams,
+	hasLoggedOut,
+	removeCookies,
 	setCookieFromParams,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
@@ -18,13 +21,13 @@ import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
 import { fetchUser, login } from "./actions/user";
 
-let history = createHistory();
+const history = createHistory();
 
 /**
  * If we are in a development environment, we want the store to include the redux-logger.
  * On a production build we want the logger to be omitted.
  */
-let middleware = [
+const middleware = [
 	thunkMiddleware,
 	routerMiddleware( history ),
 ];
@@ -50,13 +53,17 @@ function app() {
 		setCookieFromParams();
 	}
 
+
 	if ( hasAccessToken() ) {
+		if ( hasLoggedOut() ) {
+			removeCookies();
+		}
 		store.dispatch( login( getAccessToken(), getUserId() ) );
 		store.dispatch( fetchUser( getUserId() ) );
 	}
 
 	ReactDOM.render(
-		<App store={ store } history={ history }/>,
+		<App store={ store } history={ history } />,
 		document.getElementById( "root" )
 	);
 }

@@ -14,7 +14,7 @@ const messages = defineMessages( {
 	},
 } );
 
-let itemRoutes = [
+const itemRoutes = [
 	{
 		component: CoursesProgress,
 		path: "/courses/progress",
@@ -52,21 +52,28 @@ class CoursesPage extends React.Component {
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
+		const message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<Fragment>
 				<SubNavigation itemRoutes={ itemRoutes } />
 				<SubNavigationItem itemRoutes={ itemRoutes } />
-				<SubNavigationItem itemRoutes={ [
-					{
-						path: "/courses",
-						component: CoursesProgress,
-					},
-				] } />
+				<SubNavigationItem
+					itemRoutes={ [
+						{
+							path: "/courses",
+							component: CoursesProgress,
+						},
+					] }
+				/>
 			</Fragment>
 		);
 	}

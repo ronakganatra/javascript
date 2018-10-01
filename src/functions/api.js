@@ -9,7 +9,7 @@ import getEnv from "./getEnv";
  * @returns {boolean} Whether or not the HTTP method is valid.
  */
 function determineValidMethod( method ) {
-	let validMethods = [ "GET", "POST", "PUT", "FETCH", "HEAD", "DELETE", "PATCH" ];
+	const validMethods = [ "GET", "POST", "PUT", "FETCH", "HEAD", "DELETE", "PATCH" ];
 
 	if ( typeof method !== "string" ) {
 		return false;
@@ -106,7 +106,7 @@ function handleResponse( response ) {
 		return Promise.resolve();
 	}
 
-	let validStatusCodes = [ 200, 204 ];
+	const validStatusCodes = [ 200, 204 ];
 
 	if ( response.status === 401 ) {
 		return handle401( response );
@@ -196,6 +196,6 @@ export function getConfigurationServiceReportUrl( configurationServiceRequestId 
  * @returns {string} the URL to the profile
  */
 export function getDownloadProfileUrl( userId ) {
-	let path = `Customers/${userId}/download/`;
+	const path = `Customers/${userId}/download/`;
 	return `${getApiUrl()}/${path}?access_token=${getAccessToken()}`;
 }

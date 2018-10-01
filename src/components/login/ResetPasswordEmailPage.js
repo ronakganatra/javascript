@@ -114,7 +114,6 @@ const BackButton = styled( ButtonLink )`
  * Page to send a email to reset the password of an account.
  */
 class ResetPasswordEmailPage extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -145,7 +144,7 @@ class ResetPasswordEmailPage extends React.Component {
 	 * @returns {void}
 	 */
 	onUpdateEmail( field, event, errors = [] ) {
-		let obj = {};
+		const obj = {};
 		obj[ field ] = event.target.value;
 		obj.errors = errors;
 		this.setState( obj );
@@ -160,7 +159,7 @@ class ResetPasswordEmailPage extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		if( this.canSubmit() === false ) {
+		if ( this.canSubmit() === false ) {
 			return;
 		}
 		this.props.attemptResetPasswordEmail( { email: this.state.email } );
@@ -175,14 +174,19 @@ class ResetPasswordEmailPage extends React.Component {
 		return ! isEmpty( this.state.email ) && this.state.errors.length === 0 && this.props.loading === false;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		if( this.props.passwordRequestSent ) {
+		if ( this.props.passwordRequestSent ) {
 			return ( <Redirect to={ "/forgot-password/check-your-email" } /> );
 		}
 
 		let buttonText = messages.sendButton;
 
-		if( this.props.loading ) {
+		if ( this.props.loading ) {
 			buttonText = messages.loadingButton;
 		}
 		return (
@@ -192,7 +196,7 @@ class ResetPasswordEmailPage extends React.Component {
 						<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 					</Header>
 					<Title>
-						<FormattedMessage { ...messages.passwordResetTitle }/>
+						<FormattedMessage { ...messages.passwordResetTitle } />
 					</Title>
 					<FormattedMessage { ...messages.emailAddressMessage } />
 					<FormGroup onSubmit={ this.handleSubmit }>
