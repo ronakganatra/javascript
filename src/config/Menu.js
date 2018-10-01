@@ -1,7 +1,7 @@
-import sitesIcon from "../icons/sites.svg";
-import coursesIcon from "../icons/courses.svg";
-import userIcon from "../icons/user.svg";
-import downloadsIcon from "../icons/download.svg";
+import sitesIcon from "../icons/sites.js";
+import coursesIcon from "../icons/courses.js";
+import userIcon from "../icons/user.js";
+import downloadsIcon from "../icons/download.js";
 import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
@@ -12,7 +12,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
-		iconSource: sitesIcon,
+		iconSource: sitesIcon(),
 		component: SitesPageContainer,
 		isActive: ( match, location ) => {
 			if ( match ) {
@@ -26,7 +26,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/courses",
 		titleKey: "courses",
-		iconSource: coursesIcon,
+		iconSource: coursesIcon(),
 		component: CoursesPage,
 		exact: false,
 	},
@@ -34,7 +34,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/downloads",
 		titleKey: "downloads",
-		iconSource: downloadsIcon,
+		iconSource: downloadsIcon(),
 		component: DownloadsPage,
 		exact: false,
 	},
@@ -42,7 +42,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/account",
 		titleKey: "account",
-		iconSource: userIcon,
+		iconSource: userIcon(),
 		component: AccountPage,
 		exact: false,
 	},
