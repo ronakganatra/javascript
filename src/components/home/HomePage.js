@@ -4,8 +4,8 @@ import { speak } from "@wordpress/a11y";
 import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
 import SitesCard from "./SitesCard";
-import { FullHeightCard } from "../Card";
 import BlogFeed from "./BlogCard";
+import { FullHeightCard } from "../Card";
 
 
 const messages = defineMessages( {
@@ -29,6 +29,11 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Renders the component
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>
