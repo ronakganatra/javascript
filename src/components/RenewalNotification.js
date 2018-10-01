@@ -108,7 +108,9 @@ class RenewalNotification extends React.Component {
 			( subscription ) => subscription.endDate > currentDate );
 
 		// Makes sure subscriptions are not empty.
-		subscriptions = subscriptions.length > 0 && subscriptions;
+		if ( subscriptions.length < 1 || ! subscriptions ) {
+			return null;
+		}
 
 		subscriptions = subscriptions.sort( ( a, b ) => {
 			return new Date( a.endDate ) - new Date( b.endDate );
