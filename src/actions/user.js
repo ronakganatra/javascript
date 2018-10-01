@@ -78,7 +78,7 @@ export function logout() {
 						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
 						removeAuthCookies();
 						// When the user was not logged in in the first place, we consider the logout a success after removing the MyYoast Auth cookies.
-						if ( error.error.code === "user_not_logged_in" ) {
+						if ( error.error === "user_not_logged_in" ) {
 							dispatch( logoutSuccess() );
 							return;
 						}
