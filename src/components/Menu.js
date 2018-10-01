@@ -5,8 +5,6 @@ import colors from "yoast-components/style-guide/colors.json";
 import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
-/* eslint-disable */
-
 const titles = defineMessages( {
 	sites: {
 		id: "menu.title.sites",
