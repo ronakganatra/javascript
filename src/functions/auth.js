@@ -155,6 +155,15 @@ export function hasAccessToken() {
 }
 
 /**
+ * Checks whether a user has logged out on Yoast.com and not on MyYoast.
+ *
+ * @returns {boolean} Whether or not the user is logged out on Yoast.com.
+ */
+export function hasLoggedOut() {
+	return !! Cookies.get( "logged_out" );
+}
+
+/**
  * Returns the access token known from the cookies.
  *
  * @returns {string} The available access token.
