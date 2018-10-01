@@ -175,6 +175,7 @@ export function retrieveSitesFailure( errorText ) {
 		retrieveSitesError: errorText,
 	};
 }
+
 /**
  * An action creator for the retrieve sites action.
  *

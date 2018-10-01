@@ -4,8 +4,9 @@ import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
-import { FullHeightCard } from "../Card";
 import SitesCard from "./SitesCard";
+import BlogFeed from "./BlogCard";
+import { FullHeightCard } from "../Card";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -42,9 +43,20 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Renders the component
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<CardColumns>
+				<FullHeightCard
+					className={ "BlogCard" }
+					id={ "blog-card" }
+				>
+					<BlogFeed />
+				</FullHeightCard>
 				<FullHeightCard
 					className={ "SitesCard" }
 					id={ "sites-card" }
