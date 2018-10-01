@@ -84,7 +84,7 @@ class RenewalNotification extends React.Component {
 	}
 
 	/**
-	 * Called on cross click and sets a cookie.
+	 * Called on cross click.
 	 *
 	 * @param {event} event The event clicking the close cross.
 	 *
@@ -96,7 +96,7 @@ class RenewalNotification extends React.Component {
 	}
 
 	/**
-	 * Called on cross click and sets a cookie.
+	 * Calculates the subscription with the earliest endDate.
 	 *
 	 * @returns {object} The nearestEndDate.
 	 */
@@ -134,7 +134,7 @@ class RenewalNotification extends React.Component {
 	/**
 	 * Renders the message.
 	 *
-	 * @returns {*} Returns an empty div if the cookie is set or returns the message.
+	 * @returns { ReactElement|null} Returns a message container including the renewalNotification or null.
 	 */
 	render() {
 		let earliestSubscription = this.earliestEndDate();
