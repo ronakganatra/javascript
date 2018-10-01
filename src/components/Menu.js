@@ -5,6 +5,8 @@ import colors from "yoast-components/style-guide/colors.json";
 import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
+/* eslint-disable */
+
 const titles = defineMessages( {
 	sites: {
 		id: "menu.title.sites",
@@ -77,6 +79,13 @@ const MenuItem = styled( NavLink )`
 		transition: padding 100ms ease-out;
 	}
 
+	svg{
+		height: 40px;
+		width: 40px;
+		margin: 0 10px -12px;
+		fill: ${ colors.$color_white };
+	}
+
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
 		background-color: ${ colors.$color_grey_light };
@@ -113,6 +122,10 @@ const MenuItem = styled( NavLink )`
 			bottom: -0.25rem;
 			box-shadow: 0 -1px 8px 0 rgba(0, 0, 0, 0.3);
 		}
+
+		svg{
+			fill: ${ colors.$color_pink_dark };
+		}
 	}
 
 	@media screen and ( max-width: 1024px ) {
@@ -137,6 +150,11 @@ const MenuItem = styled( NavLink )`
 			transform: scale( 1.08 );
 		}
 
+		svg{
+			display: block;
+			margin: 0 auto -3px;
+		}
+
 		&.${ activeStyle } {
 			border-bottom: 0.25rem solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
@@ -154,19 +172,11 @@ const MenuItem = styled( NavLink )`
 			&:after {
 				content: none;
 			}
+
+			svg{
+				fill: ${ colors.$color_white };
+			}
 		}
-	}
-`;
-
-const MenuIcon = styled.img`
-		height: 40px;
-		width: 40px;
-		margin: 0 10px -12px;
-
-	@media screen and ( max-width: 1024px ) {
-		display: block;
-
-		margin: 0 auto -3px;
 	}
 `;
 
@@ -201,7 +211,31 @@ function MainMenu( props ) {
 								isActive={ isActive }
 								ariaCurrent="page"
 							>
-								<MenuIcon src={ page.iconSource } alt="" />
+								{/*<svg src={ page.iconSource } alt="" />*/}
+								<svg
+									version="1.1"
+									id="courses"
+									xmlns="http://www.w3.org/2000/svg"
+									x="0px"
+									y="0px"
+									role="img"
+									aria-hidden="true"
+									focusable="false"
+									viewBox="0 0 46 34"// activeClassName={ activeStyle }
+								>
+									<g>
+										<path
+											d="M45.1,7.9L23.2,1c-0.1,0-0.1,0-0.2,0c-0.1,0-0.1,0-0.2,0L0.9,7.9C0.7,8,0.5,8.2,0.5,8.5S0.7,9,0.9,9.1l6.5,2
+												c-1.2,1.7-1.5,4.2-1.6,6.4c-0.7,0.4-1.6,1.2-1.6,2.2c0,0.9,0.7,1.6,1.4,2.1l-1.4,8.5c0,0.2,0,0.4,0.2,0.5S4.7,31,4.9,31h3.8
+												c0.2,0,0.4-0.1,0.5-0.2c0.1-0.1,0.2-0.3,0.2-0.5l-1.5-8.5c0.7-0.4,1.5-1.2,1.5-2.1c0-0.9-0.8-1.7-1.5-2.1C7.9,15,9,12.8,10.1,12
+												l12.5,4c0.1,0,0.3,0,0.4,0c0.1,0,0.3,0,0.4,0l21.7-6.8c0.3-0.1,0.4-0.3,0.4-0.6S45.3,8,45.1,7.9z"
+										/>
+										<path
+											d="M23,18.1c-0.1,0-0.1,0-0.2,0l-12-3.7l-0.4,7.1c-0.2,2.8,5.6,5,12.5,5c6.9,0,12.7-2.2,12.5-5l-0.4-7.1l-12,3.7
+												C23.1,18.1,23.1,18.1,23,18.1z"
+										/>
+									</g>
+								</svg>
 								{ title }
 							</MenuItem>
 						</li>;
