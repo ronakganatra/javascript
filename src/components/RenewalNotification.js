@@ -110,25 +110,11 @@ class RenewalNotification extends React.Component {
 		// Makes sure subscriptions are not empty.
 		subscriptions = subscriptions.length > 0 && subscriptions;
 
-		// Sets the earliest subscription to the first subscription of the array
-		let earliestSubscription = subscriptions[ 0 ];
+		subscriptions = subscriptions.sort( ( a, b ) => {
+			return new Date( a.endDate ) - new Date( b.endDate );
+		} );
 
-		// Loops through the array to assign the earliest endDate within the array of endDates.
-		for ( let i = 0; i < subscriptions.length; i++ ) {
-			// Defines the first endDate.
-			let endDateStart = subscriptions[ 0 ];
-			endDateStart = endDateStart.endDate;
-			// Defines the endDate of subscription i.
-			let endDateNew = subscriptions[ i ];
-			endDateNew = endDateNew.endDate;
-
-			// Updates earliestSubscription and endDateStart if another subscription of the array has an earlier endDate.
-			if ( endDateNew < endDateStart ) {
-				earliestSubscription = subscriptions[ i ];
-				endDateStart = endDateNew;
-			}
-		}
-		return earliestSubscription;
+		return subscriptions[ 0 ];
 	}
 
 	/**
