@@ -2,7 +2,8 @@ import React from "react";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import SitesCard from "./SitesCard";
-
+import SupportCard from "./SupportCard";
+import { FullHeightCard } from "./../Card";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -30,6 +31,13 @@ class HomePage extends React.Component {
 			<div>
 				<h1>WORK IN PROGRESS</h1>
 				<SitesCard />
+				<FullHeightCard
+					className={ "SupportCard" }
+					id={ "support-card" }
+				>
+					<SupportCard id={ "support" } header={ "Support"} />
+				</FullHeightCard>
+
 			</div>
 		);
 	}
