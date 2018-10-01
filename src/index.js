@@ -6,8 +6,11 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	getAccessToken,
-	getUserId, hasAccessToken,
+	getUserId,
+	hasAccessToken,
 	hasCookieParams,
+	hasLoggedOut,
+	removeCookies,
 	setCookieFromParams,
 } from "./functions/auth";
 import thunkMiddleware from "redux-thunk";
@@ -50,7 +53,11 @@ function app() {
 		setCookieFromParams();
 	}
 
+
 	if ( hasAccessToken() ) {
+		if ( hasLoggedOut() ) {
+			removeCookies();
+		}
 		store.dispatch( login( getAccessToken(), getUserId() ) );
 		store.dispatch( fetchUser( getUserId() ) );
 	}
