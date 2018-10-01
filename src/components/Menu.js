@@ -153,6 +153,8 @@ const MenuItem = styled( NavLink )`
 		svg{
 			display: block;
 			margin: 0 auto -3px;
+			height: 35px;
+			width: 35px;
 		}
 
 		&.${ activeStyle } {
