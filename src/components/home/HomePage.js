@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PluginUpsell from "./PluginUpsell";
@@ -6,13 +7,26 @@ import AcademyUpsell from "./AcademyUpsell";
 import { FullHeightCard } from "../Card";
 import SitesCard from "./SitesCard";
 
-
 const messages = defineMessages( {
 	homePageLoaded: {
 		id: "home.page.loaded",
 		defaultMessage: "Home page loaded",
 	},
 } );
+
+const CardColumns = styled.div`
+	max-height: 1000px;
+	max-width: 1400px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: red;
+
+	> div {
+		max-width: 600px;
+		margin-top: 16px;
+	};
+`;
 
 /**
  * Returns the rendered HomePage component.
@@ -30,8 +44,7 @@ class HomePage extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h1>WORK IN PROGRESS</h1>
+			<CardColumns>
 				<FullHeightCard
 					className={ "SitesCard" }
 					id={ "sites-card" }
@@ -50,7 +63,7 @@ class HomePage extends React.Component {
 				>
 					<AcademyUpsell />
 				</FullHeightCard>
-			</div>
+			</CardColumns>
 		);
 	}
 }

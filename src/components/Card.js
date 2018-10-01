@@ -21,8 +21,8 @@ const HeaderImage = styled.img`
 
 const Content = styled.div`
 	margin: 0;
-	padding: 20px;
-	padding-top: 10px;
+	padding: 18px;
+	padding-top: 8px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;

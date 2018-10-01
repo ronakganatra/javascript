@@ -20,13 +20,13 @@ const messages = defineMessages( {
 } );
 
 const ActionBlock = styled.div`
+	margin-top: 18px;
 	text-align: center;
 `;
 
 const Header = styled.h2`
 	padding: 0;
-	margin: 0;
-	margin-bottom: 15px;
+	margin: 16px 0;
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
 	font-size: 1.5em;
@@ -34,7 +34,6 @@ const Header = styled.h2`
 `;
 
 const Details = styled.div`
-	margin: 24px 0;
 	border-bottom: 1px ${ colors.$color_grey } solid;
 	flex-grow: 1;
 `;
