@@ -15,19 +15,51 @@ const messages = defineMessages( {
 	},
 } );
 
-const CardColumns = styled.div`
-	max-height: 1000px;
-	max-width: 1400px;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	background-color: red;
-
-	> div {
-		max-width: 600px;
-		margin-top: 16px;
-	};
+const Columns = styled.div`
+	display: block;
+	background-color: green;
+	align-items: top;
+	width: 1264px;
 `;
+
+const CardColumn = styled.div`
+	display: inline-block;
+	max-width: 600px;
+	
+	> div {
+		margin-top: 8px;
+	}
+
+	&#left-column-cards {
+		background-color: red;
+	}
+	&#right-column-cards {
+		background-color: blue;
+	}
+`;
+
+const cards = [
+	{
+		id: "plugin-upsell-card",
+		className: "UpsellCard",
+		component: <PluginUpsell />,
+	},
+	{
+		id: "blog-card",
+		className: "BlogCard",
+		component: <BlogFeed />,
+	},
+	{
+		id: "academy-upsell-card",
+		className: "UpsellCard",
+		component: <AcademyUpsell />,
+	},
+	{
+		id: "sites-card",
+		className: "SitesCard",
+		component: <SitesCard />,
+	},
+];
 
 /**
  * Returns the rendered HomePage component.
@@ -43,39 +75,53 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
+	sortCardsInColumns( cardsArray ) {
+		const leftColumn = [];
+		const rightColumn = [];
+		cardsArray.forEach( ( cardData, index ) => {
+			// If the index is even, add to left column.
+			const Card = <FullHeightCard
+				id={ cardData.id }
+				key={ cardData.id }
+				className={ cardData.className }
+			>
+				{ cardData.component }
+			</FullHeightCard>;
+
+			index % 2 === 0 ? leftColumn.push( Card ) : rightColumn.push( Card );
+		} );
+
+		return( [ leftColumn, rightColumn ] );
+	}
+
 	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		const [ leftColumn, rightColumn ] = ( this.sortCardsInColumns( cards ) );
 		return (
-			<CardColumns>
-				<FullHeightCard
-					className={ "BlogCard" }
-					id={ "blog-card" }
+			<Columns>
+				<CardColumn
+					id="left-column-cards"
 				>
-					<BlogFeed />
-				</FullHeightCard>
-				<FullHeightCard
-					className={ "SitesCard" }
-					id={ "sites-card" }
+					{
+						leftColumn.map( ( Card ) => {
+							return Card;
+						} )
+					}
+				</CardColumn>
+				<CardColumn
+					id="right-column-cards"
 				>
-					<SitesCard />
-				</FullHeightCard>
-				<FullHeightCard
-					className={ "UpsellCard" }
-					id={ "plugin-upsell-card" }
-				>
-					<PluginUpsell />
-				</FullHeightCard>
-				<FullHeightCard
-					className={ "UpsellCard" }
-					id={ "academy-upsell-card" }
-				>
-					<AcademyUpsell />
-				</FullHeightCard>
-			</CardColumns>
+					{
+						rightColumn.map( ( Card ) => {
+							return Card;
+						} )
+					}
+				</CardColumn>
+			</Columns>
 		);
 	}
 }
