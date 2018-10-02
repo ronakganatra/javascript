@@ -159,6 +159,7 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
+		this.moveFocusAfterTokenIsDeleted = this.moveFocusAfterTokenIsDeleted.bind( this );
 	}
 
 	componentDidMount() {
@@ -167,8 +168,11 @@ class ProfilePage extends React.Component {
 		speak( message );
 	}
 
-	componentDidUpdate() {
+	componentDidUpdate( prevProps ) {
 		this.announceActions();
+		if ( prevProps.tokenDeleted !== this.props.tokenDeleted && this.props.tokenDeleted === true ) {
+			this.moveFocusAfterTokenIsDeleted();
+		}
 	}
 
 	/**
@@ -184,6 +188,17 @@ class ProfilePage extends React.Component {
 		}
 
 		speak( message, "assertive" );
+	}
+
+	/**
+	 * Moves focus back to the Create Token button after a token is deleted.
+	 *
+	 * @returns {void}
+	 */
+	moveFocusAfterTokenIsDeleted() {
+		if ( this.createTokenButton ) {
+			this.createTokenButton.focus();
+		}
 	}
 
 	/**
@@ -244,6 +259,7 @@ class ProfilePage extends React.Component {
 						onDeleteTokenClick={ this.props.onDeleteTokenClick }
 						manageTokenData={ this.props.manageTokenData }
 						error={ this.props.tokenError }
+						tokenDeleted={ this.props.tokenDeleted }
 					/>;
 			}
 			return (
@@ -303,6 +319,9 @@ class ProfilePage extends React.Component {
 						<CreateButtonArea>
 							<WideLargeButton
 								onClick={ this.props.onCreateTokenModalOpen }
+								innerRef={ createTokenButton => {
+									this.createTokenButton = createTokenButton;
+								} }
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -432,6 +451,7 @@ ProfilePage.propTypes = {
 	onDeleteTokenClick: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object,
 	tokenError: PropTypes.object,
+	tokenDeleted: PropTypes.bool,
 	composerTokens: PropTypes.array,
 
 	// Newsletter
@@ -458,6 +478,7 @@ ProfilePage.defaultProps = {
 	passwordResetError: null,
 	manageTokenData: null,
 	tokenError: null,
+	tokenDeleted: false,
 };
 
 export default injectIntl( ProfilePage );
