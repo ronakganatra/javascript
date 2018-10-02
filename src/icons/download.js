@@ -8,10 +8,7 @@ import React from "react";
 function downloadIcon() {
 	return <svg
 		version="1.1"
-		id="download"
 		xmlns="http://www.w3.org/2000/svg"
-		x="0px"
-		y="0px"
 		role="img"
 		aria-hidden="true"
 		focusable="false"

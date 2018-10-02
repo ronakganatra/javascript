@@ -77,10 +77,10 @@ const MenuItem = styled( NavLink )`
 		transition: padding 100ms ease-out;
 	}
 
-	svg{
-		height: 30px;
-		width: 30px;
-		margin: 0 12px -8px;
+	svg {
+		height: 20px;
+		width: 20px;
+		margin: 0 25px -2px 0;
 		fill: ${ colors.$color_white };
 	}
 
@@ -121,7 +121,7 @@ const MenuItem = styled( NavLink )`
 			box-shadow: 0 -1px 8px 0 rgba(0, 0, 0, 0.3);
 		}
 
-		svg{
+		svg {
 			fill: ${ colors.$color_pink_dark };
 		}
 	}
@@ -148,11 +148,11 @@ const MenuItem = styled( NavLink )`
 			transform: scale( 1.08 );
 		}
 
-		svg{
+		svg {
 			display: block;
-			margin: 0 auto -3px;
-			height: 35px;
-			width: 35px;
+			margin: 3px auto;
+			height: 30px;
+			width: 30px;
 		}
 
 		&.${ activeStyle } {
@@ -173,7 +173,7 @@ const MenuItem = styled( NavLink )`
 				content: none;
 			}
 
-			svg{
+			svg  {
 				fill: ${ colors.$color_white };
 			}
 		}
