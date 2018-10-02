@@ -15,6 +15,29 @@ const messages = defineMessages( {
 	},
 } );
 
+const cards = [
+	{
+		id: "plugin-upsell-card",
+		className: "UpsellCard",
+		component: <PluginUpsell />,
+	},
+	{
+		id: "blog-card",
+		className: "BlogCard",
+		component: <BlogFeed />,
+	},
+	{
+		id: "academy-upsell-card",
+		className: "UpsellCard",
+		component: <AcademyUpsell />,
+	},
+	{
+		id: "sites-card",
+		className: "SitesCard",
+		component: <SitesCard />,
+	},
+];
+
 // These media screen limits were visually pleasing, and the defaults didn't suffice.
 const CardColumns = styled.div`
 	column-count: 2;
@@ -61,91 +84,39 @@ class HomePage extends React.Component {
 	}
 
 	/**
+	 * Wraps the inner card content components in a ShadowDiv and a FullHeightCard.
+	 *
+	 * @param {array} cardsArray An array of cards with id, className, and the inner card component.
+	 *
+	 * @returns {array} Returns an array of ReactElements.
+	 */
+	renderCards( cardsArray ) {
+		return cardsArray.map( ( card ) => {
+			return(
+				<ShadowDiv
+					key={ card.id }
+				>
+					<FullHeightCard
+						className={ card.className }
+						id={ card.id }
+					>
+						{ card.component }
+					</FullHeightCard>
+				</ShadowDiv>
+			);
+		} );
+	}
+
+	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		const cardList = this.renderCards( cards );
 		return (
 			<CardColumns>
-				<ShadowDiv
-					order={ 3 }
-					tabIndex={ 3 }
-				>
-					<FullHeightCard
-						className={ "UpsellCard" }
-						id={ "academy-upsell-card" }
-					>
-						<div>
-							<h2>Academy sexytimes</h2>
-							<p>HIHIIHIHIHIH</p>
-							<p>HIHIIHIHIHIH</p>
-							<p>HIHIIHIHIHIH</p>
-							<p>HIHIIHIHIHIH</p>
-						</div>
-					</FullHeightCard>
-				</ShadowDiv>
-				<ShadowDiv
-					order={ 2 }
-					tabIndex={ 2 }
-				>
-					<FullHeightCard
-						className={ "UpsellCard" }
-						id={ "plugin-upsell-card" }
-					>
-						<PluginUpsell />
-					</FullHeightCard>
-				</ShadowDiv>
-				<ShadowDiv
-					order={ -1 }
-					tabIndex={ -1 }
-				>
-					<FullHeightCard
-						className={ "BlogCard" }
-						id={ "blog-card" }
-					>
-						<BlogFeed />
-					</FullHeightCard>
-				</ShadowDiv>
-				<ShadowDiv
-					order={ -1 }
-					tabIndex={ -1 }
-				>
-					<FullHeightCard
-						className={ "UpsellCard" }
-						id={ "academy-upsell-card" }
-					>
-						<AcademyUpsell />
-					</FullHeightCard>
-				</ShadowDiv>
-				<ShadowDiv
-					order={ -1 }
-					tabIndex={ -1 }
-				>
-					<FullHeightCard
-						className={ "SitesCard" }
-						id={ "sites-card" }
-					>
-						<SitesCard />
-					</FullHeightCard>
-				</ShadowDiv>
-				<ShadowDiv
-					order={ -1 }
-					tabIndex={ -1 }
-				>
-					<FullHeightCard
-						className={ "UpsellCard" }
-						id={ "academy-upsell-card" }
-					>
-						<div>
-							<h2>Support Kaartje</h2>
-							<p> TACO BEN </p>
-							<p> TACO BEN </p>
-							<p> TACO BEN </p>
-							<p> TACO BEN </p>
-						</div>
-					</FullHeightCard>
-				</ShadowDiv>
+				{ cardList }
 			</CardColumns>
 		);
 	}
