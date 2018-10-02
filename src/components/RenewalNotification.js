@@ -74,6 +74,9 @@ const RenewalImage = styled.img`
  * @constructor
  */
 class RenewalNotification extends React.Component {
+	/**
+	 * Initializes the renewal notification.
+	 */
 	constructor()  {
 		super();
 		this.state = {
@@ -101,7 +104,7 @@ class RenewalNotification extends React.Component {
 	 * @returns {object} The nearestEndDate.
 	 */
 	earliestEndDate() {
-		let currentDate = new Date();
+		const currentDate = new Date();
 
 		// Filters subscriptions with an endDate in the future.
 		let subscriptions = this.props.subscriptions.filter(
@@ -125,35 +128,35 @@ class RenewalNotification extends React.Component {
 	 * @returns { ReactElement|null} Returns a message container including the renewalNotification or null.
 	 */
 	render() {
-		let earliestSubscription = this.earliestEndDate();
+		const earliestSubscription = this.earliestEndDate();
 
 		if ( this.state.hide || ! earliestSubscription ) {
 			return null;
 		}
 
-		let endDate = <FormattedDate
-				value={ earliestSubscription.endDate }
-				year="numeric"
-				month="long"
-				day="2-digit"
-			/>;
-		let subscriptionId = earliestSubscription.id;
+		const endDate = <FormattedDate
+			value={ earliestSubscription.endDate }
+			year="numeric"
+			month="long"
+			day="2-digit"
+		/>;
+		const subscriptionId = earliestSubscription.id;
 
 
 		return (
 			<MessageContainer>
-					<CloseButtonTopRight
-						onClick={ this.onCrossClick }
-						aria-label={ this.props.intl.formatMessage( messages.close ) }
-					/>
+				<CloseButtonTopRight
+					onClick={ this.onCrossClick }
+					aria-label={ this.props.intl.formatMessage( messages.close ) }
+				/>
 				<Block>
-					<RenewalImage src={ renewalNotification }/>
+					<RenewalImage src={ renewalNotification } />
 				</Block>
 				<Block>
-					<h2><FormattedMessage { ...messages.header }/></h2>
+					<h2><FormattedMessage { ...messages.header } /></h2>
 					<p>
-						<FormattedMessage { ...messages.description } values={ { expireDate: endDate } }/>
-						<br/>
+						<FormattedMessage { ...messages.description } values={ { expireDate: endDate } } />
+						<br />
 						<MessageLink
 							to={ "/account/subscriptions/" + subscriptionId }
 							linkTarget="_blank"
@@ -172,6 +175,11 @@ RenewalNotification.propTypes = {
 	intl: intlShape.isRequired,
 	subscriptions: PropTypes.array,
 	onManage: PropTypes.func,
+};
+
+RenewalNotification.defaultProps = {
+	subscriptions: [],
+	onManage: () => {},
 };
 
 export default injectIntl( RenewalNotification );

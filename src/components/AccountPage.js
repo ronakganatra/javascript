@@ -39,14 +39,16 @@ export default function AccountPage() {
 	return (
 		<Fragment>
 			<RenewalNotificationContainer />
-			<SubNavigation itemRoutes={itemRoutes} />
-			<SubNavigationItem itemRoutes={itemRoutes} />
-			<SubNavigationItem itemRoutes={ [
-				{
-					path: "/account",
-					component: SubscriptionsPageContainer,
-				},
-			] } />
+			<SubNavigation itemRoutes={ itemRoutes } />
+			<SubNavigationItem itemRoutes={ itemRoutes } />
+			<SubNavigationItem
+				itemRoutes={ [
+					{
+						path: "/account",
+						component: SubscriptionsPageContainer,
+					},
+				] }
+			/>
 		</Fragment>
 	);
 }
