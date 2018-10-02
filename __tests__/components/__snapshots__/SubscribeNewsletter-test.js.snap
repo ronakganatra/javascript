@@ -63,6 +63,9 @@ exports[`The Subscribe Newsletter component (when subscribed) matches the snapsh
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c1:hover,
