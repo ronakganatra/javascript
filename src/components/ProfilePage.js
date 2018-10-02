@@ -305,7 +305,8 @@ class ProfilePage extends React.Component {
 						: <FormattedMessage
 							id="profile.composer-introduction"
 							defaultMessage="Composer is a tool used by many developers to install and update plugins.
-							Through MyYoast you can use Composer to get easy access to your premium plugins. Please see the Downloads page for additional information."
+								Through MyYoast you can use Composer to get easy access to your premium plugins.
+								Please see the Downloads page for additional information."
 						/>
 				}
 			</ComposerIntroductionArea>;
@@ -388,7 +389,8 @@ class ProfilePage extends React.Component {
 							<p>
 								<FormattedMessage
 									id="profile.description.passwordReset"
-									defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
+									defaultMessage="Your password should be at least 8 characters long,
+										contain both uppercase and lowercase letters and one symbol."
 								/>
 							</p>
 							<PasswordResetForm
@@ -435,6 +437,8 @@ ProfilePage.propTypes = {
 	onSavePassword: PropTypes.func,
 	isSavingPassword: PropTypes.bool,
 	passwordIsSaved: PropTypes.bool,
+	isSendingPasswordReset: PropTypes.bool,
+	hasSendPasswordReset: PropTypes.bool,
 	passWord: PropTypes.string,
 	resetSaveMessage: PropTypes.func,
 	passwordResetError: PropTypes.object,
