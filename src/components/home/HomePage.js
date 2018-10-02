@@ -15,51 +15,36 @@ const messages = defineMessages( {
 	},
 } );
 
-const Columns = styled.div`
-	display: block;
-	background-color: green;
-	align-items: top;
-	width: 1264px;
+// These media screen limits were visually pleasing, and the defaults didn't suffice.
+const CardColumns = styled.div`
+	column-count: 2;
+	column-width: 50%;
+
+	@media screen and ( min-width: 1025px ) and ( max-width: 1200px ),
+	( max-width: 900px ) {
+		display: flex;
+		flex-direction: column;
+	} 
 `;
 
-const CardColumn = styled.div`
+/**
+ * The ShadowDiv is necessary to give the cards some space to have a drop shadow.
+ * There is a bug/lacking-feature in Chrome that does not take into account 'drop-shadow'
+ * when breaking boxes into the next column.
+ *
+ * Note, you could pass an order prop, but this will only affect the visual order, so it probably needs a JS solution.
+ *
+ * @param {Object} props The props for the ShadowDiv.
+ *
+ * @returns {ReactElement} A small container that provides some extra breathing room for the Cards.
+ */
+const ShadowDiv = styled.div`
 	display: inline-block;
-	max-width: 600px;
-	
-	> div {
-		margin-top: 8px;
-	}
-
-	&#left-column-cards {
-		background-color: red;
-	}
-	&#right-column-cards {
-		background-color: blue;
-	}
+	margin-bottom: 12px;
+	width: 100%;
+	padding: 4px 0;
+	order: ${ props => props.order && props.order };
 `;
-
-const cards = [
-	{
-		id: "plugin-upsell-card",
-		className: "UpsellCard",
-		component: <PluginUpsell />,
-	},
-	{
-		id: "blog-card",
-		className: "BlogCard",
-		component: <BlogFeed />,
-	},
-	{
-		id: "academy-upsell-card",
-		className: "UpsellCard",
-		component: <AcademyUpsell />,
-	},
-	{
-		id: "sites-card",
-		className: "SitesCard",
-		component: <SitesCard />,
-	},
-];
 
 /**
  * Returns the rendered HomePage component.
@@ -75,53 +60,93 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
-	sortCardsInColumns( cardsArray ) {
-		const leftColumn = [];
-		const rightColumn = [];
-		cardsArray.forEach( ( cardData, index ) => {
-			// If the index is even, add to left column.
-			const Card = <FullHeightCard
-				id={ cardData.id }
-				key={ cardData.id }
-				className={ cardData.className }
-			>
-				{ cardData.component }
-			</FullHeightCard>;
-
-			index % 2 === 0 ? leftColumn.push( Card ) : rightColumn.push( Card );
-		} );
-
-		return( [ leftColumn, rightColumn ] );
-	}
-
 	/**
 	 * Renders the component
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const [ leftColumn, rightColumn ] = ( this.sortCardsInColumns( cards ) );
 		return (
-			<Columns>
-				<CardColumn
-					id="left-column-cards"
+			<CardColumns>
+				<ShadowDiv
+					order={ 3 }
+					tabIndex={ 3 }
 				>
-					{
-						leftColumn.map( ( Card ) => {
-							return Card;
-						} )
-					}
-				</CardColumn>
-				<CardColumn
-					id="right-column-cards"
+					<FullHeightCard
+						className={ "UpsellCard" }
+						id={ "academy-upsell-card" }
+					>
+						<div>
+							<h2>Academy sexytimes</h2>
+							<p>HIHIIHIHIHIH</p>
+							<p>HIHIIHIHIHIH</p>
+							<p>HIHIIHIHIHIH</p>
+							<p>HIHIIHIHIHIH</p>
+						</div>
+					</FullHeightCard>
+				</ShadowDiv>
+				<ShadowDiv
+					order={ 2 }
+					tabIndex={ 2 }
 				>
-					{
-						rightColumn.map( ( Card ) => {
-							return Card;
-						} )
-					}
-				</CardColumn>
-			</Columns>
+					<FullHeightCard
+						className={ "UpsellCard" }
+						id={ "plugin-upsell-card" }
+					>
+						<PluginUpsell />
+					</FullHeightCard>
+				</ShadowDiv>
+				<ShadowDiv
+					order={ -1 }
+					tabIndex={ -1 }
+				>
+					<FullHeightCard
+						className={ "BlogCard" }
+						id={ "blog-card" }
+					>
+						<BlogFeed />
+					</FullHeightCard>
+				</ShadowDiv>
+				<ShadowDiv
+					order={ -1 }
+					tabIndex={ -1 }
+				>
+					<FullHeightCard
+						className={ "UpsellCard" }
+						id={ "academy-upsell-card" }
+					>
+						<AcademyUpsell />
+					</FullHeightCard>
+				</ShadowDiv>
+				<ShadowDiv
+					order={ -1 }
+					tabIndex={ -1 }
+				>
+					<FullHeightCard
+						className={ "SitesCard" }
+						id={ "sites-card" }
+					>
+						<SitesCard />
+					</FullHeightCard>
+				</ShadowDiv>
+				<ShadowDiv
+					order={ -1 }
+					tabIndex={ -1 }
+				>
+					<FullHeightCard
+						className={ "UpsellCard" }
+						id={ "academy-upsell-card" }
+					>
+						<div>
+							<h2>Support Kaartje</h2>
+							<p> TACO BEN </p>
+							<p> TACO BEN </p>
+							<p> TACO BEN </p>
+							<p> TACO BEN </p>
+						</div>
+					</FullHeightCard>
+				</ShadowDiv>
+			</CardColumns>
 		);
 	}
 }
