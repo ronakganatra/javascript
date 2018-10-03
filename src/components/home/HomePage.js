@@ -1,9 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
+import PluginUpsell from "./PluginUpsell";
+import AcademyUpsell from "./AcademyUpsell";
 import SitesCard from "./SitesCard";
 import SupportCard from "./SupportCard";
 import { FullHeightCard } from "./../Card";
+import BlogFeed from "./BlogCard";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -12,12 +16,66 @@ const messages = defineMessages( {
 	},
 } );
 
+const cards = [
+	{
+		id: "plugin-upsell-card",
+		className: "UpsellCard",
+		component: <PluginUpsell />,
+	},
+	{
+		id: "blog-card",
+		className: "BlogCard",
+		component: <BlogFeed />,
+	},
+	{
+		id: "academy-upsell-card",
+		className: "UpsellCard",
+		component: <AcademyUpsell />,
+	},
+	{
+		id: "sites-card",
+		className: "SitesCard",
+		component: <SitesCard />,
+	},
+	{
+		id: "support-card",
+		className: "SupportCard",
+		component: <SupportCard />,
+	},
+];
+
+// These media screen limits were visually pleasing, and the defaults didn't suffice.
+const CardColumns = styled.div`
+	column-count: 2;
+	column-width: 50%;
+
+	@media screen and ( min-width: 1025px ) and ( max-width: 1200px ),
+	( max-width: 900px ) {
+		display: flex;
+		flex-direction: column;
+	} 
+`;
+
 /**
- * Returns the rendered Downloads Page component.
+ * The ShadowDiv is necessary to give the cards some space to have a drop shadow.
+ * There is a bug/lacking-feature in Chrome that does not take into account 'drop-shadow'
+ * when breaking boxes into the next column.
+ *
+ * @returns {ReactElement} A small container that provides some extra breathing room for the Cards.
+ */
+const ShadowDiv = styled.div`
+	display: inline-block;
+	margin-bottom: 12px;
+	width: 100%;
+	padding: 4px 0;
+`;
+
+/**
+ * Returns the rendered HomePage component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered downloads page.
+ * @returns {ReactElement} The rendered home page.
  */
 class HomePage extends React.Component {
 	componentDidMount() {
@@ -26,19 +84,41 @@ class HomePage extends React.Component {
 		speak( message );
 	}
 
-	render() {
-		return (
-			<div>
-				<h1>WORK IN PROGRESS</h1>
-				<SitesCard />
-				<FullHeightCard
-					className={ "SupportCard" }
-					id={ "support-card" }
+	/**
+	 * Wraps the inner card content components in a ShadowDiv and a FullHeightCard.
+	 *
+	 * @param {array} cardsArray An array of cards with id, className, and the inner card component.
+	 *
+	 * @returns {array} Returns an array of ReactElements.
+	 */
+	renderCards( cardsArray ) {
+		return cardsArray.map( ( card ) => {
+			return(
+				<ShadowDiv
+					key={ card.id }
 				>
-					<SupportCard id={ "support" } header={ "Support"} />
-				</FullHeightCard>
+					<FullHeightCard
+						className={ card.className }
+						id={ card.id }
+					>
+						{ card.component }
+					</FullHeightCard>
+				</ShadowDiv>
+			);
+		} );
+	}
 
-			</div>
+	/**
+	 * Renders the component
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
+	render() {
+		const cardList = this.renderCards( cards );
+		return (
+			<CardColumns>
+				{ cardList }
+			</CardColumns>
 		);
 	}
 }
@@ -48,4 +128,3 @@ export default injectIntl( HomePage );
 HomePage.propTypes = {
 	intl: intlShape.isRequired,
 };
-

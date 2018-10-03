@@ -18,22 +18,23 @@ const Header = styled.h2`
 const SupportContainer = styled.div`
 	margin: 0;
 	flex-grow: 1;
-	display: flex;
 `;
 
 const Block = styled.div`
-	display: inline-block;
+	
 `;
 
 const TextBlock = styled( Block )`
-	margin-left: 8px;
 	vertical-align: top;
+	max-width: 60%;
+	margin-top: 1em;
+	display: inline-block;
 `;
 
 const Image = styled.img`
-	width: 64px;
-	height: 64px;
-	display: block;
+	max-width: 35%;
+	display: inline;
+	float: bottom;
 `;
 
 const Description = styled.p`
@@ -53,48 +54,62 @@ const messages = defineMessages( {
 		defaultMessage: "On support forums at wordpress.org you can post about your issues, " +
 		"and others will help you out. For example:",
 	},
+	supportForumsDetail: {
+		id: "support.forumsDetail",
+		defaultMessage: "To let others help you, please include as much detail to your description as possible.",
+	},
 } );
 
 
 /**
- * A function that returns the UpsellCard component.
+ * A function that returns the SupportCard component.
  *
- * @param {Object} props The props required for the UpsellCard component.
+ * @param {Object} props The props required for the SupportCard component.
  *
- * @returns {ReactElement} The UpsellCard component.
+ * @returns {ReactElement} The SupportCard component.
  */
 const SupportCard = () => {
 	return (
 		<Fragment>
 			<Header>
-				<FormattedMessage id={ "support.card" } defaultMessage={ "Support" } />
+				<FormattedMessage
+					id={ "support.card" }
+					defaultMessage={ "Support" }
+				/>
 			</Header>
-			<p><FormattedMessage
+			<FormattedMessage
 				id={ "support.card.paragraph" }
 				defaultMessage={ "If you have a question, if you need help, or just want to contact us, " +
-				"there are several ways to get in touch." } /></p>
-
+				"there are several ways to get in touch." }
+			/>
 			<SupportContainer>
-				<TextBlock>
-					<a href={ "https://kb.yoast.com/" } target="blank" >{ "Knowlegde base >>" }</a>
-					<Description>
-						<FormattedMessage { ...messages.supportKb }
-						/>
-					</Description>
-				</TextBlock>
-				<Block>
+				<div>
+					<TextBlock>
+						<a href={ "https://kb.yoast.com/" } target="blank" >{ "Knowlegde base »" }</a>
+						<Description>
+							<FormattedMessage { ...messages.supportKb } />
+						</Description>
+					</TextBlock>
 					<Image src={ KbImage } />
-				</Block>
-				<TextBlock>
-					<a href={ "https://kb.yoast.com/" } target="blank" >{ "Knowlegde base >>" }</a>
-					<Description>
-						<FormattedMessage { ...messages.supportForums }
-						/>
-					</Description>
-				</TextBlock>
-				<Block>
+				</div>
+				<div>
+					<TextBlock>
+						<a href={ "https://kb.yoast.com/" } target="blank" >{ "Knowlegde base »" }</a>
+						<Description>
+							<FormattedMessage { ...messages.supportForums } />
+							<ul>
+								<li>
+									<a href={ "https://wordpress.org/support/plugin/wordpress-seo" } target="blank" > Yoast SEO </a>
+								</li>
+								<li>
+									<a href={ "https://wordpress.org/support/plugin/wordpress-seo" } target="blank" > All Free Yoast Plugins </a>
+								</li>
+							</ul>
+							<FormattedMessage { ...messages.supportForumsDetail } />
+						</Description>
+					</TextBlock>
 					<Image src={ ForumsImage } />
-				</Block>
+				</div>
 			</SupportContainer>
 		</Fragment>
 	);

@@ -20,9 +20,11 @@ import { uiResetPasswordReducer } from "./resetPassword";
 import { uiLoginReducer } from "./login";
 import { uiSignupReducer } from "./signup";
 import { uiActivateReducer } from "./activate";
+import { uiHomeReducer } from "./home";
 
 
 export const uiReducer = combineReducers( {
+	home: uiHomeReducer,
 	sites: uiSitesReducer,
 	site: uiSiteReducer,
 	search: uiSearch,
