@@ -7,6 +7,7 @@ import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
 import Loader from "../Loader";
+import Link from "../Link.js";
 
 const ActionBlock = styled.div`
 	text-align: center;
@@ -34,9 +35,10 @@ const WordpressFeedList = styled.ul`
 	padding: 0;
 `;
 
-const WordpressFeedLink = styled.a`
+const WordpressFeedLink = styled( Link )`
 	display: inline-block;
 	padding-bottom: 4px;
+	font-weight: bold;
 `;
 
 const A11yNotice = styled.span`
@@ -73,9 +75,8 @@ const WordpressFeedListItem = ( props ) => {
 	return (
 		<WordpressFeedListItemContainer>
 			<WordpressFeedLink
-				href={ props.link }
-				target="_blank"
-				rel="noopener noreferrer"
+				to={ props.link }
+				linkTarget="_blank"
 			>
 				{ props.title }
 				<A11yNotice>

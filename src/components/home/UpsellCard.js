@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
+import Link from "../Link";
 
 const Header = styled.h2`
 	padding: 0;
@@ -49,6 +50,10 @@ const Description = styled.p`
 	line-height: 0.9;
 `;
 
+const BoldLink = styled( Link )`
+	font-weight: bold;
+`;
+
 /**
  * A function that returns the UpsellListItem, which is a collection of icon, link, and description.
  *
@@ -63,7 +68,7 @@ const UpsellListItem = ( props ) => {
 				<Icon src={ props.icon } />
 			</Block>
 			<TextBlock>
-				<a href={ props.link.url } target="blank" >{ props.link.name }</a>
+				<BoldLink to={ props.link.url } linkTarget="_blank" >{ props.link.name }</BoldLink>
 				<Description>
 					<FormattedMessage
 						id={ props.description.id }
