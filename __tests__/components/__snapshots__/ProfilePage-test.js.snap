@@ -63,6 +63,9 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -836,6 +839,9 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -1609,6 +1615,9 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -2382,6 +2391,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -3226,6 +3238,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c30:hover,
@@ -4065,6 +4080,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -4838,6 +4856,9 @@ exports[`components/ProfilePage saving profile 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -5611,6 +5632,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -6384,6 +6408,9 @@ exports[`components/ProfilePage the default case 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
@@ -7157,6 +7184,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c26:hover,
