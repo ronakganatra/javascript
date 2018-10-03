@@ -6,8 +6,8 @@ import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
 import SitesCard from "./SitesCard";
 import SupportCard from "./SupportCard";
-import { FullHeightCard } from "./../Card";
 import BlogFeed from "./BlogCard";
+import Card from "../Card";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -97,12 +97,14 @@ class HomePage extends React.Component {
 				<ShadowDiv
 					key={ card.id }
 				>
-					<FullHeightCard
+					<Card
+						header={ card.header || null }
+						banner={ card.banner || null }
 						className={ card.className }
 						id={ card.id }
 					>
 						{ card.component }
-					</FullHeightCard>
+					</Card>
 				</ShadowDiv>
 			);
 		} );
