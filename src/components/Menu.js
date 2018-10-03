@@ -84,6 +84,12 @@ const MenuItem = styled( NavLink )`
 		fill: ${ colors.$color_white };
 	}
 
+	#courses-menu-item {
+		width: 28px;
+		height: 28px;
+		margin: 0 21px -10px -4px;
+	}
+
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
 		background-color: ${ colors.$color_grey_light };
@@ -176,6 +182,12 @@ const MenuItem = styled( NavLink )`
 			svg  {
 				fill: ${ colors.$color_white };
 			}
+		}
+		#courses-menu-item {
+			display: block;
+			margin: 1px auto;
+			height: 35px;
+			width: 35px;
 		}
 	}
 `;

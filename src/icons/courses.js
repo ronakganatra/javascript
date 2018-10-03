@@ -11,6 +11,7 @@ function coursesIcon() {
 		xmlns="http://www.w3.org/2000/svg"
 		role="img"
 		aria-hidden="true"
+		id="courses-menu-item"
 		focusable="false"
 		viewBox="0 0 640 512"
 	>
