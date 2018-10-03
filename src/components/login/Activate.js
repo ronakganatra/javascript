@@ -71,11 +71,11 @@ class Activate extends React.Component {
 	}
 
 	hasError() {
-		return this.props.activationError && this.props.activationError.error;
+		return !! this.props.activationError;
 	}
 
 	alreadyActiveError() {
-		return this.props.activationError.error.code === "already_active";
+		return this.props.activationError.code === "already_active";
 	}
 
 	/**
