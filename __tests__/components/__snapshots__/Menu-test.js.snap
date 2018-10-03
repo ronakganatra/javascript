@@ -39,10 +39,16 @@ exports[`the menu matches the snapshot 1`] = `
 }
 
 .c1 svg {
-  height: 30px;
-  width: 30px;
-  margin: 0 12px -8px;
+  height: 20px;
+  width: 20px;
+  margin: 0 25px -2px 0;
   fill: #fff;
+}
+
+.c1 #courses-menu-item {
+  width: 28px;
+  height: 28px;
+  margin: 0 21px -10px -4px;
 }
 
 .c1.active-class-name {
@@ -136,9 +142,9 @@ exports[`the menu matches the snapshot 1`] = `
 
   .c1 svg {
     display: block;
-    margin: 0 auto -3px;
-    height: 35px;
-    width: 35px;
+    margin: 3px auto;
+    height: 30px;
+    width: 30px;
   }
 
   .c1.active-class-name {
@@ -167,6 +173,13 @@ exports[`the menu matches the snapshot 1`] = `
   .c1.active-class-name svg {
     fill: #fff;
   }
+
+  .c1 #courses-menu-item {
+    display: block;
+    margin: 1px auto;
+    height: 35px;
+    width: 35px;
+  }
 }
 
 <nav
@@ -186,13 +199,10 @@ exports[`the menu matches the snapshot 1`] = `
         <svg
           aria-hidden="true"
           focusable="false"
-          id="sites"
           role="img"
           version="1.1"
           viewBox="0 0 496 512"
-          x="0px"
           xmlns="http://www.w3.org/2000/svg"
-          y="0px"
         >
           <path
             d="M336.5 160C322 70.7 287.8 8 248 8s-74 62.7-88.5 152h177zM152 256c0 22.2 1.2 43.5 3.3 64h185.3c2.1-20.5 3.3-41.8 3.3-64s-1.2-43.5-3.3-64H155.3c-2.1 20.5-3.3 41.8-3.3 64zm324.7-96c-28.6-67.9-86.5-120.4-158-141.6 24.4 33.8 41.2 84.7 50 141.6h108zM177.2 18.4C105.8 39.6 47.8 92.1 19.3 160h108c8.7-56.9 25.5-107.8 49.9-141.6zM487.4 192H372.7c2.1 21 3.3 42.5 3.3 64s-1.2 43-3.3 64h114.6c5.5-20.5 8.6-41.8 8.6-64s-3.1-43.5-8.5-64zM120 256c0-21.5 1.2-43 3.3-64H8.6C3.2 212.5 0 233.8 0 256s3.2 43.5 8.6 64h114.6c-2-21-3.2-42.5-3.2-64zm39.5 96c14.5 89.3 48.7 152 88.5 152s74-62.7 88.5-152h-177zm159.3 141.6c71.4-21.2 129.4-73.7 158-141.6h-108c-8.8 56.9-25.6 107.8-50 141.6zM19.3 352c28.6 67.9 86.5 120.4 158 141.6-24.4-33.8-41.2-84.7-50-141.6h-108z"
@@ -212,13 +222,11 @@ exports[`the menu matches the snapshot 1`] = `
         <svg
           aria-hidden="true"
           focusable="false"
-          id="courses"
+          id="courses-menu-item"
           role="img"
           version="1.1"
           viewBox="0 0 640 512"
-          x="0px"
           xmlns="http://www.w3.org/2000/svg"
-          y="0px"
         >
           <path
             d="M622.884 199.005l-275.817 85.1a96 96 0 0 1-54.134 0L92.398 222.232c-8.564 11.438-11.018 23.05-11.918 38.335C89.778 266.165 96 276.355 96 288c0 11.952-6.557 22.366-16.265 27.861l16.197 123.096c.63 4.786-3.1 9.043-7.932 9.043H40c-4.828 0-8.562-4.253-7.932-9.044L48.265 315.86C38.557 310.366 32 299.952 32 288c0-12.034 6.646-22.511 16.465-27.976.947-17.951 3.974-33.231 12.152-47.597l-43.502-13.422c-22.876-6.801-22.766-39.241 0-46.01l275.817-85.1a96 96 0 0 1 54.134 0l275.817 85.1c22.877 6.801 22.767 39.241.001 46.01zM356.503 314.682l-.207.064-.207.061a127.998 127.998 0 0 1-72.177 0l-.207-.061-.207-.064-150.914-46.57L120 352c0 35.346 89.543 64 200 64s200-28.654 200-64l-12.583-83.888-150.914 46.57z"
@@ -238,13 +246,10 @@ exports[`the menu matches the snapshot 1`] = `
         <svg
           aria-hidden="true"
           focusable="false"
-          id="download"
           role="img"
           version="1.1"
           viewBox="0 0 512 512"
-          x="0px"
           xmlns="http://www.w3.org/2000/svg"
-          y="0px"
         >
           <path
             d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"
@@ -264,13 +269,10 @@ exports[`the menu matches the snapshot 1`] = `
         <svg
           aria-hidden="true"
           focusable="false"
-          id="user"
           role="img"
           version="1.1"
           viewBox="0 0 448 512"
-          x="0px"
           xmlns="http://www.w3.org/2000/svg"
-          y="0px"
         >
           <path
             d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"
