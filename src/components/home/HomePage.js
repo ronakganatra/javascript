@@ -55,10 +55,6 @@ const CardColumns = styled.div`
  * There is a bug/lacking-feature in Chrome that does not take into account 'drop-shadow'
  * when breaking boxes into the next column.
  *
- * Note, you could pass an order prop, but this will only affect the visual order, so it probably needs a JS solution.
- *
- * @param {Object} props The props for the ShadowDiv.
- *
  * @returns {ReactElement} A small container that provides some extra breathing room for the Cards.
  */
 const ShadowDiv = styled.div`
@@ -66,7 +62,6 @@ const ShadowDiv = styled.div`
 	margin-bottom: 12px;
 	width: 100%;
 	padding: 4px 0;
-	order: ${ props => props.order && props.order };
 `;
 
 /**
