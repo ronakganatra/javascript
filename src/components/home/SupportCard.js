@@ -18,7 +18,7 @@ const messages = defineMessages( {
 	},
 	supportKbLink: {
 		id: "support-card-kb-link",
-		defaultMessage: "Knowlegde base »",
+		defaultMessage: "Knowledge base »",
 	},
 	supportKb: {
 		id: "support.kb",
