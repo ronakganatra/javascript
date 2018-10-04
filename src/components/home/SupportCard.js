@@ -91,11 +91,7 @@ const SupportCard = () => {
 				/>
 			</Header>
 			<p>
-				<FormattedMessage
-					id={ "support.card.paragraph" }
-					defaultMessage={ "If you have a question, if you need help, or if you just want to contact us, " +
-					"there are several ways to get in touch." }
-				/>
+				<FormattedMessage { ...messages.supportIntro } />
 			</p>
 			<SupportContainer>
 				<BoldLink to={ "https://kb.yoast.com/" } linkTarget={ "_blank" }>
