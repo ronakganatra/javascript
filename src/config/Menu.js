@@ -1,7 +1,8 @@
-import sitesIcon from "../icons/sites.js";
-import coursesIcon from "../icons/courses.js";
-import userIcon from "../icons/user.js";
-import downloadsIcon from "../icons/download.js";
+import React from "react";
+import SitesIcon from "../icons/Sites.js";
+import CoursesIcon from "../icons/Courses.js";
+import UserIcon from "../icons/User.js";
+import DownloadsIcon from "../icons/Download.js";
 import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
@@ -12,7 +13,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
-		iconSource: sitesIcon(),
+		iconSource: <SitesIcon />,
 		component: SitesPageContainer,
 		isActive: ( match, location ) => {
 			if ( match ) {
@@ -26,7 +27,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/courses",
 		titleKey: "courses",
-		iconSource: coursesIcon(),
+		iconSource: <CoursesIcon />,
 		component: CoursesPage,
 		exact: false,
 	},
@@ -34,7 +35,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/downloads",
 		titleKey: "downloads",
-		iconSource: downloadsIcon(),
+		iconSource: <DownloadsIcon />,
 		component: DownloadsPage,
 		exact: false,
 	},
@@ -42,7 +43,7 @@ const menuItems = [
 		showInMenu: true,
 		path: "/account",
 		titleKey: "account",
-		iconSource: userIcon(),
+		iconSource: <UserIcon />,
 		component: AccountPage,
 		exact: false,
 	},
