@@ -113,7 +113,8 @@ const getFeedList = ( props ) => {
 					key={ item.title }
 					title={ item.title }
 					link={ item.link }
-					description={ item.description } />
+					description={ item.description }
+				/>
 			) ) }
 		</WordpressFeedList>
 	);
@@ -123,7 +124,7 @@ getFeedList.propTypes = {
 	items: PropTypes.array,
 };
 
-let ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
+const ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 /**
  * A function that returns the SitesCard component.
@@ -142,14 +143,14 @@ class BlogContent extends React.Component {
 	}
 
 	render() {
-		if( this.props.retrievingFeed ) {
+		if ( this.props.retrievingFeed ) {
 			return <Loader />;
 		}
-		return(
+		return (
 			<Fragment>
 				<Details>
 					<Header>
-						<FormattedMessage id={"home.blogcard.header"} defaultMessage={"Learn more about SEO"}/>
+						<FormattedMessage id={ "home.blogcard.header" } defaultMessage={ "Learn more about SEO" } />
 					</Header>
 					{ getFeedList( this.props.blogFeed ) }
 				</Details>
@@ -159,7 +160,7 @@ class BlogContent extends React.Component {
 						linkTarget="_blank"
 					>
 						<FormattedMessage
-							id={"home.blogcard.blogbutton"}
+							id={ "home.blogcard.blogbutton" }
 							defaultMessage="SEO blog"
 						/>
 					</ResponsiveButtonLink>
@@ -180,11 +181,11 @@ BlogContent.propTypes = {
 
 
 export const mapStateToProps = ( state ) => {
-	let blogFeed = state.ui.home.blogFeed;
+	const blogFeed = state.ui.home.blogFeed;
 
-	let errorFound = state.ui.home.blogFeedErrorFound;
-	let error = state.ui.home.blogFeedError;
-	let retrievingFeed = state.ui.home.retrievingFeed;
+	const errorFound = state.ui.home.blogFeedErrorFound;
+	const error = state.ui.home.blogFeedError;
+	const retrievingFeed = state.ui.home.retrievingFeed;
 
 	return {
 		blogFeed,

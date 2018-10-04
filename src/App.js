@@ -34,6 +34,7 @@ import ActivateContainer from "./containers/ActivateContainer";
  * Helper method to write global CSS.
  * Only use it for the rare @font-face definition or body styling.
  */
+/* eslint-disable no-unused-expressions */
 injectGlobal`
 	body {
 		margin: 0;
@@ -54,17 +55,41 @@ injectGlobal`
 	}
 `;
 
+/* eslint-enable no-unused-expressions */
+
+/**
+ * The Routes component.
+ */
 class Routes extends React.Component {
+	/**
+	 * The Routes component constructor.
+	 *
+	 * @param {object} props Properties of the component.
+	 *
+	 * @returns {ReactElement} Routes component.
+	 *
+	 * @constructor
+	 */
 	constructor( props ) {
 		super( props );
 		this.state = {};
 	}
 
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {void}
+	 */
 	componentWillReceiveProps() {
 		const newState = this.getCookieState();
 		this.setState( newState );
 	}
 
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {Object} The change in state containing the redirect cookie.
+	 */
 	getDerivedStateFromProps() {
 		return this.getCookieState();
 	}
@@ -79,6 +104,18 @@ class Routes extends React.Component {
 			return { redirectTo: getRedirectUrl() };
 		}
 		return {};
+	}
+
+	/**
+	 * Redirects the user to the login page while saving the location the user was actually trying to reach.
+	 * Saving this location allows us to redirect the user back to it as soon as the login succeeds.
+	 *
+	 * @returns {ReactElement} The redirect component.
+	 */
+	redirectToLogin() {
+		removePeriLoginCookie();
+		setPeriLoginCookie();
+		return ( <Redirect to={ "/login" } /> );
 	}
 
 	/**
@@ -112,11 +149,7 @@ class Routes extends React.Component {
 							component={ inLoginLayout( ResetPasswordSuccessPage ) }
 						/>
 						<Route
-							path="*" render={ () => {
-								removePeriLoginCookie();
-								setPeriLoginCookie();
-								return ( <Redirect to={ "/login" } /> );
-							} }
+							path="*" render={ this.redirectToLogin }
 						/>
 					</Switch>
 				</ConnectedRouter>
@@ -143,13 +176,17 @@ class Routes extends React.Component {
 					<Switch>
 						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 						<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-						<Route exact={ true } path="/" component={ inMainLayout( SitesPageContainer ) } />
 						<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
 						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
-						<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }
+						<Route
+							path="/account/subscriptions/:id"
+							component={ inSingleLayout( SubscriptionPageContainer ) }
 						/>
 						{ menuItems.map( function( route, routeKey ) {
-							return <Route { ...route } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
+							return <Route
+								{ ...route } key={ routeKey } path={ route.path }
+								component={ inMainLayout( route.component ) }
+							/>;
 						} ) }
 						<Route path="*" component={ inMainLayout( PageNotFound ) } />;
 					</Switch>

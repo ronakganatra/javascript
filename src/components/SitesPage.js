@@ -136,7 +136,7 @@ class SitesPage extends React.Component {
 	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
-			return <AddSiteModal { ...this.props }/>;
+			return <AddSiteModal { ...this.props } />;
 		} else if ( this.props.configurationServiceRequestModalOpen ) {
 			return this.getConfigurationServiceRequestModal();
 		}

@@ -62,13 +62,13 @@ const BoldLink = styled( Link )`
  * @returns {ReactElement} The UpsellListItem.
  */
 const UpsellListItem = ( props ) => {
-	return(
+	return (
 		<ListItem>
 			<Block>
 				<Icon src={ props.icon } />
 			</Block>
 			<TextBlock>
-				<BoldLink to={ props.link.url } linkTarget="_blank" >{ props.link.name }</BoldLink>
+				<BoldLink to={ props.link.url } linkTarget="_blank">{ props.link.name }</BoldLink>
 				<Description>
 					<FormattedMessage
 						id={ props.description.id }
@@ -112,7 +112,7 @@ const UpsellCard = ( props ) => {
 			<ListContainer>
 				{
 					props.listPropsArray.map( ( listProps, index ) => {
-						return(
+						return (
 							<UpsellListItem { ...listProps } key={ `${ props.id }-key-${ index }` } />
 						);
 					} )

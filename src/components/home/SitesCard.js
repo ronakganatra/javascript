@@ -46,7 +46,7 @@ const AddSiteImage = styled.img`
 	padding: 0 40px; 
 `;
 
-let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
+const ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
 
 /**
  * A function that returns the SitesCard component.
@@ -95,13 +95,13 @@ SitesCard.propTypes = {
 };
 
 export const mapStateToProps = ( state ) => {
-	let modalOpen = state.ui.sites.addSiteModalOpen;
+	const modalOpen = state.ui.sites.addSiteModalOpen;
 
-	let errorFound = state.ui.sites.linkSiteFailed;
+	const errorFound = state.ui.sites.linkSiteFailed;
 
-	let error = state.ui.sites.linkSiteError;
+	const error = state.ui.sites.linkSiteError;
 
-	let linkingSiteUrl = state.ui.sites.linkingSiteUrl;
+	const linkingSiteUrl = state.ui.sites.linkingSiteUrl;
 
 	return {
 		modalOpen,
@@ -136,13 +136,13 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
-	let url = stateProps.linkingSiteUrl;
+	const url = stateProps.linkingSiteUrl;
 
-	let onConnect = ( type, fromHome ) => {
+	const onConnect = ( type, fromHome ) => {
 		dispatchProps.onConnect( url, type, fromHome );
 	};
 
-	let addSite = () => {
+	const addSite = () => {
 		dispatchProps.addSite( url );
 	};
 

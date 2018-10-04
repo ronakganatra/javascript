@@ -54,7 +54,7 @@ const academyUpsellProps = [
 ];
 
 const AcademyUpsell = () => {
-	return(
+	return (
 		<UpsellCard
 			id={ academyUpsellId }
 			header={ {

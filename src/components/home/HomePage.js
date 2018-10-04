@@ -80,7 +80,7 @@ const ShadowDiv = styled.div`
 class HomePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.homePageLoaded );
+		const message = this.props.intl.formatMessage( messages.homePageLoaded );
 		speak( message );
 	}
 
@@ -93,7 +93,7 @@ class HomePage extends React.Component {
 	 */
 	createCards( cardsArray ) {
 		return cardsArray.map( ( card ) => {
-			return(
+			return (
 				<ShadowDiv
 					key={ card.id }
 				>

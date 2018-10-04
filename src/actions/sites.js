@@ -118,7 +118,9 @@ export function linkSite( url, type, fromHome = false ) {
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
 			.then( () => {
-				fromHome && dispatch( push( "/sites" ) );
+				if ( fromHome ) {
+					dispatch( push( "/sites" ) );
+				}
 			} )
 			.catch( error => dispatch( linkSiteFailure( error ) ) );
 	};
