@@ -67,8 +67,8 @@ export function getAllSubscriptions() {
 	return ( dispatch ) => {
 		dispatch( getAllSubscriptionsRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/subscriptions/` );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/subscriptions/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getAllSubscriptionsSuccess( json ) ) )
@@ -150,8 +150,8 @@ export function cancelSubscription( subscriptionId, shopId ) {
 	return ( dispatch ) => {
 		dispatch( cancelSubscriptionRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel`, "POST" );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel`, "POST" );
 
 		return doRequest( request )
 			.then( () => dispatch( cancelSubscriptionSuccess() ) )

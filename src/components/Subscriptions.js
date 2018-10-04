@@ -12,33 +12,33 @@ import { Paper } from "./PaperStyles";
  */
 export default function Subscriptions( props ) {
 	return (
-	<Paper>
-		<ListTable>
-			{ props.subscriptions.map( function( subscription ) {
-				let onManageHandler = () => {
-					props.onManage( subscription.id );
-				};
-				return <Subscription
-					key={ subscription.id }
-					id={ subscription.id }
-					iconSource={ subscription.icon }
-					name={ subscription.name }
-					subscriptionNumber={ subscription.subscriptionNumber }
-					status={subscription.status}
-					used={ subscription.used }
-					limit={ subscription.limit }
-					requiresManualRenewal={ subscription.requiresManualRenewal }
-					hasNextPayment={ subscription.hasNextPayment }
-					nextPayment={ subscription.nextPayment }
-					hasEndDate={ subscription.hasEndDate }
-					endDate={ subscription.endDate }
-					billingAmount={ subscription.billingAmount }
-					billingCurrency={ subscription.billingCurrency }
-					onManage={ onManageHandler }
-				/>;
-			} ) }
-		</ListTable>
-	</Paper>
+		<Paper>
+			<ListTable>
+				{ props.subscriptions.map( function( subscription ) {
+					const onManageHandler = () => {
+						props.onManage( subscription.id );
+					};
+					return <Subscription
+						key={ subscription.id }
+						id={ subscription.id }
+						iconSource={ subscription.icon }
+						name={ subscription.name }
+						subscriptionNumber={ subscription.subscriptionNumber }
+						status={ subscription.status }
+						used={ subscription.used }
+						limit={ subscription.limit }
+						requiresManualRenewal={ subscription.requiresManualRenewal }
+						hasNextPayment={ subscription.hasNextPayment }
+						nextPayment={ subscription.nextPayment }
+						hasEndDate={ subscription.hasEndDate }
+						endDate={ subscription.endDate }
+						billingAmount={ subscription.billingAmount }
+						billingCurrency={ subscription.billingCurrency }
+						onManage={ onManageHandler }
+					/>;
+				} ) }
+			</ListTable>
+		</Paper>
 	);
 }
 

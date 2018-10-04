@@ -164,7 +164,7 @@ function retrieveSitesReducer( state = rootState.ui.sites, action ) {
 	}
 }
 
-let uiSites = reduceReducers( linkReducer, retrieveSitesReducer, modalReducer );
+const uiSites = reduceReducers( linkReducer, retrieveSitesReducer, modalReducer );
 
 /**
  * A reducer for the sites object within the ui object.
@@ -202,7 +202,7 @@ function pluckSubscriptionIds( site ) {
  * @returns {Object} The updated byId object.
  */
 export function byIdReducer( state = rootState.entities.sites.byId, action ) {
-	let sites = Object.assign( {}, state );
+	const sites = Object.assign( {}, state );
 
 	switch ( action.type ) {
 		case LINK_SITE_SUCCESS:

@@ -121,8 +121,8 @@ export function loadConfigurationServiceRequests() {
 	return ( dispatch ) => {
 		dispatch( fetchConfigurationServiceRequests() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/ConfigurationServiceRequests/`, "GET" );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/ConfigurationServiceRequests/`, "GET" );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -144,7 +144,7 @@ export function configureConfigurationServiceRequest( id, data ) {
 	return ( dispatch ) => {
 		dispatch( updateConfigurationServiceRequest() );
 
-		let request = prepareInternalRequest( `/ConfigurationServiceRequests/${id}/configure/`, "POST", data );
+		const request = prepareInternalRequest( `/ConfigurationServiceRequests/${id}/configure/`, "POST", data );
 
 		return doRequest( request )
 			.then( ( response ) => {

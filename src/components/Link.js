@@ -16,6 +16,11 @@ function isExternal( url ) {
  * Link that also works for external URL's, see https://github.com/ReactTraining/react-router/issues/1147 for more information.
  */
 export default class Link extends Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const internalProps = Object.assign( {}, this.props );
 		delete internalProps.linkTarget;

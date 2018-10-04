@@ -60,7 +60,7 @@ const AvatarBlock = styled.div`
 	margin: auto;
 	padding-top:20px;
 	text-align: center;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
@@ -158,7 +158,7 @@ class ProfileForm extends React.Component {
 	 */
 	displayWarnings( warnings, field ) {
 		// Find warnings for the specified field.
-		let fieldWarnings = warnings.filter( warning => {
+		const fieldWarnings = warnings.filter( warning => {
 			return warning.attribute === field;
 		} );
 
@@ -169,7 +169,7 @@ class ProfileForm extends React.Component {
 
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
-			let warningKey = warning.attribute + index;
+			const warningKey = warning.attribute + index;
 			return <ErrorDisplay key={ warningKey } error={ warning } type="warning" />;
 		} );
 	}
@@ -203,9 +203,12 @@ class ProfileForm extends React.Component {
 	}
 
 	onUpdateName( type, event ) {
-		type === "first"
-			? this.setState( { userFirstName: event.target.value } )
-			: this.setState( { userLastName: event.target.value } );
+		if ( type === "first" ) {
+			this.setState( { userFirstName: event.target.value } );
+			return;
+		}
+
+		this.setState( { userLastName: event.target.value } );
 	}
 
 	handleSubmit( event ) {
@@ -217,7 +220,7 @@ class ProfileForm extends React.Component {
 		if ( this.props.isSaving ) {
 			return;
 		}
-		let profile = {
+		const profile = {
 			/* eslint-disable camelcase */
 			first_name: this.state.userFirstName,
 			last_name: this.state.userLastName,
@@ -238,11 +241,12 @@ class ProfileForm extends React.Component {
 	}
 
 	/**
-	 * Renders the element.
-	 * @returns {JSXElement} The rendered JSX Element.
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		let warnings = this.validateFields();
+		const warnings = this.validateFields();
 
 		return (
 			<FormGroup onSubmit={ this.handleSubmit }>

@@ -50,28 +50,28 @@ const Buttons = styled.div`
  */
 export default function AddLicenses( props ) {
 	return (
-			<AddLicensesModal role="document">
-				<ModalHeading>
-					<FormattedMessage id="add-licenses.header" defaultMessage="You are out of licenses" />
-				</ModalHeading>
-				<AddLicensesText>
-					<FormattedMessage
-						id="add-licenses.text"
-						defaultMessage="You've used up all the site licenses in your current subscription.
+		<AddLicensesModal role="document">
+			<ModalHeading>
+				<FormattedMessage id="add-licenses.header" defaultMessage="You are out of licenses" />
+			</ModalHeading>
+			<AddLicensesText>
+				<FormattedMessage
+					id="add-licenses.text"
+					defaultMessage="You've used up all the site licenses in your current subscription.
 						If you want to add more sites, please buy another subscription."
-					/>
-				</AddLicensesText>
-				<Buttons>
-					<LargeSecondaryButton type="button" onClick={ props.onClose } >
-						<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
-					</LargeSecondaryButton>
+				/>
+			</AddLicensesText>
+			<Buttons>
+				<LargeSecondaryButton type="button" onClick={ props.onClose }>
+					<FormattedMessage id="add-licenses.buy-more.cancel" defaultMessage="Cancel" />
+				</LargeSecondaryButton>
 
-					<LargeButtonLink to={ props.onShop } linkTarget="_blank">
-						<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
-						<NewTabMessage/>
-					</LargeButtonLink>
-				</Buttons>
-			</AddLicensesModal>
+				<LargeButtonLink to={ props.onShop } linkTarget="_blank">
+					<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
+					<NewTabMessage />
+				</LargeButtonLink>
+			</Buttons>
+		</AddLicensesModal>
 	);
 }
 

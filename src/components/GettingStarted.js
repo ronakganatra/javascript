@@ -84,9 +84,9 @@ function GettingStarted( props ) {
 					} }
 				/>
 			</GettingStartedText>
-			<VideoContainer><Video title={ props.intl.formatMessage( messages.videoTitle ) } height="315" width="560" src="https://yoa.st/12w" allowFullScreen /></VideoContainer>
+			<VideoContainer><Video title={ props.intl.formatMessage( messages.videoTitle ) } height="315" width="560" src="https://yoa.st/12w" allowFullScreen={ true } /></VideoContainer>
 			<Buttons>
-				<ResponsiveLargeButton type="button" onClick={ props.onClose } >
+				<ResponsiveLargeButton type="button" onClick={ props.onClose }>
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
 				</ResponsiveLargeButton>
 			</Buttons>

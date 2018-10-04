@@ -62,7 +62,7 @@ SearchField.defaultProps = {
  * @returns {ReactElement} The rendered html.
  */
 function Search( props ) {
-	let changeSearchQuery = ( event ) => {
+	const changeSearchQuery = ( event ) => {
 		props.onChange( event.target.value );
 	};
 

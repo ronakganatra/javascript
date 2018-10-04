@@ -12,10 +12,10 @@ import Paper from "../../PaperStyles";
  * @constructor
  */
 export default function ComposerTokens( props ) {
-	let activeComposerTokens = props.composerTokens.filter( ( composerToken ) => {
+	const activeComposerTokens = props.composerTokens.filter( ( composerToken ) => {
 		return composerToken.enabled === true;
 	} );
-	let composerTokensTable = <ListTable { ...props }>
+	const composerTokensTable = <ListTable { ...props }>
 		{ activeComposerTokens
 			.map( ( composerToken ) => {
 				return <ComposerToken

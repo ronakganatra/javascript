@@ -81,6 +81,19 @@ const MenuItem = styled( NavLink )`
 		transition: padding 100ms ease-out;
 	}
 
+	svg {
+		height: 20px;
+		width: 20px;
+		margin: 0 25px -2px 0;
+		fill: ${ colors.$color_white };
+	}
+
+	#courses-menu-item {
+		width: 28px;
+		height: 28px;
+		margin: 0 21px -10px -4px;
+	}
+
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
 		background-color: ${ colors.$color_grey_light };
@@ -117,6 +130,10 @@ const MenuItem = styled( NavLink )`
 			bottom: -0.25rem;
 			box-shadow: 0 -1px 8px 0 rgba(0, 0, 0, 0.3);
 		}
+
+		svg {
+			fill: ${ colors.$color_pink_dark };
+		}
 	}
 
 	@media screen and ( max-width: 1024px ) {
@@ -141,6 +158,13 @@ const MenuItem = styled( NavLink )`
 			transform: scale( 1.08 );
 		}
 
+		svg {
+			display: block;
+			margin: 3px auto;
+			height: 30px;
+			width: 30px;
+		}
+
 		&.${ activeStyle } {
 			border-bottom: 3px solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
@@ -158,19 +182,17 @@ const MenuItem = styled( NavLink )`
 			&:after {
 				content: none;
 			}
+
+			svg  {
+				fill: ${ colors.$color_white };
+			}
 		}
-	}
-`;
-
-const MenuIcon = styled.img`
-	display: none;
-
-	@media screen and ( max-width: 1024px ) {
-		display: block;
-		padding: 8px;
-		height: 40px;
-		width: 40px;
-		margin: 0 auto -3px;
+		#courses-menu-item {
+			display: block;
+			margin: 1px auto;
+			height: 35px;
+			width: 35px;
+		}
 	}
 `;
 
@@ -183,34 +205,35 @@ const MenuIcon = styled.img`
 function MainMenu( props ) {
 	return (
 		<Menu>
-			<ul role="list">
+			{ // eslint-disable-next-line jsx-a11y/no-redundant-roles
+			}<ul role="list">
 				{ props.menuRoutes.filter( ( menuItem ) => {
 					// Don't show items that are only defined as route.
 					return menuItem.showInMenu;
 				} )
-					.map( ( page ) => {
-						let isActive = page.isActive || (
-								( match ) => {
-									return match;
-								}
-							);
+					.map( function( page ) {
+						const isActive = page.isActive || (
+							( match ) => {
+								return match;
+							}
+						);
 
-						let title = props.intl.formatMessage( titles[ page.titleKey ] );
+						const menuItemIcon = page.iconSource;
 
-						return(
-							<li key={ page.titleKey }>
-								<MenuItem
-									activeClassName={ activeStyle }
-									to={ page.path }
-									isActive={ isActive }
-									ariaCurrent="page"
-								>
-									<MenuIcon src={ page.iconSource } alt=""/>
-									{ title }
-								</MenuItem>
-							</li>
-						 );
-					 } )
+						const title = props.intl.formatMessage( titles[ page.titleKey ] );
+
+						return <li key={ page.titleKey }>
+							<MenuItem
+								activeClassName={ activeStyle }
+								to={ page.path }
+								isActive={ isActive }
+								ariaCurrent="page"
+							>
+								{ menuItemIcon }
+								{ title }
+							</MenuItem>
+						</li>;
+					} )
 				}
 			</ul>
 		</Menu>

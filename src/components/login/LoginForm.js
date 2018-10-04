@@ -10,6 +10,7 @@ import { InputField } from "../InputField";
 import Checkbox from "../Checkbox";
 import { StyledLabel } from "../Labels";
 import ErrorDisplay from "../../../src/errors/ErrorDisplay";
+import Link from "../Link";
 
 // Styled components.
 const TextInput = styled( InputField )`
@@ -89,11 +90,11 @@ const messages = defineMessages( {
  * @returns {ReactElement} The login form element.
  */
 const LoginForm = ( props ) => {
-	let disabled = props.loading;
-	let buttonText = props.loading ? messages.loading : messages.loginButton;
+	const disabled = props.loading;
+	const buttonText = props.loading ? messages.loading : messages.loginButton;
 	return (
 		<FormGroup onSubmit={ props.handleSubmit }>
-			<ErrorDisplay error={ props.errors }/>
+			<ErrorDisplay error={ props.errors } />
 			<LabelBlock>
 				<Label htmlFor="email-address">
 					<FormattedMessage { ...messages.labelEmail } />
@@ -136,9 +137,9 @@ const LoginForm = ( props ) => {
 			}
 
 			<ForgotPasswordLink>
-				<a href="/forgot-password">
+				<Link to="/forgot-password">
 					<FormattedMessage { ...messages.forgotPassword } />
-				</a>
+				</Link>
 			</ForgotPasswordLink>
 
 			<RememberMe>

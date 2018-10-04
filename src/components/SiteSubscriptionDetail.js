@@ -64,8 +64,8 @@ const SubscriptionUsage = styled.span`
 	margin-top: 4px;
 `;
 
-let ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
-let ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+const ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
 	display: ${ props => props.isEnabled ? "inline-block" : "none" };
@@ -79,7 +79,7 @@ const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
  * @returns {ReactElement} The rendered component.
  */
 function SiteSubscriptionDetail( props ) {
-	let rowProps = [];
+	const rowProps = [];
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
@@ -88,13 +88,13 @@ function SiteSubscriptionDetail( props ) {
 	if ( props.limit > 0 ) {
 		anotherLicenseMessage = "Get another subscription";
 	}
-	let anotherLicense = (
-		<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" } >
+	const anotherLicense = (
+		<IconButtonTransparentLink to={ props.storeUrl } linkTarget="_blank" iconSource={ plusIcon } iconSize={ "1em" }>
 			<FormattedMessage
 				id="site.subscriptions.licenses.add"
 				defaultMessage={ anotherLicenseMessage }
 			/>
-			<NewTabMessage/>
+			<NewTabMessage />
 		</IconButtonTransparentLink>
 	);
 
@@ -111,20 +111,23 @@ function SiteSubscriptionDetail( props ) {
 						onToggleDisabled={ props.onToggleDisabled }
 						isEnabled={ props.isEnabled }
 						disable={ disable }
-						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) } />
+						ariaLabel={ util.format( props.intl.formatMessage( messages.toggleAriaLabel ), props.name ) }
+					/>
 				</SubscriptionToggle>
-				<SubscriptionLogo hasSubscriptions={ props.hasSubscriptions} src={ props.icon } alt="" />
+				<SubscriptionLogo hasSubscriptions={ props.hasSubscriptions } src={ props.icon } alt="" />
 			</ColumnFixedWidth>
 
 			<ColumnPrimary>
 				<ProductName>{ props.name }</ProductName>
 				<SubscriptionUsage hasSubscriptions={ props.hasSubscriptions }>
-					<FormattedMessage id="subscriptions.remaining" defaultMessage={"{ howMany } used"}
-						values={{ howMany: props.used + "/" + props.limit }} />
+					<FormattedMessage
+						id="subscriptions.remaining" defaultMessage={ "{ howMany } used" }
+						values={ { howMany: props.used + "/" + props.limit } }
+					/>
 				</SubscriptionUsage>
 				{ anotherLicense }
 			</ColumnPrimary>
-			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled}>
+			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>

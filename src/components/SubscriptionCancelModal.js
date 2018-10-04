@@ -49,8 +49,13 @@ const CancelSubscriptionContainer = styled.div`
 `;
 
 class SubscriptionCancelModal extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let confirmButtonText = this.props.loading ? messages.loading : messages.confirm;
+		const confirmButtonText = this.props.loading ? messages.loading : messages.confirm;
 
 		return (
 			<MyYoastModal
@@ -59,29 +64,31 @@ class SubscriptionCancelModal extends React.Component {
 				modalAriaLabel={ messages.ariaLabel }
 			>
 				<CancelSubscriptionContainer>
-					<h1><FormattedMessage { ...messages.header }/></h1>
+					<h1><FormattedMessage { ...messages.header } /></h1>
 					<p>
-						<FormattedMessage { ...messages.body }/>
+						<FormattedMessage { ...messages.body } />
 					</p>
 					<p>
 						<strong>
-							<FormattedMessage { ...messages.activeSites }
-							                  values={ { amount: this.props.amountOfActiveSites } }/>
+							<FormattedMessage
+								{ ...messages.activeSites }
+								values={ { amount: this.props.amountOfActiveSites } }
+							/>
 						</strong>
 					</p>
 					{ this.props.connectedSubscriptions.length > 0 &&
-					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions }/> }
-					<ErrorDisplay error={ this.props.error }/>
+					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions } /> }
+					<ErrorDisplay error={ this.props.error } />
 					<ActionButtonsContainer>
 						<LargeSecondaryButton onClick={ this.props.onClose }>
-							<FormattedMessage { ...messages.cancel }/>
+							<FormattedMessage { ...messages.cancel } />
 						</LargeSecondaryButton>
 						<LargeButton
 							type="submit"
 							onClick={ this.props.cancelSubscription }
 							enabledStyle={ this.props.loading === false }
 						>
-							<FormattedMessage { ...confirmButtonText }/>
+							<FormattedMessage { ...confirmButtonText } />
 						</LargeButton>
 					</ActionButtonsContainer>
 				</CancelSubscriptionContainer>

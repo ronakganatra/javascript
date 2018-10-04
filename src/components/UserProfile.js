@@ -54,19 +54,26 @@ class UserProfile extends React.Component {
 		this.onLogoutClick = this.onLogoutClick.bind( this );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let message = this.props.loggingOut ? messages.signingout : messages.signout;
+		const message = this.props.loggingOut ? messages.signingout : messages.signout;
 
 		return <UserInfoContainer className="user-info">
 			<UserImage { ...this.props.displayImage } />
 			<UserInfo>
 				<UserEmail>{ this.props.displayEmail }</UserEmail>
 
-				<LogoutButton type="button" onClick={ this.onLogoutClick }
-				              enabledStyle={ this.props.loggingOut === false }>
+				<LogoutButton
+					type="button" onClick={ this.onLogoutClick }
+					enabledStyle={ this.props.loggingOut === false }
+				>
 					<FormattedMessage { ...message } />
 				</LogoutButton>
-				<ErrorDisplay error={ this.props.logoutError } showIcon={ false }/>
+				<ErrorDisplay error={ this.props.logoutError } showIcon={ false } />
 			</UserInfo>
 		</UserInfoContainer>;
 	}
@@ -79,7 +86,6 @@ class UserProfile extends React.Component {
 
 		this.props.onLogoutClick();
 	}
-
 }
 
 export default injectIntl( UserProfile );

@@ -41,14 +41,13 @@ const Paragraph = styled.p`
 	font-weight: 700;
 `;
 
-const DeleteButton = styled( RedButton )`	
+const DeleteButton = styled( RedButton )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
 `;
 
 class DeleteAccount extends React.Component {
-
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
@@ -66,21 +65,26 @@ class DeleteAccount extends React.Component {
 	 */
 	deleteButtonText() {
 		return this.props.isDeleting
-			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage}/>
-			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage }/>;
+			? <FormattedMessage id={ messages.deletingAccount.id } defaultMessage={ messages.deletingAccount.defaultMessage } />
+			: <FormattedMessage id={ messages.deleteAccount.id } defaultMessage={ messages.deleteAccount.defaultMessage } />;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return <Form onSubmit={ this.handleDelete }>
-						<Paragraph>
-							<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage }/>
-						</Paragraph>
-						<p>
-							<FormattedMessage id={ messages.warningMessage.id } defaultMessage={ messages.warningMessage.defaultMessage }/>
-						</p>
-						<DeleteButton type="submit" disabled={ this.isDeleting }>{ this.deleteButtonText() }</DeleteButton>
-					</Form>
-				;
+			<Paragraph>
+				<FormattedMessage id={ messages.labelDelete.id } defaultMessage={ messages.labelDelete.defaultMessage } />
+			</Paragraph>
+			<p>
+				<FormattedMessage id={ messages.warningMessage.id } defaultMessage={ messages.warningMessage.defaultMessage } />
+			</p>
+			<DeleteButton type="submit" disabled={ this.isDeleting }>{ this.deleteButtonText() }</DeleteButton>
+		</Form>
+		;
 	}
 }
 

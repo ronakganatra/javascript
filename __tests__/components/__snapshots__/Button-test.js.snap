@@ -36,6 +36,9 @@ exports[`the Large Secondary Button matches the snapshot 1`] = `
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c0:hover,

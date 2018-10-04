@@ -12,7 +12,7 @@ import { Paper } from "./PaperStyles";
  * @constructor
  */
 export default function Orders( props ) {
-	let ordersTable = <ListTable { ...props }>
+	const ordersTable = <ListTable { ...props }>
 		{ props.orders.map( ( order ) => {
 			return <Order
 				{ ...order }

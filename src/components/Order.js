@@ -38,9 +38,9 @@ const messages = defineMessages( {
 	},
 } );
 
-let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
-let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+const ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+const ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
 
 /**
  * A page order list using table abstraction.
@@ -52,17 +52,19 @@ function Order( props ) {
 	return (
 		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
-				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric"/>
+				<FormattedDate value={ props.date } day="numeric" month="long" year="numeric" />
 			</ColumnMinWidthResponsive>
-			<ColumnMinWidth ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
-						headerLabel={ props.intl.formatMessage( messages.orderNumber ) }>
+			<ColumnMinWidth
+				ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.orderNumber ) }
+			>
 				{ props.orderNumber }
 			</ColumnMinWidth>
 			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
-				<LineItems items={ props.items }/>
+				<LineItems items={ props.items } />
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
-				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency }/>
+				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency } />
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
 				<span>{ capitalizeFirstLetter( props.status ) }</span>

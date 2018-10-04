@@ -140,8 +140,9 @@ class PasswordResetForm extends React.Component {
 	}
 
 	/**
-	 * Renders the element.
-	 * @returns {JSXElement} The rendered JSX Element.
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (

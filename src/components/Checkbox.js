@@ -13,10 +13,11 @@ const CheckboxWrapper = styled.div`
 
 const CheckboxInput = styled.input`
 	position: absolute;
+	z-index: 1;
 	opacity: 0;
 
 	/* Checks our custom check mark. */
-	&:checked + .checkmark {
+	&:checked + label .checkmark {
 		/* Dark pink background and white check mark */
 		background-color: ${ colors.$color_pink_dark };
 		background-image: url( ${ check } );
@@ -26,7 +27,7 @@ const CheckboxInput = styled.input`
 	}
 
 	/* Adds an outline to the check mark on focus. */
-	&:focus + .checkmark {
+	&:focus + label .checkmark {
 		box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),
 			0 0 2px 2px ${ colors.$color_snippet_focus };
 		/* Windows High Contrast Mode */
@@ -40,6 +41,7 @@ const Checkmark = styled.span`
 	cursor: pointer;
 	box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
 	background-color: ${ colors.$color_background_light };
+	margin-right: 8px;
 
 	:hover {
 		background-color: ${ colors.$color_grey_hover }
@@ -47,8 +49,10 @@ const Checkmark = styled.span`
 `;
 
 const Label = styled.label`
+	display: inline-flex;
 	cursor: pointer;
-	margin-left: 8px;
+	position: relative;
+	z-index: 2;
 `;
 
 /**
@@ -56,6 +60,11 @@ const Label = styled.label`
  * (Since default checkbox element cannot be easily styled with CSS).
  */
 class Checkbox extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<CheckboxWrapper>
@@ -65,8 +74,10 @@ class Checkbox extends React.Component {
 					checked={ this.props.checked }
 					type="checkbox"
 				/>
-				<Checkmark className="checkmark"/>
-				<Label htmlFor={ this.props.id }>{ this.props.labelText }</Label>
+				<Label htmlFor={ this.props.id }>
+					<Checkmark className="checkmark" />
+					{ this.props.labelText }
+				</Label>
 			</CheckboxWrapper>
 		);
 	}

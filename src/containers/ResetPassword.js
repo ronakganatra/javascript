@@ -3,11 +3,11 @@ import ResetPasswordPage from "../components/login/ResetPasswordPage";
 import { doRequest, prepareInternalRequest } from "../functions/api";
 import { resetPasswordFailure, resetPasswordRequest, resetPasswordSuccess } from "../actions/resetPassword";
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptResetPassword: ( data ) => {
 			dispatch( resetPasswordRequest() );
-			let request = prepareInternalRequest( "Customers/resetPassword/", "PATCH", data );
+			const request = prepareInternalRequest( "Customers/resetPassword/", "PATCH", data );
 			doRequest( request )
 				.then( ( response ) => {
 					dispatch( resetPasswordSuccess() );

@@ -63,11 +63,11 @@ export function login( accessToken, userId ) {
 export function logout() {
 	return ( dispatch ) => {
 		dispatch( doingLogoutRequest() );
-		let nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
+		const nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
 
 		doRequest( nonceRequest )
 			.then( ( reponse ) => {
-				let logoutRequest = prepareInternalRequest( "Customers/logout-user/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
+				const logoutRequest = prepareInternalRequest( "Customers/logout-user/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
 				doRequest( logoutRequest )
 					.then( () => {
 						removeAuthCookies();
@@ -78,7 +78,7 @@ export function logout() {
 						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
 						removeAuthCookies();
 						// When the user was not logged in in the first place, we consider the logout a success after removing the MyYoast Auth cookies.
-						if ( error.error.code === "user_not_logged_in" ) {
+						if ( error.error === "user_not_logged_in" ) {
 							dispatch( logoutSuccess() );
 							return;
 						}
@@ -164,7 +164,7 @@ export function fetchUser( userId ) {
 
 		// If our credentials came from the parameters then bypass the profile request.
 		if ( hasCookieParams() ) {
-			let request = prepareInternalRequest( `Customers/${userId}/` );
+			const request = prepareInternalRequest( `Customers/${userId}/` );
 
 			return doRequest( request )
 				.then( json =>
@@ -176,7 +176,7 @@ export function fetchUser( userId ) {
 					} ) ) );
 		}
 
-		let request = prepareInternalRequest( `Customers/${userId}/profile/` );
+		const request = prepareInternalRequest( `Customers/${userId}/profile/` );
 
 		return doRequest( request )
 			.then( json => dispatch( receiveUser( json ) ) )
@@ -227,15 +227,15 @@ export function disableUserFailure( error ) {
  * @returns {Object} A fetch user action.
  */
 export function disableUser() {
-	let userId = getUserId();
+	const userId = getUserId();
 
 	return ( dispatch ) => {
 		dispatch( disableUserStart() );
 
-		let request = prepareInternalRequest( `Customers/${userId}/`, "PATCH", { enabled: false } );
+		const request = prepareInternalRequest( `Customers/${userId}/`, "PATCH", { enabled: false } );
 
 		return doRequest( request )
-			.then( json => dispatch( disableUserSuccess() ) )
+			.then( () => dispatch( disableUserSuccess() ) )
 			.catch( error => dispatch( disableUserFailure( error ) ) );
 	};
 }
@@ -344,8 +344,8 @@ export function updateProfile( profile ) {
 	return ( dispatch ) => {
 		dispatch( profileUpdateRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", profile );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -365,8 +365,8 @@ export function updatePassword( passwords ) {
 	return ( dispatch ) => {
 		dispatch( passwordUpdateRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", passwords );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/profile/`, "PATCH", passwords );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -387,14 +387,14 @@ export function uploadAvatar( image ) {
 	return ( dispatch ) => {
 		dispatch( profileUpdateRequest( actionSubtype ) );
 
-		let userId = getUserId();
-		let uploadData = new FormData();
+		const userId = getUserId();
+		const uploadData = new FormData();
 
 		// PrepareRequest set's this to JSON if not set. We want the browser to set it to correctly set the boundary.
-		let uploadOptions = { headers: {} };
+		const uploadOptions = { headers: {} };
 		uploadData.append( "wp-user-avatars", image );
 
-		let uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions );
+		const uploadRequest = prepareInternalRequest( `Customers/${userId}/avatar`, "POST", uploadData, uploadOptions );
 
 		return doRequest( uploadRequest )
 			.then( ( response ) => {

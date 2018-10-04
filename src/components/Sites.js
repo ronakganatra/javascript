@@ -15,7 +15,7 @@ function Sites( props ) {
 		<Paper>
 			<ListTable>
 				{ props.sites.map( function( site ) {
-					let onManageHandler = () => {
+					const onManageHandler = () => {
 						props.onManage( site.id );
 					};
 

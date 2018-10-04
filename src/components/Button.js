@@ -9,7 +9,7 @@ import questionCircle from "../icons/question-circle.svg";
 import closeCross from "../icons/times.svg";
 import defaults from "../config/defaults.json";
 
-let buttonAnimations = `
+const buttonAnimations = `
 	transition: background-color 150ms ease-out;
 
 	&:hover,
@@ -87,6 +87,8 @@ export const LargeSecondaryButton = styled( ButtonArchetype )`
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
 	min-width: 152px;
+	box-shadow: none;
+	filter: none;
 
 	&:hover,
 	&:focus {
@@ -320,6 +322,8 @@ export const LargeSecondaryButtonLink = styled( ButtonLink )`
 	background-color: ${ colors.$color_white };
 	border: 1px solid ${ colors.$color_black };
 	min-width: 152px;
+	box-shadow: none;
+	filter: none;
 
 	text-shadow: none;
 
@@ -456,7 +460,7 @@ export const IconButtonTransparentLink = styled( IconButtonLink )`
  * @returns {React.Component} The disabled button.
  */
 export function disable( Button ) {
-	let StyledDisabledButton = styled( Button )`
+	const StyledDisabledButton = styled( Button )`
 		background-color: ${ colors.$color_grey_disabled };
 		cursor: default;
 
@@ -471,6 +475,11 @@ export function disable( Button ) {
 	`;
 
 	return class DisabledButton extends Component {
+		/**
+		 * Renders the component.
+		 *
+		 * @returns {ReactElement} The rendered component.
+		 */
 		render() {
 			return <StyledDisabledButton disabled="disabled" { ...this.props } />;
 		}

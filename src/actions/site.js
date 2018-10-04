@@ -88,7 +88,7 @@ export function siteAddSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
+		const request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "PUT" );
 
 		return doRequest( request )
 			.then( dispatch( siteAddSubscriptionSuccess( siteId, subscriptionId ) ) )
@@ -108,7 +108,7 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 	return ( dispatch ) => {
 		dispatch( siteToggleSubscriptionRequest() );
 
-		let request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
+		const request = prepareInternalRequest( `Sites/${siteId}/subscriptions/rel/${subscriptionId}/`, "DELETE" );
 
 		return doRequest( request )
 			.then( dispatch( siteRemoveSubscriptionSuccess( siteId, subscriptionId ) ) )
@@ -127,11 +127,11 @@ export function siteRemove( siteId ) {
 	return ( dispatch ) => {
 		dispatch( siteRemoveStart( siteId ) );
 
-		let request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
+		const request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
 
 		return doRequest( request )
-			.then( json => dispatch( siteRemoveSuccess( siteId ) ) )
-			.then( json => dispatch( push( "/sites/" ) ) )
+			.then( () => dispatch( siteRemoveSuccess( siteId ) ) )
+			.then( () => dispatch( push( "/sites/" ) ) )
 			.catch( error => dispatch( siteRemoveFailure( siteId, error.message ) ) );
 	};
 }
@@ -232,7 +232,7 @@ export function siteChangePlatform( siteId, siteType ) {
 	return ( dispatch ) => {
 		dispatch( siteChangePlatformRequest() );
 
-		let request = prepareInternalRequest( `Sites/${siteId}/`, "PATCH", { type: siteType } );
+		const request = prepareInternalRequest( `Sites/${siteId}/`, "PATCH", { type: siteType } );
 
 		return doRequest( request )
 			.then( json => dispatch( siteChangePlatformSuccess( json.id, json.type ) ) )

@@ -77,7 +77,7 @@ const ButtonSection = styled.div`
 	height: 100px;
 `;
 
-let WPAdminButton = makeFullWidth( IconRightButtonLink );
+const WPAdminButton = makeFullWidth( IconRightButtonLink );
 
 /**
  * The SiteHeader component.
@@ -95,9 +95,11 @@ function SiteHeader( props ) {
 			</SiteHeaderSitename>
 			<ButtonSection>
 				{ props.adminButton &&
-					<WPAdminButton iconSource={angleRight} to={ `${ props.url }/wp-admin` } linkTarget="_blank">
-						<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }"
-										  values={ { opensInNewTab: <NewTabMessage/> } }/>
+					<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
+						<FormattedMessage
+							id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }"
+							values={ { opensInNewTab: <NewTabMessage /> } }
+						/>
 					</WPAdminButton>
 				}
 			</ButtonSection>

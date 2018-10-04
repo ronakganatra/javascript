@@ -35,13 +35,13 @@ const messages = defineMessages( {
 class SitePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.sitePageLoaded );
+		const message = this.props.intl.formatMessage( messages.sitePageLoaded );
 		speak( message );
 	}
 
 	getModal() {
-		let storeUrl = this.props.addSubscriptionModal.storeUrl || "";
-		let open = this.props.addSubscriptionModal.modalOpen;
+		const storeUrl = this.props.addSubscriptionModal.storeUrl || "";
+		const open = this.props.addSubscriptionModal.modalOpen;
 
 		const messages = defineMessages( {
 			modalAriaLabel: {
@@ -74,7 +74,7 @@ class SitePage extends React.Component {
 			return null;
 		}
 
-		let modalAriaLabel = defineMessages( {
+		const modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
 		} );
@@ -102,10 +102,11 @@ class SitePage extends React.Component {
 		if ( this.props.site.configurationServiceRequest ) {
 			return <ConfigurationServiceRequestStatusBlock
 				id={ this.props.site.configurationServiceRequest.id }
-				status={ this.props.site.configurationServiceRequest.status }/>;
+				status={ this.props.site.configurationServiceRequest.status }
+			/>;
 		}
 
-		if(	this.props.availableConfigurationServiceRequests.length > 0 ) {
+		if (	this.props.availableConfigurationServiceRequests.length > 0 ) {
 			return <ConfigurationServiceRequestIntakeBlock
 				amountAvailable={ this.props.availableConfigurationServiceRequests.length }
 				siteId={ this.props.site.id }
@@ -130,19 +131,24 @@ class SitePage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let props = this.props;
+		const props = this.props;
 
 		if ( props.loadingSite ) {
 			return <AnimatedLoader />;
 		}
 
-		let hostnameDisplay  = props.site.hostname.replace( /^(?:www\.)?/, "" );
-		let siteNameDisplay  = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
+		const hostnameDisplay  = props.site.hostname.replace( /^(?:www\.)?/, "" );
+		const siteNameDisplay  = props.site.path === "/" ? hostnameDisplay : hostnameDisplay + props.site.path;
 
 		return (
 			<div>
-				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" }/>
+				<SiteHeader name={ siteNameDisplay } url={ props.site.url } imageUrl={ props.site.header } adminButton={ props.site.type === "wordpress" } />
 				{ this.getSubscriptionsList() }
 				{ this.getConfigurationServiceRequestBlock() }
 				<PlatformSelect

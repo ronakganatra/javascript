@@ -144,10 +144,10 @@ function ComposerHelp( props ) {
 					type="submit"
 					onClick={ props.createComposerToken }
 				>
-					<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token"/>
+					<FormattedMessage id="profile.create-sites.create" defaultMessage="Create token" />
 				</CreateButton>
 				}
-				<ResponsiveLargeButton onClick={ props.onClose } >
+				<ResponsiveLargeButton onClick={ props.onClose }>
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />
 				</ResponsiveLargeButton>
 			</Buttons>

@@ -93,11 +93,10 @@ const SaveButton = styled( Button )`
  * Page to change the password of an account.
  */
 class ResetPasswordPage extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
-		let parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
+		const parsedQuery = queryString.parse( this.props.location.search, { arrayFormat: "bracket" } );
 		// Default state.
 		this.state = {
 			password: "",
@@ -129,7 +128,7 @@ class ResetPasswordPage extends React.Component {
 	 */
 	validatePassword( value ) {
 		if ( value.length > 0 ) {
-			let passwordValidation = zxcvbn( value );
+			const passwordValidation = zxcvbn( value );
 			this.setState( { passwordScore: passwordValidation.score } );
 		}
 	}
@@ -144,7 +143,7 @@ class ResetPasswordPage extends React.Component {
 	 * @returns {void}
 	 */
 	onUpdate( field, event, errors ) {
-		let obj = {};
+		const obj = {};
 		// Scores the strength of the password input using the zxcvbn module.
 		if ( field === "password" ) {
 			this.validatePassword( event.target.value );
@@ -155,7 +154,7 @@ class ResetPasswordPage extends React.Component {
 		obj.errors[ field ] = errors;
 
 		this.setState( obj, () => {
-			let newErrors = this.validate();
+			const newErrors = this.validate();
 			errors = Object.assign( {}, this.state.errors, newErrors );
 			this.setState( { errors } );
 		} );
@@ -211,7 +210,7 @@ class ResetPasswordPage extends React.Component {
 			return;
 		}
 
-		let data = {
+		const data = {
 			/* eslint-disable camelcase */
 			user_login: this.state.userLogin || "",
 			password1: this.state.password,
@@ -226,6 +225,11 @@ class ResetPasswordPage extends React.Component {
 		}
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		let resetPasswordError = this.props.submitErrors;
 
@@ -235,7 +239,7 @@ class ResetPasswordPage extends React.Component {
 		}
 
 		if ( this.props.passwordResetSuccess ) {
-			return <Redirect to={ "/forgot-password/success" }/>;
+			return <Redirect to={ "/forgot-password/success" } />;
 		}
 
 		let buttonText = messages.resetButton;
@@ -247,7 +251,7 @@ class ResetPasswordPage extends React.Component {
 			<LoginColumnLayout>
 				<Column>
 					<Header>
-						<Logos src={ logo } alt="MyYoast - Yoast Academy"/>
+						<Logos src={ logo } alt="MyYoast - Yoast Academy" />
 					</Header>
 					<FormattedMessage
 						id={ messages.resetMessage.id }
@@ -255,7 +259,7 @@ class ResetPasswordPage extends React.Component {
 						values={ { username: this.state.username } }
 					/>
 					<FormGroup onSubmit={ this.handleSubmit }>
-						<ErrorDisplay error={ resetPasswordError }/>
+						<ErrorDisplay error={ resetPasswordError } />
 						<LabelBlock>
 							<Label htmlFor="password">
 								<FormattedMessage { ...messages.labelPassword } />
@@ -277,8 +281,8 @@ class ResetPasswordPage extends React.Component {
 								id="password-repeat"
 								name="repeat password"
 								type="password"
-								onChange={this.onUpdatePasswordRepeat}
-								errors={this.state.errors.passwordRepeat}
+								onChange={ this.onUpdatePasswordRepeat }
+								errors={ this.state.errors.passwordRepeat }
 							/>
 						</LabelBlock>
 

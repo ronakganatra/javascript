@@ -40,7 +40,7 @@ export default function Banner( props ) {
 		<BannerContents backgroundColor={ props.backgroundColor } textColor={ props.textColor }>
 			{ props.children }
 		</BannerContents>
-		<BannerTriangle/>
+		<BannerTriangle />
 	</Fragment>;
 }
 
