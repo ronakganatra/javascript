@@ -1,12 +1,18 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
-import Loader from "../Loader";
+
+const messages = defineMessages( {
+	loading: {
+		id: "blogcard.loading",
+		defaultMessage: "Retrieving recent blog posts...",
+	},
+} );
 
 const ActionBlock = styled.div`
 	text-align: center;
@@ -61,7 +67,6 @@ const FeedDescription = styled.p`
 	margin-top: 0;
 `;
 
-
 /**
  * A WordpressFeedList item.
  *
@@ -102,12 +107,15 @@ WordpressFeedListItem.propTypes = {
  *
  * @returns {ReactElement} The WordpressFeedList
  */
-const getFeedList = ( props ) => {
+const FeedList = ( props ) => {
+	if( props.retrievingFeed ) {
+		return <p><FormattedMessage { ...messages.loading } /></p>;
+	}
 	return (
 		<WordpressFeedList
 			role="list"
 		>
-			{ props.items.map( item => (
+			{ props.blogFeed.items.map( item => (
 				<WordpressFeedListItem
 					key={ item.title }
 					title={ item.title }
@@ -118,8 +126,10 @@ const getFeedList = ( props ) => {
 	);
 };
 
-getFeedList.propTypes = {
+FeedList.propTypes = {
+	blogFeed: PropTypes.object,
 	items: PropTypes.array,
+	retrievingFeed: PropTypes.bool,
 };
 
 let ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
@@ -141,16 +151,13 @@ class BlogContent extends React.Component {
 	}
 
 	render() {
-		if( this.props.retrievingFeed ) {
-			return <Loader />;
-		}
 		return(
 			<Fragment>
 				<Details>
 					<Header>
 						<FormattedMessage id={"home.blogcard.header"} defaultMessage={"Learn more about SEO"}/>
 					</Header>
-					{ getFeedList( this.props.blogFeed ) }
+					<FeedList { ...this.props } />
 				</Details>
 				<ActionBlock>
 					<ResponsiveButtonLink
@@ -196,7 +203,7 @@ export const mapStateToProps = ( state ) => {
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		getFeed: () => {
-			// Currently, this number doesn't do anything, because the feed at yoast.com/feed/widget is restrained to two posts.
+			// Currently, this number doesn't do anything, because the feed at yoast.com/feed/widget is constrained to two posts.
 			dispatch( retrieveFeed( 3 ) );
 		},
 	};
