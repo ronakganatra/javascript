@@ -107,7 +107,7 @@ class HomePage extends React.Component {
 	createCards( cardsArray, column = "single" ) {
 		// Sorting by priority.
 		cardsArray.sort( ( a, b ) => {
-			return a.priority-b.priority;
+			return a.priority - b.priority;
 		}  );
 
 		return cardsArray.map( ( card ) => {
@@ -139,12 +139,12 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS } >
+				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
 					<SingleColumn>
 						{ this.createCards( cards ) }
 					</SingleColumn>
 				</MediaQuery>
-				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS } >
+				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
 					<DoubleColumn>
 						<div>
 							{ this.createCards( cards, LEFT_COLUMN ) }
