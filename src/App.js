@@ -6,14 +6,13 @@ import "react-select/dist/react-select.css";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectGlobal } from "styled-components";
 import { IntlProvider } from "react-intl";
-import { Provider, connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import menuItems from "./config/Menu";
-import { inMainLayout, inSingleLayout, inLoginLayout } from "./components/Layout";
+import { inLoginLayout, inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
 import AccountDisabled from "./components/AccountDisabled";
-import SitesPageContainer from "./containers/SitesPage";
 import SitePageContainer from "./containers/SitePage";
 import SubscriptionPageContainer from "./containers/SubscriptionPage";
 import ProfileDetails from "./containers/ProfileDetails";
@@ -55,19 +54,42 @@ injectGlobal`
 		color: ${ colors.$color_pink_dark };
 	}
 `;
+
 /* eslint-enable no-unused-expressions */
 
+/**
+ * The Routes component.
+ */
 class Routes extends React.Component {
+	/**
+	 * The Routes component constructor.
+	 *
+	 * @param {object} props Properties of the component.
+	 *
+	 * @returns {ReactElement} Routes component.
+	 *
+	 * @constructor
+	 */
 	constructor( props ) {
 		super( props );
 		this.state = {};
 	}
 
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {void}
+	 */
 	componentWillReceiveProps() {
 		const newState = this.getCookieState();
 		this.setState( newState );
 	}
 
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {Object} The change in state containing the redirect cookie.
+	 */
 	getDerivedStateFromProps() {
 		return this.getCookieState();
 	}
@@ -82,6 +104,18 @@ class Routes extends React.Component {
 			return { redirectTo: getRedirectUrl() };
 		}
 		return {};
+	}
+
+	/**
+	 * Redirects the user to the login page while saving the location the user was actually trying to reach.
+	 * Saving this location allows us to redirect the user back to it as soon as the login succeeds.
+	 *
+	 * @returns {ReactElement} The redirect component.
+	 */
+	redirectToLogin() {
+		removePeriLoginCookie();
+		setPeriLoginCookie();
+		return ( <Redirect to={ "/login" } /> );
 	}
 
 	/**
@@ -115,11 +149,7 @@ class Routes extends React.Component {
 							component={ inLoginLayout( ResetPasswordSuccessPage ) }
 						/>
 						<Route
-							path="*" render={ () => {
-								removePeriLoginCookie();
-								setPeriLoginCookie();
-								return ( <Redirect to={ "/login" } /> );
-							} }
+							path="*" render={ this.redirectToLogin }
 						/>
 					</Switch>
 				</ConnectedRouter>
@@ -146,23 +176,18 @@ class Routes extends React.Component {
 					<Switch>
 						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 						<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-						<Route exact={ true } path="/" component={ inMainLayout( SitesPageContainer ) } />
 						<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
 						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
 						<Route
 							path="/account/subscriptions/:id"
 							component={ inSingleLayout( SubscriptionPageContainer ) }
 						/>
-						{ menuItems.map(
-							function( route, routeKey ) {
-								const config = Object.assign( { exact: true }, route );
-
-								return <Route
-									{ ...config } key={ routeKey } path={ route.path }
-									component={ inMainLayout( route.component ) }
-								/>;
-							}
-						) }
+						{ menuItems.map( function( route, routeKey ) {
+							return <Route
+								{ ...route } key={ routeKey } path={ route.path }
+								component={ inMainLayout( route.component ) }
+							/>;
+						} ) }
 						<Route path="*" component={ inMainLayout( PageNotFound ) } />;
 					</Switch>
 				</ConnectedRouter>

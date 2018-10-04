@@ -117,6 +117,14 @@ test( 'ui reducer', () => {
 		"composerTokens": { "name": "uiComposerTokensReducer" },
 		"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
 		"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
+		"home": {
+			"blogFeed": {
+				"items": [],
+			},
+			"retrievingFeed": true,
+			"blogFeedErrorFound": false,
+			"blogFeedError": null,
+		},
 		"invoiceModal": { "name": "uiInvoicesReducer" },
 		"login": {},
 		"newsletter": { "name": "uiNewsletterReducer" },
@@ -272,6 +280,14 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			"composerTokens": { "name": "uiComposerTokensReducer" },
 			"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
 			"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
+			"home": {
+				"blogFeed": {
+					"items": [],
+				},
+				"retrievingFeed": true,
+				"blogFeedErrorFound": false,
+				"blogFeedError": null,
+			},
 			"invoiceModal": { "name": "uiInvoicesReducer" },
 			"login": {
 				"amountOfOTPWarnings": 0,

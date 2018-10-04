@@ -1,4 +1,5 @@
 import React from "react";
+import HomeIcon from "../icons/Home.js";
 import SitesIcon from "../icons/Sites.js";
 import CoursesIcon from "../icons/Courses.js";
 import UserIcon from "../icons/User.js";
@@ -7,21 +8,27 @@ import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
 import CoursesPage from "../containers/CoursesPage";
+import HomePage from "../containers/HomePage";
 
 const menuItems = [
+	{
+		showInMenu: true,
+		path: "/",
+		titleKey: "home",
+		iconSource: <HomeIcon />,
+		component: HomePage,
+		exact: true,
+		isActive: ( match, location ) => {
+			return location.pathname === "/";
+		},
+	},
 	{
 		showInMenu: true,
 		path: "/sites",
 		titleKey: "sites",
 		iconSource: <SitesIcon />,
 		component: SitesPageContainer,
-		isActive: ( match, location ) => {
-			if ( match ) {
-				return true;
-			}
-
-			return location.pathname === "/";
-		},
+		exact: true,
 	},
 	{
 		showInMenu: true,
@@ -37,7 +44,7 @@ const menuItems = [
 		titleKey: "downloads",
 		iconSource: <DownloadsIcon />,
 		component: DownloadsPage,
-		exact: false,
+		exact: true,
 	},
 	{
 		showInMenu: true,

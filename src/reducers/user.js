@@ -56,6 +56,7 @@ const initialState = {
 	deleteProfileError: null,
 };
 
+/* eslint-disable complexity */
 /**
  *  A reducer for the default user object.
  * @param {Object} state The previous state of the store.
@@ -102,7 +103,6 @@ export function userDataReducer( state = initialState, action ) {
 	}
 }
 
-/* eslint-disable complexity */
 /**
  *  A reducer for the email string within the user object.
  *

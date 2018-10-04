@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 const titles = defineMessages( {
+	home: {
+		id: "menu.title.home",
+		defaultMessage: "Home",
+	},
 	sites: {
 		id: "menu.title.sites",
 		defaultMessage: "Sites",
@@ -135,7 +139,7 @@ const MenuItem = styled( NavLink )`
 	@media screen and ( max-width: 1024px ) {
 		display: inline-block;
 		width: 100%; /* necessary for the text ellipsis */
-		height: 4.5rem;
+		height: 71px;
 		margin: 0;
 		padding: 0.5rem 0 0;
 		border-bottom: 0.25rem solid transparent;
@@ -162,7 +166,7 @@ const MenuItem = styled( NavLink )`
 		}
 
 		&.${ activeStyle } {
-			border-bottom: 0.25rem solid ${ colors.$color_white };
+			border-bottom: 3px solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
 			background-color: transparent;
 			transform: scale( 1.08 );

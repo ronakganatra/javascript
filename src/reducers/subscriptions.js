@@ -150,6 +150,7 @@ export function allIdsSubscriptionsReducer( state = rootState.entities.subscript
 	}
 }
 
+/* eslint-disable complexity */
 /**
  * A reducer for the ui cancelSubscription object.
  *
@@ -195,3 +196,4 @@ export function uiCancelSubscriptionsReducer( state = rootState.ui.subscriptions
 			return state;
 	}
 }
+/* eslint-enable complexity */

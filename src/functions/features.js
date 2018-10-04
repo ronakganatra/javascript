@@ -27,8 +27,8 @@ export function hasAccessToFeature( feature ) {
 	const environmentVariable = "FEATURE_"  + feature;
 
 	let usersWithAccess = getEnv( environmentVariable, "" ).split( "," );
-	usersWithAccess = usersWithAccess.map( userId => userId.trim() );
-	usersWithAccess = usersWithAccess.filter( userId => userId !== "" );
+	usersWithAccess = usersWithAccess.map( userWithAccessUserId => userWithAccessUserId.trim() );
+	usersWithAccess = usersWithAccess.filter( userWithAccessUserId => userWithAccessUserId !== "" );
 
 	return usersWithAccess.includes( userId );
 }
