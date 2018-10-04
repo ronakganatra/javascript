@@ -114,6 +114,11 @@ class Step extends React.Component {
 		return <InactiveStepperIcon>{ this.props.index + 1 }</InactiveStepperIcon>;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		const {
 			goToStep,
@@ -125,7 +130,7 @@ class Step extends React.Component {
 			component,
 		} = this.props;
 
-		let child = React.cloneElement( component, {
+		const child = React.cloneElement( component, {
 			completeStep: this.completeStep,
 			resetStep: this.resetStep,
 			stepIndex: index,
@@ -165,6 +170,11 @@ Step.propTypes = {
 };
 
 class Stepper extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>

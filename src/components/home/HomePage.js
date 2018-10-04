@@ -5,8 +5,9 @@ import { speak } from "@wordpress/a11y";
 import PluginUpsell from "./PluginUpsell";
 import AcademyUpsell from "./AcademyUpsell";
 import SitesCard from "./SitesCard";
+import SupportCard from "./SupportCard";
 import BlogFeed from "./BlogCard";
-import { FullHeightCard } from "../Card";
+import Card from "../Card";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -35,6 +36,11 @@ const cards = [
 		id: "sites-card",
 		className: "SitesCard",
 		component: <SitesCard />,
+	},
+	{
+		id: "support-card",
+		className: "SupportCard",
+		component: <SupportCard />,
 	},
 ];
 
@@ -74,7 +80,7 @@ const ShadowDiv = styled.div`
 class HomePage extends React.Component {
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.homePageLoaded );
+		const message = this.props.intl.formatMessage( messages.homePageLoaded );
 		speak( message );
 	}
 
@@ -85,18 +91,20 @@ class HomePage extends React.Component {
 	 *
 	 * @returns {array} Returns an array of ReactElements.
 	 */
-	renderCards( cardsArray ) {
+	createCards( cardsArray ) {
 		return cardsArray.map( ( card ) => {
-			return(
+			return (
 				<ShadowDiv
 					key={ card.id }
 				>
-					<FullHeightCard
+					<Card
+						header={ card.header || null }
+						banner={ card.banner || null }
 						className={ card.className }
 						id={ card.id }
 					>
 						{ card.component }
-					</FullHeightCard>
+					</Card>
 				</ShadowDiv>
 			);
 		} );
@@ -108,7 +116,7 @@ class HomePage extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const cardList = this.renderCards( cards );
+		const cardList = this.createCards( cards );
 		return (
 			<CardColumns>
 				{ cardList }

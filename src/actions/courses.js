@@ -194,12 +194,12 @@ export function retrieveCourses() {
 	return ( dispatch ) => {
 		dispatch( retrieveCoursesRequest() );
 
-		let request = prepareInternalRequest( "Courses" );
+		const request = prepareInternalRequest( "Courses" );
 
 		return doRequest( request )
-		.then( json =>
-		dispatch( retrieveCoursesSuccess( json ) ) )
-		.catch( error => dispatch( retrieveCoursesFailure( error ) ) );
+			.then( json =>
+				dispatch( retrieveCoursesSuccess( json ) ) )
+			.catch( error => dispatch( retrieveCoursesFailure( error ) ) );
 	};
 }
 
@@ -211,10 +211,10 @@ export function retrieveCourses() {
 export function retrieveCoursesEnrollments() {
 	return ( dispatch ) => {
 		dispatch( retrieveCoursesEnrollmentsRequest() );
-		let userId = getUserId();
+		const userId = getUserId();
 
-		let studentRequest = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
-		let ownedRequest   = prepareInternalRequest( `Customers/${userId}/ownedCourseEnrollments/` );
+		const studentRequest = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
+		const ownedRequest   = prepareInternalRequest( `Customers/${userId}/ownedCourseEnrollments/` );
 
 		return Promise.all( [ doRequest( studentRequest ), doRequest( ownedRequest ) ] )
 			.then( ( [ studentJson, ownedJson ] ) => dispatch( retrieveCoursesEnrollmentsSuccess( _unionBy( studentJson, ownedJson, "id" ) ) ) )
@@ -234,7 +234,7 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 	return ( dispatch ) => {
 		dispatch( sendCourseInviteRequest() );
 
-		let request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
+		const request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
 
 		return doRequest( request )
 			.then( ( json ) => {

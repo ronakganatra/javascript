@@ -8,7 +8,7 @@ import { SubHeading } from "../Headings";
 import styled from "styled-components";
 import { StyledLabel } from "../Labels";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	configurationHeading: {
 		id: "requestConfiguration.configurationHeading",
 		defaultMessage: "Configuration Service",
@@ -104,10 +104,15 @@ class ConfigurationServiceRequestBlock extends React.Component {
 		} );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let configAvailable = this.props.amountAvailable;
-		let value = this.state.selectedOption && this.state.selectedOption.value;
-		let siteOptions = this.getOptions();
+		const configAvailable = this.props.amountAvailable;
+		const value = this.state.selectedOption && this.state.selectedOption.value;
+		const siteOptions = this.getOptions();
 		return (
 			<Paper>
 				<WhitePage>

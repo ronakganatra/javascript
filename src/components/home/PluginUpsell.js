@@ -54,7 +54,7 @@ const pluginUpsellProps = [
 ];
 
 const PluginUpsell = () => {
-	return(
+	return (
 		<UpsellCard
 			id={ pluginUpsellId }
 			header={ {

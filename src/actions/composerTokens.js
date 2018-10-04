@@ -149,8 +149,8 @@ export function fetchComposerTokens() {
 	return ( dispatch ) => {
 		dispatch( fetchComposerTokensRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/ComposerTokens/`, "GET" );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/ComposerTokens/`, "GET" );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -209,7 +209,7 @@ export function createComposerToken( data ) {
 	return ( dispatch ) => {
 		dispatch( createComposerTokenRequest() );
 
-		let request = prepareInternalRequest( "/ComposerTokens/generate/", "POST", data );
+		const request = prepareInternalRequest( "/ComposerTokens/generate/", "POST", data );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -272,7 +272,7 @@ export function renameComposerToken( data ) {
 	return ( dispatch ) => {
 		dispatch( renameComposerTokenRequest() );
 
-		let request = prepareInternalRequest( `ComposerTokens/${data.id}/rename/`, "POST", data );
+		const request = prepareInternalRequest( `ComposerTokens/${data.id}/rename/`, "POST", data );
 
 		return doRequest( request )
 			.then( ( response ) => {
@@ -334,7 +334,7 @@ export function deleteComposerToken( id ) {
 	return ( dispatch ) => {
 		dispatch( deleteComposerTokenRequest() );
 
-		let request = prepareInternalRequest( `ComposerTokens/${id}/delete/`, "POST" );
+		const request = prepareInternalRequest( `ComposerTokens/${id}/delete/`, "POST" );
 
 		return doRequest( request )
 			.then( ( response ) => {

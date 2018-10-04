@@ -65,7 +65,7 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
  * @returns {Object} The updated Site object.
  */
 export function uiSiteReducer( state = rootState.ui.site, action ) {
-	let site = Object.assign( {}, state );
+	const site = Object.assign( {}, state );
 	switch ( action.type ) {
 		case SITE_REMOVE_START:
 			site.removing = true;

@@ -23,18 +23,18 @@ export const PLUGIN_MAPPING = {
  * @returns {Object} The filtered products.
  */
 function filterOutDuplicates( products ) {
-	let filteredProducts = {};
+	const filteredProducts = {};
 
 	// Filter products that have the GL number.
-	let uniqueGlNumbers = _uniq( _map( products, "glNumber" ) );
+	const uniqueGlNumbers = _uniq( _map( products, "glNumber" ) );
 
 	// Get products where GL number is exact same.
-	let filtered = _pickBy( products, ( product ) => {
+	const filtered = _pickBy( products, ( product ) => {
 		return uniqueGlNumbers.includes( product.glNumber ) === true;
 	} );
 
 	// Loop through the filtered products and merge duplicate products.
-	_forEach( filtered, ( product, key ) => {
+	_forEach( filtered, ( product ) => {
 		// Determine whether the product is already present
 		if ( filteredProducts.hasOwnProperty( product.glNumber ) ) {
 			filteredProducts[ product.glNumber ].ids.push( product.id );
@@ -42,7 +42,7 @@ function filterOutDuplicates( products ) {
 			return true;
 		}
 
-		let filteredProduct = Object.assign( {}, product, { ids: [ product.id ] } );
+		const filteredProduct = Object.assign( {}, product, { ids: [ product.id ] } );
 
 		filteredProducts[ product.glNumber ] = _omit( filteredProduct, "id" );
 	} );
@@ -60,9 +60,9 @@ function filterOutDuplicates( products ) {
 function filterProductsByType( type, products ) {
 	// Only get products with the passed type.
 	products = _pickBy( products, product => product.type === type );
-	let filteredProducts = filterOutDuplicates( products );
+	const filteredProducts = filterOutDuplicates( products );
 
-	return Object.keys( filteredProducts ).map( ( key, index ) => {
+	return Object.keys( filteredProducts ).map( ( key ) => {
 		return filteredProducts[ key ];
 	} );
 }
@@ -83,7 +83,7 @@ function sortPluginsByPopularity( plugins ) {
      * Video WP: "82102"
      * Local WooCommerce: "82106"
      */
-	let pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
+	const pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
 
 	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
 	plugins = plugins.sort( ( a, b ) => {
@@ -107,9 +107,9 @@ function sortPluginsByPopularity( plugins ) {
 export function getPlugins( products ) {
 	// Only get products with the passed type.
 	products = _pickBy( products, product => Object.values( PLUGIN_MAPPING ).indexOf( product.type ) !== -1 );
-	let filteredProducts = filterOutDuplicates( products );
+	const filteredProducts = filterOutDuplicates( products );
 
-	return Object.keys( filteredProducts ).map( ( key, index ) => {
+	return Object.keys( filteredProducts ).map( ( key ) => {
 		return filteredProducts[ key ];
 	} );
 }

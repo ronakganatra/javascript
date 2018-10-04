@@ -139,8 +139,6 @@ test('The Subscribe Newsletter component button does nothing when the component 
 
 	let tree = component.toJSON();
 
-	console.error( tree );
-
 	// call onClick function on the component.
 	const onClick = tree.children[2].props.onClick;
 	onClick();

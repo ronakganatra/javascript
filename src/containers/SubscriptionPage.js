@@ -13,9 +13,9 @@ import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	let selectedSubscriptionId = ownProps.match.params.id;
+	const selectedSubscriptionId = ownProps.match.params.id;
 
-	let selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
+	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
 
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
@@ -50,7 +50,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		} );
 
 	let sites = [];
-	let siteIds = state.entities.sites.allIds;
+	const siteIds = state.entities.sites.allIds;
 	if ( isEmpty( siteIds ) === false ) {
 		sites = siteIds
 			.map( siteId => state.entities.sites.byId[ siteId ] )
@@ -59,7 +59,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	// Get subscriptions that are connected to the same order in WooCommerce.
 	let connectedSubscriptions = [];
-	let subscriptionIds = state.entities.subscriptions.allIds;
+	const subscriptionIds = state.entities.subscriptions.allIds;
 	if ( isEmpty( subscriptionIds ) === false ) {
 		connectedSubscriptions = subscriptionIds
 			.map( subscriptionId => state.entities.subscriptions.byId[ subscriptionId ] )
@@ -79,7 +79,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			);
 	}
 
-	let cancelSubscriptionState = {
+	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
 		cancelLoading: state.ui.subscriptionsCancel.loading,
 		cancelSuccess: state.ui.subscriptionsCancel.success,

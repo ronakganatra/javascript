@@ -59,7 +59,9 @@ exports[`the ConnectedSubscriptionWarning component matches the snapshot 1`] = `
     <span>
       This product is part of a subscription bundle. Cancelling this product will also cancel:
     </span>
-    <ul>
+    <ul
+      role="list"
+    >
       <li>
         1
          × 

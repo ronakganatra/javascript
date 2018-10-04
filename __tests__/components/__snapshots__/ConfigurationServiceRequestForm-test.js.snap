@@ -173,6 +173,9 @@ exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matc
   background-color: #fff;
   border: 1px solid #000;
   min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
 }
 
 .c18:hover,

@@ -4,14 +4,14 @@ import { BeaconButton } from "../components/Button";
 import { helpBeaconModalOpen } from "../actions/helpBeacon";
 
 export const mapStateToProps = ( state ) => {
-	let isOpen = state.ui.helpBeaconModal.modalOpen;
+	const isOpen = state.ui.helpBeaconModal.modalOpen;
 
 	return {
 		isOpen,
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onClick: () => {
 			dispatch( helpBeaconModalOpen() );

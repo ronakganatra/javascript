@@ -97,7 +97,7 @@ class ManageToken extends React.Component {
 	handleSubmit( event ) {
 		event.preventDefault();
 		if ( this.state.tokenDescriptionInput !== "" ) {
-			let data = {
+			const data = {
 				id: this.props.manageTokenData.id,
 				name: this.state.tokenDescriptionInput,
 			};
@@ -106,22 +106,22 @@ class ManageToken extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		let enabledStyle = this.state.tokenDescriptionInput !== "";
+		const enabledStyle = this.state.tokenDescriptionInput !== "";
 		return (
 			<ManageTokenModal>
 				<ModalHeading>
-					<FormattedMessage id="profile.manageToken.header" defaultMessage="Manage token"/>
+					<FormattedMessage id="profile.manageToken.header" defaultMessage="Manage token" />
 				</ModalHeading>
 				<FormattedMessage
 					id="profile.manage-token.modal-description"
 					defaultMessage="Here you can edit this token's description, or disable the token."
 				/>
-				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate={ true }>
 					<StyledLabel htmlFor="change-token-description-input">
 						<FormattedMessage
 							id="profile.manage-token.token-description"
@@ -140,21 +140,21 @@ class ManageToken extends React.Component {
 					<ErrorDisplay error={ this.props.error } />
 
 					<Buttons>
-						<WideSecondaryButton onClick={ this.props.onClose } >
-							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="Cancel"/>
+						<WideSecondaryButton onClick={ this.props.onClose }>
+							<FormattedMessage id="profile.manage-token.cancel" defaultMessage="Cancel" />
 						</WideSecondaryButton>
 						<WideRedButton
 							onClick={ () => {
 								this.props.onDeleteTokenClick( this.state.tokenId );
 							} }
 						>
-							<FormattedMessage id="profile.manage-token.delete" defaultMessage="Delete"/>
+							<FormattedMessage id="profile.manage-token.delete" defaultMessage="Delete" />
 						</WideRedButton>
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ enabledStyle }
 						>
-							<FormattedMessage id="profile.manage-token.save" defaultMessage="Save"/>
+							<FormattedMessage id="profile.manage-token.save" defaultMessage="Save" />
 						</WideLargeButton>
 					</Buttons>
 				</form>

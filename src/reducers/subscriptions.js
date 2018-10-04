@@ -107,7 +107,7 @@ export function uiAddSubscriptionModalReducer( state = rootState.ui.addSubscript
  * @returns {Object} The updated byIdSubscriptions object.
  */
 export function byIdSubscriptionsReducer( state = rootState.entities.subscriptions.byId, action ) {
-	let subscriptions = Object.assign( {}, state );
+	const subscriptions = Object.assign( {}, state );
 
 	switch ( action.type ) {
 		case GET_ALL_SUBSCRIPTIONS_SUCCESS:

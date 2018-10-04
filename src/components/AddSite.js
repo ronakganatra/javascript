@@ -86,7 +86,7 @@ class AddSite extends React.Component {
 	 * @returns {*} Either null or html for the CMS type drop-down.
 	 */
 	getPlatformSelect() {
-		return(
+		return (
 			<div>
 				<SpanStyledAsLabel
 					id="add-site-select-platform-label"
@@ -156,7 +156,7 @@ class AddSite extends React.Component {
 	 * @returns {void}
 	 */
 	runValidation( url, debounced = true ) {
-		let validationError = this.validateUrl( url );
+		const validationError = this.validateUrl( url );
 		if ( validationError ) {
 			this.updateValidationMessage( validationError );
 			if ( debounced ) {
@@ -205,7 +205,7 @@ class AddSite extends React.Component {
 			return null;
 		}
 
-		let result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
+		const result = validate( { website: input }, { website: this.urlConstraints() }, { format: "detailed" } );
 
 		if ( result && result[ 0 ] !== null ) {
 			return result[ 0 ].options.message;
@@ -276,7 +276,7 @@ class AddSite extends React.Component {
 	 * @returns {void}
 	 */
 	speakValidationMessage() {
-		let message = this.props.intl.formatMessage( messages.validationFormatURL );
+		const message = this.props.intl.formatMessage( messages.validationFormatURL );
 		speak( message, "assertive" );
 	}
 
@@ -299,18 +299,18 @@ class AddSite extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (
 			<AddSiteModal>
 				<ModalHeading>
-					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site"/>
+					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site" />
 				</ModalHeading>
 
-				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate={ true }>
 					<StyledLabel htmlFor="add-site-input">
 						<FormattedMessage
 							id="sites.addSite.enterUrl"
@@ -331,14 +331,14 @@ class AddSite extends React.Component {
 					{ this.getPlatformSelect() }
 					{ this.urlValidityMessage( this.props.linkingSiteUrl ) }
 					<ButtonsContainer>
-						<WideSecondaryButton onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="sites.addSite.cancel" defaultMessage="Cancel"/>
+						<WideSecondaryButton onClick={ this.props.onCancelClick }>
+							<FormattedMessage id="sites.addSite.cancel" defaultMessage="Cancel" />
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ ! this.state.validationError && !! this.props.linkingSiteUrl }
 						>
-							<FormattedMessage id="sites.addSite.connect" defaultMessage="Add"/>
+							<FormattedMessage id="sites.addSite.connect" defaultMessage="Add" />
 						</WideLargeButton>
 					</ButtonsContainer>
 				</form>

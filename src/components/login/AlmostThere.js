@@ -20,7 +20,11 @@ const messages = defineMessages( {
  * Shows an "Almost there" login message.
  */
 class AlmostThere extends React.Component {
-
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return <LoginMessage { ...messages } />;
 	}

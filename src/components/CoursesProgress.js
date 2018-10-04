@@ -64,7 +64,7 @@ class CoursesProgress extends React.Component {
 		this.props.loadData();
 
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.coursesPageLoaded );
+		const message = this.props.intl.formatMessage( messages.coursesPageLoaded );
 		speak( message );
 	}
 
@@ -112,7 +112,7 @@ class CoursesProgress extends React.Component {
 	 * @returns {Promise} the promise made after sending the invite through the server
 	 */
 	sendInvite() {
-		let request = prepareInternalRequest(
+		const request = prepareInternalRequest(
 			`CourseEnrollments/${this.state.availableEnrollment.id}/invite/`,
 			"POST",
 			{ email: this.state.email } );
@@ -229,13 +229,18 @@ class CoursesProgress extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<OuterContainer>
 				{ this.props.courses.map( ( course, i ) =>
 					<CourseListItem key={ i }>
 						<FullHeightCard{ ...this.getBanner( course ) } { ...this.getHeader( course ) }>
-							<CourseDetails { ...course } onAssignModalOpen={ this.openModal }/>
+							<CourseDetails { ...course } onAssignModalOpen={ this.openModal } />
 						</FullHeightCard>
 					</CourseListItem> )
 				}

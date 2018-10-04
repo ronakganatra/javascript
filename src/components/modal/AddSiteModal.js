@@ -4,7 +4,7 @@ import AddSite from "../AddSite";
 import React from "react";
 import PropTypes from "prop-types";
 
-let modalAriaLabel = defineMessages( {
+const modalAriaLabel = defineMessages( {
 	id: "modal.arialabel.add",
 	defaultMessage: "Add a new site",
 } );

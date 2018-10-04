@@ -163,7 +163,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 	 * @returns {void}
 	 */
 	goToStep( num ) {
-		let previousStepCompleted = [
+		const previousStepCompleted = [
 			true,
 			this.state.administratorLoginConfirmed,
 			this.state.backupRequired !== null,
@@ -182,8 +182,8 @@ class ConfigurationServiceRequestForm extends React.Component {
 	}
 
 	createConfigurationServiceRequest() {
-		let id = this.props.configurationServiceRequest.id;
-		let data = {
+		const id = this.props.configurationServiceRequest.id;
+		const data = {
 			administratorLoginConfirmed: this.state.administratorLoginConfirmed,
 			backupRequired: this.state.backupRequired,
 			importFrom: this.state.importFrom,
@@ -195,9 +195,9 @@ class ConfigurationServiceRequestForm extends React.Component {
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (
@@ -205,7 +205,7 @@ class ConfigurationServiceRequestForm extends React.Component {
 				<StyledModalHeading>
 					<FormattedMessage
 						id="sites.configurationRequest.header"
-						defaultMessage={ "Configuration service { step }/4"}
+						defaultMessage={ "Configuration service { step }/4" }
 						values={ { step: this.state.activeStep + 1 } }
 					/>
 				</StyledModalHeading>
@@ -221,32 +221,41 @@ class ConfigurationServiceRequestForm extends React.Component {
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.administratorLoginStepLabel ),
 								label: this.props.intl.formatMessage( messages.administratorLogin ),
-								component: <AdministratorLoginStep onClose={ this.props.onClose }
-															confirmed={ this.state.administratorLoginConfirmed }
-															onSubmit={ this.setAdministratorLoginConfirmation }/>,
+								component: <AdministratorLoginStep
+									onClose={ this.props.onClose }
+									confirmed={ this.state.administratorLoginConfirmed }
+									onSubmit={ this.setAdministratorLoginConfirmation }
+								/>,
 							},
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.backupStepLabel ),
 								label: this.props.intl.formatMessage( messages.backup ),
-								component: <BackupStep backupRequired={ this.state.backupRequired }
-												onSubmit={ this.setBackupCreation }
-												onBack={ this.goStepBack }/>,
+								component: <BackupStep
+									backupRequired={ this.state.backupRequired }
+									onSubmit={ this.setBackupCreation }
+									onBack={ this.goStepBack }
+								/>,
 							},
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.importDataStepLabel ),
 								label: this.props.intl.formatMessage( messages.importData ),
-								component: <ImportDataStep importFrom={ this.state.importFrom }
-													onSubmit={ this.setImportFrom }
-													onBack={ this.goStepBack }/>,
+								component: <ImportDataStep
+									importFrom={ this.state.importFrom }
+									onSubmit={ this.setImportFrom }
+									onBack={ this.goStepBack }
+								/>,
 							},
 							{
 								stepAriaLabel: this.props.intl.formatMessage( messages.googleSearchConsoleStepLabel ),
 								label: this.props.intl.formatMessage( messages.googleSearchConsole ),
-								component: <GoogleSearchConsoleStep searchConsoleRequired={ this.state.searchConsoleRequired }
-															onSubmit={ this.setGoogleSearchConsole }
-															onBack={ this.goStepBack }/>,
+								component: <GoogleSearchConsoleStep
+									searchConsoleRequired={ this.state.searchConsoleRequired }
+									onSubmit={ this.setGoogleSearchConsole }
+									onBack={ this.goStepBack }
+								/>,
 							},
-						] } />
+						] }
+					/>
 				</StyledContainer>
 			</StyledConfigurationServiceRequestForm>
 		);

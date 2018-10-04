@@ -3,7 +3,7 @@ import ProfileDetails from "../components/login/ProfileDetails";
 import { fetchUser, updateProfile, uploadAvatar } from "../actions/user";
 import { getUserId } from "../functions/auth";
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptSubmitProfile: ( nameDetails, avatarUrl ) => {
 			dispatch( updateProfile( nameDetails ) );

@@ -27,22 +27,22 @@ const messages = defineMessages( {
 	},
 } );
 
-let ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
-let ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
-let ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
-let ResponsiveIconButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
+const ColumnMinWidthResponsive = makeFullWidth( responsiveHeaders( ColumnMinWidth ) );
+const ColumnPrimaryResponsive = makeFullWidth( responsiveHeaders( ColumnPrimary ) );
+const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+const ResponsiveIconButton = makeButtonFullWidth( makeResponsiveIconButton( LargeIconButton ) );
 
-let TokenRow = styled( RowMobileCollapse )`
+const TokenRow = styled( RowMobileCollapse )`
 	padding: 16px 32px;
 `;
 
-let NameColumn = styled( ColumnMinWidthResponsive )`
+const NameColumn = styled( ColumnMinWidthResponsive )`
 	max-width: 200px;
 `;
-let TokenColumn = styled( ColumnPrimaryResponsive )`
+const TokenColumn = styled( ColumnPrimaryResponsive )`
 	word-break: break-all;
 `;
-let ResponsiveManageButton = styled( ResponsiveIconButton )`
+const ResponsiveManageButton = styled( ResponsiveIconButton )`
 		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
 			padding-left: 56px;
 		}
@@ -55,8 +55,8 @@ let ResponsiveManageButton = styled( ResponsiveIconButton )`
  * @returns {ReactElement} A row of order stuff.
  */
 function ComposerToken( props ) {
-	let manageMessage = props.intl.formatMessage( messages.manage );
-	let manageLabel = props.intl.formatMessage( messages.manageLabel );
+	const manageMessage = props.intl.formatMessage( messages.manage );
+	const manageLabel = props.intl.formatMessage( messages.manageLabel );
 
 	return (
 		<TokenRow background={ props.background }>

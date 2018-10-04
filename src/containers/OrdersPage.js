@@ -6,10 +6,10 @@ import { getRefunds } from "../actions/refunds";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
 export const mapStateToProps = ( state ) => {
-	let allIds = state.entities.orders.allIds;
+	const allIds = state.entities.orders.allIds;
 
 	let orders = allIds.map( ( orderId ) => {
-		let order = state.entities.orders.byId[ orderId ];
+		const order = state.entities.orders.byId[ orderId ];
 
 		order.status = capitalizeFirstLetter( order.status );
 
@@ -34,10 +34,10 @@ export const mapStateToProps = ( state ) => {
 		return b.date - a.date;
 	} );
 
-	let query = state.ui.search.query;
+	const query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
-			let formattedDate = new Intl.DateTimeFormat( "en-US", {
+			const formattedDate = new Intl.DateTimeFormat( "en-US", {
 				year: "numeric",
 				month: "long",
 				day: "numeric",
@@ -56,7 +56,7 @@ export const mapStateToProps = ( state ) => {
 	};
 };
 
-export const mapDispatchToProps = ( dispatch, ownProps ) => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onSearchChange: ( query ) => {
 			dispatch( onSearchQueryChange( query ) );

@@ -6,7 +6,7 @@ import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Bu
 import ButtonsContainer from "../../general/ButtonsContainer";
 import NewTabMessage from "../../../components/NewTabMessage";
 
-let messages = defineMessages( {
+const messages = defineMessages( {
 	googleSearchConsoleRequired: {
 		id: "requestConfiguration.googleSearchConsoleRequired",
 		defaultMessage: "If you want to connect your site to your Google Search Console account, please add us as a user.",
@@ -70,13 +70,19 @@ class GoogleSearchConsoleStep extends React.Component {
 		this.props.completeStep();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<div>
 				<p>
 					<FormattedMessage
 						id={ messages.googleSearchConsoleRequired.id }
-						defaultMessage={ messages.googleSearchConsoleRequired.defaultMessage } />
+						defaultMessage={ messages.googleSearchConsoleRequired.defaultMessage }
+					/>
 				</p>
 				<p>
 					<input
@@ -84,21 +90,22 @@ class GoogleSearchConsoleStep extends React.Component {
 						type="radio"
 						onChange={ this.handleInput }
 						checked={ this.state.searchConsoleRequired === true }
-						value="true"/>
+						value="true"
+					/>
 					<StyledLabel htmlFor="googleSearchConsoleConnected">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleConnected.id }
 							defaultMessage={ messages.googleSearchConsoleConnected.defaultMessage }
 							values={ {
 								link:
-									<a
-										target="_blank"
-										href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
-										rel="noopener noreferrer"
-									>
-										<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
-										<NewTabMessage />
-									</a>,
+	<a
+		target="_blank"
+		href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
+		rel="noopener noreferrer"
+	>
+		<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
+		<NewTabMessage />
+	</a>,
 							} }
 						/>
 					</StyledLabel>
@@ -109,23 +116,25 @@ class GoogleSearchConsoleStep extends React.Component {
 						type="radio"
 						onChange={ this.handleInput }
 						checked={ this.state.searchConsoleRequired === false }
-						value="false"/>
+						value="false"
+					/>
 					<StyledLabel htmlFor="googleSearchConsoleMissing">
 						<FormattedMessage
 							id={ messages.googleSearchConsoleMissing.id }
-							defaultMessage={ messages.googleSearchConsoleMissing.defaultMessage } />
+							defaultMessage={ messages.googleSearchConsoleMissing.defaultMessage }
+						/>
 					</StyledLabel>
 				</p>
 				<ButtonsContainer>
-					<WideSecondaryButton onClick={ this.props.onBack } >
-						<FormattedMessage id="requestConfiguration.close" defaultMessage="back"/>
+					<WideSecondaryButton onClick={ this.props.onBack }>
+						<FormattedMessage id="requestConfiguration.close" defaultMessage="back" />
 					</WideSecondaryButton>
 					<WideLargeButton
 						onClick={ this.handleContinue }
 						type="submit"
 						enabledStyle={ this.state.searchConsoleRequired !== null }
 					>
-						<FormattedMessage id="requestConfiguration.submit" defaultMessage="submit"/>
+						<FormattedMessage id="requestConfiguration.submit" defaultMessage="submit" />
 					</WideLargeButton>
 				</ButtonsContainer>
 			</div>

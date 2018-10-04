@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
+import Link from "../Link";
 
 const Header = styled.h2`
 	padding: 0;
@@ -23,7 +24,7 @@ const ListItem = styled.div`
 	display: flex;
 	box-sizing: border-box;
 	:not(:last-child) {
-		margin-bottom: 16px;
+		margin-bottom: 1.5em;
 	}
 `;
 
@@ -46,7 +47,11 @@ const Description = styled.p`
 	margin: 0;
 	white-space: normal;
 	max-width: 100%;
-	line-height: 0.9;
+	line-height: 1.4;
+`;
+
+const BoldLink = styled( Link )`
+	font-weight: bold;
 `;
 
 /**
@@ -57,13 +62,13 @@ const Description = styled.p`
  * @returns {ReactElement} The UpsellListItem.
  */
 const UpsellListItem = ( props ) => {
-	return(
+	return (
 		<ListItem>
 			<Block>
 				<Icon src={ props.icon } />
 			</Block>
 			<TextBlock>
-				<a href={ props.link.url } target="blank" >{ props.link.name }</a>
+				<BoldLink to={ props.link.url } linkTarget="_blank">{ props.link.name }</BoldLink>
 				<Description>
 					<FormattedMessage
 						id={ props.description.id }
@@ -107,7 +112,7 @@ const UpsellCard = ( props ) => {
 			<ListContainer>
 				{
 					props.listPropsArray.map( ( listProps, index ) => {
-						return(
+						return (
 							<UpsellListItem { ...listProps } key={ `${ props.id }-key-${ index }` } />
 						);
 					} )

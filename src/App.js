@@ -23,7 +23,7 @@ import ResetPasswordContainer from "./containers/ResetPassword";
 import SendResetEmailSuccessPage from "./components/login/SendResetEmailSuccessPage";
 import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 import {
-	directToIntendedDestination,
+	getRedirectUrl,
 	hasPeriLoginCookie,
 	removePeriLoginCookie,
 	setPeriLoginCookie,
@@ -54,75 +54,150 @@ injectGlobal`
 		color: ${ colors.$color_pink_dark };
 	}
 `;
+
 /* eslint-enable no-unused-expressions */
 
-
-const Routes = ( props ) => {
-	if ( props.loggedIn === false ) {
-		return (
-			<ConnectedRouter history={ props.history }>
-				<Switch>
-					<Route exact path="/login" component={ inLoginLayout( LoginPage ) }/>
-					<Route exact path="/signup" component={ inLoginLayout( LoginPage ) }/>
-					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) }/>
-					<Route exact path="/almost-there" component={ inLoginLayout( AlmostThere ) }/>
-					<Route exact path="/forgot-password" component={ inLoginLayout( ResetPasswordEmailContainer ) }/>
-					<Route exact path="/forgot-password/check-your-email"
-					       component={ inLoginLayout( SendResetEmailSuccessPage ) }/>
-					<Route exact path="/forgot-password/reset-password"
-					       component={ inLoginLayout( ResetPasswordContainer ) }/>
-					<Route exact path="/forgot-password/success"
-					       component={ inLoginLayout( ResetPasswordSuccessPage ) }/>
-					<Route path="*" render={ () => {
-						removePeriLoginCookie();
-						setPeriLoginCookie();
-						return ( <Redirect to={ "/login" }/> );
-					} }/>
-				</Switch>
-			</ConnectedRouter>
-		);
+/**
+ * The Routes component.
+ */
+class Routes extends React.Component {
+	/**
+	 * The Routes component constructor.
+	 *
+	 * @param {object} props Properties of the component.
+	 *
+	 * @returns {ReactElement} Routes component.
+	 *
+	 * @constructor
+	 */
+	constructor( props ) {
+		super( props );
+		this.state = {};
 	}
 
-	if ( props.userEnabled === false ) {
-		return (
-			<ConnectedRouter history={ props.history }>
-				<Route path="*" component={ inSingleLayout( AccountDisabled ) }/>
-			</ConnectedRouter>
-		);
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {void}
+	 */
+	componentWillReceiveProps() {
+		const newState = this.getCookieState();
+		this.setState( newState );
 	}
 
-	if ( props.userEnabled === true ) {
-		let fallbackRoute = null;
+	/**
+	 * Sets the redirect cookie to the state.
+	 *
+	 * @returns {Object} The change in state containing the redirect cookie.
+	 */
+	getDerivedStateFromProps() {
+		return this.getCookieState();
+	}
 
+	/**
+	 * Gets the state for the redirect cookie.
+	 *
+	 * @returns {Object} The new state.
+	 */
+	getCookieState() {
 		if ( hasPeriLoginCookie() ) {
-			fallbackRoute = <Route path="*" render={ () => {
-				directToIntendedDestination();
-				return null;
-			} }/>;
-		} else {
-			fallbackRoute = <Route path="*" component={ inMainLayout( PageNotFound ) }/>;
+			return { redirectTo: getRedirectUrl() };
+		}
+		return {};
+	}
+
+	/**
+	 * Redirects the user to the login page while saving the location the user was actually trying to reach.
+	 * Saving this location allows us to redirect the user back to it as soon as the login succeeds.
+	 *
+	 * @returns {ReactElement} The redirect component.
+	 */
+	redirectToLogin() {
+		removePeriLoginCookie();
+		setPeriLoginCookie();
+		return ( <Redirect to={ "/login" } /> );
+	}
+
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
+	render() {
+		if ( this.props.loggedIn === false ) {
+			return (
+				<ConnectedRouter history={ this.props.history }>
+					<Switch>
+						<Route exact={ true } path="/login" component={ inLoginLayout( LoginPage ) } />
+						<Route exact={ true } path="/signup" component={ inLoginLayout( LoginPage ) } />
+						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
+						<Route exact={ true } path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
+						<Route
+							exact={ true } path="/forgot-password"
+							component={ inLoginLayout( ResetPasswordEmailContainer ) }
+						/>
+						<Route
+							exact={ true } path="/forgot-password/check-your-email"
+							component={ inLoginLayout( SendResetEmailSuccessPage ) }
+						/>
+						<Route
+							exact={ true } path="/forgot-password/reset-password"
+							component={ inLoginLayout( ResetPasswordContainer ) }
+						/>
+						<Route
+							exact={ true } path="/forgot-password/success"
+							component={ inLoginLayout( ResetPasswordSuccessPage ) }
+						/>
+						<Route
+							path="*" render={ this.redirectToLogin }
+						/>
+					</Switch>
+				</ConnectedRouter>
+			);
 		}
 
-		return (
-			<ConnectedRouter history={ props.history }>
-				<Switch>
-					<Route exact path="/activate" component={ inLoginLayout( ActivateContainer ) }/>
-					<Route exact path="/enter-details" component={ inLoginLayout( ProfileDetails ) }/>
-					<Route exact path="/login" render={ () => <Redirect to={ "/" }/> }/>
-					<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) }/>
-					<Route path="/account/subscriptions/:id" component={ inSingleLayout( SubscriptionPageContainer ) }/>
-					{ menuItems.map( function( route, routeKey ) {
-						return <Route { ...route } key={ routeKey } path={ route.path } component={ inMainLayout( route.component ) }/>;
-					} ) }
-					{ fallbackRoute }
-				</Switch>
-			</ConnectedRouter>
-		);
-	}
+		if ( this.props.userEnabled === false ) {
+			return (
+				<ConnectedRouter history={ this.props.history }>
+					<Route path="*" component={ inSingleLayout( AccountDisabled ) } />
+				</ConnectedRouter>
+			);
+		}
 
-	// We don't want to render anything until user is fetched, user.enabled is null by default.
-	return <span/>;
-};
+		if ( this.props.userEnabled === true ) {
+			if ( this.state.redirectTo ) {
+				removePeriLoginCookie();
+				window.location.replace( this.state.redirectTo );
+				return null;
+			}
+
+			return (
+				<ConnectedRouter history={ this.props.history }>
+					<Switch>
+						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
+						<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
+						<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
+						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+						<Route
+							path="/account/subscriptions/:id"
+							component={ inSingleLayout( SubscriptionPageContainer ) }
+						/>
+						{ menuItems.map( function( route, routeKey ) {
+							return <Route
+								{ ...route } key={ routeKey } path={ route.path }
+								component={ inMainLayout( route.component ) }
+							/>;
+						} ) }
+						<Route path="*" component={ inMainLayout( PageNotFound ) } />;
+					</Switch>
+				</ConnectedRouter>
+			);
+		}
+
+		// We don't want to render anything until user is fetched, user.enabled is null by default.
+		return <span />;
+	}
+}
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
@@ -144,11 +219,16 @@ const RoutesContainer = connect(
 )( Routes );
 
 class App extends Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<IntlProvider locale="en">
 				<Provider store={ this.props.store }>
-					<RoutesContainer history={ this.props.history }/>
+					<RoutesContainer history={ this.props.history } />
 				</Provider>
 			</IntlProvider>
 		);

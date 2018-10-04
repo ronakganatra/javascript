@@ -45,10 +45,10 @@ const SiteAddContainer = styled.div`
 	}
 `;
 
-let ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
+const ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
 
 
-let debouncedSpeak = _debounce( speak, 1000 );
+const debouncedSpeak = _debounce( speak, 1000 );
 
 /**
  * Returns the rendered Sites Page component.
@@ -86,7 +86,7 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
-	getConfigurationServiceRequest( id, data ) {
+	getConfigurationServiceRequest() {
 		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
 			return null;
 		}
@@ -107,7 +107,7 @@ class SitesPage extends React.Component {
 
 	componentDidMount() {
 		// Announce navigation to assistive technologies.
-		let message = this.props.intl.formatMessage( messages.sitesPageLoaded );
+		const message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		speak( message );
 	}
 	componentWillReceiveProps( nextProps ) {
@@ -123,7 +123,7 @@ class SitesPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
-			let message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
+			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
 			debouncedSpeak( message, "assertive" );
 		}
 	}
@@ -136,7 +136,7 @@ class SitesPage extends React.Component {
 	 */
 	getModal() {
 		if ( this.props.modalOpen ) {
-			return <AddSiteModal { ...this.props }/>;
+			return <AddSiteModal { ...this.props } />;
 		} else if ( this.props.configurationServiceRequestModalOpen ) {
 			return this.getConfigurationServiceRequestModal();
 		}
@@ -148,7 +148,7 @@ class SitesPage extends React.Component {
 	 * @returns {object} The ConfigurationServiceRequestForm modal rendered and opened.
 	 */
 	getConfigurationServiceRequestModal() {
-		let modalAriaLabel = defineMessages( {
+		const modalAriaLabel = defineMessages( {
 			id: "modal.arialabel.configuration-service",
 			defaultMessage: "Request our configuration service",
 		} );
@@ -169,18 +169,28 @@ class SitesPage extends React.Component {
 		);
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
-		let props = this.props;
-		let noSitesParagraphs = [
+		const props = this.props;
+		const noSitesParagraphs = [
 			<FormattedMessage id="sites.noSite.welcome" defaultMessage="Welcome to the sites overview." />,
-			<FormattedMessage id="sites.noSite.manage"
-							  defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions." />,
-			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site."/>,
+			<FormattedMessage
+				id="sites.noSite.manage"
+				defaultMessage="Here you will be able to manage all your sites that are running Yoast subscriptions."
+			/>,
+			<FormattedMessage id="sites.noSite.pressButton" defaultMessage="Press the button below to add your first site." />,
 		];
 
-		let sitesNoResultsParagraphs = [ <FormattedMessage id="sites.sitesNoResult.notfound"
-							defaultMessage={ "We could not find { site } in your account." }
-							values={ { site: <strong>{ props.query }</strong> } } />,
+		const sitesNoResultsParagraphs = [
+			<FormattedMessage
+				id="sites.sitesNoResult.notfound"
+				defaultMessage={ "We could not find { site } in your account." }
+				values={ { site: <strong>{ props.query }</strong> } }
+			/>,
 			<FormattedMessage id="sites.sitesNoResult.add" defaultMessage="Do you want to add it?" />,
 		];
 
@@ -208,7 +218,7 @@ class SitesPage extends React.Component {
 					<SiteAddContainer>
 						{ this.getSearch() }
 					</SiteAddContainer>
-					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites"/>
+					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites" />
 					{ this.getModal() }
 				</div>
 			);

@@ -52,6 +52,11 @@ const Logos = styled.img`
  * Page to show the password change was succeeded.
  */
 class ResetPasswordSuccessPage extends React.Component {
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<LoginColumnLayout>

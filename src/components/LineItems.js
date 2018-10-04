@@ -23,8 +23,8 @@ const Item = styled.li``;
  * @returns {ReactElement} A row of LineItems.
  */
 function LineItems( props ) {
-	let items = props.items.map( ( item ) => {
-		return <Item key={item.id}>{ item.quantity }x { item.productName }</Item>;
+	const items = props.items.map( ( item ) => {
+		return <Item key={ item.id }>{ item.quantity }x { item.productName }</Item>;
 	} );
 	return <ItemsContainer>{ items }</ItemsContainer>;
 }

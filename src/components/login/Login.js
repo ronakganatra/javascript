@@ -11,7 +11,6 @@ import LoginForm from "./LoginForm";
  * Login component for logging in to MyYoast.
  */
 class Login extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -50,7 +49,7 @@ class Login extends React.Component {
 	 * @returns {void}
 	 */
 	onUpdateField( field, event ) {
-		let obj = {};
+		const obj = {};
 		obj[ field ] = event.target.value;
 		this.setState( obj );
 	}
@@ -67,7 +66,7 @@ class Login extends React.Component {
 		if ( this.props.loading ) {
 			return;
 		}
-		let data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe, otp: this.state.otp };
+		const data = { email: this.state.email, password: this.state.password, rememberMe: this.state.rememberMe, otp: this.state.otp };
 		this.props.attemptLogin( data );
 	}
 
@@ -79,6 +78,11 @@ class Login extends React.Component {
 		return true;
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<LoginForm

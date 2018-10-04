@@ -37,10 +37,10 @@ const Layout = styled.div`
 const LayoutLogin = styled.div`
 	background: ${colors.$color_pink_dark} url( ${ loginBackground } ) no-repeat 100% 0;
 	background-size: cover;
-	
+
 	font-family: "Open Sans", sans-serif;
 	color: #000;
-		
+
 	display: flex;
 	min-height: 100%;
 `;
@@ -112,6 +112,11 @@ const WhitePaper = styled( WhitePage )`
 
 export const inLoginLayout = ( WrappedComponent ) => {
 	return class LoginLayout extends Component {
+		/**
+		 * Renders the component.
+		 *
+		 * @returns {ReactElement} The rendered component.
+		 */
 		render() {
 			return (
 				<LayoutLogin>
@@ -126,6 +131,11 @@ export const inLoginLayout = ( WrappedComponent ) => {
 
 export const inSingleLayout = ( WrappedComponent ) => {
 	return class SingleLayout extends Component {
+		/**
+		 * Renders the component.
+		 *
+		 * @returns {ReactElement} The rendered component.
+		 */
 		render() {
 			return (
 				<Layout>
@@ -146,6 +156,11 @@ export const inSingleLayout = ( WrappedComponent ) => {
 
 export const inMainLayout = ( WrappedComponent ) => {
 	return class MainLayout extends Component {
+		/**
+		 * Renders the component.
+		 *
+		 * @returns {ReactElement} The rendered component.
+		 */
 		render() {
 			return (
 				<Layout>

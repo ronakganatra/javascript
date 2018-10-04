@@ -100,14 +100,14 @@ const HeaderDescription = styled.p`
  * @constructor
  */
 function SubscriptionHeader( props ) {
-	let imageContainer = (
+	const imageContainer = (
 		<HeaderImageContainer>
-			<HeaderImage src={ props.image }/>
+			<HeaderImage src={ props.image } />
 		</HeaderImageContainer>
 	);
 
 	// Only add the image and container if provided.
-	let byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
+	const byline = props.byline ? <HeaderByline>{ props.byline }</HeaderByline> : "";
 
 	return (
 		<SubscriptionHeaderContainer>

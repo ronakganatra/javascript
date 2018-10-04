@@ -111,7 +111,7 @@ export function userDataReducer( state = initialState, action ) {
  * @returns {Object} The new state for the store.
  */
 export function userEmailReducer( state = initialState, action ) {
-	let subtype = action.subtype || "default";
+	const subtype = action.subtype || "default";
 	switch ( action.type ) {
 		case PROFILE_UPDATE_REQUEST:
 			return Object.assign( {}, state, {
@@ -223,7 +223,7 @@ export function userDisableReducer( state = initialState, action ) {
 	}
 }
 
-let userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer, userDisableReducer );
+const userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer, userDisableReducer );
 
 /**
  * A combineReducer for the user object.

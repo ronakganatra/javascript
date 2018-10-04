@@ -43,11 +43,11 @@ const ClockIcon = styled.img`
 	padding-right: 2px;
 `;
 
-let ColumnSubscriptions = styled( ColumnFixedWidth )`
+const ColumnSubscriptions = styled( ColumnFixedWidth )`
 	flex-basis: 340px;
 `;
 
-let ConfigurationServiceRequestUsage = styled.span`
+const ConfigurationServiceRequestUsage = styled.span`
 	display: block;
 	font-weight: 300;
 	margin-right: 8px;
@@ -63,13 +63,13 @@ let ConfigurationServiceRequestUsage = styled.span`
  * @constructor
  */
 function Site( props ) {
-	let rowProps = [];
+	const rowProps = [];
 	if ( props.background ) {
 		rowProps.background = props.background;
 	}
 
-	let siteIcon = props.siteIcon || defaultSiteIcon;
-	let plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
+	const siteIcon = props.siteIcon || defaultSiteIcon;
+	const plugins = props.plugins.filter( ( plugin ) => PLUGIN_MAPPING[ props.siteType ] === plugin.type );
 
 	let configureStatusMessage = "{ statusIcon } Configuration service requested";
 	let iconValues = <ClockIcon src={ clock } alt="" />;
@@ -85,18 +85,22 @@ function Site( props ) {
 
 	return (
 		<Row { ...rowProps }>
-			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt=""/></ColumnIcon>
+			<ColumnIcon separator={ true }><SiteIcon src={ siteIcon } alt="" /></ColumnIcon>
 			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.siteName ) }>
 				{ props.siteName }
 				{ props.linkedConfigurationServiceRequest &&
 					<ConfigurationServiceRequestUsage>
-						<FormattedMessage id="request.configured" defaultMessage={ configureStatusMessage }
-											values={{ statusIcon: iconValues }} />
+						<FormattedMessage
+							id="request.configured" defaultMessage={ configureStatusMessage }
+							values={ { statusIcon: iconValues } }
+						/>
 					</ConfigurationServiceRequestUsage>
 				}
 			</ColumnPrimary>
-			<ColumnSubscriptions ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
-				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }>
+			<ColumnSubscriptions
+				ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
+				headerLabel={ props.intl.formatMessage( messages.activeSubscriptions ) }
+			>
 				<SiteSubscriptions activeSubscriptions={ props.activeSubscriptions } plugins={ plugins } />
 			</ColumnSubscriptions>
 			<ColumnFixedWidth>
@@ -104,8 +108,10 @@ function Site( props ) {
 					<LargeButton onClick={ props.onClickManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
 				</MediaQuery>
 				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
-					<ChevronButton aria-label={ props.intl.formatMessage( messages.manage ) }
-								   onClick={ props.onClickManage } />
+					<ChevronButton
+						aria-label={ props.intl.formatMessage( messages.manage ) }
+						onClick={ props.onClickManage }
+					/>
 				</MediaQuery>
 			</ColumnFixedWidth>
 		</Row>

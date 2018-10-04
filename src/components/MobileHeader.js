@@ -78,14 +78,16 @@ function MobileHeader( props ) {
 
 	return (
 		<FixedMobileHeader role="banner">
-			{ props.detailPage ? <h1 hidden>{ props.pageTitle }</h1> : null }
+			{ props.detailPage ? <h1 hidden={ true }>{ props.pageTitle }</h1> : null }
 			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
 				<FormattedMessage { ...buttonMessage } />
 			</MobileHeaderButton>
-			<ErrorDisplay error={ props.logoutError } showIcon={ false }/>
-			<Logo context="header" size="88px"/>
-			<BeaconHeaderButton type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle }
-			                    iconSize="24px">
+			<ErrorDisplay error={ props.logoutError } showIcon={ false } />
+			<Logo context="header" size="88px" />
+			<BeaconHeaderButton
+				type="button" onClick={ props.onBeaconClick } iconSource={ questionCircle }
+				iconSize="24px"
+			>
 				<FormattedMessage { ...messages.needHelp } />
 			</BeaconHeaderButton>
 		</FixedMobileHeader>

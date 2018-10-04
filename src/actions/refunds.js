@@ -60,8 +60,8 @@ export function getRefunds() {
 	return ( dispatch ) => {
 		dispatch( getRefundsRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/findRefunds/` );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/findRefunds/` );
 
 		return doRequest( request )
 			.then( json => dispatch( getRefundsSuccess( json ) ) )

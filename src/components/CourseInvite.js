@@ -107,7 +107,7 @@ class CourseInvite extends React.Component {
 	 */
 	handleSubmit( event ) {
 		event.preventDefault();
-		let warnings = this.validateFields();
+		const warnings = this.validateFields();
 		this.setState( { warnings } );
 
 		if ( warnings.length === 0 ) {
@@ -195,7 +195,7 @@ class CourseInvite extends React.Component {
 	 */
 	displayWarnings( warnings, field ) {
 		// Find warnings for the specified field.
-		let fieldWarnings = warnings.filter( warning => {
+		const fieldWarnings = warnings.filter( warning => {
 			return warning.attribute === field;
 		} );
 
@@ -206,23 +206,23 @@ class CourseInvite extends React.Component {
 
 		// Display all remaining warnings.
 		return fieldWarnings.map( ( warning, index ) => {
-			return <ErrorDisplay key={ index } error={ warning } type="warning"/>;
+			return <ErrorDisplay key={ index } error={ warning } type="warning" />;
 		} );
 	}
 
 	/**
-	 * Returns the rendered html.
+	 * Renders the component.
 	 *
-	 * @returns {ReactElement} The rendered html.
+	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		return (
 			<CourseInviteModal>
 				<ModalHeading>
-					<FormattedMessage id="courses.invite.header" defaultMessage="Invite student"/>
+					<FormattedMessage id="courses.invite.header" defaultMessage="Invite student" />
 				</ModalHeading>
 
-				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate>
+				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate={ true }>
 					<StyledLabel htmlFor="course-invite-email-input">
 						<FormattedMessage
 							id="course.invite.email.input"
@@ -253,14 +253,14 @@ class CourseInvite extends React.Component {
 					{ this.displayWarnings( this.state.warnings, "confirmationEmail" ) }
 					<ErrorDisplay error={ this.props.courseInviteError } />
 					<Buttons>
-						<WideSecondaryButton onClick={ this.props.onCancelClick } >
-							<FormattedMessage id="academy.invite.cancel" defaultMessage="Cancel"/>
+						<WideSecondaryButton onClick={ this.props.onCancelClick }>
+							<FormattedMessage id="academy.invite.cancel" defaultMessage="Cancel" />
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
 							enabledStyle={ true }
 						>
-							<FormattedMessage id="academy.invite.invite" defaultMessage="Invite student"/>
+							<FormattedMessage id="academy.invite.invite" defaultMessage="Invite student" />
 						</WideLargeButton>
 					</Buttons>
 				</form>

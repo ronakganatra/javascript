@@ -61,7 +61,7 @@ function SiteDangerZone( props ) {
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.heading ) } isOpen={ false }>
 				<Container>
 					<p>{ props.intl.formatMessage( messages.siteRemovalExplanation ) }</p>
-					<RedButton {...disabled} onClick={ props.onRemove }>{ buttonText }</RedButton>
+					<RedButton { ...disabled } onClick={ props.onRemove }>{ buttonText }</RedButton>
 				</Container>
 			</CollapsibleHeader>
 		</Paper>

@@ -112,13 +112,15 @@ export function linkSite( url, type, fromHome = false ) {
 		dispatch( updateSiteUrl( url ) );
 		dispatch( linkSiteRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/sites/`, "POST", { url, type } );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/sites/`, "POST", { url, type } );
 
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
 			.then( () => {
-				fromHome && dispatch( push( "/sites" ) );
+				if ( fromHome ) {
+					dispatch( push( "/sites" ) );
+				}
 			} )
 			.catch( error => dispatch( linkSiteFailure( error ) ) );
 	};
@@ -185,8 +187,8 @@ export function retrieveSites() {
 	return ( dispatch ) => {
 		dispatch( retrieveSitesRequest() );
 
-		let userId = getUserId();
-		let request = prepareInternalRequest( `Customers/${userId}/sites/` );
+		const userId = getUserId();
+		const request = prepareInternalRequest( `Customers/${userId}/sites/` );
 
 		return doRequest( request )
 			.then( json => dispatch( retrieveSitesSuccess( json ) ) )

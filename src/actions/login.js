@@ -99,7 +99,7 @@ export function requireOTP() {
 export function loginRequest( params ) {
 	return ( dispatch ) => {
 		dispatch( doingLoginRequest() );
-		let request = prepareInternalRequest( "Customers/login-user/", "POST", params, { credentials: "include" } );
+		const request = prepareInternalRequest( "Customers/login-user/", "POST", params, { credentials: "include" } );
 		doRequest( request )
 			.then( () => {
 				fetchAccessToken()

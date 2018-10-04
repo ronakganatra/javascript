@@ -63,7 +63,6 @@ const messages = defineMessages( {
  * uploading a profile image.
  */
 class ProfileDetailsBlock extends React.Component {
-
 	constructor( props ) {
 		super( props );
 
@@ -117,10 +116,15 @@ class ProfileDetailsBlock extends React.Component {
 		} );
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return <FormGroup onSubmit={ this.handleSubmit }>
 			<AvatarBlock>
-				<UploadUserImage image={this.props.userAvatarUrl} onFileUpload={ this.onFileUpload } />
+				<UploadUserImage image={ this.props.userAvatarUrl } onFileUpload={ this.onFileUpload } />
 			</AvatarBlock>
 
 			<NameBlock id="left">

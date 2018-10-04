@@ -13,23 +13,23 @@ import {
 } from "../actions/configurationServiceRequest";
 
 export const mapStateToProps = ( state, ownProps ) => {
-	let id = ownProps.match.params.id;
+	const id = ownProps.match.params.id;
 
-	let sites = state.entities.sites;
+	const sites = state.entities.sites;
 
-	let allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
+	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
 	} );
-	let availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
 			loadingSite: true,
 		};
 	}
-	let addSubscriptionModal = state.ui.addSubscriptionModal;
+	const addSubscriptionModal = state.ui.addSubscriptionModal;
 
-	let site = sites.byId[ id ];
+	const site = sites.byId[ id ];
 
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
@@ -49,7 +49,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		);
 	} );
 
-	let activeSubscriptions = subscriptions.filter( ( subscription ) => {
+	const activeSubscriptions = subscriptions.filter( ( subscription ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
@@ -102,11 +102,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	plugins = sortPluginsByPopularity( plugins );
 
-	let disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
+	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	let configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
-	let configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
+	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
 	return {
 		availableConfigurationServiceRequests,
@@ -125,7 +125,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 export const mapDispatchToProps = ( dispatch, ownProps ) => {
 	dispatch( loadSites() );
 	dispatch( loadConfigurationServiceRequests() );
-	let siteId = ownProps.match.params.id;
+	const siteId = ownProps.match.params.id;
 
 	return {
 		onMoreInfoClick: () => {},

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
+import Link from "../Link.js";
 
 const messages = defineMessages( {
 	loading: {
@@ -40,9 +41,10 @@ const WordpressFeedList = styled.ul`
 	padding: 0;
 `;
 
-const WordpressFeedLink = styled.a`
+const WordpressFeedLink = styled( Link )`
 	display: inline-block;
 	padding-bottom: 4px;
+	font-weight: bold;
 `;
 
 const A11yNotice = styled.span`
@@ -78,9 +80,8 @@ const WordpressFeedListItem = ( props ) => {
 	return (
 		<WordpressFeedListItemContainer>
 			<WordpressFeedLink
-				href={ props.link }
-				target="_blank"
-				rel="noopener noreferrer"
+				to={ props.link }
+				linkTarget="_blank"
 			>
 				{ props.title }
 				<A11yNotice>
@@ -120,7 +121,8 @@ const FeedList = ( props ) => {
 					key={ item.title }
 					title={ item.title }
 					link={ item.link }
-					description={ item.description } />
+					description={ item.description }
+				/>
 			) ) }
 		</WordpressFeedList>
 	);
@@ -132,7 +134,7 @@ FeedList.propTypes = {
 	retrievingFeed: PropTypes.bool,
 };
 
-let ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
+const ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
 
 /**
  * A function that returns the SitesCard component.
@@ -155,7 +157,7 @@ class BlogContent extends React.Component {
 			<Fragment>
 				<Details>
 					<Header>
-						<FormattedMessage id={"home.blogcard.header"} defaultMessage={"Learn more about SEO"}/>
+						<FormattedMessage id={ "home.blogcard.header" } defaultMessage={ "Learn more about SEO" } />
 					</Header>
 					<FeedList { ...this.props } />
 				</Details>
@@ -165,7 +167,7 @@ class BlogContent extends React.Component {
 						linkTarget="_blank"
 					>
 						<FormattedMessage
-							id={"home.blogcard.blogbutton"}
+							id={ "home.blogcard.blogbutton" }
 							defaultMessage="SEO blog"
 						/>
 					</ResponsiveButtonLink>
@@ -186,11 +188,11 @@ BlogContent.propTypes = {
 
 
 export const mapStateToProps = ( state ) => {
-	let blogFeed = state.ui.home.blogFeed;
+	const blogFeed = state.ui.home.blogFeed;
 
-	let errorFound = state.ui.home.blogFeedErrorFound;
-	let error = state.ui.home.blogFeedError;
-	let retrievingFeed = state.ui.home.retrievingFeed;
+	const errorFound = state.ui.home.blogFeedErrorFound;
+	const error = state.ui.home.blogFeedError;
+	const retrievingFeed = state.ui.home.retrievingFeed;
 
 	return {
 		blogFeed,
