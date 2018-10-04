@@ -91,7 +91,7 @@ class HomePage extends React.Component {
 	 *
 	 * @returns {array} Returns an array of ReactElements.
 	 */
-	renderCards( cardsArray ) {
+	createCards( cardsArray ) {
 		return cardsArray.map( ( card ) => {
 			return(
 				<ShadowDiv
@@ -116,7 +116,7 @@ class HomePage extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const cardList = this.renderCards( cards );
+		const cardList = this.createCards( cards );
 		return (
 			<CardColumns>
 				{ cardList }
