@@ -111,7 +111,7 @@ class HomePage extends React.Component {
 		}  );
 
 		return cardsArray.map( ( card ) => {
-			if( column !== "single" && card.column !== column ) {
+			if ( column !== "single" && card.column !== column ) {
 				return;
 			}
 			return (
