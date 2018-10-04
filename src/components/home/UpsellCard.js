@@ -24,7 +24,7 @@ const ListItem = styled.div`
 	display: flex;
 	box-sizing: border-box;
 	:not(:last-child) {
-		margin-bottom: 16px;
+		margin-bottom: 1.5em;
 	}
 `;
 
@@ -47,7 +47,7 @@ const Description = styled.p`
 	margin: 0;
 	white-space: normal;
 	max-width: 100%;
-	line-height: 0.9;
+	line-height: 1.4;
 `;
 
 const BoldLink = styled( Link )`
