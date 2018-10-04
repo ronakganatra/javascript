@@ -85,10 +85,7 @@ const SupportCard = () => {
 	return (
 		<Fragment>
 			<Header>
-				<FormattedMessage
-					id={ "support.card.header" }
-					defaultMessage={ "Support" }
-				/>
+				<FormattedMessage { ...messages.support.card.header } />
 			</Header>
 			<p>
 				<FormattedMessage
