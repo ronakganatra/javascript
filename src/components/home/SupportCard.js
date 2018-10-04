@@ -6,6 +6,39 @@ import ForumsImage from "../../images/supportForums.svg";
 import KbImage from "../../images/supportKb.svg";
 import Link from "../Link.js";
 
+const messages = defineMessages( {
+	supportHeader: {
+		id: "support.card.header",
+		defaultMessage: "Support",
+	},
+	supportIntro: {
+		id: "support.card.intro",
+		defaultMessage: "If you have a question, if you need help, or if you just want to contact us, " +
+			"there are several ways to get in touch.",
+	},
+	supportKbLink: {
+		id: "support-card-kb-link",
+		defaultMessage: "Knowlegde base »",
+	},
+	supportKb: {
+		id: "support.kb",
+		defaultMessage: "The Yoast Knowlegde Base is always a good place to start if you have a problem or a question. " +
+			"You can check the list of articles, or easily search the knowledge base to find the answers you're looking for.",
+	},
+	supportForumsLink: {
+		id: "support-card-support-forums-link",
+		defaultMessage: "Free support forums »",
+	},
+	supportForums: {
+		id: "support.forums",
+		defaultMessage: "On the support forums at wordpress.org you can post about your issues, " +
+			"and others will help you out.",
+	},
+	supportForumsDetail: {
+		id: "support.forumsDetail",
+		defaultMessage: "To let others help you, please include as much detail in your description as possible.",
+	},
+} );
 
 const Header = styled.h2`
 	padding: 0;
@@ -41,24 +74,6 @@ const Image = styled.img`
 	margin-left: 8px;
 `;
 
-const messages = defineMessages( {
-	supportKb: {
-		id: "support.kb",
-		defaultMessage: "The Yoast Knowlegde Base is always a good place to start if you have a problem or a question. " +
-		"You can check the list of articles, or easily search the knowledge base to find the answers you're looking for.",
-	},
-	supportForums: {
-		id: "support.forums",
-		defaultMessage: "On the support forums at wordpress.org you can post about your issues, " +
-		"and others will help you out.",
-	},
-	supportForumsDetail: {
-		id: "support.forumsDetail",
-		defaultMessage: "To let others help you, please include as much detail in your description as possible.",
-	},
-} );
-
-
 /**
  * A function that returns the SupportCard component.
  *
@@ -71,7 +86,7 @@ const SupportCard = () => {
 		<Fragment>
 			<Header>
 				<FormattedMessage
-					id={ "support.card" }
+					id={ "support.card.header" }
 					defaultMessage={ "Support" }
 				/>
 			</Header>
@@ -84,13 +99,7 @@ const SupportCard = () => {
 			</p>
 			<SupportContainer>
 				<BoldLink to={ "https://kb.yoast.com/" } linkTarget={ "_blank" }>
-					<FormattedMessage
-						id={ "support-card-kb-link" }
-						defaultMessage={ "Knowlegde base { arrows }" }
-						values={ {
-							arrows: "»",
-						} }
-					/>
+					<FormattedMessage { ...messages.supportKbLink } />
 				</BoldLink>
 				<TextImageContainer>
 					<p>
@@ -99,13 +108,7 @@ const SupportCard = () => {
 					<Image src={ KbImage } />
 				</TextImageContainer>
 				<BoldLink to={ "https://kb.yoast.com/kb/support/#free" } linkTarget={ "_blank" }>
-					<FormattedMessage
-						id={ "support-card-support-forums-link" }
-						defaultMessage={ "Free support forums { arrows }" }
-						values={ {
-							arrows: "»",
-						} }
-					/>
+					<FormattedMessage { ...messages.supportForumsLink } />
 				</BoldLink>
 				<TextImageContainer>
 					<div>
