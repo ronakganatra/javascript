@@ -109,7 +109,7 @@ WordpressFeedListItem.propTypes = {
  * @returns {ReactElement} The WordpressFeedList
  */
 const FeedList = ( props ) => {
-	if( props.retrievingFeed ) {
+	if ( props.retrievingFeed ) {
 		return <p><FormattedMessage { ...messages.loading } /></p>;
 	}
 	return (
@@ -153,7 +153,7 @@ class BlogContent extends React.Component {
 	}
 
 	render() {
-		return(
+		return (
 			<Fragment>
 				<Details>
 					<Header>

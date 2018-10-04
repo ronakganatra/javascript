@@ -138,19 +138,6 @@ export function retrieveSitesRequest() {
 }
 
 /**
- * An action creator for loading sites, products and subscriptions.
- *
- * @returns {Object} a dispatcher that dispatches the actions.
- */
-export function loadSites() {
-	return ( dispatch ) => {
-		dispatch( retrieveSites() );
-		dispatch( getAllProducts() );
-		dispatch( getAllSubscriptions() );
-	};
-}
-
-/**
  * An action creator for the retrieve sites success action.
  *
  * @param {Array} sites The sites to be retrieved.
@@ -193,5 +180,18 @@ export function retrieveSites() {
 		return doRequest( request )
 			.then( json => dispatch( retrieveSitesSuccess( json ) ) )
 			.catch( error => dispatch( retrieveSitesFailure( error.message ) ) );
+	};
+}
+
+/**
+ * An action creator for loading sites, products and subscriptions.
+ *
+ * @returns {Object} a dispatcher that dispatches the actions.
+ */
+export function loadSites() {
+	return ( dispatch ) => {
+		dispatch( retrieveSites() );
+		dispatch( getAllProducts() );
+		dispatch( getAllSubscriptions() );
 	};
 }

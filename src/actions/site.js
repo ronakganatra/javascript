@@ -117,26 +117,6 @@ export function siteRemoveSubscription( siteId, subscriptionId ) {
 }
 
 /**
- * An action creator for site removal.
- *
- * @param {string} siteId The id of the site which needs to be removed.
- *
- * @returns {Object} A site remove request action.
- */
-export function siteRemove( siteId ) {
-	return ( dispatch ) => {
-		dispatch( siteRemoveStart( siteId ) );
-
-		const request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
-
-		return doRequest( request )
-			.then( () => dispatch( siteRemoveSuccess( siteId ) ) )
-			.then( () => dispatch( push( "/sites/" ) ) )
-			.catch( error => dispatch( siteRemoveFailure( siteId, error.message ) ) );
-	};
-}
-
-/**
  * An action creator for the start of the site removal.
  *
  * @param {string} siteId The id of the site which needs to be removed.
@@ -177,6 +157,26 @@ export function siteRemoveFailure( siteId, errorText ) {
 		type: SITE_REMOVE_FAILURE,
 		siteId: siteId,
 		siteRemoveError: errorText,
+	};
+}
+
+/**
+ * An action creator for site removal.
+ *
+ * @param {string} siteId The id of the site which needs to be removed.
+ *
+ * @returns {Object} A site remove request action.
+ */
+export function siteRemove( siteId ) {
+	return ( dispatch ) => {
+		dispatch( siteRemoveStart( siteId ) );
+
+		const request = prepareInternalRequest( `Sites/${siteId}/`, "DELETE" );
+
+		return doRequest( request )
+			.then( () => dispatch( siteRemoveSuccess( siteId ) ) )
+			.then( () => dispatch( push( "/sites/" ) ) )
+			.catch( error => dispatch( siteRemoveFailure( siteId, error.message ) ) );
 	};
 }
 
