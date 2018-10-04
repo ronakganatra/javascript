@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { speak } from "@wordpress/a11y";
@@ -8,6 +8,7 @@ import SitesCard from "./SitesCard";
 import SupportCard from "./SupportCard";
 import BlogFeed from "./BlogCard";
 import Card from "../Card";
+import MediaQuery from "react-responsive";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -16,44 +17,55 @@ const messages = defineMessages( {
 	},
 } );
 
+const LEFT_COLUMN = "left";
+const RIGHT_COLUMN = "right";
+const SINGLE_COLUMN_BREAKPOINTS = "( min-width: 1025px ) and ( max-width: 1200px ), ( max-width: 900px )";
+const DOUBLE_COLUMN_BREAKPOINTS = "( min-width: 901px ) and ( max-width: 1024px ), ( min-width: 1201px )";
+
 const cards = [
 	{
+		priority: 2,
+		column: LEFT_COLUMN,
 		id: "plugin-upsell-card",
 		className: "UpsellCard",
 		component: <PluginUpsell />,
 	},
 	{
+		priority: 3,
+		column: LEFT_COLUMN,
 		id: "blog-card",
 		className: "BlogCard",
 		component: <BlogFeed />,
 	},
 	{
+		priority: 1,
+		column: RIGHT_COLUMN,
 		id: "academy-upsell-card",
 		className: "UpsellCard",
 		component: <AcademyUpsell />,
 	},
 	{
+		priority: 2,
+		column: RIGHT_COLUMN,
 		id: "sites-card",
 		className: "SitesCard",
 		component: <SitesCard />,
 	},
 	{
+		priority: 3,
+		column: RIGHT_COLUMN,
 		id: "support-card",
 		className: "SupportCard",
 		component: <SupportCard />,
 	},
 ];
 
-// These media screen limits were visually pleasing, and the defaults didn't suffice.
-const CardColumns = styled.div`
+const SingleColumn = styled.div`
+`;
+
+const DoubleColumn = styled.div`
 	column-count: 2;
 	column-width: 50%;
-
-	@media screen and ( min-width: 1025px ) and ( max-width: 1200px ),
-	( max-width: 900px ) {
-		display: flex;
-		flex-direction: column;
-	} 
 `;
 
 /**
@@ -87,12 +99,21 @@ class HomePage extends React.Component {
 	/**
 	 * Wraps the inner card content components in a ShadowDiv and a FullHeightCard.
 	 *
-	 * @param {array} cardsArray An array of cards with id, className, and the inner card component.
+	 * @param {array}  cardsArray An array of cards with id, className, and the inner card component.
+	 * @param {string} column     A string that defines whether this card should be in the left or right column.
 	 *
 	 * @returns {array} Returns an array of ReactElements.
 	 */
-	createCards( cardsArray ) {
+	createCards( cardsArray, column = "single" ) {
+		// Sorting by priority.
+		cardsArray.sort( ( a, b ) => {
+			return a.priority-b.priority;
+		}  );
+
 		return cardsArray.map( ( card ) => {
+			if( column !== "single" && card.column !== column ) {
+				return;
+			}
 			return (
 				<ShadowDiv
 					key={ card.id }
@@ -116,11 +137,24 @@ class HomePage extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const cardList = this.createCards( cards );
 		return (
-			<CardColumns>
-				{ cardList }
-			</CardColumns>
+			<Fragment>
+				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS } >
+					<SingleColumn>
+						{ this.createCards( cards ) }
+					</SingleColumn>
+				</MediaQuery>
+				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS } >
+					<DoubleColumn>
+						<div>
+							{ this.createCards( cards, LEFT_COLUMN ) }
+						</div>
+						<div>
+							{ this.createCards( cards, RIGHT_COLUMN ) }
+						</div>
+					</DoubleColumn>
+				</MediaQuery>
+			</Fragment>
 		);
 	}
 }
