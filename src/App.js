@@ -65,14 +65,11 @@ class Routes extends React.Component {
 
 	componentWillReceiveProps() {
 		const newState = this.getCookieState();
-		removePeriLoginCookie();
 		this.setState( newState );
 	}
 
 	getDerivedStateFromProps() {
-		const newState = this.getCookieState();
-		removePeriLoginCookie();
-		return newState;
+		return this.getCookieState();
 	}
 
 	/**
@@ -139,6 +136,7 @@ class Routes extends React.Component {
 
 		if ( this.props.userEnabled === true ) {
 			if ( this.state.redirectTo ) {
+				removePeriLoginCookie();
 				window.location.replace( this.state.redirectTo );
 				return null;
 			}
