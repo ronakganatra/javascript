@@ -61,9 +61,13 @@ const SearchField = styled( InputField )`
 	::placeholder {
 		color: ${ colors.$color_grey_text };
 	}
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc(100% - 84px);
+		margin-right: 8px;
+	}
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		margin-right: 18px;
 	}
 `;
