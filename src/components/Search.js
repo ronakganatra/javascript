@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
 import styled from "styled-components";
@@ -23,6 +25,10 @@ const messages = defineMessages( {
 		defaultMessage: "Search",
 	},
 } );
+
+const Searchbar = styled.div`
+	text-align: left;
+`;
 
 const SearchLabel = styled.label`
 	display: none;
@@ -50,6 +56,7 @@ const SearchField = styled( InputField )`
 	background-size: 17px 17px;
 	background-repeat: no-repeat;
 	padding-left: 50px;
+	margin-right: 24px;
 	
 	::placeholder {
 		color: ${ colors.$color_grey_text };
@@ -57,6 +64,8 @@ const SearchField = styled( InputField )`
 	
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc(100% - 84px);
+		margin-right: 12px;
+
 	}
 `;
 
@@ -100,7 +109,7 @@ function Search( props ) {
 		props.onChange( event.target.value );
 	};
 
-	return <Fragment>
+	return <Searchbar>
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">
 				{ props.searchLabel ? props.searchLabel : props.intl.formatMessage( messages.searchLabel ) }
@@ -132,7 +141,7 @@ function Search( props ) {
 			/>
 		</MediaQuery>
 
-	</Fragment>;
+	</Searchbar>;
 }
 
 export default injectIntl( Search );
