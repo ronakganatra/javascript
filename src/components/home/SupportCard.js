@@ -22,7 +22,7 @@ const messages = defineMessages( {
 	},
 	supportKb: {
 		id: "support.kb",
-		defaultMessage: "The Yoast Knowlegde Base is always a good place to start if you have a problem or a question. " +
+		defaultMessage: "The Yoast Knowledge Base is always a good place to start if you have a problem or a question. " +
 			"You can check the list of articles, or easily search the knowledge base to find the answers you're looking for.",
 	},
 	supportForumsLink: {
