@@ -373,7 +373,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         className="c3 c4"
         id="search"
         onChange={[Function]}
-        placeholder="Type here to search..."
         spellCheck="false"
         type="text"
         value=""
@@ -827,7 +826,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
         className="c3 c4"
         id="search"
         onChange={[Function]}
-        placeholder="Type here to search..."
         spellCheck="false"
         type="text"
         value=""
@@ -1281,7 +1279,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
         className="c3 c4"
         id="search"
         onChange={[Function]}
-        placeholder="Type here to search..."
         spellCheck="false"
         type="text"
         value=""

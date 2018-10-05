@@ -133,7 +133,6 @@ function Search( props ) {
 			autoCorrect="off"
 			autoCapitalize="off"
 			spellCheck="false"
-			placeholder="Type here to search..."
 		/>
 		<p className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }

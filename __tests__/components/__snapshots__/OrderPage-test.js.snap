@@ -524,7 +524,6 @@ exports[`The Orders component matches the snapshot 1`] = `
       className="c2 c3"
       id="search"
       onChange={[Function]}
-      placeholder="Type here to search..."
       spellCheck="false"
       type="text"
       value={undefined}
