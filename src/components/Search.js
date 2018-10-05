@@ -44,7 +44,7 @@ SearchLabel.defaultProps = {
 	htmlFor: "",
 };
 
-const SearchLabelText = styled.span`	
+const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled( InputField )`
@@ -64,8 +64,7 @@ const SearchField = styled( InputField )`
 	
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc(100% - 84px);
-		margin-right: 12px;
-
+		margin-right: 18px;
 	}
 `;
 
