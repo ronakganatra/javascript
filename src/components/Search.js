@@ -44,9 +44,6 @@ SearchLabel.defaultProps = {
 	htmlFor: "",
 };
 
-const SearchLabelText = styled.span`
-`;
-
 const SearchField = styled( InputField )`
 	width: calc(100% - 200px);
 	float: left;
@@ -123,7 +120,7 @@ function Search( props ) {
 			onChange={ changeSearchQuery }
 			autoComplete="off"
 			autoCorrect="off"
-			autoCapitalize="off"
+            autoCapitalize="off"
 			spellCheck="false"
 			placeholder="Type here to search..."
 		/>
