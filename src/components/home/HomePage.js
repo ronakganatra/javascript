@@ -24,48 +24,48 @@ const DOUBLE_COLUMN_BREAKPOINTS = "( min-width: 901px ) and ( max-width: 1024px 
 
 const cards = [
 	{
-		priority: 2,
-		column: LEFT_COLUMN,
-		id: "plugin-upsell-card",
-		className: "UpsellCard",
-		component: <PluginUpsell />,
-	},
-	{
-		priority: 3,
-		column: LEFT_COLUMN,
-		id: "blog-card",
-		className: "BlogCard",
-		component: <BlogFeed />,
-	},
-	{
 		priority: 1,
-		column: RIGHT_COLUMN,
+		column: LEFT_COLUMN,
 		id: "academy-upsell-card",
 		className: "UpsellCard",
 		component: <AcademyUpsell />,
 	},
 	{
 		priority: 2,
+		column: LEFT_COLUMN,
+		id: "support-card",
+		className: "SupportCard",
+		component: <SupportCard />,
+	},
+	{
+		priority: 3,
+		column: LEFT_COLUMN,
+		id: "plugin-upsell-card",
+		className: "UpsellCard",
+		component: <PluginUpsell />,
+	},
+	{
+		priority: 1,
 		column: RIGHT_COLUMN,
 		id: "sites-card",
 		className: "SitesCard",
 		component: <SitesCard />,
 	},
 	{
-		priority: 3,
+		priority: 2,
 		column: RIGHT_COLUMN,
-		id: "support-card",
-		className: "SupportCard",
-		component: <SupportCard />,
+		id: "blog-card",
+		className: "BlogCard",
+		component: <BlogFeed />,
 	},
 ];
 
-const SingleColumn = styled.div`
-`;
-
 const DoubleColumn = styled.div`
-	column-count: 2;
-	column-width: 50%;
+	display:flex;
+	
+	> : first-child {
+		margin-right: 1em;
+	}
 `;
 
 /**
@@ -140,9 +140,9 @@ class HomePage extends React.Component {
 		return (
 			<Fragment>
 				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
-					<SingleColumn>
+					<div>
 						{ this.createCards( cards ) }
-					</SingleColumn>
+					</div>
 				</MediaQuery>
 				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
 					<DoubleColumn>
