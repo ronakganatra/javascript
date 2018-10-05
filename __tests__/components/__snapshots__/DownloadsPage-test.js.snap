@@ -155,22 +155,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
   margin-right: 24px;
 }
 
-.c2::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c2::-moz-placeholder {
-  color: #646464;
-}
-
-.c2:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c2::placeholder {
-  color: #646464;
-}
-
 .c5 {
   background-color: #fff;
   display: -webkit-box;

@@ -31,22 +31,6 @@ exports[`the search component handling an on change 1`] = `
   margin-right: 24px;
 }
 
-.c2::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c2::-moz-placeholder {
-  color: #646464;
-}
-
-.c2:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c2::placeholder {
-  color: #646464;
-}
-
 @media screen and ( max-width:1355px ) {
   .c2 {
     width: calc(100% - 84px);
@@ -125,22 +109,6 @@ exports[`the search component handling an on change 2`] = `
   margin-right: 24px;
 }
 
-.c2::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c2::-moz-placeholder {
-  color: #646464;
-}
-
-.c2:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c2::placeholder {
-  color: #646464;
-}
-
 @media screen and ( max-width:1355px ) {
   .c2 {
     width: calc(100% - 84px);
@@ -217,22 +185,6 @@ exports[`the search component matches the snapshot 1`] = `
   background-repeat: no-repeat;
   padding-left: 50px;
   margin-right: 24px;
-}
-
-.c2::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c2::-moz-placeholder {
-  color: #646464;
-}
-
-.c2:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c2::placeholder {
-  color: #646464;
 }
 
 @media screen and ( max-width:1355px ) {

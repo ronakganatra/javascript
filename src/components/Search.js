@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import colors from "yoast-components/style-guide/colors.json";
 import searchIcon from "../icons/search.svg";
 import { InputField } from "./InputField";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
@@ -55,10 +54,6 @@ const SearchField = styled( InputField )`
 	background-repeat: no-repeat;
 	padding-left: 50px;
 	margin-right: 24px;
-	
-	::placeholder {
-		color: ${ colors.$color_grey_text };
-	}
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		width: calc(100% - 84px);

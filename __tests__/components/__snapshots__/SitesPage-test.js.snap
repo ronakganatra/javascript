@@ -252,22 +252,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 24px;
 }
 
-.c3::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c3::-moz-placeholder {
-  color: #646464;
-}
-
-.c3:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c3::placeholder {
-  color: #646464;
-}
-
 .c0 {
   text-align: center;
 }
@@ -705,22 +689,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 24px;
 }
 
-.c3::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c3::-moz-placeholder {
-  color: #646464;
-}
-
-.c3:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c3::placeholder {
-  color: #646464;
-}
-
 .c0 {
   text-align: center;
 }
@@ -1156,22 +1124,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   background-repeat: no-repeat;
   padding-left: 50px;
   margin-right: 24px;
-}
-
-.c3::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c3::-moz-placeholder {
-  color: #646464;
-}
-
-.c3:-ms-input-placeholder {
-  color: #646464;
-}
-
-.c3::placeholder {
-  color: #646464;
 }
 
 .c0 {
