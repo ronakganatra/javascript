@@ -80,7 +80,7 @@ const WordpressFeedListItem = ( props ) => {
 	return (
 		<WordpressFeedListItemContainer>
 			<WordpressFeedLink
-				to={ props.link }
+				to={ props.link.replace( "#utm_source=yoast-seo&utm_medium=software&utm_campaign=wordpress-general&utm_content=wordpress-dashboard", "" ) }
 				linkTarget="_blank"
 			>
 				{ props.title }

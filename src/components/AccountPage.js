@@ -3,7 +3,6 @@ import SubNavigation, { SubNavigationItem } from "./SubNavigation";
 import SubscriptionsPageContainer from "../containers/SubscriptionsPage";
 import ProfilePageContainer from "../containers/ProfilePage";
 import OrderPage from "../containers/OrdersPage";
-import { RenewalNotificationContainer } from "../containers/SubscriptionsPage";
 
 const itemRoutes = [
 	{
@@ -38,7 +37,6 @@ const itemRoutes = [
 export default function AccountPage() {
 	return (
 		<Fragment>
-			<RenewalNotificationContainer />
 			<SubNavigation itemRoutes={ itemRoutes } />
 			<SubNavigationItem itemRoutes={ itemRoutes } />
 			<SubNavigationItem
