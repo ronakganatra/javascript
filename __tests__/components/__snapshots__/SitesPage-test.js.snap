@@ -319,7 +319,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   }
 }
 
-@media screen and ( max-width:1355px ) {
+@media screen and ( max-width:1356px ) {
   .c3 {
     width: calc(100% - 84px);
     margin-right: 8px;
@@ -756,7 +756,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   }
 }
 
-@media screen and ( max-width:1355px ) {
+@media screen and ( max-width:1356px ) {
   .c3 {
     width: calc(100% - 84px);
     margin-right: 8px;
@@ -1193,7 +1193,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   }
 }
 
-@media screen and ( max-width:1355px ) {
+@media screen and ( max-width:1356px ) {
   .c3 {
     width: calc(100% - 84px);
     margin-right: 8px;

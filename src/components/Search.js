@@ -8,6 +8,9 @@ import { LargeButton, Button } from "../components/Button.js";
 import MediaQuery from "react-responsive";
 import defaults from "../config/defaults.json";
 
+const tabletSize = defaults.css.breakpoint.tablet + 1;
+const mobileSize = defaults.css.breakpoint.mobile;
+
 const messages = defineMessages( {
 	searchLabel: {
 		id: "search.label",
@@ -55,12 +58,12 @@ const SearchField = styled( InputField )`
 	padding-left: 50px;
 	margin-right: 24px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
+	@media screen and ( max-width: ${ tabletSize }px ) {
 		width: calc(100% - 84px);
 		margin-right: 8px;
 	}
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+	@media screen and ( max-width: ${ mobileSize }px ) {
 		margin-right: 18px;
 	}
 `;
@@ -132,12 +135,12 @@ function Search( props ) {
 		<p className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
 		</p>
-		<MediaQuery query={ `(min-width: ${ defaults.css.breakpoint.tablet + 1 }px)` }>
+		<MediaQuery query={ `(min-width: ${ tabletSize }px)` }>
 			<SearchButton>
 				{ props.intl.formatMessage( messages.searchButton ) }
 			</SearchButton>
 		</MediaQuery>
-		<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.tablet }px)` }>
+		<MediaQuery query={ `(max-width: ${ tabletSize }px)` }>
 			<SearchiconButton
 				aria-label={ props.intl.formatMessage( messages.searchButton ) }
 			/>
