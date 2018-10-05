@@ -1,7 +1,5 @@
-/* eslint-disable */
-
 import PropTypes from "prop-types";
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import searchIcon from "../icons/search.svg";
@@ -108,6 +106,13 @@ export const SearchiconButton = styled( Button )`
  * @returns {ReactElement} The rendered html.
  */
 function Search( props ) {
+	/**
+	 * Callback when the search request has been changed.
+	 *
+	 * @param {event} event The new search request.
+	 *
+	 * @returns {void}
+	 */
 	const changeSearchQuery = ( event ) => {
 		props.onChange( event.target.value );
 	};
@@ -126,7 +131,7 @@ function Search( props ) {
 			onChange={ changeSearchQuery }
 			autoComplete="off"
 			autoCorrect="off"
-            autoCapitalize="off"
+			autoCapitalize="off"
 			spellCheck="false"
 			placeholder="Type here to search..."
 		/>
