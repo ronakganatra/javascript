@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import searchIcon from "../icons/search.svg";
+import searchIconWhite from "../icons/searchWhite.svg";
 import { InputField } from "./InputField";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { LargeButton, Button } from "../components/Button.js";
 import MediaQuery from "react-responsive";
 import defaults from "../config/defaults.json";
+import colors from "yoast-components/style-guide/colors.json";
 
 const tabletSize = defaults.css.breakpoint.tablet + 1;
 const mobileSize = defaults.css.breakpoint.mobile;
@@ -59,8 +61,12 @@ const SearchField = styled( InputField )`
 	margin-right: 24px;
 
 	@media screen and ( max-width: ${ tabletSize }px ) {
+		background-color: ${ colors.$color_green_dark }; 
+		background-image: none;
 		width: calc(100% - 84px);
-		margin-right: 8px;
+		margin-right: 10px;
+		padding-left: 10px;
+
 	}
 
 	@media screen and ( max-width: ${ mobileSize }px ) {
@@ -85,9 +91,9 @@ const SearchButton = styled( LargeButton )`
 `;
 
 export const SearchiconButton = styled( Button )`
-	background-color: transparent;
+	background-color: ${ colors.$color_green_dark };
 	background-repeat: no-repeat;
-	background-image: url( ${ searchIcon } );
+	background-image: url( ${ searchIconWhite } );
 	background-position: center;
 	background-size: 24px;
 	width:  48px;
