@@ -88,7 +88,7 @@
     "type": "error"
   },
   "signup_email_reserved": {
-    "message": "That email address has already been used. If you signed up earlier, please check your inbox for an activation mail. The email address will become available again in a couple of days if it is not activated.",
+    "message": "You have already signed up with this email address. To activate your account, please check your inbox and follow the link in the mail we've sent you. The email address will become available again in a couple of days if it is not activated.",
     "type": "error"
   },
   "signup_email_invalid": {
