@@ -8,7 +8,7 @@ export const mapStateToProps = () => {
 };
 
 const HomePageContainer = connect(
-	mapStateToProps
+	mapStateToProps,
 )( HomePage );
 
 export default HomePageContainer;

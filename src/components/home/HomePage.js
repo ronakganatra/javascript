@@ -9,6 +9,7 @@ import SupportCard from "./SupportCard";
 import BlogFeed from "./BlogCard";
 import Card from "../Card";
 import MediaQuery from "react-responsive";
+import { RenewalNotificationContainer } from "../../containers/SubscriptionsPage";
 
 const messages = defineMessages( {
 	homePageLoaded: {
@@ -139,6 +140,7 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<Fragment>
+				<RenewalNotificationContainer />
 				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
 					<div>
 						{ this.createCards( cards ) }

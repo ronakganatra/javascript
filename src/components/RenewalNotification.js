@@ -86,6 +86,10 @@ class RenewalNotification extends React.Component {
 		this.earliestEndDate = this.earliestEndDate.bind( this );
 	}
 
+	componentDidMount() {
+		this.props.loadData();
+	}
+
 	/**
 	 * Called on cross click.
 	 *
@@ -108,7 +112,11 @@ class RenewalNotification extends React.Component {
 
 		// Filters subscriptions with an endDate in the future.
 		let subscriptions = this.props.subscriptions.filter(
-			( subscription ) => subscription.endDate > currentDate );
+			( subscription ) => {
+				console.log( subscription );
+				return subscription.nextPayment > currentDate;
+			}
+		);
 
 		// Makes sure subscriptions are not empty.
 		if ( subscriptions.length < 1 || ! subscriptions ) {
@@ -116,7 +124,7 @@ class RenewalNotification extends React.Component {
 		}
 
 		subscriptions = subscriptions.sort( ( a, b ) => {
-			return new Date( a.endDate ) - new Date( b.endDate );
+			return new Date( a.nextPayment ) - new Date( b.nextPayment );
 		} );
 
 		return subscriptions[ 0 ];
@@ -135,7 +143,7 @@ class RenewalNotification extends React.Component {
 		}
 
 		const endDate = <FormattedDate
-			value={ earliestSubscription.endDate }
+			value={ earliestSubscription.nextPayment }
 			year="numeric"
 			month="long"
 			day="2-digit"
