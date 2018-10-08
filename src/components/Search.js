@@ -62,6 +62,7 @@ const SearchField = styled( InputField )`
 
 	@media screen and ( max-width: ${ tabletSize }px ) {
 		background-color: ${ colors.$color_green_dark }; 
+		background-image: none;
 		width: calc(100% - 86px);
 		margin-right: 12px;
 		padding-left: 10px;

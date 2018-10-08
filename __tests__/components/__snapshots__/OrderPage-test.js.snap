@@ -475,6 +475,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 
 @media screen and ( max-width:1356px ) {
   .c2 {
+    background-image: none;
     width: calc(100% - 86px);
     margin-right: 12px;
     padding-left: 10px;
