@@ -84,11 +84,11 @@
     "type": "warning"
   },
   "signup_email_blocked": {
-    "message": "You cannot use that email address to sign up. We are having problems with them blocking some of our email. Please use another email provider.",
+    "message": "You cannot use an email address from that provider. Please use another email provider.",
     "type": "error"
   },
   "signup_email_reserved": {
-    "message": "That email address has already been used to sign up. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.",
+    "message": "That email address has already been used. If you signed up earlier, please check your inbox for an activation mail. The email address will become available again in a couple of days if it is not activated.",
     "type": "error"
   },
   "signup_email_invalid": {
