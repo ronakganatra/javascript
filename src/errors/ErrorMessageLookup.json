@@ -82,5 +82,25 @@
   "otp_required": {
     "message": "Please enter your verification code.",
     "type": "warning"
+  },
+  "signup_email_blocked": {
+    "message": "You cannot use that email address to sign up. We are having problems with them blocking some of our email. Please use another email provider.",
+    "type": "error"
+  },
+  "signup_email_reserved": {
+    "message": "That email address has already been used to sign up. Please check your inbox for an activation email. It will become available in a couple of days if you do nothing.",
+    "type": "error"
+  },
+  "signup_email_invalid": {
+    "message": "Please enter a valid email address.",
+    "type": "error"
+  },
+  "signup_email_already_used": {
+    "message": "The email address you provided has already been used. Please try another email address.",
+    "type": "error"
+  },
+  "signup_email_not_allowed": {
+    "message": "Sorry, that email address is not allowed!",
+    "type": "error"
   }
 }
