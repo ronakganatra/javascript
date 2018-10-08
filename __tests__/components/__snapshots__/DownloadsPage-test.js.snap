@@ -205,14 +205,15 @@ exports[`the downloads page component matches the snapshot 1`] = `
 
 @media screen and ( max-width:1356px ) {
   .c2 {
-    width: calc(100% - 84px);
-    margin-right: 8px;
+    width: calc(100% - 86px);
+    margin-right: 12px;
+    padding-left: 10px;
   }
 }
 
 @media screen and ( max-width:800px ) {
   .c2 {
-    margin-right: 18px;
+    width: calc(100% - 60px);
   }
 }
 

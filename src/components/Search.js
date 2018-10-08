@@ -62,15 +62,14 @@ const SearchField = styled( InputField )`
 
 	@media screen and ( max-width: ${ tabletSize }px ) {
 		background-color: ${ colors.$color_green_dark }; 
-		background-image: none;
-		width: calc(100% - 84px);
-		margin-right: 10px;
+		width: calc(100% - 86px);
+		margin-right: 12px;
 		padding-left: 10px;
 
 	}
 
 	@media screen and ( max-width: ${ mobileSize }px ) {
-		margin-right: 18px;
+		width: calc(100% - 60px);
 	}
 `;
 
@@ -101,6 +100,7 @@ export const SearchiconButton = styled( Button )`
 	cursor: pointer;
 	box-shadow: none;
 	border: 0;
+	box-shadow: inset 0 -3px 0 rgba(0,0,0,0.3);
 `;
 
 /**
