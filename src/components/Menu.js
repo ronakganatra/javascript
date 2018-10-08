@@ -6,6 +6,10 @@ import { NavLink } from "react-router-dom";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 
 const titles = defineMessages( {
+	home: {
+		id: "menu.title.home",
+		defaultMessage: "Home",
+	},
 	sites: {
 		id: "menu.title.sites",
 		defaultMessage: "Sites",
@@ -77,6 +81,19 @@ const MenuItem = styled( NavLink )`
 		transition: padding 100ms ease-out;
 	}
 
+	svg {
+		height: 20px;
+		width: 20px;
+		margin: 0 25px -2px 0;
+		fill: ${ colors.$color_white };
+	}
+
+	#courses-menu-item {
+		width: 28px;
+		height: 28px;
+		margin: 0 21px -10px -4px;
+	}
+
 	&.${ activeStyle } {
 		color: ${ colors.$color_border };
 		background-color: ${ colors.$color_grey_light };
@@ -113,12 +130,16 @@ const MenuItem = styled( NavLink )`
 			bottom: -0.25rem;
 			box-shadow: 0 -1px 8px 0 rgba(0, 0, 0, 0.3);
 		}
+
+		svg {
+			fill: ${ colors.$color_pink_dark };
+		}
 	}
 
 	@media screen and ( max-width: 1024px ) {
 		display: inline-block;
 		width: 100%; /* necessary for the text ellipsis */
-		height: 4.5rem;
+		height: 71px;
 		margin: 0;
 		padding: 0.5rem 0 0;
 		border-bottom: 0.25rem solid transparent;
@@ -137,8 +158,15 @@ const MenuItem = styled( NavLink )`
 			transform: scale( 1.08 );
 		}
 
+		svg {
+			display: block;
+			margin: 3px auto;
+			height: 30px;
+			width: 30px;
+		}
+
 		&.${ activeStyle } {
-			border-bottom: 0.25rem solid ${ colors.$color_white };
+			border-bottom: 3px solid ${ colors.$color_white };
 			color: ${ colors.$color_white };
 			background-color: transparent;
 			transform: scale( 1.08 );
@@ -154,18 +182,17 @@ const MenuItem = styled( NavLink )`
 			&:after {
 				content: none;
 			}
+
+			svg  {
+				fill: ${ colors.$color_white };
+			}
 		}
-	}
-`;
-
-const MenuIcon = styled.img`
-	display: none;
-
-	@media screen and ( max-width: 1024px ) {
-		display: block;
-		height: 40px;
-		width: 40px;
-		margin: 0 auto -3px;
+		#courses-menu-item {
+			display: block;
+			margin: 1px auto;
+			height: 35px;
+			width: 35px;
+		}
 	}
 `;
 
@@ -191,6 +218,8 @@ function MainMenu( props ) {
 							}
 						);
 
+						const menuItemIcon = page.iconSource;
+
 						const title = props.intl.formatMessage( titles[ page.titleKey ] );
 
 						return <li key={ page.titleKey }>
@@ -200,7 +229,7 @@ function MainMenu( props ) {
 								isActive={ isActive }
 								ariaCurrent="page"
 							>
-								<MenuIcon src={ page.iconSource } alt="" />
+								{ menuItemIcon }
 								{ title }
 							</MenuItem>
 						</li>;

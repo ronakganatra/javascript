@@ -23,6 +23,7 @@ const rootState = {
  * Reducers
  */
 
+/* eslint-disable complexity */
 /**
  * A reducer for the orders object within the ui object.
  *
@@ -69,3 +70,4 @@ export function uiLoginReducer( state = rootState.ui.login, action ) {
 			return state;
 	}
 }
+/* eslint-enable complexity */

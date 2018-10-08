@@ -26,6 +26,7 @@ const rootState = {
  * Reducers
  */
 
+/* eslint-disable complexity */
 /**
  * A reducer for the orders object within the ui object.
  *
@@ -75,3 +76,4 @@ export function uiResetPasswordReducer( state = rootState.ui.resetPassword, acti
 			return state;
 	}
 }
+/* eslint-enable complexity */

@@ -5,37 +5,6 @@ import _isEmpty from "lodash/isEmpty";
 import url from "url";
 
 /**
- * Get the yoast.com access OAuth token of a user who is already logged in on yoast.com
- *
- * @returns {Object} A promise containing the access token.
- */
-export function fetchAccessToken() {
-	return new Promise( ( resolve, reject ) => {
-		if ( hasAccessToken() ) {
-			return resolve( getAccessToken() );
-		}
-
-		const frame = document.createElement( "IFrame" );
-		frame.onload = () => {
-			if ( _isEmpty( frame.contentDocument ) ) {
-				return reject( new Error( "IFrame could not be loaded" ) );
-			}
-
-			const accessToken = getAccessToken();
-
-			if ( _isEmpty( accessToken ) ) {
-				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
-			}
-
-			return resolve( accessToken );
-		};
-		frame.src = getOAuthUrl();
-		frame.style = "display:none; height:1px; width:1px;";
-		document.body.appendChild( frame );
-	} );
-}
-
-/**
  * Returns the auth URL where the user can authenticate themselves via OAuth.
  *
  * @returns {string} The URL where the user can authenticate.
@@ -45,13 +14,12 @@ export function getOAuthUrl() {
 }
 
 /**
- * Redirects to the authentication URL.
+ * Checks whether the intendedDestination cookie is set.
  *
- * @returns {void}
+ * @returns {boolean} Whether or not the cookie was set.
  */
-export function redirectToOAuthUrl() {
-	setPeriLoginCookie();
-	document.location.href = getOAuthUrl();
+export function hasPeriLoginCookie() {
+	return !! Cookies.get( "intendedDestination" );
 }
 
 /**
@@ -63,6 +31,16 @@ export function setPeriLoginCookie() {
 	if ( hasPeriLoginCookie() === false ) {
 		Cookies.set( "intendedDestination", window.location.href );
 	}
+}
+
+/**
+ * Redirects to the authentication URL.
+ *
+ * @returns {void}
+ */
+export function redirectToOAuthUrl() {
+	setPeriLoginCookie();
+	document.location.href = getOAuthUrl();
 }
 
 /**
@@ -86,26 +64,6 @@ export function removePeriLoginCookie() {
 }
 
 /**
- * Checks whether the intendedDestination cookie is set.
- *
- * @returns {boolean} Whether or not the cookie was set.
- */
-export function hasPeriLoginCookie() {
-	return !! Cookies.get( "intendedDestination" );
-}
-
-/**
- * Directs the user to the my.yoast.com url they wanted to visit before logging in.
- *
- * @returns {bool} Whether or not we have been redirected.
- */
-export function directToIntendedDestination() {
-	const redirectUrl = getRedirectUrl();
-	removePeriLoginCookie();
-	window.location.href = redirectUrl;
-}
-
-/**
  * Gets the url the user should be redirect to after the login.
  *
  * @returns {string} The url the user should be redirected to.
@@ -115,15 +73,6 @@ export function getRedirectUrl() {
 		return Cookies.get( "intendedDestination" );
 	}
 	return getEnv( "HOME_URL", "http://my.yoast.test:3001" );
-}
-
-/**
- * Returns the logout URL where the user can logout.
- *
- * @returns {string} The URL where the user can logout.
- */
-export function getLogoutUrl() {
-	return getEnv( "LOGOUT_URL", "http://yoast.test/wp/wp-login.php?action=logout" );
 }
 
 /**
@@ -229,3 +178,35 @@ export function setCookieFromParams() {
 		Cookies.set( "userId", cookieParams.userId );
 	}
 }
+
+/**
+ * Get the yoast.com access OAuth token of a user who is already logged in on yoast.com
+ *
+ * @returns {Object} A promise containing the access token.
+ */
+export function fetchAccessToken() {
+	return new Promise( ( resolve, reject ) => {
+		if ( hasAccessToken() ) {
+			return resolve( getAccessToken() );
+		}
+
+		const frame = document.createElement( "IFrame" );
+		frame.onload = () => {
+			if ( _isEmpty( frame.contentDocument ) ) {
+				return reject( new Error( "IFrame could not be loaded" ) );
+			}
+
+			const accessToken = getAccessToken();
+
+			if ( _isEmpty( accessToken ) ) {
+				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
+			}
+
+			return resolve( accessToken );
+		};
+		frame.src = getOAuthUrl();
+		frame.style = "display:none; height:1px; width:1px;";
+		document.body.appendChild( frame );
+	} );
+}
+

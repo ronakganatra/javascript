@@ -1,12 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
-import SubscriptionsPage from "../containers/SubscriptionsPage";
+import SubscriptionsPageContainer from "../containers/SubscriptionsPage";
 import ProfilePageContainer from "../containers/ProfilePage";
 import OrderPage from "../containers/OrdersPage";
 
 const itemRoutes = [
 	{
-		component: SubscriptionsPage,
+		component: SubscriptionsPageContainer,
 		path: "/account/subscriptions",
 		title: "Subscriptions",
 		isActive: ( match, location ) => {
@@ -36,17 +36,17 @@ const itemRoutes = [
  */
 export default function AccountPage() {
 	return (
-		<div>
+		<Fragment>
 			<SubNavigation itemRoutes={ itemRoutes } />
 			<SubNavigationItem itemRoutes={ itemRoutes } />
 			<SubNavigationItem
 				itemRoutes={ [
 					{
 						path: "/account",
-						component: SubscriptionsPage,
+						component: SubscriptionsPageContainer,
 					},
 				] }
 			/>
-		</div>
+		</Fragment>
 	);
 }

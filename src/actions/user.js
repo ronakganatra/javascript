@@ -56,42 +56,6 @@ export function login( accessToken, userId ) {
 }
 
 /**
- * An action creator for the logout action.
- *
- * @returns {Object} A logout action.
- */
-export function logout() {
-	return ( dispatch ) => {
-		dispatch( doingLogoutRequest() );
-		const nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
-
-		doRequest( nonceRequest )
-			.then( ( reponse ) => {
-				const logoutRequest = prepareInternalRequest( "Customers/logout-user/", "POST", { nonce: reponse.nonce }, { credentials: "include" } );
-				doRequest( logoutRequest )
-					.then( () => {
-						removeAuthCookies();
-						dispatch( logoutSuccess() );
-					} )
-					.catch( ( error ) => {
-						// A failed logout may indicate that there's something wrong with the user on the yoast.com side. They might have logged out on yoast.com since.
-						// To be sure, and get that back in sync, remove the cookie and attempt a new login on the next page load.
-						removeAuthCookies();
-						// When the user was not logged in in the first place, we consider the logout a success after removing the MyYoast Auth cookies.
-						if ( error.error === "user_not_logged_in" ) {
-							dispatch( logoutSuccess() );
-							return;
-						}
-						dispatch( logoutFailure( error ) );
-					} );
-			} )
-			.catch( ( error ) => {
-				dispatch( logoutFailure( error ) );
-			} );
-	};
-}
-
-/**
  * An action creator for the logout start action.
  *
  * @returns {Object} A logout start action.
@@ -124,6 +88,53 @@ export function logoutFailure( error ) {
 	return {
 		type: LOGOUT_FAILURE,
 		error: error,
+	};
+}
+
+/**
+ * An action creator for the logout action.
+ *
+ * @returns {Object} A logout action.
+ */
+export function logout() {
+	return ( dispatch ) => {
+		dispatch( doingLogoutRequest() );
+		const nonceRequest = prepareInternalRequest( "Customers/nonce/", "GET", {}, { credentials: "include" } );
+
+		doRequest( nonceRequest )
+			.then( ( reponse ) => {
+				const logoutRequest = prepareInternalRequest(
+					"Customers/logout-user/",
+					"POST",
+					{ nonce: reponse.nonce },
+					{ credentials: "include" }
+				);
+				doRequest( logoutRequest )
+					.then( () => {
+						removeAuthCookies();
+						dispatch( logoutSuccess() );
+					} )
+					.catch( ( error ) => {
+						/*
+						 * A failed logout may indicate that there's something wrong with the user on the yoast.com side.
+						 * They might have logged out on yoast.com since. To be sure, and get that back in sync,
+						 * remove the cookie and attempt a new login on the next page load.
+						 */
+						removeAuthCookies();
+						/*
+						 * When the user was not logged in in the first place,
+						 * we consider the logout a success after removing the MyYoast Auth cookies.
+						 */
+						if ( error.error === "user_not_logged_in" ) {
+							dispatch( logoutSuccess() );
+							return;
+						}
+						dispatch( logoutFailure( error ) );
+					} );
+			} )
+			.catch( ( error ) => {
+				dispatch( logoutFailure( error ) );
+			} );
 	};
 }
 
@@ -164,9 +175,9 @@ export function fetchUser( userId ) {
 
 		// If our credentials came from the parameters then bypass the profile request.
 		if ( hasCookieParams() ) {
-			const request = prepareInternalRequest( `Customers/${userId}/` );
+			const customerRequest = prepareInternalRequest( `Customers/${userId}/` );
 
-			return doRequest( request )
+			return doRequest( customerRequest )
 				.then( json =>
 					dispatch( receiveUser( {
 						profile: {
@@ -176,9 +187,9 @@ export function fetchUser( userId ) {
 					} ) ) );
 		}
 
-		const request = prepareInternalRequest( `Customers/${userId}/profile/` );
+		const profileRequest = prepareInternalRequest( `Customers/${userId}/profile/` );
 
-		return doRequest( request )
+		return doRequest( profileRequest )
 			.then( json => dispatch( receiveUser( json ) ) )
 			.catch( () => {
 				// Do nothing.

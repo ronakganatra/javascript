@@ -1,28 +1,47 @@
 import { userReducer } from "./user";
 import { combineReducers } from "redux";
-import { uiSitesReducer, byIdReducer, allIdsReducer } from "./sites.js";
-import { byIdCoursesReducer, allIdsCoursesReducer, uiCoursesReducer, uiCoursesEnrollmentsReducer,
-	byIdCoursesEnrollmentsReducer, allIdsCoursesEnrollmentsReducer, uiCourseInviteModalReducer } from "./courses.js";
-import { uiSiteReducer } from "./site.js";
-import { routerReducer } from "react-router-redux";
-import { uiCancelSubscriptionsReducer, allIdsSubscriptionsReducer, byIdSubscriptionsReducer, uiAllSubscriptionsReducer, uiAddSubscriptionModalReducer } from "./subscriptions.js";
-import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
-import { uiOrdersReducer, byIdOrdersReducer, allIdsOrdersReducer } from "./orders";
-import { uiHelpBeaconModalReducer } from "./helpBeacon";
-import { uiSearch } from "./search.js";
-import { uiCourseInviteRequestReducer } from "./courses";
-import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
-import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
-import { uiInvoicesReducer } from "./invoices";
-import { uiConfigurationServiceRequestReducer, allIdsConfigurationServiceRequestsReducer, byIdConfigurationServiceRequestsReducer } from "./configurationServiceRequest";
 import { uiNewsletterReducer } from "./newsletter";
 import { uiResetPasswordReducer } from "./resetPassword";
 import { uiLoginReducer } from "./login";
 import { uiSignupReducer } from "./signup";
 import { uiActivateReducer } from "./activate";
+import { uiHomeReducer } from "./home";
+import { uiSiteReducer } from "./site.js";
+import { routerReducer } from "react-router-redux";
+import { uiHelpBeaconModalReducer } from "./helpBeacon";
+import { uiSearch } from "./search.js";
+import { uiCourseInviteRequestReducer } from "./courses";
+import { uiInvoicesReducer } from "./invoices";
+import { allIdsReducer, byIdReducer, uiSitesReducer } from "./sites.js";
+import {
+	allIdsCoursesEnrollmentsReducer,
+	allIdsCoursesReducer,
+	byIdCoursesEnrollmentsReducer,
+	byIdCoursesReducer,
+	uiCourseInviteModalReducer,
+	uiCoursesEnrollmentsReducer,
+	uiCoursesReducer,
+} from "./courses.js";
+import {
+	allIdsSubscriptionsReducer,
+	byIdSubscriptionsReducer,
+	uiAddSubscriptionModalReducer,
+	uiAllSubscriptionsReducer,
+	uiCancelSubscriptionsReducer,
+} from "./subscriptions.js";
+import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
+import { allIdsOrdersReducer, byIdOrdersReducer, uiOrdersReducer } from "./orders";
+import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
+import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
+import {
+	allIdsConfigurationServiceRequestsReducer,
+	byIdConfigurationServiceRequestsReducer,
+	uiConfigurationServiceRequestReducer,
+} from "./configurationServiceRequest";
 
 
 export const uiReducer = combineReducers( {
+	home: uiHomeReducer,
 	sites: uiSitesReducer,
 	site: uiSiteReducer,
 	search: uiSearch,

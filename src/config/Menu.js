@@ -1,32 +1,40 @@
-import sitesIcon from "../icons/sites.svg";
-import coursesIcon from "../icons/courses.svg";
-import userIcon from "../icons/user.svg";
-import downloadsIcon from "../icons/download.svg";
+import React from "react";
+import HomeIcon from "../icons/Home.js";
+import SitesIcon from "../icons/Sites.js";
+import CoursesIcon from "../icons/Courses.js";
+import UserIcon from "../icons/User.js";
+import DownloadsIcon from "../icons/Download.js";
 import SitesPageContainer from "../containers/SitesPage";
 import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
 import CoursesPage from "../containers/CoursesPage";
+import HomePage from "../containers/HomePage";
 
 const menuItems = [
 	{
 		showInMenu: true,
-		path: "/sites",
-		titleKey: "sites",
-		iconSource: sitesIcon,
-		component: SitesPageContainer,
+		path: "/",
+		titleKey: "home",
+		iconSource: <HomeIcon />,
+		component: HomePage,
+		exact: true,
 		isActive: ( match, location ) => {
-			if ( match ) {
-				return true;
-			}
-
 			return location.pathname === "/";
 		},
 	},
 	{
 		showInMenu: true,
+		path: "/sites",
+		titleKey: "sites",
+		iconSource: <SitesIcon />,
+		component: SitesPageContainer,
+		exact: true,
+	},
+	{
+		showInMenu: true,
 		path: "/courses",
 		titleKey: "courses",
-		iconSource: coursesIcon,
+		iconSource: <CoursesIcon />,
 		component: CoursesPage,
 		exact: false,
 	},
@@ -34,15 +42,15 @@ const menuItems = [
 		showInMenu: true,
 		path: "/downloads",
 		titleKey: "downloads",
-		iconSource: downloadsIcon,
+		iconSource: <DownloadsIcon />,
 		component: DownloadsPage,
-		exact: false,
+		exact: true,
 	},
 	{
 		showInMenu: true,
 		path: "/account",
 		titleKey: "account",
-		iconSource: userIcon,
+		iconSource: <UserIcon />,
 		component: AccountPage,
 		exact: false,
 	},

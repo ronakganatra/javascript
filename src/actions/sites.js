@@ -3,6 +3,7 @@ import { prepareInternalRequest, doRequest } from "../functions/api";
 import { getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
 import { getAllProducts } from "./products";
+import { push } from "react-router-redux";
 
 /**
  * Action types
@@ -100,12 +101,13 @@ export function linkSiteFailure( error ) {
 /**
  * An action creator for the link site action.
  *
- * @param {string} url The site url trying to be linked.
- * @param {string} type The CMS the to be linked site is running on.
+ * @param {string}  url      The site url trying to be linked.
+ * @param {string}  type     The CMS the to be linked site is running on.
+ * @param {boolean} fromHome Whether the site was linked from the homepage or not.
  *
  * @returns {Object} A link site request action.
  */
-export function linkSite( url, type ) {
+export function linkSite( url, type, fromHome = false ) {
 	return ( dispatch ) => {
 		dispatch( updateSiteUrl( url ) );
 		dispatch( linkSiteRequest() );
@@ -115,6 +117,11 @@ export function linkSite( url, type ) {
 
 		return doRequest( request )
 			.then( json => dispatch( linkSiteSuccess( json ) ) )
+			.then( () => {
+				if ( fromHome ) {
+					dispatch( push( "/sites" ) );
+				}
+			} )
 			.catch( error => dispatch( linkSiteFailure( error ) ) );
 	};
 }
@@ -127,19 +134,6 @@ export function linkSite( url, type ) {
 export function retrieveSitesRequest() {
 	return {
 		type: RETRIEVE_SITES_REQUEST,
-	};
-}
-
-/**
- * An action creator for loading sites, products and subscriptions.
- *
- * @returns {Object} a dispatcher that dispatches the actions.
- */
-export function loadSites() {
-	return ( dispatch ) => {
-		dispatch( retrieveSites() );
-		dispatch( getAllProducts() );
-		dispatch( getAllSubscriptions() );
 	};
 }
 
@@ -170,6 +164,7 @@ export function retrieveSitesFailure( errorText ) {
 		retrieveSitesError: errorText,
 	};
 }
+
 /**
  * An action creator for the retrieve sites action.
  *
@@ -185,5 +180,18 @@ export function retrieveSites() {
 		return doRequest( request )
 			.then( json => dispatch( retrieveSitesSuccess( json ) ) )
 			.catch( error => dispatch( retrieveSitesFailure( error.message ) ) );
+	};
+}
+
+/**
+ * An action creator for loading sites, products and subscriptions.
+ *
+ * @returns {Object} a dispatcher that dispatches the actions.
+ */
+export function loadSites() {
+	return ( dispatch ) => {
+		dispatch( retrieveSites() );
+		dispatch( getAllProducts() );
+		dispatch( getAllSubscriptions() );
 	};
 }

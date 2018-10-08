@@ -60,10 +60,11 @@ exports[`The Login component matches the snapshot 1`] = `
 
 .c9 {
   position: absolute;
+  z-index: 1;
   opacity: 0;
 }
 
-.c9:checked + .checkmark {
+.c9:checked + label .checkmark {
   background-color: #a4286a;
   background-image: url( check.svg );
   background-repeat: no-repeat;
@@ -71,26 +72,32 @@ exports[`The Login component matches the snapshot 1`] = `
   background-size: 75%;
 }
 
-.c9:focus + .checkmark {
+.c9:focus + label .checkmark {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),0 0 2px 2px #1e8cbe;
   outline: 2px solid transparent;
 }
 
-.c10 {
+.c11 {
   height: 25px;
   width: 25px;
   cursor: pointer;
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background-color: #f7f7f7;
+  margin-right: 8px;
 }
 
-.c10:hover {
+.c11:hover {
   background-color: #cecece;
 }
 
-.c11 {
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   cursor: pointer;
-  margin-left: 8px;
+  position: relative;
+  z-index: 2;
 }
 
 .c3 {
@@ -201,13 +208,13 @@ exports[`The Login component matches the snapshot 1`] = `
         onChange={[Function]}
         type="checkbox"
       />
-      <span
-        className="checkmark c10"
-      />
       <label
-        className="c11"
+        className="c10"
         htmlFor="remember-me"
       >
+        <span
+          className="checkmark c11"
+        />
         Remember me
       </label>
     </div>
@@ -283,10 +290,11 @@ exports[`The Login component with OTP required matches the snapshot 1`] = `
 
 .c9 {
   position: absolute;
+  z-index: 1;
   opacity: 0;
 }
 
-.c9:checked + .checkmark {
+.c9:checked + label .checkmark {
   background-color: #a4286a;
   background-image: url( check.svg );
   background-repeat: no-repeat;
@@ -294,26 +302,32 @@ exports[`The Login component with OTP required matches the snapshot 1`] = `
   background-size: 75%;
 }
 
-.c9:focus + .checkmark {
+.c9:focus + label .checkmark {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),0 0 2px 2px #1e8cbe;
   outline: 2px solid transparent;
 }
 
-.c10 {
+.c11 {
   height: 25px;
   width: 25px;
   cursor: pointer;
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background-color: #f7f7f7;
+  margin-right: 8px;
 }
 
-.c10:hover {
+.c11:hover {
   background-color: #cecece;
 }
 
-.c11 {
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
   cursor: pointer;
-  margin-left: 8px;
+  position: relative;
+  z-index: 2;
 }
 
 .c3 {
@@ -443,13 +457,13 @@ exports[`The Login component with OTP required matches the snapshot 1`] = `
         onChange={[Function]}
         type="checkbox"
       />
-      <span
-        className="checkmark c10"
-      />
       <label
-        className="c11"
+        className="c10"
         htmlFor="remember-me"
       >
+        <span
+          className="checkmark c11"
+        />
         Remember me
       </label>
     </div>

@@ -3,6 +3,15 @@ import { getOAuthUrl, removeCookies as removeAuthCookies, getAccessToken } from 
 import getEnv from "./getEnv";
 
 /**
+ * Returns the API URL that should be used to do AJAX requests to.
+ *
+ * @returns {string} The URL of the API.
+ */
+export function getApiUrl() {
+	return getEnv( "API_URL", "http://my.yoast.test:3000/api" );
+}
+
+/**
  * Determines whether or not a valid HTTP method was passed.
  *
  * @param {string} method The HTTP method to check.
@@ -78,16 +87,32 @@ export function prepareInternalRequest( path, method = "GET", payload = {}, addi
 }
 
 /**
- * Executes a specific request and handles potential errors.
+ * Checks a response for a 401 status code and redirects if true.
  *
- * @param {Request} request The request to execute.
- * @returns {object} The fetched request object.
+ * @param {Object} response The response that needs to be checked for a 401.
+ * @returns {object} The request object.
  */
-export function doRequest( request ) {
-	return fetch( request )
-		.then( handleResponse )
-		.catch( ( error ) => {
-			throw error.error;
+export function handle401( response ) {
+	if ( response.status === 401 ) {
+		removeAuthCookies();
+		document.location.href = getOAuthUrl();
+		throw new Error( "Authentication required" );
+	}
+
+	return response;
+}
+
+/**
+ * Handles an errored response.
+ *
+ * @param {object} response The response to handle.
+ * @returns {object} The reponse object.
+ */
+function handleErrorResponse( response ) {
+	return response
+		.json()
+		.then( errorResponse => {
+			throw errorResponse;
 		} );
 }
 
@@ -125,42 +150,17 @@ function handleResponse( response ) {
 }
 
 /**
- * Handles an errored response.
+ * Executes a specific request and handles potential errors.
  *
- * @param {object} response The response to handle.
- * @returns {object} The reponse object.
+ * @param {Request} request The request to execute.
+ * @returns {object} The fetched request object.
  */
-function handleErrorResponse( response ) {
-	return response
-		.json()
-		.then( errorResponse => {
-			throw errorResponse;
+export function doRequest( request ) {
+	return fetch( request )
+		.then( handleResponse )
+		.catch( ( error ) => {
+			throw error.error;
 		} );
-}
-
-/**
- * Returns the API URL that should be used to do AJAX requests to.
- *
- * @returns {string} The URL of the API.
- */
-export function getApiUrl() {
-	return getEnv( "API_URL", "http://my.yoast.test:3000/api" );
-}
-
-/**
- * Checks a response for a 401 status code and redirects if true.
- *
- * @param {Object} response The response that needs to be checked for a 401.
- * @returns {object} The request object.
- */
-export function handle401( response ) {
-	if ( response.status === 401 ) {
-		removeAuthCookies();
-		document.location.href = getOAuthUrl();
-		throw new Error( "Authentication required" );
-	}
-
-	return response;
 }
 
 /**

@@ -21,8 +21,8 @@ const HeaderImage = styled.img`
 
 const Content = styled.div`
 	margin: 0;
-	padding: 20px;
-	padding-top: 10px;
+	padding: 18px;
+	padding-top: 8px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
@@ -72,7 +72,7 @@ class Card extends React.Component {
 	 */
 	render() {
 		return (
-			<Container className={ this.props.className }>
+			<Container className={ this.props.className } id={ this.props.id }>
 				{ this.getHeaderImage() }
 				{ this.getBanner() }
 				<Content>
@@ -91,6 +91,7 @@ export const FullHeightCard = injectIntl( styled( Card )`
 
 Card.propTypes = {
 	className: PropTypes.string,
+	id: PropTypes.string,
 	header: PropTypes.shape( {
 		title: PropTypes.string,
 		image: PropTypes.string.isRequired,
@@ -102,4 +103,8 @@ Card.propTypes = {
 		backgroundColor: PropTypes.string,
 	} ),
 	children: PropTypes.any,
+};
+
+Card.defaultProps = {
+	id: null,
 };
