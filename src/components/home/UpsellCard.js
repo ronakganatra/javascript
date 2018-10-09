@@ -10,7 +10,7 @@ const Header = styled.h2`
 	padding: 0;
 	margin: 16px 0;
 	color: ${ colors.$color_pink_dark };
-	font-weight: 50;
+	font-weight: 300;
 	font-size: 1.5em;
 `;
 

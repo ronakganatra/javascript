@@ -45,7 +45,7 @@ const Header = styled.h2`
 	margin-top: 16px;
 	margin-bottom: 0;
 	color: ${ colors.$color_pink_dark };
-	font-weight: 50;
+	font-weight: 300;
 	font-size: 1.5em;
 `;
 

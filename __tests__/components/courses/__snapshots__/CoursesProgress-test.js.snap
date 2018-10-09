@@ -111,7 +111,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   margin: 0;
   margin-bottom: 15px;
   color: #a4286a;
-  font-weight: 50;
+  font-weight: 300;
   font-size: 1.5em;
   -webkit-text-decoration: none;
   text-decoration: none;
