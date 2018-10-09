@@ -7,6 +7,7 @@ import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
 import Link from "../Link.js";
+import NewTabMessage from "../NewTabMessage";
 
 const messages = defineMessages( {
 	loading: {
@@ -47,22 +48,8 @@ const WordpressFeedLink = styled( Link )`
 	font-weight: bold;
 `;
 
-const A11yNotice = styled.span`
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important;
-`;
-
 const WordpressFeedListItemContainer = styled.li`
-	margin: 8px 0;
-	overflow: hidden;
+	margin: 8px 0 24px;
 `;
 
 const FeedDescription = styled.p`
@@ -84,9 +71,7 @@ const WordpressFeedListItem = ( props ) => {
 				linkTarget="_blank"
 			>
 				{ props.title }
-				<A11yNotice>
-					( Opens in a new browser tab )
-				</A11yNotice>
+				<NewTabMessage />
 			</WordpressFeedLink>
 			<FeedDescription>
 				{ props.description }
