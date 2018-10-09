@@ -47,7 +47,6 @@ const Header = styled.h2`
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
 	font-size: 1.5em;
-	text-decoration: none;
 `;
 
 const SupportContainer = styled.div`
@@ -98,7 +97,7 @@ const SupportCard = () => {
 					<p>
 						<FormattedMessage { ...messages.supportKb } />
 					</p>
-					<Image src={ KbImage } />
+					<Image src={ KbImage } alt="" />
 				</TextImageContainer>
 				<BoldLink to={ "https://kb.yoast.com/kb/support/#free" } linkTarget={ "_blank" }>
 					<FormattedMessage { ...messages.supportForumsLink } />
@@ -112,7 +111,7 @@ const SupportCard = () => {
 							<FormattedMessage { ...messages.supportForumsDetail } />
 						</p>
 					</div>
-					<Image src={ ForumsImage } />
+					<Image src={ ForumsImage } alt="" />
 				</TextImageContainer>
 			</SupportContainer>
 		</Fragment>

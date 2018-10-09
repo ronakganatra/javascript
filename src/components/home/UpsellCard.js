@@ -4,6 +4,7 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import Link from "../Link";
+import NewTabMessage from "../NewTabMessage";
 
 const Header = styled.h2`
 	padding: 0;
@@ -11,42 +12,27 @@ const Header = styled.h2`
 	color: ${ colors.$color_pink_dark };
 	font-weight: 50;
 	font-size: 1.5em;
-	text-decoration: none;
-`;
-
-const ListContainer = styled.div`
-	margin: 0;
-	flex-grow: 1;
 `;
 
 const ListItem = styled.div`
-	white-space: nowrap;
-	display: flex;
-	box-sizing: border-box;
-	:not(:last-child) {
-		margin-bottom: 1.5em;
+	padding-left: 72px;
+	margin-bottom: 1.5em;
+	min-height: 68px;
+
+	:last-child {
+		margin-bottom: 0;
 	}
 `;
 
-const Block = styled.div`
-	display: inline-block;
-`;
-
-const TextBlock = styled( Block )`
-	margin-left: 8px;
-	vertical-align: top;
-`;
-
 const Icon = styled.img`
+	position: absolute;
 	width: 64px;
 	height: 64px;
-	display: block;
+	left: 16px;
 `;
 
 const Description = styled.p`
 	margin: 0;
-	white-space: normal;
-	max-width: 100%;
 	line-height: 1.4;
 `;
 
@@ -64,18 +50,17 @@ const BoldLink = styled( Link )`
 const UpsellListItem = ( props ) => {
 	return (
 		<ListItem>
-			<Block>
-				<Icon src={ props.icon } />
-			</Block>
-			<TextBlock>
-				<BoldLink to={ props.link.url } linkTarget="_blank">{ props.link.name }</BoldLink>
-				<Description>
-					<FormattedMessage
-						id={ props.description.id }
-						defaultMessage={ props.description.defaultMessage }
-					/>
-				</Description>
-			</TextBlock>
+			<BoldLink to={ props.link.url } linkTarget="_blank">
+				<Icon src={ props.icon } alt="" />
+				{ props.link.name }
+				<NewTabMessage />
+			</BoldLink>
+			<Description>
+				<FormattedMessage
+					id={ props.description.id }
+					defaultMessage={ props.description.defaultMessage }
+				/>
+			</Description>
 		</ListItem>
 	);
 };
@@ -109,15 +94,13 @@ const UpsellCard = ( props ) => {
 			<Header>
 				<FormattedMessage id={ `${ props.id }.${ props.header.id }` } defaultMessage={ props.header.defaultMessage } />
 			</Header>
-			<ListContainer>
-				{
-					props.listPropsArray.map( ( listProps, index ) => {
-						return (
-							<UpsellListItem { ...listProps } key={ `${ props.id }-key-${ index }` } />
-						);
-					} )
-				}
-			</ListContainer>
+			{
+				props.listPropsArray.map( ( listProps, index ) => {
+					return (
+						<UpsellListItem { ...listProps } key={ `${ props.id }-key-${ index }` } />
+					);
+				} )
+			}
 		</Fragment>
 	);
 };
