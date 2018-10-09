@@ -9,7 +9,7 @@ import SupportCard from "./SupportCard";
 import BlogFeed from "./BlogCard";
 import Card from "../Card";
 import MediaQuery from "react-responsive";
-import { RenewalNotificationContainer } from "../../containers/SubscriptionsPage";
+import RenewalNotificationContainer from "../../containers/RenewalNotification";
 
 const messages = defineMessages( {
 	homePageLoaded: {

@@ -15,7 +15,7 @@ const messages = defineMessages( {
 	},
 	description: {
 		id: "renewal.notification.description",
-		defaultMessage: "When they do, you will no longer receive (security) updates or support! The first one expires on {expireDate}.",
+		defaultMessage: "When they do, you will no longer receive (security) updates or support! The first one expires on {expiryDate}.",
 	},
 	close: {
 		id: "renewal.notification.close",
@@ -83,7 +83,6 @@ class RenewalNotification extends React.Component {
 			hide: false,
 		};
 		this.onCrossClick = this.onCrossClick.bind( this );
-		this.earliestEndDate = this.earliestEndDate.bind( this );
 	}
 
 	componentDidMount() {
@@ -103,53 +102,28 @@ class RenewalNotification extends React.Component {
 	}
 
 	/**
-	 * Calculates the subscription with the earliest endDate.
-	 *
-	 * @returns {object} The nearestEndDate.
-	 */
-	earliestEndDate() {
-		const currentDate = new Date();
-
-		// Filters subscriptions with an endDate in the future.
-		let subscriptions = this.props.subscriptions.filter(
-			( subscription ) => {
-				console.log( subscription );
-				return subscription.nextPayment > currentDate;
-			}
-		);
-
-		// Makes sure subscriptions are not empty.
-		if ( subscriptions.length < 1 || ! subscriptions ) {
-			return null;
-		}
-
-		subscriptions = subscriptions.sort( ( a, b ) => {
-			return new Date( a.nextPayment ) - new Date( b.nextPayment );
-		} );
-
-		return subscriptions[ 0 ];
-	}
-
-	/**
 	 * Renders the message.
 	 *
 	 * @returns { ReactElement|null} Returns a message container including the renewalNotification or null.
 	 */
 	render() {
-		const earliestSubscription = this.earliestEndDate();
-
-		if ( this.state.hide || ! earliestSubscription ) {
+		if ( this.props.upcomingRenewals.length < 1 ) {
 			return null;
 		}
 
-		const endDate = <FormattedDate
-			value={ earliestSubscription.nextPayment }
+		// The first item in the array is the first upcoming renewal (sorted in the container).
+		const earliestRenewal = this.props.upcomingRenewals[ 0 ];
+
+		if ( this.state.hide || ! earliestRenewal ) {
+			return null;
+		}
+
+		const expiryDate = <FormattedDate
+			value={ earliestRenewal.nextPayment }
 			year="numeric"
 			month="long"
 			day="2-digit"
 		/>;
-		const subscriptionId = earliestSubscription.id;
-
 
 		return (
 			<MessageContainer>
@@ -161,12 +135,17 @@ class RenewalNotification extends React.Component {
 					<RenewalImage src={ renewalNotification } />
 				</Block>
 				<Block>
-					<h2><FormattedMessage { ...messages.header } /></h2>
+					<h2>
+						<FormattedMessage { ...messages.header } />
+					</h2>
 					<p>
-						<FormattedMessage { ...messages.description } values={ { expireDate: endDate } } />
+						<FormattedMessage
+							{ ...messages.description }
+							values={ { expiryDate: expiryDate } }
+						/>
 						<br />
 						<MessageLink
-							to={ "/account/subscriptions/" + subscriptionId }
+							to={ earliestRenewal.renewalUrl }
 							linkTarget="_blank"
 						>
 							<FormattedMessage { ...messages.linkMessage } />
@@ -181,13 +160,11 @@ class RenewalNotification extends React.Component {
 
 RenewalNotification.propTypes = {
 	intl: intlShape.isRequired,
-	subscriptions: PropTypes.array,
-	onManage: PropTypes.func,
+	upcomingRenewals: PropTypes.array,
 };
 
 RenewalNotification.defaultProps = {
-	subscriptions: [],
-	onManage: () => {},
+	upcomingRenewals: [],
 };
 
 export default injectIntl( RenewalNotification );
