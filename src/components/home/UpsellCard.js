@@ -72,13 +72,13 @@ UpsellListItem.propTypes = {
 			name: PropTypes.string.isRequired,
 			url: PropTypes.string.isRequired,
 		}
-	),
+	).isRequired,
 	description: PropTypes.shape(
 		{
 			id: PropTypes.string.isRequired,
 			defaultMessage: PropTypes.string.isRequired,
 		}
-	),
+	).isRequired,
 };
 
 /**
