@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage, FormattedDate, defineMessages, injectIntl, intlShape } from "react-intl";
+import Cookies from "js-cookie";
 import Link from "./Link";
 import { CloseButtonTopRight } from "./Button";
 import NewTabMessage from "../components/NewTabMessage";
@@ -80,12 +81,15 @@ class RenewalNotification extends React.Component {
 	constructor()  {
 		super();
 		this.state = {
-			hide: false,
+			hideNotification: false,
 		};
 		this.onCrossClick = this.onCrossClick.bind( this );
 	}
 
 	componentDidMount() {
+		if ( Cookies.get( "hideRenewalNotification" ) ) {
+			this.setState( { hideNotification: true } );
+		}
 		this.props.loadData();
 	}
 
@@ -96,9 +100,9 @@ class RenewalNotification extends React.Component {
 	 *
 	 * @returns {void}
 	 */
-	onCrossClick( event ) {
-		event.preventDefault();
-		this.setState( { hide: true } );
+	onCrossClick() {
+		Cookies.set( "hideRenewalNotification", "true", { expires: 2 } );
+		this.setState( { hideNotification: true } );
 	}
 
 	/**
@@ -114,7 +118,7 @@ class RenewalNotification extends React.Component {
 		// The first item in the array is the first upcoming renewal (sorted in the container).
 		const earliestRenewal = this.props.upcomingRenewals[ 0 ];
 
-		if ( this.state.hide || ! earliestRenewal ) {
+		if ( this.state.hideNotification || ! earliestRenewal ) {
 			return null;
 		}
 
