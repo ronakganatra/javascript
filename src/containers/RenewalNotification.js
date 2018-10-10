@@ -24,6 +24,7 @@ export const mapStateToProps = ( state ) => {
 
 		return {
 			id: subscription.id,
+			name: subscription.name,
 			hasNextPayment: subscription.nextPayment !== null,
 			nextPayment,
 			endDate: subscription.endDate ? new Date( subscription.endDate ) : null,

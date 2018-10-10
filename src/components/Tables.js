@@ -52,6 +52,12 @@ Row.defaultProps = {
 	verticalAlign: "center",
 };
 
+export const CompactRow = styled( Row )`
+	min-height: 0;
+	padding-top: 4px;
+	padding-bottom: 4px;
+`;
+
 /*
  * A responsive row allows children to wrap in new lines in the responsive view.
  * If the columns have headers, they're displayed as labels inside the column
@@ -280,11 +286,18 @@ export function ListTable( props ) {
 		return null;
 	}
 
+	let firstColor = colors.$color_white;
+	let secondColor = colors.$color_background_light;
+	if ( props.invertZebra ) {
+		firstColor = secondColor;
+		secondColor = colors.$color_white;
+	}
+
 	// Do zebra striping background if props.doZebra is true (default).
 	if ( props.doZebra ) {
 		zebraProps.children = children.map( ( child, index ) => {
 			return React.cloneElement( child, {
-				background: ( index % 2 === 1 ) ? colors.$color_background_light : colors.$color_white,
+				background: ( index % 2 === 1 ) ? secondColor : firstColor,
 			} );
 		} );
 	}
@@ -300,8 +313,10 @@ ListTable.propTypes = {
 		PropTypes.node,
 	] ),
 	doZebra: PropTypes.bool,
+	invertZebra: PropTypes.bool,
 };
 
 ListTable.defaultProps = {
 	doZebra: true,
+	invertZebra: false,
 };

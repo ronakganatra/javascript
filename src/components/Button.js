@@ -396,6 +396,22 @@ BackButtonLink.defaultProps = {
 	iconSize: "24px",
 };
 
+export const YellowCaretLink = styled( LargeIconButtonLink )`
+	background-color: #FEC228;
+	color: rgb(0,0,0);
+	text-shadow: none;
+	background-position: calc( 100% - 8px ) 50%;
+	padding: 12px 16px;
+	padding-right: 36px;
+	box-shadow: inset 0 -4px rgba(0,0,0,0.2);
+	border: 0;
+
+	&:hover, &:focus {
+		background-color: #F2AE01;
+		color: rgb(0,0,0);
+	}
+`;
+
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
 `;
@@ -503,7 +519,7 @@ export function makeButtonFullWidth( component ) {
 }
 
 /**
- * Makes an icon button display only the icon in the intermdiate responsive view.
+ * Makes an icon button display only the icon in the intermediate responsive view.
  *
  * @param {ReactElement} component The original button.
  * @returns {ReactElement} The button with icon only.
@@ -514,6 +530,7 @@ export function makeResponsiveIconButton( component ) {
 			position: static;
 			clip-path: none;
 		}
+
 		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
 			padding-right: 0;
 			padding-left: 42px;
