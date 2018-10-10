@@ -17,33 +17,21 @@ exports[`the search component handling an on change 1`] = `
 }
 
 .c1 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c2 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
   background-repeat: no-repeat;
   padding-left: 50px;
   margin-right: 24px;
-}
-
-@media screen and ( max-width:1356px ) {
-  .c2 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    width: calc(100% - 60px);
-  }
 }
 
 <div
@@ -97,33 +85,21 @@ exports[`the search component handling an on change 2`] = `
 }
 
 .c1 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c2 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
   background-repeat: no-repeat;
   padding-left: 50px;
   margin-right: 24px;
-}
-
-@media screen and ( max-width:1356px ) {
-  .c2 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    width: calc(100% - 60px);
-  }
 }
 
 <div
@@ -177,33 +153,21 @@ exports[`the search component matches the snapshot 1`] = `
 }
 
 .c1 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c2 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
   background-repeat: no-repeat;
   padding-left: 50px;
   margin-right: 24px;
-}
-
-@media screen and ( max-width:1356px ) {
-  .c2 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    width: calc(100% - 60px);
-  }
 }
 
 <div

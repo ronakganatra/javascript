@@ -141,12 +141,15 @@ exports[`the downloads page component matches the snapshot 1`] = `
 }
 
 .c1 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c2 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
@@ -200,21 +203,6 @@ exports[`the downloads page component matches the snapshot 1`] = `
 @media screen and ( max-width:800px ) {
   .c8 {
     padding: 16px;
-  }
-}
-
-@media screen and ( max-width:1356px ) {
-  .c2 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c2 {
-    width: calc(100% - 60px);
   }
 }
 

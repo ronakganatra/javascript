@@ -2,16 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import searchIcon from "../icons/search.svg";
-import searchIconWhite from "../icons/searchWhite.svg";
 import { InputField } from "./InputField";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
-import { LargeButton, Button } from "../components/Button.js";
-import MediaQuery from "react-responsive";
-import defaults from "../config/defaults.json";
-import colors from "yoast-components/style-guide/colors.json";
-
-const tabletSize = defaults.css.breakpoint.tablet + 1;
-const mobileSize = defaults.css.breakpoint.mobile;
 
 const messages = defineMessages( {
 	searchLabel: {
@@ -22,10 +14,6 @@ const messages = defineMessages( {
 		id: "search.description",
 		defaultMessage: "The search results will be updated as you type.",
 	},
-	searchButton: {
-		id: "search.button",
-		defaultMessage: "Search",
-	},
 } );
 
 const Searchbar = styled.div`
@@ -33,7 +21,12 @@ const Searchbar = styled.div`
 `;
 
 const SearchLabel = styled.label`
-	display: none;
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 `;
 
 SearchLabel.propTypes = {
@@ -50,28 +43,12 @@ const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled( InputField )`
-	width: calc(100% - 200px);
-	float: left;
-	
 	background-image: url( ${ searchIcon } );
 	background-position: 18px 15px;
 	background-size: 17px 17px;
 	background-repeat: no-repeat;
 	padding-left: 50px;
 	margin-right: 24px;
-
-	@media screen and ( max-width: ${ tabletSize }px ) {
-		background-color: ${ colors.$color_green_dark }; 
-		background-image: none;
-		width: calc(100% - 86px);
-		margin-right: 12px;
-		padding-left: 10px;
-
-	}
-
-	@media screen and ( max-width: ${ mobileSize }px ) {
-		width: calc(100% - 60px);
-	}
 `;
 
 SearchField.propTypes = {
@@ -85,24 +62,6 @@ SearchField.defaultProps = {
 	type: "text",
 	"aria-describedby": "",
 };
-
-const SearchButton = styled( LargeButton )`
-	margin: 0;
-`;
-
-export const SearchiconButton = styled( Button )`
-	background-color: ${ colors.$color_green_dark };
-	background-repeat: no-repeat;
-	background-image: url( ${ searchIconWhite } );
-	background-position: center;
-	background-size: 24px;
-	width:  48px;
-	height: 48px;
-	cursor: pointer;
-	box-shadow: none;
-	border: 0;
-	box-shadow: inset 0 -3px 0 rgba(0,0,0,0.3);
-`;
 
 /**
  * Renders the Search component.
@@ -142,17 +101,6 @@ function Search( props ) {
 		<p className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
 		</p>
-		<MediaQuery query={ `(min-width: ${ tabletSize }px)` }>
-			<SearchButton>
-				{ props.intl.formatMessage( messages.searchButton ) }
-			</SearchButton>
-		</MediaQuery>
-		<MediaQuery query={ `(max-width: ${ tabletSize }px)` }>
-			<SearchiconButton
-				aria-label={ props.intl.formatMessage( messages.searchButton ) }
-			/>
-		</MediaQuery>
-
 	</Searchbar>;
 }
 

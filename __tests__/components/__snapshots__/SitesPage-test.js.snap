@@ -238,12 +238,15 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 .c2 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c3 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
@@ -316,21 +319,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:1356px ) {
-  .c3 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c3 {
-    width: calc(100% - 60px);
   }
 }
 
@@ -677,12 +665,15 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c2 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c3 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
@@ -755,21 +746,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:1356px ) {
-  .c3 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c3 {
-    width: calc(100% - 60px);
   }
 }
 
@@ -1116,12 +1092,15 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c2 {
-  display: none;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .c3 {
-  width: calc(100% - 200px);
-  float: left;
   background-image: url( search.svg );
   background-position: 18px 15px;
   background-size: 17px 17px;
@@ -1194,21 +1173,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
-  }
-}
-
-@media screen and ( max-width:1356px ) {
-  .c3 {
-    background-image: none;
-    width: calc(100% - 86px);
-    margin-right: 12px;
-    padding-left: 10px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c3 {
-    width: calc(100% - 60px);
   }
 }
 
