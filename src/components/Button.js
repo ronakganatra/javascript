@@ -531,16 +531,18 @@ export function makeResponsiveIconButton( component ) {
 			clip-path: none;
 		}
 
-		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
-			padding-right: 0;
-			padding-left: 42px;
-			min-width: 0;
-			vertical-align: middle;
-
-			.screen-reader-text {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-				clip-path: inset(50%);
+		&& {
+			@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
+				padding-right: 0;
+				padding-left: 42px;
+				min-width: 0;
+				vertical-align: middle;
+	
+				.screen-reader-text {
+					position: absolute;
+					clip: rect(1px, 1px, 1px, 1px);
+					clip-path: inset(50%);
+				}
 			}
 		}
 	`;

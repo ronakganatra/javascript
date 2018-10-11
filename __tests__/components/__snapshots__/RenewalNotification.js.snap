@@ -57,49 +57,340 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   opacity: .5;
 }
 
+.c25 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c25:hover,
+.c25:focus {
+  color: #fff;
+}
+
+.c25:hover,
+.c25:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c25:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c24 {
+  background-repeat: no-repeat;
+  background-image: url( caret-right.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c23 {
+  min-width: 152px;
+}
+
+.c22 {
+  background-color: #FEC228;
+  color: rgb(0,0,0);
+  text-shadow: none;
+  background-position: calc( 100% - 8px ) 50%;
+  padding: 12px 16px;
+  padding-right: 36px;
+  box-shadow: inset 0 -4px rgba(0,0,0,0.2);
+  border: 0;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #F2AE01;
+  color: rgb(0,0,0);
+}
+
 .c7 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c7 li:first-child > span::before {
+  left: auto;
+}
+
+.c10 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c10:first-child {
+  margin-top: 64px;
+}
+
+.c8 {
+  min-height: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c15:first-child {
+  padding-left: 0;
+}
+
+.c15::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Product";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Expires on";
+}
+
+.c20 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c20:first-child {
+  padding-left: 0;
+}
+
+.c20::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c19 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
 }
 
 .c0 {
   background-color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  padding: 8px 32px;
-  margin-bottom: 32px;
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
 }
 
-.c0 button {
+.c0 > button {
   position: absolute;
   right: 16px;
   top: 16px;
 }
 
-.c6 {
-  color: #000;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-}
-
-.c6:hover,
-.c6:focus {
-  color: #0066cd;
-}
-
 .c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+}
+
+.c6 {
   display: inline-block;
   margin-right: 32px;
   vertical-align: middle;
 }
 
 .c5 {
-  width: 150px;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  margin-right: 16px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c9:first-child {
+    margin-top: 0;
+  }
+
+  .c9 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    height: 50px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c12:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Product:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c16::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Expires on:";
+  }
+
+  .c16 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c18 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11::before {
+    min-width: 88px;
+  }
 }
 
 <div
@@ -118,42 +409,53 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
       className="c5"
       src="renewalNotification.svg"
     />
-  </div>
-  <div
-    className="c4"
-  >
-    <h2>
-      <span>
-        One or more plugins are about to expire!
-      </span>
-    </h2>
-    <p>
-      <span>
-        When they do, you will no longer receive (security) updates or support! The first one expires on 
+    <div
+      className="c6"
+    >
+      <h2>
         <span>
-          October 09, 2018
+          One or more plugins are about to expire!
         </span>
-        .
+      </h2>
+      <span>
+        When they do, you will no longer receive (security) updates or support!
       </span>
-      <br />
-      <a
-        className="c6"
-        href="https://my.yoast.test"
-        rel="noopener noreferrer"
-        target="_blank"
+    </div>
+  </div>
+  <ul
+    className="c7"
+    role="list"
+  >
+    <li
+      className="c8 c9 c10"
+    >
+      <span
+        className="c11 c12 Tables-fvscPb c13 c14 c15"
+      >
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="c11 c12 Tables-fvscPb c16 c14 c17"
       >
         <span>
-          Renew your subscription(s) on this page.
+          October 11, 2018
         </span>
-        <span
-          className="screen-reader-text c7"
+      </span>
+      <span
+        className="c12 Tables-fvscPb c18 c19 c20"
+      >
+        <a
+          className="c21 c22 c23 c24 c25"
+          href="https://my.yoast.test"
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <span>
-            (Opens in a new browser tab)
+            Renew now
           </span>
-        </span>
-      </a>
-    </p>
-  </div>
+        </a>
+      </span>
+    </li>
+  </ul>
 </div>
 `;

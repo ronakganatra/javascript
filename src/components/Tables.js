@@ -5,7 +5,6 @@ import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 
 export const Zebra = styled.ul`
-	margin: 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
@@ -25,7 +24,6 @@ Zebra.propTypes = {
 // The Rows are flex containers.
 export const Row = styled.li`
 	background: ${ props => props.background };
-	min-height: 100px;
 	display: flex;
 	padding: 16px 24px;
 	align-items: ${ props => props.verticalAlign };
@@ -52,12 +50,6 @@ Row.defaultProps = {
 	verticalAlign: "center",
 };
 
-export const CompactRow = styled( Row )`
-	min-height: 0;
-	padding-top: 4px;
-	padding-bottom: 4px;
-`;
-
 /*
  * A responsive row allows children to wrap in new lines in the responsive view.
  * If the columns have headers, they're displayed as labels inside the column
@@ -80,6 +72,12 @@ export const RowMobileCollapse = styled( Row )`
 			font-size: inherit;
 		}
 	}
+`;
+
+export const CompactRow = styled( RowMobileCollapse )`
+	min-height: 0;
+	padding-top: 8px;
+	padding-bottom: 8px;
 `;
 
 /*

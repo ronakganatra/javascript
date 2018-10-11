@@ -52,7 +52,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 .c10 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -65,7 +64,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 
 .c11 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -469,7 +467,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c10 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -482,7 +479,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c11 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -886,7 +882,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c10 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -899,7 +894,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 
 .c11 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

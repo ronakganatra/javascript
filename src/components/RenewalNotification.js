@@ -4,12 +4,11 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { FormattedMessage, FormattedDate, defineMessages, injectIntl, intlShape } from "react-intl";
 import Cookies from "js-cookie";
-import Link from "./Link";
-import { CloseButtonTopRight, makeButtonFullWidth, makeResponsiveIconButton, YellowCaretLink } from "./Button";
-import NewTabMessage from "../components/NewTabMessage";
+import { CloseButtonTopRight, makeButtonFullWidth, YellowCaretLink } from "./Button";
 import renewalNotification from "../images/renewalNotification.svg";
-import { ColumnFixedWidth, ColumnPrimary, ListTable, CompactRow } from "./Tables";
+import { ColumnFixedWidth, ColumnPrimary, ListTable, CompactRow, makeFullWidth, responsiveHeaders } from "./Tables";
 import caretRight from "../icons/caret-right.svg";
+import defaults from "../config/defaults.json";
 
 const messages = defineMessages( {
 	header: {
@@ -18,7 +17,7 @@ const messages = defineMessages( {
 	},
 	description: {
 		id: "renewal.notification.description",
-		defaultMessage: "When they do, you will no longer receive (security) updates or support! The first one expires on {expiryDate}.",
+		defaultMessage: "When they do, you will no longer receive (security) updates or support!",
 	},
 	close: {
 		id: "renewal.notification.close",
@@ -32,13 +31,19 @@ const messages = defineMessages( {
 		id: "renewal.notification.link.message",
 		defaultMessage: "Renew now",
 	},
+	productHeader: {
+		id: "headers.product",
+		defaultMessage: "Product",
+	},
+	expiryHeader: {
+		id: "headers.expiry",
+		defaultMessage: "Expires on",
+	},
 } );
 
 const MessageContainer = styled.div`
 	background-color: ${ colors.$color_white };
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-	padding: 8px 0;
-	margin-bottom: 32px;
 	position: relative;
 	display: block;
 
@@ -49,12 +54,9 @@ const MessageContainer = styled.div`
 	}
 `;
 
-const MessageLink = styled( Link )`
-	color: ${ colors.$color_black };
-	text-decoration: underline;
-	&:hover, &:focus {
-		color: ${ colors.$color_blue };
-	}
+const ImageTextContainer = styled.div`
+	display: flex;
+	padding: 8px;
 `;
 
 const InlineBlock = styled.div`
@@ -64,11 +66,26 @@ const InlineBlock = styled.div`
 `;
 
 const RenewalImage = styled.img`
-	width: 150px;
-	margin: 8px 0 0 24px;
+	flex: 0 1 auto;
+	margin-right: 16px;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		height: 50px;
+	}
 `;
 
-const RenewButton = makeResponsiveIconButton( makeButtonFullWidth( YellowCaretLink ) );
+// The labels for the column need sightly more room in the notification.
+const ColumnPrimaryResponsive = styled( makeFullWidth( responsiveHeaders( ColumnPrimary ) ) )`
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		&::before {
+			min-width: 88px;
+		}
+	}
+`;
+
+const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixedWidth ) );
+
+const RenewButton = makeButtonFullWidth( YellowCaretLink );
 
 /**
  * Renewal notification message
@@ -104,7 +121,7 @@ class RenewalNotification extends React.Component {
 	 * @returns {void}
 	 */
 	onCrossClick() {
-		Cookies.set( "hideRenewalNotification", "true", { expires: 2 } );
+		Cookies.set( "hideRenewalNotification", "true", { expires: 7 } );
 		this.setState( { hideNotification: true } );
 	}
 
@@ -112,13 +129,14 @@ class RenewalNotification extends React.Component {
 		const upcomingRenewalList = upcomingRenewals.map( ( renewal ) => {
 			return (
 				<CompactRow key={ renewal.id }>
-					<ColumnPrimary
-						headerLabel={ "Product" }
+					<ColumnPrimaryResponsive
+						headerLabel={ this.props.intl.formatMessage( messages.productHeader ) }
+						ellipsis={ true }
 					>
 						{ renewal.name }
-					</ColumnPrimary>
-					<ColumnPrimary
-						headerLabel={ "Expiry date:" }
+					</ColumnPrimaryResponsive>
+					<ColumnPrimaryResponsive
+						headerLabel={ this.props.intl.formatMessage( messages.expiryHeader ) }
 					>
 						<FormattedDate
 							value={ renewal.nextPayment }
@@ -126,8 +144,8 @@ class RenewalNotification extends React.Component {
 							month="long"
 							day="2-digit"
 						/>
-					</ColumnPrimary>
-					<ColumnFixedWidth>
+					</ColumnPrimaryResponsive>
+					<ColumnFixedWidthResponsive>
 						<RenewButton
 							to={ renewal.renewalUrl }
 							linkTarget={ "_blank" }
@@ -135,7 +153,7 @@ class RenewalNotification extends React.Component {
 						>
 							<FormattedMessage { ...messages.linkMessage } />
 						</RenewButton>
-					</ColumnFixedWidth>
+					</ColumnFixedWidthResponsive>
 				</CompactRow>
 			);
 		} );
@@ -164,41 +182,23 @@ class RenewalNotification extends React.Component {
 			return null;
 		}
 
-		const expiryDate = <FormattedDate
-			value={ earliestRenewal.nextPayment }
-			year="numeric"
-			month="long"
-			day="2-digit"
-		/>;
-
 		return (
 			<MessageContainer>
 				<CloseButtonTopRight
 					onClick={ this.onCrossClick }
 					aria-label={ this.props.intl.formatMessage( messages.close ) }
 				/>
-				<InlineBlock>
+				<ImageTextContainer>
 					<RenewalImage src={ renewalNotification } />
-				</InlineBlock>
-				<InlineBlock>
-					<h2>
-						<FormattedMessage { ...messages.header } />
-					</h2>
-					<p>
+					<InlineBlock>
+						<h2>
+							<FormattedMessage { ...messages.header } />
+						</h2>
 						<FormattedMessage
 							{ ...messages.description }
-							values={ { expiryDate: expiryDate } }
 						/>
-						<br />
-						<MessageLink
-							to={ earliestRenewal.renewalUrl }
-							linkTarget="_blank"
-						>
-							<FormattedMessage { ...messages.linkMessage } />
-							<NewTabMessage />
-						</MessageLink>
-					</p>
-				</InlineBlock>
+					</InlineBlock>
+				</ImageTextContainer>
 				{ this.listUpcomingRenewals( this.props.upcomingRenewals ) }
 			</MessageContainer>
 		);

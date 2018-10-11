@@ -169,7 +169,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 .c4 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -182,7 +181,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 
 .c6 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -204,7 +202,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 
 .c25 {
   background: #f7f7f7;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

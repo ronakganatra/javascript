@@ -2,7 +2,6 @@
 
 exports[`The Orders component matches the snapshot 1`] = `
 .c1 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -15,7 +14,6 @@ exports[`The Orders component matches the snapshot 1`] = `
 
 .c3 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -338,14 +336,14 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and (min-width:801px) and (max-width:1355px) {
-  .c21 {
+  .c21.c21 {
     padding-right: 0;
     padding-left: 42px;
     min-width: 0;
     vertical-align: middle;
   }
 
-  .c21 .screen-reader-text {
+  .c21.c21 .screen-reader-text {
     position: absolute;
     -webkit-clip: rect(1px,1px,1px,1px);
     clip: rect(1px,1px,1px,1px);
