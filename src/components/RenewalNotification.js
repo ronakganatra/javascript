@@ -54,23 +54,28 @@ const MessageContainer = styled.div`
 	}
 `;
 
+const Header = styled.h2`
+	margin-right: 32px;
+`;
+
 const ImageTextContainer = styled.div`
 	display: flex;
 	padding: 8px;
+	vertical-align: middle;
 `;
 
 const InlineBlock = styled.div`
 	display: inline-block;
-	margin-right: 32px;
 	vertical-align: middle;
 `;
 
 const RenewalImage = styled.img`
 	flex: 0 1 auto;
-	margin-right: 16px;
+	max-height: 100px;
+	margin-right: 24px;
 
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		height: 50px;
+	@media screen and ( max-width: 500px ) {
+		display: none;
 	}
 `;
 
@@ -191,9 +196,9 @@ class RenewalNotification extends React.Component {
 				<ImageTextContainer>
 					<RenewalImage src={ renewalNotification } />
 					<InlineBlock>
-						<h2>
+						<Header>
 							<FormattedMessage { ...messages.header } />
-						</h2>
+						</Header>
 						<FormattedMessage
 							{ ...messages.description }
 						/>
