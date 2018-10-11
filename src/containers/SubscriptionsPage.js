@@ -5,6 +5,7 @@ import SubscriptionsPage from "../components/SubscriptionsPage";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.subscriptions.allIds;
 
@@ -89,5 +90,3 @@ const SubscriptionsPageContainer = connect(
 )( SubscriptionsPage );
 
 export default SubscriptionsPageContainer;
-
-

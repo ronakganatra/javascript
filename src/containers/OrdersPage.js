@@ -5,6 +5,7 @@ import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.orders.allIds;
 

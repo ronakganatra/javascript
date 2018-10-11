@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import Signup from "../components/login/Signup";
 import { signupRequest } from "../actions/signup";
 
+/* eslint-disable require-jsdoc */
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptSignup: ( data ) => {

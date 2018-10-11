@@ -12,6 +12,7 @@ import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 

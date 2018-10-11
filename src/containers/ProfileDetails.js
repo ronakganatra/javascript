@@ -3,6 +3,7 @@ import ProfileDetails from "../components/login/ProfileDetails";
 import { fetchUser, updateProfile, uploadAvatar } from "../actions/user";
 import { getUserId } from "../functions/auth";
 
+/* eslint-disable require-jsdoc */
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptSubmitProfile: ( nameDetails, avatarUrl ) => {

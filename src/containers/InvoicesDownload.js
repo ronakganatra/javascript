@@ -4,6 +4,7 @@ import _filter from "lodash/filter";
 import _sortBy from "lodash/sortBy";
 import InvoiceButtonArea from "../components/account/orders/InvoiceButtonArea";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	// Filter orders for the orderId passed to the container.
 	const order = state.entities.orders.byId[ ownProps.orderId ];

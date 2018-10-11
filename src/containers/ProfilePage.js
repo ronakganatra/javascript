@@ -20,6 +20,7 @@ import { url } from "gravatar";
 
 const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	return {
 		email: state.user.data.profile.email,

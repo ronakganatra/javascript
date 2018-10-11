@@ -3,6 +3,7 @@ import { getAllSubscriptions } from "../actions/subscriptions";
 import RenewalNotification from "../components/RenewalNotification";
 import without from "lodash/without";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.subscriptions.allIds;
 
