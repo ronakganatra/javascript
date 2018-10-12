@@ -16,14 +16,17 @@ const messages = defineMessages( {
 	},
 } );
 
+const Searchbar = styled.div`
+	text-align: left;
+`;
+
 const SearchLabel = styled.label`
-	background-image: url( ${ searchIcon } );
-	background-size: 25px;
-	background-position: left center;
-	background-repeat: no-repeat;
-	width: 40px;
-	height: 50px;
-	float: left;
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
 `;
 
 SearchLabel.propTypes = {
@@ -40,7 +43,12 @@ const SearchLabelText = styled.span`
 `;
 
 const SearchField = styled( InputField )`
-	width: calc(100% - 40px);
+	background-image: url( ${ searchIcon } );
+	background-position: 18px 15px;
+	background-size: 17px 17px;
+	background-repeat: no-repeat;
+	padding-left: 50px;
+	margin-right: 24px;
 `;
 
 SearchField.propTypes = {
@@ -62,11 +70,18 @@ SearchField.defaultProps = {
  * @returns {ReactElement} The rendered html.
  */
 function Search( props ) {
+	/**
+	 * Callback when the search request has been changed.
+	 *
+	 * @param {event} event The new search request.
+	 *
+	 * @returns {void}
+	 */
 	const changeSearchQuery = ( event ) => {
 		props.onChange( event.target.value );
 	};
 
-	return <div>
+	return <Searchbar>
 		<SearchLabel htmlFor={ props.id }>
 			<SearchLabelText className="screen-reader-text">
 				{ props.searchLabel ? props.searchLabel : props.intl.formatMessage( messages.searchLabel ) }
@@ -86,7 +101,7 @@ function Search( props ) {
 		<p className="screen-reader-text" id={ props.descriptionId }>
 			{ props.description ? props.description : props.intl.formatMessage( messages.description ) }
 		</p>
-	</div>;
+	</Searchbar>;
 }
 
 export default injectIntl( Search );
