@@ -1,5 +1,6 @@
-html {
+html, body {
 	height: 100%;
+	width: 100%;
 }
 
 #root {
@@ -14,6 +15,10 @@ html {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+* {
+	flex-shrink: 1;
 }
 
 .ReactModal__Body--open {

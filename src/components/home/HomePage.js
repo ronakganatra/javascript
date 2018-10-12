@@ -139,21 +139,32 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
-					<div>
-						{ this.createCards( cards ) }
-					</div>
-				</MediaQuery>
-				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
-					<DoubleColumn>
-						<div>
-							{ this.createCards( cards, LEFT_COLUMN ) }
-						</div>
-						<div>
-							{ this.createCards( cards, RIGHT_COLUMN ) }
-						</div>
-					</DoubleColumn>
-				</MediaQuery>
+				{
+					window.navigator.userAgent.indexOf( "MSIE " ) > 0 ||
+					!! window.navigator.userAgent.match( /Trident.*rv:11\./ )
+						? (
+							<div>
+								{ this.createCards( cards ) }
+							</div>
+						) : ( [
+							<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
+								<div>
+									{ this.createCards( cards ) }
+								</div>
+							</MediaQuery>,
+							<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
+								<DoubleColumn>
+									<div>
+										{ this.createCards( cards, LEFT_COLUMN ) }
+									</div>
+									<div>
+										{ this.createCards( cards, RIGHT_COLUMN ) }
+									</div>
+								</DoubleColumn>
+							</MediaQuery>,
+						] )
+				}
+
 			</Fragment>
 		);
 	}

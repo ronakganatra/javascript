@@ -6,7 +6,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
 var getClientEnvironment = require('./env');
 var paths = require('./paths');
-
+var PostCSSFlexBugsFixes = require('postcss-flexbugs-fixes');
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -44,7 +44,7 @@ module.exports = {
     // We ship a few polyfills by default:
     require.resolve('./polyfills'),
     "babel-polyfill",
-	  // Finally, this is your app's code:
+      // Finally, this is your app's code:
     paths.appIndexJs
     // We include the app code last so that if there is a runtime error during
     // initialization, it doesn't blow up the WebpackDevServer client, and
@@ -176,6 +176,7 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+      PostCSSFlexBugsFixes(),
     ];
   },
   plugins: [
