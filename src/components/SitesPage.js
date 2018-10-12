@@ -40,13 +40,11 @@ const messages = defineMessages( {
 
 const SiteAddContainer = styled.div`
 	text-align: center;
-	button {
-		margin: 20px 0 36px 0;
-	}
 `;
 
-const ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );
-
+const ResponsiveIconButton = styled( makeButtonFullWidth( LargeIconButton ) )`
+	margin: 20px 0 36px 0;
+`;
 
 const debouncedSpeak = _debounce( speak, 1000 );
 

@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the downloads page component matches the snapshot 1`] = `
-.c3 {
+.c4 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c17 {
+.c18 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -23,19 +23,19 @@ exports[`the downloads page component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c17:hover,
-.c17:focus {
+.c18:hover,
+.c18:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c17:active {
+.c18:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c16 {
+.c17 {
   background-repeat: no-repeat;
   background-image: url( download.svg );
   background-position: 8px 50%;
@@ -43,36 +43,36 @@ exports[`the downloads page component matches the snapshot 1`] = `
   padding-left: 36px;
 }
 
-.c15 {
+.c16 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c9 {
+.c10 {
   margin: 8px;
   padding: 16px 16px 0 16px;
   background-color: #f1f1f1;
   text-align: center;
 }
 
-.c12 {
+.c13 {
   width: 112px;
   height: 112px;
   padding: 0 0 5px 0;
   margin-top: 24px;
 }
 
-.c13 {
+.c14 {
   padding: 0;
   margin: 0 0 24px 0;
 }
 
-.c14 {
+.c15 {
   list-style: none;
   text-align: center;
   margin: 24px 0 0;
 }
 
-.c10 {
+.c11 {
   display: block;
   font-size: 1.375em;
   min-height: 4em;
@@ -81,17 +81,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
   margin: 0;
 }
 
-.c11 {
+.c12 {
   font-weight: 300;
 }
 
-.c18 {
+.c19 {
   font-size: 0.875em;
   font-weight: 300;
   margin: 2px 0 0;
 }
 
-.c7 {
+.c8 {
   display: block;
   font-size: 1em;
   padding: 24px 40px;
@@ -100,7 +100,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
   border-bottom: 1px solid #ccc;
 }
 
-.c5 {
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -118,14 +118,14 @@ exports[`the downloads page component matches the snapshot 1`] = `
   align-items: stretch;
 }
 
-.c6 {
+.c7 {
   width: calc( 100% - 16px );
   font-size: 22px;
   margin: 0 0 24px 0px;
   padding: 0 0 24px 0;
 }
 
-.c2 {
+.c3 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -137,20 +137,28 @@ exports[`the downloads page component matches the snapshot 1`] = `
 }
 
 .c0 {
-  background-image: url( search.svg );
-  background-size: 25px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 50px;
-  float: left;
+  text-align: left;
 }
 
 .c1 {
-  width: calc(100% - 40px);
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-.c4 {
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+.c5 {
   background-color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -163,45 +171,47 @@ exports[`the downloads page component matches the snapshot 1`] = `
   margin-top: 36px;
 }
 
-.c8 {
+.c9 {
   font-size: 18px;
   font-weight: 400;
 }
 
 @media screen and ( min-width:1356px ) {
-  .c9 {
+  .c10 {
     width: calc( ( 100% - 32px - 32px ) / 4 );
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c9 {
+  .c10 {
     width: calc( ( 100% - 32px ) / 2 );
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c9 {
+  .c10 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c7 {
+  .c8 {
     padding: 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c7 {
+  .c8 {
     padding: 16px;
   }
 }
 
 <div>
-  <div>
+  <div
+    className="c0"
+  >
     <label
-      className="c0"
+      className="c1"
       htmlFor="search"
     >
       <span
@@ -215,7 +225,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="c1 c2"
+      className="c2 c3"
       id="search"
       onChange={[Function]}
       spellCheck="false"
@@ -230,20 +240,20 @@ exports[`the downloads page component matches the snapshot 1`] = `
     </p>
   </div>
   <div
-    className="c3"
+    className="c4"
   >
     <div
-      className="c4"
+      className="c5"
     >
       <div
-        className="c5"
+        className="c6"
       >
         <span
-          className="c6 c7"
+          className="c7 c8"
         >
           Plugins
           <span
-            className="c8"
+            className="c9"
           >
             <span>
                - Need help installing these? 
@@ -260,33 +270,33 @@ exports[`the downloads page component matches the snapshot 1`] = `
         </span>
         
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Yoast SEO
           </span>
           <p
-            className="c11"
+            className="c12"
           >
              
             version 4.7
           </p>
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -294,17 +304,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for Drupal"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -312,17 +322,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Drupal
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for Typo3"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -330,7 +340,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Typo3
               </p>
@@ -338,33 +348,33 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Local SEO
           </span>
           <p
-            className="c11"
+            className="c12"
           >
              
             version 4.7
           </p>
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Local SEO for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -372,7 +382,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
@@ -380,33 +390,33 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Video SEO
           </span>
           <p
-            className="c11"
+            className="c12"
           >
              
             version 4.7
           </p>
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Video SEO for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -414,17 +424,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Video SEO for Drupal"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -432,17 +442,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Drupal
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Video SEO for Typo3"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -450,7 +460,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Typo3
               </p>
@@ -458,33 +468,33 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             News SEO
           </span>
           <p
-            className="c11"
+            className="c12"
           >
              
             version 4.7
           </p>
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download News SEO for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -492,17 +502,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download News SEO for Drupal"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -510,17 +520,17 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Drupal
               </p>
             </li>
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download News SEO for Typo3"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -528,7 +538,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Typo3
               </p>
@@ -537,14 +547,14 @@ exports[`the downloads page component matches the snapshot 1`] = `
         </div>
       </div>
       <div
-        className="c5"
+        className="c6"
       >
         <span
-          className="c6 c7"
+          className="c7 c8"
         >
           eBooks
           <span
-            className="c8"
+            className="c9"
           >
             <span>
                - Want to learn more about SEO? 
@@ -561,28 +571,28 @@ exports[`the downloads page component matches the snapshot 1`] = `
         </span>
         
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Yoast SEO for WooCommerce
           </span>
           
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -590,7 +600,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
@@ -598,28 +608,28 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Yoast SEO for WooCommerce
           </span>
           
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -627,7 +637,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
@@ -635,28 +645,28 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Yoast SEO for WooCommerce
           </span>
           
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -664,7 +674,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
@@ -672,28 +682,28 @@ exports[`the downloads page component matches the snapshot 1`] = `
           </ul>
         </div>
         <div
-          className="c9"
+          className="c10"
         >
           <span
-            className="c10"
+            className="c11"
           >
             Yoast SEO for WooCommerce
           </span>
           
           <img
             alt=""
-            className="c12"
+            className="c13"
             src="Yoast_SEO_Icon_Small.svg"
           />
           <ul
-            className="c13"
+            className="c14"
           >
             <li
-              className="c14"
+              className="c15"
             >
               <button
                 aria-label="Download Yoast SEO for WooCommerce for Wordpress"
-                className="c15 c16 c17"
+                className="c16 c17 c18"
                 onClick={[Function]}
                 type="button"
               >
@@ -701,7 +711,7 @@ exports[`the downloads page component matches the snapshot 1`] = `
               </button>
               <p
                 aria-hidden="true"
-                className="c18"
+                className="c19"
               >
                 for Wordpress
               </p>
