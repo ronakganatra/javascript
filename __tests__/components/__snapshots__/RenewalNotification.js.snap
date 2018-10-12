@@ -57,7 +57,7 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   opacity: .5;
 }
 
-.c25 {
+.c26 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -76,24 +76,24 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c25:hover,
-.c25:focus {
+.c26:hover,
+.c26:focus {
   color: #fff;
 }
 
-.c25:hover,
-.c25:focus {
+.c26:hover,
+.c26:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c25:active {
+.c26:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c24 {
+.c25 {
   background-repeat: no-repeat;
   background-image: url( caret-right.svg );
   background-position: 8px 50%;
@@ -101,11 +101,11 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   padding-left: 36px;
 }
 
-.c23 {
+.c24 {
   min-width: 152px;
 }
 
-.c22 {
+.c23 {
   background-color: #FEC228;
   color: rgb(0,0,0);
   text-shadow: none;
@@ -116,24 +116,24 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   border: 0;
 }
 
-.c22:hover,
-.c22:focus {
+.c23:hover,
+.c23:focus {
   background-color: #F2AE01;
   color: rgb(0,0,0);
 }
 
-.c7 {
+.c8 {
   padding: 0;
   list-style: none;
   position: relative;
   width: 100%;
 }
 
-.c7 li:first-child > span::before {
+.c8 li:first-child > span::before {
   left: auto;
 }
 
-.c10 {
+.c11 {
   background: #f7f7f7;
   display: -webkit-box;
   display: -webkit-flex;
@@ -150,17 +150,17 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c10:first-child {
+.c11:first-child {
   margin-top: 64px;
 }
 
-.c8 {
+.c9 {
   min-height: 0;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-.c15 {
+.c16 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -168,11 +168,11 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c15:first-child {
+.c16:first-child {
   padding-left: 0;
 }
 
-.c15::before {
+.c16::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -181,16 +181,16 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   content: "Product";
 }
 
-.c17 {
+.c18 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c17:first-child {
+.c18:first-child {
   padding-left: 0;
 }
 
-.c17::before {
+.c18::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -199,16 +199,16 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   content: "Expires on";
 }
 
-.c20 {
+.c21 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c20:first-child {
+.c21:first-child {
   padding-left: 0;
 }
 
-.c20::before {
+.c21::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -217,13 +217,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   content: none;
 }
 
-.c14 {
+.c15 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c19 {
+.c20 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
@@ -242,17 +242,21 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   top: 16px;
 }
 
+.c7 {
+  margin-right: 32px;
+}
+
 .c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   padding: 8px;
+  vertical-align: middle;
 }
 
 .c6 {
   display: inline-block;
-  margin-right: 32px;
   vertical-align: middle;
 }
 
@@ -260,11 +264,12 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  margin-right: 16px;
+  max-height: 100px;
+  margin-right: 24px;
 }
 
 @media screen and ( max-width:800px ) {
-  .c21 {
+  .c22 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -272,13 +277,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c10 {
+  .c11 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c9 {
+  .c10 {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -288,11 +293,11 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     align-items: flex-start;
   }
 
-  .c9:first-child {
+  .c10:first-child {
     margin-top: 0;
   }
 
-  .c9 > span::before {
+  .c10 > span::before {
     position: static;
     display: inline-block;
     padding-right: 0.5em;
@@ -301,52 +306,52 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c15 {
+  .c16 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c17 {
+  .c18 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c20 {
+  .c21 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c14 {
+  .c15 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
   }
 }
 
-@media screen and ( max-width:800px ) {
+@media screen and ( max-width:500px ) {
   .c5 {
-    height: 50px;
+    display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c12 {
+  .c13 {
     min-width: 100%;
     margin-top: 1em;
     padding-right: 0;
     padding-left: 0;
   }
 
-  .c12:first-child {
+  .c13:first-child {
     margin-top: 0px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c13::before {
+  .c14::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -354,13 +359,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     content: "Product:";
   }
 
-  .c13 > span {
+  .c14 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16::before {
+  .c17::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -368,13 +373,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     content: "Expires on:";
   }
 
-  .c16 > span {
+  .c17 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c18::before {
+  .c19::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -382,13 +387,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     content: none;
   }
 
-  .c18 > span {
+  .c19 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c11::before {
+  .c12::before {
     min-width: 88px;
   }
 }
@@ -412,7 +417,9 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     <div
       className="c6"
     >
-      <h2>
+      <h2
+        className="c7"
+      >
         <span>
           One or more plugins are about to expire!
         </span>
@@ -423,29 +430,29 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
     </div>
   </div>
   <ul
-    className="c7"
+    className="c8"
     role="list"
   >
     <li
-      className="c8 c9 c10"
+      className="c9 c10 c11"
     >
       <span
-        className="c11 c12 Tables-fvscPb c13 c14 c15"
+        className="c12 c13 Tables-fvscPb c14 c15 c16"
       >
         SEO Premium for WordPress
       </span>
       <span
-        className="c11 c12 Tables-fvscPb c16 c14 c17"
+        className="c12 c13 Tables-fvscPb c17 c15 c18"
       >
         <span>
-          October 11, 2018
+          December 01, 2019
         </span>
       </span>
       <span
-        className="c12 Tables-fvscPb c18 c19 c20"
+        className="c13 Tables-fvscPb c19 c20 c21"
       >
         <a
-          className="c21 c22 c23 c24 c25"
+          className="c22 c23 c24 c25 c26"
           href="https://my.yoast.test"
           rel="noopener noreferrer"
           target="_blank"

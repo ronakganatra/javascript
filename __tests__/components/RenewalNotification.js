@@ -14,7 +14,7 @@ test('The RenewalNotification component matches the snapshot', () => {
 					used: 3,
 					limit: 20,
 					hasNextPayment: true,
-					nextPayment: new Date(),
+					nextPayment: "12-01-2019",
 					endDate: null,
 					hasEndDate: false,
 					billingAmount: 12512,
