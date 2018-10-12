@@ -184,11 +184,15 @@ BlogContent.propTypes = {
 	getFeed: PropTypes.func.isRequired,
 	retrievingFeed: PropTypes.bool.isRequired,
 	blogFeed: PropTypes.object.isRequired,
-	errorFound: PropTypes.bool.isRequired,
-	error: PropTypes.object.isRequired,
+	errorFound: PropTypes.bool,
+	error: PropTypes.object,
 	intl: intlShape.isRequired,
 };
 
+BlogContent.defaultProps = {
+	error: null,
+	errorFound: false,
+};
 
 export const mapStateToProps = ( state ) => {
 	const blogFeed = state.ui.home.blogFeed;
