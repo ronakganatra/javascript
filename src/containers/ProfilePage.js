@@ -46,6 +46,7 @@ export const mapStateToProps = ( state ) => {
 		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
 		manageTokenData: state.ui.composerTokens.manageTokenData,
 		tokenError: state.ui.composerTokens.tokenError,
+		tokenDeleted: state.ui.composerTokens.tokenDeleted,
 
 		newsletterSubscribed: state.ui.newsletter.subscribed,
 		newsletterError: state.ui.newsletter.error,

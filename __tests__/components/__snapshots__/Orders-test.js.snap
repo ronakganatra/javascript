@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Orders component matches the snapshot 1`] = `
-.c1 {
+.c2 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -9,11 +9,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c1 li:first-child > span::before {
+.c2 li:first-child > span::before {
   left: auto;
 }
 
-.c3 {
+.c4 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -31,29 +31,8 @@ exports[`The Orders component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c3:first-child {
+.c4:first-child {
   margin-top: 64px;
-}
-
-.c7 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c7:first-child {
-  padding-left: 0;
-}
-
-.c7::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Date";
 }
 
 .c8 {
@@ -74,19 +53,40 @@ exports[`The Orders component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
+  content: "Date";
+}
+
+.c9 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c9:first-child {
+  padding-left: 0;
+}
+
+.c9::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
   content: "Order";
 }
 
-.c11 {
+.c12 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c11:first-child {
+.c12:first-child {
   padding-left: 0;
 }
 
-.c11::before {
+.c12::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -95,7 +95,7 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: "Items";
 }
 
-.c14 {
+.c15 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -103,11 +103,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c14:first-child {
+.c15:first-child {
   padding-left: 0;
 }
 
-.c14::before {
+.c15::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -116,7 +116,7 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: "Total";
 }
 
-.c16 {
+.c17 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -124,11 +124,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c16:first-child {
+.c17:first-child {
   padding-left: 0;
 }
 
-.c16::before {
+.c17::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -137,16 +137,16 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: "Status";
 }
 
-.c19 {
+.c20 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c19:first-child {
+.c20:first-child {
   padding-left: 0;
 }
 
-.c19::before {
+.c20::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -155,25 +155,25 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: none;
 }
 
-.c10 {
+.c11 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c18 {
+.c19 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c6 {
+.c7 {
   -webkit-flex: 1 0 100px;
   -ms-flex: 1 0 100px;
   flex: 1 0 100px;
 }
 
-.c12 {
+.c13 {
   padding: 0;
   list-style: none;
   -webkit-flex-shrink: 0;
@@ -185,13 +185,13 @@ exports[`The Orders component matches the snapshot 1`] = `
   align-items: flex-start;
 }
 
-.c21 .screen-reader-text {
+.c22 .screen-reader-text {
   position: static;
   -webkit-clip-path: none;
   clip-path: none;
 }
 
-.c24 {
+.c25 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -210,24 +210,24 @@ exports[`The Orders component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c25:hover,
+.c25:focus {
   color: #fff;
 }
 
-.c24:hover,
-.c24:focus {
+.c25:hover,
+.c25:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c25:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c23 {
+.c24 {
   background-repeat: no-repeat;
   background-image: url( download.svg );
   background-position: 8px 50%;
@@ -235,22 +235,22 @@ exports[`The Orders component matches the snapshot 1`] = `
   padding-left: 36px;
 }
 
-.c22 {
+.c23 {
   min-width: 152px;
 }
 
-.c0 {
+.c1 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
 @media screen and ( max-width:800px ) {
-  .c3 {
+  .c4 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c2 {
+  .c3 {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -260,11 +260,11 @@ exports[`The Orders component matches the snapshot 1`] = `
     align-items: flex-start;
   }
 
-  .c2:first-child {
+  .c3:first-child {
     margin-top: 0;
   }
 
-  .c2 > span::before {
+  .c3 > span::before {
     position: static;
     display: inline-block;
     padding-right: 0.5em;
@@ -273,50 +273,50 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c7 {
+  .c8 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c8 {
+  .c9 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c8 {
+  .c9 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c11 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c14 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c16 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c19 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c10 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -324,13 +324,13 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c12 {
+  .c13 {
     overflow: hidden;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c20 {
+  .c21 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -338,14 +338,14 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and (min-width:801px) and (max-width:1355px) {
-  .c21 {
+  .c22 {
     padding-right: 0;
     padding-left: 42px;
     min-width: 0;
     vertical-align: middle;
   }
 
-  .c21 .screen-reader-text {
+  .c22 .screen-reader-text {
     position: absolute;
     -webkit-clip: rect(1px,1px,1px,1px);
     clip: rect(1px,1px,1px,1px);
@@ -355,20 +355,20 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c4 {
+  .c5 {
     min-width: 100%;
     margin-top: 1em;
     padding-right: 0;
     padding-left: 0;
   }
 
-  .c4:first-child {
+  .c5:first-child {
     margin-top: 0px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c5::before {
+  .c6::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -376,13 +376,13 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Date:";
   }
 
-  .c5 > span {
+  .c6 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c9::before {
+  .c10::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -390,13 +390,13 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Items:";
   }
 
-  .c9 > span {
+  .c10 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c13::before {
+  .c14::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -404,13 +404,13 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Total:";
   }
 
-  .c13 > span {
+  .c14 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c15::before {
+  .c16::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -418,13 +418,13 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Status:";
   }
 
-  .c15 > span {
+  .c16 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c17::before {
+  .c18::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -432,38 +432,44 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: none;
   }
 
-  .c17 > span {
+  .c18 > span {
     line-height: inherit;
   }
 }
 
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    margin-top: 12px;
+  }
+}
+
 <div
-  className="c0"
+  className="c0 c1"
 >
   <ul
-    className="c1"
+    className="c2"
     role="list"
   >
     <li
-      className="c2 c3"
+      className="c3 c4"
     >
       <span
-        className="c4 Tables-fvscPb c5 c6 c7"
+        className="c5 Tables-fvscPb c6 c7 c8"
       >
         <span>
           May 20, 2012
         </span>
       </span>
       <span
-        className="c6 c8"
+        className="c7 c9"
       >
         MOOIE 123 TEST
       </span>
       <span
-        className="c4 Tables-fvscPb c9 c10 c11"
+        className="c5 Tables-fvscPb c10 c11 c12"
       >
         <ul
-          className="c12"
+          className="c13"
         >
           <li
             className=""
@@ -482,26 +488,26 @@ exports[`The Orders component matches the snapshot 1`] = `
         </ul>
       </span>
       <span
-        className="c4 Tables-fvscPb c13 c6 c14"
+        className="c5 Tables-fvscPb c14 c7 c15"
       >
         <span>
           €100.10
         </span>
       </span>
       <span
-        className="c4 Tables-fvscPb c15 c6 c16"
+        className="c5 Tables-fvscPb c16 c7 c17"
       >
         <span>
           Completed
         </span>
       </span>
       <span
-        className="c4 Tables-fvscPb c17 c18 c19"
+        className="c5 Tables-fvscPb c18 c19 c20"
       >
         <div>
           <a
             aria-label="Download invoice"
-            className="c20 Button-kDSBcD c21 c22 c23 c24"
+            className="c21 Button-kDSBcD c22 c23 c24 c25"
             href="http://somelink"
             rel="noopener noreferrer"
             target="_blank"

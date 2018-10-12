@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the search component handling an on change 1`] = `
-.c2 {
+.c3 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -13,22 +13,32 @@ exports[`the search component handling an on change 1`] = `
 }
 
 .c0 {
-  background-image: url( search.svg );
-  background-size: 25px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 50px;
-  float: left;
+  text-align: left;
 }
 
 .c1 {
-  width: calc(100% - 40px);
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-<div>
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
   <label
-    className="c0"
+    className="c1"
     htmlFor="search"
   >
     <span
@@ -42,7 +52,7 @@ exports[`the search component handling an on change 1`] = `
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
-    className="c1 c2"
+    className="c2 c3"
     id="search"
     onChange={[Function]}
     spellCheck="false"
@@ -59,7 +69,7 @@ exports[`the search component handling an on change 1`] = `
 `;
 
 exports[`the search component handling an on change 2`] = `
-.c2 {
+.c3 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -71,22 +81,32 @@ exports[`the search component handling an on change 2`] = `
 }
 
 .c0 {
-  background-image: url( search.svg );
-  background-size: 25px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 50px;
-  float: left;
+  text-align: left;
 }
 
 .c1 {
-  width: calc(100% - 40px);
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-<div>
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
   <label
-    className="c0"
+    className="c1"
     htmlFor="search"
   >
     <span
@@ -100,7 +120,7 @@ exports[`the search component handling an on change 2`] = `
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
-    className="c1 c2"
+    className="c2 c3"
     id="search"
     onChange={[Function]}
     spellCheck="false"
@@ -117,7 +137,7 @@ exports[`the search component handling an on change 2`] = `
 `;
 
 exports[`the search component matches the snapshot 1`] = `
-.c2 {
+.c3 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -129,22 +149,32 @@ exports[`the search component matches the snapshot 1`] = `
 }
 
 .c0 {
-  background-image: url( search.svg );
-  background-size: 25px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 50px;
-  float: left;
+  text-align: left;
 }
 
 .c1 {
-  width: calc(100% - 40px);
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
-<div>
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
   <label
-    className="c0"
+    className="c1"
     htmlFor="search"
   >
     <span
@@ -158,7 +188,7 @@ exports[`the search component matches the snapshot 1`] = `
     autoCapitalize="off"
     autoComplete="off"
     autoCorrect="off"
-    className="c1 c2"
+    className="c2 c3"
     id="search"
     onChange={[Function]}
     spellCheck="false"
