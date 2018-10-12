@@ -188,8 +188,8 @@ const MenuItem = styled( NavLink )`
 			}
 		}
 		#courses-menu-item {
+			margin: 0 auto;
 			display: block;
-			margin: 1px auto;
 			height: 35px;
 			width: 35px;
 		}

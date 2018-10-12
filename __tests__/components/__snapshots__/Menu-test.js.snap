@@ -175,8 +175,8 @@ exports[`the menu matches the snapshot 1`] = `
   }
 
   .c1 #courses-menu-item {
+    margin: 0 auto;
     display: block;
-    margin: 1px auto;
     height: 35px;
     width: 35px;
   }

@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Orders component matches the snapshot 1`] = `
-.c4 {
+.c6 {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -9,11 +9,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   width: 100%;
 }
 
-.c4 li:first-child > span::before {
+.c6 li:first-child > span::before {
   left: auto;
 }
 
-.c6 {
+.c8 {
   background: #fff;
   min-height: 100px;
   display: -webkit-box;
@@ -31,11 +31,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c6:first-child {
+.c8:first-child {
   margin-top: 64px;
 }
 
-.c10 {
+.c12 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -43,11 +43,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c10:first-child {
+.c12:first-child {
   padding-left: 0;
 }
 
-.c10::before {
+.c12::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -56,7 +56,7 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: "Date";
 }
 
-.c11 {
+.c13 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -64,11 +64,11 @@ exports[`The Orders component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c11:first-child {
+.c13:first-child {
   padding-left: 0;
 }
 
-.c11::before {
+.c13::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -77,43 +77,22 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: "Order";
 }
 
-.c14 {
+.c16 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c14:first-child {
+.c16:first-child {
   padding-left: 0;
 }
 
-.c14::before {
+.c16::before {
   position: absolute;
   left: -9999em;
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
   content: "Items";
-}
-
-.c17 {
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c17:first-child {
-  padding-left: 0;
-}
-
-.c17::before {
-  position: absolute;
-  left: -9999em;
-  top: -30px;
-  font-size: 1.286em;
-  line-height: 0;
-  content: "Total";
 }
 
 .c19 {
@@ -134,19 +113,40 @@ exports[`The Orders component matches the snapshot 1`] = `
   top: -30px;
   font-size: 1.286em;
   line-height: 0;
+  content: "Total";
+}
+
+.c21 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
   content: "Status";
 }
 
-.c22 {
+.c24 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c22:first-child {
+.c24:first-child {
   padding-left: 0;
 }
 
-.c22::before {
+.c24::before {
   position: absolute;
   left: -9999em;
   top: -30px;
@@ -155,25 +155,25 @@ exports[`The Orders component matches the snapshot 1`] = `
   content: none;
 }
 
-.c13 {
+.c15 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c21 {
+.c23 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c9 {
+.c11 {
   -webkit-flex: 1 0 100px;
   -ms-flex: 1 0 100px;
   flex: 1 0 100px;
 }
 
-.c15 {
+.c17 {
   padding: 0;
   list-style: none;
   -webkit-flex-shrink: 0;
@@ -185,13 +185,13 @@ exports[`The Orders component matches the snapshot 1`] = `
   align-items: flex-start;
 }
 
-.c24 .screen-reader-text {
+.c26 .screen-reader-text {
   position: static;
   -webkit-clip-path: none;
   clip-path: none;
 }
 
-.c27 {
+.c29 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -210,24 +210,24 @@ exports[`The Orders component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c27:hover,
-.c27:focus {
+.c29:hover,
+.c29:focus {
   color: #fff;
 }
 
-.c27:hover,
-.c27:focus {
+.c29:hover,
+.c29:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c27:active {
+.c29:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c26 {
+.c28 {
   background-repeat: no-repeat;
   background-image: url( download.svg );
   background-position: 8px 50%;
@@ -235,15 +235,15 @@ exports[`The Orders component matches the snapshot 1`] = `
   padding-left: 36px;
 }
 
-.c25 {
+.c27 {
   min-width: 152px;
 }
 
-.c3 {
+.c5 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c2 {
+.c3 {
   box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
   background: #fff;
   border: 0;
@@ -255,27 +255,35 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 .c0 {
-  background-image: url( search.svg );
-  background-size: 25px;
-  background-position: left center;
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 50px;
-  float: left;
+  text-align: left;
 }
 
 .c1 {
-  width: calc(100% - 40px);
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
 }
 
 @media screen and ( max-width:800px ) {
-  .c6 {
+  .c8 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c5 {
+  .c7 {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -285,11 +293,11 @@ exports[`The Orders component matches the snapshot 1`] = `
     align-items: flex-start;
   }
 
-  .c5:first-child {
+  .c7:first-child {
     margin-top: 0;
   }
 
-  .c5 > span::before {
+  .c7 > span::before {
     position: static;
     display: inline-block;
     padding-right: 0.5em;
@@ -298,32 +306,26 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c10 {
+  .c12 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c11 {
+  .c13 {
     padding-left: 20px;
     display: none;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c11 {
+  .c13 {
     display: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c14 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c17 {
+  .c16 {
     padding-left: 20px;
   }
 }
@@ -335,13 +337,19 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c22 {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
     padding-left: 20px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c15 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -349,13 +357,13 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c15 {
+  .c17 {
     overflow: hidden;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c23 {
+  .c25 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -363,14 +371,14 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and (min-width:801px) and (max-width:1355px) {
-  .c24 {
+  .c26 {
     padding-right: 0;
     padding-left: 42px;
     min-width: 0;
     vertical-align: middle;
   }
 
-  .c24 .screen-reader-text {
+  .c26 .screen-reader-text {
     position: absolute;
     -webkit-clip: rect(1px,1px,1px,1px);
     clip: rect(1px,1px,1px,1px);
@@ -380,20 +388,20 @@ exports[`The Orders component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c7 {
+  .c9 {
     min-width: 100%;
     margin-top: 1em;
     padding-right: 0;
     padding-left: 0;
   }
 
-  .c7:first-child {
+  .c9:first-child {
     margin-top: 0px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c8::before {
+  .c10::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -401,13 +409,13 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Date:";
   }
 
-  .c8 > span {
+  .c10 > span {
     line-height: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c12::before {
+  .c14::before {
     float: left;
     min-width: 60px;
     line-height: inherit;
@@ -415,21 +423,7 @@ exports[`The Orders component matches the snapshot 1`] = `
     content: "Items:";
   }
 
-  .c12 > span {
-    line-height: inherit;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c16::before {
-    float: left;
-    min-width: 60px;
-    line-height: inherit;
-    font-weight: 700;
-    content: "Total:";
-  }
-
-  .c16 > span {
+  .c14 > span {
     line-height: inherit;
   }
 }
@@ -440,7 +434,7 @@ exports[`The Orders component matches the snapshot 1`] = `
     min-width: 60px;
     line-height: inherit;
     font-weight: 700;
-    content: "Status:";
+    content: "Total:";
   }
 
   .c18 > span {
@@ -454,7 +448,7 @@ exports[`The Orders component matches the snapshot 1`] = `
     min-width: 60px;
     line-height: inherit;
     font-weight: 700;
-    content: none;
+    content: "Status:";
   }
 
   .c20 > span {
@@ -462,10 +456,32 @@ exports[`The Orders component matches the snapshot 1`] = `
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c22::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c22 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c4 {
+    margin-top: 12px;
+  }
+}
+
 <div>
-  <div>
+  <div
+    className="c0"
+  >
     <label
-      className="c0"
+      className="c1"
       htmlFor="search"
     >
       <span
@@ -479,7 +495,7 @@ exports[`The Orders component matches the snapshot 1`] = `
       autoCapitalize="off"
       autoComplete="off"
       autoCorrect="off"
-      className="c1 c2"
+      className="c2 c3"
       id="search"
       onChange={[Function]}
       spellCheck="false"
@@ -494,33 +510,33 @@ exports[`The Orders component matches the snapshot 1`] = `
     </p>
   </div>
   <div
-    className="c3"
+    className="c4 c5"
   >
     <ul
-      className="c4"
+      className="c6"
       onChange={[Function]}
       role="list"
     >
       <li
-        className="c5 c6"
+        className="c7 c8"
       >
         <span
-          className="c7 Tables-fvscPb c8 c9 c10"
+          className="c9 Tables-fvscPb c10 c11 c12"
         >
           <span>
             May 20, 2012
           </span>
         </span>
         <span
-          className="c9 c11"
+          className="c11 c13"
         >
           MOOIE 123 TEST
         </span>
         <span
-          className="c7 Tables-fvscPb c12 c13 c14"
+          className="c9 Tables-fvscPb c14 c15 c16"
         >
           <ul
-            className="c15"
+            className="c17"
           >
             <li
               className=""
@@ -539,26 +555,26 @@ exports[`The Orders component matches the snapshot 1`] = `
           </ul>
         </span>
         <span
-          className="c7 Tables-fvscPb c16 c9 c17"
+          className="c9 Tables-fvscPb c18 c11 c19"
         >
           <span>
             €100.10
           </span>
         </span>
         <span
-          className="c7 Tables-fvscPb c18 c9 c19"
+          className="c9 Tables-fvscPb c20 c11 c21"
         >
           <span>
             Completed
           </span>
         </span>
         <span
-          className="c7 Tables-fvscPb c20 c21 c22"
+          className="c9 Tables-fvscPb c22 c23 c24"
         >
           <div>
             <a
               aria-label="Download invoice"
-              className="c23 Button-kDSBcD c24 c25 c26 c27"
+              className="c25 Button-kDSBcD c26 c27 c28 c29"
               href="http://somelink"
               rel="noopener noreferrer"
               target="_blank"

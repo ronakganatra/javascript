@@ -159,6 +159,7 @@ class ProfilePage extends React.Component {
 	constructor( props ) {
 		super( props );
 		this.handleDelete = this.handleDelete.bind( this );
+		this.moveFocusAfterTokenIsDeleted = this.moveFocusAfterTokenIsDeleted.bind( this );
 	}
 
 	componentDidMount() {
@@ -167,8 +168,11 @@ class ProfilePage extends React.Component {
 		speak( message );
 	}
 
-	componentDidUpdate() {
+	componentDidUpdate( prevProps ) {
 		this.announceActions();
+		if ( prevProps.tokenDeleted !== this.props.tokenDeleted && this.props.tokenDeleted === true ) {
+			this.moveFocusAfterTokenIsDeleted();
+		}
 	}
 
 	/**
@@ -184,6 +188,17 @@ class ProfilePage extends React.Component {
 		}
 
 		speak( message, "assertive" );
+	}
+
+	/**
+	 * Moves focus back to the Create Token button after a token is deleted.
+	 *
+	 * @returns {void}
+	 */
+	moveFocusAfterTokenIsDeleted() {
+		if ( this.createTokenButton ) {
+			this.createTokenButton.focus();
+		}
 	}
 
 	/**
@@ -244,6 +259,7 @@ class ProfilePage extends React.Component {
 						onDeleteTokenClick={ this.props.onDeleteTokenClick }
 						manageTokenData={ this.props.manageTokenData }
 						error={ this.props.tokenError }
+						tokenDeleted={ this.props.tokenDeleted }
 					/>;
 			}
 			return (
@@ -289,7 +305,8 @@ class ProfilePage extends React.Component {
 						: <FormattedMessage
 							id="profile.composer-introduction"
 							defaultMessage="Composer is a tool used by many developers to install and update plugins.
-							Through MyYoast you can use Composer to get easy access to your premium plugins. Please see the Downloads page for additional information."
+								Through MyYoast you can use Composer to get easy access to your premium plugins.
+								Please see the Downloads page for additional information."
 						/>
 				}
 			</ComposerIntroductionArea>;
@@ -303,6 +320,9 @@ class ProfilePage extends React.Component {
 						<CreateButtonArea>
 							<WideLargeButton
 								onClick={ this.props.onCreateTokenModalOpen }
+								innerRef={ createTokenButton => {
+									this.createTokenButton = createTokenButton;
+								} }
 							>
 								<FormattedMessage
 									id="profile.tokens.create"
@@ -369,7 +389,8 @@ class ProfilePage extends React.Component {
 							<p>
 								<FormattedMessage
 									id="profile.description.passwordReset"
-									defaultMessage="Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol."
+									defaultMessage="Your password should be at least 8 characters long,
+										contain both uppercase and lowercase letters and one symbol."
 								/>
 							</p>
 							<PasswordResetForm
@@ -416,6 +437,8 @@ ProfilePage.propTypes = {
 	onSavePassword: PropTypes.func,
 	isSavingPassword: PropTypes.bool,
 	passwordIsSaved: PropTypes.bool,
+	isSendingPasswordReset: PropTypes.bool,
+	hasSendPasswordReset: PropTypes.bool,
 	passWord: PropTypes.string,
 	resetSaveMessage: PropTypes.func,
 	passwordResetError: PropTypes.object,
@@ -432,6 +455,7 @@ ProfilePage.propTypes = {
 	onDeleteTokenClick: PropTypes.func.isRequired,
 	manageTokenData: PropTypes.object,
 	tokenError: PropTypes.object,
+	tokenDeleted: PropTypes.bool,
 	composerTokens: PropTypes.array,
 
 	// Newsletter
@@ -458,6 +482,7 @@ ProfilePage.defaultProps = {
 	passwordResetError: null,
 	manageTokenData: null,
 	tokenError: null,
+	tokenDeleted: false,
 };
 
 export default injectIntl( ProfilePage );

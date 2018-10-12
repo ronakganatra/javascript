@@ -52,6 +52,7 @@ const rootState = {
 			manageTokenModalIsOpen: false,
 			manageTokenData: null,
 			tokenError: null,
+			tokenDeleted: false,
 		},
 	},
 };
@@ -158,15 +159,18 @@ export function uiDeleteComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				disablingComposerToken: true,
 				tokenError: null,
+				tokenDeleted: false,
 			} );
 		case DELETE_COMPOSER_TOKEN_SUCCESS:
 			return Object.assign( {}, state, {
 				disablingComposerToken: false,
+				tokenDeleted: true,
 			} );
 		case DELETE_COMPOSER_TOKEN_FAILURE:
 			return Object.assign( {}, state, {
 				disablingComposerToken: false,
 				tokenError: action.error,
+				tokenDeleted: false,
 			} );
 		default:
 			return state;
@@ -186,6 +190,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 		case CREATE_TOKEN_MODAL_OPEN:
 			return Object.assign( {}, state, {
 				createTokenModalIsOpen: true,
+				tokenDeleted: false,
 			} );
 		case CREATE_TOKEN_MODAL_CLOSED:
 			return Object.assign( {}, state, {
@@ -196,6 +201,7 @@ export function uiModalsComposerTokensReducer( state = rootState.ui.composerToke
 			return Object.assign( {}, state, {
 				manageTokenModalIsOpen: true,
 				manageTokenData: action.data,
+				tokenDeleted: false,
 			} );
 		case MANAGE_TOKEN_MODAL_CLOSED:
 			return Object.assign( {}, state, {
@@ -302,4 +308,3 @@ export function allIdsComposerTokensReducer( state = rootState.entities.composer
 			return state;
 	}
 }
-
