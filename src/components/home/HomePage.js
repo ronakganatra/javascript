@@ -108,7 +108,7 @@ class HomePage extends React.Component {
 		// Sorting by priority.
 		cardsArray.sort( ( a, b ) => {
 			return a.priority - b.priority;
-		}  );
+		} );
 
 		return cardsArray.map( ( card ) => {
 			if ( column !== "single" && card.column !== column ) {
@@ -139,21 +139,32 @@ class HomePage extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
-					<div>
-						{ this.createCards( cards ) }
-					</div>
-				</MediaQuery>
-				<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
-					<DoubleColumn>
-						<div>
-							{ this.createCards( cards, LEFT_COLUMN ) }
-						</div>
-						<div>
-							{ this.createCards( cards, RIGHT_COLUMN ) }
-						</div>
-					</DoubleColumn>
-				</MediaQuery>
+				{
+					window.navigator.userAgent.indexOf( "MSIE " ) > 0 || ! ! window.navigator.userAgent.match( /Trident.*rv:11\./ )
+						? (
+							<div>
+								{ this.createCards( cards ) }
+							</div>
+						)
+						: ( [
+							<MediaQuery key={ "single_column_layout" } query={ SINGLE_COLUMN_BREAKPOINTS }>
+								<div>
+									{ this.createCards( cards ) }
+								</div>
+							</MediaQuery>,
+							<MediaQuery key={ "double_column_layout" } query={ DOUBLE_COLUMN_BREAKPOINTS }>
+								<DoubleColumn>
+									<div>
+										{ this.createCards( cards, LEFT_COLUMN ) }
+									</div>
+									<div>
+										{ this.createCards( cards, RIGHT_COLUMN ) }
+									</div>
+								</DoubleColumn>
+							</MediaQuery>,
+						] )
+				}
+
 			</Fragment>
 		);
 	}
