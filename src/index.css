@@ -19,3 +19,11 @@ html {
 .ReactModal__Body--open {
 	overflow: hidden;
 }
+
+.auth_frame {
+	height: 0;
+	width: 0;
+	position: absolute;
+	left: -1000px;
+	border: 0;
+}

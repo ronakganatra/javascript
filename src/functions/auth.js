@@ -19,7 +19,7 @@ export function getOAuthUrl() {
  * @returns {boolean} Whether or not the cookie was set.
  */
 export function hasPeriLoginCookie() {
-	return !! Cookies.get( "intendedDestination" );
+	return ! ! Cookies.get( "intendedDestination" );
 }
 
 /**
@@ -100,7 +100,7 @@ export function removeCookieSignage( cookie ) {
  * @returns {boolean} Whether or not an access token is available.
  */
 export function hasAccessToken() {
-	return !! Cookies.get( "access_token" );
+	return ! ! Cookies.get( "access_token" );
 }
 
 /**
@@ -109,7 +109,7 @@ export function hasAccessToken() {
  * @returns {boolean} Whether or not the user is logged out on Yoast.com.
  */
 export function hasLoggedOut() {
-	return !! Cookies.get( "logged_out" );
+	return ! ! Cookies.get( "logged_out" );
 }
 
 /**
@@ -205,7 +205,7 @@ export function fetchAccessToken() {
 			return resolve( accessToken );
 		};
 		frame.src = getOAuthUrl();
-		frame.style = "display:none; height:1px; width:1px;";
+		frame.className = "auth_frame";
 		document.body.appendChild( frame );
 	} );
 }
