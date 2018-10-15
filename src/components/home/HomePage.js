@@ -108,7 +108,7 @@ class HomePage extends React.Component {
 		// Sorting by priority.
 		cardsArray.sort( ( a, b ) => {
 			return a.priority - b.priority;
-		}  );
+		} );
 
 		return cardsArray.map( ( card ) => {
 			if ( column !== "single" && card.column !== column ) {
@@ -140,19 +140,19 @@ class HomePage extends React.Component {
 		return (
 			<Fragment>
 				{
-					window.navigator.userAgent.indexOf( "MSIE " ) > 0 ||
-					!! window.navigator.userAgent.match( /Trident.*rv:11\./ )
+					window.navigator.userAgent.indexOf( "MSIE " ) > 0 || ! ! window.navigator.userAgent.match( /Trident.*rv:11\./ )
 						? (
 							<div>
 								{ this.createCards( cards ) }
 							</div>
-						) : ( [
-							<MediaQuery query={ SINGLE_COLUMN_BREAKPOINTS }>
+						)
+						: ( [
+							<MediaQuery key={ "single_column_layout" } query={ SINGLE_COLUMN_BREAKPOINTS }>
 								<div>
 									{ this.createCards( cards ) }
 								</div>
 							</MediaQuery>,
-							<MediaQuery query={ DOUBLE_COLUMN_BREAKPOINTS }>
+							<MediaQuery key={ "double_column_layout" } query={ DOUBLE_COLUMN_BREAKPOINTS }>
 								<DoubleColumn>
 									<div>
 										{ this.createCards( cards, LEFT_COLUMN ) }
