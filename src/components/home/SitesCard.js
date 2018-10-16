@@ -28,7 +28,7 @@ const Header = styled.h2`
 	padding: 0;
 	margin: 16px 0;
 	color: ${ colors.$color_pink_dark };
-	font-weight: 50;
+	font-weight: 300;
 	font-size: 1.5em;
 	text-decoration: none;
 `;
@@ -43,7 +43,7 @@ const AddSiteImage = styled.img`
 	max-width: 100%;
 	margin: 0 auto;
 	margin-bottom: 16px;
-	padding: 0 40px; 
+	padding: 0 40px;
 `;
 
 const ResponsiveIconButton = makeButtonFullWidth( LargeIconButton );

@@ -7,6 +7,7 @@ import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
 import Link from "../Link.js";
+import NewTabMessage from "../NewTabMessage";
 
 const messages = defineMessages( {
 	loading: {
@@ -24,7 +25,7 @@ const Header = styled.h2`
 	margin: 0;
 	margin-bottom: 15px;
 	color: ${ colors.$color_pink_dark };
-	font-weight: 50;
+	font-weight: 300;
 	font-size: 1.5em;
 	text-decoration: none;
 `;
@@ -47,22 +48,8 @@ const WordpressFeedLink = styled( Link )`
 	font-weight: bold;
 `;
 
-const A11yNotice = styled.span`
-	border: 0;
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important;
-`;
-
 const WordpressFeedListItemContainer = styled.li`
-	margin: 8px 0;
-	overflow: hidden;
+	margin: 8px 0 24px;
 `;
 
 const FeedDescription = styled.p`
@@ -80,13 +67,13 @@ const WordpressFeedListItem = ( props ) => {
 	return (
 		<WordpressFeedListItemContainer>
 			<WordpressFeedLink
-				to={ props.link.replace( "#utm_source=yoast-seo&utm_medium=software&utm_campaign=wordpress-general&utm_content=wordpress-dashboard", "" ) }
+				to={ props.link.replace(
+					"#utm_source=yoast-seo&utm_medium=software&utm_campaign=wordpress-general&utm_content=wordpress-dashboard", "" )
+				}
 				linkTarget="_blank"
 			>
 				{ props.title }
-				<A11yNotice>
-					( Opens in a new browser tab )
-				</A11yNotice>
+				<NewTabMessage />
 			</WordpressFeedLink>
 			<FeedDescription>
 				{ props.description }
@@ -96,9 +83,9 @@ const WordpressFeedListItem = ( props ) => {
 };
 
 WordpressFeedListItem.propTypes = {
-	link: PropTypes.string,
-	title: PropTypes.string,
-	description: PropTypes.string,
+	link: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
+	description: PropTypes.string.isRequired,
 };
 
 /**
@@ -129,9 +116,8 @@ const FeedList = ( props ) => {
 };
 
 FeedList.propTypes = {
-	blogFeed: PropTypes.object,
-	items: PropTypes.array,
-	retrievingFeed: PropTypes.bool,
+	blogFeed: PropTypes.object.isRequired,
+	retrievingFeed: PropTypes.bool.isRequired,
 };
 
 const ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
@@ -144,14 +130,31 @@ const ResponsiveButtonLink = makeButtonFullWidth( LargeButtonLink );
  * @returns {ReactElement} The component that contains the progress tab of the course page.
  */
 class BlogContent extends React.Component {
+	/**
+	 * Initializes the class with the specified props.
+	 *
+	 * @param {Object} props The props to be passed to the class that was extended from.
+	 *
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 	}
 
+	/**
+	 * Calls a callback after this component has been mounted.
+	 *
+	 * @returns {void}
+	 */
 	componentDidMount() {
 		this.props.getFeed();
 	}
 
+	/**
+	 * Renders the component.
+	 *
+	 * @returns {ReactElement} The rendered component.
+	 */
 	render() {
 		return (
 			<Fragment>
@@ -178,14 +181,18 @@ class BlogContent extends React.Component {
 }
 
 BlogContent.propTypes = {
-	getFeed: PropTypes.func,
-	retrievingFeed: PropTypes.bool,
-	blogFeed: PropTypes.object,
+	getFeed: PropTypes.func.isRequired,
+	retrievingFeed: PropTypes.bool.isRequired,
+	blogFeed: PropTypes.object.isRequired,
 	errorFound: PropTypes.bool,
 	error: PropTypes.object,
 	intl: intlShape.isRequired,
 };
 
+BlogContent.defaultProps = {
+	error: null,
+	errorFound: false,
+};
 
 export const mapStateToProps = ( state ) => {
 	const blogFeed = state.ui.home.blogFeed;

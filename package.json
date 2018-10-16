@@ -40,6 +40,7 @@
     "json-loader": "0.5.4",
     "node-sass": "^4.5.2",
     "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "1.2.2",
     "promise": "7.3.1",
     "react-addons-test-utils": "^15.4.2",

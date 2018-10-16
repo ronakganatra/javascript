@@ -7,7 +7,7 @@ var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
-
+var PostCSSFlexBugsFixes = require('postcss-flexbugs-fixes');
 
 
 // Webpack uses `publicPath` to determine where the app is being served from.
@@ -187,6 +187,7 @@ module.exports = {
           'not ie < 9', // React doesn't support IE8 anyway
         ]
       }),
+	  PostCSSFlexBugsFixes(),
     ];
   },
   plugins: [

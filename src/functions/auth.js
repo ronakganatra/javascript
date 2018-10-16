@@ -192,20 +192,18 @@ export function fetchAccessToken() {
 
 		const frame = document.createElement( "IFrame" );
 		frame.onload = () => {
-			if ( _isEmpty( frame.contentDocument ) ) {
-				return reject( new Error( "IFrame could not be loaded" ) );
-			}
-
 			const accessToken = getAccessToken();
 
 			if ( _isEmpty( accessToken ) ) {
-				return reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
+				reject( new Error( "User is not logged in. WordPress cookie was not present." ) );
+				return;
 			}
 
-			return resolve( accessToken );
+			resolve( accessToken );
 		};
+
 		frame.src = getOAuthUrl();
-		frame.style = "display:none; height:1px; width:1px;";
+		frame.className = "auth_frame";
 		document.body.appendChild( frame );
 	} );
 }
