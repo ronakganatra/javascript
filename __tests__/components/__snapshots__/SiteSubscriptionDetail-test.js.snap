@@ -311,6 +311,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
           className="c5"
           onClick={[Function]}
           onKeyDown={[Function]}
+          onKeyUp={[Function]}
           role="checkbox"
           tabIndex="0"
         >
@@ -692,6 +693,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
           className="c5"
           onClick={[Function]}
           onKeyDown={[Function]}
+          onKeyUp={[Function]}
           role="checkbox"
           tabIndex="0"
         >

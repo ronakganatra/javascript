@@ -43,6 +43,7 @@ exports[`a disabled toggle that is enabled 1`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
@@ -102,6 +103,7 @@ exports[`a disabled toggle that is enabled 2`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
@@ -161,6 +163,7 @@ exports[`a disabled toggle which matches the snapshot 1`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
@@ -220,6 +223,7 @@ exports[`an enabled toggle that is disabled 1`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
@@ -279,6 +283,7 @@ exports[`an enabled toggle that is disabled 2`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
@@ -338,6 +343,7 @@ exports[`an enabled toggle which matches the snapshot 1`] = `
     className="c0"
     onClick={[Function]}
     onKeyDown={[Function]}
+    onKeyUp={[Function]}
     role="checkbox"
     tabIndex="0"
   >
