@@ -17,9 +17,9 @@ const messages = defineMessages( {
 
 const ToggleBar = styled.div`
 	background-color: ${ props => props.isEnabled ? "#a5d6a7" : colors.$color_button_border };
-	border-radius: 7px;
-	height: 14px;
-	width: 30px;
+	border-radius: 8px;
+	height: 16px;
+	width: 40px;
 	cursor: pointer;
 	margin: 0;
 	outline: 0;
@@ -30,20 +30,20 @@ const ToggleBar = styled.div`
 
 const ToggleBullet = styled.span`
 	background-color: ${ props => props.isEnabled ? colors.$color_green_medium_light : colors.$color_grey_medium_dark };
-	margin-left: ${ props => props.isEnabled ? "12px" : "-2px" };
+	margin-left: ${ props => props.isEnabled ? "16px" : "0" };
 	box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.1);
 	border-radius: 100%;
-	height: 20px;
-	width: 20px;
+	height: 24px;
+	width: 24px;
 	position: absolute;
-	margin-top: -3px;
+	margin-top: -4px;
 `;
 
 const ToggleVisualLabel = styled.span`
 	padding: 6px 0 0;
 	font-size: 14px;
 	line-height: 20px;
-	width: 30px;
+	width: 40px;
 	text-align: center;
 	display: inline-block;
 	margin: 0;

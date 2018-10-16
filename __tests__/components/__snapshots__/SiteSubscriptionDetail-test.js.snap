@@ -82,9 +82,9 @@ exports[`an add more licenses button should be shown when no more licenses are a
 
 .c5 {
   background-color: #a5d6a7;
-  border-radius: 7px;
-  height: 14px;
-  width: 30px;
+  border-radius: 8px;
+  height: 16px;
+  width: 40px;
   cursor: pointer;
   margin: 0;
   outline: 0;
@@ -96,20 +96,20 @@ exports[`an add more licenses button should be shown when no more licenses are a
 
 .c6 {
   background-color: #64a60a;
-  margin-left: 12px;
+  margin-left: 16px;
   box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1);
   border-radius: 100%;
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   position: absolute;
-  margin-top: -3px;
+  margin-top: -4px;
 }
 
 .c7 {
   padding: 6px 0 0;
   font-size: 14px;
   line-height: 20px;
-  width: 30px;
+  width: 40px;
   text-align: center;
   display: inline-block;
   margin: 0;
@@ -463,9 +463,9 @@ exports[`the sitesubscription matches the snapshot 1`] = `
 
 .c5 {
   background-color: #a5d6a7;
-  border-radius: 7px;
-  height: 14px;
-  width: 30px;
+  border-radius: 8px;
+  height: 16px;
+  width: 40px;
   cursor: pointer;
   margin: 0;
   outline: 0;
@@ -477,20 +477,20 @@ exports[`the sitesubscription matches the snapshot 1`] = `
 
 .c6 {
   background-color: #64a60a;
-  margin-left: 12px;
+  margin-left: 16px;
   box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1);
   border-radius: 100%;
-  height: 20px;
-  width: 20px;
+  height: 24px;
+  width: 24px;
   position: absolute;
-  margin-top: -3px;
+  margin-top: -4px;
 }
 
 .c7 {
   padding: 6px 0 0;
   font-size: 14px;
   line-height: 20px;
-  width: 30px;
+  width: 40px;
   text-align: center;
   display: inline-block;
   margin: 0;
