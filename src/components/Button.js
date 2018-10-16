@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import MyYoastColors from "../config/colors.json";
 import Link from "./Link";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
@@ -397,18 +398,17 @@ BackButtonLink.defaultProps = {
 };
 
 export const YellowCaretLink = styled( LargeIconButtonLink )`
-	background-color: #FEC228;
-	color: rgb(0,0,0);
+	background-color: ${ MyYoastColors.$button_dark_yellow };
+	color: #000;
 	text-shadow: none;
 	background-position: calc( 100% - 8px ) 50%;
-	padding: 12px 16px;
-	padding-right: 36px;
+	padding: 12px 36px 12px 16px;
 	box-shadow: inset 0 -4px rgba(0,0,0,0.2);
 	border: 0;
 
 	&:hover, &:focus {
-		background-color: #F2AE01;
-		color: rgb(0,0,0);
+		background-color: ${ MyYoastColors.$button_dark_yellow_hover };
+		color: #000;
 	}
 `;
 

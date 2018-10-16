@@ -12,16 +12,13 @@ export const mapStateToProps = ( state ) => {
 	let subscriptions = allIds.map( ( subscriptionId ) => {
 		const subscription = state.entities.subscriptions.byId[ subscriptionId ];
 
-		const orderId = subscription.orders[ subscription.orders.length - 1 ];
-		const order = state.entities.orders.byId[ orderId ];
-
 		return {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
 			used: subscription.used,
 			limit: subscription.limit,
-			subscriptionNumber: order ? order.invoiceNumber : "",
+			subscriptionNumber: subscription.subscriptionNumber,
 			requiresManualRenewal: subscription.requiresManualRenewal,
 			hasNextPayment: subscription.nextPayment !== null,
 			nextPayment: new Date( subscription.nextPayment ),

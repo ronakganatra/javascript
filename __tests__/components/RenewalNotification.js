@@ -30,4 +30,3 @@ test('The RenewalNotification component matches the snapshot', () => {
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
-

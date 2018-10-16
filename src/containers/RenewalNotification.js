@@ -11,13 +11,15 @@ export const mapStateToProps = ( state ) => {
 		const subscription = state.entities.subscriptions.byId[ subscriptionId ];
 
 		const nextPayment = subscription.nextPayment ? new Date( subscription.nextPayment ) : null;
+		const endDate = subscription.endDate ? new Date( subscription.endDate ) : null;
 		const monthFromNow = new Date();
 		monthFromNow.setMonth( monthFromNow.getMonth() + 1 );
 
+		const expiresWithinMonth = ( nextPayment && nextPayment < monthFromNow ) || ( endDate && endDate < monthFromNow );
 		const isUpcomingRenewal = subscription.status === "active" &&
 			! subscription.endDate &&
 			subscription.renewalUrl &&
-			nextPayment && nextPayment < monthFromNow;
+			expiresWithinMonth;
 
 		if ( ! isUpcomingRenewal ) {
 			return null;
