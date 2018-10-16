@@ -7,8 +7,6 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
-import { LargeIconButton, makeButtonFullWidth } from "./Button";
-import plus from "../icons/plus.svg";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
@@ -42,10 +40,6 @@ const SiteAddContainer = styled.div`
 	text-align: center;
 `;
 
-const ResponsiveIconButton = styled( makeButtonFullWidth( LargeIconButton ) )`
-	margin: 20px 0 36px 0;
-`;
-
 const debouncedSpeak = _debounce( speak, 1000 );
 
 /**
@@ -70,7 +64,7 @@ class SitesPage extends React.Component {
 	}
 
 	/**
-	 * Return the search bar.
+	 * Returns the search bar.
 	 *
 	 * @returns {ReactElement} The rendered Search component.
 	 */
@@ -84,6 +78,11 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Returns the Configuration Service block.
+	 *
+	 * @returns {ReactElement} The rendered Search component.
+	 */
 	getConfigurationServiceRequest() {
 		if ( this.props.availableConfigurationServiceRequests.length === 0 ) {
 			return null;
@@ -103,11 +102,23 @@ class SitesPage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Announces navigation to assistive technologies when the component mounts.
+	 *
+	 * @returns {void}
+	 */
 	componentDidMount() {
-		// Announce navigation to assistive technologies.
 		const message = this.props.intl.formatMessage( messages.sitesPageLoaded );
 		speak( message );
 	}
+
+	/**
+	 * Announces the search results to assistive technologies when the component receives new props.
+	 *
+	 * @param {Object} nextProps The new props the component will receive.
+	 *
+	 * @returns {void}
+	 */
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
@@ -119,6 +130,13 @@ class SitesPage extends React.Component {
 		this.speakSearchResultsMessage( nextProps );
 	}
 
+	/**
+	 * Announces the search results to assistive technologies.
+	 *
+	 * @param {Object} nextProps The new props the component has received.
+	 *
+	 * @returns {void}
+	 */
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
 			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.sites.length );
@@ -196,35 +214,41 @@ class SitesPage extends React.Component {
 			return <AnimatedLoader />;
 		}
 
-		if ( props.sites.length > 0 ) {
-			return (
-				<div>
-					<SiteAddContainer>
-						{ this.getSearch() }
-						<ResponsiveIconButton onClick={ props.addSite } iconSource={ plus }>
-							<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
-						</ResponsiveIconButton>
-					</SiteAddContainer>
-					{ this.getConfigurationServiceRequest() }
-					<Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage } />
-					{ this.getModal() }
-				</div>
-			);
-		} else if ( props.query.length > 0 ) {
-			return (
-				<div>
-					<SiteAddContainer>
-						{ this.getSearch() }
-					</SiteAddContainer>
-					<NoResults onClick={ props.addSite } query={ props.query } paragraphs={ sitesNoResultsParagraphs } imageSource={ sitesNoResultsImage } pageContext="noSites" />
-					{ this.getModal() }
-				</div>
-			);
+		const hasSites = props.sites.length > 0;
+		const isSearch = props.query.length > 0;
+		const showSearch = hasSites || isSearch;
+		let paragraphs;
+		let imageSource;
+		let pageContext;
+
+		if ( hasSites ) {
+			pageContext = "hasSites";
+			paragraphs = null;
+			imageSource = null;
+		} else if ( isSearch ) {
+			pageContext = "noSites";
+			paragraphs = sitesNoResultsParagraphs;
+			imageSource = sitesNoResultsImage;
+		} else {
+			pageContext = "noSites";
+			paragraphs = noSitesParagraphs;
+			imageSource = noSitesImage;
 		}
 
 		return (
 			<div>
-				<NoResults paragraphs={ noSitesParagraphs } onClick={ props.addSite } imageSource={ noSitesImage } pageContext="noSites" />
+				<SiteAddContainer>
+					{ showSearch && this.getSearch() }
+				</SiteAddContainer>
+				<NoResults
+					onClick={ props.addSite }
+					query={ props.query }
+					paragraphs={ paragraphs }
+					imageSource={ imageSource }
+					pageContext={ pageContext }
+				/>
+				{ hasSites && this.getConfigurationServiceRequest() }
+				{ hasSites && <Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage } /> }
 				{ this.getModal() }
 			</div>
 		);

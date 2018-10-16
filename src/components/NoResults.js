@@ -29,11 +29,11 @@ const NoResultsImage = styled.img`
 	height: auto;
 	display: block;
 	margin: 0 auto;
-		
-	@media screen and ( max-width: 400px ) { 
+
+	@media screen and ( max-width: 400px ) {
 		max-width: 240px;
 	}
-	@media screen and ( min-width: 400px ) { 
+	@media screen and ( min-width: 400px ) {
 		max-width: 384px;
 	}
 `;
@@ -58,6 +58,7 @@ const NoResultsButtonLink = styled( LargeButtonLink )`
 function getNoResultsButton( url, onClick, pageContext ) {
 	switch ( pageContext ) {
 		case "noSites":
+		case "hasSites":
 			return (
 				<NoResultsIconButton onClick={ onClick } iconSource={ plus }>
 					<FormattedMessage id={ messages.addSite.id } defaultMessage={ messages.addSite.defaultMessage } />
@@ -91,13 +92,21 @@ getNoResultsButton.propTypes = {
  * @constructor
  */
 function NoResults( props ) {
+	const {
+		paragraphs,
+		imageSource,
+		url,
+		onClick,
+		pageContext,
+	} = props;
+
 	return (
 		<NoResultsContainer>
-			{ props.paragraphs.map( function( paragraph ) {
+			{ paragraphs && paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
-			{ getNoResultsButton( props.url, props.onClick, props.pageContext ) }
-			<NoResultsImage src={ props.imageSource } alt="" />
+			{ getNoResultsButton( url, onClick, pageContext ) }
+			{ imageSource && <NoResultsImage src={ imageSource } alt="" /> }
 		</NoResultsContainer>
 	);
 }
@@ -108,10 +117,13 @@ NoResults.propTypes = {
 	url: PropTypes.string,
 	onClick: PropTypes.func,
 	paragraphs: PropTypes.arrayOf( PropTypes.element ),
-	imageSource: PropTypes.string.isRequired,
-	pageContext: PropTypes.string,
+	imageSource: PropTypes.string,
+	pageContext: PropTypes.string.isRequired,
 };
 
 NoResults.defaultProps = {
+	url: null,
+	onClick: () => {},
 	paragraphs: [],
+	imageSource: null,
 };

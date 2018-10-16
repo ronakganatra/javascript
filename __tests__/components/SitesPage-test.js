@@ -124,7 +124,7 @@ test('the sites page component without sites handling an onclick event on the ad
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[3].props.onClick();
+	tree.children[1].children[3].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
@@ -158,7 +158,7 @@ test('the sites page component with sites handling an onclick event on the add s
 	expect( tree ).toMatchSnapshot();
 
 	// manually trigger the callback.
-	tree.children[0].children[1].props.onClick();
+	tree.children[1].children[0].props.onClick();
 
 	// re-rendering
 	tree = component.toJSON();
