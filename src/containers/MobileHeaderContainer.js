@@ -3,6 +3,7 @@ import { helpBeaconModalOpen } from "../actions/helpBeacon";
 import { connect } from "react-redux";
 import MobileHeader from "../components/MobileHeader";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	let pageTitle = "";
 

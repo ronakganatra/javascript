@@ -99,7 +99,6 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
 }
 
 .c10 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -112,7 +111,6 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
 
 .c13 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -134,7 +132,6 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
 
 .c18 {
   background: #f7f7f7;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -511,7 +508,6 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 }
 
 .c10 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -524,7 +520,6 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 
 .c13 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -546,7 +541,6 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 
 .c18 {
   background: #f7f7f7;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

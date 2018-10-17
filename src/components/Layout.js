@@ -15,6 +15,7 @@ import MobileHeaderContainer from "../containers/MobileHeaderContainer";
 import MediaQuery from "react-responsive";
 import { WhitePage } from "../components/PaperStyles";
 import loginBackground from "../images/login-background.jpg";
+import RenewalNotificationContainer from "../containers/RenewalNotification";
 
 const messages = defineMessages( {
 	beacon: {
@@ -143,6 +144,7 @@ export const inSingleLayout = ( WrappedComponent ) => {
 					</header>
 					<SingleMain>
 						<Content>
+							<RenewalNotificationContainer />
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>
@@ -184,6 +186,7 @@ export const inMainLayout = ( WrappedComponent ) => {
 							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
 						</BeaconButtonContainer>
 						<Content>
+							<RenewalNotificationContainer />
 							<WrappedComponent { ...this.props } />
 							<GettingStartedModalContainer />
 						</Content>

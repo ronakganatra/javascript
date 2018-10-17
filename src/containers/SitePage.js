@@ -12,6 +12,7 @@ import {
 	loadConfigurationServiceRequests,
 } from "../actions/configurationServiceRequest";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 

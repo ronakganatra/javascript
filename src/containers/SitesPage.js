@@ -9,6 +9,7 @@ import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	let sites = state.entities.sites.allIds.map( ( siteId ) => {
 		const site = state.entities.sites.byId[ siteId ];

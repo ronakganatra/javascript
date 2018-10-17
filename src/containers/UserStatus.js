@@ -4,6 +4,7 @@ import UserProfile from "../components/UserProfile";
 import { url } from "gravatar";
 const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
 
+/* eslint-disable require-jsdoc */
 const mapStateToProps = ( state ) => {
 	return {
 		displayEmail: state.user.data.profile.email,

@@ -1,3 +1,467 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The RenewalNotification component matches the snapshot 1`] = `null`;
+exports[`The RenewalNotification component matches the snapshot 1`] = `
+.c3 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c3:hover,
+.c3:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c3:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c2 {
+  background-repeat: no-repeat;
+  background-image: url( times.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c1 {
+  background-color: transparent;
+  background-position: 50%;
+  padding-left: 0px;
+  height: 32px;
+  width: 32px;
+  border-bottom: none;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.c1:hover,
+.c1:focus {
+  box-shadow: none;
+  background-color: transparent;
+  opacity: .5;
+}
+
+.c26 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c26:hover,
+.c26:focus {
+  color: #fff;
+}
+
+.c26:hover,
+.c26:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c26:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c25 {
+  background-repeat: no-repeat;
+  background-image: url( caret-right.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c24 {
+  min-width: 152px;
+}
+
+.c23 {
+  background-color: #fec228;
+  color: #000;
+  text-shadow: none;
+  background-position: calc( 100% - 8px ) 50%;
+  padding: 12px 36px 12px 16px;
+  box-shadow: inset 0 -4px rgba(0,0,0,0.2);
+  border: 0;
+}
+
+.c23:hover,
+.c23:focus {
+  background-color: #f2ae01;
+  color: #000;
+}
+
+.c8 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c8 li:first-child > span::before {
+  left: auto;
+}
+
+.c11 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c11:first-child {
+  margin-top: 64px;
+}
+
+.c9 {
+  min-height: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.c16 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c16:first-child {
+  padding-left: 0;
+}
+
+.c16::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Product";
+}
+
+.c18 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c18:first-child {
+  padding-left: 0;
+}
+
+.c18::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Expires on";
+}
+
+.c21 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -30px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c15 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c20 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c0 {
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  position: relative;
+  display: block;
+}
+
+.c0 > button {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.c7 {
+  margin-right: 32px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 8px;
+  vertical-align: middle;
+}
+
+.c6 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.c5 {
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  max-height: 100px;
+  margin-right: 24px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c10:first-child {
+    margin-top: 0;
+  }
+
+  .c10 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c16 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c18 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:500px ) {
+  .c5 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c13:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Product:";
+  }
+
+  .c14 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Expires on:";
+  }
+
+  .c17 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c19 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c12::before {
+    min-width: 88px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <button
+    aria-label="close"
+    className="c1 c2 c3"
+    onClick={[Function]}
+    type="button"
+  />
+  <div
+    className="c4"
+  >
+    <img
+      className="c5"
+      src="renewalNotification.svg"
+    />
+    <div
+      className="c6"
+    >
+      <h2
+        className="c7"
+      >
+        <span>
+          One or more plugins are about to expire!
+        </span>
+      </h2>
+      <span>
+        When they do, you will no longer receive (security) updates or support!
+      </span>
+    </div>
+  </div>
+  <ul
+    className="c8"
+    role="list"
+  >
+    <li
+      className="c9 c10 c11"
+    >
+      <span
+        className="c12 c13 Tables-fvscPb c14 c15 c16"
+      >
+        SEO Premium for WordPress
+      </span>
+      <span
+        className="c12 c13 Tables-fvscPb c17 c15 c18"
+      >
+        <span>
+          December 01, 2019
+        </span>
+      </span>
+      <span
+        className="c13 Tables-fvscPb c19 c20 c21"
+      >
+        <a
+          className="c22 c23 c24 c25 c26"
+          href="https://my.yoast.test"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <span>
+            Renew now
+          </span>
+        </a>
+      </span>
+    </li>
+  </ul>
+</div>
+`;

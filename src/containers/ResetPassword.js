@@ -3,6 +3,7 @@ import ResetPasswordPage from "../components/login/ResetPasswordPage";
 import { doRequest, prepareInternalRequest } from "../functions/api";
 import { resetPasswordFailure, resetPasswordRequest, resetPasswordSuccess } from "../actions/resetPassword";
 
+/* eslint-disable require-jsdoc */
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		attemptResetPassword: ( data ) => {

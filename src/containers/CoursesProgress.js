@@ -9,6 +9,7 @@ import CoursesProgress from "../components/CoursesProgress";
 import { getUserId } from "../functions/auth";
 import { getShopUrl } from "../functions/products";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 

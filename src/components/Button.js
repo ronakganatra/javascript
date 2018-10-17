@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import MyYoastColors from "../config/colors.json";
 import Link from "./Link";
 import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
@@ -396,6 +397,21 @@ BackButtonLink.defaultProps = {
 	iconSize: "24px",
 };
 
+export const YellowCaretLink = styled( LargeIconButtonLink )`
+	background-color: ${ MyYoastColors.$button_dark_yellow };
+	color: #000;
+	text-shadow: none;
+	background-position: calc( 100% - 8px ) 50%;
+	padding: 12px 36px 12px 16px;
+	box-shadow: inset 0 -4px rgba(0,0,0,0.2);
+	border: 0;
+
+	&:hover, &:focus {
+		background-color: ${ MyYoastColors.$button_dark_yellow_hover };
+		color: #000;
+	}
+`;
+
 export const TextButtonLink = styled( ButtonLink )`
 	width: ${ props => props.buttonWidth };
 `;
@@ -503,7 +519,7 @@ export function makeButtonFullWidth( component ) {
 }
 
 /**
- * Makes an icon button display only the icon in the intermdiate responsive view.
+ * Makes an icon button display only the icon in the intermediate responsive view.
  *
  * @param {ReactElement} component The original button.
  * @returns {ReactElement} The button with icon only.
@@ -514,16 +530,19 @@ export function makeResponsiveIconButton( component ) {
 			position: static;
 			clip-path: none;
 		}
-		@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
-			padding-right: 0;
-			padding-left: 42px;
-			min-width: 0;
-			vertical-align: middle;
 
-			.screen-reader-text {
-				position: absolute;
-				clip: rect(1px, 1px, 1px, 1px);
-				clip-path: inset(50%);
+		&& {
+			@media screen and (min-width: ${ defaults.css.breakpoint.mobile + 1 }px) and (max-width: ${ defaults.css.breakpoint.tablet }px) {
+				padding-right: 0;
+				padding-left: 42px;
+				min-width: 0;
+				vertical-align: middle;
+	
+				.screen-reader-text {
+					position: absolute;
+					clip: rect(1px, 1px, 1px, 1px);
+					clip-path: inset(50%);
+				}
 			}
 		}
 	`;
