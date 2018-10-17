@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
+import noop from "lodash/noop";
 
 const messages = defineMessages( {
 	toggleLabelOn: {
@@ -49,6 +50,13 @@ const ToggleVisualLabel = styled.span`
 	margin: 0;
 `;
 
+/**
+ * Returns the Toggle component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The Toggle component.
+ */
 class Toggle extends React.Component {
 	/**
 	 * Sets the toggle object.
@@ -61,9 +69,14 @@ class Toggle extends React.Component {
 		super( props );
 
 		this.onClick = this.props.onToggleDisabled;
+		this.onKeyUp = this.props.onToggleDisabled;
+
+		this.setEnablement = this.setEnablement.bind( this );
+		this.handleOnKeyDown = this.handleOnKeyDown.bind( this );
 
 		if ( props.disable !== true ) {
-			this.onClick = this.setEnablement.bind( this );
+			this.onClick = this.setEnablement;
+			this.onKeyUp = this.setEnablement;
 		}
 
 		this.state = {
@@ -79,13 +92,22 @@ class Toggle extends React.Component {
 	render() {
 		return <div>
 			<ToggleBar
-				isEnabled={ this.isEnabled() } onClick={ this.onClick } onKeyDown={ this.setEnablement } tabIndex="0"
-				role="checkbox" aria-label={ this.props.ariaLabel } aria-checked={ this.isEnabled() }
+				isEnabled={ this.isEnabled() }
+				onClick={ this.onClick }
+				onKeyUp={ this.onKeyUp }
+				onKeyDown={ this.handleOnKeyDown }
+				tabIndex="0"
+				role="checkbox"
+				aria-label={ this.props.ariaLabel }
+				aria-checked={ this.isEnabled() }
 			>
 				<ToggleBullet isEnabled={ this.isEnabled() } />
 			</ToggleBar>
 			<ToggleVisualLabel aria-hidden="true">
-				{ this.isEnabled() ? this.props.intl.formatMessage( messages.toggleLabelOn ) : this.props.intl.formatMessage( messages.toggleLabelOff ) }
+				{ this.isEnabled()
+					? this.props.intl.formatMessage( messages.toggleLabelOn )
+					: this.props.intl.formatMessage( messages.toggleLabelOff )
+				}
 			</ToggleVisualLabel>
 		</div>;
 	}
@@ -102,12 +124,12 @@ class Toggle extends React.Component {
 	/**
 	 * Sets the state to the opposite of the current state.
 	 *
-	 * @param {object} evt React SyntheticEvent.
+	 * @param {Object} event React SyntheticEvent.
 	 * @returns {void}
 	 */
-	setEnablement( evt ) {
+	setEnablement( event ) {
 		// Makes the toggle actionable with the Space bar key.
-		if ( evt.type === "keydown" && evt.which !== 32 ) {
+		if ( event.type === "keyup" && event.keyCode !== 32 ) {
 			return;
 		}
 
@@ -118,6 +140,21 @@ class Toggle extends React.Component {
 		} );
 
 		this.props.onSetEnablement( newState );
+	}
+
+	/**
+	 * Prevente the page from scrolling when using the Spacebar key.
+	 *
+	 * @param {Object} event React SyntheticEvent.
+	 *
+	 * @returns {void}
+	 */
+	handleOnKeyDown( event ) {
+		if ( event.keyCode !== 32 ) {
+			return;
+		}
+
+		event.preventDefault();
 	}
 }
 
@@ -133,6 +170,8 @@ Toggle.propTypes = {
 Toggle.defaultProps = {
 	isEnabled: false,
 	onSetEnablement: () => {},
+	disable: false,
+	onToggleDisabled: noop,
 };
 
 export default injectIntl( Toggle );

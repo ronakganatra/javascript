@@ -461,6 +461,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
                 className="c10"
                 onClick={[Function]}
                 onKeyDown={[Function]}
+                onKeyUp={[Function]}
                 role="checkbox"
                 tabIndex="0"
               >
@@ -545,6 +546,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
                 className="c10"
                 onClick={[Function]}
                 onKeyDown={[Function]}
+                onKeyUp={[Function]}
                 role="checkbox"
                 tabIndex="0"
               >
