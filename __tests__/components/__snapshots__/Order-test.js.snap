@@ -2,7 +2,6 @@
 
 exports[`A standard order 1`] = `
 .c1 {
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -321,14 +320,14 @@ exports[`A standard order 1`] = `
 }
 
 @media screen and (min-width:801px) and (max-width:1355px) {
-  .c19 {
+  .c19.c19 {
     padding-right: 0;
     padding-left: 42px;
     min-width: 0;
     vertical-align: middle;
   }
 
-  .c19 .screen-reader-text {
+  .c19.c19 .screen-reader-text {
     position: absolute;
     -webkit-clip: rect(1px,1px,1px,1px);
     clip: rect(1px,1px,1px,1px);
@@ -495,7 +494,6 @@ exports[`A standard order 1`] = `
 
 exports[`An Order with a disabled invoice button 1`] = `
 .c1 {
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -814,14 +812,14 @@ exports[`An Order with a disabled invoice button 1`] = `
 }
 
 @media screen and (min-width:801px) and (max-width:1355px) {
-  .c19 {
+  .c19.c19 {
     padding-right: 0;
     padding-left: 42px;
     min-width: 0;
     vertical-align: middle;
   }
 
-  .c19 .screen-reader-text {
+  .c19.c19 .screen-reader-text {
     position: absolute;
     -webkit-clip: rect(1px,1px,1px,1px);
     clip: rect(1px,1px,1px,1px);

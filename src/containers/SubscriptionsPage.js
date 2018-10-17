@@ -2,26 +2,23 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/SubscriptionsPage";
-import RenewalNotification from "../components/RenewalNotification";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.subscriptions.allIds;
 
 	let subscriptions = allIds.map( ( subscriptionId ) => {
 		const subscription = state.entities.subscriptions.byId[ subscriptionId ];
-		// Selects the latest order to get the latest subscription number.
-		const orderId = subscription.orders.slice( -1 )[ 0 ];
-		const order = state.entities.orders.byId[ orderId ];
 
-		const subscriptionProps = {
+		return {
 			id: subscription.id,
 			icon: subscription.product.icon,
 			name: subscription.name,
-			subscriptionNumber: order ? order.invoiceNumber : "",
 			used: subscription.used,
 			limit: subscription.limit,
+			subscriptionNumber: subscription.subscriptionNumber,
 			requiresManualRenewal: subscription.requiresManualRenewal,
 			hasNextPayment: subscription.nextPayment !== null,
 			nextPayment: new Date( subscription.nextPayment ),
@@ -31,7 +28,6 @@ export const mapStateToProps = ( state ) => {
 			billingCurrency: subscription.currency,
 			status: subscription.status,
 		};
-		return subscriptionProps;
 	} );
 
 	const query = state.ui.search.query;
@@ -90,11 +86,4 @@ const SubscriptionsPageContainer = connect(
 	mapDispatchToProps
 )( SubscriptionsPage );
 
-export const RenewalNotificationContainer = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)( RenewalNotification );
-
 export default SubscriptionsPageContainer;
-
-

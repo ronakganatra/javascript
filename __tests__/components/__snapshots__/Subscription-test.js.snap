@@ -3,7 +3,6 @@
 exports[`The Subscription component matches the snapshot 1`] = `
 .c1 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

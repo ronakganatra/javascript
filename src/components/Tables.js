@@ -5,7 +5,6 @@ import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 
 export const Zebra = styled.ul`
-	margin: 0;
  	padding: 0;
  	list-style: none;
  	position: relative;
@@ -25,7 +24,6 @@ Zebra.propTypes = {
 // The Rows are flex containers.
 export const Row = styled.li`
 	background: ${ props => props.background };
-	min-height: 100px;
 	display: flex;
 	padding: 16px 24px;
 	align-items: ${ props => props.verticalAlign };
@@ -74,6 +72,12 @@ export const RowMobileCollapse = styled( Row )`
 			font-size: inherit;
 		}
 	}
+`;
+
+export const CompactRow = styled( RowMobileCollapse )`
+	min-height: 0;
+	padding-top: 8px;
+	padding-bottom: 8px;
 `;
 
 /*
@@ -280,11 +284,18 @@ export function ListTable( props ) {
 		return null;
 	}
 
+	let firstColor = colors.$color_white;
+	let secondColor = colors.$color_background_light;
+	if ( props.invertZebra ) {
+		firstColor = secondColor;
+		secondColor = colors.$color_white;
+	}
+
 	// Do zebra striping background if props.doZebra is true (default).
 	if ( props.doZebra ) {
 		zebraProps.children = children.map( ( child, index ) => {
 			return React.cloneElement( child, {
-				background: ( index % 2 === 1 ) ? colors.$color_background_light : colors.$color_white,
+				background: ( index % 2 === 1 ) ? secondColor : firstColor,
 			} );
 		} );
 	}
@@ -300,8 +311,10 @@ ListTable.propTypes = {
 		PropTypes.node,
 	] ),
 	doZebra: PropTypes.bool,
+	invertZebra: PropTypes.bool,
 };
 
 ListTable.defaultProps = {
 	doZebra: true,
+	invertZebra: false,
 };

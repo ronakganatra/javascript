@@ -80,6 +80,7 @@ const setDownloadProps = ( products ) => {
 	} );
 };
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	let eBooks = setDownloadProps( getEbookProducts( state ) );
 	// Ebooks have escaped/encoded html entities. Need to decode back to human readable string.

@@ -5,6 +5,7 @@ import {
 } from "../actions/courses";
 import CoursesEnrollments from "../components/CoursesEnrollments";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
 	let coursesEnrollments = allIds.map( enrollmentId => {

@@ -7,7 +7,6 @@ exports[`the site component matches the snapshot 1`] = `
 
 .c0 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

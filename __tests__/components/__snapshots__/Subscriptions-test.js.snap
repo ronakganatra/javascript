@@ -2,7 +2,6 @@
 
 exports[`The Subscriptions component matches the snapshot 1`] = `
 .c1 {
-  margin: 0;
   padding: 0;
   list-style: none;
   position: relative;
@@ -15,7 +14,6 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 
 .c3 {
   background: #fff;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -37,7 +35,6 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 
 .c21 {
   background: #f7f7f7;
-  min-height: 100px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

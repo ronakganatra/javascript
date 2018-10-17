@@ -110,6 +110,7 @@ class ErrorDisplay extends React.Component {
 		);
 	}
 
+	/* eslint-disable complexity */
 	/**
 	 * Errors exist in a couple of varieties. This function sets some fields on all of these errors,
 	 * such that the rest of this class can handle all varieties.
@@ -140,6 +141,7 @@ class ErrorDisplay extends React.Component {
 		error.code = "GENERAL_SUPPORT_ERROR";
 		return error;
 	}
+	/* eslint-enable complexity */
 
 	/**
 	 * This function sets this.recodedMessage according to the error type and information in the lookup table.
@@ -150,7 +152,9 @@ class ErrorDisplay extends React.Component {
 	 */
 	recodeMessage( error ) {
 		if ( error.code ) {
-			this.recodedMessage = error.code in errorMessageLookUp ? errorMessageLookUp[ error.code ].message : errorMessageLookUp.GENERAL_SUPPORT_ERROR.message;
+			this.recodedMessage = error.code in errorMessageLookUp
+				? errorMessageLookUp[ error.code ].message
+				: errorMessageLookUp.GENERAL_SUPPORT_ERROR.message;
 		} else if ( error.validator ) {
 			this.recodedMessage = error.message;
 		}
@@ -165,7 +169,9 @@ class ErrorDisplay extends React.Component {
 	 */
 	setMessageType( error ) {
 		if ( error.code ) {
-			this.messageType = error.code in errorMessageLookUp ? errorMessageLookUp[ error.code ].type : errorMessageLookUp.GENERAL_SUPPORT_ERROR.type;
+			this.messageType = error.code in errorMessageLookUp
+				? errorMessageLookUp[ error.code ].type
+				: errorMessageLookUp.GENERAL_SUPPORT_ERROR.type;
 		} else if ( error.validator ) {
 			this.messageType = "warning";
 		}
@@ -213,7 +219,6 @@ class ErrorDisplay extends React.Component {
 
 ErrorDisplay.propTypes = {
 	error: PropTypes.object,
-	type: PropTypes.string,
 	showIcon: PropTypes.bool,
 	className: PropTypes.string,
 };
@@ -221,6 +226,7 @@ ErrorDisplay.propTypes = {
 ErrorDisplay.defaultProps = {
 	error: null,
 	showIcon: true,
+	className: null,
 };
 
 export default injectIntl( ErrorDisplay );
