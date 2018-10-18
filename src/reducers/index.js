@@ -12,7 +12,11 @@ import { uiHelpBeaconModalReducer } from "./helpBeacon";
 import { uiSearch } from "./search.js";
 import { uiCourseInviteRequestReducer } from "./courses";
 import { uiInvoicesReducer } from "./invoices";
-import { allIdsReducer, byIdReducer, uiSitesReducer } from "./sites.js";
+import {
+	allIdsReducer,
+	byIdReducer,
+	uiSitesReducer,
+} from "./sites.js";
 import {
 	allIdsCoursesEnrollmentsReducer,
 	allIdsCoursesReducer,
@@ -29,15 +33,36 @@ import {
 	uiAllSubscriptionsReducer,
 	uiCancelSubscriptionsReducer,
 } from "./subscriptions.js";
-import { allIdsProductsReducer, byIdProductsReducer, uiAllProductsReducer } from "./products.js";
-import { allIdsOrdersReducer, byIdOrdersReducer, uiOrdersReducer } from "./orders";
-import { allIdsRefundsReducer, byIdRefundsReducer, uiRefundsReducer } from "./refunds";
-import { allIdsComposerTokensReducer, byIdComposerTokensReducer, uiComposerTokensReducer } from "./composerTokens";
+import {
+	allIdsProductsReducer,
+	byIdProductsReducer,
+	uiAllProductsReducer,
+} from "./products.js";
+import {
+	allIdsOrdersReducer,
+	byIdOrdersReducer,
+	uiOrdersReducer,
+} from "./orders";
+import {
+	allIdsRefundsReducer,
+	byIdRefundsReducer,
+	uiRefundsReducer,
+} from "./refunds";
+import {
+	allIdsComposerTokensReducer,
+	byIdComposerTokensReducer,
+	uiComposerTokensReducer,
+} from "./composerTokens";
 import {
 	allIdsConfigurationServiceRequestsReducer,
 	byIdConfigurationServiceRequestsReducer,
 	uiConfigurationServiceRequestReducer,
 } from "./configurationServiceRequest";
+import {
+	allIdsProductGroupsReducer,
+	byIdProductGroupsReducer,
+	uiAllProductGroupsReducer,
+} from "./productGroups";
 
 
 export const uiReducer = combineReducers( {
@@ -52,6 +77,7 @@ export const uiReducer = combineReducers( {
 	courseInviteModal: uiCourseInviteModalReducer,
 	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
+	productGroups: uiAllProductGroupsReducer,
 	orders: uiOrdersReducer,
 	invoiceModal: uiInvoicesReducer,
 	refunds: uiRefundsReducer,
@@ -79,6 +105,11 @@ export const entitiesSubscriptionsReducer = combineReducers( {
 export const entitiesProductsReducer = combineReducers( {
 	byId: byIdProductsReducer,
 	allIds: allIdsProductsReducer,
+} );
+
+export const entitiesProductGroupsReducer = combineReducers( {
+	byId: byIdProductGroupsReducer,
+	allIds: allIdsProductGroupsReducer,
 } );
 
 export const entitiesOrdersReducer = combineReducers( {
@@ -117,6 +148,7 @@ export const entitiesReducer = combineReducers( {
 	courses: entitiesCoursesReducer,
 	coursesEnrollments: entitiesCoursesEnrollmentsReducer,
 	products: entitiesProductsReducer,
+	productGroups: entitiesProductGroupsReducer,
 	orders: entitiesOrdersReducer,
 	refunds: entitiesRefundsReducer,
 	composerTokens: entitiesComposerTokensReducer,
