@@ -3,6 +3,7 @@ import { uiReducer, entitiesSitesReducer, entitiesReducer, rootReducer, entities
 import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptionsReducer, uiAllSubscriptionsReducer } from "../../src/reducers/subscriptions";
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
+import { byIdProductGroupsReducer, allIdsProductGroupsReducer, uiAllProductGroupsReducer } from "../../src/reducers/productGroups";
 import { allIdsCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer, RETRIEVE_COURSES_SUCCESS } from "../../src/reducers/courses";
 import { GET_SITE_PRODUCTS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
@@ -11,7 +12,8 @@ import { allIdsReducer, byIdReducer, uiSitesReducer } from "../../src/reducers/s
 import { userReducer } from "../../src/reducers/user";
 import { CREATE_COMPOSER_TOKEN_REQUEST } from "../../src/actions/composerTokens";
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer } from "../../src/reducers/composerTokens";
-import { entitiesComposerTokensReducer } from "../../src/reducers";
+import { entitiesComposerTokensReducer, entitiesProductGroupsReducer } from "../../src/reducers";
+import { GET_ALL_PRODUCT_GROUPS_SUCCESS } from "../../src/actions/productGroups";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -84,6 +86,14 @@ jest.mock( "../../src/reducers/products.js", () => {
 	}
 } );
 
+jest.mock( "../../src/reducers/productGroups.js", () => {
+	return {
+		byIdProductGroupsReducer: jest.fn( ( state = {} ) => { return { name: "byIdProductGroupsReducer" }; } ),
+		allIdsProductGroupsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsProductGroupsReducer" }; } ),
+		uiAllProductGroupsReducer: jest.fn( ( state = {} ) => { return { name: "uiAllProductGroupsReducer" }; } ),
+	}
+} );
+
 jest.mock( "../../src/reducers/composerTokens.js", () => {
 	return {
 		byIdComposerTokensReducer: jest.fn( ( state = {} ) => { return { name: "byIdComposerTokensReducer" }; } ),
@@ -130,6 +140,7 @@ test( 'ui reducer', () => {
 		"newsletter": { "name": "uiNewsletterReducer" },
 		"orders": {},
 		"products": { "name": "uiAllProductsReducer" },
+		"productGroups": { "name": "uiAllProductGroupsReducer" },
 		"refunds": { "name": "uiRefundsReducer" },
 		"resetPassword": {
 			"error": null,
@@ -211,6 +222,18 @@ test( 'entities products reducer', () => {
 	expect( allIdsProductsReducer ).toHaveBeenCalledWith( {}, action );
 } );
 
+test( 'entities productGroups reducer', () => {
+	const state = { allIds: {}, byId: {} };
+	const action = {
+		type: GET_ALL_PRODUCT_GROUPS_SUCCESS,
+	};
+	const expected = { allIds: { name: "allIdsProductGroupsReducer"}, byId: { name: "byIdProductGroupsReducer" } };
+	const actual = entitiesProductGroupsReducer( state, action );
+	expect( actual ).toEqual( expected );
+	expect( byIdProductGroupsReducer ).toHaveBeenCalledWith( {}, action );
+	expect( allIdsProductGroupsReducer ).toHaveBeenCalledWith( {}, action );
+} );
+
 test( 'entities reducer', () => {
 	const state = { sites: { allIds: {}, byId: {} }, composerTokens: { allIds: {}, byId: {} }, subscriptions: { allIds: {}, byId: {} }, courses: { allIds: {}, byId: {} } };
 	const action = {
@@ -222,6 +245,7 @@ test( 'entities reducer', () => {
 		sites: { allIds: { name: "allIdsReducer" }, byId: { name: "byIdReducer" } },
 		subscriptions: { allIds: { name: "allIdsSubscriptionsReducer" }, byId: { name: "byIdSubscriptionsReducer"} },
 		products: { allIds: { name: "allIdsProductsReducer" }, byId: { name: "byIdProductsReducer" } },
+		productGroups: { allIds: { name: "allIdsProductGroupsReducer" }, byId: { name: "byIdProductGroupsReducer" } },
 		refunds: { allIds: { name: "allIdsRefundsReducer" }, byId: { name: "byIdRefundsReducer" } },
 		orders: { allIds: [], byId: {} },
 		courses: { byId: { name: "byIdCoursesReducer" }, allIds: { name: "allIdsCoursesReducer" } },
@@ -266,6 +290,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			},
 			"orders": { "allIds": [], "byId": {} },
 			"products": { "allIds": { "name": "allIdsProductsReducer" }, "byId": { "name": "byIdProductsReducer" } },
+			"productGroups": { "allIds": { "name": "allIdsProductGroupsReducer" }, "byId": { "name": "byIdProductGroupsReducer" } },
 			"refunds": { "allIds": { "name": "allIdsRefundsReducer" }, "byId": { "name": "byIdRefundsReducer" } },
 			"sites": { "allIds": { "name": "allIdsReducer" }, "byId": { "name": "byIdReducer" } },
 			"subscriptions": {
@@ -299,6 +324,7 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			"newsletter": { "name": "uiNewsletterReducer" },
 			"orders": { "error": "", "retrievingOrders": false },
 			"products": { "name": "uiAllProductsReducer" },
+			"productGroups": { "name": "uiAllProductGroupsReducer" },
 			"refunds": { "name": "uiRefundsReducer" },
 			"resetPassword": {
 				"error": null,
