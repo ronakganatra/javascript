@@ -28,36 +28,36 @@ jest.mock( "../../src/functions/auth", () => {
 
 test( 'get all product groups action creator with success', () => {
 	const dispatch = jest.fn();
-	const getAllProductGroupsFunc = actions.getAllProductGroups();
+	const getProductGroupsFunc = actions.getProductGroups();
 
-	expect( getAllProductGroupsFunc ).toBeInstanceOf( Function );
+	expect( getProductGroupsFunc ).toBeInstanceOf( Function );
 
 	let request = api.prepareInternalRequest( `productGroups/` );
 
-	return getAllProductGroupsFunc( dispatch ).then( () => {
+	return getProductGroupsFunc( dispatch ).then( () => {
 		expect( api.prepareInternalRequest ).toHaveBeenCalled();
 		expect( api.doRequest ).toHaveBeenCalledWith( request );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductGroupsSuccess( [ { name: "ProductGroup" } ] ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.getProductGroupsSuccess( [ { name: "ProductGroup" } ] ) );
 	} );
 } );
 
 
 test( 'get all product groups action creator with failure', () => {
 	const dispatch = jest.fn();
-	const getAllProductGroupsFunc = actions.getAllProductGroups();
+	const getProductGroupsFunc = actions.getProductGroups();
 
 	// Force a rejection to ensure the retrieveSitesFailure will be called.
 	api.doRequest.mockImplementation( () => {
 		return Promise.reject( Error( "Authorization required" ) );
 	} );
 
-	expect( getAllProductGroupsFunc ).toBeInstanceOf( Function );
+	expect( getProductGroupsFunc ).toBeInstanceOf( Function );
 
 	let request = api.prepareInternalRequest( `productGroups/` );
 
-	return getAllProductGroupsFunc( dispatch ).then( () => {
+	return getProductGroupsFunc( dispatch ).then( () => {
 		expect( api.prepareInternalRequest ).toHaveBeenCalled();
 		expect( api.doRequest ).toHaveBeenCalledWith( request );
-		expect( dispatch ).toHaveBeenCalledWith( actions.getAllProductGroupsFailure( "Authorization required" ) );
+		expect( dispatch ).toHaveBeenCalledWith( actions.getProductGroupsFailure( "Authorization required" ) );
 	} );
 } );

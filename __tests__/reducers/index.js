@@ -13,7 +13,7 @@ import { userReducer } from "../../src/reducers/user";
 import { CREATE_COMPOSER_TOKEN_REQUEST } from "../../src/actions/composerTokens";
 import { allIdsComposerTokensReducer, byIdComposerTokensReducer } from "../../src/reducers/composerTokens";
 import { entitiesComposerTokensReducer, entitiesProductGroupsReducer } from "../../src/reducers";
-import { GET_ALL_PRODUCT_GROUPS_SUCCESS } from "../../src/actions/productGroups";
+import { GET_PRODUCT_GROUPS_SUCCESS } from "../../src/actions/productGroups";
 
 jest.mock( "../../src/reducers/sites.js", () => {
 	return {
@@ -225,7 +225,7 @@ test( 'entities products reducer', () => {
 test( 'entities productGroups reducer', () => {
 	const state = { allIds: {}, byId: {} };
 	const action = {
-		type: GET_ALL_PRODUCT_GROUPS_SUCCESS,
+		type: GET_PRODUCT_GROUPS_SUCCESS,
 	};
 	const expected = { allIds: { name: "allIdsProductGroupsReducer"}, byId: { name: "byIdProductGroupsReducer" } };
 	const actual = entitiesProductGroupsReducer( state, action );

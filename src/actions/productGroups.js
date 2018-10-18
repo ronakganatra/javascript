@@ -5,9 +5,9 @@ import { prepareInternalRequest, doRequest } from "../functions/api";
  * Action types
  */
 
-export const GET_ALL_PRODUCT_GROUPS_REQUEST = "GET_ALL_PRODUCT_GROUPS_GROUP_REQUEST";
-export const GET_ALL_PRODUCT_GROUPS_SUCCESS = "GET_ALL_PRODUCT_GROUPS_GROUP_SUCCESS";
-export const GET_ALL_PRODUCT_GROUPS_FAILURE = "GET_ALL_PRODUCT_GROUPS_GROUP_FAILURE";
+export const GET_PRODUCT_GROUPS_REQUEST = "GET_PRODUCT_GROUPS_GROUP_REQUEST";
+export const GET_PRODUCT_GROUPS_SUCCESS = "GET_PRODUCT_GROUPS_GROUP_SUCCESS";
+export const GET_PRODUCT_GROUPS_FAILURE = "GET_PRODUCT_GROUPS_GROUP_FAILURE";
 
 /*
  * Action creators
@@ -18,9 +18,9 @@ export const GET_ALL_PRODUCT_GROUPS_FAILURE = "GET_ALL_PRODUCT_GROUPS_GROUP_FAIL
  *
  * @returns {Object} A get all product groups action.
  */
-export function getAllProductGroupsRequest() {
+export function getProductGroupsRequest() {
 	return {
-		type: GET_ALL_PRODUCT_GROUPS_REQUEST,
+		type: GET_PRODUCT_GROUPS_REQUEST,
 	};
 }
 
@@ -29,9 +29,9 @@ export function getAllProductGroupsRequest() {
  * @param {Object} productGroups The product groups json object
  * @returns {Object} A get all product groups success action.
  */
-export function getAllProductGroupsSuccess( productGroups ) {
+export function getProductGroupsSuccess( productGroups ) {
 	return {
-		type: GET_ALL_PRODUCT_GROUPS_SUCCESS,
+		type: GET_PRODUCT_GROUPS_SUCCESS,
 		productGroups: productGroups,
 	};
 }
@@ -43,9 +43,9 @@ export function getAllProductGroupsSuccess( productGroups ) {
  *
  * @returns {Object} A get all product groups failure action.
  */
-export function getAllProductGroupsFailure( errorMessage ) {
+export function getProductGroupsFailure( errorMessage ) {
 	return {
-		type: GET_ALL_PRODUCT_GROUPS_FAILURE,
+		type: GET_PRODUCT_GROUPS_FAILURE,
 		message: errorMessage,
 	};
 }
@@ -55,14 +55,14 @@ export function getAllProductGroupsFailure( errorMessage ) {
  *
  * @returns {Object} A get all product groups action.
  */
-export function getAllProductGroups() {
+export function getProductGroups() {
 	return ( dispatch ) => {
-		dispatch( getAllProductGroupsRequest() );
+		dispatch( getProductGroupsRequest() );
 
 		const request = prepareInternalRequest( "productGroups/" );
 
 		return doRequest( request )
-			.then( json => dispatch( getAllProductGroupsSuccess( json ) ) )
-			.catch( error => dispatch( getAllProductGroupsFailure( error.message ) ) );
+			.then( json => dispatch( getProductGroupsSuccess( json ) ) )
+			.catch( error => dispatch( getProductGroupsFailure( error.message ) ) );
 	};
 }

@@ -1,7 +1,7 @@
 import {
-	GET_ALL_PRODUCT_GROUPS_FAILURE,
-	GET_ALL_PRODUCT_GROUPS_REQUEST,
-	GET_ALL_PRODUCT_GROUPS_SUCCESS,
+	GET_PRODUCT_GROUPS_FAILURE,
+	GET_PRODUCT_GROUPS_REQUEST,
+	GET_PRODUCT_GROUPS_SUCCESS,
 } from "../actions/productGroups";
 import _union from "lodash/union";
 
@@ -37,16 +37,16 @@ const rootState = {
  */
 export function uiAllProductGroupsReducer( state = rootState.ui.productGroups, action ) {
 	switch ( action.type ) {
-		case GET_ALL_PRODUCT_GROUPS_REQUEST:
+		case GET_PRODUCT_GROUPS_REQUEST:
 			return Object.assign( {}, state, {
 				requesting: true,
 				error: "",
 			} );
-		case GET_ALL_PRODUCT_GROUPS_SUCCESS:
+		case GET_PRODUCT_GROUPS_SUCCESS:
 			return Object.assign( {}, state, {
 				requesting: false,
 			} );
-		case GET_ALL_PRODUCT_GROUPS_FAILURE:
+		case GET_PRODUCT_GROUPS_FAILURE:
 			return Object.assign( {}, state, {
 				requesting: false,
 				error: action.message,
@@ -67,7 +67,7 @@ export function byIdProductGroupsReducer( state = rootState.entities.productGrou
 	let productGroups;
 
 	switch ( action.type ) {
-		case GET_ALL_PRODUCT_GROUPS_SUCCESS:
+		case GET_PRODUCT_GROUPS_SUCCESS:
 			productGroups = Object.assign( {}, state );
 
 			action.productGroups.forEach( ( productGroup ) => {
@@ -90,7 +90,7 @@ export function byIdProductGroupsReducer( state = rootState.entities.productGrou
  */
 export function allIdsProductGroupsReducer( state = rootState.entities.productGroups.allIds, action ) {
 	switch ( action.type ) {
-		case GET_ALL_PRODUCT_GROUPS_SUCCESS:
+		case GET_PRODUCT_GROUPS_SUCCESS:
 			return _union( state, action.productGroups.map( productGroup => productGroup.id ) );
 		default:
 			return state;
