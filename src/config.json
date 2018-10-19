@@ -6,42 +6,42 @@
     "Subscriptions": ["subscriptionNumber"]
   },
   "display": {
-    "Customers": ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions"],
-    "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
+    "Customers":     ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions"],
+    "Orders":        ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
     "Subscriptions": ["subscriptionNumber", "name", "subscriberId", "status", "startDate", "endDate", "nextPayment", "orders"],
-    "Sites": ["url", "userId", "creationDate", "subscriptions"],
+    "Sites":         ["url", "userId", "creationDate", "subscriptions"],
     "CustomerNotes": ["content", "nextContactDate", "authorId", "createdAt","actions"]
   },
   "headers": {
     "Customers": {
-      "userEmail": "Email",
+      "userEmail":     "Email",
       "userFirstName": "First name",
-      "userLastName": "Last name"
+      "userLastName":  "Last name"
     },
     "Orders": {
-      "customerEmail": "Email",
+      "customerEmail":     "Email",
       "customerFirstName": "First name",
-      "customerLastName": "Last name",
-      "customerId": "Customer",
-      "totalAmount": "Price",
-      "paymentProvider": "Payment method",
-      "items": "Products"
+      "customerLastName":  "Last name",
+      "customerId":        "Customer",
+      "totalAmount":       "Price",
+      "paymentProvider":   "Payment method",
+      "items":             "Products"
     },
     "Subscriptions": {
-      "name": "Product",
+      "name":         "Product",
       "subscriberId": "Customer",
-      "startDate": "Start date",
-      "endDate": "End date",
-      "nextPayment": "Next payment"
+      "startDate":    "Start date",
+      "endDate":      "End date",
+      "nextPayment":  "Next payment"
     },
     "Sites": {
-      "userId": "Customer",
+      "userId":       "Customer",
       "creationDate": "Creation date"
     },
     "CustomerNotes": {
       "nextContactDate": "Next contact date",
-      "authorId": "Author",
-      "createdAt": "Created at"
+      "authorId":        "Author",
+      "createdAt":       "Created at"
     }
   },
   "order": {
