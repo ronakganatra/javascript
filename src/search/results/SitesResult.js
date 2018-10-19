@@ -38,7 +38,7 @@ export default class SitesResult extends React.Component {
 		let items = subscriptions && subscriptions.map( function ( subscription ) {
 			let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", filters: [ [ "id", subscription.id ] ] } );
 
-			return <li key={ subscription.id }><button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: { subscription.name }</button></li>;
+			return <li key={ subscription.id }>{ subscription.name }&nbsp;<button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: #{ subscription.subscriptionNumber }</button></li>;
 		}, this );
 
 		// eslint-disable-next-line jsx-a11y/no-redundant-roles
