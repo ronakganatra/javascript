@@ -1,13 +1,14 @@
 {
   "searchable": {
-    "Orders":	 ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status"],
-    "Customers": ["userEmail", "username", "userFirstName", "userLastName"],
-    "Sites":     ["url"]
+    "Orders":	     ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status"],
+    "Customers":     ["userEmail", "username", "userFirstName", "userLastName"],
+    "Sites":         ["url"],
+    "Subscriptions": ["subscriptionNumber"]
   },
   "display": {
     "Customers": ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions"],
     "Orders": ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
-    "Subscriptions": ["name", "subscriberId", "startDate", "endDate", "nextPayment", "orders"],
+    "Subscriptions": ["subscriptionNumber", "name", "subscriberId", "status", "startDate", "endDate", "nextPayment", "orders"],
     "Sites": ["url", "userId", "creationDate", "subscriptions"],
     "CustomerNotes": ["content", "nextContactDate", "authorId", "createdAt","actions"]
   },
@@ -45,5 +46,8 @@
   },
   "order": {
     "Orders": "date DESC"
+  },
+  "include": {
+    "Orders": [ "subscriptions" ]
   }
 }

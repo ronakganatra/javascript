@@ -83,10 +83,15 @@ class Search extends React.Component {
 			order.unshift( `${ config.order[ query.resource ] }` );
 		}
 
+		let include = null;
+		if ( config.include[ query.resource ] ) {
+			include = config.include[ query.resource ];
+		}
+
 		// Make order unique.
 		order = Array.from( new Set( order ) );
 
-		let search = this.props.api.search( query.resource, { where: { and: filters }, limit: 1000, order: order.join( ", " ) } );
+		let search = this.props.api.search( query.resource, { where: { and: filters }, limit: 1000, order: order.join( ", " ), include } );
 
 		search.then( this.handleResponse ).catch( this.handleError );
 	}

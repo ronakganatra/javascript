@@ -13,6 +13,7 @@ export default class OrdersResult extends React.Component {
 
 		this.customerIdPresenter  = this.customerIdPresenter.bind( this );
 		this.totalAmountPresenter = this.totalAmountPresenter.bind( this );
+		this.itemsPresenter       = this.itemsPresenter.bind( this );
 		this.managePresenter      = this.managePresenter.bind( this );
 	}
 
@@ -36,11 +37,28 @@ export default class OrdersResult extends React.Component {
 	 *
 	 * @returns {ReactElement} the ProductsResult component.
 	 */
-	static itemsPresenter( items ) {
+	itemsPresenter( items ) {
 		// eslint-disable-next-line jsx-a11y/no-redundant-roles
-		return <ul role="list">
-			{ items && items.map( item => <li key={ item.id }>{ item.productName }</li> ) }
-		</ul>;
+		let list = items && items.map( item => {
+			let subscription = this.props.result.subscriptions.find( subscription => subscription.productId === item.productId );
+
+			let button = null;
+			if ( subscription ) {
+				let subscriptionFinder = getSearchCallback( this.props.search, { resource: "Subscriptions", filters: [ [ "id", subscription.id ] ] } );
+
+				button = <button onClick={ subscriptionFinder.bind( this ) }>Find Subscription: #{ subscription.subscriptionNumber }</button>;
+			}
+
+			return (
+				<li key={ item.id }>
+					{ item.productName }
+					&nbsp;
+					{ button }
+				</li>
+			)
+		} );
+
+		return <ul role="list">{ list }</ul>;
 	}
 
 	/**
@@ -69,6 +87,6 @@ export default class OrdersResult extends React.Component {
 						   totalAmountPresenter={ this.totalAmountPresenter }
 						   datePresenter={ datePresenter }
 						   managePresenter={ this.managePresenter }
-						   itemsPresenter={ OrdersResult.itemsPresenter }/>;
+						   itemsPresenter={ this.itemsPresenter }/>;
 	}
 }
