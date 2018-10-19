@@ -1,6 +1,6 @@
 {
   "searchable": {
-    "Orders":	     ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status"],
+    "Orders":        ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status"],
     "Customers":     ["userEmail", "username", "userFirstName", "userLastName"],
     "Sites":         ["url"],
     "Subscriptions": ["subscriptionNumber"]
