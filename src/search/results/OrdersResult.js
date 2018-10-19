@@ -38,7 +38,6 @@ export default class OrdersResult extends React.Component {
 	 * @returns {ReactElement} the ProductsResult component.
 	 */
 	itemsPresenter( items ) {
-		// eslint-disable-next-line jsx-a11y/no-redundant-roles
 		let list = items && items.map( item => {
 			let subscription = this.props.result.subscriptions.find( subscription => subscription.productId === item.productId );
 
@@ -58,6 +57,7 @@ export default class OrdersResult extends React.Component {
 			)
 		} );
 
+		// eslint-disable-next-line jsx-a11y/no-redundant-roles
 		return <ul role="list">{ list }</ul>;
 	}
 
