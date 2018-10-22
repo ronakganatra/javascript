@@ -5,6 +5,8 @@ import _pickBy from "lodash/pickBy";
 import _map from "lodash/map";
 import _forEach from "lodash/forEach";
 import _includes from "lodash/includes";
+import _isEmpty from "lodash/isEmpty";
+import _find from "lodash/find";
 
 import getEnv from "./getEnv";
 
@@ -126,6 +128,18 @@ export function getPluginsForSiteType( siteType, products ) {
 		return filterProductsByType( PLUGIN_MAPPING[ siteType ], products );
 	}
 	return [];
+}
+
+export function getPluginsFromParentGroup( slug, productGroups ) {
+	console.log( "productGroups argument: ", productGroups );
+	if ( _isEmpty( productGroups ) ) {
+		return;
+	}
+	const parentGroup = _find( productGroups, ( productGroup ) => {
+		return productGroup.slug.indexOf( slug ) !== -1;
+	} );
+
+	return _pickBy( productGroups, productGroup => productGroup.parentId === parentGroup.id );
 }
 
 /**

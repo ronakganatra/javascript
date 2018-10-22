@@ -3,7 +3,7 @@ import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
-import { getPluginsForSiteType, sortPluginsByPopularity } from "../functions/products";
+import { getPluginsForSiteType, getPluginsFromParentGroup, sortPluginsByPopularity } from "../functions/products";
 import _isEmpty from "lodash/isEmpty";
 import {
 	configurationServiceRequestModalClose,
@@ -53,6 +53,9 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const activeSubscriptions = subscriptions.filter( ( subscription ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
+
+	const testPlugins = getPluginsFromParentGroup( "all-plugins", state.entities.productGroups.byId );
+	console.log( ">>>>>>>>>>> ", testPlugins );
 
 	let plugins = getPluginsForSiteType( site.type, state.entities.products.byId ).map( ( plugin ) => {
 		// Set defaults
