@@ -119,6 +119,26 @@ class Routes extends React.Component {
 	}
 
 	/**
+	 * Checks whether or not the App should trigger the router and re-render.
+	 *
+	 * @param {Object} nextProps The next props.
+	 *
+	 * @returns {boolean} Whether the App should trigger the router and re-render.
+	 */
+	shouldComponentUpdate( nextProps ) {
+		if (
+			// Same page.
+			( this.props.router.location && this.props.router.location.pathname === nextProps.router.location.pathname ) ||
+			// Skip to Main Content link.
+			( nextProps.router.location && nextProps.router.location.hash === "#content" )
+		) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
