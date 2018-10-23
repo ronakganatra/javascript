@@ -5,8 +5,6 @@ import _pickBy from "lodash/pickBy";
 import _map from "lodash/map";
 import _forEach from "lodash/forEach";
 import _includes from "lodash/includes";
-import _isEmpty from "lodash/isEmpty";
-import _find from "lodash/find";
 
 import getEnv from "./getEnv";
 
@@ -75,16 +73,16 @@ function filterProductsByType( type, products ) {
  * @param {Array} plugins The plugins to sort.
  * @returns {Array} The sorted array of plugins.
  */
-function sortPluginsByPopularity( plugins ) {
+export function sortPluginsByPopularity( plugins ) {
 	/* Defines an array of plugin glnumbers in order of popularity:
 	 *
-     * Premium WP: "82101"
-     * Local WP: "82103"
-     * News WP : "82104"
-     * WooCommerce: "82105"
-     * Video WP: "82102"
-     * Local WooCommerce: "82106"
-     */
+	 * Premium WP: "82101"
+	 * Local WP: "82103"
+	 * News WP : "82104"
+	 * WooCommerce: "82105"
+	 * Video WP: "82102"
+	 * Local WooCommerce: "82106"
+	 */
 	const pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
 
 	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
@@ -130,17 +128,16 @@ export function getPluginsForSiteType( siteType, products ) {
 	return [];
 }
 
-export function getPluginsFromParentGroup( slug, productGroups ) {
-	console.log( "productGroups argument: ", productGroups );
-	if ( _isEmpty( productGroups ) ) {
-		return;
-	}
-	const parentGroup = _find( productGroups, ( productGroup ) => {
-		return productGroup.slug.indexOf( slug ) !== -1;
-	} );
-
-	return _pickBy( productGroups, productGroup => productGroup.parentId === parentGroup.id );
+export function getProductGroupsByParentSlug( slug, productGroups ) {
+	// Get the id of the parent productGroup.
+	const parentGroup = productGroups.find( productGroup => productGroup.slug.indexOf( slug ) !== -1 );
+	return productGroups.filter( productGroup => productGroup.parentId === parentGroup.id );
 }
+
+export function getProductIdsFromProductGroup( productGroup ) {
+	return productGroup.products.map( product => product.id );
+}
+
 
 /**
  * Returns the URL of the shop.
@@ -154,4 +151,3 @@ export function getShopUrl() {
 export const getEbooks = _partial( filterProductsByType, "ebook" );
 export const getCares = _partial( filterProductsByType, "care" );
 export const getCourses = _partial( filterProductsByType, "course" );
-export { sortPluginsByPopularity };

@@ -185,7 +185,7 @@ export function retrieveSites() {
 }
 
 /**
- * An action creator for loading sites, products and subscriptions.
+ * An action creator for loading sites, product(group)s and subscriptions.
  *
  * @returns {Object} a dispatcher that dispatches the actions.
  */
