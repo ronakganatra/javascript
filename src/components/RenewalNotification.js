@@ -60,8 +60,9 @@ const Header = styled.h2`
 
 const ImageTextContainer = styled.div`
 	display: flex;
-	padding: 8px;
+	padding: 16px;
 	vertical-align: middle;
+
 `;
 
 const InlineBlock = styled.div`
