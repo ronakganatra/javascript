@@ -9,6 +9,7 @@ import { IntlProvider } from "react-intl";
 import { connect, Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
+import * as queryString from "query-string";
 import menuItems from "./config/Menu";
 import { inLoginLayout, inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
@@ -23,9 +24,12 @@ import ResetPasswordContainer from "./containers/ResetPassword";
 import SendResetEmailSuccessPage from "./components/login/SendResetEmailSuccessPage";
 import ResetPasswordSuccessPage from "./components/login/ResetPasswordSuccessPage";
 import {
+	fetchAccessToken,
 	getRedirectUrl,
 	hasPeriLoginCookie,
+	removeCookies,
 	removePeriLoginCookie,
+	saveIntendedDestination,
 	setPeriLoginCookie,
 } from "./functions/auth";
 import ActivateContainer from "./containers/ActivateContainer";
@@ -168,6 +172,20 @@ class Routes extends React.Component {
 			if ( this.state.redirectTo ) {
 				removePeriLoginCookie();
 				window.location.replace( this.state.redirectTo );
+				return null;
+			}
+
+			const queryParams = queryString.parse( window.location.search );
+			if ( queryParams.redirect_to ) {
+				removeCookies();
+				fetchAccessToken()
+					.then( () => {
+						window.location.replace( queryParams.redirect_to );
+					} )
+					.catch( () => {
+						saveIntendedDestination( queryParams.redirect_to );
+						window.location.replace( "/login" );
+					} );
 				return null;
 			}
 
