@@ -250,7 +250,7 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 8px;
+  padding: 16px;
   vertical-align: middle;
 }
 
