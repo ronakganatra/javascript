@@ -99,7 +99,7 @@ function setupCompiler(host, port, protocol) {
 
     // If errors exist, only show errors.
     if (messages.errors.length) {
-      console.log(chalk.red('Failed to compile.'));
+      console.log(chalk.red('Compiled with errors.'));
       console.log();
       messages.errors.forEach(message => {
         console.log(message);
@@ -108,7 +108,7 @@ function setupCompiler(host, port, protocol) {
     }
 
     // Show warnings if no errors were found.
-    if (messages.warnings.length) {
+    if (messages.errors.length <= 0 && messages.warnings.length) {
       console.log(chalk.yellow('Compiled with warnings.'));
       console.log();
       messages.warnings.forEach(message => {
