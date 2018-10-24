@@ -76,6 +76,7 @@ class Routes extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
+
 		this.state = {};
 	}
 
@@ -111,6 +112,32 @@ class Routes extends React.Component {
 	}
 
 	/**
+	 * Initializes the HelpScout beacon, and identifies the user when that data is set.
+	 *
+	 * @param {Object} userData The user (profile) data for the currently logged in user.
+	 *
+	 * @returns {void}
+	 */
+	getHelpScoutBeacon( userData ) {
+		if ( ! userData.email.endsWith( "@yoast.com" ) ) {
+			return;
+		}
+
+		const beaconFunc = window.Beacon;
+		if ( beaconFunc.readyQueue ) {
+			beaconFunc( "init", "7dab4384-4a0a-4108-90bb-3a5e9dbb03c7" );
+		}
+		beaconFunc(
+			"identify",
+			{
+				name: ( userData.userFirstName || userData.niceName ) + ( userData.userLastName ? ` ${ userData.userLastName }` : "" ),
+				email: userData.email,
+				signature: userData.helpScoutSignature,
+			}
+		);
+	}
+
+	/**
 	 * Redirects the user to the login page while saving the location the user was actually trying to reach.
 	 * Saving this location allows us to redirect the user back to it as soon as the login succeeds.
 	 *
@@ -129,6 +156,9 @@ class Routes extends React.Component {
 	 */
 	render() {
 		if ( this.props.loggedIn === false ) {
+			// Logout from the HelpScout beacon.
+			// eslint-disable-next-line new-cap
+			window.Beacon( "logout" );
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
@@ -189,6 +219,8 @@ class Routes extends React.Component {
 				return null;
 			}
 
+			this.getHelpScoutBeacon( this.props.userData );
+
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
@@ -219,6 +251,7 @@ class Routes extends React.Component {
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
+	userData: PropTypes.object,
 	loggedIn: PropTypes.bool.isRequired,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
@@ -229,6 +262,7 @@ const RoutesContainer = connect(
 	( state ) => {
 		return {
 			userEnabled: state.user.enabled,
+			userData: state.user.data.profile,
 			loggedIn: state.user.loggedIn,
 			completedLogin: state.ui.login.completedLogin,
 			router: state.router,

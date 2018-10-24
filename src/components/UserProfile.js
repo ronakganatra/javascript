@@ -84,6 +84,9 @@ class UserProfile extends React.Component {
 			return;
 		}
 
+		// Logout from the HelpScout beacon.
+		// eslint-disable-next-line new-cap
+		window.Beacon( "logout" );
 		this.props.onLogoutClick();
 	}
 }
