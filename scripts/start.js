@@ -105,7 +105,6 @@ function setupCompiler(host, port, protocol) {
         console.log(message);
         console.log();
       });
-      return;
     }
 
     // Show warnings if no errors were found.
