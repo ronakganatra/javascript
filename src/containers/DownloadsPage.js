@@ -40,7 +40,7 @@ const getPluginProducts = ( state ) => {
 	   make the full transition to product groups */
 	let plugins;
 	if ( state.entities.productGroups.allIds.length > 0 ) {
-		plugins = state.entities.productGroups.Plugins.byId;
+		plugins = getPlugins( state.entities.productGroups.Plugins.byId );
 	} else {
 		plugins = getPlugins( state.entities.products.byId );
 	}
