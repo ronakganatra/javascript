@@ -25,6 +25,8 @@ export const PROFILE_UPDATE_REQUEST = "PROFILE_UPDATE_REQUEST";
 export const PROFILE_UPDATE_FAILURE = "PROFILE_UPDATE_FAILURE";
 export const PROFILE_UPDATE_SUCCESS = "PROFILE_UPDATE_SUCCESS";
 
+export const BEACON_DATA_SENT = "BEACON_DATA_SENT";
+
 export const DISABLE_USER_START = "DISABLE_USER_START";
 export const DISABLE_USER_FAILURE = "DISABLE_USER_FAILURE";
 export const DISABLE_USER_SUCCESS = "DISABLE_USER_SUCCESS";
@@ -363,6 +365,17 @@ export function updateProfile( profile ) {
 				dispatch( profileUpdateSuccess( response ) );
 			} )
 			.catch( ( error ) => dispatch( profileUpdateFailure( error ) ) );
+	};
+}
+
+/**
+ * An action creator for beacon data sent action.
+ *
+ * @returns {Object} A beacon data sent action.
+ */
+export function sentUserDataToBeacon() {
+	return {
+		type: BEACON_DATA_SENT,
 	};
 }
 

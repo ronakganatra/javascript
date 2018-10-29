@@ -33,6 +33,7 @@ import {
 	setPeriLoginCookie,
 } from "./functions/auth";
 import ActivateContainer from "./containers/ActivateContainer";
+import { sentUserDataToBeacon } from "./actions/user";
 
 /*
  * Helper method to write global CSS.
@@ -76,7 +77,6 @@ class Routes extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
-
 		this.state = {};
 	}
 
@@ -112,32 +112,6 @@ class Routes extends React.Component {
 	}
 
 	/**
-	 * Initializes the HelpScout beacon, and identifies the user when that data is set.
-	 *
-	 * @param {Object} userData The user (profile) data for the currently logged in user.
-	 *
-	 * @returns {void}
-	 */
-	getHelpScoutBeacon( userData ) {
-		if ( ! userData.email.endsWith( "@yoast.com" ) ) {
-			return;
-		}
-
-		const beaconFunc = window.Beacon;
-		if ( beaconFunc.readyQueue ) {
-			beaconFunc( "init", "7dab4384-4a0a-4108-90bb-3a5e9dbb03c7" );
-		}
-		beaconFunc(
-			"identify",
-			{
-				name: ( userData.userFirstName || userData.niceName ) + ( userData.userLastName ? ` ${ userData.userLastName }` : "" ),
-				email: userData.email,
-				signature: userData.helpScoutSignature,
-			}
-		);
-	}
-
-	/**
 	 * Redirects the user to the login page while saving the location the user was actually trying to reach.
 	 * Saving this location allows us to redirect the user back to it as soon as the login succeeds.
 	 *
@@ -150,15 +124,41 @@ class Routes extends React.Component {
 	}
 
 	/**
+	 * Will send the userData to the dataLayer, only if the beacon has no data yet, and only if the email is available.
+	 * Will also dispatch the sentUserDataBeacon action, in order to set beaconHasData to true.
+	 *
+	 * @returns {void}
+	 */
+	populateBeacon() {
+		if ( ! this.props.beaconHasData ) {
+			if ( this.props.userData.email.length > 0 ) {
+				const userData = this.props.userData;
+
+				/* eslint-disable camelcase */
+				window.dataLayer.push( {
+					user_name: ( userData.userFirstName || userData.niceName ) + ( userData.userLastName ? ` ${ userData.userLastName }` : "" ),
+					user_email: userData.email,
+					helpscout_signature: userData.helpScoutSignature,
+					event: "yoast_app_user_populated",
+				} );
+				/* eslint-enable camelcase */
+
+				this.props.sentUserDataToBeacon();
+			}
+		}
+	}
+
+	componentDidUpdate() {
+		this.populateBeacon();
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
 		if ( this.props.loggedIn === false ) {
-			// Logout from the HelpScout beacon.
-			// eslint-disable-next-line new-cap
-			window.Beacon( "logout" );
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
@@ -219,8 +219,6 @@ class Routes extends React.Component {
 				return null;
 			}
 
-			this.getHelpScoutBeacon( this.props.userData );
-
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
@@ -252,23 +250,38 @@ class Routes extends React.Component {
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
 	userData: PropTypes.object,
+	beaconHasData: PropTypes.bool,
 	loggedIn: PropTypes.bool.isRequired,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
 	router: PropTypes.object,
+	sendUserDataToBeacon: PropTypes.func,
+};
+
+const mapStateToProps = ( state ) => {
+	return {
+		userEnabled: state.user.enabled,
+		userData: state.user.data.profile,
+		beaconHasData: state.user.beaconHasData,
+		loggedIn: state.user.loggedIn,
+		completedLogin: state.ui.login.completedLogin,
+		router: state.router,
+	};
+};
+
+const mapDispatchToProps = ( dispatch ) => {
+	return {
+		sentUserDataToBeacon: () => {
+			dispatch( sentUserDataToBeacon() );
+		},
+	};
 };
 
 const RoutesContainer = connect(
-	( state ) => {
-		return {
-			userEnabled: state.user.enabled,
-			userData: state.user.data.profile,
-			loggedIn: state.user.loggedIn,
-			completedLogin: state.ui.login.completedLogin,
-			router: state.router,
-		};
-	}
+	mapStateToProps,
+	mapDispatchToProps,
 )( Routes );
+
 
 class App extends Component {
 	/**
