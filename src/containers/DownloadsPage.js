@@ -16,10 +16,7 @@ import {
 } from "../actions/composerTokens";
 
 const getEbookProducts = ( state ) => {
-	let eBooks = getEbooks( state.entities.products.byId );
-	if ( state.entities.productGroups.allIds.length > 0 ){
-		eBooks = state.entities.productGroups.eBooks.byId;
-	}
+	const eBooks = getEbooks( state.entities.products.byId );
 	const completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
 	const lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
@@ -39,15 +36,14 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
-	// Console.log( state.entities );
-	console.log( "productGroups: ", state.entities.productGroups );
-	/* In case productGroups do not exist yet, use the products instead */
-	let plugins = getPlugins( state.entities.products.byId );
+	/* In case productGroups do not exist yet, use the products instead. This conditional will be removed once we
+	   make the full transition to product groups */
+	let plugins;
 	if ( state.entities.productGroups.allIds.length > 0 ) {
-		console.log( "----------------------------------------------- state.entities.productGroups.allIds: ", state.entities.productGroups.allIds );
 		plugins = state.entities.productGroups.Plugins.byId;
+	} else {
+		plugins = getPlugins( state.entities.products.byId );
 	}
-	// COMMENT const plugins = getPlugins( state.entities.productGroups.Plugins ) || getPlugins( state.entities.products.byId );
 
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
 
