@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
-import "./App.css";
 import "react-select/dist/react-select.css";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectGlobal } from "styled-components";
@@ -10,6 +9,10 @@ import { connect, Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import * as queryString from "query-string";
+import omit from "lodash/omit";
+import isEqual from "lodash/isEqual";
+
+import "./App.css";
 import menuItems from "./config/Menu";
 import { inLoginLayout, inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
@@ -153,11 +156,46 @@ class Routes extends React.Component {
 	}
 
 	/**
+	 * Checks whether or not the App should trigger the router and re-render.
+	 *
+	 * @param {Object} nextProps The next props.
+	 *
+	 * @returns {boolean} Whether the App should trigger the router and re-render.
+	 */
+	shouldComponentUpdate( nextProps ) {
+		const simpleProps     = omit( this.props, [ "router", "history" ] );
+		const simpleNextProps = omit( nextProps, [ "router", "history" ] );
+
+		if ( ! isEqual( simpleNextProps, simpleProps ) ) {
+			return true;
+		}
+
+		if (
+			// Same page.
+			( this.props.router.location && this.props.router.location.pathname === nextProps.router.location.pathname ) ||
+			// Skip to Main Content link.
+			( nextProps.router.location && nextProps.router.location.hash === "#content" )
+		) {
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		try {
+			if ( window.self !== window.top ) {
+				return <span />;
+			}
+		} catch ( e ) {
+			return <span />;
+		}
+
 		if ( this.props.loggedIn === false ) {
 			return (
 				<ConnectedRouter history={ this.props.history }>
