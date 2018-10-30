@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
-import "./App.css";
 import "react-select/dist/react-select.css";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectGlobal } from "styled-components";
@@ -10,6 +9,10 @@ import { connect, Provider } from "react-redux";
 import { ConnectedRouter } from "react-router-redux";
 import { Redirect, Route, Switch } from "react-router-dom";
 import * as queryString from "query-string";
+import omit from "lodash/omit";
+import isEqual from "lodash/isEqual";
+
+import "./App.css";
 import menuItems from "./config/Menu";
 import { inLoginLayout, inMainLayout, inSingleLayout } from "./components/Layout";
 import PageNotFound from "./components/PageNotFound";
@@ -33,6 +36,7 @@ import {
 	setPeriLoginCookie,
 } from "./functions/auth";
 import ActivateContainer from "./containers/ActivateContainer";
+import { sentUserDataToBeacon } from "./actions/user";
 
 /*
  * Helper method to write global CSS.
@@ -123,6 +127,35 @@ class Routes extends React.Component {
 	}
 
 	/**
+	 * Will send the userData to the dataLayer, only if the beacon has no data yet, and only if the email is available.
+	 * Will also dispatch the sentUserDataBeacon action, in order to set beaconHasData to true.
+	 *
+	 * @returns {void}
+	 */
+	populateBeacon() {
+		if ( ! this.props.beaconHasData ) {
+			if ( this.props.userData.email.length > 0 ) {
+				const userData = this.props.userData;
+
+				/* eslint-disable camelcase */
+				window.dataLayer.push( {
+					user_name: ( userData.userFirstName || userData.niceName ) + ( userData.userLastName ? ` ${ userData.userLastName }` : "" ),
+					user_email: userData.email,
+					helpscout_signature: userData.helpScoutSignature,
+					event: "yoast_app_user_populated",
+				} );
+				/* eslint-enable camelcase */
+
+				this.props.sentUserDataToBeacon();
+			}
+		}
+	}
+
+	componentDidUpdate() {
+		this.populateBeacon();
+	}
+
+	/**
 	 * Checks whether or not the App should trigger the router and re-render.
 	 *
 	 * @param {Object} nextProps The next props.
@@ -130,6 +163,13 @@ class Routes extends React.Component {
 	 * @returns {boolean} Whether the App should trigger the router and re-render.
 	 */
 	shouldComponentUpdate( nextProps ) {
+		const simpleProps     = omit( this.props, [ "router", "history" ] );
+		const simpleNextProps = omit( nextProps, [ "router", "history" ] );
+
+		if ( ! isEqual( simpleNextProps, simpleProps ) ) {
+			return true;
+		}
+
 		if (
 			// Same page.
 			( this.props.router.location && this.props.router.location.pathname === nextProps.router.location.pathname ) ||
@@ -148,6 +188,14 @@ class Routes extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		try {
+			if ( window.self !== window.top ) {
+				return <span />;
+			}
+		} catch ( e ) {
+			return <span />;
+		}
+
 		if ( this.props.loggedIn === false ) {
 			return (
 				<ConnectedRouter history={ this.props.history }>
@@ -239,22 +287,39 @@ class Routes extends React.Component {
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,
+	userData: PropTypes.object,
+	beaconHasData: PropTypes.bool,
 	loggedIn: PropTypes.bool.isRequired,
 	history: PropTypes.object,
 	completedLogin: PropTypes.bool,
 	router: PropTypes.object,
+	sendUserDataToBeacon: PropTypes.func,
+};
+
+const mapStateToProps = ( state ) => {
+	return {
+		userEnabled: state.user.enabled,
+		userData: state.user.data.profile,
+		beaconHasData: state.user.beaconHasData,
+		loggedIn: state.user.loggedIn,
+		completedLogin: state.ui.login.completedLogin,
+		router: state.router,
+	};
+};
+
+const mapDispatchToProps = ( dispatch ) => {
+	return {
+		sentUserDataToBeacon: () => {
+			dispatch( sentUserDataToBeacon() );
+		},
+	};
 };
 
 const RoutesContainer = connect(
-	( state ) => {
-		return {
-			userEnabled: state.user.enabled,
-			loggedIn: state.user.loggedIn,
-			completedLogin: state.ui.login.completedLogin,
-			router: state.router,
-		};
-	}
+	mapStateToProps,
+	mapDispatchToProps,
 )( Routes );
+
 
 class App extends Component {
 	/**

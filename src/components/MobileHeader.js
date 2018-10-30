@@ -67,7 +67,9 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  */
 function MobileHeader( props ) {
 	let buttonMessage = props.loggingOut ? messages.signingOut : messages.signOut;
-	let onButtonClick = props.onLogoutClick;
+	let onButtonClick = () => {
+		props.onLogoutClick();
+	};
 	let buttonIcon = logout;
 
 	if ( props.detailPage ) {
