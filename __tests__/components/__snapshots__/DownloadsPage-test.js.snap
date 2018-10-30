@@ -774,8 +774,8 @@ exports[`the downloads page component matches the snapshot when there are no dow
 .c0 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c5 {

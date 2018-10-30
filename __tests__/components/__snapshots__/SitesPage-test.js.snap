@@ -256,8 +256,8 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 .c5 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c6 {
@@ -684,8 +684,8 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c5 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c6 {
@@ -1112,8 +1112,8 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c5 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c6 {
@@ -1334,8 +1334,8 @@ exports[`the sites page component without sites handling an onclick event on the
 .c1 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c7 {
@@ -1454,8 +1454,8 @@ exports[`the sites page component without sites handling an onclick event on the
 .c1 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
+  background-color: rgba( 255,0,0,0.2 );
 }
 
 .c7 {

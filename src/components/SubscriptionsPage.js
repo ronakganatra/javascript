@@ -7,6 +7,7 @@ import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
+import { GoToButtonLink } from "./Buttons";
 import noSubscriptionsImage from "./../images/noSubscriptions.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -140,10 +141,10 @@ class SubscriptionsPage extends React.Component {
 		return (
 			<NoResults
 				paragraphs={ noSubscriptionsParagraphs }
-				url="https://yoast.com/shop/"
 				imageSource={ noSubscriptionsImage }
-				pageContext="noSubscriptions"
-			/>
+			>
+				<GoToButtonLink />
+			</NoResults>
 		);
 	}
 }

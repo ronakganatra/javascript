@@ -11,6 +11,7 @@ import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 import NoResults from "./NoResults";
+import { GoToButtonLink } from "./Buttons";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
 
@@ -178,10 +179,10 @@ class DownloadsPage extends React.Component {
 			return (
 				<NoResults
 					paragraphs={ noDownloadsParagraphs }
-					url="https://yoast.com/shop/"
 					imageSource={ noDownloadsImage }
-					pageContext="noDownloads"
-				/>
+				>
+					<GoToButtonLink />
+				</NoResults>
 			);
 		}
 

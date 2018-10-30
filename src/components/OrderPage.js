@@ -7,6 +7,7 @@ import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import NoResults from "./NoResults";
+import { GoToButtonLink } from "./Buttons";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 
@@ -110,9 +111,11 @@ class OrderPage extends React.Component {
 		}
 		return (
 			<NoResults
-				paragraphs={ noOrdersParagraphs } url="https://yoast.com/shop/"
-				imageSource={ noOrdersImage } pageContext="noOrders"
-			/>
+				paragraphs={ noOrdersParagraphs }
+				imageSource={ noOrdersImage }
+			>
+				<GoToButtonLink />
+			</NoResults>
 		);
 	}
 

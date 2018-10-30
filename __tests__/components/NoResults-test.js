@@ -1,4 +1,5 @@
 import NoResults from "../../src/components/NoResults";
+import { GoToButtonLink } from "../../src/components/Buttons";
 import image from "../../src/images/noSites.svg";
 import { createComponentWithIntl } from "../../utils";
 import { FormattedMessage } from "react-intl";
@@ -21,7 +22,9 @@ test( 'the NoResults component matches the snapshot in the case of no sites' , (
 test( 'the NoResults component matches the snapshot in the case of no subscriptions' , () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<NoResults paragraphs={ paragraphs } url="" imageSource={ image } pageContext="noSubscriptions" />
+			<NoResults paragraphs={ paragraphs } url="" imageSource={ image }>
+				<GoToButtonLink />
+			</NoResults>
 		</MemoryRouter>
 	);
 
@@ -32,11 +35,12 @@ test( 'the NoResults component matches the snapshot in the case of no subscripti
 test( 'the NoResults component matches the snapshot in the case of no orders' , () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<NoResults paragraphs={ paragraphs } url="" imageSource={ image } pageContext="noOrders" />
+			<NoResults paragraphs={ paragraphs } url="" imageSource={ image }>
+				<GoToButtonLink />
+			</NoResults>
 		</MemoryRouter>
 	);
 
 	let tree = component.toJSON();
 	expect(tree).toMatchSnapshot();
 });
-

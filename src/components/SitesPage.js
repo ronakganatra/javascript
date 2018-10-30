@@ -7,6 +7,7 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import Sites from "./Sites";
 import Search from "./Search";
 import NoResults from "./NoResults";
+import { AddSiteIconButton } from "./Buttons";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";
@@ -219,18 +220,14 @@ class SitesPage extends React.Component {
 		const showSearch = hasSites || isSearch;
 		let paragraphs;
 		let imageSource;
-		let pageContext;
 
 		if ( hasSites ) {
-			pageContext = "hasSites";
 			paragraphs = null;
 			imageSource = null;
 		} else if ( isSearch ) {
-			pageContext = "noSites";
 			paragraphs = sitesNoResultsParagraphs;
 			imageSource = sitesNoResultsImage;
 		} else {
-			pageContext = "noSites";
 			paragraphs = noSitesParagraphs;
 			imageSource = noSitesImage;
 		}
@@ -241,12 +238,12 @@ class SitesPage extends React.Component {
 					{ showSearch && this.getSearch() }
 				</SiteAddContainer>
 				<NoResults
-					onClick={ props.addSite }
 					query={ props.query }
 					paragraphs={ paragraphs }
 					imageSource={ imageSource }
-					pageContext={ pageContext }
-				/>
+				>
+					<AddSiteIconButton onClick={ props.addSite } />
+				</NoResults>
 				{ hasSites && this.getConfigurationServiceRequest() }
 				{ hasSites && <Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage } /> }
 				{ this.getModal() }

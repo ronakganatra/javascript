@@ -12,6 +12,7 @@ import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import isEmpty from "lodash/isEmpty";
 import NoResults from "./NoResults";
+import { GoToButtonLink } from "./Buttons";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
 import MyYoastModal from "./MyYoastModal";
@@ -117,9 +118,11 @@ class CoursesEnrollments extends React.Component {
 		];
 
 		return <NoResults
-			url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
+			paragraphs={ paragraphs }
 			imageSource={ noSitesImage }
-		/>;
+		>
+			<GoToButtonLink url="https://yoast.com/courses" />
+		</NoResults>;
 	}
 
 	getModal() {
