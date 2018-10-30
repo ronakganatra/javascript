@@ -8,11 +8,11 @@ import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	addSite: {
-		id: "noresultsAddsite",
+		id: "suggestedActionAddsite",
 		defaultMessage: "Add site",
 	},
 	visitShop: {
-		id: "noresultsVisitShop",
+		id: "suggestedActionVisitShop",
 		defaultMessage: "Shop",
 	},
 } );

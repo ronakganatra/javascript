@@ -10,7 +10,7 @@ import { speak } from "@wordpress/a11y";
 import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
-import NoResults from "./NoResults";
+import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Buttons";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
@@ -177,12 +177,12 @@ class DownloadsPage extends React.Component {
 			);
 		} else if ( this.props.eBooks.length === 0 && this.props.plugins.length === 0 ) {
 			return (
-				<NoResults
+				<SuggestedAction
 					paragraphs={ noDownloadsParagraphs }
 					imageSource={ noDownloadsImage }
 				>
 					<GoToButtonLink />
-				</NoResults>
+				</SuggestedAction>
 			);
 		}
 

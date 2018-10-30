@@ -11,7 +11,7 @@ import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import isEmpty from "lodash/isEmpty";
-import NoResults from "./NoResults";
+import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Buttons";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
@@ -101,7 +101,7 @@ class CoursesEnrollments extends React.Component {
 	 *
 	 * @returns {Object} The element to render.
 	 */
-	renderNoResults() {
+	renderSuggestedAction() {
 		const paragraphs = [
 			<FormattedMessage
 				id="courses.noEnrollments.welcome"
@@ -117,12 +117,12 @@ class CoursesEnrollments extends React.Component {
 			/>,
 		];
 
-		return <NoResults
+		return <SuggestedAction
 			paragraphs={ paragraphs }
 			imageSource={ noSitesImage }
 		>
 			<GoToButtonLink url="https://yoast.com/courses" />
-		</NoResults>;
+		</SuggestedAction>;
 	}
 
 	getModal() {
@@ -207,7 +207,7 @@ class CoursesEnrollments extends React.Component {
 		const { coursesEnrollments } = this.props;
 
 		if ( isEmpty( coursesEnrollments ) ) {
-			return this.renderNoResults();
+			return this.renderSuggestedAction();
 		}
 
 		return (

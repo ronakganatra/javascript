@@ -4,13 +4,13 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { injectIntl } from "react-intl";
 
-const NoResultsContainer = styled.div`
+const SuggestedActionContainer = styled.div`
 	color: ${ colors.$color_black };
 	text-align: center;
 	margin-top: 10vh;
 `;
 
-const NoResultsImage = styled.img`
+const SuggestedActionImage = styled.img`
 	height: auto;
 	display: block;
 	margin: 0 auto;
@@ -24,39 +24,39 @@ const NoResultsImage = styled.img`
 `;
 
 /**
- * The NoResults component.
+ * The SuggestedAction component.
  *
  * @param {Object} props The props to use.
  *
- * @returns {ReactElement} The rendered NoResults component.
+ * @returns {ReactElement} The rendered SuggestedAction component.
  * @constructor
  */
-function NoResults( props ) {
+function SuggestedAction( props ) {
 	const {
 		paragraphs,
 		imageSource,
 	} = props;
 
 	return (
-		<NoResultsContainer>
+		<SuggestedActionContainer>
 			{ paragraphs && paragraphs.map( function( paragraph ) {
 				return <p key={ paragraph.props.id }>{ paragraph }</p>;
 			} ) }
 			{ props.children }
-			{ imageSource && <NoResultsImage src={ imageSource } alt="" /> }
-		</NoResultsContainer>
+			{ imageSource && <SuggestedActionImage src={ imageSource } alt="" /> }
+		</SuggestedActionContainer>
 	);
 }
 
-export default injectIntl( NoResults );
+export default injectIntl( SuggestedAction );
 
-NoResults.propTypes = {
+SuggestedAction.propTypes = {
 	paragraphs: PropTypes.arrayOf( PropTypes.element ),
 	imageSource: PropTypes.string,
 	children: PropTypes.any,
 };
 
-NoResults.defaultProps = {
+SuggestedAction.defaultProps = {
 	paragraphs: [],
 	imageSource: null,
 	children: null,

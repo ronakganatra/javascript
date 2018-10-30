@@ -6,7 +6,7 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
-import NoResults from "./NoResults";
+import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Buttons";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
@@ -105,17 +105,17 @@ class OrderPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<NoResults paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage } />
+					<SuggestedAction paragraphs={ noSearchResultsParagraphs } imageSource={ noResultsImage } />
 				</div>
 			);
 		}
 		return (
-			<NoResults
+			<SuggestedAction
 				paragraphs={ noOrdersParagraphs }
 				imageSource={ noOrdersImage }
 			>
 				<GoToButtonLink />
-			</NoResults>
+			</SuggestedAction>
 		);
 	}
 

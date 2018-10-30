@@ -6,7 +6,7 @@ import { speak } from "@wordpress/a11y";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import Sites from "./Sites";
 import Search from "./Search";
-import NoResults from "./NoResults";
+import SuggestedAction from "./SuggestedAction";
 import { AddSiteIconButton } from "./Buttons";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
@@ -237,13 +237,13 @@ class SitesPage extends React.Component {
 				<SiteAddContainer>
 					{ showSearch && this.getSearch() }
 				</SiteAddContainer>
-				<NoResults
+				<SuggestedAction
 					query={ props.query }
 					paragraphs={ paragraphs }
 					imageSource={ imageSource }
 				>
 					<AddSiteIconButton onClick={ props.addSite } />
-				</NoResults>
+				</SuggestedAction>
 				{ hasSites && this.getConfigurationServiceRequest() }
 				{ hasSites && <Sites sites={ props.sites } plugins={ props.plugins } onManage={ props.onManage } /> }
 				{ this.getModal() }
