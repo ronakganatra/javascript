@@ -8,7 +8,6 @@ const NoResultsContainer = styled.div`
 	color: ${ colors.$color_black };
 	text-align: center;
 	margin-top: 10vh;
-	background-color: rgba( 255, 0, 0, 0.2 );
 `;
 
 const NoResultsImage = styled.img`
