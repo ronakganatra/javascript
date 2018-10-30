@@ -12,7 +12,10 @@ import {
 	DISABLE_USER_START,
 	DISABLE_USER_FAILURE,
 	DISABLE_USER_SUCCESS,
-	LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE,
+	LOGOUT_REQUEST,
+	LOGOUT_SUCCESS,
+	LOGOUT_FAILURE,
+	BEACON_DATA_SENT,
 } from "../actions/user";
 import reduceReducers from "reduce-reducers";
 
@@ -54,6 +57,7 @@ const initialState = {
 	passwordResetError: null,
 	deletingProfile: false,
 	deleteProfileError: null,
+	beaconHasData: false,
 };
 
 /* eslint-disable complexity */
@@ -98,6 +102,22 @@ export function userDataReducer( state = initialState, action ) {
 				enabled: action.user.profile.enabled,
 				isFetching: false,
 			} );
+		default:
+			return state;
+	}
+}
+
+/**
+ * A reducer for the beaconHasData boolean in the user object.
+ *
+ * @param   {Object} state  The previous state of the store.
+ * @param   {Object} action The action that just occurred.
+ * @returns {Object} The new state for the store.
+ */
+export function beaconDataReducer( state = initialState, action ) {
+	switch ( action.type ) {
+		case BEACON_DATA_SENT:
+			return Object.assign( {}, state, { beaconHasData: true } );
 		default:
 			return state;
 	}
@@ -223,7 +243,7 @@ export function userDisableReducer( state = initialState, action ) {
 	}
 }
 
-const userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer, userDisableReducer );
+const userState = reduceReducers( userDataReducer, userEmailReducer, passwordResetReducer, userDisableReducer, beaconDataReducer );
 
 /**
  * A combineReducer for the user object.
