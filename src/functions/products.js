@@ -128,17 +128,6 @@ export function getPluginsForSiteType( siteType, products ) {
 	return [];
 }
 
-export function getProductGroupsByParentSlug( slug, productGroups ) {
-	// Get the id of the parent productGroup.
-	const parentGroup = productGroups.find( productGroup => productGroup.slug.indexOf( slug ) !== -1 );
-	return productGroups.filter( productGroup => productGroup.parentId === parentGroup.id );
-}
-
-export function getProductIdsFromProductGroup( productGroup ) {
-	return productGroup.products.map( product => product.id );
-}
-
-
 /**
  * Returns the URL of the shop.
  *

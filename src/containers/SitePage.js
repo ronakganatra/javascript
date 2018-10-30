@@ -4,16 +4,19 @@ import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlat
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import {
-	getPluginsForSiteType, getProductGroupsByParentSlug,
 	sortPluginsByPopularity,
 } from "../functions/products";
-import _isEmpty from "lodash/isEmpty";
 import {
 	configurationServiceRequestModalClose,
 	configurationServiceRequestModalOpen,
 	configureConfigurationServiceRequest,
 	loadConfigurationServiceRequests,
 } from "../actions/configurationServiceRequest";
+import {
+	addSubscriptionInfoToProductGroup,
+	getProductGroupsByParentSlug,
+	SITE_TYPE_PLUGIN_SLUG_MAPPING,
+} from "../functions/productGroups";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
@@ -60,116 +63,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const allProductGroups = state.entities.productGroups.allIds.map( ( id ) => {
 		return state.entities.productGroups.byId[ id ];
 	} );
-	const pluginProductGroups = getProductGroupsByParentSlug( "all-plugins", allProductGroups )
+
+	let plugins = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ], allProductGroups )
 		.map( ( productGroup ) => {
-			// Set defaults
-			productGroup.limit = 0;
-			productGroup.isEnabled = false;
-			productGroup.used = 0;
-			productGroup.subscriptionId = "";
-			productGroup.currency = "USD";
-			const usProduct = productGroup.products.filter( ( product ) => {
-				return product.sourceShopId === 1;
-			} );
-			productGroup.storeUrl = usProduct[ 0 ] && usProduct[ 0 ].storeUrl;
-
-			// Get ids of all products in this product group.
-			const productIds = productGroup.products.map( product => product.id );
-
-			// Get all subscriptions for products in this product group.
-			activeSubscriptions
-				.filter( ( subscription ) => {
-					return productIds.includes( subscription.productId );
-				} )
-				.forEach( ( subscription ) => {
-					// Accumulate amount of slots for this productGroup.
-					productGroup.limit += subscription.limit;
-					// Accumulate amount of slots in use for this productGroup.
-					productGroup.used += ( subscription.used || 0 );
-
-					/*
-					 * If the productGroup subscription is enabled for this site, make sure it's
-					 * subscriptionId is set on the productGroup.
-					 */
-					if ( subscription.isEnabled === true ) {
-						productGroup.isEnabled = true;
-						productGroup.subscriptionId = subscription.id;
-						/*
-						 * If the productGroup subscription Id has not been set and there are still slots
-						 * available, set the first available product subscription for this productGroup.
-						 */
-					} else if (
-						_isEmpty( productGroup.subscriptionId ) &&
-						( subscription.limit > ( subscription.used || 0 ) )
-					) {
-						productGroup.subscriptionId = subscription.id;
-					}
-
-					// Determine currency based on the subscription currency.
-					// Eventually the currency should be made available on the products themselves.
-					// This needs to be fixed in the shop.
-					productGroup.currency = subscription.currency;
-					productGroup.storeUrl = subscription.product.storeUrl || productGroup.storeUrl;
-				} );
-
-			productGroup.hasSubscriptions = productGroup.limit > 0;
-			productGroup.isAvailable = productGroup.limit > productGroup.used || productGroup.isEnabled;
-
-			return productGroup;
+			return addSubscriptionInfoToProductGroup( productGroup, activeSubscriptions );
 		} );
-
-	console.log( pluginProductGroups );
-
-	let plugins = getPluginsForSiteType( site.type, state.entities.products.byId ).map( ( plugin ) => {
-		// Set defaults
-		plugin.limit = 0;
-		plugin.isEnabled = false;
-		plugin.used = 0;
-		plugin.subscriptionId = "";
-		plugin.currency = "USD";
-
-		// Get all subscriptions for this plugin
-		activeSubscriptions.filter( ( subscription ) => {
-			return plugin.ids.includes( subscription.productId );
-		} ).forEach( ( subscription ) => {
-			// Accumulate amount of slots for this plugin.
-			plugin.limit += subscription.limit;
-			// Accumulate amount of slots in use for this plugin.
-			plugin.used += ( subscription.used || 0 );
-
-			/*
-			 * If the plugin subscription is enabled for this site, make sure it's
-			 * subscriptionId is set on the plugin.
-			 */
-			if ( subscription.isEnabled === true ) {
-				plugin.isEnabled = true;
-				plugin.subscriptionId = subscription.id;
-			/*
-			 * If the plugin subscription Id has not been set and there are still slots
-			 * available, set the first available product subscription for this plugin.
-			 */
-			} else if (
-				_isEmpty( plugin.subscriptionId ) &&
-				( subscription.limit > ( subscription.used || 0 ) )
-			) {
-				plugin.subscriptionId = subscription.id;
-			}
-
-			// Determine currency based on the subscription currency.
-			// Eventually the currency should be made available on the products themselves.
-			// This needs to be fixed in the shop.
-			plugin.currency = subscription.currency;
-		} );
-
-		plugin.hasSubscriptions = plugin.limit > 0;
-		plugin.isAvailable = plugin.limit > plugin.used || plugin.isEnabled;
-
-		return plugin;
-	} );
 
 	plugins = sortPluginsByPopularity( plugins );
-
-	plugins = pluginProductGroups;
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
