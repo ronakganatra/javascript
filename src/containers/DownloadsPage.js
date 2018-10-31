@@ -41,15 +41,12 @@ const getPluginProducts = ( state ) => {
 	/* In case productGroups do not exist yet, use the products instead. This conditional will be removed once we
 	   make the full transition to product groups */
 	const productGroups = state.entities.productGroups.byId;
-	console.log( "productGroups: ", productGroups );
 
 	const plugins = getPlugins( _flatMap( productGroups, ( productGroup ) => {
 		return productGroup.products;
 	} ) );
-	console.log( "plugins: ", plugins );
 
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
-	console.log( "activeSubscriptions: ", activeSubscriptions );
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
