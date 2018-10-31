@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import DownloadsPage from "../components/DownloadsPage";
 import { getAllProducts } from "../actions/products";
+import { getProductGroups } from "../actions/productGroups";
+// D import { getProductGroupProducts } from "../actions/productGroupProducts";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
 import { getEbooks, getPlugins } from "../functions/products";
@@ -38,20 +40,23 @@ const getEbookProducts = ( state ) => {
 const getPluginProducts = ( state ) => {
 	/* In case productGroups do not exist yet, use the products instead. This conditional will be removed once we
 	   make the full transition to product groups */
-	let plugins;
-	if ( state.entities.productGroups.allIds.length > 0 ) {
-		plugins = getPlugins( state.entities.productGroups.Plugins.byId );
-	} else {
-		plugins = getPlugins( state.entities.products.byId );
-	}
+	const productGroups = state.entities.productGroups.byId;
+	console.log( "productGroups: ", productGroups );
+
+	const plugins = getPlugins( _flatMap( productGroups, ( productGroup ) => {
+		return productGroup.products;
+	} ) );
+	console.log( "plugins: ", plugins );
 
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+	console.log( "activeSubscriptions: ", activeSubscriptions );
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
 	} );
 
 	return _filter( plugins, ( plugin ) => {
+		console.log( "plugin: ", plugin );
 		let boughtPlugin = false;
 		plugin.ids.forEach( ( pluginId ) => {
 			if ( _includes( activeSubscriptionIds, pluginId ) ) {
@@ -132,6 +137,7 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( getAllProducts() );
+	dispatch( getProductGroups() );
 	dispatch( getAllSubscriptions() );
 	dispatch( getOrders() );
 	dispatch( fetchComposerTokens() );
