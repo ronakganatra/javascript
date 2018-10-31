@@ -24,12 +24,12 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
 	productGroup.subscriptionId = "";
 	productGroup.currency = "USD";
 
-	// Lift a couple of things from the US product variation to the product group. (Temporary fix, should be cleaned up at some point).
+	// Lift a couple of things from the US product variation to the product group. This should be a temporary situation: productGroup properties need to be expanded.
 	const usProduct = productGroup.products.filter( ( product ) => {
 		return product.sourceShopId === 1;
 	} );
 	productGroup.storeUrl = usProduct[ 0 ] && usProduct[ 0 ].storeUrl;
-	productGroup.icon = usProduct[ 0 ] && usProduct[ 0 ].icon;
+	productGroup.icon = productGroup.icon || ( usProduct[ 0 ] ? usProduct[ 0 ].icon : "" );
 
 	// This is needed for the sortByPopularity function.
 	productGroup.glNumber = usProduct[ 0 ] && usProduct[ 0 ].glNumber;
