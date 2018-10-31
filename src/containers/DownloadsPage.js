@@ -3,7 +3,6 @@ import { onSearchQueryChange } from "../actions/search";
 import DownloadsPage from "../components/DownloadsPage";
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
-// D import { getProductGroupProducts } from "../actions/productGroupProducts";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
 import { getEbooks, getPlugins } from "../functions/products";
@@ -38,8 +37,6 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
-	/* In case productGroups do not exist yet, use the products instead. This conditional will be removed once we
-	   make the full transition to product groups */
 	const productGroups = state.entities.productGroups.byId;
 
 	const plugins = getPlugins( _flatMap( productGroups, ( productGroup ) => {
