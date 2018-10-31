@@ -53,7 +53,6 @@ const getPluginProducts = ( state ) => {
 	} );
 
 	return _filter( plugins, ( plugin ) => {
-		console.log( "plugin: ", plugin );
 		let boughtPlugin = false;
 		plugin.ids.forEach( ( pluginId ) => {
 			if ( _includes( activeSubscriptionIds, pluginId ) ) {
