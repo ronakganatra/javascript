@@ -1,5 +1,3 @@
-import _isEmpty from "lodash/isEmpty";
-
 /** Product helpers */
 
 export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
@@ -7,6 +5,13 @@ export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
 	typo3: "all-typo3-extensions",
 };
 
+/**
+ * Returns the product group that have the passed slug's productGroup as a parent.
+ *
+ * @param   {string} slug          The slug of the parent productGroup.
+ * @param   {Array}  productGroups All productGroups.
+ * @returns {Array}                The productGroups that belong to the parent slug.
+ */
 export function getProductGroupsByParentSlug( slug, productGroups ) {
 	// Get the id of the parent productGroup.
 	const parentGroup = productGroups.find( productGroup => productGroup.slug.indexOf( slug ) !== -1 );
@@ -16,6 +21,13 @@ export function getProductGroupsByParentSlug( slug, productGroups ) {
 	return [];
 }
 
+/**
+ * Lifting information about the product and subscriptions to the productGroup.
+ *
+ * @param   {Object} productGroup        The productGroup to be updated.
+ * @param   {Array}  activeSubscriptions The active subscriptions, in an array.
+ * @returns {Object}                     A productGroup updated with product and subscription info.
+ */
 export function addSubscriptionInfoToProductGroup( productGroup, activeSubscriptions ) {
 	// Set defaults
 	productGroup.limit = 0;
@@ -62,7 +74,7 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
 				 * available, set the first available product subscription for this productGroup.
 				 */
 			} else if (
-				_isEmpty( productGroup.subscriptionId ) &&
+				productGroup.subscriptionId === "" &&
 				( subscription.limit > ( subscription.used || 0 ) )
 			) {
 				productGroup.subscriptionId = subscription.id;
