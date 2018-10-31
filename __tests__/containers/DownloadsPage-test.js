@@ -227,7 +227,6 @@ test( "the mapStateToProps function", () => {
 	};
 
 	let actual = mapStateToProps( state );
-	console.log( actual );
 
 	expected.plugins[ 0 ].buttons[ 0 ].onButtonClick = actual.plugins[ 0 ].buttons[ 0 ].onButtonClick;
 	expected.eBooks[ 0 ].buttons[ 0 ].onButtonClick = actual.eBooks[ 0 ].buttons[ 0 ].onButtonClick;
