@@ -5,7 +5,7 @@ import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
-import { getEbooks, getPlugins } from "../functions/products";
+import { getEbooks } from "../functions/products";
 import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
@@ -37,27 +37,37 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
-	const productGroups = state.entities.productGroups.byId;
-
-	const plugins = getPlugins( _flatMap( productGroups, ( productGroup ) => {
-		return productGroup.products;
-	} ) );
-
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+	// Set the store id to the first subscriptions' sourceShopId, since it is most likely that a customer only has subscriptions from one shop.
+	let storeId;
+	if ( activeSubscriptions.length > 0 ) {
+		storeId = activeSubscriptions[ 0 ].sourceShopId;
+	}
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
 	} );
 
-	return _filter( plugins, ( plugin ) => {
-		let boughtPlugin = false;
-		plugin.ids.forEach( ( pluginId ) => {
-			if ( _includes( activeSubscriptionIds, pluginId ) ) {
-				boughtPlugin = true;
-			}
-		} );
-		return boughtPlugin;
+	let products = _filter( state.entities.products.byId, product => _includes( activeSubscriptionIds, product.id ) );
+	const productGroups = products.map( ( product ) => {
+		return product.productGroups;
 	} );
+
+	const productGroupsIds = productGroups.map( ( productGroup ) => {
+		return productGroup[ 0 ].id;
+	} );
+
+	const childrenGroups = _filter( state.entities.productGroups.byId, productGroup => _includes( productGroupsIds, productGroup.parentId ) );
+
+	if ( ! _isEmpty( childrenGroups ) ) {
+		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => {
+			return childrenGroup.id;
+		} );
+		products = _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) && product.sourceShopId === storeId ) );
+	}
+	products = _filter( products, product => product.type === "plugin" );
+
+	return products;
 };
 
 const setDownloadProps = ( products ) => {
