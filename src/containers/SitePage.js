@@ -15,33 +15,30 @@ import {
 import {
 	addSubscriptionInfoToProductGroup,
 	getProductGroupsByParentSlug,
+	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
-
 	const sites = state.entities.sites;
+	const addSubscriptionModal = state.ui.addSubscriptionModal;
+	if ( ! sites.byId.hasOwnProperty( id ) ) {
+		return {
+			loadingSite: true,
+		};
+	}
+	const site = sites.byId[ id ];
 
 	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
 		return state.entities.configurationServiceRequests.byId[ id ];
 	} );
 	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
-	if ( ! sites.byId.hasOwnProperty( id ) ) {
-		return {
-			loadingSite: true,
-		};
-	}
-	const addSubscriptionModal = state.ui.addSubscriptionModal;
-
-	const site = sites.byId[ id ];
-
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
 	} );
-
 	subscriptions = subscriptions.map( ( subscription ) => {
 		return Object.assign(
 			{},
@@ -60,14 +57,25 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
+	const allProducts = state.entities.products.allIds.map( ( id ) => {
+		return state.entities.products.byId[ id ];
+	} );
+
 	const allProductGroups = state.entities.productGroups.allIds.map( ( id ) => {
 		return state.entities.productGroups.byId[ id ];
 	} );
 
-	let plugins = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ], allProductGroups )
-		.map( ( productGroup ) => {
-			return addSubscriptionInfoToProductGroup( productGroup, activeSubscriptions );
-		} );
+	// Get the productGroups that contain our plugin product variations.
+	const pluginProductGroups = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING( site.type ), allProductGroups );
+
+	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
+	let plugins = [];
+	pluginProductGroups.forEach( ( pluginProductGroup ) => {
+		if ( allProducts.length > 0 ) {
+			pluginProductGroup.products = getProductsByProductGroupId( pluginProductGroup.id, allProducts );
+			plugins.push( addSubscriptionInfoToProductGroup( pluginProductGroup, activeSubscriptions ) );
+		}
+	} );
 
 	plugins = sortPluginsByPopularity( plugins );
 

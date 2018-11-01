@@ -92,3 +92,18 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
 
 	return productGroup;
 }
+
+/**
+ * Get all products that are in a productGroup.
+ *
+ * @param   {string}  pluginGroupId The id of the pluginGroup we want to find the products for.
+ * @param   {Array}   allProducts   All products.
+ * @returns {Array}
+ */
+export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
+	return allProducts
+		.filter( ( product ) => {
+			const productGroupIds = product.productGroups.map( productGroup => productGroup.id );
+			return productGroupIds.includes( pluginGroupId );
+		} );
+}
