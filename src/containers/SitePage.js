@@ -66,7 +66,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	// Get the productGroups that contain our plugin product variations.
-	const pluginProductGroups = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING( site.type ), allProductGroups );
+	const pluginProductGroups = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ], allProductGroups );
 
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
