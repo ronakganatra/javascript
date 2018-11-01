@@ -98,7 +98,7 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
  *
  * @param   {string}  pluginGroupId The id of the pluginGroup we want to find the products for.
  * @param   {Array}   allProducts   All products.
- * @returns {Array}
+ * @returns {Array}                 The products that are in the productGroup.
  */
 export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 	return allProducts
