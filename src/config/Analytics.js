@@ -2,7 +2,7 @@ import { LOCATION_CHANGE } from "react-router-redux";
 import { createMiddleware } from "redux-beacon";
 import GoogleTagManager from "@redux-beacon/google-tag-manager";
 
-import { LOGIN } from "../actions/user";
+import { LOGIN, LOGOUT_SUCCESS } from "../actions/user";
 import { LINK_SITE_SUCCESS } from "../actions/sites";
 import { SIGNUP_SUCCESS, ACTIVATE_SUCCESS } from "../actions/signup";
 import { SEND_COURSE_INVITE_SUCCESS } from "../actions/courses";
@@ -22,6 +22,8 @@ const eventsMap = {
 		action => createEvent( "navigation", { page: action.payload.pathname } ),
 	[ LOGIN ]:
 		() => createEvent( "login" ),
+	[ LOGOUT_SUCCESS ]:
+		() => createEvent( "logout" ),
 	[ SIGNUP_SUCCESS ]:
 		() => createEvent( "signup" ),
 	[ ACTIVATE_SUCCESS ]:
