@@ -38,7 +38,6 @@ const getEbookProducts = ( state ) => {
 
 const getPluginProducts = ( state ) => {
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
-	// Set the store id to the first subscriptions' sourceShopId, since it is most likely that a customer only has subscriptions from one shop.
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
