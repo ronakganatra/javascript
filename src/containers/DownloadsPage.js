@@ -10,6 +10,7 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
+import _flatten from "lodash/flatten";
 import _unescape from "lodash/unescape";
 import {
 	composerHelpModalClosed, composerHelpModalOpen,
@@ -58,7 +59,8 @@ const getPluginProducts = ( state ) => {
 		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => {
 			return childrenGroup.id;
 		} );
-		products = _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) );
+		products.push( _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) ) );
+		products = _flatten( products );
 	}
 	products = getPlugins( products );
 
