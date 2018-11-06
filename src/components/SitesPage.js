@@ -238,7 +238,6 @@ class SitesPage extends React.Component {
 					{ showSearch && this.getSearch() }
 				</SiteAddContainer>
 				<SuggestedAction
-					query={ props.query }
 					paragraphs={ paragraphs }
 					imageSource={ imageSource }
 				>
