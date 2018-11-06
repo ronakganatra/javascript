@@ -7,7 +7,7 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import Sites from "./Sites";
 import Search from "./Search";
 import SuggestedAction from "./SuggestedAction";
-import { AddSiteIconButton } from "./Buttons";
+import { AddSiteIconButton } from "./Button";
 import AnimatedLoader from "./Loader";
 import _debounce from "lodash/debounce";
 import noSitesImage from "./../images/noSites.svg";

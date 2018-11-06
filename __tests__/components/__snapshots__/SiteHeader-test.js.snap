@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`the site header matches the snapshot 1`] = `
+.c7 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c6 {
   display: inline-block;
   height: 48px;
@@ -44,12 +50,6 @@ exports[`the site header matches the snapshot 1`] = `
   background-size: 24px;
   padding-left: 16px;
   padding-right: 56px;
-}
-
-.c7 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c2 {

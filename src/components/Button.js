@@ -8,7 +8,10 @@ import angleLeft from "../icons/angle-left.svg";
 import chevronRight from "../icons/chevron-right.svg";
 import questionCircle from "../icons/question-circle.svg";
 import closeCross from "../icons/times.svg";
+import plus from "../icons/plus.svg";
 import defaults from "../config/defaults.json";
+import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
+import NewTabMessage from "./NewTabMessage";
 
 const buttonAnimations = `
 	transition: background-color 150ms ease-out;
@@ -537,7 +540,7 @@ export function makeResponsiveIconButton( component ) {
 				padding-left: 42px;
 				min-width: 0;
 				vertical-align: middle;
-	
+
 				.screen-reader-text {
 					position: absolute;
 					clip: rect(1px, 1px, 1px, 1px);
@@ -547,3 +550,94 @@ export function makeResponsiveIconButton( component ) {
 		}
 	`;
 }
+
+// Specialized buttons.
+
+const messages = defineMessages( {
+	addSite: {
+		id: "suggestedActionAddsite",
+		defaultMessage: "Add site",
+	},
+	visitShop: {
+		id: "suggestedActionVisitShop",
+		defaultMessage: "Shop",
+	},
+} );
+
+const StyledAddSiteIconButton = styled( LargeIconButton )`
+	margin-bottom: 2em;
+`;
+
+const StyledGoToButtonLink = styled( LargeButtonLink )`
+	margin-bottom: 2em;
+`;
+
+/**
+ * Renders the Add Site button.
+ *
+ * @param {object} props The props to use.
+ *
+ * @returns {ReactElement} The Add Site button.
+ */
+const AddSiteIconButtonBase = ( props ) => {
+	return (
+		<StyledAddSiteIconButton onClick={ props.onClick } iconSource={ plus }>
+			<FormattedMessage { ...props.buttonText } />
+		</StyledAddSiteIconButton>
+	);
+};
+
+AddSiteIconButtonBase.propTypes = {
+	onClick: PropTypes.func.isRequired,
+	buttonText: PropTypes.shape(
+		{
+			id: PropTypes.string.isRequired,
+			defaultMessage: PropTypes.string.isRequired,
+		}
+	),
+};
+
+AddSiteIconButtonBase.defaultProps = {
+	buttonText: {
+		id: messages.addSite.id,
+		defaultMessage: messages.addSite.defaultMessage,
+	},
+};
+
+export const AddSiteIconButton = injectIntl( AddSiteIconButtonBase );
+
+/**
+ * Renders the Go To button link.
+ *
+ * @param {object} props The props to use.
+ *
+ * @returns {ReactElement} The Go To button link.
+ */
+const GoToButtonLinkBase = ( props ) => {
+	return (
+		<StyledGoToButtonLink to={ props.url } linkTarget="_blank">
+			<FormattedMessage { ...props.buttonText } />
+			<NewTabMessage />
+		</StyledGoToButtonLink>
+	);
+};
+
+GoToButtonLinkBase.propTypes = {
+	url: PropTypes.string.isRequired,
+	buttonText: PropTypes.shape(
+		{
+			id: PropTypes.string.isRequired,
+			defaultMessage: PropTypes.string.isRequired,
+		}
+	),
+};
+
+GoToButtonLinkBase.defaultProps = {
+	url: "https://yoast.com/shop/",
+	buttonText: {
+		id: messages.visitShop.id,
+		defaultMessage: messages.visitShop.defaultMessage,
+	},
+};
+
+export const GoToButtonLink = injectIntl( GoToButtonLinkBase );

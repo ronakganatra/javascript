@@ -7,7 +7,7 @@ import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
 import SuggestedAction from "./SuggestedAction";
-import { GoToButtonLink } from "./Buttons";
+import { GoToButtonLink } from "./Button";
 import noOrdersImage from "./../images/noOrders.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 

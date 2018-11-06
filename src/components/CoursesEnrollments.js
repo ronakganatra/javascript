@@ -12,7 +12,7 @@ import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import isEmpty from "lodash/isEmpty";
 import SuggestedAction from "./SuggestedAction";
-import { GoToButtonLink } from "./Buttons";
+import { GoToButtonLink } from "./Button";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
 import MyYoastModal from "./MyYoastModal";

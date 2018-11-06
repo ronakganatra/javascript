@@ -11,7 +11,7 @@ import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
 import SuggestedAction from "./SuggestedAction";
-import { GoToButtonLink } from "./Buttons";
+import { GoToButtonLink } from "./Button";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
 

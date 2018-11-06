@@ -1,5 +1,5 @@
 import SuggestedAction from "../../src/components/SuggestedAction";
-import { GoToButtonLink, AddSiteIconButton } from "../../src/components/Buttons";
+import { GoToButtonLink, AddSiteIconButton } from "../../src/components/Button";
 import image from "../../src/images/noSites.svg";
 import { createComponentWithIntl } from "../../utils";
 import { FormattedMessage } from "react-intl";

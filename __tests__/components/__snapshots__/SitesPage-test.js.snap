@@ -47,6 +47,10 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -257,10 +261,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   color: #000;
   text-align: center;
   margin-top: 10vh;
-}
-
-.c6 {
-  margin-bottom: 2em;
 }
 
 .c0 {
@@ -474,6 +474,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -684,10 +688,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   color: #000;
   text-align: center;
   margin-top: 10vh;
-}
-
-.c6 {
-  margin-bottom: 2em;
 }
 
 .c0 {
@@ -901,6 +901,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -1111,10 +1115,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
   color: #000;
   text-align: center;
   margin-top: 10vh;
-}
-
-.c6 {
-  margin-bottom: 2em;
 }
 
 .c0 {
@@ -1328,6 +1328,10 @@ exports[`the sites page component without sites handling an onclick event on the
   min-width: 152px;
 }
 
+.c2 {
+  margin-bottom: 2em;
+}
+
 .c1 {
   color: #000;
   text-align: center;
@@ -1338,10 +1342,6 @@ exports[`the sites page component without sites handling an onclick event on the
   height: auto;
   display: block;
   margin: 0 auto;
-}
-
-.c2 {
-  margin-bottom: 2em;
 }
 
 .c0 {
@@ -1447,6 +1447,10 @@ exports[`the sites page component without sites handling an onclick event on the
   min-width: 152px;
 }
 
+.c2 {
+  margin-bottom: 2em;
+}
+
 .c1 {
   color: #000;
   text-align: center;
@@ -1457,10 +1461,6 @@ exports[`the sites page component without sites handling an onclick event on the
   height: auto;
   display: block;
   margin: 0 auto;
-}
-
-.c2 {
-  margin-bottom: 2em;
 }
 
 .c0 {
