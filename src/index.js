@@ -20,6 +20,7 @@ import en from "react-intl/locale-data/en";
 import createHistory from "history/createBrowserHistory";
 import { routerMiddleware } from "react-router-redux";
 import { fetchUser, login } from "./actions/user";
+import analyticsMiddleware from "./config/Analytics";
 
 const history = createHistory();
 
@@ -30,6 +31,7 @@ const history = createHistory();
 const middleware = [
 	thunkMiddleware,
 	routerMiddleware( history ),
+	analyticsMiddleware,
 ];
 
 if ( process.env.NODE_ENV === "development" ) {

@@ -118,9 +118,10 @@ export function cancelSubscriptionRequest() {
  *
  * @returns {Object} A cancel subscription success action.
  */
-export function cancelSubscriptionSuccess() {
+export function cancelSubscriptionSuccess( subscriptionId ) {
 	return {
 		type: CANCEL_SUBSCRIPTION_SUCCESS,
+		subscriptionId,
 	};
 }
 
@@ -154,7 +155,7 @@ export function cancelSubscription( subscriptionId, shopId ) {
 		const request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel`, "POST" );
 
 		return doRequest( request )
-			.then( () => dispatch( cancelSubscriptionSuccess() ) )
+			.then( () => dispatch( cancelSubscriptionSuccess( subscriptionId ) ) )
 			.then( () => dispatch( getAllSubscriptions() ) )
 			.catch( error => {
 				console.error( error );
