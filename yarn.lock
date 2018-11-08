@@ -85,6 +85,10 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
+"@redux-beacon/google-tag-manager@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@redux-beacon/google-tag-manager/-/google-tag-manager-1.0.1.tgz#ba3f6ee6f5495933a6fddf08e8071d30b4cf0e13"
+
 "@wordpress/a11y@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@wordpress/a11y/-/a11y-1.0.1.tgz#a4670fe1f1c4921dfcf300906c70f7aef8bd01e5"
@@ -378,6 +382,10 @@ array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+
+array-flatten@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-2.1.1.tgz#426bb9da84090c1838d812c8150af20a8331e296"
 
 array-includes@^3.0.3:
   version "3.0.3"
@@ -7906,6 +7914,12 @@ reduce@^1.0.1:
   integrity sha1-FPouX/H8VgcDoCDLtfuqtpFWWAQ=
   dependencies:
     object-keys "~1.0.0"
+
+redux-beacon@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/redux-beacon/-/redux-beacon-2.0.3.tgz#9b057aa9521af6225a1b8f60175c85e3ba29a629"
+  dependencies:
+    array-flatten "2.1.1"
 
 redux-logger@^3.0.0:
   version "3.0.6"
