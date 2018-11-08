@@ -38,6 +38,9 @@ function SiteSubscriptionDetailList( props ) {
 							modalOpen={ props.modalOpen }
 							onClose={ props.onClose }
 							onShop={ plugin.storeUrl }
+							downloadModalOpen={ props.downloadModalOpen }
+							onDownloadButtonClick={ props.onDownloadButtonClick }
+							onDownloadModalCloseButtonClick={ props.onDownloadModalCloseButtonClick }
 						/>;
 					} ) }
 				</ListTable>
@@ -54,6 +57,9 @@ SiteSubscriptionDetailList.propTypes = {
 	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	onToggleDisabled: PropTypes.func.isRequired,
+	downloadModalOpen: PropTypes.bool,
+	onDownloadButtonClick: PropTypes.func,
+	onDownloadModalCloseButtonClick: PropTypes.func,
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

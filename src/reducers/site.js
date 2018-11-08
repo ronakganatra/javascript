@@ -5,6 +5,8 @@ import {
 	SITE_TOGGLE_SUBSCRIPTION_FAILURE,
 	SITE_REMOVE_START, SITE_REMOVE_SUCCESS,
 	SITE_REMOVE_FAILURE,
+	DOWNLOAD_MODAL_OPEN,
+	DOWNLOAD_MODAL_CLOSE,
 } from "../actions/site";
 
 /**
@@ -19,6 +21,7 @@ const rootState = {
 				error: "",
 				toggling: false,
 			},
+			downloadModalOpen: false,
 		},
 	},
 };
@@ -26,6 +29,29 @@ const rootState = {
 /**
  * Reducers
  */
+
+/**
+ * A reducer for the modal actions within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ *
+ * @returns {Object} The updated sites object.
+ */
+function modalReducer( state = rootState.ui.sites, action ) {
+	switch ( action.type ) {
+		case DOWNLOAD_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				downloadModalOpen: true,
+			} );
+		case DOWNLOAD_MODAL_CLOSE:
+			return Object.assign( {}, state, {
+				downloadModalOpen: false,
+			} );
+		default:
+			return state;
+	}
+}
 
 /**
  * A reducer for the site add subscription actions within the ui site object.
@@ -78,5 +104,6 @@ export function uiSiteReducer( state = rootState.ui.site, action ) {
 			break;
 	}
 	site.subscriptions = uiSiteSubscriptionsReducer( state.subscriptions, action );
+	modalReducer( state, action );
 	return site;
 }

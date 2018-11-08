@@ -1,6 +1,13 @@
 import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
+import {
+	siteAddSubscription,
+	siteRemoveSubscription,
+	siteRemove,
+	siteChangePlatform,
+	downloadModalOpen,
+	downloadModalClose,
+} from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import {
@@ -24,6 +31,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 	const sites = state.entities.sites;
 	const addSubscriptionModal = state.ui.addSubscriptionModal;
+	const downloadModal = state.ui.site.downloadModalOpen;
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
 			loadingSite: true,
@@ -90,6 +98,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		configurationServiceRequestModalOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
+		downloadModal,
 		site,
 		subscriptions,
 		plugins,
@@ -127,6 +136,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			if ( window.confirm( "Are you sure you want to remove this site from MyYoast?" ) ) {
 				dispatch( siteRemove( siteId ) );
 			}
+		},
+		onDownloadButtonClick: () => {
+			dispatch( downloadModalOpen() );
+		},
+		onDownloadModalCloseButtonClick: () => {
+			dispatch( downloadModalClose() );
 		},
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );

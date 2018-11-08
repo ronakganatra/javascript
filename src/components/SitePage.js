@@ -128,6 +128,9 @@ class SitePage extends React.Component {
 			onToggleSubscription={ this.props.onToggleSubscription }
 			onClose={ this.props.onClose }
 			onToggleDisabled={ this.props.onToggleDisabled }
+			downloadModalOpen={ this.props.downloadModalOpen }
+			onDownloadButtonClick={ this.props.onDownloadButtonClick }
+			onDownloadModalCloseButtonClick={ this.props.onDownloadModalCloseButtonClick }
 		/>;
 	}
 
@@ -190,6 +193,10 @@ SitePage.propTypes = {
 	onConfigurationModalClose: PropTypes.func.isRequired,
 	configureConfigurationServiceRequest: PropTypes.func.isRequired,
 	openConfigurationServiceRequestModal: PropTypes.func.isRequired,
+
+	downloadModalOpen: PropTypes.bool,
+	onDownloadButtonClick: PropTypes.func,
+	onDownloadModalCloseButtonClick: PropTypes.func,
 };
 
 SitePage.defaultProps = {

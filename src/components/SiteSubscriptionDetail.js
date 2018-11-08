@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
+import { LargeButton, LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -66,6 +66,7 @@ const SubscriptionUsage = styled.span`
 
 const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 const ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
 	display: ${ props => props.isEnabled ? "inline-block" : "none" };
@@ -128,6 +129,11 @@ function SiteSubscriptionDetail( props ) {
 				{ anotherLicense }
 			</ColumnPrimary>
 			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
+				<ResponsiveLargeButton onClick={ props.onDownloadButtonClick }>
+					<FormattedMessage id="subscriptions.buttons.download" defaultMessage="Download" />
+				</ResponsiveLargeButton>
+			</ColumnFixedWidthEnabled>
+			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
@@ -156,6 +162,9 @@ SiteSubscriptionDetail.propTypes = {
 	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
+	downloadModalOpen: PropTypes.bool,
+	onDownloadButtonClick: PropTypes.func,
+	onDownloadModalCloseButtonClick: PropTypes.func,
 };
 
 SiteSubscriptionDetail.defaultProps = {

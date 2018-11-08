@@ -16,10 +16,34 @@ export const SITE_REMOVE_FAILURE = "SITE_REMOVE_FAILURE";
 export const SITE_CHANGE_PLATFORM_REQUEST = "SITE_CHANGE_PLATFORM_REQUEST";
 export const SITE_CHANGE_PLATFORM_SUCCESS = "SITE_CHANGE_PLATFORM_SUCCESS";
 export const SITE_CHANGE_PLATFORM_FAILURE = "SITE_CHANGE_PLATFORM_FAILURE";
+export const DOWNLOAD_MODAL_OPEN = "DOWNLOAD_MODAL_OPEN";
+export const DOWNLOAD_MODAL_CLOSE = "DOWNLOAD_MODAL_CLOSE";
 
 /**
  * Action creators
  */
+
+/**
+ * An action creator for the opening download modal action.
+ *
+ * @returns {Object} An open download modal action.
+ */
+export function downloadModalOpen() {
+	return {
+		type: DOWNLOAD_MODAL_OPEN,
+	};
+}
+
+/**
+ * An action creator for the closing download modal action.
+ *
+ * @returns {Object} A close download modal action.
+ */
+export function downloadModalClose() {
+	return {
+		type: DOWNLOAD_MODAL_CLOSE,
+	};
+}
 
 /**
  * An action creator for the site add subscription request action.
