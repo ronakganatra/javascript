@@ -2,14 +2,11 @@ import { connect } from "react-redux";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import RenewalNotification from "../components/RenewalNotification";
 import without from "lodash/without";
+import { getSubscriptions } from "../selectors/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	const allIds = state.entities.subscriptions.allIds;
-
-	let upcomingRenewals = allIds.map( ( subscriptionId ) => {
-		const subscription = state.entities.subscriptions.byId[ subscriptionId ];
-
+	let upcomingRenewals = getSubscriptions( state ).map( ( subscription ) => {
 		const nextPayment = subscription.nextPayment ? new Date( subscription.nextPayment ) : null;
 		const endDate = subscription.endDate ? new Date( subscription.endDate ) : null;
 		const monthFromNow = new Date();

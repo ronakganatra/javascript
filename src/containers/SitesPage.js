@@ -9,6 +9,7 @@ import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 import { getSearchQuery } from "../selectors/search";
+import { getSubscription } from "../selectors/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -34,7 +35,7 @@ export const mapStateToProps = ( state ) => {
 
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
-				return state.entities.subscriptions.byId[ subscriptionId ];
+				return getSubscription( state, subscriptionId );
 			} )
 			.filter( ( subscription ) => {
 				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );

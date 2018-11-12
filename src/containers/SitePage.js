@@ -17,6 +17,7 @@ import {
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
 import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
+import { getSubscriptions } from "../selectors/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
@@ -35,10 +36,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
-	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
-		return state.entities.subscriptions.byId[ subscriptionId ];
-	} );
-	subscriptions = subscriptions.map( ( subscription ) => {
+	const subscriptions = getSubscriptions( state ).map( ( subscription ) => {
 		return Object.assign(
 			{},
 			{

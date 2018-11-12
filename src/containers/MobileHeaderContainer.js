@@ -2,6 +2,7 @@ import { logout } from "../actions/user";
 import { helpBeaconModalOpen } from "../actions/helpBeacon";
 import { connect } from "react-redux";
 import MobileHeader from "../components/MobileHeader";
+import { getSubscription } from "../selectors/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -17,7 +18,7 @@ export const mapStateToProps = ( state ) => {
 		const site = state.entities.sites.byId[ id ];
 		pageTitle = site ? site.hostname : "";
 	} else if ( type === "subscriptions" && id ) {
-		const subscription = state.entities.subscriptions.byId[ id ];
+		const subscription = getSubscription( state, id );
 		pageTitle = subscription ? subscription.name : "";
 	}
 

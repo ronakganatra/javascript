@@ -11,13 +11,13 @@ import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import { getSubscription } from "../selectors/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
-
+	const selectedSubscription = getSubscription( state, selectedSubscriptionId );
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
@@ -63,7 +63,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const subscriptionIds = state.entities.subscriptions.allIds;
 	if ( isEmpty( subscriptionIds ) === false ) {
 		connectedSubscriptions = subscriptionIds
-			.map( subscriptionId => state.entities.subscriptions.byId[ subscriptionId ] )
+			.map( subscriptionId => getSubscription( state, subscriptionId ) )
 			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
 			.filter( subscription => subscription.id !== selectedSubscription.id );
 	}

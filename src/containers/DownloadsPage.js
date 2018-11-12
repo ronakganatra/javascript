@@ -16,6 +16,7 @@ import {
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
 import { getSearchQuery } from "../selectors/search";
+import { getSubscriptions } from "../selectors/subscriptions";
 
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
@@ -38,7 +39,7 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
-	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+	const activeSubscriptions = _filter( getSubscriptions( state ), subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
