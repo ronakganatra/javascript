@@ -3,9 +3,7 @@ import { updateSiteUrl, loadSites } from "../actions/sites";
 import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
-import {
-	sortPluginsByPopularity,
-} from "../functions/products";
+import { sortPluginsByPopularity } from "../functions/products";
 import {
 	configurationServiceRequestModalClose,
 	configurationServiceRequestModalOpen,
