@@ -2,7 +2,7 @@ import { defineMessages } from "react-intl";
 import MyYoastModal from "../MyYoastModal";
 import React from "react";
 import PropTypes from "prop-types";
-import SubscriptionDownloads from "../SubscriptionDownloads";
+import DownloadsList from "../DownloadsList";
 import { intlShape } from "react-intl";
 
 
@@ -23,7 +23,7 @@ const DownloadModal = ( props ) => (
 		onClose={ props.onDownloadModalClose }
 		modalAriaLabel={ modalAriaLabel }
 	>
-		<SubscriptionDownloads
+		<DownloadsList
 			onDownloadModalClose={ props.onDownloadModalClose }
 			intl={ props.intl }
 			products={ props.products }

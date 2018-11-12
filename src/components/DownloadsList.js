@@ -73,7 +73,7 @@ const FooterArea = styled.div`
 	padding-bottom: 28px;
 `;
 
-class SubscriptionDownloads extends React.Component {
+class DownloadsList extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
 	 *
@@ -136,10 +136,10 @@ class SubscriptionDownloads extends React.Component {
 	}
 }
 
-SubscriptionDownloads.propTypes = {
+DownloadsList.propTypes = {
 	onDownloadModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
-export default injectIntl( SubscriptionDownloads );
+export default injectIntl( DownloadsList );
