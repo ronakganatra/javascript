@@ -10,6 +10,9 @@ import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
 import NewTabMessage from "./NewTabMessage";
+/* eslint-disable no-unused-vars */
+import DownloadModal from "./modal/DownloadModal";
+
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
@@ -129,7 +132,7 @@ function SiteSubscriptionDetail( props ) {
 				{ anotherLicense }
 			</ColumnPrimary>
 			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
-				<ResponsiveLargeButton onClick={ props.onDownloadButtonClick }>
+				<ResponsiveLargeButton onClick={ props.onDownloadModalOpen }>
 					<FormattedMessage id="subscriptions.buttons.download" defaultMessage="Download" />
 				</ResponsiveLargeButton>
 			</ColumnFixedWidthEnabled>
@@ -138,6 +141,7 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthEnabled>
+			{ props.downloadModalOpen ? <DownloadModal { ...props } /> : "" }
 		</RowMobileCollapse>
 	);
 }
@@ -163,8 +167,8 @@ SiteSubscriptionDetail.propTypes = {
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
 	downloadModalOpen: PropTypes.bool,
-	onDownloadButtonClick: PropTypes.func,
-	onDownloadModalCloseButtonClick: PropTypes.func,
+	onDownloadModalOpen: PropTypes.func,
+	onDownloadModalClose: PropTypes.func,
 };
 
 SiteSubscriptionDetail.defaultProps = {

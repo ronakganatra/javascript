@@ -106,6 +106,14 @@ export const LargeButton = styled( Button )`
 	min-width: 152px;
 `;
 
+export const CloseButton = styled( Button )`
+	text-shadow: none;
+	color: ${ colors.$color_black };
+	background-color: ${ colors.$color_background_light };
+	font: 100 13px "Open Sans",sans-serif;
+	height: 42px;
+`;
+
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 `;
