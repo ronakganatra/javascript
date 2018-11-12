@@ -4,7 +4,6 @@ import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
-import { getSearchQuery } from "../selectors/search";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -36,7 +35,7 @@ export const mapStateToProps = ( state ) => {
 		return b.date - a.date;
 	} );
 
-	const query = getSearchQuery( state );
+	const query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		orders = orders.filter( ( order ) => {
 			const formattedDate = new Intl.DateTimeFormat( "en-US", {

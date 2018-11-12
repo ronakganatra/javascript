@@ -2,7 +2,6 @@ import { getUserId } from "./auth";
 import getEnv from "./getEnv";
 
 export const CONFIGURATION_SERVICE_FEATURE = "CONFIGURATION_SERVICE";
-export const SUBSCRIPTIONS_FEATURE = "SUBSCRIPTIONS_FEATURE";
 
 /*
  * Feature flags is the array of currently available feature flags.
@@ -10,14 +9,13 @@ export const SUBSCRIPTIONS_FEATURE = "SUBSCRIPTIONS_FEATURE";
  */
 const featureFlags = [
 	CONFIGURATION_SERVICE_FEATURE,
-	SUBSCRIPTIONS_FEATURE,
 ];
 
 /**
  * Returns whether or not the current user has access to a feature.
  *
  * @param {string} feature The feature to have access to.
- * @returns {bool} Whether the current user has access to a feature.
+ * @returns {boolean} Whether the current user has access to a feature.
  */
 export function hasAccessToFeature( feature ) {
 	if ( ! featureFlags.includes( feature ) ) {

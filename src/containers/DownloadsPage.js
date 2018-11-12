@@ -2,7 +2,6 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import DownloadsPage from "../components/DownloadsPage";
 import { getAllProducts } from "../actions/products";
-import { getProductGroups } from "../actions/productGroups";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getOrders } from "../actions/orders";
 import { getEbooks, getPlugins } from "../functions/products";
@@ -15,7 +14,6 @@ import {
 	composerHelpModalClosed, composerHelpModalOpen,
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
-import { getSearchQuery } from "../selectors/search";
 
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
@@ -38,30 +36,23 @@ const getEbookProducts = ( state ) => {
 };
 
 const getPluginProducts = ( state ) => {
+	const plugins = getPlugins( state.entities.products.byId );
+
 	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
 	} );
 
-	let products = _filter( state.entities.products.byId, product => _includes( activeSubscriptionIds, product.id ) );
-	const productGroups = _flatMap( products, ( product ) => {
-		return product.productGroups;
+	return _filter( plugins, ( plugin ) => {
+		let boughtPlugin = false;
+		plugin.ids.forEach( ( pluginId ) => {
+			if ( _includes( activeSubscriptionIds, pluginId ) ) {
+				boughtPlugin = true;
+			}
+		} );
+		return boughtPlugin;
 	} );
-
-	const productGroupsIds = _flatMap( productGroups, ( productGroup ) => {
-		return productGroup.id;
-	} );
-
-	const childrenGroups = _filter( state.entities.productGroups.byId, productGroup => _includes( productGroupsIds, productGroup.parentId ) );
-
-	if ( ! _isEmpty( childrenGroups ) ) {
-		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => childrenGroup.id );
-		products = products.concat( _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) ) );
-	}
-	products = getPlugins( products );
-
-	return products;
 };
 
 const setDownloadProps = ( products ) => {
@@ -100,7 +91,7 @@ export const mapStateToProps = ( state ) => {
 
 	let plugins = setDownloadProps( getPluginProducts( state ) );
 
-	const query = getSearchQuery( state );
+	const query = state.ui.search.query;
 	if ( query.length > 0 ) {
 		eBooks = eBooks.filter( ( eBook ) => {
 			return eBook.name.toUpperCase().includes( query.toUpperCase() );
@@ -134,7 +125,6 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch ) => {
 	dispatch( getAllProducts() );
-	dispatch( getProductGroups() );
 	dispatch( getAllSubscriptions() );
 	dispatch( getOrders() );
 	dispatch( fetchComposerTokens() );

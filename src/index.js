@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import { createStore, applyMiddleware, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./reducers";
 import {
 	getAccessToken,
@@ -38,12 +38,9 @@ if ( process.env.NODE_ENV === "development" ) {
 	middleware.push( createLogger() );
 }
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
 	rootReducer,
-	composeEnhancers(
-		applyMiddleware( ...middleware )
-	)
+	applyMiddleware( ...middleware )
 );
 
 /**
