@@ -8,6 +8,7 @@ import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
+import { getSearchQuery } from "../selectors/search";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -55,7 +56,7 @@ export const mapStateToProps = ( state ) => {
 
 	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
-	const query = state.ui.search.query;
+	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
 		sites = sites.filter( ( site ) => {
 			return site.siteName.includes( query ) || site.url.includes( query );

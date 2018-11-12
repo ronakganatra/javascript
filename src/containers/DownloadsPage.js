@@ -16,6 +16,7 @@ import {
 	composerHelpModalClosed, composerHelpModalOpen,
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
+import { getSearchQuery } from "../selectors/search";
 
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
@@ -103,7 +104,7 @@ export const mapStateToProps = ( state ) => {
 
 	let plugins = setDownloadProps( getPluginProducts( state ) );
 
-	const query = state.ui.search.query;
+	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
 		eBooks = eBooks.filter( ( eBook ) => {
 			return eBook.name.toUpperCase().includes( query.toUpperCase() );

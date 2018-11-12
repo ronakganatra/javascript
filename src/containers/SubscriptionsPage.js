@@ -4,6 +4,7 @@ import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/SubscriptionsPage";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
+import { getSearchQuery } from "../selectors/search";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -30,7 +31,7 @@ export const mapStateToProps = ( state ) => {
 		};
 	} );
 
-	const query = state.ui.search.query;
+	const query = getSearchQuery( state );
 
 	if ( query.length > 0 ) {
 		subscriptions = subscriptions.filter( ( subscription ) => {
