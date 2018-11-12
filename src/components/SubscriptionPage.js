@@ -9,7 +9,7 @@ import Orders from "./Orders";
 import { Paper } from "./PaperStyles";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
-import SubscriptionEditModal from "./SubscriptionCancelModal";
+import SubscriptionEditModal from "../containers/SubscriptionEditModal";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -63,26 +63,6 @@ class SubscriptionPage extends React.Component {
 		this.props.loadData();
 	}
 
-	getModal() {
-		const subscription = this.props.subscription;
-		const otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
-			this.props.sites.every( site =>
-				site.id !== connectedSubscriptionsSite.id
-			)
-		);
-		return (
-			<SubscriptionEditModal
-				isOpen={ this.props.cancelModalOpen }
-				onClose={ this.props.closeCancelModal }
-				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
-				loading={ this.props.cancelLoading }
-				error={ this.props.cancelError }
-				amountOfActiveSites={ this.props.sites.length + otherSites.length }
-				connectedSubscriptions={ this.props.connectedSubscriptions }
-			/>
-		);
-	}
-
 	/**
 	 * Renders the component.
 	 *
@@ -93,7 +73,8 @@ class SubscriptionPage extends React.Component {
 			return <AnimatedLoader />;
 		}
 
-		const subscription = this.props.subscription;
+		const { subscription } = this.props;
+
 		return <section>
 			<Header
 				name={ subscription.name }
@@ -119,14 +100,13 @@ class SubscriptionPage extends React.Component {
 					} }
 					canCancel={ subscription.requiresManualRenewal === false }
 					status={ subscription.status }
-					connectedSubscriptions={ this.props.connectedSubscriptions }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
 			</Paper>
-			{ this.getModal() }
+			<SubscriptionEditModal subscriptionId={ subscription.id } />
 		</section>;
 	}
 }
@@ -145,30 +125,14 @@ SubscriptionPage.propTypes = {
 		status: PropTypes.string.isRequired,
 	} ),
 	orders: PropTypes.array,
-	sites: PropTypes.array,
-	connectedSubscriptions: PropTypes.array,
-	connectedSubscriptionsSites: PropTypes.array,
 	intl: intlShape.isRequired,
-	cancelSubscription: PropTypes.func.isRequired,
 	openCancelModal: PropTypes.func.isRequired,
-	closeCancelModal: PropTypes.func.isRequired,
-	cancelModalOpen: PropTypes.bool.isRequired,
-	cancelLoading: PropTypes.bool.isRequired,
-	cancelSuccess: PropTypes.bool.isRequired,
-	cancelError: PropTypes.object,
 	loadData: PropTypes.func.isRequired,
 };
 
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
-	sites: [],
-	connectedSubscriptions: [],
-	connectedSubscriptionsSites: [],
-	cancelModalOpen: false,
-	cancelLoading: false,
-	cancelSuccess: false,
-	cancelError: null,
 };
 
 export default injectIntl( SubscriptionPage );

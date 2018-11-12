@@ -9,7 +9,6 @@ import {
 import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
-import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import { getSubscription } from "../selectors/subscriptions";
 
@@ -50,50 +49,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 			return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
 		} );
 
-	let sites = [];
-	const siteIds = state.entities.sites.allIds;
-	if ( isEmpty( siteIds ) === false ) {
-		sites = siteIds
-			.map( siteId => state.entities.sites.byId[ siteId ] )
-			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
-	}
-
-	// Get subscriptions that are connected to the same order in WooCommerce.
-	let connectedSubscriptions = [];
-	const subscriptionIds = state.entities.subscriptions.allIds;
-	if ( isEmpty( subscriptionIds ) === false ) {
-		connectedSubscriptions = subscriptionIds
-			.map( subscriptionId => getSubscription( state, subscriptionId ) )
-			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
-			.filter( subscription => subscription.id !== selectedSubscription.id );
-	}
-
-	// Gather sites that use one or more of the connected subscriptions.
-	let connectedSubscriptionsSites = [];
-	if ( isEmpty( siteIds ) === false ) {
-		connectedSubscriptionsSites = siteIds
-			.map( siteId => state.entities.sites.byId[ siteId ] )
-			.filter( site =>
-				site.subscriptions.some( subId =>
-					connectedSubscriptions.some( connectedSubscription => connectedSubscription.id === subId )
-				)
-			);
-	}
-
-	const cancelSubscriptionState = {
-		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
-		cancelLoading: state.ui.subscriptionsCancel.loading,
-		cancelSuccess: state.ui.subscriptionsCancel.success,
-		cancelError: state.ui.subscriptionsCancel.error,
-	};
-
-	return Object.assign( {}, {
+	return {
 		subscription: selectedSubscription,
 		orders,
-		sites,
-		connectedSubscriptions,
-		connectedSubscriptionsSites,
-	}, cancelSubscriptionState );
+	};
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
@@ -104,14 +63,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( getAllSubscriptions() );
 			dispatch( retrieveSites() );
 		},
-		cancelSubscription: ( subscriptionId, shopId ) => {
-			dispatch( cancelSubscription( subscriptionId, shopId ) );
-		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );
-		},
-		closeCancelModal: () => {
-			dispatch( closeCancelSubscriptionModal() );
 		},
 	};
 };

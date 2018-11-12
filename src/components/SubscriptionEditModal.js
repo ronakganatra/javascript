@@ -50,6 +50,31 @@ const CancelSubscriptionContainer = styled.div`
 
 class SubscriptionEditModal extends React.Component {
 	/**
+	 * Constructs a subscription edit modal.
+	 *
+	 * @param {Object} props Props to render.
+	 *
+	 * @returns {void}
+	 */
+	constructor( props ) {
+		super( props );
+
+		this.cancelSubscription = this.cancelSubscription.bind( this );
+	}
+
+	/**
+	 * Cancels the subscription given in the props.
+	 *
+	 * @returns {void}
+	 */
+	cancelSubscription() {
+		const { subscription, cancelSubscription } = this.props;
+		const { id, sourceShopId } = subscription;
+
+		cancelSubscription( id, sourceShopId );
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -76,8 +101,6 @@ class SubscriptionEditModal extends React.Component {
 							/>
 						</strong>
 					</p>
-					{ this.props.connectedSubscriptions.length > 0 &&
-					<ConnectedSubscriptionWarning subscriptions={ this.props.connectedSubscriptions } /> }
 					<ErrorDisplay error={ this.props.error } />
 					<ActionButtonsContainer>
 						<LargeSecondaryButton onClick={ this.props.onClose }>
@@ -85,7 +108,7 @@ class SubscriptionEditModal extends React.Component {
 						</LargeSecondaryButton>
 						<LargeButton
 							type="submit"
-							onClick={ this.props.cancelSubscription }
+							onClick={ this.cancelSubscription }
 							enabledStyle={ this.props.loading === false }
 						>
 							<FormattedMessage { ...confirmButtonText } />
@@ -106,14 +129,12 @@ SubscriptionEditModal.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.object,
 	amountOfActiveSites: PropTypes.number.isRequired,
-	connectedSubscriptions: PropTypes.array,
 };
 
 SubscriptionEditModal.defaultProps = {
 	isOpen: false,
 	loading: false,
 	error: null,
-	connectedSubscriptions: [],
 };
 
 export default injectIntl( SubscriptionEditModal );
