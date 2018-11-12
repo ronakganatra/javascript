@@ -10,7 +10,7 @@ test( "the mapStateToProps function", () => {
 					"1": {
 						"id": "1",
 						"productId": "1",
-						"name": "Yoast SEO",
+						"name": "Plugin 1",
 						"status": "active",
 					}
 				},
@@ -21,10 +21,24 @@ test( "the mapStateToProps function", () => {
 					"1": {
 						"id": "1",
 						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"currentVersion": 5.6,
+						"icon": "icon1.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+								{
+									"changelog": "",
+									"courseId": "",
+									"description": "Plugin 1 group description",
+									"icon": "",
+									"id": "1111",
+									"name": "Plugin 1 group",
+									"parentId": null,
+									"slug": "plugin-1",
+									"svgIcon": "",
+									"version": "",
+								}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -36,11 +50,25 @@ test( "the mapStateToProps function", () => {
 					},
 					"2": {
 						"id": "2",
-						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"name": "download2",
+						"currentVersion": 5.6,
+						"icon": "icon2.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 2 group description",
+								"icon": "",
+								"id": "2222",
+								"name": "Plugin 2 group",
+								"parentId": null,
+								"slug": "plugin-2",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -57,6 +85,20 @@ test( "the mapStateToProps function", () => {
 						"icon": "icon.jpg",
 						"type": "ebook",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 3 group description",
+								"icon": "",
+								"id": "3333",
+								"name": "Plugin 3 group",
+								"parentId": null,
+								"slug": "ebook-3",
+								"svgIcon": "",
+								"version": "",
+							}
+							],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -65,6 +107,44 @@ test( "the mapStateToProps function", () => {
 							},
 						],
 						"glNumber": "333",
+					}
+				},
+				allIds: [ "1", "2", "3" ],
+			},
+			productGroups: {
+				byId: {
+					"1": {
+						"courseId": "",
+						"description": "Plugin 1 group description",
+						"icon": "",
+						"id": "1111",
+						"name": "Plugin 1 group",
+						"parentId": null,
+						"slug": "plugin-1",
+						"svgIcon": "",
+						"version": "",
+					},
+					"2": {
+						"courseId": "",
+						"description": "Plugin 2 group description",
+						"icon": "",
+						"id": "2222",
+						"name": "Plugin 2 group",
+						"parentId": null,
+						"slug": "plugin-2",
+						"svgIcon": "",
+						"version": "",
+					},
+					"3": {
+						"courseId": "",
+						"description": "Plugin 3 description",
+						"icon": "",
+						"id": "3333",
+						"name": "Plugin 3",
+						"parentId": null,
+						"slug": "ebook-3",
+						"svgIcon": "",
+						"version": "",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -110,15 +190,17 @@ test( "the mapStateToProps function", () => {
 			name: "download1",
 			glNumber: "333",
 		}],
-		plugins: [ {
-			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
-			category: "plugin",
-			currentVersion: 4.7,
-			icon: "icon.jpg",
-			ids: [ "1" ],
-			name: "download1",
-			glNumber: "111",
-		} ],
+		plugins: [
+			{
+				buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin1.zip", "_blank") } ],
+				category: "plugin",
+				currentVersion: 5.6,
+				icon: "icon1.jpg",
+				ids: [ "1" ],
+				name: "download1",
+				glNumber: "111",
+			}
+		],
 		query: "d",
 		composerToken: null,
 		composerHelpModalIsOpen: false,
@@ -152,12 +234,25 @@ test( "the mapStateToProps function without search results", () => {
 				byId: {
 					"1": {
 						"id": "1",
-						"productId": "1",
 						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"currentVersion": 5.6,
+						"icon": "icon1.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 1 group description",
+								"icon": "",
+								"id": "1111",
+								"name": "Plugin 1 group",
+								"parentId": null,
+								"slug": "plugin-1",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -165,16 +260,29 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: "111",
+						"glNumber": "111",
 					},
 					"2": {
 						"id": "2",
-						"productId": "1",
-						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"name": "download2",
+						"currentVersion": 5.6,
+						"icon": "icon2.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 2 group description",
+								"icon": "",
+								"id": "2222",
+								"name": "Plugin 2 group",
+								"parentId": null,
+								"slug": "plugin-2",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -182,16 +290,29 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/plugin.zip"
 							},
 						],
-						glNumber: "222",
+						"glNumber": "222",
 					},
 					"3": {
 						"id": "3",
-						"productId": "3",
 						"name": "download1",
 						"currentVersion": 4.7,
 						"icon": "icon.jpg",
 						"type": "ebook",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 3 group description",
+								"icon": "",
+								"id": "3333",
+								"name": "Plugin 3 group",
+								"parentId": null,
+								"slug": "ebook-3",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -199,7 +320,45 @@ test( "the mapStateToProps function without search results", () => {
 								"file": "http://example.org/ebook.pdf"
 							},
 						],
-						glNumber: "333",
+						"glNumber": "333",
+					}
+				},
+				allIds: [ "1", "2", "3" ],
+			},
+			productGroups: {
+				byId: {
+					"1": {
+						"courseId": "",
+						"description": "Plugin 1 group description",
+						"icon": "",
+						"id": "1111",
+						"name": "Plugin 1 group",
+						"parentId": null,
+						"slug": "plugin-1",
+						"svgIcon": "",
+						"version": "",
+					},
+					"2": {
+						"courseId": "",
+						"description": "Plugin 2 group description",
+						"icon": "",
+						"id": "2222",
+						"name": "Plugin 2 group",
+						"parentId": null,
+						"slug": "plugin-2",
+						"svgIcon": "",
+						"version": "",
+					},
+					"3": {
+						"courseId": "",
+						"description": "Plugin 3 description",
+						"icon": "",
+						"id": "3333",
+						"name": "Plugin 3",
+						"parentId": null,
+						"slug": "ebook-3",
+						"svgIcon": "",
+						"version": "",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -278,10 +437,24 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 					"1": {
 						"id": "1",
 						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"currentVersion": 5.6,
+						"icon": "icon1.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 1 group description",
+								"icon": "",
+								"id": "1111",
+								"name": "Plugin 1 group",
+								"parentId": null,
+								"slug": "plugin-1",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -293,11 +466,25 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 					},
 					"2": {
 						"id": "2",
-						"name": "download1",
-						"currentVersion": 4.7,
-						"icon": "icon.jpg",
+						"name": "download2",
+						"currentVersion": 5.6,
+						"icon": "icon2.jpg",
 						"type": "plugin",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 2 group description",
+								"icon": "",
+								"id": "2222",
+								"name": "Plugin 2 group",
+								"parentId": null,
+								"slug": "plugin-2",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -314,6 +501,20 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 						"icon": "icon.jpg",
 						"type": "ebook",
 						"description": "for Wordpress",
+						"productGroups": [
+							{
+								"changelog": "",
+								"courseId": "",
+								"description": "Plugin 3 group description",
+								"icon": "",
+								"id": "3333",
+								"name": "Plugin 3 group",
+								"parentId": null,
+								"slug": "ebook-3",
+								"svgIcon": "",
+								"version": "",
+							}
+						],
 						"storeUrl": "http://yoast.com",
 						"downloads": [
 							{
@@ -322,6 +523,44 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 							},
 						],
 						"glNumber": "333",
+					}
+				},
+				allIds: [ "1", "2", "3" ],
+			},
+			productGroups: {
+				byId: {
+					"1": {
+						"courseId": "",
+						"description": "Plugin 1 group description",
+						"icon": "",
+						"id": "1111",
+						"name": "Plugin 1 group",
+						"parentId": null,
+						"slug": "plugin-1",
+						"svgIcon": "",
+						"version": "",
+					},
+					"2": {
+						"courseId": "",
+						"description": "Plugin 2 group description",
+						"icon": "",
+						"id": "2222",
+						"name": "Plugin 2 group",
+						"parentId": null,
+						"slug": "plugin-2",
+						"svgIcon": "",
+						"version": "",
+					},
+					"3": {
+						"courseId": "",
+						"description": "Plugin 3 description",
+						"icon": "",
+						"id": "3333",
+						"name": "Plugin 3",
+						"parentId": null,
+						"slug": "ebook-3",
+						"svgIcon": "",
+						"version": "",
 					}
 				},
 				allIds: [ "1", "2", "3" ],
@@ -370,8 +609,8 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 		plugins: [ {
 			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
 			category: "plugin",
-			currentVersion: 4.7,
-			icon: "icon.jpg",
+			currentVersion: 5.6,
+			icon: "icon1.jpg",
 			ids: [ "1" ],
 			name: "download1",
 			glNumber: "111",

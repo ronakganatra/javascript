@@ -73,16 +73,16 @@ function filterProductsByType( type, products ) {
  * @param {Array} plugins The plugins to sort.
  * @returns {Array} The sorted array of plugins.
  */
-function sortPluginsByPopularity( plugins ) {
+export function sortPluginsByPopularity( plugins ) {
 	/* Defines an array of plugin glnumbers in order of popularity:
 	 *
-     * Premium WP: "82101"
-     * Local WP: "82103"
-     * News WP : "82104"
-     * WooCommerce: "82105"
-     * Video WP: "82102"
-     * Local WooCommerce: "82106"
-     */
+	 * Premium WP: "82101"
+	 * Local WP: "82103"
+	 * News WP : "82104"
+	 * WooCommerce: "82105"
+	 * Video WP: "82102"
+	 * Local WooCommerce: "82106"
+	 */
 	const pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
 
 	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
@@ -140,4 +140,3 @@ export function getShopUrl() {
 export const getEbooks = _partial( filterProductsByType, "ebook" );
 export const getCares = _partial( filterProductsByType, "care" );
 export const getCourses = _partial( filterProductsByType, "course" );
-export { sortPluginsByPopularity };
