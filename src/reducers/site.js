@@ -23,6 +23,7 @@ const rootState = {
 				toggling: false,
 			},
 			downloadModalOpen: false,
+			downloadModalSubscriptionId: "",
 		},
 	},
 };
@@ -44,10 +45,13 @@ function uiModalReducer( state = rootState.ui.sites, action ) {
 		case DOWNLOAD_MODAL_OPEN:
 			return Object.assign( {}, state, {
 				downloadModalOpen: true,
+				downloadModalSubscriptionId: action.subscriptionId,
 			} );
 		case DOWNLOAD_MODAL_CLOSE:
 			return Object.assign( {}, state, {
 				downloadModalOpen: false,
+				downloadModalSubscriptionId: "",
+
 			} );
 		default:
 			return state;

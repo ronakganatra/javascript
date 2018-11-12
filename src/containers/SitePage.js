@@ -31,7 +31,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 	const sites = state.entities.sites;
 	const addSubscriptionModal = state.ui.addSubscriptionModal;
-	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
 			loadingSite: true,
@@ -89,6 +88,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
+	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
+	const downloadModalSubscriptionId = state.ui.site.downloadModalSubscriptionId;
 	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
@@ -99,6 +100,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
 		downloadModalIsOpen,
+		downloadModalSubscriptionId,
 		site,
 		subscriptions,
 		plugins,
@@ -137,8 +139,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				dispatch( siteRemove( siteId ) );
 			}
 		},
-		onDownloadModalOpen: () => {
-			dispatch( downloadModalOpen() );
+		onDownloadModalOpen: ( subscriptionId ) => {
+			dispatch( downloadModalOpen( subscriptionId ) );
 		},
 		onDownloadModalClose: () => {
 			dispatch( downloadModalClose() );

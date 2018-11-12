@@ -132,7 +132,7 @@ function SiteSubscriptionDetail( props ) {
 				{ anotherLicense }
 			</ColumnPrimary>
 			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
-				<ResponsiveLargeButton onClick={ props.onDownloadModalOpen }>
+				<ResponsiveLargeButton onClick={ _partial( props.onDownloadModalOpen, props.subscriptionId ) }>
 					<FormattedMessage id="subscriptions.buttons.download" defaultMessage="Download" />
 				</ResponsiveLargeButton>
 			</ColumnFixedWidthEnabled>
@@ -141,7 +141,15 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthEnabled>
-			{ props.downloadModalOpen ? <DownloadModal { ...props } /> : "" }
+			{ props.downloadModalOpen && props.downloadModalSubscriptionId === props.subscriptionId
+				? <DownloadModal
+					downloadModalOpen={ props.downloadModalOpen }
+					onDownloadModalClose={ props.onDownloadModalClose }
+					intl={ props.intl }
+					products={ props.products }
+				/>
+				: ""
+			}
 		</RowMobileCollapse>
 	);
 }
@@ -169,6 +177,8 @@ SiteSubscriptionDetail.propTypes = {
 	downloadModalOpen: PropTypes.bool,
 	onDownloadModalOpen: PropTypes.func,
 	onDownloadModalClose: PropTypes.func,
+	downloadModalSubscriptionId: PropTypes.string,
+	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SiteSubscriptionDetail.defaultProps = {

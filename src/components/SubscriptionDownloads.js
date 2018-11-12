@@ -88,9 +88,9 @@ class SubscriptionDownloads extends React.Component {
 	makeDownloadRow( download ) {
 		const ResponsiveProductNameColumn = makeFullWidth( responsiveHeaders( ProductNameColumn ) );
 
-		const id = download.productName;
-		const productName = download.productName;
-		const downloadLink = download.downloadLink;
+		const id = download.name;
+		const productName = download.name;
+		const downloadLink = download.storeUrl;
 
 		return (
 			<FullWidthRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
@@ -112,21 +112,9 @@ class SubscriptionDownloads extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const tempvalue = [
-			{
-				productName: "Yoast SEO for WordPress Premium Plugin",
-				downloadLink: "https://nos.nl",
-
-			},
-			{
-				productName: "superding",
-				downloadLink: "https://nos.nl",
-			},
-		];
-
 		const downloadsTable =
 			<ListTable invertZebra={ true } { ...this.props }>
-				{ tempvalue.map( ( one ) => {
+				{ this.props.products.map( ( one ) => {
 					return this.makeDownloadRow( one );
 				} ) }
 			</ListTable>;
@@ -151,7 +139,7 @@ class SubscriptionDownloads extends React.Component {
 SubscriptionDownloads.propTypes = {
 	onDownloadModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-
+	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
 export default injectIntl( SubscriptionDownloads );

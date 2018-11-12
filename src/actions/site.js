@@ -26,11 +26,13 @@ export const DOWNLOAD_MODAL_CLOSE = "DOWNLOAD_MODAL_CLOSE";
 /**
  * An action creator for the opening download modal action.
  *
+ * @param {string} subscriptionId The id of the subscription for which to show the downloads in the modal.
  * @returns {Object} An open download modal action.
  */
-export function downloadModalOpen() {
+export function downloadModalOpen( subscriptionId ) {
 	return {
 		type: DOWNLOAD_MODAL_OPEN,
+		subscriptionId,
 	};
 }
 

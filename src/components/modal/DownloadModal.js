@@ -3,6 +3,8 @@ import MyYoastModal from "../MyYoastModal";
 import React from "react";
 import PropTypes from "prop-types";
 import SubscriptionDownloads from "../SubscriptionDownloads";
+import { intlShape } from "react-intl";
+
 
 const modalAriaLabel = defineMessages( {
 	id: "modal.arialabel.download",
@@ -15,26 +17,29 @@ const modalAriaLabel = defineMessages( {
  * @param {Object} props The props required.
  * @returns { ReactElement } The Download modal.
  */
-const AddSiteModal = ( props ) => (
+const DownloadModal = ( props ) => (
 	<MyYoastModal
 		isOpen={ props.downloadModalOpen }
 		onClose={ props.onDownloadModalClose }
 		modalAriaLabel={ modalAriaLabel }
 	>
-		<SubscriptionDownloads { ...props } />
+		<SubscriptionDownloads
+			onDownloadModalClose={ props.onDownloadModalClose }
+			intl={ props.intl }
+			products={ props.products }
+		/>
 	</MyYoastModal>
 );
 
-
-AddSiteModal.propTypes = {
-	onClose: PropTypes.func.isRequired,
-	modalOpen: PropTypes.bool,
+DownloadModal.propTypes = {
 	downloadModalOpen: PropTypes.bool,
-	onDownloadModalCloseButtonClick: PropTypes.func,
+	onDownloadModalClose: PropTypes.func,
+	intl: intlShape.isRequired,
+	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
-AddSiteModal.defaultProps = {
+DownloadModal.defaultProps = {
 	modalOpen: false,
 };
 
-export default AddSiteModal;
+export default DownloadModal;
