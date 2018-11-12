@@ -10,9 +10,7 @@ import {
 } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
-import {
-	sortPluginsByPopularity,
-} from "../functions/products";
+import { sortPluginsByPopularity } from "../functions/products";
 import {
 	configurationServiceRequestModalClose,
 	configurationServiceRequestModalOpen,
@@ -25,6 +23,7 @@ import {
 	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
+import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
@@ -73,13 +72,18 @@ export const mapStateToProps = ( state, ownProps ) => {
 	} );
 
 	// Get the productGroups that contain our plugin product variations.
-	const pluginProductGroups = getProductGroupsByParentSlug( SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ], allProductGroups );
+	const pluginProductGroups = getProductGroupsByParentSlug(
+		SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ],
+		allProductGroups,
+		hasAccessToFeature( SUBSCRIPTIONS_FEATURE )
+	);
 
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
 	pluginProductGroups.forEach( ( pluginProductGroup ) => {
-		if ( allProducts.length > 0 ) {
-			pluginProductGroup.products = getProductsByProductGroupId( pluginProductGroup.id, allProducts );
+		pluginProductGroup.products = getProductsByProductGroupId( pluginProductGroup.id, allProducts );
+
+		if ( pluginProductGroup.products.length > 0 ) {
 			plugins.push( addSubscriptionInfoToProductGroup( pluginProductGroup, activeSubscriptions ) );
 		}
 	} );

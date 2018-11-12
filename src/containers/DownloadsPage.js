@@ -10,12 +10,12 @@ import _filter from "lodash/filter";
 import _includes from "lodash/includes";
 import _flatMap from "lodash/flatMap";
 import _isEmpty from "lodash/isEmpty";
-import _flatten from "lodash/flatten";
 import _unescape from "lodash/unescape";
 import {
 	composerHelpModalClosed, composerHelpModalOpen,
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
+import { getSearchQuery } from "../selectors/search";
 
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
@@ -56,11 +56,8 @@ const getPluginProducts = ( state ) => {
 	const childrenGroups = _filter( state.entities.productGroups.byId, productGroup => _includes( productGroupsIds, productGroup.parentId ) );
 
 	if ( ! _isEmpty( childrenGroups ) ) {
-		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => {
-			return childrenGroup.id;
-		} );
-		products.push( _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) ) );
-		products = _flatten( products );
+		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => childrenGroup.id );
+		products = products.concat( _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) ) );
 	}
 	products = getPlugins( products );
 
@@ -103,7 +100,7 @@ export const mapStateToProps = ( state ) => {
 
 	let plugins = setDownloadProps( getPluginProducts( state ) );
 
-	const query = state.ui.search.query;
+	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
 		eBooks = eBooks.filter( ( eBook ) => {
 			return eBook.name.toUpperCase().includes( query.toUpperCase() );
