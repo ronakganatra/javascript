@@ -48,7 +48,7 @@ const CancelSubscriptionContainer = styled.div`
 	width:800px;
 `;
 
-class SubscriptionCancelModal extends React.Component {
+class SubscriptionEditModal extends React.Component {
 	/**
 	 * Renders the component.
 	 *
@@ -97,7 +97,7 @@ class SubscriptionCancelModal extends React.Component {
 	}
 }
 
-SubscriptionCancelModal.propTypes = {
+SubscriptionEditModal.propTypes = {
 	className: PropTypes.string,
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,
@@ -109,11 +109,11 @@ SubscriptionCancelModal.propTypes = {
 	connectedSubscriptions: PropTypes.array,
 };
 
-SubscriptionCancelModal.defaultProps = {
+SubscriptionEditModal.defaultProps = {
 	isOpen: false,
 	loading: false,
 	error: null,
 	connectedSubscriptions: [],
 };
 
-export default injectIntl( SubscriptionCancelModal );
+export default injectIntl( SubscriptionEditModal );

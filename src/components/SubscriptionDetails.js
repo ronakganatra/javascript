@@ -39,7 +39,7 @@ const messages = defineMessages( {
 	},
 	cancelLink: {
 		id: "subscriptionDetails.buttons.cancel",
-		defaultMessage: "Cancel subscription",
+		defaultMessage: "Edit or cancel subscription",
 	},
 	cancelPending: {
 		id: "subscriptionDetails.cancelPending",

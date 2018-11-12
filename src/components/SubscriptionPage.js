@@ -9,7 +9,7 @@ import Orders from "./Orders";
 import { Paper } from "./PaperStyles";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
-import SubscriptionCancelModal from "./SubscriptionCancelModal";
+import SubscriptionEditModal from "./SubscriptionCancelModal";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -71,7 +71,7 @@ class SubscriptionPage extends React.Component {
 			)
 		);
 		return (
-			<SubscriptionCancelModal
+			<SubscriptionEditModal
 				isOpen={ this.props.cancelModalOpen }
 				onClose={ this.props.closeCancelModal }
 				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
