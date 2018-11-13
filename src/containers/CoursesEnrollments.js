@@ -1,58 +1,110 @@
 import { connect } from "react-redux";
+import flatten from "lodash/flatten";
+import _includes from "lodash/includes";
+import isEmpty from "lodash/isEmpty";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
 	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
 } from "../actions/courses";
+import { getOrders } from "../actions/orders";
+import { getAllProducts } from "../actions/products";
+import { getProductGroups } from "../actions/productGroups";
+// F import LineItems from "../components/LineItems";
 import CoursesEnrollments from "../components/CoursesEnrollments";
+// C import _includes from "lodash/includes";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
-	let coursesEnrollments = allIds.map( enrollmentId => {
-		const enrollment = state.entities.coursesEnrollments.byId[ enrollmentId ];
-
-		// We don't want to display refunded course enrollments.
-		if ( enrollment.status === "refunded" ) {
-			return false;
+	const lineItemEnrollmentIds = {};
+	allIds.forEach( ( enrollmentId ) => {
+		const lineItemId = state.entities.coursesEnrollments.byId[ enrollmentId ].lineItemId;
+		// Check if there is a line item ID for the enrollment
+		if ( lineItemId ) {
+			if ( ! _includes( Object.keys( lineItemEnrollmentIds ), lineItemId ) ) {
+				lineItemEnrollmentIds[ lineItemId ] = [ enrollmentId ];
+			}
+			lineItemEnrollmentIds[ lineItemId ].push( enrollmentId );
 		}
+	} );
 
-		let icon = enrollment.course.iconUrl;
-		let buyerEmail = "";
-		let buyerName = "";
-		let studentEmail = "";
-		let studentName = "";
+	const allLineItemIds = Object.keys( lineItemEnrollmentIds );
+	const allOrderIds = state.entities.orders.allIds;
+	const allCourseEnrollmentIds = state.entities.coursesEnrollments.allIds;
 
-		if ( ! icon ) {
-			icon = enrollment.course.products[ 0 ] ? enrollment.course.products[ 0 ].icon : "";
+	const lineItems = flatten( allOrderIds.map( orderId => {
+		return state.entities.orders.byId[ orderId ].items;
+	} ) );
+	const groupedEnrollmentLineItems = {};
+	allLineItemIds.map( ( lineItemId ) => {
+		if ( ! _includes( Object.keys( groupedEnrollmentLineItems ), lineItemId ) ) {
+			groupedEnrollmentLineItems[ lineItemId ] = lineItems.filter( ( item ) => item.id === lineItemId )[ 0 ];
 		}
+	} );
 
-		if ( enrollment.order ) {
-			buyerName = [ enrollment.buyer.userFirstName, enrollment.buyer.userLastName ].join( " " );
-			buyerEmail = enrollment.order.customerEmail;
+	const groupedProductsByLineItem = {};
+	const groupedProductGroupsByLineItem = {};
+	if ( ! isEmpty( groupedEnrollmentLineItems ) && ! isEmpty( lineItems ) && ! isEmpty( state.entities.products.allIds ) ) {
+		allLineItemIds.map( ( itemId ) => {
+			groupedProductsByLineItem[ itemId ] = state.entities.products.byId[ groupedEnrollmentLineItems[ itemId ].productId ];
+			groupedProductGroupsByLineItem[ itemId ] = {};
+			groupedProductsByLineItem[ itemId ].productGroups.map( ( productGroup ) => {
+				groupedProductGroupsByLineItem[ itemId ] = state.entities.productGroups.byId[ productGroup.id ];
+			} );
+		} );
+	}
+
+	let groupedCourseEnrollments = [];
+	// Looping over the grouped productGroups ensures that they already exists
+	Object.keys( groupedProductGroupsByLineItem ).map( ( lineItemId ) => {
+		const prodGroup = groupedProductGroupsByLineItem[ lineItemId ];
+		if ( prodGroup ) {
+			console.log( lineItemId );
+			console.log( prodGroup );
+			const icon = prodGroup.icon || "";
+			let buyerEmail = "";
+			let buyerName = "";
+			let studentEmail = "";
+			let studentName = "";
+
+			const order = state.entities.orders.byId[ groupedEnrollmentLineItems[ lineItemId ].orderId ];
+			const enrollment = state.entities.coursesEnrollments.byId[ lineItemEnrollmentIds[ lineItemId ][ 0 ] ];
+			if ( order ) {
+				buyerName = [ order.customerFirstName, order.customerLastName ].join( " " );
+				buyerEmail = order.customerEmail;
+			}
+
+			if ( enrollment.student ) {
+				studentName = [ enrollment.student.userFirstName, enrollment.student.userLastName ].join( " " );
+				studentEmail = enrollment.student.userEmail;
+			}
+
+			const outsideTrialProgress = allCourseEnrollmentIds.some( ( courseEnrollmentId ) => {
+				const courseEnrollment = state.entities.coursesEnrollments.byId[ courseEnrollmentId ];
+				return courseEnrollment.outsideTrialProgress === true;
+			} );
+			const progress = allCourseEnrollmentIds.some( ( courseEnrollmentId ) => {
+				const courseEnrollment = state.entities.coursesEnrollments.byId[ courseEnrollmentId ];
+				return courseEnrollment.progress > 0;
+			} ) || 0;
+
+			groupedCourseEnrollments.push( {
+				icon: icon,
+				id: enrollment.id,
+				progress: progress,
+				courseId: prodGroup.courseId,
+				courseName: prodGroup.name,
+				buyerEmail: buyerEmail,
+				buyerName: buyerName,
+				buyerId: enrollment.buyerId,
+				status: enrollment.status,
+				studentEmail: studentEmail,
+				studentName: studentName,
+				isTrial: enrollment.isTrial,
+				outsideTrialProgress: outsideTrialProgress,
+			} );
 		}
-
-		if ( enrollment.student ) {
-			studentName = [ enrollment.student.userFirstName, enrollment.student.userLastName ].join( " " );
-			studentEmail = enrollment.student.userEmail;
-		}
-
-		return {
-			id: enrollment.id,
-			progress: enrollment.progress,
-			courseId: enrollment.courseId,
-			courseName: enrollment.course.name,
-			icon: icon,
-			buyerId: enrollment.buyerId,
-			buyerEmail,
-			buyerName,
-			status: enrollment.status,
-			studentEmail,
-			studentId: enrollment.studentId,
-			studentName,
-			isTrial: enrollment.isTrial,
-			outsideTrialProgress: enrollment.outsideTrialProgress,
-		};
-	} ).filter( ( enrollment ) => !! enrollment );
+	} );
 
 	const allCourseIds = state.entities.courses.allIds;
 	const freeEnrollments = allCourseIds
@@ -63,7 +115,7 @@ export const mapStateToProps = ( state ) => {
 			}
 
 			// Don't show a free enrollment is the user is already enrolled.
-			return coursesEnrollments.every( enrollment => enrollment.courseId !== courseId );
+			return groupedCourseEnrollments.every( enrollment => enrollment.courseId !== courseId );
 		} )
 		.map( ( courseId ) => {
 			const course = state.entities.courses.byId[ courseId ];
@@ -90,7 +142,7 @@ export const mapStateToProps = ( state ) => {
 		} );
 
 
-	coursesEnrollments = coursesEnrollments.concat( freeEnrollments );
+	groupedCourseEnrollments = groupedCourseEnrollments.concat( freeEnrollments );
 
 
 	const inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
@@ -105,14 +157,18 @@ export const mapStateToProps = ( state ) => {
 		inviteModalIsOpen,
 		inviteStudentEmail,
 		inviteStudentEmailConfirmation,
-		coursesEnrollments,
+		groupedCourseEnrollments,
 	};
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
+	console.log( "*-**********--*-*-*-*--*", dispatch( getAllProducts() ) );
 	return {
 		loadCourseEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
 		loadCourses: () => dispatch( retrieveCourses() ),
+		loadProductGroups: () => dispatch( getProductGroups() ),
+		loadOrders: () => dispatch( getOrders() ),
+		loadProducts: () => dispatch( getAllProducts() ),
 		inviteModalOpen: ( courseEnrollmentId ) => dispatch( courseInviteModalOpen( courseEnrollmentId ) ),
 		inviteModalClose: () => dispatch( courseInviteModalClose() ),
 		onClose: () => dispatch( courseInviteModalClose() ),

@@ -89,6 +89,9 @@ class CoursesEnrollments extends React.Component {
 	componentDidMount() {
 		this.props.loadCourseEnrollments();
 		this.props.loadCourses();
+		this.props.loadOrders();
+		this.props.loadProducts();
+		this.props.loadProductGroups();
 
 		// Announce navigation to assistive technologies.
 		const message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -155,8 +158,10 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
 	 */
 	getCourseActions( course ) {
+		console.log( "course: ", course );
 		const currentUser = getUserId();
 		const isSwitchable = course.status === "not started" || ! course.outsideTrialProgress;
+		console.log( "isSwitchable: ", isSwitchable );
 
 		if ( currentUser === course.buyerId && isSwitchable ) {
 			return (
@@ -201,9 +206,9 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const { coursesEnrollments } = this.props;
+		const { groupedCourseEnrollments } = this.props;
 
-		if ( isEmpty( coursesEnrollments ) ) {
+		if ( isEmpty( groupedCourseEnrollments ) ) {
 			return this.renderNoResults();
 		}
 
@@ -211,7 +216,7 @@ class CoursesEnrollments extends React.Component {
 			<div>
 				<Paper>
 					<ListTable>
-						{ coursesEnrollments.map( ( enrollment ) => {
+						{ groupedCourseEnrollments.map( ( enrollment ) => {
 							return (
 								<RowMobileCollapse key={ enrollment.id }>
 									<CourseColumnIcon separator={ true }><CourseIcon
@@ -248,7 +253,7 @@ CoursesEnrollments.propTypes = {
 	intl: intlShape.isRequired,
 	loadCourseEnrollments: PropTypes.func,
 	loadCourses: PropTypes.func,
-	coursesEnrollments: PropTypes.array,
+	groupedCourseEnrollments: PropTypes.array,
 	inviteModalIsOpen: PropTypes.bool,
 	onInviteClick: PropTypes.func,
 	inviteStudentEmail: PropTypes.string,
@@ -256,6 +261,9 @@ CoursesEnrollments.propTypes = {
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
 	courseInviteError: PropTypes.object,
+	loadOrders: PropTypes.func,
+	loadProducts: PropTypes.func,
+	loadProductGroups: PropTypes.func,
 };
 
 export default injectIntl( CoursesEnrollments );
