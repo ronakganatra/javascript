@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
-import SubscriptionDetails from "./SubscriptionDetails";
+import SubscriptionDetails, { ColumnFixedWidthResponsive, RowMobileCollapseNoMinHeight } from "./SubscriptionDetails";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
 import { ListHeading } from "./Headings";
 import Orders from "./Orders";
@@ -10,6 +10,9 @@ import { Paper } from "./PaperStyles";
 import styled from "styled-components";
 import defaults from "../config/defaults.json";
 import SubscriptionCancelModal from "./SubscriptionCancelModal";
+import { ColumnMinWidth } from "./Tables";
+import { ListTable } from "./Tables";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -19,6 +22,10 @@ const messages = defineMessages( {
 	invoicesTitle: {
 		id: "subscriptionPage.invoices.title",
 		defaultMessage: "Invoices",
+	},
+	downloadTitle: {
+		id: "subscriptionPage.download.title",
+		defaultMessage: "Included products",
 	},
 } );
 
@@ -94,6 +101,35 @@ class SubscriptionPage extends React.Component {
 		}
 
 		const subscription = this.props.subscription;
+		// It seems that there are subscriptions that give access to multiple products, this code should be changed
+		// To adept for that.
+		const downloads = [ {
+			id: this.props.subscription.name,
+			link: this.props.subscription.product.downloads[ 0 ].file,
+		} ];
+
+		const downloadList =
+			<ListTable>
+				{ downloads.map( download => {
+					return (
+						<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="download">
+							<ColumnMinWidth ellipsis={ true }>
+								{ download.id }
+							</ColumnMinWidth>
+							<ColumnFixedWidthResponsive ellipsis={ true }>
+								<Link
+									to={ download.link }
+									aria-label={ "Download" }
+									linkTarget={ "_blank" }
+								>
+									Download
+								</Link>
+							</ColumnFixedWidthResponsive>
+						</RowMobileCollapseNoMinHeight>
+					);
+				} ) }
+			</ListTable>;
+
 		return <section>
 			<Header
 				name={ subscription.name }
@@ -125,6 +161,17 @@ class SubscriptionPage extends React.Component {
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
+				<ListHeading>
+					{ this.props.intl.formatMessage( messages.downloadTitle ) }
+					<Link
+						// This link should be styled to the right.
+						to={ "https://yoa.st/myyoast-installation" }
+						linkTarget={ "_blank" }
+					>
+						Read our installation guides
+					</Link>
+				</ListHeading>
+				{ downloadList }
 			</Paper>
 			{ this.getModal() }
 		</section>;

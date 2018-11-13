@@ -47,7 +47,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
+export const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 	@media screen and ( max-width: ${ defaults.css.breakpoint.tablet }px ) {
 		min-height: 0;
 
@@ -62,7 +62,7 @@ const RowMobileCollapseNoMinHeight = styled( RowMobileCollapse )`
 	}
 `;
 
-const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
+export const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 
 /**
  * The SubscriptionDetails component.
