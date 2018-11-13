@@ -159,10 +159,8 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {JSXElement} Returns a column with either a button, information about the course progress, or information about the course owner.
 	 */
 	getCourseActions( course ) {
-		console.log( "course: ", course );
 		const currentUser = getUserId();
 		const isSwitchable = course.status === "not started" || ! course.outsideTrialProgress;
-		console.log( "isSwitchable: ", isSwitchable );
 
 		if ( currentUser === course.buyerId && isSwitchable ) {
 			return (
