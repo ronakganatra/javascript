@@ -32,14 +32,14 @@ const DownloadModal = ( props ) => (
 );
 
 DownloadModal.propTypes = {
-	downloadModalOpen: PropTypes.bool,
-	onDownloadModalClose: PropTypes.func,
+	downloadModalOpen: PropTypes.bool.isRequired,
+	onDownloadModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
 	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 DownloadModal.defaultProps = {
-	modalOpen: false,
+	downloads: [],
 };
 
 export default DownloadModal;
