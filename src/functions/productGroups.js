@@ -10,13 +10,19 @@ export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
  *
  * @param   {string} slug          The slug of the parent productGroup.
  * @param   {Array}  productGroups All productGroups.
+ * @param   {bool}   includeParent Whether or not to include the parent itself.
  * @returns {Array}                The productGroups that belong to the parent slug.
  */
-export function getProductGroupsByParentSlug( slug, productGroups ) {
+export function getProductGroupsByParentSlug( slug, productGroups, includeParent = false ) {
 	// Get the id of the parent productGroup.
-	const parentGroup = productGroups.find( productGroup => productGroup.slug.indexOf( slug ) !== -1 );
+	const parentGroup = productGroups.find( productGroup => productGroup.slug === slug );
 	if ( parentGroup ) {
-		return productGroups.filter( productGroup => productGroup.parentId === parentGroup.id );
+		const children = productGroups.filter( productGroup => productGroup.parentId === parentGroup.id );
+
+		if ( includeParent ) {
+			return [ parentGroup, ...children ];
+		}
+		return children;
 	}
 	return [];
 }
