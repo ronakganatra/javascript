@@ -36,7 +36,7 @@ exports[`A standard order 1`] = `
 .c5::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Date";
@@ -57,7 +57,7 @@ exports[`A standard order 1`] = `
 .c6::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Order";
@@ -75,7 +75,7 @@ exports[`A standard order 1`] = `
 .c9::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Items";
@@ -96,7 +96,7 @@ exports[`A standard order 1`] = `
 .c12::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Total";
@@ -117,7 +117,7 @@ exports[`A standard order 1`] = `
 .c14::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Status";
@@ -135,7 +135,7 @@ exports[`A standard order 1`] = `
 .c17::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -528,7 +528,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c5::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Date";
@@ -549,7 +549,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c6::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Order";
@@ -567,7 +567,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c9::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Items";
@@ -588,7 +588,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c12::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Total";
@@ -609,7 +609,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c14::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Status";
@@ -627,7 +627,7 @@ exports[`An Order with a disabled invoice button 1`] = `
 .c17::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;

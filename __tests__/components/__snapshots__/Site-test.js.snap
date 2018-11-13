@@ -38,7 +38,7 @@ exports[`the site component matches the snapshot 1`] = `
 .c3::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -68,7 +68,7 @@ exports[`the site component matches the snapshot 1`] = `
 .c6::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Site name";
@@ -89,7 +89,7 @@ exports[`the site component matches the snapshot 1`] = `
 .c10::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Active subscriptions";
@@ -107,7 +107,7 @@ exports[`the site component matches the snapshot 1`] = `
 .c13::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
