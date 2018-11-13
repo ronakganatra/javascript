@@ -29,8 +29,8 @@ function mapDispatchToProps( dispatch ) {
 		onClose: () => {
 			dispatch( closeCancelSubscriptionModal() );
 		},
-		cancelSubscription: ( subscriptionId, sourceShopId ) => {
-			dispatch( cancelSubscription( subscriptionId, sourceShopId ) );
+		cancelSubscription: ( subscriptionId, amount ) => {
+			dispatch( cancelSubscription( subscriptionId, amount ) );
 		}
 	};
 }
