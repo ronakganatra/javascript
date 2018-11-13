@@ -132,6 +132,7 @@ class SitePage extends React.Component {
 			onDownloadModalOpen={ this.props.onDownloadModalOpen }
 			onDownloadModalClose={ this.props.onDownloadModalClose }
 			downloadModalSubscriptionId={ this.props.downloadModalSubscriptionId }
+			downloads={ this.props.downloads }
 		/>;
 	}
 
@@ -199,6 +200,7 @@ SitePage.propTypes = {
 	onDownloadModalOpen: PropTypes.func,
 	onDownloadModalClose: PropTypes.func,
 	downloadModalSubscriptionId: PropTypes.string,
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SitePage.defaultProps = {

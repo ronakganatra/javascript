@@ -26,6 +26,7 @@ import {
 import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
 
 /* eslint-disable require-jsdoc */
+/* eslint-disable */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 	const sites = state.entities.sites;
@@ -88,12 +89,26 @@ export const mapStateToProps = ( state, ownProps ) => {
 		}
 	} );
 
+	console.log( "All them plugins baby: ", plugins );
+
 	plugins = sortPluginsByPopularity( plugins );
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
 	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
 	const downloadModalSubscriptionId = state.ui.site.downloadModalSubscriptionId;
+
+	let downloads = [];
+	if ( downloadModalIsOpen ) {
+		const activeSubscription = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		const differentProductsInSubscription = activeSubscription.products.filter( entry => entry.sourceShopId === 1 );
+		downloads = differentProductsInSubscription.map( product => {
+			return { name: product.name, file: product.downloads[ 0 ].file };
+		} );
+	}
+
+	console.log( "foundDownloads: ", downloads );
+
 	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
@@ -105,6 +120,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		addSubscriptionModal,
 		downloadModalIsOpen,
 		downloadModalSubscriptionId,
+		downloads,
 		site,
 		subscriptions,
 		plugins,

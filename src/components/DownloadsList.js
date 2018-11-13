@@ -90,7 +90,7 @@ class DownloadsList extends React.Component {
 
 		const id = download.name;
 		const productName = download.name;
-		const downloadLink = download.storeUrl;
+		const downloadLink = download.file;
 
 		return (
 			<FullWidthRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
@@ -98,7 +98,11 @@ class DownloadsList extends React.Component {
 					<span> { productName } </span>
 				</ResponsiveProductNameColumn>
 				<DownloadLinkColumn>
-					<DownloadLink href={ downloadLink } target="_blank">
+					<DownloadLink
+						target="_blank"
+						href={ downloadLink }
+						rel="noopener noreferrer"
+					>
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>
 				</DownloadLinkColumn>
@@ -114,7 +118,7 @@ class DownloadsList extends React.Component {
 	render() {
 		const downloadsTable =
 			<ListTable invertZebra={ true } { ...this.props }>
-				{ this.props.products.map( ( one ) => {
+				{ this.props.downloads.map( ( one ) => {
 					return this.makeDownloadRow( one );
 				} ) }
 			</ListTable>;
@@ -126,7 +130,13 @@ class DownloadsList extends React.Component {
 				</ModalHeading>
 				{ downloadsTable }
 				<FooterArea>
-					<InstallationGuideLink> { this.props.intl.formatMessage( messages.installationGuideLink ) } </InstallationGuideLink>
+					<InstallationGuideLink
+						target="_blank"
+						href="https://yoa.st/myyoast-installation"
+						rel="noopener noreferrer"
+					>
+						{ this.props.intl.formatMessage( messages.installationGuideLink ) }
+					</InstallationGuideLink>
 					<RightAlignedCloseButton onClick={ this.props.onDownloadModalClose } enabledStyle={ false }>
 						<FormattedMessage id="sites.addSite.cancel" defaultMessage="Close" />
 					</RightAlignedCloseButton>
@@ -139,7 +149,11 @@ class DownloadsList extends React.Component {
 DownloadsList.propTypes = {
 	onDownloadModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
-	products: PropTypes.arrayOf( PropTypes.object ),
+	downloads: PropTypes.arrayOf( PropTypes.object ),
+};
+
+DownloadsList.defaultProps = {
+	downloads: [],
 };
 
 export default injectIntl( DownloadsList );

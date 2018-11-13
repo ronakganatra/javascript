@@ -26,7 +26,7 @@ const DownloadModal = ( props ) => (
 		<DownloadsList
 			onDownloadModalClose={ props.onDownloadModalClose }
 			intl={ props.intl }
-			products={ props.products }
+			downloads={ props.downloads }
 		/>
 	</MyYoastModal>
 );
@@ -35,7 +35,7 @@ DownloadModal.propTypes = {
 	downloadModalOpen: PropTypes.bool,
 	onDownloadModalClose: PropTypes.func,
 	intl: intlShape.isRequired,
-	products: PropTypes.arrayOf( PropTypes.object ),
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 DownloadModal.defaultProps = {

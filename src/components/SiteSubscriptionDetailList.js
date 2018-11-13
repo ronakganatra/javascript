@@ -42,6 +42,7 @@ function SiteSubscriptionDetailList( props ) {
 							onDownloadModalOpen={ props.onDownloadModalOpen }
 							onDownloadModalClose={ props.onDownloadModalClose }
 							downloadModalSubscriptionId={ props.downloadModalSubscriptionId }
+							downloads={ props.downloads }
 						/>;
 					} ) }
 				</ListTable>
@@ -62,6 +63,7 @@ SiteSubscriptionDetailList.propTypes = {
 	onDownloadModalOpen: PropTypes.func,
 	onDownloadModalClose: PropTypes.func,
 	downloadModalSubscriptionId: PropTypes.string,
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

@@ -146,7 +146,7 @@ function SiteSubscriptionDetail( props ) {
 					downloadModalOpen={ props.downloadModalOpen }
 					onDownloadModalClose={ props.onDownloadModalClose }
 					intl={ props.intl }
-					products={ props.products }
+					downloads={ props.downloads }
 				/>
 				: ""
 			}
@@ -178,7 +178,7 @@ SiteSubscriptionDetail.propTypes = {
 	onDownloadModalOpen: PropTypes.func,
 	onDownloadModalClose: PropTypes.func,
 	downloadModalSubscriptionId: PropTypes.string,
-	products: PropTypes.arrayOf( PropTypes.object ),
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SiteSubscriptionDetail.defaultProps = {
