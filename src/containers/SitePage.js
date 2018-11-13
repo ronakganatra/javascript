@@ -24,9 +24,10 @@ import {
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
 import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
+const _flatten = require( "lodash/flatten" );
 
 /* eslint-disable require-jsdoc */
-/* eslint-disable */
+/* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 	const sites = state.entities.sites;
@@ -38,10 +39,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 	const site = sites.byId[ id ];
 
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
-		return state.entities.configurationServiceRequests.byId[ id ];
+	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( configurationServiceId ) => {
+		return state.entities.configurationServiceRequests.byId[ configurationServiceId ];
 	} );
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( request ) => request.status === "intake" );
 
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
@@ -64,12 +65,12 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	const allProducts = state.entities.products.allIds.map( ( id ) => {
-		return state.entities.products.byId[ id ];
+	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
+		return state.entities.products.byId[ productIds ];
 	} );
 
-	const allProductGroups = state.entities.productGroups.allIds.map( ( id ) => {
-		return state.entities.productGroups.byId[ id ];
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
+		return state.entities.productGroups.byId[ productGroupIds ];
 	} );
 
 	// Get the productGroups that contain our plugin product variations.
@@ -89,8 +90,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 		}
 	} );
 
-	console.log( "All them plugins baby: ", plugins );
-
 	plugins = sortPluginsByPopularity( plugins );
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
@@ -100,14 +99,19 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let downloads = [];
 	if ( downloadModalIsOpen ) {
-		const activeSubscription = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
-		const differentProductsInSubscription = activeSubscription.products.filter( entry => entry.sourceShopId === 1 );
+		const pluginOpened = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		let OpenedPluginProducts = pluginOpened.products;
+
+		if ( pluginOpened.parentId === null ) {
+			const children = getProductGroupsByParentSlug( pluginOpened.slug, allProductGroups );
+			OpenedPluginProducts = _flatten( children.map( child => child.products ) );
+		}
+
+		const differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
 		downloads = differentProductsInSubscription.map( product => {
 			return { name: product.name, file: product.downloads[ 0 ].file };
 		} );
 	}
-
-	console.log( "foundDownloads: ", downloads );
 
 	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
@@ -168,8 +172,8 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );
 		},
-		openConfigurationServiceRequestModal: ( siteId ) => {
-			dispatch( configurationServiceRequestModalOpen( siteId ) );
+		openConfigurationServiceRequestModal: ( modalSiteId ) => {
+			dispatch( configurationServiceRequestModalOpen( modalSiteId ) );
 		},
 		configureConfigurationServiceRequest: ( id, data ) => {
 			dispatch( configureConfigurationServiceRequest( id, data ) );
