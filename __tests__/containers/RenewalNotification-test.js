@@ -11,7 +11,7 @@ test( 'the mapStateToProps function', () => {
 	let state = {
 		entities: {
 			subscriptions: {
-				allIds: [ "a", "b", "c" ],
+				allIds: [ "a", "b", "c", "d", "e", "f" ],
 				byId:
 					{
 						a: {
