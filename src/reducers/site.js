@@ -87,6 +87,13 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 	}
 }
 
+/**
+ * A reducer for the site remove actions within the ui site object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ * @returns {Object} The updated state.
+ */
 export function uiSiteRemoveReducer( state = rootState.ui.site, action ) {
 	const site = Object.assign( {}, state );
 	switch ( action.type ) {

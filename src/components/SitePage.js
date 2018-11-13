@@ -207,4 +207,10 @@ SitePage.defaultProps = {
 	subscriptions: [],
 	loadingSite: false,
 	loadingSubscriptions: true,
+
+	downloadModalIsOpen: false,
+	onDownloadModalOpen: () => {},
+	onDownloadModalClose: () => {},
+	downloadModalSubscriptionId: "",
+	downloads: [],
 };

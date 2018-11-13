@@ -66,4 +66,12 @@ SiteSubscriptionDetailList.propTypes = {
 	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
+SiteSubscriptionDetailList.defaultProps = {
+	downloadModalOpen: false,
+	onDownloadModalOpen: () => {},
+	onDownloadModalClose: () => {},
+	downloadModalSubscriptionId: "",
+	downloads: [],
+};
+
 export default injectIntl( SiteSubscriptionDetailList );

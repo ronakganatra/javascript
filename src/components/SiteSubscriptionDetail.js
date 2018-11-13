@@ -184,6 +184,11 @@ SiteSubscriptionDetail.propTypes = {
 SiteSubscriptionDetail.defaultProps = {
 	onToggleSubscription: () => {},
 	isEnabled: false,
+	downloadModalOpen: false,
+	onDownloadModalOpen: () => {},
+	onDownloadModalClose: () => {},
+	downloadModalSubscriptionId: "",
+	downloads: [],
 };
 
 export default injectIntl( SiteSubscriptionDetail );
