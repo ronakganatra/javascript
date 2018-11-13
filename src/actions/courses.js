@@ -83,14 +83,17 @@ export function sendCourseInviteRequest() {
 /**
  * An action creator for the send course invite success action.
  *
- * @param {Object} updatedCourseEnrollment The Course Enrollment that was updated.
+ * @param {Object} updatedCourseEnrollments The Course Enrollment that was updated.
  *
  * @returns {Object} A send course invite success action.
  */
-export function sendCourseInviteSuccess( updatedCourseEnrollment ) {
+export function sendCourseInviteSuccess( updatedCourseEnrollments ) {
+	if ( ! Array.isArray( updatedCourseEnrollments ) ) {
+		updatedCourseEnrollments = [ updatedCourseEnrollments ];
+	}
 	return {
 		type: SEND_COURSE_INVITE_SUCCESS,
-		updatedCourseEnrollment,
+		updatedCourseEnrollments,
 	};
 }
 
@@ -235,6 +238,21 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 		dispatch( sendCourseInviteRequest() );
 
 		const request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
+
+		return doRequest( request )
+			.then( ( json ) => {
+				dispatch( sendCourseInviteSuccess( json ) );
+				dispatch( retrieveCoursesEnrollments() );
+			} )
+			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
+	};
+}
+
+export function sendBulkInvite( lineItemId, lineItemNumber, emailInvitee ) {
+	return ( dispatch ) => {
+		dispatch( sendCourseInviteRequest() );
+
+		const request = prepareInternalRequest( "CourseEnrollments/bulkInvite/", "POST", { lineItemId: lineItemId, lineItemNumber: lineItemNumber, email: emailInvitee } );
 
 		return doRequest( request )
 			.then( ( json ) => {

@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
-import flatten from "lodash/flatten";
-import _includes from "lodash/includes";
-import isEmpty from "lodash/isEmpty";
+import _groupBy from "lodash/groupBy";
+import _maxBy from "lodash/maxBy";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
 	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
+	sendBulkInvite,
 } from "../actions/courses";
 import { getOrders } from "../actions/orders";
 import { getAllProducts } from "../actions/products";
@@ -16,94 +16,58 @@ import CoursesEnrollments from "../components/CoursesEnrollments";
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
-	const lineItemEnrollmentIds = {};
-	allIds.forEach( ( enrollmentId ) => {
-		const lineItemId = state.entities.coursesEnrollments.byId[ enrollmentId ].lineItemId;
-		// Check if there is a line item ID for the enrollment
-		if ( lineItemId ) {
-			if ( ! _includes( Object.keys( lineItemEnrollmentIds ), lineItemId ) ) {
-				lineItemEnrollmentIds[ lineItemId ] = [ enrollmentId ];
-			}
-			lineItemEnrollmentIds[ lineItemId ].push( enrollmentId );
+	const courseEnrollments = allIds.map( id => state.entities.coursesEnrollments.byId[ id ] );
+	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `bulk:${e.lineItemId}:${e.lineItemNumber}` : `individual:${e.id}` );
+
+	let groupedCourseEnrollments = Object.keys( groupedEnrollments ).map( ( identifier ) => {
+		const enrollments = groupedEnrollments[ identifier ];
+		const firstEnrollment = enrollments[ 0 ];
+		const grouped = enrollments.length > 1;
+
+		let buyerEmail = "";
+		let buyerName = "";
+		let studentEmail = "";
+		let studentName = "";
+
+		const course = state.entities.courses.byId[ firstEnrollment.courseId ];
+		const order = state.entities.orders.byId[ firstEnrollment.orderId ];
+		if ( order ) {
+			buyerName = [ order.customerFirstName, order.customerLastName ].join( " " );
+			buyerEmail = order.customerEmail;
 		}
-	} );
 
-	const allLineItemIds = Object.keys( lineItemEnrollmentIds );
-	const allOrderIds = state.entities.orders.allIds;
-	const allCourseEnrollmentIds = state.entities.coursesEnrollments.allIds;
-
-	const lineItems = flatten( allOrderIds.map( orderId => {
-		return state.entities.orders.byId[ orderId ].items;
-	} ) );
-	const groupedEnrollmentLineItems = {};
-	allLineItemIds.map( ( lineItemId ) => {
-		if ( ! _includes( Object.keys( groupedEnrollmentLineItems ), lineItemId ) ) {
-			groupedEnrollmentLineItems[ lineItemId ] = lineItems.filter( ( item ) => item.id === lineItemId )[ 0 ];
+		if ( firstEnrollment.student ) {
+			studentName = [ firstEnrollment.student.userFirstName, firstEnrollment.student.userLastName ].join( " " );
+			studentEmail = firstEnrollment.student.userEmail;
 		}
-	} );
 
-	const groupedProductsByLineItem = {};
-	const groupedProductGroupsByLineItem = {};
-	if ( ! isEmpty( groupedEnrollmentLineItems ) && ! isEmpty( lineItems ) && ! isEmpty( state.entities.products.allIds ) ) {
-		allLineItemIds.map( ( itemId ) => {
-			groupedProductsByLineItem[ itemId ] = state.entities.products.byId[ groupedEnrollmentLineItems[ itemId ].productId ];
-			groupedProductGroupsByLineItem[ itemId ] = {};
-			groupedProductsByLineItem[ itemId ].productGroups.map( ( productGroup ) => {
-				groupedProductGroupsByLineItem[ itemId ] = state.entities.productGroups.byId[ productGroup.id ];
-			} );
-		} );
-	}
-
-	let groupedCourseEnrollments = [];
-	// Looping over the grouped productGroups ensures that they already exists
-	Object.keys( groupedProductGroupsByLineItem ).map( ( lineItemId ) => {
-		const prodGroup = groupedProductGroupsByLineItem[ lineItemId ];
-		if ( prodGroup ) {
-			console.log( lineItemId );
-			console.log( prodGroup );
-			const icon = prodGroup.icon || "";
-			let buyerEmail = "";
-			let buyerName = "";
-			let studentEmail = "";
-			let studentName = "";
-
-			const order = state.entities.orders.byId[ groupedEnrollmentLineItems[ lineItemId ].orderId ];
-			const enrollment = state.entities.coursesEnrollments.byId[ lineItemEnrollmentIds[ lineItemId ][ 0 ] ];
-			if ( order ) {
-				buyerName = [ order.customerFirstName, order.customerLastName ].join( " " );
-				buyerEmail = order.customerEmail;
-			}
-
-			if ( enrollment.student ) {
-				studentName = [ enrollment.student.userFirstName, enrollment.student.userLastName ].join( " " );
-				studentEmail = enrollment.student.userEmail;
-			}
-
-			const outsideTrialProgress = allCourseEnrollmentIds.some( ( courseEnrollmentId ) => {
-				const courseEnrollment = state.entities.coursesEnrollments.byId[ courseEnrollmentId ];
-				return courseEnrollment.outsideTrialProgress === true;
-			} );
-			const progress = allCourseEnrollmentIds.some( ( courseEnrollmentId ) => {
-				const courseEnrollment = state.entities.coursesEnrollments.byId[ courseEnrollmentId ];
-				return courseEnrollment.progress > 0;
-			} ) || 0;
-
-			groupedCourseEnrollments.push( {
-				icon: icon,
-				id: enrollment.id,
-				progress: progress,
-				courseId: prodGroup.courseId,
-				courseName: prodGroup.name,
-				buyerEmail: buyerEmail,
-				buyerName: buyerName,
-				buyerId: enrollment.buyerId,
-				status: enrollment.status,
-				studentEmail: studentEmail,
-				studentName: studentName,
-				isTrial: enrollment.isTrial,
-				outsideTrialProgress: outsideTrialProgress,
-			} );
+		let icon = "";
+		if ( grouped ) {
+			icon = "hardcoded";
+		} else {
+			icon = ( course.products[ 0 ] ? course.products[ 0 ].icon : "" );
 		}
+
+		const outsideTrialProgress = enrollments.some( ( enrollment ) => enrollment.outsideTrialProgress );
+		const isTrial = enrollments.some( ( enrollment ) => enrollment.isTrial );
+		const progress = _maxBy( enrollments, "progress" ) || 0;
+		const status = enrollments.some( ( enrollment ) => enrollment.status === "started" ) ? "started" : "not started";
+
+		return {
+			icon,
+			id: identifier,
+			progress,
+			courseId: grouped ? "grouped" : course.id,
+			courseName: grouped ? "Training Subscription" : course.name,
+			buyerEmail,
+			buyerName,
+			buyerId: firstEnrollment.buyerId,
+			status,
+			studentEmail,
+			studentName,
+			isTrial,
+			outsideTrialProgress,
+		};
 	} );
 
 	const allCourseIds = state.entities.courses.allIds;
@@ -162,7 +126,6 @@ export const mapStateToProps = ( state ) => {
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
-	console.log( "*-**********--*-*-*-*--*", dispatch( getAllProducts() ) );
 	return {
 		loadCourseEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
 		loadCourses: () => dispatch( retrieveCourses() ),
@@ -172,7 +135,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 		inviteModalOpen: ( courseEnrollmentId ) => dispatch( courseInviteModalOpen( courseEnrollmentId ) ),
 		inviteModalClose: () => dispatch( courseInviteModalClose() ),
 		onClose: () => dispatch( courseInviteModalClose() ),
-		onInviteClick: ( courseEnrollmentId, emailInvitee ) => dispatch( sendCourseInvite( courseEnrollmentId, emailInvitee ) ),
+		onIndividualInviteClick: ( courseEnrollmentId, emailInvitee ) => dispatch( sendCourseInvite( courseEnrollmentId, emailInvitee ) ),
+		onBulkInviteClick: ( lineItemId, lineItemNumber, emailInvitee ) => dispatch( sendBulkInvite( lineItemId, lineItemNumber, emailInvitee ) ),
 		onStudentEmailChange: ( studentEmail ) => dispatch( updateInviteStudentEmail( studentEmail ) ),
 		onStudentEmailConfirmationChange: ( studentEmail ) => dispatch( updateInviteStudentEmailConfirmation( studentEmail ) ),
 	};
@@ -183,7 +147,15 @@ export const mergeProps = ( stateProps, dispatchProps, ownProps ) => {
 	const emailInvitee = stateProps.inviteStudentEmail;
 
 	const onInviteClick = () => {
-		dispatchProps.onInviteClick( courseEnrollmentId, emailInvitee );
+		const [ type, id, number ] = courseEnrollmentId.split( ":" );
+		switch ( type ) {
+			case "individual":
+				dispatchProps.onIndividualInviteClick( id, emailInvitee );
+				break;
+			case "bulk":
+				dispatchProps.onBulkInviteClick( id, number, emailInvitee );
+				break;
+		}
 	};
 
 	return Object.assign( {}, ownProps, stateProps, dispatchProps, { onInviteClick } );

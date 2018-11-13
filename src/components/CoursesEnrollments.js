@@ -147,6 +147,7 @@ class CoursesEnrollments extends React.Component {
 					courseInviteError={ this.props.courseInviteError }
 					onCancelClick={ this.props.inviteModalClose }
 					onInviteClick={ this.props.onInviteClick }
+					onBulkInviteClick={ this.props.onBulkInviteClick }
 				/>
 			</MyYoastModal>
 		);
@@ -256,6 +257,7 @@ CoursesEnrollments.propTypes = {
 	groupedCourseEnrollments: PropTypes.array,
 	inviteModalIsOpen: PropTypes.bool,
 	onInviteClick: PropTypes.func,
+	onBulkInviteClick: PropTypes.func,
 	inviteStudentEmail: PropTypes.string,
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
