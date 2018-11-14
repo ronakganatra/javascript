@@ -23,7 +23,9 @@ function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } isOpen={ true }>
-				<ListTable>
+				<ListTable
+					invertZebra={ true }
+				>
 					{ props.plugins.map( ( plugin ) => {
 						const onToggleDisabled = () => {
 							return props.onToggleDisabled( plugin.storeUrl );
