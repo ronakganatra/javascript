@@ -98,7 +98,7 @@ const ColumnBase = styled.span`
 	&::before {
  		position: absolute;
  		left: -9999em;
- 		top: -30px;
+ 		top: -24px;
  		font-size: 1.286em;
  		line-height: 0;
  		${ props => props.headerLabel ? `content: "${props.headerLabel}";` : "content: none;" }

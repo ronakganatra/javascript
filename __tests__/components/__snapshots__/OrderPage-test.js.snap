@@ -48,7 +48,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c12::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Date";
@@ -69,7 +69,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c13::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Order";
@@ -87,7 +87,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c16::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Items";
@@ -108,7 +108,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c19::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Total";
@@ -129,7 +129,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c21::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Status";
@@ -147,7 +147,7 @@ exports[`The Orders component matches the snapshot 1`] = `
 .c24::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
