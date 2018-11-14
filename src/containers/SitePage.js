@@ -79,7 +79,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 		allProductGroups,
 		hasAccessToFeature( SUBSCRIPTIONS_FEATURE )
 	);
-
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
 	pluginProductGroups.forEach( ( pluginProductGroup ) => {

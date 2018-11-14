@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { injectIntl, defineMessages, intlShape, FormattedMessage } from "react-intl";
-import { CloseButton } from "./Button.js";
 import styled from "styled-components";
 import { ModalHeading } from "./Headings";
 import colors from "yoast-components/style-guide/colors.json";
@@ -13,6 +12,7 @@ import {
 	responsiveHeaders,
 	RowMobileCollapse,
 } from "./Tables";
+import { makeButtonFullWidth, SecondaryGreyButton } from "./Button";
 
 
 const messages = defineMessages( {
@@ -36,7 +36,11 @@ const InstallationGuideLink = styled.a`
 	color: ${ colors.$color_blue };
 	font-size: 14px;
 	text-decoration: underline;
-	padding-right: 100px;
+	display: block;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		margin-bottom: 16px;
+	}
 `;
 
 const DownloadModal = styled.div`
@@ -59,14 +63,7 @@ const DownloadLinkColumn = styled( ColumnFixedWidth )`
 	}
 `;
 
-const DownloadModalCloseButton = styled( CloseButton )`
-	float: right;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		float: left;
-		margin: 8px 0;
-	}
-`;
+const DownloadModalCloseButton = makeButtonFullWidth( SecondaryGreyButton );
 
 const BorderedRow = styled( RowMobileCollapse )`
 	border-right: 1px solid ${ colors.$color_border };
@@ -79,7 +76,13 @@ const BorderedRow = styled( RowMobileCollapse )`
 `;
 
 const FooterArea = styled.div`
+	display: flex;
+	justify-content: space-between;
 	padding-bottom: 28px;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		display: block;
+	}
 `;
 
 class DownloadsList extends React.Component {
