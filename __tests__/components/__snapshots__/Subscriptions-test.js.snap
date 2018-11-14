@@ -66,7 +66,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 .c7::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -87,10 +87,10 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 .c10::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Product";
+  content: "Individual subscriptions";
 }
 
 .c15 {
@@ -109,14 +109,14 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 .c15::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Used on";
 }
 
 .c17 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -131,14 +131,14 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 .c17::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c19 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -153,10 +153,10 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 .c19::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c9 {
@@ -302,7 +302,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c16 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -315,7 +315,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 
 @media screen and ( max-width:1355px ) {
   .c18 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -370,11 +370,6 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       <span
         className="c16 c14 c17"
       >
-        Automatic renewal
-      </span>
-      <span
-        className="c18 c14 c19"
-      >
         <span>
           October 13, 2014
         </span>
@@ -385,6 +380,11 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
             $122.00
           </span>
         </div>
+      </span>
+      <span
+        className="c18 c14 c19"
+      >
+        Automatic renewal
       </span>
       <span
         className="c20 c7"
@@ -426,14 +426,14 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
       </span>
       <span
         className="c16 c14 c17"
-      />
-      <span
-        className="c18 c14 c19"
       >
         <div
           className="c11"
         />
       </span>
+      <span
+        className="c18 c14 c19"
+      />
       <span
         className="c20 c7"
       />

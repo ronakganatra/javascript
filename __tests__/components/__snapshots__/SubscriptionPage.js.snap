@@ -166,7 +166,7 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
 .c15::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -575,7 +575,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 .c15::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;

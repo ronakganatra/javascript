@@ -118,12 +118,28 @@ class SubscriptionsPage extends React.Component {
 			/> ];
 
 		const props = this.props;
+		const hasGroupedSubscriptions = props.groupedSubscriptions.length > 0;
+		const hasIndividualSubscriptions = props.individualSubscriptions.length > 0;
 
-		if ( props.subscriptions.length > 0 ) {
+		if ( hasGroupedSubscriptions || hasIndividualSubscriptions ) {
 			return (
 				<div>
 					{ this.getSearch() }
-					<Subscriptions { ...props } />
+					{
+						hasGroupedSubscriptions &&
+						<Subscriptions
+							{ ...props }
+							subscriptions={ props.groupedSubscriptions }
+							isGrouped={ true }
+						/>
+					}
+					{
+						hasIndividualSubscriptions &&
+						<Subscriptions
+							{ ...props }
+							subscriptions={ props.individualSubscriptions }
+						/>
+					}
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {
