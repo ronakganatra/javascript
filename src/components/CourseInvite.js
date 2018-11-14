@@ -260,7 +260,10 @@ class CourseInvite extends React.Component {
 							type="submit"
 							enabledStyle={ ! this.props.requestingCourseInvite }
 						>
-							<FormattedMessage id="academy.invite.invite" defaultMessage="Invite student" />
+							{ this.props.requestingCourseInvite
+								? <FormattedMessage id="academy.invite.inviting" defaultMessage="Inviting student..." />
+								: <FormattedMessage id="academy.invite.invite" defaultMessage="Invite student" />
+							}
 						</WideLargeButton>
 					</Buttons>
 				</form>
