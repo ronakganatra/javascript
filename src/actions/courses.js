@@ -83,7 +83,7 @@ export function sendCourseInviteRequest() {
 /**
  * An action creator for the send course invite success action.
  *
- * @param {Object} updatedCourseEnrollments The Course Enrollment that was updated.
+ * @param {Object} updatedCourseEnrollments The Course Enrollments that were updated.
  *
  * @returns {Object} A send course invite success action.
  */
@@ -248,6 +248,15 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 	};
 }
 
+/**
+ *  An action creator for the send bulk invite action.
+ *
+ * @param {string} lineItemId 		The source ID of the line item associated with the course enrollment.
+ * @param {number} lineItemNumber	The lineItemNumber of the course enrollment.
+ * @param {string} emailInvitee		The email address of the invitee.
+ *
+ * @returns {Object}				A bulk invite action.
+ */
 export function sendBulkInvite( lineItemId, lineItemNumber, emailInvitee ) {
 	return ( dispatch ) => {
 		dispatch( sendCourseInviteRequest() );
