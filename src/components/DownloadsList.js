@@ -10,7 +10,6 @@ import {
 	ListTable,
 	ColumnPrimary,
 	ColumnFixedWidth,
-	makeFullWidth,
 	responsiveHeaders,
 	RowMobileCollapse,
 } from "./Tables";
@@ -46,10 +45,6 @@ const DownloadModal = styled.div`
 	font-size: 1em;
 `;
 
-const FullWidthRow = styled( RowMobileCollapse )`
-	margin: 0 -16px;
-`;
-
 const ProductNameColumn = styled( ColumnPrimary )`
 	padding-right: 50px;
 
@@ -64,12 +59,26 @@ const DownloadLinkColumn = styled( ColumnFixedWidth )`
 	}
 `;
 
-const RightAlignedCloseButton = styled( CloseButton )`
+const DownloadModalCloseButton = styled( CloseButton )`
 	float: right;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		float: left;
+		margin: 8px 0;
+	}
+`;
+
+const BorderedRow = styled( RowMobileCollapse )`
+	border-right: 1px solid ${ colors.$color_border };
+	border-left: 1px solid ${ colors.$color_border };
+	border-bottom: 1px solid ${ colors.$color_border };
+
+	&:first-child {
+		border-top: 1px solid ${ colors.$color_border };
+	}
 `;
 
 const FooterArea = styled.div`
-	padding-right: 8px;
 	padding-bottom: 28px;
 `;
 
@@ -86,14 +95,14 @@ class DownloadsList extends React.Component {
 	}
 
 	makeDownloadRow( download ) {
-		const ResponsiveProductNameColumn = makeFullWidth( responsiveHeaders( ProductNameColumn ) );
+		const ResponsiveProductNameColumn = responsiveHeaders( ProductNameColumn );
 
 		const id = download.name;
 		const productName = download.name;
 		const downloadLink = download.file;
 
 		return (
-			<FullWidthRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
+			<BorderedRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
 				<ResponsiveProductNameColumn>
 					<span> { productName } </span>
 				</ResponsiveProductNameColumn>
@@ -106,7 +115,7 @@ class DownloadsList extends React.Component {
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>
 				</DownloadLinkColumn>
-			</FullWidthRow>
+			</BorderedRow>
 		);
 	}
 
@@ -137,9 +146,9 @@ class DownloadsList extends React.Component {
 					>
 						{ this.props.intl.formatMessage( messages.installationGuideLink ) }
 					</InstallationGuideLink>
-					<RightAlignedCloseButton onClick={ this.props.onDownloadModalClose } enabledStyle={ false }>
+					<DownloadModalCloseButton onClick={ this.props.onDownloadModalClose } enabledStyle={ false }>
 						<FormattedMessage id="sites.addSite.cancel" defaultMessage="Close" />
-					</RightAlignedCloseButton>
+					</DownloadModalCloseButton>
 				</FooterArea>
 			</DownloadModal>
 		);
