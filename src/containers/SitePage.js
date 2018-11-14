@@ -106,7 +106,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 			OpenedPluginProducts = _flatten( children.map( child => child.products ) );
 		}
 
-		const differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
+		let differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
+		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
 		downloads = differentProductsInSubscription.map( product => {
 			return { name: product.name, file: product.downloads[ 0 ].file };
 		} );
