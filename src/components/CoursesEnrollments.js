@@ -223,6 +223,10 @@ class CoursesEnrollments extends React.Component {
 		return (
 			<div>
 				{ tables.map( ( [ headerMessage, enrollments ] ) => {
+					if ( enrollments.length === 0 ) {
+						return null;
+					}
+
 					return (
 						<Paper>
 							<ListTable>
