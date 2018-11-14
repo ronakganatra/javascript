@@ -4,9 +4,9 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-i
 import styled from "styled-components";
 import MyYoastModal from "./MyYoastModal";
 import ButtonsContainer from "./general/ButtonsContainer";
-import { LargeButton, LargeSecondaryButton } from "./Button";
+import { Button, LargeButton, LargeSecondaryButton } from "./Button";
 import ErrorDisplay from "../errors/ErrorDisplay";
-import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
+// Later import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
 
 const messages = defineMessages( {
 	ariaLabel: {
@@ -24,6 +24,10 @@ const messages = defineMessages( {
 	activeSites: {
 		id: "subscriptionCancel.modal.activeSites",
 		defaultMessage: "You have {amount} active {amount, plural, one {site} other {sites}} using this subscription.",
+	},
+	numberOfCurrentSubscriptions: {
+		id: "subscriptionCancel.modal.numberSubscriptions",
+		defaultMessage: "You have {amount} of this type of subscription.",
 	},
 	cancel: {
 		id: "subscriptionCancel.modal.cancel",
@@ -60,6 +64,12 @@ class SubscriptionEditModal extends React.Component {
 		super( props );
 
 		this.cancelSubscription = this.cancelSubscription.bind( this );
+		this.incrementItemsToCancel = this.incrementItemsToCancel.bind( this );
+		this.decrementItemsToCancel = this.decrementItemsToCancel.bind( this );
+
+		this.state = {
+			amountToCancel: 1,
+		};
 	}
 
 	/**
@@ -69,9 +79,41 @@ class SubscriptionEditModal extends React.Component {
 	 */
 	cancelSubscription() {
 		const { subscription, cancelSubscription } = this.props;
-		const { id, sourceShopId } = subscription;
+		const { id } = subscription;
+		const amount = this.state.amountToCancel;
+		console.log( typeof( amount ) );
 
-		cancelSubscription( id, sourceShopId );
+		cancelSubscription( id, amount );
+	}
+
+	incrementItemsToCancel() {
+		this.setState( { amountToCancel: this.state.amountToCancel + 1 } );
+		console.log( this.state.amountToCancel );
+	}
+
+	decrementItemsToCancel() {
+		if ( this.state.amountToCancel > 1 ) {
+			this.setState( { amountToCancel: this.state.amountToCancel - 1 } );
+		}
+		console.log( this.state.amountToCancel );
+	}
+
+	displayNumberButtons() {
+		if ( this.props.numberOfCurrentSubscriptions ) {
+			return <div>
+				<Button
+					id="decrease"
+					descriptionId="decrease-number-to-cancel"
+					onClick={ this.decrementItemsToCancel }
+				/>
+				{ this.state.amountToCancel }
+				<Button
+					id="increase"
+					descriptionId="increase-number-to-cancel"
+					onClick={ this.incrementItemsToCancel }
+				/>
+			</div>;
+		}
 	}
 
 	/**
@@ -101,8 +143,15 @@ class SubscriptionEditModal extends React.Component {
 							/>
 						</strong>
 					</p>
+					<p>
+						<FormattedMessage
+							{ ...messages.numberOfCurrentSubscriptions }
+							values={ { amount: this.props.numberOfCurrentSubscriptions } }
+						/>
+					</p>
 					<ErrorDisplay error={ this.props.error } />
 					<ActionButtonsContainer>
+						{ this.displayNumberButtons() }
 						<LargeSecondaryButton onClick={ this.props.onClose }>
 							<FormattedMessage { ...messages.cancel } />
 						</LargeSecondaryButton>
@@ -129,6 +178,7 @@ SubscriptionEditModal.propTypes = {
 	loading: PropTypes.bool.isRequired,
 	error: PropTypes.object,
 	amountOfActiveSites: PropTypes.number.isRequired,
+	numberOfCurrentSubscriptions: PropTypes.number.isRequired,
 };
 
 SubscriptionEditModal.defaultProps = {

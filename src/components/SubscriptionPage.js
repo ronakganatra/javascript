@@ -98,7 +98,7 @@ class SubscriptionPage extends React.Component {
 						e.preventDefault();
 						this.props.openCancelModal();
 					} }
-					canCancel={ subscription.requiresManualRenewal === false }
+					canCancel={ subscription.requiresManualRenewal === true }
 					status={ subscription.status }
 				/>
 				<ListHeading>

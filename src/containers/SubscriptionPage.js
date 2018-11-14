@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
 import SubscriptionPage from "../components/SubscriptionPage";
 import {
-	cancelSubscription,
-	closeCancelSubscriptionModal,
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";

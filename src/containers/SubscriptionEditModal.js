@@ -1,6 +1,5 @@
 import SubscriptionEditModal from "../components/SubscriptionEditModal";
 import { connect } from "react-redux";
-import React from "react";
 import { getSubscription } from "../selectors/subscriptions";
 import {
 	cancelSubscription,
@@ -8,8 +7,9 @@ import {
 } from "../actions/subscriptions";
 import { getSitesForSubscription } from "../selectors/sites";
 
-function mapStateToProps( state, ownProps ) {
+export const mapStateToProps = ( state, ownProps ) => {
 	const { subscriptionId } = ownProps;
+	const subscription  = getSubscription( state, subscriptionId );
 
 	const subscriptionsCancelState = state.ui.subscriptionsCancel;
 
@@ -18,21 +18,28 @@ function mapStateToProps( state, ownProps ) {
 		loading: subscriptionsCancelState.loading,
 		error: subscriptionsCancelState.error,
 
-		subscription: getSubscription( state, subscriptionId ),
+		subscription: subscription,
 
 		amountOfActiveSites: getSitesForSubscription( state, subscriptionId ).length,
-	};
-}
 
-function mapDispatchToProps( dispatch ) {
+		numberOfCurrentSubscriptions: subscription.limit,
+	};
+};
+
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		onClose: () => {
 			dispatch( closeCancelSubscriptionModal() );
 		},
 		cancelSubscription: ( subscriptionId, amount ) => {
 			dispatch( cancelSubscription( subscriptionId, amount ) );
-		}
+		},
 	};
-}
+};
 
-export default connect( mapStateToProps, mapDispatchToProps )( SubscriptionEditModal );
+const SubscriptionEditModalContainer = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)( SubscriptionEditModal );
+
+export default SubscriptionEditModalContainer;
