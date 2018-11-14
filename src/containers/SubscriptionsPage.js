@@ -57,6 +57,12 @@ function filterSubscriptionsByQuery( subscriptions, query ) {
 	} );
 }
 
+/**
+ * Filters the active subscriptions.
+ *
+ * @param   {Array} subscriptions The subscriptions to be filtered.
+ * @returns {Array}               The active subscriptions.
+ */
 function filterActiveSubscriptions( subscriptions ) {
 	return subscriptions.filter( ( subscription ) => {
 		if ( ! subscription.hasEndDate ) {

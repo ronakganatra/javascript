@@ -80,7 +80,8 @@ export const mapStateToProps = ( state ) => {
 
 	const availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
 
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices
+		.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
 	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
@@ -89,7 +90,7 @@ export const mapStateToProps = ( state ) => {
 		} );
 	}
 
-	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
@@ -108,7 +109,7 @@ export const mapStateToProps = ( state ) => {
 	return {
 		sites,
 		modalOpen,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		availableSites,
 		availableConfigurationServiceRequests,

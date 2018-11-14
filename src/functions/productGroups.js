@@ -48,7 +48,8 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
 		productGroup.icon = "https://yoast.com/app/uploads/2018/11/Plugin_subscription.png";
 	}
 
-	// Lift a couple of things from the US product variation to the product group. This should be a temporary situation: productGroup properties need to be expanded.
+	// Lift a couple of things from the US product variation to the product group.
+	// This should be a temporary situation: productGroup properties need to be expanded.
 	const usProduct = productGroup.products.filter( ( product ) => {
 		return product.sourceShopId === 1;
 	} );

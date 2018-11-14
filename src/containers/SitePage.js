@@ -113,13 +113,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 		} );
 	}
 
-	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
 	return {
 		availableConfigurationServiceRequests,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
 		downloadModalIsOpen,
