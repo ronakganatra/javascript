@@ -145,6 +145,7 @@ class CoursesEnrollments extends React.Component {
 					onStudentEmailChange={ this.props.onStudentEmailChange }
 					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
 					courseInviteError={ this.props.courseInviteError }
+					requestingCourseInvite={ this.props.requestingCourseInvite }
 					onCancelClick={ this.props.inviteModalClose }
 					onInviteClick={ this.props.onInviteClick }
 					onBulkInviteClick={ this.props.onBulkInviteClick }
@@ -261,6 +262,7 @@ CoursesEnrollments.propTypes = {
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
 	courseInviteError: PropTypes.object,
+	requestingCourseInvite: PropTypes.bool,
 	loadOrders: PropTypes.func,
 	loadProducts: PropTypes.func,
 	loadProductGroups: PropTypes.func,

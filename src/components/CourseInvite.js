@@ -258,7 +258,7 @@ class CourseInvite extends React.Component {
 						</WideSecondaryButton>
 						<WideLargeButton
 							type="submit"
-							enabledStyle={ true }
+							enabledStyle={ ! this.props.requestingCourseInvite }
 						>
 							<FormattedMessage id="academy.invite.invite" defaultMessage="Invite student" />
 						</WideLargeButton>
@@ -274,6 +274,7 @@ CourseInvite.propTypes = {
 	onCancelClick: PropTypes.func.isRequired,
 	onInviteClick: PropTypes.func.isRequired,
 	courseInviteError: PropTypes.object,
+	requestingCourseInvite: PropTypes.bool,
 	inviteStudentEmail: PropTypes.string,
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,

@@ -114,10 +114,12 @@ export const mapStateToProps = ( state ) => {
 	const inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
 	const openedCourseEnrollmentId = state.ui.courseInviteModal.openedCourseEnrollmentId;
 	const courseInviteError = state.ui.courseInviteModal.courseInviteError;
+	const requestingCourseInvite = state.ui.courseInviteRequest.requestingCourseInvite;
 
 	return {
 		openedCourseEnrollmentId,
 		courseInviteError,
+		requestingCourseInvite,
 		inviteModalIsOpen,
 		inviteStudentEmail,
 		inviteStudentEmailConfirmation,
