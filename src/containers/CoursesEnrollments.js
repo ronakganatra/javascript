@@ -44,7 +44,7 @@ export const mapStateToProps = ( state ) => {
 
 		let icon = "";
 		if ( grouped ) {
-			icon = "hardcoded";
+			icon = "https://yoast.com/app/uploads/2018/11/Training_subscription_MyYoast.png";
 		} else {
 			icon = ( course.products[ 0 ] ? course.products[ 0 ].icon : "" );
 		}
