@@ -81,7 +81,6 @@ class SubscriptionEditModal extends React.Component {
 		const { subscription, cancelSubscription } = this.props;
 		const { id } = subscription;
 		const amount = this.state.amountToCancel;
-		console.log( typeof( amount ) );
 
 		cancelSubscription( id, amount );
 	}
@@ -95,7 +94,6 @@ class SubscriptionEditModal extends React.Component {
 		if ( this.state.amountToCancel > 1 ) {
 			this.setState( { amountToCancel: this.state.amountToCancel - 1 } );
 		}
-		console.log( this.state.amountToCancel );
 	}
 
 	displayNumberButtons() {
