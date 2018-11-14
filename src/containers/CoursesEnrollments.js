@@ -16,12 +16,14 @@ import CoursesEnrollments from "../components/CoursesEnrollments";
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
 	const courseEnrollments = allIds.map( id => state.entities.coursesEnrollments.byId[ id ] );
-	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `bulk:${e.lineItemId}:${e.lineItemNumber}` : `individual:${e.id}` );
+	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `${e.lineItemId}:${e.lineItemNumber}` : e.id );
 
 	let groupedCourseEnrollments = Object.keys( groupedEnrollments ).map( ( identifier ) => {
 		const enrollments = groupedEnrollments[ identifier ];
 		const firstEnrollment = enrollments[ 0 ];
 		const grouped = enrollments.length > 1;
+
+		identifier = grouped ? `bulk:${identifier}` : `individual:${firstEnrollment.id}`;
 
 		let buyerEmail = "";
 		let buyerName = "";
@@ -89,7 +91,7 @@ export const mapStateToProps = ( state ) => {
 
 			return {
 				// EnrollmentId is not unique across users.
-				id: "free-course-" + courseId,
+				id: "free-course:" + courseId,
 				progress: 0,
 				courseId: courseId,
 				courseName: course.name,
