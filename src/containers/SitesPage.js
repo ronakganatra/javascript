@@ -103,7 +103,7 @@ export const mapStateToProps = ( state ) => {
 
 	const linkingSiteUrl = state.ui.sites.linkingSiteUrl;
 
-	const showLoader = ! state.ui.sites.sitesRetrieved && ! state.ui.productGroups.requesting && ! state.ui.products.requesting;
+	const showLoader = ! state.ui.sites.sitesRetrieved;
 
 	return {
 		sites,
