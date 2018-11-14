@@ -218,7 +218,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 .c6 {
-  background: #fff;
+  background: #f7f7f7;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -239,7 +239,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
 }
 
 .c28 {
-  background: #f7f7f7;
+  background: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
