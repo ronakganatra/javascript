@@ -83,14 +83,17 @@ export function sendCourseInviteRequest() {
 /**
  * An action creator for the send course invite success action.
  *
- * @param {Object} updatedCourseEnrollment The Course Enrollment that was updated.
+ * @param {Object} updatedCourseEnrollments The Course Enrollments that were updated.
  *
  * @returns {Object} A send course invite success action.
  */
-export function sendCourseInviteSuccess( updatedCourseEnrollment ) {
+export function sendCourseInviteSuccess( updatedCourseEnrollments ) {
+	if ( ! Array.isArray( updatedCourseEnrollments ) ) {
+		updatedCourseEnrollments = [ updatedCourseEnrollments ];
+	}
 	return {
 		type: SEND_COURSE_INVITE_SUCCESS,
-		updatedCourseEnrollment,
+		updatedCourseEnrollments,
 	};
 }
 
@@ -235,6 +238,30 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 		dispatch( sendCourseInviteRequest() );
 
 		const request = prepareInternalRequest( `CourseEnrollments/${courseEnrollmentId}/invite/`, "POST", { email: emailInvitee } );
+
+		return doRequest( request )
+			.then( ( json ) => {
+				dispatch( sendCourseInviteSuccess( json ) );
+				dispatch( retrieveCoursesEnrollments() );
+			} )
+			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
+	};
+}
+
+/**
+ *  An action creator for the send bulk invite action.
+ *
+ * @param {string} lineItemId 		The source ID of the line item associated with the course enrollment.
+ * @param {number} lineItemNumber	The lineItemNumber of the course enrollment.
+ * @param {string} emailInvitee		The email address of the invitee.
+ *
+ * @returns {Object}				A bulk invite action.
+ */
+export function sendBulkInvite( lineItemId, lineItemNumber, emailInvitee ) {
+	return ( dispatch ) => {
+		dispatch( sendCourseInviteRequest() );
+
+		const request = prepareInternalRequest( "CourseEnrollments/bulkInvite/", "POST", { lineItemId: lineItemId, lineItemNumber: lineItemNumber, email: emailInvitee } );
 
 		return doRequest( request )
 			.then( ( json ) => {

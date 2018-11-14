@@ -2,7 +2,7 @@ import { getUserId } from "./auth";
 import getEnv from "./getEnv";
 
 export const CONFIGURATION_SERVICE_FEATURE = "CONFIGURATION_SERVICE";
-export const SUBSCRIPTIONS_FEATURE = "SUBSCRIPTIONS_FEATURE";
+export const SUBSCRIPTIONS_FEATURE = "SUBSCRIPTIONS";
 
 /*
  * Feature flags is the array of currently available feature flags.

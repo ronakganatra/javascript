@@ -233,7 +233,9 @@ export function byIdCoursesEnrollmentsReducer( state = rootState.entities.course
 		case SEND_COURSE_INVITE_SUCCESS:
 			courses = Object.assign( {}, state );
 
-			courses[ action.updatedCourseEnrollment.id ] = action.updatedCourseEnrollment;
+			action.updatedCourseEnrollments.map( ( updatedCourseEnrollment ) => {
+				courses[ updatedCourseEnrollment.id ] = updatedCourseEnrollment;
+			} );
 
 			return courses;
 		default:
