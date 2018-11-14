@@ -10,9 +10,7 @@ import {
 import { getOrders } from "../actions/orders";
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
-// F import LineItems from "../components/LineItems";
 import CoursesEnrollments from "../components/CoursesEnrollments";
-// C import _includes from "lodash/includes";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
