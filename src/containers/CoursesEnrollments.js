@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import _groupBy from "lodash/groupBy";
 import _maxBy from "lodash/maxBy";
+import _sortBy from "lodash/sortBy";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
 	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
@@ -9,20 +10,20 @@ import {
 import { getOrders } from "../actions/orders";
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
-// F import LineItems from "../components/LineItems";
 import CoursesEnrollments from "../components/CoursesEnrollments";
-// C import _includes from "lodash/includes";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
 	const courseEnrollments = allIds.map( id => state.entities.coursesEnrollments.byId[ id ] );
-	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `bulk:${e.lineItemId}:${e.lineItemNumber}` : `individual:${e.id}` );
+	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `${e.lineItemId}:${e.lineItemNumber}` : e.id );
 
 	let groupedCourseEnrollments = Object.keys( groupedEnrollments ).map( ( identifier ) => {
 		const enrollments = groupedEnrollments[ identifier ];
 		const firstEnrollment = enrollments[ 0 ];
 		const grouped = enrollments.length > 1;
+
+		identifier = grouped ? `bulk:${identifier}` : `individual:${firstEnrollment.id}`;
 
 		let buyerEmail = "";
 		let buyerName = "";
@@ -43,7 +44,7 @@ export const mapStateToProps = ( state ) => {
 
 		let icon = "";
 		if ( grouped ) {
-			icon = "hardcoded";
+			icon = "https://yoast.com/app/uploads/2018/11/Training_subscription_MyYoast.png";
 		} else {
 			icon = ( course.products[ 0 ] ? course.products[ 0 ].icon : "" );
 		}
@@ -57,7 +58,7 @@ export const mapStateToProps = ( state ) => {
 			icon,
 			id: identifier,
 			progress,
-			courseId: grouped ? "grouped" : course.id,
+			courseId: grouped ? " grouped" : course.id,
 			courseName: grouped ? "Training Subscription" : course.name,
 			buyerEmail,
 			buyerName,
@@ -90,7 +91,7 @@ export const mapStateToProps = ( state ) => {
 
 			return {
 				// EnrollmentId is not unique across users.
-				id: "free-course-" + courseId,
+				id: "free-course:" + courseId,
 				progress: 0,
 				courseId: courseId,
 				courseName: course.name,
@@ -105,19 +106,20 @@ export const mapStateToProps = ( state ) => {
 			};
 		} );
 
-
+	groupedCourseEnrollments = _sortBy( groupedCourseEnrollments, "courseId" );
 	groupedCourseEnrollments = groupedCourseEnrollments.concat( freeEnrollments );
-
 
 	const inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
 	const inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
 	const inviteStudentEmailConfirmation = state.ui.courseInviteModal.studentEmailConfirmation;
 	const openedCourseEnrollmentId = state.ui.courseInviteModal.openedCourseEnrollmentId;
 	const courseInviteError = state.ui.courseInviteModal.courseInviteError;
+	const requestingCourseInvite = state.ui.courseInviteRequest.requestingCourseInvite;
 
 	return {
 		openedCourseEnrollmentId,
 		courseInviteError,
+		requestingCourseInvite,
 		inviteModalIsOpen,
 		inviteStudentEmail,
 		inviteStudentEmailConfirmation,

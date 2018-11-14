@@ -102,5 +102,13 @@
   "signup_email_not_allowed": {
     "message": "Sorry, that email address is not allowed!",
     "type": "error"
+  },
+  "course_already_started": {
+    "message": "The student has already started one of his/her courses.",
+    "type": "error"
+  },
+  "course_enrolled_by_another": {
+    "message": "The student has already been enrolled in one or more of these courses by someone else.",
+    "type": "error"
   }
 }
