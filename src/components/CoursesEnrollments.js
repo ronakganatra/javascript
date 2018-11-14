@@ -22,9 +22,13 @@ const messages = defineMessages( {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
 	},
-	course: {
-		id: "enrollments.overview.courseName",
-		defaultMessage: "Course",
+	courses: {
+		id: "enrollments.overview.coursesName",
+		defaultMessage: "Individual courses",
+	},
+	subscriptions: {
+		id: "enrollments.overview.subscriptionsName",
+		defaultMessage: "Subscriptions",
 	},
 	studentName: {
 		id: "enrollments.overview.studentName",
@@ -211,35 +215,44 @@ class CoursesEnrollments extends React.Component {
 			return this.renderNoResults();
 		}
 
+		const bulkEnrollments       = groupedCourseEnrollments.filter( e => e.id.startsWith( "bulk" ) );
+		const individualEnrollments = groupedCourseEnrollments.filter( e => ! e.id.startsWith( "bulk" ) );
+
+		const tables = [ [ messages.subscriptions, bulkEnrollments ], [ messages.courses, individualEnrollments ] ];
+
 		return (
 			<div>
-				<Paper>
-					<ListTable>
-						{ groupedCourseEnrollments.map( ( enrollment ) => {
-							return (
-								<RowMobileCollapse key={ enrollment.id }>
-									<CourseColumnIcon separator={ true }><CourseIcon
-										src={ enrollment.icon }
-										alt=""
-									/></CourseColumnIcon>
-									<ColumnPrimaryResponsive
-										ellipsis={ true }
-										headerLabel={ this.props.intl.formatMessage( messages.course ) }
-									>
-										{ enrollment.courseName }
-									</ColumnPrimaryResponsive>
-									<ColumnMinWidthResponsive
-										ellipsis={ true }
-										headerLabel={ this.props.intl.formatMessage( messages.studentName ) }
-									>
-										<strong>{ enrollment.studentName }</strong><br />
-										{ enrollment.studentEmail }
-									</ColumnMinWidthResponsive>
-									{ this.getCourseActions( enrollment ) }
-								</RowMobileCollapse> );
-						} ) }
-					</ListTable>
-				</Paper>
+				{ tables.map( ( [ headerMessage, enrollments ] ) => {
+					return (
+						<Paper>
+							<ListTable>
+								{ enrollments.map( ( enrollment ) => {
+									return (
+										<RowMobileCollapse key={ enrollment.id }>
+											<CourseColumnIcon separator={ true }><CourseIcon
+												src={ enrollment.icon }
+												alt=""
+											/></CourseColumnIcon>
+											<ColumnPrimaryResponsive
+												ellipsis={ true }
+												headerLabel={ this.props.intl.formatMessage( headerMessage ) }
+											>
+												{ enrollment.courseName }
+											</ColumnPrimaryResponsive>
+											<ColumnMinWidthResponsive
+												ellipsis={ true }
+												headerLabel={ this.props.intl.formatMessage( messages.studentName ) }
+											>
+												<strong>{ enrollment.studentName }</strong><br />
+												{ enrollment.studentEmail }
+											</ColumnMinWidthResponsive>
+											{ this.getCourseActions( enrollment ) }
+										</RowMobileCollapse> );
+								} ) }
+							</ListTable>
+						</Paper>
+					);
+				} ) }
 				{ this.getModal() }
 			</div>
 		);
