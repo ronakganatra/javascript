@@ -18,7 +18,10 @@ export function getSubscriptions( state ) {
  */
 export function getGroupedSubscriptions( state ) {
 	return getAllOfEntity( state, "subscriptions" )
-		.filter( subscription => subscription.product.productGroups.length > 1 || ! subscription.product.productGroups[ 0 ].parentId );
+		.filter( subscription =>
+			subscription.product.productGroups.length > 1 ||
+			( subscription.product.productGroups[ 0 ] && ! subscription.product.productGroups[ 0 ].parentId )
+		);
 }
 
 /**
