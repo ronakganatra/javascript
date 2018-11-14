@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import _groupBy from "lodash/groupBy";
 import _maxBy from "lodash/maxBy";
+import _sortBy from "lodash/sortBy";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
 	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
@@ -57,7 +58,7 @@ export const mapStateToProps = ( state ) => {
 			icon,
 			id: identifier,
 			progress,
-			courseId: grouped ? "grouped" : course.id,
+			courseId: grouped ? " grouped" : course.id,
 			courseName: grouped ? "Training Subscription" : course.name,
 			buyerEmail,
 			buyerName,
@@ -105,9 +106,8 @@ export const mapStateToProps = ( state ) => {
 			};
 		} );
 
-
+	groupedCourseEnrollments = _sortBy( groupedCourseEnrollments, "courseId" );
 	groupedCourseEnrollments = groupedCourseEnrollments.concat( freeEnrollments );
-
 
 	const inviteModalIsOpen = state.ui.courseInviteModal.courseInviteModalOpen;
 	const inviteStudentEmail = state.ui.courseInviteModal.studentEmail;
