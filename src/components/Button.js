@@ -198,6 +198,14 @@ ChevronButton.defaultProps = {
 	type: "button",
 };
 
+export const UpDownButton = styled( ChevronButton )`
+	transform: rotate( ${ props => props.isOpen ? -90 : 90 }deg );
+
+	&:active {
+		transform: rotate( ${ props => props.isOpen ? -90 : 90 }deg );
+	}
+`;
+
 // Styled IconButtonArchetypes.
 export const IconButtonTransparent = styled( IconButtonArchetype )`
 	background-color: transparent;
