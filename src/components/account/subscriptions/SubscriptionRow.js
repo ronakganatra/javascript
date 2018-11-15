@@ -185,7 +185,7 @@ getNextBilling.propTypes = {
  * @returns {ReactElement} Subscription component.
  * @constructor
  */
-function Subscription( props ) {
+function SubscriptionRow( props ) {
 	const rowProps = [];
 
 	if ( props.background ) {
@@ -278,7 +278,7 @@ function Subscription( props ) {
 	);
 }
 
-Subscription.propTypes = {
+SubscriptionRow.propTypes = {
 	id: PropTypes.string.isRequired,
 	iconSource: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
@@ -301,8 +301,8 @@ Subscription.propTypes = {
 	hasSites: PropTypes.bool.isRequired,
 };
 
-Subscription.defaultProps = {
+SubscriptionRow.defaultProps = {
 	hasEndDate: false,
 };
 
-export default injectIntl( Subscription );
+export default injectIntl( SubscriptionRow );

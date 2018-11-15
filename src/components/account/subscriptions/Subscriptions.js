@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import Subscription from "./Subscription";
+import SubscriptionRow from "./SubscriptionRow";
 import { ListTable } from "./Tables";
 import { Paper } from "./PaperStyles";
 
@@ -11,15 +11,16 @@ import { Paper } from "./PaperStyles";
  * @returns {ReactElement} The rendered component.
  */
 export default function Subscriptions( props ) {
+	console.log( props.testSubscriptions );
+
 	return (
 		<Paper>
 			<ListTable>
-				{ props.subscriptions.map( function( subscription ) {
+				{ props.subscriptions.map( ( subscription ) => {
 					const onManageHandler = () => {
 						props.onManage( subscription.id );
 					};
-
-					return <Subscription
+					return <SubscriptionRow
 						key={ subscription.id }
 						id={ subscription.id }
 						iconSource={ subscription.icon }
@@ -67,6 +68,7 @@ const subscriptionProps = PropTypes.arrayOf(
 Subscriptions.propTypes = {
 	subscriptions: subscriptionProps,
 	onManage: PropTypes.func.isRequired,
+	testSubscriptions: PropTypes.object,
 	isGrouped: PropTypes.bool,
 };
 

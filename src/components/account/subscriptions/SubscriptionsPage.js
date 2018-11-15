@@ -130,6 +130,7 @@ class SubscriptionsPage extends React.Component {
 						<Subscriptions
 							{ ...props }
 							subscriptions={ props.groupedSubscriptions }
+							testSubscriptions={ props.testGroupedSubscriptions }
 							isGrouped={ true }
 						/>
 					}
@@ -138,6 +139,7 @@ class SubscriptionsPage extends React.Component {
 						<Subscriptions
 							{ ...props }
 							subscriptions={ props.individualSubscriptions }
+							testSubscriptions={ props.testIndivSubscriptions }
 						/>
 					}
 				</div>
