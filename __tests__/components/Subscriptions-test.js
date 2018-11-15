@@ -20,6 +20,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					billingAmount: 12200,
 					billingCurrency: "USD",
 					status: "active",
+					hasSites: true,
 				},
 				{
 					id: "4",
@@ -34,6 +35,7 @@ test('The Subscriptions component matches the snapshot', () => {
 					billingAmount: 12512,
 					billingCurrency: "USD",
 					status: "active",
+					hasSites: true,
 				},
 			] } onManage={ () => { } } />
 		</MemoryRouter>

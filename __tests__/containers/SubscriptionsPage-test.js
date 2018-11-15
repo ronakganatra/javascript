@@ -80,6 +80,7 @@ let defaultExpected = {
 			"subscriptionNumber": "Y12345",
 			"used": 1,
 			"status": "active",
+			"hasSites": true,
 			"limit": 2,
 			"hasNextPayment": true,
 			"nextPayment": new Date( "2017-05-01 21:04:28" ),
@@ -98,6 +99,7 @@ let defaultExpected = {
 			"subscriptionNumber": "Y12345",
 			"used": 1,
 			"status": "active",
+			"hasSites": true,
 			"limit": 2,
 			"hasNextPayment": true,
 			"nextPayment": new Date( "2018-05-01 21:04:28" ),
@@ -112,47 +114,49 @@ let defaultExpected = {
 	query: "",
 };
 
-test('the mapStateToProps function', () => {
+test( 'the mapStateToProps function', () => {
 	expect( mapStateToProps( state ) ).toEqual( defaultExpected );
 } );
 
-test('the mapStateToProps function when query contains part of name', () => {
-	state.ui.search.query = "Yoast"
-	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } )
+test( 'the mapStateToProps function when query contains part of name', () => {
+	state.ui.search.query = "Yoast";
+	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains exact used amount', () => {
-	state.ui.search.query = "1"
-	let expected = Object.assign( {}, defaultExpected, { query: "1" } )
+test( 'the mapStateToProps function when query contains exact used amount', () => {
+	state.ui.search.query = "1";
+	let expected = Object.assign( {}, defaultExpected, { query: "1" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains exact limit amount', () => {
-	state.ui.search.query = "2"
-	let expected = Object.assign( {}, defaultExpected, { query: "2" } )
+test( 'the mapStateToProps function when query contains exact limit amount', () => {
+	state.ui.search.query = "2";
+	let expected = Object.assign( {}, defaultExpected, { query: "2" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains part of formatted payment date', () => {
-	state.ui.search.query = "May 1"
-	let expected = Object.assign( {}, defaultExpected, { query: "May 1" } )
+test( 'the mapStateToProps function when query contains part of formatted payment date', () => {
+	state.ui.search.query = "May 1";
+	let expected = Object.assign( {}, defaultExpected, { query: "May 1" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains part of formatted price', () => {
-	state.ui.search.query = "69"
-	let expected = Object.assign( {}, defaultExpected, { query: "69" } )
+test( 'the mapStateToProps function when query contains part of formatted price', () => {
+	state.ui.search.query = "69";
+	let expected = Object.assign( {}, defaultExpected, {
+		query: "69",
+	} );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains nonsense', () => {
-	state.ui.search.query = "afhsdkgfj"
+test( 'the mapStateToProps function when query contains nonsense', () => {
+	state.ui.search.query = "afhsdkgfj";
 	let expected = Object.assign( {}, defaultExpected, {
 		groupedSubscriptions: [],
 		individualSubscriptions: [],
@@ -162,7 +166,7 @@ test('the mapStateToProps function when query contains nonsense', () => {
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapDispatchToProps function to call onSearchQueryChange', () => {
+test( 'the mapDispatchToProps function to call onSearchQueryChange', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
@@ -172,7 +176,7 @@ test('the mapDispatchToProps function to call onSearchQueryChange', () => {
 	expect( dispatch ).toHaveBeenCalledWith( onSearchQueryChange( "query string" ) );
 } );
 
-test('the mapDispatchToProps function to call push action with onManage', () => {
+test( 'the mapDispatchToProps function to call push action with onManage', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
