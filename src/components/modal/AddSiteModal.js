@@ -13,7 +13,7 @@ const modalAriaLabel = defineMessages( {
  * Returns the AddSite modal.
  *
  * @param {Object} props The props required.
- * @returns { ReactElement } The AddSite Modal.
+ * @returns { ReactElement } The AddSite modal.
  */
 const AddSiteModal = ( props ) => (
 	<MyYoastModal

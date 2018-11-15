@@ -1,6 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`an add more licenses button should be shown when no more licenses are available 1`] = `
+.c21 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c21:hover,
+.c21:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c21:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c20 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c19 {
+  min-width: 152px;
+}
+
 .c14 {
   display: inline-block;
   height: 48px;
@@ -37,7 +75,7 @@ exports[`an add more licenses button should be shown when no more licenses are a
   box-shadow: none;
 }
 
-.c19 {
+.c22 {
   min-width: 152px;
 }
 
@@ -368,8 +406,21 @@ exports[`an add more licenses button should be shown when no more licenses are a
   <span
     className="c16 c17 c2 c3"
   >
+    <button
+      className="c18 c19 Button-kDSBcD c20 c21"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        Download
+      </span>
+    </button>
+  </span>
+  <span
+    className="c16 c17 c2 c3"
+  >
     <a
-      className="c18 c19 c14"
+      className="c18 c22 c14"
       href="/account/subscriptions/subId"
       onClick={[Function]}
     >
@@ -378,10 +429,49 @@ exports[`an add more licenses button should be shown when no more licenses are a
       </span>
     </a>
   </span>
+  
 </li>
 `;
 
 exports[`the sitesubscription matches the snapshot 1`] = `
+.c21 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c21:hover,
+.c21:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c21:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c20 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c19 {
+  min-width: 152px;
+}
+
 .c14 {
   display: inline-block;
   height: 48px;
@@ -418,7 +508,7 @@ exports[`the sitesubscription matches the snapshot 1`] = `
   box-shadow: none;
 }
 
-.c19 {
+.c22 {
   min-width: 152px;
 }
 
@@ -749,8 +839,21 @@ exports[`the sitesubscription matches the snapshot 1`] = `
   <span
     className="c16 c17 c2 c3"
   >
+    <button
+      className="c18 c19 Button-kDSBcD c20 c21"
+      onClick={[Function]}
+      type="button"
+    >
+      <span>
+        Download
+      </span>
+    </button>
+  </span>
+  <span
+    className="c16 c17 c2 c3"
+  >
     <a
-      className="c18 c19 c14"
+      className="c18 c22 c14"
       href="/account/subscriptions/subId"
       onClick={[Function]}
     >
@@ -759,5 +862,6 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       </span>
     </a>
   </span>
+  
 </li>
 `;

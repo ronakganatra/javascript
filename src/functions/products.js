@@ -76,6 +76,8 @@ function filterProductsByType( type, products ) {
 export function sortPluginsByPopularity( plugins ) {
 	/* Defines an array of plugin glnumbers in order of popularity:
 	 *
+	 * All plugins + All courses: "80001"
+	 * All plugins: "82109"
 	 * Premium WP: "82101"
 	 * Local WP: "82103"
 	 * News WP : "82104"
@@ -83,7 +85,7 @@ export function sortPluginsByPopularity( plugins ) {
 	 * Video WP: "82102"
 	 * Local WooCommerce: "82106"
 	 */
-	const pluginsOrder = [ "82101", "82103", "82104", "82105", "82102", "82106" ];
+	const pluginsOrder = [ "80001", "82109", "82101", "82103", "82104", "82105", "82102", "82106" ];
 
 	// Sorts Yoast plugins based on the index their glNumber have which are defined in pluginsOrder.
 	plugins = plugins.sort( ( a, b ) => {
@@ -91,8 +93,11 @@ export function sortPluginsByPopularity( plugins ) {
 		if ( ! _includes( pluginsOrder, b.glNumber ) ) {
 			return -1;
 		}
+		if ( ! _includes( pluginsOrder, a.glNumber ) ) {
+			return 1;
+		}
 
-		return pluginsOrder.indexOf( a.glNumber ) > pluginsOrder.indexOf( b.glNumber );
+		return pluginsOrder.indexOf( a.glNumber ) - pluginsOrder.indexOf( b.glNumber );
 	} );
 
 	return plugins;
