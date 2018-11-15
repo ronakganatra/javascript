@@ -56,6 +56,17 @@ export function styledOrders( orders ) {
 
 const SubscriptionOrders = styledOrders( Orders );
 
+const DownloadListHeading = styled( ListHeading )`
+	display: flex;
+	justify-content: space-between;
+	word-wrap: break-word;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		justify-content: start;
+		flex-direction: column;
+	}
+`;
+
 /**
  * Returns the rendered SubscriptionPage component.
  *
@@ -70,6 +81,11 @@ class SubscriptionPage extends React.Component {
 		this.props.loadData();
 	}
 
+	/**
+	 * Returns the modal for canceling the subscription.
+	 *
+	 * @returns {ReactElement} The modal for canceling the subscription.
+	 */
 	getModal() {
 		const subscription = this.props.subscription;
 		const otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
@@ -91,6 +107,35 @@ class SubscriptionPage extends React.Component {
 	}
 
 	/**
+	 * Creates a list based on the passed downloads.
+	 *
+	 * @param {array} downloads The downloads to show in the list.
+	 * @returns {ReactElement} The list of downloads.
+	 */
+	getDownloadsList( downloads ) {
+		return <ListTable>
+			{ downloads.map( download => {
+				return (
+					<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key={ download.name }>
+						<ColumnMinWidth ellipsis={ true }>
+							{ download.name }
+						</ColumnMinWidth>
+						<ColumnFixedWidthResponsive ellipsis={ true }>
+							<Link
+								to={ download.file }
+								aria-label={ "Download" }
+								linkTarget={ "_blank" }
+							>
+								Download
+							</Link>
+						</ColumnFixedWidthResponsive>
+					</RowMobileCollapseNoMinHeight>
+				);
+			} ) }
+		</ListTable>;
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -101,34 +146,6 @@ class SubscriptionPage extends React.Component {
 		}
 
 		const subscription = this.props.subscription;
-		// It seems that there are subscriptions that give access to multiple products, this code should be changed
-		// To adept for that.
-		const downloads = [ {
-			id: this.props.subscription.name,
-			link: this.props.subscription.product.downloads[ 0 ].file,
-		} ];
-
-		const downloadList =
-			<ListTable>
-				{ downloads.map( download => {
-					return (
-						<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key="download">
-							<ColumnMinWidth ellipsis={ true }>
-								{ download.id }
-							</ColumnMinWidth>
-							<ColumnFixedWidthResponsive ellipsis={ true }>
-								<Link
-									to={ download.link }
-									aria-label={ "Download" }
-									linkTarget={ "_blank" }
-								>
-									Download
-								</Link>
-							</ColumnFixedWidthResponsive>
-						</RowMobileCollapseNoMinHeight>
-					);
-				} ) }
-			</ListTable>;
 
 		return <section>
 			<Header
@@ -161,8 +178,8 @@ class SubscriptionPage extends React.Component {
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
-				<ListHeading>
-					{ this.props.intl.formatMessage( messages.downloadTitle ) }
+				<DownloadListHeading>
+					<span> { this.props.intl.formatMessage( messages.downloadTitle ) } </span>
 					<Link
 						// This link should be styled to the right.
 						to={ "https://yoa.st/myyoast-installation" }
@@ -170,8 +187,8 @@ class SubscriptionPage extends React.Component {
 					>
 						Read our installation guides
 					</Link>
-				</ListHeading>
-				{ downloadList }
+				</DownloadListHeading>
+				{ this.getDownloadsList( this.props.downloads ) }
 			</Paper>
 			{ this.getModal() }
 		</section>;
@@ -204,6 +221,7 @@ SubscriptionPage.propTypes = {
 	cancelSuccess: PropTypes.bool.isRequired,
 	cancelError: PropTypes.object,
 	loadData: PropTypes.func.isRequired,
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SubscriptionPage.defaultProps = {
@@ -216,6 +234,7 @@ SubscriptionPage.defaultProps = {
 	cancelLoading: false,
 	cancelSuccess: false,
 	cancelError: null,
+	downloads: [],
 };
 
 export default injectIntl( SubscriptionPage );

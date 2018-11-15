@@ -6,11 +6,16 @@ import {
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";
+import { getAllProducts } from "../actions/products";
+import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
+import { sortPluginsByPopularity } from "../functions/products";
+
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
@@ -80,6 +85,35 @@ export const mapStateToProps = ( state, ownProps ) => {
 			);
 	}
 
+	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
+		return state.entities.products.byId[ productIds ];
+	} );
+
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
+		return state.entities.productGroups.byId[ productGroupIds ];
+	} );
+
+	let downloads = [];
+	const pluginProductGroups = selectedSubscription.product.productGroups;
+
+	// If none of the product groups have children.
+	if ( pluginProductGroups.find( productGroup => productGroup.parentId !== null ) ) {
+		downloads = [ { name: selectedSubscription.product.name, file: selectedSubscription.product.downloads[ 0 ].file } ];
+	} else {
+		let products =  pluginProductGroups
+			// Retrieve the child product groups for the parent product group.
+			.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
+
+			// Retrieve the products for the child product groups.
+			.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) )
+			.filter( product => product.sourceShopId === 1 );
+
+		products = sortPluginsByPopularity( products );
+		downloads = products.map( product => {
+			return { name: product.name, file: product.downloads[ 0 ].file };
+		} );
+	}
+
 	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
 		cancelLoading: state.ui.subscriptionsCancel.loading,
@@ -91,6 +125,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		subscription: selectedSubscription,
 		orders,
 		sites,
+		downloads,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
 	}, cancelSubscriptionState );
@@ -103,6 +138,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( getOrders() );
 			dispatch( getAllSubscriptions() );
 			dispatch( retrieveSites() );
+			dispatch( getAllProducts() );
+			dispatch( getProductGroups() );
 		},
 		cancelSubscription: ( subscriptionId, shopId ) => {
 			dispatch( cancelSubscription( subscriptionId, shopId ) );
