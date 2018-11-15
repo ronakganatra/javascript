@@ -125,41 +125,6 @@ const CollapseButtonSpacer = styled.div`
 `;
 
 /**
- * Creates the manage buttons.
- *
- * @param {object} props Properties of the subscription component.
- *
- * @returns {ReactElement} the media query with the manage button.
- */
-function getManageButtons( props ) {
-	const tabletView = defaults.css.breakpoint.tablet;
-	if ( props.status === "cancelled" ) {
-		return <Fragment>
-			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
-				<StyledSpace tablet={ false } />
-			</MediaQuery>
-			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
-				<StyledSpace tablet={ true } />
-			</MediaQuery>
-		</Fragment>;
-	}
-	return <Fragment>
-		<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
-			<LargeButton onClick={ props.onManage }>{ props.intl.formatMessage( messages.manage ) }</LargeButton>
-		</MediaQuery>
-		<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
-			<ChevronButton onClick={ props.onManage } aria-label={ props.intl.formatMessage( messages.manage ) } />
-		</MediaQuery>
-	</Fragment>;
-}
-
-getManageButtons.propTypes = {
-	status: PropTypes.string.isRequired,
-	intl: intlShape.isRequired,
-	onManage: PropTypes.func.isRequired,
-};
-
-/**
  * Organizes the billing and endDate information under Next Payment.
  *
  * @param {string} status The status of the subscription.
@@ -420,7 +385,6 @@ class SubscriptionRow extends React.Component {
 	}
 
 	render() {
-		console.log( "Render props: ", this.props );
 		return this.props.subscriptionsArray.length > 1
 			? this.makeCollapsibleRow()
 			: this.makeSingleRow( this.props.subscriptionsArray[ 0 ] );
