@@ -5,7 +5,10 @@ import {
 	SITE_TOGGLE_SUBSCRIPTION_FAILURE,
 	SITE_REMOVE_START, SITE_REMOVE_SUCCESS,
 	SITE_REMOVE_FAILURE,
+	DOWNLOAD_MODAL_OPEN,
+	DOWNLOAD_MODAL_CLOSE,
 } from "../actions/site";
+import reduceReducers from "reduce-reducers";
 
 /**
  * Initial state
@@ -19,6 +22,8 @@ const rootState = {
 				error: "",
 				toggling: false,
 			},
+			downloadModalOpen: false,
+			downloadModalSubscriptionId: "",
 		},
 	},
 };
@@ -26,6 +31,32 @@ const rootState = {
 /**
  * Reducers
  */
+
+/**
+ * A reducer for the modal actions within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ *
+ * @returns {Object} The updated sites object.
+ */
+function uiModalReducer( state = rootState.ui.sites, action ) {
+	switch ( action.type ) {
+		case DOWNLOAD_MODAL_OPEN:
+			return Object.assign( {}, state, {
+				downloadModalOpen: true,
+				downloadModalSubscriptionId: action.subscriptionId,
+			} );
+		case DOWNLOAD_MODAL_CLOSE:
+			return Object.assign( {}, state, {
+				downloadModalOpen: false,
+				downloadModalSubscriptionId: "",
+
+			} );
+		default:
+			return state;
+	}
+}
 
 /**
  * A reducer for the site add subscription actions within the ui site object.
@@ -57,14 +88,13 @@ export function uiSiteSubscriptionsReducer( state = rootState.ui.site.subscripti
 }
 
 /**
- * A reducer for the site object within the ui object.
+ * A reducer for the site remove actions within the ui site object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- *
- * @returns {Object} The updated Site object.
+ * @returns {Object} The updated state.
  */
-export function uiSiteReducer( state = rootState.ui.site, action ) {
+export function uiSiteRemoveReducer( state = rootState.ui.site, action ) {
 	const site = Object.assign( {}, state );
 	switch ( action.type ) {
 		case SITE_REMOVE_START:
@@ -79,4 +109,18 @@ export function uiSiteReducer( state = rootState.ui.site, action ) {
 	}
 	site.subscriptions = uiSiteSubscriptionsReducer( state.subscriptions, action );
 	return site;
+}
+
+const uiSite = reduceReducers( uiSiteRemoveReducer, uiModalReducer );
+
+/**
+ * A reducer for the site object within the ui object.
+ *
+ * @param {Object} state The current state of the object.
+ * @param {Object} action The current action received.
+ *
+ * @returns {Object} The updated Site object.
+ */
+export function uiSiteReducer( state = rootState.ui.site, action ) {
+	return uiSite( state, action );
 }

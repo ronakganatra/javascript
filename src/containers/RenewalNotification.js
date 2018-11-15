@@ -17,9 +17,9 @@ export const mapStateToProps = ( state ) => {
 
 		const expiresWithinMonth = ( nextPayment && nextPayment < monthFromNow ) || ( endDate && endDate < monthFromNow );
 		const isUpcomingRenewal = subscription.status === "active" &&
-			! subscription.endDate &&
 			subscription.renewalUrl &&
-			expiresWithinMonth;
+			expiresWithinMonth &&
+			subscription.requiresManualRenewal;
 
 		if ( ! isUpcomingRenewal ) {
 			return null;
@@ -29,7 +29,7 @@ export const mapStateToProps = ( state ) => {
 			id: subscription.id,
 			name: subscription.name,
 			hasNextPayment: subscription.nextPayment !== null,
-			nextPayment,
+			nextPayment: nextPayment || endDate,
 			endDate: subscription.endDate ? new Date( subscription.endDate ) : null,
 			status: subscription.status,
 			renewalUrl: subscription.renewalUrl,
@@ -41,7 +41,7 @@ export const mapStateToProps = ( state ) => {
 
 	// Sorting upcoming renewals by nextPayment date.
 	upcomingRenewals = upcomingRenewals.sort( ( a, b ) => {
-		return new Date( a.nextPayment ) - new Date( b.nextPayment );
+		return new Date( a.nextPayment || a.endDate ) - new Date( b.nextPayment || b.endDate );
 	} );
 
 	return {

@@ -1,6 +1,13 @@
 import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
+import {
+	siteAddSubscription,
+	siteRemoveSubscription,
+	siteRemove,
+	siteChangePlatform,
+	downloadModalOpen,
+	downloadModalClose,
+} from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
 import { sortPluginsByPopularity } from "../functions/products";
@@ -17,8 +24,10 @@ import {
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
 import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
+const _flatten = require( "lodash/flatten" );
 
 /* eslint-disable require-jsdoc */
+/* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
 	const sites = state.entities.sites;
@@ -30,10 +39,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 	const site = sites.byId[ id ];
 
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
-		return state.entities.configurationServiceRequests.byId[ id ];
+	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( configurationServiceId ) => {
+		return state.entities.configurationServiceRequests.byId[ configurationServiceId ];
 	} );
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( request ) => request.status === "intake" );
 
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
@@ -56,12 +65,12 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	const allProducts = state.entities.products.allIds.map( ( id ) => {
-		return state.entities.products.byId[ id ];
+	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
+		return state.entities.products.byId[ productIds ];
 	} );
 
-	const allProductGroups = state.entities.productGroups.allIds.map( ( id ) => {
-		return state.entities.productGroups.byId[ id ];
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
+		return state.entities.productGroups.byId[ productGroupIds ];
 	} );
 
 	// Get the productGroups that contain our plugin product variations.
@@ -70,7 +79,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 		allProductGroups,
 		hasAccessToFeature( SUBSCRIPTIONS_FEATURE )
 	);
-
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
 	pluginProductGroups.forEach( ( pluginProductGroup ) => {
@@ -85,15 +93,38 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
+	const downloadModalSubscriptionId = state.ui.site.downloadModalSubscriptionId;
+
+	let downloads = [];
+	if ( downloadModalIsOpen ) {
+		const pluginOpened = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		let OpenedPluginProducts = pluginOpened.products;
+
+		if ( pluginOpened.parentId === null ) {
+			const children = getProductGroupsByParentSlug( pluginOpened.slug, allProductGroups );
+			OpenedPluginProducts = _flatten( children.map( child => child.products ) );
+		}
+
+		let differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
+		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
+		downloads = differentProductsInSubscription.map( product => {
+			return { name: product.name, file: product.downloads[ 0 ].file };
+		} );
+	}
+
+	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
 	return {
 		availableConfigurationServiceRequests,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
+		downloadModalIsOpen,
+		downloadModalSubscriptionId,
+		downloads,
 		site,
 		subscriptions,
 		plugins,
@@ -132,11 +163,17 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				dispatch( siteRemove( siteId ) );
 			}
 		},
+		onDownloadModalOpen: ( subscriptionId ) => {
+			dispatch( downloadModalOpen( subscriptionId ) );
+		},
+		onDownloadModalClose: () => {
+			dispatch( downloadModalClose() );
+		},
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );
 		},
-		openConfigurationServiceRequestModal: ( siteId ) => {
-			dispatch( configurationServiceRequestModalOpen( siteId ) );
+		openConfigurationServiceRequestModal: ( modalSiteId ) => {
+			dispatch( configurationServiceRequestModalOpen( modalSiteId ) );
 		},
 		configureConfigurationServiceRequest: ( id, data ) => {
 			dispatch( configureConfigurationServiceRequest( id, data ) );

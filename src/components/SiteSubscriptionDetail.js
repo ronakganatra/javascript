@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import { LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
+import { LargeButton, LargeButtonLink, IconButtonTransparentLink, makeButtonFullWidth } from "./Button";
 import Toggle from "./Toggle";
 import plusIcon from "../icons/blue-plus-circle.svg";
 import { FormattedMessage, injectIntl, intlShape, defineMessages } from "react-intl";
@@ -10,6 +10,9 @@ import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
 import NewTabMessage from "./NewTabMessage";
+/* eslint-disable no-unused-vars */
+import DownloadModal from "./modal/DownloadModal";
+
 
 const messages = defineMessages( {
 	toggleAriaLabel: {
@@ -66,6 +69,7 @@ const SubscriptionUsage = styled.span`
 
 const ColumnFixedWidthResponsive = makeFullWidth( ColumnFixedWidth );
 const ResponsiveLargeButtonLink = makeButtonFullWidth( LargeButtonLink );
+const ResponsiveLargeButton = makeButtonFullWidth( LargeButton );
 
 const ColumnFixedWidthEnabled = styled( ColumnFixedWidthResponsive )`
 	display: ${ props => props.isEnabled ? "inline-block" : "none" };
@@ -128,10 +132,24 @@ function SiteSubscriptionDetail( props ) {
 				{ anotherLicense }
 			</ColumnPrimary>
 			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
+				<ResponsiveLargeButton onClick={ _partial( props.onDownloadModalOpen, props.subscriptionId ) }>
+					<FormattedMessage id="subscriptions.buttons.download" defaultMessage="Download" />
+				</ResponsiveLargeButton>
+			</ColumnFixedWidthEnabled>
+			<ColumnFixedWidthEnabled isEnabled={ props.isEnabled }>
 				<ResponsiveLargeButtonLink to={ `/account/subscriptions/${ props.subscriptionId }` }>
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthEnabled>
+			{ props.downloadModalOpen && props.downloadModalSubscriptionId === props.subscriptionId
+				? <DownloadModal
+					downloadModalOpen={ props.downloadModalOpen }
+					onDownloadModalClose={ props.onDownloadModalClose }
+					intl={ props.intl }
+					downloads={ props.downloads }
+				/>
+				: ""
+			}
 		</RowMobileCollapse>
 	);
 }
@@ -156,11 +174,21 @@ SiteSubscriptionDetail.propTypes = {
 	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
+	downloadModalOpen: PropTypes.bool,
+	onDownloadModalOpen: PropTypes.func,
+	onDownloadModalClose: PropTypes.func,
+	downloadModalSubscriptionId: PropTypes.string,
+	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SiteSubscriptionDetail.defaultProps = {
 	onToggleSubscription: () => {},
 	isEnabled: false,
+	downloadModalOpen: false,
+	onDownloadModalOpen: () => {},
+	onDownloadModalClose: () => {},
+	downloadModalSubscriptionId: "",
+	downloads: [],
 };
 
 export default injectIntl( SiteSubscriptionDetail );

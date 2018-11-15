@@ -42,7 +42,14 @@ export function addSubscriptionInfoToProductGroup( productGroup, activeSubscript
 	productGroup.subscriptionId = "";
 	productGroup.currency = "USD";
 
-	// Lift a couple of things from the US product variation to the product group. This should be a temporary situation: productGroup properties need to be expanded.
+	// Override productGroup name and icon in case of the all plugins subscription. The icon hardcode is a temporary fix!
+	if ( productGroup.slug === "all-plugins" ) {
+		productGroup.name = "Plugin subscription";
+		productGroup.icon = "https://yoast.com/app/uploads/2018/11/Plugin_subscription.png";
+	}
+
+	// Lift a couple of things from the US product variation to the product group.
+	// This should be a temporary situation: productGroup properties need to be expanded.
 	const usProduct = productGroup.products.filter( ( product ) => {
 		return product.sourceShopId === 1;
 	} );
