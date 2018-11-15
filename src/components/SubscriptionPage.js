@@ -179,7 +179,6 @@ class SubscriptionPage extends React.Component {
 				<DownloadListHeading>
 					<span> { this.props.intl.formatMessage( messages.downloadTitle ) } </span>
 					<Link
-						// This link should be styled to the right.
 						to={ "https://yoa.st/myyoast-installation" }
 						linkTarget={ "_blank" }
 					>

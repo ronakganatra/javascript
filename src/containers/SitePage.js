@@ -97,7 +97,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let downloads = [];
 	if ( downloadModalIsOpen ) {
-		const downloadModalSubscription = plugins.findOne( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		const downloadModalSubscription = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
 		let Products = downloadModalSubscription.products;
 
 		if ( downloadModalSubscription.parentId === null ) {
