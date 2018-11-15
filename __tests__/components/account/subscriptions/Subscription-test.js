@@ -1,7 +1,7 @@
 import React from 'react';
-import { createComponentWithIntl } from "../../utils";
+import { createComponentWithIntl } from "../../../../utils";
 import { MemoryRouter } from "react-router-dom";
-import Subscription from '../../src/components/Subscription';
+import Subscription from '../../../../src/components/account/subscriptions/SubscriptionRow';
 
 test( 'The Subscription component matches the snapshot', () => {
 	const component = createComponentWithIntl(

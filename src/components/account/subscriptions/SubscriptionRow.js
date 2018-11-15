@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Row, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, ColumnIcon } from "./Tables";
-import SiteIcon from "./SiteIcon";
+import { Row, ColumnMinWidth, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "../../Tables";
 import MediaQuery from "react-responsive";
-import { LargeButton, ChevronButton } from "../components/Button.js";
-import { injectIntl, intlShape, defineMessages, FormattedDate, FormattedNumber, FormattedMessage } from "react-intl";
-import formatAmount from "../../../shared/currency";
-import defaults from "../config/defaults.json";
+import { LargeButton, ChevronButton } from "../../Button.js";
+import { injectIntl, intlShape, defineMessages, FormattedMessage, FormattedDate, FormattedNumber } from "react-intl";
+import formatAmount from "../../../../../shared/currency";
+import defaults from "../../../config/defaults.json";
 import styled from "styled-components";
-import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import colors from "yoast-components/style-guide/colors.json";
+import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
+import SiteIcon from "../../SiteIcon";
+import { UpDownButton } from "../../Button";
 
 const messages = defineMessages( {
 	individualSubscriptions: {
@@ -115,6 +116,13 @@ const Icon = styled( ColumnIcon )`
 	width: 32px;
 `;
 
+const CollapseButtonSpacer = styled.div`
+	@media screen and ( min-width: ${ defaults.css.breakpoint.tablet + 1 }px ) {
+		width: 152px;
+		display: flex;
+		justify-content: flex-end;
+	}
+`;
 
 /**
  * Creates the manage buttons.
@@ -185,124 +193,240 @@ getNextBilling.propTypes = {
  * @returns {ReactElement} Subscription component.
  * @constructor
  */
-function SubscriptionRow( props ) {
-	const rowProps = [];
+class SubscriptionRow extends React.Component {
+	constructor( props ) {
+		super( props );
 
-	if ( props.background ) {
-		rowProps.background = props.background;
+		this.state = {
+			isOpen: false,
+		};
+
+		this.getManageButtons = this.getManageButtons.bind( this );
 	}
 
-	const cancelledOrExpired = props.status === "cancelled" || props.status === "expired";
-	let nextPayment = null;
-	let endDate = null;
-	let amount = null;
-	let billingType = null;
+	getManageButtons( status, onManage ) {
+		const tabletView = defaults.css.breakpoint.tablet;
 
-	if ( props.status === "pending-cancel" ) {
-		endDate = <FormattedDate
-			value={ props.hasEndDate && props.endDate }
-			year="numeric"
-			month="long"
-			day="numeric"
-		/>;
+		if ( status === "cancelled" ) {
+			return <Fragment>
+				<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+					<StyledSpace tablet={ false } />
+				</MediaQuery>
+				<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+					<StyledSpace tablet={ true } />
+				</MediaQuery>
+			</Fragment>;
+		}
+
+		return <Fragment>
+			<MediaQuery query={ `(min-width: ${ tabletView + 1 }px)` }>
+				<LargeButton onClick={ onManage }>{ this.props.intl.formatMessage( messages.manage ) }</LargeButton>
+			</MediaQuery>
+			<MediaQuery query={ `(max-width: ${ tabletView }px)` }>
+				<ChevronButton onClick={ onManage } aria-label={ this.props.intl.formatMessage( messages.manage ) } />
+			</MediaQuery>
+		</Fragment>;
 	}
 
-	if ( props.status === "active" && ( props.hasNextPayment || props.hasEndDate ) ) {
-		nextPayment = <FormattedDate
-			value={ props.hasNextPayment ? props.nextPayment : props.endDate }
-			year="numeric"
-			month="long"
-			day="numeric"
-		/>;
-		amount = <FormattedNumber
-			value={ formatAmount( props.billingAmount ) }
-			currency={ props.billingCurrency }
-			style="currency"
-		/>;
-		billingType = props.requiresManualRenewal ? "Manual renewal" : "Automatic renewal";
+	retrieveOverallSubscriptionData( subscriptionsArray ) {
+		const donorSubscription = subscriptionsArray[ 0 ];
+		const countTotals = ( inputArray, field ) => {
+			return inputArray.reduce( ( total, current ) => {
+				return total + current[ field ];
+			}, 0 );
+		};
+
+		const isActive = subscriptionsArray
+			.map( subscription => subscription.status )
+			.includes( "active" );
+		const totalLimit = countTotals( subscriptionsArray, "limit" );
+		const totalUsed = countTotals( subscriptionsArray, "used" );
+		return {
+			name: donorSubscription.name,
+			icon: donorSubscription.icon,
+			status: isActive ? "active" : "Not active",
+			used: totalUsed,
+			limit: totalLimit,
+		};
 	}
 
-	return (
-		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps }>
-			<Icon><SiteIcon src={ props.iconSource } alt="" /></Icon>
-			<ColumnPrimary
-				ellipsis={ true }
-				headerLabel={ props.intl.formatMessage(
-					props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
-				) }
-			>
-				{ props.name }
-				<Detail>
-					<StyledStatus status={ props.status }>
-						{ capitalizeFirstLetter( props.status ) }
-					</StyledStatus>
-					{ " - " }{ props.subscriptionNumber }
-				</Detail>
-			</ColumnPrimary>
-			<StyledColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.used ) }
-				maxWidth="120px"
-				minWidth="102px"
-				paddingLeft="inherit"
-			>
-				{ props.hasSites
-					? props.used + "/" + props.limit + " sites"
-					: ""
+	makeCollapsibleRow() {
+		const subscription = this.retrieveOverallSubscriptionData( this.props.subscriptionsArray );
+		const status = subscription.status;
+		return (
+			<Fragment>
+				<StyledRow key={ subscription.id } dimmed={ status === "Not active" } background={ this.props.background }>
+					<Icon><SiteIcon src={ subscription.icon } alt="" /></Icon>
+					<ColumnPrimary
+						ellipsis={ true }
+						headerLabel={ this.props.intl.formatMessage(
+							this.props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
+						) }
+					>
+						{ subscription.name }
+						<Detail>
+							<StyledStatus status={ status }>
+								{ capitalizeFirstLetter( status ) }
+							</StyledStatus>
+						</Detail>
+					</ColumnPrimary>
+					<StyledColumnMinWidth
+						ellipsis={ true }
+						hideOnMobile={ true }
+						headerLabel={ this.props.intl.formatMessage( messages.used ) }
+						maxWidth="120px"
+						minWidth="102px"
+						paddingLeft="inherit"
+					>
+						{ subscription.hasSites
+							? subscription.used + "/" + subscription.limit + " sites"
+							: ""
+						}
+					</StyledColumnMinWidth>
+					<StyledColumnMinWidth
+						ellipsis={ true }
+						hideOnMobile={ true }
+						headerLabel={ this.props.intl.formatMessage( messages.nextPaymentOn ) }
+						minWidth="198px"
+					>
+						{ ". . ." }
+					</StyledColumnMinWidth>
+					<StyledColumnMinWidth
+						ellipsis={ true }
+						hideOnMobile={ true }
+						headerLabel={ this.props.intl.formatMessage( messages.billingType ) }
+						maxWidth="140px"
+						minWidth="120px"
+					>
+						{ ". . ." }
+					</StyledColumnMinWidth>
+					<ColumnFixedWidth
+						paddingLeft="0px"
+					>
+						<CollapseButtonSpacer>
+							<UpDownButton
+								isOpen={ this.state.isOpen }
+								onClick={ () => {
+									this.setState( { isOpen: ! this.state.isOpen } );
+								} }
+							/>
+						</CollapseButtonSpacer>
+					</ColumnFixedWidth>
+				</StyledRow>
+				{
+					this.state.isOpen &&
+						this.props.subscriptionsArray.map( ( subscription ) => {
+							return this.makeSingleRow( subscription );
+						} )
 				}
-			</StyledColumnMinWidth>
-			<StyledColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }
-				minWidth="198px"
-			>
-				{ getNextBilling( props.status, endDate, nextPayment, amount ) }
-			</StyledColumnMinWidth>
-			<StyledColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.billingType ) }
-				maxWidth="140px"
-				minWidth="120px"
-			>
-				{ billingType }
-			</StyledColumnMinWidth>
-			<ColumnFixedWidth
-				paddingLeft="0px"
-			>
-				{ getManageButtons( props ) }
-			</ColumnFixedWidth>
-		</StyledRow>
-	);
+			</Fragment>
+		);
+	}
+
+	makeSingleRow( subscription ) {
+		const onManage = () => this.props.onManage( subscription.id );
+		const status = subscription.status;
+		const cancelledOrExpired = [ "cancelled", "expired" ].includes( status );
+
+		let nextPayment = null;
+		let endDate = null;
+		let amount = null;
+		let billingType = null;
+
+		if ( status === "pending-cancel" ) {
+			endDate = <FormattedDate
+				value={ subscription.hasEndDate && subscription.endDate }
+				year="numeric"
+				month="long"
+				day="numeric"
+			/>;
+		}
+
+		if ( subscription.status === "active" && ( subscription.hasNextPayment || subscription.hasEndDate ) ) {
+			nextPayment = <FormattedDate
+				value={ subscription.hasNextPayment ? subscription.nextPayment : subscription.endDate }
+				year="numeric"
+				month="long"
+				day="numeric"
+			/>;
+			amount = <FormattedNumber
+				value={ formatAmount( subscription.billingAmount ) }
+				currency={ subscription.billingCurrency }
+				style="currency"
+			/>;
+			billingType = subscription.requiresManualRenewal ? "Manual renewal" : "Automatic renewal";
+		}
+
+		return (
+			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ this.props.background }>
+				<Icon><SiteIcon src={ subscription.icon } alt="" /></Icon>
+				<ColumnPrimary
+					ellipsis={ true }
+					headerLabel={ this.props.intl.formatMessage(
+						this.props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
+					) }
+				>
+					{ subscription.name }
+					<Detail>
+						<StyledStatus status={ status }>
+							{ capitalizeFirstLetter( status ) }
+						</StyledStatus>
+						{ " - " }{ subscription.subscriptionNumber }
+					</Detail>
+				</ColumnPrimary>
+				<StyledColumnMinWidth
+					ellipsis={ true }
+					hideOnMobile={ true }
+					headerLabel={ this.props.intl.formatMessage( messages.used ) }
+					maxWidth="120px"
+					minWidth="102px"
+					paddingLeft="inherit"
+				>
+					{ subscription.used }/{ subscription.limit + " sites" }
+				</StyledColumnMinWidth>
+				<StyledColumnMinWidth
+					ellipsis={ true }
+					hideOnMobile={ true }
+					headerLabel={ this.props.intl.formatMessage( messages.nextPaymentOn ) }
+					minWidth="198px"
+				>
+					{ getNextBilling( status, endDate, nextPayment, amount ) }
+				</StyledColumnMinWidth>
+				<StyledColumnMinWidth
+					ellipsis={ true }
+					hideOnMobile={ true }
+					headerLabel={ this.props.intl.formatMessage( messages.billingType ) }
+					maxWidth="140px"
+					minWidth="120px"
+				>
+					{ billingType }
+				</StyledColumnMinWidth>
+				<ColumnFixedWidth
+					paddingLeft="0px"
+				>
+					{ this.getManageButtons( status, onManage ) }
+				</ColumnFixedWidth>
+			</StyledRow>
+		);
+	}
+
+	render() {
+		console.log( "Render props: ", this.props );
+		return this.props.subscriptionsArray.length > 1
+			? this.makeCollapsibleRow()
+			: this.makeSingleRow( this.props.subscriptionsArray[ 0 ] );
+	}
 }
 
 SubscriptionRow.propTypes = {
-	id: PropTypes.string.isRequired,
-	iconSource: PropTypes.string.isRequired,
-	name: PropTypes.string.isRequired,
-	subscriptionNumber: PropTypes.string,
-	used: PropTypes.number.isRequired,
-	status: PropTypes.string.isRequired,
-	limit: PropTypes.number.isRequired,
-	hasNextPayment: PropTypes.bool.isRequired,
-	requiresManualRenewal: PropTypes.bool,
-	nextPayment: PropTypes.instanceOf( Date ).isRequired,
-	hasEndDate: PropTypes.bool.isRequired,
-	endDate: PropTypes.instanceOf( Date ).isRequired,
-	billingAmount: PropTypes.number.isRequired,
-	billingCurrency: PropTypes.string.isRequired,
-	intl: intlShape.isRequired,
-	background: PropTypes.string,
 	onManage: PropTypes.func.isRequired,
-	product: PropTypes.string,
+	subscriptionsArray: PropTypes.array.isRequired,
 	isGrouped: PropTypes.bool.isRequired,
-	hasSites: PropTypes.bool.isRequired,
+	background: PropTypes.string,
+	intl: intlShape,
 };
 
 SubscriptionRow.defaultProps = {
-	hasEndDate: false,
 };
 
 export default injectIntl( SubscriptionRow );

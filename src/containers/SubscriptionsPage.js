@@ -2,10 +2,11 @@ import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getAllSubscriptions } from "../actions/subscriptions";
 import { getGroupedSubscriptions, getIndividualSubscriptions } from "../selectors/subscriptions";
-import SubscriptionsPage from "../components/SubscriptionsPage";
+import SubscriptionsPage from "../components/account/subscriptions/SubscriptionsPage";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
 import { getSearchQuery } from "../selectors/search";
+import groupBy from "lodash/groupBy";
 
 /**
  * Maps a subscription to the props of a subscription.
@@ -35,6 +36,7 @@ function mapSubscriptionToProps( subscription ) {
 		billingCurrency: subscription.currency,
 		status: subscription.status,
 		hasSites,
+		product: subscription.product || {},
 	};
 }
 
@@ -60,6 +62,12 @@ function filterSubscriptionsByQuery( subscriptions, query ) {
 			(
 				subscription.billingAmount / 100
 			).toString().includes( query.toUpperCase() );
+	} );
+}
+
+function groupSubscriptionsByProduct( subscriptions ) {
+	return groupBy( subscriptions, ( subscription ) => {
+		return subscription.product.glNumber;
 	} );
 }
 
@@ -116,6 +124,7 @@ export const mapStateToProps = ( state ) => {
 	groupedSubscriptions = sortByUpcomingPayment( groupedSubscriptions );
 	individualSubscriptions = sortByUpcomingPayment( individualSubscriptions );
 
+
 	// Filter queried subscriptions.
 	const query = getSearchQuery( state );
 
@@ -127,6 +136,10 @@ export const mapStateToProps = ( state ) => {
 	// Filter active subscriptions
 	groupedSubscriptions = filterActiveSubscriptions( groupedSubscriptions );
 	individualSubscriptions = filterActiveSubscriptions( individualSubscriptions );
+
+	// Group subscriptions for same product
+	groupedSubscriptions = groupSubscriptionsByProduct( groupedSubscriptions );
+	individualSubscriptions = groupSubscriptionsByProduct( individualSubscriptions );
 
 	return {
 		groupedSubscriptions,

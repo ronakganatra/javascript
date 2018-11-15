@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import defaults from "../config/defaults.json";
-import { Heading } from "./Headings";
+import defaults from "../../../config/defaults.json";
+import { Heading } from "../../Headings";
 import { injectIntl } from "react-intl";
 
 const SubscriptionHeaderContainer = styled.div`
