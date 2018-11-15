@@ -253,6 +253,13 @@ class SubscriptionRow extends React.Component {
 	makeCollapsibleRow() {
 		const subscription = this.retrieveOverallSubscriptionData( this.props.subscriptionsArray );
 		const status = subscription.status;
+		let previousBackgroundColor = this.props.background;
+		const determineNextBackgroundColor = ( previousBackgroundColor ) => {
+			return previousBackgroundColor === colors.$color_white
+				? colors.$color_background_light
+				: colors.$color_white;
+		};
+
 		return (
 			<Fragment>
 				<StyledRow key={ subscription.id } dimmed={ status === "Not active" } background={ this.props.background }>
@@ -313,14 +320,16 @@ class SubscriptionRow extends React.Component {
 				{
 					this.state.isOpen &&
 						this.props.subscriptionsArray.map( ( subscription ) => {
-							return this.makeSingleRow( subscription );
+							const nextBackgroundColor = determineNextBackgroundColor( previousBackgroundColor );
+							previousBackgroundColor = nextBackgroundColor;
+							return this.makeSingleRow( subscription, nextBackgroundColor );
 						} )
 				}
 			</Fragment>
 		);
 	}
 
-	makeSingleRow( subscription ) {
+	makeSingleRow( subscription, background = this.props.background ) {
 		const onManage = () => this.props.onManage( subscription.id );
 		const status = subscription.status;
 		const cancelledOrExpired = [ "cancelled", "expired" ].includes( status );
@@ -355,7 +364,7 @@ class SubscriptionRow extends React.Component {
 		}
 
 		return (
-			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ this.props.background }>
+			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ background }>
 				<Icon><SiteIcon src={ subscription.icon } alt="" /></Icon>
 				<ColumnPrimary
 					ellipsis={ true }
