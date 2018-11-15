@@ -97,11 +97,9 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const pluginProductGroups = selectedSubscription.product.productGroups;
 
 	// If none of the product groups have children.
-	if ( pluginProductGroups.find( productGroup => productGroup.parentId !== null ) ) {
-		downloads = [ { name: selectedSubscription.product.name, file: selectedSubscription.product.downloads[ 0 ].file } ];
-	} else {
-		let products =  pluginProductGroups
-			// Retrieve the child product groups for the parent product group.
+	if ( pluginProductGroups.some( productGroup => productGroup.parentId === null ) ) {
+		let products = pluginProductGroups
+		// Retrieve the child product groups for the parent product group.
 			.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
 
 			// Retrieve the products for the child product groups.
@@ -112,6 +110,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 		downloads = products.map( product => {
 			return { name: product.name, file: product.downloads[ 0 ].file };
 		} );
+	} else {
+		downloads = [ { name: selectedSubscription.product.name, file: selectedSubscription.product.downloads[ 0 ].file } ];
 	}
 
 	const cancelSubscriptionState = {

@@ -24,7 +24,6 @@ import {
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
 import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
-const _flatten = require( "lodash/flatten" );
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
@@ -98,15 +97,15 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	let downloads = [];
 	if ( downloadModalIsOpen ) {
-		const pluginOpened = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
-		let OpenedPluginProducts = pluginOpened.products;
+		const downloadModalSubscription = plugins.findOne( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		let Products = downloadModalSubscription.products;
 
-		if ( pluginOpened.parentId === null ) {
-			const children = getProductGroupsByParentSlug( pluginOpened.slug, allProductGroups );
-			OpenedPluginProducts = _flatten( children.map( child => child.products ) );
+		if ( downloadModalSubscription.parentId === null ) {
+			const children = getProductGroupsByParentSlug( downloadModalSubscription.slug, allProductGroups );
+			Products = children.flatMap( child => child.products );
 		}
 
-		let differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
+		let differentProductsInSubscription = Products.filter( entry => entry.sourceShopId === 1 );
 		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
 		downloads = differentProductsInSubscription.map( product => {
 			return { name: product.name, file: product.downloads[ 0 ].file };

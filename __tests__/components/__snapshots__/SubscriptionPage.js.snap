@@ -188,6 +188,18 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
 @media screen and ( max-width:1355px ) {
   .c9 {
     padding: 24px;
@@ -308,6 +320,18 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c19 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
 <section>
   <div
     className="c0"
@@ -403,6 +427,22 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
       className="c9"
     >
       Invoices
+    </span>
+    <span
+      className="c19 c9"
+    >
+      <span>
+         
+        Included products
+         
+      </span>
+      <a
+        href="https://yoa.st/myyoast-installation"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Read our installation guides
+      </a>
     </span>
   </div>
   <div />
@@ -597,6 +637,18 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
+.c19 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  word-wrap: break-word;
+}
+
 @media screen and ( max-width:1355px ) {
   .c9 {
     padding: 24px;
@@ -717,6 +769,18 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c19 {
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
 <section>
   <div
     className="c0"
@@ -828,6 +892,22 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
       className="c9"
     >
       Invoices
+    </span>
+    <span
+      className="c19 c9"
+    >
+      <span>
+         
+        Included products
+         
+      </span>
+      <a
+        href="https://yoa.st/myyoast-installation"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        Read our installation guides
+      </a>
     </span>
   </div>
   <div />

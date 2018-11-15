@@ -5,7 +5,6 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-const _flatten = require( "lodash/flatten" );
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
 import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
@@ -60,8 +59,9 @@ export const mapStateToProps = ( state ) => {
 					return subscription;
 				}
 
-				const childProductGroups = _flatten( productGroupsForProduct.map( pg => getProductGroupsByParentSlug( pg.slug, allProductGroups ) ) );
-				subscription.product = _flatten( childProductGroups.map( cpg => getProductsByProductGroupId( cpg.id, allProducts ) ) );
+				subscription.product = productGroupsForProduct
+					.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
+					.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) );
 
 				return subscription;
 			} );
