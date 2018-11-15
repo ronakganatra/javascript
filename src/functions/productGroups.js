@@ -8,10 +8,10 @@ export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
 /**
  * Returns the product group that have the passed slug's productGroup as a parent.
  *
- * @param   {string} slug          The slug of the parent productGroup.
- * @param   {Array}  productGroups All productGroups.
- * @param   {bool}   includeParent Whether or not to include the parent itself.
- * @returns {Array}                The productGroups that belong to the parent slug.
+ * @param   {string}  slug          	The slug of the parent productGroup.
+ * @param   {Array}   productGroups 	All productGroups.
+ * @param   {boolean} includeParent 	Whether or not to include the parent itself.
+ * @returns {Array}   The productGroups that belong to the parent slug.
  */
 export function getProductGroupsByParentSlug( slug, productGroups, includeParent = false ) {
 	// Get the id of the parent productGroup.

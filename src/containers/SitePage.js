@@ -23,7 +23,6 @@ import {
 	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
-import { hasAccessToFeature, SUBSCRIPTIONS_FEATURE } from "../functions/features";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
@@ -76,7 +75,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const pluginProductGroups = getProductGroupsByParentSlug(
 		SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ],
 		allProductGroups,
-		hasAccessToFeature( SUBSCRIPTIONS_FEATURE )
+		true
 	);
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
