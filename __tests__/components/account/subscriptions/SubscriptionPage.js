@@ -1,6 +1,6 @@
 import React from 'react';
-import { createComponentWithIntl } from "../../utils";
-import SubscriptionPage from "../../src/components/SubscriptionPage";
+import { createComponentWithIntl } from "../../../../utils";
+import SubscriptionPage from "../../../../src/components/account/subscriptions/SubscriptionPage";
 
 
 let subscription = {

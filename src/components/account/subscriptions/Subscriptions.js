@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import SubscriptionRow from "./SubscriptionRow";
-import { ListTable } from "./Tables";
-import { Paper } from "./PaperStyles";
+import { ListTable } from "../../Tables";
+import { Paper } from "../../PaperStyles";
+import { injectIntl } from "react-intl";
+import forEach from "lodash/forEach";
 
 /**
  *
@@ -10,67 +12,73 @@ import { Paper } from "./PaperStyles";
  *
  * @returns {ReactElement} The rendered component.
  */
-export default function Subscriptions( props ) {
-	console.log( props.testSubscriptions );
+class Subscriptions extends React.Component {
+	constructor( props ) {
+		super( props );
+	}
 
-	return (
-		<Paper>
-			<ListTable>
-				{ props.subscriptions.map( ( subscription ) => {
-					const onManageHandler = () => {
-						props.onManage( subscription.id );
-					};
-					return <SubscriptionRow
-						key={ subscription.id }
-						id={ subscription.id }
-						iconSource={ subscription.icon }
-						name={ subscription.name }
-						subscriptionNumber={ subscription.subscriptionNumber }
-						status={ subscription.status }
-						used={ subscription.used }
-						limit={ subscription.limit }
-						requiresManualRenewal={ subscription.requiresManualRenewal }
-						hasNextPayment={ subscription.hasNextPayment }
-						nextPayment={ subscription.nextPayment }
-						hasEndDate={ subscription.hasEndDate }
-						endDate={ subscription.endDate }
-						billingAmount={ subscription.billingAmount }
-						billingCurrency={ subscription.billingCurrency }
-						onManage={ onManageHandler }
-						isGrouped={ props.isGrouped }
-					/>;
-				} ) }
-			</ListTable>
-		</Paper>
-	);
+	outputSubscriptionRows() {
+		const subscriptionRows = [];
+		forEach( this.props.subscriptions, ( subscriptionsGroupedByProduct ) => {
+			subscriptionRows.push( subscriptionsGroupedByProduct );
+		} );
+
+		return subscriptionRows;
+	}
+
+	render() {
+		const props = this.props;
+
+		return (
+			<Paper>
+				<ListTable>
+					{
+						this.outputSubscriptionRows()
+							.map( ( subscription ) => {
+								return <SubscriptionRow
+									subscriptionsArray={ subscription }
+									onManage={ props.onManage }
+									isGrouped={ props.isGrouped }
+								/>;
+							} )
+					}
+				</ListTable>
+			</Paper>
+		);
+	}
 }
 
-const subscriptionProps = PropTypes.arrayOf(
-	PropTypes.shape(
-		{
-			id: PropTypes.string.isRequired,
-			icon: PropTypes.string.isRequired,
-			name: PropTypes.string.isRequired,
-			used: PropTypes.number.isRequired,
-			limit: PropTypes.number.isRequired,
-			hasNextPayment: PropTypes.bool.isRequired,
-			nextPayment: PropTypes.instanceOf( Date ).isRequired,
-			hasEndDate: PropTypes.bool.isRequired,
-			endDate: PropTypes.instanceOf( Date ).isRequired,
-			billingAmount: PropTypes.number.isRequired,
-			billingCurrency: PropTypes.string.isRequired,
-			status: PropTypes.string.isRequired,
-		}
-	)
-);
+const subscriptionProps = PropTypes.oneOfType( [
+	PropTypes.arrayOf(
+		PropTypes.shape(
+			{
+				id: PropTypes.string.isRequired,
+				icon: PropTypes.string.isRequired,
+				name: PropTypes.string.isRequired,
+				used: PropTypes.number.isRequired,
+				limit: PropTypes.number.isRequired,
+				hasNextPayment: PropTypes.bool.isRequired,
+				nextPayment: PropTypes.instanceOf( Date ).isRequired,
+				hasEndDate: PropTypes.bool.isRequired,
+				endDate: PropTypes.instanceOf( Date ).isRequired,
+				billingAmount: PropTypes.number.isRequired,
+				billingCurrency: PropTypes.string.isRequired,
+				status: PropTypes.string.isRequired,
+			}
+		)
+	),
+	PropTypes.object,
+] );
+
 
 Subscriptions.propTypes = {
 	subscriptions: subscriptionProps,
 	onManage: PropTypes.func.isRequired,
-	testSubscriptions: PropTypes.object,
 	isGrouped: PropTypes.bool,
 };
 
 Subscriptions.defaultProps = {
 	isGrouped: false,
 };
+
+export default injectIntl( Subscriptions );
