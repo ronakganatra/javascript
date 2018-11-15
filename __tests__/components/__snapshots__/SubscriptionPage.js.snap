@@ -197,7 +197,6 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  word-wrap: break-word;
 }
 
 @media screen and ( max-width:1355px ) {
@@ -322,10 +321,6 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
 
 @media screen and ( max-width:800px ) {
   .c19 {
-    -webkit-box-pack: start;
-    -webkit-justify-content: start;
-    -ms-flex-pack: start;
-    justify-content: start;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -646,7 +641,6 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  word-wrap: break-word;
 }
 
 @media screen and ( max-width:1355px ) {
@@ -771,10 +765,6 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 
 @media screen and ( max-width:800px ) {
   .c19 {
-    -webkit-box-pack: start;
-    -webkit-justify-content: start;
-    -ms-flex-pack: start;
-    justify-content: start;
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;

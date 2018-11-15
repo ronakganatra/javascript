@@ -59,10 +59,8 @@ const SubscriptionOrders = styledOrders( Orders );
 const DownloadListHeading = styled( ListHeading )`
 	display: flex;
 	justify-content: space-between;
-	word-wrap: break-word;
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		justify-content: start;
 		flex-direction: column;
 	}
 `;
