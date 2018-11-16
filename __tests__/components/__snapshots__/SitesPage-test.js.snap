@@ -99,7 +99,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 .c16::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -129,7 +129,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 .c19::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Site name";
@@ -150,25 +150,25 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 .c21::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -191,18 +191,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -210,7 +198,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -305,7 +293,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -397,29 +385,29 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>
@@ -526,7 +514,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c16::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -556,7 +544,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c19::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Site name";
@@ -577,25 +565,25 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c21::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -618,18 +606,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -637,7 +613,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -732,7 +708,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -824,29 +800,29 @@ exports[`the sites page component with sites handling an onclick event on the ad
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>
@@ -953,7 +929,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c16::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -983,7 +959,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c19::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Site name";
@@ -1004,25 +980,25 @@ exports[`the sites page component with sites handling an onclick event on the ad
 .c21::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
-  top: -30px;
+  top: -24px;
   font-size: 1.286em;
   line-height: 0;
   content: none;
@@ -1045,18 +1021,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -1064,7 +1028,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -1159,7 +1123,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -1251,29 +1215,29 @@ exports[`the sites page component with sites handling an onclick event on the ad
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>

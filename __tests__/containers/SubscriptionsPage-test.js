@@ -20,12 +20,37 @@ let state = {
 					"currency": "USD",
 					"product": {
 						"icon": "icon.jpg",
+						"productGroups": [ {
+							"parentId": null,
+						}, ]
 					},
 					"status": "active",
 					"requiresManualRenewal": true,
+					"productId": 1,
+				},
+				"2": {
+					"id": "2",
+					"name": "Yoast SEO",
+					"subscriptionNumber": "Y12345",
+					"used": 1,
+					"limit": 2,
+					"nextPayment": "2018-05-01 21:04:28",
+					"orders": [ "12345" ],
+					"endDate": null,
+					"price": "6900",
+					"currency": "USD",
+					"product": {
+						"icon": "icon.jpg",
+						"productGroups": [ {
+							"parentId": "1",
+						}, ]
+					},
+					"status": "active",
+					"requiresManualRenewal": true,
+					"productId": 1,
 				},
 			},
-			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "2" ],
 		},
 		orders: {
 			"byId": {
@@ -48,13 +73,14 @@ let state = {
 };
 
 let defaultExpected = {
-	subscriptions: [
+	groupedSubscriptions: [
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"name": "Yoast SEO",
 			"subscriptionNumber": "Y12345",
 			"used": 1,
 			"status": "active",
+			"hasSites": true,
 			"limit": 2,
 			"hasNextPayment": true,
 			"nextPayment": new Date( "2017-05-01 21:04:28" ),
@@ -64,62 +90,83 @@ let defaultExpected = {
 			"billingCurrency": "USD",
 			"requiresManualRenewal": true,
 			"icon": "icon.jpg",
+		},
+	],
+	individualSubscriptions: [
+		{
+			"id": "2",
+			"name": "Yoast SEO",
+			"subscriptionNumber": "Y12345",
+			"used": 1,
 			"status": "active",
+			"hasSites": true,
+			"limit": 2,
+			"hasNextPayment": true,
+			"nextPayment": new Date( "2018-05-01 21:04:28" ),
+			"hasEndDate": false,
+			"endDate": new Date( null ),
+			"billingAmount": "6900",
+			"billingCurrency": "USD",
+			"requiresManualRenewal": true,
+			"icon": "icon.jpg",
 		},
 	],
 	query: "",
 };
 
-test('the mapStateToProps function', () => {
+test( 'the mapStateToProps function', () => {
 	expect( mapStateToProps( state ) ).toEqual( defaultExpected );
 } );
 
-test('the mapStateToProps function when query contains part of name', () => {
-	state.ui.search.query = "Yoast"
-	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } )
+test( 'the mapStateToProps function when query contains part of name', () => {
+	state.ui.search.query = "Yoast";
+	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains exact used amount', () => {
-	state.ui.search.query = "1"
-	let expected = Object.assign( {}, defaultExpected, { query: "1" } )
+test( 'the mapStateToProps function when query contains exact used amount', () => {
+	state.ui.search.query = "1";
+	let expected = Object.assign( {}, defaultExpected, { query: "1" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains exact limit amount', () => {
-	state.ui.search.query = "2"
-	let expected = Object.assign( {}, defaultExpected, { query: "2" } )
+test( 'the mapStateToProps function when query contains exact limit amount', () => {
+	state.ui.search.query = "2";
+	let expected = Object.assign( {}, defaultExpected, { query: "2" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains part of formatted payment date', () => {
-	state.ui.search.query = "May 1"
-	let expected = Object.assign( {}, defaultExpected, { query: "May 1" } )
+test( 'the mapStateToProps function when query contains part of formatted payment date', () => {
+	state.ui.search.query = "May 1";
+	let expected = Object.assign( {}, defaultExpected, { query: "May 1" } );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapStateToProps function when query contains part of formatted price', () => {
-	state.ui.search.query = "69"
-	let expected = Object.assign( {}, defaultExpected, { query: "69" } )
-
-	expect( mapStateToProps( state ) ).toEqual( expected );
-} );
-
-test('the mapStateToProps function when query contains nonsense', () => {
-	state.ui.search.query = "afhsdkgfj"
+test( 'the mapStateToProps function when query contains part of formatted price', () => {
+	state.ui.search.query = "69";
 	let expected = Object.assign( {}, defaultExpected, {
-		subscriptions: [],
-		query: "afhsdkgfj"
-	} )
+		query: "69",
+	} );
 
 	expect( mapStateToProps( state ) ).toEqual( expected );
 } );
 
-test('the mapDispatchToProps function to call onSearchQueryChange', () => {
+test( 'the mapStateToProps function when query contains nonsense', () => {
+	state.ui.search.query = "afhsdkgfj";
+	let expected = Object.assign( {}, defaultExpected, {
+		groupedSubscriptions: [],
+		individualSubscriptions: [],
+		query: "afhsdkgfj"
+	} );
+
+	expect( mapStateToProps( state ) ).toEqual( expected );
+} );
+
+test( 'the mapDispatchToProps function to call onSearchQueryChange', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );
@@ -129,7 +176,7 @@ test('the mapDispatchToProps function to call onSearchQueryChange', () => {
 	expect( dispatch ).toHaveBeenCalledWith( onSearchQueryChange( "query string" ) );
 } );
 
-test('the mapDispatchToProps function to call push action with onManage', () => {
+test( 'the mapDispatchToProps function to call push action with onManage', () => {
 	const dispatch = jest.fn();
 
 	let props = mapDispatchToProps( dispatch );

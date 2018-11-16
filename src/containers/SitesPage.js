@@ -5,9 +5,12 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
+const _flatten = require( "lodash/flatten" );
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
+import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
+import { getSearchQuery } from "../selectors/search";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -31,12 +34,36 @@ export const mapStateToProps = ( state ) => {
 			return siteProps;
 		}
 
+		const allProducts = state.entities.products.allIds.map( ( productIds ) => {
+			return state.entities.products.byId[ productIds ];
+		} );
+
+		const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
+			return state.entities.productGroups.byId[ productGroupIds ];
+		} );
+
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
-				return state.entities.subscriptions.byId[ subscriptionId ];
+				return Object.assign( {}, state.entities.subscriptions.byId[ subscriptionId ] );
 			} )
 			.filter( ( subscription ) => {
 				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );
+			} )
+			.map( ( subscription ) => {
+				const product = subscription.product;
+				const productGroupsForProduct = product.productGroups;
+				if ( ! productGroupsForProduct ) {
+					return subscription;
+				}
+
+				if ( ! productGroupsForProduct.some( pg => pg.parentId === null ) ) {
+					return subscription;
+				}
+
+				const childProductGroups = _flatten( productGroupsForProduct.map( pg => getProductGroupsByParentSlug( pg.slug, allProductGroups ) ) );
+				subscription.product = _flatten( childProductGroups.map( cpg => getProductsByProductGroupId( cpg.id, allProducts ) ) );
+
+				return subscription;
 			} );
 
 		siteProps.activeSubscriptions = _compact( activeSubscriptions );
@@ -53,16 +80,17 @@ export const mapStateToProps = ( state ) => {
 
 	const availableSites = sites.filter( ( site ) => ! siteIdsWithConfigurationServiceRequest.includes( site.id ) );
 
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
+	const availableConfigurationServiceRequests = allConfigurationServices
+		.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
 
-	const query = state.ui.search.query;
+	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
 		sites = sites.filter( ( site ) => {
 			return site.siteName.includes( query ) || site.url.includes( query );
 		} );
 	}
 
-	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
@@ -81,7 +109,7 @@ export const mapStateToProps = ( state ) => {
 	return {
 		sites,
 		modalOpen,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		availableSites,
 		availableConfigurationServiceRequests,

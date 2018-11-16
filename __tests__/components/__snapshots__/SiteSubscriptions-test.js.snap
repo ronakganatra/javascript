@@ -2,7 +2,7 @@
 
 exports[`the subscription component matches the snapshot 1`] = `
 .c0 {
-  opacity: 1;
+  opacity: 0.2;
   width: 40px;
   height: 40px;
   float: left;
@@ -13,37 +13,25 @@ exports[`the subscription component matches the snapshot 1`] = `
   margin-top: 10px;
 }
 
-.c1 {
-  opacity: 0.2;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c1:nth-child(n+7) {
-  margin-top: 10px;
-}
-
 <span>
   <img
-    alt="Test is active"
+    alt="Test is inactive"
     className="c0"
     src="test.jpg"
   />
   <img
-    alt="Test2 is active"
+    alt="Test2 is inactive"
     className="c0"
     src="test.jpg"
   />
   <img
     alt="Test3 is inactive"
-    className="c1"
+    className="c0"
     src="test.jpg"
   />
   <img
     alt="Test4 is inactive"
-    className="c1"
+    className="c0"
     src="test.jpg"
   />
 </span>

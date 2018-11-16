@@ -109,6 +109,13 @@ export const LargeButton = styled( Button )`
 	min-width: 152px;
 `;
 
+export const SecondaryGreyButton = styled( Button )`
+	text-shadow: none;
+	color: ${ colors.$color_black };
+	background-color: ${ colors.$color_grey_light };
+	font: 100 13px "Open Sans",sans-serif;
+`;
+
 export const TextButton = styled( Button )`
 	width: ${ props => props.buttonWidth };
 `;

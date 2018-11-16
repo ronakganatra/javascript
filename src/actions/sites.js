@@ -4,6 +4,7 @@ import { getUserId } from "../functions/auth";
 import { getAllSubscriptions } from "./subscriptions";
 import { getAllProducts } from "./products";
 import { push } from "react-router-redux";
+import { getProductGroups } from "./productGroups";
 
 /**
  * Action types
@@ -184,7 +185,7 @@ export function retrieveSites() {
 }
 
 /**
- * An action creator for loading sites, products and subscriptions.
+ * An action creator for loading sites, product(group)s and subscriptions.
  *
  * @returns {Object} a dispatcher that dispatches the actions.
  */
@@ -192,6 +193,7 @@ export function loadSites() {
 	return ( dispatch ) => {
 		dispatch( retrieveSites() );
 		dispatch( getAllProducts() );
+		dispatch( getProductGroups() );
 		dispatch( getAllSubscriptions() );
 	};
 }

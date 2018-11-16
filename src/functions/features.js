@@ -15,7 +15,7 @@ const featureFlags = [
  * Returns whether or not the current user has access to a feature.
  *
  * @param {string} feature The feature to have access to.
- * @returns {boolean} Whether the current user has access to a feature.
+ * @returns {bool} Whether the current user has access to a feature.
  */
 export function hasAccessToFeature( feature ) {
 	if ( ! featureFlags.includes( feature ) ) {

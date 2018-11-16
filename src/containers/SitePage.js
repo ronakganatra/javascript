@@ -1,41 +1,51 @@
 import { connect } from "react-redux";
 import { updateSiteUrl, loadSites } from "../actions/sites";
-import { siteAddSubscription, siteRemoveSubscription, siteRemove, siteChangePlatform } from "../actions/site";
+import {
+	siteAddSubscription,
+	siteRemoveSubscription,
+	siteRemove,
+	siteChangePlatform,
+	downloadModalOpen,
+	downloadModalClose,
+} from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";
-import { getPluginsForSiteType, sortPluginsByPopularity } from "../functions/products";
-import _isEmpty from "lodash/isEmpty";
+import { sortPluginsByPopularity } from "../functions/products";
 import {
 	configurationServiceRequestModalClose,
 	configurationServiceRequestModalOpen,
 	configureConfigurationServiceRequest,
 	loadConfigurationServiceRequests,
 } from "../actions/configurationServiceRequest";
+import {
+	addSubscriptionInfoToProductGroup,
+	getProductGroupsByParentSlug,
+	getProductsByProductGroupId,
+	SITE_TYPE_PLUGIN_SLUG_MAPPING,
+} from "../functions/productGroups";
+const _flatten = require( "lodash/flatten" );
 
 /* eslint-disable require-jsdoc */
+/* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
-
 	const sites = state.entities.sites;
-
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
-		return state.entities.configurationServiceRequests.byId[ id ];
-	} );
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( configurationServiceRequest ) => configurationServiceRequest.status === "intake" );
-
+	const addSubscriptionModal = state.ui.addSubscriptionModal;
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
 			loadingSite: true,
 		};
 	}
-	const addSubscriptionModal = state.ui.addSubscriptionModal;
-
 	const site = sites.byId[ id ];
+
+	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( configurationServiceId ) => {
+		return state.entities.configurationServiceRequests.byId[ configurationServiceId ];
+	} );
+	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( request ) => request.status === "intake" );
 
 	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
 		return state.entities.subscriptions.byId[ subscriptionId ];
 	} );
-
 	subscriptions = subscriptions.map( ( subscription ) => {
 		return Object.assign(
 			{},
@@ -54,66 +64,66 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	let plugins = getPluginsForSiteType( site.type, state.entities.products.byId ).map( ( plugin ) => {
-		// Set defaults
-		plugin.limit = 0;
-		plugin.isEnabled = false;
-		plugin.used = 0;
-		plugin.subscriptionId = "";
-		plugin.currency = "USD";
+	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
+		return state.entities.products.byId[ productIds ];
+	} );
 
-		// Get all subscriptions for this plugin
-		activeSubscriptions.filter( ( subscription ) => {
-			return plugin.ids.includes( subscription.productId );
-		} ).forEach( ( subscription ) => {
-			// Accumulate amount of slots for this plugin.
-			plugin.limit += subscription.limit;
-			// Accumulate amount of slots in use for this plugin.
-			plugin.used += ( subscription.used || 0 );
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
+		return state.entities.productGroups.byId[ productGroupIds ];
+	} );
 
-			/*
-			 * If the plugin subscription is enabled for this site, make sure it's
-			 * subscriptionId is set on the plugin.
-			 */
-			if ( subscription.isEnabled === true ) {
-				plugin.isEnabled = true;
-				plugin.subscriptionId = subscription.id;
-			/*
-			 * If the plugin subscription Id has not been set and there are still slots
-			 * available, set the first available product subscription for this plugin.
-			 */
-			} else if (
-				_isEmpty( plugin.subscriptionId ) &&
-				( subscription.limit > ( subscription.used || 0 ) )
-			) {
-				plugin.subscriptionId = subscription.id;
-			}
+	// Get the productGroups that contain our plugin product variations.
+	const pluginProductGroups = getProductGroupsByParentSlug(
+		SITE_TYPE_PLUGIN_SLUG_MAPPING[ site.type ],
+		allProductGroups,
+		true
+	);
+	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
+	let plugins = [];
+	pluginProductGroups.forEach( ( pluginProductGroup ) => {
+		pluginProductGroup.products = getProductsByProductGroupId( pluginProductGroup.id, allProducts );
 
-			// Determine currency based on the subscription currency.
-			// Eventually the currency should be made available on the products themselves.
-			// This needs to be fixed in the shop.
-			plugin.currency = subscription.currency;
-		} );
-
-		plugin.hasSubscriptions = plugin.limit > 0;
-		plugin.isAvailable = plugin.limit > plugin.used || plugin.isEnabled;
-
-		return plugin;
+		if ( pluginProductGroup.products.length > 0 ) {
+			plugins.push( addSubscriptionInfoToProductGroup( pluginProductGroup, activeSubscriptions ) );
+		}
 	} );
 
 	plugins = sortPluginsByPopularity( plugins );
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	const configurationServiceRequestModalOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
+	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
+	const downloadModalSubscriptionId = state.ui.site.downloadModalSubscriptionId;
+
+	let downloads = [];
+	if ( downloadModalIsOpen ) {
+		const pluginOpened = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
+		let OpenedPluginProducts = pluginOpened.products;
+
+		if ( pluginOpened.parentId === null ) {
+			const children = getProductGroupsByParentSlug( pluginOpened.slug, allProductGroups );
+			OpenedPluginProducts = _flatten( children.map( child => child.products ) );
+		}
+
+		let differentProductsInSubscription = OpenedPluginProducts.filter( entry => entry.sourceShopId === 1 );
+		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
+		downloads = differentProductsInSubscription.map( product => {
+			return { name: product.name, file: product.downloads[ 0 ].file };
+		} );
+	}
+
+	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
 
 	return {
 		availableConfigurationServiceRequests,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
+		downloadModalIsOpen,
+		downloadModalSubscriptionId,
+		downloads,
 		site,
 		subscriptions,
 		plugins,
@@ -152,11 +162,17 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 				dispatch( siteRemove( siteId ) );
 			}
 		},
+		onDownloadModalOpen: ( subscriptionId ) => {
+			dispatch( downloadModalOpen( subscriptionId ) );
+		},
+		onDownloadModalClose: () => {
+			dispatch( downloadModalClose() );
+		},
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );
 		},
-		openConfigurationServiceRequestModal: ( siteId ) => {
-			dispatch( configurationServiceRequestModalOpen( siteId ) );
+		openConfigurationServiceRequestModal: ( modalSiteId ) => {
+			dispatch( configurationServiceRequestModalOpen( modalSiteId ) );
 		},
 		configureConfigurationServiceRequest: ( id, data ) => {
 			dispatch( configureConfigurationServiceRequest( id, data ) );

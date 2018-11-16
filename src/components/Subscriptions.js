@@ -18,6 +18,7 @@ export default function Subscriptions( props ) {
 					const onManageHandler = () => {
 						props.onManage( subscription.id );
 					};
+
 					return <Subscription
 						key={ subscription.id }
 						id={ subscription.id }
@@ -35,6 +36,8 @@ export default function Subscriptions( props ) {
 						billingAmount={ subscription.billingAmount }
 						billingCurrency={ subscription.billingCurrency }
 						onManage={ onManageHandler }
+						isGrouped={ props.isGrouped }
+						hasSites={ subscription.hasSites }
 					/>;
 				} ) }
 			</ListTable>
@@ -42,24 +45,31 @@ export default function Subscriptions( props ) {
 	);
 }
 
+const subscriptionProps = PropTypes.arrayOf(
+	PropTypes.shape(
+		{
+			id: PropTypes.string.isRequired,
+			icon: PropTypes.string.isRequired,
+			name: PropTypes.string.isRequired,
+			used: PropTypes.number.isRequired,
+			limit: PropTypes.number.isRequired,
+			hasNextPayment: PropTypes.bool.isRequired,
+			nextPayment: PropTypes.instanceOf( Date ).isRequired,
+			hasEndDate: PropTypes.bool.isRequired,
+			endDate: PropTypes.instanceOf( Date ).isRequired,
+			billingAmount: PropTypes.number.isRequired,
+			billingCurrency: PropTypes.string.isRequired,
+			status: PropTypes.string.isRequired,
+		}
+	)
+);
+
 Subscriptions.propTypes = {
-	subscriptions: PropTypes.arrayOf(
-		PropTypes.shape(
-			{
-				id: PropTypes.string.isRequired,
-				icon: PropTypes.string.isRequired,
-				name: PropTypes.string.isRequired,
-				used: PropTypes.number.isRequired,
-				limit: PropTypes.number.isRequired,
-				hasNextPayment: PropTypes.bool.isRequired,
-				nextPayment: PropTypes.instanceOf( Date ).isRequired,
-				hasEndDate: PropTypes.bool.isRequired,
-				endDate: PropTypes.instanceOf( Date ).isRequired,
-				billingAmount: PropTypes.number.isRequired,
-				billingCurrency: PropTypes.string.isRequired,
-				status: PropTypes.string.isRequired,
-			}
-		)
-	),
+	subscriptions: subscriptionProps,
 	onManage: PropTypes.func.isRequired,
+	isGrouped: PropTypes.bool,
+};
+
+Subscriptions.defaultProps = {
+	isGrouped: false,
 };

@@ -23,9 +23,13 @@ const messages = defineMessages( {
 		id: "menu.courses.loaded",
 		defaultMessage: "Courses page loaded",
 	},
-	course: {
-		id: "enrollments.overview.courseName",
-		defaultMessage: "Course",
+	courses: {
+		id: "enrollments.overview.coursesName",
+		defaultMessage: "Individual courses",
+	},
+	subscriptions: {
+		id: "enrollments.overview.subscriptionsName",
+		defaultMessage: "Subscriptions",
 	},
 	studentName: {
 		id: "enrollments.overview.studentName",
@@ -90,6 +94,9 @@ class CoursesEnrollments extends React.Component {
 	componentDidMount() {
 		this.props.loadCourseEnrollments();
 		this.props.loadCourses();
+		this.props.loadOrders();
+		this.props.loadProducts();
+		this.props.loadProductGroups();
 
 		// Announce navigation to assistive technologies.
 		const message = this.props.intl.formatMessage( messages.coursesPageLoaded );
@@ -145,8 +152,10 @@ class CoursesEnrollments extends React.Component {
 					onStudentEmailChange={ this.props.onStudentEmailChange }
 					onStudentEmailConfirmationChange={ this.props.onStudentEmailConfirmationChange }
 					courseInviteError={ this.props.courseInviteError }
+					requestingCourseInvite={ this.props.requestingCourseInvite }
 					onCancelClick={ this.props.inviteModalClose }
 					onInviteClick={ this.props.onInviteClick }
+					onBulkInviteClick={ this.props.onBulkInviteClick }
 				/>
 			</MyYoastModal>
 		);
@@ -204,41 +213,55 @@ class CoursesEnrollments extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
-		const { coursesEnrollments } = this.props;
+		const { groupedCourseEnrollments } = this.props;
 
-		if ( isEmpty( coursesEnrollments ) ) {
+
+		if ( isEmpty( groupedCourseEnrollments ) ) {
 			return this.renderSuggestedAction();
 		}
 
+		const bulkEnrollments       = groupedCourseEnrollments.filter( e => e.id.startsWith( "bulk" ) );
+		const individualEnrollments = groupedCourseEnrollments.filter( e => ! e.id.startsWith( "bulk" ) );
+
+		const tables = [ [ messages.subscriptions, bulkEnrollments ], [ messages.courses, individualEnrollments ] ];
+
 		return (
 			<div>
-				<Paper>
-					<ListTable>
-						{ coursesEnrollments.map( ( enrollment ) => {
-							return (
-								<RowMobileCollapse key={ enrollment.id }>
-									<CourseColumnIcon separator={ true }><CourseIcon
-										src={ enrollment.icon }
-										alt=""
-									/></CourseColumnIcon>
-									<ColumnPrimaryResponsive
-										ellipsis={ true }
-										headerLabel={ this.props.intl.formatMessage( messages.course ) }
-									>
-										{ enrollment.courseName }
-									</ColumnPrimaryResponsive>
-									<ColumnMinWidthResponsive
-										ellipsis={ true }
-										headerLabel={ this.props.intl.formatMessage( messages.studentName ) }
-									>
-										<strong>{ enrollment.studentName }</strong><br />
-										{ enrollment.studentEmail }
-									</ColumnMinWidthResponsive>
-									{ this.getCourseActions( enrollment ) }
-								</RowMobileCollapse> );
-						} ) }
-					</ListTable>
-				</Paper>
+				{ tables.map( ( [ headerMessage, enrollments ] ) => {
+					if ( enrollments.length === 0 ) {
+						return null;
+					}
+
+					return (
+						<Paper>
+							<ListTable>
+								{ enrollments.map( ( enrollment ) => {
+									return (
+										<RowMobileCollapse key={ enrollment.id }>
+											<CourseColumnIcon separator={ true }><CourseIcon
+												src={ enrollment.icon }
+												alt=""
+											/></CourseColumnIcon>
+											<ColumnPrimaryResponsive
+												ellipsis={ true }
+												headerLabel={ this.props.intl.formatMessage( headerMessage ) }
+											>
+												{ enrollment.courseName }
+											</ColumnPrimaryResponsive>
+											<ColumnMinWidthResponsive
+												ellipsis={ true }
+												headerLabel={ this.props.intl.formatMessage( messages.studentName ) }
+											>
+												<strong>{ enrollment.studentName }</strong><br />
+												{ enrollment.studentEmail }
+											</ColumnMinWidthResponsive>
+											{ this.getCourseActions( enrollment ) }
+										</RowMobileCollapse> );
+								} ) }
+							</ListTable>
+						</Paper>
+					);
+				} ) }
 				{ this.getModal() }
 			</div>
 		);
@@ -251,14 +274,19 @@ CoursesEnrollments.propTypes = {
 	intl: intlShape.isRequired,
 	loadCourseEnrollments: PropTypes.func,
 	loadCourses: PropTypes.func,
-	coursesEnrollments: PropTypes.array,
+	groupedCourseEnrollments: PropTypes.array,
 	inviteModalIsOpen: PropTypes.bool,
 	onInviteClick: PropTypes.func,
+	onBulkInviteClick: PropTypes.func,
 	inviteStudentEmail: PropTypes.string,
 	inviteStudentEmailConfirmation: PropTypes.string,
 	onStudentEmailChange: PropTypes.func,
 	onStudentEmailConfirmationChange: PropTypes.func,
 	courseInviteError: PropTypes.object,
+	requestingCourseInvite: PropTypes.bool,
+	loadOrders: PropTypes.func,
+	loadProducts: PropTypes.func,
+	loadProductGroups: PropTypes.func,
 };
 
 export default injectIntl( CoursesEnrollments );

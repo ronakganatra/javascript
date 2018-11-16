@@ -12,9 +12,13 @@ import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import colors from "yoast-components/style-guide/colors.json";
 
 const messages = defineMessages( {
-	product: {
-		id: "subscriptions.overview.product",
-		defaultMessage: "Product",
+	individualSubscriptions: {
+		id: "subscriptions.overview.individualSubscriptions",
+		defaultMessage: "Individual subscriptions",
+	},
+	subscriptions: {
+		id: "subscriptions.overview.subscriptions",
+		defaultMessage: "Subscriptions",
 	},
 	status: {
 		id: "subscriptions.overview.status",
@@ -221,7 +225,12 @@ function Subscription( props ) {
 	return (
 		<StyledRow key={ props.id } dimmed={ cancelledOrExpired } { ...rowProps }>
 			<Icon><SiteIcon src={ props.iconSource } alt="" /></Icon>
-			<ColumnPrimary ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.product ) }>
+			<ColumnPrimary
+				ellipsis={ true }
+				headerLabel={ props.intl.formatMessage(
+					props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
+				) }
+			>
 				{ props.name }
 				<Detail>
 					<StyledStatus status={ props.status }>
@@ -238,7 +247,18 @@ function Subscription( props ) {
 				minWidth="102px"
 				paddingLeft="inherit"
 			>
-				{ props.used }/{ props.limit + " sites" }
+				{ props.hasSites
+					? props.used + "/" + props.limit + " sites"
+					: ""
+				}
+			</StyledColumnMinWidth>
+			<StyledColumnMinWidth
+				ellipsis={ true }
+				hideOnMobile={ true }
+				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }
+				minWidth="198px"
+			>
+				{ getNextBilling( props.status, endDate, nextPayment, amount ) }
 			</StyledColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
@@ -248,14 +268,6 @@ function Subscription( props ) {
 				minWidth="120px"
 			>
 				{ billingType }
-			</StyledColumnMinWidth>
-			<StyledColumnMinWidth
-				ellipsis={ true }
-				hideOnMobile={ true }
-				headerLabel={ props.intl.formatMessage( messages.nextPaymentOn ) }
-				minWidth="198px"
-			>
-				{ getNextBilling( props.status, endDate, nextPayment, amount ) }
 			</StyledColumnMinWidth>
 			<ColumnFixedWidth
 				paddingLeft="0px"
@@ -285,6 +297,8 @@ Subscription.propTypes = {
 	background: PropTypes.string,
 	onManage: PropTypes.func.isRequired,
 	product: PropTypes.string,
+	isGrouped: PropTypes.bool.isRequired,
+	hasSites: PropTypes.bool.isRequired,
 };
 
 Subscription.defaultProps = {
