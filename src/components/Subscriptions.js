@@ -18,6 +18,7 @@ export default function Subscriptions( props ) {
 					const onManageHandler = () => {
 						props.onManage( subscription.id );
 					};
+
 					return <Subscription
 						key={ subscription.id }
 						id={ subscription.id }
@@ -36,6 +37,7 @@ export default function Subscriptions( props ) {
 						billingCurrency={ subscription.billingCurrency }
 						onManage={ onManageHandler }
 						isGrouped={ props.isGrouped }
+						hasSites={ subscription.hasSites }
 					/>;
 				} ) }
 			</ListTable>

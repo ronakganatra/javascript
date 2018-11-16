@@ -14,6 +14,11 @@ import { getSearchQuery } from "../selectors/search";
  * @returns {Object}              Subscription for the component.
  */
 function mapSubscriptionToProps( subscription ) {
+	const hasSites = ! (
+		subscription.product.productGroups.length === 1 &&
+		subscription.product.productGroups[ 0 ].slug === "all-courses"
+	);
+
 	return {
 		id: subscription.id,
 		icon: subscription.product.icon,
@@ -29,6 +34,7 @@ function mapSubscriptionToProps( subscription ) {
 		billingAmount: subscription.price,
 		billingCurrency: subscription.currency,
 		status: subscription.status,
+		hasSites,
 	};
 }
 

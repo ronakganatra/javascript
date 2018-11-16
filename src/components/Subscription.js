@@ -247,7 +247,10 @@ function Subscription( props ) {
 				minWidth="102px"
 				paddingLeft="inherit"
 			>
-				{ props.used }/{ props.limit + " sites" }
+				{ props.hasSites
+					? props.used + "/" + props.limit + " sites"
+					: ""
+				}
 			</StyledColumnMinWidth>
 			<StyledColumnMinWidth
 				ellipsis={ true }
@@ -295,6 +298,7 @@ Subscription.propTypes = {
 	onManage: PropTypes.func.isRequired,
 	product: PropTypes.string,
 	isGrouped: PropTypes.bool.isRequired,
+	hasSites: PropTypes.bool.isRequired,
 };
 
 Subscription.defaultProps = {
