@@ -54,6 +54,12 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   align-self: center;
 }
 
+.c20 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c26 {
   height: 48px;
   margin: 0;
@@ -287,12 +293,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-}
-
-.c20 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c13 {

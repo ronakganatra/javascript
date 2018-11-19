@@ -6,10 +6,11 @@ import Search from "../../Search";
 import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
-import NoResults from "../../NoResults";
+import isEmpty from "lodash/isEmpty";
+import SuggestedAction from "../../SuggestedAction";
+import { GoToButtonLink } from "../../Button";
 import noSubscriptionsImage from "../../../images/noSubscriptions.svg";
 import noResultsImage from "../../../images/SitesNoResults.svg";
-import isEmpty from "lodash/isEmpty";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -147,7 +148,7 @@ class SubscriptionsPage extends React.Component {
 			return (
 				<div>
 					{ this.getSearch() }
-					<NoResults
+					<SuggestedAction
 						paragraphs={ noSearchResultsParagraphs }
 						imageSource={ noResultsImage }
 					/>
@@ -155,12 +156,12 @@ class SubscriptionsPage extends React.Component {
 			);
 		}
 		return (
-			<NoResults
+			<SuggestedAction
 				paragraphs={ noSubscriptionsParagraphs }
-				url="https://yoast.com/shop/"
 				imageSource={ noSubscriptionsImage }
-				pageContext="noSubscriptions"
-			/>
+			>
+				<GoToButtonLink />
+			</SuggestedAction>
 		);
 	}
 }
