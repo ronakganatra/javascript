@@ -65,6 +65,12 @@ function filterSubscriptionsByQuery( subscriptions, query ) {
 	} );
 }
 
+/**
+ * Groups subscriptions into an array, behind a key that is the subscription's product's glNumber.
+ *
+ * @param   {array}  subscriptions The subscriptions that should be grouped.
+ * @returns {Object}               An object with glNumbers as keys, and all subscriptions belonging to that product in an array as values.
+ */
 function groupSubscriptionsByProduct( subscriptions ) {
 	return groupBy( subscriptions, ( subscription ) => {
 		return subscription.product.glNumber;

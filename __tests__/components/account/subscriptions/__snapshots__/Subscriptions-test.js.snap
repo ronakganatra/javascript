@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Subscriptions component matches the snapshot 1`] = `
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+<div
+  className="c0"
+/>
+`;

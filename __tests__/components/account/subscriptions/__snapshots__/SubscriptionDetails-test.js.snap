@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the subscription detail component has no next billing 1`] = `
+.c0 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c0 li:first-child > span::before {
+  left: auto;
+}
+
+.c3 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3:first-child {
+  margin-top: 0;
+}
+
+.c8 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c8:first-child {
+  margin-top: 0;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c4 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c2:first-child {
+    margin-top: 0;
+  }
+
+  .c2 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    min-height: 0;
+  }
+
+  .c1 > span:nth-child(2) {
+    margin-top: 0;
+    color: #000;
+  }
+
+  .c1 > span:first-child {
+    color: #646464;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c6:first-child {
+    margin-top: 0px;
+  }
+}
+
+<ul
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1 c2 c3"
+  >
+    <span
+      className="c4 c5"
+    >
+      Subscription status
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      Active
+    </span>
+  </li>
+  <li
+    className="c1 c2 c8"
+  >
+    <span
+      className="c4 c5"
+    >
+      Start date
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      <span>
+        June 01, 2017
+      </span>
+    </span>
+  </li>
+  <li
+    className="c1 c2 c3"
+  >
+    <span
+      className="c4 c5"
+    >
+      Next billing
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      -
+    </span>
+  </li>
+</ul>
+`;
+
+exports[`the subscription detail component matches the snapshot 1`] = `
+.c0 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c0 li:first-child > span::before {
+  left: auto;
+}
+
+.c3 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c3:first-child {
+  margin-top: 0;
+}
+
+.c8 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c8:first-child {
+  margin-top: 0;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c4 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c2:first-child {
+    margin-top: 0;
+  }
+
+  .c2 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    min-height: 0;
+  }
+
+  .c1 > span:nth-child(2) {
+    margin-top: 0;
+    color: #000;
+  }
+
+  .c1 > span:first-child {
+    color: #646464;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c6:first-child {
+    margin-top: 0px;
+  }
+}
+
+<ul
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1 c2 c3"
+  >
+    <span
+      className="c4 c5"
+    >
+      Subscription status
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      Active
+    </span>
+  </li>
+  <li
+    className="c1 c2 c8"
+  >
+    <span
+      className="c4 c5"
+    >
+      Start date
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      <span>
+        June 01, 2017
+      </span>
+    </span>
+  </li>
+  <li
+    className="c1 c2 c3"
+  >
+    <span
+      className="c4 c5"
+    >
+      Next billing
+    </span>
+    <span
+      className="c6 c7 c5"
+    >
+      <span>
+        June 01, 2018
+      </span>
+    </span>
+  </li>
+  <li
+    className="c1 c2 c8"
+  >
+    <span
+      className="c6 c7 c5"
+    >
+      <a
+        href="#"
+        onClick={[Function]}
+      >
+        <span>
+          Cancel subscription
+        </span>
+      </a>
+    </span>
+  </li>
+</ul>
+`;

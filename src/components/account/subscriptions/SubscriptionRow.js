@@ -388,7 +388,7 @@ class SubscriptionRow extends React.Component {
 	 * @param {string}        background   The background color for this row.
 	 * @param {boolean}       isInExpanded Whether this row is in the expandable part of a collapsible row.
 	 *
-	 * @return {ReactElement}              A single subscription row.
+	 * @returns {ReactElement}              A single subscription row.
 	 */
 	makeSingleRow( subscription, background = this.props.background, isInExpanded = false ) {
 		const onManage = () => this.props.onManage( subscription.id );

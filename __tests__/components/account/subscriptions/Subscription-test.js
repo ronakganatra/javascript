@@ -6,19 +6,27 @@ import Subscription from '../../../../src/components/account/subscriptions/Subsc
 test('The Subscription component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<Subscription id="a"
-		              name="SEO Premium for WordPress"
-		              iconSource="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
-		              used={ 14 } limit={ 20 }
-			          status={ "active" }
-			          hasNextPayment={ true }
-		              nextPayment={ new Date( "April 4, 2017" ) }
-	                  endDate={ new Date() }
-		              billingAmount={ 12512 }
-		              billingCurrency="USD"
-		              onManage={ () => {
-			              console.log( "clicked on manage button" );
-		              } }
+			<Subscription
+				subscriptionsArray={
+					[
+						{
+							id: "a",
+							name: "SEO Premium for WordPress",
+							iconSource: "https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png",
+							used: 14,
+							limit: 20,
+							status: "active",
+							hasNextPayment: true,
+							nextPayment: new Date( "April 4, 2017" ),
+							endDate: new Date(),
+							billingAmount: 12512,
+							billingCurrency: "USD",
+						},
+					]
+				}
+				onManage={ () => {
+					console.log( "clicked on manage button" );
+				} }
 		/>
 		</MemoryRouter>
 	);
