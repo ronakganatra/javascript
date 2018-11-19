@@ -52,10 +52,23 @@ let subscriptionsArray = [
 	},
 ];
 
-test( 'the SubscriptionRow component matches the snapshot', () => {
+test( 'the SubscriptionRow for multiple subscriptions matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<SubscriptionRow
 			subscriptionsArray={ subscriptionsArray }
+			onManage={ () => {} }
+			isGrouped={ true }
+		/>
+	);
+
+	let tree = component.toJSON();
+	expect( tree ).toMatchSnapshot();
+} );
+
+test( 'the SubscriptionRow for a single subscriptions matches the snapshot', () => {
+	const component = createComponentWithIntl(
+		<SubscriptionRow
+			subscriptionsArray={ [ subscriptionsArray[ 0 ] ] }
 			onManage={ () => {} }
 			isGrouped={ true }
 		/>
