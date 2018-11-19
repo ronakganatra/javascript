@@ -101,7 +101,7 @@ StyledColumnMinWidth.propTypes = {
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
 	font-weight: ${ props => props.status === "cancelled" ? "inherit" : "bold" };
-	padding-left: ${ props => props.isInExpanded ? "24px" : "none" };
+	padding-left: ${ props => props.isInExpanded ? "32px" : "none" };
 
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		padding-left: 0;
