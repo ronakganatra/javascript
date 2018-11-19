@@ -13,10 +13,6 @@ import forEach from "lodash/forEach";
  * @returns {ReactElement} The rendered component.
  */
 class Subscriptions extends React.Component {
-	constructor( props ) {
-		super( props );
-	}
-
 	outputSubscriptionRows() {
 		const subscriptionRows = [];
 		forEach( this.props.subscriptions, ( subscriptionsGroupedByProduct ) => {
@@ -34,9 +30,10 @@ class Subscriptions extends React.Component {
 				<ListTable>
 					{
 						this.outputSubscriptionRows()
-							.map( ( subscription ) => {
+							.map( ( subscriptionsArray ) => {
 								return <SubscriptionRow
-									subscriptionsArray={ subscription }
+									key={ subscriptionsArray[ 0 ].id }
+									subscriptionsArray={ subscriptionsArray }
 									onManage={ props.onManage }
 									isGrouped={ props.isGrouped }
 								/>;
