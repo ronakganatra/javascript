@@ -33,13 +33,8 @@ export const mapStateToProps = ( state ) => {
 			return siteProps;
 		}
 
-		const allProducts = state.entities.products.allIds.map( ( productIds ) => {
-			return state.entities.products.byId[ productIds ];
-		} );
-
-		const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
-			return state.entities.productGroups.byId[ productGroupIds ];
-		} );
+		const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
+		const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
 
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {

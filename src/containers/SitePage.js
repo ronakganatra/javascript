@@ -63,13 +63,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
-		return state.entities.products.byId[ productIds ];
-	} );
-
-	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
-		return state.entities.productGroups.byId[ productGroupIds ];
-	} );
+	const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
 
 	// Get the productGroups that contain our plugin product variations.
 	const pluginProductGroups = getProductGroupsByParentSlug(

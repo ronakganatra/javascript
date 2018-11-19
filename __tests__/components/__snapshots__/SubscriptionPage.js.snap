@@ -427,16 +427,16 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
       className="c19 c9"
     >
       <span>
-         
         Included products
-         
       </span>
       <a
         href="https://yoa.st/myyoast-installation"
         rel="noopener noreferrer"
         target="_blank"
       >
-        Read our installation guides
+        <span>
+          Read our installation guides
+        </span>
       </a>
     </span>
   </div>
@@ -887,16 +887,16 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
       className="c19 c9"
     >
       <span>
-         
         Included products
-         
       </span>
       <a
         href="https://yoa.st/myyoast-installation"
         rel="noopener noreferrer"
         target="_blank"
       >
-        Read our installation guides
+        <span>
+          Read our installation guides
+        </span>
       </a>
     </span>
   </div>

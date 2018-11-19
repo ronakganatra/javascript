@@ -18,6 +18,7 @@ import { sortPluginsByPopularity } from "../functions/products";
 
 
 /* eslint-disable require-jsdoc */
+/* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
@@ -85,18 +86,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 			);
 	}
 
-	const allProducts = state.entities.products.allIds.map( ( productIds ) => {
-		return state.entities.products.byId[ productIds ];
-	} );
-
-	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
-		return state.entities.productGroups.byId[ productGroupIds ];
-	} );
+	const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
+	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
 
 	let downloads = [];
 	const pluginProductGroups = selectedSubscription.product.productGroups;
 
-	// If none of the product groups have children.
+	// If at least one productGroup doesn't have a parent.
 	if ( pluginProductGroups.some( productGroup => productGroup.parentId === null ) ) {
 		let products = pluginProductGroups
 		// Retrieve the child product groups for the parent product group.
@@ -108,10 +104,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 		products = sortPluginsByPopularity( products );
 		downloads = products.map( product => {
-			return { name: product.name, file: product.downloads[ 0 ].file };
+			return { name: product.name, file: product.downloads[ 0 ].file ? product.downloads[ 0 ].file : "" };
 		} );
 	} else {
-		downloads = [ { name: selectedSubscription.product.name, file: selectedSubscription.product.downloads[ 0 ].file } ];
+		const selectedProduct = selectedSubscription.product;
+		downloads = [ { name: selectedProduct.name, file: selectedProduct.downloads[ 0 ].file ? selectedProduct.downloads[ 0 ].file : "" } ];
 	}
 
 	const cancelSubscriptionState = {

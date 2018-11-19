@@ -3,7 +3,7 @@ import React from "react";
 import AnimatedLoader from "./Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails, { ColumnFixedWidthResponsive, RowMobileCollapseNoMinHeight } from "./SubscriptionDetails";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { ListHeading } from "./Headings";
 import Orders from "./Orders";
 import { Paper } from "./PaperStyles";
@@ -26,6 +26,14 @@ const messages = defineMessages( {
 	downloadTitle: {
 		id: "subscriptionPage.download.title",
 		defaultMessage: "Included products",
+	},
+	downloadLinkText: {
+		id: "subscriptionPage.download.linkText",
+		defaultMessage: "Download",
+	},
+	installationGuide: {
+		id: "subscriptionPage.installationGuide",
+		defaultMessage: "Read our installation guides",
 	},
 } );
 
@@ -121,10 +129,9 @@ class SubscriptionPage extends React.Component {
 						<ColumnFixedWidthResponsive ellipsis={ true }>
 							<Link
 								to={ download.file }
-								aria-label={ "Download" }
 								linkTarget={ "_blank" }
 							>
-								Download
+								<FormattedMessage { ...messages.downloadLinkText } />
 							</Link>
 						</ColumnFixedWidthResponsive>
 					</RowMobileCollapseNoMinHeight>
@@ -177,12 +184,12 @@ class SubscriptionPage extends React.Component {
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
 				<DownloadListHeading>
-					<span> { this.props.intl.formatMessage( messages.downloadTitle ) } </span>
+					<FormattedMessage { ...messages.downloadTitle } />
 					<Link
 						to={ "https://yoa.st/myyoast-installation" }
 						linkTarget={ "_blank" }
 					>
-						Read our installation guides
+						<FormattedMessage { ...messages.installationGuide } />
 					</Link>
 				</DownloadListHeading>
 				{ this.getDownloadsList( this.props.downloads ) }
