@@ -72,9 +72,7 @@ function filterSubscriptionsByQuery( subscriptions, query ) {
  * @returns {Object}               An object with glNumbers as keys, and all subscriptions belonging to that product in an array as values.
  */
 function groupSubscriptionsByProduct( subscriptions ) {
-	return groupBy( subscriptions, ( subscription ) => {
-		return subscription.product.glNumber;
-	} );
+	return groupBy( subscriptions, subscription => subscription.product.glNumber );
 }
 
 /**
