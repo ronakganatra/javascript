@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`an add more licenses button should be shown when no more licenses are available 1`] = `
+.c15 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c21 {
   height: 48px;
   margin: 0;
@@ -202,12 +208,6 @@ exports[`an add more licenses button should be shown when no more licenses are a
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-}
-
-.c15 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c8 {
@@ -434,6 +434,12 @@ exports[`an add more licenses button should be shown when no more licenses are a
 `;
 
 exports[`the sitesubscription matches the snapshot 1`] = `
+.c15 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c21 {
   height: 48px;
   margin: 0;
@@ -635,12 +641,6 @@ exports[`the sitesubscription matches the snapshot 1`] = `
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
-}
-
-.c15 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c8 {

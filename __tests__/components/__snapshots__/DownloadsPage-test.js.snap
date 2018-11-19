@@ -725,6 +725,12 @@ exports[`the downloads page component matches the snapshot 1`] = `
 `;
 
 exports[`the downloads page component matches the snapshot when there are no downloads 1`] = `
+.c4 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c3 {
   display: inline-block;
   height: 48px;
@@ -765,16 +771,13 @@ exports[`the downloads page component matches the snapshot when there are no dow
   min-width: 152px;
 }
 
-.c4 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
+.c1 {
+  margin-bottom: 2em;
 }
 
 .c0 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
 }
 
@@ -782,10 +785,6 @@ exports[`the downloads page component matches the snapshot when there are no dow
   height: auto;
   display: block;
   margin: 0 auto;
-}
-
-.c1 {
-  margin-bottom: 2em;
 }
 
 @media screen and ( max-width:400px ) {

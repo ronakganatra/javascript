@@ -35,7 +35,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c1 {
+  .c4 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c1 {
   background: none;
   border: 0px;
   padding: 0;
@@ -84,12 +90,6 @@ Array [
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
-}
-
-.c4 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -171,7 +171,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c8 {
+  .c6 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -243,12 +249,6 @@ Array [
   font-size: 0.75em;
   font-weight: bold;
   color: #000;
-}
-
-.c6 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -358,7 +358,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c8 {
+  .c6 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -430,12 +436,6 @@ Array [
   font-size: 0.75em;
   font-weight: bold;
   color: #000;
-}
-
-.c6 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -545,7 +545,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c5 {
+  .c6 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c5 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -602,12 +608,6 @@ Array [
   font-size: 0.75em;
   font-weight: bold;
   color: #000;
-}
-
-.c6 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -725,7 +725,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c5 {
+  .c3 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -774,12 +780,6 @@ Array [
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
-}
-
-.c3 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -874,7 +874,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c1 {
+  .c4 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c1 {
   background: none;
   border: 0px;
   padding: 0;
@@ -923,12 +929,6 @@ Array [
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
-}
-
-.c4 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -1010,7 +1010,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c5 {
+  .c3 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1059,12 +1065,6 @@ Array [
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
-}
-
-.c3 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -1160,7 +1160,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c9 {
+  .c7 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c9 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1252,12 +1258,6 @@ Array [
   font-size: 0.75em;
   font-weight: bold;
   color: #fff;
-}
-
-.c7 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -1364,7 +1364,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c8 {
+  .c6 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c8 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1436,12 +1442,6 @@ Array [
   font-size: 0.75em;
   font-weight: bold;
   color: #000;
-}
-
-.c6 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
@@ -1551,7 +1551,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c5 {
+  .c3 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c5 {
   background: none;
   border: 0px;
   padding: 0;
@@ -1600,12 +1606,6 @@ Array [
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
-}
-
-.c3 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {
