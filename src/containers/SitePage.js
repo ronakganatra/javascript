@@ -92,14 +92,14 @@ export const mapStateToProps = ( state, ownProps ) => {
 	let downloads = [];
 	if ( downloadModalIsOpen ) {
 		const downloadModalSubscription = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
-		let Products = downloadModalSubscription.products;
+		let products = downloadModalSubscription.products;
 
 		if ( downloadModalSubscription.parentId === null ) {
 			const children = getProductGroupsByParentSlug( downloadModalSubscription.slug, allProductGroups );
-			Products = children.flatMap( child => child.products );
+			products = children.flatMap( child => child.products );
 		}
 
-		let differentProductsInSubscription = Products.filter( entry => entry.sourceShopId === 1 );
+		let differentProductsInSubscription = products.filter( entry => entry.sourceShopId === 1 );
 		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
 		downloads = differentProductsInSubscription.map( product => {
 			return { name: product.name, file: product.downloads[ 0 ].file };
