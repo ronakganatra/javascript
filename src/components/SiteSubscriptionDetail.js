@@ -165,21 +165,13 @@ SiteSubscriptionDetail.propTypes = {
 	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
-	downloadModalOpen: PropTypes.bool,
 	onDownloadModalOpen: PropTypes.func,
-	onDownloadModalClose: PropTypes.func,
-	downloadModalSubscriptionId: PropTypes.string,
-	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SiteSubscriptionDetail.defaultProps = {
 	onToggleSubscription: () => {},
 	isEnabled: false,
-	downloadModalOpen: false,
 	onDownloadModalOpen: () => {},
-	onDownloadModalClose: () => {},
-	downloadModalSubscriptionId: "",
-	downloads: [],
 };
 
 export default injectIntl( SiteSubscriptionDetail );

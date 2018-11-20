@@ -133,9 +133,6 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 		onDownloadModalOpen: ( subscriptionId ) => {
 			dispatch( downloadModalOpen( subscriptionId ) );
 		},
-		onDownloadModalClose: () => {
-			dispatch( downloadModalClose() );
-		},
 		onConfirmPlatformChange: ( id, type ) => {
 			dispatch( siteChangePlatform( id, type ) );
 		},
