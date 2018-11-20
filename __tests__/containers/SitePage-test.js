@@ -291,9 +291,6 @@ test('the mapStateToProps function', () => {
 		availableConfigurationServiceRequests: [],
 		configurationServiceRequestModalOpen: "configurationServiceRequestModalOpen",
 		configurationServiceRequestModalSiteId: "configurationServiceRequestModalSiteId",
-		downloadModalIsOpen: undefined,
-		downloadModalSubscriptionId: undefined,
-		downloads: [],
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );

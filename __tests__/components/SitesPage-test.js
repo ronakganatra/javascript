@@ -54,13 +54,13 @@ let plugins = [
 
 let activeSubscriptions = [
 	{
-		product: {
+		products: {
 			id: 1,
 		},
 		productId: "1",
 	},
 	{
-		product: {
+		products: {
 			id: 2,
 		},
 		productId: "2",

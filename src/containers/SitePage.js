@@ -6,7 +6,6 @@ import {
 	siteRemove,
 	siteChangePlatform,
 	downloadModalOpen,
-	downloadModalClose,
 } from "../actions/site";
 import SitePage from "../components/SitePage";
 import { addLicensesModalOpen, addLicensesModalClose } from "../actions/subscriptions";

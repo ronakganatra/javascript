@@ -12,6 +12,7 @@ import {
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 import { getSearchQuery } from "../selectors/search";
+import { getAllOfEntity } from "../selectors/entities";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -51,9 +52,7 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
-		return state.entities.configurationServiceRequests.byId[ id ];
-	} );
+	const allConfigurationServices = getAllOfEntity( state, "configurationServiceRequests" );
 
 	const siteIdsWithConfigurationServiceRequest = allConfigurationServices.map( ( RequestedSite ) => {
 		return RequestedSite.siteId;
