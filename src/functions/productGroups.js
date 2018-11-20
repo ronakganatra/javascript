@@ -1,3 +1,5 @@
+import { getAllOfEntity } from "../selectors/entities";
+
 /** Product helpers */
 
 export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
@@ -120,3 +122,42 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 			return productGroupIds.includes( pluginGroupId );
 		} );
 }
+
+/**
+ * Gets the products that a subscription gives access to.
+ *
+ * @param   {Object} state        The application state.
+ * @param   {Object} subscription The subscription.
+ *
+ * @returns {Array}               An array with the products for the subscription.
+ */
+export function getProductsFromSubscription( state, subscription ) {
+	if ( ! subscription.product.productGroups ) {
+		return subscription.product ? [ subscription.product ] : [];
+	}
+
+	const productGroups = subscription.product.productGroups;
+
+	// If at least one productGroup doesn't have a parent.
+	if ( productGroups.some( productGroup => productGroup.parentId === null ) ) {
+		const allProducts = getAllOfEntity( state, "products" );
+		const allProductGroups = getAllOfEntity( state, "productGroups" );
+
+		return productGroups
+			// Retrieve the child product groups for the parent product group.
+			.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
+			// Retrieve the products for the child product groups.
+			.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) );
+	}
+	return [ subscription.product ];
+}
+
+/**
+ * Returns true if a product has downloads.
+ *
+ * @param   {Object}  product The product to check downloads for.
+ * @returns {boolean}         Whether or not the product has downloads.
+ */
+export const hasDownload = ( product ) => {
+	return product.hasOwnProperty( "downloads" ) && product.downloads.length > 0;
+};

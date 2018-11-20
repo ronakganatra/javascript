@@ -23,6 +23,7 @@ import {
 	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
+import { getAllOfEntity } from "../selectors/entities";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
@@ -37,34 +38,30 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 	const site = sites.byId[ id ];
 
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( configurationServiceId ) => {
-		return state.entities.configurationServiceRequests.byId[ configurationServiceId ];
-	} );
+	const allConfigurationServices = getAllOfEntity( state, "configurationServiceRequests" );
 	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( request ) => request.status === "intake" );
 
-	let subscriptions = state.entities.subscriptions.allIds.map( ( subscriptionId ) => {
-		return state.entities.subscriptions.byId[ subscriptionId ];
-	} );
-	subscriptions = subscriptions.map( ( subscription ) => {
-		return Object.assign(
-			{},
-			{
-				productLogo: subscription.product.icon,
-			},
-			subscription,
-			{
-				isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
-				price: subscription.product.price,
-			}
-		);
-	} );
+	const subscriptions = getAllOfEntity( state, "subscriptions" )
+		.map( ( subscription ) => {
+			return Object.assign(
+				{},
+				{
+					productLogo: subscription.product.icon,
+				},
+				subscription,
+				{
+					isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
+					price: subscription.product.price,
+				}
+			);
+		} );
 
 	const activeSubscriptions = subscriptions.filter( ( subscription ) => {
 		return subscription.status === "active" || subscription.status === "pending-cancel";
 	} );
 
-	const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
-	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
+	const allProducts = getAllOfEntity( state, "products" );
+	const allProductGroups = getAllOfEntity( state, "productGroups" );
 
 	// Get the productGroups that contain our plugin product variations.
 	const pluginProductGroups = getProductGroupsByParentSlug(
@@ -86,26 +83,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	const downloadModalIsOpen = state.ui.site.downloadModalOpen;
-	const downloadModalSubscriptionId = state.ui.site.downloadModalSubscriptionId;
-
-	let downloads = [];
-	if ( downloadModalIsOpen ) {
-		const downloadModalSubscription = plugins.find( plugin => plugin.subscriptionId === downloadModalSubscriptionId );
-		let products = downloadModalSubscription.products;
-
-		if ( downloadModalSubscription.parentId === null ) {
-			const children = getProductGroupsByParentSlug( downloadModalSubscription.slug, allProductGroups );
-			products = children.flatMap( child => child.products );
-		}
-
-		let differentProductsInSubscription = products.filter( entry => entry.sourceShopId === 1 );
-		differentProductsInSubscription = sortPluginsByPopularity( differentProductsInSubscription );
-		downloads = differentProductsInSubscription.map( product => {
-			return { name: product.name, file: product.downloads[ 0 ].file };
-		} );
-	}
-
 	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
 
 	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
@@ -115,9 +92,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
-		downloadModalIsOpen,
-		downloadModalSubscriptionId,
-		downloads,
 		site,
 		subscriptions,
 		plugins,

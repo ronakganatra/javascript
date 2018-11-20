@@ -6,7 +6,9 @@ import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
-import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
+import {
+	getProductsFromSubscription,
+} from "../functions/productGroups";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 import { getSearchQuery } from "../selectors/search";
@@ -33,9 +35,6 @@ export const mapStateToProps = ( state ) => {
 			return siteProps;
 		}
 
-		const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
-		const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
-
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
 				return Object.assign( {}, state.entities.subscriptions.byId[ subscriptionId ] );
@@ -44,20 +43,7 @@ export const mapStateToProps = ( state ) => {
 				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );
 			} )
 			.map( ( subscription ) => {
-				const product = subscription.product;
-				const productGroupsForProduct = product.productGroups;
-				if ( ! productGroupsForProduct ) {
-					return subscription;
-				}
-
-				if ( ! productGroupsForProduct.some( pg => pg.parentId === null ) ) {
-					return subscription;
-				}
-
-				subscription.product = productGroupsForProduct
-					.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
-					.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) );
-
+				subscription.products = sortPluginsByPopularity( getProductsFromSubscription( state, subscription ) );
 				return subscription;
 			} );
 

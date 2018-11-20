@@ -13,7 +13,9 @@ import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
-import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
+import {
+	getProductsFromSubscription,
+} from "../functions/productGroups";
 import { sortPluginsByPopularity } from "../functions/products";
 
 
@@ -86,30 +88,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 			);
 	}
 
-	const allProducts = state.entities.products.allIds.map( ( productId ) => state.entities.products.byId[ productId ] );
-	const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupId ) => state.entities.productGroups.byId[ productGroupId ] );
+	let products = getProductsFromSubscription( state, selectedSubscription )
+		.filter( product => product.sourceShopId === 1 );
 
-	let downloads = [];
-	const pluginProductGroups = selectedSubscription.product.productGroups;
-
-	// If at least one productGroup doesn't have a parent.
-	if ( pluginProductGroups.some( productGroup => productGroup.parentId === null ) ) {
-		let products = pluginProductGroups
-		// Retrieve the child product groups for the parent product group.
-			.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
-
-			// Retrieve the products for the child product groups.
-			.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) )
-			.filter( product => product.sourceShopId === 1 );
-
-		products = sortPluginsByPopularity( products );
-		downloads = products.map( product => {
-			return { name: product.name, file: product.downloads[ 0 ].file ? product.downloads[ 0 ].file : "" };
-		} );
-	} else {
-		const selectedProduct = selectedSubscription.product;
-		downloads = [ { name: selectedProduct.name, file: selectedProduct.downloads[ 0 ].file ? selectedProduct.downloads[ 0 ].file : "" } ];
-	}
+	products = sortPluginsByPopularity( products );
 
 	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
@@ -122,7 +104,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		subscription: selectedSubscription,
 		orders,
 		sites,
-		downloads,
+		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
 	}, cancelSubscriptionState );

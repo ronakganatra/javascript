@@ -13,6 +13,7 @@ import SubscriptionCancelModal from "./SubscriptionCancelModal";
 import { ColumnMinWidth } from "./Tables";
 import { ListTable } from "./Tables";
 import Link from "./Link";
+import { hasDownload } from "../functions/productGroups";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -113,26 +114,28 @@ class SubscriptionPage extends React.Component {
 	}
 
 	/**
-	 * Creates a list based on the passed downloads.
+	 * Creates a list based on the passed products.
 	 *
-	 * @param {array} downloads The downloads to show in the list.
-	 * @returns {ReactElement} The list of downloads.
+	 * @param {array} products The products to show in the list.
+	 * @returns {ReactElement} The list of products.
 	 */
-	getDownloadsList( downloads ) {
+	getProductsList( products ) {
 		return <ListTable>
-			{ downloads.map( download => {
+			{ products.map( product => {
 				return (
-					<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key={ download.name }>
+					<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key={ product.name }>
 						<ColumnMinWidth ellipsis={ true }>
-							{ download.name }
+							{ product.name }
 						</ColumnMinWidth>
 						<ColumnFixedWidthResponsive ellipsis={ true }>
-							<Link
-								to={ download.file }
-								linkTarget={ "_blank" }
-							>
-								<FormattedMessage { ...messages.downloadLinkText } />
-							</Link>
+							{
+								hasDownload( product ) && <Link
+									to={ product.downloads[ 0 ].file }
+									linkTarget={ "_blank" }
+								>
+									<FormattedMessage { ...messages.downloadLinkText } />
+								</Link>
+							}
 						</ColumnFixedWidthResponsive>
 					</RowMobileCollapseNoMinHeight>
 				);
@@ -192,7 +195,7 @@ class SubscriptionPage extends React.Component {
 						<FormattedMessage { ...messages.installationGuide } />
 					</Link>
 				</DownloadListHeading>
-				{ this.getDownloadsList( this.props.downloads ) }
+				{ this.getProductsList( this.props.products ) }
 			</Paper>
 			{ this.getModal() }
 		</section>;
@@ -225,7 +228,7 @@ SubscriptionPage.propTypes = {
 	cancelSuccess: PropTypes.bool.isRequired,
 	cancelError: PropTypes.object,
 	loadData: PropTypes.func.isRequired,
-	downloads: PropTypes.arrayOf( PropTypes.object ),
+	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SubscriptionPage.defaultProps = {
@@ -238,7 +241,7 @@ SubscriptionPage.defaultProps = {
 	cancelLoading: false,
 	cancelSuccess: false,
 	cancelError: null,
-	downloads: [],
+	products: [],
 };
 
 export default injectIntl( SubscriptionPage );

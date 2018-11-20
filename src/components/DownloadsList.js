@@ -98,6 +98,12 @@ class DownloadsList extends React.Component {
 		super( props );
 	}
 
+	/**
+	 * Creates a row with a download name and file link.
+	 *
+	 * @param   {Object}       download The download object.
+	 * @returns {ReactElement}          A downloadsList row.
+	 */
 	makeDownloadRow( download ) {
 		const ResponsiveProductNameColumn = responsiveHeaders( ProductNameColumn );
 
@@ -131,8 +137,8 @@ class DownloadsList extends React.Component {
 	render() {
 		const downloadsTable =
 			<ListTable invertZebra={ true } { ...this.props }>
-				{ this.props.downloads.map( ( one ) => {
-					return this.makeDownloadRow( one );
+				{ this.props.downloads.map( ( download ) => {
+					return this.makeDownloadRow( download );
 				} ) }
 			</ListTable>;
 

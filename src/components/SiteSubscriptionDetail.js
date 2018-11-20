@@ -10,8 +10,8 @@ import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
 import NewTabMessage from "./NewTabMessage";
+
 /* eslint-disable no-unused-vars */
-import DownloadModal from "./modal/DownloadModal";
 
 
 const messages = defineMessages( {
@@ -141,15 +141,6 @@ function SiteSubscriptionDetail( props ) {
 					<FormattedMessage id="subscriptions.buttons.manage" defaultMessage="Manage" />
 				</ResponsiveLargeButtonLink>
 			</ColumnFixedWidthEnabled>
-			{ props.downloadModalOpen && props.downloadModalSubscriptionId === props.subscriptionId
-				? <DownloadModal
-					downloadModalOpen={ props.downloadModalOpen }
-					onDownloadModalClose={ props.onDownloadModalClose }
-					intl={ props.intl }
-					downloads={ props.downloads }
-				/>
-				: ""
-			}
 		</RowMobileCollapse>
 	);
 }

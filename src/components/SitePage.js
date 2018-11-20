@@ -13,6 +13,7 @@ import ConfigurationServiceRequestIntakeBlock from "./sites/ConfigurationService
 import ConfigurationServiceRequestStatusBlock from "./sites/ConfigurationServiceRequestStatusBlock";
 import ConfigurationServiceRequestForm from "./sites/configuration-service-requests/ConfigurationServiceRequestForm";
 import { hasAccessToFeature, CONFIGURATION_SERVICE_FEATURE } from "../functions/features";
+import DownloadsModalContainer from "./modal/DownloadModal";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -166,6 +167,7 @@ class SitePage extends React.Component {
 				{ this.getConfigurationServiceRequestModal() }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 				{ this.getModal() }
+				<DownloadsModalContainer />
 			</div>
 		);
 	}
