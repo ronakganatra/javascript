@@ -166,11 +166,11 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 .c10 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c9 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c2 {
@@ -286,7 +286,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 }
 
 @media screen and ( max-width:800px ) {
-  .c10 {
+  .c9 {
     padding-left: 0;
   }
 }
@@ -315,6 +315,8 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
       >
         Active
       </span>
+       - 
+      subscriptionNumber
     </div>
   </span>
   <span
@@ -574,11 +576,11 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 .c10 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c9 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c2 {
@@ -694,7 +696,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 }
 
 @media screen and ( max-width:800px ) {
-  .c10 {
+  .c9 {
     padding-left: 0;
   }
 }
@@ -715,6 +717,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 
 <li
   className="c0 c1"
+  onClick={[Function]}
 >
   <span
     className="c2 c3 c4 c5"
@@ -746,13 +749,11 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
   </span>
   <span
     className="c14 c12 c15"
-  >
-    . . .
-  </span>
+  />
   <span
     className="c16 c12 c17"
   >
-    . . .
+    
   </span>
   <span
     className="c18 c5"

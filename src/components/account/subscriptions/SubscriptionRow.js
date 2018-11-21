@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React, { Fragment } from "react";
-import { Row, ColumnMinWidth, ColumnIcon, ColumnPrimary, ColumnFixedWidth } from "../../Tables";
+import { ColumnMinWidth, ColumnIcon, ColumnPrimary, ColumnFixedWidth, Row } from "../../Tables";
 import MediaQuery from "react-responsive";
 import { LargeButton, ChevronButton } from "../../Button.js";
 import { injectIntl, intlShape, defineMessages, FormattedMessage, FormattedDate, FormattedNumber } from "react-intl";
@@ -101,11 +101,6 @@ StyledColumnMinWidth.propTypes = {
 const StyledStatus = styled.span`
 	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
 	font-weight: ${ props => props.status === "cancelled" ? "inherit" : "bold" };
-	padding-left: ${ props => props.isInExpanded ? "32px" : "none" };
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		padding-left: 0;
-	}
 `;
 
 StyledStatus.propTypes = {
@@ -115,6 +110,11 @@ StyledStatus.propTypes = {
 
 const Detail = styled.div`
 	font-size: 14px;
+	padding-left: ${ props => props.isInExpanded ? "32px" : "none" };
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		padding-left: 0;
+	}
 `;
 
 const Icon = styled( ColumnIcon )`
@@ -150,6 +150,21 @@ class SubscriptionRow extends React.Component {
 		};
 
 		this.getManageButtons = this.getManageButtons.bind( this );
+	}
+
+	/**
+	 * Whether the subscription is active or not.
+	 *
+	 * @param   {string}  status         The status of the subscription.
+	 * @param   {boolean} includePending Whether pending-cancel is to be considered active.
+	 * @returns {boolean}                Whether the subscription is active.
+	 */
+	isActive( status, includePending = true ) {
+		const activeStatus = [ "active" ];
+		if ( includePending ) {
+			activeStatus.push( "pending-cancel" );
+		}
+		return activeStatus.includes( status );
 	}
 
 	/**
@@ -228,7 +243,7 @@ class SubscriptionRow extends React.Component {
 			name: donorSubscription.name,
 			icon: donorSubscription.icon,
 			hasSites: donorSubscription.hasSites,
-			status: isActive ? "active" : "Not active",
+			status: isActive ? "active" : "not active",
 			used: totalUsed,
 			limit: totalLimit,
 		};
@@ -237,27 +252,34 @@ class SubscriptionRow extends React.Component {
 	/**
 	 * The first column has different content depending on screen size, and whether it is in in the collapsible or not.
 	 *
-	 * @param   {boolean}      isInExpanded           Whether the row is in the expandable part of a collapsible.
-	 * @param   {string}       nextPaymentInformation Information about the first upcoming payment.
-	 * @param   {string}       name                   The name of the subscription.
-	 * @param   {string}       status                 The status of the subscription.
-	 * @returns {ReactElement}                        The contents of the first column (for this row).
+	 * @param   {Object}         subscription           The subscription in this row.
+	 * @param   {boolean}        isInExpanded           Whether the row is in the expandable part of a collapsible.
+	 * @param   {string}         nextPaymentInformation Information about the first upcoming payment.
+	 * @returns {ReactElement}                          The contents of the first column (for this row).
 	 */
-	getPrimaryColumnContent( isInExpanded = false, nextPaymentInformation = "", name, status ) {
+	getPrimaryColumnContent( subscription, isInExpanded = false, nextPaymentInformation = "" ) {
 		return (
 			<Fragment>
-				{ isInExpanded &&
+				{ isInExpanded && this.isActive( subscription.status, false ) &&
 					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.mobile }px)` }>
+						<strong>
+							<FormattedMessage
+								id={ "mobile-expandable-next-billing" }
+								defaultMessage={ "Next billing: " }
+							/>
+						</strong>
 						{ nextPaymentInformation }
+						{ subscription.billingType }
 					</MediaQuery>
 				}
 				{ ! isInExpanded &&
-					name
+					subscription.name
 				}
-				<Detail>
-					<StyledStatus status={ status } isInExpanded={ isInExpanded }>
-						{ capitalizeFirstLetter( status ) }
+				<Detail isInExpanded={ isInExpanded }>
+					<StyledStatus status={ subscription.status }>
+						{ capitalizeFirstLetter( subscription.status ) }
 					</StyledStatus>
+					{ subscription.subscriptionNumber && " - " }{ subscription.subscriptionNumber }
 				</Detail>
 			</Fragment>
 		);
@@ -269,11 +291,11 @@ class SubscriptionRow extends React.Component {
 	 *
 	 * @param   {Object}       subscription           The subscription in this row.
 	 * @param   {boolean}      isInExpanded           Whether the row is in the expanded part of the collapsible.
-	 * @param   {string}       nextPaymentInformation Information about the next payment.
+	 * @param   {ReactElement} nextPaymentInformation Information about the next payment.
 	 * @param   {string}       billingType            Whether renewal is automatic or manual.
 	 * @returns {ReactElement}                        The common part of each row.
 	 */
-	commonRowTemplate( subscription, isInExpanded = false, nextPaymentInformation = ". . .", billingType = ". . ." ) {
+	commonRowTemplate( subscription, isInExpanded = false, nextPaymentInformation = null, billingType = "" ) {
 		return (
 			<Fragment>
 				<Icon>
@@ -288,7 +310,7 @@ class SubscriptionRow extends React.Component {
 						this.props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
 					) }
 				>
-					{ this.getPrimaryColumnContent( isInExpanded, nextPaymentInformation, subscription.name, subscription.status ) }
+					{ this.getPrimaryColumnContent( subscription, isInExpanded, nextPaymentInformation ) }
 				</ColumnPrimary>
 				<StyledColumnMinWidth
 					ellipsis={ true }
@@ -298,7 +320,7 @@ class SubscriptionRow extends React.Component {
 					minWidth="102px"
 					paddingLeft="inherit"
 				>
-					{ subscription.hasSites
+					{ subscription.hasSites && this.isActive( subscription.status )
 						? subscription.used + "/" + subscription.limit + " sites"
 						: ""
 					}
@@ -340,8 +362,7 @@ class SubscriptionRow extends React.Component {
 			const darkerGrey = "#E5E5E5";
 			const darkerWhite = "#F0F0F0";
 
-			const lighterColors = [ colors.$color_white, darkerWhite ];
-			return lighterColors.includes( previousBackgroundColor ) ? darkerGrey : darkerWhite;
+			return previousBackgroundColor === darkerGrey ? darkerWhite : darkerGrey;
 		};
 
 		const onExpandClick = () => {

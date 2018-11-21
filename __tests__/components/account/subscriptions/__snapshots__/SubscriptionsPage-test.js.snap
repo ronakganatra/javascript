@@ -280,11 +280,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 .c16 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c15 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c8 {
@@ -449,7 +449,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c15 {
     padding-left: 0;
   }
 }
@@ -510,6 +510,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
     >
       <li
         className="c6 c7"
+        onClick={[Function]}
       >
         <span
           className="c8 c9 c10 c11"
@@ -541,13 +542,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
         </span>
         <span
           className="c20 c18 c21"
-        >
-          . . .
-        </span>
+        />
         <span
           className="c22 c18 c23"
         >
-          . . .
+          
         </span>
         <span
           className="c24 c11"
@@ -587,6 +586,8 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             >
               Active
             </span>
+             - 
+            subscriptionNumber2
           </div>
         </span>
         <span
@@ -628,6 +629,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
     >
       <li
         className="c6 c7"
+        onClick={[Function]}
       >
         <span
           className="c8 c9 c10 c11"
@@ -659,13 +661,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
         </span>
         <span
           className="c20 c18 c21"
-        >
-          . . .
-        </span>
+        />
         <span
           className="c22 c18 c23"
         >
-          . . .
+          
         </span>
         <span
           className="c24 c11"
@@ -705,6 +705,8 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             >
               Active
             </span>
+             - 
+            subscriptionNumber2
           </div>
         </span>
         <span
@@ -999,11 +1001,11 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 .c16 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c15 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c8 {
@@ -1162,7 +1164,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c15 {
     padding-left: 0;
   }
 }
@@ -1223,6 +1225,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
     >
       <li
         className="c6 c7"
+        onClick={[Function]}
       >
         <span
           className="c8 c9 c10 c11"
@@ -1254,13 +1257,11 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
         </span>
         <span
           className="c20 c18 c21"
-        >
-          . . .
-        </span>
+        />
         <span
           className="c22 c18 c23"
         >
-          . . .
+          
         </span>
         <span
           className="c24 c11"
@@ -1300,6 +1301,8 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
             >
               Active
             </span>
+             - 
+            subscriptionNumber2
           </div>
         </span>
         <span
@@ -1594,11 +1597,11 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 .c16 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c15 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c8 {
@@ -1757,7 +1760,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c15 {
     padding-left: 0;
   }
 }
@@ -1818,6 +1821,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
     >
       <li
         className="c6 c7"
+        onClick={[Function]}
       >
         <span
           className="c8 c9 c10 c11"
@@ -1849,13 +1853,11 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
         </span>
         <span
           className="c20 c18 c21"
-        >
-          . . .
-        </span>
+        />
         <span
           className="c22 c18 c23"
         >
-          . . .
+          
         </span>
         <span
           className="c24 c11"
@@ -1895,6 +1897,8 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
             >
               Active
             </span>
+             - 
+            subscriptionNumber2
           </div>
         </span>
         <span

@@ -166,11 +166,11 @@ exports[`The Subscription component matches the snapshot 1`] = `
 .c10 {
   color: inherit;
   font-weight: bold;
-  padding-left: none;
 }
 
 .c9 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c2 {
@@ -286,7 +286,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c10 {
+  .c9 {
     padding-left: 0;
   }
 }
