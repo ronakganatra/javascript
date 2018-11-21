@@ -21,15 +21,14 @@ let state = {
 						sourceShopId: 1,
 						productGroups: [
 							{
-								"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
-									subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
-								},
+								subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+								id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 							}
 						],
 						downloads: [
 							{
-								file: "filepath"
-							}
+								file: "filepath",
+							},
 						]
 					},
 					status: "active",
@@ -68,6 +67,19 @@ let state = {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 					sourceShopId: 1,
+					productGroups: [
+						{
+							subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					],
+					downloads: [
+						{
+							file: "filepath",
+						},
+					],
+					icon: "icon.jpg",
+					name: "Yoast SEO for WordPress",
 				},
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
@@ -76,6 +88,7 @@ let state = {
 			byId: {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				},
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
@@ -126,14 +139,12 @@ let defaultExpected = {
 			name: "Yoast SEO for WordPress",
 			productGroups: [
 				{
-					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
-						subscriptions: [
-							"497490e6-eb8d-4627-be9b-bfd33fc217f1",
-						],
-					},
-				},
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				}
 			],
 			sourceShopId: 1,
+			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 	],
 	orders: [ {
@@ -163,10 +174,9 @@ let defaultExpected = {
 			sourceShopId: 1,
 			productGroups: [
 				{
-					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
-						subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
-					},
-				}
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			],
 			downloads: [ {
 					file: "filepath"

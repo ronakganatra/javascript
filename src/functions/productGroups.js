@@ -134,14 +134,19 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
  */
 export function getProductsFromSubscription( state, subscription ) {
 	if ( ! subscription.product.productGroups ) {
+		/*
+		If this product has no productGroups attached to it, we can not find potential other products via the productGroups.
+		Best guess is to at least return the product inside an array to be in line with expected behaviour for this function.
+		If the subscription does not even have a product, return an empty array.
+		 */
 		return subscription.product ? [ subscription.product ] : [];
 	}
 
 	const productGroups = subscription.product.productGroups;
+	const allProducts = getAllOfEntity( state, "products" );
 
 	// If at least one productGroup doesn't have a parent.
 	if ( productGroups.some( productGroup => productGroup.parentId === null ) ) {
-		const allProducts = getAllOfEntity( state, "products" );
 		const allProductGroups = getAllOfEntity( state, "productGroups" );
 
 		// Retrieve the child product groups for the parent product group.
@@ -154,7 +159,10 @@ export function getProductsFromSubscription( state, subscription ) {
 			return getProductsByProductGroupId( childProductGroup.id, allProducts );
 		} );
 	}
-	return [ subscription.product ];
+	return _flatMap(
+		productGroups,
+		productGroup => getProductsByProductGroupId( productGroup.id, allProducts )
+	);
 }
 
 /**
