@@ -4,8 +4,15 @@ import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-i
 import styled from "styled-components";
 import MyYoastModal from "./MyYoastModal";
 import ButtonsContainer from "./general/ButtonsContainer";
-import { Button, LargeButton, LargeSecondaryButton } from "./Button";
+import {
+	LargeButton, IconButton, LargeSecondaryButton,
+	makeResponsiveIconButton, makeButtonFullWidth,
+} from "./Button";
 import ErrorDisplay from "../errors/ErrorDisplay";
+import plus from "../icons/black-plus-thin.svg";
+import minus from "../icons/black-minus-thin.svg";
+import colors from "yoast-components/style-guide/colors.json";
+import { InputField } from "./InputField";
 // Later import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
 
 const messages = defineMessages( {
@@ -47,9 +54,36 @@ const ActionButtonsContainer = styled( ButtonsContainer )`
 	margin: 1em 0;
 `;
 
+const NumberButton = styled( IconButton )`
+	background-color: ${ colors.$color_grey_light };
+	background-size: 15px;
+	border-color: ${ colors.$color_red };
+	box-shadow: 0 3px 0 0 rgba(0, 0, 0, 0.1);
+	color: ${ colors.$color_white };
+	filter: drop-shadow(0 2px 2px rgb(0, 0, 0, 0.2) );
+	margin-left: 10px;
+	max-height: 30px;
+	max-width: 35px;
+	padding-left: 30px !important;
+	padding-right: 0;
+`;
+
+const NumberField = styled( InputField )`
+	width: 35px;
+	height: 30px;
+	background: ${ colors.$color_white };
+	box-shadow: inset 0 0 3px 0px rgba(0,0,0,0.3);
+	border: 1px;
+	border-color: ${ colors.$color_grey_light };
+	font-size: 1em;
+	font-weight: bold;
+	margin-left: 8px;
+	vertical-align: top;
+	padding: 0 0 0 12px;
+`;
 
 const CancelSubscriptionContainer = styled.div`
-	width:800px;
+	width:600px;
 `;
 
 class SubscriptionEditModal extends React.Component {
@@ -85,30 +119,72 @@ class SubscriptionEditModal extends React.Component {
 		cancelSubscription( id, amount );
 	}
 
-	incrementItemsToCancel() {
-		this.setState( { amountToCancel: this.state.amountToCancel + 1 } );
-		console.log( this.state.amountToCancel );
+	/**
+	 * Validates the input against the maximum number of subscriptions that is possible to cancel
+	 * and sets it in the state.
+	 *
+	 * @param {Object} event The change event
+	 *
+	 * @returns {void}
+	 */
+	changeItemsToCancel( event ) {
+		let value = event.target.value;
+		if ( value > this.props.numberOfCurrentSubscriptions ) {
+			value = this.props.numberOfCurrentSubscriptions;
+		} else if ( value < 1 ) {
+			value = 1;
+		}
+		this.setState( { amountToCancel: value } );
 	}
 
+	/**
+	 * Increase the number to cancel unless it is already at the maximum possible.
+	 *
+	 * @returns {void}
+	 */
+	incrementItemsToCancel() {
+		if ( this.state.amountToCancel < this.props.numberOfCurrentSubscriptions ) {
+			this.setState( { amountToCancel: this.state.amountToCancel + 1 } );
+		}
+	}
+
+	/**
+	 * Decrease the number to cancel unless it is already at one.
+	 *
+	 * @returns {void}
+	 */
 	decrementItemsToCancel() {
 		if ( this.state.amountToCancel > 1 ) {
 			this.setState( { amountToCancel: this.state.amountToCancel - 1 } );
 		}
 	}
 
+	/**
+	 * Renders the plus and minus buttons, and the input field, if the numberOfCurrentSubscriptions is defined.
+	 *
+	 * @returns {Element} The div element containing the buttons and the input field
+	 */
 	displayNumberButtons() {
 		if ( this.props.numberOfCurrentSubscriptions ) {
+			const ResponsiveNumberButton = makeButtonFullWidth( makeResponsiveIconButton( NumberButton ) );
 			return <div>
-				<Button
+				Select amount
+				<ResponsiveNumberButton
 					id="decrease"
 					descriptionId="decrease-number-to-cancel"
 					onClick={ this.decrementItemsToCancel }
+					iconSource={ minus }
 				/>
-				{ this.state.amountToCancel }
-				<Button
+				<NumberField
+					id="input-number"
+					value={ this.state.amountToCancel }
+					onChange={ this.changeItemsToCancel.bind( this ) }
+				/>
+				<ResponsiveNumberButton
 					id="increase"
 					descriptionId="increase-number-to-cancel"
 					onClick={ this.incrementItemsToCancel }
+					iconSource={ plus }
 				/>
 			</div>;
 		}
@@ -147,9 +223,9 @@ class SubscriptionEditModal extends React.Component {
 							values={ { amount: this.props.numberOfCurrentSubscriptions } }
 						/>
 					</p>
+					{ this.displayNumberButtons() }
 					<ErrorDisplay error={ this.props.error } />
 					<ActionButtonsContainer>
-						{ this.displayNumberButtons() }
 						<LargeSecondaryButton onClick={ this.props.onClose }>
 							<FormattedMessage { ...messages.cancel } />
 						</LargeSecondaryButton>

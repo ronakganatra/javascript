@@ -153,7 +153,7 @@ export function cancelSubscription( subscriptionId, amount ) {
 
 		const userId = getUserId();
 
-		const request = prepareInternalRequest( `Customers/${userId}/subscriptions/${subscriptionId}/cancel`, "POST", { amount } );
+		const request = prepareInternalRequest( `Customers/${userId}/subscriptions/${subscriptionId}/cancel`, "POST", { amount: amount } );
 
 		return doRequest( request )
 			.then( () => dispatch( cancelSubscriptionSuccess( subscriptionId ) ) )
