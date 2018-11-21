@@ -13,7 +13,6 @@ import plus from "../icons/black-plus-thin.svg";
 import minus from "../icons/black-minus-thin.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { InputField } from "./InputField";
-// Later import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
 
 const messages = defineMessages( {
 	ariaLabel: {
