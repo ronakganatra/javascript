@@ -131,7 +131,7 @@ const CollapseButtonSpacer = styled.div`
 `;
 
 const Separator = styled.div`
-	border-bottom: 2px solid ${ colors.$color_grey_medium_dark };
+	border-bottom: 1px solid black;
 `;
 
 /**
@@ -337,11 +337,15 @@ class SubscriptionRow extends React.Component {
 
 		// In the expandable part of the row, background colors should be slightly darker versions of the original zebra colors.
 		const determineNextBackgroundColor = ( previousBackgroundColor ) => {
-			const darkerLight = "#dedede";
-			const darkerWhite = "#e5e5e5";
+			const darkerGrey = "#E5E5E5";
+			const darkerWhite = "#F0F0F0";
 
 			const lighterColors = [ colors.$color_white, darkerWhite ];
-			return lighterColors.includes( previousBackgroundColor ) ? darkerLight : darkerWhite;
+			return lighterColors.includes( previousBackgroundColor ) ? darkerGrey : darkerWhite;
+		};
+
+		const onExpandClick = () => {
+			this.setState( { isOpen: ! this.state.isOpen } );
 		};
 
 		// Expanded table is simply using the makeSingleRow function, while changing the backgroundColor and passing isInExpanded as true.
@@ -359,7 +363,12 @@ class SubscriptionRow extends React.Component {
 
 		return (
 			<Fragment>
-				<StyledRow key={ subscription.id } dimmed={ status === "Not active" } background={ this.props.background }>
+				<StyledRow
+					key={ subscription.id }
+					onClick={ onExpandClick }
+					dimmed={ status === "Not active" }
+					background={ this.props.background }
+				>
 					{ this.commonRowTemplate( subscription ) }
 					<ColumnFixedWidth
 						paddingLeft="0px"
@@ -367,9 +376,7 @@ class SubscriptionRow extends React.Component {
 						<CollapseButtonSpacer>
 							<UpDownButton
 								isOpen={ this.state.isOpen }
-								onClick={ () => {
-									this.setState( { isOpen: ! this.state.isOpen } );
-								} }
+								onClick={ onExpandClick }
 							/>
 						</CollapseButtonSpacer>
 					</ColumnFixedWidth>
