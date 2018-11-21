@@ -1,4 +1,5 @@
 import { getAllOfEntity } from "../selectors/entities";
+import _flatMap from "lodash/flatMap";
 
 /** Product helpers */
 
@@ -143,11 +144,15 @@ export function getProductsFromSubscription( state, subscription ) {
 		const allProducts = getAllOfEntity( state, "products" );
 		const allProductGroups = getAllOfEntity( state, "productGroups" );
 
-		return productGroups
-			// Retrieve the child product groups for the parent product group.
-			.flatMap( productGroup => getProductGroupsByParentSlug( productGroup.slug, allProductGroups ) )
-			// Retrieve the products for the child product groups.
-			.flatMap( productGroup => getProductsByProductGroupId( productGroup.id, allProducts ) );
+		// Retrieve the child product groups for the parent product group.
+		const childProductGroups = _flatMap( productGroups, ( productGroup ) => {
+			return getProductGroupsByParentSlug( productGroup.slug, allProductGroups );
+		} );
+
+		// Return the products for the child product groups.
+		return _flatMap( childProductGroups, ( childProductGroup ) => {
+			return getProductsByProductGroupId( childProductGroup.id, allProducts );
+		} );
 	}
 	return [ subscription.product ];
 }
