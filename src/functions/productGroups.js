@@ -142,7 +142,7 @@ export function getProductsFromSubscription( state, subscription ) {
 		return subscription.product ? [ subscription.product ] : [];
 	}
 
-	const productGroups = subscription.product.productGroups;
+	let productGroups = subscription.product.productGroups;
 	const allProducts = getAllOfEntity( state, "products" );
 
 	// If at least one productGroup doesn't have a parent.
@@ -150,15 +150,11 @@ export function getProductsFromSubscription( state, subscription ) {
 		const allProductGroups = getAllOfEntity( state, "productGroups" );
 
 		// Retrieve the child product groups for the parent product group.
-		const childProductGroups = _flatMap( productGroups, ( productGroup ) => {
+		productGroups = _flatMap( productGroups, ( productGroup ) => {
 			return getProductGroupsByParentSlug( productGroup.slug, allProductGroups );
 		} );
-
-		// Return the products for the child product groups.
-		return _flatMap( childProductGroups, ( childProductGroup ) => {
-			return getProductsByProductGroupId( childProductGroup.id, allProducts );
-		} );
 	}
+
 	return _flatMap(
 		productGroups,
 		productGroup => getProductsByProductGroupId( productGroup.id, allProducts )
