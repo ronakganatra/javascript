@@ -17,6 +17,12 @@ import {
 } from "../actions/composerTokens";
 import { getSearchQuery } from "../selectors/search";
 
+/**
+ * Returns ebooks from the redux store.
+ *
+ * @param   {Object} state The redux store.
+ * @returns {Array}        An array of ebooks.
+ */
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
 	const completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
@@ -37,8 +43,17 @@ const getEbookProducts = ( state ) => {
 	} );
 };
 
+/**
+ * Returns plugin products from the redux store.
+ *
+ * @param   {Object} state The redux store.
+ * @returns {Array}        An array of plugin Products.
+ */
 const getPluginProducts = ( state ) => {
-	const activeSubscriptions = _filter( state.entities.subscriptions.byId, subscription => subscription.status  === "active" || subscription.status === "pending-cancel" );
+	const activeSubscriptions = _filter(
+		state.entities.subscriptions.byId,
+		subscription => subscription.status  === "active" || subscription.status === "pending-cancel"
+	);
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
 		return subscription.productId;
@@ -57,13 +72,23 @@ const getPluginProducts = ( state ) => {
 
 	if ( ! _isEmpty( childrenGroups ) ) {
 		const childrenGroupIds = childrenGroups.map( ( childrenGroup ) => childrenGroup.id );
-		products = products.concat( _filter( state.entities.products.byId, product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) ) ) );
+		products = products.concat(
+			_filter( state.entities.products.byId,
+				product => product.productGroups.some( productGroup => _includes( childrenGroupIds, productGroup.id ) )
+			)
+		);
 	}
 	products = getPlugins( products );
 
 	return products;
 };
 
+/**
+ * Set's up a props object for the downloads based on an array of products.
+ *
+ * @param   {Array}  products An array of products.
+ * @returns {Object}          An object with the required download props.
+ */
 const setDownloadProps = ( products ) => {
 	return products.map( ( product ) => {
 		let downloadButtons = [];

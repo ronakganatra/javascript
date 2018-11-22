@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import SubscriptionPage from "../components/SubscriptionPage";
+import SubscriptionPage from "../components/account/subscriptions/SubscriptionPage";
 import {
 	cancelSubscription,
 	closeCancelSubscriptionModal,

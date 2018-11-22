@@ -1,18 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Subscriptions component matches the snapshot 1`] = `
+exports[`The Subscription component matches the snapshot 1`] = `
 .c1 {
-  padding: 0;
-  list-style: none;
-  position: relative;
-  width: 100%;
-}
-
-.c1 li:first-child > span::before {
-  left: auto;
-}
-
-.c3 {
   background: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -29,41 +18,20 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   justify-content: space-between;
 }
 
-.c3:first-child {
+.c1:first-child {
   margin-top: 64px;
 }
 
-.c21 {
-  background: #f7f7f7;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 16px 24px;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.c21:first-child {
-  margin-top: 64px;
-}
-
-.c7 {
+.c5 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c7:first-child {
+.c5:first-child {
   padding-left: 0;
 }
 
-.c7::before {
+.c5::before {
   position: absolute;
   left: -9999em;
   top: -24px;
@@ -72,7 +40,7 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   content: none;
 }
 
-.c10 {
+.c8 {
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -80,11 +48,11 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c10:first-child {
+.c8:first-child {
   padding-left: 0;
 }
 
-.c10::before {
+.c8::before {
   position: absolute;
   left: -9999em;
   top: -24px;
@@ -93,8 +61,30 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   content: "Individual subscriptions";
 }
 
-.c15 {
+.c13 {
   min-width: 102px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c13:first-child {
+  padding-left: 0;
+}
+
+.c13::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Used on";
+}
+
+.c15 {
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -112,11 +102,11 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Used on";
+  content: "Next billing";
 }
 
 .c17 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -134,147 +124,116 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
-}
-
-.c19 {
-  min-width: 120px;
-  font-size: 14px;
-  padding-left: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.c19:first-child {
-  padding-left: 0;
-}
-
-.c19::before {
-  position: absolute;
-  left: -9999em;
-  top: -24px;
-  font-size: 1.286em;
-  line-height: 0;
   content: "Billing type";
 }
 
-.c9 {
+.c7 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
 }
 
-.c6 {
+.c4 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c20 {
+.c18 {
   -webkit-flex: 0 0 auto;
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
 }
 
-.c14 {
+.c12 {
   -webkit-flex: 1 0 100px;
   -ms-flex: 1 0 100px;
   flex: 1 0 100px;
 }
 
-.c5 {
+.c3 {
   height: 48px;
 }
 
-.c8 {
+.c6 {
   height: inherit;
 }
 
-.c2 {
+.c0 {
   color: inherit;
 }
 
-.c12 {
+.c10 {
   color: inherit;
   font-weight: bold;
 }
 
-.c11 {
+.c9 {
   font-size: 14px;
+  padding-left: none;
 }
 
-.c4 {
+.c2 {
   height: 32px;
   width: 32px;
 }
 
-.c0 {
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
 @media screen and ( max-width:800px ) {
-  .c3 {
-    padding: 16px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c21 {
+  .c1 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c13 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c15 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
   .c7 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c10 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c15 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c15 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c17 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c17 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:1355px ) {
-  .c19 {
-    padding-left: 20px;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c19 {
-    display: none;
-  }
-}
-
-@media screen and ( max-width:800px ) {
-  .c9 {
     -webkit-flex-shrink: 1;
     -ms-flex-negative: 1;
     flex-shrink: 1;
@@ -282,158 +241,108 @@ exports[`The Subscriptions component matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c20 {
+  .c18 {
     padding-left: 0px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c13 {
+  .c11 {
     max-width: 120px;
     padding-left: inherit;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c13 {
+  .c11 {
     max-width: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c16 {
+  .c14 {
     min-width: 158px;
     padding-left: 0px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c16 {
+  .c14 {
     max-width: none;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c18 {
+  .c16 {
     max-width: 140px;
     padding-left: 0px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c18 {
+  .c16 {
     max-width: none;
   }
 }
 
-<div
-  className="c0"
+@media screen and ( max-width:800px ) {
+  .c9 {
+    padding-left: 0;
+  }
+}
+
+<li
+  className="c0 c1"
 >
-  <ul
-    className="c1"
-    role="list"
+  <span
+    className="c2 c3 c4 c5"
   >
-    <li
-      className="c2 c3"
+    <img
+      alt=""
+      className="c6"
+      src={undefined}
+    />
+  </span>
+  <span
+    className="c7 c8"
+  >
+    SEO Premium for WordPress
+    <div
+      className="c9"
     >
       <span
-        className="c4 c5 c6 c7"
+        className="c10"
       >
-        <img
-          alt=""
-          className="c8"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
-        />
+        Active
       </span>
-      <span
-        className="c9 c10"
-      >
-        SEO Premium for WordPress
-        <div
-          className="c11"
-        >
-          <span
-            className="c12"
-          >
-            Active
-          </span>
-           - 
-        </div>
-      </span>
-      <span
-        className="c13 c14 c15"
-      >
-        4/20 sites
-      </span>
-      <span
-        className="c16 c14 c17"
-      >
-        <span>
-          October 13, 2014
-        </span>
-        <div
-          className="c11"
-        >
-          <span>
-            $122.00
-          </span>
-        </div>
-      </span>
-      <span
-        className="c18 c14 c19"
-      >
-        Automatic renewal
-      </span>
-      <span
-        className="c20 c7"
-      />
-    </li>
-    <li
-      className="c2 c21"
+    </div>
+  </span>
+  <span
+    className="c11 c12 c13"
+  >
+    
+  </span>
+  <span
+    className="c14 c12 c15"
+  >
+    <span>
+      April 4, 2017
+    </span>
+    <div
+      className="c9"
     >
-      <span
-        className="c4 c5 c6 c7"
-      >
-        <img
-          alt=""
-          className="c8"
-          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
-        />
+      <span>
+        $125.12
       </span>
-      <span
-        className="c9 c10"
-      >
-        SEO Premium for WordPress
-        <div
-          className="c11"
-        >
-          <span
-            className="c12"
-          >
-            Active
-          </span>
-           - 
-        </div>
-      </span>
-      <span
-        className="c13 c14 c15"
-      >
-        3/20 sites
-      </span>
-      <span
-        className="c16 c14 c17"
-      >
-        <div
-          className="c11"
-        />
-      </span>
-      <span
-        className="c18 c14 c19"
-      />
-      <span
-        className="c20 c7"
-      />
-    </li>
-  </ul>
-</div>
+    </div>
+  </span>
+  <span
+    className="c16 c12 c17"
+  >
+    Automatic renewal
+  </span>
+  <span
+    className="c18 c5"
+  />
+</li>
 `;

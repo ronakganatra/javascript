@@ -481,7 +481,7 @@ exports[`the site page component matches the snapshot 1`] = `
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -515,7 +515,7 @@ exports[`the site page component matches the snapshot 1`] = `
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1007,7 +1007,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1041,7 +1041,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1451,7 +1451,7 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1485,7 +1485,7 @@ exports[`the site page component matches the snapshot for a site on the TYPO3 pl
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1895,7 +1895,7 @@ exports[`the site page component matches the snapshot for a wordpress site and o
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>
@@ -1929,7 +1929,7 @@ exports[`the site page component matches the snapshot for a wordpress site and o
           width={40}
         >
           <path
-            d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
           />
         </svg>
       </button>

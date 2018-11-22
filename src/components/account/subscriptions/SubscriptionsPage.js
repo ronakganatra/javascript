@@ -2,14 +2,15 @@ import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-intl";
 import Subscriptions from "./Subscriptions";
-import Search from "./Search";
+import Search from "../../Search";
 import { speak } from "@wordpress/a11y";
 import util from "util";
 import _debounce from "lodash/debounce";
-import SuggestedAction from "./SuggestedAction";
-import { GoToButtonLink } from "./Button";
-import noSubscriptionsImage from "./../images/noSubscriptions.svg";
-import noResultsImage from "./../images/SitesNoResults.svg";
+import isEmpty from "lodash/isEmpty";
+import SuggestedAction from "../../SuggestedAction";
+import { GoToButtonLink } from "../../Button";
+import noSubscriptionsImage from "../../../images/noSubscriptions.svg";
+import noResultsImage from "../../../images/SitesNoResults.svg";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -119,8 +120,8 @@ class SubscriptionsPage extends React.Component {
 			/> ];
 
 		const props = this.props;
-		const hasGroupedSubscriptions = props.groupedSubscriptions.length > 0;
-		const hasIndividualSubscriptions = props.individualSubscriptions.length > 0;
+		const hasGroupedSubscriptions = ! isEmpty( props.groupedSubscriptions );
+		const hasIndividualSubscriptions = ! isEmpty( props.individualSubscriptions );
 
 		if ( hasGroupedSubscriptions || hasIndividualSubscriptions ) {
 			return (

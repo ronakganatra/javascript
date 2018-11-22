@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, FormattedMessage, injectIntl, intlShape } from "react-intl";
 import styled from "styled-components";
-import MyYoastModal from "./MyYoastModal";
-import ButtonsContainer from "./general/ButtonsContainer";
-import { LargeButton, LargeSecondaryButton } from "./Button";
-import ErrorDisplay from "../errors/ErrorDisplay";
-import ConnectedSubscriptionWarning from "./ConnectedSubscriptionWarning";
+import MyYoastModal from "../../MyYoastModal";
+import ButtonsContainer from "../../general/ButtonsContainer";
+import { LargeButton, LargeSecondaryButton } from "../../Button";
+import ErrorDisplay from "../../../errors/ErrorDisplay";
+import ConnectedSubscriptionWarning from "../../ConnectedSubscriptionWarning";
 
 const messages = defineMessages( {
 	ariaLabel: {

@@ -9,7 +9,7 @@ let state = {
 			"byId": {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-					"name": "Yoast SEO",
+					"name": "Yoast SEO 2",
 					"subscriptionNumber": "Y12345",
 					"used": 1,
 					"limit": 2,
@@ -20,13 +20,14 @@ let state = {
 					"currency": "USD",
 					"product": {
 						"icon": "icon.jpg",
+						glNumber: 1,
 						"productGroups": [ {
 							"parentId": null,
 						}, ]
 					},
 					"status": "active",
 					"requiresManualRenewal": true,
-					"productId": 1,
+					"productId": 2,
 				},
 				"2": {
 					"id": "2",
@@ -41,6 +42,29 @@ let state = {
 					"currency": "USD",
 					"product": {
 						"icon": "icon.jpg",
+						glNumber: 2,
+						"productGroups": [ {
+							"parentId": "1",
+						}, ]
+					},
+					"status": "active",
+					"requiresManualRenewal": true,
+					"productId": 1,
+				},
+				"3": {
+					"id": "3",
+					"name": "Yoast SEO",
+					"subscriptionNumber": "Y123456",
+					"used": 1,
+					"limit": 2,
+					"nextPayment": "2018-05-01 21:04:28",
+					"orders": [ "12345" ],
+					"endDate": null,
+					"price": "6900",
+					"currency": "USD",
+					"product": {
+						"icon": "icon.jpg",
+						glNumber: 2,
 						"productGroups": [ {
 							"parentId": "1",
 						}, ]
@@ -50,7 +74,7 @@ let state = {
 					"productId": 1,
 				},
 			},
-			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "2" ],
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1", "2", "3" ],
 		},
 		orders: {
 			"byId": {
@@ -73,44 +97,95 @@ let state = {
 };
 
 let defaultExpected = {
-	groupedSubscriptions: [
-		{
-			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			"name": "Yoast SEO",
-			"subscriptionNumber": "Y12345",
-			"used": 1,
-			"status": "active",
-			"hasSites": true,
-			"limit": 2,
-			"hasNextPayment": true,
-			"nextPayment": new Date( "2017-05-01 21:04:28" ),
-			"hasEndDate": false,
-			"endDate": new Date( null ),
-			"billingAmount": "6900",
-			"billingCurrency": "USD",
-			"requiresManualRenewal": true,
-			"icon": "icon.jpg",
-		},
-	],
-	individualSubscriptions: [
-		{
-			"id": "2",
-			"name": "Yoast SEO",
-			"subscriptionNumber": "Y12345",
-			"used": 1,
-			"status": "active",
-			"hasSites": true,
-			"limit": 2,
-			"hasNextPayment": true,
-			"nextPayment": new Date( "2018-05-01 21:04:28" ),
-			"hasEndDate": false,
-			"endDate": new Date( null ),
-			"billingAmount": "6900",
-			"billingCurrency": "USD",
-			"requiresManualRenewal": true,
-			"icon": "icon.jpg",
-		},
-	],
+	groupedSubscriptions: {
+		1: [
+			{
+				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				"name": "Yoast SEO 2",
+				"subscriptionNumber": "Y12345",
+				"used": 1,
+				"status": "active",
+				"hasSites": true,
+				"limit": 2,
+				"hasNextPayment": true,
+				"nextPayment": new Date( "2017-05-01 21:04:28" ),
+				paymentDate: undefined,
+				product: {
+					glNumber: 1,
+					icon: "icon.jpg",
+					productGroups: [
+						{
+							parentId: null,
+						},
+					],
+				},
+				"hasEndDate": false,
+				"endDate": new Date( null ),
+				"billingAmount": "6900",
+				"billingCurrency": "USD",
+				"requiresManualRenewal": true,
+				"icon": "icon.jpg",
+			},
+		],
+	},
+	individualSubscriptions: {
+		2: [
+			{
+				"id": "2",
+				"name": "Yoast SEO",
+				"subscriptionNumber": "Y12345",
+				"used": 1,
+				"status": "active",
+				"hasSites": true,
+				"limit": 2,
+				"hasNextPayment": true,
+				"nextPayment": new Date( "2018-05-01 21:04:28" ),
+				paymentDate: undefined,
+				product: {
+					glNumber: 2,
+					icon: "icon.jpg",
+					productGroups: [
+						{
+							parentId: "1",
+						},
+					],
+				},
+				"hasEndDate": false,
+				"endDate": new Date( null ),
+				"billingAmount": "6900",
+				"billingCurrency": "USD",
+				"requiresManualRenewal": true,
+				"icon": "icon.jpg",
+			},
+			{
+				"id": "3",
+				"name": "Yoast SEO",
+				"subscriptionNumber": "Y123456",
+				"used": 1,
+				"status": "active",
+				"hasSites": true,
+				"limit": 2,
+				"hasNextPayment": true,
+				"nextPayment": new Date( "2018-05-01 21:04:28" ),
+				paymentDate: undefined,
+				product: {
+					glNumber: 2,
+					icon: "icon.jpg",
+					productGroups: [
+						{
+							parentId: "1",
+						},
+					],
+				},
+				"hasEndDate": false,
+				"endDate": new Date( null ),
+				"billingAmount": "6900",
+				"billingCurrency": "USD",
+				"requiresManualRenewal": true,
+				"icon": "icon.jpg",
+			},
+		]
+	},
 	query: "",
 };
 
@@ -158,8 +233,8 @@ test( 'the mapStateToProps function when query contains part of formatted price'
 test( 'the mapStateToProps function when query contains nonsense', () => {
 	state.ui.search.query = "afhsdkgfj";
 	let expected = Object.assign( {}, defaultExpected, {
-		groupedSubscriptions: [],
-		individualSubscriptions: [],
+		groupedSubscriptions: {},
+		individualSubscriptions: {},
 		query: "afhsdkgfj"
 	} );
 

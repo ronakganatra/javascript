@@ -1,19 +1,18 @@
 import PropTypes from "prop-types";
 import React from "react";
-import AnimatedLoader from "./Loader";
+import AnimatedLoader from "../../Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails, { ColumnFixedWidthResponsive, RowMobileCollapseNoMinHeight } from "./SubscriptionDetails";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
-import { ListHeading } from "./Headings";
-import Orders from "./Orders";
-import { Paper } from "./PaperStyles";
+import { ListHeading } from "../../Headings";
+import Orders from "../../Orders";
+import { Paper } from "../../PaperStyles";
 import styled from "styled-components";
-import defaults from "../config/defaults.json";
+import defaults from "../../../config/defaults.json";
 import SubscriptionCancelModal from "./SubscriptionCancelModal";
-import { ColumnMinWidth } from "./Tables";
-import { ListTable } from "./Tables";
-import Link from "./Link";
-import { hasDownload } from "../functions/productGroups";
+import { ColumnMinWidth, ListTable } from "../../Tables";
+import Link from "../../Link";
+import { hasDownload } from "../../../functions/productGroups";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
