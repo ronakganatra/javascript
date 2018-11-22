@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import React from "react";
-import AnimatedLoader from "./Loader";
+import AnimatedLoader from "../../Loader";
 import Header from "./SubscriptionHeader";
 import SubscriptionDetails from "./SubscriptionDetails";
 import { injectIntl, intlShape, defineMessages } from "react-intl";
-import { ListHeading } from "./Headings";
-import Orders from "./Orders";
-import { Paper } from "./PaperStyles";
+import { ListHeading } from "../../Headings";
+import Orders from "../../Orders";
+import { Paper } from "../../PaperStyles";
 import styled from "styled-components";
-import defaults from "../config/defaults.json";
-import SubscriptionEditModal from "../containers/SubscriptionEditModal";
+import defaults from "../../../config/defaults.json";
+import SubscriptionEditModal from "../../../containers/SubscriptionEditModal";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {

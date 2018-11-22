@@ -33,9 +33,15 @@ let plugins = [
 
 let activeSubscriptions = [
 	{
+		product: {
+			id: 1,
+		},
 		productId: "1",
 	},
 	{
+		product: {
+			id: 2,
+		},
 		productId: "2",
 	},
 ];

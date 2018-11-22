@@ -170,6 +170,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
 
 .c9 {
   font-size: 14px;
+  padding-left: none;
 }
 
 .c2 {
@@ -284,6 +285,12 @@ exports[`The Subscription component matches the snapshot 1`] = `
   }
 }
 
+@media screen and ( max-width:800px ) {
+  .c9 {
+    padding-left: 0;
+  }
+}
+
 <li
   className="c0 c1"
 >
@@ -293,7 +300,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
     <img
       alt=""
       className="c6"
-      src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+      src={undefined}
     />
   </span>
   <span
@@ -308,15 +315,12 @@ exports[`The Subscription component matches the snapshot 1`] = `
       >
         Active
       </span>
-       - 
     </div>
   </span>
   <span
     className="c11 c12 c13"
   >
-    14
-    /
-    20 sites
+    
   </span>
   <span
     className="c14 c12 c15"

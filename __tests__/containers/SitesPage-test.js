@@ -24,11 +24,21 @@ let state = {
 					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 					"status": "active",
+					product: {
+						"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+							"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+							"icon": "test.png",
+							"name": "Yoast SEO",
+							"type": "plugin",
+							"glNumber": 111,
+							productGroups: {
+								id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+							},
+						},
+					},
 				},
 			},
-			allIds: [
-				"497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			]
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 		products: {
 			"byId": {
@@ -38,8 +48,28 @@ let state = {
 					"name": "Yoast SEO",
 					"type": "plugin",
 					"glNumber": 111,
+					productGroups: {
+						id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					},
 				},
-			}
+			},
+			allIds: [
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			]
+		},
+		productGroups: {
+			"byId": {
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+					"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					"icon": "test.png",
+					"name": "Yoast SEO",
+					"type": "plugin",
+					"glNumber": 111,
+				},
+			},
+			allIds: [
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			]
 		},
 		configurationServiceRequests: {
 			allIds: [],
@@ -63,7 +93,13 @@ let state = {
 		configurationServiceRequests: {
 			configurationServiceRequestModalOpen: false,
 			configurationServiceRequestModalSiteId: "",
-		}
+		},
+		productGroups: {
+			requesting: false,
+		},
+		products: {
+			requesting: false,
+		},
 	},
 };
 
@@ -78,6 +114,18 @@ test('the mapStateToProps function', () => {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 		} ],
@@ -88,6 +136,9 @@ test('the mapStateToProps function', () => {
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -95,7 +146,19 @@ test('the mapStateToProps function', () => {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"status": "active"
+				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -129,6 +192,18 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 		} ],
@@ -139,6 +214,9 @@ test('the mapStateToProps function when query contains url of site', () => {
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -146,7 +224,19 @@ test('the mapStateToProps function when query contains url of site', () => {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"status": "active"
+				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -180,6 +270,18 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 		} ],
@@ -190,6 +292,9 @@ test('the mapStateToProps function when query just contains the hostname of site
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -197,7 +302,19 @@ test('the mapStateToProps function when query just contains the hostname of site
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"status": "active"
+				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -231,6 +348,9 @@ test('the mapStateToProps function when query does not match any site.', () => {
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -238,7 +358,19 @@ test('the mapStateToProps function when query does not match any site.', () => {
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"status": "active"
+				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"configurationServiceRequest": {},
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
@@ -280,6 +412,9 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -309,6 +444,18 @@ test('the mapStateToProps function when no subscriptions have been retrieved yet
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			},
 		},
 		allIds: [
@@ -390,6 +537,18 @@ test('the mapStateToProps function when there is an additional path in the url',
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 		} ],
 		plugins: [
@@ -399,6 +558,9 @@ test('the mapStateToProps function when there is an additional path in the url',
 				"icon": "test.png",
 				"name": "Yoast SEO",
 				"type": "plugin",
+				productGroups: {
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
 			}
 		],
 		availableConfigurationServiceRequests: [],
@@ -406,7 +568,19 @@ test('the mapStateToProps function when there is an additional path in the url',
 			"activeSubscriptions": [ {
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"productId": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"status": "active"
+				"status": "active",
+				product: {
+					"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+						"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						"icon": "test.png",
+						"name": "Yoast SEO",
+						"type": "plugin",
+						"glNumber": 111,
+						productGroups: {
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					},
+				},
 			} ],
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 			"siteName": "yoast.com/extrapath",

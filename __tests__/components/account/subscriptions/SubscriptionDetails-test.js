@@ -1,9 +1,9 @@
 import React from 'react';
-import { createComponentWithIntl } from "../../utils";
+import { createComponentWithIntl } from "../../../../utils";
 import { MemoryRouter } from "react-router-dom";
-import SubscriptionDetails from '../../src/components/SubscriptionDetails';
+import SubscriptionDetails from '../../../../src/components/account/subscriptions/SubscriptionDetails';
 
-jest.mock( "../../src/functions/api", () => {
+jest.mock( "../../../../src/functions/api", () => {
 	return {
 		getInvoiceUrl: () => { return "http://somelink" },
 	};

@@ -23,7 +23,9 @@ function SiteSubscriptionDetailList( props ) {
 	return (
 		<Paper>
 			<CollapsibleHeader title={ props.intl.formatMessage( messages.manageTitle ) } isOpen={ true }>
-				<ListTable>
+				<ListTable
+					invertZebra={ true }
+				>
 					{ props.plugins.map( ( plugin ) => {
 						const onToggleDisabled = () => {
 							return props.onToggleDisabled( plugin.storeUrl );
@@ -38,6 +40,11 @@ function SiteSubscriptionDetailList( props ) {
 							modalOpen={ props.modalOpen }
 							onClose={ props.onClose }
 							onShop={ plugin.storeUrl }
+							downloadModalOpen={ props.downloadModalOpen }
+							onDownloadModalOpen={ props.onDownloadModalOpen }
+							onDownloadModalClose={ props.onDownloadModalClose }
+							downloadModalSubscriptionId={ props.downloadModalSubscriptionId }
+							downloads={ props.downloads }
 						/>;
 					} ) }
 				</ListTable>
@@ -54,6 +61,19 @@ SiteSubscriptionDetailList.propTypes = {
 	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	onToggleDisabled: PropTypes.func.isRequired,
+	downloadModalOpen: PropTypes.bool,
+	onDownloadModalOpen: PropTypes.func,
+	onDownloadModalClose: PropTypes.func,
+	downloadModalSubscriptionId: PropTypes.string,
+	downloads: PropTypes.arrayOf( PropTypes.object ),
+};
+
+SiteSubscriptionDetailList.defaultProps = {
+	downloadModalOpen: false,
+	onDownloadModalOpen: () => {},
+	onDownloadModalClose: () => {},
+	downloadModalSubscriptionId: "",
+	downloads: [],
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

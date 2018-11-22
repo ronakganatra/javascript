@@ -12,6 +12,14 @@ import { CANCEL_SUBSCRIPTION_SUCCESS } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS } from "../actions/site";
 import { getSubscription } from "../selectors/subscriptions";
 
+/**
+ * Create an event object to send to GoogleTagManager.
+ *
+ * @param {string} type The name of the action.
+ * @param {Object} data Optional. The data object to associate to the action.
+ *
+ * @returns {Object} The event object to send to GoogleTagManager.
+ */
 const createEvent = ( type, data ) => ( {
 	event: "redux_event",
 	// eslint-disable-next-line camelcase

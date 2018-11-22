@@ -4,6 +4,88 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../config/defaults.json";
 
+/**
+ * Separatifies an element.
+ *
+ * @returns {String} CSS
+ */
+export function separatify() {
+	return `
+		&::after {
+			position:relative;
+			display: inline-block;
+			border-right: 2px solid ${ colors.$color_grey };
+			padding-right: 24px;
+			height: 48px;
+			content: "";
+		}
+
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			&::after {
+				padding-right: 16px;
+			}
+		}
+	`;
+}
+
+/**
+ * Make an element text nowrap and add ellipsis.
+ *
+ * @returns {String} CSS
+ */
+export function ellipsify() {
+	return `
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	`;
+}
+
+/**
+ * Makes an element full-width in the mobile responsive view.
+ *
+ * @param {ReactElement} component The original element.
+ * @returns {ReactElement} The element with full width responsive style.
+ */
+export function makeFullWidth( component ) {
+	return styled( component )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			min-width: 100%;
+			margin-top: 1em;
+			padding-right: 0;
+			padding-left: 0;
+
+			&:first-child {
+				margin-top: 0px;
+			}
+		}
+	`;
+}
+
+/**
+ * Makes columns use headers as bold labels with a colon in the mobile responsive view.
+ *
+ * @param {ReactElement} column The original column.
+ * @returns {ReactElement} The column with transformed headers.
+ */
+export function responsiveHeaders( column ) {
+	return styled( column )`
+		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+			&::before {
+				float: left;
+				min-width: 60px;
+				line-height: inherit;
+				font-weight: 700;
+				${ props => props.headerLabel ? `content: "${props.headerLabel}:";` : "content: none;" }
+			}
+
+			> span {
+				line-height: inherit;
+			}
+		}
+	`;
+}
+
 export const Zebra = styled.ul`
  	padding: 0;
  	list-style: none;
@@ -179,88 +261,6 @@ export const ColumnMinWidth = styled( ColumnBase )`
 export const ColumnIcon = styled( ColumnFixedWidth )`
 	height: 48px;
 `;
-
-/**
- * Separatifies an element.
- *
- * @returns {String} CSS
- */
-export function separatify() {
-	return `
-		&::after {
-			position:relative;
-			display: inline-block;
-			border-right: 2px solid ${ colors.$color_grey };
-			padding-right: 24px;
-			height: 48px;
-			content: "";
-		}
-
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			&::after {
-				padding-right: 16px;
-			}
-		}
-	`;
-}
-
-/**
- * Make an element text nowrap and add ellipsis.
- *
- * @returns {String} CSS
- */
-export function ellipsify() {
-	return `
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	`;
-}
-
-/**
- * Makes an element full-width in the mobile responsive view.
- *
- * @param {ReactElement} component The original element.
- * @returns {ReactElement} The element with full width responsive style.
- */
-export function makeFullWidth( component ) {
-	return styled( component )`
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			min-width: 100%;
-			margin-top: 1em;
-			padding-right: 0;
-			padding-left: 0;
-
-			&:first-child {
-				margin-top: 0px;
-			}
-		}
-	`;
-}
-
-/**
- * Makes columns use headers as bold labels with a colon in the mobile responsive view.
- *
- * @param {ReactElement} column The original column.
- * @returns {ReactElement} The column with transformed headers.
- */
-export function responsiveHeaders( column ) {
-	return styled( column )`
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-			&::before {
-				float: left;
-				min-width: 60px;
-				line-height: inherit;
-				font-weight: 700;
-				${ props => props.headerLabel ? `content: "${props.headerLabel}:";` : "content: none;" }
-			}
-
-			> span {
-				line-height: inherit;
-			}
-		}
-	`;
-}
 
 /**
  * Returns the rendered ListTable component.

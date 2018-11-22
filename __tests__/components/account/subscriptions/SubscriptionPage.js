@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from "react-redux";
-import { createComponentWithIntl } from "../../utils";
-import SubscriptionPage from "../../src/components/SubscriptionPage";
+import SubscriptionPage from "../../../../src/components/account/subscriptions/SubscriptionPage";
 import configureStore from "redux-mock-store";
-import { mapStateToProps } from "../../src/containers/SubscriptionPage";
+import { mapStateToProps } from "../../../../src/containers/SubscriptionPage";
+import { createComponentWithIntl } from "../../../../utils";
 
 const mockStore = configureStore( [] );
 

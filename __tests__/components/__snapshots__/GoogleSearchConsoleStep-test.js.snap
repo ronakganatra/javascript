@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
+.c1 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c5 {
   height: 48px;
   margin: 0;
@@ -69,12 +75,6 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
 .c2 a,
 .c2 button {
   margin-left: 12px;
-}
-
-.c1 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c0 {

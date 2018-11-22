@@ -11,7 +11,8 @@ import styled from "styled-components";
 import { getUserId } from "../functions/auth";
 import { LargeButton, makeButtonFullWidth } from "../components/Button.js";
 import isEmpty from "lodash/isEmpty";
-import NoResults from "./NoResults";
+import SuggestedAction from "./SuggestedAction";
+import { GoToButtonLink } from "./Button";
 import noSitesImage from "./../images/noSites.svg";
 import defaults from "../config/defaults.json";
 import MyYoastModal from "./MyYoastModal";
@@ -107,7 +108,7 @@ class CoursesEnrollments extends React.Component {
 	 *
 	 * @returns {Object} The element to render.
 	 */
-	renderNoResults() {
+	renderSuggestedAction() {
 		const paragraphs = [
 			<FormattedMessage
 				id="courses.noEnrollments.welcome"
@@ -123,10 +124,12 @@ class CoursesEnrollments extends React.Component {
 			/>,
 		];
 
-		return <NoResults
-			url="https://yoast.com/courses" paragraphs={ paragraphs } pageContext="url"
+		return <SuggestedAction
+			paragraphs={ paragraphs }
 			imageSource={ noSitesImage }
-		/>;
+		>
+			<GoToButtonLink url="https://yoast.com/courses" />
+		</SuggestedAction>;
 	}
 
 	getModal() {
@@ -212,8 +215,9 @@ class CoursesEnrollments extends React.Component {
 	render() {
 		const { groupedCourseEnrollments } = this.props;
 
+
 		if ( isEmpty( groupedCourseEnrollments ) ) {
-			return this.renderNoResults();
+			return this.renderSuggestedAction();
 		}
 
 		const bulkEnrollments       = groupedCourseEnrollments.filter( e => e.id.startsWith( "bulk" ) );

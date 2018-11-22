@@ -2,8 +2,8 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { SVGIcon } from "./SVGIcon";
 import defaults from "../config/defaults.json";
+import UpDownArrow from "../icons/UpDownArrow";
 
 const CollapsibleHeaderContainer = styled.div`
 	margin-top : ${ props => props.marginTop }px;
@@ -101,18 +101,6 @@ export default class ListToggle extends React.Component {
 	}
 
 	/**
-	 * Gets the correct arrow based on whether the list is collapsed or not.
-	 *
-	 * @returns {ReactElement} The upArrow when the header is collapsed, otherwise the downArrow.
-	 */
-	getArrow() {
-		const upArrow = <SVGIcon><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" /></SVGIcon>;
-		const downArrow = <SVGIcon><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z" /></SVGIcon>;
-
-		return this.isOpen() ? upArrow : downArrow;
-	}
-
-	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -136,7 +124,7 @@ export default class ListToggle extends React.Component {
 					<CollapsibleTitle fontSize={ fontSize }>
 						{ this.props.title }
 					</CollapsibleTitle>
-					{ this.getArrow() }
+					<UpDownArrow isOpen={ this.isOpen() } />
 				</CollapsibleHeading>
 				{ children }
 			</CollapsibleHeaderContainer>

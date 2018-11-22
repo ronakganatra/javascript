@@ -47,6 +47,10 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -152,16 +156,16 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
   top: -24px;
@@ -187,18 +191,6 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -206,7 +198,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -253,20 +245,14 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
   margin-right: 24px;
 }
 
+.c5 {
+  color: #000;
+  text-align: center;
+  margin-top: 10vh;
+}
+
 .c0 {
   text-align: center;
-}
-
-.c5 {
-  margin: 20px 0 36px 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c6 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
 }
 
 @media screen and ( max-width:800px ) {
@@ -307,7 +293,7 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -356,8 +342,12 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         The search results will be updated as you type.
       </p>
     </div>
+  </div>
+  <div
+    className="c5"
+  >
     <button
-      className="c5 c6 c7 c8 c9 c10"
+      className="c6 c7 c8 c9 c10"
       onClick={[Function]}
       type="button"
     >
@@ -395,29 +385,29 @@ exports[`the sites page component with a site matches the snapshot 1`] = `
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>
@@ -472,6 +462,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -577,16 +571,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
   top: -24px;
@@ -612,18 +606,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -631,7 +613,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -678,20 +660,14 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 24px;
 }
 
+.c5 {
+  color: #000;
+  text-align: center;
+  margin-top: 10vh;
+}
+
 .c0 {
   text-align: center;
-}
-
-.c5 {
-  margin: 20px 0 36px 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c6 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
 }
 
 @media screen and ( max-width:800px ) {
@@ -732,7 +708,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -781,8 +757,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
         The search results will be updated as you type.
       </p>
     </div>
+  </div>
+  <div
+    className="c5"
+  >
     <button
-      className="c5 c6 c7 c8 c9 c10"
+      className="c6 c7 c8 c9 c10"
       onClick={[Function]}
       type="button"
     >
@@ -820,29 +800,29 @@ exports[`the sites page component with sites handling an onclick event on the ad
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>
@@ -897,6 +877,10 @@ exports[`the sites page component with sites handling an onclick event on the ad
   min-width: 152px;
 }
 
+.c6 {
+  margin-bottom: 2em;
+}
+
 .c17 {
   height: inherit;
 }
@@ -1002,16 +986,16 @@ exports[`the sites page component with sites handling an onclick event on the ad
   content: "Active subscriptions";
 }
 
-.c24 {
+.c23 {
   font-size: 14px;
   padding-left: 40px;
 }
 
-.c24:first-child {
+.c23:first-child {
   padding-left: 0;
 }
 
-.c24::before {
+.c23::before {
   position: absolute;
   left: -9999em;
   top: -24px;
@@ -1037,18 +1021,6 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 .c22 {
-  opacity: 1;
-  width: 40px;
-  height: 40px;
-  float: left;
-  margin-right: 10px;
-}
-
-.c22:nth-child(n+7) {
-  margin-top: 10px;
-}
-
-.c23 {
   opacity: 0.2;
   width: 40px;
   height: 40px;
@@ -1056,7 +1028,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 10px;
 }
 
-.c23:nth-child(n+7) {
+.c22:nth-child(n+7) {
   margin-top: 10px;
 }
 
@@ -1103,20 +1075,14 @@ exports[`the sites page component with sites handling an onclick event on the ad
   margin-right: 24px;
 }
 
+.c5 {
+  color: #000;
+  text-align: center;
+  margin-top: 10vh;
+}
+
 .c0 {
   text-align: center;
-}
-
-.c5 {
-  margin: 20px 0 36px 0;
-}
-
-@media screen and ( max-width:800px ) {
-  .c6 {
-    width: 100%;
-    background-image: none;
-    padding: 12px 16px;
-  }
 }
 
 @media screen and ( max-width:800px ) {
@@ -1157,7 +1123,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 }
 
 @media screen and ( max-width:1355px ) {
-  .c24 {
+  .c23 {
     padding-left: 20px;
   }
 }
@@ -1206,8 +1172,12 @@ exports[`the sites page component with sites handling an onclick event on the ad
         The search results will be updated as you type.
       </p>
     </div>
+  </div>
+  <div
+    className="c5"
+  >
     <button
-      className="c5 c6 c7 c8 c9 c10"
+      className="c6 c7 c8 c9 c10"
       onClick={[Function]}
       type="button"
     >
@@ -1245,29 +1215,29 @@ exports[`the sites page component with sites handling an onclick event on the ad
         >
           <span>
             <img
-              alt="Test is active"
+              alt="Test is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
-              alt="Test2 is active"
+              alt="Test2 is inactive"
               className="c22"
               src="test.jpg"
             />
             <img
               alt="Test3 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
             <img
               alt="Test4 is inactive"
-              className="c23"
+              className="c22"
               src="test.jpg"
             />
           </span>
         </span>
         <span
-          className="c15 c24"
+          className="c15 c23"
         />
       </li>
     </ul>
@@ -1276,7 +1246,7 @@ exports[`the sites page component with sites handling an onclick event on the ad
 `;
 
 exports[`the sites page component without sites handling an onclick event on the add site button 1`] = `
-.c5 {
+.c6 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -1294,19 +1264,19 @@ exports[`the sites page component without sites handling an onclick event on the
   transition: background-color 150ms ease-out;
 }
 
-.c5:hover,
-.c5:focus {
+.c6:hover,
+.c6:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c5:active {
+.c6:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
@@ -1314,39 +1284,42 @@ exports[`the sites page component without sites handling an onclick event on the
   padding-left: 36px;
 }
 
-.c3 {
+.c4 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c2 {
+.c3 {
   min-width: 152px;
 }
 
-.c0 {
+.c2 {
+  margin-bottom: 2em;
+}
+
+.c1 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
 }
 
-.c6 {
+.c7 {
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-.c1 {
-  margin-bottom: 2em;
+.c0 {
+  text-align: center;
 }
 
 @media screen and ( max-width:400px ) {
-  .c6 {
+  .c7 {
     max-width: 240px;
   }
 }
 
 @media screen and ( min-width:400px ) {
-  .c6 {
+  .c7 {
     max-width: 384px;
   }
 }
@@ -1354,6 +1327,9 @@ exports[`the sites page component without sites handling an onclick event on the
 <div>
   <div
     className="c0"
+  />
+  <div
+    className="c1"
   >
     <p>
       <span>
@@ -1371,7 +1347,7 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="c1 c2 c3 c4 c5"
+      className="c2 c3 c4 c5 c6"
       onClick={[Function]}
       type="button"
     >
@@ -1381,7 +1357,7 @@ exports[`the sites page component without sites handling an onclick event on the
     </button>
     <img
       alt=""
-      className="c6"
+      className="c7"
       src="noSites.svg"
     />
   </div>
@@ -1389,7 +1365,7 @@ exports[`the sites page component without sites handling an onclick event on the
 `;
 
 exports[`the sites page component without sites handling an onclick event on the add site button 2`] = `
-.c5 {
+.c6 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -1407,19 +1383,19 @@ exports[`the sites page component without sites handling an onclick event on the
   transition: background-color 150ms ease-out;
 }
 
-.c5:hover,
-.c5:focus {
+.c6:hover,
+.c6:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c5:active {
+.c6:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c4 {
+.c5 {
   background-repeat: no-repeat;
   background-image: url( plus.svg );
   background-position: 8px 50%;
@@ -1427,39 +1403,42 @@ exports[`the sites page component without sites handling an onclick event on the
   padding-left: 36px;
 }
 
-.c3 {
+.c4 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c2 {
+.c3 {
   min-width: 152px;
 }
 
-.c0 {
+.c2 {
+  margin-bottom: 2em;
+}
+
+.c1 {
   color: #000;
   text-align: center;
-  align: center;
   margin-top: 10vh;
 }
 
-.c6 {
+.c7 {
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-.c1 {
-  margin-bottom: 2em;
+.c0 {
+  text-align: center;
 }
 
 @media screen and ( max-width:400px ) {
-  .c6 {
+  .c7 {
     max-width: 240px;
   }
 }
 
 @media screen and ( min-width:400px ) {
-  .c6 {
+  .c7 {
     max-width: 384px;
   }
 }
@@ -1467,6 +1446,9 @@ exports[`the sites page component without sites handling an onclick event on the
 <div>
   <div
     className="c0"
+  />
+  <div
+    className="c1"
   >
     <p>
       <span>
@@ -1484,7 +1466,7 @@ exports[`the sites page component without sites handling an onclick event on the
       </span>
     </p>
     <button
-      className="c1 c2 c3 c4 c5"
+      className="c2 c3 c4 c5 c6"
       onClick={[Function]}
       type="button"
     >
@@ -1494,7 +1476,7 @@ exports[`the sites page component without sites handling an onclick event on the
     </button>
     <img
       alt=""
-      className="c6"
+      className="c7"
       src="noSites.svg"
     />
   </div>

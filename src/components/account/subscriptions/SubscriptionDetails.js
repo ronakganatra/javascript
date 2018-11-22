@@ -2,11 +2,11 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "./Tables";
+import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "../../Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages, FormattedMessage } from "react-intl";
-import defaults from "../config/defaults.json";
-import Link from "./Link";
-import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import defaults from "../../../config/defaults.json";
+import Link from "../../Link";
+import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {

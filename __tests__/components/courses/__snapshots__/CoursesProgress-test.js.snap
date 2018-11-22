@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The CoursesProgress component matches the snapshot 1`] = `
+.c13 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c15 {
   background: none;
   border: 0px;
@@ -73,12 +79,6 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
   font-size: 0.75em;
   font-weight: bold;
   color: #000;
-}
-
-.c13 {
-  -webkit-transform: translateY(1em);
-  -ms-transform: translateY(1em);
-  transform: translateY(1em);
 }
 
 .c7 {
