@@ -429,7 +429,6 @@ exports[`an add more licenses button should be shown when no more licenses are a
       </span>
     </a>
   </span>
-  
 </li>
 `;
 
@@ -862,6 +861,5 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       </span>
     </a>
   </span>
-  
 </li>
 `;

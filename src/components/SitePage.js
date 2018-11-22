@@ -13,6 +13,7 @@ import ConfigurationServiceRequestIntakeBlock from "./sites/ConfigurationService
 import ConfigurationServiceRequestStatusBlock from "./sites/ConfigurationServiceRequestStatusBlock";
 import ConfigurationServiceRequestForm from "./sites/configuration-service-requests/ConfigurationServiceRequestForm";
 import { hasAccessToFeature, CONFIGURATION_SERVICE_FEATURE } from "../functions/features";
+import DownloadsModalContainer from "./modal/DownloadModal";
 
 const messages = defineMessages( {
 	sitePageLoaded: {
@@ -128,11 +129,7 @@ class SitePage extends React.Component {
 			onToggleSubscription={ this.props.onToggleSubscription }
 			onClose={ this.props.onClose }
 			onToggleDisabled={ this.props.onToggleDisabled }
-			downloadModalOpen={ this.props.downloadModalIsOpen }
 			onDownloadModalOpen={ this.props.onDownloadModalOpen }
-			onDownloadModalClose={ this.props.onDownloadModalClose }
-			downloadModalSubscriptionId={ this.props.downloadModalSubscriptionId }
-			downloads={ this.props.downloads }
 		/>;
 	}
 
@@ -166,6 +163,7 @@ class SitePage extends React.Component {
 				{ this.getConfigurationServiceRequestModal() }
 				<SiteDangerZone onRemove={ props.onRemove } removing={ props.uiSite.removing } />
 				{ this.getModal() }
+				<DownloadsModalContainer />
 			</div>
 		);
 	}
@@ -195,22 +193,12 @@ SitePage.propTypes = {
 	onConfigurationModalClose: PropTypes.func.isRequired,
 	configureConfigurationServiceRequest: PropTypes.func.isRequired,
 	openConfigurationServiceRequestModal: PropTypes.func.isRequired,
-
-	downloadModalIsOpen: PropTypes.bool,
 	onDownloadModalOpen: PropTypes.func,
-	onDownloadModalClose: PropTypes.func,
-	downloadModalSubscriptionId: PropTypes.string,
-	downloads: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SitePage.defaultProps = {
 	subscriptions: [],
 	loadingSite: false,
 	loadingSubscriptions: true,
-
-	downloadModalIsOpen: false,
 	onDownloadModalOpen: () => {},
-	onDownloadModalClose: () => {},
-	downloadModalSubscriptionId: "",
-	downloads: [],
 };
