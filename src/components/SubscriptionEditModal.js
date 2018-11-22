@@ -85,6 +85,13 @@ const CancelSubscriptionContainer = styled.div`
 	width:600px;
 `;
 
+/**
+ * Returns the rendered Subscription Edit Modal component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered SubscriptionEditModal component.
+ */
 class SubscriptionEditModal extends React.Component {
 	/**
 	 * Constructs a subscription edit modal.
@@ -243,7 +250,6 @@ class SubscriptionEditModal extends React.Component {
 }
 
 SubscriptionEditModal.propTypes = {
-	className: PropTypes.string,
 	intl: intlShape.isRequired,
 	isOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
