@@ -78,12 +78,6 @@ let ownProps = {
 };
 
 let defaultExpected = {
-	cancelError: false,
-	cancelLoading: true,
-	cancelModalOpen: false,
-	cancelSuccess: false,
-	connectedSubscriptions: [],
-	connectedSubscriptionsSites: [],
 	orders: [ {
 		currency: "USD",
 		date: new Date( "2017-05-01 21:04:28" ),
@@ -92,9 +86,6 @@ let defaultExpected = {
 		orderNumber: "YST201701",
 		status: "Completed",
 		total: "6900"
-	} ],
-	sites: [ {
-		subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ]
 	} ],
 	subscription: {
 		currency: "USD",
