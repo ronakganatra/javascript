@@ -228,17 +228,18 @@ class SubscriptionRow extends React.Component {
 	 */
 	retrieveOverallSubscriptionData( subscriptionsArray ) {
 		const donorSubscription = subscriptionsArray[ 0 ];
+
+		const activeSubscriptions = subscriptionsArray.filter( subscription => [ "active", "pending-cancel" ].includes( subscription.status ) );
+
 		const countTotals = ( inputArray, field ) => {
 			return inputArray.reduce( ( total, current ) => {
 				return total + current[ field ];
 			}, 0 );
 		};
 
-		const isActive = subscriptionsArray
-			.map( subscription => subscription.status )
-			.includes( "active" );
-		const totalLimit = countTotals( subscriptionsArray, "limit" );
-		const totalUsed = countTotals( subscriptionsArray, "used" );
+		const isActive = activeSubscriptions.length > 0;
+		const totalLimit = countTotals( activeSubscriptions, "limit" );
+		const totalUsed = countTotals( activeSubscriptions, "used" );
 		return {
 			name: donorSubscription.name,
 			icon: donorSubscription.icon,
@@ -261,19 +262,19 @@ class SubscriptionRow extends React.Component {
 		return (
 			<Fragment>
 				{ isInExpanded && this.isActive( subscription.status, false ) &&
-					<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.mobile }px)` }>
-						<strong>
-							<FormattedMessage
-								id={ "mobile-expandable-next-billing" }
-								defaultMessage={ "Next billing: " }
-							/>
-						</strong>
-						{ nextPaymentInformation }
-						{ subscription.billingType }
-					</MediaQuery>
+				<MediaQuery query={ `(max-width: ${ defaults.css.breakpoint.mobile }px)` }>
+					<strong>
+						<FormattedMessage
+							id={ "mobile-expandable-next-billing" }
+							defaultMessage={ "Next billing: " }
+						/>
+					</strong>
+					{ nextPaymentInformation }
+					{ subscription.billingType }
+				</MediaQuery>
 				}
 				{ ! isInExpanded &&
-					subscription.name
+				subscription.name
 				}
 				<Detail isInExpanded={ isInExpanded }>
 					<StyledStatus status={ subscription.status }>
@@ -486,7 +487,6 @@ SubscriptionRow.propTypes = {
 	intl: intlShape,
 };
 
-SubscriptionRow.defaultProps = {
-};
+SubscriptionRow.defaultProps = {};
 
 export default injectIntl( SubscriptionRow );
