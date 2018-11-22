@@ -365,7 +365,7 @@ class SubscriptionRow extends React.Component {
 			return previousBackgroundColor === darkerGrey ? darkerWhite : darkerGrey;
 		};
 
-		const onExpandClick = () => {
+		const toggleOpen = () => {
 			this.setState( { isOpen: ! this.state.isOpen } );
 		};
 
@@ -386,7 +386,7 @@ class SubscriptionRow extends React.Component {
 			<Fragment>
 				<StyledRow
 					key={ subscription.id }
-					onClick={ onExpandClick }
+					onClick={ toggleOpen }
 					dimmed={ status === "Not active" }
 					background={ this.props.background }
 				>
@@ -397,7 +397,7 @@ class SubscriptionRow extends React.Component {
 						<CollapseButtonSpacer>
 							<UpDownButton
 								isOpen={ this.state.isOpen }
-								onClick={ onExpandClick }
+								onClick={ toggleOpen }
 							/>
 						</CollapseButtonSpacer>
 					</ColumnFixedWidth>
