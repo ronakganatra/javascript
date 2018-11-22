@@ -6,13 +6,21 @@ import {
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";
+import { getAllProducts } from "../actions/products";
+import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import {
+	getProductsFromSubscription,
+} from "../functions/productGroups";
+import { sortPluginsByPopularity } from "../functions/products";
+
 
 /* eslint-disable require-jsdoc */
+/* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
@@ -80,6 +88,11 @@ export const mapStateToProps = ( state, ownProps ) => {
 			);
 	}
 
+	let products = getProductsFromSubscription( state, selectedSubscription )
+		.filter( product => product.sourceShopId === 1 );
+
+	products = sortPluginsByPopularity( products );
+
 	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
 		cancelLoading: state.ui.subscriptionsCancel.loading,
@@ -91,6 +104,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		subscription: selectedSubscription,
 		orders,
 		sites,
+		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
 	}, cancelSubscriptionState );
@@ -103,6 +117,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( getOrders() );
 			dispatch( getAllSubscriptions() );
 			dispatch( retrieveSites() );
+			dispatch( getAllProducts() );
+			dispatch( getProductGroups() );
 		},
 		cancelSubscription: ( subscriptionId, shopId ) => {
 			dispatch( cancelSubscription( subscriptionId, shopId ) );

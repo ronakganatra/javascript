@@ -5,12 +5,14 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-const _flatten = require( "lodash/flatten" );
 import { getPlugins, sortPluginsByPopularity } from "../functions/products";
-import { getProductGroupsByParentSlug, getProductsByProductGroupId } from "../functions/productGroups";
+import {
+	getProductsFromSubscription,
+} from "../functions/productGroups";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 import { getSearchQuery } from "../selectors/search";
+import { getAllOfEntity } from "../selectors/entities";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -34,14 +36,6 @@ export const mapStateToProps = ( state ) => {
 			return siteProps;
 		}
 
-		const allProducts = state.entities.products.allIds.map( ( productIds ) => {
-			return state.entities.products.byId[ productIds ];
-		} );
-
-		const allProductGroups = state.entities.productGroups.allIds.map( ( productGroupIds ) => {
-			return state.entities.productGroups.byId[ productGroupIds ];
-		} );
-
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
 				return Object.assign( {}, state.entities.subscriptions.byId[ subscriptionId ] );
@@ -50,19 +44,7 @@ export const mapStateToProps = ( state ) => {
 				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );
 			} )
 			.map( ( subscription ) => {
-				const product = subscription.product;
-				const productGroupsForProduct = product.productGroups;
-				if ( ! productGroupsForProduct ) {
-					return subscription;
-				}
-
-				if ( ! productGroupsForProduct.some( pg => pg.parentId === null ) ) {
-					return subscription;
-				}
-
-				const childProductGroups = _flatten( productGroupsForProduct.map( pg => getProductGroupsByParentSlug( pg.slug, allProductGroups ) ) );
-				subscription.product = _flatten( childProductGroups.map( cpg => getProductsByProductGroupId( cpg.id, allProducts ) ) );
-
+				subscription.products = sortPluginsByPopularity( getProductsFromSubscription( state, subscription ) );
 				return subscription;
 			} );
 
@@ -70,9 +52,7 @@ export const mapStateToProps = ( state ) => {
 		return siteProps;
 	} );
 
-	const allConfigurationServices = state.entities.configurationServiceRequests.allIds.map( ( id ) => {
-		return state.entities.configurationServiceRequests.byId[ id ];
-	} );
+	const allConfigurationServices = getAllOfEntity( state, "configurationServiceRequests" );
 
 	const siteIdsWithConfigurationServiceRequest = allConfigurationServices.map( ( RequestedSite ) => {
 		return RequestedSite.siteId;

@@ -2,14 +2,17 @@ import PropTypes from "prop-types";
 import React from "react";
 import AnimatedLoader from "../../Loader";
 import Header from "./SubscriptionHeader";
-import SubscriptionDetails from "./SubscriptionDetails";
-import { injectIntl, intlShape, defineMessages } from "react-intl";
+import SubscriptionDetails, { ColumnFixedWidthResponsive, RowMobileCollapseNoMinHeight } from "./SubscriptionDetails";
+import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { ListHeading } from "../../Headings";
 import Orders from "../../Orders";
 import { Paper } from "../../PaperStyles";
 import styled from "styled-components";
 import defaults from "../../../config/defaults.json";
 import SubscriptionCancelModal from "./SubscriptionCancelModal";
+import { ColumnMinWidth, ListTable } from "../../Tables";
+import Link from "../../Link";
+import { hasDownload } from "../../../functions/productGroups";
 
 const messages = defineMessages( {
 	paymentDetailsTitle: {
@@ -19,6 +22,18 @@ const messages = defineMessages( {
 	invoicesTitle: {
 		id: "subscriptionPage.invoices.title",
 		defaultMessage: "Invoices",
+	},
+	downloadTitle: {
+		id: "subscriptionPage.download.title",
+		defaultMessage: "Included products",
+	},
+	downloadLinkText: {
+		id: "subscriptionPage.download.linkText",
+		defaultMessage: "Download",
+	},
+	installationGuide: {
+		id: "subscriptionPage.installationGuide",
+		defaultMessage: "Read our installation guides",
 	},
 } );
 
@@ -49,6 +64,15 @@ export function styledOrders( orders ) {
 
 const SubscriptionOrders = styledOrders( Orders );
 
+const DownloadListHeading = styled( ListHeading )`
+	display: flex;
+	justify-content: space-between;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		flex-direction: column;
+	}
+`;
+
 /**
  * Returns the rendered SubscriptionPage component.
  *
@@ -63,6 +87,11 @@ class SubscriptionPage extends React.Component {
 		this.props.loadData();
 	}
 
+	/**
+	 * Returns the modal for canceling the subscription.
+	 *
+	 * @returns {ReactElement} The modal for canceling the subscription.
+	 */
 	getModal() {
 		const subscription = this.props.subscription;
 		const otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
@@ -84,6 +113,36 @@ class SubscriptionPage extends React.Component {
 	}
 
 	/**
+	 * Creates a list based on the passed products.
+	 *
+	 * @param {array} products The products to show in the list.
+	 * @returns {ReactElement} The list of products.
+	 */
+	getProductsList( products ) {
+		return <ListTable>
+			{ products.map( product => {
+				return (
+					<RowMobileCollapseNoMinHeight hasHeaderLabels={ false } key={ product.name }>
+						<ColumnMinWidth ellipsis={ true }>
+							{ product.name }
+						</ColumnMinWidth>
+						<ColumnFixedWidthResponsive ellipsis={ true }>
+							{
+								hasDownload( product ) && <Link
+									to={ product.downloads[ 0 ].file }
+									linkTarget={ "_blank" }
+								>
+									<FormattedMessage { ...messages.downloadLinkText } />
+								</Link>
+							}
+						</ColumnFixedWidthResponsive>
+					</RowMobileCollapseNoMinHeight>
+				);
+			} ) }
+		</ListTable>;
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -94,6 +153,7 @@ class SubscriptionPage extends React.Component {
 		}
 
 		const subscription = this.props.subscription;
+
 		return <section>
 			<Header
 				name={ subscription.name }
@@ -125,6 +185,16 @@ class SubscriptionPage extends React.Component {
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
 				</ListHeading>
 				<SubscriptionOrders hasPaper={ false } { ...this.props } />
+				<DownloadListHeading>
+					<FormattedMessage { ...messages.downloadTitle } />
+					<Link
+						to={ "https://yoa.st/myyoast-installation" }
+						linkTarget={ "_blank" }
+					>
+						<FormattedMessage { ...messages.installationGuide } />
+					</Link>
+				</DownloadListHeading>
+				{ this.getProductsList( this.props.products ) }
 			</Paper>
 			{ this.getModal() }
 		</section>;
@@ -157,6 +227,7 @@ SubscriptionPage.propTypes = {
 	cancelSuccess: PropTypes.bool.isRequired,
 	cancelError: PropTypes.object,
 	loadData: PropTypes.func.isRequired,
+	products: PropTypes.arrayOf( PropTypes.object ),
 };
 
 SubscriptionPage.defaultProps = {
@@ -169,6 +240,7 @@ SubscriptionPage.defaultProps = {
 	cancelLoading: false,
 	cancelSuccess: false,
 	cancelError: null,
+	products: [],
 };
 
 export default injectIntl( SubscriptionPage );
