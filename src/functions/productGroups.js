@@ -154,7 +154,7 @@ export function getProductsFromSubscription( state, subscription ) {
 			return getProductGroupsByParentSlug( productGroup.slug, allProductGroups );
 		} );
 	}
-
+	// Return the products for the product groups.
 	return _flatMap(
 		productGroups,
 		productGroup => getProductsByProductGroupId( productGroup.id, allProducts )
