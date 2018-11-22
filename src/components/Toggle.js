@@ -69,14 +69,13 @@ class Toggle extends React.Component {
 		super( props );
 
 		this.onClick = this.props.onToggleDisabled;
-		this.onKeyUp = this.props.onToggleDisabled;
 
 		this.setEnablement = this.setEnablement.bind( this );
 		this.handleOnKeyDown = this.handleOnKeyDown.bind( this );
+		this.handleOnKeyUp = this.handleOnKeyUp.bind( this );
 
 		if ( props.disable !== true ) {
 			this.onClick = this.setEnablement;
-			this.onKeyUp = this.setEnablement;
 		}
 
 		this.state = {
@@ -94,7 +93,7 @@ class Toggle extends React.Component {
 			<ToggleBar
 				isEnabled={ this.isEnabled() }
 				onClick={ this.onClick }
-				onKeyUp={ this.onKeyUp }
+				onKeyUp={ this.handleOnKeyUp }
 				onKeyDown={ this.handleOnKeyDown }
 				tabIndex="0"
 				role="checkbox"
@@ -143,7 +142,7 @@ class Toggle extends React.Component {
 	}
 
 	/**
-	 * Prevente the page from scrolling when using the Spacebar key.
+	 * Prevent the page from scrolling when using the spacebar key.
 	 *
 	 * @param {Object} event React SyntheticEvent.
 	 *
@@ -155,6 +154,21 @@ class Toggle extends React.Component {
 		}
 
 		event.preventDefault();
+	}
+
+	/**
+	 * Releasing the spacebar should return the assigned onClick function.
+	 *
+	 * @param {Object} event React SyntheticEvent.
+	 *
+	 * @returns {void}
+	 */
+	handleOnKeyUp( event ) {
+		if ( event.keyCode !== 32 ) {
+			return;
+		}
+
+		this.onClick( event );
 	}
 }
 
