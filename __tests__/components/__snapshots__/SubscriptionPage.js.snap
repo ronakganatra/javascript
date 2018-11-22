@@ -326,7 +326,7 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
       <h1
         className="c4 c5"
       >
-        test subcription
+        test subscription
       </h1>
       <p
         className="c6"
@@ -735,7 +735,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
       <h1
         className="c4 c5"
       >
-        test subcription
+        test subscription
       </h1>
       <p
         className="c6"
@@ -818,7 +818,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
             onClick={[Function]}
           >
             <span>
-              Cancel subscription
+              Edit or cancel subscription
             </span>
           </a>
         </span>
