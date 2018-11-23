@@ -26,11 +26,11 @@ import { getSearchQuery } from "../selectors/search";
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
 	const completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
-	const completedOrdersWithItems = completedOrders.filter( order => order.items );
-	const lineItems = _flatMap( completedOrdersWithItems, ( order ) => {
+	const lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
 	} );
-	const boughtProductIds = lineItems.map( ( lineItem ) => {
+	const nonEmptyLineItems = lineItems.filter( lineItem => lineItem );
+	const boughtProductIds = nonEmptyLineItems.map( ( lineItem ) => {
 		return lineItem.productId;
 	} );
 	return _filter( eBooks, ( eBook ) => {
