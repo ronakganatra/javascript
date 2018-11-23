@@ -26,7 +26,8 @@ import { getSearchQuery } from "../selectors/search";
 const getEbookProducts = ( state ) => {
 	const eBooks = getEbooks( state.entities.products.byId );
 	const completedOrders = _filter( state.entities.orders.byId, { status: "completed" } );
-	const lineItems = _flatMap( completedOrders, ( order ) => {
+	const completedOrdersWithItems = completedOrders.filter( order => order.items );
+	const lineItems = _flatMap( completedOrdersWithItems, ( order ) => {
 		return order.items;
 	} );
 	const boughtProductIds = lineItems.map( ( lineItem ) => {
@@ -52,7 +53,7 @@ const getEbookProducts = ( state ) => {
 const getPluginProducts = ( state ) => {
 	const activeSubscriptions = _filter(
 		state.entities.subscriptions.byId,
-		subscription => subscription.status  === "active" || subscription.status === "pending-cancel"
+		subscription => subscription.status === "active" || subscription.status === "pending-cancel"
 	);
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
