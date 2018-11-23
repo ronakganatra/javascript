@@ -29,7 +29,8 @@ const getEbookProducts = ( state ) => {
 	const lineItems = _flatMap( completedOrders, ( order ) => {
 		return order.items;
 	} );
-	const boughtProductIds = lineItems.map( ( lineItem ) => {
+	const nonEmptyLineItems = lineItems.filter( lineItem => lineItem );
+	const boughtProductIds = nonEmptyLineItems.map( ( lineItem ) => {
 		return lineItem.productId;
 	} );
 	return _filter( eBooks, ( eBook ) => {
@@ -52,7 +53,7 @@ const getEbookProducts = ( state ) => {
 const getPluginProducts = ( state ) => {
 	const activeSubscriptions = _filter(
 		state.entities.subscriptions.byId,
-		subscription => subscription.status  === "active" || subscription.status === "pending-cancel"
+		subscription => subscription.status === "active" || subscription.status === "pending-cancel"
 	);
 
 	const activeSubscriptionIds = activeSubscriptions.map( ( subscription ) => {
