@@ -47,6 +47,10 @@ const messages = defineMessages( {
 		id: "subscriptionCancel.modal.loading",
 		defaultMessage: "Cancelling subscription...",
 	},
+	selectAmount: {
+		id: "subscriptionCancel.modal.amount",
+		defaultMessage: "Select amount",
+	},
 } );
 
 const ActionButtonsContainer = styled( ButtonsContainer )`
@@ -82,7 +86,7 @@ const NumberField = styled( InputField )`
 `;
 
 const CancelSubscriptionContainer = styled.div`
-	width:600px;
+	width: 600px;
 `;
 
 /**
@@ -144,7 +148,7 @@ class SubscriptionEditModal extends React.Component {
 	}
 
 	/**
-	 * Increase the number to cancel unless it is already at the maximum possible.
+	 * Increase the number of items to cancel unless it is already at the maximum possible.
 	 *
 	 * @returns {void}
 	 */
@@ -155,7 +159,7 @@ class SubscriptionEditModal extends React.Component {
 	}
 
 	/**
-	 * Decrease the number to cancel unless it is already at one.
+	 * Decrease the number of items to cancel unless it is already at one.
 	 *
 	 * @returns {void}
 	 */
@@ -174,7 +178,7 @@ class SubscriptionEditModal extends React.Component {
 		if ( this.props.numberOfCurrentSubscriptions ) {
 			const ResponsiveNumberButton = makeButtonFullWidth( makeResponsiveIconButton( NumberButton ) );
 			return <div>
-				Select amount
+				<FormattedMessage id={ messages.selectAmount.id } defaultMessage={ messages.selectAmount.defaultMessage } />
 				<ResponsiveNumberButton
 					id="decrease"
 					descriptionId="decrease-number-to-cancel"
