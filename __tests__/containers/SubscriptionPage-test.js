@@ -17,6 +17,19 @@ let state = {
 					currency: "USD",
 					product: {
 						icon: "icon.jpg",
+						name: "Yoast SEO for WordPress",
+						sourceShopId: 1,
+						productGroups: [
+							{
+								subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+								id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+							}
+						],
+						downloads: [
+							{
+								file: "filepath",
+							},
+						]
 					},
 					status: "active",
 				},
@@ -48,7 +61,38 @@ let state = {
 				},
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
-		}
+		},
+		products: {
+			byId: {
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					sourceShopId: 1,
+					productGroups: [
+						{
+							subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+							id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+						},
+					],
+					downloads: [
+						{
+							file: "filepath",
+						},
+					],
+					icon: "icon.jpg",
+					name: "Yoast SEO for WordPress",
+				},
+			},
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		},
+		productGroups: {
+			byId: {
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
+			},
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		},
 	},
 	router: {
 		location: "subscriptions/thisIsAnId",
@@ -78,6 +122,31 @@ let ownProps = {
 };
 
 let defaultExpected = {
+	cancelError: false,
+	cancelLoading: true,
+	cancelModalOpen: false,
+	cancelSuccess: false,
+	connectedSubscriptions: [],
+	connectedSubscriptionsSites: [],
+	products: [
+		{
+			downloads: [
+				{
+					file: "filepath",
+				},
+			],
+			icon: "icon.jpg",
+			name: "Yoast SEO for WordPress",
+			productGroups: [
+				{
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				}
+			],
+			sourceShopId: 1,
+			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		},
+	],
 	orders: [ {
 		currency: "USD",
 		date: new Date( "2017-05-01 21:04:28" ),
@@ -97,7 +166,18 @@ let defaultExpected = {
 		orders: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		price: "6900",
 		product: {
-			icon: "icon.jpg"
+			icon: "icon.jpg",
+			name: "Yoast SEO for WordPress",
+			sourceShopId: 1,
+			productGroups: [
+				{
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
+			],
+			downloads: [ {
+					file: "filepath"
+				} ],
 		},
 		status: "active",
 		used: 1

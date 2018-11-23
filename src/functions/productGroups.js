@@ -1,3 +1,6 @@
+import { getAllOfEntity } from "../selectors/entities";
+import _flatMap from "lodash/flatMap";
+
 /** Product helpers */
 
 export const SITE_TYPE_PLUGIN_SLUG_MAPPING = {
@@ -120,3 +123,50 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 			return productGroupIds.includes( pluginGroupId );
 		} );
 }
+
+/**
+ * Gets the products that a subscription gives access to.
+ *
+ * @param   {Object} state        The application state.
+ * @param   {Object} subscription The subscription.
+ *
+ * @returns {Array}               An array with the products for the subscription.
+ */
+export function getProductsFromSubscription( state, subscription ) {
+	if ( ! subscription.product.productGroups ) {
+		/*
+		If this product has no productGroups attached to it, we can not find potential other products via the productGroups.
+		Best guess is to at least return the product inside an array to be in line with expected behaviour for this function.
+		If the subscription does not even have a product, return an empty array.
+		 */
+		return subscription.product ? [ subscription.product ] : [];
+	}
+
+	let productGroups = subscription.product.productGroups;
+	const allProducts = getAllOfEntity( state, "products" );
+
+	// If at least one productGroup doesn't have a parent.
+	if ( productGroups.some( productGroup => productGroup.parentId === null ) ) {
+		const allProductGroups = getAllOfEntity( state, "productGroups" );
+
+		// Retrieve the child product groups for the parent product group.
+		productGroups = _flatMap( productGroups, ( productGroup ) => {
+			return getProductGroupsByParentSlug( productGroup.slug, allProductGroups );
+		} );
+	}
+	// Return the products for the product groups.
+	return _flatMap(
+		productGroups,
+		productGroup => getProductsByProductGroupId( productGroup.id, allProducts )
+	);
+}
+
+/**
+ * Returns true if a product has downloads.
+ *
+ * @param   {Object}  product The product to check downloads for.
+ * @returns {boolean}         Whether or not the product has downloads.
+ */
+export const hasDownload = ( product ) => {
+	return product.hasOwnProperty( "downloads" ) && product.downloads.length > 0;
+};

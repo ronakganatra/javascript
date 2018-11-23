@@ -44,7 +44,7 @@ function SiteSubscriptions( props ) {
 				props.plugins.map( function( plugin ) {
 					let isActive = false;
 					props.activeSubscriptions.forEach( ( subscription ) => {
-						let products = subscription.product;
+						let products = subscription.products;
 
 						if ( ! Array.isArray( products ) ) {
 							products = [ products ];

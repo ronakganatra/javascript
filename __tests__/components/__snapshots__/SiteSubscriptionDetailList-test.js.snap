@@ -580,7 +580,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </a>
         </span>
-        
       </li>
       <li
         className="c5 c28"
@@ -679,7 +678,6 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </a>
         </span>
-        
       </li>
     </ul>
   </div>

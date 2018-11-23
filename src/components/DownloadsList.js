@@ -4,6 +4,7 @@ import { injectIntl, defineMessages, intlShape, FormattedMessage } from "react-i
 import styled from "styled-components";
 import { ModalHeading } from "./Headings";
 import colors from "yoast-components/style-guide/colors.json";
+import Link from "./Link";
 import defaults from "../config/defaults.json";
 import {
 	ListTable,
@@ -26,12 +27,12 @@ const messages = defineMessages( {
 	},
 } );
 
-const DownloadLink = styled.a`
+const DownloadLink = styled( Link )`
 	padding-left: 0;
 	color: ${ colors.$color_blue };
 `;
 
-const InstallationGuideLink = styled.a`
+const InstallationGuideLink = styled( Link )`
 	padding-left: 0;
 	color: ${ colors.$color_blue };
 	font-size: 14px;
@@ -97,6 +98,12 @@ class DownloadsList extends React.Component {
 		super( props );
 	}
 
+	/**
+	 * Creates a row with a download name and file link.
+	 *
+	 * @param   {Object}       download The download object.
+	 * @returns {ReactElement}          A downloadsList row.
+	 */
 	makeDownloadRow( download ) {
 		const ResponsiveProductNameColumn = responsiveHeaders( ProductNameColumn );
 
@@ -111,9 +118,9 @@ class DownloadsList extends React.Component {
 				</ResponsiveProductNameColumn>
 				<DownloadLinkColumn>
 					<DownloadLink
-						target="_blank"
-						href={ downloadLink }
-						rel="noopener noreferrer"
+						to={ downloadLink }
+						linkTarget={ "_blank" }
+						aria-label={ "Download" }
 					>
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>
@@ -130,8 +137,8 @@ class DownloadsList extends React.Component {
 	render() {
 		const downloadsTable =
 			<ListTable invertZebra={ true } { ...this.props }>
-				{ this.props.downloads.map( ( one ) => {
-					return this.makeDownloadRow( one );
+				{ this.props.downloads.map( ( download ) => {
+					return this.makeDownloadRow( download );
 				} ) }
 			</ListTable>;
 
@@ -143,9 +150,8 @@ class DownloadsList extends React.Component {
 				{ downloadsTable }
 				<FooterArea>
 					<InstallationGuideLink
-						target="_blank"
-						href="https://yoa.st/myyoast-installation"
-						rel="noopener noreferrer"
+						to={ "https://yoa.st/myyoast-installation" }
+						linkTarget={ "_blank" }
 					>
 						{ this.props.intl.formatMessage( messages.installationGuideLink ) }
 					</InstallationGuideLink>
