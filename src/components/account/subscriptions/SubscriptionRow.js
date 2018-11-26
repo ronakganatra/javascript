@@ -11,6 +11,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 import SiteIcon from "../../SiteIcon";
 import { UpDownButton } from "../../Button";
+import Link from "../../Link";
 
 const messages = defineMessages( {
 	individualSubscriptions: {
@@ -53,9 +54,29 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.manage",
 		defaultMessage: "Manage",
 	},
-	sites: {
-		id: "subscriptions.overview.sites",
-		defaultMessage: "{ limit } sites",
+	needsAttention: {
+		id: "subscriptions.overview.needsAttention",
+		defaultMessage: "Needs attention",
+	},
+	details: {
+		id: "subscriptions.overview.details",
+		defaultMessage: "Details",
+	},
+	renewMessage: {
+		id: "subscriptions.overview.renewMessage",
+		defaultMessage: "Renew now for 25% off!",
+	},
+	seeDetails: {
+		id: "subscriptions.overview.seeDetails",
+		defaultMessage: "See details",
+	},
+	statusNotActive: {
+		id: "subscriptions.overview.statusNotActive",
+		defaultMessage: "Not Active",
+	},
+	statusActive: {
+		id: "subscriptions.overview.statusActive",
+		defaultMessage: "Active",
 	},
 } );
 
@@ -99,7 +120,7 @@ StyledColumnMinWidth.propTypes = {
 };
 
 const StyledStatus = styled.span`
-	color: ${ props => props.status === "suspended" ? colors.$color_red : "inherit" };
+	color: ${ props => props.needsAttention ? colors.$color_red : "inherit" };
 	font-weight: ${ props => props.status === "cancelled" ? "inherit" : "bold" };
 `;
 
@@ -134,6 +155,11 @@ const Separator = styled.div`
 	border-bottom: 1px solid black;
 `;
 
+const RedBoldString = styled.div`
+	color: ${ colors.$color_red };
+	font-weight: ${ "bold" };
+`;
+
 /**
  * Creates a subscription component
  *
@@ -142,6 +168,7 @@ const Separator = styled.div`
  * @constructor
  */
 class SubscriptionRow extends React.Component {
+	/* eslint-disable require-jsdoc */
 	constructor( props ) {
 		super( props );
 
@@ -230,7 +257,15 @@ class SubscriptionRow extends React.Component {
 		const donorSubscription = subscriptionsArray[ 0 ];
 
 		const activeSubscriptions = subscriptionsArray.filter( subscription => [ "active", "pending-cancel" ].includes( subscription.status ) );
+		const needsAttentionArray = subscriptionsArray.filter( subscription => subscription.needsAttention );
+		const needsAttention = needsAttentionArray.length > 0;
 
+		/**
+		 * Function to count the total number of a given field
+		 * @param {Array} inputArray An array containing all the sub-subscriptions
+		 * @param {string} field Which selector should be used
+		 * @returns {*} The total number of a given field
+		 */
 		const countTotals = ( inputArray, field ) => {
 			return inputArray.reduce( ( total, current ) => {
 				return total + current[ field ];
@@ -240,13 +275,28 @@ class SubscriptionRow extends React.Component {
 		const isActive = activeSubscriptions.length > 0;
 		const totalLimit = countTotals( activeSubscriptions, "limit" );
 		const totalUsed = countTotals( activeSubscriptions, "used" );
+
+		/* eslint-disable require-jsdoc */
+		const status = ( isActive, needsAttention, nrOfAttention ) => {
+			if ( needsAttention && nrOfAttention === 1 ) {
+				return "1 action needed";
+			} else if ( needsAttention ) {
+				return nrOfAttention + " actions needed";
+			} else if ( isActive ) {
+				return messages.statusActive;
+			}
+			return messages.statusNotActive;
+		};
+
 		return {
 			name: donorSubscription.name,
 			icon: donorSubscription.icon,
 			hasSites: donorSubscription.hasSites,
-			status: isActive ? "active" : "not active",
+			status: status( isActive, needsAttention, needsAttentionArray.length ),
 			used: totalUsed,
 			limit: totalLimit,
+			needsAttention: needsAttention,
+			superRow: true,
 		};
 	}
 
@@ -259,6 +309,16 @@ class SubscriptionRow extends React.Component {
 	 * @returns {ReactElement}                          The contents of the first column (for this row).
 	 */
 	getPrimaryColumnContent( subscription, isInExpanded = false, nextPaymentInformation = "" ) {
+		const getStatus = ( subscription ) => {
+			if ( ! subscription.needsAttention || subscription.superRow ) {
+				return subscription.status;
+			}
+			if ( subscription.status === "on-hold" ) {
+				return "suspended";
+			}
+			return "expires soon";
+		};
+
 		return (
 			<Fragment>
 				{ isInExpanded && this.isActive( subscription.status, false ) &&
@@ -277,11 +337,47 @@ class SubscriptionRow extends React.Component {
 				subscription.name
 				}
 				<Detail isInExpanded={ isInExpanded }>
-					<StyledStatus status={ subscription.status }>
-						{ capitalizeFirstLetter( subscription.status ) }
+					<StyledStatus status={ subscription.status } needsAttention={ subscription.needsAttention }>
+						{ capitalizeFirstLetter( getStatus( subscription ) ) }
 					</StyledStatus>
 					{ subscription.subscriptionNumber && " - " }{ subscription.subscriptionNumber }
 				</Detail>
+			</Fragment>
+		);
+	}
+
+	/**
+	 * Gets the details about what action is needed for the subscription
+	 * @param   {SubscriptionRow} subscription    The subscription
+	 * @returns {ReactElement} The details section
+	 */
+	getDetails( subscription ) {
+		const detailsModal = () => this.props.showDetailsModal( subscription.renewalUrl );
+		if ( subscription.status === "on-hold" ) {
+			return (
+				<Fragment>
+					<RedBoldString>Payment failed</RedBoldString>
+					<Link
+						to={ "#" }
+						onClick={ detailsModal }
+					>
+						{ this.props.intl.formatMessage( messages.seeDetails ) }
+					</Link>
+				</Fragment>
+			);
+		}
+		const options = { year: "numeric", month: "short", day: "numeric" };
+		return (
+			<Fragment>
+				<RedBoldString>Expires { subscription.hasEndDate
+					? subscription.endDate.toLocaleDateString( "en-US", options )
+					: subscription.nextPayment.toLocaleDateString( "en-US", options ) }
+				</RedBoldString>
+				<Link
+					to={ subscription.renewalUrl }
+				>
+					{ this.props.intl.formatMessage( messages.renewMessage ) }
+				</Link>
 			</Fragment>
 		);
 	}
@@ -294,9 +390,24 @@ class SubscriptionRow extends React.Component {
 	 * @param   {boolean}      isInExpanded           Whether the row is in the expanded part of the collapsible.
 	 * @param   {ReactElement} nextPaymentInformation Information about the next payment.
 	 * @param   {string}       billingType            Whether renewal is automatic or manual.
+	 * @param   {ReactElement} details                The details concerning the subscription when action is needed.
 	 * @returns {ReactElement}                        The common part of each row.
 	 */
-	commonRowTemplate( subscription, isInExpanded = false, nextPaymentInformation = null, billingType = "" ) {
+	commonRowTemplate( subscription, isInExpanded = false, nextPaymentInformation = null, billingType = "", details = null ) {
+		/**
+		 * Function to retrieve the right primary column header label based on two parameters
+		 * @param {boolean} isGrouped Whether the subscription is grouped
+		 * @param {boolean} needsAttention Whether the subscription needs attention
+		 * @returns {*} The message that is used as the headerLabel for the primary Column
+		 */
+		const primaryColumnHeaderLabel = ( isGrouped, needsAttention ) => {
+			if ( needsAttention ) {
+				return messages.needsAttention;
+			} else if ( isGrouped ) {
+				return messages.subscriptions;
+			}
+			return messages.individualSubscriptions;
+		};
 		return (
 			<Fragment>
 				<Icon>
@@ -308,7 +419,7 @@ class SubscriptionRow extends React.Component {
 				<ColumnPrimary
 					ellipsis={ true }
 					headerLabel={ this.props.intl.formatMessage(
-						this.props.isGrouped ? messages.subscriptions : messages.individualSubscriptions
+						primaryColumnHeaderLabel( this.props.isGrouped, subscription.needsAttention )
 					) }
 				>
 					{ this.getPrimaryColumnContent( subscription, isInExpanded, nextPaymentInformation ) }
@@ -329,19 +440,19 @@ class SubscriptionRow extends React.Component {
 				<StyledColumnMinWidth
 					ellipsis={ true }
 					hideOnMobile={ true }
-					headerLabel={ this.props.intl.formatMessage( messages.nextPaymentOn ) }
-					minWidth="198px"
-				>
-					{ nextPaymentInformation }
-				</StyledColumnMinWidth>
-				<StyledColumnMinWidth
-					ellipsis={ true }
-					hideOnMobile={ true }
 					headerLabel={ this.props.intl.formatMessage( messages.billingType ) }
 					maxWidth="140px"
 					minWidth="120px"
 				>
 					{ billingType }
+				</StyledColumnMinWidth>
+				<StyledColumnMinWidth
+					ellipsis={ true }
+					hideOnMobile={ true }
+					headerLabel={ this.props.intl.formatMessage( subscription.needsAttention ? messages.details : messages.nextPaymentOn ) }
+					minWidth="198px"
+				>
+					{ subscription.needsAttention ? details : nextPaymentInformation }
 				</StyledColumnMinWidth>
 			</Fragment>
 		);
@@ -366,6 +477,7 @@ class SubscriptionRow extends React.Component {
 			return previousBackgroundColor === darkerGrey ? darkerWhite : darkerGrey;
 		};
 
+		/* eslint-disable require-jsdoc */
 		const toggleOpen = () => {
 			this.setState( { isOpen: ! this.state.isOpen } );
 		};
@@ -428,6 +540,7 @@ class SubscriptionRow extends React.Component {
 		let endDate = null;
 		let amount = null;
 		let billingType = null;
+		let details = null;
 
 		if ( status === "pending-cancel" ) {
 			endDate = <FormattedDate
@@ -453,11 +566,15 @@ class SubscriptionRow extends React.Component {
 			billingType = subscription.requiresManualRenewal ? "Manual renewal" : "Automatic renewal";
 		}
 
+		if ( subscription.needsAttention ) {
+			details = this.getDetails( subscription );
+		}
+
 		const nextPaymentInformation = this.getNextBilling( status, endDate, nextPayment, amount );
 
 		return (
 			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ background }>
-				{ this.commonRowTemplate( subscription, isInExpanded, nextPaymentInformation, billingType ) }
+				{ this.commonRowTemplate( subscription, isInExpanded, nextPaymentInformation, billingType, details ) }
 				<ColumnFixedWidth
 					paddingLeft="0px"
 				>
@@ -484,9 +601,14 @@ SubscriptionRow.propTypes = {
 	subscriptionsArray: PropTypes.array.isRequired,
 	isGrouped: PropTypes.bool.isRequired,
 	background: PropTypes.string,
-	intl: intlShape,
+	intl: intlShape.isRequired,
+	needsAttention: PropTypes.bool.isRequired,
+	showDetailsModal: PropTypes.func,
 };
 
-SubscriptionRow.defaultProps = {};
+SubscriptionRow.defaultProps = {
+	background: null,
+	showDetailsModal: null,
+};
 
 export default injectIntl( SubscriptionRow );

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import PropTypes from "prop-types";
 import React from "react";
 import SubscriptionRow from "./SubscriptionRow";
@@ -23,8 +24,6 @@ class Subscriptions extends React.Component {
 	}
 
 	render() {
-		const props = this.props;
-
 		return (
 			<Paper>
 				<ListTable>
@@ -34,8 +33,10 @@ class Subscriptions extends React.Component {
 								return <SubscriptionRow
 									key={ subscriptionsArray[ 0 ].id }
 									subscriptionsArray={ subscriptionsArray }
-									onManage={ props.onManage }
-									isGrouped={ props.isGrouped }
+									onManage={ this.props.onManage }
+									isGrouped={ this.props.isGrouped }
+									needsAttention={ this.props.needsAttention }
+									showDetailsModal={ this.props.showDetailsModal }
 								/>;
 							} )
 					}
@@ -61,6 +62,7 @@ const subscriptionProps = PropTypes.oneOfType( [
 				billingAmount: PropTypes.number.isRequired,
 				billingCurrency: PropTypes.string.isRequired,
 				status: PropTypes.string.isRequired,
+				renewalUrl: PropTypes.string.isRequired,
 			}
 		)
 	),
@@ -72,10 +74,14 @@ Subscriptions.propTypes = {
 	subscriptions: subscriptionProps,
 	onManage: PropTypes.func.isRequired,
 	isGrouped: PropTypes.bool,
+	needsAttention: PropTypes.bool,
+	showDetailsModal: PropTypes.func,
 };
 
 Subscriptions.defaultProps = {
 	isGrouped: false,
+	needsAttention: false,
+	showDetailsModal: null,
 };
 
 export default injectIntl( Subscriptions );

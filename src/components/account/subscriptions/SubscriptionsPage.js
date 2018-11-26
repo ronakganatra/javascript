@@ -11,6 +11,7 @@ import SuggestedAction from "../../SuggestedAction";
 import { GoToButtonLink } from "../../Button";
 import noSubscriptionsImage from "../../../images/noSubscriptions.svg";
 import noResultsImage from "../../../images/SitesNoResults.svg";
+import SubscriptionDetailModal from "../../modal/SubscriptionDetailModal";
 
 const messages = defineMessages( {
 	pageSubscriptionsLoaded: {
@@ -41,15 +42,45 @@ class SubscriptionsPage extends React.Component {
 	 * Sets the SubscriptionsPage object.
 	 *
 	 * Sends the number of subscriptions found in the search results to the screenreader.
-	 *
+	 * @param {Object} props The props that get passed through.
 	 * @returns {void}
 	 */
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
 
 		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
+		this.state = {
+			modalOpen: false,
+			url: null,
+		};
+		this.showDetailsModal = this.showDetailsModal.bind( this );
+		this.closeDetailsModal = this.closeDetailsModal.bind( this );
 	}
 
+	/**
+	 * Function to show the payment details modal
+	 * @param {string} url The url where the button links to
+	 * @returns {*} es-lint -_-
+	 */
+	showDetailsModal( url ) {
+		this.setState( {
+			modalOpen: true,
+			url: url,
+		} );
+	}
+
+	/**
+	 * Function to close the detail modal
+	 * @returns {*} es-lint -_-
+	 */
+	closeDetailsModal() {
+		this.setState( {
+			modalOpen: false,
+			url: null,
+		} );
+	}
+
+	/* eslint-disable require-jsdoc */
 	componentDidMount() {
 		this.props.loadData();
 
@@ -58,6 +89,7 @@ class SubscriptionsPage extends React.Component {
 		speak( message );
 	}
 
+	/* eslint-disable require-jsdoc */
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
@@ -69,6 +101,11 @@ class SubscriptionsPage extends React.Component {
 		this.speakSearchResultsMessage( nextProps );
 	}
 
+	/**
+	 * Function to translate the spoken to text to written text
+	 * @param {*} nextProps The props of the next state
+	 * @returns {*} eslint -_-
+	 */
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && this.props.query !== nextProps.query ) {
 			// Combine grouped and individual subscriptions objects and count them.
@@ -128,11 +165,29 @@ class SubscriptionsPage extends React.Component {
 		const props = this.props;
 		const hasGroupedSubscriptions = ! isEmpty( props.groupedSubscriptions );
 		const hasIndividualSubscriptions = ! isEmpty( props.individualSubscriptions );
+		const needsAttentionSubscriptions = ! isEmpty( props.needsAttentionSubscriptions );
 
-		if ( hasGroupedSubscriptions || hasIndividualSubscriptions ) {
+		if ( hasGroupedSubscriptions || hasIndividualSubscriptions || needsAttentionSubscriptions ) {
 			return (
 				<div>
+					{
+						this.state.modalOpen && this.state.url !== null &&
+						<SubscriptionDetailModal
+							onClose={ this.closeDetailsModal }
+							renewalUrl={ this.state.url }
+							modalOpen={ this.state.modalOpen }
+						/>
+					}
 					{ this.getSearch() }
+					{
+						needsAttentionSubscriptions &&
+						<Subscriptions
+							{ ...props }
+							subscriptions={ props.needsAttentionSubscriptions }
+							needsAttention={ true }
+							showDetailsModal={ this.showDetailsModal }
+						/>
+					}
 					{
 						hasGroupedSubscriptions &&
 						<Subscriptions
@@ -181,6 +236,7 @@ SubscriptionsPage.propTypes = {
 
 SubscriptionsPage.defaultProps = {
 	loadData: () => {},
+	query: null,
 };
 
 export default injectIntl( SubscriptionsPage );

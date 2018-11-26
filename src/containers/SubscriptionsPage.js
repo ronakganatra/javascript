@@ -7,6 +7,7 @@ import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
 import { getSearchQuery } from "../selectors/search";
 import groupBy from "lodash/groupBy";
+import _isEmpty from "lodash/isEmpty";
 
 /**
  * Maps a subscription to the props of a subscription.
@@ -37,6 +38,7 @@ function mapSubscriptionToProps( subscription ) {
 		status: subscription.status,
 		hasSites,
 		product: subscription.product || {},
+		renewalUrl: subscription.renewalUrl,
 	};
 }
 
@@ -118,6 +120,79 @@ function sortByUpcomingPayment( subscriptions ) {
 		.sort( ( a, b ) => a.paymentDate - b.paymentDate );
 }
 
+/**
+ * Function to check if the date is within one month from now
+ * @param { Date } date Contains the date that needs to be checked
+ * @returns {boolean} True if date is within one month from now, false otherwise.
+ */
+const dateWithinOneMonth = ( date ) => {
+	const currentDate = new Date();
+	currentDate.setMonth( currentDate.getMonth() + 1 );
+	return date.getTime() <= currentDate.getTime();
+};
+
+/**
+ * Function that returns whether or not a subscription needs attention
+ * @param { Subscription } subscription A subscription object
+ * @returns { boolean } True when the subscription needs attention, False otherwise
+ */
+const needsAttention = ( subscription ) => {
+	return (
+		! _isEmpty( subscription.renewalUrl ) &&
+		(
+			[ "on-hold", "expired" ].includes( subscription.status ) ||
+			( subscription.hasNextPayment &&
+				subscription.status === "active" &&
+				dateWithinOneMonth( subscription.nextPayment ) &&
+				subscription.requiresManualRenewal
+			) ||
+			( subscription.hasEndDate &&
+				subscription.status === "active" &&
+				dateWithinOneMonth( subscription.endDate )
+			)
+		)
+	);
+};
+
+/**
+ * Function to get the subscriptions that need attention from an object of subscriptions
+ * @param {Object} subscriptions The list of subscriptions
+ * @returns {Object} An object of subscriptions that need attention
+ */
+const getAttentionSubscriptionsFromObject = ( subscriptions ) => {
+	const attentionSubscriptions = {};
+	// Loop over all the keys in the subscriptions if the length is greater than 0
+	if ( Object.keys( subscriptions ).length > 0 ) {
+		Object.keys( subscriptions ).map( key => {
+			const subscriptionsArray = subscriptions[ key ];
+			// Loop over all the subscriptions in the array (this can be 1 or more)
+			subscriptionsArray.map( subscription => {
+				// Check if there is a subscription that needs attention
+				if ( needsAttention( subscription ) ) {
+					// Set the needsAttention property and delete from the object
+					subscription.needsAttention = true;
+					attentionSubscriptions[ key ] = subscriptionsArray;
+					delete subscriptions[ key ];
+				}
+			} );
+		} );
+	}
+	return attentionSubscriptions;
+};
+
+/**
+ * Function to get the subscriptions that need attention and filter them out of the other subscriptions
+ * @param {object} groupedSubscriptions The grouped subscriptions
+ * @param {object} individualSubscriptions The individual subscriptions
+ * @returns {object} An empty object if there are no subscriptions that need attention, an object of subscriptions otherwise
+ */
+const getAttentionSubscriptions = ( groupedSubscriptions, individualSubscriptions ) => {
+	return Object.assign(
+		getAttentionSubscriptionsFromObject( groupedSubscriptions ),
+		getAttentionSubscriptionsFromObject( individualSubscriptions ),
+	);
+};
+
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	// Map subscription to props.
@@ -127,7 +202,6 @@ export const mapStateToProps = ( state ) => {
 	// Sort subscriptions.
 	groupedSubscriptions = sortByUpcomingPayment( groupedSubscriptions );
 	individualSubscriptions = sortByUpcomingPayment( individualSubscriptions );
-
 
 	// Filter queried subscriptions.
 	const query = getSearchQuery( state );
@@ -145,7 +219,9 @@ export const mapStateToProps = ( state ) => {
 	groupedSubscriptions = groupSubscriptionsByProduct( groupedSubscriptions );
 	individualSubscriptions = groupSubscriptionsByProduct( individualSubscriptions );
 
+	const needsAttentionSubscriptions = getAttentionSubscriptions( groupedSubscriptions, individualSubscriptions );
 	return {
+		needsAttentionSubscriptions,
 		groupedSubscriptions,
 		individualSubscriptions,
 		query,

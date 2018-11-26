@@ -60,7 +60,10 @@ function SiteSubscriptions( props ) {
 							key={ plugin.glNumber }
 							src={ plugin.icon }
 							isActive={ isActive }
-							alt={ isActive ? util.format( props.intl.formatMessage( messages.active ), plugin.name ) : util.format( props.intl.formatMessage( messages.inactive ), plugin.name )  }
+							alt={ isActive
+								? util.format( props.intl.formatMessage( messages.active ), plugin.name )
+								: util.format( props.intl.formatMessage( messages.inactive ), plugin.name )
+							}
 						/>
 					);
 				} )
