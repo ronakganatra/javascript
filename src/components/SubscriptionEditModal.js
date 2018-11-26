@@ -13,6 +13,7 @@ import plus from "../icons/black-plus-thin.svg";
 import minus from "../icons/black-minus-thin.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { InputField } from "./InputField";
+import toNumber from "lodash/toNumber";
 
 const messages = defineMessages( {
 	ariaLabel: {
@@ -83,6 +84,16 @@ const NumberField = styled( InputField )`
 	margin-left: 8px;
 	vertical-align: top;
 	padding: 0 0 0 12px;
+	
+	::-webkit-inner-spin-button, 
+	::-webkit-outer-spin-button { 
+		-webkit-appearance: none;
+		-moz-appearance: textfield;
+		appearance: none;
+		margin: 0;
+    } 
+}
+	
 `;
 
 const CancelSubscriptionContainer = styled.div`
@@ -108,6 +119,7 @@ class SubscriptionEditModal extends React.Component {
 		super( props );
 
 		this.cancelSubscription = this.cancelSubscription.bind( this );
+		this.changeItemsToCancel = this.changeItemsToCancel.bind( this );
 		this.incrementItemsToCancel = this.incrementItemsToCancel.bind( this );
 		this.decrementItemsToCancel = this.decrementItemsToCancel.bind( this );
 
@@ -138,7 +150,7 @@ class SubscriptionEditModal extends React.Component {
 	 * @returns {void}
 	 */
 	changeItemsToCancel( event ) {
-		let value = event.target.value;
+		let value = toNumber( event.target.value );
 		if ( value > this.props.numberOfCurrentSubscriptions ) {
 			value = this.props.numberOfCurrentSubscriptions;
 		} else if ( value < 1 ) {
@@ -188,7 +200,8 @@ class SubscriptionEditModal extends React.Component {
 				<NumberField
 					id="input-number"
 					value={ this.state.amountToCancel }
-					onChange={ this.changeItemsToCancel.bind( this ) }
+					onChange={ this.changeItemsToCancel }
+					type={ "number" }
 				/>
 				<ResponsiveNumberButton
 					id="increase"
