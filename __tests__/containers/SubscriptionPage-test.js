@@ -156,6 +156,9 @@ let defaultExpected = {
 		status: "Completed",
 		total: "6900"
 	} ],
+	sites: [ {
+		subscriptions: ["497490e6-eb8d-4627-be9b-bfd33fc217f1"],
+	} ],
 	subscription: {
 		currency: "USD",
 		endDate: null,
