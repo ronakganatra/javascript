@@ -88,7 +88,7 @@ const NumberField = styled( InputField )`
 	::-webkit-inner-spin-button, 
 	::-webkit-outer-spin-button { 
 		-webkit-appearance: none;
-		-moz-appearance: textfield;
+		-moz-appearance: none;
 		appearance: none;
 		margin: 0;
     } 
