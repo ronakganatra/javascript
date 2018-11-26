@@ -26,7 +26,8 @@ const messages = defineMessages( {
 	},
 	body: {
 		id: "subscriptionCancel.modal.body",
-		defaultMessage: "Are you sure you want to cancel this subscription? If you cancel, you will no longer receive support or security and functionality updates.",
+		defaultMessage: "Are you sure you want to cancel this subscription? " +
+		"If you cancel, you will no longer receive support or security and functionality updates.",
 	},
 	activeSites: {
 		id: "subscriptionCancel.modal.activeSites",
@@ -279,7 +280,6 @@ SubscriptionEditModal.propTypes = {
 
 SubscriptionEditModal.defaultProps = {
 	isOpen: false,
-	loading: false,
 	error: null,
 };
 

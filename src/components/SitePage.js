@@ -40,6 +40,11 @@ class SitePage extends React.Component {
 		speak( message );
 	}
 
+	/**
+	 * Returns the MyYoastModal.
+	 *
+	 * @returns {ReactElement} The MyYoastModal modal
+	 */
 	getModal() {
 		const storeUrl = this.props.addSubscriptionModal.storeUrl || "";
 		const open = this.props.addSubscriptionModal.modalOpen;

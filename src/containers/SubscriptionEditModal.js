@@ -7,6 +7,7 @@ import {
 } from "../actions/subscriptions";
 import { getSitesForSubscription } from "../selectors/sites";
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const { subscriptionId } = ownProps;
 	const subscription  = getSubscription( state, subscriptionId );
