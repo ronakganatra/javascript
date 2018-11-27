@@ -2,18 +2,7 @@
 
 exports[`Assigning a course to someone else through a CourseDetails works, when the course has not been started yet. 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -25,12 +14,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -138,18 +121,7 @@ Array [
 
 exports[`Assigning a course to someone else through a CourseDetails works, when there are enrollments left. 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -161,12 +133,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -325,18 +291,7 @@ Array [
 
 exports[`The CourseDetails component matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -348,12 +303,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -512,18 +461,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that has no unassigned enrollments left, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -535,12 +473,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -692,18 +624,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that has not been bought, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -715,12 +636,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -841,18 +756,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that has not been started yet with a single enrollment, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -864,12 +768,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -977,18 +875,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that has not been started yet with multiple other enrollment, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -1000,12 +887,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -1127,18 +1008,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that is completed, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -1150,12 +1020,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -1331,18 +1195,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that is free, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -1354,12 +1207,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>
@@ -1518,18 +1365,7 @@ Array [
 
 exports[`The CourseDetails component, for a course that is on sale, matches the snapshot 1`] = `
 Array [
-  .c1 {
-  padding: 0;
-  margin: 0;
-  margin-bottom: 15px;
-  color: #a4286a;
-  font-weight: 300;
-  font-size: 1.5em;
-  -webkit-text-decoration: none;
-  text-decoration: none;
-}
-
-.c0 {
+  .c0 {
   margin-bottom: 24px;
   border-bottom: 1px #ddd solid;
   -webkit-box-flex: 1;
@@ -1541,12 +1377,6 @@ Array [
 <div
     className="c0"
   >
-    <a
-      className="c1"
-      href="http://yoast.academy.test/awesome_seo"
-    >
-      Awesome SEO Course
-    </a>
     <p>
       This is an awesome, sexy SEO course.
     </p>

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
+import sampleHeader from "../images/sample_course_card_header.png";
 import Banner from "./Banner";
 
 const Container = styled.div`
@@ -15,38 +16,59 @@ const Container = styled.div`
 	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 `;
 
+const Header = styled.a`
+	text-decoration: none;
+`;
+
+const HeaderTitle = styled.span`
+	display: block;
+	padding: 8px 18px 0;
+	color: ${ colors.$color_pink_dark };
+	font-size: 1.5em;
+	font-weight: 300;
+`;
+
 const HeaderImage = styled.img`
 	width: 100%;
 `;
 
 const Content = styled.div`
 	margin: 0;
-	padding: 18px;
-	padding-top: 8px;
+	padding: 0 18px 18px;
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
 `;
 
-
+/**
+ * Returns the Card component.
+ *
+ * @returns {ReactElement} The Card component.
+ */
 class Card extends React.Component {
 	/**
-	 * Returns the header image, either with a link to the course if it is present,
+	 * Returns the header image and the title, either with a link to the course if it is present,
 	 * or not if it is not.
 	 * @returns {React.Component} the header image
 	 */
-	getHeaderImage() {
-		if ( ! this.props.header ) {
+	getHeader() {
+		if ( ! this.props.header.title ) {
 			return null;
 		}
 		if ( this.props.header.link ) {
 			return (
-				<a href={ this.props.header.link }>
-					<HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" } />
-				</a>
+				<Header href={ this.props.header.link }>
+					<HeaderImage src={ this.props.header.image } alt="" />
+					<HeaderTitle>{ this.props.header.title }</HeaderTitle>
+				</Header>
 			);
 		}
-		return <HeaderImage src={ this.props.header.image } alt={ this.props.header.title || "" } />;
+		return (
+			<span>
+				<HeaderImage src={ this.props.header.image } alt="" />
+				<HeaderTitle>{ this.props.header.title }</HeaderTitle>
+			</span>
+		);
 	}
 
 	/**
@@ -73,7 +95,7 @@ class Card extends React.Component {
 	render() {
 		return (
 			<Container className={ this.props.className } id={ this.props.id }>
-				{ this.getHeaderImage() }
+				{ this.getHeader() }
 				{ this.getBanner() }
 				<Content>
 					{ this.props.children }
@@ -94,11 +116,11 @@ Card.propTypes = {
 	id: PropTypes.string,
 	header: PropTypes.shape( {
 		title: PropTypes.string,
-		image: PropTypes.string.isRequired,
+		image: PropTypes.string,
 		link: PropTypes.string,
 	} ),
 	banner: PropTypes.shape( {
-		text: PropTypes.string.isRequired,
+		text: PropTypes.string,
 		textColor: PropTypes.string,
 		backgroundColor: PropTypes.string,
 	} ),
@@ -106,5 +128,13 @@ Card.propTypes = {
 };
 
 Card.defaultProps = {
+	className: "",
 	id: null,
+	header: PropTypes.shape( {
+		title: null,
+		image: sampleHeader,
+		link: null,
+	} ),
+	banner: null,
+	children: null,
 };
