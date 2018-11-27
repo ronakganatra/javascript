@@ -296,13 +296,21 @@ export const LinkButton = styled.button`
 
 	color: ${ colors.$color_blue };
 	text-decoration: underline;
-	font-weight: bold;
+	font-weight: ${ props => props.bold ? "bold" : "normal" };
 	cursor: pointer;
 
 	:hover {
 		color: ${ colors.$color_pink_hover };
 	}
 `;
+
+LinkButton.propTypes = {
+	bold: PropTypes.bool,
+};
+
+LinkButton.defaultProps = {
+	bold: false,
+};
 
 // Styled ButtonLinks.
 export const ButtonLink = styled( Link )`

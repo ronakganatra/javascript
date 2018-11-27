@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { IconButton } from "./Button";
-import Link from "./Link";
+import { IconButton, LinkButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
@@ -97,9 +96,9 @@ function Product( props ) {
 	if ( includes( [ "plugin", "typo3-extension" ], props.type ) ) {
 		composerDownload =
 			<Download>
-				<Link
-					to="#" onClick={ ( event ) => {
-						event.preventDefault();
+				<LinkButton
+					type="button"
+					onClick={ () => {
 						props.onComposerHelpModalOpen( props.name, props.glNumber, props.composerToken );
 					} }
 				>
@@ -107,7 +106,7 @@ function Product( props ) {
 						id="downloadsPage.product.install-with-composer"
 						defaultMessage="or install with Composer"
 					/>
-				</Link>
+				</LinkButton>
 			</Download>;
 	}
 
