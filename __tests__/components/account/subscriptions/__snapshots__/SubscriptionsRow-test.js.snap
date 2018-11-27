@@ -2,7 +2,7 @@
 
 exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`] = `
 .c1 {
-  background: #fff;
+  background: #FFF;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -84,7 +84,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 }
 
 .c15 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -102,11 +102,11 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c17 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -124,7 +124,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c7 {
@@ -261,7 +261,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 
 @media screen and ( max-width:1355px ) {
   .c14 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -274,7 +274,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 
 @media screen and ( max-width:1355px ) {
   .c16 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -327,6 +327,11 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
   <span
     className="c14 c12 c15"
   >
+    Automatic renewal
+  </span>
+  <span
+    className="c16 c12 c17"
+  >
     <span>
       January 1, 2028
     </span>
@@ -339,11 +344,6 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
     </div>
   </span>
   <span
-    className="c16 c12 c17"
-  >
-    Automatic renewal
-  </span>
-  <span
     className="c18 c5"
   />
 </li>
@@ -351,7 +351,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 
 exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`] = `
 .c1 {
-  background: #fff;
+  background: #FFF;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -433,7 +433,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 }
 
 .c15 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -451,11 +451,11 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c17 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -473,7 +473,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c7 {
@@ -671,7 +671,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 
 @media screen and ( max-width:1355px ) {
   .c14 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -684,7 +684,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 
 @media screen and ( max-width:1355px ) {
   .c16 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -745,16 +745,16 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
   <span
     className="c11 c12 c13"
   >
-    1/4 sites
+    
   </span>
   <span
     className="c14 c12 c15"
-  />
-  <span
-    className="c16 c12 c17"
   >
     
   </span>
+  <span
+    className="c16 c12 c17"
+  />
   <span
     className="c18 c5"
   >

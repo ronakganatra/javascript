@@ -186,6 +186,7 @@ let defaultExpected = {
 			},
 		]
 	},
+	needsAttentionSubscriptions: {},
 	query: "",
 };
 

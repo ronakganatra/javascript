@@ -70,14 +70,6 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.seeDetails",
 		defaultMessage: "See details",
 	},
-	statusNotActive: {
-		id: "subscriptions.overview.statusNotActive",
-		defaultMessage: "Not Active",
-	},
-	statusActive: {
-		id: "subscriptions.overview.statusActive",
-		defaultMessage: "Active",
-	},
 } );
 
 const StyledRow = styled( Row )`
@@ -283,9 +275,9 @@ class SubscriptionRow extends React.Component {
 			} else if ( needsAttention ) {
 				return nrOfAttention + " actions needed";
 			} else if ( isActive ) {
-				return messages.statusActive;
+				return "Active";
 			}
-			return messages.statusNotActive;
+			return "Not active";
 		};
 
 		return {
@@ -318,7 +310,7 @@ class SubscriptionRow extends React.Component {
 			}
 			return "expires soon";
 		};
-
+		const status = getStatus( subscription );
 		return (
 			<Fragment>
 				{ isInExpanded && this.isActive( subscription.status, false ) &&
@@ -338,7 +330,7 @@ class SubscriptionRow extends React.Component {
 				}
 				<Detail isInExpanded={ isInExpanded }>
 					<StyledStatus status={ subscription.status } needsAttention={ subscription.needsAttention }>
-						{ capitalizeFirstLetter( getStatus( subscription ) ) }
+						{ capitalizeFirstLetter( status ) }
 					</StyledStatus>
 					{ subscription.subscriptionNumber && " - " }{ subscription.subscriptionNumber }
 				</Detail>
@@ -607,8 +599,10 @@ SubscriptionRow.propTypes = {
 };
 
 SubscriptionRow.defaultProps = {
-	background: null,
+	background: "#FFF",
 	showDetailsModal: null,
+	isGrouped: false,
+	needsAttention: false,
 };
 
 export default injectIntl( SubscriptionRow );
