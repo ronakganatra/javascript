@@ -8,6 +8,8 @@ import { getOrders } from "../actions/orders";
 import { getSearchQuery } from "../selectors/search";
 import groupBy from "lodash/groupBy";
 import _isEmpty from "lodash/isEmpty";
+import _flow from "lodash/flow";
+import _differenceBy from "lodash/differenceBy";
 
 /**
  * Maps a subscription to the props of a subscription.
@@ -45,11 +47,15 @@ function mapSubscriptionToProps( subscription ) {
 /**
  * Filters a list of subscriptions based on the given search query.
  *
- * @param   {Array}  subscriptions Given subscriptions already filtered by mapSubscriptionToProps
  * @param   {string} query         The typed search query.
+ * @param   {Array}  subscriptions Given subscriptions already filtered by mapSubscriptionToProps
  * @returns {Array}                The filtered list of subscriptions.
  */
-function filterSubscriptionsByQuery( subscriptions, query ) {
+function filterSubscriptionsByQuery( query, subscriptions ) {
+	console.log( "query: ", query );
+	if ( query.length < 1 ) {
+		return subscriptions;
+	}
 	return subscriptions.filter( ( subscription ) => {
 		const formattedDate = new Intl.DateTimeFormat( "en-US", {
 			year: "numeric",
@@ -98,7 +104,7 @@ function filterActiveSubscriptions( subscriptions ) {
 }
 
 /**
- * Sorts a list of subscriptions by either the nextPaymentDate (for WoocCommerce subscriptions),
+ * Sorts a list of subscriptions by either the nextPaymentDate (for WooCommerce subscriptions),
  * or endDate (in the case of EDD subscriptions that are active).
  *
  * @param   {Array} subscriptions Given subscriptions already filtered by mapSubscriptionToProps
@@ -161,36 +167,30 @@ const needsAttention = ( subscription ) => {
  */
 const getAttentionSubscriptionsFromObject = ( subscriptions ) => {
 	const attentionSubscriptions = {};
+	const keys = Object.keys( subscriptions );
+
 	// Loop over all the keys in the subscriptions if the length is greater than 0
-	if ( Object.keys( subscriptions ).length > 0 ) {
-		Object.keys( subscriptions ).map( key => {
+	if ( keys.length > 0 ) {
+		keys.map( key => {
 			const subscriptionsArray = subscriptions[ key ];
-			// Loop over all the subscriptions in the array (this can be 1 or more)
-			subscriptionsArray.map( subscription => {
-				// Check if there is a subscription that needs attention
-				if ( needsAttention( subscription ) ) {
-					// Set the needsAttention property and delete from the object
+
+			const needsAttentionArray = subscriptionsArray.filter( subscription => needsAttention( subscription ) );
+			if ( needsAttentionArray.length > 0 ) {
+				attentionSubscriptions[ key ] = needsAttentionArray.map( subscription => {
 					subscription.needsAttention = true;
-					attentionSubscriptions[ key ] = subscriptionsArray;
-					delete subscriptions[ key ];
-				}
-			} );
+					return subscription;
+				} );
+			}
+
+			const filteredArray = _differenceBy( subscriptionsArray, needsAttentionArray, ( subscription => subscription.id ) );
+			if ( filteredArray.length > 0 ) {
+				subscriptions[ key ] = filteredArray;
+			} else {
+				delete subscriptions[ key ];
+			}
 		} );
 	}
 	return attentionSubscriptions;
-};
-
-/**
- * Function to get the subscriptions that need attention and filter them out of the other subscriptions
- * @param {object} groupedSubscriptions The grouped subscriptions
- * @param {object} individualSubscriptions The individual subscriptions
- * @returns {object} An empty object if there are no subscriptions that need attention, an object of subscriptions otherwise
- */
-const getAttentionSubscriptions = ( groupedSubscriptions, individualSubscriptions ) => {
-	return Object.assign(
-		getAttentionSubscriptionsFromObject( groupedSubscriptions ),
-		getAttentionSubscriptionsFromObject( individualSubscriptions ),
-	);
 };
 
 /* eslint-disable require-jsdoc */
@@ -199,27 +199,30 @@ export const mapStateToProps = ( state ) => {
 	let groupedSubscriptions = getGroupedSubscriptions( state ).map( mapSubscriptionToProps );
 	let individualSubscriptions = getIndividualSubscriptions( state ).map( mapSubscriptionToProps );
 
-	// Sort subscriptions.
-	groupedSubscriptions = sortByUpcomingPayment( groupedSubscriptions );
-	individualSubscriptions = sortByUpcomingPayment( individualSubscriptions );
-
 	// Filter queried subscriptions.
 	const query = getSearchQuery( state );
 
-	if ( query.length > 0 ) {
-		groupedSubscriptions = filterSubscriptionsByQuery( groupedSubscriptions, query );
-		individualSubscriptions = filterSubscriptionsByQuery( individualSubscriptions, query );
-	}
+	const subscriptionPipeline = _flow( [
+		// Filter queried subscriptions.
+		filterSubscriptionsByQuery.bind( null, query ),
+		// Sort subscriptions.
+		sortByUpcomingPayment,
+		// Filter active subscriptions.
+		filterActiveSubscriptions,
+		// Group subscriptions for same product.
+		groupSubscriptionsByProduct,
+	] );
 
-	// Filter active subscriptions
-	groupedSubscriptions = filterActiveSubscriptions( groupedSubscriptions );
-	individualSubscriptions = filterActiveSubscriptions( individualSubscriptions );
+	groupedSubscriptions = groupedSubscriptions.length > 0 ? subscriptionPipeline( groupedSubscriptions ) : {};
+	individualSubscriptions = individualSubscriptions.length > 0 ? subscriptionPipeline( individualSubscriptions ) : {};
 
-	// Group subscriptions for same product
-	groupedSubscriptions = groupSubscriptionsByProduct( groupedSubscriptions );
-	individualSubscriptions = groupSubscriptionsByProduct( individualSubscriptions );
+	// Get the subscriptions that need attention.
+	const needsAttentionSubscriptions = Object.assign(
+		{},
+		getAttentionSubscriptionsFromObject( groupedSubscriptions ),
+		getAttentionSubscriptionsFromObject( individualSubscriptions )
+	);
 
-	const needsAttentionSubscriptions = getAttentionSubscriptions( groupedSubscriptions, individualSubscriptions );
 	return {
 		needsAttentionSubscriptions,
 		groupedSubscriptions,
