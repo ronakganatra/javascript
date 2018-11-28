@@ -14,6 +14,8 @@ import minus from "../icons/black-minus-thin.svg";
 import colors from "yoast-components/style-guide/colors.json";
 import { InputField } from "./InputField";
 import toNumber from "lodash/toNumber";
+import { ModalHeading } from "./Headings";
+import { StyledLabel } from "./Labels";
 
 const messages = defineMessages( {
 	ariaLabel: {
@@ -39,7 +41,7 @@ const messages = defineMessages( {
 	},
 	cancel: {
 		id: "subscriptionCancel.modal.cancel",
-		defaultMessage: "Go back",
+		defaultMessage: "Cancel",
 	},
 	confirm: {
 		id: "subscriptionCancel.modal.confirm",
@@ -57,6 +59,10 @@ const messages = defineMessages( {
 
 const ActionButtonsContainer = styled( ButtonsContainer )`
 	margin: 1em 0;
+`;
+
+const Label = styled( StyledLabel )`
+	margin-top: 5px;
 `;
 
 const NumberButton = styled( IconButton )`
@@ -83,7 +89,6 @@ const NumberField = styled( InputField )`
 	font-size: 1em;
 	font-weight: bold;
 	margin-left: 8px;
-	vertical-align: top;
 	padding: 0 0 0 12px;
 	
 	::-webkit-inner-spin-button, 
@@ -92,7 +97,7 @@ const NumberField = styled( InputField )`
 		-moz-appearance: none;
 		appearance: none;
 		margin: 0;
-    } 
+	}
 }
 	
 `;
@@ -151,13 +156,11 @@ class SubscriptionEditModal extends React.Component {
 	 * @returns {void}
 	 */
 	changeItemsToCancel( event ) {
-		let value = toNumber( event.target.value );
-		if ( value > this.props.numberOfCurrentSubscriptions ) {
-			value = this.props.numberOfCurrentSubscriptions;
-		} else if ( value < 1 ) {
-			value = 1;
-		}
-		this.setState( { amountToCancel: value } );
+		const value = toNumber( event.target.value );
+		// Makes sure the value is between 1 and the maximum number of subscriptions
+		this.setState( {
+			amountToCancel: Math.min( Math.max( value, 1 ), this.props.numberOfCurrentSubscriptions ),
+		} );
 	}
 
 	/**
@@ -191,24 +194,27 @@ class SubscriptionEditModal extends React.Component {
 		if ( this.props.numberOfCurrentSubscriptions ) {
 			const ResponsiveNumberButton = makeButtonFullWidth( makeResponsiveIconButton( NumberButton ) );
 			return <div>
-				<FormattedMessage id={ messages.selectAmount.id } defaultMessage={ messages.selectAmount.defaultMessage } />
+				<Label htmlFor="input-number">
+					<FormattedMessage id={ messages.selectAmount.id } defaultMessage={ messages.selectAmount.defaultMessage } />
+				</Label>
 				<ResponsiveNumberButton
 					id="decrease"
-					descriptionId="decrease-number-to-cancel"
 					onClick={ this.decrementItemsToCancel }
 					iconSource={ minus }
+					ariaLabel={ "Decrease amount" }
 				/>
 				<NumberField
 					id="input-number"
 					value={ this.state.amountToCancel }
 					onChange={ this.changeItemsToCancel }
 					type={ "number" }
+					ariaLabel={ "Amount" }
 				/>
 				<ResponsiveNumberButton
 					id="increase"
-					descriptionId="increase-number-to-cancel"
 					onClick={ this.incrementItemsToCancel }
 					iconSource={ plus }
+					ariaLabel={ "Increase amount" }
 				/>
 			</div>;
 		}
@@ -229,7 +235,9 @@ class SubscriptionEditModal extends React.Component {
 				modalAriaLabel={ messages.ariaLabel }
 			>
 				<CancelSubscriptionContainer>
-					<h1><FormattedMessage { ...messages.header } /></h1>
+					<ModalHeading>
+						<FormattedMessage { ...messages.header } />
+					</ModalHeading>
 					<p>
 						<FormattedMessage { ...messages.body } />
 					</p>

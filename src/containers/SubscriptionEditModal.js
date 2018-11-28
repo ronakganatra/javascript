@@ -10,7 +10,7 @@ import { getSitesForSubscription } from "../selectors/sites";
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const { subscriptionId } = ownProps;
-	const subscription  = getSubscription( state, subscriptionId );
+	const subscription = getSubscription( state, subscriptionId );
 
 	const subscriptionsCancelState = state.ui.subscriptionsCancel;
 
