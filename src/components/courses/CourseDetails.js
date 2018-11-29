@@ -212,8 +212,10 @@ class CourseDetails extends React.Component {
 			 is not trialling out the course and it is the only enrollment)
 			 */
 			return <LinkButton
+				type="button"
 				testId="assign-to-someone-else"
 				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
+				bold={ true }
 			>
 				<FormattedMessage { ...messages.assignToSomeoneElse } />
 			</LinkButton>;
@@ -290,8 +292,10 @@ class CourseDetails extends React.Component {
 		} else {
 			// "Assign courses"
 			linkButton = <LinkButton
+				type="button"
 				testId="assign-courses"
 				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
+				bold={ true }
 			>
 				<FormattedMessage { ...messages.assignCourses } />
 			</LinkButton>;

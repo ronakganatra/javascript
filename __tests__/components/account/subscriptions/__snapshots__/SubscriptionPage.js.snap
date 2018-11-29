@@ -628,11 +628,26 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   flex: 1 0 100px;
 }
 
+.c19 {
+  background: none;
+  border: 0px;
+  padding: 0;
+  color: #0066cd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.c19:hover {
+  color: #cc2956;
+}
+
 .c8 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c19 {
+.c20 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -764,7 +779,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
 }
 
 @media screen and ( max-width:800px ) {
-  .c19 {
+  .c20 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -867,14 +882,15 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
         <span
           className="c16 c17 c15"
         >
-          <a
-            href="#"
+          <button
+            className="c19"
             onClick={[Function]}
+            type="button"
           >
             <span>
               Cancel subscription
             </span>
-          </a>
+          </button>
         </span>
       </li>
     </ul>
@@ -884,7 +900,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
       Invoices
     </span>
     <span
-      className="c19 c9"
+      className="c20 c9"
     >
       <span>
         Included products

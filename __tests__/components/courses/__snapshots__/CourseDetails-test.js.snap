@@ -93,6 +93,7 @@ Array [
     <button
       className="c1"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Assign to someone else
@@ -279,6 +280,7 @@ Array [
       <button
         className="c8"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -449,6 +451,7 @@ Array [
       <button
         className="c8"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -744,6 +747,7 @@ Array [
       <button
         className="c5"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -847,6 +851,7 @@ Array [
     <button
       className="c1"
       onClick={[Function]}
+      type="button"
     >
       <span>
         Assign to someone else
@@ -996,6 +1001,7 @@ Array [
       <button
         className="c5"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -1183,6 +1189,7 @@ Array [
       <button
         className="c9"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -1353,6 +1360,7 @@ Array [
       <button
         className="c8"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
@@ -1485,6 +1493,7 @@ Array [
       <button
         className="c5"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Assign courses
