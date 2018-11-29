@@ -5,7 +5,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { RowMobileCollapse, ListTable, ColumnFixedWidth, ColumnMinWidth, makeFullWidth } from "../../Tables";
 import { injectIntl, intlShape, FormattedDate, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../../../config/defaults.json";
-import Link from "../../Link";
+import { LinkButton } from "../../Button";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 
 const messages = defineMessages( {
@@ -149,9 +149,12 @@ function SubscriptionDetails( props ) {
 
 	// Shown when the subscription can be cancelled, but has not been cancelled yet.
 	const cancelLink = (
-		<Link to={ "#" } onClick={ props.onCancelClick }>
+		<LinkButton
+			type="button"
+			onClick={ props.onCancelClick }
+		>
 			<FormattedMessage { ...messages.cancelLink } />
-		</Link>
+		</LinkButton>
 	);
 
 	const cancelSubscriptionRow = (

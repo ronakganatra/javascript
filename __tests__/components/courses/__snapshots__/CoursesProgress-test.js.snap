@@ -254,6 +254,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
             <button
               className="c15"
               onClick={[Function]}
+              type="button"
             >
               <span>
                 Assign courses
@@ -317,6 +318,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
             <button
               className="c15"
               onClick={[Function]}
+              type="button"
             >
               <span>
                 Assign courses

@@ -294,6 +294,21 @@ exports[`the subscription detail component matches the snapshot 1`] = `
   flex: 1 0 100px;
 }
 
+.c9 {
+  background: none;
+  border: 0px;
+  padding: 0;
+  color: #0066cd;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.c9:hover {
+  color: #cc2956;
+}
+
 @media screen and ( max-width:800px ) {
   .c3 {
     padding: 16px;
@@ -419,14 +434,15 @@ exports[`the subscription detail component matches the snapshot 1`] = `
     <span
       className="c6 c7 c5"
     >
-      <a
-        href="#"
+      <button
+        className="c9"
         onClick={[Function]}
+        type="button"
       >
         <span>
           Edit or cancel subscription
         </span>
-      </a>
+      </button>
     </span>
   </li>
 </ul>

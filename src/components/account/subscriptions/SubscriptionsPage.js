@@ -71,7 +71,13 @@ class SubscriptionsPage extends React.Component {
 
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && this.props.query !== nextProps.query ) {
-			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), nextProps.subscriptions.length );
+			// Combine grouped and individual subscriptions objects and count them.
+			const combinedResultCount = [
+				Object.values( nextProps.groupedSubscriptions ),
+				Object.values( nextProps.individualSubscriptions ),
+			].flat( 2 ).length;
+
+			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), combinedResultCount );
 			debouncedSpeak( message, "assertive" );
 		}
 	}
