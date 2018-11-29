@@ -123,7 +123,6 @@ export const mapStateToProps = ( state ) => {
 	// Map subscription to props.
 	let groupedSubscriptions = getGroupedSubscriptions( state ).map( mapSubscriptionToProps );
 	let individualSubscriptions = getIndividualSubscriptions( state ).map( mapSubscriptionToProps );
-	console.log( groupedSubscriptions );
 
 	// Sort subscriptions.
 	groupedSubscriptions = sortByUpcomingPayment( groupedSubscriptions );
