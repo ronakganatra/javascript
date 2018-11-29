@@ -249,7 +249,7 @@ class SubscriptionRow extends React.Component {
 		const donorSubscription = subscriptionsArray[ 0 ];
 
 		const activeSubscriptions = subscriptionsArray.filter( subscription => [ "active", "pending-cancel" ].includes( subscription.status ) );
-		const needsAttentionArray = subscriptionsArray.filter( subscription => subscription.needsAttention );
+		const needsAttentionArray = this.props.needsAttention ? subscriptionsArray : [];
 		const needsAttention = needsAttentionArray.length > 0;
 
 		/**
@@ -302,7 +302,7 @@ class SubscriptionRow extends React.Component {
 	 */
 	getPrimaryColumnContent( subscription, isInExpanded = false, nextPaymentInformation = "" ) {
 		const getStatus = ( subscription ) => {
-			if ( ! subscription.needsAttention || subscription.superRow ) {
+			if ( ! this.props.needsAttention || subscription.superRow ) {
 				return subscription.status;
 			}
 			if ( subscription.status === "on-hold" ) {
@@ -329,7 +329,7 @@ class SubscriptionRow extends React.Component {
 				subscription.name
 				}
 				<Detail isInExpanded={ isInExpanded }>
-					<StyledStatus status={ subscription.status } needsAttention={ subscription.needsAttention }>
+					<StyledStatus status={ subscription.status } needsAttention={ this.props.needsAttention }>
 						{ capitalizeFirstLetter( status ) }
 					</StyledStatus>
 					{ subscription.subscriptionNumber && " - " }{ subscription.subscriptionNumber }
@@ -411,7 +411,7 @@ class SubscriptionRow extends React.Component {
 				<ColumnPrimary
 					ellipsis={ true }
 					headerLabel={ this.props.intl.formatMessage(
-						primaryColumnHeaderLabel( this.props.isGrouped, subscription.needsAttention )
+						primaryColumnHeaderLabel( this.props.isGrouped, this.props.needsAttention )
 					) }
 				>
 					{ this.getPrimaryColumnContent( subscription, isInExpanded, nextPaymentInformation ) }
@@ -441,10 +441,10 @@ class SubscriptionRow extends React.Component {
 				<StyledColumnMinWidth
 					ellipsis={ true }
 					hideOnMobile={ true }
-					headerLabel={ this.props.intl.formatMessage( subscription.needsAttention ? messages.details : messages.nextPaymentOn ) }
+					headerLabel={ this.props.intl.formatMessage( this.props.needsAttention ? messages.details : messages.nextPaymentOn ) }
 					minWidth="198px"
 				>
-					{ subscription.needsAttention ? details : nextPaymentInformation }
+					{ this.props.needsAttention ? details : nextPaymentInformation }
 				</StyledColumnMinWidth>
 			</Fragment>
 		);
@@ -558,12 +558,13 @@ class SubscriptionRow extends React.Component {
 			billingType = subscription.requiresManualRenewal ? "Manual renewal" : "Automatic renewal";
 		}
 
-		if ( subscription.needsAttention ) {
+		if ( this.props.needsAttention ) {
 			details = this.getDetails( subscription );
 		}
 
 		const nextPaymentInformation = this.getNextBilling( status, endDate, nextPayment, amount );
 
+		console.log( this.props.needsAttention );
 		return (
 			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ background }>
 				{ this.commonRowTemplate( subscription, isInExpanded, nextPaymentInformation, billingType, details ) }

@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { onSearchQueryChange } from "../actions/search";
 import { getAllSubscriptions } from "../actions/subscriptions";
-import { getGroupedSubscriptions, getIndividualSubscriptions } from "../selectors/subscriptions";
 import SubscriptionsPage from "../components/account/subscriptions/SubscriptionsPage";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
@@ -10,6 +9,7 @@ import groupBy from "lodash/groupBy";
 import _isEmpty from "lodash/isEmpty";
 import _flow from "lodash/flow";
 import _differenceBy from "lodash/differenceBy";
+import { getAllOfEntity } from "../selectors/entities";
 
 /**
  * Maps a subscription to the props of a subscription.
@@ -52,7 +52,6 @@ function mapSubscriptionToProps( subscription ) {
  * @returns {Array}                The filtered list of subscriptions.
  */
 function filterSubscriptionsByQuery( query, subscriptions ) {
-	console.log( "query: ", query );
 	if ( query.length < 1 ) {
 		return subscriptions;
 	}
@@ -76,11 +75,31 @@ function filterSubscriptionsByQuery( query, subscriptions ) {
 /**
  * Groups subscriptions into an array, behind a key that is the subscription's product's glNumber.
  *
- * @param   {array}  subscriptions The subscriptions that should be grouped.
- * @returns {Object}               An object with glNumbers as keys, and all subscriptions belonging to that product in an array as values.
+ * @param   {Object}  subscriptionsByType The subscriptions that should be grouped.
+ * @returns {Object}                      An object with subscription type as key,
+ *                                        and all subscriptions belonging to that type,
+ *                                        grouped in an object with glNumbers as keys.
  */
-function groupSubscriptionsByProduct( subscriptions ) {
-	return groupBy( subscriptions, subscription => subscription.product.glNumber );
+function groupSubscriptionsByProduct( subscriptionsByType ) {
+	return Object.keys( subscriptionsByType ).reduce( ( newObject, key ) => {
+		newObject[ key ] = groupBy( subscriptionsByType[ key ], subscription => subscription.product.glNumber );
+		return newObject;
+	}, {} );
+}
+
+/**
+ * Determines whether this subscription is an individual subscription or a "grouped" subscription (gives access to multiple products).
+ *
+ * @param   {Object}  subscription The subscription to check.
+ * @returns {boolean}              Whether the subscription is grouped or not.
+ */
+function isGrouped( subscription ) {
+	if ( ! Array.isArray( subscription.product.productGroups ) ) {
+		return false;
+	}
+	const grantsAccessToMultipleProducts = subscription.product.productGroups.length > 1;
+	const productGroupHasParent = subscription.product.productGroups[ 0 ].parentId;
+	return  grantsAccessToMultipleProducts || ! productGroupHasParent;
 }
 
 /**
@@ -131,18 +150,18 @@ function sortByUpcomingPayment( subscriptions ) {
  * @param { Date } date Contains the date that needs to be checked
  * @returns {boolean} True if date is within one month from now, false otherwise.
  */
-const dateWithinOneMonth = ( date ) => {
+function dateWithinOneMonth( date ) {
 	const currentDate = new Date();
 	currentDate.setMonth( currentDate.getMonth() + 1 );
 	return date.getTime() <= currentDate.getTime();
-};
+}
 
 /**
  * Function that returns whether or not a subscription needs attention
- * @param { Subscription } subscription A subscription object
+ * @param { subscription } subscription A subscription object
  * @returns { boolean } True when the subscription needs attention, False otherwise
  */
-const needsAttention = ( subscription ) => {
+function needsAttention( subscription ) {
 	return (
 		! _isEmpty( subscription.renewalUrl ) &&
 		(
@@ -158,49 +177,29 @@ const needsAttention = ( subscription ) => {
 			)
 		)
 	);
-};
+}
 
 /**
- * Function to get the subscriptions that need attention from an object of subscriptions
- * @param {Object} subscriptions The list of subscriptions
- * @returns {Object} An object of subscriptions that need attention
+ * Transforms the array of subscriptions to an object in which the array is split according to type.
+ * @param {Array}   subscriptions The array to be transformed.
+ * @returns {Object}               The object with the array split according to type.
  */
-const getAttentionSubscriptionsFromObject = ( subscriptions ) => {
-	const attentionSubscriptions = {};
-	const keys = Object.keys( subscriptions );
-
-	// Loop over all the keys in the subscriptions if the length is greater than 0
-	if ( keys.length > 0 ) {
-		keys.map( key => {
-			const subscriptionsArray = subscriptions[ key ];
-
-			const needsAttentionArray = subscriptionsArray.filter( subscription => needsAttention( subscription ) );
-			if ( needsAttentionArray.length > 0 ) {
-				attentionSubscriptions[ key ] = needsAttentionArray.map( subscription => {
-					subscription.needsAttention = true;
-					return subscription;
-				} );
-			}
-
-			const filteredArray = _differenceBy( subscriptionsArray, needsAttentionArray, ( subscription => subscription.id ) );
-			if ( filteredArray.length > 0 ) {
-				subscriptions[ key ] = filteredArray;
-			} else {
-				delete subscriptions[ key ];
-			}
-		} );
-	}
-	return attentionSubscriptions;
-};
+function splitSubscriptionsByType( subscriptions ) {
+	const needsAttentionSubscriptions = subscriptions.filter( needsAttention );
+	const remainingSubscriptions = _differenceBy( subscriptions, needsAttentionSubscriptions, sub => sub.id );
+	return {
+		needsAttentionSubscriptions: needsAttentionSubscriptions,
+		groupedSubscriptions: remainingSubscriptions.filter( isGrouped ),
+		individualSubscriptions: remainingSubscriptions.filter( sub => ! isGrouped( sub ) ),
+	};
+}
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	// Map subscription to props.
-	let groupedSubscriptions = getGroupedSubscriptions( state ).map( mapSubscriptionToProps );
-	let individualSubscriptions = getIndividualSubscriptions( state ).map( mapSubscriptionToProps );
-
 	// Filter queried subscriptions.
 	const query = getSearchQuery( state );
+
+	const subscriptions = getAllOfEntity( state, "subscriptions" ).map( mapSubscriptionToProps );
 
 	const subscriptionPipeline = _flow( [
 		// Filter queried subscriptions.
@@ -209,19 +208,17 @@ export const mapStateToProps = ( state ) => {
 		sortByUpcomingPayment,
 		// Filter active subscriptions.
 		filterActiveSubscriptions,
-		// Group subscriptions for same product.
+		// Group by subscription type.
+		splitSubscriptionsByType,
+		// Group by product sku.
 		groupSubscriptionsByProduct,
 	] );
 
-	groupedSubscriptions = groupedSubscriptions.length > 0 ? subscriptionPipeline( groupedSubscriptions ) : {};
-	individualSubscriptions = individualSubscriptions.length > 0 ? subscriptionPipeline( individualSubscriptions ) : {};
-
-	// Get the subscriptions that need attention.
-	const needsAttentionSubscriptions = Object.assign(
-		{},
-		getAttentionSubscriptionsFromObject( groupedSubscriptions ),
-		getAttentionSubscriptionsFromObject( individualSubscriptions )
-	);
+	const {
+		needsAttentionSubscriptions,
+		groupedSubscriptions,
+		individualSubscriptions,
+	} = subscriptionPipeline( subscriptions );
 
 	return {
 		needsAttentionSubscriptions,
