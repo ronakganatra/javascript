@@ -103,7 +103,9 @@ const NumberField = styled( InputField )`
 `;
 
 const CancelSubscriptionContainer = styled.div`
-	width: 600px;
+	max-width: 600px;
+	margin: auto;
+	font-size: 1em;
 `;
 
 /**
@@ -192,7 +194,7 @@ class SubscriptionEditModal extends React.Component {
 	 */
 	displayNumberButtons() {
 		if ( this.props.numberOfCurrentSubscriptions ) {
-			const ResponsiveNumberButton = makeButtonFullWidth( makeResponsiveIconButton( NumberButton ) );
+			const ResponsiveNumberButton = makeResponsiveIconButton( NumberButton );
 			return <div>
 				<Label htmlFor="input-number">
 					<FormattedMessage id={ messages.selectAmount.id } defaultMessage={ messages.selectAmount.defaultMessage } />
@@ -227,6 +229,8 @@ class SubscriptionEditModal extends React.Component {
 	 */
 	render() {
 		const confirmButtonText = this.props.loading ? messages.loading : messages.confirm;
+		const WideLargeButton = makeButtonFullWidth( LargeButton );
+		const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 		return (
 			<MyYoastModal
@@ -258,16 +262,16 @@ class SubscriptionEditModal extends React.Component {
 					{ this.displayNumberButtons() }
 					<ErrorDisplay error={ this.props.error } />
 					<ActionButtonsContainer>
-						<LargeSecondaryButton onClick={ this.props.onClose }>
+						<WideSecondaryButton onClick={ this.props.onClose }>
 							<FormattedMessage { ...messages.cancel } />
-						</LargeSecondaryButton>
-						<LargeButton
+						</WideSecondaryButton>
+						<WideLargeButton
 							type="submit"
 							onClick={ this.cancelSubscription }
 							enabledStyle={ this.props.loading === false }
 						>
 							<FormattedMessage { ...confirmButtonText } />
-						</LargeButton>
+						</WideLargeButton>
 					</ActionButtonsContainer>
 				</CancelSubscriptionContainer>
 			</MyYoastModal>
