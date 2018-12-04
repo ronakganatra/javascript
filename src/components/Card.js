@@ -52,20 +52,22 @@ class Card extends React.Component {
 	 * @returns {React.Component} the header image
 	 */
 	getHeader() {
-		if ( ! this.props.header.title ) {
+		if ( ! this.props.header ) {
 			return null;
 		}
+
 		if ( this.props.header.link ) {
 			return (
 				<Header href={ this.props.header.link }>
-					<HeaderImage src={ this.props.header.image } alt="" />
+					<HeaderImage src={ this.props.header.image || sampleHeader } alt="" />
 					<HeaderTitle>{ this.props.header.title }</HeaderTitle>
 				</Header>
 			);
 		}
+
 		return (
 			<span>
-				<HeaderImage src={ this.props.header.image } alt="" />
+				<HeaderImage src={ this.props.header.image || sampleHeader } alt="" />
 				<HeaderTitle>{ this.props.header.title }</HeaderTitle>
 			</span>
 		);
@@ -115,7 +117,7 @@ Card.propTypes = {
 	className: PropTypes.string,
 	id: PropTypes.string,
 	header: PropTypes.shape( {
-		title: PropTypes.string,
+		title: PropTypes.string.isRequired,
 		image: PropTypes.string,
 		link: PropTypes.string,
 	} ),
@@ -124,17 +126,15 @@ Card.propTypes = {
 		textColor: PropTypes.string,
 		backgroundColor: PropTypes.string,
 	} ),
-	children: PropTypes.any,
+	children: PropTypes.any.isRequired,
 };
 
 Card.defaultProps = {
 	className: "",
 	id: null,
 	header: PropTypes.shape( {
-		title: null,
-		image: sampleHeader,
+		image: null,
 		link: null,
 	} ),
 	banner: null,
-	children: null,
 };

@@ -206,7 +206,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         <img
           alt=""
           className="c5"
-          src={undefined}
+          src="sample_course_card_header.png"
         />
         <span
           className="c6"
@@ -290,7 +290,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
         <img
           alt=""
           className="c5"
-          src={undefined}
+          src="sample_course_card_header.png"
         />
         <span
           className="c6"
