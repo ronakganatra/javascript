@@ -11,7 +11,7 @@ import colors from "yoast-components/style-guide/colors.json";
 import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 import SiteIcon from "../../SiteIcon";
 import { UpDownButton } from "../../Button";
-import Link from "../../Link";
+import { SubscriptionDetailsText } from "./SubscriptionDetailsText";
 
 const messages = defineMessages( {
 	individualSubscriptions: {
@@ -69,6 +69,10 @@ const messages = defineMessages( {
 	seeDetails: {
 		id: "subscriptions.overview.seeDetails",
 		defaultMessage: "See details",
+	},
+	paymentFailed: {
+		id: "subscriptions.overview.paymentFailed",
+		defaultMessage: "Payment failed",
 	},
 } );
 
@@ -145,11 +149,6 @@ const CollapseButtonSpacer = styled.div`
 
 const Separator = styled.div`
 	border-bottom: 1px solid black;
-`;
-
-const RedBoldString = styled.div`
-	color: ${ colors.$color_red };
-	font-weight: ${ "bold" };
 `;
 
 /**
@@ -253,10 +252,10 @@ class SubscriptionRow extends React.Component {
 		const needsAttention = needsAttentionArray.length > 0;
 
 		/**
-		 * Function to count the total number of a given field
-		 * @param {Array} inputArray An array containing all the sub-subscriptions
-		 * @param {string} field Which selector should be used
-		 * @returns {*} The total number of a given field
+		 * Function to count the total number of a given field.
+		 * @param {Array} inputArray An array containing all the sub-subscriptions.
+		 * @param {string} field Which selector should be used.
+		 * @returns {Int} The total number of a given field.
 		 */
 		const countTotals = ( inputArray, field ) => {
 			return inputArray.reduce( ( total, current ) => {
@@ -268,12 +267,18 @@ class SubscriptionRow extends React.Component {
 		const totalLimit = countTotals( activeSubscriptions, "limit" );
 		const totalUsed = countTotals( activeSubscriptions, "used" );
 
-		/* eslint-disable require-jsdoc */
-		const status = ( isActive, needsAttention, nrOfAttention ) => {
-			if ( needsAttention && nrOfAttention === 1 ) {
+		/**
+		 * Maps a number of props to a status.
+		 * @param {boolean} isActive Whether the subscription is active.
+		 * @param {boolean} needsAttention Whether the subscription needs attention.
+		 * @param {number} nrOfAction The number of subscriptions that need attention.
+		 * @returns {string} The status to show.
+		 */
+		const donorSubscriptionstatus = ( isActive, needsAttention, nrOfAction ) => {
+			if ( needsAttention && nrOfAction === 1 ) {
 				return "1 action needed";
 			} else if ( needsAttention ) {
-				return nrOfAttention + " actions needed";
+				return nrOfAction + " actions needed";
 			} else if ( isActive ) {
 				return "Active";
 			}
@@ -284,7 +289,7 @@ class SubscriptionRow extends React.Component {
 			name: donorSubscription.name,
 			icon: donorSubscription.icon,
 			hasSites: donorSubscription.hasSites,
-			status: status( isActive, needsAttention, needsAttentionArray.length ),
+			status: donorSubscriptionstatus( isActive, needsAttention, needsAttentionArray.length ),
 			used: totalUsed,
 			limit: totalLimit,
 			needsAttention: needsAttention,
@@ -344,34 +349,35 @@ class SubscriptionRow extends React.Component {
 	 * @returns {ReactElement} The details section
 	 */
 	getDetails( subscription ) {
-		const detailsModal = () => this.props.showDetailsModal( subscription.renewalUrl );
-		if ( subscription.status === "on-hold" ) {
-			return (
-				<Fragment>
-					<RedBoldString>Payment failed</RedBoldString>
-					<Link
-						to={ "#" }
-						onClick={ detailsModal }
-					>
-						{ this.props.intl.formatMessage( messages.seeDetails ) }
-					</Link>
-				</Fragment>
-			);
-		}
+		// Declare variables used in both cases
 		const options = { year: "numeric", month: "short", day: "numeric" };
+		let linkText, linkTo, redMessage, onClickHandler;
+
+		if ( subscription.status === "on-hold" ) {
+			linkText = this.props.intl.formatMessage( messages.seeDetails );
+			linkTo = "#";
+			onClickHandler = () => this.props.showDetailsModal( subscription.renewalUrl );
+			redMessage = this.props.intl.formatMessage( messages.paymentFailed );
+		} else {
+			const date = subscription.hasEndDate
+				? subscription.endDate.toLocaleDateString( "en-US", options )
+				: subscription.nextPayment.toLocaleDateString( "en-US", options );
+			linkText = this.props.intl.formatMessage( messages.renewMessage );
+			linkTo = subscription.renewalUrl;
+			onClickHandler = null;
+			redMessage = <FormattedMessage
+				id="details.redMessageText"
+				defaultMessage="Expires { date }"
+				values={ { date: date } }
+			/>;
+		}
 		return (
-			<Fragment>
-				<RedBoldString>Expires { subscription.hasEndDate
-					? subscription.endDate.toLocaleDateString( "en-US", options )
-					: subscription.nextPayment.toLocaleDateString( "en-US", options ) }
-				</RedBoldString>
-				<Link
-					to={ subscription.renewalUrl }
-				>
-					{ this.props.intl.formatMessage( messages.renewMessage ) }
-				</Link>
-			</Fragment>
-		);
+			<SubscriptionDetailsText
+				linkText={ linkText }
+				redMessage={ redMessage }
+				linkTo={ linkTo }
+				onClickHandler={ onClickHandler }
+			/> );
 	}
 
 	/**
@@ -390,7 +396,7 @@ class SubscriptionRow extends React.Component {
 		 * Function to retrieve the right primary column header label based on two parameters
 		 * @param {boolean} isGrouped Whether the subscription is grouped
 		 * @param {boolean} needsAttention Whether the subscription needs attention
-		 * @returns {*} The message that is used as the headerLabel for the primary Column
+		 * @returns {string} The message that is used as the headerLabel for the primary Column
 		 */
 		const primaryColumnHeaderLabel = ( isGrouped, needsAttention ) => {
 			if ( needsAttention ) {
@@ -400,6 +406,7 @@ class SubscriptionRow extends React.Component {
 			}
 			return messages.individualSubscriptions;
 		};
+
 		return (
 			<Fragment>
 				<Icon>
@@ -564,7 +571,6 @@ class SubscriptionRow extends React.Component {
 
 		const nextPaymentInformation = this.getNextBilling( status, endDate, nextPayment, amount );
 
-		console.log( this.props.needsAttention );
 		return (
 			<StyledRow key={ subscription.id } dimmed={ cancelledOrExpired } background={ background }>
 				{ this.commonRowTemplate( subscription, isInExpanded, nextPaymentInformation, billingType, details ) }

@@ -47,20 +47,19 @@ class SubscriptionsPage extends React.Component {
 	 */
 	constructor( props ) {
 		super( props );
-
-		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
 		this.state = {
 			modalOpen: false,
 			url: null,
 		};
+		this.speakSearchResultsMessage = this.speakSearchResultsMessage.bind( this );
 		this.showDetailsModal = this.showDetailsModal.bind( this );
 		this.closeDetailsModal = this.closeDetailsModal.bind( this );
 	}
 
 	/**
 	 * Function to show the payment details modal
-	 * @param {string} url The url where the button links to
-	 * @returns {*} es-lint -_-
+	 * @param {string} url The URL where the button links to
+	 * @returns {void}
 	 */
 	showDetailsModal( url ) {
 		this.setState( {
@@ -71,7 +70,7 @@ class SubscriptionsPage extends React.Component {
 
 	/**
 	 * Function to close the detail modal
-	 * @returns {*} es-lint -_-
+	 * @returns {void}
 	 */
 	closeDetailsModal() {
 		this.setState( {
@@ -103,8 +102,8 @@ class SubscriptionsPage extends React.Component {
 
 	/**
 	 * Function to translate the spoken to text to written text
-	 * @param {*} nextProps The props of the next state
-	 * @returns {*} eslint -_-
+	 * @param {object} nextProps The props of the next state
+	 * @returns {void}
 	 */
 	speakSearchResultsMessage( nextProps ) {
 		if ( nextProps.query.length > 0 && this.props.query !== nextProps.query ) {
@@ -135,6 +134,25 @@ class SubscriptionsPage extends React.Component {
 	}
 
 	/**
+	 * Function that shows the modal if open and if the URL is defined
+	 * @param {boolean} open Whether the modal is open
+	 * @param {string} url The renewal URL
+	 * @returns {null} || {SubscriptionDetailModal} null if there is no need to show the modal, the modal otherwise
+	 */
+	modal( open, url ) {
+		if ( open && url !== null ) {
+			return (
+				<SubscriptionDetailModal
+					onClose={ this.closeDetailsModal }
+					renewalUrl={ url }
+					modalOpen={ open }
+				/>
+			);
+		}
+		return null;
+	}
+
+	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -162,47 +180,37 @@ class SubscriptionsPage extends React.Component {
 				values={ { query: <strong>{ this.props.query }</strong> } }
 			/> ];
 
+		const needsAttentionSubscriptions = <Subscriptions
+			{ ...this.props }
+			subscriptions={ this.props.needsAttentionSubscriptions }
+			needsAttention={ true }
+			showDetailsModal={ this.showDetailsModal }
+		/>;
+
+		const groupedSubscriptions = <Subscriptions
+			{ ...this.props }
+			subscriptions={ this.props.groupedSubscriptions }
+			isGrouped={ true }
+		/>;
+
+		const individualSubscriptions = <Subscriptions
+			{ ...this.props }
+			subscriptions={ this.props.individualSubscriptions }
+		/>;
+
 		const props = this.props;
 		const hasGroupedSubscriptions = ! isEmpty( props.groupedSubscriptions );
 		const hasIndividualSubscriptions = ! isEmpty( props.individualSubscriptions );
-		const needsAttentionSubscriptions = ! isEmpty( props.needsAttentionSubscriptions );
+		const hasAttentionSubscriptions = ! isEmpty( props.needsAttentionSubscriptions );
 
 		if ( hasGroupedSubscriptions || hasIndividualSubscriptions || needsAttentionSubscriptions ) {
 			return (
 				<div>
-					{
-						this.state.modalOpen && this.state.url !== null &&
-						<SubscriptionDetailModal
-							onClose={ this.closeDetailsModal }
-							renewalUrl={ this.state.url }
-							modalOpen={ this.state.modalOpen }
-						/>
-					}
+					{ this.modal( this.state.modalOpen, this.state.url ) }
 					{ this.getSearch() }
-					{
-						needsAttentionSubscriptions &&
-						<Subscriptions
-							{ ...props }
-							subscriptions={ props.needsAttentionSubscriptions }
-							needsAttention={ true }
-							showDetailsModal={ this.showDetailsModal }
-						/>
-					}
-					{
-						hasGroupedSubscriptions &&
-						<Subscriptions
-							{ ...props }
-							subscriptions={ props.groupedSubscriptions }
-							isGrouped={ true }
-						/>
-					}
-					{
-						hasIndividualSubscriptions &&
-						<Subscriptions
-							{ ...props }
-							subscriptions={ props.individualSubscriptions }
-						/>
-					}
+					{ hasAttentionSubscriptions ? needsAttentionSubscriptions : null }
+					{ hasGroupedSubscriptions ? groupedSubscriptions : null }
+					{ hasIndividualSubscriptions ? individualSubscriptions : null }
 				</div>
 			);
 		} else if ( props.query.length > 0 ) {

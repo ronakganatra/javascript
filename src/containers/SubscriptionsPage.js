@@ -73,7 +73,7 @@ function filterSubscriptionsByQuery( query, subscriptions ) {
 }
 
 /**
- * Groups subscriptions into an array, behind a key that is the subscription's product's glNumber.
+ * Groups subscriptions into an object, behind a key that is the subscription's product's glNumber.
  *
  * @param   {Object}  subscriptionsByType The subscriptions that should be grouped.
  * @returns {Object}                      An object with subscription type as key,
@@ -94,7 +94,7 @@ function groupSubscriptionsByProduct( subscriptionsByType ) {
  * @returns {boolean}              Whether the subscription is grouped or not.
  */
 function isGrouped( subscription ) {
-	if ( ! Array.isArray( subscription.product.productGroups ) ) {
+	if ( ! Array.isArray( subscription.product.productGroups ) || ! subscription.product.productGroups.length > 0 ) {
 		return false;
 	}
 	const grantsAccessToMultipleProducts = subscription.product.productGroups.length > 1;
@@ -157,23 +157,38 @@ function dateWithinOneMonth( date ) {
 }
 
 /**
+ * Returns true if the status is active
+ * @param {object} subscription The subscription
+ * @returns {boolean} true if subscription.status is "active", false otherwise
+ */
+function active( subscription ) {
+	return subscription.status === "active";
+}
+
+/**
  * Function that returns whether or not a subscription needs attention
  * @param { subscription } subscription A subscription object
  * @returns { boolean } True when the subscription needs attention, False otherwise
  */
 function needsAttention( subscription ) {
 	return (
+		// The subscription must have a renewalUrl and ONE of the following 3 cases
 		! _isEmpty( subscription.renewalUrl ) &&
 		(
+			// Case 1: The subscription.status is on-hold or expired
 			[ "on-hold", "expired" ].includes( subscription.status ) ||
+
+			// Case 2: The subscription has a nextPayment that is due in a month, is active and should be manually renewed
 			( subscription.hasNextPayment &&
-				subscription.status === "active" &&
 				dateWithinOneMonth( subscription.nextPayment ) &&
+				active( subscription ) &&
 				subscription.requiresManualRenewal
 			) ||
+
+			// Case 3: The subscription has a endDate that is due in a month and is active.
 			( subscription.hasEndDate &&
-				subscription.status === "active" &&
-				dateWithinOneMonth( subscription.endDate )
+				dateWithinOneMonth( subscription.endDate ) &&
+				active( subscription )
 			)
 		)
 	);
