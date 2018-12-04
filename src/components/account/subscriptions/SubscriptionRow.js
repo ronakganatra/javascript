@@ -355,7 +355,6 @@ class SubscriptionRow extends React.Component {
 
 		if ( subscription.status === "on-hold" ) {
 			linkText = this.props.intl.formatMessage( messages.seeDetails );
-			linkTo = "#";
 			onClickHandler = () => this.props.showDetailsModal( subscription.renewalUrl );
 			redMessage = this.props.intl.formatMessage( messages.paymentFailed );
 		} else {
