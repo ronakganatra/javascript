@@ -37,7 +37,12 @@ export const mapDispatchToProps = ( dispatch, ownProps ) => {
 			dispatch( logout() );
 		},
 		onBackClick: () => {
-			ownProps.history.goBack();
+			let backSteps = -1;
+			// When the skip link has been activated, go back by two steps in the history.
+			if ( ownProps.history.location.hash === "#content" ) {
+				backSteps = -2;
+			}
+			ownProps.history.go( backSteps );
 		},
 	};
 };
