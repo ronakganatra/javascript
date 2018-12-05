@@ -159,11 +159,58 @@ function dateWithinOneMonth( date ) {
 
 /**
  * Returns true if the status is active
- * @param {object} subscription The subscription
- * @returns {boolean} true if subscription.status is "active", false otherwise
+ *
+ * @param   { Object }  subscription The subscription
+ * @returns { boolean }              True if subscription.status is "active", false otherwise
  */
-function active( subscription ) {
+function isActive( subscription ) {
 	return subscription.status === "active";
+}
+
+/**
+ * Returns true if the status is on-hold
+ *
+ * @param   { Object }  subscription The subscription
+ * @returns { boolean }              True if subscription.status is "on-hold", false otherwise
+ */
+function isOnHold( subscription ) {
+	return subscription.status === "on-hold";
+}
+
+/**
+ * Returns true if the status is expired, false otherwise
+ * @param   { Object }  subscription The subscription
+ * @returns { boolean }              True if subscription.status is "expired", false otherwise
+ */
+function isExpired( subscription ) {
+	return subscription.status === "expired";
+}
+
+/**
+ * Returns true if the status is active and the subscription needs to be renewed manually within a month.
+ *
+ * @param   { Object }  subscription The subscription
+ * @returns { boolean }              See above.
+ */
+function shouldBeManuallyRenewedWithinMonth( subscription ) {
+	return( subscription.hasNextPayment &&
+		isActive( subscription ) &&
+		dateWithinOneMonth( subscription.nextPayment ) &&
+		subscription.requiresManualRenewal
+	);
+}
+
+/**
+ * Returns true if the status is active and the subscription is ending within a month.
+ *
+ * @param   { Object }  subscription The subscription
+ * @returns { boolean }              See above.
+ */
+function endsWithinMonth( subscription ) {
+	return( subscription.hasEndDate &&
+		isActive( subscription ) &&
+		dateWithinOneMonth( subscription.endDate )
+	);
 }
 
 /**
@@ -172,27 +219,14 @@ function active( subscription ) {
  * @returns { boolean } True when the subscription needs attention, False otherwise
  */
 function needsAttention( subscription ) {
-	return (
-		// The subscription must have a renewalUrl and ONE of the following 3 cases
-		! _isEmpty( subscription.renewalUrl ) &&
-		(
-			// Case 1: The subscription.status is on-hold or expired
-			[ "on-hold", "expired" ].includes( subscription.status ) ||
+	if ( _isEmpty( subscription.renewalUrl ) ) {
+		return false;
+	}
 
-			// Case 2: The subscription has a nextPayment that is due in a month, is active and should be manually renewed
-			( subscription.hasNextPayment &&
-				dateWithinOneMonth( subscription.nextPayment ) &&
-				active( subscription ) &&
-				subscription.requiresManualRenewal
-			) ||
+	const pastNeedsAttention = isOnHold( subscription ) || isExpired( subscription );
+	const futureNeedsAttention = shouldBeManuallyRenewedWithinMonth( subscription ) || endsWithinMonth( subscription );
 
-			// Case 3: The subscription has a endDate that is due in a month and is active.
-			( subscription.hasEndDate &&
-				dateWithinOneMonth( subscription.endDate ) &&
-				active( subscription )
-			)
-		)
-	);
+	return ( pastNeedsAttention || futureNeedsAttention );
 }
 
 /**
