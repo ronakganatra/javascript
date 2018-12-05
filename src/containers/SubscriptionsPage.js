@@ -81,9 +81,10 @@ function filterSubscriptionsByQuery( query, subscriptions ) {
  *                                        grouped in an object with glNumbers as keys.
  */
 function groupSubscriptionsByProduct( subscriptionsByType ) {
-	return Object.keys( subscriptionsByType ).reduce( ( newObject, key ) => {
-		newObject[ key ] = groupBy( subscriptionsByType[ key ], subscription => subscription.product.glNumber );
-		return newObject;
+	const subscriptionTypes = Object.keys( subscriptionsByType );
+	return subscriptionTypes.reduce( ( groupedObject, key ) => {
+		groupedObject[ key ] = groupBy( subscriptionsByType[ key ], subscription => subscription.product.glNumber );
+		return groupedObject;
 	}, {} );
 }
 
