@@ -193,7 +193,7 @@ function isExpired( subscription ) {
  * @returns { boolean }              See above.
  */
 function shouldBeManuallyRenewedWithinMonth( subscription ) {
-	return( subscription.hasNextPayment &&
+	return ( subscription.hasNextPayment &&
 		isActive( subscription ) &&
 		dateWithinOneMonth( subscription.nextPayment ) &&
 		subscription.requiresManualRenewal
@@ -207,7 +207,7 @@ function shouldBeManuallyRenewedWithinMonth( subscription ) {
  * @returns { boolean }              See above.
  */
 function endsWithinMonth( subscription ) {
-	return( subscription.hasEndDate &&
+	return ( subscription.hasEndDate &&
 		isActive( subscription ) &&
 		dateWithinOneMonth( subscription.endDate )
 	);
