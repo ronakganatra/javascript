@@ -172,7 +172,7 @@ class CoursesProgress extends React.Component {
 	 * @returns {{header: {image: *, link: *, title: *}}} The header information.
 	 */
 	getHeader( course ) {
-		if ( ! course.image ) {
+		if ( ! course.title ) {
 			return null;
 		}
 		return {
@@ -239,7 +239,7 @@ class CoursesProgress extends React.Component {
 			<OuterContainer>
 				{ this.props.courses.map( ( course, i ) =>
 					<CourseListItem key={ i }>
-						<FullHeightCard{ ...this.getBanner( course ) } { ...this.getHeader( course ) }>
+						<FullHeightCard { ...this.getBanner( course ) } { ...this.getHeader( course ) }>
 							<CourseDetails { ...course } onAssignModalOpen={ this.openModal } />
 						</FullHeightCard>
 					</CourseListItem> )

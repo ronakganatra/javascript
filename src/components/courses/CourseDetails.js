@@ -4,7 +4,6 @@ import { defineMessages, injectIntl, intlShape, FormattedMessage } from "react-i
 import styled from "styled-components";
 
 import colors from "yoast-components/style-guide/colors";
-import sampleHeader from "../../images/sample_course_card_header.png";
 
 // Custom components
 import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
@@ -50,19 +49,8 @@ const SecondaryButton = styled( LargeSecondaryButtonLink )`
 	width: 100%;
 `;
 
-const Header = styled.a`
-	padding: 0;
-	margin: 0;
-	margin-bottom: 15px;
-
-	color: ${ colors.$color_pink_dark };
-	font-weight: 300;
-	font-size: 1.5em;
-	text-decoration: none;
-`;
-
 const Details = styled.div`
-	margin-bottom:24px;
+	margin-bottom: 24px;
 	border-bottom: 1px ${ colors.$color_grey } solid;
 	flex-grow: 1;
 `;
@@ -117,6 +105,11 @@ const messages = defineMessages( {
 
 const BUTTON_MARGIN_TOP = "24px";
 
+/**
+ * Returns the CourseDetails component.
+ *
+ * @returns {ReactElement} The CourseDetails component.
+ */
 class CourseDetails extends React.Component {
 	/**
 	 * Sets the CourseCard object.
@@ -344,7 +337,6 @@ class CourseDetails extends React.Component {
 		return (
 			<Fragment>
 				<Details>
-					<Header href={ this.props.courseUrl }>{ this.props.title }</Header>
 					<p>{ this.props.description }</p>
 				</Details>
 				<ActionBlock>
@@ -361,13 +353,8 @@ export default injectIntl( CourseDetails );
 
 CourseDetails.propTypes = {
 	intl: intlShape.isRequired,
-
-	title: PropTypes.string,
-	image: PropTypes.string,
 	description: PropTypes.string,
-
 	progress: PropTypes.number,
-
 	totalEnrollments: PropTypes.number,
 	usedEnrollments: PropTypes.number,
 	availableEnrollment: PropTypes.object,
@@ -375,20 +362,29 @@ CourseDetails.propTypes = {
 	isEnrolled: PropTypes.bool,
 	isTrial: PropTypes.bool,
 	trialCompleted: PropTypes.bool,
-
 	courseUrl: PropTypes.string,
 	certificateUrl: PropTypes.string,
-
 	shopUrl: PropTypes.string,
-
 	onAssignModalOpen: PropTypes.func.isRequired,
-
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
-
 	hasTrial: PropTypes.bool,
 };
 
 CourseDetails.defaultProps = {
-	image: sampleHeader,
+	description: null,
+	progress: null,
+	totalEnrollments: null,
+	usedEnrollments: null,
+	availableEnrollment: null,
+	isFree: false,
+	isEnrolled: false,
+	isTrial: false,
+	trialCompleted: false,
+	courseUrl: null,
+	certificateUrl: null,
+	shopUrl: null,
+	isOnSale: false,
+	saleLabel: null,
+	hasTrial: false,
 };
