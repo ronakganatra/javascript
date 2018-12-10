@@ -279,7 +279,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -531,7 +531,9 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
@@ -650,7 +652,9 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
@@ -1000,7 +1004,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -1246,7 +1250,9 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
@@ -1596,7 +1602,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -1842,7 +1848,9 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>

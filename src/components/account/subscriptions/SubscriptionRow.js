@@ -80,7 +80,7 @@ const messages = defineMessages( {
 	},
 	active: {
 		id: "subscriptions.overview.active",
-		defaultMessage: "active",
+		defaultMessage: "Active",
 	},
 	inactive: {
 		id: "subscriptions.overview.inactive",
@@ -137,12 +137,11 @@ StyledColumnMinWidth.propTypes = {
 
 const StyledStatus = styled.span`
 	color: ${ props => props.needsAttention ? colors.$color_red : "inherit" };
-	font-weight: ${ props => props.status === "cancelled" ? "inherit" : "bold" };
+	font-weight: ${ props => props.needsAttention ? "bold" : "inherit" };
 `;
 
 StyledStatus.propTypes = {
-	status: PropTypes.string.isRequired,
-	isInExpanded: PropTypes.bool,
+	needsAttention: PropTypes.bool.isRequired,
 };
 
 const Detail = styled.div`

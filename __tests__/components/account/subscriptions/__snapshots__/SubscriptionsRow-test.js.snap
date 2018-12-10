@@ -165,7 +165,7 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 
 .c10 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c9 {
@@ -575,7 +575,7 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
 
 .c10 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c9 {
@@ -738,7 +738,9 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
       <span
         className="c10"
       >
-        Active
+        <span>
+          Active
+        </span>
       </span>
     </div>
   </span>

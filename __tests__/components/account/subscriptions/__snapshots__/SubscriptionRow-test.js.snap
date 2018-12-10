@@ -165,7 +165,7 @@ exports[`The Subscription component matches the snapshot 1`] = `
 
 .c10 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c9 {
