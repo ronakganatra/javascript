@@ -132,7 +132,7 @@ class SubscriptionEditModal extends React.Component {
 		this.decrementItemsToCancel = this.decrementItemsToCancel.bind( this );
 
 		this.state = {
-			amountToCancel: 1,
+			amountToCancel: 0,
 		};
 	}
 
@@ -142,6 +142,9 @@ class SubscriptionEditModal extends React.Component {
 	 * @returns {void}
 	 */
 	cancelSubscription() {
+		if ( ! this.state.amountToCancel > 0 ) {
+			return;
+		}
 		const { subscription, cancelSubscription } = this.props;
 		const { id } = subscription;
 		const amount = this.state.amountToCancel;
@@ -158,10 +161,21 @@ class SubscriptionEditModal extends React.Component {
 	 * @returns {void}
 	 */
 	changeItemsToCancel( event ) {
+		event.preventDefault();
+		// Replace all leading zeroes by just one, then remove the single zero if it's followed by any digit.
+		event.target.value = event.target.value
+			.replace( /^[0]+/g, "0" )
+			.replace( /^[0](?=\d)/g, "" );
+		if ( event.target.value === "" ) {
+			this.setState( {
+				amountToCancel: "",
+			} );
+			return;
+		}
 		const value = toNumber( event.target.value );
 		// Makes sure the value is between 1 and the maximum number of subscriptions
 		this.setState( {
-			amountToCancel: Math.min( Math.max( value, 1 ), this.props.numberOfCurrentSubscriptions ),
+			amountToCancel: Math.min( Math.max( value, 0 ), this.props.numberOfCurrentSubscriptions ),
 		} );
 	}
 
@@ -182,7 +196,7 @@ class SubscriptionEditModal extends React.Component {
 	 * @returns {void}
 	 */
 	decrementItemsToCancel() {
-		if ( this.state.amountToCancel > 1 ) {
+		if ( this.state.amountToCancel > 0 ) {
 			this.setState( { amountToCancel: this.state.amountToCancel - 1 } );
 		}
 	}
@@ -268,7 +282,7 @@ class SubscriptionEditModal extends React.Component {
 						<WideLargeButton
 							type="submit"
 							onClick={ this.cancelSubscription }
-							enabledStyle={ this.props.loading === false }
+							enabledStyle={ this.props.loading === false && this.state.amountToCancel > 0 }
 						>
 							<FormattedMessage { ...confirmButtonText } />
 						</WideLargeButton>
