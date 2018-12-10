@@ -162,10 +162,7 @@ class SubscriptionEditModal extends React.Component {
 	 */
 	changeItemsToCancel( event ) {
 		event.preventDefault();
-		// Replace all leading zeroes by just one, then remove the single zero if it's followed by any digit.
-		event.target.value = event.target.value
-			.replace( /^[0]+/g, "0" )
-			.replace( /^[0](?=\d)/g, "" );
+		event.target.value = event.target.value.replace( /^0+(\d+)/g, "$1" );
 		if ( event.target.value === "" ) {
 			this.setState( {
 				amountToCancel: "",
