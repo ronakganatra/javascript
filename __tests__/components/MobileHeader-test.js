@@ -15,7 +15,7 @@ test('the responsive site header matches the snapshot', () => {
 
 	const component = createComponentWithIntl(
 		<MemoryRouter>
-			<MobileHeader role="banner" onLogoutClick={ () => {} } onBeaconClick={ () => {} } match={ match }>
+			<MobileHeader onLogoutClick={ () => {} } onBeaconClick={ () => {} } match={ match }>
 				<BeaconHeaderButton type="button" onClick={ () => {} } iconSource={ questionCircle } iconSize="24px">Need help?</BeaconHeaderButton>
 				<Logo context="header" size="88px"/>
 				<LogoutHeaderButton type="button" onClick={ () => {} } iconSource={ logout } iconSize="24px">Sign out</LogoutHeaderButton>

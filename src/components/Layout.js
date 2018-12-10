@@ -110,6 +110,13 @@ const WhitePaper = styled( WhitePage )`
 	padding: 48px;
 `;
 
+/**
+ * Wraps a component in the layout used for the login.
+ *
+ * @param {ReactElement} WrappedComponent The React component to wrap.
+ *
+ * @returns {ReactElement} The login layout with the wrapped component.
+ */
 export const inLoginLayout = ( WrappedComponent ) => {
 	return class LoginLayout extends Component {
 		/**
@@ -129,6 +136,13 @@ export const inLoginLayout = ( WrappedComponent ) => {
 	};
 };
 
+/**
+ * Wraps a component in the single column layout.
+ *
+ * @param {ReactElement} WrappedComponent The React component to wrap.
+ *
+ * @returns {ReactElement} The single column layout with the wrapped component.
+ */
 export const inSingleLayout = ( WrappedComponent ) => {
 	return class SingleLayout extends Component {
 		/**
@@ -139,9 +153,10 @@ export const inSingleLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<header role="banner">
-						<MobileHeaderContainer { ...this.props } detailPage={ true } />
-					</header>
+					<SkipLink>
+						<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+					</SkipLink>
+					<MobileHeaderContainer { ...this.props } detailPage={ true } />
 					<SingleMain>
 						<Content>
 							<RenewalNotificationContainer />
@@ -155,6 +170,13 @@ export const inSingleLayout = ( WrappedComponent ) => {
 	};
 };
 
+/**
+ * Wraps a component in the main layout.
+ *
+ * @param {ReactElement} WrappedComponent The React component to wrap.
+ *
+ * @returns {ReactElement} The main layout with the wrapped component.
+ */
 export const inMainLayout = ( WrappedComponent ) => {
 	return class MainLayout extends Component {
 		/**
@@ -165,17 +187,17 @@ export const inMainLayout = ( WrappedComponent ) => {
 		render() {
 			return (
 				<Layout>
-					<header role="banner">
-						<SkipLink>
-							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-						</SkipLink>
-						<MediaQuery query="(max-width: 1024px)">
-							<MobileHeaderContainer detailPage={ false } />
-						</MediaQuery>
-					</header>
+					<SkipLink>
+						<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+					</SkipLink>
+					<MediaQuery query="(max-width: 1024px)">
+						<MobileHeaderContainer detailPage={ false } />
+					</MediaQuery>
 					<Sidebar>
 						<MediaQuery query="(min-width: 1025px)">
-							<Logo context="sidebar" size="200px" />
+							<header>
+								<Logo context="sidebar" size="200px" />
+							</header>
 						</MediaQuery>
 						<UserStatus />
 						<MainMenu menuRoutes={ menuItems } />
