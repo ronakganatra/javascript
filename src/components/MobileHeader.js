@@ -30,7 +30,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const FixedMobileHeader = styled.div`
+const FixedMobileHeader = styled.header`
 	display: inline-block;
 	position: fixed;
 	z-index: 1;
@@ -67,9 +67,11 @@ export const BeaconHeaderButton = styled( MobileHeaderButton )`
  */
 function MobileHeader( props ) {
 	let buttonMessage = props.loggingOut ? messages.signingOut : messages.signOut;
+	/* eslint-disable require-jsdoc */
 	let onButtonClick = () => {
 		props.onLogoutClick();
 	};
+	/* eslint-enable require-jsdoc */
 	let buttonIcon = logout;
 
 	if ( props.detailPage ) {
@@ -79,8 +81,8 @@ function MobileHeader( props ) {
 	}
 
 	return (
-		<FixedMobileHeader role="banner">
-			{ props.detailPage ? <h1 hidden={ true }>{ props.pageTitle }</h1> : null }
+		<FixedMobileHeader>
+			{ props.detailPage && <h1 hidden={ true }>{ props.pageTitle }</h1> }
 			<MobileHeaderButton type="button" onClick={ onButtonClick } iconSource={ buttonIcon } iconSize="24px">
 				<FormattedMessage { ...buttonMessage } />
 			</MobileHeaderButton>
@@ -105,11 +107,15 @@ MobileHeader.propTypes = {
 	detailPage: PropTypes.bool,
 	match: PropTypes.object,
 	pageTitle: PropTypes.string,
-	loggingOut: PropTypes.bool.isRequired,
+	loggingOut: PropTypes.bool,
 	logoutError: PropTypes.object,
 };
 
 MobileHeader.defaultProps = {
+	onBackClick: null,
+	detailPage: false,
+	match: null,
+	pageTitle: "",
 	loggingOut: false,
 	logoutError: null,
 };

@@ -137,7 +137,10 @@ test( "the mapDispatchToProps function to go back to the previous site on back c
 
 	let backState = {
 		history: {
-			goBack: jest.fn()
+			go: jest.fn(),
+			location: {
+				pathname: "http://my.yoast.test:3001/sites/497490e6-eb8d-4627-be9b-bfd33fc217f1"
+			}
 		}
 	};
 
@@ -145,5 +148,5 @@ test( "the mapDispatchToProps function to go back to the previous site on back c
 
 	props.onBackClick();
 
-	expect( backState.history.goBack ).toHaveBeenCalled();
+	expect( backState.history.go ).toHaveBeenCalled();
 } );
