@@ -74,6 +74,26 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.paymentFailed",
 		defaultMessage: "Payment failed",
 	},
+	amountOfAttentionNeeded: {
+		id: "subscriptions.overview.amountOfAttentionNeeded",
+		defaultMessage: "{amount} {amount, plural, one {action} other {actions}} needed",
+	},
+	active: {
+		id: "subscriptions.overview.active",
+		defaultMessage: "active",
+	},
+	inactive: {
+		id: "subscriptions.overview.inactive",
+		defaultMessage: "Not active",
+	},
+	suspended: {
+		id: "subscriptions.overview.suspended",
+		defaultMessage: "Suspended",
+	},
+	expiresSoon: {
+		id: "subscriptions.overview.expiresSoon",
+		defaultMessage: "Expires soon",
+	},
 } );
 
 const StyledRow = styled( Row )`
@@ -271,18 +291,17 @@ class SubscriptionRow extends React.Component {
 		 * Maps a number of props to a status.
 		 * @param {boolean} isActive Whether the subscription is active.
 		 * @param {boolean} needsAttention Whether the subscription needs attention.
-		 * @param {number} nrOfAction The number of subscriptions that need attention.
-		 * @returns {string} The status to show.
+		 * @param {number} nrOfActions The number of subscriptions that need attention.
+		 * @returns {FormattedMessage} The status to show.
 		 */
-		const donorSubscriptionstatus = ( isActive, needsAttention, nrOfAction ) => {
-			if ( needsAttention && nrOfAction === 1 ) {
-				return "1 action needed";
-			} else if ( needsAttention ) {
-				return nrOfAction + " actions needed";
-			} else if ( isActive ) {
-				return "Active";
+		const donorSubscriptionstatus = ( isActive, needsAttention, nrOfActions ) => {
+			if ( needsAttention ) {
+				return <FormattedMessage { ...messages.amountOfAttentionNeeded } values={ { amount: nrOfActions } } />;
 			}
-			return "Not active";
+			if ( isActive ) {
+				return <FormattedMessage { ...messages.active } />;
+			}
+			return <FormattedMessage { ...messages.inactive } />;
 		};
 
 		return {
@@ -293,8 +312,22 @@ class SubscriptionRow extends React.Component {
 			used: totalUsed,
 			limit: totalLimit,
 			needsAttention: needsAttention,
-			superRow: true,
 		};
+	}
+
+	/**
+	 * Gets a status based on the subscription.status and props.
+	 * @param {Object} subscription The subscription for which to get the status.
+	 * @returns {(FormattedMessage|String)} The status for the subscription.
+	 */
+	getStatus( subscription ) {
+		if ( ! this.props.needsAttention ) {
+			return capitalizeFirstLetter( subscription.status );
+		}
+		if ( subscription.status === "on-hold" ) {
+			return <FormattedMessage { ...messages.suspended } />;
+		}
+		return <FormattedMessage { ...messages.expiresSoon } />;
 	}
 
 	/**
@@ -306,16 +339,7 @@ class SubscriptionRow extends React.Component {
 	 * @returns {ReactElement}                          The contents of the first column (for this row).
 	 */
 	getPrimaryColumnContent( subscription, isInExpanded = false, nextPaymentInformation = "" ) {
-		const getStatus = ( subscription ) => {
-			if ( ! this.props.needsAttention || subscription.superRow ) {
-				return subscription.status;
-			}
-			if ( subscription.status === "on-hold" ) {
-				return "suspended";
-			}
-			return "expires soon";
-		};
-		const status = getStatus( subscription );
+		const status = this.getStatus( subscription );
 		return (
 			<Fragment>
 				{ isInExpanded && this.isActive( subscription.status, false ) &&
@@ -335,7 +359,7 @@ class SubscriptionRow extends React.Component {
 				}
 				<Detail isInExpanded={ isInExpanded }>
 					<StyledStatus status={ subscription.status } needsAttention={ this.props.needsAttention }>
-						{ capitalizeFirstLetter( status ) }
+						{ status }
 					</StyledStatus>
 					{ subscription.subscriptionNumber && " - " }{ subscription.subscriptionNumber }
 				</Detail>
@@ -344,9 +368,9 @@ class SubscriptionRow extends React.Component {
 	}
 
 	/**
-	 * Gets the details about what action is needed for the subscription
-	 * @param   {SubscriptionRow} subscription    The subscription
-	 * @returns {ReactElement} The details section
+	 * Gets the details about what action is needed for the subscription.
+	 * @param   {SubscriptionRow} subscription    The subscription for which this function gets the details.
+	 * @returns {ReactElement} The details section.
 	 */
 	getDetails( subscription ) {
 		// Declare variables used in both cases

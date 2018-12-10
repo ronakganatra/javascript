@@ -79,7 +79,10 @@ class SubscriptionsPage extends React.Component {
 		} );
 	}
 
-	/* eslint-disable require-jsdoc */
+	/**
+	 * Function to execute when the component mounts.
+	 * @returns {void}
+	 */
 	componentDidMount() {
 		this.props.loadData();
 
@@ -88,7 +91,11 @@ class SubscriptionsPage extends React.Component {
 		speak( message );
 	}
 
-	/* eslint-disable require-jsdoc */
+	/**
+	 * Function that is executed if the component will receive new props.
+	 * @param {Object} nextProps The props that the component has in the next state.
+	 * @returns {void}
+	 */
 	componentWillReceiveProps( nextProps ) {
 		/*
 		 * While typing or pasting in the search field, `componentWillReceiveProps()`
@@ -137,7 +144,7 @@ class SubscriptionsPage extends React.Component {
 	 * Function that shows the modal if open and if the URL is defined
 	 * @param {boolean} open Whether the modal is open
 	 * @param {string} url The renewal URL
-	 * @returns {null} || {SubscriptionDetailModal} null if there is no need to show the modal, the modal otherwise
+	 * @returns {(null|SubscriptionDetailModal)} null if there is no need to show the modal, the modal otherwise
 	 */
 	modal( open, url ) {
 		if ( open && url !== null ) {
