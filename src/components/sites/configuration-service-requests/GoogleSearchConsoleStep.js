@@ -101,7 +101,6 @@ class GoogleSearchConsoleStep extends React.Component {
 	<a
 		target="_blank"
 		href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
-		rel="noopener noreferrer"
 	>
 		<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
 		<NewTabMessage />
