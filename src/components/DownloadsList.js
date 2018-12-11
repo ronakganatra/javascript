@@ -119,8 +119,7 @@ class DownloadsList extends React.Component {
 				<DownloadLinkColumn>
 					<DownloadLink
 						to={ downloadLink }
-						linkTarget={ "_blank" }
-						aria-label={ "Download" }
+						linkTarget="_blank"
 					>
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>
@@ -151,7 +150,7 @@ class DownloadsList extends React.Component {
 				<FooterArea>
 					<InstallationGuideLink
 						to={ "https://yoa.st/myyoast-installation" }
-						linkTarget={ "_blank" }
+						linkTarget="_blank"
 					>
 						{ this.props.intl.formatMessage( messages.installationGuideLink ) }
 					</InstallationGuideLink>

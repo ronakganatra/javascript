@@ -130,7 +130,7 @@ class SubscriptionPage extends React.Component {
 							{
 								hasDownload( product ) && <Link
 									to={ product.downloads[ 0 ].file }
-									linkTarget={ "_blank" }
+									linkTarget="_blank"
 								>
 									<FormattedMessage { ...messages.downloadLinkText } />
 								</Link>
@@ -188,7 +188,7 @@ class SubscriptionPage extends React.Component {
 					<FormattedMessage { ...messages.downloadTitle } />
 					<Link
 						to={ "https://yoa.st/myyoast-installation" }
-						linkTarget={ "_blank" }
+						linkTarget="_blank"
 					>
 						<FormattedMessage { ...messages.installationGuide } />
 					</Link>
