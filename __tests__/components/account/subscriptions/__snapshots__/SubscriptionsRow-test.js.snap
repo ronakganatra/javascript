@@ -2,7 +2,6 @@
 
 exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`] = `
 .c1 {
-  background: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -351,7 +350,6 @@ exports[`the SubscriptionRow for a single subscriptions matches the snapshot 1`]
 
 exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`] = `
 .c1 {
-  background: #fff;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
