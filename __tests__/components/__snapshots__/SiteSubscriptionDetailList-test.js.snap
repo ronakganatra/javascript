@@ -537,7 +537,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <a
-            aria-label=""
+            aria-label={null}
             className="c17 c18 c19"
             href="http://url1.com"
             onClick={null}
@@ -573,10 +573,10 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="c21 c22 c7 c8"
         >
           <a
-            ariaLabel=""
+            ariaLabel={null}
             className="c23 c27 c19"
             href="/account/subscriptions/undefined"
-            linkRel=""
+            linkRel={null}
             onClick={[Function]}
           >
             <span>
@@ -639,7 +639,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <a
-            aria-label=""
+            aria-label={null}
             className="c17 c18 c19"
             href="http://url2.com"
             onClick={null}
@@ -675,10 +675,10 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
           className="c21 c22 c7 c8"
         >
           <a
-            ariaLabel=""
+            ariaLabel={null}
             className="c23 c27 c19"
             href="/account/subscriptions/undefined"
-            linkRel=""
+            linkRel={null}
             onClick={[Function]}
           >
             <span>

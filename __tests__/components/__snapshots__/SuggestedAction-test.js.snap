@@ -94,7 +94,7 @@ exports[`the SuggestedAction component matches the snapshot in the case of no or
     </span>
   </p>
   <a
-    aria-label=""
+    aria-label={null}
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}
@@ -324,7 +324,7 @@ exports[`the SuggestedAction component matches the snapshot in the case of no su
     </span>
   </p>
   <a
-    aria-label=""
+    aria-label={null}
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}

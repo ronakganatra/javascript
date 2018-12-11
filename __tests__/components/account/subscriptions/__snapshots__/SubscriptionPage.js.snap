@@ -430,8 +430,8 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
         Included products
       </span>
       <a
-        aria-label=""
-        className=""
+        aria-label={null}
+        className={null}
         href="https://yoa.st/myyoast-installation"
         onClick={null}
         rel="noopener"
@@ -909,8 +909,8 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
         Included products
       </span>
       <a
-        aria-label=""
-        className=""
+        aria-label={null}
+        className={null}
         href="https://yoa.st/myyoast-installation"
         onClick={null}
         rel="noopener"

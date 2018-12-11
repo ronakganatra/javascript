@@ -86,12 +86,12 @@ exports[`The LoginMessage component, with a button, matches the snapshot 1`] = `
     </span>
   </h1>
   <a
-    aria-label=""
+    aria-label={null}
     className="c4 c5"
     href="https://example.com"
     onClick={null}
-    rel=""
-    target=""
+    rel={null}
+    target={null}
   >
     <span>
       Continue to MyYoast

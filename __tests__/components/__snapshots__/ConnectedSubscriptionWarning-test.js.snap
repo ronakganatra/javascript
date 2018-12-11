@@ -86,12 +86,12 @@ exports[`the ConnectedSubscriptionWarning component matches the snapshot 1`] = `
     <span>
       If you want to cancel just this product, 
       <a
-        aria-label=""
-        className=""
+        aria-label={null}
+        className={null}
         href="mailto:support@yoast.com"
         onClick={null}
-        rel=""
-        target=""
+        rel={null}
+        target={null}
       >
         <span>
           please contact support

@@ -451,7 +451,7 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
         className="c13 Tables-fvscPb c19 c20 c21"
       >
         <a
-          aria-label=""
+          aria-label={null}
           className="c22 c23 c24 c25 c26"
           href="https://my.yoast.test"
           onClick={null}

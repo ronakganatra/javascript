@@ -100,7 +100,7 @@ Array [
       </span>
     </button>
     <a
-      aria-label=""
+      aria-label={null}
       className="c2 c3"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -256,7 +256,7 @@ Array [
       />
     </div>
     <a
-      aria-label=""
+      aria-label={null}
       className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -429,7 +429,7 @@ Array [
       />
     </div>
     <a
-      aria-label=""
+      aria-label={null}
       className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -587,7 +587,7 @@ Array [
       />
     </div>
     <a
-      aria-label=""
+      aria-label={null}
       className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -613,10 +613,10 @@ Array [
       </span>
        
       <a
-        ariaLabel=""
-        className=""
+        ariaLabel={null}
+        className={null}
         href="/courses/enrollments"
-        linkRel=""
+        linkRel={null}
         onClick={[Function]}
       >
         <span>
@@ -625,12 +625,12 @@ Array [
       </a>
        | 
       <a
-        aria-label=""
-        className=""
+        aria-label={null}
+        className={null}
         href="http://yoast.test/shop"
         onClick={null}
-        rel=""
-        target=""
+        rel={null}
+        target={null}
       >
         <span>
           Get more
@@ -737,7 +737,7 @@ Array [
     className="c0"
   >
     <a
-      aria-label=""
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.test/shop"
       onClick={null}
@@ -876,7 +876,7 @@ Array [
       </span>
     </button>
     <a
-      aria-label=""
+      aria-label={null}
       className="c2 c3"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -995,7 +995,7 @@ Array [
     className="c0"
   >
     <a
-      aria-label=""
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -1185,7 +1185,7 @@ Array [
       />
     </div>
     <a
-      aria-label=""
+      aria-label={null}
       className="c4 c5 c6"
       href="http://yoast.academy.test/certificate"
       onClick={null}
@@ -1358,7 +1358,7 @@ Array [
       />
     </div>
     <a
-      aria-label=""
+      aria-label={null}
       className="c4 c5"
       href="http://yoast.academy.test/awesome_seo"
       onClick={null}
@@ -1493,7 +1493,7 @@ Array [
     className="c0"
   >
     <a
-      aria-label=""
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.test/shop"
       onClick={null}

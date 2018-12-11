@@ -266,7 +266,7 @@ exports[`the site page component matches the snapshot 1`] = `
       className="c3"
     >
       <a
-        aria-label=""
+        aria-label={null}
         className="c4 c5 c6"
         href="http://yoast.com/wp-admin"
         onClick={null}
@@ -794,7 +794,7 @@ exports[`the site page component matches the snapshot for a site in a directory 
       className="c3"
     >
       <a
-        aria-label=""
+        aria-label={null}
         className="c4 c5 c6"
         href="http://yoast.com/wp-admin"
         onClick={null}

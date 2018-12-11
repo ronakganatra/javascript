@@ -37,9 +37,6 @@ export default class Link extends Component {
 			onClick: this.props.onClick,
 		};
 
-		// Remove undefined values from externalProps.
-		Object.keys( externalProps ).forEach( key => typeof externalProps[ key ] === "undefined" && delete externalProps[ key ] );
-
 		return isExternal( this.props.to )
 			? <a { ...externalProps }>
 				{ this.props.children }
@@ -59,9 +56,9 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
-	className: "",
-	ariaLabel: "",
-	linkTarget: "",
-	linkRel: "",
+	className: null,
+	ariaLabel: null,
+	linkTarget: null,
+	linkRel: null,
 	onClick: null,
 };

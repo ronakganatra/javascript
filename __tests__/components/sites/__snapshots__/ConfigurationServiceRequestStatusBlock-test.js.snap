@@ -284,7 +284,7 @@ exports[`the configuration service request status block component with status in
           />
         </p>
         <a
-          aria-label=""
+          aria-label={null}
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           onClick={null}
@@ -491,7 +491,7 @@ exports[`the configuration service request status block component with status su
           />
         </p>
         <a
-          aria-label=""
+          aria-label={null}
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           onClick={null}

@@ -397,10 +397,10 @@ exports[`renders without crashing 1`] = `
               className="c20"
             >
               <a
-                ariaLabel=""
-                className=""
+                ariaLabel={null}
+                className={null}
                 href="/forgot-password"
-                linkRel=""
+                linkRel={null}
                 onClick={[Function]}
               >
                 <span>

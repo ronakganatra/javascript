@@ -836,7 +836,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
     </span>
   </p>
   <a
-    aria-label=""
+    aria-label={null}
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}
