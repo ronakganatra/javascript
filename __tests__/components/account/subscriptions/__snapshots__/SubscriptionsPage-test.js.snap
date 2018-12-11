@@ -555,6 +555,8 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             className="c25"
           >
             <button
+              aria-expanded={false}
+              aria-label="More details"
               className="c26 c27 c28 c29"
               onClick={[Function]}
               type="button"
@@ -674,6 +676,8 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             className="c25"
           >
             <button
+              aria-expanded={false}
+              aria-label="More details"
               className="c26 c27 c28 c29"
               onClick={[Function]}
               type="button"
@@ -1270,6 +1274,8 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
             className="c25"
           >
             <button
+              aria-expanded={false}
+              aria-label="More details"
               className="c26 c27 c28 c29"
               onClick={[Function]}
               type="button"
@@ -1866,6 +1872,8 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
             className="c25"
           >
             <button
+              aria-expanded={false}
+              aria-label="More details"
               className="c26 c27 c28 c29"
               onClick={[Function]}
               type="button"

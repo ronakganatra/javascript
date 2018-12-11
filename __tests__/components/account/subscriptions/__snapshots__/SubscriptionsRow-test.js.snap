@@ -762,6 +762,8 @@ exports[`the SubscriptionRow for multiple subscriptions matches the snapshot 1`]
       className="c19"
     >
       <button
+        aria-expanded={false}
+        aria-label="More details"
         className="c20 c21 c22 c23"
         onClick={[Function]}
         type="button"

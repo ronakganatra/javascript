@@ -57,6 +57,10 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.sites",
 		defaultMessage: "{ limit } sites",
 	},
+	detailsButton: {
+		id: "subscriptions.overview.detailsButton",
+		defaultMessage: "More details",
+	},
 } );
 
 const StyledRow = styled( Row )`
@@ -399,6 +403,8 @@ class SubscriptionRow extends React.Component {
 							<UpDownButton
 								isOpen={ this.state.isOpen }
 								onClick={ toggleOpen }
+								aria-expanded={ this.state.isOpen }
+								aria-label={ this.props.intl.formatMessage( messages.detailsButton ) }
 							/>
 						</CollapseButtonSpacer>
 					</ColumnFixedWidth>
