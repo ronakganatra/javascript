@@ -386,9 +386,11 @@ exports[`an add more licenses button should be shown when no more licenses are a
       </span>
     </span>
     <a
+      aria-label=""
       className="c12 c13 c14"
       href="http://store.url.com"
-      rel="noopener noreferrer"
+      onClick={null}
+      rel="noopener"
       target="_blank"
     >
       <span>
@@ -420,8 +422,10 @@ exports[`an add more licenses button should be shown when no more licenses are a
     className="c16 c17 c2 c3"
   >
     <a
+      ariaLabel=""
       className="c18 c22 c14"
       href="/account/subscriptions/subId"
+      linkRel=""
       onClick={[Function]}
     >
       <span>
@@ -818,9 +822,11 @@ exports[`the sitesubscription matches the snapshot 1`] = `
       </span>
     </span>
     <a
+      aria-label=""
       className="c12 c13 c14"
       href="http://store.url.com"
-      rel="noopener noreferrer"
+      onClick={null}
+      rel="noopener"
       target="_blank"
     >
       <span>
@@ -852,8 +858,10 @@ exports[`the sitesubscription matches the snapshot 1`] = `
     className="c16 c17 c2 c3"
   >
     <a
+      ariaLabel=""
       className="c18 c22 c14"
       href="/account/subscriptions/subId"
+      linkRel=""
       onClick={[Function]}
     >
       <span>

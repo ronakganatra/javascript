@@ -237,8 +237,12 @@ exports[`The LoginColumnLayout component, with two columns, matches the snapshot
         </span>
       </h1>
       <a
+        aria-label=""
         className="c8 c9"
         href="https://example.com"
+        onClick={null}
+        rel=""
+        target=""
       >
         <span>
           Continue to MyYoast

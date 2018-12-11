@@ -18,7 +18,10 @@ exports[`the logo matches the snapshot 1`] = `
 }
 
 <a
+  ariaLabel=""
+  className=""
   href="/"
+  linkRel=""
   onClick={[Function]}
 >
   <img

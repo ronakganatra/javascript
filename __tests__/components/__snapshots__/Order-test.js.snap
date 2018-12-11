@@ -478,7 +478,8 @@ exports[`A standard order 1`] = `
         aria-label="Download invoice"
         className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
-        rel="noopener noreferrer"
+        onClick={null}
+        rel="noopener"
         target="_blank"
       >
         <span
@@ -970,7 +971,8 @@ exports[`An Order with a disabled invoice button 1`] = `
         aria-label="Download invoice"
         className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
-        rel="noopener noreferrer"
+        onClick={null}
+        rel="noopener"
         target="_blank"
       >
         <span

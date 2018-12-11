@@ -33,7 +33,7 @@ export default class Link extends Component {
 			className: this.props.className,
 			"aria-label": this.props.ariaLabel,
 			target: this.props.linkTarget,
-			rel: this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel,
+			rel: this.props.linkTarget === "_blank" ? "noopener" : this.props.linkRel,
 			onClick: this.props.onClick,
 		};
 
@@ -51,9 +51,17 @@ export default class Link extends Component {
 Link.propTypes = {
 	to: PropTypes.string.isRequired,
 	className: PropTypes.string,
-	children: PropTypes.any,
+	children: PropTypes.any.isRequired,
 	ariaLabel: PropTypes.string,
 	linkTarget: PropTypes.string,
 	linkRel: PropTypes.string,
 	onClick: PropTypes.func,
+};
+
+Link.defaultProps = {
+	className: "",
+	ariaLabel: "",
+	linkTarget: "",
+	linkRel: "",
+	onClick: null,
 };
