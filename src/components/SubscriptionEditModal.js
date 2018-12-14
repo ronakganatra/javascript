@@ -170,7 +170,7 @@ class SubscriptionEditModal extends React.Component {
 			return;
 		}
 		const value = toNumber( event.target.value );
-		// Makes sure the value is between 1 and the maximum number of subscriptions
+		// Makes sure the value is between 0 and the maximum number of subscriptions
 		this.setState( {
 			amountToCancel: Math.min( Math.max( value, 0 ), this.props.numberOfCurrentSubscriptions ),
 		} );
