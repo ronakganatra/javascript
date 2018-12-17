@@ -739,7 +739,7 @@ Array [
       className="c1 c2"
       href="http://yoast.test/shop"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1495,7 +1495,7 @@ Array [
       className="c1 c2"
       href="http://yoast.test/shop"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>

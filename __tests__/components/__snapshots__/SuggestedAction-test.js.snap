@@ -98,7 +98,7 @@ exports[`the SuggestedAction component matches the snapshot in the case of no or
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}
-    rel="noopener"
+    rel={null}
     target="_blank"
   >
     <span>
@@ -328,7 +328,7 @@ exports[`the SuggestedAction component matches the snapshot in the case of no su
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}
-    rel="noopener"
+    rel={null}
     target="_blank"
   >
     <span>

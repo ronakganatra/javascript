@@ -318,7 +318,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
             className="c18 c14"
             href="http://yoast.test/shop"
             onClick={null}
-            rel="noopener"
+            rel={null}
             target="_blank"
           >
             <span>

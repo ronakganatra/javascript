@@ -870,7 +870,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
     className="c1 c2 c3"
     href="https://yoast.com/shop/"
     onClick={null}
-    rel="noopener"
+    rel={null}
     target="_blank"
   >
     <span>

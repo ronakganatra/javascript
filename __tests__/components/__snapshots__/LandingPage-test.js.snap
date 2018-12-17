@@ -86,7 +86,7 @@ exports[`the landing page component matches the snapshot 1`] = `
       className="c1 c2"
       href="http://yoast.com"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       yoast.com

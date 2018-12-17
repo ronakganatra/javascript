@@ -455,7 +455,7 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
           className="c22 c23 c24 c25 c26"
           href="https://my.yoast.test"
           onClick={null}
-          rel="noopener"
+          rel={null}
           target="_blank"
         >
           <span>

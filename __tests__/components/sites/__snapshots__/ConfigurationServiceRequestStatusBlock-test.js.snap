@@ -288,7 +288,7 @@ exports[`the configuration service request status block component with status in
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           onClick={null}
-          rel="noopener"
+          rel={null}
           target="_blank"
         >
           View Report
@@ -495,7 +495,7 @@ exports[`the configuration service request status block component with status su
           className="c5 c6"
           href="https://my.yoast.com/api/ConfigurationServiceRequests/test/report?access_token="
           onClick={null}
-          rel="noopener"
+          rel={null}
           target="_blank"
         >
           View Report
