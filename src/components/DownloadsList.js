@@ -114,12 +114,11 @@ class DownloadsList extends React.Component {
 		return (
 			<BorderedRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
 				<ResponsiveProductNameColumn>
-					<span> { productName } </span>
+					<span>{ productName }</span>
 				</ResponsiveProductNameColumn>
 				<DownloadLinkColumn>
 					<DownloadLink
 						to={ downloadLink }
-						linkTarget="_blank"
 					>
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>

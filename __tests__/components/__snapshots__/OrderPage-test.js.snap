@@ -575,8 +575,8 @@ exports[`The Orders component matches the snapshot 1`] = `
               className="c25 Button-kDSBcD c26 c27 c28 c29"
               href="http://somelink"
               onClick={null}
-              rel="noopener"
-              target="_blank"
+              rel={null}
+              target={null}
             >
               <span
                 className="screen-reader-text"

@@ -94,7 +94,6 @@ export class InvoicesModal extends React.Component {
 						ariaLabel={ this.props.intl.formatMessage( messages.invoiceLabel ) }
 						iconSource={ downloadIcon }
 						to={ invoiceURI }
-						linkTarget="_blank"
 					>
 						<span>{ this.props.intl.formatMessage( messages.download ) }</span>
 					</ResponsiveInvoiceLink>

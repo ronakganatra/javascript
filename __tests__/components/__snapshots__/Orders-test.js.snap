@@ -508,8 +508,8 @@ exports[`The Orders component matches the snapshot 1`] = `
             className="c21 Button-kDSBcD c22 c23 c24 c25"
             href="http://somelink"
             onClick={null}
-            rel="noopener"
-            target="_blank"
+            rel={null}
+            target={null}
           >
             <span
               className="screen-reader-text"

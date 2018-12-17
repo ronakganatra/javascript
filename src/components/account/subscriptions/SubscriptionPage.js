@@ -130,7 +130,6 @@ class SubscriptionPage extends React.Component {
 							{
 								hasDownload( product ) && <Link
 									to={ product.downloads[ 0 ].file }
-									linkTarget="_blank"
 								>
 									<FormattedMessage { ...messages.downloadLinkText } />
 								</Link>

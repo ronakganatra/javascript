@@ -479,8 +479,8 @@ exports[`A standard order 1`] = `
         className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         onClick={null}
-        rel="noopener"
-        target="_blank"
+        rel={null}
+        target={null}
       >
         <span
           className="screen-reader-text"
@@ -972,8 +972,8 @@ exports[`An Order with a disabled invoice button 1`] = `
         className="c18 Button-kDSBcD c19 c20 c21 c22"
         href="https://my.yoast.com/api/Orders/1/invoice?access_token="
         onClick={null}
-        rel="noopener"
-        target="_blank"
+        rel={null}
+        target={null}
       >
         <span
           className="screen-reader-text"
