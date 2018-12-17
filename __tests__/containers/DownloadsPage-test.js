@@ -182,7 +182,7 @@ test( "the mapStateToProps function", () => {
 
 	let expected = {
 		eBooks: [ {
-			buttons: [ { label: "pdf", onButtonClick: () => window.open("http://example.org/ebook.pdf", "_blank") } ],
+			buttons: [ { label: "pdf", file: "http://example.org/ebook.pdf" } ],
 			category: "ebook",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
@@ -192,7 +192,7 @@ test( "the mapStateToProps function", () => {
 		}],
 		plugins: [
 			{
-				buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin1.zip", "_blank") } ],
+				buttons: [ { label: "zip", file: "http://example.org/plugin1.zip" } ],
 				category: "plugin",
 				currentVersion: 5.6,
 				icon: "icon1.jpg",
@@ -210,8 +210,8 @@ test( "the mapStateToProps function", () => {
 
 	let actual = mapStateToProps( state );
 
-	expected.plugins[ 0 ].buttons[ 0 ].onButtonClick = actual.plugins[ 0 ].buttons[ 0 ].onButtonClick;
-	expected.eBooks[ 0 ].buttons[ 0 ].onButtonClick = actual.eBooks[ 0 ].buttons[ 0 ].onButtonClick;
+	expected.plugins[ 0 ].buttons[ 0 ].file = actual.plugins[ 0 ].buttons[ 0 ].file;
+	expected.eBooks[ 0 ].buttons[ 0 ].file = actual.eBooks[ 0 ].buttons[ 0 ].file;
 
 	expect( actual ).toEqual ( expected );
 } );
@@ -598,7 +598,7 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 
 	let expected = {
 		eBooks: [ {
-			buttons: [ { label: "pdf", onButtonClick: () => window.open("http://example.org/ebook.pdf", "_blank") } ],
+			buttons: [ { label: "pdf", file: "http://example.org/ebook.pdf" } ],
 			category: "ebook",
 			currentVersion: 4.7,
 			icon: "icon.jpg",
@@ -607,7 +607,7 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 			glNumber: "333",
 		}],
 		plugins: [ {
-			buttons: [ { label: "zip", onButtonClick: () => window.open("http://example.org/plugin.zip", "_blank") } ],
+			buttons: [ { label: "zip", file: "http://example.org/plugin.zip" } ],
 			category: "plugin",
 			currentVersion: 5.6,
 			icon: "icon1.jpg",
@@ -624,8 +624,8 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 
 	let actual = mapStateToProps( state );
 
-	expected.plugins[ 0 ].buttons[ 0 ].onButtonClick = actual.plugins[ 0 ].buttons[ 0 ].onButtonClick;
-	expected.eBooks[ 0 ].buttons[ 0 ].onButtonClick = actual.eBooks[ 0 ].buttons[ 0 ].onButtonClick;
+	expected.plugins[ 0 ].buttons[ 0 ].file = actual.plugins[ 0 ].buttons[ 0 ].file;
+	expected.eBooks[ 0 ].buttons[ 0 ].file = actual.eBooks[ 0 ].buttons[ 0 ].file;
 
 	expect( actual ).toEqual ( expected );
 } );

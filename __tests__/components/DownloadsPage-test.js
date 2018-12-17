@@ -14,11 +14,11 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Typo3",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "222",
@@ -29,7 +29,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "333",
@@ -40,11 +40,11 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Typo3",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "444",
@@ -55,11 +55,11 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Typo3",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		},
 	];
@@ -74,7 +74,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/ebook.pdf" },
 			],
 		}, {
 			glNumber: "666",
@@ -85,7 +85,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/ebook.pdf" },
 			],
 		}, {
 			glNumber: "777",
@@ -96,7 +96,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/ebook.pdf" },
 			],
 		}, {
 			glNumber: "888",
@@ -107,7 +107,7 @@ test( 'the downloads page component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/ebook.pdf" },
 			],
 		},
 	];
