@@ -102,9 +102,9 @@ Array [
     <a
       aria-label={null}
       className="c2 c3"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -258,9 +258,9 @@ Array [
     <a
       aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -431,9 +431,9 @@ Array [
     <a
       aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -589,9 +589,9 @@ Array [
     <a
       aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -876,9 +876,9 @@ Array [
     <a
       aria-label={null}
       className="c2 c3"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -995,9 +995,9 @@ Array [
     <a
       aria-label={null}
       className="c1 c2"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1185,9 +1185,9 @@ Array [
     <a
       aria-label={null}
       className="c4 c5 c6"
-      href="http://yoast.academy.test/certificate"
+      href="http://academy.yoast.test/certificate"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1358,9 +1358,9 @@ Array [
     <a
       aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
+      href="http://academy.yoast.test/awesome_seo"
       onClick={null}
-      rel="noopener"
+      rel={null}
       target="_blank"
     >
       <span>

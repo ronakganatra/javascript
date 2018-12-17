@@ -201,7 +201,7 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
     >
       <a
         className="c4"
-        href="http://yoast.academy.test/awesome_seo"
+        href="http://academy.yoast.test/awesome_seo"
       >
         <img
           alt=""
@@ -244,9 +244,9 @@ exports[`The CoursesProgress component matches the snapshot 1`] = `
           <a
             aria-label={null}
             className="c13 c14"
-            href="http://yoast.academy.test/awesome_seo"
+            href="http://academy.yoast.test/awesome_seo"
             onClick={null}
-            rel="noopener"
+            rel={null}
             target="_blank"
           >
             <span>
