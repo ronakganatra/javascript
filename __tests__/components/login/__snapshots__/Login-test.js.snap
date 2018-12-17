@@ -187,10 +187,8 @@ exports[`The Login component matches the snapshot 1`] = `
     className="c6"
   >
     <a
-      ariaLabel={null}
       className={null}
       href="/forgot-password"
-      linkRel={null}
       onClick={[Function]}
     >
       <span>
@@ -439,10 +437,8 @@ exports[`The Login component with OTP required matches the snapshot 1`] = `
     className="c6"
   >
     <a
-      ariaLabel={null}
       className={null}
       href="/forgot-password"
-      linkRel={null}
       onClick={[Function]}
     >
       <span>

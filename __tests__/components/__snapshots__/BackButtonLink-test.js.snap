@@ -50,10 +50,8 @@ exports[`the round back button matches the snapshot 1`] = `
 }
 
 <a
-  ariaLabel={null}
   className="c0 c1 c2"
   href="/"
-  linkRel={null}
   onClick={[Function]}
 >
   ButtonValue
@@ -110,10 +108,8 @@ exports[`the round back button with button type given matches the snapshot 1`] =
 }
 
 <a
-  ariaLabel={null}
   className="c0 c1 c2"
   href="/"
-  linkRel={null}
   onClick={[Function]}
   type="button"
 >

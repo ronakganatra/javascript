@@ -613,10 +613,8 @@ Array [
       </span>
        
       <a
-        ariaLabel={null}
         className={null}
         href="/courses/enrollments"
-        linkRel={null}
         onClick={[Function]}
       >
         <span>

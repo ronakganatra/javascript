@@ -117,10 +117,8 @@ exports[`the responsive site header matches the snapshot 1`] = `
     </span>
   </button>
   <a
-    ariaLabel={null}
     className={null}
     href="/"
-    linkRel={null}
     onClick={[Function]}
   >
     <img

@@ -24,6 +24,8 @@ export default class Link extends Component {
 	render() {
 		const internalProps = Object.assign( {}, this.props );
 		delete internalProps.linkTarget;
+		delete internalProps.linkRel;
+		delete internalProps.ariaLabel;
 		delete internalProps.enabledStyle;
 		delete internalProps.iconSource;
 		delete internalProps.iconSize;
