@@ -5,28 +5,7 @@ import PropTypes from "prop-types";
 import { ModalHeading } from "../Headings";
 import Link from "../Link";
 import styled from "styled-components";
-import { ButtonLink, Button } from "../Button";
-
-const modalAriaLabel = defineMessages( {
-	id: "modal.arialabel.paymentFailed",
-	defaultMessage: "Payment failed",
-} );
-
-const ButtonArea = styled.div`
-	display: flex;
-	justify-content: flex-end;
-`;
-
-const Modal = styled( MyYoastModal )`
-	 padding: 24px 16px 24px 16px !important;
-	 &.my-yoast-modal__content {
-	    max-width: 640px;
-	 }
-`;
-
-const ButtonMarginRight = styled( Button )`
-	margin: 0 ${ props => props.marginRight}px 0 0;
-`;
+import { ButtonLink, Button, makeButtonFullWidth } from "../Button";
 
 const messages = defineMessages( {
 	paymentSuspended: {
@@ -53,6 +32,30 @@ const messages = defineMessages( {
 		defaultMessage: "Renew",
 	},
 } );
+
+const modalAriaLabel = defineMessages( {
+	id: "modal.arialabel.paymentFailed",
+	defaultMessage: "Payment failed",
+} );
+
+const ButtonArea = styled.div`
+	display: flex;
+	justify-content: flex-end;
+`;
+
+const Modal = styled( MyYoastModal )`
+	 padding: 24px 16px 24px 16px !important;
+	 &.my-yoast-modal__content {
+	    max-width: 640px;
+	 }
+`;
+
+const ButtonClose = makeButtonFullWidth( Button );
+const ButtonRenew = makeButtonFullWidth( ButtonLink );
+
+const ButtonMarginRight = styled( ButtonClose )`
+	margin: 0 ${ props => props.marginRight}px 0 0;
+`;
 
 /**
  * Returns the SubscriptionDetailModal.
@@ -98,11 +101,11 @@ const SubscriptionDetailModal = ( props ) => (
 				>
 					{ props.intl.formatMessage( messages.cancel ) }
 				</ButtonMarginRight>
-				<ButtonLink
+				<ButtonRenew
 					to={ props.renewalUrl }
 				>
 					{ props.intl.formatMessage( messages.renew ) }
-				</ButtonLink>
+				</ButtonRenew>
 			</ButtonArea>
 		</Fragment>
 	</Modal>
