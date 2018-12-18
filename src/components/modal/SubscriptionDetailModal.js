@@ -19,6 +19,9 @@ const ButtonArea = styled.div`
 
 const Modal = styled( MyYoastModal )`
 	 padding: 24px 16px 24px 16px !important;
+	 &.my-yoast-modal__content {
+	    max-width: 640px;
+	 }
 `;
 
 const ButtonMarginRight = styled( Button )`
