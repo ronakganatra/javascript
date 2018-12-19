@@ -59,7 +59,7 @@ export const mapStateToProps = ( state ) => {
 			icon,
 			id: identifier,
 			progress,
-			courseId: grouped ? " grouped" : course.id,
+			courseId: grouped && isAllTrainingSubscription ? " grouped" : course.id,
 			courseName: grouped && isAllTrainingSubscription ? "Training Subscription" : course.name.replace( /\s\((block|classic) editor\)/, "" ),
 			buyerEmail,
 			buyerName,
