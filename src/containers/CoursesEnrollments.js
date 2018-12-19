@@ -22,7 +22,7 @@ export const mapStateToProps = ( state ) => {
 		const enrollments = groupedEnrollments[ identifier ];
 		const firstEnrollment = enrollments[ 0 ];
 		const grouped = enrollments.length > 1;
-		const isAllTrainingSubscription = enrollments.length >= 9; // todo make a better check fot that.
+		const isAllTrainingSubscription = enrollments.length >= 9;
 
 		identifier = grouped ? `bulk:${identifier}` : `individual:${firstEnrollment.id}`;
 
@@ -60,7 +60,7 @@ export const mapStateToProps = ( state ) => {
 			id: identifier,
 			progress,
 			courseId: grouped ? " grouped" : course.id,
-			courseName: grouped && isAllTrainingSubscription ? "Training Subscription" : course.name.replace(/\s\((block|classic) editor\)/, ""), // todo fix nasty yst seo for wp training name hack
+			courseName: grouped && isAllTrainingSubscription ? "Training Subscription" : course.name.replace( /\s\((block|classic) editor\)/, "" ),
 			buyerEmail,
 			buyerName,
 			buyerId: firstEnrollment.buyerId,
