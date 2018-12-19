@@ -22,7 +22,7 @@ export const mapStateToProps = ( state ) => {
 		const enrollments = groupedEnrollments[ identifier ];
 		const firstEnrollment = enrollments[ 0 ];
 		const grouped = enrollments.length > 1;
-		const isAllTrainingSubscription = enrollments.length >= 9;
+		const isAllTrainingSubscription = enrollments.length >= 5;
 
 		identifier = grouped ? `bulk:${identifier}` : `individual:${firstEnrollment.id}`;
 
