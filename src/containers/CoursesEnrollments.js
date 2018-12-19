@@ -44,7 +44,7 @@ export const mapStateToProps = ( state ) => {
 		}
 
 		let icon = "";
-		if ( grouped ) {
+		if ( grouped && isAllTrainingSubscription ) {
 			icon = "https://yoast.com/app/uploads/2018/11/Training_subscription_MyYoast.png";
 		} else {
 			icon = ( course.products[ 0 ] ? course.products[ 0 ].icon : "" );
@@ -59,7 +59,7 @@ export const mapStateToProps = ( state ) => {
 			icon,
 			id: identifier,
 			progress,
-			courseId: grouped && isAllTrainingSubscription ? " grouped" : course.id,
+			courseId: grouped ? " grouped" : course.id,
 			courseName: grouped && isAllTrainingSubscription ? "Training Subscription" : course.name.replace( /\s\((block|classic) editor\)/, "" ),
 			buyerEmail,
 			buyerName,
