@@ -35,13 +35,13 @@ export const ButtonArea = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
-	flex-direction: row-reverse;
+	justify-content: flex-end;
 	width: 100%;
 `;
 
 const SaveButton = styled( LargeButton )`
 	margin: 1em 0;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 	}
@@ -50,7 +50,7 @@ const SaveButton = styled( LargeButton )`
 const DiscardButton = styled( LargeSecondaryButton )`
 	margin: 1em 0;
 	margin-right: 1em;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		width: 100%;
 		margin: 0;
@@ -110,19 +110,19 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
 
 	return (
 		<ButtonArea>
-			<SaveButton type="submit">
-				<FormattedMessage
-					id={ messages.saveButton.id }
-					defaultMessage={ messages.saveButton.defaultMessage }
-				/>
-			</SaveButton>
+			<FormMessage inline={ true }>{ message }</FormMessage>
 			<DiscardButton type="reset" onClick={ discardChanges }>
 				<FormattedMessage
 					id={ messages.discardChanges.id }
 					defaultMessage={ messages.discardChanges.defaultMessage }
 				/>
 			</DiscardButton>
-			<FormMessage inline={ true }>{ message }</FormMessage>
+			<SaveButton type="submit">
+				<FormattedMessage
+					id={ messages.saveButton.id }
+					defaultMessage={ messages.saveButton.defaultMessage }
+				/>
+			</SaveButton>
 		</ButtonArea>
 	);
 }
