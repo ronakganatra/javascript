@@ -7,14 +7,11 @@ const ItemsContainer = styled.ul`
 	padding: 0;
 	list-style: none;
 	flex-shrink: 0;
-	align-items: flex-start;
-	
-		@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		overflow:hidden;
+
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		overflow: hidden;
 	}
 `;
-
-const Item = styled.li``;
 
 /**
  * LineItems.
@@ -24,7 +21,7 @@ const Item = styled.li``;
  */
 function LineItems( props ) {
 	const items = props.items.map( ( item ) => {
-		return <Item key={ item.id }>{ item.quantity }x { item.productName }</Item>;
+		return <li key={ item.id }>{ item.quantity }<span aria-hidden="true">&times;</span> { item.productName }</li>;
 	} );
 	return <ItemsContainer>{ items }</ItemsContainer>;
 }
@@ -34,7 +31,7 @@ LineItems.propTypes = {
 };
 
 LineItems.defaultProps = {
-	items: "",
+	items: [],
 };
 
 export default LineItems;

@@ -27,9 +27,9 @@ const messages = defineMessages( {
 		id: "enrollments.overview.coursesName",
 		defaultMessage: "Individual courses",
 	},
-	subscriptions: {
-		id: "enrollments.overview.subscriptionsName",
-		defaultMessage: "Subscriptions",
+	groupedEnrollments: {
+		id: "enrollments.overview.groupedEnrollmentsName",
+		defaultMessage: "Grouped courses",
 	},
 	studentName: {
 		id: "enrollments.overview.studentName",
@@ -223,7 +223,7 @@ class CoursesEnrollments extends React.Component {
 		const bulkEnrollments       = groupedCourseEnrollments.filter( e => e.id.startsWith( "bulk" ) );
 		const individualEnrollments = groupedCourseEnrollments.filter( e => ! e.id.startsWith( "bulk" ) );
 
-		const tables = [ [ messages.subscriptions, bulkEnrollments ], [ messages.courses, individualEnrollments ] ];
+		const tables = [ [ messages.groupedEnrollments, bulkEnrollments ], [ messages.courses, individualEnrollments ] ];
 
 		return (
 			<div>
