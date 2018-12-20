@@ -7,6 +7,7 @@ import {
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
+import { retrieveCoursesEnrollments } from "../actions/courses";
 import _isUndefined from "lodash/isUndefined";
 import isEmpty from "lodash/isEmpty";
 import { retrieveSites } from "../actions/sites";
@@ -117,6 +118,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( retrieveSites() );
 			dispatch( getAllProducts() );
 			dispatch( getProductGroups() );
+			dispatch( retrieveCoursesEnrollments() );
 		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );

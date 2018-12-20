@@ -55,6 +55,10 @@ const messages = defineMessages( {
 		id: "subscriptionCancel.modal.amount",
 		defaultMessage: "Select amount",
 	},
+	activeEnrollments: {
+		id: "subscriptionCancel.modal.activeEnrollments",
+		defaultMessage: "You have {amount} active {amount, plural, one {enrollment} other {enrollments}} using this subscription.",
+	},
 } );
 
 const ActionButtonsContainer = styled( ButtonsContainer )`
@@ -265,6 +269,14 @@ class SubscriptionEditModal extends React.Component {
 						</strong>
 					</p>
 					<p>
+						<strong>
+							<FormattedMessage
+								{ ...messages.activeEnrollments }
+								values={ { amount: this.props.numberOfActiveEnrollments } }
+							/>
+						</strong>
+					</p>
+					<p>
 						<FormattedMessage
 							{ ...messages.numberOfCurrentSubscriptions }
 							values={ { amount: this.props.numberOfCurrentSubscriptions } }
@@ -299,6 +311,7 @@ SubscriptionEditModal.propTypes = {
 	error: PropTypes.object,
 	amountOfActiveSites: PropTypes.number.isRequired,
 	numberOfCurrentSubscriptions: PropTypes.number.isRequired,
+	numberOfActiveEnrollments: PropTypes.number.isRequired,
 };
 
 SubscriptionEditModal.defaultProps = {

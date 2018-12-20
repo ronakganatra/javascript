@@ -6,6 +6,7 @@ import {
 	closeCancelSubscriptionModal,
 } from "../actions/subscriptions";
 import { getSitesForSubscription } from "../selectors/sites";
+import { getCoursesFromSubscription } from "../selectors/courseEnrollments";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
@@ -24,6 +25,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 		amountOfActiveSites: getSitesForSubscription( state, subscriptionId ).length,
 
 		numberOfCurrentSubscriptions: subscription.limit,
+
+		numberOfActiveEnrollments: getCoursesFromSubscription( state, subscriptionId ).length,
 	};
 };
 
