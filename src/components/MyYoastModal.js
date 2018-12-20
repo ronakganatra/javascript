@@ -10,6 +10,9 @@ import { injectIntl, intlShape } from "react-intl";
  */
 Modal.setAppElement( "#root" );
 
+/**
+ * Base Class for all the modals that are shown on MyYoast.
+ */
 class BaseMyYoastModal extends React.Component {
 	constructor( props ) {
 		super( props );
@@ -49,6 +52,8 @@ BaseMyYoastModal.propTypes = {
 
 BaseMyYoastModal.defaultProps = {
 	isOpen: false,
+	children: null,
+	className: "",
 };
 
 const MyYoastModal = styled( BaseMyYoastModal )`

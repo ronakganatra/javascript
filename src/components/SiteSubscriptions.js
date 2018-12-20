@@ -54,13 +54,15 @@ function SiteSubscriptions( props ) {
 							isActive = true;
 						}
 					} );
-
+					const alt = isActive
+						? util.format( props.intl.formatMessage( messages.active ), plugin.name )
+						: util.format( props.intl.formatMessage( messages.inactive ), plugin.name );
 					return (
 						<SiteSubscriptionIcons
 							key={ plugin.glNumber }
 							src={ plugin.icon }
 							isActive={ isActive }
-							alt={ isActive ? util.format( props.intl.formatMessage( messages.active ), plugin.name ) : util.format( props.intl.formatMessage( messages.inactive ), plugin.name )  }
+							alt={ alt }
 						/>
 					);
 				} )
