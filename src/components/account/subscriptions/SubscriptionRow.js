@@ -94,6 +94,10 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.expiresSoon",
 		defaultMessage: "Expires soon",
 	},
+	detailsButton: {
+		id: "subscriptions.overview.detailsButton",
+		defaultMessage: "More details",
+	},
 } );
 
 const StyledRow = styled( Row )`
@@ -178,7 +182,13 @@ const Separator = styled.div`
  * @constructor
  */
 class SubscriptionRow extends React.Component {
-	/* eslint-disable require-jsdoc */
+	/**
+	 * Initializes the class with the specified props.
+	 *
+	 * @param {Object} props The props to be passed to the class that was extended from.
+	 *
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 
@@ -490,15 +500,26 @@ class SubscriptionRow extends React.Component {
 
 		let previousBackgroundColor = this.props.background;
 
-		// In the expandable part of the row, background colors should be slightly darker versions of the original zebra colors.
-		const determineNextBackgroundColor = ( previousBackgroundColor ) => {
-			const darkerGrey = "#E5E5E5";
-			const darkerWhite = "#F0F0F0";
+		/**
+		 * Sets the expandable rows background color.
+		 *
+		 * In the expandable part of the row, background colors should be slightly
+		 * darker versions of the original zebra colors.
+		 *
+		 * @returns {string} The background color to apply.
+		 */
+		const determineNextBackgroundColor = () => {
+			const darkerGrey = "#e5e5e5";
+			const darkerWhite = "#f0f0f0";
 
 			return previousBackgroundColor === darkerGrey ? darkerWhite : darkerGrey;
 		};
 
-		/* eslint-disable require-jsdoc */
+		/**
+		 * Toggles the open state of the collapsible row.
+		 *
+		 * @returns {void}
+		 */
 		const toggleOpen = () => {
 			this.setState( { isOpen: ! this.state.isOpen } );
 		};
@@ -532,6 +553,8 @@ class SubscriptionRow extends React.Component {
 							<UpDownButton
 								isOpen={ this.state.isOpen }
 								onClick={ toggleOpen }
+								aria-expanded={ this.state.isOpen }
+								aria-label={ this.props.intl.formatMessage( messages.detailsButton ) }
 							/>
 						</CollapseButtonSpacer>
 					</ColumnFixedWidth>

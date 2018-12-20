@@ -28,7 +28,8 @@ test('The Subscription component matches the snapshot', () => {
 				onManage={ () => {
 					console.log( "clicked on manage button" );
 				} }
-			/>
+				isGrouped={ false }
+		/>
 		</MemoryRouter>
 	);
 
