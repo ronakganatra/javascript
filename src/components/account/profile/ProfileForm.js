@@ -9,7 +9,7 @@ import ErrorDisplay from "../../../errors/ErrorDisplay";
 import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
-import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
+import { getChangeButtons, FormGroup, TextInput } from "./FormElements";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -230,10 +230,6 @@ class ProfileForm extends React.Component {
 
 		this.setState( { onDiscard: false } );
 		this.props.onSaveProfile( profile );
-	}
-
-	componentDidUpdate() {
-		announceActions( this.props.isSaving, this.isSaved(), "profile", this.props.intl );
 	}
 
 	componentWillUnmount() {

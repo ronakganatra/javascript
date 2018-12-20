@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { LargeButton, LargeSecondaryButton } from "../../Button";
 import { FormattedMessage, defineMessages } from "react-intl";
-import { speak } from "@wordpress/a11y";
-import { capitalizeFirstLetter } from "../../../functions/stringHelpers";
 import { InputField } from "../../InputField";
 import colors from "yoast-components/style-guide/colors.json";
 import defaults from "../../../config/defaults.json";
@@ -17,9 +15,13 @@ const messages = defineMessages( {
 		id: "change.saving",
 		defaultMessage: "Saving...",
 	},
-	saved: {
-		id: "change.saved",
-		defaultMessage: "{type} saved",
+	profileSaved: {
+		id: "change.saved.profile",
+		defaultMessage: "Profile saved",
+	},
+	passwordSaved: {
+		id: "change.saved.password",
+		defaultMessage: "Password saved",
 	},
 	saveButton: {
 		id: "change.save.button",
@@ -28,7 +30,7 @@ const messages = defineMessages( {
 } );
 
 const FormMessage = styled.span`
-	padding: 0 1em 0 1em;
+	padding: 0 1em;
 `;
 
 export const ButtonArea = styled.div`
@@ -77,20 +79,25 @@ export const TextInput = styled( InputField )`
  * Gets the message related to save actions.
  *
  * @param {boolean} isSaving Whether the form is currently in the progress of saving.
- * @param {boolean} isSaved Whether the form has been saved.
- * @param {string} type The type of form.
- * @param {*} intl To format messages.
+ * @param {boolean} isSaved  Whether the form has been saved.
+ * @param {string}  type     The type of form.
+ * @param {*}       intl     To format messages.
  *
- * @returns {string} The message to be shown ("Saving.." or "{type} saved.").
+ * @returns {string} The message to be shown.
  */
 function getMessage( isSaving, isSaved, type, intl ) {
 	let message = "";
+	const savedMessage = type === "profile"
+		? intl.formatMessage( messages.profileSaved )
+		: intl.formatMessage( messages.passwordSaved );
+
 	if ( isSaving ) {
 		message = intl.formatMessage( messages.saving );
 	} else if ( isSaved ) {
-		message = intl.formatMessage( messages.saved, { type: type } );
+		message = savedMessage;
 	}
-	return capitalizeFirstLetter( message );
+
+	return message;
 }
 
 /**
@@ -106,11 +113,10 @@ function getMessage( isSaving, isSaved, type, intl ) {
  */
 export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges ) {
 	const message = getMessage( isSaving, isSaved, type, intl );
-	speak( message, "assertive" );
 
 	return (
 		<ButtonArea>
-			<FormMessage inline={ true }>{ message }</FormMessage>
+			{ message && <FormMessage inline={ true } role="alert">{ message }</FormMessage> }
 			<DiscardButton type="reset" onClick={ discardChanges }>
 				<FormattedMessage
 					id={ messages.discardChanges.id }
@@ -125,19 +131,4 @@ export function getChangeButtons( type, intl, isSaving, isSaved, discardChanges 
 			</SaveButton>
 		</ButtonArea>
 	);
-}
-
-/**
- * Announces actions after pressing form buttons
- *
- * @param {boolean} isSaving Whether the form is currently in the progress of saving.
- * @param {boolean} isSaved Whether the form has been saved.
- * @param {string} type The type of form.
- * @param {*} intl To format messages.
- *
- * @returns {void}
- */
-export function announceActions( isSaving, isSaved, type, intl ) {
-	const message = getMessage( isSaving, isSaved, type, intl );
-	speak( message, "assertive" );
 }

@@ -24,7 +24,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -42,23 +42,23 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -68,8 +68,8 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -77,17 +77,17 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -110,7 +110,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -123,7 +123,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -218,10 +218,6 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -241,11 +237,11 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -289,7 +285,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -336,19 +332,19 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -356,13 +352,13 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -528,13 +524,9 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -543,7 +535,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -569,7 +561,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -588,7 +580,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -679,13 +671,9 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -694,7 +682,7 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -709,16 +697,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -743,16 +731,16 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -801,7 +789,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -819,23 +807,23 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -845,8 +833,8 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -854,17 +842,17 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -887,7 +875,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -900,7 +888,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -995,10 +983,6 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1018,11 +1002,11 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -1066,7 +1050,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -1113,19 +1097,19 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1133,13 +1117,13 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -1305,13 +1289,9 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -1320,7 +1300,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -1346,7 +1326,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -1365,7 +1345,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -1456,13 +1436,9 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -1471,7 +1447,7 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -1486,16 +1462,16 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -1520,16 +1496,16 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -1578,7 +1554,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -1596,23 +1572,23 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -1622,8 +1598,8 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -1631,17 +1607,17 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1664,7 +1640,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -1677,7 +1653,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -1772,10 +1748,6 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1795,11 +1767,11 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -1843,7 +1815,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -1890,19 +1862,19 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -1910,13 +1882,13 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -2082,13 +2054,9 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -2097,7 +2065,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -2123,7 +2091,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -2142,7 +2110,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
             </span>
           </p>
           <button
-            className="c23 c24"
+            className="c22 c23"
             onClick={[Function]}
             type="button"
           >
@@ -2233,13 +2201,9 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -2248,7 +2212,7 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -2263,16 +2227,16 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -2297,16 +2261,16 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -2355,7 +2319,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -2373,23 +2337,23 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -2399,8 +2363,8 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -2408,17 +2372,17 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c34 {
+.c33 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c35 {
+.c34 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -2441,7 +2405,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   color: #000;
 }
 
-.c35 svg {
+.c34 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -2454,7 +2418,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: flex-start;
 }
 
-.c36 {
+.c35 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -2465,7 +2429,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   align-self: center;
 }
 
-.c31 {
+.c30 {
   padding: 1em;
   background-color: #ffeb3b;
   margin: 0.5em 0 0 0;
@@ -2484,11 +2448,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   justify-content: flex-start;
 }
 
-.c30 {
+.c29 {
   background-color: #f9bdbd;
 }
 
-.c32 {
+.c31 {
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: 2em;
@@ -2498,7 +2462,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   margin: 0 1em;
 }
 
-.c33 {
+.c32 {
   color: #5d237a;
 }
 
@@ -2586,10 +2550,6 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2609,11 +2569,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -2657,11 +2617,11 @@ exports[`components/ProfilePage failure during password reset 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
-.c29 {
+.c28 {
   width: 100%;
   margin-top: 1em;
 }
@@ -2709,19 +2669,19 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 {
+  .c34 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c35 {
+  .c34 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c35 svg {
+  .c34 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -2729,7 +2689,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:800 ) {
-  .c31 {
+  .c30 {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
@@ -2738,13 +2698,13 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -2910,13 +2870,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -2925,7 +2881,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -2951,7 +2907,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -2970,7 +2926,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -3059,16 +3015,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
             width="100%"
           />
           <div
-            className="c29 c30 c31"
+            className="c28 c29 c30"
             role="alert"
           >
             <span
-              className="c32"
+              className="c31"
             />
             <span>
               Oops, something went wrong on our end, please try again. If this keeps happening, 
               <a
-                className="c33"
+                className="c32"
                 href="mailto:support@yoast.com"
               >
                 <span>
@@ -3081,13 +3037,9 @@ exports[`components/ProfilePage failure during password reset 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -3096,7 +3048,7 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -3111,16 +3063,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c33"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c34"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c35"
             fontSize={1.4}
           >
             Developer Tokens
@@ -3145,16 +3097,16 @@ exports[`components/ProfilePage failure during password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c34"
+        className="c33"
       >
         <button
           aria-expanded={false}
-          className="c35"
+          className="c34"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c36"
+            className="c35"
             fontSize={1.4}
           >
             Danger zone
@@ -3203,7 +3155,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c28 {
+.c27 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -3221,23 +3173,23 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c28:hover,
-.c28:focus {
+.c27:hover,
+.c27:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c28:active {
+.c27:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c31 {
+.c30 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c27 {
+.c26 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -3247,8 +3199,8 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   filter: none;
 }
 
-.c27:hover,
-.c27:focus {
+.c26:hover,
+.c26:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -3256,17 +3208,17 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c30 {
+.c29 {
   min-width: 152px;
 }
 
-.c33 {
+.c32 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c34 {
+.c33 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3289,7 +3241,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   color: #000;
 }
 
-.c34 svg {
+.c33 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -3302,7 +3254,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   align-self: flex-start;
 }
 
-.c35 {
+.c34 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -3434,10 +3386,6 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
-.c25 {
-  padding: 0 1em 0 1em;
-}
-
 .c24 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -3457,11 +3405,11 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   width: 100%;
 }
 
-.c29 {
+.c28 {
   margin: 1em 0;
 }
 
-.c26 {
+.c25 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -3505,7 +3453,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
   text-align: center;
 }
 
-.c32 {
+.c31 {
   margin-bottom: 1em;
 }
 
@@ -3552,19 +3500,19 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c34 {
+  .c33 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c34 {
+  .c33 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c34 svg {
+  .c33 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -3581,13 +3529,13 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c29 {
+  .c28 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c26 {
+  .c25 {
     width: 100%;
     margin: 0;
   }
@@ -3773,13 +3721,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             <div
               className="c24"
             >
-              <span
-                className="c25"
-              >
-                
-              </span>
+              
               <button
-                className="c26 c27 c28"
+                className="c25 c26 c27"
                 onClick={[Function]}
                 type="reset"
               >
@@ -3788,7 +3732,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
                 </span>
               </button>
               <button
-                className="c29 c30 c31 c28"
+                className="c28 c29 c30 c27"
                 type="submit"
               >
                 <span>
@@ -3814,7 +3758,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           </span>
         </p>
         <section
-          className="c32"
+          className="c31"
         >
           <p>
             <span>
@@ -3833,7 +3777,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
             </span>
           </p>
           <button
-            className="c31 c28"
+            className="c30 c27"
             onClick={[Function]}
             type="button"
           >
@@ -3924,13 +3868,9 @@ exports[`components/ProfilePage failure during profile save 1`] = `
           <div
             className="c24"
           >
-            <span
-              className="c25"
-            >
-              
-            </span>
+            
             <button
-              className="c26 c27 c28"
+              className="c25 c26 c27"
               onClick={[Function]}
               type="reset"
             >
@@ -3939,7 +3879,7 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </span>
             </button>
             <button
-              className="c29 c30 c31 c28"
+              className="c28 c29 c30 c27"
               type="submit"
             >
               <span>
@@ -3954,16 +3894,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c33"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c34"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c35"
+            className="c34"
             fontSize={1.4}
           >
             Developer Tokens
@@ -3988,16 +3928,16 @@ exports[`components/ProfilePage failure during profile save 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c33"
+        className="c32"
       >
         <button
           aria-expanded={false}
-          className="c34"
+          className="c33"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c35"
+            className="c34"
             fontSize={1.4}
           >
             Danger zone
@@ -4046,7 +3986,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -4064,23 +4004,23 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -4090,8 +4030,8 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -4099,17 +4039,17 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -4132,7 +4072,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -4145,7 +4085,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -4240,10 +4180,6 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4263,11 +4199,11 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -4311,7 +4247,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -4358,19 +4294,19 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -4378,13 +4314,13 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -4550,13 +4486,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -4565,7 +4497,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -4591,7 +4523,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -4610,7 +4542,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -4701,13 +4633,9 @@ exports[`components/ProfilePage has sent password reset 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -4716,7 +4644,7 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -4731,16 +4659,16 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -4765,16 +4693,16 @@ exports[`components/ProfilePage has sent password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -5018,7 +4946,7 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c21 {
-  padding: 0 1em 0 1em;
+  padding: 0 1em;
 }
 
 .c20 {
@@ -5329,6 +5257,7 @@ exports[`components/ProfilePage saving profile 1`] = `
             >
               <span
                 className="c21"
+                role="alert"
               >
                 Saving...
               </span>
@@ -5478,11 +5407,7 @@ exports[`components/ProfilePage saving profile 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
               className="c22 c23 c24"
               onClick={[Function]}
@@ -5600,7 +5525,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -5618,23 +5543,23 @@ exports[`components/ProfilePage sending password reset 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -5644,8 +5569,8 @@ exports[`components/ProfilePage sending password reset 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -5653,17 +5578,17 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -5686,7 +5611,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -5699,7 +5624,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -5794,10 +5719,6 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -5817,11 +5738,11 @@ exports[`components/ProfilePage sending password reset 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -5865,7 +5786,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -5912,19 +5833,19 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -5932,13 +5853,13 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -6104,13 +6025,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -6119,7 +6036,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -6145,7 +6062,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -6164,7 +6081,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -6255,13 +6172,9 @@ exports[`components/ProfilePage sending password reset 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -6270,7 +6183,7 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -6285,16 +6198,16 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -6319,16 +6232,16 @@ exports[`components/ProfilePage sending password reset 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -6377,7 +6290,7 @@ exports[`components/ProfilePage the default case 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -6395,23 +6308,23 @@ exports[`components/ProfilePage the default case 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -6421,8 +6334,8 @@ exports[`components/ProfilePage the default case 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -6430,17 +6343,17 @@ exports[`components/ProfilePage the default case 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -6463,7 +6376,7 @@ exports[`components/ProfilePage the default case 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -6476,7 +6389,7 @@ exports[`components/ProfilePage the default case 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -6571,10 +6484,6 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -6594,11 +6503,11 @@ exports[`components/ProfilePage the default case 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -6642,7 +6551,7 @@ exports[`components/ProfilePage the default case 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -6689,19 +6598,19 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -6709,13 +6618,13 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -6881,13 +6790,9 @@ exports[`components/ProfilePage the default case 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -6896,7 +6801,7 @@ exports[`components/ProfilePage the default case 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -6922,7 +6827,7 @@ exports[`components/ProfilePage the default case 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -6941,7 +6846,7 @@ exports[`components/ProfilePage the default case 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -7032,13 +6937,9 @@ exports[`components/ProfilePage the default case 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -7047,7 +6948,7 @@ exports[`components/ProfilePage the default case 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -7062,16 +6963,16 @@ exports[`components/ProfilePage the default case 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -7096,16 +6997,16 @@ exports[`components/ProfilePage the default case 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone
@@ -7154,7 +7055,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
 
-.c24 {
+.c23 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -7172,23 +7073,23 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c24:hover,
-.c24:focus {
+.c23:hover,
+.c23:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c24:active {
+.c23:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c27 {
+.c26 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c23 {
+.c22 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -7198,8 +7099,8 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   filter: none;
 }
 
-.c23:hover,
-.c23:focus {
+.c22:hover,
+.c22:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -7207,17 +7108,17 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-shadow: 0px 0px 2px #000;
 }
 
-.c26 {
+.c25 {
   min-width: 152px;
 }
 
-.c29 {
+.c28 {
   margin-top: 0px;
   background-color: #fff;
   width: 100%;
 }
 
-.c30 {
+.c29 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -7240,7 +7141,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   color: #000;
 }
 
-.c30 svg {
+.c29 svg {
   -webkit-flex: 0 0 40px;
   -ms-flex: 0 0 40px;
   flex: 0 0 40px;
@@ -7253,7 +7154,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   align-self: flex-start;
 }
 
-.c31 {
+.c30 {
   -webkit-flex: 1 1 auto;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -7348,10 +7249,6 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
-.c21 {
-  padding: 0 1em 0 1em;
-}
-
 .c20 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -7371,11 +7268,11 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   width: 100%;
 }
 
-.c25 {
+.c24 {
   margin: 1em 0;
 }
 
-.c22 {
+.c21 {
   margin: 1em 0;
   margin-right: 1em;
 }
@@ -7419,7 +7316,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
   text-align: center;
 }
 
-.c28 {
+.c27 {
   margin-bottom: 1em;
 }
 
@@ -7466,19 +7363,19 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 {
+  .c29 {
     padding: 16px 24px;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c30 {
+  .c29 {
     padding: 16px;
   }
 }
 
 @media screen and ( max-width:1355px ) {
-  .c30 svg {
+  .c29 svg {
     margin-top: 4px;
     margin-bottom: 4px;
     margin-right: -2px;
@@ -7486,13 +7383,13 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 @media screen and ( max-width:800px ) {
-  .c25 {
+  .c24 {
     width: 100%;
   }
 }
 
 @media screen and ( max-width:800px ) {
-  .c22 {
+  .c21 {
     width: 100%;
     margin: 0;
   }
@@ -7658,13 +7555,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             <div
               className="c20"
             >
-              <span
-                className="c21"
-              >
-                
-              </span>
+              
               <button
-                className="c22 c23 c24"
+                className="c21 c22 c23"
                 onClick={[Function]}
                 type="reset"
               >
@@ -7673,7 +7566,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
                 </span>
               </button>
               <button
-                className="c25 c26 c27 c24"
+                className="c24 c25 c26 c23"
                 type="submit"
               >
                 <span>
@@ -7699,7 +7592,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           </span>
         </p>
         <section
-          className="c28"
+          className="c27"
         >
           <p>
             <span>
@@ -7718,7 +7611,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
             </span>
           </p>
           <button
-            className="c27 c24"
+            className="c26 c23"
             onClick={[Function]}
             type="button"
           >
@@ -7809,13 +7702,9 @@ exports[`components/ProfilePage while deleting the account 1`] = `
           <div
             className="c20"
           >
-            <span
-              className="c21"
-            >
-              
-            </span>
+            
             <button
-              className="c22 c23 c24"
+              className="c21 c22 c23"
               onClick={[Function]}
               type="reset"
             >
@@ -7824,7 +7713,7 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </span>
             </button>
             <button
-              className="c25 c26 c27 c24"
+              className="c24 c25 c26 c23"
               type="submit"
             >
               <span>
@@ -7839,16 +7728,16 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Developer Tokens
@@ -7873,16 +7762,16 @@ exports[`components/ProfilePage while deleting the account 1`] = `
       className="c2 c3 c4"
     >
       <div
-        className="c29"
+        className="c28"
       >
         <button
           aria-expanded={false}
-          className="c30"
+          className="c29"
           fontWeight={400}
           onClick={[Function]}
         >
           <span
-            className="c31"
+            className="c30"
             fontSize={1.4}
           >
             Danger zone

@@ -3,7 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import { injectIntl, intlShape, FormattedMessage, defineMessages } from "react-intl";
 import { StyledLabel } from "../../Labels";
-import { announceActions, getChangeButtons, FormGroup, TextInput } from "./FormElements";
+import { getChangeButtons, FormGroup, TextInput } from "./FormElements";
 import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
 
@@ -129,10 +129,6 @@ class PasswordResetForm extends React.Component {
 			newPassword: "",
 			confirmPassword: "",
 		} );
-	}
-
-	componentDidUpdate() {
-		announceActions( this.props.isSavingPassword, this.props.passwordIsSaved, "password", this.props.intl );
 	}
 
 	componentWillUnmount() {
