@@ -100,9 +100,11 @@ Array [
       </span>
     </button>
     <a
+      aria-label={null}
       className="c2 c3"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -254,9 +256,11 @@ Array [
       />
     </div>
     <a
+      aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -425,9 +429,11 @@ Array [
       />
     </div>
     <a
+      aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -581,9 +587,11 @@ Array [
       />
     </div>
     <a
+      aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -605,6 +613,7 @@ Array [
       </span>
        
       <a
+        className={null}
         href="/courses/enrollments"
         onClick={[Function]}
       >
@@ -614,7 +623,12 @@ Array [
       </a>
        | 
       <a
+        aria-label={null}
+        className={null}
         href="http://yoast.test/shop"
+        onClick={null}
+        rel={null}
+        target={null}
       >
         <span>
           Get more
@@ -721,9 +735,11 @@ Array [
     className="c0"
   >
     <a
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.test/shop"
-      rel="noopener noreferrer"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -858,9 +874,11 @@ Array [
       </span>
     </button>
     <a
+      aria-label={null}
       className="c2 c3"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -975,9 +993,11 @@ Array [
     className="c0"
   >
     <a
+      aria-label={null}
       className="c1 c2"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1163,9 +1183,11 @@ Array [
       />
     </div>
     <a
+      aria-label={null}
       className="c4 c5 c6"
-      href="http://yoast.academy.test/certificate"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/certificate"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1334,9 +1356,11 @@ Array [
       />
     </div>
     <a
+      aria-label={null}
       className="c4 c5"
-      href="http://yoast.academy.test/awesome_seo"
-      rel="noopener noreferrer"
+      href="http://academy.yoast.test/awesome_seo"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>
@@ -1467,9 +1491,11 @@ Array [
     className="c0"
   >
     <a
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.test/shop"
-      rel="noopener noreferrer"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       <span>

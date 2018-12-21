@@ -13,8 +13,8 @@ let course = {
 	usedEnrollments: 4,
 	availableEnrollment: {},
 	shopUrl: "http://yoast.test/shop",
-	certificateUrl: "http://yoast.academy.test/certificate",
-	courseUrl: "http://yoast.academy.test/awesome_seo",
+	certificateUrl: "http://academy.yoast.test/certificate",
+	courseUrl: "http://academy.yoast.test/awesome_seo",
 	isEnrolled: true,
 };
 

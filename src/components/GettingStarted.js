@@ -79,7 +79,7 @@ function GettingStarted( props ) {
 					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }. If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
 					values={ {
 						myYoast: "MyYoast",
-						KBLink: <a target="_blank" href="https://yoa.st/12q" rel="noopener noreferrer">{ props.intl.formatMessage( messages.knowledgeBase ) }<NewTabMessage /></a>,
+						KBLink: <a target="_blank" href="https://yoa.st/12q">{ props.intl.formatMessage( messages.knowledgeBase ) } <NewTabMessage /></a>,
 						emailLink: <a href="mailto:support@yoast.com">{ props.intl.formatMessage( messages.email ) }</a>,
 					} }
 				/>

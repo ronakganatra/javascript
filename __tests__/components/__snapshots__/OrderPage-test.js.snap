@@ -576,8 +576,9 @@ exports[`The Orders component matches the snapshot 1`] = `
               aria-label="Download invoice"
               className="c25 Button-kDSBcD c26 c27 c28 c29"
               href="http://somelink"
-              rel="noopener noreferrer"
-              target="_blank"
+              onClick={null}
+              rel={null}
+              target={null}
             >
               <span
                 className="screen-reader-text"

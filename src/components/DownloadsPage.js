@@ -16,6 +16,7 @@ import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Button";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
+import NewTabMessage from "./NewTabMessage";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -170,25 +171,47 @@ class DownloadsPage extends React.Component {
 	 * @returns {ReactElement} The rendered component.
 	 */
 	render() {
+		/* eslint-disable react/jsx-no-target-blank */
 		const pluginsByLine = <ByLine>
 			<FormattedMessage
 				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
-				values={ { link: <a target="_blank" href="https://yoa.st/myyoast-installation" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.installationGuides ) }</a> } }
+				values={ {
+					link: <a target="_blank" href="https://yoa.st/myyoast-installation">
+						{ this.props.intl.formatMessage( messages.installationGuides ) }
+						<NewTabMessage />
+					</a>,
+				} }
 			/>
 		</ByLine>;
 
 		const eBooksByLine = <ByLine>
 			<FormattedMessage
 				{ ...messages.eBooksLearnMore }
-				values={ { link: <a target="_blank" href="https://yoa.st/academy" rel="noopener noreferrer">{ this.props.intl.formatMessage( messages.coursesUpsell ) }</a> } }
+				values={ {
+					link: <a target="_blank" href="https://yoa.st/academy">
+						{ this.props.intl.formatMessage( messages.coursesUpsell ) }
+						<NewTabMessage />
+					</a>,
+				} }
 			/>
 		</ByLine>;
+		/* eslint-enable react/jsx-no-target-blank */
 
 		const noDownloadsParagraphs = [
-			<FormattedMessage id="downloadsPage.noDownloads.welcome" defaultMessage="Welcome to the downloads overview." />,
-			<FormattedMessage id="downloadsPage.noDownloads.explanation" defaultMessage="It looks like you haven’t bought any products with downloadable files yet." />,
-			<FormattedMessage id="downloadsPage.noDownloads.pressButton" defaultMessage="To browse our products, please visit:" /> ];
+			<FormattedMessage
+				id="downloadsPage.noDownloads.welcome"
+				defaultMessage="Welcome to the downloads overview."
+			/>,
+			<FormattedMessage
+				id="downloadsPage.noDownloads.explanation"
+				defaultMessage="It looks like you haven’t bought any products with downloadable files yet."
+			/>,
+			<FormattedMessage
+				id="downloadsPage.noDownloads.pressButton"
+				defaultMessage="To browse our products, please visit:"
+			/>,
+		];
 
 		const noResultsParagraphs = [ <FormattedMessage
 			id="downloads.search.noResults"

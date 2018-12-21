@@ -13,6 +13,16 @@ function isExternal( url ) {
 }
 
 /**
+ * Determines if a certain URL points to Yoast.
+ *
+ * @param {string} url The URL to test.
+ * @returns {boolean} Whether or not the URL points to Yoast.
+ */
+function isYoastLink( url ) {
+	return /yoast\.com|yoast\.test|yoa\.st/.test( url );
+}
+
+/**
  * Link that also works for external URL's, see https://github.com/ReactTraining/react-router/issues/1147 for more information.
  */
 export default class Link extends Component {
@@ -24,21 +34,35 @@ export default class Link extends Component {
 	render() {
 		const internalProps = Object.assign( {}, this.props );
 		delete internalProps.linkTarget;
+		delete internalProps.linkRel;
+		delete internalProps.ariaLabel;
 		delete internalProps.enabledStyle;
 		delete internalProps.iconSource;
 		delete internalProps.iconSize;
+
+		/*
+		 * When a link has a target _blank attribute and it doesn't point to Yoast,
+		 * we always want a default "noopener" rel attribute value.
+		 */
+		let relValueForTargetBlank = "noopener";
+
+		/*
+		 * When a link has a target _blank attribute and it does point to Yoast,
+		 * we use the linkRel prop which defaults to `null` so it doesn't render
+		 * the rel attribute. This way, it can be overridden setting the prop, if necessary.
+		 */
+		if ( isYoastLink( this.props.to ) ) {
+			relValueForTargetBlank = this.props.linkRel;
+		}
 
 		const externalProps = {
 			href: this.props.to,
 			className: this.props.className,
 			"aria-label": this.props.ariaLabel,
 			target: this.props.linkTarget,
-			rel: this.props.linkTarget === "_blank" ? "noopener noreferrer" : this.props.linkRel,
+			rel: this.props.linkTarget === "_blank" ? relValueForTargetBlank : this.props.linkRel,
 			onClick: this.props.onClick,
 		};
-
-		// Remove undefined values from externalProps.
-		Object.keys( externalProps ).forEach( key => typeof externalProps[ key ] === "undefined" && delete externalProps[ key ] );
 
 		return isExternal( this.props.to )
 			? <a { ...externalProps }>
@@ -51,9 +75,17 @@ export default class Link extends Component {
 Link.propTypes = {
 	to: PropTypes.string.isRequired,
 	className: PropTypes.string,
-	children: PropTypes.any,
+	children: PropTypes.any.isRequired,
 	ariaLabel: PropTypes.string,
 	linkTarget: PropTypes.string,
 	linkRel: PropTypes.string,
 	onClick: PropTypes.func,
+};
+
+Link.defaultProps = {
+	className: null,
+	ariaLabel: null,
+	linkTarget: null,
+	linkRel: null,
+	onClick: null,
 };
