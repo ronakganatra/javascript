@@ -18,6 +18,7 @@ exports[`the logo matches the snapshot 1`] = `
 }
 
 <a
+  className={null}
   href="/"
   onClick={[Function]}
 >

@@ -13,9 +13,9 @@ test( 'The Products component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "222",
@@ -25,7 +25,7 @@ test( 'The Products component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "333",
@@ -35,11 +35,11 @@ test( 'The Products component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Typo3",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "444",
@@ -49,11 +49,11 @@ test( 'The Products component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Drupal",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 				{ label: "for Typo3",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		}, {
 			glNumber: "555",
@@ -63,7 +63,7 @@ test( 'The Products component matches the snapshot', () => {
 			icon: SeoIcon,
 			buttons: [
 				{ label: "for Wordpress",
-					onButtonClick: () => {} },
+					file: "http://example.org/plugin.zip" },
 			],
 		},
 	];

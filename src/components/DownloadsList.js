@@ -114,13 +114,11 @@ class DownloadsList extends React.Component {
 		return (
 			<BorderedRow verticalAlign={ "center" } key={ id } hasHeaderLabels={ false }>
 				<ResponsiveProductNameColumn>
-					<span> { productName } </span>
+					<span>{ productName }</span>
 				</ResponsiveProductNameColumn>
 				<DownloadLinkColumn>
 					<DownloadLink
 						to={ downloadLink }
-						linkTarget={ "_blank" }
-						aria-label={ "Download" }
 					>
 						<FormattedMessage { ...messages.downloadLink } />
 					</DownloadLink>
@@ -151,7 +149,7 @@ class DownloadsList extends React.Component {
 				<FooterArea>
 					<InstallationGuideLink
 						to={ "https://yoa.st/myyoast-installation" }
-						linkTarget={ "_blank" }
+						linkTarget="_blank"
 					>
 						{ this.props.intl.formatMessage( messages.installationGuideLink ) }
 					</InstallationGuideLink>

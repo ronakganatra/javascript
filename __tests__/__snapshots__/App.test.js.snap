@@ -397,6 +397,7 @@ exports[`renders without crashing 1`] = `
               className="c20"
             >
               <a
+                className={null}
                 href="/forgot-password"
                 onClick={[Function]}
               >

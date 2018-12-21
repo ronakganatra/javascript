@@ -85,7 +85,6 @@ class InvoiceButtonArea extends React.Component {
 				ariaLabel={ invoiceLabel }
 				iconSource={ downloadIcon }
 				to={ invoiceURI }
-				linkTarget="_blank"
 			>
 				<span className="screen-reader-text">{ invoiceMessage }</span>
 			</ResponsiveInvoiceLink>
