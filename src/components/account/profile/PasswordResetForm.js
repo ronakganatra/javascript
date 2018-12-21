@@ -6,6 +6,7 @@ import { StyledLabel } from "../../Labels";
 import { getChangeButtons, FormGroup, TextInput } from "./FormElements";
 import _every from "lodash/every";
 import ErrorDisplay from "../../../errors/ErrorDisplay";
+import isShallowEqual from "@wordpress/is-shallow-equal";
 
 const messages = defineMessages( {
 	confirmPassword: {
@@ -129,6 +130,10 @@ class PasswordResetForm extends React.Component {
 			newPassword: "",
 			confirmPassword: "",
 		} );
+	}
+
+	shouldComponentUpdate( nextProps, nextState ) {
+		return ! isShallowEqual( nextProps, this.props ) || ! isShallowEqual( nextState, this.state );
 	}
 
 	componentWillUnmount() {

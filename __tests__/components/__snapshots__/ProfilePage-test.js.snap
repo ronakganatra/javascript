@@ -200,11 +200,10 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -454,8 +453,8 @@ exports[`components/ProfilePage If there are active composer tokens 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -965,11 +964,10 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -1219,8 +1217,8 @@ exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -1730,11 +1728,10 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -1984,8 +1981,8 @@ exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -2532,11 +2529,10 @@ exports[`components/ProfilePage failure during password reset 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -2800,8 +2796,8 @@ exports[`components/ProfilePage failure during password reset 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -3368,11 +3364,10 @@ exports[`components/ProfilePage failure during profile save 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -3631,8 +3626,8 @@ exports[`components/ProfilePage failure during profile save 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -4162,11 +4157,10 @@ exports[`components/ProfilePage has sent password reset 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -4416,8 +4410,8 @@ exports[`components/ProfilePage has sent password reset 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -4927,11 +4921,10 @@ exports[`components/ProfilePage saving profile 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -5185,8 +5178,8 @@ exports[`components/ProfilePage saving profile 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -5701,11 +5694,10 @@ exports[`components/ProfilePage sending password reset 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -5955,8 +5947,8 @@ exports[`components/ProfilePage sending password reset 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -6466,11 +6458,10 @@ exports[`components/ProfilePage the default case 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -6720,8 +6711,8 @@ exports[`components/ProfilePage the default case 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",
@@ -7231,11 +7222,10 @@ exports[`components/ProfilePage while deleting the account 1`] = `
 }
 
 .c14 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 .c19 {
@@ -7485,8 +7475,8 @@ exports[`components/ProfilePage while deleting the account 1`] = `
               </p>
               <input
                 accept="image/png, image/jpeg, image/gif"
-                aria-hidden={true}
                 onChange={[Function]}
+                onClick={[Function]}
                 style={
                   Object {
                     "display": "none",

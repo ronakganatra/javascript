@@ -65,13 +65,14 @@ const ChangeButton = styled.button`
 `;
 
 const MaxFileSizeText = styled.p`
-
-	margin: 0;
 	width: 100%;
-
+	margin: 0;
 	text-align: center;
 	font-size: 12px;
-	color: black;
+`;
+
+const ErrorMessage = styled( MaxFileSizeText )`
+	color: ${ colors.$color_red };
 `;
 
 const messages = defineMessages( {
@@ -121,6 +122,7 @@ class UploadUserImage extends React.Component {
 
 		this.onClickLink = this.onClickLink.bind( this );
 		this.onFileUpload = this.onFileUpload.bind( this );
+		this.resetFileInput = this.resetFileInput.bind( this );
 		this.onImageLoadError = this.onImageLoadError.bind( this );
 	}
 
@@ -132,6 +134,13 @@ class UploadUserImage extends React.Component {
 		// Check whether the file input element has mounted first.
 		if ( this.fileInput ) {
 			this.fileInput.click();
+		}
+
+		// Reset previous error, if any, when trying to upload a new image.
+		if ( this.state.error ) {
+			this.setState( {
+				error: null,
+			} );
 		}
 	}
 
@@ -148,11 +157,13 @@ class UploadUserImage extends React.Component {
 	/**
 	 * Gets triggered when an image file has been selected in the
 	 * file upload dialog.
-	 * @param {File} file the file that has been selected (see https://developer.mozilla.org/en-US/docs/Web/API/File).
+	 *
+	 * @param {object} event The file input change event.
 	 * @returns {void}
 	 */
-	onFileUpload( file ) {
-		// No file selected.
+	onFileUpload( event ) {
+		const file = event.target.files[ 0 ];
+
 		if ( ! file ) {
 			return;
 		}
@@ -166,18 +177,29 @@ class UploadUserImage extends React.Component {
 			this.props.onFileUpload( file );
 			return;
 		}
-		// Selected file is not valid.
-		// Show and speak an error message.
+		// Selected file is not valid: show an inline alert.
 		const maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
 
 		const maxSizeExceeded = this.props.intl.formatMessage( messages.maxFileSizeExceeded,
 			{ maxSize: maxFileSizeInMb } );
 
-		speak( maxSizeExceeded, "assertive" );
-
 		this.setState( {
 			error: maxSizeExceeded,
 		} );
+
+		this.maxSizeExceededTimeout = setTimeout( () => {
+			speak( maxSizeExceeded, "assertive" );
+		}, 1000 );
+	}
+
+	/**
+	 * Resets the file input value to trigger the change event even when uploading the same image.
+	 *
+	 * @param {object} event The file input click event.
+	 * @returns {void}
+	 */
+	resetFileInput( event ) {
+		event.target.value = null;
 	}
 
 	/**
@@ -186,9 +208,9 @@ class UploadUserImage extends React.Component {
 	 * @returns {React.Component} the message component.
 	 */
 	getErrorMessage( message ) {
-		return <MaxFileSizeText aria-hidden={ true } style={ { color: colors.$color_red } }>
+		return <ErrorMessage>
 			{ message }
-		</MaxFileSizeText>;
+		</ErrorMessage>;
 	}
 
 	/**
@@ -218,7 +240,15 @@ class UploadUserImage extends React.Component {
 			image: avatarPlaceholder,
 			error: invalidFileError,
 		} );
-		speak( invalidFileError, "assertive" );
+
+		this.invalidFileErrorTimeout = setTimeout( () => {
+			speak( invalidFileError, "assertive" );
+		}, 1000 );
+	}
+
+	componentWillUnmount() {
+		clearTimeout( this.maxSizeExceededTimeout );
+		clearTimeout( this.invalidFileErrorTimeout );
 	}
 
 	/**
@@ -255,8 +285,8 @@ class UploadUserImage extends React.Component {
 				type="file"
 				accept={ this.props.acceptedMIMETypes.join( ", " ) }
 				style={ { display: "none" } }
-				aria-hidden={ true }
-				onChange={ e => this.onFileUpload( e.target.files[ 0 ] ) }
+				onChange={ this.onFileUpload }
+				onClick={ this.resetFileInput }
 			/>
 		</UploadElement>;
 	}

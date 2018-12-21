@@ -10,6 +10,7 @@ import defaults from "../../../config/defaults.json";
 import { StyledLabel } from "../../Labels";
 import UploadUserImage from "./UploadUserImage";
 import { getChangeButtons, FormGroup, TextInput } from "./FormElements";
+import isShallowEqual from "@wordpress/is-shallow-equal";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -230,6 +231,10 @@ class ProfileForm extends React.Component {
 
 		this.setState( { onDiscard: false } );
 		this.props.onSaveProfile( profile );
+	}
+
+	shouldComponentUpdate( nextProps, nextState ) {
+		return ! isShallowEqual( nextProps, this.props ) || ! isShallowEqual( nextState, this.state );
 	}
 
 	componentWillUnmount() {
