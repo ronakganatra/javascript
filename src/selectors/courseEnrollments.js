@@ -10,7 +10,7 @@ import _includes from "lodash/includes";
  * @returns {Array} All courseEnrollments.
  */
 export function getAllEnrollments( state ) {
-	return getAllOfEntity( state, "courseEnrollments" );
+	return getAllOfEntity( state, "coursesEnrollments" );
 }
 
 /**

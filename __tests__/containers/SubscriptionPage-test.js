@@ -93,6 +93,16 @@ let state = {
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
+		coursesEnrollments: {
+			byId: {
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					orderId: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
+			},
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		}
 	},
 	router: {
 		location: "subscriptions/thisIsAnId",
@@ -146,6 +156,13 @@ let defaultExpected = {
 			sourceShopId: 1,
 			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
+	],
+	coursesEnrollments: [
+		{
+			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+			id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			orderId: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		}
 	],
 	orders: [ {
 		currency: "USD",

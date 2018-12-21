@@ -52,6 +52,10 @@ let storeState = {
 		sites: {
 			byId: {},
 			allIds: [],
+		},
+		coursesEnrollments: {
+			byId: {},
+			allIds: [],
 		}
 	},
 	ui: {

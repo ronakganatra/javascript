@@ -92,6 +92,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	products = sortPluginsByPopularity( products );
 
+	let coursesEnrollments = [];
+	const courseEnrollmentIds = state.entities.coursesEnrollments.allIds;
+	if ( isEmpty( courseEnrollmentIds ) === false ) {
+		coursesEnrollments = courseEnrollmentIds
+			.map( courseEnrollmentId => state.entities.coursesEnrollments.byId[ courseEnrollmentId ] );
+	}
+
 	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
 		cancelLoading: state.ui.subscriptionsCancel.loading,
@@ -106,6 +113,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
+		coursesEnrollments,
 	}, cancelSubscriptionState );
 };
 
