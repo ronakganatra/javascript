@@ -23,6 +23,9 @@ export function getAllEnrollments( state ) {
  */
 export function getCoursesFromSubscription( state, subscriptionId ) {
 	const subscription = getSubscription( state, subscriptionId );
-	return getAllEnrollments( state ).filter( enrollment => _includes( subscription.orders, enrollment.orderId ) );
+	return getAllEnrollments( state ).filter(
+		enrollment =>
+			_includes( subscription.orders, enrollment.orderId ) &&
+			enrollment.studentId );
 }
 
