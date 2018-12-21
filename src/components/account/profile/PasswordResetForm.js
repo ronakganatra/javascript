@@ -73,10 +73,24 @@ class PasswordResetForm extends React.Component {
 		this.setState( { currentPassword: event.target.value } );
 	}
 
+	/**
+	 * Handles the change event on the new password input field and sets the newPassword state.
+	 *
+	 * @param {event} event The input field change event.
+	 *
+	 * @returns {void}
+	 */
 	onNewPassword( event ) {
 		this.setState( { newPassword: event.target.value } );
 	}
 
+	/**
+	 * Handles the change event on the confirm new password input field and sets the confirmPassword state.
+	 *
+	 * @param {event} event The input field change event.
+	 *
+	 * @returns {void}
+	 */
 	onConfirmPassword( event ) {
 		this.setState( { confirmPassword: event.target.value } );
 	}
@@ -105,6 +119,13 @@ class PasswordResetForm extends React.Component {
 			_every( [ "newPassword" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
+	/**
+	 * Handles the submit event on the form.
+	 *
+	 * @param {event} event The form submit event.
+	 *
+	 * @returns {void}
+	 */
 	handleSubmit( event ) {
 		event.preventDefault();
 		/*
@@ -132,10 +153,25 @@ class PasswordResetForm extends React.Component {
 		} );
 	}
 
+	/**
+	 * Tries to reduce rerenderings when props and state don't change.
+	 *
+	 * Useful when other child components trigger parent componet updates.
+	 *
+	 * @param {object} nextProps The next props.
+	 * @param {object} nextState The next state.
+	 *
+	 * @returns {void}
+	 */
 	shouldComponentUpdate( nextProps, nextState ) {
 		return ! isShallowEqual( nextProps, this.props ) || ! isShallowEqual( nextState, this.state );
 	}
 
+	/**
+	 * Resets the profile saved message when the component unmounts.
+	 *
+	 * @returns {void}
+	 */
 	componentWillUnmount() {
 		this.props.resetSaveMessage();
 	}
@@ -202,16 +238,17 @@ class PasswordResetForm extends React.Component {
 
 PasswordResetForm.propTypes = {
 	intl: intlShape.isRequired,
-	onSavePassword: PropTypes.func,
+	onSavePassword: PropTypes.func.isRequired,
 	isSavingPassword: PropTypes.bool,
 	passwordIsSaved: PropTypes.bool,
 	passwordResetError: PropTypes.object,
-	resetSaveMessage: PropTypes.func,
+	resetSaveMessage: PropTypes.func.isRequired,
 };
 
 PasswordResetForm.defaultProps = {
 	isSavingPassword: false,
 	passwordIsSaved: false,
+	passwordResetError: {},
 };
 
 export default injectIntl( PasswordResetForm );

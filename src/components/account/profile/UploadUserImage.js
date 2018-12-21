@@ -112,6 +112,12 @@ const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avata
  * Component for uploading a profile image.
  */
 class UploadUserImage extends React.Component {
+	/**
+	 * Constructs the UploadUserImage class.
+	 *
+	 * @param {Object} props The props passed to the component.
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 
@@ -246,6 +252,11 @@ class UploadUserImage extends React.Component {
 		}, 1000 );
 	}
 
+	/**
+	 * Clears the previously set timeouts when the component unmounts.
+	 *
+	 * @returns {void}
+	 */
 	componentWillUnmount() {
 		clearTimeout( this.maxSizeExceededTimeout );
 		clearTimeout( this.invalidFileErrorTimeout );
@@ -266,7 +277,7 @@ class UploadUserImage extends React.Component {
 
 		const imageSrc = this.state.image || avatarPlaceholder;
 
-		return <UploadElement size="125px">
+		return <UploadElement size={ this.props.size }>
 			<UserImageContainer>
 				<UserImage alt={ imageDescription } src={ imageSrc } onError={ this.onImageLoadError } size="125px" />
 			</UserImageContainer>
@@ -295,7 +306,7 @@ class UploadUserImage extends React.Component {
 UploadUserImage.propTypes = {
 	intl: intlShape.isRequired,
 	image: PropTypes.string,
-	onFileUpload: PropTypes.func,
+	onFileUpload: PropTypes.func.isRequired,
 	maxFileSize: PropTypes.number,
 	acceptedMIMETypes: PropTypes.array,
 	size: PropTypes.string,
@@ -305,6 +316,8 @@ UploadUserImage.defaultProps = {
 	// 5 MB in binary bytes
 	maxFileSize: 5242880,
 	acceptedMIMETypes: [ "image/png", "image/jpeg", "image/gif" ],
+	image: "",
+	size: "125px",
 };
 
 export default injectIntl( UploadUserImage );

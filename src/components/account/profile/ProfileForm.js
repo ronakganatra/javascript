@@ -199,10 +199,25 @@ class ProfileForm extends React.Component {
 			_every( [ "userFirstName", "userLastName", "email" ], key => this.props[ key ] === this.state[ key ] );
 	}
 
+	/**
+	 * Handles the change event on the email input field and sets the email state.
+	 *
+	 * @param {event} event The input field change event.
+	 *
+	 * @returns {void}
+	 */
 	onUpdateEmail( event ) {
 		this.setState( { email: event.target.value } );
 	}
 
+	/**
+	 * Handles the change event on the first and last name input fields and sets the related state.
+	 *
+	 * @param {string} type Whether the input field is the first or last name.
+	 * @param {object} event The input fields change event.
+	 *
+	 * @returns {void}
+	 */
 	onUpdateName( type, event ) {
 		if ( type === "first" ) {
 			this.setState( { userFirstName: event.target.value } );
@@ -212,6 +227,13 @@ class ProfileForm extends React.Component {
 		this.setState( { userLastName: event.target.value } );
 	}
 
+	/**
+	 * Handles the submit event on the form.
+	 *
+	 * @param {event} event The form submit event.
+	 *
+	 * @returns {void}
+	 */
 	handleSubmit( event ) {
 		event.preventDefault();
 		/*
@@ -233,10 +255,25 @@ class ProfileForm extends React.Component {
 		this.props.onSaveProfile( profile );
 	}
 
+	/**
+	 * Tries to reduce rerenderings when props and state don't change.
+	 *
+	 * Useful when otehr child components trigger parent componet updates.
+	 *
+	 * @param {object} nextProps The next props.
+	 * @param {object} nextState The next state.
+	 *
+	 * @returns {void}
+	 */
 	shouldComponentUpdate( nextProps, nextState ) {
 		return ! isShallowEqual( nextProps, this.props ) || ! isShallowEqual( nextState, this.state );
 	}
 
+	/**
+	 * Resets the profile saved message when the component unmounts.
+	 *
+	 * @returns {void}
+	 */
 	componentWillUnmount() {
 		this.props.resetSaveMessage();
 	}
@@ -308,8 +345,7 @@ class ProfileForm extends React.Component {
 
 ProfileForm.propTypes = {
 	intl: intlShape.isRequired,
-	onUpdateEmail: PropTypes.func.isRequired,
-	onSaveProfile: PropTypes.func,
+	onSaveProfile: PropTypes.func.isRequired,
 	onUploadAvatar: PropTypes.func.isRequired,
 	email: PropTypes.string,
 	userFirstName: PropTypes.string,
@@ -317,18 +353,18 @@ ProfileForm.propTypes = {
 	image: PropTypes.string,
 	isSaving: PropTypes.bool,
 	isSaved: PropTypes.bool,
-	isDeleting: PropTypes.bool,
 	saveEmailError: PropTypes.object,
-	resetSaveMessage: PropTypes.func,
+	resetSaveMessage: PropTypes.func.isRequired,
 };
 
 ProfileForm.defaultProps = {
 	email: "",
 	userFirstName: "",
 	userLastName: "",
+	image: "",
 	isSaving: false,
 	isSaved: false,
-	isDeleting: false,
+	saveEmailError: {},
 };
 
 export default injectIntl( ProfileForm );

@@ -23,6 +23,8 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -50,6 +52,8 @@ describe( 'components/ProfilePage', () => {
 				isSaving={true}
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -77,6 +81,8 @@ describe( 'components/ProfilePage', () => {
 				saveEmailError={ {} }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -104,6 +110,8 @@ describe( 'components/ProfilePage', () => {
 				isSendingPasswordReset={ true }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -131,6 +139,8 @@ describe( 'components/ProfilePage', () => {
 				hasSendPasswordReset={ true }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -158,6 +168,8 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -186,6 +198,8 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ null }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -218,6 +232,8 @@ describe( 'components/ProfilePage', () => {
 					name: "abc",
 				} ] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -250,6 +266,8 @@ describe( 'components/ProfilePage', () => {
 					name: "abc",
 				} ] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -279,6 +297,8 @@ describe( 'components/ProfilePage', () => {
 				composerTokens={ [] }
 				newsletterSubscribed="subscribed"
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
