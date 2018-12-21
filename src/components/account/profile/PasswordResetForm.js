@@ -63,9 +63,9 @@ class PasswordResetForm extends React.Component {
 	}
 
 	/**
-	 * Sets the state according to the form field input.
+	 * Handles the change event on the current password input field and sets the currentPassword state.
 	 *
-	 * @param {event} event The event of editing a form field.
+	 * @param {object} event The input field change event.
 	 *
 	 * @returns {void}
 	 */
@@ -76,7 +76,7 @@ class PasswordResetForm extends React.Component {
 	/**
 	 * Handles the change event on the new password input field and sets the newPassword state.
 	 *
-	 * @param {event} event The input field change event.
+	 * @param {object} event The input field change event.
 	 *
 	 * @returns {void}
 	 */
@@ -87,7 +87,7 @@ class PasswordResetForm extends React.Component {
 	/**
 	 * Handles the change event on the confirm new password input field and sets the confirmPassword state.
 	 *
-	 * @param {event} event The input field change event.
+	 * @param {object} event The input field change event.
 	 *
 	 * @returns {void}
 	 */
@@ -122,7 +122,7 @@ class PasswordResetForm extends React.Component {
 	/**
 	 * Handles the submit event on the form.
 	 *
-	 * @param {event} event The form submit event.
+	 * @param {object} event The form submit event.
 	 *
 	 * @returns {void}
 	 */

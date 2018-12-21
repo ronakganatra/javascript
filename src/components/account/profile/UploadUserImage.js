@@ -64,14 +64,14 @@ const ChangeButton = styled.button`
    	text-align: center;
 `;
 
-const MaxFileSizeText = styled.p`
+const HelpMessage = styled.p`
 	width: 100%;
 	margin: 0;
 	text-align: center;
 	font-size: 12px;
 `;
 
-const ErrorMessage = styled( MaxFileSizeText )`
+const ErrorMessage = styled( HelpMessage )`
 	color: ${ colors.$color_red };
 `;
 
@@ -225,13 +225,13 @@ class UploadUserImage extends React.Component {
 	 */
 	getMaxFileSizeMessage() {
 		const maxFileSizeInMb = Math.floor( this.props.maxFileSize / 1000000 );
-		return <MaxFileSizeText>
+		return <HelpMessage>
 			<FormattedMessage
 				values={ { maxSize: maxFileSizeInMb } }
 				id={ messages.maxFileSize.id }
 				defaultMessage={ messages.maxFileSize.defaultMessage }
 			/>
-		</MaxFileSizeText>;
+		</HelpMessage>;
 	}
 
 	/**
@@ -253,7 +253,7 @@ class UploadUserImage extends React.Component {
 	}
 
 	/**
-	 * Clears the previously set timeouts when the component unmounts.
+	 * Clears the timeouts when the component unmounts.
 	 *
 	 * @returns {void}
 	 */

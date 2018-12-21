@@ -153,8 +153,8 @@ class ProfileForm extends React.Component {
 	/**
 	 * Displays the warnings for the provided field.
 	 *
-	 * @param {Array} warnings The warnings that could be displayed.
-	 * @param {string} field Field to display warnings for.
+	 * @param {Array}  warnings The warnings that could be displayed.
+	 * @param {string} field    The field to display warnings for.
 	 * @returns {ReactElement[]} List of JSXElements if warnings are found. Otherwise null.
 	 */
 	displayWarnings( warnings, field ) {
@@ -202,7 +202,7 @@ class ProfileForm extends React.Component {
 	/**
 	 * Handles the change event on the email input field and sets the email state.
 	 *
-	 * @param {event} event The input field change event.
+	 * @param {object} event The input field change event.
 	 *
 	 * @returns {void}
 	 */
@@ -213,7 +213,7 @@ class ProfileForm extends React.Component {
 	/**
 	 * Handles the change event on the first and last name input fields and sets the related state.
 	 *
-	 * @param {string} type Whether the input field is the first or last name.
+	 * @param {string} type  Whether the input field is the first or last name.
 	 * @param {object} event The input fields change event.
 	 *
 	 * @returns {void}
@@ -230,7 +230,7 @@ class ProfileForm extends React.Component {
 	/**
 	 * Handles the submit event on the form.
 	 *
-	 * @param {event} event The form submit event.
+	 * @param {object} event The form submit event.
 	 *
 	 * @returns {void}
 	 */
@@ -258,7 +258,7 @@ class ProfileForm extends React.Component {
 	/**
 	 * Tries to reduce rerenderings when props and state don't change.
 	 *
-	 * Useful when otehr child components trigger parent componet updates.
+	 * Useful when other child components trigger parent componet updates.
 	 *
 	 * @param {object} nextProps The next props.
 	 * @param {object} nextState The next state.
