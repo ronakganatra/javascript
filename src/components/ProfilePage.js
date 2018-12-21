@@ -58,10 +58,6 @@ const messages = defineMessages( {
 		id: "profile.saveEmail",
 		defaultMessage: "Save email address",
 	},
-	deletingAccount: {
-		id: "profile.deleting",
-		defaultMessage: "Deleting your account...",
-	},
 	deleteAccount: {
 		id: "profile.delete",
 		defaultMessage: "Delete your account",
@@ -169,25 +165,9 @@ class ProfilePage extends React.Component {
 	}
 
 	componentDidUpdate( prevProps ) {
-		this.announceActions();
 		if ( prevProps.tokenDeleted !== this.props.tokenDeleted && this.props.tokenDeleted === true ) {
 			this.moveFocusAfterTokenIsDeleted();
 		}
-	}
-
-	/**
-	 * Announce actions to assistive technologies.
-	 *
-	 * @returns {void}
-	 */
-	announceActions() {
-		let message = "";
-
-		if ( this.isDeleting() ) {
-			message = this.props.intl.formatMessage( messages.deletingAccount );
-		}
-
-		speak( message, "assertive" );
 	}
 
 	/**
