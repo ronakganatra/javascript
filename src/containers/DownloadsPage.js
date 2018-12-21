@@ -98,7 +98,7 @@ const setDownloadProps = ( products ) => {
 			downloadButtons = product.downloads.map( ( download ) => {
 				return {
 					label: download.name,
-					onButtonClick: ( () => window.open( download.file, "_blank" ) ),
+					file: download.file,
 				};
 			} );
 		}

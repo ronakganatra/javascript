@@ -537,9 +537,11 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <a
+            aria-label={null}
             className="c17 c18 c19"
             href="http://url1.com"
-            rel="noopener noreferrer"
+            onClick={null}
+            rel="noopener"
             target="_blank"
           >
             <span>
@@ -635,9 +637,11 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
             </span>
           </span>
           <a
+            aria-label={null}
             className="c17 c18 c19"
             href="http://url2.com"
-            rel="noopener noreferrer"
+            onClick={null}
+            rel="noopener"
             target="_blank"
           >
             <span>
