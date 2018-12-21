@@ -1,6 +1,6 @@
 import {
-	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSESENROLLMENTS_REQUEST,
-	RETRIEVE_COURSESENROLLMENTS_SUCCESS, RETRIEVE_COURSESENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN,
+	RETRIEVE_COURSES_SUCCESS, RETRIEVE_COURSES_REQUEST, RETRIEVE_COURSES_FAILURE, RETRIEVE_COURSE_ENROLLMENTS_REQUEST,
+	RETRIEVE_COURSE_ENROLLMENTS_SUCCESS, RETRIEVE_COURSE_ENROLLMENTS_FAILURE, COURSE_INVITE_MODAL_OPEN,
 	COURSE_INVITE_MODAL_CLOSE,
 	UPDATE_STUDENT_EMAIL, UPDATE_STUDENT_EMAIL_CONFIRMATION, SEND_COURSE_INVITE_REQUEST, SEND_COURSE_INVITE_SUCCESS,
 	SEND_COURSE_INVITE_FAILURE,
@@ -16,7 +16,7 @@ const rootState = {
 			byId: {},
 			allIds: [],
 		},
-		coursesEnrollments: {
+		courseEnrollments: {
 			byId: {},
 			allIds: [],
 		},
@@ -26,8 +26,8 @@ const rootState = {
 			retrievingCourses: false,
 			error: "",
 		},
-		coursesEnrollments: {
-			retrievingCoursesEnrollments: false,
+		courseEnrollments: {
+			retrievingCourseEnrollments: false,
 			error: "",
 		},
 		courseInviteModal: {
@@ -73,26 +73,26 @@ export function uiCoursesReducer( state = rootState.ui.courses, action ) {
 }
 
 /**
- * A reducer for the coursesEnrollments object within the ui object.
+ * A reducer for the courseEnrollments object within the ui object.
  *
  * @param {Object} state The current state of the object.
  * @param {Object} action The current action received.
- * @returns {Object} The updated CoursesEnrollments object.
+ * @returns {Object} The updated CourseEnrollments object.
  */
-export function uiCoursesEnrollmentsReducer( state = rootState.ui.coursesEnrollments, action ) {
+export function uiCourseEnrollmentsReducer( state = rootState.ui.courseEnrollments, action ) {
 	switch ( action.type ) {
-		case RETRIEVE_COURSESENROLLMENTS_REQUEST:
+		case RETRIEVE_COURSE_ENROLLMENTS_REQUEST:
 			return Object.assign( {}, state, {
-				retrievingCoursesEnrollments: true,
+				retrievingCourseEnrollments: true,
 				error: "",
 			} );
-		case RETRIEVE_COURSESENROLLMENTS_SUCCESS:
+		case RETRIEVE_COURSE_ENROLLMENTS_SUCCESS:
 			return Object.assign( {}, state, {
-				retrievingCoursesEnrollments: false,
+				retrievingCourseEnrollments: false,
 			} );
-		case RETRIEVE_COURSESENROLLMENTS_FAILURE:
+		case RETRIEVE_COURSE_ENROLLMENTS_FAILURE:
 			return Object.assign( {}, state, {
-				retrievingCoursesEnrollments: false,
+				retrievingCourseEnrollments: false,
 				error: action.error,
 			} );
 		default:
@@ -219,13 +219,13 @@ export function allIdsCoursesReducer( state = rootState.entities.courses.allIds,
  * @param {Object} action The current action received.
  * @returns {Object} The updated byIdCoursesReducer object.
  */
-export function byIdCoursesEnrollmentsReducer( state = rootState.entities.coursesEnrollments.byId, action ) {
+export function byIdCourseEnrollmentsReducer( state = rootState.entities.courseEnrollments.byId, action ) {
 	let courses;
 	switch ( action.type ) {
-		case RETRIEVE_COURSESENROLLMENTS_SUCCESS:
+		case RETRIEVE_COURSE_ENROLLMENTS_SUCCESS:
 			courses = Object.assign( {}, state );
 
-			action.coursesEnrollments.forEach( ( course ) => {
+			action.courseEnrollments.forEach( ( course ) => {
 				courses[ course.id ] = course;
 			} );
 
@@ -250,10 +250,10 @@ export function byIdCoursesEnrollmentsReducer( state = rootState.entities.course
  * @param {Object} action The current action received.
  * @returns {Array} The updated allIdsCoursesReducer array.
  */
-export function allIdsCoursesEnrollmentsReducer( state = rootState.entities.coursesEnrollments.allIds, action ) {
+export function allIdsCourseEnrollmentsReducer( state = rootState.entities.courseEnrollments.allIds, action ) {
 	switch ( action.type ) {
-		case RETRIEVE_COURSESENROLLMENTS_SUCCESS:
-			return _union( state, action.coursesEnrollments.map( course => course.id ) );
+		case RETRIEVE_COURSE_ENROLLMENTS_SUCCESS:
+			return _union( state, action.courseEnrollments.map( course => course.id ) );
 		default:
 			return state;
 	}

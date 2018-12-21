@@ -4,7 +4,7 @@ import _sortBy from "lodash/fp/sortBy";
 import _reverse from "lodash/reverse";
 import _flow from "lodash/flow";
 
-import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
+import { retrieveCourseEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
 import { getUserId } from "../functions/auth";
 import { getShopUrl } from "../functions/products";
@@ -13,18 +13,18 @@ import { getShopUrl } from "../functions/products";
 export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 
-	let coursesEnrollments = state.entities.coursesEnrollments.allIds
+	let courseEnrollments = state.entities.courseEnrollments.allIds
 		.map( ( enrollmentId ) => {
-			return state.entities.coursesEnrollments.byId[ enrollmentId ];
+			return state.entities.courseEnrollments.byId[ enrollmentId ];
 		} )
 		.filter( ( enrollment ) => enrollment.status !== "refunded" );
 
-	coursesEnrollments = _groupBy( coursesEnrollments, "courseId" );
+	courseEnrollments = _groupBy( courseEnrollments, "courseId" );
 
 	let courses = state.entities.courses.allIds
 		.map( ( courseId ) => {
 			const course = state.entities.courses.byId[ courseId ];
-			const enrollments = coursesEnrollments[ courseId ] || [];
+			const enrollments = courseEnrollments[ courseId ] || [];
 			const ownedEnrollments = enrollments.filter( ( enrollment ) => enrollment.buyerId === currentUserId );
 			const studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
@@ -86,7 +86,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		loadData: () => {
 			dispatch( retrieveCourses() );
-			dispatch( retrieveCoursesEnrollments() );
+			dispatch( retrieveCourseEnrollments() );
 		},
 	};
 };

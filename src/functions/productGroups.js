@@ -1,4 +1,4 @@
-import { getAllOfEntity } from "../selectors/entities";
+import { getAllOfEntity } from "../selectors/entities/factories";
 import _flatMap from "lodash/flatMap";
 
 /** Product helpers */

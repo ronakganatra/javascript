@@ -22,7 +22,7 @@ import {
 	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
-import { getAllOfEntity } from "../selectors/entities";
+import { getAllOfEntity } from "../selectors/entities/factories";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
