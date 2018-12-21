@@ -116,7 +116,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 }
 
 .c21 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -134,11 +134,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c23 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -156,7 +156,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c31 {
@@ -279,7 +279,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -424,7 +424,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 
 @media screen and ( max-width:1355px ) {
   .c20 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -437,7 +437,7 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
 
 @media screen and ( max-width:1355px ) {
   .c22 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -531,23 +531,25 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
         <span
           className="c17 c18 c19"
         >
-          1/4 sites
+          
         </span>
         <span
           className="c20 c18 c21"
-        />
-        <span
-          className="c22 c18 c23"
         >
           
         </span>
+        <span
+          className="c22 c18 c23"
+        />
         <span
           className="c24 c11"
         >
@@ -600,6 +602,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
         <span
           className="c20 c18 c21"
         >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
           <span>
             January 1, 2028
           </span>
@@ -610,11 +617,6 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
               $0.01
             </span>
           </div>
-        </span>
-        <span
-          className="c22 c18 c23"
-        >
-          Automatic renewal
         </span>
         <span
           className="c24 c11"
@@ -652,23 +654,25 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
         <span
           className="c17 c18 c19"
         >
-          1/4 sites
+          
         </span>
         <span
           className="c20 c18 c21"
-        />
-        <span
-          className="c22 c18 c23"
         >
           
         </span>
+        <span
+          className="c22 c18 c23"
+        />
         <span
           className="c24 c11"
         >
@@ -721,6 +725,11 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
         <span
           className="c20 c18 c21"
         >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
           <span>
             January 1, 2028
           </span>
@@ -731,11 +740,6 @@ exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1
               $0.01
             </span>
           </div>
-        </span>
-        <span
-          className="c22 c18 c23"
-        >
-          Automatic renewal
         </span>
         <span
           className="c24 c11"
@@ -862,7 +866,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 }
 
 .c21 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -880,11 +884,11 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c23 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -902,7 +906,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c13 {
@@ -1004,7 +1008,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -1143,7 +1147,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 
 @media screen and ( max-width:1355px ) {
   .c20 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -1156,7 +1160,7 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
 
 @media screen and ( max-width:1355px ) {
   .c22 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -1250,23 +1254,25 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
         <span
           className="c17 c18 c19"
         >
-          1/4 sites
+          
         </span>
         <span
           className="c20 c18 c21"
-        />
-        <span
-          className="c22 c18 c23"
         >
           
         </span>
+        <span
+          className="c22 c18 c23"
+        />
         <span
           className="c24 c11"
         >
@@ -1319,6 +1325,11 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
         <span
           className="c20 c18 c21"
         >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
           <span>
             January 1, 2028
           </span>
@@ -1329,11 +1340,6 @@ exports[`the SubscriptionsPage when only grouped subscriptions are present match
               $0.01
             </span>
           </div>
-        </span>
-        <span
-          className="c22 c18 c23"
-        >
-          Automatic renewal
         </span>
         <span
           className="c24 c11"
@@ -1439,7 +1445,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 }
 
 .c21 {
-  min-width: 198px;
+  min-width: 120px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1457,11 +1463,11 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Next billing";
+  content: "Billing type";
 }
 
 .c23 {
-  min-width: 120px;
+  min-width: 198px;
   font-size: 14px;
   padding-left: 40px;
   overflow: hidden;
@@ -1479,7 +1485,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
   top: -24px;
   font-size: 1.286em;
   line-height: 0;
-  content: "Billing type";
+  content: "Next billing";
 }
 
 .c14 {
@@ -1602,7 +1608,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 
 .c16 {
   color: inherit;
-  font-weight: bold;
+  font-weight: inherit;
 }
 
 .c15 {
@@ -1741,7 +1747,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 
 @media screen and ( max-width:1355px ) {
   .c20 {
-    min-width: 158px;
+    max-width: 140px;
     padding-left: 0px;
   }
 }
@@ -1754,7 +1760,7 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
 
 @media screen and ( max-width:1355px ) {
   .c22 {
-    max-width: 140px;
+    min-width: 158px;
     padding-left: 0px;
   }
 }
@@ -1848,23 +1854,25 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
             <span
               className="c16"
             >
-              Active
+              <span>
+                Active
+              </span>
             </span>
           </div>
         </span>
         <span
           className="c17 c18 c19"
         >
-          1/4 sites
+          
         </span>
         <span
           className="c20 c18 c21"
-        />
-        <span
-          className="c22 c18 c23"
         >
           
         </span>
+        <span
+          className="c22 c18 c23"
+        />
         <span
           className="c24 c11"
         >
@@ -1917,6 +1925,11 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
         <span
           className="c20 c18 c21"
         >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
           <span>
             January 1, 2028
           </span>
@@ -1927,11 +1940,6 @@ exports[`the SubscriptionsPage when only individual subscriptions are present ma
               $0.01
             </span>
           </div>
-        </span>
-        <span
-          className="c22 c18 c23"
-        >
-          Automatic renewal
         </span>
         <span
           className="c24 c11"

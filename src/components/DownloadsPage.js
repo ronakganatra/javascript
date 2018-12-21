@@ -7,6 +7,8 @@ import { Paper } from "./PaperStyles";
 import Products from "./Products";
 import Search from "./Search";
 import { speak } from "@wordpress/a11y";
+import util from "util";
+import _debounce from "lodash/debounce";
 import LandingPage from "./LandingPage";
 import noDownloadsImage from "./../images/noDownloads.svg";
 import noResultsImage from "./../images/SitesNoResults.svg";
@@ -49,6 +51,10 @@ const messages = defineMessages( {
 		id: "downloadsPage.byLines.coursesUpsell",
 		defaultMessage: "Check out our SEO training courses",
 	},
+	getProducts: {
+		id: "downloadsPage.search.buttonShop",
+		defaultMessage: "Get products",
+	},
 } );
 
 const ProductOverviewContainer = styled.div`
@@ -64,6 +70,8 @@ const ByLine = styled.span`
 	font-weight: 400;
 `;
 
+const debouncedSpeak = _debounce( speak, 1000 );
+
 /**
  * Returns the rendered Downloads Page component.
  *
@@ -72,10 +80,47 @@ const ByLine = styled.span`
  * @returns {ReactElement} The rendered downloads page.
  */
 class DownloadsPage extends React.Component {
+	/**
+	 * Announces navigation to assistive technologies when the component mounts.
+	 *
+	 * @returns {void}
+	 */
 	componentDidMount() {
-		// Announce navigation to assistive technologies.
 		const message = this.props.intl.formatMessage( messages.downloadsPageLoaded );
 		speak( message );
+	}
+
+	/**
+	 * Announces the search results to assistive technologies when the component receives new props.
+	 *
+	 * @param {Object} nextProps The new props the component will receive.
+	 *
+	 * @returns {void}
+	 */
+	componentWillReceiveProps( nextProps ) {
+		/*
+		 * While typing or pasting in the search field, `componentWillReceiveProps()`
+		 * continously passes a new `query` props. We use this at our advantage
+		 * to debounce the call to `speak()`.
+		 * Note: remember for <input> and <textarea>, React `onChange` behaves
+		 * like the DOM's built-in oninput event handler.
+		 */
+		this.speakSearchResultsMessage( nextProps );
+	}
+
+	/**
+	 * Announces the search results to assistive technologies.
+	 *
+	 * @param {Object} nextProps The new props the component has received.
+	 *
+	 * @returns {void}
+	 */
+	speakSearchResultsMessage( nextProps ) {
+		if ( nextProps.query.length > 0 && ( this.props.query !== nextProps.query ) ) {
+			const foundDownloads = nextProps.plugins.length + nextProps.eBooks.length;
+			const message = util.format( this.props.intl.formatMessage( messages.searchResults ), foundDownloads );
+			debouncedSpeak( message, "assertive" );
+		}
 	}
 
 	/**
@@ -93,10 +138,15 @@ class DownloadsPage extends React.Component {
 		/>;
 	}
 
+	/**
+	 * Returns the modal for help on using Composer.
+	 *
+	 * @returns {ReactElement} The modal for help on using Composer.
+	 */
 	getModal() {
 		const modalAriaLabel = {
 			id: "modal.arialabel.create",
-			defaultMessage: "Create a new token",
+			defaultMessage: "Help on using Composer",
 		};
 		return this.props.composerHelpModalIsOpen
 			? <MyYoastModal
@@ -169,7 +219,6 @@ class DownloadsPage extends React.Component {
 			values={ { query: <strong>{ this.props.query }</strong> } }
 		/> ];
 
-		const buttonText = <FormattedMessage id="downloads.search.buttonShop" defaultMessage={ "Get products" } />;
 		const pluginDownloads = <Products
 			products={ this.props.plugins }
 			byLine={ pluginsByLine }
@@ -192,7 +241,7 @@ class DownloadsPage extends React.Component {
 					{ this.getSearch() }
 					<LandingPage
 						imageSource={ noResultsImage }
-						urlText={ buttonText }
+						urlText={ this.props.intl.formatMessage( messages.getProducts ) }
 						paragraphs={ noResultsParagraphs }
 						url="https://yoast.com/shop/"
 					/>
@@ -246,5 +295,9 @@ DownloadsPage.defaultProps = {
 	query: "",
 	eBooks: [],
 	plugins: [],
+	composerToken: null,
 	composerHelpModalIsOpen: false,
+	composerHelpProductName: "",
+	composerHelpProductGlNumber: "0",
+	composerHelpComposerToken: null,
 };

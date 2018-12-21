@@ -165,10 +165,6 @@ exports[`A standard order 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
 }
 
 .c19 .screen-reader-text {
@@ -440,18 +436,24 @@ exports[`A standard order 1`] = `
     <ul
       className="c10"
     >
-      <li
-        className=""
-      >
+      <li>
         1
-        x 
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
         Name of the product
       </li>
-      <li
-        className=""
-      >
+      <li>
         2
-        x 
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
         Another product
       </li>
     </ul>
@@ -658,10 +660,6 @@ exports[`An Order with a disabled invoice button 1`] = `
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
 }
 
 .c19 .screen-reader-text {
@@ -933,18 +931,24 @@ exports[`An Order with a disabled invoice button 1`] = `
     <ul
       className="c10"
     >
-      <li
-        className=""
-      >
+      <li>
         1
-        x 
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
         Name of the product
       </li>
-      <li
-        className=""
-      >
+      <li>
         2
-        x 
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
         Another product
       </li>
     </ul>
