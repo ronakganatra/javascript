@@ -41,7 +41,9 @@ const eventsMap = {
 		action => createEvent( "add_site", { site: action.site.url, type: action.site.type } ),
 	[ SEND_COURSE_INVITE_SUCCESS ]:
 		( action, prevState, nextState ) => createEvent( "invite_student", {
-			course: action.updatedCourseEnrollments.length > 1 ? "Training subscription" : nextState.entities.courses.byId[ action.updatedCourseEnrollments[ 0 ].courseId ].name,
+			course: action.updatedCourseEnrollments.length > 1
+				? "Training subscription"
+				: nextState.entities.courses.byId[ action.updatedCourseEnrollments[ 0 ].courseId ].name,
 		} ),
 	[ SUBSCRIBE_NEWSLETTER_SUCCESS ]:
 		() => createEvent( "newsletter_signup" ),
