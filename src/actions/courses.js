@@ -211,7 +211,7 @@ export function retrieveCourses() {
  *
  * @returns {Object} A retrieve courses enrollments action.
  */
-export function retrieveCoursesEnrollments() {
+export function retrieveCourseEnrollments() {
 	return ( dispatch ) => {
 		dispatch( retrieveCoursesEnrollmentsRequest() );
 		const userId = getUserId();
@@ -242,7 +242,7 @@ export function sendCourseInvite( courseEnrollmentId, emailInvitee ) {
 		return doRequest( request )
 			.then( ( json ) => {
 				dispatch( sendCourseInviteSuccess( json ) );
-				dispatch( retrieveCoursesEnrollments() );
+				dispatch( retrieveCourseEnrollments() );
 			} )
 			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
 	};
@@ -266,7 +266,7 @@ export function sendBulkInvite( lineItemId, lineItemNumber, emailInvitee ) {
 		return doRequest( request )
 			.then( ( json ) => {
 				dispatch( sendCourseInviteSuccess( json ) );
-				dispatch( retrieveCoursesEnrollments() );
+				dispatch( retrieveCourseEnrollments() );
 			} )
 			.catch( error => dispatch( sendCourseInviteFailure( error ) ) );
 	};

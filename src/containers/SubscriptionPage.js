@@ -7,7 +7,7 @@ import {
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
-import { retrieveCoursesEnrollments } from "../actions/courses";
+import { retrieveCourseEnrollments } from "../actions/courses";
 import _isUndefined from "lodash/isUndefined";
 import isEmpty from "lodash/isEmpty";
 import { retrieveSites } from "../actions/sites";
@@ -92,10 +92,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	products = sortPluginsByPopularity( products );
 
-	let coursesEnrollments = [];
+	let courseEnrollments = [];
 	const courseEnrollmentIds = state.entities.coursesEnrollments.allIds;
 	if ( isEmpty( courseEnrollmentIds ) === false ) {
-		coursesEnrollments = courseEnrollmentIds
+		courseEnrollments = courseEnrollmentIds
 			.map( courseEnrollmentId => state.entities.coursesEnrollments.byId[ courseEnrollmentId ] );
 	}
 
@@ -113,7 +113,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
-		coursesEnrollments,
+		coursesEnrollments: courseEnrollments,
 	}, cancelSubscriptionState );
 };
 
@@ -126,7 +126,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( retrieveSites() );
 			dispatch( getAllProducts() );
 			dispatch( getProductGroups() );
-			dispatch( retrieveCoursesEnrollments() );
+			dispatch( retrieveCourseEnrollments() );
 		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );

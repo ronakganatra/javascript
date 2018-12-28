@@ -4,7 +4,7 @@ import _sortBy from "lodash/fp/sortBy";
 import _reverse from "lodash/reverse";
 import _flow from "lodash/flow";
 
-import { retrieveCoursesEnrollments, retrieveCourses } from "../actions/courses";
+import { retrieveCourseEnrollments, retrieveCourses } from "../actions/courses";
 import CoursesProgress from "../components/CoursesProgress";
 import { getUserId } from "../functions/auth";
 import { getShopUrl } from "../functions/products";
@@ -86,7 +86,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 	return {
 		loadData: () => {
 			dispatch( retrieveCourses() );
-			dispatch( retrieveCoursesEnrollments() );
+			dispatch( retrieveCourseEnrollments() );
 		},
 	};
 };

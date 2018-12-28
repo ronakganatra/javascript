@@ -4,7 +4,7 @@ import _maxBy from "lodash/maxBy";
 import _sortBy from "lodash/sortBy";
 import {
 	courseInviteModalClose, courseInviteModalOpen, updateInviteStudentEmail,
-	retrieveCoursesEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
+	retrieveCourseEnrollments, retrieveCourses, updateInviteStudentEmailConfirmation, sendCourseInvite,
 	sendBulkInvite,
 } from "../actions/courses";
 import { getOrders } from "../actions/orders";
@@ -132,7 +132,7 @@ export const mapStateToProps = ( state ) => {
 
 export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		loadCourseEnrollments: () => dispatch( retrieveCoursesEnrollments() ),
+		loadCourseEnrollments: () => dispatch( retrieveCourseEnrollments() ),
 		loadCourses: () => dispatch( retrieveCourses() ),
 		loadProductGroups: () => dispatch( getProductGroups() ),
 		loadOrders: () => dispatch( getOrders() ),
