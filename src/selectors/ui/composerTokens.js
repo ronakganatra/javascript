@@ -5,7 +5,7 @@
  *
  * @returns {boolean} The create composer token modal state.
  */
-export function getCreateModalIsOpen( state ) {
+export function isCreateTokenModalIsOpen( state ) {
 	return state.ui.composerTokens.createTokenModalIsOpen;
 }
 
@@ -16,7 +16,7 @@ export function getCreateModalIsOpen( state ) {
  *
  * @returns {boolean} The manage composer token modal state.
  */
-export function getManageModalIsOpen( state ) {
+export function isManageTokenModalIsOpen( state ) {
 	return state.ui.composerTokens.manageTokenModalIsOpen;
 }
 
@@ -49,7 +49,7 @@ export function getTokenError( state ) {
  *
  * @returns {boolean} The composer token deleted state.
  */
-export function getTokenDeleted( state ) {
+export function isTokenDeleted( state ) {
 	return state.ui.composerTokens.tokenDeleted;
 }
 

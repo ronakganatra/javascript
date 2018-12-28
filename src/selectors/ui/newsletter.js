@@ -5,7 +5,7 @@
  *
  * @returns {string} The newsletter subscribed state.
  */
-export function getSubscribed( state ) {
+export function isNewsletterSubscribed( state ) {
 	return state.ui.newsletter.subscribed;
 }
 
@@ -27,6 +27,6 @@ export function getNewsletterError( state ) {
  *
  * @returns {boolean} The newsletter loading state.
  */
-export function getNewsletterIsLoading( state ) {
+export function isNewsletterLoading( state ) {
 	return state.ui.newsletter.loading;
 }

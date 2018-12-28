@@ -10,7 +10,7 @@ const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avata
  *
  * @returns {String} The user email state.
  */
-export function getEmail( state ) {
+export function getUserEmail( state ) {
 	return state.user.data.profile.email;
 }
 
@@ -57,7 +57,7 @@ export function getUserAvatarUrl( state ) {
  * @returns {String} The user's avatar.
  */
 export const getUserAvatar = createSelector(
-	[ getUserAvatarUrl, getEmail ],
+	[ getUserAvatarUrl, getUserEmail ],
 	( userAvatar, email ) => userAvatar || url( email, {
 		s: "150",
 		r: "pg",

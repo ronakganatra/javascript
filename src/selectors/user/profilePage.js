@@ -5,7 +5,7 @@
  *
  * @returns {boolean} The user saving profile state.
  */
-export function getIsSaving( state ) {
+export function isProfilePageSaving( state ) {
 	return state.user.savingProfile;
 }
 
@@ -16,7 +16,7 @@ export function getIsSaving( state ) {
  *
  * @returns {boolean} The user profile saved state.
  */
-export function getIsSaved( state ) {
+export function isProfilePageSaved( state ) {
 	return state.user.profileSaved;
 }
 
@@ -27,7 +27,7 @@ export function getIsSaved( state ) {
  *
  * @returns {boolean} The user deleting profile state.
  */
-export function getIsDeleting( state ) {
+export function isProfilePageDeleting( state ) {
 	return state.user.deletingProfile;
 }
 

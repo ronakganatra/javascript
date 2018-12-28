@@ -15,44 +15,44 @@ import {
 import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
-import { getEmail, getUserFirstName, getUserLastName, getUserAvatar } from "../selectors/user/data/profile";
+import { getUserEmail, getUserFirstName, getUserLastName, getUserAvatar } from "../selectors/user/data/profile";
 import { getComposerTokens } from "../selectors/entities/composerTokens";
 import {
-	getCreateModalIsOpen, getManageModalIsOpen, getManageTokenData, getTokenDeleted,
+	isCreateTokenModalIsOpen, isManageTokenModalIsOpen, getManageTokenData, isTokenDeleted,
 	getTokenError,
 } from "../selectors/ui/composerTokens";
-import { getIsSaving, getIsSaved, getIsDeleting, getSaveEmailError } from "../selectors/user/profilePage";
-import { getIsSending, getIsSent, getError } from "../selectors/user/passwordReset";
-import { getNewsletterError, getNewsletterIsLoading, getSubscribed } from "../selectors/ui/newsletter";
+import { isProfilePageSaving, isProfilePageSaved, isProfilePageDeleting, getSaveEmailError } from "../selectors/user/profilePage";
+import { isPasswordResetSending, isPasswordResetSent, getPasswordResetError } from "../selectors/user/passwordReset";
+import { getNewsletterError, isNewsletterLoading, isNewsletterSubscribed } from "../selectors/ui/newsletter";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	return {
-		email: getEmail( state ),
+		email: getUserEmail( state ),
 		userFirstName: getUserFirstName( state ),
 		userLastName: getUserLastName( state ),
 		image: getUserAvatar( state ),
 
 		composerTokens: getComposerTokens( state ),
 
-		isSaving: getIsSaving( state ),
-		isSaved: getIsSaved( state ),
-		isDeleting: getIsDeleting( state ),
+		isSaving: isProfilePageSaving( state ),
+		isSaved: isProfilePageSaved( state ),
+		isDeleting: isProfilePageDeleting( state ),
 		saveEmailError: getSaveEmailError( state ),
 
-		isSavingPassword: getIsSending( state ),
-		passwordIsSaved: getIsSent( state ),
-		passwordResetError: getError( state ),
+		isSavingPassword: isPasswordResetSending( state ),
+		passwordIsSaved: isPasswordResetSent( state ),
+		passwordResetError: getPasswordResetError( state ),
 
-		createTokenModalIsOpen: getCreateModalIsOpen( state ),
-		manageTokenModalIsOpen: getManageModalIsOpen( state ),
+		createTokenModalIsOpen: isCreateTokenModalIsOpen( state ),
+		manageTokenModalIsOpen: isManageTokenModalIsOpen( state ),
 		manageTokenData: getManageTokenData( state ),
 		tokenError: getTokenError( state ),
-		tokenDeleted: getTokenDeleted( state ),
+		tokenDeleted: isTokenDeleted( state ),
 
-		newsletterSubscribed: getSubscribed( state ),
+		newsletterSubscribed: isNewsletterSubscribed( state ),
 		newsletterError: getNewsletterError( state ),
-		newsletterLoading: getNewsletterIsLoading( state ),
+		newsletterLoading: isNewsletterLoading( state ),
 	};
 };
 

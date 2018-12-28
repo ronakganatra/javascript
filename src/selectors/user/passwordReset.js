@@ -5,7 +5,7 @@
  *
  * @returns {boolean} Whether the user is in the process of sending a password reset.
  */
-export function getIsSending( state ) {
+export function isPasswordResetSending( state ) {
 	return state.user.sendingPasswordReset;
 }
 
@@ -16,7 +16,7 @@ export function getIsSending( state ) {
  *
  * @returns {boolean} Whether the password reset request has been sent.
  */
-export function getIsSent( state ) {
+export function isPasswordResetSent( state ) {
 	return state.user.sendPasswordReset;
 }
 
@@ -27,6 +27,6 @@ export function getIsSent( state ) {
  *
  * @returns {String} The error.
  */
-export function getError( state ) {
+export function getPasswordResetError( state ) {
 	return state.user.passwordResetError;
 }
