@@ -15,7 +15,9 @@ import CoursesEnrollments from "../components/CoursesEnrollments";
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const allIds = state.entities.coursesEnrollments.allIds;
-	const courseEnrollments = allIds.map( id => state.entities.coursesEnrollments.byId[ id ] );
+	const courseEnrollments = allIds
+		.map( id => state.entities.coursesEnrollments.byId[ id ] )
+		.filter( enrollment => enrollment.status !== "refunded" );
 	const groupedEnrollments = _groupBy( courseEnrollments, e => e.lineItemId ? `${e.lineItemId}:${e.lineItemNumber}` : e.id );
 
 	let groupedCourseEnrollments = Object.keys( groupedEnrollments ).map( ( identifier ) => {

@@ -158,6 +158,10 @@ class CourseDetails extends React.Component {
 	 * @returns {React.Component} the button
 	 */
 	getCertificateButton() {
+		if ( ! this.props.certificateUrl ) {
+			return null;
+		}
+
 		return <SecondaryButton
 			to={ this.props.certificateUrl }
 			linkTarget="_blank"
