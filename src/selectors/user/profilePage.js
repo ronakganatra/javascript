@@ -3,7 +3,7 @@
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} Whether the user is in the process of saving the profile page.
+ * @returns {boolean} The user saving profile state.
  */
 export function getIsSaving( state ) {
 	return state.user.savingProfile;
@@ -14,7 +14,7 @@ export function getIsSaving( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} Whether the profile page has been saved.
+ * @returns {boolean} The user profile saved state.
  */
 export function getIsSaved( state ) {
 	return state.user.profileSaved;
@@ -25,7 +25,7 @@ export function getIsSaved( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} Whether the user is in the process of deleting the profile page.
+ * @returns {boolean} The user deleting profile state.
  */
 export function getIsDeleting( state ) {
 	return state.user.deletingProfile;
@@ -36,7 +36,7 @@ export function getIsDeleting( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {Object} The error.
+ * @returns {Object} The use save mail error state.
  */
 export function getSaveEmailError( state ) {
 	return state.user.saveEmailError;

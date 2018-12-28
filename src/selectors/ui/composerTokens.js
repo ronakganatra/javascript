@@ -3,7 +3,7 @@
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} The create token modal state.
+ * @returns {boolean} The create composer token modal state.
  */
 export function getCreateModalIsOpen( state ) {
 	return state.ui.composerTokens.createTokenModalIsOpen;
@@ -14,40 +14,40 @@ export function getCreateModalIsOpen( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} The manage token modal state.
+ * @returns {boolean} The manage composer token modal state.
  */
 export function getManageModalIsOpen( state ) {
 	return state.ui.composerTokens.manageTokenModalIsOpen;
 }
 
 /**
- * Returns a selected composer token to manage.
+ * Returns the selected composer token state.
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} The manage composer token state.
+ * @returns {boolean} The selected composer token state.
  */
 export function getManageTokenData( state ) {
 	return state.ui.composerTokens.manageTokenData;
 }
 
 /**
- * Returns token error if present.
+ * Returns the token error state if present.
  *
  * @param {Object} state Application state.
  *
- * @returns {String} The token error state.
+ * @returns {String} The composer token error state.
  */
 export function getTokenError( state ) {
 	return state.ui.composerTokens.tokenError;
 }
 
 /**
- * Returns the manage token modal state.
+ * Returns the token deleted state.
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} The manage token modal state.
+ * @returns {boolean} The composer token deleted state.
  */
 export function getTokenDeleted( state ) {
 	return state.ui.composerTokens.tokenDeleted;

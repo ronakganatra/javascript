@@ -19,9 +19,9 @@ import { getEmail, getUserFirstName, getUserLastName, getUserAvatar } from "../s
 import { getComposerTokens } from "../selectors/entities/composerTokens";
 import {
 	getCreateModalIsOpen, getManageModalIsOpen, getManageTokenData, getTokenDeleted,
-	getTokenError
+	getTokenError,
 } from "../selectors/ui/composerTokens";
-import { getIsSaving, getIsSaved, getIsDeleting, getSaveEmailError } from "../selectors/user/profile";
+import { getIsSaving, getIsSaved, getIsDeleting, getSaveEmailError } from "../selectors/user/profilePage";
 import { getIsSending, getIsSent, getError } from "../selectors/user/passwordReset";
 import { getNewsletterError, getNewsletterIsLoading, getSubscribed } from "../selectors/ui/newsletter";
 

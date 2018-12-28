@@ -8,7 +8,7 @@ const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avata
  *
  * @param {Object} state Application state.
  *
- * @returns {String} The user's email.
+ * @returns {String} The user email state.
  */
 export function getEmail( state ) {
 	return state.user.data.profile.email;
@@ -19,7 +19,7 @@ export function getEmail( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {String} The user's first name.
+ * @returns {String} The user first name state.
  */
 export function getUserFirstName( state ) {
 	return state.user.data.profile.userFirstName;
@@ -30,7 +30,7 @@ export function getUserFirstName( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {String} The user's last name.
+ * @returns {String} The user last name state.
  */
 export function getUserLastName( state ) {
 	return state.user.data.profile.userLastName;
@@ -41,7 +41,7 @@ export function getUserLastName( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {String} The user's Avatar URL.
+ * @returns {String} The user Avatar URL state.
  */
 export function getUserAvatarUrl( state ) {
 	return state.user.data.profile.userAvatarUrl;

@@ -3,14 +3,14 @@
  *
  * @param {Object} state Application state.
  *
- * @returns {string} Whether the user is subscribed.
+ * @returns {string} The newsletter subscribed state.
  */
 export function getSubscribed( state ) {
 	return state.ui.newsletter.subscribed;
 }
 
 /**
- * Returns an error if present.
+ * Returns an newsletter error if present.
  *
  * @param {Object} state Application state.
  *
@@ -25,7 +25,7 @@ export function getNewsletterError( state ) {
  *
  * @param {Object} state Application state.
  *
- * @returns {boolean} Whether the newsletter is loading.
+ * @returns {boolean} The newsletter loading state.
  */
 export function getNewsletterIsLoading( state ) {
 	return state.ui.newsletter.loading;
