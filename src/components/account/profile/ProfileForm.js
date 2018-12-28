@@ -258,7 +258,7 @@ class ProfileForm extends React.Component {
 	/**
 	 * Tries to reduce rerenderings when props and state don't change.
 	 *
-	 * Useful when other child components trigger parent componet updates.
+	 * Useful when other child components trigger parent component updates.
 	 *
 	 * @param {object} nextProps The next props.
 	 * @param {object} nextState The next state.

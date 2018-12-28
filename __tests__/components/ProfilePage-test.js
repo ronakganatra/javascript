@@ -8,7 +8,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email={ "test@test.test" }
 				image="dummy.png"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -36,7 +35,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -65,7 +63,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -94,7 +91,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -123,7 +119,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -152,7 +147,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -182,7 +176,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ true }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -212,7 +205,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -246,7 +238,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -280,7 +271,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
