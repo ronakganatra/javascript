@@ -53,7 +53,7 @@ let storeState = {
 			byId: {},
 			allIds: [],
 		},
-		courseEnrollments: {
+		coursesEnrollments: {
 			byId: {},
 			allIds: [],
 		}

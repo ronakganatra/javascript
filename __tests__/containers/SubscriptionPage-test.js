@@ -93,7 +93,7 @@ let state = {
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
-		courseEnrollments: {
+		coursesEnrollments: {
 			byId: {
 				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
 					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
@@ -157,7 +157,7 @@ let defaultExpected = {
 			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 	],
-	courseEnrollments: [
+	coursesEnrollments: [
 		{
 			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 			id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
