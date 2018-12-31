@@ -24,6 +24,7 @@ export const getCourseEnrollments = createAllOfEntitySelector( "courseEnrollment
 export const getGroupedCourseEnrollments = createSelector(
 	[ getCourseEnrollments, getCourses, getUserProfile, getCoursesById, getOrdersById ],
 	( courseEnrollments, courses, profile, coursesById, ordersById ) => {
+		courseEnrollments = courseEnrollments.filter( enrollment => enrollment.status !== "refunded" );
 		const courseEnrollmentsByIdentifier = _groupBy( courseEnrollments, e => e.lineItemId ? `${e.lineItemId}:${e.lineItemNumber}` : e.id );
 
 		let groupedCourseEnrollments = Object.keys( courseEnrollmentsByIdentifier ).map( ( identifier ) => {
