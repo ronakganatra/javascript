@@ -162,11 +162,11 @@ export function retrieveCourseEnrollmentsRequest() {
 }
 
 /**
- * An action creator for the retrieve courses success action.
+ * An action creator for the retrieve course enrollments success action.
  *
  * @param {Array} courseEnrollments The course enrollments to be retrieved.
  *
- * @returns {Object} A retrieve courses success action.
+ * @returns {Object} A retrieve course enrollments success action.
  */
 export function retrieveCourseEnrollmentsSuccess( courseEnrollments ) {
 	return {
@@ -180,7 +180,7 @@ export function retrieveCourseEnrollmentsSuccess( courseEnrollments ) {
  *
  * @param {string} error The error message.
  *
- * @returns {Object} A retrieve courses failure action.
+ * @returns {Object} A retrieve course enrollments failure action.
  */
 export function retrieveCourseEnrollmentsFailure( error ) {
 	return {
@@ -209,7 +209,7 @@ export function retrieveCourses() {
 /**
  * An action creator for the retrieve course enrollments action.
  *
- * @returns {Object} A retrieve courses enrollments action.
+ * @returns {Object} A retrieve course enrollments action.
  */
 export function retrieveCourseEnrollments() {
 	return ( dispatch ) => {
