@@ -16,6 +16,38 @@ import { createAllOfEntitySelector } from "./factories";
 export const getSubscriptions = createAllOfEntitySelector( "subscriptions" );
 
 /**
+ * Returns the subscriptions that are active.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} The subscriptions that are active.
+ */
+export const getActiveSubscriptions = createSelector(
+	getSubscriptions,
+	subscriptions => subscriptions.filter( subscription =>
+		subscription.status === "active" || subscription.status === "pending-cancel"
+	)
+);
+
+export const getActiveSubscriptionsWithProductInformation = createSelector(
+	getActiveSubscriptions,
+	subscriptions => subscriptions.map( subscription =>
+		Object.assign(
+			{},
+			{
+				productLogo: subscription.product.icon,
+			},
+			subscription,
+			{
+				price: subscription.product.price,
+			}
+		)
+	)
+);
+
+/**
  * Returns the subscriptions that belong to a productGroup that gives access to more than one product.
  *
  * @function

@@ -22,14 +22,24 @@ import {
 	getProductsByProductGroupId,
 	SITE_TYPE_PLUGIN_SLUG_MAPPING,
 } from "../functions/productGroups";
-import { getAllOfEntity } from "../selectors/entities/factories";
+import { getAddSubscriptionModal, isRequestingSubscriptions } from "../selectors/ui/subscriptions";
+import { getAvailableConfigurationServiceRequests } from "../selectors/entities/configurationService";
+import { getSitesState } from "../selectors/entities/sites";
+import { getActiveSubscriptionsWithProductInformation } from "../selectors/entities/subscriptions";
+import { getProducts } from "../selectors/entities/products";
+import { getProductGroups } from "../selectors/entities/productGroups";
+import {
+	getConfigurationServiceRequestModalSiteId,
+	isConfigurationServiceRequestModalOpen,
+} from "../selectors/ui/configurationService";
+import { getSiteState } from "../selectors/ui/site";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
-	const sites = state.entities.sites;
-	const addSubscriptionModal = state.ui.addSubscriptionModal;
+	const sites = getSitesState( state );
+	const addSubscriptionModal = getAddSubscriptionModal( state );
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
 			loadingSite: true,
@@ -37,30 +47,16 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 	const site = sites.byId[ id ];
 
-	const allConfigurationServices = getAllOfEntity( state, "configurationServiceRequests" );
-	const availableConfigurationServiceRequests = allConfigurationServices.filter( ( request ) => request.status === "intake" );
+	const availableConfigurationServiceRequests = getAvailableConfigurationServiceRequests( state );
+	const activeSubscriptions = getActiveSubscriptionsWithProductInformation( state );
 
-	const subscriptions = getAllOfEntity( state, "subscriptions" )
-		.map( ( subscription ) => {
-			return Object.assign(
-				{},
-				{
-					productLogo: subscription.product.icon,
-				},
-				subscription,
-				{
-					isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ),
-					price: subscription.product.price,
-				}
-			);
-		} );
+	// A to: Check if this can be removed at a later time.
+	activeSubscriptions.map( subscription =>
+		Object.assign( subscription, { isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ) } )
+	);
 
-	const activeSubscriptions = subscriptions.filter( ( subscription ) => {
-		return subscription.status === "active" || subscription.status === "pending-cancel";
-	} );
-
-	const allProducts = getAllOfEntity( state, "products" );
-	const allProductGroups = getAllOfEntity( state, "productGroups" );
+	const allProducts = getProducts( state );
+	const allProductGroups = getProductGroups( state );
 
 	// Get the productGroups that contain our plugin product variations.
 	const pluginProductGroups = getProductGroupsByParentSlug(
@@ -68,6 +64,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		allProductGroups,
 		true
 	);
+
 	// For each plugin productGroup, get the products that belong to it, and add subscription info. Then push the final result to the plugins array.
 	let plugins = [];
 	pluginProductGroups.forEach( ( pluginProductGroup ) => {
@@ -82,20 +79,20 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	const configurationServiceRequestModalIsOpen = state.ui.configurationServiceRequests.configurationServiceRequestModalOpen;
-
-	const configurationServiceRequestModalSiteId = state.ui.configurationServiceRequests.configurationServiceRequestModalSiteId;
+	const configurationServiceRequestModalOpen = isConfigurationServiceRequestModalOpen( state );
+	const configurationServiceRequestModalSiteId = getConfigurationServiceRequestModalSiteId( state );
+	const loadingSubscriptions = isRequestingSubscriptions( state );
+	const uiSite = getSiteState( state );
 
 	return {
 		availableConfigurationServiceRequests,
-		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
+		configurationServiceRequestModalOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
 		site,
-		subscriptions,
 		plugins,
-		loadingSubscriptions: state.ui.subscriptions.requesting,
-		uiSite: state.ui.site,
+		loadingSubscriptions,
+		uiSite,
 		disablePlatformSelect,
 	};
 };
