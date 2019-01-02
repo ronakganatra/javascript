@@ -50,7 +50,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const availableConfigurationServiceRequests = getAvailableConfigurationServiceRequests( state );
 	const activeSubscriptions = getActiveSubscriptionsWithProductInformation( state );
 
-	// A to: Check if this can be removed at a later time.
+	// Set in the subscription whether it is enabled on the site.
 	activeSubscriptions.map( subscription =>
 		Object.assign( subscription, { isEnabled: ! ! site.subscriptions && site.subscriptions.includes( subscription.id ) } )
 	);
