@@ -79,14 +79,14 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const disablePlatformSelect = plugins.some( ( plugin ) => plugin.isEnabled );
 
-	const configurationServiceRequestModalOpen = isConfigurationServiceRequestModalOpen( state );
+	const configurationServiceRequestModalIsOpen = isConfigurationServiceRequestModalOpen( state );
 	const configurationServiceRequestModalSiteId = getConfigurationServiceRequestModalSiteId( state );
 	const loadingSubscriptions = isRequestingSubscriptions( state );
 	const uiSite = getSiteState( state );
 
 	return {
 		availableConfigurationServiceRequests,
-		configurationServiceRequestModalOpen,
+		configurationServiceRequestModalOpen: configurationServiceRequestModalIsOpen,
 		configurationServiceRequestModalSiteId,
 		addSubscriptionModal,
 		site,
