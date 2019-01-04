@@ -36,13 +36,9 @@ export const getActiveSubscriptionsWithProductInformation = createSelector(
 	subscriptions => subscriptions.map( subscription =>
 		Object.assign(
 			{},
-			{
-				productLogo: subscription.product.icon,
-			},
+			{ productLogo: subscription.product.icon },
 			subscription,
-			{
-				price: subscription.product.price,
-			}
+			{ price: subscription.product.price }
 		)
 	)
 );

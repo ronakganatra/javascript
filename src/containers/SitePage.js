@@ -24,7 +24,7 @@ import {
 } from "../functions/productGroups";
 import { getAddSubscriptionModal, isRequestingSubscriptions } from "../selectors/ui/subscriptions";
 import { getAvailableConfigurationServiceRequests } from "../selectors/entities/configurationService";
-import { getSitesState } from "../selectors/entities/sites";
+import { getSites } from "../selectors/entities/sites";
 import { getActiveSubscriptionsWithProductInformation } from "../selectors/entities/subscriptions";
 import { getProducts } from "../selectors/entities/products";
 import { getProductGroups } from "../selectors/entities/productGroups";
@@ -32,13 +32,13 @@ import {
 	getConfigurationServiceRequestModalSiteId,
 	isConfigurationServiceRequestModalOpen,
 } from "../selectors/ui/configurationService";
-import { getSiteState } from "../selectors/ui/site";
+import { getSite } from "../selectors/ui/site";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const id = ownProps.match.params.id;
-	const sites = getSitesState( state );
+	const sites = getSites( state );
 	const addSubscriptionModal = getAddSubscriptionModal( state );
 	if ( ! sites.byId.hasOwnProperty( id ) ) {
 		return {
@@ -82,7 +82,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const configurationServiceRequestModalIsOpen = isConfigurationServiceRequestModalOpen( state );
 	const configurationServiceRequestModalSiteId = getConfigurationServiceRequestModalSiteId( state );
 	const loadingSubscriptions = isRequestingSubscriptions( state );
-	const uiSite = getSiteState( state );
+	const uiSite = getSite( state );
 
 	return {
 		availableConfigurationServiceRequests,

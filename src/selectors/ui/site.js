@@ -5,6 +5,6 @@
  *
  * @returns {Object} The ui site state.
  */
-export function getSiteState( state ) {
+export function getSite( state ) {
 	return state.ui.site;
 }

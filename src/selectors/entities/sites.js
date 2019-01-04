@@ -7,4 +7,4 @@ import { createEntityStateSelector } from "./factories";
  *
  * @returns {Object} The full state of all sites.
  */
-export const getSitesState = createEntityStateSelector( "sites" );
+export const getSites = createEntityStateSelector( "sites" );
