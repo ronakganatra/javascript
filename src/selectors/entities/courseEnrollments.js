@@ -85,7 +85,7 @@ export const getGroupedCourseEnrollments = createSelector(
 		} );
 
 		const freeEnrollments = courses
-			.filter( course => ! course.open && groupedCourseEnrollments.every( enrollment => enrollment.courseId !== course.id ) )
+			.filter( course => course.open && groupedCourseEnrollments.every( enrollment => enrollment.courseId !== course.id ) )
 			.map( course => {
 				let icon = course.iconUrl;
 				if ( ! icon ) {
