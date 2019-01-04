@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import SubNavigation, { SubNavigationItem } from "./SubNavigation";
-import CoursesEnrollments from "../containers/CoursesEnrollments";
+import CourseEnrollments from "../containers/CourseEnrollments";
 import CoursesProgress from "../containers/CoursesProgress";
 import PropTypes from "prop-types";
 
@@ -28,7 +28,7 @@ const itemRoutes = [
 		},
 	},
 	{
-		component: CoursesEnrollments,
+		component: CourseEnrollments,
 		path: "/courses/enrollments",
 		title: "Enrollments",
 	},
@@ -84,5 +84,5 @@ export default injectIntl( CoursesPage );
 CoursesPage.propTypes = {
 	intl: intlShape.isRequired,
 	loadCourses: PropTypes.func,
-	loadCoursesEnrollments: PropTypes.func,
+	loadCourseEnrollments: PropTypes.func,
 };
