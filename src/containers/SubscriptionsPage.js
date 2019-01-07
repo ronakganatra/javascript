@@ -4,12 +4,12 @@ import { getAllSubscriptions } from "../actions/subscriptions";
 import SubscriptionsPage from "../components/account/subscriptions/SubscriptionsPage";
 import { push } from "react-router-redux";
 import { getOrders } from "../actions/orders";
-import { getSearchQuery } from "../selectors/search";
+import { getSearchQuery } from "../selectors/entities/search";
 import groupBy from "lodash/groupBy";
 import _isEmpty from "lodash/isEmpty";
 import _flow from "lodash/flow";
 import _differenceBy from "lodash/differenceBy";
-import { getAllOfEntity } from "../selectors/entities";
+import { getAllOfEntity } from "../selectors/entities/factories";
 
 /**
  * Maps a subscription to the props of a subscription.

@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
-import { IconButton, LinkButton } from "./Button";
+import { IconButtonLink, LinkButton } from "./Button";
 import downloadIcon from "../icons/download.svg";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import defaults from "../config/defaults.json";
@@ -119,14 +119,14 @@ function Product( props ) {
 				{ props.buttons.map( button => {
 					return (
 						<Download key={ button.label }>
-							<IconButton
+							<IconButtonLink
 								iconSource={ downloadIcon }
-								onClick={ button.onButtonClick }
+								to={ button.file }
 								enabledStyle={ true }
-								aria-label={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }
+								ariaLabel={ props.intl.formatMessage( messages.downloadButton ) + " " + props.name + " " + button.label }
 							>
 								{ props.intl.formatMessage( messages.downloadButton ) }
-							</IconButton>
+							</IconButtonLink>
 							<DownloadLabel aria-hidden="true">{ button.label }</DownloadLabel>
 						</Download> );
 				} )	}

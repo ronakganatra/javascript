@@ -15,7 +15,7 @@ import {
 	composerHelpModalClosed, composerHelpModalOpen,
 	createComposerToken, fetchComposerTokens,
 } from "../actions/composerTokens";
-import { getSearchQuery } from "../selectors/search";
+import { getSearchQuery } from "../selectors/entities/search";
 
 /**
  * Returns ebooks from the redux store.
@@ -98,7 +98,7 @@ const setDownloadProps = ( products ) => {
 			downloadButtons = product.downloads.map( ( download ) => {
 				return {
 					label: download.name,
-					onButtonClick: ( () => window.open( download.file, "_blank" ) ),
+					file: download.file,
 				};
 			} );
 		}

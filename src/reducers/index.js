@@ -18,12 +18,12 @@ import {
 	uiSitesReducer,
 } from "./sites.js";
 import {
-	allIdsCoursesEnrollmentsReducer,
+	allIdsCourseEnrollmentsReducer,
 	allIdsCoursesReducer,
-	byIdCoursesEnrollmentsReducer,
+	byIdCourseEnrollmentsReducer,
 	byIdCoursesReducer,
 	uiCourseInviteModalReducer,
-	uiCoursesEnrollmentsReducer,
+	uiCourseEnrollmentsReducer,
 	uiCoursesReducer,
 } from "./courses.js";
 import {
@@ -73,7 +73,7 @@ export const uiReducer = combineReducers( {
 	subscriptions: uiAllSubscriptionsReducer,
 	subscriptionsCancel: uiCancelSubscriptionsReducer,
 	courses: uiCoursesReducer,
-	coursesEnrollments: uiCoursesEnrollmentsReducer,
+	courseEnrollments: uiCourseEnrollmentsReducer,
 	courseInviteModal: uiCourseInviteModalReducer,
 	courseInviteRequest: uiCourseInviteRequestReducer,
 	products: uiAllProductsReducer,
@@ -127,9 +127,9 @@ export const entitiesCoursesReducer = combineReducers( {
 	allIds: allIdsCoursesReducer,
 } );
 
-export const entitiesCoursesEnrollmentsReducer = combineReducers( {
-	byId: byIdCoursesEnrollmentsReducer,
-	allIds: allIdsCoursesEnrollmentsReducer,
+export const entitiesCourseEnrollmentsReducer = combineReducers( {
+	byId: byIdCourseEnrollmentsReducer,
+	allIds: allIdsCourseEnrollmentsReducer,
 } );
 
 export const entitiesComposerTokensReducer = combineReducers( {
@@ -146,7 +146,7 @@ export const entitiesReducer = combineReducers( {
 	sites: entitiesSitesReducer,
 	subscriptions: entitiesSubscriptionsReducer,
 	courses: entitiesCoursesReducer,
-	coursesEnrollments: entitiesCoursesEnrollmentsReducer,
+	courseEnrollments: entitiesCourseEnrollmentsReducer,
 	products: entitiesProductsReducer,
 	productGroups: entitiesProductGroupsReducer,
 	orders: entitiesOrdersReducer,

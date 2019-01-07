@@ -4,7 +4,7 @@ import { uiSiteSubscriptionsReducer, byIdSubscriptionsReducer, allIdsSubscriptio
 import { GET_SITE_SUBSCRIPTIONS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSiteProductsReducer, byIdProductsReducer, allIdsProductsReducer, uiAllProductsReducer } from "../../src/reducers/products";
 import { byIdProductGroupsReducer, allIdsProductGroupsReducer, uiAllProductGroupsReducer } from "../../src/reducers/productGroups";
-import { allIdsCoursesEnrollmentsReducer, byIdCoursesEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer, RETRIEVE_COURSES_SUCCESS } from "../../src/reducers/courses";
+import { allIdsCourseEnrollmentsReducer, byIdCourseEnrollmentsReducer, allIdsCoursesReducer, byIdCoursesReducer, RETRIEVE_COURSES_SUCCESS } from "../../src/reducers/courses";
 import { GET_SITE_PRODUCTS_SUCCESS } from "../../src/actions/subscriptions";
 import { uiSearch } from "../../src/reducers/search";
 import { SEARCH_QUERY_CHANGE } from "../../src/actions/search";
@@ -71,8 +71,8 @@ jest.mock( "../../src/reducers/invoices.js", () => {
 
 jest.mock( "../../src/reducers/courses.js", () => {
 	return {
-		allIdsCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesEnrollmentsReducer" }; } ),
-		byIdCoursesEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "byIdCoursesEnrollmentsReducer" }; } ),
+		allIdsCourseEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCourseEnrollmentsReducer" }; } ),
+		byIdCourseEnrollmentsReducer: jest.fn( ( state = {} ) => { return { name: "byIdCourseEnrollmentsReducer" }; } ),
 		allIdsCoursesReducer: jest.fn( ( state = {} ) => { return { name: "allIdsCoursesReducer" }; } ),
 		byIdCoursesReducer: jest.fn( ( state = {} ) => { return { name: "byIdCoursesReducer" }; } ),
 	}
@@ -249,7 +249,7 @@ test( 'entities reducer', () => {
 		refunds: { allIds: { name: "allIdsRefundsReducer" }, byId: { name: "byIdRefundsReducer" } },
 		orders: { allIds: [], byId: {} },
 		courses: { byId: { name: "byIdCoursesReducer" }, allIds: { name: "allIdsCoursesReducer" } },
-		coursesEnrollments: { byId: { name: "byIdCoursesEnrollmentsReducer" }, allIds: { name: "allIdsCoursesEnrollmentsReducer" } },
+		courseEnrollments: { byId: { name: "byIdCourseEnrollmentsReducer" }, allIds: { name: "allIdsCourseEnrollmentsReducer" } },
 		configurationServiceRequests: { byId: { name: "byIdConfigurationServiceRequestsReducer" }, allIds: { name: "allIdsConfigurationServiceRequestsReducer" } },
 	};
 
@@ -284,9 +284,9 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 				"byId": { "name": "byIdConfigurationServiceRequestsReducer" }
 			},
 			"courses": { "allIds": { "name": "allIdsCoursesReducer" }, "byId": { "name": "byIdCoursesReducer" } },
-			"coursesEnrollments": {
-				"allIds": { "name": "allIdsCoursesEnrollmentsReducer" },
-				"byId": { "name": "byIdCoursesEnrollmentsReducer" }
+			"courseEnrollments": {
+				"allIds": { "name": "allIdsCourseEnrollmentsReducer" },
+				"byId": { "name": "byIdCourseEnrollmentsReducer" }
 			},
 			"orders": { "allIds": [], "byId": {} },
 			"products": { "allIds": { "name": "allIdsProductsReducer" }, "byId": { "name": "byIdProductsReducer" } },

@@ -81,7 +81,7 @@ const CourseIcon = styled.img`
  *
  * @returns {ReactElement} The component that contains the courses page.
  */
-class CoursesEnrollments extends React.Component {
+class CourseEnrollments extends React.Component {
 	/**
 	 * Sets the CoursesPage object.
 	 *
@@ -268,7 +268,7 @@ class CoursesEnrollments extends React.Component {
 	}
 }
 
-CoursesEnrollments.propTypes = {
+CourseEnrollments.propTypes = {
 	inviteModalOpen: PropTypes.func.isRequired,
 	inviteModalClose: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
@@ -289,4 +289,4 @@ CoursesEnrollments.propTypes = {
 	loadProductGroups: PropTypes.func,
 };
 
-export default injectIntl( CoursesEnrollments );
+export default injectIntl( CourseEnrollments );

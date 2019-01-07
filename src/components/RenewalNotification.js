@@ -154,7 +154,7 @@ class RenewalNotification extends React.Component {
 					<ColumnFixedWidthResponsive>
 						<RenewButton
 							to={ renewal.renewalUrl }
-							linkTarget={ "_blank" }
+							linkTarget="_blank"
 							iconSource={ caretRight }
 						>
 							<FormattedMessage { ...messages.linkMessage } />

@@ -82,9 +82,11 @@ exports[`the landing page component matches the snapshot 1`] = `
   </p>
   <p>
     <a
+      aria-label={null}
       className="c1 c2"
       href="http://yoast.com"
-      rel="noopener noreferrer"
+      onClick={null}
+      rel={null}
       target="_blank"
     >
       yoast.com

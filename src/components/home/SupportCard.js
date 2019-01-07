@@ -90,7 +90,7 @@ const SupportCard = () => {
 				<FormattedMessage { ...messages.supportIntro } />
 			</p>
 			<SupportContainer>
-				<BoldLink to={ "https://kb.yoast.com/" } linkTarget={ "_blank" }>
+				<BoldLink to={ "https://kb.yoast.com/" } linkTarget="_blank">
 					<FormattedMessage { ...messages.supportKbLink } />
 				</BoldLink>
 				<TextImageContainer>
@@ -99,7 +99,7 @@ const SupportCard = () => {
 					</p>
 					<Image src={ KbImage } alt="" />
 				</TextImageContainer>
-				<BoldLink to={ "https://kb.yoast.com/kb/support/#free" } linkTarget={ "_blank" }>
+				<BoldLink to={ "https://kb.yoast.com/kb/support/#free" } linkTarget="_blank">
 					<FormattedMessage { ...messages.supportForumsLink } />
 				</BoldLink>
 				<TextImageContainer>
