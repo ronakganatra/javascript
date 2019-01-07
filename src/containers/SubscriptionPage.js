@@ -12,15 +12,46 @@ import { getOrders } from "../actions/orders";
 import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
-import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
 import { sortPluginsByPopularity } from "../functions/products";
 import { getSubscriptions, getSubscriptionsById } from "../selectors/entities/subscriptions";
-import { getOrdersById } from "../selectors/entities/orders";
+import { getOrdersById, getOrdersPageOrders } from "../selectors/entities/orders";
 import { getAllSites } from "../selectors/entities/sites";
 
+/* eslint-disable */
+function getRelatedSubscriptions( allSubscriptions, selectedSubscription ) {
+	let connectedSubscriptions = [];
+	if ( isEmpty( allSubscriptions ) === false ) {
+		connectedSubscriptions = allSubscriptions
+			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
+			.filter( subscription => subscription.id !== selectedSubscription.id );
+	}
+	return connectedSubscriptions;
+}
+
+function getConnectedSites( subscription, allSites ){
+	let connectedSites = [];
+	if ( isEmpty( allSites ) === false ) {
+		connectedSites = allSites
+			.filter( site => site.subscriptions.includes( subscription.id ) );
+	}
+	return connectedSites;
+}
+
+function getConnectedSubscriptionsSites( connectedSubscriptions, allSites ){
+	let connectedSubscriptionsSites = [];
+	if ( isEmpty( allSites ) === false ) {
+		connectedSubscriptionsSites = allSites
+			.filter( site =>
+				site.subscriptions.some( subId =>
+					connectedSubscriptions.some( connectedSubscription => connectedSubscription.id === subId )
+				)
+			);
+	}
+	return connectedSubscriptionsSites;
+}
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
@@ -45,40 +76,35 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	orders = orders
-		.map( order => {
-			return {
-				id: order.id,
-				orderNumber: order.invoiceNumber,
-				date: new Date( order.date ),
-				total: order.totalAmount,
-				status: capitalizeFirstLetter( order.status ),
-				items: order.items,
-				currency: order.currency,
-			};
-		} )
-		.filter( ( order ) => {
-			return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
-		} );
+	orders = getOrdersPageOrders( state );
+	console.log( orders );
 
-	let sites = [];
 	const allSites = getAllSites( state );
+	let sites = getConnectedSites( selectedSubscription, allSites );
+	/**
 	if ( isEmpty( allSites ) === false ) {
 		sites = allSites
 			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
 	}
+	 */
+	console.log( "sites1: ", sites );
 
 	// Get subscriptions that are connected to the same order in WooCommerce.
-	let connectedSubscriptions = [];
+	const allSubscriptions = getSubscriptions( state );
+	let connectedSubscriptions = getRelatedSubscriptions( allSubscriptions, selectedSubscription );
+	console.log( "connectedSubscriptions: ", connectedSubscriptions );
+	/** F
 	const allSubscriptions = getSubscriptions( state );
 	if ( isEmpty( allSubscriptions ) === false ) {
 		connectedSubscriptions = allSubscriptions
 			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
 			.filter( subscription => subscription.id !== selectedSubscription.id );
 	}
+	 */
 
 	// Gather sites that use one or more of the connected subscriptions.
-	let connectedSubscriptionsSites = [];
+	let connectedSubscriptionsSites = getConnectedSubscriptionsSites( connectedSubscriptions, allSites );
+	/**
 	if ( isEmpty( allSites ) === false ) {
 		connectedSubscriptionsSites = allSites
 			.filter( site =>
@@ -87,6 +113,8 @@ export const mapStateToProps = ( state, ownProps ) => {
 				)
 			);
 	}
+	 */
+	console.log( "sites2: ", connectedSubscriptionsSites );
 
 	let products = getProductsFromSubscription( state, selectedSubscription )
 		.filter( product => product.sourceShopId === 1 );
