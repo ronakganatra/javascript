@@ -8,6 +8,7 @@ import {
 	createEntityStateSelector,
 } from "./factories";
 import { capitalizeFirstLetter } from "../../functions/stringHelpers";
+import { getSearchQuery } from "./search";
 
 /**
  * Returns the full state of all orders.
@@ -97,5 +98,27 @@ export const getSortedOrdersPageOrders = createSelector(
 		return orders.sort( ( a, b ) => {
 			return b.date - a.date;
 		} );
+	}
+);
+
+export const getFilteredOrdersPageOrders = createSelector(
+	getSortedOrdersPageOrders,
+	getSearchQuery,
+	( orders, query ) => {
+		if ( query.length > 0 ) {
+			orders = orders.filter( ( order ) => {
+				const formattedDate = new Intl.DateTimeFormat( "en-US", {
+					year: "numeric",
+					month: "long",
+					day: "numeric",
+				} ).format( order.date );
+
+				return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
+					order.orderNumber.toUpperCase().includes( query.toUpperCase() ) ||
+					( order.total / 100 ).toString().includes( query ) ||
+					formattedDate.toUpperCase().includes( query.toUpperCase() );
+			} );
+		}
+		return orders;
 	}
 );
