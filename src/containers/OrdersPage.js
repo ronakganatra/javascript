@@ -3,38 +3,12 @@ import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
-import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import { getSearchQuery } from "../selectors/entities/search";
+import { getSortedOrdersPageOrders } from "../selectors/entities/orders";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	const allIds = state.entities.orders.allIds;
-
-	let orders = allIds.map( ( orderId ) => {
-		const order = state.entities.orders.byId[ orderId ];
-
-		order.status = capitalizeFirstLetter( order.status );
-
-		return {
-			id: order.id,
-			orderNumber: order.invoiceNumber,
-			date: new Date( order.date ),
-			total: order.totalAmount,
-			status: order.status,
-			items: order.items,
-			currency: order.currency,
-		};
-	} );
-
-	// Only show completed, processing and refunded orders.
-	orders = orders.filter( ( order ) => {
-		return order.status === "Completed" || order.status === "Processing" || order.status === "Refunded";
-	} );
-
-	// Sort orders based on order date.
-	orders = orders.sort( ( a, b ) => {
-		return b.date - a.date;
-	} );
+	let orders = getSortedOrdersPageOrders( state );
 
 	const query = getSearchQuery( state );
 	if ( query.length > 0 ) {
