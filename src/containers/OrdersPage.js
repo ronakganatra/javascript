@@ -1,4 +1,7 @@
+/* External dependencies */
 import { connect } from "react-redux";
+
+/* Internal dependencies */
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
