@@ -94,6 +94,10 @@ const messages = defineMessages( {
 		id: "subscriptions.overview.expiresSoon",
 		defaultMessage: "Expires soon",
 	},
+	expired: {
+		id: "subscriptions.overview.expired",
+		defaultMessage: "Expired",
+	},
 	detailsButton: {
 		id: "subscriptions.overview.detailsButton",
 		defaultMessage: "More details",
@@ -335,6 +339,9 @@ class SubscriptionRow extends React.Component {
 		}
 		if ( subscription.status === "on-hold" ) {
 			return <FormattedMessage { ...messages.suspended } />;
+		}
+		if ( subscription.status === "expired" ) {
+			return <FormattedMessage { ...messages.expired } />;
 		}
 		return <FormattedMessage { ...messages.expiresSoon } />;
 	}

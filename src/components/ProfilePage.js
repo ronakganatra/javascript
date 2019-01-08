@@ -443,7 +443,7 @@ ProfilePage.propTypes = {
 	onNewsletterUnsubscribe: PropTypes.func.isRequired,
 	newsletterSubscribed: PropTypes.string,
 	newsletterLoading: PropTypes.bool,
-	newsletterError: PropTypes.string,
+	newsletterError: PropTypes.object,
 };
 
 ProfilePage.defaultProps = {
