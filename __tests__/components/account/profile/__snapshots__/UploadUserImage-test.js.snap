@@ -60,11 +60,10 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
 }
 
 .c5 {
-  margin: 0;
   width: 100%;
+  margin: 0;
   text-align: center;
   font-size: 12px;
-  color: black;
 }
 
 <div
@@ -105,8 +104,8 @@ exports[`The UploadUserImage component matches the snapshot 1`] = `
   </p>
   <input
     accept="image/png, image/jpeg, image/gif"
-    aria-hidden={true}
     onChange={[Function]}
+    onClick={[Function]}
     style={
       Object {
         "display": "none",
