@@ -1,4 +1,4 @@
-import { createEntityStateSelector } from "./factories";
+import { createAllOfEntitySelector, createEntityStateSelector } from "./factories";
 
 /**
  * Returns the full state of all sites.
@@ -8,3 +8,14 @@ import { createEntityStateSelector } from "./factories";
  * @returns {Object} The full state of all sites.
  */
 export const getSites = createEntityStateSelector( "sites" );
+
+/**
+ * Returns all sites in the state.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} All sites.
+ */
+export const getAllSites = createAllOfEntitySelector( "sites" );

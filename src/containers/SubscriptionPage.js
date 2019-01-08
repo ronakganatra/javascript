@@ -17,6 +17,9 @@ import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
 import { sortPluginsByPopularity } from "../functions/products";
+import { getSubscriptions, getSubscriptionsById } from "../selectors/entities/subscriptions";
+import { getOrdersById } from "../selectors/entities/orders";
+import { getAllSites } from "../selectors/entities/sites";
 
 
 /* eslint-disable require-jsdoc */
@@ -24,7 +27,7 @@ import { sortPluginsByPopularity } from "../functions/products";
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
+	const selectedSubscription = getSubscriptionsById( state )[ selectedSubscriptionId ];
 
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
@@ -33,7 +36,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	let orders = selectedSubscription.orders.map( order => state.entities.orders.byId[ order ] );
+	let orders = selectedSubscription.orders.map( order => getOrdersById( state )[ order ] );
 
 	// If some orders are undefined we are still waiting for some data.
 	if ( orders.filter( order => ! ! order ).length !== orders.length ) {
@@ -59,28 +62,25 @@ export const mapStateToProps = ( state, ownProps ) => {
 		} );
 
 	let sites = [];
-	const siteIds = state.entities.sites.allIds;
-	if ( isEmpty( siteIds ) === false ) {
-		sites = siteIds
-			.map( siteId => state.entities.sites.byId[ siteId ] )
+	const allSites = getAllSites( state );
+	if ( isEmpty( allSites ) === false ) {
+		sites = allSites
 			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
 	}
 
 	// Get subscriptions that are connected to the same order in WooCommerce.
 	let connectedSubscriptions = [];
-	const subscriptionIds = state.entities.subscriptions.allIds;
-	if ( isEmpty( subscriptionIds ) === false ) {
-		connectedSubscriptions = subscriptionIds
-			.map( subscriptionId => state.entities.subscriptions.byId[ subscriptionId ] )
+	const allSubscriptions = getSubscriptions( state );
+	if ( isEmpty( allSubscriptions ) === false ) {
+		connectedSubscriptions = allSubscriptions
 			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
 			.filter( subscription => subscription.id !== selectedSubscription.id );
 	}
 
 	// Gather sites that use one or more of the connected subscriptions.
 	let connectedSubscriptionsSites = [];
-	if ( isEmpty( siteIds ) === false ) {
-		connectedSubscriptionsSites = siteIds
-			.map( siteId => state.entities.sites.byId[ siteId ] )
+	if ( isEmpty( allSites ) === false ) {
+		connectedSubscriptionsSites = allSites
 			.filter( site =>
 				site.subscriptions.some( subId =>
 					connectedSubscriptions.some( connectedSubscription => connectedSubscription.id === subId )

@@ -2,7 +2,7 @@
 import { createSelector } from "reselect";
 
 /* Internal dependencies */
-import { createAllOfEntitySelector } from "./factories";
+import { createAllOfEntitySelector, createEntityByIdSelector } from "./factories";
 
 /**
  * Returns all subscriptions in the state.
@@ -14,6 +14,17 @@ import { createAllOfEntitySelector } from "./factories";
  * @returns {Array} All subscriptions.
  */
 export const getSubscriptions = createAllOfEntitySelector( "subscriptions" );
+
+/**
+ * Returns all subscriptions in the state ordered by ID.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} All subscriptions ordered by ID.
+ */
+export const getSubscriptionsById = createEntityByIdSelector( "subscriptions" );
 
 /**
  * Returns the subscriptions that are active.
