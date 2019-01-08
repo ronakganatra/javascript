@@ -20,8 +20,15 @@ import { getSubscriptions, getSubscriptionsById } from "../selectors/entities/su
 import { getOrdersById, getOrdersPageOrders } from "../selectors/entities/orders";
 import { getAllSites } from "../selectors/entities/sites";
 
-/* eslint-disable */
-function getRelatedSubscriptions( allSubscriptions, selectedSubscription ) {
+/**
+ * Get the subscriptions that are connected to the same order in WooCommerce
+ *
+ * @param {Object} selectedSubscription The selected subscription.
+ * @param {Array} allSubscriptions 		All subscriptions in the state.
+ *
+ * @returns {Array}						All connected subscriptions.
+ */
+function getConnectedSubscriptions( selectedSubscription, allSubscriptions ) {
 	let connectedSubscriptions = [];
 	if ( isEmpty( allSubscriptions ) === false ) {
 		connectedSubscriptions = allSubscriptions
@@ -31,7 +38,15 @@ function getRelatedSubscriptions( allSubscriptions, selectedSubscription ) {
 	return connectedSubscriptions;
 }
 
-function getConnectedSites( subscription, allSites ){
+/**
+ * Get the sites that are connected to the subscription.
+ *
+ * @param {Object} subscription The selected subscription.
+ * @param {Array} allSites 		All sites in the state.
+ *
+ * @returns {Array}				All connected sites.
+ */
+function getConnectedSites( subscription, allSites ) {
 	let connectedSites = [];
 	if ( isEmpty( allSites ) === false ) {
 		connectedSites = allSites
@@ -40,7 +55,15 @@ function getConnectedSites( subscription, allSites ){
 	return connectedSites;
 }
 
-function getConnectedSubscriptionsSites( connectedSubscriptions, allSites ){
+/**
+ * Get the sites that are related to the connected subscriptions.
+ *
+ * @param {Object} connectedSubscriptions 	The connected subscriptions.
+ * @param {Array} allSites 					All sites in the state.
+ *
+ * @returns {Array}							All sites related to the connected subscriptions.
+ */
+function getConnectedSubscriptionsSites( connectedSubscriptions, allSites ) {
 	let connectedSubscriptionsSites = [];
 	if ( isEmpty( allSites ) === false ) {
 		connectedSubscriptionsSites = allSites
@@ -77,44 +100,16 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 
 	orders = getOrdersPageOrders( state );
-	console.log( orders );
 
 	const allSites = getAllSites( state );
-	let sites = getConnectedSites( selectedSubscription, allSites );
-	/**
-	if ( isEmpty( allSites ) === false ) {
-		sites = allSites
-			.filter( site => site.subscriptions.includes( selectedSubscription.id ) );
-	}
-	 */
-	console.log( "sites1: ", sites );
+	const sites = getConnectedSites( selectedSubscription, allSites );
 
 	// Get subscriptions that are connected to the same order in WooCommerce.
 	const allSubscriptions = getSubscriptions( state );
-	let connectedSubscriptions = getRelatedSubscriptions( allSubscriptions, selectedSubscription );
-	console.log( "connectedSubscriptions: ", connectedSubscriptions );
-	/** F
-	const allSubscriptions = getSubscriptions( state );
-	if ( isEmpty( allSubscriptions ) === false ) {
-		connectedSubscriptions = allSubscriptions
-			.filter( subscription => subscription.sourceId === selectedSubscription.sourceId )
-			.filter( subscription => subscription.id !== selectedSubscription.id );
-	}
-	 */
+	const connectedSubscriptions = getConnectedSubscriptions( selectedSubscription, allSubscriptions );
 
 	// Gather sites that use one or more of the connected subscriptions.
-	let connectedSubscriptionsSites = getConnectedSubscriptionsSites( connectedSubscriptions, allSites );
-	/**
-	if ( isEmpty( allSites ) === false ) {
-		connectedSubscriptionsSites = allSites
-			.filter( site =>
-				site.subscriptions.some( subId =>
-					connectedSubscriptions.some( connectedSubscription => connectedSubscription.id === subId )
-				)
-			);
-	}
-	 */
-	console.log( "sites2: ", connectedSubscriptionsSites );
+	const connectedSubscriptionsSites = getConnectedSubscriptionsSites( connectedSubscriptions, allSites );
 
 	let products = getProductsFromSubscription( state, selectedSubscription )
 		.filter( product => product.sourceShopId === 1 );
