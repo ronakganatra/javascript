@@ -59,6 +59,7 @@
   "dependencies": {
     "@redux-beacon/google-tag-manager": "^1.0.1",
     "@wordpress/a11y": "1.0.1",
+    "@wordpress/is-shallow-equal": "^1.1.4",
     "babel-polyfill": "^6.26.0",
     "cookie-parser": "^1.4.3",
     "gravatar": "^1.6.0",
@@ -93,7 +94,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src",
-    "lint-strict": "eslint src --max-warnings=425"
+    "lint-strict": "eslint src --max-warnings=401"
   },
   "jest": {
     "collectCoverageFrom": [

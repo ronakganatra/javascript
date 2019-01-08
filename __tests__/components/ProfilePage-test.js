@@ -8,7 +8,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email={ "test@test.test" }
 				image="dummy.png"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -23,6 +22,8 @@ describe( 'components/ProfilePage', () => {
 				onDeleteTokenClick={ () => {} }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -34,7 +35,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -50,6 +50,8 @@ describe( 'components/ProfilePage', () => {
 				isSaving={true}
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -61,7 +63,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -77,6 +78,8 @@ describe( 'components/ProfilePage', () => {
 				saveEmailError={ {} }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -88,7 +91,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -104,6 +106,8 @@ describe( 'components/ProfilePage', () => {
 				isSendingPasswordReset={ true }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -115,7 +119,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -131,6 +134,8 @@ describe( 'components/ProfilePage', () => {
 				hasSendPasswordReset={ true }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -142,7 +147,6 @@ describe( 'components/ProfilePage', () => {
 		const component = createComponentWithIntl(
 			<ProfilePage
 				email="email@email.email"
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -158,6 +162,8 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ { error: "I'm an error" } }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -170,7 +176,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ true }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -186,6 +191,8 @@ describe( 'components/ProfilePage', () => {
 				passwordResetError={ null }
 				composerTokens={ [] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -198,7 +205,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -218,6 +224,8 @@ describe( 'components/ProfilePage', () => {
 					name: "abc",
 				} ] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -230,7 +238,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -250,6 +257,8 @@ describe( 'components/ProfilePage', () => {
 					name: "abc",
 				} ] }
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
@@ -262,7 +271,6 @@ describe( 'components/ProfilePage', () => {
 			<ProfilePage
 				email="email@email.email"
 				isDeleting={ false }
-				onUpdateEmail={ () => {} }
 				onSaveProfile={ () => {} }
 				onDeleteProfile={ () => {} }
 				onPasswordReset={ () => {} }
@@ -279,6 +287,8 @@ describe( 'components/ProfilePage', () => {
 				composerTokens={ [] }
 				newsletterSubscribed="subscribed"
 				onUploadAvatar={ () => {} }
+				resetSaveMessage={ () => {} }
+				onSavePassword={ () => {} }
 			/>
 		);
 
