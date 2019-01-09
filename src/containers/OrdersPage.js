@@ -1,15 +1,18 @@
+/* External dependencies */
 import { connect } from "react-redux";
+
+/* Internal dependencies */
 import { onSearchQueryChange } from "../actions/search";
 import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
 import { getSearchQuery } from "../selectors/entities/search";
-import { getFilteredOrdersPageOrders } from "../selectors/entities/orders";
+import { getOrdersPageProps } from "../selectors/entities/orders";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const query = getSearchQuery( state );
-	const orders = getFilteredOrdersPageOrders( state );
+	const orders = getOrdersPageProps( state );
 
 	return {
 		orders,
