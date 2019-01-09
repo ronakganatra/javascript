@@ -50,12 +50,21 @@ let storeState = {
 			allIds: [],
 		},
 		sites: {
-			byId: {},
-			allIds: [],
+			byId: {
+				"22": {
+					subscriptions: [ "1" ],
+				},
+			},
+			allIds: [ "22" ],
 		},
-		coursesEnrollments: {
-			byId: {},
-			allIds: [],
+		courseEnrollments: {
+			byId: {
+				"5": {
+					orderId: "11",
+					studentId: "12345",
+				}
+			},
+			allIds: [ "5" ],
 		}
 	},
 	ui: {

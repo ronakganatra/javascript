@@ -12,7 +12,7 @@ import _isUndefined from "lodash/isUndefined";
 import isEmpty from "lodash/isEmpty";
 import { retrieveSites } from "../actions/sites";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
-import { getSubscription } from "../selectors/subscriptions";
+import { getSubscriptionsById } from "../selectors/entities/subscriptions";
 import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
@@ -24,7 +24,7 @@ import { sortPluginsByPopularity } from "../functions/products";
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ]
+	const selectedSubscription = getSubscriptionsById( state )[ selectedSubscriptionId ];
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
@@ -93,10 +93,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 	products = sortPluginsByPopularity( products );
 
 	let courseEnrollments = [];
-	const courseEnrollmentIds = state.entities.coursesEnrollments.allIds;
+	const courseEnrollmentIds = state.entities.courseEnrollments.allIds;
 	if ( isEmpty( courseEnrollmentIds ) === false ) {
 		courseEnrollments = courseEnrollmentIds
-			.map( courseEnrollmentId => state.entities.coursesEnrollments.byId[ courseEnrollmentId ] );
+			.map( courseEnrollmentId => state.entities.courseEnrollments.byId[ courseEnrollmentId ] );
 	}
 
 	const cancelSubscriptionState = {
@@ -113,7 +113,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
-		coursesEnrollments: courseEnrollments,
+		courseEnrollments: courseEnrollments,
 	}, cancelSubscriptionState );
 };
 

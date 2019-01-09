@@ -1,12 +1,33 @@
+import isEmpty from "lodash/isEmpty";
 import SubscriptionEditModal from "../components/SubscriptionEditModal";
 import { connect } from "react-redux";
 import {
 	cancelSubscription,
 	closeCancelSubscriptionModal,
 } from "../actions/subscriptions";
-import { getSitesForSubscription } from "../selectors/sites";
-import { getCoursesFromSubscription } from "../selectors/courseEnrollments";
+import { getCoursesFromSubscription } from "../selectors/entities/courseEnrollments";
 import { getSubscriptionsById } from "../selectors/entities/subscriptions";
+
+/**
+ * Returns sites for a given subscription.
+ *
+ * @param {Object} state Application state.
+ * @param {string} subscriptionId ID for the subscription to find sites for.
+ *
+ * @returns {Array} Sites belonging to the subscription.
+ */
+function getSitesForSubscription( state, subscriptionId ) {
+	let sites = [];
+	const siteIds = state.entities.sites.allIds;
+	if ( isEmpty( siteIds ) === false ) {
+		sites = siteIds
+			.map( siteId => state.entities.sites.byId[ siteId ] )
+			.filter( site => site.subscriptions.includes( subscriptionId ) );
+	}
+
+	return sites;
+}
+
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
