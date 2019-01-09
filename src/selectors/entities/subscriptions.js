@@ -24,7 +24,7 @@ export const getSubscriptions = createAllOfEntitySelector( "subscriptions" );
  *
  * @returns {Array} All subscriptions ordered by ID.
  */
-export const getSubscriptionsById = createEntityByIdSelector( "subscriptions" );
+export const getAllSubscriptionsById = createEntityByIdSelector( "subscriptions" );
 
 /**
  * Returns the subscriptions that are active.

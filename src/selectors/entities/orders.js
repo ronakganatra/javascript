@@ -2,7 +2,6 @@
 import { createSelector } from "reselect";
 
 /* Internal dependencies */
-import { createSelector } from "reselect";
 import {
 	createAllOfEntitySelector,
 	createEntityByIdSelector,

@@ -16,8 +16,8 @@ import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
 import { sortPluginsByPopularity } from "../functions/products";
-import { getSubscriptions, getSubscriptionsById } from "../selectors/entities/subscriptions";
-import { getOrdersById, getOrdersPageOrders } from "../selectors/entities/orders";
+import { getSubscriptions, getAllSubscriptionsById } from "../selectors/entities/subscriptions";
+import { getOrdersById, getOrdersPageProps } from "../selectors/entities/orders";
 import { getAllSites } from "../selectors/entities/sites";
 
 /**
@@ -81,8 +81,7 @@ function getConnectedSubscriptionsSites( connectedSubscriptions, allSites ) {
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = getSubscriptionsById( state )[ selectedSubscriptionId ];
-
+	const selectedSubscription = getAllSubscriptionsById( state )[ selectedSubscriptionId ];
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
@@ -99,7 +98,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		};
 	}
 
-	orders = getOrdersPageOrders( state );
+	orders = getOrdersPageProps( state );
 
 	const allSites = getAllSites( state );
 	const sites = getConnectedSites( selectedSubscription, allSites );
