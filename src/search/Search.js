@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import _isObject from "lodash/isObject";
+import _isString from "lodash/isString";
 import SearchForm from './SearchForm';
 import ResultsList from "./results/ResultsList";
 import Loader from "../shared/Loader";
@@ -89,7 +90,7 @@ class Search extends React.Component {
 
 				if ( _isObject( filteredOrder ) && filteredOrder[ filter[ 1 ] ] ) {
 					order.unshift( `${ filteredOrder[ filter[ 1 ] ] }` );
-				} else {
+				} else if ( _isString( filteredOrder ) ) {
 					order.unshift( `${ filteredOrder }` );
 				}
 			}

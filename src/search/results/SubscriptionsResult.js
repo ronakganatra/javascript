@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, { Fragment } from "react";
 import BaseResult from "./BaseResult";
 import { getSearchCallback } from "../../functions/callbacks";
 import { datePresenter } from "../../functions/presenters";
