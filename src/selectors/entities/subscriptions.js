@@ -3,6 +3,7 @@ import { createSelector } from "reselect";
 
 /* Internal dependencies */
 import { createAllOfEntitySelector, createEntityByIdSelector } from "./factories";
+import { getOrdersById } from "./orders";
 
 /**
  * Returns all subscriptions in the state.
@@ -25,6 +26,18 @@ export const getSubscriptions = createAllOfEntitySelector( "subscriptions" );
  * @returns {Array} All subscriptions ordered by ID.
  */
 export const getAllSubscriptionsById = createEntityByIdSelector( "subscriptions" );
+
+export const getSubscriptionById = ( state, subscriptionId ) => {
+	return state.entities.subscriptions.byId[ subscriptionId ];
+};
+
+export const getOrdersForSubscription = createSelector(
+	getSubscriptionById,
+	getOrdersById,
+	( subscription, ordersById ) => {
+		return subscription.orders.map( orderId => ordersById[ orderId ] );
+	}
+);
 
 /**
  * Returns the subscriptions that are active.
@@ -78,7 +91,7 @@ export const getGroupedSubscriptions = createSelector(
  *
  * @param {Object} state Application state.
  *
- * @returns {Array}        The subscriptions that belong to only one productGroup with a parentId.
+ * @returns {Array}      The subscriptions that belong to only one productGroup with a parentId.
  */
 export const getIndividualSubscriptions = createSelector(
 	getSubscriptions,

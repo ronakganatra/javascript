@@ -9,16 +9,20 @@ import {
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
-import _isUndefined from "lodash/isUndefined";
 import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
 import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
 import { sortPluginsByPopularity } from "../functions/products";
-import { getSubscriptions, getAllSubscriptionsById } from "../selectors/entities/subscriptions";
-import { getOrdersById, getOrdersPageProps } from "../selectors/entities/orders";
+import {
+	getSubscriptions,
+	getOrdersForSubscription, getSubscriptionById,
+} from "../selectors/entities/subscriptions";
 import { getAllSites } from "../selectors/entities/sites";
+import {
+	isSubscriptionPageLoading,
+} from "../selectors/ui/subscriptions";
 
 /**
  * Get the subscriptions that are connected to the same order in WooCommerce
@@ -80,25 +84,31 @@ function getConnectedSubscriptionsSites( connectedSubscriptions, allSites ) {
 /* eslint-disable-next-line max-statements */
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
+	const selectedSubscription = getSubscriptionById( state, selectedSubscriptionId );
 
-	const selectedSubscription = getAllSubscriptionsById( state )[ selectedSubscriptionId ];
-
-	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
+	if ( isSubscriptionPageLoading( state, selectedSubscriptionId ) ) {
 		return {
 			isLoading: true,
 		};
 	}
 
-	let orders = selectedSubscription.orders.map( order => getOrdersById( state )[ order ] );
+	const orders = getOrdersForSubscription( state, selectedSubscriptionId );
 
+	/*
+	In light of the isSubscriptionPageLoading selector above, I dislike having to write a check here again.
+	I think it _might_ be necessary, but I'm having a hard time seeing why. Doesn't seem to me that orders.byId
+	will have a key that is an order.id, followed by an undefined.
+	I took this check out and everything seems to work fine?
+	 */
 	// If some orders are undefined we are still waiting for some data.
 	if ( orders.filter( order => ! ! order ).length !== orders.length ) {
+		console.log( "here now" );
 		return {
 			isLoading: true,
 		};
 	}
 
-	orders = getOrdersPageProps( state );
+	// T orders => toPropsFormat as in getOrdersPageProps( state );
 
 	const allSites = getAllSites( state );
 	const sites = getConnectedSites( selectedSubscription, allSites );
