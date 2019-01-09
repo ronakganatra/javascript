@@ -38,7 +38,7 @@ export const mapStateToProps = ( state ) => {
 
 		const activeSubscriptions = site.subscriptions
 			.map( ( subscriptionId ) => {
-				return getSubscription( state, subscriptionId );
+				return Object.assign( {}, state.entities.subscriptions.byId[ subscriptionId ] );
 			} )
 			.filter( ( subscription ) => {
 				return subscription && ( subscription.status === "active" || subscription.status === "pending-cancel" );

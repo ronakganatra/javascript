@@ -1,17 +1,17 @@
 import SubscriptionEditModal from "../components/SubscriptionEditModal";
 import { connect } from "react-redux";
-import { getSubscription } from "../selectors/subscriptions";
 import {
 	cancelSubscription,
 	closeCancelSubscriptionModal,
 } from "../actions/subscriptions";
 import { getSitesForSubscription } from "../selectors/sites";
 import { getCoursesFromSubscription } from "../selectors/courseEnrollments";
+import { getSubscriptionsById } from "../selectors/entities/subscriptions";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const { subscriptionId } = ownProps;
-	const subscription = getSubscription( state, subscriptionId );
+	const subscription = getSubscriptionsById( state )[ subscriptionId ];
 
 	const subscriptionsCancelState = state.ui.subscriptionsCancel;
 
