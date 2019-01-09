@@ -64,7 +64,15 @@ export const getPaidOrders = createSelector(
 	} )
 );
 
-
+/**
+ * Factory for creating selectors with different order selectors, and filtering by query.
+ *
+ * @function
+ *
+ * @param {Function}   orderSelector The order selector to use in the resulting selector.
+ *
+ * @returns {Function}               The createSelector.
+ */
 function createFilteredOrderSelector( orderSelector ) {
 	return createSelector(
 		orderSelector,
@@ -89,10 +97,19 @@ function createFilteredOrderSelector( orderSelector ) {
 	);
 }
 
+/**
+ * Gets the orders from the state, filtered by the search query.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} The orders, filtered by the search query.
+ */
 export const getFilteredOrders = createFilteredOrderSelector( getOrders );
 
 /**
- * Returns the orders that were paid, filtered by the query.
+ * Returns the orders that were paid, filtered by the search query.
  *
  * @function
  *
