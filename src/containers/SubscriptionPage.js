@@ -24,7 +24,7 @@ import { sortPluginsByPopularity } from "../functions/products";
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = getSubscription( state, selectedSubscriptionId );
+	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ]
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
