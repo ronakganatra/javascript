@@ -7,9 +7,9 @@ export const downArrow = <SVGIcon><path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25
 /**
  * Returns an upward pointing chevron, or a downward pointing one. Depending on whether isOpen is true or false, respectively.
  *
- * @param   {boolean}      isOpen The props for the upDownArrow.
+ * @param   {Object}      props The props for the upDownArrow.
  * @returns {ReactElement}        An up or down arrow.
  */
-export default function UpDownArrow( isOpen )  {
-	return isOpen ? upArrow : downArrow;
+export default function UpDownArrow( props )  {
+	return props.isOpen ? upArrow : downArrow;
 }
