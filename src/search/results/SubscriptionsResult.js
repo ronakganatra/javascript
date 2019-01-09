@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 import BaseResult from "./BaseResult";
 import { getSearchCallback } from "../../functions/callbacks";
 import { datePresenter } from "../../functions/presenters";
@@ -10,21 +10,26 @@ export default class SubscriptionsResult extends React.Component {
 	constructor() {
 		super();
 
-		this.subscriberIdPresenter = this.subscriberIdPresenter.bind( this );
-		this.ordersPresenter       = this.ordersPresenter.bind( this );
+		this.subscriberPresenter = this.subscriberPresenter.bind( this );
+		this.ordersPresenter     = this.ordersPresenter.bind( this );
 	}
 
 	/**
 	 * Presents the subscriberId as a button to find that subscriber.
 	 *
-	 * @param {string} id The ID of the subscriber.
+	 * @param {Customer} subscriber The ID of the subscriber.
 	 *
 	 * @returns {ReactElement} A button to find the subscriber.
 	 */
-	subscriberIdPresenter( id ) {
-		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", filters: [ [ "id", id ] ] } );
+	subscriberPresenter( subscriber ) {
+		let findCustomer = getSearchCallback( this.props.search, { resource: "Customers", filters: [ [ "id", subscriber.id ] ] } );
 
-		return <button type="button" onClick={ findCustomer }>Find Customer</button>;
+		return (
+			<Fragment>
+				{ subscriber.userEmail }
+				<button type="button" onClick={ findCustomer }>Find Customer</button>
+			</Fragment>
+		);
 	}
 
 	/**
@@ -56,6 +61,6 @@ export default class SubscriptionsResult extends React.Component {
 						   endDatePresenter={ datePresenter }
 						   nextPaymentPresenter={ datePresenter }
 						   ordersPresenter={ this.ordersPresenter }
-						   subscriberIdPresenter={ this.subscriberIdPresenter }/>;
+						   subscriberPresenter={ this.subscriberPresenter }/>;
 	}
 }

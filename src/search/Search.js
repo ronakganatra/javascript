@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import _isObject from "lodash/isObject";
 import SearchForm from './SearchForm';
 import ResultsList from "./results/ResultsList";
 import Loader from "../shared/Loader";
@@ -73,7 +74,7 @@ class Search extends React.Component {
 		let filters = [];
 		let order   = [];
 		query.filters.forEach( ( filter ) => {
-			if ( filter[1] && filter[1].length > 0 ) {
+			if ( filter[ 1 ] && filter[ 1 ].length > 0 ) {
 				filters.push( { [ filter[ 0 ] ]: { like: filter[ 1 ], options: "i" } } );
 				order.push( `${ filter[ 0 ] } DESC` );
 			}
@@ -82,6 +83,17 @@ class Search extends React.Component {
 		if ( config.order[ query.resource ] ) {
 			order.unshift( `${ config.order[ query.resource ] }` );
 		}
+		query.filters.forEach( ( filter ) => {
+			if ( config.filteredOrder[ query.resource ] && config.filteredOrder[ query.resource ][ filter[ 0 ] ] ) {
+				let filteredOrder = config.filteredOrder[ query.resource ][ filter[ 0 ] ];
+
+				if ( _isObject( filteredOrder ) && filteredOrder[ filter[ 1 ] ] ) {
+					order.unshift( `${ filteredOrder[ filter[ 1 ] ] }` );
+				} else {
+					order.unshift( `${ filteredOrder }` );
+				}
+			}
+		} );
 
 		let include = null;
 		if ( config.include[ query.resource ] ) {

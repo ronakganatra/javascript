@@ -63,7 +63,7 @@ class SearchForm extends React.Component {
 
 		this.setState( {
 			resource: resource,
-			filters:  [ [ Searchable[ resource ][0], '' ] ]
+			filters:  [ [ Searchable[ resource ][0], "" ] ]
 		} );
 	}
 
@@ -78,7 +78,8 @@ class SearchForm extends React.Component {
 	handleAttributeChange( i, event ) {
 		let filters = this.state.filters;
 
-		filters[ i ][0] = event.target.value;
+		filters[ i ][ 0 ] = event.target.value;
+		filters[ i ][ 1 ] = "";
 
 		this.setState( { filters } );
 	}
@@ -94,7 +95,7 @@ class SearchForm extends React.Component {
 	handleSearchValueChange( i, event ) {
 		let filters = this.state.filters;
 
-		filters[ i ][1] = event.target.value;
+		filters[ i ][ 1 ] = event.target.value;
 
 		this.setState( { filters } );
 	}
@@ -131,6 +132,23 @@ class SearchForm extends React.Component {
 		this.setState( { filters } );
 	}
 
+	getFilterInput( i ) {
+		let filter = this.state.filters[ i ];
+
+		if ( config.enums[ this.state.resource ] && config.enums[ this.state.resource ][ filter[ 0 ] ] ) {
+			let options = config.enums[ this.state.resource ][ filter[ 0 ] ];
+
+			return (
+				<select onChange={ this.handleSearchValueChange.bind( this, i ) } value={ filter[ 1 ] } >
+					<option key="none" value="" >all</option>
+					{ options.map( option => <option key={ option }>{ option }</option> ) }
+				</select>
+			)
+		}
+
+		return <input type="text" onChange={ this.handleSearchValueChange.bind( this, i ) } value={ filter[ 1 ] } />
+	}
+
 	/**
 	 * Callback used when this form is submitted.
 	 *
@@ -163,7 +181,7 @@ class SearchForm extends React.Component {
 						<select onChange={ this.handleAttributeChange.bind( this, i ) } value={ filter[0] }>
 							{ SearchForm.generateOptions( Searchable[ this.state.resource ], Headers[ this.state.resource ] ) }
 						</select>
-						<input type="text" onChange={ this.handleSearchValueChange.bind( this, i ) } value={ filter[1] } />
+						{ this.getFilterInput( i ) }
 						{ i === 0 &&
 						  <button type="button" onClick={ this.addFilter }>Add filter</button>
 						}

@@ -1,16 +1,16 @@
 {
   "searchable": {
-    "Orders":        ["customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status"],
-    "Customers":     ["userEmail", "username", "userFirstName", "userLastName"],
-    "Sites":         ["url"],
-    "Subscriptions": ["subscriptionNumber"]
+    "Orders":        [ "customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status" ],
+    "Customers":     [ "userEmail", "username", "userFirstName", "userLastName" ],
+    "Sites":         [ "url" ],
+    "Subscriptions": [ "subscriptionNumber", "status" ]
   },
   "display": {
-    "Customers":     ["userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions"],
-    "Orders":        ["invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage"],
-    "Subscriptions": ["subscriptionNumber", "name", "subscriberId", "status", "startDate", "endDate", "nextPayment", "orders"],
-    "Sites":         ["url", "userId", "creationDate", "subscriptions"],
-    "CustomerNotes": ["content", "nextContactDate", "authorId", "createdAt","actions"]
+    "Customers":     [ "userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions" ],
+    "Orders":        [ "invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage" ],
+    "Subscriptions": [ "subscriptionNumber", "name", "subscriber", "status", "startDate", "endDate", "nextPayment", "orders" ],
+    "Sites":         [ "url", "userId", "creationDate", "subscriptions" ],
+    "CustomerNotes": [ "content", "nextContactDate", "authorId", "createdAt","actions" ]
   },
   "headers": {
     "Customers": {
@@ -44,10 +44,25 @@
       "createdAt":       "Created at"
     }
   },
+  "enums": {
+    "Orders": {
+      "status": [ "pending", "failed", "cancelled", "completed", "processing", "refunded", "on-hold" ]
+    },
+    "Subscriptions": {
+      "status": [ "pending", "active", "pending-cancel", "cancelled", "on-hold", "expired" ]
+    }
+  },
   "order": {
-    "Orders": "date DESC"
+    "Orders": "date DESC",
+    "Subscriptions": "startDate DESC"
+  },
+  "filteredOrder": {
+    "Subscriptions": {
+      "status": { "cancelled": "endDate DESC" }
+    }
   },
   "include": {
-    "Orders": [ "subscriptions" ]
+    "Orders": [ "subscriptions" ],
+    "Subscriptions": [ "subscriber" ]
   }
 }
