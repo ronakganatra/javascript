@@ -125,9 +125,7 @@ export const getGroupedCourseEnrollments = createSelector(
  * @returns {Array} 				An array of courseEnrollments.
  */
 export function getCoursesFromSubscription( state, subscriptionId ) {
-	console.log( "STATE!!!!!!! ", state );
 	const subscription = getSubscriptionsById( state )[ subscriptionId ];
-	console.log( "getCourseEnrollments( state ): ", getCourseEnrollments( state ) );
 	return getCourseEnrollments( state ).filter(
 		enrollment =>
 			_includes( subscription.orders, enrollment.orderId ) &&
