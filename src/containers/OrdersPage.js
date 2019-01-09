@@ -4,7 +4,7 @@ import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
-import { getSearchQuery } from "../selectors/search";
+import { getSearchQuery } from "../selectors/entities/search";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {

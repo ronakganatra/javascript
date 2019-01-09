@@ -12,6 +12,7 @@ import ProgressBar from "../ProgressBar";
 import NewTabMessage from "../../components/NewTabMessage";
 
 import check from "../../icons/checkGreen.svg";
+import { getShopUrl } from "../../functions/products";
 
 const StyledLabel = styled.label`
 	font-weight: bold;
@@ -65,9 +66,13 @@ const messages = defineMessages( {
 		id: "free.trial.completed",
 		defaultMessage: "{icon} Free trial completed",
 	},
-	buyButton: {
-		id: "coursecard.buyButton",
+	buyFullButton: {
+		id: "coursecard.buyFullButton",
 		defaultMessage: "Get the full course",
+	},
+	getAccessButton: {
+		id: "coursecard.getAccessButton",
+		defaultMessage: "Get access now",
 	},
 	startButton: {
 		id: "coursecard.startButton",
@@ -324,11 +329,14 @@ class CourseDetails extends React.Component {
 	 * @returns {React.Component} the buy button
 	 */
 	getBuyButton( marginTop ) {
+		const message = this.props.isSubscription ? messages.getAccessButton : messages.buyFullButton;
+		const url     = this.props.isSubscription ? `${getShopUrl()}/subscriptions/` : this.props.shopUrl;
+
 		if ( this.props.isOnSale ) {
 			// On sale, so yellow button.
-			return this.getButton( this.props.shopUrl, colors.$color_yellow, messages.buyButton, "", colors.$color_black );
+			return this.getButton( url, colors.$color_yellow, message, "", colors.$color_black );
 		}
-		return this.getButton( this.props.shopUrl, colors.$color_pink_dark, messages.buyButton, marginTop );
+		return this.getButton( url, colors.$color_pink_dark, message, marginTop );
 	}
 
 	/**
@@ -373,6 +381,7 @@ CourseDetails.propTypes = {
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
 	hasTrial: PropTypes.bool,
+	isSubscription: PropTypes.bool,
 };
 
 CourseDetails.defaultProps = {
@@ -391,4 +400,5 @@ CourseDetails.defaultProps = {
 	isOnSale: false,
 	saleLabel: null,
 	hasTrial: false,
+	isSubscription: false,
 };

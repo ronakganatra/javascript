@@ -69,7 +69,7 @@ test('The Subscribe Newsletter component shows an error when there is one define
 			onUnsubscribe={ () => null }
 			subscribed={ "unsubscribed" }
 			loading={ false }
-			error={ "An error occurred" }
+			error={ {error: "An error occurred" } }
 		/>
 	);
 

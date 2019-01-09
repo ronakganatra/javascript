@@ -9,8 +9,8 @@ export const mapDispatchToProps = ( dispatch ) => {
 	};
 };
 
-const CoursesEnrollmentsContainer = connect(
+const CourseEnrollmentsContainer = connect(
 	mapDispatchToProps
 )( CoursesPage );
 
-export default CoursesEnrollmentsContainer;
+export default CourseEnrollmentsContainer;

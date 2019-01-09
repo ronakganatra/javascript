@@ -1,31 +1,36 @@
+/* External dependencies **/
+import { connect } from "react-redux";
+
+/* Internal dependencies */
 import { logout } from "../actions/user";
 import { helpBeaconModalOpen } from "../actions/helpBeacon";
-import { connect } from "react-redux";
+import { getPathname } from "../selectors/router/location";
+import { getSitesById } from "../selectors/entities/sites";
+import { getSubscriptionsById } from "../selectors/entities/subscriptions";
 import MobileHeader from "../components/MobileHeader";
-import { getSubscription } from "../selectors/subscriptions";
+import { getLogoutError, isLoggingOut } from "../selectors/user/user";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
+	const path = getPathname( state ).split( "/" );
 	let pageTitle = "";
-
-	const path = state.router.location.pathname.split( "/" );
 
 	const id = path.pop();
 	const type = path.pop();
 
 	// Set page title for sites and subscriptions detail pages.
 	if ( type === "sites" && id ) {
-		const site = state.entities.sites.byId[ id ];
+		const site = getSitesById( state )[ id ];
 		pageTitle = site ? site.hostname : "";
 	} else if ( type === "subscriptions" && id ) {
-		const subscription = getSubscription( state, id );
+		const subscription = getSubscriptionsById( state )[ id ];
 		pageTitle = subscription ? subscription.name : "";
 	}
 
 	return {
 		pageTitle,
-		loggingOut: state.user.loggingOut,
-		logoutError: state.user.logoutError,
+		loggingOut: isLoggingOut( state ),
+		logoutError: getLogoutError( state ),
 	};
 };
 

@@ -11,9 +11,8 @@ import {
 } from "../functions/productGroups";
 import { configurationServiceRequestModalClose, configurationServiceRequestModalOpen,
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
-import { getSearchQuery } from "../selectors/search";
-import { getSubscription } from "../selectors/subscriptions";
-import { getAllOfEntity } from "../selectors/entities";
+import { getSearchQuery } from "../selectors/entities/search";
+import { getAllOfEntity } from "../selectors/entities/factories";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {

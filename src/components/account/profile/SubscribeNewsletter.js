@@ -165,7 +165,7 @@ class SubscribeNewsletter extends React.Component {
 				</p>
 				{ this.getButton() }
 				{ this.props.error &&
-				<ErrorDisplay error={ { code: "MAILCHIMP_ERROR", message: this.props.error } } />
+				<ErrorDisplay error={ this.props.error } />
 				}
 			</NewsletterSection>
 		);
@@ -178,7 +178,7 @@ SubscribeNewsletter.propTypes = {
 	onUnsubscribe: PropTypes.func.isRequired,
 	loading: PropTypes.bool,
 	subscribed: PropTypes.string,
-	error: PropTypes.string,
+	error: PropTypes.object,
 };
 
 

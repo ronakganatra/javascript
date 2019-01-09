@@ -13,18 +13,18 @@ import { getShopUrl } from "../functions/products";
 export const mapStateToProps = ( state ) => {
 	const currentUserId = getUserId();
 
-	let coursesEnrollments = state.entities.coursesEnrollments.allIds
+	let courseEnrollments = state.entities.courseEnrollments.allIds
 		.map( ( enrollmentId ) => {
-			return state.entities.coursesEnrollments.byId[ enrollmentId ];
+			return state.entities.courseEnrollments.byId[ enrollmentId ];
 		} )
 		.filter( ( enrollment ) => enrollment.status !== "refunded" );
 
-	coursesEnrollments = _groupBy( coursesEnrollments, "courseId" );
+	courseEnrollments = _groupBy( courseEnrollments, "courseId" );
 
 	let courses = state.entities.courses.allIds
 		.map( ( courseId ) => {
 			const course = state.entities.courses.byId[ courseId ];
-			const enrollments = coursesEnrollments[ courseId ] || [];
+			const enrollments = courseEnrollments[ courseId ] || [];
 			const ownedEnrollments = enrollments.filter( ( enrollment ) => enrollment.buyerId === currentUserId );
 			const studentEnrollment = enrollments
 				.find( ( enrollment ) => enrollment.studentId === currentUserId );
@@ -34,6 +34,7 @@ export const mapStateToProps = ( state ) => {
 				ownedEnrollments.find( ( enrollment ) => ! enrollment.outsideTrialProgress );
 			const usProduct = course.products ? course.products.find( ( product ) => product.sourceShopId === 1 ) : null;
 			const shopUrl = usProduct ? `${getShopUrl()}/?yst-add-to-cart=${usProduct.sourceId}` : "";
+			const isSubscription = course.products && course.products.length === 0 && course.productGroups && course.productGroups.length > 0;
 
 			return {
 				image: course.iconUrl,
@@ -61,10 +62,11 @@ export const mapStateToProps = ( state ) => {
 				saleLabel: course.saleLabel,
 
 				hasTrial: course.hasTrial,
+				isSubscription,
 			};
 		} )
-		// Only show courses in which you are enrolled, are free or have a shop url and aren't deprecated.
-		.filter( ( course ) => course.isEnrolled || course.isFree || ( ! course.deprecated && course.shopUrl ) );
+		// Only show courses in which you are enrolled, are free or have a shop url or are part of a subscription and aren't deprecated.
+		.filter( ( course ) => course.isEnrolled || course.isFree || ( ! course.deprecated && ( course.shopUrl || course.isSubscription ) ) );
 
 	// Sort to show sales first, then enrolled courses, then free courses and then the rest. Within groups sort on progress.
 	// Reverse is needed because boolean sort weird.

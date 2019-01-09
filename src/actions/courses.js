@@ -5,9 +5,9 @@ import _unionBy from "lodash/unionBy";
 export const RETRIEVE_COURSES_REQUEST = "RETRIEVE_COURSES_REQUEST";
 export const RETRIEVE_COURSES_SUCCESS = "RETRIEVE_COURSES_SUCCESS";
 export const RETRIEVE_COURSES_FAILURE = "RETRIEVE_COURSES_FAILURE";
-export const RETRIEVE_COURSESENROLLMENTS_REQUEST = "RETRIEVE_COURSESENROLLMENTS_REQUEST";
-export const RETRIEVE_COURSESENROLLMENTS_SUCCESS = "RETRIEVE_COURSESENROLLMENTS_SUCCESS";
-export const RETRIEVE_COURSESENROLLMENTS_FAILURE = "RETRIEVE_COURSESENROLLMENTS_FAILURE";
+export const RETRIEVE_COURSE_ENROLLMENTS_REQUEST = "RETRIEVE_COURSE_ENROLLMENTS_REQUEST";
+export const RETRIEVE_COURSE_ENROLLMENTS_SUCCESS = "RETRIEVE_COURSE_ENROLLMENTS_SUCCESS";
+export const RETRIEVE_COURSE_ENROLLMENTS_FAILURE = "RETRIEVE_COURSE_ENROLLMENTS_FAILURE";
 export const COURSE_INVITE_MODAL_OPEN = "COURSE_INVITE_MODAL_OPEN";
 export const COURSE_INVITE_MODAL_CLOSE = "COURSE_INVITE_MODAL_CLOSE";
 export const UPDATE_STUDENT_EMAIL = "UPDATE_STUDENT_EMAIL";
@@ -155,23 +155,23 @@ export function retrieveCoursesFailure( error ) {
  *
  * @returns {Object} A server request action.
  */
-export function retrieveCoursesEnrollmentsRequest() {
+export function retrieveCourseEnrollmentsRequest() {
 	return {
-		type: RETRIEVE_COURSESENROLLMENTS_REQUEST,
+		type: RETRIEVE_COURSE_ENROLLMENTS_REQUEST,
 	};
 }
 
 /**
- * An action creator for the retrieve courses success action.
+ * An action creator for the retrieve course enrollments success action.
  *
- * @param {Array} courses The courses to be retrieved.
+ * @param {Array} courseEnrollments The course enrollments to be retrieved.
  *
- * @returns {Object} A retrieve courses success action.
+ * @returns {Object} A retrieve course enrollments success action.
  */
-export function retrieveCoursesEnrollmentsSuccess( courses ) {
+export function retrieveCourseEnrollmentsSuccess( courseEnrollments ) {
 	return {
-		type: RETRIEVE_COURSESENROLLMENTS_SUCCESS,
-		coursesEnrollments: courses,
+		type: RETRIEVE_COURSE_ENROLLMENTS_SUCCESS,
+		courseEnrollments: courseEnrollments,
 	};
 }
 
@@ -180,11 +180,11 @@ export function retrieveCoursesEnrollmentsSuccess( courses ) {
  *
  * @param {string} error The error message.
  *
- * @returns {Object} A retrieve courses failure action.
+ * @returns {Object} A retrieve course enrollments failure action.
  */
-export function retrieveCoursesEnrollmentsFailure( error ) {
+export function retrieveCourseEnrollmentsFailure( error ) {
 	return {
-		type: RETRIEVE_COURSESENROLLMENTS_FAILURE,
+		type: RETRIEVE_COURSE_ENROLLMENTS_FAILURE,
 		error: error,
 	};
 }
@@ -207,21 +207,21 @@ export function retrieveCourses() {
 }
 
 /**
- * An action creator for the retrieve coursesEnrollments action.
+ * An action creator for the retrieve course enrollments action.
  *
- * @returns {Object} A retrieve courses enrollments action.
+ * @returns {Object} A retrieve course enrollments action.
  */
 export function retrieveCourseEnrollments() {
 	return ( dispatch ) => {
-		dispatch( retrieveCoursesEnrollmentsRequest() );
+		dispatch( retrieveCourseEnrollmentsRequest() );
 		const userId = getUserId();
 
 		const studentRequest = prepareInternalRequest( `Customers/${userId}/courseEnrollments/` );
 		const ownedRequest   = prepareInternalRequest( `Customers/${userId}/ownedCourseEnrollments/` );
 
 		return Promise.all( [ doRequest( studentRequest ), doRequest( ownedRequest ) ] )
-			.then( ( [ studentJson, ownedJson ] ) => dispatch( retrieveCoursesEnrollmentsSuccess( _unionBy( studentJson, ownedJson, "id" ) ) ) )
-			.catch( error => dispatch( retrieveCoursesEnrollmentsFailure( error ) ) );
+			.then( ( [ studentJson, ownedJson ] ) => dispatch( retrieveCourseEnrollmentsSuccess( _unionBy( studentJson, ownedJson, "id" ) ) ) )
+			.catch( error => dispatch( retrieveCourseEnrollmentsFailure( error ) ) );
 	};
 }
 

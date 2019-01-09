@@ -15,43 +15,44 @@ import {
 import {
 	getNewsletterStatus, subscribeNewsletter, unsubscribeNewsletter,
 } from "../actions/newsletter";
-
-import { url } from "gravatar";
-
-const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
+import { getUserEmail, getUserFirstName, getUserLastName, getUserAvatar } from "../selectors/user/data/profile";
+import { getComposerTokens } from "../selectors/entities/composerTokens";
+import {
+	isCreateTokenModalIsOpen, isManageTokenModalIsOpen, getManageTokenData, isTokenDeleted,
+	getTokenError,
+} from "../selectors/ui/composerTokens";
+import { isProfilePageSaving, isProfilePageSaved, isProfilePageDeleting, getSaveEmailError } from "../selectors/user/profilePage";
+import { isPasswordResetSending, isPasswordResetSent, getPasswordResetError } from "../selectors/user/passwordReset";
+import { getNewsletterError, isNewsletterLoading, isNewsletterSubscribed } from "../selectors/ui/newsletter";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	return {
-		email: state.user.data.profile.email,
-		userFirstName: state.user.data.profile.userFirstName,
-		userLastName: state.user.data.profile.userLastName,
-		composerTokens: Object.values( state.entities.composerTokens.byId ),
-		image: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
-			s: "150",
-			r: "pg",
-			d: avatarPlaceholder,
-			protocol: "https",
-		} ),
-		isSaving: state.user.savingProfile,
-		isSaved: state.user.profileSaved,
-		isDeleting: state.user.deletingProfile,
+		email: getUserEmail( state ),
+		userFirstName: getUserFirstName( state ),
+		userLastName: getUserLastName( state ),
+		image: getUserAvatar( state ),
 
-		saveEmailError: state.user.saveEmailError,
+		composerTokens: getComposerTokens( state ),
 
-		isSavingPassword: state.user.sendingPasswordReset,
-		passwordIsSaved: state.user.sendPasswordReset,
-		passwordResetError: state.user.passwordResetError,
+		isSaving: isProfilePageSaving( state ),
+		isSaved: isProfilePageSaved( state ),
+		isDeleting: isProfilePageDeleting( state ),
+		saveEmailError: getSaveEmailError( state ),
 
-		createTokenModalIsOpen: state.ui.composerTokens.createTokenModalIsOpen,
-		manageTokenModalIsOpen: state.ui.composerTokens.manageTokenModalIsOpen,
-		manageTokenData: state.ui.composerTokens.manageTokenData,
-		tokenError: state.ui.composerTokens.tokenError,
-		tokenDeleted: state.ui.composerTokens.tokenDeleted,
+		isSavingPassword: isPasswordResetSending( state ),
+		passwordIsSaved: isPasswordResetSent( state ),
+		passwordResetError: getPasswordResetError( state ),
 
-		newsletterSubscribed: state.ui.newsletter.subscribed,
-		newsletterError: state.ui.newsletter.error,
-		newsletterLoading: state.ui.newsletter.loading,
+		createTokenModalIsOpen: isCreateTokenModalIsOpen( state ),
+		manageTokenModalIsOpen: isManageTokenModalIsOpen( state ),
+		manageTokenData: getManageTokenData( state ),
+		tokenError: getTokenError( state ),
+		tokenDeleted: isTokenDeleted( state ),
+
+		newsletterSubscribed: isNewsletterSubscribed( state ),
+		newsletterError: getNewsletterError( state ),
+		newsletterLoading: isNewsletterLoading( state ),
 	};
 };
 

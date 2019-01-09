@@ -7,7 +7,7 @@ import { MemoryRouter as Router } from "react-router-dom";
 test('the courses page component matches the snapshot', () => {
 	const component = createComponentWithIntl(
 		<Router>
-			<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCoursesEnrollments={ () => { "dispatch action retrieveCoursesEnrollments" } } />
+			<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCourseEnrollments={ () => { "dispatch action retrieveCourseEnrollments" } } />
 		</Router>
 	);
 
@@ -18,7 +18,7 @@ test('the courses page component matches the snapshot', () => {
 test( "The courses page component matches the snapshot", () => {
 	const component = createComponentWithIntl(
 		<Router>
-			<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCoursesEnrollments={ () => { "dispatch action retrieveCoursesEnrollments" } } />
+			<CoursesPage loadCourses={ () => { "dispatch action retrieveCourses" } } loadCourseEnrollments={ () => { "dispatch action retrieveCourseEnrollments" } } />
 		</Router>
 	);
 
