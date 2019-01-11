@@ -4,7 +4,9 @@ import { createComponentWithIntl } from "../../../../utils";
 
 test( 'The UploadUserImage component matches the snapshot', () => {
 	const component = createComponentWithIntl(
-		<UploadUserImage />
+		<UploadUserImage
+			onFileUpload={ () => {} }
+		/>
 	);
 
 	let tree = component.toJSON();
