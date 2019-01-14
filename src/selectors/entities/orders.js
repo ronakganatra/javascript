@@ -7,7 +7,6 @@ import {
 	createEntityByIdSelector,
 	createEntityStateSelector,
 } from "./factories";
-import { capitalizeFirstLetter } from "../../functions/stringHelpers";
 import { getSearchQuery } from "./search";
 
 /**
@@ -120,25 +119,12 @@ export const getFilteredOrders = createFilteredOrderSelector( getOrders );
 export const getFilteredPaidOrders = createFilteredOrderSelector( getPaidOrders );
 
 /**
- * Gets the data required from the selected orders, and maps them to the props.
+ * Test whether all orders are correctly retrieved and not empty or undefined.
  *
- * @function
- *
- * @param {Object} state Application state.
- *
- * @returns {Array} An array of orders to show on the orders page.
+ * @param {Array}     orders The orders array to test.
+ * @returns {boolean}        Whether or not all orders are loaded.
  */
-export const getOrdersPageProps = createSelector(
-	getFilteredPaidOrders,
-	orders => orders.map( order => {
-		return {
-			id: order.id,
-			orderNumber: order.invoiceNumber,
-			date: new Date( order.date ),
-			total: order.totalAmount,
-			status: capitalizeFirstLetter( order.status ),
-			items: order.items,
-			currency: order.currency,
-		};
-	} )
-);
+export const allOrdersLoaded = ( orders ) => {
+	console.log( orders.filter( order => ! ! order ).length === orders.length );
+	return ( orders.filter( order => ! ! order ).length === orders.length );
+};

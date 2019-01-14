@@ -49,7 +49,6 @@ const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixed
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
-	console.log( props );
 	return (
 		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
