@@ -1,26 +1,31 @@
+// External dependencies
 import { connect } from "react-redux";
+import _isUndefined from "lodash/isUndefined";
+
+// Internal dependencies
 import SubscriptionPage from "../components/account/subscriptions/SubscriptionPage";
+import { getAllProducts } from "../actions/products";
+import { getProductGroups } from "../actions/productGroups";
+import { getOrders } from "../actions/orders";
+import { retrieveSites } from "../actions/sites";
 import {
 	cancelSubscription,
 	closeCancelSubscriptionModal,
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";
-import { getAllProducts } from "../actions/products";
-import { getProductGroups } from "../actions/productGroups";
-import { getOrders } from "../actions/orders";
-import { retrieveSites } from "../actions/sites";
 import {
 	getAllSubscriptionsById,
 	getConnectedSubscriptions,
 	getSubscriptionsOrders,
-	getSubscriptionsSites, getConnectedSubscriptionsSites, getSubscriptionsProducts,
+	getSubscriptionsSites,
+	getConnectedSubscriptionsSites,
+	getSubscriptionsProducts,
 } from "../selectors/entities/subscriptions";
 import {
 	getCancelSubscriptionState,
 	isSubscriptionPageLoading,
 } from "../selectors/ui/subscriptions";
-import _isUndefined from "lodash/isUndefined";
 
 /* eslint-disable require-jsdoc */
 /* eslint-disable-next-line max-statements */
@@ -42,14 +47,18 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const cancelSubscriptionState = getCancelSubscriptionState( state );
 
-	return Object.assign( {}, {
-		subscription,
-		orders,
-		sites: getSubscriptionsSites( state )[ selectedSubscriptionId ],
-		products,
-		connectedSubscriptions: getConnectedSubscriptions( state )[ selectedSubscriptionId ],
-		connectedSubscriptionsSites: getConnectedSubscriptionsSites( state )[ selectedSubscriptionId ],
-	}, cancelSubscriptionState );
+	return Object.assign(
+		{},
+		{
+			subscription,
+			orders,
+			products,
+			sites: getSubscriptionsSites( state )[ selectedSubscriptionId ],
+			connectedSubscriptions: getConnectedSubscriptions( state )[ selectedSubscriptionId ],
+			connectedSubscriptionsSites: getConnectedSubscriptionsSites( state )[ selectedSubscriptionId ],
+		},
+		cancelSubscriptionState
+	);
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
