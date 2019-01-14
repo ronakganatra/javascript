@@ -149,12 +149,12 @@ let defaultExpected = {
 	],
 	orders: [ {
 		currency: "USD",
-		date: new Date( "2017-05-01 21:04:28" ),
+		date: "2017-05-01 21:04:28",
 		id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 		items: [ { productName: "Yoast SEO" } ],
-		orderNumber: "YST201701",
-		status: "Completed",
-		total: "6900"
+		invoiceNumber: "YST201701",
+		status: "completed",
+		totalAmount: "6900"
 	} ],
 	sites: [ {
 		subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ]
@@ -192,13 +192,12 @@ test( 'the mapStateToProps function', () => {
 } );
 
 test( 'the mapStateToProps function, with `retrievingSites` set to `true`', () => {
-	let newState = {};
-	Object.assign( newState, state );
+	let newState = Object.assign( {}, state );
 	newState.ui.sites.retrievingSites = true;
 
 	let expected = {
 		isLoading: true,
 	};
 
-	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
+	expect( mapStateToProps( newState, ownProps ) ).toEqual( expected );
 } );

@@ -9,8 +9,8 @@ const mockStore = configureStore( [] );
 
 let baseOrder = {
 	id: "1",
-	date: new Date( "01/01/2012" ),
-	orderNumber: "MOOIE 456 TEST",
+	date: "01/01/2012",
+	invoiceNumber: "MOOIE 456 TEST",
 	items: [
 		{
 			id: "line-item-id1",
@@ -23,7 +23,7 @@ let baseOrder = {
 			quantity: 2,
 		},
 	],
-	total: 10000,
+	totalAmount: 10000,
 	currency: "USD",
 	status: "completed",
 };

@@ -32,6 +32,7 @@ import {
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 	const subscription = getAllSubscriptionsById( state )[ selectedSubscriptionId ];
+
 	if ( _isUndefined( subscription ) || isSubscriptionPageLoading( state ) ) {
 		return {
 			isLoading: true,
@@ -39,7 +40,6 @@ export const mapStateToProps = ( state, ownProps ) => {
 	}
 
 	const orders = getSubscriptionsOrders( state )[ selectedSubscriptionId ];
-	console.log( orders );
 	const products = getSubscriptionsProducts( state )[ selectedSubscriptionId ]
 		.filter( product => {
 			return product.sourceShopId === 1;
