@@ -1,7 +1,7 @@
-import { getSubscriptionById } from "../entities/subscriptions";
-import _isUndefined from "lodash/isUndefined";
 import { isRetrievingSites } from "./sites";
 import { createSelector } from "reselect";
+import { allOrdersLoaded } from "../entities/orders";
+import { getSubscriptionsOrders } from "../entities/subscriptions";
 
 /**
  * Returns the add subscription modal state.
@@ -25,11 +25,34 @@ export function isRequestingSubscriptions( state ) {
 	return state.ui.subscriptions.requesting;
 }
 
+/**
+ * Returns true when the subscriptionPage does not have all the required data yet (ergo: is still loading).
+ * @function
+ *
+ * @oaram   {Object} state The application state.
+ *
+ * @returns {Boolean}      Whether or not the SubscriptionPage is loading.
+ */
 export const isSubscriptionPageLoading = createSelector(
-	getSubscriptionById,
 	isRequestingSubscriptions,
 	isRetrievingSites,
-	( sub, requestingSubs, retrievingSites ) => {
-		return _isUndefined( sub ) || requestingSubs || retrievingSites;
+	getSubscriptionsOrders,
+	( requestingSubs, retrievingSites, orders ) => {
+		return requestingSubs || retrievingSites || ! allOrdersLoaded( Object.values( orders ) );
 	}
 );
+
+/**
+ * The ui state for the subscription cancel modal.
+ *
+ * @param   {Object} state The application state.
+ * @returns {Object}       An object containing relevant ui information for the subscription cancel modal.
+ */
+export const getCancelSubscriptionState = ( state ) => {
+	return {
+		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
+		cancelLoading: state.ui.subscriptionsCancel.loading,
+		cancelSuccess: state.ui.subscriptionsCancel.success,
+		cancelError: state.ui.subscriptionsCancel.error,
+	};
+};
