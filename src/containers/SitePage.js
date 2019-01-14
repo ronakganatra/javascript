@@ -25,7 +25,7 @@ import {
 import { getAddSubscriptionModal, isRequestingSubscriptions } from "../selectors/ui/subscriptions";
 import { getAvailableConfigurationServiceRequests } from "../selectors/entities/configurationService";
 import { getSites } from "../selectors/entities/sites";
-import { getActiveSubscriptionsWithProductInformation } from "../selectors/entities/subscriptions";
+import { getActivatableSubscriptionsWithProductInformation } from "../selectors/entities/subscriptions";
 import { getProducts } from "../selectors/entities/products";
 import { getProductGroups } from "../selectors/entities/productGroups";
 import {
@@ -48,7 +48,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const site = sites.byId[ id ];
 
 	const availableConfigurationServiceRequests = getAvailableConfigurationServiceRequests( state );
-	const activeSubscriptions = getActiveSubscriptionsWithProductInformation( state );
+	const activeSubscriptions = getActivatableSubscriptionsWithProductInformation( state );
 
 	// Set in the subscription whether it is enabled on the site.
 	activeSubscriptions.map( subscription =>

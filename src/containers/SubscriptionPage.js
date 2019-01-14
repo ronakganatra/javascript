@@ -1,18 +1,18 @@
 import { connect } from "react-redux";
 import SubscriptionPage from "../components/account/subscriptions/SubscriptionPage";
 import {
-	cancelSubscription,
-	closeCancelSubscriptionModal,
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
+import { retrieveCourseEnrollments } from "../actions/courses";
 import _isUndefined from "lodash/isUndefined";
-import { retrieveSites } from "../actions/sites";
 import isEmpty from "lodash/isEmpty";
+import { retrieveSites } from "../actions/sites";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
+import { getSubscriptionsById } from "../selectors/entities/subscriptions";
 import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
@@ -24,8 +24,7 @@ import { sortPluginsByPopularity } from "../functions/products";
 export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 
-	const selectedSubscription = state.entities.subscriptions.byId[ selectedSubscriptionId ];
-
+	const selectedSubscription = getSubscriptionsById( state )[ selectedSubscriptionId ];
 
 	if ( _isUndefined( selectedSubscription ) || state.ui.subscriptions.requesting || state.ui.sites.retrievingSites ) {
 		return {
@@ -93,6 +92,13 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	products = sortPluginsByPopularity( products );
 
+	let courseEnrollments = [];
+	const courseEnrollmentIds = state.entities.courseEnrollments.allIds;
+	if ( isEmpty( courseEnrollmentIds ) === false ) {
+		courseEnrollments = courseEnrollmentIds
+			.map( courseEnrollmentId => state.entities.courseEnrollments.byId[ courseEnrollmentId ] );
+	}
+
 	const cancelSubscriptionState = {
 		cancelModalOpen: state.ui.subscriptionsCancel.modalOpen,
 		cancelLoading: state.ui.subscriptionsCancel.loading,
@@ -107,6 +113,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		products,
 		connectedSubscriptions,
 		connectedSubscriptionsSites,
+		courseEnrollments: courseEnrollments,
 	}, cancelSubscriptionState );
 };
 
@@ -119,15 +126,10 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( retrieveSites() );
 			dispatch( getAllProducts() );
 			dispatch( getProductGroups() );
-		},
-		cancelSubscription: ( subscriptionId, shopId ) => {
-			dispatch( cancelSubscription( subscriptionId, shopId ) );
+			dispatch( retrieveCourseEnrollments() );
 		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );
-		},
-		closeCancelModal: () => {
-			dispatch( closeCancelSubscriptionModal() );
 		},
 	};
 };

@@ -3,12 +3,14 @@ import { createSelector } from "reselect";
 import _groupBy from "lodash/groupBy";
 import _maxBy from "lodash/maxBy";
 import _sortBy from "lodash/sortBy";
+import _includes from "lodash/includes";
 
 /* Internal dependencies */
 import { createAllOfEntitySelector } from "./factories";
 import { getCoursesById, getCourses } from "./courses";
 import { getUserProfile } from "./user";
 import { getOrdersById } from "./orders";
+import { getSubscriptionsById } from "./subscriptions";
 
 /**
  * Returns all subscriptions in the state.
@@ -113,3 +115,19 @@ export const getGroupedCourseEnrollments = createSelector(
 		return groupedCourseEnrollments.concat( freeEnrollments );
 	}
 );
+
+/**
+ * Get all the courses associated to a subscription.
+ *
+ * @param {Object} state 			Application state.
+ * @param {string} subscriptionId 	The subscription id.
+ *
+ * @returns {Array} 				An array of courseEnrollments.
+ */
+export function getCoursesFromSubscription( state, subscriptionId ) {
+	const subscription = getSubscriptionsById( state )[ subscriptionId ];
+	return getCourseEnrollments( state ).filter(
+		enrollment =>
+			_includes( subscription.orders, enrollment.orderId ) &&
+			enrollment.studentId );
+}
