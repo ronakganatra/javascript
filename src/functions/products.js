@@ -7,6 +7,8 @@ import _forEach from "lodash/forEach";
 import _includes from "lodash/includes";
 
 import getEnv from "./getEnv";
+import _isEmpty from "lodash/isEmpty";
+import _unescape from "lodash/unescape";
 
 /** Product helpers */
 
@@ -22,7 +24,7 @@ export const PLUGIN_MAPPING = {
  *
  * @returns {Object} The filtered products.
  */
-function filterOutDuplicates( products ) {
+export function filterOutDuplicates( products ) {
 	const filteredProducts = {};
 
 	// Filter products that have the GL number.
@@ -48,6 +50,18 @@ function filterOutDuplicates( products ) {
 	} );
 
 	return filteredProducts;
+}
+
+/**
+ * Function to return the result of filterOutDuplicates as an array.
+ * @param { Object } products An object of products.
+ * @returns { Array } An array of products.
+ */
+export function filterOutDuplicatesAsArray( products ) {
+	const filteredProducts = filterOutDuplicates( products );
+	return Object.keys( filteredProducts ).map( ( key ) => {
+		return filteredProducts[ key ];
+	} );
 }
 
 /**
@@ -104,20 +118,36 @@ export function sortPluginsByPopularity( plugins ) {
 }
 
 /**
- * A function to get all plugins from a list of products.
+ * Function to get a list of props used for displaying the products on the download page.
  *
- * @param {Object[]} products A collection of products.
- * @returns {Array} A collection of plugin products.
+ * @param {Array} products An array of products that need to displayed on the download page.
+ *
+ * @returns {Array} An array of objects that can be used to display the products on the download page.
  */
-export function getPlugins( products ) {
-	// Only get products with the passed type.
-	products = _pickBy( products, product => Object.values( PLUGIN_MAPPING ).indexOf( product.type ) !== -1 );
-	const filteredProducts = filterOutDuplicates( products );
+export const getDownloadProps = ( products ) => {
+	return products.map( ( product ) => {
+		let downloadButtons = [];
 
-	return Object.keys( filteredProducts ).map( ( key ) => {
-		return filteredProducts[ key ];
+		if ( ! _isEmpty( product.downloads ) ) {
+			downloadButtons = product.downloads.map( ( download ) => {
+				return {
+					label: download.name,
+					file: download.file,
+				};
+			} );
+		}
+
+		return {
+			ids: product.ids,
+			glNumber: product.glNumber,
+			name: _unescape( product.name ),
+			currentVersion: product.currentVersion,
+			icon: product.icon,
+			category: product.type,
+			buttons: downloadButtons,
+		};
 	} );
-}
+};
 
 /**
  * A function to get plugins for a specific site type from a list of products.

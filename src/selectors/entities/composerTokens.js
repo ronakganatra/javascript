@@ -1,3 +1,5 @@
+import { createSelector } from "reselect";
+
 /**
  * Returns the composer tokens state.
  *
@@ -10,3 +12,18 @@
 export function getComposerTokens( state ) {
 	return Object.values( state.entities.composerTokens.byId );
 }
+
+/**
+ * Returns the first enabled composer token.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {string|undefined} The first enabled composer token or undefined if not available.
+ */
+export const getFirstEnabledComposerToken = createSelector(
+	[ getComposerTokens ],
+	composerTokens => {
+		const token = composerTokens.find( token => token.enabled );
+		return ( typeof token === "undefined" ) ? null : token;
+	}
+);

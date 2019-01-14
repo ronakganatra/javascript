@@ -1,4 +1,5 @@
-import { getEbooks, getCares, getCourses, getPlugins } from "../../src/functions/products";
+import { getEbooks, getCares, getCourses } from "../../src/functions/products";
+import { getPlugins } from "../../src/selectors/entities/products";
 
 let products = {
 	"1": {
@@ -21,7 +22,16 @@ let products = {
 		glNumber: 444,
 		id: "4",
 	},
-}
+};
+
+let state = {
+	entities: {
+		products: {
+			"byId": products,
+			allIds: [ "1", "2", "3", "4" ],
+		},
+	},
+};
 
 test( "getPlugins util", () => {
 	let expected = [ {
@@ -30,7 +40,7 @@ test( "getPlugins util", () => {
 		ids: [ "1" ],
 	} ]
 
-	expect( getPlugins( products) ).toEqual( expected );
+	expect( getPlugins( state ) ).toEqual( expected );
 } );
 
 test( "getCourses util", () => {

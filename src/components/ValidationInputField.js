@@ -48,12 +48,18 @@ const Error = styled.li`
  * and show errors if validation fails.
  */
 class ValidationInputField extends React.Component {
+	/**
+	 * Constructor for the ValidationInputField component.
+	 *
+	 * @param {Object} props The props that are passed to this component.
+	 *
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 
 		this.state = {
 			errors: [],
-			values: this.props.value,
 		};
 
 		this.showErrorsDebounced = _debounce( this.showValidationError, this.props.delay );
@@ -127,11 +133,15 @@ class ValidationInputField extends React.Component {
 		}
 
 		this.setState( {
-			value: event.target.value,
 			errors: errors,
 		}, this.toggleErrorDisplay );
 	}
 
+	/**
+	 * Called whenever there are errors that need to be displayed.
+	 *
+	 * @returns {void}
+	 */
 	toggleErrorDisplay() {
 		if ( this.state.errors.length > 0 ) {
 			this.showErrorsDebounced();
@@ -160,6 +170,11 @@ class ValidationInputField extends React.Component {
 		} );
 	}
 
+	/**
+	 * Called whenever the component will disappear from the screen.
+	 *
+	 * @returns {void}
+	 */
 	componentWillUnmount() {
 		this.showErrorsDebounced.cancel();
 	}
@@ -186,7 +201,6 @@ ValidationInputField.propTypes = {
 	id: PropTypes.string.isRequired,
 	onChange: PropTypes.func,
 	type: PropTypes.string,
-	value: PropTypes.string,
 	delay: PropTypes.number,
 	constraint: PropTypes.object,
 	errors: PropTypes.array,
@@ -194,9 +208,10 @@ ValidationInputField.propTypes = {
 
 ValidationInputField.defaultProps = {
 	errors: [],
-	value: "",
 	delay: 1000,
 	type: "text",
+	onChange: null,
+	constraint: null,
 };
 
 export default injectIntl( ValidationInputField );

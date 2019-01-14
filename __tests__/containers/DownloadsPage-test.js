@@ -159,9 +159,18 @@ test( "the mapStateToProps function", () => {
 						"type": "ebook",
 						"items": {"productId": "3"},
 						"status": "completed",
+					},
+					"2": {
+						"id": "2",
+						"name": "download1",
+						"currentVersion": 4.7,
+						"icon": "icon.jpg",
+						"type": "plugin",
+						"items": {"productId": "1"},
+						"status": "completed",
 					}
 				},
-				allIds: [ "3" ],
+				allIds: [ "1", "3" ],
 			},
 			composerTokens: {
 				byId: {},
@@ -209,7 +218,6 @@ test( "the mapStateToProps function", () => {
 	};
 
 	let actual = mapStateToProps( state );
-
 	expected.plugins[ 0 ].buttons[ 0 ].file = actual.plugins[ 0 ].buttons[ 0 ].file;
 	expected.eBooks[ 0 ].buttons[ 0 ].file = actual.eBooks[ 0 ].buttons[ 0 ].file;
 
@@ -575,9 +583,18 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 						"type": "ebook",
 						"items": {"productId": "3"},
 						"status": "completed",
+					},
+					"2": {
+						"id": "2",
+						"name": "download1",
+						"currentVersion": 4.7,
+						"icon": "icon.jpg",
+						"type": "plugins",
+						"items": {"productId": "1"},
+						"status": "completed",
 					}
 				},
-				allIds: [ "3" ],
+				allIds: [ "1", "3" ],
 			},
 			composerTokens: {
 				byId: {},
