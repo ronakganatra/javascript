@@ -170,7 +170,7 @@ test( "the mapStateToProps function", () => {
 						"status": "completed",
 					}
 				},
-				allIds: [ "1", "3" ],
+				allIds: [ "1", "2" ],
 			},
 			composerTokens: {
 				byId: {},
