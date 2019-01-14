@@ -125,6 +125,5 @@ export const getFilteredPaidOrders = createFilteredOrderSelector( getPaidOrders 
  * @returns {boolean}        Whether or not all orders are loaded.
  */
 export const allOrdersLoaded = ( orders ) => {
-	console.log( orders.filter( order => ! ! order ).length === orders.length );
 	return ( orders.filter( order => ! ! order ).length === orders.length );
 };
