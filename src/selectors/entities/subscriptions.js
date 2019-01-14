@@ -28,6 +28,22 @@ export const getSubscriptions = createAllOfEntitySelector( "subscriptions" );
 export const getSubscriptionsById = createEntityByIdSelector( "subscriptions" );
 
 /**
+ * Returns the subscriptions that are active or pending-cancel.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} The subscriptions that are active or pending-cancel.
+ */
+export const getActivatableSubscriptions = createSelector(
+	getSubscriptions,
+	subscriptions => subscriptions.filter( subscription =>
+		subscription.status === "active" || subscription.status === "pending-cancel"
+	)
+);
+
+/**
  * Returns the subscriptions that are active.
  *
  * @function
@@ -37,9 +53,9 @@ export const getSubscriptionsById = createEntityByIdSelector( "subscriptions" );
  * @returns {Array} The subscriptions that are active.
  */
 export const getActiveSubscriptions = createSelector(
-	getSubscriptions,
+	getActivatableSubscriptions,
 	subscriptions => subscriptions.filter( subscription =>
-		subscription.status === "active" || subscription.status === "pending-cancel"
+		subscription.status === "active"
 	)
 );
 
@@ -53,7 +69,7 @@ export const getActiveSubscriptions = createSelector(
  * @returns {Array} All active subscriptions that require manual renewal, have a renewal URL and  expire within the month.
  */
 export const getUpcomingRenewalSubscriptions = createSelector(
-	getSubscriptions,
+	getActiveSubscriptions,
 	subscriptions => {
 		let upcomingRenewals = subscriptions.map( subscription => {
 			const nextPayment = subscription.nextPayment ? new Date( subscription.nextPayment ) : null;
@@ -62,8 +78,7 @@ export const getUpcomingRenewalSubscriptions = createSelector(
 			monthFromNow.setMonth( monthFromNow.getMonth() + 1 );
 
 			const expiresWithinMonth = ( nextPayment && nextPayment < monthFromNow ) || ( endDate && endDate < monthFromNow );
-			const isUpcomingRenewal = subscription.status === "active" &&
-				subscription.renewalUrl &&
+			const isUpcomingRenewal = subscription.renewalUrl &&
 				expiresWithinMonth &&
 				subscription.requiresManualRenewal;
 
@@ -94,8 +109,8 @@ export const getUpcomingRenewalSubscriptions = createSelector(
 	}
 );
 
-export const getActiveSubscriptionsWithProductInformation = createSelector(
-	getActiveSubscriptions,
+export const getActivatableSubscriptionsWithProductInformation = createSelector(
+	getActivatableSubscriptions,
 	subscriptions => subscriptions.map( subscription =>
 		Object.assign(
 			{},
