@@ -24,7 +24,7 @@ export const PLUGIN_MAPPING = {
  *
  * @returns {Object} The filtered products.
  */
-export function filterOutDuplicates( products ) {
+function filterOutDuplicates( products ) {
 	const filteredProducts = {};
 
 	// Filter products that have the GL number.
