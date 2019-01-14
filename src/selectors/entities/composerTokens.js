@@ -24,6 +24,6 @@ export const getFirstEnabledComposerToken = createSelector(
 	[ getComposerTokens ],
 	composerTokens => {
 		const token = composerTokens.find( token => token.enabled );
-		return ( typeof token === "undefined" ) ? null : token;
+		return token ? token : null;
 	}
 );
