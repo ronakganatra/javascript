@@ -58,7 +58,7 @@ function Order( props ) {
 				ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.orderNumber ) }
 			>
-				{ props.orderNumber }
+				{ props.invoiceNumber }
 			</ColumnMinWidth>
 			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items } />
@@ -77,9 +77,9 @@ function Order( props ) {
 }
 
 Order.propTypes = {
-	date: PropTypes.instanceOf( Date ).isRequired,
+	date: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	orderNumber: PropTypes.string.isRequired,
+	invoiceNumber: PropTypes.string.isRequired,
 	totalAmount: PropTypes.number.isRequired,
 	currency: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
