@@ -49,6 +49,7 @@ const ColumnFixedWidthResponsive = makeFullWidth( responsiveHeaders( ColumnFixed
  * @returns {ReactElement} A row of order stuff.
  */
 function Order( props ) {
+	console.log( props );
 	return (
 		<RowMobileCollapse verticalAlign={ "baseline" } background={ props.background }>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.date ) }>
@@ -64,7 +65,7 @@ function Order( props ) {
 				<LineItems items={ props.items } />
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
-				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency } />
+				<FormattedNumber value={ formatAmount( props.totalAmount ) } style="currency" currency={ props.currency } />
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
 				<span>{ capitalizeFirstLetter( props.status ) }</span>
@@ -80,7 +81,7 @@ Order.propTypes = {
 	date: PropTypes.instanceOf( Date ).isRequired,
 	id: PropTypes.string.isRequired,
 	orderNumber: PropTypes.string.isRequired,
-	total: PropTypes.number.isRequired,
+	totalAmount: PropTypes.number.isRequired,
 	currency: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
 	items: PropTypes.array,
