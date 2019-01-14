@@ -71,10 +71,10 @@ let defaultExpected = {
 	orders: [
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
-			"orderNumber": "YST201703",
-			"status": "Completed",
-			"date": new Date( "2017-06-01 21:04:28" ),
-			"total": "6900",
+			"invoiceNumber": "YST201703",
+			"status": "completed",
+			"date": "2017-06-01 21:04:28",
+			"totalAmount": "6900",
 			"currency": "USD",
 			"items": [
 				{
@@ -84,10 +84,10 @@ let defaultExpected = {
 		},
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			"orderNumber": "YST201701",
-			"status": "Completed",
-			"date": new Date( "2017-05-01 21:04:28" ),
-			"total": "6900",
+			"invoiceNumber": "YST201701",
+			"status": "completed",
+			"date": "2017-05-01 21:04:28",
+			"totalAmount": "6900",
 			"currency": "USD",
 			"items": [
 				{
@@ -126,9 +126,9 @@ test('the mapStateToProps function when query contains part of formatted order d
 		orders: [
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"orderNumber": "YST201701",
+				"invoiceNumber": "YST201701",
 				"status": "Completed",
-				"date": new Date( "2017-05-01 21:04:28" ),
+				"date": "2017-05-01 21:04:28",
 				"total": "6900",
 				"currency": "USD",
 				"items": [
