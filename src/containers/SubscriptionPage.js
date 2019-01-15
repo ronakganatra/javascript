@@ -9,8 +9,6 @@ import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
 import { retrieveSites } from "../actions/sites";
 import {
-	cancelSubscription,
-	closeCancelSubscriptionModal,
 	getAllSubscriptions,
 	openCancelSubscriptionModal,
 } from "../actions/subscriptions";
@@ -70,15 +68,10 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( retrieveSites() );
 			dispatch( getAllProducts() );
 			dispatch( getProductGroups() );
-		},
-		cancelSubscription: ( subscriptionId, shopId ) => {
-			dispatch( cancelSubscription( subscriptionId, shopId ) );
+			dispatch( retrieveCourseEnrollments() );
 		},
 		openCancelModal: () => {
 			dispatch( openCancelSubscriptionModal() );
-		},
-		closeCancelModal: () => {
-			dispatch( closeCancelSubscriptionModal() );
 		},
 	};
 };

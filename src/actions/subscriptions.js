@@ -143,16 +143,17 @@ export function cancelSubscriptionFailure( error ) {
  * An action creator for the cancel subscription action.
  *
  * @param {string} subscriptionId The id of the subscription to cancel.
- * @param {string} shopId The id of the shop in which the subscription has been bought (e.g. US, EU or UK).
+ * @param {number} amount The amount with which to 'cancel' the subscription.
  *
  * @returns {Object} A get all subscription action.
  */
-export function cancelSubscription( subscriptionId, shopId ) {
+export function cancelSubscription( subscriptionId, amount ) {
 	return ( dispatch ) => {
 		dispatch( cancelSubscriptionRequest() );
 
 		const userId = getUserId();
-		const request = prepareInternalRequest( `Customers/${userId}/shop/${shopId}/subscriptions/${subscriptionId}/cancel`, "POST" );
+
+		const request = prepareInternalRequest( `Customers/${userId}/subscriptions/${subscriptionId}/cancel`, "POST", { amount: amount } );
 
 		return doRequest( request )
 			.then( () => dispatch( cancelSubscriptionSuccess( subscriptionId ) ) )

@@ -440,7 +440,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
         type="button"
       >
         <span>
-          Cancel subscription
+          Edit or cancel subscription
         </span>
       </button>
     </span>
