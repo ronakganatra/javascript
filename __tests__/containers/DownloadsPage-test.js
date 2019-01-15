@@ -594,7 +594,7 @@ test( "the mapStateToProps function with a pending-cancel subscription", () => {
 						"status": "completed",
 					}
 				},
-				allIds: [ "1", "3" ],
+				allIds: [ "1", "2" ],
 			},
 			composerTokens: {
 				byId: {},
