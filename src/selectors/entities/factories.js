@@ -21,7 +21,10 @@ export function createEntityStateSelector( entityType ) {
 export function createAllOfEntitySelector( entityType ) {
 	return createSelector(
 		createEntityStateSelector( entityType ),
-		entityState => entityState.allIds.map( entityId => entityState.byId[ entityId ] )
+		entityState => {
+			console.log( ">>>>>>>>>>>>>>>>>>>>>>. ", entityType, entityState );
+			return entityState.allIds.map( entityId => entityState.byId[ entityId ] );
+		}
 	);
 }
 

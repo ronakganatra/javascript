@@ -7,12 +7,12 @@ import { getOrders } from "../actions/orders";
 import OrderPage from "../components/OrderPage";
 import { getRefunds } from "../actions/refunds";
 import { getSearchQuery } from "../selectors/entities/search";
-import { getPaidOrders } from "../selectors/entities/orders";
+import { getFilteredPaidOrders } from "../selectors/entities/orders";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const query = getSearchQuery( state );
-	const orders = getPaidOrders( state );
+	const orders = getFilteredPaidOrders( state );
 
 	return {
 		orders,

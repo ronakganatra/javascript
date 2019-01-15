@@ -127,9 +127,9 @@ test('the mapStateToProps function when query contains part of formatted order d
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
 				"invoiceNumber": "YST201701",
-				"status": "Completed",
+				"status": "completed",
 				"date": "2017-05-01 21:04:28",
-				"total": "6900",
+				"totalAmount": "6900",
 				"currency": "USD",
 				"items": [
 					{

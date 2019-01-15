@@ -205,6 +205,7 @@ let defaultExpected = {
 };
 
 test( 'the mapStateToProps function', () => {
+	state = Object.assign( {}, state );
 	expect( mapStateToProps( state, ownProps ) ).toEqual( defaultExpected );
 } );
 

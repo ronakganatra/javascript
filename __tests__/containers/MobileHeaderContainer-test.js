@@ -42,7 +42,8 @@ let defaultState = {
 					"type": "plugin",
 					"glNumber": 111,
 				},
-			}
+			},
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 		configurationServiceRequests: {
 			allIds: [],
