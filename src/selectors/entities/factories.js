@@ -22,7 +22,6 @@ export function createAllOfEntitySelector( entityType ) {
 	return createSelector(
 		createEntityStateSelector( entityType ),
 		entityState => {
-			console.log( ">>>>>>>>>>>>>>>>>>>>>>. ", entityType, entityState );
 			return entityState.allIds.map( entityId => entityState.byId[ entityId ] );
 		}
 	);

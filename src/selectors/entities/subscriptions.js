@@ -271,8 +271,6 @@ export const getSubscriptionsProducts = createSelector(
 	getProductGroups,
 	( subscriptions, allProducts, allProductGroups ) => {
 		const subscriptionsProducts = {};
-		console.log( "<<<<<<<<< allproducts ", allProducts );
-		console.log( "<<<<<<<<< allproductGroups ", allProductGroups );
 		subscriptions.forEach(
 			( subscription ) => {
 				if ( ! subscription.product.productGroups ) {

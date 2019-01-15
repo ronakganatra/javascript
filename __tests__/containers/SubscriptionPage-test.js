@@ -157,13 +157,6 @@ let defaultExpected = {
 			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 	],
-	courseEnrollments: [
-		{
-			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
-			id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			orderId: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-		}
-	],
 	orders: [ {
 		currency: "USD",
 		date: "2017-05-01 21:04:28",
@@ -210,8 +203,9 @@ test( 'the mapStateToProps function', () => {
 } );
 
 test( 'the mapStateToProps function, with `retrievingSites` set to `true`', () => {
-	let newState = Object.assign( {}, state );
+	const newState = Object.assign( {}, state );
 	newState.ui.sites.retrievingSites = true;
+	console.log( state );
 
 	let expected = {
 		isLoading: true,

@@ -38,6 +38,7 @@ export const isSubscriptionPageLoading = createSelector(
 	isRetrievingSites,
 	getSubscriptionsOrders,
 	( requestingSubs, retrievingSites, orders ) => {
+		console.log( ">>>>>> ", retrievingSites );
 		return requestingSubs || retrievingSites || ! allOrdersLoaded( Object.values( orders ) );
 	}
 );
