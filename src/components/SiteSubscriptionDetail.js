@@ -9,7 +9,6 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } fro
 import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
-import NewTabMessage from "./NewTabMessage";
 
 /* eslint-disable no-unused-vars */
 
@@ -98,7 +97,6 @@ function SiteSubscriptionDetail( props ) {
 				id="site.subscriptions.licenses.add"
 				defaultMessage={ anotherLicenseMessage }
 			/>
-			<NewTabMessage />
 		</IconButtonTransparentLink>
 	);
 

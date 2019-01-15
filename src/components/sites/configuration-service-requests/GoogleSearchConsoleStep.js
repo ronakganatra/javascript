@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { injectIntl, intlShape, defineMessages, FormattedMessage } from "react-intl";
 import { LargeButton, makeButtonFullWidth, LargeSecondaryButton } from "../../Button";
 import ButtonsContainer from "../../general/ButtonsContainer";
-import NewTabMessage from "../../../components/NewTabMessage";
+import Link from "../../../components/Link";
 
 const messages = defineMessages( {
 	googleSearchConsoleRequired: {
@@ -97,14 +97,12 @@ class GoogleSearchConsoleStep extends React.Component {
 							id={ messages.googleSearchConsoleConnected.id }
 							defaultMessage={ messages.googleSearchConsoleConnected.defaultMessage }
 							values={ {
-								link:
-	<a
-		target="_blank"
-		href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
-	>
-		<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
-		<NewTabMessage />
-	</a>,
+								link: <Link
+									linkTarget="_blank"
+									to="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
+								>
+									<i>{ this.props.intl.formatMessage( messages.googleSearchConsoleConnectedLink ) }</i>
+								</Link>,
 							} }
 						/>
 					</StyledLabel>

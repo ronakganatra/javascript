@@ -136,7 +136,11 @@ exports[`The GoogleSearchConsoleStep component matches the snapshot 1`] = `
       <span>
         I've added yoastconfiguration@gmail.com as a full user to my Google Search Console account. (recommended) - 
         <a
+          aria-label={null}
+          className={null}
           href="https://kb.yoast.com/kb/how-to-connect-your-website-to-google-webmaster-tools/"
+          onClick={null}
+          rel={null}
           target="_blank"
         >
           <i>

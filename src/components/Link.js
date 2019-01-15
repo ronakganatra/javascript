@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
 
+import NewTabMessage from "./NewTabMessage";
+
 /**
  * Determines if a certain URL is an external URL.
  *
@@ -23,7 +25,13 @@ function isYoastLink( url ) {
 }
 
 /**
- * Link that also works for external URL's, see https://github.com/ReactTraining/react-router/issues/1147 for more information.
+ * Link that also works for external URL's, see https://github.com/ReactTraining/react-router/issues/1147
+ * for more information.
+ *
+ * When an external link has a `target="_blank"` attribute, it will automatically
+ * add the accessibility visually hidden message "(Opens in a new browser tab)"
+ * by using the `NewTabMessage` component.
+ *
  */
 export default class Link extends Component {
 	/**
@@ -55,18 +63,21 @@ export default class Link extends Component {
 			relValueForTargetBlank = this.props.linkRel;
 		}
 
+		const hasTargetBlank = this.props.linkTarget === "_blank";
+
 		const externalProps = {
 			href: this.props.to,
 			className: this.props.className,
 			"aria-label": this.props.ariaLabel,
 			target: this.props.linkTarget,
-			rel: this.props.linkTarget === "_blank" ? relValueForTargetBlank : this.props.linkRel,
+			rel: hasTargetBlank ? relValueForTargetBlank : this.props.linkRel,
 			onClick: this.props.onClick,
 		};
 
 		return isExternal( this.props.to )
 			? <a { ...externalProps }>
 				{ this.props.children }
+				{ hasTargetBlank && <NewTabMessage /> }
 			</a>
 			: <RouterLink { ...internalProps } />;
 	}

@@ -4,7 +4,6 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 import Link from "../Link";
-import NewTabMessage from "../NewTabMessage";
 
 const Header = styled.h2`
 	padding: 0;
@@ -53,7 +52,6 @@ const UpsellListItem = ( props ) => {
 			<BoldLink to={ props.link.url } linkTarget="_blank">
 				<Icon src={ props.icon } alt="" />
 				{ props.link.name }
-				<NewTabMessage />
 			</BoldLink>
 			<Description>
 				<FormattedMessage

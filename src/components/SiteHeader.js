@@ -5,7 +5,6 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import angleRight from "../icons/angle-right.svg";
 import { FormattedMessage, injectIntl } from "react-intl";
-import NewTabMessage from "../components/NewTabMessage";
 import { makeFullWidth } from "./Tables";
 import defaults from "../config/defaults.json";
 import { Heading } from "./Headings";
@@ -96,10 +95,7 @@ function SiteHeader( props ) {
 			<ButtonSection>
 				{ props.adminButton &&
 					<WPAdminButton iconSource={ angleRight } to={ `${ props.url }/wp-admin` } linkTarget="_blank">
-						<FormattedMessage
-							id="sites.buttons.visitWp" defaultMessage="Open WordPress admin { opensInNewTab }"
-							values={ { opensInNewTab: <NewTabMessage /> } }
-						/>
+						<FormattedMessage id="sites.buttons.visitWp" defaultMessage="Open WordPress admin" />
 					</WPAdminButton>
 				}
 			</ButtonSection>

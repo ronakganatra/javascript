@@ -184,6 +184,12 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
   flex: 1 0 100px;
 }
 
+.c20 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c8 {
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
 }
@@ -440,6 +446,13 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
         <span>
           Read our installation guides
         </span>
+        <span
+          className="screen-reader-text c20"
+        >
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
       </a>
     </span>
   </div>
@@ -629,6 +642,12 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   -webkit-flex: 1 0 100px;
   -ms-flex: 1 0 100px;
   flex: 1 0 100px;
+}
+
+.c21 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
 .c19 {
@@ -918,6 +937,13 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
       >
         <span>
           Read our installation guides
+        </span>
+        <span
+          className="screen-reader-text c21"
+        >
+          <span>
+            (Opens in a new browser tab)
+          </span>
         </span>
       </a>
     </span>

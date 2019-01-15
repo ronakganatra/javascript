@@ -266,7 +266,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
             <span>
                - Need help installing these? 
               <a
+                aria-label={null}
+                className={null}
                 href="https://yoa.st/myyoast-installation"
+                onClick={null}
+                rel={null}
                 target="_blank"
               >
                 Read our installation guides
@@ -593,7 +597,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
             <span>
                - Want to learn more about SEO? 
               <a
+                aria-label={null}
+                className={null}
                 href="https://yoa.st/academy"
+                onClick={null}
+                rel={null}
                 target="_blank"
               >
                 Check out our SEO training courses
