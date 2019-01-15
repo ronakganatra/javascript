@@ -99,12 +99,15 @@ let defaultExpected = {
 	query: "",
 };
 
+beforeEach(() => {
+	state = Object.assign( {}, state );
+});
+
 test('the mapStateToProps function', () => {
 	expect( mapStateToProps( state ) ).toEqual( defaultExpected );
 } );
 
 test('the mapStateToProps function when query contains part of an item product name', () => {
-	state = Object.assign( {}, state );
 	state.ui.search.query = "Yoast";
 	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } );
 
@@ -112,7 +115,6 @@ test('the mapStateToProps function when query contains part of an item product n
 } );
 
 test('the mapStateToProps function when query contains part of orderNumber', () => {
-	state = Object.assign( {}, state );
 	state.ui.search.query = "YST";
 	let expected = Object.assign( {}, defaultExpected, { query: "YST" } );
 
@@ -120,7 +122,6 @@ test('the mapStateToProps function when query contains part of orderNumber', () 
 } );
 
 test('the mapStateToProps function when query contains part of formatted order date', () => {
-	state = Object.assign( {}, state );
 	state.ui.search.query = "May 1";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [
@@ -145,7 +146,6 @@ test('the mapStateToProps function when query contains part of formatted order d
 } );
 
 test('the mapStateToProps function when query contains part of formatted total', () => {
-	state = Object.assign( {}, state );
 	state.ui.search.query = "69";
 	let expected = Object.assign( {}, defaultExpected, { query: "69" } );
 
@@ -153,7 +153,6 @@ test('the mapStateToProps function when query contains part of formatted total',
 } );
 
 test('the mapStateToProps function when query contains nonsense', () => {
-	state = Object.assign( {}, state );
 	state.ui.search.query = "afhsdkgfj";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [],

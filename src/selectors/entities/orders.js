@@ -84,11 +84,11 @@ function createFilteredOrderSelector( orderSelector ) {
 						year: "numeric",
 						month: "long",
 						day: "numeric",
-					} ).format( order.date );
+					} ).format( new Date( order.date ) );
 
 					return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
-						order.orderNumber.toUpperCase().includes( query.toUpperCase() ) ||
-						( order.total / 100 ).toString().includes( query ) ||
+						order.invoiceNumber.toUpperCase().includes( query.toUpperCase() ) ||
+						( order.totalAmount / 100 ).toString().includes( query ) ||
 						formattedDate.toUpperCase().includes( query.toUpperCase() );
 				} );
 			}
