@@ -13,7 +13,7 @@ const rootState = {
 		newsletter: {
 			loading: false,
 			subscribed: "unknown",
-			error: {},
+			error: null,
 		},
 	},
 };
