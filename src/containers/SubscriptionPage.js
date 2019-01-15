@@ -8,6 +8,7 @@ import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
 import { getOrders } from "../actions/orders";
 import { retrieveSites } from "../actions/sites";
+import { retrieveCourseEnrollments } from "../actions/courses";
 import {
 	getAllSubscriptions,
 	openCancelSubscriptionModal,

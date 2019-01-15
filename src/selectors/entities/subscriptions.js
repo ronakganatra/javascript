@@ -13,9 +13,6 @@ import { getProductGroups } from "./productGroups";
 import { getProducts } from "./products";
 import { sortPluginsByPopularity } from "../../functions/products";
 
-/* Internal dependencies */
-import { createAllOfEntitySelector, createEntityByIdSelector } from "./factories";
-
 /**
  * Returns all subscriptions in the state.
  *
@@ -57,6 +54,7 @@ export const getSubscriptionsOrders = createSelector(
 		} );
 		return ordersBySubscription;
 	}
+);
 
 /**
  * Returns the subscriptions that are active or pending-cancel.
