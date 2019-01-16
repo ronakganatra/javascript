@@ -93,6 +93,16 @@ let state = {
 			},
 			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
+		courseEnrollments: {
+			byId: {
+				"497490e6-eb8d-4627-be9b-bfd33fc217f1": {
+					subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+					id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+					orderId: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+				},
+			},
+			allIds: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+		}
 	},
 	router: {
 		location: "subscriptions/thisIsAnId",
@@ -147,6 +157,13 @@ let defaultExpected = {
 			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
 		},
 	],
+	courseEnrollments: [
+		{
+			subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ],
+			id: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+			orderId: "497490e6-eb8d-4627-be9b-bfd33fc217f1",
+		}
+	],
 	orders: [ {
 		currency: "USD",
 		date: new Date( "2017-05-01 21:04:28" ),
@@ -157,7 +174,7 @@ let defaultExpected = {
 		total: "6900"
 	} ],
 	sites: [ {
-		subscriptions: [ "497490e6-eb8d-4627-be9b-bfd33fc217f1" ]
+		subscriptions: ["497490e6-eb8d-4627-be9b-bfd33fc217f1"],
 	} ],
 	subscription: {
 		currency: "USD",

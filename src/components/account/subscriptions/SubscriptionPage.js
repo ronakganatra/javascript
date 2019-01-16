@@ -9,7 +9,7 @@ import Orders from "../../Orders";
 import { Paper } from "../../PaperStyles";
 import styled from "styled-components";
 import defaults from "../../../config/defaults.json";
-import SubscriptionCancelModal from "./SubscriptionCancelModal";
+import SubscriptionEditModal from "../../../containers/SubscriptionEditModal";
 import { ColumnMinWidth, ListTable } from "../../Tables";
 import Link from "../../Link";
 import { hasDownload } from "../../../functions/productGroups";
@@ -88,31 +88,6 @@ class SubscriptionPage extends React.Component {
 	}
 
 	/**
-	 * Returns the modal for canceling the subscription.
-	 *
-	 * @returns {ReactElement} The modal for canceling the subscription.
-	 */
-	getModal() {
-		const subscription = this.props.subscription;
-		const otherSites = this.props.connectedSubscriptionsSites.filter( connectedSubscriptionsSite =>
-			this.props.sites.every( site =>
-				site.id !== connectedSubscriptionsSite.id
-			)
-		);
-		return (
-			<SubscriptionCancelModal
-				isOpen={ this.props.cancelModalOpen }
-				onClose={ this.props.closeCancelModal }
-				cancelSubscription={ this.props.cancelSubscription.bind( this, subscription.id, subscription.sourceShopId ) }
-				loading={ this.props.cancelLoading }
-				error={ this.props.cancelError }
-				amountOfActiveSites={ this.props.sites.length + otherSites.length }
-				connectedSubscriptions={ this.props.connectedSubscriptions }
-			/>
-		);
-	}
-
-	/**
 	 * Creates a list based on the passed products.
 	 *
 	 * @param {array} products The products to show in the list.
@@ -150,8 +125,7 @@ class SubscriptionPage extends React.Component {
 		if ( this.props.isLoading ) {
 			return <AnimatedLoader />;
 		}
-
-		const subscription = this.props.subscription;
+		const { subscription } = this.props;
 
 		return <section>
 			<Header
@@ -177,7 +151,6 @@ class SubscriptionPage extends React.Component {
 					} }
 					canCancel={ subscription.requiresManualRenewal === false }
 					status={ subscription.status }
-					connectedSubscriptions={ this.props.connectedSubscriptions }
 				/>
 				<ListHeading>
 					{ this.props.intl.formatMessage( messages.invoicesTitle ) }
@@ -194,7 +167,7 @@ class SubscriptionPage extends React.Component {
 				</DownloadListHeading>
 				{ this.getProductsList( this.props.products ) }
 			</Paper>
-			{ this.getModal() }
+			<SubscriptionEditModal subscriptionId={ subscription.id } />
 		</section>;
 	}
 }
@@ -213,17 +186,8 @@ SubscriptionPage.propTypes = {
 		status: PropTypes.string.isRequired,
 	} ),
 	orders: PropTypes.array,
-	sites: PropTypes.array,
-	connectedSubscriptions: PropTypes.array,
-	connectedSubscriptionsSites: PropTypes.array,
 	intl: intlShape.isRequired,
-	cancelSubscription: PropTypes.func.isRequired,
 	openCancelModal: PropTypes.func.isRequired,
-	closeCancelModal: PropTypes.func.isRequired,
-	cancelModalOpen: PropTypes.bool.isRequired,
-	cancelLoading: PropTypes.bool.isRequired,
-	cancelSuccess: PropTypes.bool.isRequired,
-	cancelError: PropTypes.object,
 	loadData: PropTypes.func.isRequired,
 	products: PropTypes.arrayOf( PropTypes.object ),
 };
@@ -231,6 +195,7 @@ SubscriptionPage.propTypes = {
 SubscriptionPage.defaultProps = {
 	isLoading: false,
 	orders: [],
+
 	sites: [],
 	connectedSubscriptions: [],
 	connectedSubscriptionsSites: [],
