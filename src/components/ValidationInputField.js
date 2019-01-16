@@ -128,9 +128,7 @@ class ValidationInputField extends React.Component {
 			errors = this.validate( event.target.value );
 		}
 
-		if ( this.props.onChange ) {
-			this.props.onChange( event, errors );
-		}
+		this.props.onChange( event, errors );
 
 		this.setState( {
 			errors: errors,
@@ -199,7 +197,7 @@ class ValidationInputField extends React.Component {
 
 ValidationInputField.propTypes = {
 	id: PropTypes.string.isRequired,
-	onChange: PropTypes.func,
+	onChange: PropTypes.func.isRequired,
 	type: PropTypes.string,
 	delay: PropTypes.number,
 	constraint: PropTypes.object,
@@ -210,7 +208,6 @@ ValidationInputField.defaultProps = {
 	errors: [],
 	delay: 1000,
 	type: "text",
-	onChange: null,
 	constraint: null,
 };
 

@@ -40,6 +40,6 @@ export const getQueryPlugins = createSelector(
 	( plugins, query ) => {
 		return  query.length > 0
 			? plugins.filter( plugin => plugin.name.toUpperCase().includes( query.toUpperCase() ) )
-		    : plugins;
+			: plugins;
 	}
 );
