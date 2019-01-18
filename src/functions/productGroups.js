@@ -125,6 +125,17 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 }
 
 /**
+ * Get all products that are in a set of productGroups.
+ *
+ * @param   {string}  pluginGroupIds The ids of the pluginGroups we want to find the products for.
+ * @param   {Array}   allProducts    All products.
+ * @returns {Array}                  The products that are in the productGroups.
+ */
+export function getProductsByProductGroupIds( pluginGroupIds, allProducts ) {
+	return _flatMap( pluginGroupIds, pluginGroupId => getProductsByProductGroupId( pluginGroupId, allProducts ) );
+}
+
+/**
  * Gets the products that a subscription gives access to.
  *
  * @param   {Object} state        The application state.

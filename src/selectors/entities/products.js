@@ -4,6 +4,8 @@ import _pickBy from "lodash/pickBy";
 import { getCompletedOrders } from "./orders";
 import _flatMap from "lodash/flatMap";
 import { filterOutDuplicatesAsArray, getDownloadProps } from "../../functions/products";
+import { getProductGroups } from "./productGroups";
+import { getProductsByProductGroupIds } from "../../functions/productGroups";
 
 /**
  * Returns all products in the state.
@@ -44,6 +46,21 @@ export const getBoughtProductIds = createSelector(
 );
 
 /**
+ * Function to get an array of productIds that the customer has bought.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} All bought productIDs.
+ */
+export const getBoughtProducts = createSelector(
+	getBoughtProductIds,
+	getProducts,
+	( Ids, products ) =>
+		Ids.map( id => products.find( product => product.id === id ) || [] )
+);
+
+
+/**
  * Selector to get all the ebooks from state.
  *
  * @param {Object} state Application state.
@@ -82,17 +99,19 @@ export const getBoughtEbooks = createSelector(
 );
 
 /**
-* Function to get a list of bought plugins.
-*
-* @param {Object} state Application state.
-*
-* @returns {Array} An array of plugins that are purchased by the customer.
-*/
-export const getBoughtPlugins = createSelector(
-	[ getPlugins, getBoughtProductIds ],
-	( plugins, boughtIds ) => plugins.filter(
-		plugin => plugin.ids.some( id => boughtIds.includes( id ) )
-	)
+ * Function to get a list of bought plugins.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} An array of plugins that are purchased by the customer.
+ */
+export const getOwnedPlugins = createSelector(
+	[ getPlugins, getBoughtProducts, getProductGroups ],
+	( plugins, boughtProducts, productGroups ) => {
+		let ownedProductGroups = _flatMap( boughtProducts, product => product.productGroups || [] );
+		ownedProductGroups = _flatMap( ownedProductGroups, ownedProductGroup => productGroups.filter( productGroup => productGroup.parentId === ownedProductGroup.id ) );
+		return getProductsByProductGroupIds( ownedProductGroups.map( productGroup => productGroup.id ), plugins );
+	}
 );
 
 /**
@@ -115,6 +134,6 @@ export const getEbooksForDownload = createSelector(
  * @returns {Array} An array of plugins that can be downloaded.
  */
 export const getPluginsForDownload = createSelector(
-	getBoughtPlugins,
+	getOwnedPlugins,
 	plugins => getDownloadProps( plugins )
 );
