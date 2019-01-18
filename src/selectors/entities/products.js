@@ -55,8 +55,8 @@ export const getBoughtProductIds = createSelector(
 export const getBoughtProducts = createSelector(
 	getBoughtProductIds,
 	getProducts,
-	( Ids, products ) =>
-		Ids.map( id => products.find( product => product.id === id ) || [] )
+	( ids, products ) =>
+		ids.map( id => products.find( product => product.id === id ) || [] )
 );
 
 
@@ -112,7 +112,9 @@ export const getOwnedPlugins = createSelector(
 
 		// Add the children to the list of owned product groups.
 		ownedProductGroups = ownedProductGroups.concat(
-			_flatMap( ownedProductGroups, ownedProductGroup => productGroups.filter( productGroup => productGroup.parentId === ownedProductGroup.id ) )
+			_flatMap( ownedProductGroups, ownedProductGroup => productGroups.filter(
+				productGroup => productGroup.parentId === ownedProductGroup.id
+			) )
 		);
 		return getProductsByProductGroupIds( ownedProductGroups.map( productGroup => productGroup.id ), plugins );
 	}

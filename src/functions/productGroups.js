@@ -1,5 +1,6 @@
 import { getAllOfEntity } from "../selectors/entities/factories";
 import _flatMap from "lodash/flatMap";
+import _uniq from "lodash/uniq";
 
 /** Product helpers */
 
@@ -132,7 +133,9 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
  * @returns {Array}                  The products that are in the productGroups.
  */
 export function getProductsByProductGroupIds( pluginGroupIds, allProducts ) {
-	return _flatMap( pluginGroupIds, pluginGroupId => getProductsByProductGroupId( pluginGroupId, allProducts ) );
+	return _uniq(
+		_flatMap( pluginGroupIds, pluginGroupId => getProductsByProductGroupId( pluginGroupId, allProducts ) )
+	);
 }
 
 /**
