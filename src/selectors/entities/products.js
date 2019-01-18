@@ -116,7 +116,9 @@ export const getOwnedPlugins = createSelector(
 				productGroup => productGroup.parentId === ownedProductGroup.id
 			) )
 		);
-		return getProductsByProductGroupIds( ownedProductGroups.map( productGroup => productGroup.id ), plugins );
+		const ownedProductGroupIds = ownedProductGroups.map( productGroup => productGroup.id );
+
+		return getProductsByProductGroupIds( ownedProductGroupIds, plugins );
 	}
 );
 

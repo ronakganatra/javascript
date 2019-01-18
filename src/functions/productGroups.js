@@ -128,7 +128,7 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 /**
  * Get all products that are in a set of productGroups.
  *
- * @param   {string}  pluginGroupIds The ids of the pluginGroups we want to find the products for.
+ * @param   {Array}   pluginGroupIds The ids of the pluginGroups we want to find the products for.
  * @param   {Array}   allProducts    All products.
  * @returns {Array}                  The products that are in the productGroups.
  */
