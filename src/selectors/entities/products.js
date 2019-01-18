@@ -99,11 +99,11 @@ export const getBoughtEbooks = createSelector(
 );
 
 /**
- * Function to get a list of bought plugins.
+ * Function to get a list of plugins the customer has access to.
  *
  * @param {Object} state Application state.
  *
- * @returns {Array} An array of plugins that are purchased by the customer.
+ * @returns {Array} An array of plugins that the customer has access to.
  */
 export const getOwnedPlugins = createSelector(
 	[ getPlugins, getBoughtProducts, getProductGroups ],
