@@ -109,6 +109,8 @@ export const getOwnedPlugins = createSelector(
 	[ getPlugins, getBoughtProducts, getProductGroups ],
 	( plugins, boughtProducts, productGroups ) => {
 		let ownedProductGroups = _flatMap( boughtProducts, product => product.productGroups || [] );
+
+		// Add the children to the list of owned product groups.
 		ownedProductGroups = ownedProductGroups.concat(
 			_flatMap( ownedProductGroups, ownedProductGroup => productGroups.filter( productGroup => productGroup.parentId === ownedProductGroup.id ) )
 		);
