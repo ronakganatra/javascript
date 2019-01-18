@@ -13,7 +13,7 @@ const rootState = {
 		newsletter: {
 			loading: false,
 			subscribed: "unknown",
-			error: {},
+			error: null,
 		},
 	},
 };
@@ -37,7 +37,7 @@ export function uiNewsletterReducer( state = rootState.ui.newsletter, action ) {
 		case UNSUBSCRIBE_NEWSLETTER_REQUEST:
 			return Object.assign( {}, state, {
 				loading: true,
-				error: {},
+				error: null,
 			} );
 		case GET_NEWSLETTER_STATUS_SUCCESS:
 		case SUBSCRIBE_NEWSLETTER_SUCCESS:
