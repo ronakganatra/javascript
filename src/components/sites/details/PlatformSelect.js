@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { injectIntl, intlShape, FormattedMessage } from "react-intl";
-import YoastSelect, { SelectArea } from "../../general/YoastSelect";
+import { injectIntl, FormattedMessage } from "react-intl";
+import { SelectArea } from "../../general/YoastSelect";
+import YoastNativeSelect from "../../general/YoastNativeSelect";
 import CollapsibleHeader from "../../CollapsibleHeader";
 import { Paper, WhitePage } from "../../PaperStyles";
 import { LargeButton, makeButtonFullWidth } from "../../Button";
-import { SpanStyledAsLabel } from "../../Labels";
+import { StyledLabel } from "../../Labels";
 
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 
@@ -20,6 +21,11 @@ const SITE_TYPE_OPTIONS = {
 	},
 };
 
+/**
+ * Returns the PlatformSelect component.
+ *
+ * @returns {ReactElement} The PlatformSelect component.
+ */
 class PlatformSelect extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
@@ -40,18 +46,34 @@ class PlatformSelect extends React.Component {
 				label,
 			},
 		};
+
+		this.handleConfirm = this.handleConfirm.bind( this );
+		this.handleOnBlur  = this.handleOnBlur.bind( this );
 	}
 
-	handleChange( selectedOption ) {
+	/**
+	 * Handles the blur event.
+	 *
+	 * @param {object} event The blur event.
+	 *
+	 * @returns {void}
+	 */
+	handleOnBlur( event ) {
+		const value = event.target.value;
+		const label = SITE_TYPE_OPTIONS[ value ].label;
+
 		this.setState( {
-			selectedOption,
+			selectedOption: {
+				value,
+				label,
+			},
 		} );
 	}
 
 	/**
-	 * Handles the confirm event.
+	 * Handles the confirmation of the selected option.
 	 *
-	 * @param {object} event The confirm event.
+	 * @param {object} event The click event on the Confirm button.
 	 *
 	 * @returns {void}
 	 */
@@ -62,6 +84,13 @@ class PlatformSelect extends React.Component {
 		}
 	}
 
+	/**
+	 * Returns the information paragraphs component.
+	 *
+	 * @param {boolean} disabled Whether the select is disabled.
+	 *
+	 * @returns {ReactElement} The information paragraphs component.
+	 */
 	getInformationParagraph( disabled ) {
 		return (
 			<div>
@@ -90,31 +119,31 @@ class PlatformSelect extends React.Component {
 				<CollapsibleHeader title={ this.props.title }>
 					<WhitePage>
 						{ this.getInformationParagraph( this.props.disablePlatformSelect ) }
-						<SpanStyledAsLabel
-							id="select-platform-label"
-							onClick={ () => this.selectRef && this.selectRef.focus() }
+						<StyledLabel
+							htmlFor="select-platform"
 						>
 							<FormattedMessage
 								id="sites.details.changePlatformType.enabled"
 								defaultMessage="Please select a platform:"
 							/>
-						</SpanStyledAsLabel>
+						</StyledLabel>
 						<SelectArea>
-							<YoastSelect
-								value={ this.state.selectedOption.value }
-								onChange={ this.handleChange.bind( this ) }
-								searchable={ false }
-								clearable={ false }
-								tabSelectsValue={ true }
-								innerRef={ ( ref ) => {
-									this.selectRef = ref;
-								} }
-								disabled={ this.props.disablePlatformSelect }
-								options={ Object.values( SITE_TYPE_OPTIONS ) }
-								aria-labelledby="select-platform-label"
-							/>
+							<YoastNativeSelect
+								selectId="select-platform"
+								selectName="selectPlatform"
+								selectDefaultValue={ this.state.selectedOption.value }
+								selectOnBlur={ this.handleOnBlur }
+								selectDisabled={ this.props.disablePlatformSelect }
+							>
+								{ Object.keys( SITE_TYPE_OPTIONS ).map( ( option ) => {
+									const value = SITE_TYPE_OPTIONS[ option ].value;
+									const label = SITE_TYPE_OPTIONS[ option ].label;
+
+									return <option key={ value } value={ value }>{ label }</option>;
+								} ) }
+							</YoastNativeSelect>
 							<WideLargeButton
-								onClick={ this.handleConfirm.bind( this ) }
+								onClick={ this.handleConfirm }
 								enabledStyle={ ! this.props.disablePlatformSelect }
 							>
 								<FormattedMessage
@@ -136,7 +165,11 @@ PlatformSelect.propTypes = {
 	title: PropTypes.string.isRequired,
 	onConfirm: PropTypes.func,
 	disablePlatformSelect: PropTypes.bool,
-	intl: intlShape.isRequired,
+};
+
+PlatformSelect.defaultProps = {
+	onConfirm: () => {},
+	disablePlatformSelect: false,
 };
 
 export default injectIntl( PlatformSelect );

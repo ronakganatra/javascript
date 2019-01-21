@@ -16,7 +16,7 @@ import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Button";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
-import NewTabMessage from "./NewTabMessage";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -177,10 +177,9 @@ class DownloadsPage extends React.Component {
 				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
 				values={ {
-					link: <a target="_blank" href="https://yoa.st/myyoast-installation">
+					link: <Link linkTarget="_blank" to="https://yoa.st/myyoast-installation">
 						{ this.props.intl.formatMessage( messages.installationGuides ) }
-						<NewTabMessage />
-					</a>,
+					</Link>,
 				} }
 			/>
 		</ByLine>;
@@ -189,10 +188,9 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				{ ...messages.eBooksLearnMore }
 				values={ {
-					link: <a target="_blank" href="https://yoa.st/academy">
+					link: <Link linkTarget="_blank" to="https://yoa.st/academy">
 						{ this.props.intl.formatMessage( messages.coursesUpsell ) }
-						<NewTabMessage />
-					</a>,
+					</Link>,
 				} }
 			/>
 		</ByLine>;

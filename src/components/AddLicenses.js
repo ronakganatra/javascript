@@ -3,7 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { LargeButtonLink, LargeSecondaryButton } from "./Button.js";
 import { FormattedMessage } from "react-intl";
-import NewTabMessage from "../components/NewTabMessage";
 import { ModalHeading } from "./Headings";
 
 const AddLicensesModal = styled.div`
@@ -68,7 +67,6 @@ export default function AddLicenses( props ) {
 
 				<LargeButtonLink to={ props.onShop } linkTarget="_blank">
 					<FormattedMessage id="add-licenses.buy-more.shop" defaultMessage="Shop" />
-					<NewTabMessage />
 				</LargeButtonLink>
 			</Buttons>
 		</AddLicensesModal>

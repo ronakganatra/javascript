@@ -1,6 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The RenewalNotification component matches the snapshot 1`] = `
+.c27 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c3 {
   height: 48px;
   margin: 0;
@@ -460,6 +466,13 @@ exports[`The RenewalNotification component matches the snapshot 1`] = `
         >
           <span>
             Renew now
+          </span>
+          <span
+            className="screen-reader-text c27"
+          >
+            <span>
+              (Opens in a new browser tab)
+            </span>
           </span>
         </a>
       </span>

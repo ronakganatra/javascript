@@ -1,7 +1,7 @@
 import React from 'react';
 import { createComponentWithIntl } from "../../utils";
 
-import DownloadsList from '../../src/components/AddSite';
+import DownloadsList from '../../src/components/DownloadsList';
 
 test('The AddSite component matches the snapshot', () => {
 	const downloads = [
