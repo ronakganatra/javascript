@@ -238,6 +238,8 @@ export const getConnectedSubscriptions = createSelector(
 /**
  * Get the sites that are related to the connected subscriptions.
  *
+ * @function
+ *
  * @param   {Object} state The Application state.
  *
  * @returns {Object}       Object with key: subscription id and value: all sites connected to subscriptions
@@ -265,6 +267,15 @@ export const getConnectedSubscriptionsSites = createSelector(
 	}
 );
 
+/**
+ * Gets the products that are in subscriptions
+ *
+ * @function
+ *
+ * @param {Object} The application state.
+ *
+ * @returns {Array} The products in the subscription.
+ */
 export const getSubscriptionsProducts = createSelector(
 	getSubscriptions,
 	getProducts,

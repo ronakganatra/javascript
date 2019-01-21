@@ -205,7 +205,6 @@ test( 'the mapStateToProps function', () => {
 test( 'the mapStateToProps function, with `retrievingSites` set to `true`', () => {
 	const newState = Object.assign( {}, state );
 	newState.ui.sites.retrievingSites = true;
-	console.log( state );
 
 	let expected = {
 		isLoading: true,

@@ -1,8 +1,7 @@
-// External dependencies
+/* External dependencies */
 import { connect } from "react-redux";
-import _isUndefined from "lodash/isUndefined";
 
-// Internal dependencies
+/* Internal dependencies */
 import SubscriptionPage from "../components/account/subscriptions/SubscriptionPage";
 import { getAllProducts } from "../actions/products";
 import { getProductGroups } from "../actions/productGroups";
@@ -32,7 +31,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	const selectedSubscriptionId = ownProps.match.params.id;
 	const subscription = getAllSubscriptionsById( state )[ selectedSubscriptionId ];
 
-	if ( _isUndefined( subscription ) || isSubscriptionPageLoading( state ) ) {
+	if ( ! subscription || isSubscriptionPageLoading( state ) ) {
 		return {
 			isLoading: true,
 		};
@@ -40,9 +39,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 
 	const orders = getSubscriptionsOrders( state )[ selectedSubscriptionId ];
 	const products = getSubscriptionsProducts( state )[ selectedSubscriptionId ]
-		.filter( product => {
-			return product.sourceShopId === 1;
-		} );
+		.filter( product => product.sourceShopId === 1 );
 
 	const cancelSubscriptionState = getCancelSubscriptionState( state );
 
