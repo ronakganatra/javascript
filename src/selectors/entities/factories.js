@@ -1,4 +1,5 @@
 import { createSelector } from "reselect";
+import _filter from "lodash/filter";
 
 /**
  * Creates a selector for the full entity state of a given entity type.
@@ -67,4 +68,22 @@ export function getAllOfEntity( state, entityType ) {
 	return entityState.allIds.map( ( entityId ) => {
 		return entityState.byId[ entityId ];
 	} );
+}
+
+/**
+ * Filters the orders that have a certain status from the state.
+ *
+ * @function
+ *
+ * @param {String} status The status that the orders need to have.
+ *
+ * @returns {Function} An selector that selects orders with a certain status.
+ */
+export function createOrderByStatusSelector( status ) {
+	return createSelector(
+		createEntityByIdSelector( "orders" ),
+		( orders ) => {
+			return _filter( orders, { status: status } );
+		}
+	);
 }

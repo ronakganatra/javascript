@@ -1,7 +1,6 @@
-import { createAllOfEntitySelector } from "./factories";
 import { createSelector } from "reselect";
+import { createAllOfEntitySelector, createOrderByStatusSelector } from "./factories";
 import _pickBy from "lodash/pickBy";
-import { getCompletedOrders } from "./orders";
 import _flatMap from "lodash/flatMap";
 import { filterOutDuplicatesAsArray, getDownloadProps } from "../../functions/products";
 
@@ -36,7 +35,7 @@ export const getProductsByType = ( type ) => createSelector(
  * @returns {Array} All bought productIDs.
  */
 export const getBoughtProductIds = createSelector(
-	getCompletedOrders,
+	createOrderByStatusSelector( "completed" ),
 	( orders ) =>
 		_flatMap( orders, order => order.items )
 			.filter( lineItem => lineItem )
@@ -76,9 +75,11 @@ export const getPlugins = createSelector(
  */
 export const getBoughtEbooks = createSelector(
 	[ getEbooks, getBoughtProductIds ],
-	( ebooks, boughtIds ) => ebooks.filter(
-		ebook => ebook.ids.some( id => boughtIds.includes( id ) )
-	)
+	( ebooks, boughtIds ) => {
+		return ebooks.filter(
+			ebook => ebook.ids.some( id => boughtIds.includes( id ) )
+		);
+	}
 );
 
 /**

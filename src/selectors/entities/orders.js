@@ -1,7 +1,5 @@
 /* External dependencies */
 import { createSelector } from "reselect";
-import { createSelector } from "reselect";
-import _filter from "lodash/filter";
 
 /* Internal dependencies */
 import {
@@ -129,26 +127,3 @@ export const getFilteredPaidOrders = createFilteredOrderSelector( getPaidOrders 
 export const allOrdersLoaded = ( orders ) => {
 	return ( orders.filter( order => ! ! order ).length === orders.length );
 };
-
-/**
- * Filters out the orders that have a certain status from the state.
- *
- * @param {String} status The status that the orders need to have.
- *
- * @returns {Array} An array of orders that match the provided status.
- */
-export const filterOrdersByStatus = ( status ) => createSelector(
-	[ getOrdersById ],
-	( orders ) => {
-		return _filter( orders, { status: status } );
-	}
-);
-
-/**
- * Gets all orders with status "completed".
- *
- * @param {Object} state Application state.
- *
- * @returns {Array} An array of all orders with status completed.
- */
-export const getCompletedOrders = filterOrdersByStatus( "completed" );
