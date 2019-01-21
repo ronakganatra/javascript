@@ -11,7 +11,6 @@ import closeCross from "../icons/times.svg";
 import plus from "../icons/plus.svg";
 import defaults from "../config/defaults.json";
 import { defineMessages, injectIntl, FormattedMessage } from "react-intl";
-import NewTabMessage from "./NewTabMessage";
 
 const buttonAnimations = `
 	transition: background-color 150ms ease-out;
@@ -642,7 +641,6 @@ const GoToButtonLinkBase = ( props ) => {
 	return (
 		<StyledGoToButtonLink to={ props.url } linkTarget="_blank">
 			<FormattedMessage { ...props.buttonText } />
-			<NewTabMessage />
 		</StyledGoToButtonLink>
 	);
 };

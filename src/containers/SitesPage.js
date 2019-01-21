@@ -5,7 +5,7 @@ import { onSearchQueryChange } from "../actions/search";
 import SitesPage from "../components/SitesPage";
 import { push } from "react-router-redux";
 import _compact from "lodash/compact";
-import { getPlugins, sortPluginsByPopularity } from "../functions/products";
+import { sortPluginsByPopularity } from "../functions/products";
 import {
 	getProductsFromSubscription,
 } from "../functions/productGroups";
@@ -13,6 +13,7 @@ import { configurationServiceRequestModalClose, configurationServiceRequestModal
 	loadConfigurationServiceRequests, configureConfigurationServiceRequest } from "../actions/configurationServiceRequest";
 import { getSearchQuery } from "../selectors/entities/search";
 import { getAllOfEntity } from "../selectors/entities/factories";
+import { getPlugins } from "../selectors/entities/products";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
@@ -80,7 +81,7 @@ export const mapStateToProps = ( state ) => {
 
 	const error = state.ui.sites.linkSiteError;
 
-	const plugins = sortPluginsByPopularity( getPlugins( state.entities.products.byId ) );
+	const plugins = sortPluginsByPopularity( getPlugins( state ) );
 
 	const linkingSiteUrl = state.ui.sites.linkingSiteUrl;
 

@@ -183,13 +183,13 @@ exports[`the site header matches the snapshot 1`] = `
       target="_blank"
     >
       <span>
-        Open WordPress admin 
-        <span
-          className="screen-reader-text c7"
-        >
-          <span>
-            (Opens in a new browser tab)
-          </span>
+        Open WordPress admin
+      </span>
+      <span
+        className="screen-reader-text c7"
+      >
+        <span>
+          (Opens in a new browser tab)
         </span>
       </span>
     </a>

@@ -7,7 +7,6 @@ import colors from "yoast-components/style-guide/colors";
 import { LargeButtonLink, makeButtonFullWidth } from "../Button";
 import { retrieveFeed } from "../../actions/home";
 import Link from "../Link.js";
-import NewTabMessage from "../NewTabMessage";
 
 const messages = defineMessages( {
 	loading: {
@@ -73,7 +72,6 @@ const WordpressFeedListItem = ( props ) => {
 				linkTarget="_blank"
 			>
 				{ props.title }
-				<NewTabMessage />
 			</WordpressFeedLink>
 			<FeedDescription>
 				{ props.description }
@@ -194,6 +192,7 @@ BlogContent.defaultProps = {
 	errorFound: false,
 };
 
+/* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
 	const blogFeed = state.ui.home.blogFeed;
 
@@ -217,6 +216,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 		},
 	};
 };
+/* eslint-enable require-jsdoc */
 
 const BlogFeed = connect(
 	mapStateToProps,

@@ -3,8 +3,8 @@ import React from "react";
 import styled from "styled-components";
 import { LargeButton, makeButtonFullWidth } from "./Button.js";
 import { FormattedMessage, defineMessages, injectIntl, intlShape } from "react-intl";
-import NewTabMessage from "../components/NewTabMessage";
 import { ModalHeading } from "./Headings";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	knowledgeBase: {
@@ -76,15 +76,24 @@ function GettingStarted( props ) {
 			<GettingStartedText>
 				<FormattedMessage
 					id="gettingStarted.text"
-					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }. If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
+					defaultMessage="Watch the video below to learn about all the benefits of { myYoast }.
+						If you still have questions after that, check out our { KBLink } articles, or { emailLink }."
 					values={ {
 						myYoast: "MyYoast",
-						KBLink: <a target="_blank" href="https://yoa.st/12q">{ props.intl.formatMessage( messages.knowledgeBase ) } <NewTabMessage /></a>,
+						KBLink: <Link linkTarget="_blank" to="https://yoa.st/12q">{ props.intl.formatMessage( messages.knowledgeBase ) }</Link>,
 						emailLink: <a href="mailto:support@yoast.com">{ props.intl.formatMessage( messages.email ) }</a>,
 					} }
 				/>
 			</GettingStartedText>
-			<VideoContainer><Video title={ props.intl.formatMessage( messages.videoTitle ) } height="315" width="560" src="https://yoa.st/12w" allowFullScreen={ true } /></VideoContainer>
+			<VideoContainer>
+				<Video
+					title={ props.intl.formatMessage( messages.videoTitle ) }
+					height="315"
+					width="560"
+					src="https://yoa.st/12w"
+					allowFullScreen={ true }
+				/>
+			</VideoContainer>
 			<Buttons>
 				<ResponsiveLargeButton type="button" onClick={ props.onClose }>
 					<FormattedMessage id="gettingStarted.gotIt" defaultMessage="Got it" />

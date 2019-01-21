@@ -9,7 +9,6 @@ import colors from "yoast-components/style-guide/colors";
 import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
 import Link from "../Link";
 import ProgressBar from "../ProgressBar";
-import NewTabMessage from "../../components/NewTabMessage";
 
 import check from "../../icons/checkGreen.svg";
 import { getShopUrl } from "../../functions/products";
@@ -148,7 +147,6 @@ class CourseDetails extends React.Component {
 			margin={ marginTop }
 		>
 			<FormattedMessage { ...message } />
-			<NewTabMessage />
 		</Button>;
 	}
 
@@ -167,7 +165,6 @@ class CourseDetails extends React.Component {
 			linkTarget="_blank"
 		>
 			<FormattedMessage { ...messages.viewCertificateButton } />
-			<NewTabMessage />
 		</SecondaryButton>;
 	}
 

@@ -49,6 +49,13 @@ const messages = defineMessages( {
  * @returns {ReactElement} A react component.
  */
 class UserProfile extends React.Component {
+	/**
+	 * Constructor for the UserProfile component.
+	 *
+	 * @param {Object} props The props that are passed to this component.
+	 *
+	 * @returns {void}
+	 */
 	constructor( props ) {
 		super( props );
 		this.onLogoutClick = this.onLogoutClick.bind( this );
@@ -78,7 +85,11 @@ class UserProfile extends React.Component {
 		</UserInfoContainer>;
 	}
 
-
+	/**
+	 * Gets called when the user clicks on logout.
+	 *
+	 * @returns {void}
+	 */
 	onLogoutClick() {
 		if ( this.props.loggingOut ) {
 			return;
@@ -100,7 +111,7 @@ UserProfile.propTypes = {
 	onLogoutClick: PropTypes.func.isRequired,
 	loggedIn: PropTypes.bool,
 	className: PropTypes.string,
-	loggingOut: PropTypes.bool.isRequired,
+	loggingOut: PropTypes.bool,
 	logoutError: PropTypes.object,
 };
 
@@ -110,9 +121,8 @@ UserProfile.defaultProps = {
 		alt: "",
 		size: "64px",
 	},
-	displayEmail: "",
+	loggingOut: false,
 	loggedIn: false,
 	className: "",
-	loggingOut: false,
 	logoutError: null,
 };

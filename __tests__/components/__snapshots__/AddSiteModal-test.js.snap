@@ -148,60 +148,84 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
   margin-left: 12px;
 }
 
+.c6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.c6::after,
+.c6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.c6::before {
+  width: 32px;
+  right: 0;
+}
+
+.c6::after {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid #555;
+  border-bottom-width: 0;
+  margin: auto;
+  right: 11px;
+  z-index: 1;
+}
+
 .c7 {
   width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c7.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c7 .Select-control {
   height: 48px;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 8px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid #ccc;
   border-radius: 0;
+  line-height: 1;
+  color: #555;
 }
 
-.c7 .Select-placeholder {
-  line-height: 48px;
-  color: #646464;
+.c7:focus {
+  outline: none;
+  border-color: #64a60a;
 }
 
-.c7.Select--single > .Select-control .Select-value {
-  line-height: 48px;
+.c7:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #555;
 }
 
-.c7 .Select-value-label {
-  line-height: 48px;
+.c7[disabled] {
+  opacity: .75;
 }
 
-.c7 .Select-input {
-  line-height: 48px;
+.c7::-ms-value {
+  background: transparent;
 }
 
-.c7 .Select-option {
-  color: #000;
-}
-
-.c7 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c7 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
+.c7::-ms-expand {
+  display: none;
 }
 
 .c3 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c6 {
   display: inline-block;
   font-size: 1em;
   margin: 16px 0 8px;
@@ -334,84 +358,37 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
           value=""
         />
         <div>
-          <span
-            className="c6"
-            id="add-site-select-platform-label"
-            onClick={[Function]}
+          <label
+            className="c3"
+            htmlFor="add-site-select-platform"
           >
             <span>
               Please select the platform that your website is running on:
             </span>
-          </span>
-          <div
-            className="Select c7 has-value Select--single"
-            style={undefined}
+          </label>
+          <span
+            className="c6"
           >
-            <input
+            <select
+              className="c7"
+              defaultValue="wordpress"
               disabled={false}
+              id="add-site-select-platform"
               name="selectPlatform"
-              type="hidden"
-              value="wordpress"
-            />
-            <div
-              className="Select-control"
-              onKeyDown={[Function]}
-              onMouseDown={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              style={undefined}
+              onBlur={[Function]}
             >
-              <span
-                className="Select-multi-value-wrapper"
-                id="react-select-2--value"
+              <option
+                value="wordpress"
               >
-                <div
-                  className="Select-value"
-                  style={undefined}
-                  title={undefined}
-                >
-                  <span
-                    aria-selected="true"
-                    className="Select-value-label"
-                    id="react-select-2--value-item"
-                    role="option"
-                  >
-                    WordPress
-                  </span>
-                </div>
-                <div
-                  aria-activedescendant="react-select-2--value"
-                  aria-disabled="false"
-                  aria-expanded={false}
-                  aria-label={undefined}
-                  aria-labelledby="add-site-select-platform-label"
-                  aria-owns=""
-                  className="Select-input"
-                  onBlur={[Function]}
-                  onFocus={[Function]}
-                  role="combobox"
-                  style={
-                    Object {
-                      "border": 0,
-                      "display": "inline-block",
-                      "width": 1,
-                    }
-                  }
-                  tabIndex={0}
-                />
-              </span>
-              <span
-                className="Select-arrow-zone"
-                onMouseDown={[Function]}
+                WordPress
+              </option>
+              <option
+                value="typo3"
               >
-                <span
-                  className="Select-arrow"
-                  onMouseDown={[Function]}
-                />
-              </span>
-            </div>
-          </div>
+                TYPO3
+              </option>
+            </select>
+          </span>
         </div>
         <div
           className="c8"
