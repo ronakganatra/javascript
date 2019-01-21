@@ -1,10 +1,14 @@
-import { createAllOfEntitySelector } from "./factories";
-import { createSelector } from "reselect";
+/* External dependencies */
 import _pickBy from "lodash/pickBy";
-import { getCompletedOrders } from "./orders";
 import _flatMap from "lodash/flatMap";
-import { filterOutDuplicatesAsArray, getDownloadProps } from "../../functions/products";
+import { createSelector } from "reselect";
+
+/* Internal dependencies */
+import { createAllOfEntitySelector } from "./factories";
 import { getProductGroups } from "./productGroups";
+import { getActivatableSubscriptions } from "./subscriptions";
+import { getCompletedOrders } from "./orders";
+import { filterOutDuplicatesAsArray, getDownloadProps } from "../../functions/products";
 import { getProductsByProductGroupIds } from "../../functions/productGroups";
 
 /**
@@ -52,11 +56,11 @@ export const getBoughtProductIds = createSelector(
  *
  * @returns {Array} All bought productIDs.
  */
-export const getBoughtProducts = createSelector(
-	getBoughtProductIds,
+export const getActivatibleSubscriptionProducts = createSelector(
+	getActivatableSubscriptions,
 	getProducts,
-	( ids, products ) =>
-		ids.map( id => products.find( product => product.id === id ) || [] )
+	( subscriptions, products ) =>
+		subscriptions.map( subscription => products.find( product => product.id === subscription.productId ) || [] )
 );
 
 
@@ -106,7 +110,7 @@ export const getBoughtEbooks = createSelector(
  * @returns {Array} An array of plugins that the customer has access to.
  */
 export const getOwnedPlugins = createSelector(
-	[ getPlugins, getBoughtProducts, getProductGroups ],
+	[ getPlugins, getActivatibleSubscriptionProducts, getProductGroups ],
 	( plugins, boughtProducts, productGroups ) => {
 		let ownedProductGroups = _flatMap( boughtProducts, product => product.productGroups || [] );
 
