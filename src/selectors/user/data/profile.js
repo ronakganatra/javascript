@@ -87,7 +87,7 @@ export const getDisplayImage = createSelector(
 				protocol: "https",
 			} ),
 			size: "64px",
-		}
+		};
 	}
 );
 

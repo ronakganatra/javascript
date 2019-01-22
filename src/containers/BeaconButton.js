@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { BeaconButton } from "../components/Button";
 import { helpBeaconModalOpen } from "../actions/helpBeacon";
-import { getModalOpen} from "../selectors/ui/helpBeaconModal";
+import { getModalOpen } from "../selectors/ui/helpBeaconModal";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
