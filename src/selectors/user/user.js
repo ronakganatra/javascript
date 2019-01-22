@@ -20,4 +20,22 @@ export function getLogoutError( state ) {
 	return state.user.logoutError;
 }
 
+/**
+ * Returns whether the user is logged in.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ * @returns {boolean} Whether the user is currently logged in.
+ */
+export const isLoggedIn = state => state.user.loggedIn;
+
+/**
+ * Get the number of pending request for the current user.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ * @returns {*} The pendingRequests for the current user.
+ */
 export const getPendingRequests = state => state.user.pendingRequests;

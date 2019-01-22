@@ -67,6 +67,31 @@ export const getUserAvatar = createSelector(
 );
 
 /**
+ * Returns the user's display image.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {String} The user's display image.
+ */
+export const getDisplayImage = createSelector(
+	[ getUserAvatarUrl, getUserEmail ],
+	( userAvatar, email ) => {
+		return {
+			src: userAvatar || url( email, {
+				// Gravatar rating
+				rating: "pg",
+				// Default image
+				d: avatarPlaceholder,
+				protocol: "https",
+			} ),
+			size: "64px",
+		}
+	}
+);
+
+/**
  * Get the user profile from state.
  *
  * @function
