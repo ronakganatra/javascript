@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import Signup from "../components/login/Signup";
 import { signupRequest } from "../actions/signup";
+import { getRouter } from "../selectors/router/router";
+import { getSignupError, getSignupRequestSuccess } from "../selectors/ui/signup";
 
 /* eslint-disable require-jsdoc */
 export const mapDispatchToProps = ( dispatch ) => {
@@ -12,11 +14,11 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mapStateToProps = ( state ) => {
-	return Object.assign( {}, {
-		stateRouter: state.router,
-		signupError: state.ui.signup.error,
-		signupRequestSuccess: state.ui.signup.signupRequestSuccess,
-	} );
+	return {
+		stateRouter: getRouter( state ),
+		signupError: getSignupError( state ),
+		signupRequestSuccess: getSignupRequestSuccess( state ),
+	};
 };
 
 const SignupContainer = connect(
