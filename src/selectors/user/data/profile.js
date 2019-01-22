@@ -65,3 +65,13 @@ export const getUserAvatar = createSelector(
 		protocol: "https",
 	} )
 );
+
+/**
+ * Get the user profile from state.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ * @returns {Object} The complete user profile.
+ */
+export const getProfile = state => state.user.data.profile;

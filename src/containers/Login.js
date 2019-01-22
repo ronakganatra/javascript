@@ -11,7 +11,7 @@ export const mapStateToProps = ( state ) => {
 	if ( login.amountOfOTPWarnings === 1 && get( login, "error.code" ) === "invalid_google_authenticator_token" ) {
 		login.error = { error: { code: "otp_required" } };
 	}
-	
+
 	return login;
 };
 

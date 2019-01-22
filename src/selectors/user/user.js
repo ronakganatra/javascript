@@ -19,3 +19,5 @@ export function isLoggingOut( state ) {
 export function getLogoutError( state ) {
 	return state.user.logoutError;
 }
+
+export const getPendingRequests = state => state.user.pendingRequests;
