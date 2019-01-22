@@ -8,3 +8,5 @@
 export function getSite( state ) {
 	return state.ui.site;
 }
+
+export const getActivate = ( state ) => state.ui.activate;
