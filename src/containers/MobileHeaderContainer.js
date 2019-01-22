@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { logout } from "../actions/user";
 import { helpBeaconModalOpen } from "../actions/helpBeacon";
 import { getPathname } from "../selectors/router/location";
-import { getByIdSites } from "../selectors/entities/sites";
+import { getSitesById } from "../selectors/entities/sites";
 import { getAllSubscriptionsById } from "../selectors/entities/subscriptions";
 import MobileHeader from "../components/MobileHeader";
 import { getLogoutError, isLoggingOut } from "../selectors/user/user";
@@ -20,7 +20,7 @@ export const mapStateToProps = ( state ) => {
 
 	// Set page title for sites and subscriptions detail pages.
 	if ( type === "sites" && id ) {
-		const site = getByIdSites( state )[ id ];
+		const site = getSitesById( state )[ id ];
 		pageTitle = site ? site.hostname : "";
 	} else if ( type === "subscriptions" && id ) {
 		const subscription = getAllSubscriptionsById( state )[ id ];

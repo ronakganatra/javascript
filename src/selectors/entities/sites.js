@@ -30,4 +30,4 @@ export const getAllSites = createAllOfEntitySelector( "sites" );
  *
  * @returns {Array} byId part sites entities.
  */
-export const getByIdSites = createEntityByIdSelector( "sites" );
+export const getSitesById = createEntityByIdSelector( "sites" );
