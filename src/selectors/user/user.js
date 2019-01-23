@@ -1,4 +1,15 @@
 /**
+ * Returns whether the user is logged in.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {boolean} Whether the user is logged in.
+ */
+export function isLoggedIn( state ) {
+	return state.user.loggedIn;
+}
+
+/**
  * Returns whether the user is logging out.
  *
  * @param {Object} state Application state.
