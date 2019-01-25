@@ -97,6 +97,7 @@ export const getDisplayImage = createSelector(
  * @function
  *
  * @param {Object} state Application state.
+ *
  * @returns {Object} The complete user profile.
  */
 export const getProfile = state => state.user.data.profile;
