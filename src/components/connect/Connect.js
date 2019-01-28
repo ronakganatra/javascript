@@ -1,34 +1,67 @@
 import React from "react";
 import { connect } from "react-redux";
+import * as queryString from "query-string";
+import {
+	getConnectClientId, getConnectPluginSlug,
+	getConnectUrl,
+	hasConnectClientId,
+	hasConnectPluginSlug,
+	hasConnectUrl,
+	setConnectClientId,
+	setConnectPluginSlug,
+	setConnectUrl,
+} from "../../functions/connect";
 
 /* eslint-disable */
 const mapStateToProps = ( state, ownProps ) => {
-	// Are userId, URL, and pluginSlug defined?
-	const requiredParams = [ "userId", "url", "pluginSlug" ];
-	console.log( ownProps );
-	if ( ! Object.keys( ownProps.match.params ).every( param => requiredParams.includes( param ) ) ) {
-		// Is there a connect cookie?
+	const connectParams = queryString.parse( ownProps.location.search );
 
+	const hasClientId = Object.prototype.hasOwnProperty.call( connectParams, "clientId" );
+	const hasUrl = Object.prototype.hasOwnProperty.call( connectParams, "url" );
+	const hasPluginSlug = Object.prototype.hasOwnProperty.call( connectParams, "pluginSlug" );
+
+	let clientId, url, pluginSlug;
+	if ( hasClientId && hasUrl && hasPluginSlug ) {
+		clientId = connectParams.clientId;
+		url = connectParams.url;
+		pluginSlug = connectParams.pluginSlug;
+
+		// Save to a cookie, now that we have the data.
+		setConnectClientId( clientId );
+		setConnectUrl( url );
+		setConnectPluginSlug( pluginSlug );
+	} else {
+		// Retrieve from a cookie, or return false.
+		clientId = hasConnectClientId() && getConnectClientId();
+		url = hasConnectUrl() && getConnectUrl();
+		pluginSlug = hasConnectPluginSlug() && getConnectPluginSlug();
 	}
 
+	// If any of the params is still false, dataMissing is true;
+	const dataMissing = ! ( clientId && url && pluginSlug );
 
-
-	//todo: 3 booleans:
-	// hasSite (whether user has the site he comes from),
-	// hasSubscription (whether the user has any of our stuff),
-	// hasSiteSubscription (whether one such sub is active for that site).
-
-	//todo: check param cookies, set param cookies (could also be in component).
 	return {
+		clientId,
+		url,
+		pluginSlug,
+		dataMissing,
 	};
 };
 
 class ConnectComponent extends React.Component {
-	constructor() {
-		super();
+	constructor( props ) {
+		super( props );
+		console.log( this.props );
 	}
 
 	render() {
+		if ( this.props.dataMissing ) {
+			return (
+				<div>
+					<h1>OH NOES WE ARE MISSING RELEVANT DATA</h1>
+				</div>
+			)
+		}
 		return (
 			<div>
 				<h1>Authorize dis</h1>
