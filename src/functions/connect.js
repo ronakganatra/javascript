@@ -1,26 +1,33 @@
 import Cookies from "js-cookie";
 
-function makeSetCookie( key ) {
+export function makeSetCookie( key, expiresIn = false ) {
 	return ( value ) => {
-		Cookies.set( key, value );
+		if ( expiresIn ) {
+			console.log( expiresIn );
+			Cookies.set( key, value, {
+				expires: expiresIn,
+			} );
+		} else {
+			Cookies.set( key, value );
+		}
 	};
 }
 
-function makeGetCookie( key ) {
+export function makeGetCookie( key ) {
 	return () => {
 		return Cookies.get( key );
 	};
 }
 
-function makeHasCookie( key ) {
+export function makeHasCookie( key ) {
 	return () => {
 		return !! Cookies.get( key );
 	};
 }
 
-export const setConnectClientId = makeSetCookie( "connectClientId" );
-export const setConnectUrl = makeSetCookie( "connectUrl" );
-export const setConnectPluginSlug = makeSetCookie( "connectpluginSlug" );
+export const setConnectClientId = makeSetCookie( "connectClientId", 1 / 24 );
+export const setConnectUrl = makeSetCookie( "connectUrl", 1 / 24 );
+export const setConnectPluginSlug = makeSetCookie( "connectpluginSlug", 1 / 24 );
 
 export const getConnectClientId = makeGetCookie( "connectClientId" );
 export const getConnectUrl = makeGetCookie( "connectUrl" );
