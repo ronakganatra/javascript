@@ -16,6 +16,11 @@ import {
 const mapStateToProps = ( state, ownProps ) => {
 	const connectParams = queryString.parse( ownProps.location.search );
 
+	/*
+	Note: for queryString to properly parse the url parameter for URLs that may contain a querystring themselves,
+	the url in the parameter has to be encoded with uriEncodeComponent().
+	 */
+
 	const hasClientId = Object.prototype.hasOwnProperty.call( connectParams, "clientId" );
 	const hasUrl = Object.prototype.hasOwnProperty.call( connectParams, "url" );
 	const hasPluginSlug = Object.prototype.hasOwnProperty.call( connectParams, "pluginSlug" );
@@ -51,23 +56,33 @@ const mapStateToProps = ( state, ownProps ) => {
 class ConnectComponent extends React.Component {
 	constructor( props ) {
 		super( props );
-		console.log( this.props );
 	}
 
 	render() {
-		if ( this.props.dataMissing ) {
-			return (
-				<div>
-					<h1>OH NOES WE ARE MISSING RELEVANT DATA</h1>
-				</div>
-			)
-		}
 		return (
 			<div>
 				<h1>Authorize dis</h1>
 				<p>
-					{ "Table with authorizations" }
+					{ this.props.dataMissing ? "Oh noes we are missing some data" : "Connected with the following data" }
 				</p>
+				<ul>
+					<li>
+						<p><strong>dataMissing</strong></p>
+						{ this.props.dataMissing.toString() }
+					</li>
+					<li>
+						<p><strong>clientId</strong></p>
+						{ this.props.clientId || "MISSING!" }
+					</li>
+					<li>
+						<p><strong>url</strong></p>
+						{ this.props.url || "MISSING!" }
+					</li>
+					<li>
+						<p><strong>pluginSlug</strong></p>
+						{ this.props.pluginSlug || "MISSING!" }
+					</li>
+				</ul>
 				<button>
 					{ "Authorize" }
 				</button>
