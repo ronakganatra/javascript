@@ -2,13 +2,12 @@ import { connect } from "react-redux";
 
 import GettingStartedModal from "../components/GettingStartedModal";
 import { helpBeaconModalClose } from "../actions/helpBeacon";
+import { getModalOpen } from "../selectors/ui/helpBeaconModal";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	const isOpen = state.ui.helpBeaconModal.modalOpen;
-
 	return {
-		isOpen,
+		isOpen: getModalOpen( state ),
 	};
 };
 
