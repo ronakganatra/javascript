@@ -50,17 +50,17 @@ export const getBoughtProductIds = createSelector(
 );
 
 /**
- * Function to get an array of productIds that the customer has bought.
+ * Function to get an array of products that the customer has access to.
  *
  * @param {Object} state Application state.
  *
- * @returns {Array} All bought productIDs.
+ * @returns {Array} All products for the passed activatable subscriptions.
  */
 export const getActivatibleSubscriptionProducts = createSelector(
 	getActivatableSubscriptions,
 	getProducts,
 	( subscriptions, products ) =>
-		subscriptions.map( subscription => products.find( product => product.id === subscription.productId ) || [] )
+		subscriptions.map( subscription => products.find( product => product.id === subscription.productId ) || null ).filter( subscription => subscription )
 );
 
 
