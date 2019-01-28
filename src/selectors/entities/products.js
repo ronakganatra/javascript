@@ -56,7 +56,7 @@ export const getBoughtProductIds = createSelector(
  *
  * @returns {Array} All products for the passed activatable subscriptions.
  */
-export const getActivatibleSubscriptionProducts = createSelector(
+export const getActivatableSubscriptionProducts = createSelector(
 	getActivatableSubscriptions,
 	getProducts,
 	( subscriptions, products ) =>
@@ -110,7 +110,7 @@ export const getBoughtEbooks = createSelector(
  * @returns {Array} An array of plugins that the customer has access to.
  */
 export const getOwnedPlugins = createSelector(
-	[ getPlugins, getActivatibleSubscriptionProducts, getProductGroups ],
+	[ getPlugins, getActivatableSubscriptionProducts, getProductGroups ],
 	( plugins, boughtProducts, productGroups ) => {
 		let ownedProductGroups = _flatMap( boughtProducts, product => product.productGroups || [] );
 
