@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
  * Creates a set cookie function.
  *
  * @param   {string}       key       The key/name for the cookie to set.
- * @param   {number||Date} expiresIn (Optional) The time to expiry in days (or expiry date as a date object).
+ * @param   {number|Date} expiresIn (Optional) The time to expiry in days (or expiry date as a date object).
  * @returns {Function}               A set cookie function.
  */
 export function makeSetCookie( key, expiresIn = false ) {
