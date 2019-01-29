@@ -2,10 +2,12 @@ import { connect } from "react-redux";
 import Activate from "../components/login/Activate";
 import { activateRequest } from "../actions/signup";
 import { resetOauthError } from "../actions/login";
+import { getUser } from "../selectors/entities/user";
+import { getActivate } from "../selectors/ui/site";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	return Object.assign( {}, state.user, state.ui.activate );
+	Object.assign( {}, getUser( state ), getActivate( state ) );
 };
 
 export const mapDispatchToProps = ( dispatch ) => {
