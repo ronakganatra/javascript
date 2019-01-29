@@ -42,3 +42,15 @@ export function makeHasCookie( key ) {
 		return !! Cookies.get( key );
 	};
 }
+
+/**
+ * Creates a get cookie function for JSON data.
+ *
+ * @param   {string}   key The key/name for the cookie to get the value of.
+ * @returns {Function}     A get cookie function that parses JSON data.
+ */
+export function makeGetJSONCookie( key ) {
+	return () => {
+		return Cookies.getJSON( key );
+	};
+}
