@@ -17,15 +17,15 @@ class ConnectComponent extends React.Component {
 					</li>
 					<li>
 						<p><strong>clientId</strong></p>
-						{ this.props.clientId }
+						{ this.props.clientId || "MISSING" }
 					</li>
 					<li>
 						<p><strong>url</strong></p>
-						{ this.props.url }
+						{ this.props.url || "MISSING" }
 					</li>
 					<li>
 						<p><strong>pluginSlug</strong></p>
-						{ this.props.pluginSlug }
+						{ this.props.pluginSlug || "MISSING" }
 					</li>
 				</ul>
 				<button>
@@ -42,12 +42,6 @@ ConnectComponent.propTypes = {
 	clientId: PropTypes.string,
 	url: PropTypes.string,
 	pluginSlug: PropTypes.string,
-};
-
-ConnectComponent.defaultProps = {
-	clientId: "MISSING!",
-	url: "MISSING!",
-	pluginSlug: "MISSING!",
 };
 
 export default injectIntl( ConnectComponent );
