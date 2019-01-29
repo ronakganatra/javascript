@@ -10,7 +10,6 @@ import Cookies from "js-cookie";
 export function makeSetCookie( key, expiresIn = false ) {
 	return ( value ) => {
 		if ( expiresIn ) {
-			console.log( expiresIn );
 			Cookies.set( key, value, {
 				expires: expiresIn,
 			} );
