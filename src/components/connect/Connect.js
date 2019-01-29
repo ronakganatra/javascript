@@ -2,7 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 
+/**
+ * The connect/authorization component.
+ */
 class ConnectComponent extends React.Component {
+	/**
+	 * Renders the connect component.
+	 *
+	 * @returns {JSXElement} The rendered connect component.
+	 */
 	render() {
 		return (
 			<div>
@@ -39,9 +47,12 @@ class ConnectComponent extends React.Component {
 
 ConnectComponent.propTypes = {
 	dataMissing: PropTypes.bool.isRequired,
-	clientId: PropTypes.string,
-	url: PropTypes.string,
-	pluginSlug: PropTypes.string,
+	clientId: PropTypes.string.isRequired,
+	url: PropTypes.string.isRequired,
+	pluginSlug: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
 };
 
 export default injectIntl( ConnectComponent );
