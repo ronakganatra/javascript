@@ -1,4 +1,8 @@
+// External dependencies.
 import React from "react";
+import { defineMessages } from "react-intl";
+
+// Internal dependencies.
 import HomeIcon from "../icons/Home.js";
 import SitesIcon from "../icons/Sites.js";
 import CoursesIcon from "../icons/Courses.js";
@@ -9,6 +13,29 @@ import AccountPage from "../components/AccountPage";
 import DownloadsPage from "../containers/DownloadsPage";
 import CoursesPage from "../containers/CoursesPage";
 import HomePage from "../containers/HomePage";
+
+const titles = defineMessages( {
+	home: {
+		id: "menu.title.home",
+		defaultMessage: "Home",
+	},
+	sites: {
+		id: "menu.title.sites",
+		defaultMessage: "Sites",
+	},
+	courses: {
+		id: "menu.title.courses",
+		defaultMessage: "Courses",
+	},
+	downloads: {
+		id: "menu.title.downloads",
+		defaultMessage: "Downloads",
+	},
+	account: {
+		id: "menu.title.account",
+		defaultMessage: "Account",
+	},
+} );
 
 const menuItems = [
 	{
@@ -21,6 +48,7 @@ const menuItems = [
 		isActive: ( match, location ) => {
 			return location.pathname === "/";
 		},
+		title: titles.home,
 	},
 	{
 		showInMenu: true,
@@ -29,6 +57,7 @@ const menuItems = [
 		iconSource: <SitesIcon />,
 		component: SitesPageContainer,
 		exact: true,
+		title: titles.sites,
 	},
 	{
 		showInMenu: true,
@@ -37,6 +66,7 @@ const menuItems = [
 		iconSource: <CoursesIcon />,
 		component: CoursesPage,
 		exact: false,
+		title: titles.courses,
 	},
 	{
 		showInMenu: true,
@@ -45,6 +75,7 @@ const menuItems = [
 		iconSource: <DownloadsIcon />,
 		component: DownloadsPage,
 		exact: true,
+		title: titles.downloads,
 	},
 	{
 		showInMenu: true,
@@ -53,6 +84,7 @@ const menuItems = [
 		iconSource: <UserIcon />,
 		component: AccountPage,
 		exact: false,
+		title: titles.account,
 	},
 ];
 
