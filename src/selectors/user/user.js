@@ -32,17 +32,6 @@ export function getLogoutError( state ) {
 }
 
 /**
- * Returns whether the user is logged in.
- *
- * @function
- *
- * @param {Object} state Application state.
- *
- * @returns {boolean} Whether the user is currently logged in.
- */
-export const isLoggedIn = state => state.user.loggedIn;
-
-/**
  * Get the number of pending request for the current user.
  *
  * @function
