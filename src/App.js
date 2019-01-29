@@ -339,7 +339,8 @@ class Routes extends React.Component {
 						<Route
 							exact={ true }
 							path="/connect"
-							component={ inLoginLayout( Connect, titles.connect.defaultMessage ) } />
+							component={ inLoginLayout( Connect, titles.connect.defaultMessage ) }
+						/>
 						<Route
 							exact={ true }
 							path="/activate"
