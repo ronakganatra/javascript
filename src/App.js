@@ -37,7 +37,7 @@ import {
 } from "./functions/auth";
 import ActivateContainer from "./containers/ActivateContainer";
 import { sentUserDataToBeacon } from "./actions/user";
-import Connect from "./components/connect/Connect";
+import Connect from "./containers/connect/Connect";
 
 /*
  * Helper method to write global CSS.
@@ -261,7 +261,7 @@ class Routes extends React.Component {
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
-						<Route exact={ false } path="/connect" component={ inLoginLayout( Connect ) } />
+						<Route exact={ true } path="/connect" component={ inLoginLayout( Connect ) } />
 						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
 						<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
 						<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
