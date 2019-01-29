@@ -47,8 +47,14 @@ class ConnectComponent extends React.Component {
 
 ConnectComponent.propTypes = {
 	dataMissing: PropTypes.bool.isRequired,
-	clientId: PropTypes.string.isRequired,
-	url: PropTypes.string.isRequired,
+	clientId: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
+	url: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
 	pluginSlug: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.bool,
