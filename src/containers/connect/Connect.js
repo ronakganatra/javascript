@@ -11,24 +11,28 @@ import ConnectComponent from "../../components/connect/Connect";
  *
  * @param {*}         object The "thing" to test whether it is an Object.
  * @param {string}    field  The field that should be on the object.
+ *
  * @returns {boolean}        True when object is an Object that contains field as a key.
  */
 function verifyObjectAndField( object, field ) {
-	return typeof object === "object" && Object.prototype.hasOwnProperty.call( object, field );
+	return object instanceof Object && object.hasOwnProperty( field );
 }
 
 /* eslint-disable require-jsdoc*/
 const mapStateToProps = ( state, ownProps ) => {
-	const connectParams = queryString.parse( ownProps.location.search );
+	/*
+	Because the object returned by queryString was created with Object.create( null ), it's not an Object.prototype.
+	We assign it to an actual Object.
+	 */
+	const connectParams = Object.assign( {}, queryString.parse( ownProps.location.search ) );
 
 	/*
 	Note: for queryString to properly parse the url parameter for URLs that may contain a querystring themselves,
 	the url in the parameter has to be encoded with uriEncodeComponent().
 	 */
-
-	const hasClientId = verifyObjectAndField( connectParams, "clientId" );
-	const hasUrl = verifyObjectAndField( connectParams, "url" );
-	const hasPluginSlug = verifyObjectAndField( connectParams, "pluginSlug" );
+	const hasClientId = connectParams.hasOwnProperty( "clientId" );
+	const hasUrl = connectParams.hasOwnProperty( "url" );
+	const hasPluginSlug = connectParams.hasOwnProperty( "pluginSlug" );
 
 	let clientId, url, pluginSlug;
 	if ( hasClientId && hasUrl && hasPluginSlug ) {
