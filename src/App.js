@@ -1,3 +1,4 @@
+// External dependencies.
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import "normalize.css/normalize.css";
@@ -11,7 +12,9 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import * as queryString from "query-string";
 import omit from "lodash/omit";
 import isEqual from "lodash/isEqual";
+import { defineMessages } from "react-intl";
 
+// Internal dependencies.
 import "./App.css";
 import menuItems from "./config/Menu";
 import { inLoginLayout, inMainLayout, inSingleLayout } from "./components/Layout";
@@ -37,6 +40,53 @@ import {
 } from "./functions/auth";
 import ActivateContainer from "./containers/ActivateContainer";
 import { sentUserDataToBeacon } from "./actions/user";
+
+const titles = defineMessages( {
+	login: {
+		id: "menu.title.login",
+		defaultMessage: "Login",
+	},
+	signup: {
+		id: "menu.title.signup",
+		defaultMessage: "Signup",
+	},
+	accountActivate: {
+		id: "menu.title.accountActivate",
+		defaultMessage: "Activate account",
+	},
+	accountEnterDetails: {
+		id: "menu.title.accountEnterDetails",
+		defaultMessage: "Enter account details",
+	},
+	passwordForgot: {
+		id: "menu.title.passwordForgot",
+		defaultMessage: "Reset your password",
+	},
+	passwordCheckEmail: {
+		id: "menu.title.passwordCheckEmail",
+		defaultMessage: "Check your email",
+	},
+	passwordReset: {
+		id: "menu.title.passwordReset",
+		defaultMessage: "Enter a new password",
+	},
+	passwordSuccess: {
+		id: "menu.title.passwordSuccess",
+		defaultMessage: "Password changed successfully!",
+	},
+	manageSite: {
+		id: "menu.title.manageSite",
+		defaultMessage: "Manage site",
+	},
+	manageSubscription: {
+		id: "menu.title.manageSubscription",
+		defaultMessage: "Manage subscription",
+	},
+	notFound: {
+		id: "menu.title.notFound",
+		defaultMessage: "Page not found",
+	},
+} );
 
 /*
  * Helper method to write global CSS.
@@ -200,28 +250,49 @@ class Routes extends React.Component {
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
-						<Route exact={ true } path="/login" component={ inLoginLayout( LoginPage ) } />
-						<Route exact={ true } path="/signup" component={ inLoginLayout( LoginPage ) } />
-						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
-						<Route exact={ true } path="/almost-there" component={ inLoginLayout( AlmostThere ) } />
 						<Route
-							exact={ true } path="/forgot-password"
-							component={ inLoginLayout( ResetPasswordEmailContainer ) }
+							exact={ true }
+							path="/login"
+							component={ inLoginLayout( LoginPage, titles.login.defaultMessage ) }
 						/>
 						<Route
-							exact={ true } path="/forgot-password/check-your-email"
-							component={ inLoginLayout( SendResetEmailSuccessPage ) }
+							exact={ true }
+							path="/signup"
+							component={ inLoginLayout( LoginPage, titles.signup.defaultMessage ) }
 						/>
 						<Route
-							exact={ true } path="/forgot-password/reset-password"
-							component={ inLoginLayout( ResetPasswordContainer ) }
+							exact={ true }
+							path="/activate"
+							component={ inLoginLayout( ActivateContainer, titles.accountActivate.defaultMessage ) }
 						/>
 						<Route
-							exact={ true } path="/forgot-password/success"
-							component={ inLoginLayout( ResetPasswordSuccessPage ) }
+							exact={ true }
+							path="/almost-there"
+							component={ inLoginLayout( AlmostThere, titles.accountActivate.defaultMessage ) }
 						/>
 						<Route
-							path="*" render={ this.redirectToLogin }
+							exact={ true }
+							path="/forgot-password"
+							component={ inLoginLayout( ResetPasswordEmailContainer, titles.passwordForgot.defaultMessage ) }
+						/>
+						<Route
+							exact={ true }
+							path="/forgot-password/check-your-email"
+							component={ inLoginLayout( SendResetEmailSuccessPage, titles.passwordCheckEmail.defaultMessage ) }
+						/>
+						<Route
+							exact={ true }
+							path="/forgot-password/reset-password"
+							component={ inLoginLayout( ResetPasswordContainer, titles.passwordReset.defaultMessage ) }
+						/>
+						<Route
+							exact={ true }
+							path="/forgot-password/success"
+							component={ inLoginLayout( ResetPasswordSuccessPage, titles.passwordSuccess.defaultMessage ) }
+						/>
+						<Route
+							path="*"
+							render={ this.redirectToLogin }
 						/>
 					</Switch>
 				</ConnectedRouter>
@@ -260,21 +331,41 @@ class Routes extends React.Component {
 			return (
 				<ConnectedRouter history={ this.props.history }>
 					<Switch>
-						<Route exact={ true } path="/activate" component={ inLoginLayout( ActivateContainer ) } />
-						<Route exact={ true } path="/enter-details" component={ inLoginLayout( ProfileDetails ) } />
-						<Route exact={ true } path="/login" render={ () => <Redirect to={ "/" } /> } />
-						<Route path="/sites/:id" component={ inSingleLayout( SitePageContainer ) } />
+						<Route
+							exact={ true }
+							path="/activate"
+							component={ inLoginLayout( ActivateContainer, titles.accountActivate.defaultMessage ) }
+						/>
+						<Route
+							exact={ true }
+							path="/enter-details"
+							component={ inLoginLayout( ProfileDetails, titles.accountEnterDetails.defaultMessage ) }
+						/>
+						<Route
+							exact={ true }
+							path="/login"
+							render={ () => <Redirect to={ "/" } /> }
+						/>
+						<Route
+							path="/sites/:id"
+							component={ inSingleLayout( SitePageContainer, titles.manageSite.defaultMessage ) }
+						/>
 						<Route
 							path="/account/subscriptions/:id"
-							component={ inSingleLayout( SubscriptionPageContainer ) }
+							component={ inSingleLayout( SubscriptionPageContainer, titles.manageSubscription.defaultMessage ) }
 						/>
 						{ menuItems.map( function( route, routeKey ) {
 							return <Route
-								{ ...route } key={ routeKey } path={ route.path }
-								component={ inMainLayout( route.component ) }
+								{ ...route }
+								key={ routeKey }
+								path={ route.path }
+								component={ inMainLayout( route.component, route.title.defaultMessage ) }
 							/>;
 						} ) }
-						<Route path="*" component={ inMainLayout( PageNotFound ) } />;
+						<Route
+							path="*"
+							component={ inMainLayout( PageNotFound, titles.notFound.defaultMessage ) }
+						/>;
 					</Switch>
 				</ConnectedRouter>
 			);
