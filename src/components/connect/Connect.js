@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
+import SiteAuthenticationForm from "./SiteAuthenticationForm";
 
 class ConnectComponent extends React.Component {
 	render() {
@@ -31,6 +32,13 @@ class ConnectComponent extends React.Component {
 				<button>
 					{ "Authorize" }
 				</button>
+				<hr />
+				<SiteAuthenticationForm
+					forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "www.legendaryWebsite.com" }
+					onAuthorize={ this.props.onAuthorize }
+					onDeny={ this.props.onDeny }
+					authorizations={ this.props.authorizations }
+				/>
 			</div>
 		);
 	}
@@ -42,6 +50,9 @@ ConnectComponent.propTypes = {
 	clientId: PropTypes.string,
 	url: PropTypes.string,
 	pluginSlug: PropTypes.string,
+	authorizations: PropTypes.array,
+	onAuthorize: PropTypes.func,
+	onDeny: PropTypes.func,
 };
 
 ConnectComponent.defaultProps = {

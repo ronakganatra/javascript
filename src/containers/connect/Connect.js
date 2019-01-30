@@ -45,17 +45,32 @@ const mapStateToProps = ( state, ownProps ) => {
 	// If any of the params is still false, dataMissing is true;
 	const dataMissing = ! ( clientId && url && pluginSlug );
 
+	const authorizations = [ { description: "Authorization 1" }, { description: "Authorization 2" } ];
+
 	return {
 		clientId,
 		url,
 		pluginSlug,
 		dataMissing,
+		authorizations,
+	};
+};
+
+const mapDispatchToProps = () => {
+	return {
+		onAuthorize: () => {
+			console.log( "OnAuthorize click" );
+		},
+		onDeny: () => {
+			console.log( "OnDeny click" );
+		},
 	};
 };
 
 /* eslint-enable require-jsdoc */
 const Connect = connect(
 	mapStateToProps,
+	mapDispatchToProps,
 )( ConnectComponent );
 
 export default Connect;
