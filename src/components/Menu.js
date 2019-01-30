@@ -1,36 +1,10 @@
+// External dependencies.
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
 import { NavLink } from "react-router-dom";
-import { defineMessages, injectIntl, intlShape } from "react-intl";
-
-const titles = defineMessages( {
-	home: {
-		id: "menu.title.home",
-		defaultMessage: "Home",
-	},
-	sites: {
-		id: "menu.title.sites",
-		defaultMessage: "Sites",
-	},
-	courses: {
-		id: "menu.title.courses",
-		defaultMessage: "Courses",
-	},
-	subscriptions: {
-		id: "menu.title.subscriptions",
-		defaultMessage: "Subscriptions",
-	},
-	downloads: {
-		id: "menu.title.downloads",
-		defaultMessage: "Downloads",
-	},
-	account: {
-		id: "menu.title.account",
-		defaultMessage: "Account",
-	},
-} );
+import { injectIntl, intlShape } from "react-intl";
 
 const activeStyle = "active-class-name";
 
@@ -220,7 +194,7 @@ function MainMenu( props ) {
 
 						const menuItemIcon = page.iconSource;
 
-						const title = props.intl.formatMessage( titles[ page.titleKey ] );
+						const title = props.intl.formatMessage( page.title );
 
 						return <li key={ page.titleKey }>
 							<MenuItem
