@@ -6,7 +6,7 @@ import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
 
 /* Internal dependencies */
 import { ModalHeading } from "../Headings";
-import { LargeButton } from "../Button";
+import { LargeButton, SecondaryGreyButton } from "../Button";
 
 
 const messages = defineMessages( {
@@ -26,6 +26,14 @@ const messages = defineMessages( {
 		id: "SiteAuthenticationform.Denybutton.text",
 		defaultMessage: "Deny",
 	},
+	siteAuthenticationFormAuthorizationRequest: {
+		id: "SiteAuthenticationform.authorizationRequest",
+		defaultMessage: "wants to access your website.",
+	},
+	siteAuthenticationFormConnectText: {
+		id: "SiteAuthenticationform.connectText",
+		defaultMessage: "Authorizing will start the process of connecting your website to your MyYoast account.",
+	},
 } );
 
 const AuthenticationFormContainer = styled.div`
@@ -39,6 +47,10 @@ const BoldSpan = styled.span`
 	font-weight: 700;
 `;
 
+const LargeButtonWithMargin = styled( LargeButton )`
+	margin-right: 20px;
+`;
+
 /**
  * Create an unordered list based on the passed authorizations the user has to agree to achieve a connection between their url and my yoast.
  *
@@ -49,7 +61,15 @@ const BoldSpan = styled.span`
 function getAuthorizations( authorizations ) {
 	return (
 		<ul>
-			{ authorizations.map( ( authorization, index ) => <AuthorizationRow><FormattedMessage id={ `${ index }:description` } defaultMessage={ authorization.description } /></AuthorizationRow> ) }
+			{ authorizations.map(
+				( authorization, index ) =>
+					<AuthorizationRow>
+						<FormattedMessage
+							id={ `${ index }:description` }
+							defaultMessage={ authorization.description }
+						/>
+					</AuthorizationRow>
+			) }
 		</ul>
 	);
 }
@@ -62,8 +82,6 @@ function getAuthorizations( authorizations ) {
  * @returns {ReactElement} The rendered Product component.
  */
 function SiteAuthenticationForm( props ) {
-	const elaboratingText = " wants to access your website.";
-	const agreementText = "Authorizing will start the process of connecting your website to your MyYoast account.";
 	const myYoastText = <BoldSpan>{ "MyYoast" }</BoldSpan>;
 
 	return (
@@ -71,18 +89,17 @@ function SiteAuthenticationForm( props ) {
 			<ModalHeading>
 				<FormattedMessage { ...messages.siteAuthenticationFormHeader } />
 			</ModalHeading>
-			<p> { myYoastText }{ elaboratingText } <br /> <span> { props.forUrl } </span> </p>
-			<p> { myYoastText } <FormattedMessage { ...messages.siteAuthenticationFormPermissionRequest } /> </p>
+			<p> { myYoastText } <FormattedMessage{ ...messages.siteAuthenticationFormAuthorizationRequest } /> <br /> <span> { props.forUrl } </span> </p>
+			<p> { myYoastText } <FormattedMessage{ ...messages.siteAuthenticationFormPermissionRequest } /> </p>
 			{ getAuthorizations( props.authorizations ) }
 
-			<LargeButton onClick={ props.onAuthorize }>
+			<LargeButtonWithMargin onClick={ props.onAuthorize }>
 				<FormattedMessage { ...messages.siteAuthenticationFormButtonText } />
-			</LargeButton>
-			<LargeButton onClick={ props.onDeny }>
+			</LargeButtonWithMargin>
+			<SecondaryGreyButton onClick={ props.onDeny }>
 				<FormattedMessage { ...messages.siteAuthenticationFormDenyButtonText } />
-			</LargeButton>
-
-			<p> { agreementText } </p>
+			</SecondaryGreyButton>
+			<p> <FormattedMessage { ...messages.siteAuthenticationFormConnectText } /> </p>
 		</AuthenticationFormContainer>
 	);
 }
