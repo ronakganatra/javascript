@@ -1,18 +1,22 @@
+// External dependencies.
 import PropTypes from "prop-types";
 import React, { Component } from "react";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";
+import { defineMessages, FormattedMessage } from "react-intl";
+import MediaQuery from "react-responsive";
+import DocumentTitle from "react-document-title";
+
+// Internal dependencies.
 import UserStatus from "../containers/UserStatus";
 import menuItems from "../config/Menu";
 import MainMenu from "../components/Menu";
-import { defineMessages, FormattedMessage } from "react-intl";
 import DebugInfo from "../components/DebugInfo";
 import { Logo } from "../components/Logo";
 import SkipLink from "../components/SkipLink";
 import BeaconButtonContainer from "../containers/BeaconButton";
 import GettingStartedModalContainer from "../containers/GettingStartedModal";
 import MobileHeaderContainer from "../containers/MobileHeaderContainer";
-import MediaQuery from "react-responsive";
 import { WhitePage } from "../components/PaperStyles";
 import loginBackground from "../images/login-background.jpg";
 import RenewalNotificationContainer from "../containers/RenewalNotification";
@@ -111,13 +115,23 @@ const WhitePaper = styled( WhitePage )`
 `;
 
 /**
+ * Get the document title to use in the document.
+ *
+ * @param {string} title The base title.
+ *
+ * @returns {string} The enriched document title.
+ */
+const getDocumentTitle = title => title ? title + " – MyYoast" : "MyYoast";
+
+/**
  * Wraps a component in the layout used for the login.
  *
  * @param {ReactElement} WrappedComponent The React component to wrap.
+ * @param {string}       documentTitle    The document title.
  *
  * @returns {ReactElement} The login layout with the wrapped component.
  */
-export const inLoginLayout = ( WrappedComponent ) => {
+export const inLoginLayout = ( WrappedComponent, documentTitle ) => {
 	return class LoginLayout extends Component {
 		/**
 		 * Renders the component.
@@ -126,11 +140,13 @@ export const inLoginLayout = ( WrappedComponent ) => {
 		 */
 		render() {
 			return (
-				<LayoutLogin>
-					<WhitePaper>
-						<WrappedComponent { ...this.props } />
-					</WhitePaper>
-				</LayoutLogin>
+				<DocumentTitle title={ getDocumentTitle( documentTitle ) }>
+					<LayoutLogin>
+						<WhitePaper>
+							<WrappedComponent { ...this.props } />
+						</WhitePaper>
+					</LayoutLogin>
+				</DocumentTitle>
 			);
 		}
 	};
@@ -140,10 +156,11 @@ export const inLoginLayout = ( WrappedComponent ) => {
  * Wraps a component in the single column layout.
  *
  * @param {ReactElement} WrappedComponent The React component to wrap.
+ * @param {string}       documentTitle    The document title.
  *
  * @returns {ReactElement} The single column layout with the wrapped component.
  */
-export const inSingleLayout = ( WrappedComponent ) => {
+export const inSingleLayout = ( WrappedComponent, documentTitle ) => {
 	return class SingleLayout extends Component {
 		/**
 		 * Renders the component.
@@ -152,19 +169,21 @@ export const inSingleLayout = ( WrappedComponent ) => {
 		 */
 		render() {
 			return (
-				<Layout>
-					<SkipLink>
-						<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-					</SkipLink>
-					<MobileHeaderContainer { ...this.props } detailPage={ true } />
-					<SingleMain>
-						<Content>
-							<RenewalNotificationContainer />
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
-						</Content>
-					</SingleMain>
-				</Layout>
+				<DocumentTitle title={ getDocumentTitle( documentTitle ) }>
+					<Layout>
+						<SkipLink>
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+						</SkipLink>
+						<MobileHeaderContainer { ...this.props } detailPage={ true } />
+						<SingleMain>
+							<Content>
+								<RenewalNotificationContainer />
+								<WrappedComponent { ...this.props } />
+								<GettingStartedModalContainer />
+							</Content>
+						</SingleMain>
+					</Layout>
+				</DocumentTitle>
 			);
 		}
 	};
@@ -174,10 +193,11 @@ export const inSingleLayout = ( WrappedComponent ) => {
  * Wraps a component in the main layout.
  *
  * @param {ReactElement} WrappedComponent The React component to wrap.
+ * @param {string}       documentTitle    The document title.
  *
  * @returns {ReactElement} The main layout with the wrapped component.
  */
-export const inMainLayout = ( WrappedComponent ) => {
+export const inMainLayout = ( WrappedComponent, documentTitle ) => {
 	return class MainLayout extends Component {
 		/**
 		 * Renders the component.
@@ -186,34 +206,36 @@ export const inMainLayout = ( WrappedComponent ) => {
 		 */
 		render() {
 			return (
-				<Layout>
-					<SkipLink>
-						<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
-					</SkipLink>
-					<MediaQuery query="(max-width: 1024px)">
-						<MobileHeaderContainer detailPage={ false } />
-					</MediaQuery>
-					<Sidebar>
-						<MediaQuery query="(min-width: 1025px)">
-							<header>
-								<Logo context="sidebar" size="200px" />
-							</header>
+				<DocumentTitle title={ getDocumentTitle( documentTitle ) }>
+					<Layout>
+						<SkipLink>
+							<FormattedMessage id="skiplink" defaultMessage="Skip to main content" />
+						</SkipLink>
+						<MediaQuery query="(max-width: 1024px)">
+							<MobileHeaderContainer detailPage={ false } />
 						</MediaQuery>
-						<UserStatus />
-						<MainMenu menuRoutes={ menuItems } />
-						<DebugInfo />
-					</Sidebar>
-					<Main>
-						<BeaconButtonContainer>
-							<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
-						</BeaconButtonContainer>
-						<Content>
-							<RenewalNotificationContainer />
-							<WrappedComponent { ...this.props } />
-							<GettingStartedModalContainer />
-						</Content>
-					</Main>
-				</Layout>
+						<Sidebar>
+							<MediaQuery query="(min-width: 1025px)">
+								<header>
+									<Logo context="sidebar" size="200px" />
+								</header>
+							</MediaQuery>
+							<UserStatus />
+							<MainMenu menuRoutes={ menuItems } />
+							<DebugInfo />
+						</Sidebar>
+						<Main>
+							<BeaconButtonContainer>
+								<FormattedMessage id="beacon.id" defaultMessage={ messages.beacon.defaultMessage } />
+							</BeaconButtonContainer>
+							<Content>
+								<RenewalNotificationContainer />
+								<WrappedComponent { ...this.props } />
+								<GettingStartedModalContainer />
+							</Content>
+						</Main>
+					</Layout>
+				</DocumentTitle>
 			);
 		}
 	};

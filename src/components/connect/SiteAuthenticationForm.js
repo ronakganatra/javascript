@@ -63,7 +63,7 @@ function getAuthorizations( authorizations ) {
 		<ul>
 			{ authorizations.map(
 				( authorization, index ) =>
-					<AuthorizationRow>
+					<AuthorizationRow key={ `${ index }:row` }>
 						<FormattedMessage
 							id={ `${ index }:description` }
 							defaultMessage={ authorization.description }

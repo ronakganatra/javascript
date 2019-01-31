@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 import { injectIntl } from "react-intl";
 import SiteAuthenticationForm from "./SiteAuthenticationForm";
 
+/**
+ * The connect/authorization component.
+ */
 class ConnectComponent extends React.Component {
+	/**
+	 * Renders the connect component.
+	 *
+	 * @returns {JSXElement} The rendered connect component.
+	 */
 	render() {
 		return (
 			<div>
@@ -18,15 +26,15 @@ class ConnectComponent extends React.Component {
 					</li>
 					<li>
 						<p><strong>clientId</strong></p>
-						{ this.props.clientId }
+						{ this.props.clientId || "MISSING" }
 					</li>
 					<li>
 						<p><strong>url</strong></p>
-						{ this.props.url }
+						{ this.props.url || "MISSING" }
 					</li>
 					<li>
 						<p><strong>pluginSlug</strong></p>
-						{ this.props.pluginSlug }
+						{ this.props.pluginSlug || "MISSING" }
 					</li>
 				</ul>
 				<button>
@@ -47,9 +55,18 @@ class ConnectComponent extends React.Component {
 
 ConnectComponent.propTypes = {
 	dataMissing: PropTypes.bool.isRequired,
-	clientId: PropTypes.string,
-	url: PropTypes.string,
-	pluginSlug: PropTypes.string,
+	clientId: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
+	url: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
+	pluginSlug: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
 	authorizations: PropTypes.array,
 	onAuthorize: PropTypes.func,
 	onDeny: PropTypes.func,
