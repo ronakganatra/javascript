@@ -49,7 +49,7 @@ const BoldSpan = styled.span`
 function getAuthorizations( authorizations ) {
 	return (
 		<ul>
-			{ authorizations.map( authorization => <AuthorizationRow> { authorization.description } </AuthorizationRow> ) }
+			{ authorizations.map( ( authorization, index ) => <AuthorizationRow><FormattedMessage id={ `${ index }:description` } defaultMessage={ authorization.description } /></AuthorizationRow> ) }
 		</ul>
 	);
 }
