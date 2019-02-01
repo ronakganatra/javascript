@@ -57,14 +57,16 @@ const mapStateToProps = ( state, ownProps ) => {
 	// If any of the params is still false, dataMissing is true;
 	const dataMissing = ! ( clientId && url && pluginSlug );
 
-	const authorizations = [ { description: "Authorization 1" }, { description: "Authorization 2" } ];
+	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
+	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
 
 	return {
 		clientId,
 		url,
 		pluginSlug,
 		dataMissing,
-		authorizations,
+		siteAuthorizations,
+		myYoastAuthorizations,
 	};
 };
 

@@ -3,32 +3,29 @@ import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
 import { injectIntl, defineMessages, FormattedMessage } from "react-intl";
+import colors from "yoast-components/style-guide/colors.json";
 
 /* Internal dependencies */
+import defaults from "../../config/defaults.json";
 import { ModalHeading } from "../Headings";
-import { LargeButton, SecondaryGreyButton } from "../Button";
-
+import { LargeButton } from "../Button";
 
 const messages = defineMessages( {
 	siteAuthenticationFormHeader: {
 		id: "SiteAuthenticationform.header.text",
-		defaultMessage: "Authorize My Yoast",
-	},
-	siteAuthenticationFormPermissionRequest: {
-		id: "SiteAuthenticationform.body.authorizationRequest",
-		defaultMessage: "wants to:",
-	},
-	siteAuthenticationFormButtonText: {
-		id: "SiteAuthenticationform.Authorizebutton.text",
-		defaultMessage: "Authorize",
-	},
-	siteAuthenticationFormDenyButtonText: {
-		id: "SiteAuthenticationform.Denybutton.text",
-		defaultMessage: "Deny",
+		defaultMessage: "Authorization",
 	},
 	siteAuthenticationFormAuthorizationRequest: {
 		id: "SiteAuthenticationform.authorizationRequest",
-		defaultMessage: "wants to access your website.",
+		defaultMessage: "Authorize {source} to:",
+	},
+	siteAuthenticationFormAuthorizeButtonText: {
+		id: "SiteAuthenticationform.Authorizebutton.text",
+		defaultMessage: "Authorize",
+	},
+	siteAuthenticationFormCancelButtonText: {
+		id: "SiteAuthenticationform.Cancelbutton.text",
+		defaultMessage: "Cancel",
 	},
 	siteAuthenticationFormConnectText: {
 		id: "SiteAuthenticationform.connectText",
@@ -39,16 +36,45 @@ const messages = defineMessages( {
 const AuthenticationFormContainer = styled.div`
 `;
 
+const AuthorizationList = styled.ul`
+`;
+
 const AuthorizationRow = styled.li`
 	padding-bottom: 12px;
+`;
+
+const LightHr = styled.hr`
+	color: ${ colors.$color_grey_medium_dark };
+	margin-left: -40px;
 `;
 
 const BoldSpan = styled.span`
 	font-weight: 700;
 `;
 
-const LargeButtonWithMargin = styled( LargeButton )`
+const FadedParagraph = styled.p`
+	color: ${ colors.$color_grey_medium_dark }
+`;
+
+const Connectbutton = styled( LargeButton )`
+	font-size: 16px;
+	font-weight: 1;
+	text-shadow: none;
+	
+	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
+		min-width: 120px;
+	}
+`;
+
+const CancelButton = styled( Connectbutton )`
 	margin-right: 20px;
+	background-color: ${ colors.$color_grey_light };
+	color: ${ colors.$color_black };
+`;
+
+const AuthorizeButton = styled( Connectbutton )`
+	background-color: ${ colors.$color_pink_dark };
+	color: ${ colors.$color_white };
 `;
 
 /**
@@ -60,7 +86,8 @@ const LargeButtonWithMargin = styled( LargeButton )`
  */
 function getAuthorizations( authorizations ) {
 	return (
-		<ul>
+		<AuthorizationList>
+			<LightHr />
 			{ authorizations.map(
 				( authorization, index ) =>
 					<AuthorizationRow key={ `${ index }:row` }>
@@ -68,9 +95,10 @@ function getAuthorizations( authorizations ) {
 							id={ `${ index }:description` }
 							defaultMessage={ authorization.description }
 						/>
+						<LightHr />
 					</AuthorizationRow>
 			) }
-		</ul>
+		</AuthorizationList>
 	);
 }
 
@@ -82,31 +110,35 @@ function getAuthorizations( authorizations ) {
  * @returns {ReactElement} The rendered Product component.
  */
 function SiteAuthenticationForm( props ) {
+	const stripUrlRegex = /^(?:https?:\/\/)?(?:www\.)?/i;
 	const myYoastText = <BoldSpan>{ "MyYoast" }</BoldSpan>;
+	const siteUrl = <BoldSpan> { props.forUrl.replace( stripUrlRegex, "" ) } </BoldSpan>;
 
 	return (
 		<AuthenticationFormContainer>
 			<ModalHeading>
-				<FormattedMessage { ...messages.siteAuthenticationFormHeader } />
+				<strong><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></strong>
 			</ModalHeading>
-			<p> { myYoastText } <FormattedMessage{ ...messages.siteAuthenticationFormAuthorizationRequest } /> <br /> <span> { props.forUrl } </span> </p>
-			<p> { myYoastText } <FormattedMessage{ ...messages.siteAuthenticationFormPermissionRequest } /> </p>
-			{ getAuthorizations( props.authorizations ) }
+			<p> <FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: siteUrl } } /> </p>
+			{ getAuthorizations( props.siteAuthorizations ) }
+			<p> <FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: myYoastText } } /> </p>
 
-			<LargeButtonWithMargin onClick={ props.onAuthorize }>
-				<FormattedMessage { ...messages.siteAuthenticationFormButtonText } />
-			</LargeButtonWithMargin>
-			<SecondaryGreyButton onClick={ props.onDeny }>
-				<FormattedMessage { ...messages.siteAuthenticationFormDenyButtonText } />
-			</SecondaryGreyButton>
-			<p> <FormattedMessage { ...messages.siteAuthenticationFormConnectText } /> </p>
+			{ getAuthorizations( props.myYoastAuthorizations ) }
+			<FadedParagraph> <FormattedMessage { ...messages.siteAuthenticationFormConnectText } /> </FadedParagraph>
+			<CancelButton onClick={ props.onDeny }>
+				<FormattedMessage { ...messages.siteAuthenticationFormCancelButtonText } />
+			</CancelButton>
+			<AuthorizeButton onClick={ props.onAuthorize }>
+				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
+			</AuthorizeButton>
 		</AuthenticationFormContainer>
 	);
 }
 
 SiteAuthenticationForm.propTypes = {
 	forUrl: PropTypes.string.isRequired,
-	authorizations: PropTypes.array,
+	siteAuthorizations: PropTypes.array,
+	myYoastAuthorizations: PropTypes.array,
 	onAuthorize: PropTypes.func,
 	onDeny: PropTypes.func,
 };
