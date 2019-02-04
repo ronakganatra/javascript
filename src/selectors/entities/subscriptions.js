@@ -46,7 +46,7 @@ export const getAllSubscriptionsById = createEntityByIdSelector( "subscriptions"
  */
 export const getSubscriptionsOrders = createSelector(
 	getSubscriptions,
-	getOrdersById,
+	state => getOrdersById( state ),
 	( subscriptions, ordersById ) => {
 		const ordersBySubscription = {};
 		subscriptions.forEach( ( sub ) => {

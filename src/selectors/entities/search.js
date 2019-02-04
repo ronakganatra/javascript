@@ -20,7 +20,8 @@ export function getSearchQuery( state ) {
  * @returns {Array} An array of ebooks matching the search query.
  */
 export const getQueryEbooks = createSelector(
-	[ getEbooksForDownload, getSearchQuery ],
+	state => getEbooksForDownload( state ),
+	getSearchQuery,
 	( ebooks, query ) => {
 		return query.length > 0
 			? ebooks.filter( ebook => ebook.name.toUpperCase().includes( query.toUpperCase() ) )
@@ -36,7 +37,8 @@ export const getQueryEbooks = createSelector(
  * @returns {Array} An array of plugins matching the search query.
  */
 export const getQueryPlugins = createSelector(
-	[ getPluginsForDownload, getSearchQuery ],
+	state => getPluginsForDownload( state ),
+	getSearchQuery,
 	( plugins, query ) => {
 		return  query.length > 0
 			? plugins.filter( plugin => plugin.name.toUpperCase().includes( query.toUpperCase() ) )

@@ -56,7 +56,7 @@ export const getBoughtProductIds = createSelector(
  * @returns {Array} All products for the passed activatable subscriptions.
  */
 export const getActivatableSubscriptionProducts = createSelector(
-	getActivatableSubscriptions,
+	state => getActivatableSubscriptions( state ),
 	getProducts,
 	( subscriptions, products ) =>
 		subscriptions.map( subscription => products.find( product => product.id === subscription.productId ) || null ).filter( subscription => subscription )
