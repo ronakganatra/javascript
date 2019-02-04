@@ -278,7 +278,7 @@ export const getConnectedSubscriptionsSites = createSelector(
  */
 export const getSubscriptionsProducts = createSelector(
 	getSubscriptions,
-	getProducts,
+	state => getProducts( state ),
 	getProductGroups,
 	( subscriptions, allProducts, allProductGroups ) => {
 		const subscriptionsProducts = {};
