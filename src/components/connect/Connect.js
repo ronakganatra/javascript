@@ -42,7 +42,7 @@ class ConnectComponent extends React.Component {
 				</button>
 				<hr />
 				<SiteAuthenticationForm
-					forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "www.legendaryWebsite.com" }
+					forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "your website" }
 					onAuthorize={ this.props.onAuthorize }
 					onDeny={ this.props.onDeny }
 					siteAuthorizations={ this.props.siteAuthorizations }

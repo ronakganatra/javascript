@@ -119,12 +119,17 @@ function SiteAuthenticationForm( props ) {
 			<ModalHeading>
 				<strong><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></strong>
 			</ModalHeading>
-			<p> <FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: siteUrl } } /> </p>
+			<p>
+				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: siteUrl } } />
+			</p>
 			{ getAuthorizations( props.siteAuthorizations ) }
-			<p> <FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: myYoastText } } /> </p>
-
+			<p>
+				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: myYoastText } } />
+			</p>
 			{ getAuthorizations( props.myYoastAuthorizations ) }
-			<FadedParagraph> <FormattedMessage { ...messages.siteAuthenticationFormConnectText } /> </FadedParagraph>
+			<FadedParagraph>
+				<FormattedMessage { ...messages.siteAuthenticationFormConnectText } />
+			</FadedParagraph>
 			<CancelButton onClick={ props.onDeny }>
 				<FormattedMessage { ...messages.siteAuthenticationFormCancelButtonText } />
 			</CancelButton>
