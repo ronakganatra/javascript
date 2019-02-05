@@ -6,7 +6,7 @@ import {
 	closeCancelSubscriptionModal,
 } from "../actions/subscriptions";
 import { getCoursesFromSubscription } from "../selectors/entities/courseEnrollments";
-import { getSubscriptionsById } from "../selectors/entities/subscriptions";
+import { getAllSubscriptionsById } from "../selectors/entities/subscriptions";
 
 /**
  * Returns sites for a given subscription.
@@ -32,7 +32,7 @@ function getSitesForSubscription( state, subscriptionId ) {
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state, ownProps ) => {
 	const { subscriptionId } = ownProps;
-	const subscription = getSubscriptionsById( state )[ subscriptionId ];
+	const subscription = getAllSubscriptionsById( state )[ subscriptionId ];
 
 	const subscriptionsCancelState = state.ui.subscriptionsCancel;
 

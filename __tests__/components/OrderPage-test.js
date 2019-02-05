@@ -17,8 +17,8 @@ test( "The Orders component matches the snapshot", () => {
 	let orders = [
 		{
 			id: "1",
-			date: new Date( "05/20/2012" ),
-			orderNumber: "MOOIE 123 TEST",
+			date: "05/20/2012",
+			invoiceNumber: "MOOIE 123 TEST",
 			items: [
 				{
 					id: "line-item-id1",
@@ -31,7 +31,7 @@ test( "The Orders component matches the snapshot", () => {
 					quantity: 2,
 				},
 			],
-			total: 10010,
+			totalAmount: 10010,
 			currency: "EUR",
 			status: "completed",
 		},

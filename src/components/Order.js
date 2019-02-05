@@ -58,13 +58,13 @@ function Order( props ) {
 				ellipsis={ true } hideOnMobile={ true } hideOnTablet={ true }
 				headerLabel={ props.intl.formatMessage( messages.orderNumber ) }
 			>
-				{ props.orderNumber }
+				{ props.invoiceNumber }
 			</ColumnMinWidth>
 			<ColumnPrimaryResponsive headerLabel={ props.intl.formatMessage( messages.items ) }>
 				<LineItems items={ props.items } />
 			</ColumnPrimaryResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.total ) }>
-				<FormattedNumber value={ formatAmount( props.total ) } style="currency" currency={ props.currency } />
+				<FormattedNumber value={ formatAmount( props.totalAmount ) } style="currency" currency={ props.currency } />
 			</ColumnMinWidthResponsive>
 			<ColumnMinWidthResponsive ellipsis={ true } headerLabel={ props.intl.formatMessage( messages.status ) }>
 				<span>{ capitalizeFirstLetter( props.status ) }</span>
@@ -77,10 +77,10 @@ function Order( props ) {
 }
 
 Order.propTypes = {
-	date: PropTypes.instanceOf( Date ).isRequired,
+	date: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	orderNumber: PropTypes.string.isRequired,
-	total: PropTypes.number.isRequired,
+	invoiceNumber: PropTypes.string.isRequired,
+	totalAmount: PropTypes.number.isRequired,
 	currency: PropTypes.string.isRequired,
 	intl: intlShape.isRequired,
 	items: PropTypes.array,
