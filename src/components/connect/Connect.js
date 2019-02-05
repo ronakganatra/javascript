@@ -14,42 +14,14 @@ class ConnectComponent extends React.Component {
 	 */
 	render() {
 		return (
-			<div>
-				<h1>Authorize dis</h1>
-				<p>
-					{ this.props.dataMissing ? "Oh noes we are missing some data" : "Connected with the following data" }
-				</p>
-				<ul>
-					<li>
-						<p><strong>dataMissing</strong></p>
-						{ this.props.dataMissing.toString() }
-					</li>
-					<li>
-						<p><strong>clientId</strong></p>
-						{ this.props.clientId || "MISSING" }
-					</li>
-					<li>
-						<p><strong>url</strong></p>
-						{ this.props.url || "MISSING" }
-					</li>
-					<li>
-						<p><strong>pluginSlug</strong></p>
-						{ this.props.pluginSlug || "MISSING" }
-					</li>
-				</ul>
-				<button>
-					{ "Authorize" }
-				</button>
-				<hr />
-				<SiteAuthenticationForm
-					forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "your website" }
-					onAuthorize={ this.props.onAuthorize }
-					onDeny={ this.props.onDeny }
-					siteAuthorizations={ this.props.siteAuthorizations }
-					myYoastAuthorizations={ this.props.myYoastAuthorizations }
+			<SiteAuthenticationForm
+				forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "your website" }
+				onAuthorize={ this.props.onAuthorize }
+				onDeny={ this.props.onDeny }
+				siteAuthorizations={ this.props.siteAuthorizations }
+				myYoastAuthorizations={ this.props.myYoastAuthorizations }
 
-				/>
-			</div>
+			/>
 		);
 	}
 }
