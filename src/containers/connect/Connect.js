@@ -73,10 +73,8 @@ const mapStateToProps = ( state, ownProps ) => {
 const mapDispatchToProps = () => {
 	return {
 		onAuthorize: () => {
-			console.log( "OnAuthorize click" );
 		},
 		onDeny: () => {
-			console.log( "OnDeny click" );
 		},
 	};
 };
