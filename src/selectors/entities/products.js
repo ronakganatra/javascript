@@ -1,9 +1,14 @@
-import { createAllOfEntitySelector } from "./factories";
-import { createSelector } from "reselect";
+/* External dependencies */
 import _pickBy from "lodash/pickBy";
-import { getCompletedOrders } from "./orders";
 import _flatMap from "lodash/flatMap";
+import { createSelector } from "reselect";
+
+/* Internal dependencies */
+import { createAllOfEntitySelector, createOrderByStatusSelector } from "./factories";
+import { getProductGroups } from "./productGroups";
+import { getActivatableSubscriptions } from "./subscriptions";
 import { filterOutDuplicatesAsArray, getDownloadProps } from "../../functions/products";
+import { getProductsByProductGroupIds } from "../../functions/productGroups";
 
 /**
  * Returns all products in the state.
@@ -36,12 +41,27 @@ export const getProductsByType = ( type ) => createSelector(
  * @returns {Array} All bought productIDs.
  */
 export const getBoughtProductIds = createSelector(
-	getCompletedOrders,
+	createOrderByStatusSelector( "completed" ),
 	( orders ) =>
 		_flatMap( orders, order => order.items )
 			.filter( lineItem => lineItem )
 			.map( lineItem => lineItem.productId )
 );
+
+/**
+ * Function to get an array of products that the customer has access to.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} All products for the passed activatable subscriptions.
+ */
+export const getActivatableSubscriptionProducts = createSelector(
+	state => getActivatableSubscriptions( state ),
+	getProducts,
+	( subscriptions, products ) =>
+		subscriptions.map( subscription => products.find( product => product.id === subscription.productId ) || null ).filter( subscription => subscription )
+);
+
 
 /**
  * Selector to get all the ebooks from state.
@@ -76,23 +96,35 @@ export const getPlugins = createSelector(
  */
 export const getBoughtEbooks = createSelector(
 	[ getEbooks, getBoughtProductIds ],
-	( ebooks, boughtIds ) => ebooks.filter(
-		ebook => ebook.ids.some( id => boughtIds.includes( id ) )
-	)
+	( ebooks, boughtIds ) => {
+		return ebooks.filter(
+			ebook => ebook.ids.some( id => boughtIds.includes( id ) )
+		);
+	}
 );
 
 /**
-* Function to get a list of bought plugins.
-*
-* @param {Object} state Application state.
-*
-* @returns {Array} An array of plugins that are purchased by the customer.
-*/
-export const getBoughtPlugins = createSelector(
-	[ getPlugins, getBoughtProductIds ],
-	( plugins, boughtIds ) => plugins.filter(
-		plugin => plugin.ids.some( id => boughtIds.includes( id ) )
-	)
+ * Function to get a list of plugins the customer has access to.
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} An array of plugins that the customer has access to.
+ */
+export const getOwnedPlugins = createSelector(
+	[ getPlugins, getActivatableSubscriptionProducts, getProductGroups ],
+	( plugins, boughtProducts, productGroups ) => {
+		let ownedProductGroups = _flatMap( boughtProducts, product => product.productGroups || [] );
+
+		// Add the children to the list of owned product groups.
+		ownedProductGroups = ownedProductGroups.concat(
+			_flatMap( ownedProductGroups, ownedProductGroup => productGroups.filter(
+				productGroup => productGroup.parentId === ownedProductGroup.id
+			) )
+		);
+		const ownedProductGroupIds = ownedProductGroups.map( productGroup => productGroup.id );
+
+		return getProductsByProductGroupIds( ownedProductGroupIds, plugins );
+	}
 );
 
 /**
@@ -115,6 +147,6 @@ export const getEbooksForDownload = createSelector(
  * @returns {Array} An array of plugins that can be downloaded.
  */
 export const getPluginsForDownload = createSelector(
-	getBoughtPlugins,
+	getOwnedPlugins,
 	plugins => getDownloadProps( plugins )
 );

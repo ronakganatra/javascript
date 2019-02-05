@@ -71,10 +71,10 @@ let defaultExpected = {
 	orders: [
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f3",
-			"orderNumber": "YST201703",
-			"status": "Completed",
-			"date": new Date( "2017-06-01 21:04:28" ),
-			"total": "6900",
+			"invoiceNumber": "YST201703",
+			"status": "completed",
+			"date": "2017-06-01 21:04:28",
+			"totalAmount": "6900",
 			"currency": "USD",
 			"items": [
 				{
@@ -84,10 +84,10 @@ let defaultExpected = {
 		},
 		{
 			"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-			"orderNumber": "YST201701",
-			"status": "Completed",
-			"date": new Date( "2017-05-01 21:04:28" ),
-			"total": "6900",
+			"invoiceNumber": "YST201701",
+			"status": "completed",
+			"date": "2017-05-01 21:04:28",
+			"totalAmount": "6900",
 			"currency": "USD",
 			"items": [
 				{
@@ -104,6 +104,7 @@ test('the mapStateToProps function', () => {
 } );
 
 test('the mapStateToProps function when query contains part of an item product name', () => {
+	state = Object.assign( {}, state );
 	state.ui.search.query = "Yoast";
 	let expected = Object.assign( {}, defaultExpected, { query: "Yoast" } );
 
@@ -111,6 +112,7 @@ test('the mapStateToProps function when query contains part of an item product n
 } );
 
 test('the mapStateToProps function when query contains part of orderNumber', () => {
+	state = Object.assign( {}, state );
 	state.ui.search.query = "YST";
 	let expected = Object.assign( {}, defaultExpected, { query: "YST" } );
 
@@ -118,15 +120,16 @@ test('the mapStateToProps function when query contains part of orderNumber', () 
 } );
 
 test('the mapStateToProps function when query contains part of formatted order date', () => {
+	state = Object.assign( {}, state );
 	state.ui.search.query = "May 1";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [
 			{
 				"id": "497490e6-eb8d-4627-be9b-bfd33fc217f1",
-				"orderNumber": "YST201701",
-				"status": "Completed",
-				"date": new Date( "2017-05-01 21:04:28" ),
-				"total": "6900",
+				"invoiceNumber": "YST201701",
+				"status": "completed",
+				"date": "2017-05-01 21:04:28",
+				"totalAmount": "6900",
 				"currency": "USD",
 				"items": [
 					{
@@ -142,6 +145,7 @@ test('the mapStateToProps function when query contains part of formatted order d
 } );
 
 test('the mapStateToProps function when query contains part of formatted total', () => {
+	state = Object.assign( {}, state );
 	state.ui.search.query = "69";
 	let expected = Object.assign( {}, defaultExpected, { query: "69" } );
 
@@ -149,6 +153,7 @@ test('the mapStateToProps function when query contains part of formatted total',
 } );
 
 test('the mapStateToProps function when query contains nonsense', () => {
+	state = Object.assign( {}, state );
 	state.ui.search.query = "afhsdkgfj";
 	let expected = Object.assign( {}, defaultExpected, {
 		orders: [],

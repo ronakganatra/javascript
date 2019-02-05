@@ -1,4 +1,5 @@
-import { createEntityByIdSelector, createEntityStateSelector } from "./factories";
+import { createAllOfEntitySelector, createEntityByIdSelector, createEntityStateSelector } from "./factories";
+
 
 /**
  * Returns the full state of all sites.
@@ -10,12 +11,23 @@ import { createEntityByIdSelector, createEntityStateSelector } from "./factories
 export const getSites = createEntityStateSelector( "sites" );
 
 /**
- * Returns a map of all sites in the state.
+ * Returns all sites in the state.
  *
  * @function
  *
  * @param {Object} state Application state.
  *
- * @returns {Array} A map of all sites.
+ * @returns {Array} All sites.
+ */
+export const getAllSites = createAllOfEntitySelector( "sites" );
+
+/**
+ * Returns byId part of sites entities in the state.
+ *
+ * @function
+ *
+ * @param {Object} state Application state.
+ *
+ * @returns {Array} byId part sites entities.
  */
 export const getSitesById = createEntityByIdSelector( "sites" );

@@ -10,7 +10,7 @@ import { createAllOfEntitySelector } from "./factories";
 import { getCoursesById, getCourses } from "./courses";
 import { getUserProfile } from "./user";
 import { getOrdersById } from "./orders";
-import { getSubscriptionsById } from "./subscriptions";
+import { getAllSubscriptionsById } from "./subscriptions";
 
 /**
  * Returns all subscriptions in the state.
@@ -125,7 +125,7 @@ export const getGroupedCourseEnrollments = createSelector(
  * @returns {Array} 				An array of courseEnrollments.
  */
 export function getCoursesFromSubscription( state, subscriptionId ) {
-	const subscription = getSubscriptionsById( state )[ subscriptionId ];
+	const subscription = getAllSubscriptionsById( state )[ subscriptionId ];
 	return getCourseEnrollments( state ).filter(
 		enrollment =>
 			_includes( subscription.orders, enrollment.orderId ) &&

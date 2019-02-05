@@ -1,5 +1,6 @@
 import { getAllOfEntity } from "../selectors/entities/factories";
 import _flatMap from "lodash/flatMap";
+import _uniq from "lodash/uniq";
 
 /** Product helpers */
 
@@ -122,6 +123,19 @@ export function getProductsByProductGroupId( pluginGroupId, allProducts ) {
 			const productGroupIds = product.productGroups.map( productGroup => productGroup.id );
 			return productGroupIds.includes( pluginGroupId );
 		} );
+}
+
+/**
+ * Get all products that are in a set of productGroups.
+ *
+ * @param   {Array}   pluginGroupIds The ids of the pluginGroups we want to find the products for.
+ * @param   {Array}   allProducts    All products.
+ * @returns {Array}                  The products that are in the productGroups.
+ */
+export function getProductsByProductGroupIds( pluginGroupIds, allProducts ) {
+	return _uniq(
+		_flatMap( pluginGroupIds, pluginGroupId => getProductsByProductGroupId( pluginGroupId, allProducts ) )
+	);
 }
 
 /**
