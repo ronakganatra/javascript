@@ -1,6 +1,6 @@
 import { createComponentWithIntl } from "../../../utils";
 import { MemoryRouter as Router } from "react-router-dom";
-import Connect from "../../../src/components/connect/Connect";
+import SiteAuthenticationForm from "../../../src/components/connect/SiteAuthenticationForm";
 import React from "react";
 
 test( 'The connect page matches the snapshot', () => {
@@ -9,13 +9,12 @@ test( 'The connect page matches the snapshot', () => {
 
 	const component = createComponentWithIntl(
 		<Router>
-			<Connect
-				dataMissing={ false }
-				clientId="1"
-				url="http://test.test"
-				pluginSlug={ [ "1", "2", "3" ] }
+			<SiteAuthenticationForm
+				forUrl="http://test.test"
 				siteAuthorizations={ siteAuthorizations }
 				myYoastAuthorizations={ myYoastAuthorizations }
+				onAuthorize={ () => {} }
+				onDeny={ () => {} }
 			/>
 		</Router>,
 	);
