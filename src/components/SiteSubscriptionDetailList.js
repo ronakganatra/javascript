@@ -50,7 +50,7 @@ function SiteSubscriptionDetailList( props ) {
 }
 
 SiteSubscriptionDetailList.propTypes = {
-	plugins: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ).isRequired,
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onToggleSubscription: PropTypes.func.isRequired,
 	intl: intlShape.isRequired,
@@ -62,6 +62,7 @@ SiteSubscriptionDetailList.propTypes = {
 
 SiteSubscriptionDetailList.defaultProps = {
 	onDownloadModalOpen: () => {},
+	modalOpen: false,
 };
 
 export default injectIntl( SiteSubscriptionDetailList );

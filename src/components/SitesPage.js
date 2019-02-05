@@ -266,7 +266,7 @@ SitesPage.propTypes = {
 	error: PropTypes.object,
 
 	sites: PropTypes.arrayOf( PropTypes.object ),
-	plugins: PropTypes.arrayOf( PropTypes.object ),
+	plugins: PropTypes.arrayOf( PropTypes.object ).isRequired,
 	configurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
 	availableConfigurationServiceRequests: PropTypes.arrayOf( PropTypes.object ),
 	availableSites: PropTypes.arrayOf( PropTypes.object ),
@@ -284,12 +284,15 @@ SitesPage.propTypes = {
 SitesPage.defaultProps = {
 	sites: [],
 	availableConfigurationServiceRequests: [],
+	configurationServiceRequests: [],
 	availableSites: [],
 	configurationServiceRequestModalSiteId: "",
+	configurationServiceRequestModalOpen: false,
 	linkingSiteUrl: "",
 	modalOpen: false,
 	error: null,
 	showLoader: false,
+	query: "",
 };
 
 export default injectIntl( SitesPage );
