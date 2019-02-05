@@ -39,6 +39,7 @@ ConnectComponent.propTypes = {
 	] ).isRequired,
 	pluginSlug: PropTypes.oneOfType( [
 		PropTypes.array,
+		PropTypes.string,
 		PropTypes.bool,
 	] ).isRequired,
 	siteAuthorizations: PropTypes.array,
