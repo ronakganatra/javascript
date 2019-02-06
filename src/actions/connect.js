@@ -65,7 +65,10 @@ export function connectRequest( params ) {
 		const request = prepareInternalRequest( "Sites/connect/", "POST", params );
 		doRequest( request )
 			.then(
-				() => dispatch( connectSuccess() )
+				( redirectUrl ) => {
+					dispatch( connectSuccess() );
+					window.location = redirectUrl;
+				}
 			)
 			.catch( ( error ) => {
 				dispatch( connectFailure( error ) );
