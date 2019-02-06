@@ -1,8 +1,11 @@
+// External dependencies
 import React from "react";
 import PropTypes from "prop-types";
 import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
-import { ModalHeading } from "../Headings";
 import styled from "styled-components";
+
+// Internal dependencies
+import { ModalHeading } from "../Headings";
 import colors from "yoast-components/style-guide/colors";
 import { LargeButton } from "../Button";
 import defaults from "../../config/defaults";
