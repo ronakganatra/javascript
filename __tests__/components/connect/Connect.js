@@ -4,18 +4,14 @@ import Connect from "../../../src/components/connect/Connect";
 import React from "react";
 
 test( 'The connect page matches the snapshot', () => {
-	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
-	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
-
 	const component = createComponentWithIntl(
 		<Router>
 			<Connect
 				dataMissing={ false }
 				clientId="1"
 				url="http://test.test"
+				redirectUrl="http://test.test"
 				pluginSlug={ [ "1", "2", "3" ] }
-				siteAuthorizations={ siteAuthorizations }
-				myYoastAuthorizations={ myYoastAuthorizations }
 			/>
 		</Router>,
 	);

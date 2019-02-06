@@ -32,18 +32,21 @@ export const mapStateToProps = ( state, ownProps ) => {
 	 */
 	const hasClientId = connectParams.hasOwnProperty( "clientId" );
 	const hasUrl = connectParams.hasOwnProperty( "url" );
+	const hasRedirectUrl = connectParams.hasOwnProperty( "redirectUrl" );
 	const hasPluginSlug = connectParams.hasOwnProperty( "pluginSlug" );
 
-	let clientId, url, pluginSlug;
-	if ( hasClientId && hasUrl && hasPluginSlug ) {
+	let clientId, url, pluginSlug, redirectUrl;
+	if ( hasClientId && hasUrl && hasPluginSlug && hasRedirectUrl ) {
 		clientId = connectParams.clientId;
 		url = connectParams.url;
+		redirectUrl = connectParams.redirectUrl;
 		pluginSlug = connectParams.pluginSlug;
 
 		// Save to a cookie, now that we have the data.
 		setConnectParams( {
 			clientId,
 			url,
+			redirectUrl,
 			pluginSlug,
 		} );
 	} else {
@@ -51,6 +54,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		const connectCookie = getConnectParams();
 		clientId = verifyObjectAndField( connectCookie, "clientId" ) && connectCookie.clientId;
 		url = verifyObjectAndField( connectCookie, "url" ) && connectCookie.url;
+		redirectUrl = verifyObjectAndField( connectCookie, "url" ) && connectCookie.redirectUrl;
 		pluginSlug = verifyObjectAndField( connectCookie, "pluginSlug" ) && connectCookie.pluginSlug;
 	}
 
@@ -60,6 +64,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	return {
 		clientId,
 		url,
+		redirectUrl,
 		pluginSlug,
 		dataMissing,
 	};
