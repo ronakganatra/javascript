@@ -77,6 +77,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 			dispatch( connectRequest( connectParams ) );
 		},
 		onDeny: () => {
+			window.history.back();
 		},
 	};
 };
