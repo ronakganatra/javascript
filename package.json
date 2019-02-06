@@ -68,7 +68,7 @@
     "lodash": "^4.17.4",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.5.10",
-    "query-string": "^6.2.0",
+    "query-string": "5",
     "react": "^16.0.0",
     "react-document-title": "^2.0.3",
     "react-dom": "^16.0.0",
