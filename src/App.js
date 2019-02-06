@@ -237,6 +237,7 @@ class Routes extends React.Component {
 		return true;
 	}
 
+	/* eslint-disable complexity */
 	/**
 	 * Renders the component.
 	 *
@@ -385,6 +386,7 @@ class Routes extends React.Component {
 		return <span />;
 	}
 }
+/* eslint-enable complexity */
 
 Routes.propTypes = {
 	userEnabled: PropTypes.bool,

@@ -63,6 +63,9 @@ import {
 	byIdProductGroupsReducer,
 	uiAllProductGroupsReducer,
 } from "./productGroups";
+import {
+	uiConnectReducer,
+} from "./connect";
 
 
 export const uiReducer = combineReducers( {
@@ -90,6 +93,7 @@ export const uiReducer = combineReducers( {
 	login: uiLoginReducer,
 	signup: uiSignupReducer,
 	activate: uiActivateReducer,
+	connect: uiConnectReducer,
 } );
 
 export const entitiesSitesReducer = combineReducers( {

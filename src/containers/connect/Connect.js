@@ -5,6 +5,7 @@ import {
 	setConnectParams,
 } from "../../functions/connect";
 import ConnectComponent from "../../components/connect/Connect";
+import { connectRequest } from "../../actions/connect";
 
 /**
  * Verifies whether a certain variable is an object containing a certain field.
@@ -70,9 +71,10 @@ export const mapStateToProps = ( state, ownProps ) => {
 	};
 };
 
-export const mapDispatchToProps = () => {
+export const mapDispatchToProps = ( dispatch ) => {
 	return {
-		onAuthorize: () => {
+		onAuthorize: ( connectParams ) => {
+			dispatch( connectRequest( connectParams ) );
 		},
 		onDeny: () => {
 		},

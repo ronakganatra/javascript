@@ -139,7 +139,18 @@ function ConnectComponent( props ) {
 			<CancelButton onClick={ props.onDeny }>
 				<FormattedMessage { ...messages.siteAuthenticationFormCancelButtonText } />
 			</CancelButton>
-			<AuthorizeButton onClick={ props.onAuthorize }>
+			<AuthorizeButton
+				onClick={
+					() => {
+						props.onAuthorize( {
+							clientId: props.clientId,
+							url: props.url,
+							redirectUrl: props.redirectUrl,
+							pluginSlug: props.pluginSlug,
+						} );
+					}
+				}
+			>
 				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
 			</AuthorizeButton>
 		</AuthenticationFormContainer>
