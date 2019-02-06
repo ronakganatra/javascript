@@ -19,7 +19,7 @@ function verifyObjectAndField( object, field ) {
 }
 
 /* eslint-disable require-jsdoc*/
-const mapStateToProps = ( state, ownProps ) => {
+export const mapStateToProps = ( state, ownProps ) => {
 	/*
 	Because the object returned by queryString was created with Object.create( null ), it's not an Object.prototype.
 	We assign it to an actual Object.
@@ -57,20 +57,15 @@ const mapStateToProps = ( state, ownProps ) => {
 	// If any of the params is still false, dataMissing is true;
 	const dataMissing = ! ( clientId && url && pluginSlug );
 
-	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
-	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
-
 	return {
 		clientId,
 		url,
 		pluginSlug,
 		dataMissing,
-		siteAuthorizations,
-		myYoastAuthorizations,
 	};
 };
 
-const mapDispatchToProps = () => {
+export const mapDispatchToProps = () => {
 	return {
 		onAuthorize: () => {
 		},

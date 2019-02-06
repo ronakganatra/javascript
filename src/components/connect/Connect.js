@@ -18,9 +18,6 @@ class ConnectComponent extends React.Component {
 				forUrl={ typeof( this.props.url ) === "string" ? this.props.url : "your website" }
 				onAuthorize={ this.props.onAuthorize }
 				onDeny={ this.props.onDeny }
-				siteAuthorizations={ this.props.siteAuthorizations }
-				myYoastAuthorizations={ this.props.myYoastAuthorizations }
-
 			/>
 		);
 	}

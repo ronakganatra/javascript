@@ -174,7 +174,7 @@ exports[`The connect page matches the snapshot 1`] = `
   </p>
   <button
     className="c5 c6 c7 c8 c9"
-    onClick={undefined}
+    onClick={[Function]}
     type="button"
   >
     <span>
@@ -183,7 +183,7 @@ exports[`The connect page matches the snapshot 1`] = `
   </button>
   <button
     className="c10 c6 c7 c8 c9"
-    onClick={undefined}
+    onClick={[Function]}
     type="button"
   >
     <span>

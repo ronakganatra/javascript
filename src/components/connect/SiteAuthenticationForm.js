@@ -114,6 +114,9 @@ function SiteAuthenticationForm( props ) {
 	const myYoastText = <BoldSpan>{ "MyYoast" }</BoldSpan>;
 	const siteUrl = <BoldSpan> { props.forUrl.replace( stripUrlRegex, "" ) } </BoldSpan>;
 
+	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
+	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
+
 	return (
 		<AuthenticationFormContainer>
 			<ModalHeading>
@@ -122,11 +125,11 @@ function SiteAuthenticationForm( props ) {
 			<p>
 				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: siteUrl } } />
 			</p>
-			{ getAuthorizations( props.siteAuthorizations ) }
+			{ getAuthorizations( siteAuthorizations ) }
 			<p>
 				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: myYoastText } } />
 			</p>
-			{ getAuthorizations( props.myYoastAuthorizations ) }
+			{ getAuthorizations( myYoastAuthorizations ) }
 			<FadedParagraph>
 				<FormattedMessage { ...messages.siteAuthenticationFormConnectText } />
 			</FadedParagraph>
@@ -142,10 +145,13 @@ function SiteAuthenticationForm( props ) {
 
 SiteAuthenticationForm.propTypes = {
 	forUrl: PropTypes.string.isRequired,
-	siteAuthorizations: PropTypes.array,
-	myYoastAuthorizations: PropTypes.array,
 	onAuthorize: PropTypes.func,
 	onDeny: PropTypes.func,
+};
+
+SiteAuthenticationForm.defaultProps = {
+	onAuthorize: () => {},
+	onDeny: () => {},
 };
 
 export default injectIntl( SiteAuthenticationForm );
