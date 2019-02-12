@@ -55,6 +55,10 @@ const messages = defineMessages( {
 		id: "downloadsPage.search.buttonShop",
 		defaultMessage: "Get products",
 	},
+	guide: {
+		id: "downloadsPage.noProducts",
+		defaultMessage: "our guide",
+	},
 } );
 
 const ProductOverviewContainer = styled.div`
@@ -200,6 +204,15 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloadsPage.noDownloads.welcome"
 				defaultMessage="Welcome to the downloads overview."
+			/>,
+			<FormattedMessage
+				id="downloadsPage.byLine.plugins"
+				defaultMessage="Installing using composer? See { link }."
+				values={ {
+					link: <Link linkTarget="_blank" to="https://kb.yoast.com/kb/how-to-install-yoast-plugins-using-composer/">
+						{ this.props.intl.formatMessage( messages.guide ) }
+					</Link>,
+				} }
 			/>,
 			<FormattedMessage
 				id="downloadsPage.noDownloads.explanation"

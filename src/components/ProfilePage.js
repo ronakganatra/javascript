@@ -16,6 +16,7 @@ import SubscribeNewsletter from "./account/profile/SubscribeNewsletter";
 import DeleteAccount from "./account/profile/dangerzone/DeleteAccount";
 import DownloadAccount from "./account/profile/dangerzone/DownloadAccount";
 import PasswordResetForm from "./account/profile/PasswordResetForm";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	validationFormatEmail: {
@@ -77,6 +78,10 @@ const messages = defineMessages( {
 	newsLetter: {
 		id: "newsLetter",
 		defaultMessage: "Newsletter",
+	},
+	guide: {
+		id: "account.guide",
+		defaultMessage: "guide",
 	},
 } );
 
@@ -276,6 +281,17 @@ class ProfilePage extends React.Component {
 	getComposerTools() {
 		const ComposerIntroduction =
 			<ComposerIntroductionArea>
+				<FormattedMessage
+					id="downloadsPage.byLine.plugins"
+					defaultMessage="Need more information on how to create your token? See our { link }."
+					values={ {
+						link: <Link linkTarget="_blank" to="https://kb.yoast.com/kb/how-to-install-yoast-plugins-using-composer/">
+							{ this.props.intl.formatMessage( messages.guide ) }
+						</Link>,
+					} }
+				/>
+				<br />
+				<br />
 				{
 					this.hasActiveComposerTokens()
 						? <FormattedMessage
