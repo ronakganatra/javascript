@@ -34,7 +34,7 @@ const messages = defineMessages( {
 	},
 } );
 
-const Wrapper = styled.div`
+const AuthenticationFormContainer = styled.div`
 	margin: -24px -24px -40px;
 `;
 
@@ -104,7 +104,7 @@ function ConnectComponent( props ) {
 	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
 
 	return (
-		<Wrapper>
+		<AuthenticationFormContainer>
 			<ModalHeading>
 				<b><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></b>
 			</ModalHeading>
@@ -138,7 +138,7 @@ function ConnectComponent( props ) {
 					<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
 				</WideAuthorizeButton>
 			</ButtonsContainer>
-		</Wrapper>
+		</AuthenticationFormContainer>
 	);
 }
 
