@@ -1,105 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The connect page matches the snapshot 1`] = `
-Array [
-  .c0 {
+.c1 {
   font-weight: 300;
   font-size: 1.5em;
   margin: 0;
 }
 
-<h1
-    className="c0"
-  >
-    <b>
-      <span>
-        Authorization
-      </span>
-    </b>
-  </h1>,
-  <p>
-    <span>
-      Authorize 
-      <b>
-        test.test
-      </b>
-       to:
-    </span>
-  </p>,
-  .c0 {
-  border-top: 1px solid #888;
-  margin: 1em 0 2em;
-  padding: 0;
-  list-style-position: inside;
-}
-
-.c1 {
-  border-bottom: 1px solid #888;
-  padding: 8px 0 8px 24px;
-}
-
-<ul
-    className="c0"
-  >
-    <li
-      className="c1"
-    >
-      <span>
-        Receive Yoast plugin updates.
-      </span>
-    </li>
-    <li
-      className="c1"
-    >
-      <span>
-        Send messages to MyYoast.
-      </span>
-    </li>
-  </ul>,
-  <p>
-    <span>
-      Authorize 
-      <b>
-        MyYoast
-      </b>
-       to:
-    </span>
-  </p>,
-  .c0 {
-  border-top: 1px solid #888;
-  margin: 1em 0 2em;
-  padding: 0;
-  list-style-position: inside;
-}
-
-.c1 {
-  border-bottom: 1px solid #888;
-  padding: 8px 0 8px 24px;
-}
-
-<ul
-    className="c0"
-  >
-    <li
-      className="c1"
-    >
-      <span>
-        Send messages to your website.
-      </span>
-    </li>
-  </ul>,
-  .c0 {
-  color: #767676;
-}
-
-<p
-    className="c0"
-  >
-    <span>
-      Authorizing will start the process of connecting your website to your MyYoast account.
-    </span>
-  </p>,
-  .c3 {
+.c8 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -117,23 +25,23 @@ Array [
   transition: background-color 150ms ease-out;
 }
 
-.c3:hover,
-.c3:focus {
+.c8:hover,
+.c8:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c3:active {
+.c8:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c6 {
+.c11 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c2 {
+.c7 {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
@@ -143,8 +51,8 @@ Array [
   filter: none;
 }
 
-.c2:hover,
-.c2:focus {
+.c7:hover,
+.c7:focus {
   background-color: #64a60a;
   color: #fff;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
@@ -152,11 +60,11 @@ Array [
   text-shadow: 0px 0px 2px #000;
 }
 
-.c5 {
+.c10 {
   min-width: 152px;
 }
 
-.c0 {
+.c5 {
   -webkit-flex: 1 0 200px;
   -ms-flex: 1 0 200px;
   flex: 1 0 200px;
@@ -164,19 +72,39 @@ Array [
   text-align: right;
 }
 
-.c0 a,
-.c0 button {
+.c5 a,
+.c5 button {
   margin-left: 12px;
 }
 
+.c0 {
+  margin: -24px -24px -40px;
+}
+
+.c2 {
+  border-top: 1px solid #888;
+  margin: 1em 0 2em;
+  padding: 0;
+  list-style-position: inside;
+}
+
+.c3 {
+  border-bottom: 1px solid #888;
+  padding: 8px 0 8px 24px;
+}
+
 .c4 {
+  color: #767676;
+}
+
+.c9 {
   background-color: #a4286a;
   color: #fff;
   text-shadow: none;
 }
 
 @media screen and ( max-width:800px ) {
-  .c1 {
+  .c6 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
@@ -184,7 +112,7 @@ Array [
 }
 
 @media screen and (max-width:800px) {
-  .c0 {
+  .c5 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -202,18 +130,84 @@ Array [
     justify-content: center;
   }
 
-  .c0 a,
-  .c0 button {
+  .c5 a,
+  .c5 button {
     margin-left: 0;
     margin-bottom: 8px;
   }
 }
 
 <div
-    className="c0"
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    <b>
+      <span>
+        Authorization
+      </span>
+    </b>
+  </h1>
+  <p>
+    <span>
+      Authorize 
+      <b>
+        test.test
+      </b>
+       to:
+    </span>
+  </p>
+  <ul
+    className="c2"
+  >
+    <li
+      className="c3"
+    >
+      <span>
+        Receive Yoast plugin updates.
+      </span>
+    </li>
+    <li
+      className="c3"
+    >
+      <span>
+        Send messages to MyYoast.
+      </span>
+    </li>
+  </ul>
+  <p>
+    <span>
+      Authorize 
+      <b>
+        MyYoast
+      </b>
+       to:
+    </span>
+  </p>
+  <ul
+    className="c2"
+  >
+    <li
+      className="c3"
+    >
+      <span>
+        Send messages to your website.
+      </span>
+    </li>
+  </ul>
+  <p
+    className="c4"
+  >
+    <span>
+      Authorizing will start the process of connecting your website to your MyYoast account.
+    </span>
+  </p>
+  <div
+    className="c5"
   >
     <button
-      className="c1 c2 c3"
+      className="c6 c7 c8"
       onClick={[Function]}
       type="button"
     >
@@ -222,7 +216,7 @@ Array [
       </span>
     </button>
     <button
-      className="c1 c4 c5 Button-kDSBcD c6 c3"
+      className="c6 c9 c10 Button-kDSBcD c11 c8"
       onClick={[Function]}
       type="button"
     >
@@ -230,6 +224,6 @@ Array [
         Authorize
       </span>
     </button>
-  </div>,
-]
+  </div>
+</div>
 `;

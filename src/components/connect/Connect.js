@@ -1,5 +1,5 @@
 // External dependencies
-import React, { Fragment } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
@@ -33,6 +33,10 @@ const messages = defineMessages( {
 		defaultMessage: "Authorizing will start the process of connecting your website to your MyYoast account.",
 	},
 } );
+
+const Wrapper = styled.div`
+	margin: -24px -24px -40px;
+`;
 
 const AuthorizationList = styled.ul`
 	border-top: 1px solid ${ colors.$color_grey_medium_dark };
@@ -100,7 +104,7 @@ function ConnectComponent( props ) {
 	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
 
 	return (
-		<Fragment>
+		<Wrapper>
 			<ModalHeading>
 				<b><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></b>
 			</ModalHeading>
@@ -134,7 +138,7 @@ function ConnectComponent( props ) {
 					<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
 				</WideAuthorizeButton>
 			</ButtonsContainer>
-		</Fragment>
+		</Wrapper>
 	);
 }
 
