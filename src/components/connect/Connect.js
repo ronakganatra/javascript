@@ -7,8 +7,8 @@ import styled from "styled-components";
 // Internal dependencies
 import { ModalHeading } from "../Headings";
 import colors from "yoast-components/style-guide/colors";
-import { LargeButton } from "../Button";
-import defaults from "../../config/defaults";
+import { LargeButton, LargeSecondaryButton, makeButtonFullWidth } from "../Button";
+import ButtonsContainer from "../general/ButtonsContainer";
 
 
 const messages = defineMessages( {
@@ -50,26 +50,14 @@ const FadedParagraph = styled.p`
 	color: ${ colors.$color_grey_text_light }
 `;
 
-const ConnectButton = styled( LargeButton )`
-	font-size: 16px;
-	font-weight: 400;
-	text-shadow: none;
-
-	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
-		min-width: 120px;
-	}
-`;
-
-const CancelButton = styled( ConnectButton )`
-	margin-right: 16px;
-	background-color: ${ colors.$color_grey_light };
-	color: ${ colors.$color_black };
-`;
-
-const AuthorizeButton = styled( ConnectButton )`
+const AuthorizeButton = styled( LargeButton )`
 	background-color: ${ colors.$color_pink_dark };
 	color: ${ colors.$color_white };
+	text-shadow: none;
 `;
+
+const WideAuthorizeButton = makeButtonFullWidth( AuthorizeButton );
+const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
  * Create an unordered list based on the passed authorizations the user has to agree to achieve a connection between their url and my yoast.
@@ -127,23 +115,25 @@ function ConnectComponent( props ) {
 			<FadedParagraph>
 				<FormattedMessage { ...messages.siteAuthenticationFormConnectText } />
 			</FadedParagraph>
-			<CancelButton onClick={ props.onDeny }>
-				<FormattedMessage { ...messages.siteAuthenticationFormCancelButtonText } />
-			</CancelButton>
-			<AuthorizeButton
-				onClick={
-					() => {
-						props.onAuthorize( {
-							clientId: props.clientId,
-							url: props.url,
-							redirectUrl: props.redirectUrl,
-							pluginSlug: props.pluginSlug,
-						} );
+			<ButtonsContainer>
+				<WideSecondaryButton onClick={ props.onDeny }>
+					<FormattedMessage { ...messages.siteAuthenticationFormCancelButtonText } />
+				</WideSecondaryButton>
+				<WideAuthorizeButton
+					onClick={
+						() => {
+							props.onAuthorize( {
+								clientId: props.clientId,
+								url: props.url,
+								redirectUrl: props.redirectUrl,
+								pluginSlug: props.pluginSlug,
+							} );
+						}
 					}
-				}
-			>
-				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
-			</AuthorizeButton>
+				>
+					<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
+				</WideAuthorizeButton>
+			</ButtonsContainer>
 		</Fragment>
 	);
 }
