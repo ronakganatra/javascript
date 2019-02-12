@@ -19,7 +19,7 @@ exports[`The YoastSelect component matches the snapshot 1`] = `
 
 .c0 .Select-placeholder {
   line-height: 48px;
-  color: #646464;
+  color: #616161;
 }
 
 .c0.Select--single > .Select-control .Select-value {
@@ -150,7 +150,7 @@ exports[`The YoastSelect with placeholder and value matches the snapshot 1`] = `
 
 .c0 .Select-placeholder {
   line-height: 48px;
-  color: #646464;
+  color: #616161;
 }
 
 .c0.Select--single > .Select-control .Select-value {
@@ -308,7 +308,7 @@ exports[`The YoastSelect with placeholder matches the snapshot 1`] = `
 
 .c0 .Select-placeholder {
   line-height: 48px;
-  color: #646464;
+  color: #616161;
 }
 
 .c0.Select--single > .Select-control .Select-value {

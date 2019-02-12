@@ -1,5 +1,5 @@
 // External dependencies
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { defineMessages, FormattedMessage, injectIntl } from "react-intl";
 import styled from "styled-components";
@@ -34,41 +34,34 @@ const messages = defineMessages( {
 	},
 } );
 
-const AuthenticationFormContainer = styled.div`
-`;
-
 const AuthorizationList = styled.ul`
+	border-top: 1px solid ${ colors.$color_grey_medium_dark };
+	margin: 1em 0 2em;
+	padding: 0;
+	list-style-position: inside;
 `;
 
 const AuthorizationRow = styled.li`
-	padding-bottom: 12px;
-`;
-
-const LightHr = styled.hr`
-	color: ${ colors.$color_grey_medium_dark };
-	margin-left: -40px;
-`;
-
-const BoldSpan = styled.span`
-	font-weight: 700;
+	border-bottom: 1px solid ${ colors.$color_grey_medium_dark };
+	padding: 8px 0 8px 24px;
 `;
 
 const FadedParagraph = styled.p`
-	color: ${ colors.$color_grey_medium_dark }
+	color: ${ colors.$color_grey_text_light }
 `;
 
 const ConnectButton = styled( LargeButton )`
 	font-size: 16px;
-	font-weight: 1;
+	font-weight: 400;
 	text-shadow: none;
-	
+
 	@media screen and ( max-width: ${ defaults.css.breakpoint.mobile }px ) {
 		min-width: 120px;
 	}
 `;
 
 const CancelButton = styled( ConnectButton )`
-	margin-right: 20px;
+	margin-right: 16px;
 	background-color: ${ colors.$color_grey_light };
 	color: ${ colors.$color_black };
 `;
@@ -88,7 +81,6 @@ const AuthorizeButton = styled( ConnectButton )`
 function getAuthorizations( authorizations ) {
 	return (
 		<AuthorizationList>
-			<LightHr />
 			{ authorizations.map(
 				( authorization, index ) =>
 					<AuthorizationRow key={ `${ index }:row` }>
@@ -96,7 +88,6 @@ function getAuthorizations( authorizations ) {
 							id={ `${ index }:description` }
 							defaultMessage={ authorization.description }
 						/>
-						<LightHr />
 					</AuthorizationRow>
 			) }
 		</AuthorizationList>
@@ -104,26 +95,26 @@ function getAuthorizations( authorizations ) {
 }
 
 /**
-* The Connect component.
-*
-* @param {Object} props The props to use.
-*
-* @returns {ReactElement} The rendered Connect component.
-*/
+ * The Connect component.
+ *
+ * @param {Object} props The props to use.
+ *
+ * @returns {ReactElement} The rendered Connect component.
+ */
 function ConnectComponent( props ) {
 	const stripUrlRegex = /^(?:https?:\/\/)?(?:www\.)?/i;
-	const myYoastText = <BoldSpan>{ "MyYoast" }</BoldSpan>;
+	const myYoastText = <b>{ "MyYoast" }</b>;
 
 	const forUrl = props.url || "your website";
-	const siteUrl = <BoldSpan> { forUrl.replace( stripUrlRegex, "" ) } </BoldSpan>;
+	const siteUrl = <b>{ forUrl.replace( stripUrlRegex, "" ) }</b>;
 
 	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
 	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];
 
 	return (
-		<AuthenticationFormContainer>
+		<Fragment>
 			<ModalHeading>
-				<strong><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></strong>
+				<b><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></b>
 			</ModalHeading>
 			<p>
 				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizationRequest } values={ { source: siteUrl } } />
@@ -153,7 +144,7 @@ function ConnectComponent( props ) {
 			>
 				<FormattedMessage { ...messages.siteAuthenticationFormAuthorizeButtonText } />
 			</AuthorizeButton>
-		</AuthenticationFormContainer>
+		</Fragment>
 	);
 }
 

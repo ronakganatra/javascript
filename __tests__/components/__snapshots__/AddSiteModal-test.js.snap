@@ -250,16 +250,16 @@ exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
 }
 
 .c4::-webkit-input-placeholder {
-  color: #646464;
+  color: #616161;
 }
 
 .c4::-moz-placeholder {
-  color: #646464;
+  color: #616161;
   opacity: 1;
 }
 
 .c4:-ms-input-placeholder {
-  color: #646464;
+  color: #616161;
 }
 
 .c8 {

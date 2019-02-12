@@ -308,7 +308,7 @@ exports[`the SubscriptionPage component matches the snapshot 1`] = `
   }
 
   .c11 > span:first-child {
-    color: #646464;
+    color: #616161;
   }
 }
 
@@ -783,7 +783,7 @@ exports[`the SubscriptionPage component matches the snapshot with a subscription
   }
 
   .c11 > span:first-child {
-    color: #646464;
+    color: #616161;
   }
 }
 
