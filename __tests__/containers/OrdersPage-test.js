@@ -99,9 +99,9 @@ let defaultExpected = {
 	query: "",
 };
 
-beforeEach(() => {
+beforeEach( () => {
 	state = Object.assign( {}, state );
-});
+} );
 
 test('the mapStateToProps function', () => {
 	expect( mapStateToProps( state ) ).toEqual( defaultExpected );

@@ -59,7 +59,7 @@ export const getOrdersById = createEntityByIdSelector( "orders" );
  */
 export const getPaidOrders = createSelector(
 	getOrders,
-	orders => orders.filter( ( order ) => {
+	orders => orders.filter( order => {
 		return [ "completed", "processing", "refunded" ].includes( order.status );
 	} )
 );
@@ -79,13 +79,14 @@ function createFilteredOrderSelector( orderSelector ) {
 		getSearchQuery,
 		( orders, query ) => {
 			if ( query.length > 0 ) {
-				orders = orders.filter( ( order ) => {
+				orders = orders.filter( order => {
 					const formattedDate = new Intl.DateTimeFormat( "en-US", {
 						year: "numeric",
 						month: "long",
 						day: "numeric",
 					} ).format( new Date( order.date ) );
 
+					// Orders where one of productName, invoiceNumber, totalAmount or the date matches the query.
 					return order.items.find( item => item.productName.toUpperCase().includes( query.toUpperCase() ) ) ||
 						order.invoiceNumber.toUpperCase().includes( query.toUpperCase() ) ||
 						( order.totalAmount / 100 ).toString().includes( query ) ||
