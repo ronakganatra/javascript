@@ -2,14 +2,17 @@ import { connect } from "react-redux";
 import Login from "../components/login/Login";
 import { loginRequest } from "../actions/login";
 import get from "lodash/get";
+import { getLogin } from "../selectors/ui/login";
 
 /* eslint-disable require-jsdoc */
 export const mapStateToProps = ( state ) => {
-	const newprops = Object.assign( {}, state.ui.login );
-	if ( newprops.amountOfOTPWarnings === 1 && get( newprops, "error.code" ) === "invalid_google_authenticator_token" ) {
-		newprops.error = { error: { code: "otp_required" } };
+	const login = Object.assign( {}, getLogin( state ) );
+
+	if ( login.amountOfOTPWarnings === 1 && get( login, "error.code" ) === "invalid_google_authenticator_token" ) {
+		login.error = { error: { code: "otp_required" } };
 	}
-	return newprops;
+
+	return login;
 };
 
 export const mapDispatchToProps = ( dispatch ) => {

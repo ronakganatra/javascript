@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
 import styled from "styled-components";
-import NewTabMessage from "../components/NewTabMessage";
 import { LargeButtonLink } from "../components/Button.js";
 
 const PageContainer = styled.div`
@@ -41,7 +40,6 @@ export default function LandingPage( props ) {
 			<p>
 				<LargeButtonLink to={ props.url } linkTarget="_blank">
 					{ props.urlText }
-					<NewTabMessage />
 				</LargeButtonLink>
 			</p>
 			<img src={ props.imageSource } alt="" />

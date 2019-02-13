@@ -574,7 +574,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         >
           <a
             className="c23 c27 c19"
-            href="/account/subscriptions/undefined"
+            href="/account/subscriptions/"
             onClick={[Function]}
           >
             <span>
@@ -674,7 +674,7 @@ exports[`the site subscription detail list component matches the snapshot 1`] = 
         >
           <a
             className="c23 c27 c19"
-            href="/account/subscriptions/undefined"
+            href="/account/subscriptions/"
             onClick={[Function]}
           >
             <span>

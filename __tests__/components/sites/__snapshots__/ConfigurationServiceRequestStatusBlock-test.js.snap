@@ -178,6 +178,12 @@ exports[`the configuration service request status block component with status in
   align-self: center;
 }
 
+.c7 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c6 {
   display: inline-block;
   height: 48px;
@@ -292,6 +298,13 @@ exports[`the configuration service request status block component with status in
           target="_blank"
         >
           View Report
+          <span
+            className="screen-reader-text c7"
+          >
+            <span>
+              (Opens in a new browser tab)
+            </span>
+          </span>
         </a>
         <p>
           <span>
@@ -385,6 +398,12 @@ exports[`the configuration service request status block component with status su
   align-self: center;
 }
 
+.c7 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
 .c6 {
   display: inline-block;
   height: 48px;
@@ -499,6 +518,13 @@ exports[`the configuration service request status block component with status su
           target="_blank"
         >
           View Report
+          <span
+            className="screen-reader-text c7"
+          >
+            <span>
+              (Opens in a new browser tab)
+            </span>
+          </span>
         </a>
         <p>
           <span>

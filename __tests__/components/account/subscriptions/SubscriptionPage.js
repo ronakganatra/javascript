@@ -36,14 +36,22 @@ let storeState = {
 			byId: {
 				"11": {
 					currency: "USD",
-					date: new Date( "2017-05-01 21:04:28" ),
+					date: "2017-05-01 21:04:28",
 					items: [ { productName: "Yoast SEO" } ],
-					orderNumber: "YST201701",
+					invoiceNumber: "YST201701",
 					status: "Completed",
-					total: "6900"
+					totalAmount: "6900"
 				}
 			},
 			allIds: [ "11" ],
+		},
+		products: {
+			allIds: [],
+			byId: {},
+		},
+		productGroups: {
+			allIds: [],
+			byId: {},
 		},
 		refunds: {
 			byId: {},

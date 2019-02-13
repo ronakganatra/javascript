@@ -2,6 +2,8 @@ import { connect } from "react-redux";
 import ResetPasswordPage from "../components/login/ResetPasswordPage";
 import { doRequest, prepareInternalRequest } from "../functions/api";
 import { resetPasswordFailure, resetPasswordRequest, resetPasswordSuccess } from "../actions/resetPassword";
+import { getRouter } from "../selectors/router/router";
+import { getResetPassword } from "../selectors/ui/login";
 
 /* eslint-disable require-jsdoc */
 export const mapDispatchToProps = ( dispatch ) => {
@@ -23,7 +25,7 @@ export const mapDispatchToProps = ( dispatch ) => {
 };
 
 export const mapStateToProps = ( state ) => {
-	return Object.assign( {}, { stateRouter: state.router }, state.ui.resetPassword );
+	return Object.assign( {}, { stateRouter: getRouter( state ) }, getResetPassword( state ) );
 };
 
 const ResetPasswordContainer = connect(

@@ -11,8 +11,8 @@ import _debounce from "lodash/debounce";
 import ErrorDisplay from "../errors/ErrorDisplay";
 import { ModalHeading } from "./Headings";
 import ButtonsContainer from "./general/ButtonsContainer";
-import YoastSelect from "./general/YoastSelect";
-import { StyledLabel, SpanStyledAsLabel } from "./Labels";
+import YoastNativeSelect from "./general/YoastNativeSelect";
+import { StyledLabel } from "./Labels";
 
 const messages = defineMessages( {
 	validationFormatURL: {
@@ -48,7 +48,11 @@ const ValidationText = styled.div`
 const WideLargeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
-
+/**
+ * Returns the AddSite component.
+ *
+ * @returns {ReactElement} The AddSite component.
+ */
 class AddSite extends React.Component {
 	/**
 	 * Initializes the class with the specified props.
@@ -67,16 +71,17 @@ class AddSite extends React.Component {
 		this.state = {
 			validationError: null,
 			showValidationError: false,
-			selectedOption: {
-				value: "wordpress",
-				label: "WordPress",
-			},
+			selectedValue: "wordpress",
 		};
 
 		// Defines the debounced function to show the validation error.
-		this.showValidationMessageDebounced = _debounce( this.showValidationMessage, 1000 );
+		this.showValidationMessageDebounced  = _debounce( this.showValidationMessage, 1000 );
 		// Defines the debounced function to announce the validation error.
 		this.speakValidationMessageDebounced = _debounce( this.speakValidationMessage, 1000 );
+
+		this.onWebsiteURLChange = this.onWebsiteURLChange.bind( this );
+		this.handleOnSubmit     = this.handleOnSubmit.bind( this );
+		this.handleOnBlur       = this.handleOnBlur.bind( this );
 	}
 
 	/**
@@ -88,36 +93,23 @@ class AddSite extends React.Component {
 	getPlatformSelect() {
 		return (
 			<div>
-				<SpanStyledAsLabel
-					id="add-site-select-platform-label"
-					onClick={ () => this.selectRef && this.selectRef.focus() }
+				<StyledLabel
+					htmlFor="add-site-select-platform"
 				>
 					<FormattedMessage
 						id="sites.addSite.enterUrl"
 						defaultMessage="Please select the platform that your website is running on:"
 					/>
-				</SpanStyledAsLabel>
-				<YoastSelect
-					name="selectPlatform"
-					value={ this.state.selectedOption.value }
-					onChange={ this.handleChange.bind( this ) }
-					searchable={ false }
-					clearable={ false }
-					innerRef={ ( ref ) => {
-						this.selectRef = ref;
-					} }
-					options={ [
-						{
-							value: "wordpress",
-							label: "WordPress",
-						},
-						{
-							value: "typo3",
-							label: "TYPO3",
-						},
-					] }
-					aria-labelledby="add-site-select-platform-label"
-				/>
+				</StyledLabel>
+				<YoastNativeSelect
+					selectId="add-site-select-platform"
+					selectName="selectPlatform"
+					selectDefaultValue={ this.state.selectedValue }
+					selectOnBlur={ this.handleOnBlur }
+				>
+					<option value="wordpress">WordPress</option>
+					<option value="typo3">TYPO3</option>
+				</YoastNativeSelect>
 			</div>
 		);
 	}
@@ -257,16 +249,23 @@ class AddSite extends React.Component {
 	 *
 	 * @returns {void}
 	 */
-	handleSubmit( event ) {
+	handleOnSubmit( event ) {
 		event.preventDefault();
 		if ( ! this.state.validationError && !! this.props.linkingSiteUrl ) {
-			this.props.onConnectClick( this.state.selectedOption.value );
+			this.props.onConnectClick( this.state.selectedValue );
 		}
 	}
 
-	handleChange( selectedOption ) {
+	/**
+	 * Handles the blur event.
+	 *
+	 * @param {object} event The blur event.
+	 *
+	 * @returns {void}
+	 */
+	handleOnBlur( event ) {
 		this.setState( {
-			selectedOption,
+			selectedValue: event.target.value,
 		} );
 	}
 
@@ -280,6 +279,11 @@ class AddSite extends React.Component {
 		speak( message, "assertive" );
 	}
 
+	/**
+	 * Populates the URL input field with the search term, if any, and runs validation.
+	 *
+	 * @returns {void}
+	 */
 	componentDidMount() {
 		if ( this.props.query ) {
 			this.props.onChange( this.props.query );
@@ -287,12 +291,24 @@ class AddSite extends React.Component {
 		}
 	}
 
+	/**
+	 * Validates the URL when entering a value in the URL input field.
+	 *
+	 * @param {object} nextProps The new props the component will receive.
+	 *
+	 * @returns {void}
+	 */
 	componentWillReceiveProps( nextProps ) {
 		if ( this.props.linkingSiteUrl !== nextProps.linkingSiteUrl ) {
 			this.runValidation( nextProps.linkingSiteUrl );
 		}
 	}
 
+	/**
+	 * Cancels debounced functions when the component unmounts.
+	 *
+	 * @returns {void}
+	 */
 	componentWillUnmount() {
 		this.showValidationMessageDebounced.cancel();
 		this.speakValidationMessageDebounced.cancel();
@@ -310,7 +326,7 @@ class AddSite extends React.Component {
 					<FormattedMessage id="sites.addSite.header" defaultMessage="Add Site" />
 				</ModalHeading>
 
-				<form onSubmit={ this.handleSubmit.bind( this ) } noValidate={ true }>
+				<form onSubmit={ this.handleOnSubmit } noValidate={ true }>
 					<StyledLabel htmlFor="add-site-input">
 						<FormattedMessage
 							id="sites.addSite.enterUrl"
@@ -323,7 +339,7 @@ class AddSite extends React.Component {
 						id="add-site-input"
 						placeholder={ "https://example-site.com" }
 						value={ this.props.linkingSiteUrl }
-						onChange={ this.onWebsiteURLChange.bind( this ) }
+						onChange={ this.onWebsiteURLChange }
 					/>
 
 					<ErrorDisplay error={ this.props.error } />
@@ -355,6 +371,10 @@ AddSite.propTypes = {
 	onChange: PropTypes.func.isRequired,
 	query: PropTypes.string.isRequired,
 	error: PropTypes.object,
+};
+
+AddSite.defaultProps = {
+	error: {},
 };
 
 export default injectIntl( AddSite );

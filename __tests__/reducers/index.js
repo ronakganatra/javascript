@@ -126,6 +126,10 @@ test( 'ui reducer', () => {
 		"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
 		"composerTokens": { "name": "uiComposerTokensReducer" },
 		"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
+		connect: {
+			doingRequest: false,
+			error: null,
+		},
 		"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
 		"home": {
 			"blogFeed": {
@@ -304,6 +308,10 @@ test( 'root reducer with LINK_SITE_FAILURE action', () => {
 			"addSubscriptionModal": { "name": "uiAddSubscriptionModalReducer" },
 			"composerTokens": { "name": "uiComposerTokensReducer" },
 			"configurationServiceRequests": { "name": "uiConfigurationServiceRequestReducer" },
+			connect: {
+				doingRequest:false,
+				error: null,
+			},
 			"helpBeaconModal": { "name": "uiHelpBeaconModalReducer" },
 			"home": {
 				"blogFeed": {

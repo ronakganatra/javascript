@@ -76,7 +76,7 @@ exports[`The ImportDataStep component matches the snapshot 1`] = `
 
 .c1 .Select-placeholder {
   line-height: 48px;
-  color: #646464;
+  color: #616161;
 }
 
 .c1.Select--single > .Select-control .Select-value {

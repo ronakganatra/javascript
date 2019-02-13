@@ -1,26 +1,17 @@
 import { logout } from "../actions/user";
 import { connect } from "react-redux";
 import UserProfile from "../components/UserProfile";
-import { url } from "gravatar";
-const avatarPlaceholder = "https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png";
+import { getDisplayImage, getUserEmail } from "../selectors/user/data/profile";
+import { getLogoutError, isLoggedIn, isLoggingOut } from "../selectors/user/user";
 
 /* eslint-disable require-jsdoc */
 const mapStateToProps = ( state ) => {
 	return {
-		displayEmail: state.user.data.profile.email,
-		loggedIn: state.user.loggedIn,
-		loggingOut: state.user.loggingOut,
-		logoutError: state.user.logoutError,
-		displayImage: {
-			src: state.user.data.profile.userAvatarUrl || url( state.user.data.profile.email, {
-				// Gravatar rating
-				rating: "pg",
-				// Default image
-				d: avatarPlaceholder,
-				protocol: "https",
-			} ),
-			size: "64px",
-		},
+		displayEmail: getUserEmail( state ),
+		loggedIn: isLoggedIn( state ),
+		loggingOut: isLoggingOut( state ),
+		logoutError: getLogoutError( state ),
+		displayImage: getDisplayImage( state ),
 	};
 };
 

@@ -68,7 +68,9 @@
     "lodash": "^4.17.4",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.5.10",
+    "query-string": "5",
     "react": "^16.0.0",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.0.0",
     "react-intl": "^2.4.0",
     "react-modal": "^3.1.10",
@@ -94,7 +96,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "lint": "eslint src",
-    "lint-strict": "eslint src --max-warnings=401"
+    "lint-strict": "eslint src --max-warnings=347"
   },
   "jest": {
     "collectCoverageFrom": [

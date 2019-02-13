@@ -1,37 +1,102 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The AddSite component matches the snapshot 1`] = `
-.c11 {
-  height: 48px;
+.c1 {
+  font-weight: 300;
+  font-size: 1.5em;
   margin: 0;
-  padding: 0 16px;
-  border: 0;
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
-  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
-  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
-  border-radius: 4px;
-  font: 700 14px/24px "Open Sans",sans-serif;
-  cursor: pointer;
-  vertical-align: top;
-  -webkit-transition: background-color 150ms ease-out;
-  transition: background-color 150ms ease-out;
 }
 
-.c11:hover,
-.c11:focus {
-  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+.c16 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
 }
 
-.c11:active {
-  -webkit-transform: translateY( 1px );
-  -ms-transform: translateY( 1px );
-  transform: translateY( 1px );
-  box-shadow: none;
+.c2 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
 }
 
-.c14 {
+.c2 li:first-child > span::before {
+  left: auto;
+}
+
+.c5 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c5:first-child {
+  margin-top: 0;
+}
+
+.c13 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13:first-child {
+  margin-top: 0;
+}
+
+.c9 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c9:first-child {
+  padding-left: 0;
+}
+
+.c9::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c8 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c11 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c20 {
   height: 48px;
   margin: 0;
   padding: 0 16px;
@@ -49,122 +114,41 @@ exports[`The AddSite component matches the snapshot 1`] = `
   transition: background-color 150ms ease-out;
 }
 
-.c14:hover,
-.c14:focus {
+.c20:hover,
+.c20:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c14:active {
+.c20:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c13 {
+.c19 {
   text-shadow: 0px 0px 2px #000;
 }
 
-.c10 {
+.c18 {
+  text-shadow: none;
   color: #000;
-  background-color: #fff;
-  border: 1px solid #000;
-  min-width: 152px;
-  box-shadow: none;
-  -webkit-filter: none;
-  filter: none;
-}
-
-.c10:hover,
-.c10:focus {
-  background-color: #64a60a;
-  color: #fff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-  border: 0;
-  text-shadow: 0px 0px 2px #000;
+  background-color: #f1f1f1;
+  font: 100 13px "Open Sans",sans-serif;
 }
 
 .c12 {
-  min-width: 152px;
+  padding-left: 0;
+  color: #0066cd;
 }
 
-.c1 {
-  font-weight: 300;
-  font-size: 1.5em;
-  margin: 0;
-}
-
-.c8 {
-  -webkit-flex: 1 0 200px;
-  -ms-flex: 1 0 200px;
-  flex: 1 0 200px;
-  padding-bottom: 16px;
-  text-align: right;
-}
-
-.c8 a,
-.c8 button {
-  margin-left: 12px;
-}
-
-.c6 {
-  width: 100%;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
-}
-
-.c6.is-focused:not(.is-open) > .Select-control {
-  border-color: #64a60a;
-  box-shadow: none;
-  background: #fff;
-}
-
-.c6 .Select-control {
-  height: 48px;
-  border-radius: 0;
-}
-
-.c6 .Select-placeholder {
-  line-height: 48px;
-  color: #646464;
-}
-
-.c6.Select--single > .Select-control .Select-value {
-  line-height: 48px;
-}
-
-.c6 .Select-value-label {
-  line-height: 48px;
-}
-
-.c6 .Select-input {
-  line-height: 48px;
-}
-
-.c6 .Select-option {
-  color: #000;
-}
-
-.c6 .Select-option.is-selected {
-  background-color: #6dff003d;
-}
-
-.c6 .Select-option.is-focused {
-  background-color: #64a60a;
-  color: #fff;
-}
-
-.c2 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
-}
-
-.c5 {
-  display: inline-block;
-  font-size: 1em;
-  margin: 16px 0 8px;
-  font-weight: 700;
+.c15 {
+  padding-left: 0;
+  color: #0066cd;
+  font-size: 14px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  display: block;
 }
 
 .c0 {
@@ -173,68 +157,124 @@ exports[`The AddSite component matches the snapshot 1`] = `
   font-size: 1em;
 }
 
-.c4 {
-  width: 100%;
-  height: 48px;
-  box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
-  background: #ddd;
-  padding: 0 0 0 10px;
-  font-size: 1em;
-  border: 0;
-  margin-bottom: 8px;
-}
-
-.c3::-webkit-input-placeholder {
-  color: #646464;
-}
-
-.c3::-moz-placeholder {
-  color: #646464;
-  opacity: 1;
-}
-
-.c3:-ms-input-placeholder {
-  color: #646464;
-}
-
 .c7 {
-  font-size: 1em;
-  color: #dc3232;
-  margin: 1em 0;
-  min-height: 1.8em;
+  padding-right: 50px;
+}
+
+.c3 {
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+.c3:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.c14 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 28px;
 }
 
 @media screen and ( max-width:800px ) {
+  .c5 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c4:first-child {
+    margin-top: 0;
+  }
+
+  .c4 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
   .c9 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
     width: 100%;
     background-image: none;
     padding: 12px 16px;
   }
 }
 
-@media screen and (max-width:800px) {
-  .c8 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-align-items: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+@media screen and ( max-width:800px ) {
+  .c15 {
+    margin-bottom: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c7 {
+    padding-right: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    padding-left: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
   }
 
-  .c8 a,
-  .c8 button {
-    margin-left: 0;
-    margin-bottom: 8px;
+  .c6 > span {
+    line-height: inherit;
   }
 }
 
@@ -245,133 +285,97 @@ exports[`The AddSite component matches the snapshot 1`] = `
     className="c1"
   >
     <span>
-      Add Site
+      Plugin downloads
     </span>
   </h1>
-  <form
-    noValidate={true}
-    onSubmit={[Function]}
+  <ul
+    className="c2"
+    role="list"
   >
-    <label
-      className="c2"
-      htmlFor="add-site-input"
+    <li
+      className="c3 c4 c5"
+    >
+      <span
+        className="c6 c7 c8 c9"
+      >
+        <span>
+          product1
+        </span>
+      </span>
+      <span
+        className="c10 c11 c9"
+      >
+        <a
+          aria-label={null}
+          className="c12"
+          href="https://yoast.com/app/uploads/2017/10/wpseo-woocommerce-5.6.zip"
+          onClick={null}
+          rel={null}
+          target={null}
+        >
+          <span>
+            Download
+          </span>
+        </a>
+      </span>
+    </li>
+    <li
+      className="c3 c4 c13"
+    >
+      <span
+        className="c6 c7 c8 c9"
+      >
+        <span>
+          product2
+        </span>
+      </span>
+      <span
+        className="c10 c11 c9"
+      >
+        <a
+          aria-label={null}
+          className="c12"
+          href="https://yoast.com/app/uploads/2017/10/wpseo-woocommerce-5.6.zip"
+          onClick={null}
+          rel={null}
+          target={null}
+        >
+          <span>
+            Download
+          </span>
+        </a>
+      </span>
+    </li>
+  </ul>
+  <div
+    className="c14"
+  >
+    <a
+      aria-label={null}
+      className="c15"
+      href="https://yoa.st/myyoast-installation"
+      onClick={null}
+      rel={null}
+      target="_blank"
+    >
+      View the installation guides
+      <span
+        className="screen-reader-text c16"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+    <button
+      className="c17 c18 Button-kDSBcD c19 c20"
+      onClick={[Function]}
+      type="button"
     >
       <span>
-        Please enter the URL of the site you would like to add to your account:
+        Close
       </span>
-    </label>
-    <input
-      className="c3 c4"
-      id="add-site-input"
-      onChange={[Function]}
-      placeholder="https://example-site.com"
-      type="url"
-      value={undefined}
-    />
-    <div>
-      <span
-        className="c5"
-        id="add-site-select-platform-label"
-        onClick={[Function]}
-      >
-        <span>
-          Please select the platform that your website is running on:
-        </span>
-      </span>
-      <div
-        className="Select c6 has-value Select--single"
-        style={undefined}
-      >
-        <input
-          disabled={false}
-          name="selectPlatform"
-          type="hidden"
-          value="wordpress"
-        />
-        <div
-          className="Select-control"
-          onKeyDown={[Function]}
-          onMouseDown={[Function]}
-          onTouchEnd={[Function]}
-          onTouchMove={[Function]}
-          onTouchStart={[Function]}
-          style={undefined}
-        >
-          <span
-            className="Select-multi-value-wrapper"
-            id="react-select-2--value"
-          >
-            <div
-              className="Select-value"
-              style={undefined}
-              title={undefined}
-            >
-              <span
-                aria-selected="true"
-                className="Select-value-label"
-                id="react-select-2--value-item"
-                role="option"
-              >
-                WordPress
-              </span>
-            </div>
-            <div
-              aria-activedescendant="react-select-2--value"
-              aria-disabled="false"
-              aria-expanded={false}
-              aria-label={undefined}
-              aria-labelledby="add-site-select-platform-label"
-              aria-owns=""
-              className="Select-input"
-              onBlur={[Function]}
-              onFocus={[Function]}
-              role="combobox"
-              style={
-                Object {
-                  "border": 0,
-                  "display": "inline-block",
-                  "width": 1,
-                }
-              }
-              tabIndex={0}
-            />
-          </span>
-          <span
-            className="Select-arrow-zone"
-            onMouseDown={[Function]}
-          >
-            <span
-              className="Select-arrow"
-              onMouseDown={[Function]}
-            />
-          </span>
-        </div>
-      </div>
-    </div>
-    <div
-      className="c7"
-    />
-    <div
-      className="c8"
-    >
-      <button
-        className="c9 c10 c11"
-        onClick={undefined}
-        type="button"
-      >
-        <span>
-          Cancel
-        </span>
-      </button>
-      <button
-        className="c9 c12 Button-kDSBcD c13 c14"
-        type="submit"
-      >
-        <span>
-          Add
-        </span>
-      </button>
-    </div>
-  </form>
+    </button>
+  </div>
 </div>
 `;

@@ -317,4 +317,5 @@ ListTable.propTypes = {
 ListTable.defaultProps = {
 	doZebra: true,
 	invertZebra: false,
+	children: [],
 };

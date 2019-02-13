@@ -67,7 +67,7 @@ exports[`The ConfigurationServiceRequestBlock component matches the snapshot 1`]
 
 .c5 .Select-placeholder {
   line-height: 48px;
-  color: #646464;
+  color: #616161;
 }
 
 .c5.Select--single > .Select-control .Select-value {

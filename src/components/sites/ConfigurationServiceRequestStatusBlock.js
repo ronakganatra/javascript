@@ -53,6 +53,9 @@ const STATUSES = {
 	completed: "configurationCompleted",
 };
 
+/**
+ * The configurationService Request status block component.
+ */
 class ConfigurationServiceRequestStatusBlock extends React.Component {
 	getCurrentStatus() {
 		if ( this.props.status === "completed" ) {

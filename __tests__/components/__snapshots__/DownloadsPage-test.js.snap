@@ -266,7 +266,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
             <span>
                - Need help installing these? 
               <a
+                aria-label={null}
+                className={null}
                 href="https://yoa.st/myyoast-installation"
+                onClick={null}
+                rel={null}
                 target="_blank"
               >
                 Read our installation guides
@@ -593,7 +597,11 @@ exports[`the downloads page component matches the snapshot 1`] = `
             <span>
                - Want to learn more about SEO? 
               <a
+                aria-label={null}
+                className={null}
                 href="https://yoa.st/academy"
+                onClick={null}
+                rel={null}
                 target="_blank"
               >
                 Check out our SEO training courses
@@ -773,13 +781,13 @@ exports[`the downloads page component matches the snapshot 1`] = `
 `;
 
 exports[`the downloads page component matches the snapshot when there are no downloads 1`] = `
-.c4 {
+.c1 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c3 {
+.c4 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -798,28 +806,28 @@ exports[`the downloads page component matches the snapshot when there are no dow
   transition: background-color 150ms ease-out;
 }
 
-.c3:hover,
-.c3:focus {
+.c4:hover,
+.c4:focus {
   color: #fff;
 }
 
-.c3:hover,
-.c3:focus {
+.c4:hover,
+.c4:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c3:active {
+.c4:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
   box-shadow: none;
 }
 
-.c2 {
+.c3 {
   min-width: 152px;
 }
 
-.c1 {
+.c2 {
   margin-bottom: 2em;
 }
 
@@ -857,6 +865,29 @@ exports[`the downloads page component matches the snapshot when there are no dow
   </p>
   <p>
     <span>
+      Installing using composer? See 
+      <a
+        aria-label={null}
+        className={null}
+        href="https://kb.yoast.com/kb/how-to-install-yoast-plugins-using-composer/"
+        onClick={null}
+        rel={null}
+        target="_blank"
+      >
+        our guide
+        <span
+          className="screen-reader-text c1"
+        >
+          <span>
+            (Opens in a new browser tab)
+          </span>
+        </span>
+      </a>
+      .
+    </span>
+  </p>
+  <p>
+    <span>
       It looks like you haven’t bought any products with downloadable files yet.
     </span>
   </p>
@@ -867,7 +898,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
   </p>
   <a
     aria-label={null}
-    className="c1 c2 c3"
+    className="c2 c3 c4"
     href="https://yoast.com/shop/"
     onClick={null}
     rel={null}
@@ -877,7 +908,7 @@ exports[`the downloads page component matches the snapshot when there are no dow
       Shop
     </span>
     <span
-      className="screen-reader-text c4"
+      className="screen-reader-text c1"
     >
       <span>
         (Opens in a new browser tab)

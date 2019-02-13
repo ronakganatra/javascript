@@ -10,7 +10,7 @@ import { SUBSCRIBE_NEWSLETTER_SUCCESS } from "../actions/newsletter";
 import { RESET_PASSWORD_SUCCESS, SEND_RESET_PASSWORD_EMAIL_SUCCESS } from "../actions/resetPassword";
 import { CANCEL_SUBSCRIPTION_SUCCESS } from "../actions/subscriptions";
 import { SITE_ADD_SUBSCRIPTION_SUCCESS } from "../actions/site";
-import { getSubscriptionsById } from "../selectors/entities/subscriptions";
+import { getAllSubscriptionsById } from "../selectors/entities/subscriptions";
 
 /**
  * Create an event object to send to GoogleTagManager.
@@ -55,11 +55,11 @@ const eventsMap = {
 		( action, prevState, nextState ) => createEvent( "activate_subscription", {
 			site: nextState.entities.sites.byId[ action.siteId ].url,
 			type: nextState.entities.sites.byId[ action.siteId ].type,
-			subscription: getSubscriptionsById( nextState, action.subscriptionId ).name,
+			subscription: getAllSubscriptionsById( nextState )[ action.subscriptionId ].name,
 		} ),
 	[ CANCEL_SUBSCRIPTION_SUCCESS ]:
 		( action, prevState, nextState ) => createEvent( "cancel_subscription", {
-			subscription: getSubscriptionsById( nextState, action.subscriptionId ).name,
+			subscription: getAllSubscriptionsById( nextState )[ action.subscriptionId ].name,
 		} ),
 };
 

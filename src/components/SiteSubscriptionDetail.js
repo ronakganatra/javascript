@@ -9,7 +9,7 @@ import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, makeFullWidth } fro
 import _partial from "lodash/partial";
 import defaults from "../config/defaults.json";
 import util from "util";
-import NewTabMessage from "./NewTabMessage";
+import colors from "yoast-components/style-guide/colors";
 
 /* eslint-disable no-unused-vars */
 
@@ -98,7 +98,6 @@ function SiteSubscriptionDetail( props ) {
 				id="site.subscriptions.licenses.add"
 				defaultMessage={ anotherLicenseMessage }
 			/>
-			<NewTabMessage />
 		</IconButtonTransparentLink>
 	);
 
@@ -146,32 +145,29 @@ function SiteSubscriptionDetail( props ) {
 }
 
 SiteSubscriptionDetail.propTypes = {
-	subscriptionId: PropTypes.string,
 	name: PropTypes.string.isRequired,
-	onClickToggle: PropTypes.func,
-	onToggleSubscription: PropTypes.func,
-	onToggleDisabled: PropTypes.func,
 	onMoreInfoClick: PropTypes.func.isRequired,
 	onShop: PropTypes.string.isRequired,
-	isEnabled: PropTypes.bool,
-	isAvailable: PropTypes.bool,
-	hasSubscriptions: PropTypes.bool,
 	icon: PropTypes.string.isRequired,
 	limit: PropTypes.number.isRequired,
 	used: PropTypes.number.isRequired,
-	background: PropTypes.string,
 	intl: intlShape.isRequired,
-	currency: PropTypes.string,
-	modalOpen: PropTypes.bool,
 	onClose: PropTypes.func.isRequired,
 	storeUrl: PropTypes.string.isRequired,
+	onToggleSubscription: PropTypes.func.isRequired,
+	onToggleDisabled: PropTypes.func.isRequired,
+	hasSubscriptions: PropTypes.bool.isRequired,
+	subscriptionId: PropTypes.string,
+	isEnabled: PropTypes.bool,
+	background: PropTypes.string,
 	onDownloadModalOpen: PropTypes.func,
 };
 
 SiteSubscriptionDetail.defaultProps = {
-	onToggleSubscription: () => {},
 	isEnabled: false,
 	onDownloadModalOpen: () => {},
+	subscriptionId: "",
+	background: colors.$color_white,
 };
 
 export default injectIntl( SiteSubscriptionDetail );

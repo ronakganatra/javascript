@@ -16,7 +16,7 @@ import SuggestedAction from "./SuggestedAction";
 import { GoToButtonLink } from "./Button";
 import MyYoastModal from "./MyYoastModal";
 import ComposerHelp from "./downloads/ComposerHelp";
-import NewTabMessage from "./NewTabMessage";
+import Link from "./Link";
 
 const messages = defineMessages( {
 	searchResults: {
@@ -54,6 +54,10 @@ const messages = defineMessages( {
 	getProducts: {
 		id: "downloadsPage.search.buttonShop",
 		defaultMessage: "Get products",
+	},
+	guide: {
+		id: "downloadsPage.noProducts",
+		defaultMessage: "our guide",
 	},
 } );
 
@@ -177,10 +181,9 @@ class DownloadsPage extends React.Component {
 				id="downloadsPage.byLine.plugins"
 				defaultMessage=" - Need help installing these? { link }."
 				values={ {
-					link: <a target="_blank" href="https://yoa.st/myyoast-installation">
+					link: <Link linkTarget="_blank" to="https://yoa.st/myyoast-installation">
 						{ this.props.intl.formatMessage( messages.installationGuides ) }
-						<NewTabMessage />
-					</a>,
+					</Link>,
 				} }
 			/>
 		</ByLine>;
@@ -189,10 +192,9 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				{ ...messages.eBooksLearnMore }
 				values={ {
-					link: <a target="_blank" href="https://yoa.st/academy">
+					link: <Link linkTarget="_blank" to="https://yoa.st/academy">
 						{ this.props.intl.formatMessage( messages.coursesUpsell ) }
-						<NewTabMessage />
-					</a>,
+					</Link>,
 				} }
 			/>
 		</ByLine>;
@@ -202,6 +204,15 @@ class DownloadsPage extends React.Component {
 			<FormattedMessage
 				id="downloadsPage.noDownloads.welcome"
 				defaultMessage="Welcome to the downloads overview."
+			/>,
+			<FormattedMessage
+				id="downloadsPage.byLine.plugins"
+				defaultMessage="Installing using composer? See { link }."
+				values={ {
+					link: <Link linkTarget="_blank" to="https://kb.yoast.com/kb/how-to-install-yoast-plugins-using-composer/">
+						{ this.props.intl.formatMessage( messages.guide ) }
+					</Link>,
+				} }
 			/>,
 			<FormattedMessage
 				id="downloadsPage.noDownloads.explanation"

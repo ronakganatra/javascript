@@ -139,7 +139,7 @@ exports[`the subscription detail component has no next billing 1`] = `
   }
 
   .c1 > span:first-child {
-    color: #646464;
+    color: #616161;
   }
 }
 
@@ -361,7 +361,7 @@ exports[`the subscription detail component matches the snapshot 1`] = `
   }
 
   .c1 > span:first-child {
-    color: #646464;
+    color: #616161;
   }
 }
 
