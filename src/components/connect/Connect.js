@@ -54,13 +54,7 @@ const FadedParagraph = styled.p`
 	color: ${ colors.$color_grey_text_light }
 `;
 
-const AuthorizeButton = styled( LargeButton )`
-	background-color: ${ colors.$color_pink_dark };
-	color: ${ colors.$color_white };
-	text-shadow: none;
-`;
-
-const WideAuthorizeButton = makeButtonFullWidth( AuthorizeButton );
+const WideAuthorizeButton = makeButtonFullWidth( LargeButton );
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
