@@ -6,7 +6,7 @@ import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors";
 
 // Custom components
-import { ButtonLink, LinkButton, LargeSecondaryButtonLink } from "../Button";
+import { ButtonLink, LargeSecondaryButtonLink } from "../Button";
 import Link from "../Link";
 import ProgressBar from "../ProgressBar";
 
@@ -28,12 +28,6 @@ const CompletedIcon = styled.img`
 
 const ActionBlock = styled.div`
 	text-align: center;
-`;
-
-const AvailableEnrollment = styled.p`
-	font-weight: bold;
-	margin: 0;
-	margin-top: 24px;
 `;
 
 const Button = styled( ButtonLink )`
@@ -84,18 +78,6 @@ const messages = defineMessages( {
 	viewCertificateButton: {
 		id: "coursecard.viewCertificate",
 		defaultMessage: "View your certificate",
-	},
-	assignToSomeoneElse: {
-		id: "coursecard.assignToSomeoneElse",
-		defaultMessage: "Assign to someone else",
-	},
-	assignCourses: {
-		id: "coursecard.assign",
-		defaultMessage: "Assign courses",
-	},
-	amountAssigned: {
-		id: "coursecard.amountAssigned",
-		defaultMessage: "{assigned} / {total} assigned.",
 	},
 	viewCourse: {
 		id: "coursecard.viewCourse",
@@ -211,22 +193,6 @@ class CourseDetails extends React.Component {
 	 * @returns {React.Component} the component The component related to (the instance of) trials.
 	 */
 	getProgressLink() {
-		if ( this.props.isEnrolled && ! this.props.isTrial && this.props.progress === 0 && this.props.totalEnrollments === 1 ) {
-			/*
-			 Returns a LinkButton which can be used to assign someone else
-			 (but only when the user is enrolled, has not started the course yet,
-			 is not trialling out the course and it is the only enrollment)
-			 */
-			return <LinkButton
-				type="button"
-				testId="assign-to-someone-else"
-				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
-				bold={ true }
-			>
-				<FormattedMessage { ...messages.assignToSomeoneElse } />
-			</LinkButton>;
-		}
-
 		// If the course has a trial and we're not enrolled or we're on a trial.
 		if ( ( this.props.hasTrial && ! this.props.isEnrolled ) || this.props.isTrial ) {
 			// Returns the trial line (completed or start)
@@ -250,7 +216,6 @@ class CourseDetails extends React.Component {
 
 	/**
 	 * Returns a component displaying the current progress
-	 * (or a link to assign someone else to the course if the course hasn't been started yet)
 	 * and a button to either go to the course in academy or view the certificate.
 	 *
 	 * @returns {React.Component} the component
@@ -260,9 +225,7 @@ class CourseDetails extends React.Component {
 			// Only show a progress bar when the course is free,
 			// Or the user in enrolled in the course and is not trialling it out.
 			if ( this.props.progress === 0 ) {
-				// 0 progress, show a link to assign another user and a button to start the course.
-				// But only if the course is not free.
-				return this.getButtonAndProgressBar( "paidZeroProgress" );
+				return this.getButtonAndProgressBar();
 			}
 			if ( this.props.progress < 100 ) {
 				return this.getButtonAndProgressBar( "continue" );
@@ -272,50 +235,6 @@ class CourseDetails extends React.Component {
 			// If the user is busy with the trial, or the course has a trial, show a buy button.
 			return this.getBuyButton( BUTTON_MARGIN_TOP );
 		}
-	}
-
-	/**
-	 * Returns a component displaying the number of courses assigned
-	 * and a link for opening the modal to assign the course to new users.
-	 *
-	 * @returns {React.Component} The component.
-	 */
-	getAssignCoursesRow() {
-		const noAvailableEnrollments = this.props.totalEnrollments === this.props.usedEnrollments;
-		let linkButton;
-
-		if ( noAvailableEnrollments ) {
-			// "View | Get more"
-			linkButton = <Fragment>
-				<Link to="/courses/enrollments">
-					<FormattedMessage { ...messages.viewCourse } />
-				</Link>
-				{ " | " }
-				<Link to={ this.props.shopUrl }>
-					<FormattedMessage { ...messages.getMore } />
-				</Link>
-			</Fragment>;
-		} else {
-			// "Assign courses"
-			linkButton = <LinkButton
-				type="button"
-				testId="assign-courses"
-				onClick={ () => this.props.onAssignModalOpen( this.props.availableEnrollment ) }
-				bold={ true }
-			>
-				<FormattedMessage { ...messages.assignCourses } />
-			</LinkButton>;
-		}
-
-		return <AvailableEnrollment>
-			<FormattedMessage
-				id={ messages.amountAssigned.id }
-				defaultMessage={ messages.amountAssigned.defaultMessage }
-				values={ { assigned: this.props.usedEnrollments, total: this.props.totalEnrollments } }
-			/>
-			{ " " }
-			{ linkButton }
-		</AvailableEnrollment>;
 	}
 
 	/**
@@ -351,7 +270,6 @@ class CourseDetails extends React.Component {
 				<ActionBlock>
 					{ hasAccess && this.getProgressLink() }
 					{ ( hasAccess || this.props.isFree ) ? this.getProgressBlock() : this.getBuyButton( "" ) }
-					{ this.props.totalEnrollments > 1 && this.getAssignCoursesRow() }
 				</ActionBlock>
 			</Fragment>
 		);
@@ -374,7 +292,6 @@ CourseDetails.propTypes = {
 	courseUrl: PropTypes.string,
 	certificateUrl: PropTypes.string,
 	shopUrl: PropTypes.string,
-	onAssignModalOpen: PropTypes.func.isRequired,
 	isOnSale: PropTypes.bool,
 	saleLabel: PropTypes.string,
 	hasTrial: PropTypes.bool,

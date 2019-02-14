@@ -2,11 +2,8 @@ import React from "react";
 import { defineMessages, injectIntl, intlShape } from "react-intl";
 import { speak } from "@wordpress/a11y";
 import PropTypes from "prop-types";
-import { doRequest, prepareInternalRequest } from "../functions/api";
 import styled from "styled-components";
 
-import MyYoastModal from "./MyYoastModal";
-import CourseInvite from "./CourseInvite";
 import CourseDetails from "./courses/CourseDetails";
 import colors from "yoast-components/style-guide/colors";
 import { FullHeightCard } from "./Card";
@@ -50,14 +47,9 @@ class CoursesProgress extends React.Component {
 		super( props );
 
 		this.state = {
-			modalOpen: false,
 			email: "",
 			confirmationEmail: "",
 		};
-
-		this.sendInvite = this.sendInvite.bind( this );
-		this.closeModal = this.closeModal.bind( this );
-		this.openModal = this.openModal.bind( this );
 	}
 
 	componentDidMount() {
@@ -79,52 +71,6 @@ class CoursesProgress extends React.Component {
 		this.setState( {
 			[ field ]: value,
 		} );
-	}
-
-	/**
-	 * Opens the invite student modal.
-	 * @param {string} availableEnrollment the available enrollment to use.
-	 * @returns {void}
-	 */
-	openModal( availableEnrollment ) {
-		this.setState( {
-			modalOpen: true,
-			availableEnrollment,
-		} );
-	}
-
-	/**
-	 * Closes the invite student modal.
-	 *
-	 * @returns {void}
-	 */
-	closeModal() {
-		this.setState( {
-			modalOpen: false,
-			courseInviteError: null,
-		} );
-	}
-
-	/**
-	 * Sends an invite to join the course to the email address as
-	 * written in the state.
-	 *
-	 * @returns {Promise} the promise made after sending the invite through the server
-	 */
-	sendInvite() {
-		const request = prepareInternalRequest(
-			`CourseEnrollments/${this.state.availableEnrollment.id}/invite/`,
-			"POST",
-			{ email: this.state.email } );
-
-		return doRequest( request )
-			.then( () => {
-				this.props.loadData();
-				this.closeModal();
-			} )
-			.catch( error => {
-				this.setField( "courseInviteError", error );
-			} );
 	}
 
 	/**
@@ -196,40 +142,6 @@ class CoursesProgress extends React.Component {
 	}
 
 	/**
-	 * Returns the invite student modal component.
-	 *
-	 * @param {boolean} open if the modal should be open or not.
-	 * @returns {React.Component} the modal
-	 */
-	getInviteModal( open ) {
-		const modalAriaLabel = defineMessages( {
-			id: "modal.arialabel.invite",
-			defaultMessage: "Send course invite",
-		} );
-
-		return (
-			<MyYoastModal
-				isOpen={ open }
-				onClose={ this.closeModal }
-				modalAriaLabel={ modalAriaLabel }
-			>
-				<CourseInvite
-					inviteStudentEmail={ this.state.email }
-					inviteStudentEmailConfirmation={ this.state.confirmationEmail }
-
-					onStudentEmailChange={ value => this.setField( "email", value ) }
-					onStudentEmailConfirmationChange={ value => this.setField( "confirmationEmail", value ) }
-
-					onCancelClick={ this.closeModal }
-					onInviteClick={ this.sendInvite }
-
-					courseInviteError={ this.state.courseInviteError }
-				/>
-			</MyYoastModal>
-		);
-	}
-
-	/**
 	 * Renders the component.
 	 *
 	 * @returns {ReactElement} The rendered component.
@@ -240,11 +152,10 @@ class CoursesProgress extends React.Component {
 				{ this.props.courses.map( ( course, i ) =>
 					<CourseListItem key={ i }>
 						<FullHeightCard { ...this.getBanner( course ) } { ...this.getHeader( course ) }>
-							<CourseDetails { ...course } onAssignModalOpen={ this.openModal } />
+							<CourseDetails { ...course } />
 						</FullHeightCard>
 					</CourseListItem> )
 				}
-				{ this.getInviteModal( this.state.modalOpen ) }
 			</OuterContainer>
 		);
 	}
