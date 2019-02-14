@@ -319,21 +319,6 @@ Array [
   transform: translateY(1em);
 }
 
-.c8 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c8:hover {
-  color: #cc2956;
-}
-
 .c5 {
   display: inline-block;
   height: 48px;
@@ -397,12 +382,6 @@ Array [
   text-align: center;
 }
 
-.c7 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c4 {
   margin-top: 24px;
   background-color: #77b227;
@@ -447,23 +426,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c7"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c8"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
@@ -555,12 +517,6 @@ Array [
   text-align: center;
 }
 
-.c7 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c4 {
   margin-top: 24px;
   background-color: #77b227;
@@ -605,36 +561,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c7"
-    >
-      <span>
-        5 / 5 assigned.
-      </span>
-       
-      <a
-        className={null}
-        href="/courses/enrollments"
-        onClick={[Function]}
-      >
-        <span>
-          View
-        </span>
-      </a>
-       | 
-      <a
-        aria-label={null}
-        className={null}
-        href="http://yoast.test/shop"
-        onClick={null}
-        rel={null}
-        target={null}
-      >
-        <span>
-          Get more
-        </span>
-      </a>
-    </p>
   </div>,
 ]
 `;
@@ -661,21 +587,6 @@ Array [
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
-}
-
-.c5 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c5:hover {
-  color: #cc2956;
 }
 
 .c2 {
@@ -718,12 +629,6 @@ Array [
   text-align: center;
 }
 
-.c4 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c1 {
   background-color: #a4286a;
   color: #fff;
@@ -753,23 +658,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c4"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c5"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
@@ -792,28 +680,13 @@ Array [
       This is an awesome, sexy SEO course.
     </p>
   </div>,
-  .c4 {
+  .c3 {
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
 }
 
-.c1 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c1:hover {
-  color: #cc2956;
-}
-
-.c3 {
+.c2 {
   display: inline-block;
   height: 48px;
   padding: 12px 16px;
@@ -832,17 +705,17 @@ Array [
   transition: background-color 150ms ease-out;
 }
 
-.c3:hover,
-.c3:focus {
+.c2:hover,
+.c2:focus {
   color: #fff;
 }
 
-.c3:hover,
-.c3:focus {
+.c2:hover,
+.c2:focus {
   box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
 }
 
-.c3:active {
+.c2:active {
   -webkit-transform: translateY( 1px );
   -ms-transform: translateY( 1px );
   transform: translateY( 1px );
@@ -853,7 +726,7 @@ Array [
   text-align: center;
 }
 
-.c2 {
+.c1 {
   margin-top: 24px;
   background-color: #77b227;
   color: #fff;
@@ -864,18 +737,9 @@ Array [
 <div
     className="c0"
   >
-    <button
-      className="c1"
-      onClick={[Function]}
-      type="button"
-    >
-      <span>
-        Assign to someone else
-      </span>
-    </button>
     <a
       aria-label={null}
-      className="c2 c3"
+      className="c1 c2"
       href="http://academy.yoast.test/awesome_seo"
       onClick={null}
       rel={null}
@@ -885,7 +749,7 @@ Array [
         Start this course
       </span>
       <span
-        className="screen-reader-text c4"
+        className="screen-reader-text c3"
       >
         <span>
           (Opens in a new browser tab)
@@ -920,21 +784,6 @@ Array [
   transform: translateY(1em);
 }
 
-.c5 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c5:hover {
-  color: #cc2956;
-}
-
 .c2 {
   display: inline-block;
   height: 48px;
@@ -975,12 +824,6 @@ Array [
   text-align: center;
 }
 
-.c4 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c1 {
   margin-top: 24px;
   background-color: #77b227;
@@ -1011,23 +854,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c4"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c5"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
@@ -1054,21 +880,6 @@ Array [
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
-}
-
-.c9 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c9:hover {
-  color: #cc2956;
 }
 
 .c6 {
@@ -1154,12 +965,6 @@ Array [
   text-align: center;
 }
 
-.c8 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c4 {
   margin-top: 24px;
   width: 100%;
@@ -1201,23 +1006,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c8"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c9"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
@@ -1244,21 +1032,6 @@ Array [
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
-}
-
-.c8 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c8:hover {
-  color: #cc2956;
 }
 
 .c5 {
@@ -1324,12 +1097,6 @@ Array [
   text-align: center;
 }
 
-.c7 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c4 {
   margin-top: 24px;
   background-color: #77b227;
@@ -1374,23 +1141,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c7"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c8"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
@@ -1417,21 +1167,6 @@ Array [
   -webkit-transform: translateY(1em);
   -ms-transform: translateY(1em);
   transform: translateY(1em);
-}
-
-.c5 {
-  background: none;
-  border: 0px;
-  padding: 0;
-  color: #0066cd;
-  -webkit-text-decoration: underline;
-  text-decoration: underline;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.c5:hover {
-  color: #cc2956;
 }
 
 .c2 {
@@ -1474,12 +1209,6 @@ Array [
   text-align: center;
 }
 
-.c4 {
-  font-weight: bold;
-  margin: 0;
-  margin-top: 24px;
-}
-
 .c1 {
   background-color: #ffeb3b;
   color: #000;
@@ -1509,23 +1238,6 @@ Array [
         </span>
       </span>
     </a>
-    <p
-      className="c4"
-    >
-      <span>
-        4 / 5 assigned.
-      </span>
-       
-      <button
-        className="c5"
-        onClick={[Function]}
-        type="button"
-      >
-        <span>
-          Assign courses
-        </span>
-      </button>
-    </p>
   </div>,
 ]
 `;
