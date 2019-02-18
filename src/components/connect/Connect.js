@@ -121,10 +121,11 @@ function ConnectComponent( props ) {
 					onClick={
 						() => {
 							props.onAuthorize( {
-								clientId: props.clientId,
 								url: props.url,
+								clientId: props.clientId,
+								extensions: props.extensions,
 								redirectUrl: props.redirectUrl,
-								pluginSlug: props.pluginSlug,
+								type: props.type,
 							} );
 						}
 					}
@@ -138,20 +139,23 @@ function ConnectComponent( props ) {
 
 ConnectComponent.propTypes = {
 	dataMissing: PropTypes.bool.isRequired,
+	url: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
 	clientId: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.bool,
 	] ).isRequired,
-	url: PropTypes.oneOfType( [
-		PropTypes.string,
+	extensions: PropTypes.oneOfType( [
+		PropTypes.array,
 		PropTypes.bool,
 	] ).isRequired,
 	redirectUrl: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.bool,
 	] ).isRequired,
-	pluginSlug: PropTypes.oneOfType( [
-		PropTypes.array,
+	type: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.bool,
 	] ).isRequired,

@@ -31,24 +31,27 @@ export const mapStateToProps = ( state, ownProps ) => {
 	Note: for queryString to properly parse the url parameter for URLs that may contain a querystring themselves,
 	the url in the parameter has to be encoded with uriEncodeComponent().
 	 */
-	const hasClientId = connectParams.hasOwnProperty( "clientId" );
 	const hasUrl = connectParams.hasOwnProperty( "url" );
-	const hasRedirectUrl = connectParams.hasOwnProperty( "redirectUrl" );
-	const hasPluginSlug = connectParams.hasOwnProperty( "pluginSlug" );
+	const hasClientId = connectParams.hasOwnProperty( "client_id" );
+	const hasExtensions = connectParams.hasOwnProperty( "extensions" );
+	const hasRedirectUrl = connectParams.hasOwnProperty( "redirect_url" );
+	const hasType = connectParams.hasOwnProperty( "type" );
 
-	let clientId, url, pluginSlug, redirectUrl;
-	if ( hasClientId && hasUrl && hasPluginSlug && hasRedirectUrl ) {
-		clientId = connectParams.clientId;
+	let clientId, url, extensions, redirectUrl, type;
+	if ( hasClientId && hasUrl && hasExtensions && hasRedirectUrl && hasType ) {
 		url = connectParams.url;
-		redirectUrl = connectParams.redirectUrl;
-		pluginSlug = connectParams.pluginSlug;
+		clientId = connectParams.client_id;
+		extensions = connectParams.extensions.split( "," );
+		redirectUrl = connectParams.redirect_url;
+		type = connectParams.type;
 
 		// Save to a cookie, now that we have the data.
 		setConnectParams( {
 			clientId,
 			url,
 			redirectUrl,
-			pluginSlug,
+			extensions,
+			type,
 		} );
 	} else {
 		// Retrieve from a cookie, verify each field and return, or return false.
@@ -56,17 +59,19 @@ export const mapStateToProps = ( state, ownProps ) => {
 		clientId = verifyObjectAndField( connectCookie, "clientId" ) && connectCookie.clientId;
 		url = verifyObjectAndField( connectCookie, "url" ) && connectCookie.url;
 		redirectUrl = verifyObjectAndField( connectCookie, "url" ) && connectCookie.redirectUrl;
-		pluginSlug = verifyObjectAndField( connectCookie, "pluginSlug" ) && connectCookie.pluginSlug;
+		extensions = verifyObjectAndField( connectCookie, "extensions" ) && connectCookie.extensions;
+		type = verifyObjectAndField( connectCookie, "type" ) && connectCookie.type;
 	}
 
 	// If any of the params is still false, dataMissing is true;
-	const dataMissing = ! ( clientId && url && pluginSlug );
+	const dataMissing = ! ( clientId && url && extensions && redirectUrl && type );
 
 	return {
-		clientId,
 		url,
+		clientId,
+		extensions,
 		redirectUrl,
-		pluginSlug,
+		type,
 		dataMissing,
 	};
 };
