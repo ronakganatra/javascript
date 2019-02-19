@@ -6,10 +6,10 @@ test('the mapStateToProps function', () => {
 
 	let ownProps = {
 		location: {
-			search: "?clientId=1" +
+			search: "?client_id=1" +
 				"&url=https%3A%2F%2Fwww.test.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
-				"&redirectUrl=https%3A%2F%2Fwww.redirect.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
-				"&pluginSlug=1&pluginSlug=2&pluginSlug=a"
+				"&redirect_url=https%3A%2F%2Fwww.redirect.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
+				"&extensions=1&extensions=2&extensions=a&type=wordpress"
 		},
 	};
 
@@ -18,7 +18,8 @@ test('the mapStateToProps function', () => {
 		clientId: "1",
 		url: "https://www.test.abcdefg/?nestedQuery=true&otherNestedQuery=alsoTrue",
 		redirectUrl: "https://www.redirect.abcdefg/?nestedQuery=true&otherNestedQuery=alsoTrue",
-		pluginSlug: [ "1", "2", "a" ],
+		extensions: [ "1","2","a" ],
+		type: "wordpress",
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );
@@ -38,7 +39,8 @@ test('the mapStateToProps function with missing data', () => {
 		clientId: false,
 		url: false,
 		redirectUrl: false,
-		pluginSlug: false,
+		extensions: false,
+		type: false,
 	};
 
 	expect( mapStateToProps( state, ownProps ) ).toEqual( expected );

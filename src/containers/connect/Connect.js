@@ -41,7 +41,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	if ( hasClientId && hasUrl && hasExtensions && hasRedirectUrl && hasType ) {
 		url = connectParams.url;
 		clientId = connectParams.client_id;
-		extensions = connectParams.extensions.split( "," );
+		extensions = Array.isArray( connectParams.extensions ) ? connectParams.extensions : [ connectParams.extensions ];
 		redirectUrl = connectParams.redirect_url;
 		type = connectParams.type;
 
