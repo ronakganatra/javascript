@@ -19,18 +19,6 @@ function verifyObjectAndField( object, field ) {
 	return object instanceof Object && object.hasOwnProperty( field );
 }
 
-/**
- * Get param from cookie, whilst using verifyObjectAndField.
- *
- * @param {string}      param         The parameter to get.
- * @param {object}      connectCookie The cookie to get the parameter from.
- *
- * @returns {boolean|*} The value of the param in the cookie, or false.
- */
-function getPropFromCookie( param, connectCookie ) {
-	return verifyObjectAndField( connectCookie, param ) && connectCookie[ param ];
-}
-
 /* eslint-disable require-jsdoc*/
 export const mapStateToProps = ( state, ownProps ) => {
 	/*
@@ -61,7 +49,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		// Retrieve from a cookie, verify each field and return, or return false.
 		const connectCookie = getConnectParams();
 		requiredParams.forEach( ( param ) => {
-			connectProps[ param ] = getPropFromCookie( param, connectCookie );
+			connectProps[ param ] = verifyObjectAndField( connectCookie, param ) && connectCookie[ param ];
 		} );
 	}
 
