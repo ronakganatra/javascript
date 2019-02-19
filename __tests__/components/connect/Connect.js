@@ -11,7 +11,8 @@ test( 'The connect page matches the snapshot', () => {
 				clientId="1"
 				url="http://test.test"
 				redirectUrl="http://test.test"
-				pluginSlug={ [ "1", "2", "3" ] }
+				extensions={ [ "1", "2", "3" ] }
+				type="wordpress"
 			/>
 		</Router>,
 	);
