@@ -9,6 +9,7 @@ import { ModalHeading } from "../Headings";
 import colors from "yoast-components/style-guide/colors";
 import { LargeButton, LargeSecondaryButton, makeButtonFullWidth } from "../Button";
 import ButtonsContainer from "../general/ButtonsContainer";
+import ErrorDisplay from "../../errors/ErrorDisplay";
 
 
 const messages = defineMessages( {
@@ -31,6 +32,10 @@ const messages = defineMessages( {
 	siteAuthenticationFormConnectText: {
 		id: "SiteAuthenticationform.connectText",
 		defaultMessage: "Authorizing will start the process of connecting your website to your MyYoast account.",
+	},
+	goBack: {
+		id: "SiteAuthenticationform.goBack",
+		defaultMessage: "Go back",
 	},
 } );
 
@@ -55,6 +60,9 @@ const FadedParagraph = styled.p`
 `;
 
 const WideAuthorizeButton = makeButtonFullWidth( LargeButton );
+const WideReturnButton = styled( WideAuthorizeButton )`
+	margin-top: 8px;
+`;
 const WideSecondaryButton = makeButtonFullWidth( LargeSecondaryButton );
 
 /**
@@ -81,6 +89,38 @@ function getAuthorizations( authorizations ) {
 }
 
 /**
+ * Returns a DataMissing component, telling the user something went wrong, and presenting a "go back" button.
+ *
+ * @returns {ReactElement} The DataMissing component.
+ */
+const DataMissing = () => {
+	const error = {
+		code: "authorization_parameters_missing",
+	};
+	return (
+		<AuthenticationFormContainer>
+			<ModalHeading>
+				<b><FormattedMessage { ...messages.siteAuthenticationFormHeader } /></b>
+			</ModalHeading>
+			<ErrorDisplay
+				error={ error }
+			/>
+			<ButtonsContainer>
+				<WideReturnButton
+					onClick={
+						() => {
+							window.history.back();
+						}
+					}
+				>
+					<FormattedMessage { ...messages.goBack } />
+				</WideReturnButton>
+			</ButtonsContainer>
+		</AuthenticationFormContainer>
+	);
+};
+
+/**
  * The Connect component.
  *
  * @param {Object} props The props to use.
@@ -88,11 +128,13 @@ function getAuthorizations( authorizations ) {
  * @returns {ReactElement} The rendered Connect component.
  */
 function ConnectComponent( props ) {
-	const stripUrlRegex = /^(?:https?:\/\/)?(?:www\.)?/i;
+	if ( props.dataMissing ) {
+		return <DataMissing />;
+	}
+	const url = new URL( props.url );
 	const myYoastText = <b>{ "MyYoast" }</b>;
 
-	const forUrl = props.url || "your website";
-	const siteUrl = <b>{ forUrl.replace( stripUrlRegex, "" ) }</b>;
+	const siteUrl = <b>{ url.hostname }</b>;
 
 	const siteAuthorizations = [ { description: "Receive Yoast plugin updates." }, { description: "Send messages to MyYoast." } ];
 	const myYoastAuthorizations = [ { description: "Send messages to your website." } ];

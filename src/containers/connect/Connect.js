@@ -19,6 +19,18 @@ function verifyObjectAndField( object, field ) {
 	return object instanceof Object && object.hasOwnProperty( field );
 }
 
+/**
+ * Get param from cookie, whilst using verifyObjectAndField.
+ *
+ * @param {string}      param         The parameter to get.
+ * @param {object}      connectCookie The cookie to get the parameter from.
+ *
+ * @returns {boolean|*} The value of the param in the cookie, or false.
+ */
+function getPropFromCookie( param, connectCookie ) {
+	return verifyObjectAndField( connectCookie, param ) && connectCookie[ param ];
+}
+
 /* eslint-disable require-jsdoc*/
 export const mapStateToProps = ( state, ownProps ) => {
 	/*
@@ -31,47 +43,39 @@ export const mapStateToProps = ( state, ownProps ) => {
 	Note: for queryString to properly parse the url parameter for URLs that may contain a querystring themselves,
 	the url in the parameter has to be encoded with uriEncodeComponent().
 	 */
-	const hasUrl = connectParams.hasOwnProperty( "url" );
-	const hasClientId = connectParams.hasOwnProperty( "client_id" );
-	const hasExtensions = connectParams.hasOwnProperty( "extensions" );
-	const hasRedirectUrl = connectParams.hasOwnProperty( "redirect_url" );
-	const hasType = connectParams.hasOwnProperty( "type" );
+	const requiredParams = [
+		"url",
+		"client_id",
+		"extensions",
+		"redirect_url",
+		"type",
+	];
 
-	let clientId, url, extensions, redirectUrl, type;
-	if ( hasClientId && hasUrl && hasExtensions && hasRedirectUrl && hasType ) {
-		url = connectParams.url;
-		clientId = connectParams.client_id;
-		extensions = Array.isArray( connectParams.extensions ) ? connectParams.extensions : [ connectParams.extensions ];
-		redirectUrl = connectParams.redirect_url;
-		type = connectParams.type;
+	let connectProps = {};
+	if ( requiredParams.every( param => connectParams.hasOwnProperty( param ) ) ) {
+		connectProps = connectParams;
 
 		// Save to a cookie, now that we have the data.
-		setConnectParams( {
-			clientId,
-			url,
-			redirectUrl,
-			extensions,
-			type,
-		} );
+		setConnectParams( connectProps );
 	} else {
 		// Retrieve from a cookie, verify each field and return, or return false.
 		const connectCookie = getConnectParams();
-		clientId = verifyObjectAndField( connectCookie, "clientId" ) && connectCookie.clientId;
-		url = verifyObjectAndField( connectCookie, "url" ) && connectCookie.url;
-		redirectUrl = verifyObjectAndField( connectCookie, "url" ) && connectCookie.redirectUrl;
-		extensions = verifyObjectAndField( connectCookie, "extensions" ) && connectCookie.extensions;
-		type = verifyObjectAndField( connectCookie, "type" ) && connectCookie.type;
+		requiredParams.forEach( ( param ) => {
+			connectProps[ param ] = getPropFromCookie( param, connectCookie );
+		} );
 	}
 
 	// If any of the params is still false, dataMissing is true;
-	const dataMissing = ! ( clientId && url && extensions && redirectUrl && type );
+	const dataMissing = requiredParams.some( param => ! connectProps[ param ] );
 
 	return {
-		url,
-		clientId,
-		extensions,
-		redirectUrl,
-		type,
+		url: connectProps.url,
+		clientId: connectProps.client_id,
+		extensions: Array.isArray( connectProps.extensions ) || connectProps.extensions === false
+			? connectProps.extensions
+			: [ connectProps.extensions ],
+		redirectUrl: connectProps.redirect_url,
+		type: connectProps.type,
 		dataMissing,
 	};
 };

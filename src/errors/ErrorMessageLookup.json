@@ -110,5 +110,9 @@
   "course_enrolled_by_another": {
     "message": "The student has already been enrolled in one or more of these courses by someone else.",
     "type": "error"
+  },
+  "authorization_parameters_missing": {
+    "message": "Invalid authorization parameters. If this keeps happening, [customer_support_link]",
+    "type": "error"
   }
 }
