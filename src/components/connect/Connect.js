@@ -167,6 +167,7 @@ function ConnectComponent( props ) {
 								clientId: props.clientId,
 								extensions: props.extensions,
 								redirectUrl: props.redirectUrl,
+								credentialsUrl: props.credentialsUrl,
 								type: props.type,
 							} );
 						}
@@ -198,6 +199,10 @@ ConnectComponent.propTypes = {
 		PropTypes.bool,
 	] ).isRequired,
 	type: PropTypes.oneOfType( [
+		PropTypes.string,
+		PropTypes.bool,
+	] ).isRequired,
+	credentialsUrl: PropTypes.oneOfType( [
 		PropTypes.string,
 		PropTypes.bool,
 	] ).isRequired,

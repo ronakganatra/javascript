@@ -36,6 +36,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 		"client_id",
 		"extensions",
 		"redirect_url",
+		"credentials_url",
 		"type",
 	];
 
@@ -63,6 +64,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 			? connectProps.extensions
 			: [ connectProps.extensions ],
 		redirectUrl: connectProps.redirect_url,
+		credentialsUrl: connectProps.credentials_url,
 		type: connectProps.type,
 		dataMissing,
 	};

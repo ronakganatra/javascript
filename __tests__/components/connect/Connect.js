@@ -10,7 +10,8 @@ test( 'The connect page matches the snapshot', () => {
 				dataMissing={ false }
 				clientId="1"
 				url="http://test.test"
-				redirectUrl="http://test.test"
+				redirectUrl="http://redirect.test"
+				credentialsUrl="http://credentials.test"
 				extensions={ [ "1", "2", "3" ] }
 				type="wordpress"
 			/>
