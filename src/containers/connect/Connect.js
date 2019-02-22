@@ -25,7 +25,7 @@ export const mapStateToProps = ( state, ownProps ) => {
 	Because the object returned by queryString was created with Object.create( null ), it's not an Object.prototype.
 	We assign it to an actual Object.
 	 */
-	const connectParams = Object.assign( {}, queryString.parse( ownProps.location.search ) );
+	const connectParams = Object.assign( {}, queryString.parse( ownProps.location.search, { arrayFormat: "index" } ) );
 
 	/*
 	Note: for queryString to properly parse the url parameter for URLs that may contain a querystring themselves,
