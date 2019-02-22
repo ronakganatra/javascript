@@ -10,7 +10,7 @@ test('the mapStateToProps function', () => {
 				"&url=https%3A%2F%2Fwww.test.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
 				"&redirect_url=https%3A%2F%2Fwww.redirect.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
 				"&credentials_url=https%3A%2F%2Fwww.credentials.abcdefg%2F%3FnestedQuery%3Dtrue%26otherNestedQuery%3DalsoTrue" +
-				"&extensions=1&extensions=2&extensions=a&type=wordpress"
+				"&extensions[0]=1&extensions[1]=2&extensions[2]=a&type=wordpress"
 		},
 	};
 
