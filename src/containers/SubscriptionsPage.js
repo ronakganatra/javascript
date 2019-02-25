@@ -138,7 +138,7 @@ function sortByUpcomingPayment( subscriptions ) {
 			if ( subscription.hasEndDate && subscription.status === "active" ) {
 				paymentDate = subscription.endDate;
 			} else {
-				paymentDate = subscription.nextPaymentDate;
+				paymentDate = subscription.nextPayment;
 			}
 			subscription.paymentDate = paymentDate;
 			return subscription;

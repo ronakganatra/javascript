@@ -109,7 +109,7 @@ let defaultExpected = {
 				"limit": 2,
 				"hasNextPayment": true,
 				"nextPayment": new Date( "2017-05-01 21:04:28" ),
-				paymentDate: undefined,
+				paymentDate: new Date( "2017-05-01 21:04:28" ),
 				product: {
 					glNumber: 1,
 					icon: "icon.jpg",
@@ -140,7 +140,7 @@ let defaultExpected = {
 				"limit": 2,
 				"hasNextPayment": true,
 				"nextPayment": new Date( "2018-05-01 21:04:28" ),
-				paymentDate: undefined,
+				paymentDate: new Date( "2018-05-01 21:04:28" ),
 				product: {
 					glNumber: 2,
 					icon: "icon.jpg",
@@ -167,7 +167,7 @@ let defaultExpected = {
 				"limit": 2,
 				"hasNextPayment": true,
 				"nextPayment": new Date( "2018-05-01 21:04:28" ),
-				paymentDate: undefined,
+				paymentDate: new Date( "2018-05-01 21:04:28" ),
 				product: {
 					glNumber: 2,
 					icon: "icon.jpg",
