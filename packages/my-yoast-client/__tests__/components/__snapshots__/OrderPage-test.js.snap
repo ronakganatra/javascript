@@ -1,0 +1,595 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Orders component matches the snapshot 1`] = `
+.c6 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c6 li:first-child > span::before {
+  left: auto;
+}
+
+.c8 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c8:first-child {
+  margin-top: 64px;
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Date";
+}
+
+.c13 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c13:first-child {
+  padding-left: 0;
+}
+
+.c13::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Order";
+}
+
+.c16 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c16:first-child {
+  padding-left: 0;
+}
+
+.c16::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Items";
+}
+
+.c19 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Total";
+}
+
+.c21 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Status";
+}
+
+.c24 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c24:first-child {
+  padding-left: 0;
+}
+
+.c24::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c15 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c23 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c11 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c17 {
+  padding: 0;
+  list-style: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c26 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+.c29 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c29:hover,
+.c29:focus {
+  color: #fff;
+}
+
+.c29:hover,
+.c29:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c29:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c28 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c27 {
+  min-width: 152px;
+}
+
+.c5 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c7:first-child {
+    margin-top: 0;
+  }
+
+  .c7 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c13 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c16 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c26.c26 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c26.c26 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c9:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Date:";
+  }
+
+  .c10 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Items:";
+  }
+
+  .c14 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
+  }
+
+  .c18 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c20::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c20 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c22 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c4 {
+    margin-top: 12px;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <label
+      className="c1"
+      htmlFor="search"
+    >
+      <span
+        className="screen-reader-text "
+      >
+        Search orders
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="c2 c3"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value={undefined}
+    />
+    <p
+      className="screen-reader-text"
+      id="search-description"
+    >
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="c4 c5"
+  >
+    <ul
+      className="c6"
+      onChange={[Function]}
+      role="list"
+    >
+      <li
+        className="c7 c8"
+      >
+        <span
+          className="c9 Tables-fvscPb c10 c11 c12"
+        >
+          <span>
+            May 20, 2012
+          </span>
+        </span>
+        <span
+          className="c11 c13"
+        >
+          MOOIE 123 TEST
+        </span>
+        <span
+          className="c9 Tables-fvscPb c14 c15 c16"
+        >
+          <ul
+            className="c17"
+          >
+            <li>
+              1
+              <span
+                aria-hidden="true"
+              >
+                ×
+              </span>
+               
+              Name of the product
+            </li>
+            <li>
+              2
+              <span
+                aria-hidden="true"
+              >
+                ×
+              </span>
+               
+              Another product
+            </li>
+          </ul>
+        </span>
+        <span
+          className="c9 Tables-fvscPb c18 c11 c19"
+        >
+          <span>
+            €100.10
+          </span>
+        </span>
+        <span
+          className="c9 Tables-fvscPb c20 c11 c21"
+        >
+          <span>
+            Completed
+          </span>
+        </span>
+        <span
+          className="c9 Tables-fvscPb c22 c23 c24"
+        >
+          <div>
+            <a
+              aria-label="Download invoice"
+              className="c25 Button-kDSBcD c26 c27 c28 c29"
+              href="http://somelink"
+              onClick={null}
+              rel={null}
+              target={null}
+            >
+              <span
+                className="screen-reader-text"
+              >
+                Invoice
+              </span>
+            </a>
+          </div>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

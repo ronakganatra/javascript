@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the skip link matches the snapshot 1`] = `
+.c0 {
+  position: absolute;
+  top: -1000em;
+  left: 10px;
+  z-index: 100000;
+  display: block;
+  height: 48px;
+  min-width: 150px;
+  padding: 0 15px;
+  font-size: 14px;
+  line-height: 48px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.1);
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+  outline: none;
+}
+
+.c0:focus {
+  top: 10px;
+  color: #0066cd;
+}
+
+<a
+  className="c0"
+  href="#content"
+>
+  LinkText
+</a>
+`;

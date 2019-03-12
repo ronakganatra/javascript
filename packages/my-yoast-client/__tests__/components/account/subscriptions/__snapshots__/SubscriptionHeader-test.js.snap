@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the subscription header matches the snapshot 1`] = `
+.c5 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c0 {
+  width: 100%;
+  min-height: 180px;
+  background-color: #a4286a;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 8px;
+}
+
+.c3 {
+  padding: 2em 1.5em 2em 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.c4 {
+  color: #fff;
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 0;
+}
+
+.c1 {
+  padding: 24px 24px 16px 24px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c1 a {
+  margin-top: 8px;
+}
+
+.c2 {
+  background: url( ) no-repeat center center;
+  background-size: contain;
+  width: 96px;
+  height: 96px;
+}
+
+.c6 {
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-size: 1em;
+  font-weight: 200;
+  -webkit-letter-spacing: 0.05em;
+  -moz-letter-spacing: 0.05em;
+  -ms-letter-spacing: 0.05em;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    min-height: 0;
+    display: block;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+    padding: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    font-size: 1em;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+      src=""
+    />
+  </div>
+  <div
+    className="c3"
+  >
+    <h1
+      className="c4 c5"
+    >
+      Subscription
+    </h1>
+    
+    <p
+      className="c6"
+    >
+      
+    </p>
+  </div>
+</div>
+`;

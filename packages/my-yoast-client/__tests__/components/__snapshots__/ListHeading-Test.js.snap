@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ListHeading matches the snapshot 1`] = `
+.c0 {
+  display: block;
+  font-size: 1em;
+  padding: 24px 40px;
+  font-weight: 400;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    padding: 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    padding: 16px;
+  }
+}
+
+<span
+  className="c0"
+>
+  This is a heading
+</span>
+`;

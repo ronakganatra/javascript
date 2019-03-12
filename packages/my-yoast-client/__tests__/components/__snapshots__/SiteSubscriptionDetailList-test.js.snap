@@ -1,0 +1,689 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the site subscription detail list component matches the snapshot 1`] = `
+.c1 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c2 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c20 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c26 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c26:hover,
+.c26:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c26:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c25 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c24 {
+  min-width: 152px;
+}
+
+.c19 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c19:hover,
+.c19:focus {
+  color: #fff;
+}
+
+.c19:hover,
+.c19:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c19:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c27 {
+  min-width: 152px;
+}
+
+.c18 {
+  background-repeat: no-repeat;
+  background-image: url( blue-plus-circle.svg );
+  background-position: 8px 50%;
+  background-size: 1em;
+  padding-left: 36px;
+}
+
+.c17 {
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-position: 0.5em 50%;
+  color: #0066cd;
+  box-shadow: none;
+  text-transform: none;
+  padding-left: 2em;
+  font: 400 14px/24px "Open Sans",sans-serif;
+  text-shadow: none;
+  height: 32px;
+  padding: 4px 16px 0 2em;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c17:hover,
+.c17:focus {
+  box-shadow: none;
+  background-color: #f1f1f1;
+  color: #0066cd;
+}
+
+.c17:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c10 {
+  background-color: #ccc;
+  border-radius: 8px;
+  height: 16px;
+  width: 40px;
+  cursor: pointer;
+  margin: 0;
+  outline: 0;
+}
+
+.c10:focus > span {
+  box-shadow: inset 0 0 0 1px #fff,0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,.8);
+}
+
+.c11 {
+  background-color: #888;
+  margin-left: 0;
+  box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1);
+  border-radius: 100%;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  margin-top: -4px;
+}
+
+.c12 {
+  padding: 6px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  width: 40px;
+  text-align: center;
+  display: inline-block;
+  margin: 0;
+}
+
+.c4 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c4 li:first-child > span::before {
+  left: auto;
+}
+
+.c6 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c6:first-child {
+  margin-top: 0;
+}
+
+.c28 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c28:first-child {
+  margin-top: 0;
+}
+
+.c8 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c8:first-child {
+  padding-left: 0;
+}
+
+.c8::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c7 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c13 {
+  display: inline-block;
+  width: 66px;
+  height: 66px;
+  vertical-align: middle;
+  opacity: 0.2;
+}
+
+.c9 {
+  display: inline-block;
+  visibility: hidden;
+  vertical-align: middle;
+  margin: 6px 40px 0 2px;
+}
+
+.c15 {
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+.c16 {
+  display: none;
+  font-weight: 300;
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.c21 {
+  display: none;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c23 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c28 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c5:first-child {
+    margin-top: 0;
+  }
+
+  .c5 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c14 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    margin-right: 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c9 {
+    margin-right: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    white-space: normal;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c22:first-child {
+    margin-top: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <button
+      aria-expanded={true}
+      className="c2"
+      fontWeight={300}
+      onClick={[Function]}
+    >
+      <span
+        className="c3"
+        fontSize={1.5}
+      >
+        Subscriptions
+      </span>
+      <svg
+        aria-hidden="true"
+        fill="#555"
+        focusable="false"
+        height={40}
+        role="img"
+        viewBox="0 0 24 24"
+        width={40}
+      >
+        <path
+          d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"
+        />
+      </svg>
+    </button>
+    <ul
+      className="c4"
+      role="list"
+    >
+      <li
+        className="c5 c6"
+      >
+        <span
+          className="c7 c8"
+        >
+          <span
+            className="c9"
+          >
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Enable subscription for: Yoast SEO Premium"
+                className="c10"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                role="checkbox"
+                tabIndex="0"
+              >
+                <span
+                  className="c11"
+                />
+              </div>
+              <span
+                aria-hidden="true"
+                className="c12"
+              >
+                Off
+              </span>
+            </div>
+          </span>
+          <img
+            alt=""
+            className="c13"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c14 c8"
+        >
+          <span
+            className="c15"
+          >
+            Yoast SEO Premium
+          </span>
+          <span
+            className="c16"
+          >
+            <span>
+              1/2 used
+            </span>
+          </span>
+          <a
+            aria-label={null}
+            className="c17 c18 c19"
+            href="http://url1.com"
+            onClick={null}
+            rel="noopener"
+            target="_blank"
+          >
+            <span>
+              Get another subscription
+            </span>
+            <span
+              className="screen-reader-text c20"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
+        </span>
+        <span
+          className="c21 c22 c7 c8"
+        >
+          <button
+            className="c23 c24 Button-kDSBcD c25 c26"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+        </span>
+        <span
+          className="c21 c22 c7 c8"
+        >
+          <a
+            className="c23 c27 c19"
+            href="/account/subscriptions/"
+            onClick={[Function]}
+          >
+            <span>
+              Manage
+            </span>
+          </a>
+        </span>
+      </li>
+      <li
+        className="c5 c28"
+      >
+        <span
+          className="c7 c8"
+        >
+          <span
+            className="c9"
+          >
+            <div>
+              <div
+                aria-checked={false}
+                aria-label="Enable subscription for: Yoast SEO Local"
+                className="c10"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyUp={[Function]}
+                role="checkbox"
+                tabIndex="0"
+              >
+                <span
+                  className="c11"
+                />
+              </div>
+              <span
+                aria-hidden="true"
+                className="c12"
+              >
+                Off
+              </span>
+            </div>
+          </span>
+          <img
+            alt=""
+            className="c13"
+            src="icon2.png"
+          />
+        </span>
+        <span
+          className="c14 c8"
+        >
+          <span
+            className="c15"
+          >
+            Yoast SEO Local
+          </span>
+          <span
+            className="c16"
+          >
+            <span>
+              2/2 used
+            </span>
+          </span>
+          <a
+            aria-label={null}
+            className="c17 c18 c19"
+            href="http://url2.com"
+            onClick={null}
+            rel="noopener"
+            target="_blank"
+          >
+            <span>
+              Get another subscription
+            </span>
+            <span
+              className="screen-reader-text c20"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
+        </span>
+        <span
+          className="c21 c22 c7 c8"
+        >
+          <button
+            className="c23 c24 Button-kDSBcD c25 c26"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Download
+            </span>
+          </button>
+        </span>
+        <span
+          className="c21 c22 c7 c8"
+        >
+          <a
+            className="c23 c27 c19"
+            href="/account/subscriptions/"
+            onClick={[Function]}
+          >
+            <span>
+              Manage
+            </span>
+          </a>
+        </span>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

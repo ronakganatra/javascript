@@ -1,0 +1,368 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the sites component matches the snapshot 1`] = `
+.c6 {
+  height: inherit;
+}
+
+.c1 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c1 li:first-child > span::before {
+  left: auto;
+}
+
+.c2 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2:first-child {
+  margin-top: 64px;
+}
+
+.c13 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c13:first-child {
+  margin-top: 64px;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c5::after {
+  position: relative;
+  display: inline-block;
+  border-right: 2px solid #ddd;
+  padding-right: 24px;
+  height: 48px;
+  content: "";
+}
+
+.c8 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c8:first-child {
+  padding-left: 0;
+}
+
+.c8::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Site name";
+}
+
+.c10 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c10:first-child {
+  padding-left: 0;
+}
+
+.c10::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Active subscriptions";
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c7 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c4 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c3 {
+  height: 48px;
+}
+
+.c11 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c11:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+.c9 {
+  -webkit-flex-basis: 340px;
+  -ms-flex-preferred-size: 340px;
+  flex-basis: 340px;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c5::after {
+    padding-right: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c8 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c10 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+<div
+  className="c0"
+>
+  <ul
+    className="c1"
+    role="list"
+  >
+    <li
+      className="c2"
+    >
+      <span
+        className="c3 c4 c5"
+      >
+        <img
+          alt=""
+          className="c6"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
+      </span>
+      <span
+        className="c7 c8"
+      >
+        www.yoast.com
+      </span>
+      <span
+        className="c9 c4 c10"
+      >
+        <span>
+          <img
+            alt="Test is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+          <img
+            alt="Test2 is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+          <img
+            alt="Test3 is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+        </span>
+      </span>
+      <span
+        className="c4 c12"
+      />
+    </li>
+    <li
+      className="c13"
+    >
+      <span
+        className="c3 c4 c5"
+      >
+        <img
+          alt=""
+          className="c6"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
+      </span>
+      <span
+        className="c7 c8"
+      >
+        www.google.com
+      </span>
+      <span
+        className="c9 c4 c10"
+      >
+        <span>
+          <img
+            alt="Test is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+          <img
+            alt="Test2 is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+          <img
+            alt="Test3 is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+        </span>
+      </span>
+      <span
+        className="c4 c12"
+      />
+    </li>
+    <li
+      className="c2"
+    >
+      <span
+        className="c3 c4 c5"
+      >
+        <img
+          alt=""
+          className="c6"
+          src="https://yoast-mercury.s3.amazonaws.com/uploads/2013/02/Yoast_Icon_Large_RGB.png"
+        />
+      </span>
+      <span
+        className="c7 c8"
+      >
+        www.facebook.com
+      </span>
+      <span
+        className="c9 c4 c10"
+      >
+        <span>
+          <img
+            alt="Test4 is inactive"
+            className="c11"
+            src="test.jpg"
+          />
+        </span>
+      </span>
+      <span
+        className="c4 c12"
+      />
+    </li>
+  </ul>
+</div>
+`;

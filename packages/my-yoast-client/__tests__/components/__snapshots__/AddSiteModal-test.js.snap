@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The MyYoastModal for the AddSite component matches the snapshot 1`] = `
+.c0.my-yoast-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  -webkit-transition: background 100ms ease-out;
+  transition: background 100ms ease-out;
+  z-index: 999;
+}
+
+.c0.my-yoast-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  max-width: 90%;
+  max-height: 90%;
+  border: 0;
+  border-radius: 0;
+  margin-right: -50%;
+  padding: 24px 16px 0px 16px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  outline: none;
+}
+
+.c0 .my-yoast-modal__actions {
+  padding-top: 1em;
+  text-align: right;
+}
+
+.c0 .my-yoast-modal__actions button {
+  margin-left: 1em;
+}
+
+.c12 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c12:hover,
+.c12:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c12:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c15 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c15:hover,
+.c15:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c15:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c14 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c11 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c11:hover,
+.c11:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c13 {
+  min-width: 152px;
+}
+
+.c2 {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.c9 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c9 a,
+.c9 button {
+  margin-left: 12px;
+}
+
+.c6 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.c6::after,
+.c6::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.c6::before {
+  width: 32px;
+  right: 0;
+}
+
+.c6::after {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid #555;
+  border-bottom-width: 0;
+  margin: auto;
+  right: 11px;
+  z-index: 1;
+}
+
+.c7 {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 8px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  line-height: 1;
+  color: #555;
+}
+
+.c7:focus {
+  outline: none;
+  border-color: #64a60a;
+}
+
+.c7:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #555;
+}
+
+.c7[disabled] {
+  opacity: .75;
+}
+
+.c7::-ms-value {
+  background: transparent;
+}
+
+.c7::-ms-expand {
+  display: none;
+}
+
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c1 {
+  max-width: 640px;
+  margin: auto;
+  font-size: 1em;
+}
+
+.c5 {
+  width: 100%;
+  height: 48px;
+  box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
+  background: #ddd;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  border: 0;
+  margin-bottom: 8px;
+}
+
+.c4::-webkit-input-placeholder {
+  color: #616161;
+}
+
+.c4::-moz-placeholder {
+  color: #616161;
+  opacity: 1;
+}
+
+.c4:-ms-input-placeholder {
+  color: #616161;
+}
+
+.c8 {
+  font-size: 1em;
+  color: #dc3232;
+  margin: 1em 0;
+  min-height: 1.8em;
+}
+
+@media screen and ( max-width:500px ) {
+  .c0.my-yoast-modal__content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and ( max-height:640px ) {
+  .c0.my-yoast-modal__content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .c9 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .c9 a,
+  .c9 button {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+}
+
+<div>
+  <div
+    className="c0 my-yoast-modal__content"
+    contentLabel="message.defaultMessage"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="MyYoastModal-gnWJis c0 my-yoast-modal__overlay"
+    role="dialog"
+  >
+    <div
+      className="c1"
+    >
+      <h1
+        className="c2"
+      >
+        <span>
+          Add Site
+        </span>
+      </h1>
+      <form
+        noValidate={true}
+        onSubmit={[Function]}
+      >
+        <label
+          className="c3"
+          htmlFor="add-site-input"
+        >
+          <span>
+            Please enter the URL of the site you would like to add to your account:
+          </span>
+        </label>
+        <input
+          className="c4 c5"
+          id="add-site-input"
+          onChange={[Function]}
+          placeholder="https://example-site.com"
+          type="url"
+          value=""
+        />
+        <div>
+          <label
+            className="c3"
+            htmlFor="add-site-select-platform"
+          >
+            <span>
+              Please select the platform that your website is running on:
+            </span>
+          </label>
+          <span
+            className="c6"
+          >
+            <select
+              className="c7"
+              defaultValue="wordpress"
+              disabled={false}
+              id="add-site-select-platform"
+              name="selectPlatform"
+              onBlur={[Function]}
+            >
+              <option
+                value="wordpress"
+              >
+                WordPress
+              </option>
+              <option
+                value="typo3"
+              >
+                TYPO3
+              </option>
+            </select>
+          </span>
+        </div>
+        <div
+          className="c8"
+        />
+        <div
+          className="c9"
+        >
+          <button
+            className="c10 c11 c12"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Cancel
+            </span>
+          </button>
+          <button
+            className="c10 c13 Button-kDSBcD c14 c15"
+            type="submit"
+          >
+            <span>
+              Add
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

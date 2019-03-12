@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Subscribe Newsletter component (when pending) matches the snapshot 1`] = `
+.c0 {
+  margin-bottom: 1em;
+}
+
+<section
+  className="c0"
+>
+  <p>
+    <span>
+      Your subscription to the Yoast newsletter is pending. Please check your inbox for a confirmation email.
+    </span>
+  </p>
+  <p>
+    <span>
+      Yoast respects your privacy. Read our 
+      <a
+        href="https://yoast.com/privacy-policy/"
+      >
+        privacy policy
+      </a>
+       on how we handle your personal information.
+    </span>
+  </p>
+</section>
+`;
+
+exports[`The Subscribe Newsletter component (when subscribed) matches the snapshot 1`] = `
+.c2 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c2:hover,
+.c2:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c2:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c1 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c1:hover,
+.c1:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin-bottom: 1em;
+}
+
+<section
+  className="c0"
+>
+  <p>
+    <span>
+      You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
+    </span>
+  </p>
+  <p>
+    <span>
+      Yoast respects your privacy. Read our 
+      <a
+        href="https://yoast.com/privacy-policy/"
+      >
+        privacy policy
+      </a>
+       on how we handle your personal information.
+    </span>
+  </p>
+  <button
+    className="c1 c2"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Unsubscribe
+    </span>
+  </button>
+</section>
+`;
+
+exports[`The Subscribe Newsletter component (when unknown) matches the snapshot 1`] = `null`;
+
+exports[`The Subscribe Newsletter component (when unsubscribed) matches the snapshot 1`] = `
+.c2 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c2:hover,
+.c2:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c2:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c1 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c0 {
+  margin-bottom: 1em;
+}
+
+<section
+  className="c0"
+>
+  <p>
+    <span>
+      Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+    </span>
+  </p>
+  <p>
+    <span>
+      Yoast respects your privacy. Read our 
+      <a
+        href="https://yoast.com/privacy-policy/"
+      >
+        privacy policy
+      </a>
+       on how we handle your personal information.
+    </span>
+  </p>
+  <button
+    className="c1 c2"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Subscribe
+    </span>
+  </button>
+</section>
+`;
+
+exports[`The Subscribe Newsletter component shows an error when there is one defined. 1`] = `
+.c2 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c2:hover,
+.c2:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c2:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c1 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c4 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c3 {
+  background-color: #f9bdbd;
+}
+
+.c5 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c6 {
+  color: #5d237a;
+}
+
+.c0 {
+  margin-bottom: 1em;
+}
+
+@media screen and ( max-width:800 ) {
+  .c4 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+<section
+  className="c0"
+>
+  <p>
+    <span>
+      Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+    </span>
+  </p>
+  <p>
+    <span>
+      Yoast respects your privacy. Read our 
+      <a
+        href="https://yoast.com/privacy-policy/"
+      >
+        privacy policy
+      </a>
+       on how we handle your personal information.
+    </span>
+  </p>
+  <button
+    className="c1 c2"
+    onClick={[Function]}
+    type="button"
+  >
+    <span>
+      Subscribe
+    </span>
+  </button>
+  <div
+    className="c3 c4"
+    role="alert"
+  >
+    <span
+      className="c5"
+    />
+    <span>
+      Oops, something went wrong on our end, please try again. If this keeps happening, 
+      <a
+        className="c6"
+        href="mailto:support@yoast.com"
+      >
+        <span>
+          please contact support
+        </span>
+      </a>
+      .
+    </span>
+  </div>
+</section>
+`;

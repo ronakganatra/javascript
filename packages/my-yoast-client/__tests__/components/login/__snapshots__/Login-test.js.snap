@@ -1,0 +1,482 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Login component matches the snapshot 1`] = `
+.c14 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c14:hover,
+.c14:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c14:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c13 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c5 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: top;
+}
+
+.c9 {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.c9:checked + label .checkmark {
+  background-color: #a4286a;
+  background-image: url( check.svg );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+}
+
+.c9:focus + label .checkmark {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),0 0 2px 2px #1e8cbe;
+  outline: 2px solid transparent;
+}
+
+.c11 {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background-color: #f7f7f7;
+  margin-right: 8px;
+}
+
+.c11:hover {
+  background-color: #cecece;
+}
+
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c4 {
+  background-color: #f7f7f7;
+}
+
+.c0 {
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  margin-top: 5px;
+}
+
+.c6 {
+  margin-top: 10px;
+}
+
+.c12 {
+  margin: 1em 0;
+  width: 100%;
+}
+
+.c7 {
+  margin-top: 20px;
+  width: 100%;
+  font-weight: 700;
+}
+
+<form
+  className="c0"
+  onSubmit={[Function]}
+>
+  <div
+    className="c1"
+  >
+    <label
+      className="c2 c3"
+      htmlFor="email-address"
+    >
+      <span>
+        Email address
+      </span>
+    </label>
+    <input
+      className="c4 c5"
+      id="email-address"
+      name="email"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <label
+      className="c2 c3"
+      htmlFor="password"
+    >
+      <span>
+        Password
+      </span>
+    </label>
+    <input
+      className="c4 c5"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+    />
+  </div>
+  <div
+    className="c6"
+  >
+    <a
+      className={null}
+      href="/forgot-password"
+      onClick={[Function]}
+    >
+      <span>
+        Forgot your password?
+      </span>
+    </a>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c8"
+    >
+      <input
+        checked={false}
+        className="c9"
+        id="remember-me"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="c10"
+        htmlFor="remember-me"
+      >
+        <span
+          className="checkmark c11"
+        />
+        Remember me
+      </label>
+    </div>
+  </div>
+  <button
+    className="c12 c13 c14"
+    type="submit"
+  >
+    <span>
+      Log in
+    </span>
+  </button>
+</form>
+`;
+
+exports[`The Login component with OTP required matches the snapshot 1`] = `
+.c14 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c14:hover,
+.c14:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c14:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c13 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c5 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c8 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  vertical-align: top;
+}
+
+.c9 {
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+}
+
+.c9:checked + label .checkmark {
+  background-color: #a4286a;
+  background-image: url( check.svg );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 75%;
+}
+
+.c9:focus + label .checkmark {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3),0 0 2px 2px #1e8cbe;
+  outline: 2px solid transparent;
+}
+
+.c11 {
+  height: 25px;
+  width: 25px;
+  cursor: pointer;
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background-color: #f7f7f7;
+  margin-right: 8px;
+}
+
+.c11:hover {
+  background-color: #cecece;
+}
+
+.c10 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+}
+
+.c3 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c4 {
+  background-color: #f7f7f7;
+}
+
+.c0 {
+  position: relative;
+  width: 400px;
+  min-height: 400px;
+}
+
+.c1 {
+  width: 100%;
+}
+
+.c2 {
+  margin-top: 5px;
+}
+
+.c6 {
+  margin-top: 10px;
+}
+
+.c12 {
+  margin: 1em 0;
+  width: 100%;
+}
+
+.c7 {
+  margin-top: 20px;
+  width: 100%;
+  font-weight: 700;
+}
+
+<form
+  className="c0"
+  onSubmit={[Function]}
+>
+  <div
+    className="c1"
+  >
+    <label
+      className="c2 c3"
+      htmlFor="email-address"
+    >
+      <span>
+        Email address
+      </span>
+    </label>
+    <input
+      className="c4 c5"
+      id="email-address"
+      name="email"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <label
+      className="c2 c3"
+      htmlFor="password"
+    >
+      <span>
+        Password
+      </span>
+    </label>
+    <input
+      className="c4 c5"
+      id="password"
+      name="password"
+      onChange={[Function]}
+      type="password"
+    />
+  </div>
+  <div
+    className="c1"
+  >
+    <label
+      className="c2 c3"
+      htmlFor="otp"
+    >
+      <span>
+        Verification code
+      </span>
+    </label>
+    <input
+      className="c4 c5"
+      id="otp"
+      name="otp"
+      onChange={[Function]}
+      type="text"
+    />
+  </div>
+  <div
+    className="c6"
+  >
+    <a
+      className={null}
+      href="/forgot-password"
+      onClick={[Function]}
+    >
+      <span>
+        Forgot your password?
+      </span>
+    </a>
+  </div>
+  <div
+    className="c7"
+  >
+    <div
+      className="c8"
+    >
+      <input
+        checked={false}
+        className="c9"
+        id="remember-me"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <label
+        className="c10"
+        htmlFor="remember-me"
+      >
+        <span
+          className="checkmark c11"
+        />
+        Remember me
+      </label>
+    </div>
+  </div>
+  <button
+    className="c12 c13 c14"
+    type="submit"
+  >
+    <span>
+      Log in
+    </span>
+  </button>
+</form>
+`;

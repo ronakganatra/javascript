@@ -1,0 +1,491 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The MyYoastModal for the ConfigurationServiceRequestForm component matches the snapshot 1`] = `
+.c0.my-yoast-modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.6);
+  -webkit-transition: background 100ms ease-out;
+  transition: background 100ms ease-out;
+  z-index: 999;
+}
+
+.c0.my-yoast-modal__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  width: auto;
+  max-width: 90%;
+  max-height: 90%;
+  border: 0;
+  border-radius: 0;
+  margin-right: -50%;
+  padding: 24px 16px 0px 16px;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  background-color: #fff;
+  outline: none;
+}
+
+.c0 .my-yoast-modal__actions {
+  padding-top: 1em;
+  text-align: right;
+}
+
+.c0 .my-yoast-modal__actions button {
+  margin-left: 1em;
+}
+
+.c12 {
+  float: left;
+  height: 30px;
+  width: 30px;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 50%;
+  padding: 5px;
+  margin-right: 10px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.c11 {
+  background-color: #a4286a;
+}
+
+.c22 {
+  background-color: #a0a5aa;
+}
+
+.c10 {
+  display: block;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  height: 30px;
+  color: #000;
+  font-size: 18px;
+  line-height: 30px;
+  cursor: pointer;
+  margin: 5px 0;
+  text-align: left;
+}
+
+.c13 {
+  display: inline-block;
+}
+
+.c14 {
+  padding: 0 0 10px 25px;
+  margin-left: 15px;
+  border-left: 1px solid #a0a5aa;
+}
+
+.c9:last-child .c14 {
+  margin: 0 0 10px 15px;
+  padding: 0 0 0 25px;
+}
+
+.c14 > div > p:first-child {
+  margin-top: 0;
+}
+
+.c7 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c7:hover,
+.c7:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c7:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c21 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c21:hover,
+.c21:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c21:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c6 {
+  background-repeat: no-repeat;
+  background-image: url( times.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c20 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c18 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c18:hover,
+.c18:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c19 {
+  min-width: 152px;
+}
+
+.c5 {
+  background-color: transparent;
+  background-position: 50%;
+  padding-left: 0px;
+  height: 32px;
+  width: 32px;
+  border-bottom: none;
+  box-shadow: none;
+  display: inline-block;
+}
+
+.c5:hover,
+.c5:focus {
+  box-shadow: none;
+  background-color: transparent;
+  opacity: .5;
+}
+
+.c16 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c16 a,
+.c16 button {
+  margin-left: 12px;
+}
+
+.c15 {
+  margin-left: 12px;
+}
+
+.c3 {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.c1 {
+  width: 640px;
+  max-width: 100%;
+  margin: auto;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+.c2 {
+  float: left;
+}
+
+.c4 {
+  float: right;
+}
+
+.c8 {
+  padding: 10px 0;
+  clear: both;
+}
+
+@media screen and ( max-width:500px ) {
+  .c0.my-yoast-modal__content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and ( max-height:640px ) {
+  .c0.my-yoast-modal__content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    font-size: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .c16 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .c16 a,
+  .c16 button {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+}
+
+<div>
+  <div
+    className="c0 my-yoast-modal__content"
+    contentLabel="message.defaultMessage"
+    id="Modal"
+    isOpen={true}
+    onRequestClose={[Function]}
+    overlayClassName="MyYoastModal-gnWJis c0 my-yoast-modal__overlay"
+    role="dialog"
+  >
+    <div
+      className="c1"
+    >
+      <h1
+        className="c2 c3"
+      >
+        <span>
+          Configuration service 1/4
+        </span>
+      </h1>
+      <button
+        aria-label="Close"
+        className="c4 c5 c6 c7"
+        onClick={[Function]}
+        type="button"
+      />
+      <div
+        className="c8"
+      >
+        <div>
+          <div
+            className="c9 "
+          >
+            <button
+              aria-current="step"
+              aria-label="Step 1: Administrator login"
+              className="c10"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="c11 c12"
+              >
+                1
+              </span>
+              <span
+                className="c13"
+              >
+                Administrator login
+              </span>
+            </button>
+            <div
+              className="c14"
+            >
+              <div>
+                <p>
+                  <span>
+                    We will, of course, need an administrator login to your site. Please create a new admin user on your site with the email address install@yoast.com.
+                  </span>
+                </p>
+                <p>
+                  <input
+                    checked={false}
+                    id="administratorLoginConfirmation"
+                    onChange={[Function]}
+                    type="checkbox"
+                  />
+                  <label
+                    className="c15"
+                    htmlFor="administratorLoginConfirmation"
+                  >
+                    <span>
+                      I've created a new admin user with the email address install@yoast.com.
+                    </span>
+                  </label>
+                </p>
+                <div
+                  className="c16"
+                >
+                  <button
+                    className="c17 c18 c7"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span>
+                      close
+                    </span>
+                  </button>
+                  <button
+                    className="c17 c19 Button-kDSBcD c20 c21"
+                    onClick={[Function]}
+                    type="submit"
+                  >
+                    <span>
+                      continue
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="c9 "
+          >
+            <button
+              aria-current="false"
+              aria-label="Step 2: Backup"
+              className="c10"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="c22 c12"
+              >
+                2
+              </span>
+              <span
+                className="c13"
+              >
+                Backup
+              </span>
+            </button>
+            <div
+              className="c14"
+            />
+          </div>
+          <div
+            className="c9 "
+          >
+            <button
+              aria-current="false"
+              aria-label="Step 3: Import data from another SEO plugin"
+              className="c10"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="c22 c12"
+              >
+                3
+              </span>
+              <span
+                className="c13"
+              >
+                Import data from another SEO plugin
+              </span>
+            </button>
+            <div
+              className="c14"
+            />
+          </div>
+          <div
+            className="c9 "
+          >
+            <button
+              aria-current="false"
+              aria-label="Step 4: Google search console"
+              className="c10"
+              onClick={[Function]}
+              type="button"
+            >
+              <span
+                className="c22 c12"
+              >
+                4
+              </span>
+              <span
+                className="c13"
+              >
+                Google search console
+              </span>
+            </button>
+            <div
+              className="c14"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,991 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`A standard order 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1:first-child {
+  margin-top: 64px;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Date";
+}
+
+.c6 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c6:first-child {
+  padding-left: 0;
+}
+
+.c6::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Order";
+}
+
+.c9 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c9:first-child {
+  padding-left: 0;
+}
+
+.c9::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Items";
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Total";
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Status";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c8 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c16 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c4 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c10 {
+  padding: 0;
+  list-style: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c19 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+.c22 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c22:hover,
+.c22:focus {
+  color: #fff;
+}
+
+.c22:hover,
+.c22:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c22:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c21 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c20 {
+  min-width: 152px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c0:first-child {
+    margin-top: 0;
+  }
+
+  .c0 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c6 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c19.c19 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c19.c19 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c2:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Date:";
+  }
+
+  .c3 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Items:";
+  }
+
+  .c7 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
+  }
+
+  .c11 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c15 > span {
+    line-height: inherit;
+  }
+}
+
+<li
+  className="c0 c1"
+>
+  <span
+    className="c2 Tables-fvscPb c3 c4 c5"
+  >
+    <span>
+      January 1, 2012
+    </span>
+  </span>
+  <span
+    className="c4 c6"
+  >
+    MOOIE 456 TEST
+  </span>
+  <span
+    className="c2 Tables-fvscPb c7 c8 c9"
+  >
+    <ul
+      className="c10"
+    >
+      <li>
+        1
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
+        Name of the product
+      </li>
+      <li>
+        2
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
+        Another product
+      </li>
+    </ul>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c11 c4 c12"
+  >
+    <span>
+      $100.00
+    </span>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c13 c4 c14"
+  >
+    <span>
+      Completed
+    </span>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c15 c16 c17"
+  >
+    <div>
+      <a
+        aria-label="Download invoice"
+        className="c18 Button-kDSBcD c19 c20 c21 c22"
+        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
+        onClick={null}
+        rel={null}
+        target={null}
+      >
+        <span
+          className="screen-reader-text"
+        >
+          Invoice
+        </span>
+      </a>
+    </div>
+  </span>
+</li>
+`;
+
+exports[`An Order with a disabled invoice button 1`] = `
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: baseline;
+  -webkit-box-align: baseline;
+  -ms-flex-align: baseline;
+  align-items: baseline;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1:first-child {
+  margin-top: 64px;
+}
+
+.c5 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c5:first-child {
+  padding-left: 0;
+}
+
+.c5::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Date";
+}
+
+.c6 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c6:first-child {
+  padding-left: 0;
+}
+
+.c6::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Order";
+}
+
+.c9 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c9:first-child {
+  padding-left: 0;
+}
+
+.c9::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Items";
+}
+
+.c12 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c12:first-child {
+  padding-left: 0;
+}
+
+.c12::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Total";
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Status";
+}
+
+.c17 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c17:first-child {
+  padding-left: 0;
+}
+
+.c17::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c8 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c16 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c4 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c10 {
+  padding: 0;
+  list-style: none;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c19 .screen-reader-text {
+  position: static;
+  -webkit-clip-path: none;
+  clip-path: none;
+}
+
+.c22 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c22:hover,
+.c22:focus {
+  color: #fff;
+}
+
+.c22:hover,
+.c22:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c22:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c21 {
+  background-repeat: no-repeat;
+  background-image: url( download.svg );
+  background-position: 8px 50%;
+  background-size: 24px;
+  padding-left: 36px;
+}
+
+.c20 {
+  min-width: 152px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: flex-start;
+    -webkit-box-align: flex-start;
+    -ms-flex-align: flex-start;
+    align-items: flex-start;
+  }
+
+  .c0:first-child {
+    margin-top: 0;
+  }
+
+  .c0 > span::before {
+    position: static;
+    display: inline-block;
+    padding-right: 0.5em;
+    font-size: inherit;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c5 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c6 {
+    padding-left: 20px;
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c6 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c9 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c12 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c10 {
+    overflow: hidden;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c18 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and (min-width:801px) and (max-width:1355px) {
+  .c19.c19 {
+    padding-right: 0;
+    padding-left: 42px;
+    min-width: 0;
+    vertical-align: middle;
+  }
+
+  .c19.c19 .screen-reader-text {
+    position: absolute;
+    -webkit-clip: rect(1px,1px,1px,1px);
+    clip: rect(1px,1px,1px,1px);
+    -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c2:first-child {
+    margin-top: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c3::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Date:";
+  }
+
+  .c3 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c7::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Items:";
+  }
+
+  .c7 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c11::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Total:";
+  }
+
+  .c11 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: "Status:";
+  }
+
+  .c13 > span {
+    line-height: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15::before {
+    float: left;
+    min-width: 60px;
+    line-height: inherit;
+    font-weight: 700;
+    content: none;
+  }
+
+  .c15 > span {
+    line-height: inherit;
+  }
+}
+
+<li
+  className="c0 c1"
+>
+  <span
+    className="c2 Tables-fvscPb c3 c4 c5"
+  >
+    <span>
+      January 1, 2012
+    </span>
+  </span>
+  <span
+    className="c4 c6"
+  >
+    MOOIE 456 TEST
+  </span>
+  <span
+    className="c2 Tables-fvscPb c7 c8 c9"
+  >
+    <ul
+      className="c10"
+    >
+      <li>
+        1
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
+        Name of the product
+      </li>
+      <li>
+        2
+        <span
+          aria-hidden="true"
+        >
+          ×
+        </span>
+         
+        Another product
+      </li>
+    </ul>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c11 c4 c12"
+  >
+    <span>
+      $100.00
+    </span>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c13 c4 c14"
+  >
+    <span>
+      Pending
+    </span>
+  </span>
+  <span
+    className="c2 Tables-fvscPb c15 c16 c17"
+  >
+    <div>
+      <a
+        aria-label="Download invoice"
+        className="c18 Button-kDSBcD c19 c20 c21 c22"
+        href="https://my.yoast.com/api/Orders/1/invoice?access_token="
+        onClick={null}
+        rel={null}
+        target={null}
+      >
+        <span
+          className="screen-reader-text"
+        >
+          Invoice
+        </span>
+      </a>
+    </div>
+  </span>
+</li>
+`;

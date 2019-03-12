@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The courses page component matches the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  border-bottom: 4px solid #ccc;
+}
+
+.c1 {
+  min-width: 200px;
+  font-size: 1.2em;
+}
+
+.c2 {
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5em 0;
+  color: #555;
+  margin-bottom: -4px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border 200ms ease-out;
+  transition: border 200ms ease-out;
+}
+
+.c2:hover,
+.c2:focus,
+.c2.activeSubMenu {
+  border-bottom-color: #a4286a;
+  border-bottom-style: double;
+}
+
+.c2.activeSubMenu {
+  color: #a4286a;
+  border-bottom-style: solid;
+}
+
+@media screen and ( max-width:600px ) {
+  .c1 {
+    width: 150px;
+    min-width: 0px;
+  }
+}
+
+<ul
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/progress"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Courses
+    </a>
+  </li>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/enrollments"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Enrollments
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`the courses page component matches the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  list-style-type: none;
+  margin-bottom: 2em;
+  padding: 0;
+  border-bottom: 4px solid #ccc;
+}
+
+.c1 {
+  min-width: 200px;
+  font-size: 1.2em;
+}
+
+.c2 {
+  display: block;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  padding: 0.5em 0;
+  color: #555;
+  margin-bottom: -4px;
+  border-bottom: 4px solid transparent;
+  -webkit-transition: border 200ms ease-out;
+  transition: border 200ms ease-out;
+}
+
+.c2:hover,
+.c2:focus,
+.c2.activeSubMenu {
+  border-bottom-color: #a4286a;
+  border-bottom-style: double;
+}
+
+.c2.activeSubMenu {
+  color: #a4286a;
+  border-bottom-style: solid;
+}
+
+@media screen and ( max-width:600px ) {
+  .c1 {
+    width: 150px;
+    min-width: 0px;
+  }
+}
+
+<ul
+  className="c0"
+  role="list"
+>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/progress"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Courses
+    </a>
+  </li>
+  <li
+    className="c1"
+  >
+    <a
+      aria-current={false}
+      className="c2"
+      href="/courses/enrollments"
+      onClick={[Function]}
+      style={undefined}
+    >
+      Enrollments
+    </a>
+  </li>
+</ul>
+`;

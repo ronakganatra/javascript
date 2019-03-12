@@ -1,0 +1,343 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The ProfileDetails component matches the snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  width: 480px;
+}
+
+.c9 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c7 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c8 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c10 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c11 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c11:hover,
+.c11:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c12 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c17 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c15 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c5 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.c14 {
+  width: 100%;
+}
+
+.c13 {
+  width: 70%;
+  padding-left: 20px;
+}
+
+.c13 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c6 {
+  width: 30%;
+  margin: auto;
+  margin-top: 25px;
+  text-align: center;
+}
+
+.c16 {
+  background-color: #f1f1f1;
+}
+
+.c21 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c21:hover,
+.c21:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c21:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c20 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c2 {
+  padding: 0 20px;
+  width: 480px;
+  min-height: 480px;
+  position: relative;
+  text-align: center;
+}
+
+.c3 {
+  margin-top: 40px;
+  width: 360px;
+}
+
+.c4 {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.c18 {
+  text-align: center;
+  width: 100%;
+}
+
+.c19 {
+  margin: 40px 0;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1:not(:only-child) {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <img
+        alt="MyYoast - Yoast Academy"
+        className="c3"
+        src="my-yoast-academy-logo.svg"
+      />
+      <p
+        className="c4"
+      >
+        <span>
+          Your MyYoast account has been activated! Fill out this last bit of information and you can get started. Don't worry, you can always change these later!
+        </span>
+      </p>
+      <form
+        className="c5"
+        onSubmit={[Function]}
+      >
+        <div
+          className="c6"
+        >
+          <div
+            className="c7"
+            size="125px"
+          >
+            <div
+              className="c8"
+            >
+              <img
+                alt="Default profile image"
+                className="c9"
+                onError={[Function]}
+                size="125px"
+                src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+              />
+            </div>
+            <span
+              className="c10"
+            >
+              <button
+                aria-label="Change profile image"
+                className="c11"
+                onClick={[Function]}
+                type="button"
+              >
+                <span>
+                  Change
+                </span>
+              </button>
+            </span>
+            <p
+              className="c12"
+            >
+              <span>
+                Maximum file size is 5 megabytes
+              </span>
+            </p>
+            <input
+              accept="image/png, image/jpeg, image/gif"
+              onChange={[Function]}
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "none",
+                }
+              }
+              type="file"
+            />
+          </div>
+        </div>
+        <div
+          className="c13 c14"
+          id="left"
+        >
+          <label
+            className="c15"
+            htmlFor="first-name"
+          >
+            <span>
+              First name
+            </span>
+          </label>
+          <input
+            className="c16 c17"
+            id="first-name"
+            name="first name"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c15"
+            htmlFor="last-name"
+          >
+            <span>
+              Last name
+            </span>
+          </label>
+          <input
+            className="c16 c17"
+            id="last-name"
+            name="last name"
+            onChange={[Function]}
+            type="text"
+            value=""
+            width="100%"
+          />
+        </div>
+        <div
+          className="c18"
+        >
+          <button
+            className="c19 c20 c21"
+            type="submit"
+          >
+            <span>
+              Continue to MyYoast
+            </span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

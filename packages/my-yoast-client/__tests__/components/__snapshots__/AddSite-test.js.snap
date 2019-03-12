@@ -1,0 +1,420 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The AddSite component matches the snapshot 1`] = `
+.c15 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c15:hover,
+.c15:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c15:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c18 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #a0a5aa;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c18:hover,
+.c18:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c18:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c17 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c14 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c14:hover,
+.c14:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c16 {
+  min-width: 152px;
+}
+
+.c6 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c5 {
+  background-color: #f9bdbd;
+}
+
+.c7 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c8 {
+  color: #5d237a;
+}
+
+.c1 {
+  font-weight: 300;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.c12 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c12 a,
+.c12 button {
+  margin-left: 12px;
+}
+
+.c9 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.c9::after,
+.c9::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.c9::before {
+  width: 32px;
+  right: 0;
+}
+
+.c9::after {
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 5px solid #555;
+  border-bottom-width: 0;
+  margin: auto;
+  right: 11px;
+  z-index: 1;
+}
+
+.c10 {
+  width: 100%;
+  height: 48px;
+  box-sizing: border-box;
+  padding: 8px 32px 8px 8px;
+  max-width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  line-height: 1;
+  color: #555;
+}
+
+.c10:focus {
+  outline: none;
+  border-color: #64a60a;
+}
+
+.c10:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 #555;
+}
+
+.c10[disabled] {
+  opacity: .75;
+}
+
+.c10::-ms-value {
+  background: transparent;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c2 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c0 {
+  max-width: 640px;
+  margin: auto;
+  font-size: 1em;
+}
+
+.c4 {
+  width: 100%;
+  height: 48px;
+  box-shadow: inset 0 2px 8px 0px rgba(0,0,0,0.3);
+  background: #ddd;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  border: 0;
+  margin-bottom: 8px;
+}
+
+.c3::-webkit-input-placeholder {
+  color: #616161;
+}
+
+.c3::-moz-placeholder {
+  color: #616161;
+  opacity: 1;
+}
+
+.c3:-ms-input-placeholder {
+  color: #616161;
+}
+
+.c11 {
+  font-size: 1em;
+  color: #dc3232;
+  margin: 1em 0;
+  min-height: 1.8em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    width: 100%;
+    background-image: none;
+    padding: 12px 16px;
+  }
+}
+
+@media screen and ( max-width:800 ) {
+  .c6 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width:800px) {
+  .c12 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+
+  .c12 a,
+  .c12 button {
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <h1
+    className="c1"
+  >
+    <span>
+      Add Site
+    </span>
+  </h1>
+  <form
+    noValidate={true}
+    onSubmit={[Function]}
+  >
+    <label
+      className="c2"
+      htmlFor="add-site-input"
+    >
+      <span>
+        Please enter the URL of the site you would like to add to your account:
+      </span>
+    </label>
+    <input
+      className="c3 c4"
+      id="add-site-input"
+      onChange={[Function]}
+      placeholder="https://example-site.com"
+      type="url"
+      value=""
+    />
+    <div
+      className="c5 c6"
+      role="alert"
+    >
+      <span
+        className="c7"
+      />
+      <span>
+        Oops, something went wrong on our end, please try again. If this keeps happening, 
+        <a
+          className="c8"
+          href="mailto:support@yoast.com"
+        >
+          <span>
+            please contact support
+          </span>
+        </a>
+        .
+      </span>
+    </div>
+    <div>
+      <label
+        className="c2"
+        htmlFor="add-site-select-platform"
+      >
+        <span>
+          Please select the platform that your website is running on:
+        </span>
+      </label>
+      <span
+        className="c9"
+      >
+        <select
+          className="c10"
+          defaultValue="wordpress"
+          disabled={false}
+          id="add-site-select-platform"
+          name="selectPlatform"
+          onBlur={[Function]}
+        >
+          <option
+            value="wordpress"
+          >
+            WordPress
+          </option>
+          <option
+            value="typo3"
+          >
+            TYPO3
+          </option>
+        </select>
+      </span>
+    </div>
+    <div
+      className="c11"
+    />
+    <div
+      className="c12"
+    >
+      <button
+        className="c13 c14 c15"
+        onClick={[Function]}
+        type="button"
+      >
+        <span>
+          Cancel
+        </span>
+      </button>
+      <button
+        className="c13 c16 Button-kDSBcD c17 c18"
+        type="submit"
+      >
+        <span>
+          Add
+        </span>
+      </button>
+    </div>
+  </form>
+</div>
+`;

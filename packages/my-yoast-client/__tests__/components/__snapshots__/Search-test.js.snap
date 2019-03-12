@@ -1,0 +1,205 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the search component handling an on change 1`] = `
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="search"
+  >
+    <span
+      className="screen-reader-text "
+    >
+      Search
+    </span>
+  </label>
+  <input
+    aria-describedby="search-description"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
+    className="c2 c3"
+    id="search"
+    onChange={[Function]}
+    spellCheck="false"
+    type="text"
+    value={undefined}
+  />
+  <p
+    className="screen-reader-text"
+    id="search-description"
+  >
+    The search results will be updated as you type.
+  </p>
+</div>
+`;
+
+exports[`the search component handling an on change 2`] = `
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="search"
+  >
+    <span
+      className="screen-reader-text "
+    >
+      Search
+    </span>
+  </label>
+  <input
+    aria-describedby="search-description"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
+    className="c2 c3"
+    id="search"
+    onChange={[Function]}
+    spellCheck="false"
+    type="text"
+    value={undefined}
+  />
+  <p
+    className="screen-reader-text"
+    id="search-description"
+  >
+    The search results will be updated as you type.
+  </p>
+</div>
+`;
+
+exports[`the search component matches the snapshot 1`] = `
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+<div
+  className="c0"
+>
+  <label
+    className="c1"
+    htmlFor="search"
+  >
+    <span
+      className="screen-reader-text "
+    >
+      Search
+    </span>
+  </label>
+  <input
+    aria-describedby="search-description"
+    autoCapitalize="off"
+    autoComplete="off"
+    autoCorrect="off"
+    className="c2 c3"
+    id="search"
+    onChange={[Function]}
+    spellCheck="false"
+    type="text"
+    value={undefined}
+  />
+  <p
+    className="screen-reader-text"
+    id="search-description"
+  >
+    The search results will be updated as you type.
+  </p>
+</div>
+`;

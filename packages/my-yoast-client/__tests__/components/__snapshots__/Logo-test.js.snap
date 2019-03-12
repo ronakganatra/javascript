@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the logo matches the snapshot 1`] = `
+.c1 {
+  width: 300px;
+  display: block;
+  margin: 30px auto 25px;
+}
+
+.c0 {
+  margin: 12px auto;
+}
+
+@media screen and ( max-width:1024px ) {
+  .c1 {
+    margin: 12px auto;
+  }
+}
+
+<a
+  className={null}
+  href="/"
+  onClick={[Function]}
+>
+  <img
+    alt="My logo alt"
+    className="c0 c1"
+    size="300px"
+    src="logo.svg"
+  />
+</a>
+`;

@@ -1,0 +1,302 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The CoursesProgress component matches the snapshot 1`] = `
+.c15 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c14 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c14:hover,
+.c14:focus {
+  color: #fff;
+}
+
+.c14:hover,
+.c14:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c14:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c10 {
+  position: relative;
+  background-color: #ddd;
+  border-radius: 5px;
+  text-align: right;
+}
+
+.c12 {
+  width: 50%;
+  height: 25px;
+  background-color: #77b227;
+  border-radius: 5px;
+}
+
+.c11 {
+  position: absolute;
+  right: 10px;
+  line-height: 25px;
+  font-size: 0.75em;
+  font-weight: bold;
+  color: #000;
+}
+
+.c9 {
+  text-align: center;
+}
+
+.c13 {
+  margin-top: 24px;
+  background-color: #77b227;
+  color: #fff;
+  width: 100%;
+  text-shadow: none;
+}
+
+.c16 {
+  background-color: #a4286a;
+  color: #fff;
+  width: 100%;
+  text-shadow: none;
+}
+
+.c8 {
+  margin-bottom: 24px;
+  border-bottom: 1px #ddd solid;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c3 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  width: 100%;
+  list-style-type: none;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c4 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c6 {
+  display: block;
+  padding: 8px 18px 0;
+  color: #a4286a;
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.c5 {
+  width: 100%;
+}
+
+.c7 {
+  margin: 0;
+  padding: 0 18px 18px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+}
+
+.c2 {
+  height: 100%;
+}
+
+.c0 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,288px);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  padding: 0;
+}
+
+.c1 {
+  list-style-type: none;
+  height: 100%;
+  width: 100%;
+}
+
+<ul
+  className="c0"
+>
+  <li
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+      id={null}
+    >
+      <a
+        className="c4"
+        href="http://academy.yoast.test/awesome_seo"
+      >
+        <img
+          alt=""
+          className="c5"
+          src="sample_course_card_header.png"
+        />
+        <span
+          className="c6"
+        >
+          Awesome SEO Course
+        </span>
+      </a>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          <p>
+            This is an awesome, sexy SEO course.
+          </p>
+        </div>
+        <div
+          className="c9"
+        >
+          <div
+            className="c10"
+          >
+            <span
+              aria-label="current progress"
+              className="c11"
+            >
+              50
+              %
+            </span>
+            <div
+              className="c12"
+            />
+          </div>
+          <a
+            aria-label={null}
+            className="c13 c14"
+            href="http://academy.yoast.test/awesome_seo"
+            onClick={null}
+            rel={null}
+            target="_blank"
+          >
+            <span>
+              Continue this course
+            </span>
+            <span
+              className="screen-reader-text c15"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    className="c1"
+  >
+    <div
+      className="c2 c3"
+      id={null}
+    >
+      <span>
+        <img
+          alt=""
+          className="c5"
+          src="sample_course_card_header.png"
+        />
+        <span
+          className="c6"
+        >
+          Awesome SEO Course
+        </span>
+      </span>
+      <div
+        className="c7"
+      >
+        <div
+          className="c8"
+        >
+          <p>
+            This is an awesome, sexy SEO course.
+          </p>
+        </div>
+        <div
+          className="c9"
+        >
+          <a
+            aria-label={null}
+            className="c16 c14"
+            href="http://yoast.test/shop"
+            onClick={null}
+            rel={null}
+            target="_blank"
+          >
+            <span>
+              Get the full course
+            </span>
+            <span
+              className="screen-reader-text c15"
+            >
+              <span>
+                (Opens in a new browser tab)
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the subscription component matches the snapshot 1`] = `
+.c0 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c0:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+<span>
+  <img
+    alt="Test is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test2 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test3 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test4 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+</span>
+`;
+
+exports[`the subscription component with plugins without active subscriptions using the default matches the snapshot 1`] = `
+.c0 {
+  opacity: 0.2;
+  width: 40px;
+  height: 40px;
+  float: left;
+  margin-right: 10px;
+}
+
+.c0:nth-child(n+7) {
+  margin-top: 10px;
+}
+
+<span>
+  <img
+    alt="Test is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test2 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test3 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+  <img
+    alt="Test4 is inactive"
+    className="c0"
+    src="test.jpg"
+  />
+</span>
+`;
+
+exports[`the subscription component without plugins or active subscriptions using the default matches the snapshot 1`] = `<span />`;
+
+exports[`the subscription component without plugins with active subscriptions using the default matches the snapshot 1`] = `<span />`;

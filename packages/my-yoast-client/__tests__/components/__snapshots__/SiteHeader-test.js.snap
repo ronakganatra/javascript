@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the site header matches the snapshot 1`] = `
+.c7 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+.c6 {
+  display: inline-block;
+  height: 48px;
+  padding: 12px 16px;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border-radius: 4px;
+  vertical-align: top;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 0px 2px #000;
+  border-bottom: 4px solid rgba(0,0,0,0.2);
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c6:hover,
+.c6:focus {
+  color: #fff;
+}
+
+.c6:hover,
+.c6:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c6:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c5 {
+  background-repeat: no-repeat;
+  background-image: url( angle-right.svg );
+  background-position: right 16px center;
+  background-size: 24px;
+  padding-left: 16px;
+  padding-right: 56px;
+}
+
+.c2 {
+  font-weight: 700;
+  font-size: 2em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  max-width: 1480px;
+  height: 286px;
+  background-color: #a4286a;
+  background-image: url( http://placehold.it/1480x380 );
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 32px 24px;
+}
+
+.c1 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  color: #fff;
+  font-weight: 300;
+  margin: 0;
+  min-height: 186px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-word;
+  min-width: 0;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: flex-end;
+  -webkit-box-align: flex-end;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;
+  -webkit-align-content: flex-end;
+  -ms-flex-line-pack: end;
+  align-content: flex-end;
+  height: 100px;
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    padding: 0 24px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c0 {
+    height: auto;
+    min-height: 144px;
+    padding: 0 16px 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c1 {
+    text-align: center;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c4 {
+    min-width: 100%;
+    margin-top: 1em;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .c4:first-child {
+    margin-top: 0px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <h1
+    className="c1 c2"
+  >
+    placehold.it
+  </h1>
+  <div
+    className="c3"
+  >
+    <a
+      aria-label={null}
+      className="c4 c5 c6"
+      href="http://placehold.it//wp-admin"
+      onClick={null}
+      rel="noopener"
+      target="_blank"
+    >
+      <span>
+        Open WordPress admin
+      </span>
+      <span
+        className="screen-reader-text c7"
+      >
+        <span>
+          (Opens in a new browser tab)
+        </span>
+      </span>
+    </a>
+  </div>
+</div>
+`;

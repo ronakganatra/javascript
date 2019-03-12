@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the new tab message component matches the snapshot 1`] = `
+.c0 {
+  -webkit-transform: translateY(1em);
+  -ms-transform: translateY(1em);
+  transform: translateY(1em);
+}
+
+<span
+  className="screen-reader-text c0"
+>
+  <span>
+    (Opens in a new browser tab)
+  </span>
+</span>
+`;

@@ -1,0 +1,457 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the site dangerzone matches the snapshot 1`] = `
+.c1 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c2 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <button
+      aria-expanded={false}
+      className="c2"
+      fontWeight={300}
+      onClick={[Function]}
+    >
+      <span
+        className="c3"
+        fontSize={1.5}
+      >
+        Disconnect this site
+      </span>
+      <svg
+        aria-hidden="true"
+        fill="#555"
+        focusable="false"
+        height={40}
+        role="img"
+        viewBox="0 0 24 24"
+        width={40}
+      >
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`the site dangerzone onRemove handling 1`] = `
+.c1 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c2 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <button
+      aria-expanded={false}
+      className="c2"
+      fontWeight={300}
+      onClick={[Function]}
+    >
+      <span
+        className="c3"
+        fontSize={1.5}
+      >
+        Disconnect this site
+      </span>
+      <svg
+        aria-hidden="true"
+        fill="#555"
+        focusable="false"
+        height={40}
+        role="img"
+        viewBox="0 0 24 24"
+        width={40}
+      >
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`the site dangerzone onRemove handling 2`] = `
+.c1 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c2 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <button
+      aria-expanded={false}
+      className="c2"
+      fontWeight={300}
+      onClick={[Function]}
+    >
+      <span
+        className="c3"
+        fontSize={1.5}
+      >
+        Disconnect this site
+      </span>
+      <svg
+        aria-hidden="true"
+        fill="#555"
+        focusable="false"
+        height={40}
+        role="img"
+        viewBox="0 0 24 24"
+        width={40}
+      >
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`the site dangerzone with removing = true matches the snapshot 1`] = `
+.c1 {
+  margin-top: 24px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 24px 32px;
+  border: none;
+  text-align: left;
+  font-weight: 300;
+  cursor: pointer;
+  color: #000;
+}
+
+.c2 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c3 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.5em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c0 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c2 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c2 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <button
+      aria-expanded={false}
+      className="c2"
+      fontWeight={300}
+      onClick={[Function]}
+    >
+      <span
+        className="c3"
+        fontSize={1.5}
+      >
+        Disconnect this site
+      </span>
+      <svg
+        aria-hidden="true"
+        fill="#555"
+        focusable="false"
+        height={40}
+        role="img"
+        viewBox="0 0 24 24"
+        width={40}
+      >
+        <path
+          d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;

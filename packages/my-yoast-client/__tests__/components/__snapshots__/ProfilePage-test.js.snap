@@ -1,0 +1,7787 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/ProfilePage If there are active composer tokens 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage If there are deleted composer tokens 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage When subscribed to the newsletter 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              You are subscribed to the Yoast newsletter. If you want to unsubscribe, click the button below.
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c22 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Unsubscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage failure during password reset 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c33 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c34 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c34 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c35 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c30 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c29 {
+  background-color: #f9bdbd;
+}
+
+.c31 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c32 {
+  color: #5d237a;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c28 {
+  width: 100%;
+  margin-top: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c34 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c34 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c34 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800 ) {
+  .c30 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c28 c29 c30"
+            role="alert"
+          >
+            <span
+              className="c31"
+            />
+            <span>
+              Oops, something went wrong on our end, please try again. If this keeps happening, 
+              <a
+                className="c32"
+                href="mailto:support@yoast.com"
+              >
+                <span>
+                  please contact support
+                </span>
+              </a>
+              .
+            </span>
+          </div>
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c33"
+      >
+        <button
+          aria-expanded={false}
+          className="c34"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c35"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c33"
+      >
+        <button
+          aria-expanded={false}
+          className="c34"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c35"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage failure during profile save 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c27 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c27:hover,
+.c27:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c27:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c30 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c26 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c26:hover,
+.c26:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c29 {
+  min-width: 152px;
+}
+
+.c32 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c33 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c33 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c34 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c21 {
+  padding: 1em;
+  background-color: #ffeb3b;
+  margin: 0.5em 0 0 0;
+  overflow: auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c20 {
+  background-color: #f9bdbd;
+}
+
+.c22 {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 2em;
+  background-image: url( exclamation-circle.svg );
+  height: 2em;
+  min-width: 2em;
+  margin: 0 1em;
+}
+
+.c23 {
+  color: #5d237a;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c24 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c28 {
+  margin: 1em 0;
+}
+
+.c25 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c31 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c33 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c33 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c33 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800 ) {
+  .c21 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c28 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20 c21"
+              role="alert"
+            >
+              <span
+                className="c22"
+              />
+              <span>
+                Oops, something went wrong on our end, please try again. If this keeps happening, 
+                <a
+                  className="c23"
+                  href="mailto:support@yoast.com"
+                >
+                  <span>
+                    please contact support
+                  </span>
+                </a>
+                .
+              </span>
+            </div>
+            <div
+              className="c24"
+            >
+              
+              <button
+                className="c25 c26 c27"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c28 c29 c30 c27"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c31"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c30 c27"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c24"
+          >
+            
+            <button
+              className="c25 c26 c27"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c28 c29 c30 c27"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c32"
+      >
+        <button
+          aria-expanded={false}
+          className="c33"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c34"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c32"
+      >
+        <button
+          aria-expanded={false}
+          className="c33"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c34"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage has sent password reset 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage saving profile 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c24 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c24:hover,
+.c24:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c24:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c27 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c23 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c23:hover,
+.c23:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c26 {
+  min-width: 152px;
+}
+
+.c29 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c30 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c30 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c31 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c21 {
+  padding: 0 1em;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c25 {
+  margin: 1em 0;
+}
+
+.c22 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c28 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c30 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c30 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c25 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              <span
+                className="c21"
+                role="alert"
+              >
+                Saving...
+              </span>
+              <button
+                className="c22 c23 c24"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c25 c26 c27 c24"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c28"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c27 c24"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c22 c23 c24"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c25 c26 c27 c24"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c29"
+      >
+        <button
+          aria-expanded={false}
+          className="c30"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c31"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage sending password reset 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage the default case 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Your current profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="dummy.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="test@test.test"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`components/ProfilePage while deleting the account 1`] = `
+.c4 {
+  background-color: #fff;
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+
+.c3 {
+  background-color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c2 {
+  margin: 0 8px 16px 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c23 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c23:hover,
+.c23:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c23:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c26 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c22 {
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  min-width: 152px;
+  box-shadow: none;
+  -webkit-filter: none;
+  filter: none;
+}
+
+.c22:hover,
+.c22:focus {
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  border: 0;
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c25 {
+  min-width: 152px;
+}
+
+.c28 {
+  margin-top: 0px;
+  background-color: #fff;
+  width: 100%;
+}
+
+.c29 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px;
+  border: none;
+  text-align: left;
+  font-weight: 400;
+  cursor: pointer;
+  color: #000;
+}
+
+.c29 svg {
+  -webkit-flex: 0 0 40px;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  margin-right: -10px;
+  margin-left: 10px;
+  margin-top: -4px;
+  margin-bottom: -4px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+.c30 {
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  font-size: 1.4em;
+  line-height: 1.33333333;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.c17 {
+  display: inline-block;
+  font-size: 1em;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+.c11 {
+  -webkit-flex: 0 0 125px;
+  -ms-flex: 0 0 125px;
+  flex: 0 0 125px;
+  height: 125px;
+  width: 125px;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  width: 125px;
+  height: 125px;
+}
+
+.c10 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c12 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(rgba(0,0,0,0) 75%,rgba(0,0,0,0.5) 75%);
+}
+
+.c13 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 12px;
+  -webkit-text-decoration: underline;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.c13:hover,
+.c13:focus {
+  color: white;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c14 {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+}
+
+.c19 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c20 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.c24 {
+  margin: 1em 0;
+}
+
+.c21 {
+  margin: 1em 0;
+  margin-right: 1em;
+}
+
+.c7 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c18 {
+  background-color: #f7f7f7;
+}
+
+.c16 {
+  width: 100%;
+}
+
+.c15 {
+  width: 70%;
+  margin-bottom: 8px;
+}
+
+.c15 div:last-of-type {
+  margin-bottom: 0;
+}
+
+.c8 {
+  width: 30%;
+  margin: auto;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.c27 {
+  margin-bottom: 1em;
+}
+
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+.c5 p:first-child {
+  margin-top: 16px;
+}
+
+.c6 {
+  margin-bottom: 0.5em;
+  font-size: 1.4em;
+}
+
+@media screen and ( max-width:800px ) {
+  .c3 {
+    display: block;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 {
+    padding: 16px 24px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c29 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c29 svg {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-right: -2px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c24 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c8 {
+    width: 100%;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c0 {
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c1 {
+    width: 100%;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Personal info
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <div
+            className="c8"
+          >
+            <div
+              className="c9"
+              size="125px"
+            >
+              <div
+                className="c10"
+              >
+                <img
+                  alt="Default profile image"
+                  className="c11"
+                  onError={[Function]}
+                  size="125px"
+                  src="https://s3.amazonaws.com/yoast-my-yoast/default-avatar.png"
+                />
+              </div>
+              <span
+                className="c12"
+              >
+                <button
+                  aria-label="Change profile image"
+                  className="c13"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span>
+                    Change
+                  </span>
+                </button>
+              </span>
+              <p
+                className="c14"
+              >
+                <span>
+                  Maximum file size is 5 megabytes
+                </span>
+              </p>
+              <input
+                accept="image/png, image/jpeg, image/gif"
+                onChange={[Function]}
+                onClick={[Function]}
+                style={
+                  Object {
+                    "display": "none",
+                  }
+                }
+                type="file"
+              />
+            </div>
+          </div>
+          <div
+            className="c15 c16"
+            id="left"
+          >
+            <label
+              className="c17"
+              htmlFor="first-name"
+            >
+              <span>
+                First name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="first-name"
+              name="first name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+            <label
+              className="c17"
+              htmlFor="last-name"
+            >
+              <span>
+                Last name
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="last-name"
+              name="last name"
+              onChange={[Function]}
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            className="c16"
+          >
+            <label
+              className="c17"
+              htmlFor="email-address"
+            >
+              <span>
+                Primary email address
+              </span>
+            </label>
+            <input
+              className="c18 c19"
+              id="email-address"
+              name="email"
+              onChange={[Function]}
+              type="text"
+              value="email@email.email"
+            />
+            <div
+              className="c20"
+            >
+              
+              <button
+                className="c21 c22 c23"
+                onClick={[Function]}
+                type="reset"
+              >
+                <span>
+                  Discard changes
+                </span>
+              </button>
+              <button
+                className="c24 c25 c26 c23"
+                type="submit"
+              >
+                <span>
+                  Save changes
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Newsletter
+          </span>
+        </p>
+        <section
+          className="c27"
+        >
+          <p>
+            <span>
+              Subscribe to get weekly tips on optimizing your website's SEO, usability and conversion. You'll also be the first to know about new features and other cool (free) plugins!
+            </span>
+          </p>
+          <p>
+            <span>
+              Yoast respects your privacy. Read our 
+              <a
+                href="https://yoast.com/privacy-policy/"
+              >
+                privacy policy
+              </a>
+               on how we handle your personal information.
+            </span>
+          </p>
+          <button
+            className="c26 c23"
+            onClick={[Function]}
+            type="button"
+          >
+            <span>
+              Subscribe
+            </span>
+          </button>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c5"
+      >
+        <p
+          className="c6"
+        >
+          <span>
+            Password
+          </span>
+        </p>
+        <p>
+          <span>
+            Your password should be at least 8 characters long, contain both uppercase and lowercase letters and one symbol.
+          </span>
+        </p>
+        <form
+          className="c7"
+          onSubmit={[Function]}
+        >
+          <label
+            className="c17"
+            htmlFor="current-password"
+          >
+            <span>
+              Current password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="current-password"
+            name="current password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="new-password"
+          >
+            <span>
+              New password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="new-password"
+            name="new password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <label
+            className="c17"
+            htmlFor="confirm-password"
+          >
+            <span>
+              Confirm new password
+            </span>
+          </label>
+          <input
+            className="c18 c19"
+            id="confirm-password"
+            name="confirm password"
+            onChange={[Function]}
+            type="password"
+            value=""
+            width="100%"
+          />
+          <div
+            className="c20"
+          >
+            
+            <button
+              className="c21 c22 c23"
+              onClick={[Function]}
+              type="reset"
+            >
+              <span>
+                Discard changes
+              </span>
+            </button>
+            <button
+              className="c24 c25 c26 c23"
+              type="submit"
+            >
+              <span>
+                Save changes
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Developer Tokens
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      className="c2 c3 c4"
+    >
+      <div
+        className="c28"
+      >
+        <button
+          aria-expanded={false}
+          className="c29"
+          fontWeight={400}
+          onClick={[Function]}
+        >
+          <span
+            className="c30"
+            fontSize={1.4}
+          >
+            Danger zone
+          </span>
+          <svg
+            aria-hidden="true"
+            fill="#555"
+            focusable="false"
+            height={40}
+            role="img"
+            viewBox="0 0 24 24"
+            width={40}
+          >
+            <path
+              d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

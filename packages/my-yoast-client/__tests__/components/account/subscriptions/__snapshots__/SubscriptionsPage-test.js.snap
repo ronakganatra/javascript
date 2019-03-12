@@ -1,0 +1,1951 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the SubscriptionsPage for multiple subscriptions matches the snapshot 1`] = `
+.c5 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c5 li:first-child > span::before {
+  left: auto;
+}
+
+.c7 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c7:first-child {
+  margin-top: 64px;
+}
+
+.c30 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c30:first-child {
+  margin-top: 64px;
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Subscriptions";
+}
+
+.c19 {
+  min-width: 102px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Used on";
+}
+
+.c21 {
+  min-width: 120px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Billing type";
+}
+
+.c23 {
+  min-width: 198px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c23:first-child {
+  padding-left: 0;
+}
+
+.c23::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Next billing";
+}
+
+.c31 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c31:first-child {
+  padding-left: 0;
+}
+
+.c31::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Individual subscriptions";
+}
+
+.c13 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c24 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c18 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c9 {
+  height: 48px;
+}
+
+.c29 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c29:hover,
+.c29:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c29:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c28 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c27 {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url( chevron-right.svg );
+  background-position: center;
+  background-size: 24px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-shadow: none;
+  border: 0;
+}
+
+.c26 {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+}
+
+.c26:hover,
+.c26:active {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+  box-shadow: 0 0 0 0 rgb( 0,0,0,0),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c12 {
+  height: inherit;
+}
+
+.c6 {
+  color: inherit;
+}
+
+.c16 {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: none;
+}
+
+.c8 {
+  height: 32px;
+  width: 32px;
+}
+
+.c4 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c30 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c23 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c23 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c31 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    max-width: 120px;
+    padding-left: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    max-width: 140px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c20 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    min-width: 158px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    padding-left: 0;
+  }
+}
+
+@media screen and ( min-width:1356px ) {
+  .c25 {
+    width: 152px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <label
+      className="c1"
+      htmlFor="search"
+    >
+      <span
+        className="screen-reader-text "
+      >
+        Search subscriptions
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="c2 c3"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+    <p
+      className="screen-reader-text"
+      id="search-description"
+    >
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="c4"
+  >
+    <ul
+      className="c5"
+      role="list"
+    >
+      <li
+        className="c6 c7"
+        onClick={[Function]}
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              <span>
+                Active
+              </span>
+            </span>
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          
+        </span>
+        <span
+          className="c22 c18 c23"
+        />
+        <span
+          className="c24 c11"
+        >
+          <div
+            className="c25"
+          >
+            <button
+              aria-expanded={false}
+              aria-label="More details"
+              className="c26 c27 c28 c29"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+        </span>
+      </li>
+      <li
+        className="c6 c30"
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              Active
+            </span>
+             - 
+            subscriptionNumber2
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          2/2 sites
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
+          <span>
+            January 1, 2028
+          </span>
+          <div
+            className="c15"
+          >
+            <span>
+              $0.01
+            </span>
+          </div>
+        </span>
+        <span
+          className="c24 c11"
+        />
+      </li>
+    </ul>
+  </div>
+  <div
+    className="c4"
+  >
+    <ul
+      className="c5"
+      role="list"
+    >
+      <li
+        className="c6 c7"
+        onClick={[Function]}
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c31"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              <span>
+                Active
+              </span>
+            </span>
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          
+        </span>
+        <span
+          className="c22 c18 c23"
+        />
+        <span
+          className="c24 c11"
+        >
+          <div
+            className="c25"
+          >
+            <button
+              aria-expanded={false}
+              aria-label="More details"
+              className="c26 c27 c28 c29"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+        </span>
+      </li>
+      <li
+        className="c6 c30"
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c31"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              Active
+            </span>
+             - 
+            subscriptionNumber2
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          2/2 sites
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
+          <span>
+            January 1, 2028
+          </span>
+          <div
+            className="c15"
+          >
+            <span>
+              $0.01
+            </span>
+          </div>
+        </span>
+        <span
+          className="c24 c11"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`the SubscriptionsPage when only grouped subscriptions are present matches the snapshot 1`] = `
+.c5 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c5 li:first-child > span::before {
+  left: auto;
+}
+
+.c7 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c7:first-child {
+  margin-top: 64px;
+}
+
+.c30 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c30:first-child {
+  margin-top: 64px;
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Subscriptions";
+}
+
+.c19 {
+  min-width: 102px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Used on";
+}
+
+.c21 {
+  min-width: 120px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Billing type";
+}
+
+.c23 {
+  min-width: 198px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c23:first-child {
+  padding-left: 0;
+}
+
+.c23::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Next billing";
+}
+
+.c13 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c24 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c18 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c9 {
+  height: 48px;
+}
+
+.c29 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c29:hover,
+.c29:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c29:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c28 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c27 {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url( chevron-right.svg );
+  background-position: center;
+  background-size: 24px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-shadow: none;
+  border: 0;
+}
+
+.c26 {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+}
+
+.c26:hover,
+.c26:active {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+  box-shadow: 0 0 0 0 rgb( 0,0,0,0),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c12 {
+  height: inherit;
+}
+
+.c6 {
+  color: inherit;
+}
+
+.c16 {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: none;
+}
+
+.c8 {
+  height: 32px;
+  width: 32px;
+}
+
+.c4 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c30 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c23 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c23 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    max-width: 120px;
+    padding-left: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    max-width: 140px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c20 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    min-width: 158px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    padding-left: 0;
+  }
+}
+
+@media screen and ( min-width:1356px ) {
+  .c25 {
+    width: 152px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <label
+      className="c1"
+      htmlFor="search"
+    >
+      <span
+        className="screen-reader-text "
+      >
+        Search subscriptions
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="c2 c3"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+    <p
+      className="screen-reader-text"
+      id="search-description"
+    >
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="c4"
+  >
+    <ul
+      className="c5"
+      role="list"
+    >
+      <li
+        className="c6 c7"
+        onClick={[Function]}
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              <span>
+                Active
+              </span>
+            </span>
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          
+        </span>
+        <span
+          className="c22 c18 c23"
+        />
+        <span
+          className="c24 c11"
+        >
+          <div
+            className="c25"
+          >
+            <button
+              aria-expanded={false}
+              aria-label="More details"
+              className="c26 c27 c28 c29"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+        </span>
+      </li>
+      <li
+        className="c6 c30"
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              Active
+            </span>
+             - 
+            subscriptionNumber2
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          2/2 sites
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
+          <span>
+            January 1, 2028
+          </span>
+          <div
+            className="c15"
+          >
+            <span>
+              $0.01
+            </span>
+          </div>
+        </span>
+        <span
+          className="c24 c11"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`the SubscriptionsPage when only individual subscriptions are present matches the snapshot 1`] = `
+.c5 {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  width: 100%;
+}
+
+.c5 li:first-child > span::before {
+  left: auto;
+}
+
+.c7 {
+  background: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c7:first-child {
+  margin-top: 64px;
+}
+
+.c30 {
+  background: #f7f7f7;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 16px 24px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c30:first-child {
+  margin-top: 64px;
+}
+
+.c11 {
+  font-size: 14px;
+  padding-left: 40px;
+}
+
+.c11:first-child {
+  padding-left: 0;
+}
+
+.c11::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: none;
+}
+
+.c19 {
+  min-width: 102px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c19:first-child {
+  padding-left: 0;
+}
+
+.c19::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Used on";
+}
+
+.c21 {
+  min-width: 120px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c21:first-child {
+  padding-left: 0;
+}
+
+.c21::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Billing type";
+}
+
+.c23 {
+  min-width: 198px;
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c23:first-child {
+  padding-left: 0;
+}
+
+.c23::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Next billing";
+}
+
+.c14 {
+  font-size: 14px;
+  padding-left: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c14:first-child {
+  padding-left: 0;
+}
+
+.c14::before {
+  position: absolute;
+  left: -9999em;
+  top: -24px;
+  font-size: 1.286em;
+  line-height: 0;
+  content: "Individual subscriptions";
+}
+
+.c13 {
+  -webkit-flex: 1 0 200px;
+  -ms-flex: 1 0 200px;
+  flex: 1 0 200px;
+}
+
+.c10 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c24 {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+}
+
+.c18 {
+  -webkit-flex: 1 0 100px;
+  -ms-flex: 1 0 100px;
+  flex: 1 0 100px;
+}
+
+.c9 {
+  height: 48px;
+}
+
+.c29 {
+  height: 48px;
+  margin: 0;
+  padding: 0 16px;
+  border: 0;
+  background-color: #64a60a;
+  color: #fff;
+  box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2);
+  -webkit-filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  filter: drop-shadow(0 2px 4px rgb(0,0,0,0.2));
+  border-radius: 4px;
+  font: 700 14px/24px "Open Sans",sans-serif;
+  cursor: pointer;
+  vertical-align: top;
+  -webkit-transition: background-color 150ms ease-out;
+  transition: background-color 150ms ease-out;
+}
+
+.c29:hover,
+.c29:focus {
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c29:active {
+  -webkit-transform: translateY( 1px );
+  -ms-transform: translateY( 1px );
+  transform: translateY( 1px );
+  box-shadow: none;
+}
+
+.c28 {
+  text-shadow: 0px 0px 2px #000;
+}
+
+.c27 {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-image: url( chevron-right.svg );
+  background-position: center;
+  background-size: 24px;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  box-shadow: none;
+  border: 0;
+}
+
+.c26 {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+}
+
+.c26:hover,
+.c26:active {
+  -webkit-transform: rotate( 90deg );
+  -ms-transform: rotate( 90deg );
+  transform: rotate( 90deg );
+  box-shadow: 0 0 0 0 rgb( 0,0,0,0),inset 0 0 0 100px rgba( 0,0,0,0.1 );
+}
+
+.c12 {
+  height: inherit;
+}
+
+.c6 {
+  color: inherit;
+}
+
+.c16 {
+  color: inherit;
+  font-weight: inherit;
+}
+
+.c15 {
+  font-size: 14px;
+  padding-left: none;
+}
+
+.c8 {
+  height: 32px;
+  width: 32px;
+}
+
+.c4 {
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c3 {
+  box-shadow: inset 0 1px 8px 0 rgba(0,0,0,0.3);
+  background: #fff;
+  border: 0;
+  padding: 0 0 0 10px;
+  font-size: 1em;
+  font-family: "Open Sans",sans-serif;
+  height: 3em;
+  width: 100%;
+}
+
+.c0 {
+  text-align: left;
+}
+
+.c1 {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.c2 {
+  background-image: url( search.svg );
+  background-position: 18px 15px;
+  background-size: 17px 17px;
+  background-repeat: no-repeat;
+  padding-left: 50px;
+  margin-right: 24px;
+}
+
+@media screen and ( max-width:800px ) {
+  .c7 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c30 {
+    padding: 16px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c11 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c19 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c19 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c21 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c21 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c23 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c23 {
+    display: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c14 {
+    padding-left: 20px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c13 {
+    -webkit-flex-shrink: 1;
+    -ms-flex-negative: 1;
+    flex-shrink: 1;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c24 {
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c17 {
+    max-width: 120px;
+    padding-left: inherit;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c17 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c20 {
+    max-width: 140px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c20 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:1355px ) {
+  .c22 {
+    min-width: 158px;
+    padding-left: 0px;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c22 {
+    max-width: none;
+  }
+}
+
+@media screen and ( max-width:800px ) {
+  .c15 {
+    padding-left: 0;
+  }
+}
+
+@media screen and ( min-width:1356px ) {
+  .c25 {
+    width: 152px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -webkit-justify-content: flex-end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+  }
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <label
+      className="c1"
+      htmlFor="search"
+    >
+      <span
+        className="screen-reader-text "
+      >
+        Search subscriptions
+      </span>
+    </label>
+    <input
+      aria-describedby="search-description"
+      autoCapitalize="off"
+      autoComplete="off"
+      autoCorrect="off"
+      className="c2 c3"
+      id="search"
+      onChange={[Function]}
+      spellCheck="false"
+      type="text"
+      value=""
+    />
+    <p
+      className="screen-reader-text"
+      id="search-description"
+    >
+      The search results will be updated as you type.
+    </p>
+  </div>
+  <div
+    className="c4"
+  >
+    <ul
+      className="c5"
+      role="list"
+    >
+      <li
+        className="c6 c7"
+        onClick={[Function]}
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              <span>
+                Active
+              </span>
+            </span>
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          
+        </span>
+        <span
+          className="c22 c18 c23"
+        />
+        <span
+          className="c24 c11"
+        >
+          <div
+            className="c25"
+          >
+            <button
+              aria-expanded={false}
+              aria-label="More details"
+              className="c26 c27 c28 c29"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+        </span>
+      </li>
+      <li
+        className="c6 c30"
+      >
+        <span
+          className="c8 c9 c10 c11"
+        >
+          <img
+            alt=""
+            className="c12"
+            src="icon.png"
+          />
+        </span>
+        <span
+          className="c13 c14"
+        >
+          name
+          <div
+            className="c15"
+          >
+            <span
+              className="c16"
+            >
+              Active
+            </span>
+             - 
+            subscriptionNumber2
+          </div>
+        </span>
+        <span
+          className="c17 c18 c19"
+        >
+          2/2 sites
+        </span>
+        <span
+          className="c20 c18 c21"
+        >
+          Automatic renewal
+        </span>
+        <span
+          className="c22 c18 c23"
+        >
+          <span>
+            January 1, 2028
+          </span>
+          <div
+            className="c15"
+          >
+            <span>
+              $0.01
+            </span>
+          </div>
+        </span>
+        <span
+          className="c24 c11"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;

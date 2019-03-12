@@ -1,0 +1,421 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The YoastSelect component matches the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c0.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c0 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c0 .Select-placeholder {
+  line-height: 48px;
+  color: #616161;
+}
+
+.c0.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c0 .Select-value-label {
+  line-height: 48px;
+}
+
+.c0 .Select-input {
+  line-height: 48px;
+}
+
+.c0 .Select-option {
+  color: #000;
+}
+
+.c0 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c0 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+<div
+  className="Select c0 is-clearable is-searchable Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-2--value"
+    >
+      <div
+        className="Select-placeholder"
+      >
+        Select...
+      </div>
+      <div
+        className="Select-input"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        <input
+          aria-activedescendant="react-select-2--value"
+          aria-describedby={undefined}
+          aria-expanded="false"
+          aria-haspopup="false"
+          aria-label={undefined}
+          aria-labelledby={undefined}
+          aria-owns=""
+          className={undefined}
+          id={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          role="combobox"
+          style={
+            Object {
+              "boxSizing": "content-box",
+              "width": "5px",
+            }
+          }
+          tabIndex={undefined}
+          value=""
+        />
+        <div
+          style={
+            Object {
+              "height": 0,
+              "left": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "top": 0,
+              "visibility": "hidden",
+              "whiteSpace": "pre",
+            }
+          }
+        >
+          
+        </div>
+      </div>
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="Select-arrow"
+        onMouseDown={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`The YoastSelect with placeholder and value matches the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c0.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c0 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c0 .Select-placeholder {
+  line-height: 48px;
+  color: #616161;
+}
+
+.c0.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c0 .Select-value-label {
+  line-height: 48px;
+}
+
+.c0 .Select-input {
+  line-height: 48px;
+}
+
+.c0 .Select-option {
+  color: #000;
+}
+
+.c0 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c0 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+<div
+  className="Select c0 has-value is-clearable is-searchable Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-4--value"
+    >
+      <div
+        className="Select-value"
+        style={undefined}
+        title={undefined}
+      >
+        <span
+          aria-selected="true"
+          className="Select-value-label"
+          id="react-select-4--value-item"
+          role="option"
+        >
+          HeadSpace2
+        </span>
+      </div>
+      <div
+        className="Select-input"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        <input
+          aria-activedescendant="react-select-4--value"
+          aria-describedby={undefined}
+          aria-expanded="false"
+          aria-haspopup="false"
+          aria-label={undefined}
+          aria-labelledby={undefined}
+          aria-owns=""
+          className={undefined}
+          id={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          role="combobox"
+          style={
+            Object {
+              "boxSizing": "content-box",
+              "width": "5px",
+            }
+          }
+          tabIndex={undefined}
+          value=""
+        />
+        <div
+          style={
+            Object {
+              "height": 0,
+              "left": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "top": 0,
+              "visibility": "hidden",
+              "whiteSpace": "pre",
+            }
+          }
+        >
+          
+        </div>
+      </div>
+    </span>
+    <span
+      aria-label="Clear value"
+      className="Select-clear-zone"
+      onMouseDown={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      title="Clear value"
+    >
+      <span
+        className="Select-clear"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "&times;",
+          }
+        }
+      />
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="Select-arrow"
+        onMouseDown={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;
+
+exports[`The YoastSelect with placeholder matches the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.c0.is-focused:not(.is-open) > .Select-control {
+  border-color: #64a60a;
+  box-shadow: none;
+  background: #fff;
+}
+
+.c0 .Select-control {
+  height: 48px;
+  border-radius: 0;
+}
+
+.c0 .Select-placeholder {
+  line-height: 48px;
+  color: #616161;
+}
+
+.c0.Select--single > .Select-control .Select-value {
+  line-height: 48px;
+}
+
+.c0 .Select-value-label {
+  line-height: 48px;
+}
+
+.c0 .Select-input {
+  line-height: 48px;
+}
+
+.c0 .Select-option {
+  color: #000;
+}
+
+.c0 .Select-option.is-selected {
+  background-color: #6dff003d;
+}
+
+.c0 .Select-option.is-focused {
+  background-color: #64a60a;
+  color: #fff;
+}
+
+<div
+  className="Select c0 is-clearable is-searchable Select--single"
+  style={undefined}
+>
+  <div
+    className="Select-control"
+    onKeyDown={[Function]}
+    onMouseDown={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    style={undefined}
+  >
+    <span
+      className="Select-multi-value-wrapper"
+      id="react-select-3--value"
+    >
+      <div
+        className="Select-placeholder"
+      >
+        No plugin selected
+      </div>
+      <div
+        className="Select-input"
+        style={
+          Object {
+            "display": "inline-block",
+          }
+        }
+      >
+        <input
+          aria-activedescendant="react-select-3--value"
+          aria-describedby={undefined}
+          aria-expanded="false"
+          aria-haspopup="false"
+          aria-label={undefined}
+          aria-labelledby={undefined}
+          aria-owns=""
+          className={undefined}
+          id={undefined}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          required={false}
+          role="combobox"
+          style={
+            Object {
+              "boxSizing": "content-box",
+              "width": "5px",
+            }
+          }
+          tabIndex={undefined}
+          value=""
+        />
+        <div
+          style={
+            Object {
+              "height": 0,
+              "left": 0,
+              "overflow": "scroll",
+              "position": "absolute",
+              "top": 0,
+              "visibility": "hidden",
+              "whiteSpace": "pre",
+            }
+          }
+        >
+          
+        </div>
+      </div>
+    </span>
+    <span
+      className="Select-arrow-zone"
+      onMouseDown={[Function]}
+    >
+      <span
+        className="Select-arrow"
+        onMouseDown={[Function]}
+      />
+    </span>
+  </div>
+</div>
+`;
