@@ -4,7 +4,7 @@ import { ColumnMinWidth, ColumnIcon, ColumnPrimary, ColumnFixedWidth, Row } from
 import MediaQuery from "react-responsive";
 import { LargeButton, ChevronButton } from "../../Button.js";
 import { injectIntl, intlShape, defineMessages, FormattedMessage, FormattedDate, FormattedNumber } from "react-intl";
-import formatAmount from "../../../../../shared/currency";
+import formatAmount from "../../../functions/currency";
 import defaults from "../../../config/defaults.json";
 import styled from "styled-components";
 import colors from "yoast-components/style-guide/colors.json";

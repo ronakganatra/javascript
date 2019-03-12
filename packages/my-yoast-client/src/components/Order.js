@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import React from "react";
 import { defineMessages, injectIntl, intlShape, FormattedNumber, FormattedDate } from "react-intl";
 import { RowMobileCollapse, ColumnPrimary, ColumnFixedWidth, ColumnMinWidth, makeFullWidth, responsiveHeaders } from "./Tables";
-import formatAmount from "../../../shared/currency";
+import formatAmount from "../functions/currency";
 import LineItems from "./LineItems";
 import { capitalizeFirstLetter } from "../functions/stringHelpers";
 import InvoicesDownloadContainer from "../containers/InvoicesDownload";

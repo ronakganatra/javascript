@@ -11,7 +11,7 @@ import styled from "styled-components";
 import downloadIcon from "../../../icons/download.svg";
 import { LargeIconButtonLink, LargeSecondaryButton, makeButtonFullWidth } from "../../Button";
 import { getInvoiceUrl } from "../../../functions/api";
-import formatAmount from "../../../../../shared/currency";
+import formatAmount from "../../../functions/currency";
 
 const messages = defineMessages( {
 	date: {
