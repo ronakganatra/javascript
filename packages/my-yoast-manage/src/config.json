@@ -1,0 +1,68 @@
+{
+  "searchable": {
+    "Orders":        [ "customerEmail", "invoiceNumber", "customerFirstName", "customerLastName", "status" ],
+    "Customers":     [ "userEmail", "username", "userFirstName", "userLastName" ],
+    "Sites":         [ "url" ],
+    "Subscriptions": [ "subscriptionNumber", "status" ]
+  },
+  "display": {
+    "Customers":     [ "userEmail", "username", "userFirstName", "userLastName", "sites", "orders", "subscriptions", "actions" ],
+    "Orders":        [ "invoiceNumber", "customerEmail", "customerFirstName", "customerLastName", "customerId", "date", "totalAmount", "status", "paymentProvider", "items", "manage" ],
+    "Subscriptions": [ "subscriptionNumber", "name", "subscriber", "status", "startDate", "endDate", "nextPayment", "orders" ],
+    "Sites":         [ "url", "userId", "creationDate", "subscriptions" ],
+    "CustomerNotes": [ "content", "nextContactDate", "authorId", "createdAt","actions" ]
+  },
+  "headers": {
+    "Customers": {
+      "userEmail":     "Email",
+      "userFirstName": "First name",
+      "userLastName":  "Last name"
+    },
+    "Orders": {
+      "customerEmail":     "Email",
+      "customerFirstName": "First name",
+      "customerLastName":  "Last name",
+      "customerId":        "Customer",
+      "totalAmount":       "Price",
+      "paymentProvider":   "Payment method",
+      "items":             "Products"
+    },
+    "Subscriptions": {
+      "name":         "Product",
+      "subscriberId": "Customer",
+      "startDate":    "Start date",
+      "endDate":      "End date",
+      "nextPayment":  "Next payment"
+    },
+    "Sites": {
+      "userId":       "Customer",
+      "creationDate": "Creation date"
+    },
+    "CustomerNotes": {
+      "nextContactDate": "Next contact date",
+      "authorId":        "Author",
+      "createdAt":       "Created at"
+    }
+  },
+  "enums": {
+    "Orders": {
+      "status": [ "pending", "failed", "cancelled", "completed", "processing", "refunded", "on-hold" ]
+    },
+    "Subscriptions": {
+      "status": [ "pending", "active", "pending-cancel", "cancelled", "on-hold", "expired" ]
+    }
+  },
+  "order": {
+    "Orders": "date DESC",
+    "Subscriptions": "startDate DESC"
+  },
+  "filteredOrder": {
+    "Subscriptions": {
+      "status": { "cancelled": "endDate DESC" }
+    }
+  },
+  "include": {
+    "Orders": [ "subscriptions" ],
+    "Subscriptions": [ "subscriber" ]
+  }
+}

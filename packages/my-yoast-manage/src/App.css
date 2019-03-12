@@ -1,0 +1,164 @@
+html {
+    height: 100%;
+}
+
+body, #root, .App {
+    min-height: 100%;
+}
+
+.Menu {
+    background-color: #1E8483;
+    text-align: center;
+}
+
+.Menu a {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.Menu .active {
+    background-color: white;
+}
+
+.Main {
+    text-align: center;
+}
+
+.Confirmation {
+    display: inline-block;
+    min-width: 770px;
+    text-align: left;
+}
+
+.Confirmation .Reset {
+    background-color: #dc3232;
+    border-color: #dc3232;
+    color: white;
+    margin-left: 20px;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.Confirmation .Confirm {
+    background-color: #66A421;
+    border-color: #66A421;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+}
+
+.Preview > div {
+    margin-top: 20px;
+}
+
+.Preview .warning {
+    color: #ee7c1b;
+}
+
+.Preview .error, .error-message {
+    color: #dc3232;
+}
+
+.FinanceDashboard, .FinanceLinks {
+    margin-top: 20px;
+}
+
+.FinanceLinks a {
+    margin: 0 5px;
+}
+
+.FinanceDashboard tr.now {
+    background-color: #66A421;
+}
+
+.FinanceDashboard td.negative {
+    color: #dc3232;
+}
+
+.FinanceDashboard td {
+    white-space: pre;
+}
+
+.NotesForm {
+    margin-bottom: 25px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+form fieldset {
+    width: 774px;
+    margin: 0 auto;
+    padding: 2px;
+    border: none;
+    text-align: left;
+}
+
+input, select, button, textarea {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+form input, form label, form textarea {
+    width: 246px;
+    padding: 1px;
+}
+
+form select, form button {
+    width: 250px;
+}
+
+form button[type=submit], .form-submit {
+    background-color: #66A421;
+    color: white;
+    border-color: #66A421;
+}
+
+.refund-submit {
+    margin-top: 1em;
+    width: 250px;
+}
+
+form input:not(:first-child), form select:not(:first-child), form button {
+    margin-left: 12px;
+}
+
+input.wide, textarea.wide {
+    width: 508px;
+}
+
+select.wide {
+    width: 512px;
+}
+
+input.widest, select.widest, textarea.widest {
+    width: 770px;
+}
+
+div > table {
+    margin: 0 auto;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.Search table {
+    max-width: 90%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+td ul {
+    margin: 0;
+}
