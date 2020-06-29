@@ -313,7 +313,6 @@ const stemSingular = function( word, morphologyData ) {
 	if ( calculateTotalNumberOfSyllables( word ) > 2  ) {
 		word = stemDerivational( word, morphologyData );
 	}
-
 	return word;
 };
 
